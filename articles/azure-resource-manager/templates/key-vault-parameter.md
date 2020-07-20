@@ -3,12 +3,12 @@ title: Secreto de Key Vault con plantilla
 description: Muestra cómo pasar un secreto de un almacén de claves como un parámetro durante la implementación.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: d21a7d727091b427fee59e22db6a77a495a4eab7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eb57e680090a38a5be725daa7b3a118039aa35f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458273"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84677872"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación
 
@@ -92,7 +92,7 @@ Set-AzKeyVaultAccessPolicy `
 Para más información sobre cómo crear almacenes de claves y agregar secretos, vea:
 
 - [Establecimiento y recuperación de un secreto mediante la CLI](../../key-vault/secrets/quick-create-cli.md)
-- [Establecimiento y recuperación de un secreto mediante Powershell](../../key-vault/secrets/quick-create-powershell.md)
+- [Establecimiento y recuperación de un secreto mediante PowerShell](../../key-vault/secrets/quick-create-powershell.md)
 - [Establecimiento y recuperación de un secreto mediante Portal](../../key-vault/secrets/quick-create-portal.md)
 - [Establecimiento y recuperación de un secreto mediante .NET](../../key-vault/secrets/quick-create-net.md)
 - [Establecimiento y recuperación de un secreto mediante Node.js](../../key-vault/secrets/quick-create-node.md)
@@ -163,7 +163,7 @@ En la plantilla siguiente se implementa un servidor SQL que incluye una contrase
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "adminLogin": {
@@ -201,7 +201,7 @@ En el siguiente archivo de parámetros, debe existir el secreto del almacén de 
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "adminLogin": {
@@ -267,7 +267,7 @@ La siguiente plantilla crea dinámicamente el identificador de almacén de clave
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "location": {
@@ -314,7 +314,7 @@ La siguiente plantilla crea dinámicamente el identificador de almacén de clave
           "scope": "inner"
         },
         "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
           "parameters": {
             "adminLogin": {

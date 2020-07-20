@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 9dd4bc79760dde00808358fe489f6e539c2b9a2e
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 692d86fa27ea42df6fe1128b64e408a5d4a4d08b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220430"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85444461"
 ---
 # <a name="virtual-network-service-endpoints"></a>Puntos de conexión de servicio de red virtual
 
@@ -39,7 +39,7 @@ Esta característica está disponible para las siguientes regiones y servicios d
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.ServiceBus*): disponibilidad general en todas las regiones de Azure.
 - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.EventHub*): disponibilidad general en todas las regiones de Azure.
 - **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.AzureActiveDirectory*): Disponible con carácter general en todas las regiones de Azure donde ADLS Gen1 está disponible.
-- **[Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)** : disponible con carácter general en todas las regiones de Azure en que App Service esté disponible.
+- **[Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)** (*Microsoft.Web*): disponible con carácter general en todas las regiones de Azure en que App Service esté disponible.
 
 **Versión preliminar pública**
 
@@ -90,7 +90,7 @@ Los puntos de conexión de servicio proporcionan las siguientes ventajas:
 
 ### <a name="considerations"></a>Consideraciones
 
-- Después de habilitar un punto de conexión de servicio, las direcciones IP de origen de las máquinas virtuales en la subred cambian. Las direcciones IP de origen de las máquinas virtuales en la subred pasan de utilizar direcciones IPv4 públicas a usar su dirección IPv4 privada cuando se comunican con el servicio desde dicha subred. Las conexiones TCP abiertas existentes en el servicio se cierran durante este cambio. Asegúrese de que no se esté ejecutando ninguna tarea crítica al habilitar o deshabilitar un punto de conexión de servicio en un servicio para una subred. Además, asegúrese de que las aplicaciones pueden conectarse automáticamente a los servicios de Azure después del cambio de dirección IP.
+- Después de habilitar un punto de conexión de servicio, las direcciones IP de origen pasan de utilizar las direcciones IPv4 públicas a usar su dirección IPv4 privada, cuando se comunican con el servicio desde dicha subred. Las conexiones TCP abiertas existentes en el servicio se cierran durante este cambio. Asegúrese de que no se esté ejecutando ninguna tarea crítica al habilitar o deshabilitar un punto de conexión de servicio en un servicio para una subred. Además, asegúrese de que las aplicaciones pueden conectarse automáticamente a los servicios de Azure después del cambio de dirección IP.
 
   El cambio de dirección IP solo afecta el tráfico del servicio desde la red virtual. No afecta a ningún otro tráfico entrante o saliente de las direcciones IPv4 públicas asignadas a las máquinas virtuales. Para los servicios de Azure, si tiene reglas de firewall existentes que usan direcciones IP públicas de Azure, estas reglas dejan de funcionar con el cambio a las direcciones privadas de red virtual.
 - Con los puntos de conexión de servicio, las entradas DNS para los servicios de Azure permanecen tal cual en la actualidad y siguen resolviendo las direcciones IP públicas asignadas al servicio de Azure.

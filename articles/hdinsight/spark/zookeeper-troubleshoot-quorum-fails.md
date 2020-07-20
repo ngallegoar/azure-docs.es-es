@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 05/20/2020
-ms.openlocfilehash: dc93121d7565b95b9bd604160028659f3a741b0c
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: 9038630a2623a8b20ddfcf98899ce9a89f16bdc1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860501"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84673367"
 ---
 # <a name="apache-zookeeper-server-fails-to-form-a-quorum-in-azure-hdinsight"></a>El servidor Apache ZooKeeper no puede formar un cuórum en Azure HDInsight
 
@@ -27,7 +27,7 @@ En este artículo se describen los pasos de solución de problemas y las posible
 
 ## <a name="sample-log"></a>Registro de muestra
 
-Es posible que vea un mensaje de error similar al siguiente:
+Es posible que vea un mensaje de error similar al siguiente en los registros de Yarn (/var/log/hadoop-yarn/yarn/yarn-yarn*.log on the headnodes):
 
 ```output
 2020-05-05 03:17:18.3916720|Lost contact with Zookeeper. Transitioning to standby in 10000 ms if connection is not reestablished.
@@ -116,13 +116,14 @@ Node count: 133212
 
 ## <a name="cancelledkeyexception-in-the-zookeeper-server-log-doesnt-require-snapshot-cleanup"></a>CancelledKeyException en el registro del servidor de Zookeeper no requiere limpieza de instantáneas
 
+* Esta excepción se verá en los servidores Zookeeper (archivos /var/log/zookeeper/zookeeper-zookeeper-* o /var/log/hdinsight-zookeeper/zookeeper*)
 * Normalmente, esta excepción significa que el cliente ya no está activo y el servidor no puede enviar un mensaje
 * Esta excepción también indica que el cliente de Zookeeper está finalizando las sesiones prematuramente
 * Busque los otros síntomas descritos en este documento
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros canales para obtener ayuda adicional:
+Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros canales para obtener más soporte técnico:
 
 - Obtenga respuestas de expertos de Azure mediante el [soporte técnico de la comunidad de Azure](https://azure.microsoft.com/support/community/).
 - Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente. Esta cuenta pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.

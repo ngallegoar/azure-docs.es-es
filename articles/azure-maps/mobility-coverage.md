@@ -1,28 +1,27 @@
 ---
-title: Cobertura de movilidad (tráfico) | Microsoft Azure Maps
-description: En este artículo aprenderá sobre la cobertura de movilidad en Microsoft Azure Maps
-author: philmea
-ms.author: philmea
-ms.date: 06/05/2019
+title: Cobertura de movilidad (transporte)
+description: En este artículo, obtendrá información sobre la cobertura de transporte público en el servicio Mobility de Microsoft Azure Maps.
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 06/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: db53e09957b5907e9b742c264b6a41f51041df1c
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 2959a930ef2b3683cbd822eaee61a037fa0e9e29
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310247"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84673649"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Cobertura de movilidad en Azure Maps
 
-Azure Maps cuenta con el [servicio Mobility](https://aka.ms/AzureMapsMobilityService). El servicio Mobility mejora el tiempo de desarrollo de las aplicaciones con características para el transporte público, el uso compartido de bicicletas y el uso compartido de motos. Entre las características de transporte público se incluyen la búsqueda de estaciones cercanas, de paradas y de líneas de transporte, así como la obtención de información sobre los horarios, las llegadas del transporte público en tiempo real, la lista de paradas y las guías de las rutas. El servicio devuelve información estadística y en tiempo real sobre la disponibilidad para el uso compartido de vehículos, bicicletas y motos. Además, Mobility Service proporciona funcionalidades de cálculo de ruta con opciones de planeamiento de trayectos mixtos. El planeamiento de trayectos mixtos incluye la bicicleta, los vehículos de alquiler con conductor y el transporte público en el mismo viaje. Los usuarios pueden acceder a itinerarios detallados y mixtos paso a paso y alertas de servicio.
+El [servicio Mobility](https://aka.ms/AzureMapsMobilityService) de Azure Maps mejora el tiempo de desarrollo de las aplicaciones con características de transporte público, como las rutas del transporte y la búsqueda de paradas de transporte público cercanas. Los usuarios pueden recuperar información detallada sobre las paradas del transporte, las líneas y los horarios. El servicio Mobility también permite a los usuarios recuperar las geometrías de las paradas y las líneas, las alertas de las paradas, las líneas y las áreas de servicio, así como las llegadas de transporte público en tiempo real y las alertas del servicio. Además, Mobility Service proporciona funcionalidades de cálculo de ruta con opciones de planeamiento de trayectos mixtos. El planeamiento de trayectos mixtos incluye caminar, bicicleta y transporte público en el mismo viaje. Los usuarios pueden acceder a itinerarios paso a paso detallados y mixtos. 
 
-Azure Maps no tiene el mismo nivel de información y precisión en todas las ciudades ni en todas las regiones o países. La capacidad para llamar a los datos de transporte depende de la ciudad. Además, es posible que los datos no incluyan todas las opciones de transporte público ni todas las empresas que prestan servicio a la ciudad.
+Azure Maps no ofrece el mismo nivel de información y precisión en todas las ciudades ni en todas las regiones o países. La capacidad para llamar a los datos de transporte depende del área metropolitana. Además, es posible que los datos no incluyan todas las opciones de transporte público ni todas las empresas que prestan servicio al área metropolitana.
 
 En la siguiente tabla se proporciona información sobre la cobertura del servicio de movilidad de Azure Maps.
-
 
 | Símbolo | Significado |
 |--------|---------|
@@ -78,7 +77,7 @@ En la siguiente tabla se proporciona información sobre la cobertura del servici
 | Andorra        | Andorra la Vella |
 | Atenas         | Quíos | 
 | Austria        | Viena |
-| Belarús        | Gomel, Grodno, Polotsk & Novopolotsk, Zhlobin, Vileyka, Maladziečna, Minsk, Rechytsa | 
+| Bielorrusia        | Gomel, Grodno, Polotsk & Novopolotsk, Zhlobin, Vileyka, Maladziečna, Minsk, Rechytsa | 
 | Bélgica        | Bélgica* |
 | Bolivia        | La Paz, Santa Cruz de la Sierra | 
 | Bosnia y Herzegovina | Sarajevo | 
@@ -102,7 +101,7 @@ En la siguiente tabla se proporciona información sobre la cobertura del servici
 | Letonia | Rīga |
 | Lituania | Druskininkai, Kauno, Klaipėda, Panevėžys, Vilna |
 | Luxemburgo | Luxemburgo* |
-| Moldova | Chisinau |
+| Moldavia | Chisinau |
 | Montenegro | Podgorica |
 | Países Bajos | Países Bajos* |
 | Noruega | Noruega* | 

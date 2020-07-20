@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.subservice: compliance
-ms.date: 03/22/2020
+ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ddd8e1c64f4db8221937abc54e88d9a884acf3e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 8bf19123888dd26073016131c93047b0cd0afaf4
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207251"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145769"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Solución de problemas de la administración de derechos de Azure AD
 
@@ -45,7 +45,7 @@ En este artículo se describen algunos elementos que debe comprobar que le ayuda
 
 * Si hay usuarios que ya se han asignado a un recurso que desee administrar con un paquete de acceso, asegúrese de que los usuarios están asignados al paquete de acceso con una directiva adecuada. Por ejemplo, puede incluir un grupo en un paquete de acceso que ya tenga usuarios en el grupo. Si esos usuarios del grupo requieren acceso continuado, deben tener una directiva adecuada para los paquetes de acceso, de manera que no se queden sin acceso de grupo. Para asignar el paquete de acceso, puede pedir a los usuarios que soliciten el paquete de acceso que contiene el recurso o asignárselo directamente. Para más información, consulte [Modificación de la configuración de solicitudes y aprobación de un paquete de acceso](entitlement-management-access-package-request-policy.md).
 
-* Cuando se quita un miembro de un equipo, también se quita del grupo de Office 365. Puede pasar algún tiempo hasta que se elimine la funcionalidad de chat del equipo. Para más información, consulte [Pertenencia a grupos](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership).
+* Cuando se quita un miembro de un equipo, también se quita del grupo de Microsoft 365. Puede pasar algún tiempo hasta que se elimine la funcionalidad de chat del equipo. Para más información, consulte [Pertenencia a grupos](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership).
 
 * Asegúrese de que el directorio no esté configurado para ubicaciones multigeográficas. La administración de derechos no admite actualmente ubicaciones multigeográficas en SharePoint Online. Los sitios de SharePoint Online deben estar en la ubicación geográfica predeterminada para regirse por la administración de derechos. Para más información, consulte [Capacidades multigeográficas de OneDrive y SharePoint Online](https://docs.microsoft.com/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
 
@@ -95,7 +95,9 @@ En este artículo se describen algunos elementos que debe comprobar que le ayuda
 
 Si se encuentra un error después de desencadenar una solicitud de reprocesamiento de un paquete de acceso, debe esperar mientras el sistema vuelve a procesar la solicitud. El sistema vuelve a intentar el procesamiento varias veces durante varias horas, por lo que no se puede forzar el reprocesamiento durante este tiempo. 
 
-Solo se pueden volver a procesar las solicitudes que tienen el estado **Error en la entrega** o **Entregado parcialmente** y una fecha de finalización inferior a una semana.
+Solo se pueden volver a procesar las solicitudes que tienen el estado **Error en la entrega** o **Entregado parcialmente** y una fecha de finalización inferior a una semana. De lo contrario, el botón **Reprocesar** estará atenuado.
+
+![Botón Reprocesar atenuado](./media/entitlement-management-troubleshoot/cancel-reprocess-grayedout.png)
 
 - Si el error se corrige durante la ventana de pruebas, el estado de la solicitud cambiará a **Entrega**. La solicitud se volverá a procesar sin acciones adicionales por parte del usuario.
 
@@ -117,7 +119,7 @@ Solo se pueden volver a procesar las solicitudes que tienen el estado **Error en
 
 ### <a name="cancel-a-pending-request"></a>Cancelación de una solicitud pendiente
 
-Solo se pueden cancelar las solicitudes pendientes que aún no se hayan entregado o en cuya entrega se hayan producido errores.
+Solo se pueden cancelar las solicitudes pendientes que aún no se hayan entregado o en cuya entrega se hayan producido errores. De lo contrario, el botón **Cancelar** estará atenuado.
 
 **Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 

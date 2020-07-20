@@ -5,14 +5,14 @@ author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/09/2019
-ms.openlocfilehash: 7aa1e0aa6bbbee9d40eb0d48318a8e2908a75f9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4880fa5bdccdc6416962e2f7e6da395f3db7be44
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78897861"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85263602"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Puntos de conexión regionales para la cuenta de grafos de Azure Cosmos DB
 La base de datos de grafos de Azure Cosmos DB se [distribuye globalmente](distribute-data-globally.md), por lo que las aplicaciones pueden usar varios puntos de conexión de lectura. Las aplicaciones que necesitan acceso de escritura en varias ubicaciones deben habilitar la funcionalidad de [arquitectura multimaestro](how-to-multi-master.md).
@@ -43,7 +43,7 @@ El CNAME de la cuenta de base de datos global apunta siempre a una región de es
 
 La forma más sencilla de obtener la lista de regiones de una cuenta de grafos de Azure Cosmos DB es la hoja de información general de Azure Portal. Se podrá utilizar en aquellas aplicaciones que no cambien de región a menudo o que tengan una forma de actualizar la lista mediante la configuración de la aplicación.
 
-![Recuperación de regiones de la cuenta de grafos de Cosmos DB desde el portal](./media/how-to-use-regional-gremlin/get-end-point-portal.png )
+:::image type="content" source="./media/how-to-use-regional-gremlin/get-end-point-portal.png " alt-text="Recuperación de regiones de la cuenta de grafos de Cosmos DB desde el portal":::
 
 En el ejemplo siguiente se muestran los principios generales del acceso al punto de conexión Gremlin regional. La aplicación debe tener en cuenta el número de regiones a las que se va a enviar el tráfico y el número de clientes de Gremlin correspondientes para crear instancias.
 

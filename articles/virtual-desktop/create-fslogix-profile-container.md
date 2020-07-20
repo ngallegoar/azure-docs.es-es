@@ -4,18 +4,18 @@ description: Procedimiento para crear un contenedor de perfiles de FSLogix media
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
-ms.date: 06/02/2020
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c2ffd22c8b3e3ca1786e0a1f905cd07d0568fcf2
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 2656c7ee433198d2ccd883b1c3a175c141c43813
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84296364"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362992"
 ---
-# <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Creación de un contenedor de perfiles de FSLogix para un grupo host mediante Azure NetApp Files
+# <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Creación de un contenedor de perfiles con Azure NetApp Files y AD DS
 
 Se recomienda usar los contenedores de perfiles de FSLogix como solución para los perfiles de usuario para el [servicio Windows Virtual Desktop](overview.md). Los contenedores de perfiles de FSLogix almacenan un perfil de usuario completo en un único contenedor y están diseñados para usar un perfil itinerante en entornos informáticos remotos no persistentes, como Windows Virtual Desktop. Cuando inicia sesión, el contenedor se adjunta dinámicamente al entorno informático mediante un disco duro virtual (VHD) compatible de forma local y un disco duro virtual de Hyper-V (VHDX). Estas tecnologías avanzadas de controlador de filtro permiten que el perfil de usuario esté disponible inmediatamente y aparezca en el sistema exactamente igual que un perfil de usuario local. Para obtener más información sobre los contenedores de perfiles de FSLogix, consulte [Contenedores de perfiles de FSLogix y archivos de Azure](fslogix-containers-azure-files.md).
 
@@ -53,7 +53,8 @@ Para empezar, necesita configurar una cuenta a Azure NetApp Files.
 
 4. Si esta es la primera vez que usa Azure Cloud Shell, cree una cuenta de almacenamiento en la misma suscripción en la que usa Azure NetApp Files y Windows Virtual Desktop.
 
-   ![La ventana de la cuenta de almacenamiento con un botón para crear almacenamiento situado en la parte inferior de la ventana resaltado en rojo.](media/create-storage-button.png)
+   > [!div class="mx-imgBorder"]
+   > ![Ventana de la cuenta de almacenamiento con el botón Crear almacenamiento situado en la parte inferior de la ventana resaltado en rojo](media/create-storage-button.png)
 
 5. Una vez que cargue Azure Cloud Shell, ejecute los dos cmdlets siguientes.
 
@@ -67,7 +68,8 @@ Para empezar, necesita configurar una cuenta a Azure NetApp Files.
 
 6. En el lado izquierdo de la ventana, seleccione **Todos los servicios**. Escriba **Azure NetApp Files** en el cuadro de búsqueda que aparece en la parte superior del menú.
 
-   ![Captura de pantalla de un usuario escribiendo "Azure NetApp Files" en el cuadro de búsqueda Todos los servicios. Los resultados de la búsqueda muestran el recurso Azure NetApp Files.](media/azure-netapp-files-search-box.png)
+   > [!div class="mx-imgBorder"]
+   > ![Captura de pantalla de un usuario escribiendo "Azure NetApp Files" en el cuadro de búsqueda Todos los servicios Los resultados de la búsqueda muestran el recurso Azure NetApp Files.](media/azure-netapp-files-search-box.png)
 
 
 7. Seleccione **Azure NetApp Files** en los resultados de la búsqueda y, a continuación, seleccione **Crear**.
@@ -87,7 +89,7 @@ Para empezar, necesita configurar una cuenta a Azure NetApp Files.
 
 ## <a name="create-a-capacity-pool"></a>Creación de un grupo de capacidad
 
-A continuación, cree un nuevo grupo de capacidad: 
+A continuación, cree un nuevo grupo de capacidad:
 
 1. Vaya al menú de Azure NetApp Files y seleccione la nueva cuenta.
 2. En el menú de la cuenta, seleccione **Grupos de capacidad** en Servicio de almacenamiento.
@@ -108,7 +110,8 @@ Después, debe unirse a una conexión de Active Directory.
 
 1. Seleccione **Conexiones de Active Directory** en el menú del lado izquierdo de la página y, a continuación, seleccione el botón **Unirse** para abrir la página **Unirse a Active Directory**.
 
-   ![Captura de pantalla del menú Unirse a conexiones de Active Directory.](media/active-directory-connections-menu.png)
+   > [!div class="mx-imgBorder"]
+   > ![Captura de pantalla del menú Unirse a Conexiones de Active Directory](media/active-directory-connections-menu.png)
 
 2. Escriba los siguientes valores en la página **Unirse a Active Directory** para unirse a una conexión:
 
@@ -148,7 +151,8 @@ Después de crear el volumen, configure los parámetros de acceso al volumen.
 
 6.  Para ver la ruta de montaje, seleccione **Ir al recurso** y búsquelo en la pestaña Información general.
 
-    ![Captura de pantalla de la Información general con una flecha roja que apunta a la ruta de montaje.](media/overview-mount-path.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de información general con un recuadro rojo en la ruta de montaje](media/overview-mount-path.png)
 
 ## <a name="configure-fslogix-on-session-host-virtual-machines-vms"></a>Configuración de FSLogix en máquinas virtuales de host de sesión (VM)
 
@@ -218,7 +222,8 @@ Esta sección está basada en [Creación de un contenedor de perfiles para un gr
 
 4. Abra **Azure NetApp Files**, seleccione su cuenta de Azure NetApp Files y, a continuación, seleccione **Volúmenes**. Cuando se abra el menú Volúmenes, seleccione el volumen correspondiente.
 
-   ![Una captura de pantalla de la cuenta de NetApp que configuró anteriormente en Azure Portal con el botón Volúmenes seleccionado.](media/netapp-account.png)
+   > [!div class="mx-imgBorder"]
+   > ![Captura de pantalla de la cuenta de NetApp que configuró anteriormente en Azure Portal con el botón Volúmenes seleccionado](media/netapp-account.png)
 
 5. Vaya a la pestaña **Información general** y confirme que el contenedor de perfiles de FSLogix está usando espacio.
 
@@ -226,7 +231,8 @@ Esta sección está basada en [Creación de un contenedor de perfiles para un gr
 
    Dentro de esta carpeta, debe haber un VHD de perfil (o VHDX) como el del ejemplo siguiente.
 
-   ![Captura de pantalla del contenido de la carpeta en la ruta de montaje. Dentro se encuentra un solo archivo VHD denominado "Profile_ssbb".](media/mount-path-folder.png)
+   > [!div class="mx-imgBorder"]
+   > ![Captura de pantalla del contenido de la carpeta en la ruta de montaje, dentro se encuentra un único archivo VHD denominado "Profile_ssbb"](media/mount-path-folder.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

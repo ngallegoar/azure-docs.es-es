@@ -4,15 +4,15 @@ description: Aprenda a deshabilitar directivas de red del vínculo privado de Az
 services: private-link
 author: malopMSFT
 ms.service: private-link
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 4c6bd64d141341e0b7fa5641e04320a95d7951bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1062f126da8be6b37f6b52eee520425b3edcde16
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75453005"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744347"
 ---
 # <a name="disable-network-policies-for-private-link-service-source-ip"></a>Deshabilitación de directivas de red para la dirección IP de origen del servicio de vínculo privado
 
@@ -24,13 +24,15 @@ Siga los pasos que se indican a continuación para deshabilitar las directivas d
 
 ## <a name="using-azure-powershell"></a>Uso de Azure PowerShell
 En esta sección se describe cómo deshabilitar directivas de punto de conexión privado de subred mediante Azure PowerShell.
+En el código, reemplace "default" por el nombre de la subred virtual.
 
 ```azurepowershell
+$virtualSubnetName = "default"
 $virtualNetwork= Get-AzVirtualNetwork `
   -Name "myVirtualNetwork" ` 
-  -ResourceGroupName "myResourceGroup"  
+  -ResourceGroupName "myResourceGroup"
    
-($virtualNetwork | Select -ExpandProperty subnets | Where-Object  {$_.Name -eq 'default'} ).privateLinkServiceNetworkPolicies = "Disabled"  
+($virtualNetwork | Select -ExpandProperty subnets | Where-Object  {$_.Name -eq $virtualSubnetName} ).privateLinkServiceNetworkPolicies = "Disabled"  
  
 $virtualNetwork | Set-AzVirtualNetwork 
 ```

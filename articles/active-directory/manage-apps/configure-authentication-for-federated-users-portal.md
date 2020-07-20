@@ -3,24 +3,24 @@ title: Configuración de la aceleración automática de inicio de sesión median
 description: Aprenda a configurar la directiva de detección del dominio de inicio para la autenticación de Azure Active Directory para los usuarios federados, incluidas sugerencias de dominio y aceleración automática.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/08/2019
-ms.author: mimart
+ms.author: kenwith
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 340cf77ae6b4c5677ed91f6a0626b73d259e5fd2
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 16af484e77787ee1d729ce97eec8c666bf925837
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690505"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763591"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configuración del comportamiento de inicio de sesión de Azure Active Directory de una aplicación mediante una directiva de detección del dominio de inicio
 
@@ -81,8 +81,8 @@ Para obtener más información sobre la aceleración automática con las sugeren
 ### <a name="home-realm-discovery-policy-for-auto-acceleration"></a>Directiva de detección del dominio de inicio para la aceleración automática
 Algunas aplicaciones no proporcionan ninguna manera de configurar la solicitud de autenticación que emiten. En estos casos, no es posible utilizar sugerencias de dominio para controlar la aceleración automática. Debido a ello, la aceleración automática se puede configurar mediante la directiva y así lograr el mismo comportamiento.  
 
-## <a name="enable-direct-authentication-for-legacy-applications"></a>Habilitación de la autenticación directa para las aplicaciones heredadas
-El procedimiento recomendado es para que las aplicaciones usen el inicio de sesión interactivo y las bibliotecas de AAD para autenticar a los usuarios. Las bibliotecas se ocupan de los flujos de los usuarios federados.  A veces, las aplicaciones heredadas no se escriben para comprender la federación. No realizan la detección del dominio de inicio y no interactúan con el punto de conexión federado correcto para autenticar a un usuario. Si quiere, puede usar la directiva de HRD para permitir que determinadas aplicaciones heredadas que envían las credenciales de nombre de usuario y contraseña se autentiquen directamente con Azure Active Directory. La sincronización de hash de contraseña debe estar habilitada. 
+## <a name="enable-direct-ropc-authentication-of-federated-users-for-legacy-applications"></a>Habilitación de la autenticación de ROPC directa de los usuarios federados para aplicaciones heredadas
+El procedimiento recomendado es para que las aplicaciones usen el inicio de sesión interactivo y las bibliotecas de AAD para autenticar a los usuarios. Las bibliotecas se ocupan de los flujos de los usuarios federados.  A veces, las aplicaciones heredadas, especialmente las que usan concesiones de ROPC, envían el nombre de usuario y la contraseña directamente a Azure AD y no fueron escritas con los conceptos de la federación. No realizan la detección del dominio de inicio y no interactúan con el punto de conexión federado correcto para autenticar a un usuario. Si lo desea, puede usar la directiva de HRD para permitir que determinadas aplicaciones heredadas que envían las credenciales de nombre de usuario y contraseña utilicen la concesión de ROPC para autenticarse directamente con Azure Active Directory. La sincronización de hash de contraseña debe estar habilitada. 
 
 > [!IMPORTANT]
 > Habilite solo la autenticación directa si ha activado la sincronización de hash de contraseña y sabe que es correcto autenticar esta aplicación sin las directivas implementadas por el IdP local. Si, por cualquier motivo, desactiva la sincronización de hash de contraseña o la sincronización de directorios con AD Connect, debe quitar esta directiva para evitar la posibilidad de que la autenticación directa use un hash de contraseña obsoleto.
@@ -110,7 +110,7 @@ Este es un ejemplo de la definición de la directiva de HRD:
     {  
     "AccelerateToFederatedDomain":true,
     "PreferredDomain":"federated.example.edu",
-    "AllowCloudPasswordValidation":true
+    "AllowCloudPasswordValidation":false
     }
    }
 ```
@@ -150,7 +150,7 @@ Usaremos los cmdlets de PowerShell de Azure AD para desplazarse por algunos esce
 - Enumerar las aplicaciones para las que se configura una directiva.
 
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 En los ejemplos siguientes, podrá crear, actualizar, vincular y eliminar directivas en las entidades de servicio de aplicación en Azure AD.
 
 1.  Para comenzar, descargue la versión preliminar más reciente de los cmdlets de PowerShell de Azure AD. 

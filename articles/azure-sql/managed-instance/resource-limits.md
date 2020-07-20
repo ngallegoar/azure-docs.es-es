@@ -3,7 +3,7 @@ title: Límites de recursos
 titleSuffix: Azure SQL Managed Instance
 description: En este artículo se proporciona información general sobre los límites de recursos de Instancia administrada de Azure SQL.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 02/25/2020
-ms.openlocfilehash: b72195c818e418cfca9c88fe666b27b277aa7bda
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 85d347c45e1ca2cd39c7504e44bd3ea063f788d6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309108"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708425"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Introducción a los límites de recursos de Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -82,6 +82,7 @@ Instancia administrada de SQL tiene dos niveles de servicio: [De uso general](..
 | Latencia de E/S de almacenamiento (aproximada) | 5-10 ms | 1-2 ms |
 | OLTP en memoria (optimización en memoria | No compatible | Disponible, [el tamaño depende del número de núcleos virtuales](#in-memory-oltp-available-space) |
 | Número máximo de sesiones | 30000 | 30000 |
+| Cantidad máxima de trabajos (solicitudes) simultáneos | Gen4: 210 * número de núcleos virtuales + 800<br>Gen5: 105 * número de núcleos virtuales + 800 | Gen4: 210 * número de núcleos virtuales + 800<br>Gen5: 105 * número de núcleos virtuales + 800 |
 | [Réplicas de solo lectura](../database/read-scale-out.md) | 0 | 1 (incluida en el precio) |
 | Aislamiento de proceso | Gen5:<br/>\- Compatible con 80 núcleos virtuales<br/>\- No se admite para otros tamaños<br/><br/>Gen4 no se admite debido a su puesta en desuso|Gen5:<br/>\- Compatible con 60, 64, 80 núcleos virtuales<br/>\- No se admite para otros tamaños<br/><br/>Gen4 no se admite debido a su puesta en desuso|
 
@@ -126,6 +127,9 @@ Actualmente, Instancia administrada de SQL admite la implementación solo en los
 
 ## <a name="regional-resource-limitations"></a>Limitaciones de recursos regionales
 
+> [!Note]
+> Para obtener la información más reciente sobre la disponibilidad de regiones para las suscripciones, compruebe en primer lugar la [entrada de blog oficial de COVID-19](https://aka.ms/sqlcapacity).
+
 Los tipos de suscripción compatibles pueden contener un número limitado de recursos por región. Instancia administrada de SQL tiene dos límites predeterminados por región de Azure (que se pueden aumentar a petición mediante la creación de una [solicitud de soporte técnico especial en Azure Portal](../database/quota-increase-request.md)), en función de un tipo de suscripción:
 
 - **Límite de subred**: número máximo de subredes en que se implementan instancias de Instancia administrada de SQL en una sola región.
@@ -149,6 +153,9 @@ En la tabla siguiente se muestran los **límites regionales predeterminados** de
 \* En el planeamiento de las implementaciones, tenga en cuenta que el nivel de servicio Crítico para la empresa (BC) requiere cuatro (4) veces más capacidad de núcleo virtual que el nivel de servicio De uso general (GP). Por ejemplo: 1 núcleo virtual de GP = 1 unidad de núcleo virtual y 1 núcleo virtual de BC = 4 unidades de núcleo virtual. Para simplificar el análisis de consumo en los límites predeterminados, resuma las unidades de núcleo virtual de todas las subredes de la región en la que se implementa Instancia administrada de SQL y compare los resultados con los límites de la unidad de instancia del tipo de suscripción. El límite **Número máximo de unidades de núcleo virtual** se aplica a cada suscripción en una región. No hay ningún límite por subredes individuales, salvo que la suma de todos los núcleos virtuales implementados en varias subredes debe ser inferior o igual al **número máximo de unidades de núcleo virtual**.
 
 \*\* En las regiones siguientes hay más límites de subred y núcleo virtual: Este de Australia, Este de EE. UU., Este de EE. UU. 2, Norte de Europa, Centro-sur de EE. UU., Sudeste de Asia, Sur de Reino Unido, Oeste de Europa, Oeste de EE. UU. 2.
+
+> [!IMPORTANT]
+> En caso de que el límite de núcleos virtuales y de subredes sea 0, significa que no se ha establecido ningún límite regional predeterminado para el tipo de suscripción. También puede usar la solicitud de aumento de cuota para tener acceso a las suscripciones en una región específica siguiendo el mismo procedimiento e indicando los valores de núcleos virtuales y subredes necesarios.
 
 ## <a name="request-a-quota-increase"></a>Solicitar un aumento de cuota
 

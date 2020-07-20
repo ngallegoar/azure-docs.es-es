@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 7c462f25703b581c0882582d57fa8e5d2902dc4f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: d9c46368b42cac1d06f7d78d5e0d03ad2de0bada
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83737510"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85478406"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedimientos: Personalizar las notificaciones emitidas en tokens para una determinada aplicación de un inquilino (versión preliminar)
 
@@ -284,7 +284,7 @@ El elemento ID identifica la propiedad en el origen que proporciona el valor de 
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabla 3: Valores de Id. válidos por origen
 
-| Source | id | Descripción |
+| Source | ID | Descripción |
 |-----|-----|-----|
 | Usuario | surname | Nombre de familia |
 | Usuario | givenname | Nombre propio |
@@ -325,6 +325,7 @@ El elemento ID identifica la propiedad en el origen que proporciona el valor de 
 | Usuario | jobtitle | Puesto |
 | Usuario | employeeid | Id. de empleado |
 | Usuario | facsimiletelephonenumber | Número de teléfono de fax |
+| Usuario | assignedroles | Lista de roles de aplicación asignados al usuario|
 | application, resource, audience | displayname | Display Name (Nombre para mostrar) |
 | application, resource, audience | objected | ObjectID |
 | application, resource, audience | etiquetas | Etiqueta de entidad de servicio |
@@ -384,7 +385,7 @@ En función del método elegido, se espera un conjunto de entradas y salidas. De
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabla 5: Atributos permitidos como origen de datos en NameID de SAML
 
-|Source|id|Descripción|
+|Source|ID|Descripción|
 |-----|-----|-----|
 | Usuario | mail|Dirección de correo electrónico|
 | Usuario | userprincipalname|Nombre principal del usuario|
@@ -435,7 +436,7 @@ Las directivas de asignación de notificaciones solo se pueden asignar a objetos
 
 En Azure AD hay muchos escenarios posibles en los que se pueden personalizar las notificaciones emitidas en tokens para entidades de servicio concretas. En esta sección se abordan algunos escenarios comunes que pueden ayudarle a entender cómo usar el tipo de directiva de asignación de notificaciones.
 
-#### <a name="prerequisites"></a>Prerrequisitos
+#### <a name="prerequisites"></a>Requisitos previos
 
 En los ejemplos siguientes, va a crear, actualizar, vincular y eliminar directivas de entidades de servicio. Si no está familiarizado con Azure AD, es conveniente que [aprenda a obtener un inquilino de Azure AD](quickstart-create-new-tenant.md) antes de continuar con estos ejemplos.
 

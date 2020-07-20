@@ -4,12 +4,12 @@ description: Copia de seguridad y restauración de bases de datos SQL en Azure V
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 21c8ea5ff50cc78b60ccb3b09c953b184757f3c9
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 862455175497fe5496c7eea459c32772074671ff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84246992"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255150"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Copia de seguridad y restauración de bases de datos SQL en máquinas virtuales de Azure con PowerShell
 
@@ -499,7 +499,7 @@ Si el resultado se pierde o si desea obtener el identificador de trabajo corresp
 
 ### <a name="change-policy-for-backup-items"></a>Cambio de la directiva para los elementos de copia de seguridad
 
-El usuario puede modificar la directiva existente o cambiar la directiva del elemento de copia de seguridad de Policy1 a Policy2. Para cambiar las directivas para un elemento de copia de seguridad, capture la directiva correspondiente y haga una copia de seguridad del elemento, y use el comando [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) con el elemento de copia de seguridad como parámetro.
+El usuario puede cambiar la directiva del elemento de copia de seguridad de Policy1 a Policy2. Para cambiar las directivas para un elemento de copia de seguridad, capture la directiva correspondiente y haga una copia de seguridad del elemento, y use el comando [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) con el elemento de copia de seguridad como parámetro.
 
 ```powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>
@@ -513,6 +513,19 @@ El comando espera hasta que la copia de seguridad de la configuración se comple
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
 ------------     ---------            ------               ---------                 -------                   -----
 master           ConfigureBackup      Completed            3/18/2019 8:00:21 PM      3/18/2019 8:02:16 PM      654e8aa2-4096-402b-b5a9-e5e71a496c4e
+```
+
+### <a name="edit-an-existing-backup-policy"></a>Edición de una directiva de copia de seguridad existente
+
+Para editar una directiva existente, use el comando [Set-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-3.8.0).
+
+```powershell
+Set-AzRecoveryServicesBackupProtectionPolicy -Policy $Pol -SchedulePolicy $SchPol -RetentionPolicy $RetPol
+```
+Compruebe los trabajos de copia de seguridad después de que haya transcurrido algún tiempo para realizar un seguimiento de posibles errores. Si hubiera errores, debe corregirlos. Después, vuelva a ejecutar el comando de edición de la directiva con el parámetro **FixForInconsistentItems** para volver a intentar editar la directiva en todos los elementos de copia de seguridad para los que se produjo un error en la operación anteriormente.
+
+```powershell
+Set-AzRecoveryServicesBackupProtectionPolicy -Policy $Pol -FixForInconsistentItems
 ```
 
 ### <a name="re-register-sql-vms"></a>Volver a registrar las máquinas virtuales SQL
@@ -597,4 +610,4 @@ Por ejemplo, supongamos que un grupo de disponibilidad SQL tiene dos nodos: "sql
 
 sql-server-0, sql-server-1 también se mostrará como "AzureVMAppContainer" cuando [se enumeren los contenedores de copia de seguridad](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupContainer?view=azps-1.5.0).
 
-Obtenga tan solo la base de datos SQL pertinente para [habilitar la copia de seguridad](#configuring-backup) y [la copia de seguridad a petición](#on-demand-backup), y [restaurar los cmdlets de PS](#restore-sql-dbs) idénticos.
+Obtenga tan solo la base de datos pertinente para [habilitar la copia de seguridad](#configuring-backup) y la [copia de seguridad a petición](#on-demand-backup) y los [cmdlets de PS de restauración](#restore-sql-dbs) son idénticos.

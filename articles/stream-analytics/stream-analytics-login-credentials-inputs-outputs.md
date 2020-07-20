@@ -5,15 +5,15 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3ae639dd7c5a42fc6880240988f0fb2817b09f43
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3154447e4df64b9b335beae99cfd208d1a21efc4
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75425969"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044420"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Rotación de las credenciales de inicio de sesión para entradas y salidas de un trabajo de Stream Analytics
 
@@ -49,7 +49,7 @@ En esta sección se le guía en la regeneración de credenciales para Blob Stora
 
 ### <a name="sql-database"></a>SQL Database
 
-Debe conectarse a la base de datos SQL para actualizar las credenciales de inicio de sesión de un usuario existente. Para ello, puede usar Azure Portal o una herramienta de cliente, como SQL Server Management Studio. En esta sección se demuestra el proceso de actualizar las credenciales mediante Azure Portal.
+Debe conectarse a la instancia de SQL Database para actualizar las credenciales de inicio de sesión de un usuario existente. Para ello, puede usar Azure Portal o una herramienta de cliente, como SQL Server Management Studio. En esta sección se demuestra el proceso de actualizar las credenciales mediante Azure Portal.
 
 1. Inicie sesión en Azure Portal y busque la base de datos SQL que usó como salida para el trabajo de Stream Analytics.    
 2. En el **Explorador de datos**, inicie sesión o conéctese a la base de datos, seleccione el tipo de autorización **Autenticación de SQL Server**, escriba sus detalles de **Inicio de sesión** y **Contraseña** y seleccione **Aceptar**.  
@@ -64,7 +64,7 @@ Debe conectarse a la base de datos SQL para actualizar las credenciales de inici
 
 4. Anote la nueva contraseña.    
 5. En Azure Portal, busque el trabajo de Stream Analytics, seleccione **Detener** y espere a que el trabajo se detenga.    
-6. Busque la salida de la base de datos SQL para la que quiere rotar las credenciales. Actualice la contraseña y guarde los cambios.    
+6. Busque la salida de SQL Database para la que quiere rotar las credenciales. Actualice la contraseña y guarde los cambios.    
 7. Una prueba de conexión se iniciará automáticamente al guardar los cambios; asegúrese de que haya pasado correctamente.    
 8. Continúe con la sección [Inicio del trabajo desde la última vez que se detuvo](#start-your-job-from-the-last-stopped-time).
 
@@ -83,6 +83,6 @@ Debe conectarse a la base de datos SQL para actualizar las credenciales de inici
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Escalado de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Referencia del lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

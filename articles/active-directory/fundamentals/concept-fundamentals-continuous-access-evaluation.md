@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdf904bb2c0d133ea07cd32274fad5b6601da5d9
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: f0cb402741163c657b3e7961eb5a4f9c8e18dafd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148130"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84673027"
 ---
 # <a name="continuous-access-evaluation"></a>Evaluación continua de acceso
 
@@ -40,6 +40,7 @@ La evaluación continua de acceso se implementa mediante la habilitación de ser
 
 - La cuenta de usuario se ha eliminado o deshabilitado.
 - La contraseña de un usuario ha cambiado o se ha restablecido.
+- MFA está habilitado para el usuario.
 - El administrador revoca explícitamente todos los tokens de actualización de un usuario.
 - Azure AD Identity Protection ha detectado un riesgo de usuario elevado.
 
@@ -76,7 +77,7 @@ Aumentaremos la vigencia del token de acceso a 24 horas en las sesiones de CAE.
 1. Se presenta un token de acceso al proveedor de recursos. El proveedor de recursos evalúa la validez del token y comprueba si hay algún evento de revocación para el usuario. El proveedor de recursos utiliza esta información para decidir si se concede acceso al recurso.
 1. En este caso, el proveedor de recursos deniega el acceso y envía un desafío de notificaciones 401+ al cliente.
 1. El cliente compatible con CAE comprende el desafío de notificaciones 401+. Omite las cachés y vuelve al paso 1, enviando su token de actualización junto con el desafío de notificaciones de vuelta a Azure AD. A continuación, Azure AD volverá a evaluar todas las condiciones y solicitará al usuario que vuelva a autenticarse en este caso.
- 
+
 ## <a name="faqs"></a>Preguntas más frecuentes
 
 ### <a name="what-is-the-lifetime-of-my-access-token"></a>¿Cuál es la vigencia de mi token de acceso?

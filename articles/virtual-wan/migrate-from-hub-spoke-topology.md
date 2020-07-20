@@ -4,15 +4,15 @@ description: Más información sobre cómo migrar a Azure Virtual WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8aa4fe143c78d2053ce8c48e4866a5522057aa0c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8dfcdd8195824cb732df2c0c70c338e69630c5cd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77063028"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753120"
 ---
 # <a name="migrate-to-azure-virtual-wan"></a>Migración a Azure Virtual WAN
 
@@ -23,13 +23,13 @@ Para obtener información sobre las ventajas que Azure Virtual WAN permite a las
 ![Topología en estrella tipo hub-and-spoke](./media/migrate-from-hub-spoke-topology/hub-spoke.png)
 **Figura: Azure Virtual WAN**
 
-Miles de nuestros clientes han adoptado el modelo de conectividad en estrella tipo hub-and-spoke del centro de datos virtual (VDC) de Azure para aprovechar el comportamiento del enrutamiento transitivo predeterminado de las redes de Azure para crear redes sencillas y escalables en la nube. Azure Virtual WAN se basa en estos conceptos e incorpora nuevas funcionalidades que permiten topologías de conectividad global, no solo entre ubicaciones locales y Azure, sino que también permiten a los clientes aprovechar la escala de la red de Microsoft para aumentar sus redes globales existentes.
+Miles de nuestros clientes han adoptado el modelo de conectividad en estrella tipo hub-and-spoke de Azure para aprovechar el comportamiento del enrutamiento transitivo predeterminado de Redes de Azure para crear redes sencillas y escalables en la nube. Azure Virtual WAN se basa en estos conceptos e incorpora nuevas funcionalidades que permiten topologías de conectividad global, no solo entre ubicaciones locales y Azure, sino que también permiten a los clientes aprovechar la escala de la red de Microsoft para aumentar sus redes globales existentes.
 
 En este artículo muestra cómo migrar un entorno híbrido existente a Virtual WAN.
 
 ## <a name="scenario"></a>Escenario
 
-Contoso es una organización financiera global con oficinas en Europa y Asia. En esa organización están planeando trasladar sus aplicaciones existentes desde un centro de datos local a Azure y han creado un diseño básico basado en la arquitectura de VDC, lo que incluye las redes virtuales de centro administradas por el cliente para la conectividad híbrida. Como parte del cambio a tecnologías basadas en la nube, se ha encargado al equipo de red la tarea de asegurarse de que la conectividad está optimizada ante un posible crecimiento en el futuro.
+Contoso es una organización financiera global con oficinas en Europa y Asia. En esa organización están planeando trasladar sus aplicaciones existentes desde un centro de datos local a Azure y han creado un diseño básico basado en la arquitectura tipo hub-and-spoke manual, lo que incluye las redes virtuales de centro administradas por el cliente para la conectividad híbrida. Como parte del cambio a tecnologías basadas en la nube, se ha encargado al equipo de red la tarea de asegurarse de que la conectividad está optimizada ante un posible crecimiento en el futuro.
 
 En la figura siguiente se muestra una vista de alto nivel de la red global existente, que incluye la conectividad a varias regiones de Azure.
 
@@ -78,14 +78,14 @@ Conectividad a Internet para sitios remotos, que también proporciona Azure Virt
 
 En esta sección se muestran los pasos que deben seguirse para migrar a Azure Virtual WAN.
 
-### <a name="step-1-vdc-hub-and-spoke-single-region"></a>Paso 1: Región de VDC en estrella tipo hub-and-spoke
+### <a name="step-1-single-region-customer-managed-hub-and-spoke"></a>Paso 1: Tipo hub-and-spoke administrado por el cliente de una sola región
 
-Revise la arquitectura. En la ilustración siguiente se muestra una topología de una sola región para Contoso antes del lanzamiento de Azure Virtual WAN:
+En la ilustración siguiente se muestra una topología de una sola región para Contoso antes del lanzamiento de Azure Virtual WAN:
 
 ![Topología de una sola región](./media/migrate-from-hub-spoke-topology/figure1.png)
-**Figura 1: Región de VDC en estrella tipo hub-and-spoke**
+**Figura 1: Tipo hub-and-spoke manual de una sola región**
 
-En línea con el enfoque del centro de datos virtual (VDC), la red virtual del centro administrado por el cliente contiene varios bloques de funciones:
+En línea con el enfoque del tipo hub-and-spoke, la red virtual del centro de conectividad administrado por el cliente contiene varios bloques de funciones:
 
 - Servicios compartidos (cualquier función común requerida por varios radios). Ejemplo: Contoso usa controladores de dominio de Windows Server en máquinas virtuales de infraestructura como servicio (IaaS).
 - Los servicios de firewall de IP o enrutamiento los proporcionan una aplicación virtual de red de terceros que permite el enrutamiento IP de nivel 3 de topología en estrella tipo hub-and-spoke.
@@ -103,7 +103,7 @@ Implemente un centro de conectividad de Virtual WAN en cada región. Configure e
 > Azure Virtual WAN debe usar la SKU estándar para habilitar algunas de las rutas de acceso de tráfico mostradas en este artículo.
 
 ![Implementación de centros de conectividad de Virtual WAN](./media/migrate-from-hub-spoke-topology/figure2.png)
-**Figura 2: Migración de VDC de una red en estrella tipo hub-and-spoke a Virtual WAN**
+**Figura 2: Migración de una red en estrella tipo hub-and-spoke administrada por el cliente a Virtual WAN**
 
 ### <a name="step-3-connect-remote-sites-expressroute-and-vpn-to-virtual-wan"></a>Paso 3: Conexión de sitios remotos (ExpressRoute y VPN) a Virtual WAN
 
@@ -113,38 +113,38 @@ Conecte el centro de conectividad de Virtual WAN a los circuitos de ExpressRoute
 > Los circuitos de ExpressRoute se deben actualizar al tipo de SKU Premium para conectarse a un centro de conectividad de Virtual WAN.
 
 ![Conexión de los sitios virtuales a Virtual WAN](./media/migrate-from-hub-spoke-topology/figure3.png)
-**Figura 3: Migración de VDC de una red en estrella tipo hub-and-spoke a Virtual WAN**
+**Figura 3: Migración de una red en estrella tipo hub-and-spoke administrada por el cliente a Virtual WAN**
 
-En este punto, el equipo de red local comenzará a recibir rutas que reflejan el espacio de direcciones IP asignado a la red virtual del centro administrado por Virtual WAN. Las ramas conectadas a una VPN remota en esta fase verán dos rutas de acceso a las aplicaciones existentes en las redes virtuales radiales. Estos dispositivos deben estar configurados para seguir usando el túnel al concentrador de VDC para garantizar el enrutamiento simétrico durante la fase de transición.
+En este punto, el equipo de red local comenzará a recibir rutas que reflejan el espacio de direcciones IP asignado a la red virtual del centro administrado por Virtual WAN. Las ramas conectadas a una VPN remota en esta fase verán dos rutas de acceso a las aplicaciones existentes en las redes virtuales radiales. Estos dispositivos deben estar configurados para seguir usando el túnel al centro de conectividad administrado por el cliente para garantizar el enrutamiento simétrico durante la fase de transición.
 
 ### <a name="step-4-test-hybrid-connectivity-via-virtual-wan"></a>Paso 4: Prueba de la conectividad híbrida mediante Virtual WAN
 
 Antes de usar el centro de conectividad de Virtual WAN administrado para la conectividad de producción, se recomienda que configure una red virtual radial de prueba y una conexión de red virtual de Virtual WAN. Compruebe que las conexiones a este entorno de prueba funcionan mediante ExpressRoute y la VPN de sitio a sitio antes de continuar con los pasos siguientes.
 
 ![Prueba de la conectividad híbrida mediante Virtual WAN](./media/migrate-from-hub-spoke-topology/figure4.png)
-**Figura 4: Migración de VDC de una red en estrella tipo hub-and-spoke a Virtual WAN**
+**Figura 4: Migración de una red en estrella tipo hub-and-spoke administrada por el cliente a Virtual WAN**
 
 ### <a name="step-5-transition-connectivity-to-virtual-wan-hub"></a>Paso 5: Transición de la conectividad al centro de conectividad de Virtual WAN
 
 ![Conectividad de la transición a un centro de conectividad de Virtual WAN](./media/migrate-from-hub-spoke-topology/figure5.png)
-**Figura 5: Migración de VDC de una red en estrella tipo hub-and-spoke a Virtual WAN**
+**Figura 5: Migración de una red en estrella tipo hub-and-spoke administrada por el cliente a Virtual WAN**
 
-**a**. Elimine las conexiones de emparejamiento existentes de las redes virtuales radiales al centro de VDC antiguo. El acceso a las aplicaciones en las redes virtuales radiales no está disponible hasta que se completen los pasos a-c.
+**a**. Elimine las conexiones de emparejamiento existentes de las redes virtuales radiales al centro administrado por cliente antiguo. El acceso a las aplicaciones en las redes virtuales radiales no está disponible hasta que se completen los pasos a-c.
 
 **b**. Conecte las redes virtuales radiales al centro de conectividad de Virtual WAN mediante conexiones de red virtual.
 
 **c**. Quite todas las rutas definidas por el usuario que se usaron previamente en redes virtuales radiales para las comunicaciones entre radios. Esta ruta de acceso se habilita mediante el enrutamiento dinámico disponible en el centro de conectividad de Virtual WAN.
 
-**d**. Ahora se dan de baja las puertas de enlace de ExpressRoute y de VPN en el VDC para permitir el siguiente paso (e).
+**d**. Ahora se dan de baja las puertas de enlace de ExpressRoute y de VPN en el centro de conectividad administrado por el cliente para permitir el siguiente paso (e).
 
-**e**. Conecte el centro de VDC antiguo (red virtual del centro) al centro de conectividad de Virtual WAN mediante una nueva conexión de red virtual.
+**e**. Conecte el centro de conectividad administrado por el cliente antiguo (red virtual del centro de conectividad) al centro de conectividad de Virtual WAN mediante una nueva conexión de red virtual.
 
 ### <a name="step-6-old-hub-becomes-shared-services-spoke"></a>Paso 6: El centro anterior se convierte en un radio de servicios compartidos
 
 Ya hemos rediseñado nuestra red de Azure para que el centro de conectividad de Virtual WAN sea el punto central de la nueva topología.
 
 ![El centro anterior se convierte en un radio de servicios compartidos](./media/migrate-from-hub-spoke-topology/figure6.png)
-**Figura 6: Migración de VDC de una red en estrella tipo hub-and-spoke a Virtual WAN**
+**Figura 6: Migración de una red en estrella tipo hub-and-spoke administrada por el cliente a Virtual WAN**
 
 Dado que el centro de conectividad de Virtual WAN es una entidad administrada y no permite la implementación de recursos personalizados como máquinas virtuales, el bloque de servicios compartidos ahora existe como una red virtual radial que hospeda funciones como la entrada de Internet mediante Azure Application Gateway o una aplicación virtualizada de red. El tráfico entre el entorno de servicios compartidos y las máquinas virtuales de back-end ahora pasa por el centro de conectividad administrado de Virtual WAN.
 
@@ -153,7 +153,7 @@ Dado que el centro de conectividad de Virtual WAN es una entidad administrada y 
 En esta fase, Contoso ha completado principalmente las migraciones de aplicaciones empresariales en la nube de Microsoft, con solo algunas aplicaciones heredadas que permanecen en el controlador de dominio local.
 
 ![Optimización de la conectividad local para usar plenamente Virtual WAN](./media/migrate-from-hub-spoke-topology/figure7.png)
-**Figura 7: Migración de VDC de una red en estrella tipo hub-and-spoke a Virtual WAN**
+**Figura 7: Migración de una red en estrella tipo hub-and-spoke administrada por el cliente a Virtual WAN**
 
 Para aprovechar toda la funcionalidad de Azure Virtual WAN, Contoso decide retirar sus conexiones VPN locales heredadas. Todas las ramas que siguen accediendo a las redes de la oficina central o del controlador de dominio pueden atravesar la red global de Microsoft mediante el enrutamiento de tránsito integrado de Azure Virtual WAN.
 

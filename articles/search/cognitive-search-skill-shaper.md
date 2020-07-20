@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 384b79037bb30656934c5e4b596dac2b776593b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 81eb0e60befc544a6c3bee8f04e901b6a5e472bc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75754119"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85560825"
 ---
 # <a name="shaper-cognitive-skill"></a>Habilidad cognitiva Conformador
 
@@ -251,5 +251,5 @@ En este caso, el **Conformador** crea un tipo complejo. Esta estructura existe e
 + [Aptitudes integradas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
 + [Cómo usar tipos complejos](search-howto-complex-data-types.md)
-+ [Almacén de conocimiento (versión preliminar)](knowledge-store-concept-intro.md)
++ [Almacén de conocimiento](knowledge-store-concept-intro.md)
 + [Creación de un almacén de conocimiento con REST](knowledge-store-create-rest.md)

@@ -1,18 +1,19 @@
 ---
-title: Desencadenador de Azure Cosmos DB para Functions 2.x
+title: Desencadenador de Azure Cosmos DB para Functions 2.x y versiones posteriores
 description: Aprenda a usar el desencadenador de Azure Cosmos DB en Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
-ms.openlocfilehash: de8ad39ef731af3dc272d700eeee346acda64b53
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: tracking-python
+ms.openlocfilehash: 1ff8281a420eb1e967cb9f1d4db620d8f816794b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235192"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85374243"
 ---
-# <a name="azure-cosmos-db-trigger-for-azure-functions-2x"></a>Desencadenador de Azure Cosmos DB para Azure Functions 2.x
+# <a name="azure-cosmos-db-trigger-for-azure-functions-2x-and-higher"></a>Desencadenador de Azure Cosmos DB para Azure Functions 2.x y versiones posteriores
 
 El desencadenador de Azure Cosmos DB utiliza la [fuente de cambios de Azure Cosmos DB](../cosmos-db/change-feed.md) para estar atento a las inserciones y actualizaciones de las particiones. La fuente de cambios publica inserciones y actualizaciones, no eliminaciones.
 

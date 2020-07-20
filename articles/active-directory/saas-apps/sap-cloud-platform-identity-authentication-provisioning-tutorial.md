@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: c30a7b1e6440cf69f7a4858273b365d885e5ec7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 534d75a5b9009f0febee2746179ab7357a4985e0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77060487"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84732878"
 ---
 # <a name="tutorial-configure-sap-cloud-platform-identity-authentication-for-automatic-user-provisioning"></a>Tutorial: Configuración de SAP Cloud Platform Identity Authentication para el aprovisionamiento automático de usuarios
 
@@ -31,7 +31,7 @@ El objetivo de este tutorial es mostrar los pasos que se realizan en SAP Cloud P
 >
 > Este conector está actualmente en versión preliminar pública. Para más información sobre los términos de uso generales de Microsoft Azure para las características en versión preliminar, consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
@@ -58,7 +58,10 @@ Antes de configurar y habilitar el aprovisionamiento automático de usuarios, de
 
     ![Consola de administración de SAP Cloud Platform Identity Authentication](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/adminconsole.png)
 
-2.  Cree un usuario administrador y seleccione el usuario.  
+2.  Presione el botón **+Add** (+Agregar) en el panel de la izquierda para agregar un nuevo administrador a la lista. Elija **Add System** (Agregar sistema) y escriba el nombre del sistema.   
+
+> [!NOTE]
+> El usuario administrador de SAP Cloud Platform Identity Authentication debe ser del tipo **System** (Sistema). La creación de un usuario administrador normal puede generar errores de tipo *no autorizado* durante el aprovisionamiento.   
 
 3.  En Configure Authorizations (Configurar autorizaciones), cambie el botón de alternancia a **Manage Users** (Administrar usuarios) y **Manage Groups** (Administrar grupos).
 

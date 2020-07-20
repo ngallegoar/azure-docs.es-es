@@ -1,18 +1,14 @@
 ---
 title: 'Azure Event Grid: guía para la solución de problemas'
 description: En este artículo se proporciona una lista de códigos de error, mensajes de error, descripciones y acciones recomendadas.
-services: event-grid
-author: spelluru
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/22/2019
-ms.author: spelluru
-ms.openlocfilehash: 3b09b431e827bed4e416913c88d23ee1eddaf17c
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.date: 07/07/2020
+ms.openlocfilehash: ab52cea6ab43763cf2d9dc2b57b7f369072a399e
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629021"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86119045"
 ---
 # <a name="troubleshoot-azure-event-grid-errors"></a>Solución de problemas de Azure Event Grid
 En esta guía de solución de problemas se le proporciona una lista de códigos de error de Azure Event Grid, mensajes de error, sus descripciones y acciones recomendadas que debe realizar cuando reciba estos errores. 
@@ -30,6 +26,13 @@ En esta guía de solución de problemas se le proporciona una lista de códigos 
 | HttpStatusCode.Conflict <br/>409 | Ya existe un tema con el nombre especificado. Elija otro nombre para el tema.   | El nombre del tema personalizado debe ser único en una única región de Azure con el fin de garantizar una operación de publicación correcta. Se puede usar el mismo nombre en distintas regiones de Azure. | Elija otro nombre para el tema. |
 | HttpStatusCode.Conflict <br/> 409 | Ya existe un dominio con el nombre especificado. Elija otro nombre de dominio. | El nombre del dominio personalizado debe ser único en una única región de Azure con el fin de garantizar una operación de publicación correcta. Se puede usar el mismo nombre en distintas regiones de Azure. | Elija otro nombre para el dominio. |
 | HttpStatusCode.Conflict<br/>409 | Se ha alcanzado el límite de cuota. Para obtener más información sobre estos límites, vea [Límites de Event Grid](../azure-resource-manager/management/azure-subscription-service-limits.md#event-grid-limits).  | Cada suscripción de Azure tiene un límite en cuanto al número de recursos de Azure Event Grid que puede usar. Se ha superado parte de esta cuota, o toda ella, y no se pueden crear más recursos. |    Compruebe el uso actual de los recursos y elimine los que no sean necesarios. Si todavía necesita aumentar la cuota, envíe un correo electrónico a [aeg@microsoft.com](mailto:aeg@microsoft.com) con el número exacto de recursos necesarios. |
+
+## <a name="error-code-403"></a>Código de error: 403
+
+| Código de error | Mensaje de error | Descripción | Acción recomendada |
+| ---------- | ------------- | ----------- | ------------------ |
+| HttpStatusCode.Forbidden <br/>403 | La publicación en {Topic/Domain} por el cliente {IpAddress} se rechaza debido a las reglas de filtrado de IpAddress. | El tema o el dominio tienen reglas de firewall de IP configuradas y el acceso solo está restringido a las direcciones IP configuradas. | Para agregar la dirección IP a las reglas de firewall de IP, consulte [Configuración de la dirección IP del firewall ](configure-firewall.md) |
+| HttpStatusCode.Forbidden <br/> 403 | La publicación en {Topic/Domain} por cliente se rechaza ya que la solicitud proviene de un punto de conexión privado y no se encontró ninguna conexión de punto de conexión coincidente para el recurso. | El tema o el dominio tienen puntos de conexión privados configurados y la solicitud de publicación procedía de uno que no está configurado o aprobado. | Configure un punto de conexión privado para el tema o dominio. [Configuración de puntos de conexión privados](configure-private-endpoints.md) |
 
 ## <a name="troubleshoot-event-subscription-validation"></a>Solución de problemas de validación de suscripciones a eventos
 

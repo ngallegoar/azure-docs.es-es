@@ -4,12 +4,12 @@ description: Aprenda a configurar un contenedor de PHP precompilado para la apli
 ms.devlang: php
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 9933205095587d9e8e0d8a5641d213f159512450
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 9e4237f1eecb9f6542aac946525ff4583e478c2e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234952"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84905704"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Configuración de una aplicación de PHP en Linux para Azure App Service
 
@@ -109,7 +109,7 @@ Los marcos web más usados le permiten acceder a la información de `X-Forwarded
 Si necesita hacer cambios en su instalación de PHP, puede cambiar cualquiera de las [directivas php.ini](https://www.php.net/manual/ini.list.php) siguiendo estos pasos.
 
 > [!NOTE]
-> La mejor forma de ver la versión de PHP y la configuración de *php.ini* actual consiste en llamar a [phpinfo()](https://www.php.net/manual/function.phpinfo.php) en la aplicación.
+> La mejor forma de ver la versión de PHP y la configuración de *php.ini* actual consiste en llamar a [phpinfo()](https://php.net/manual/function.phpinfo.php) en la aplicación.
 >
 
 ### <a name="customize-non-php_ini_system-directives"></a><a name="Customize-non-PHP_INI_SYSTEM directives"></a>Personalización de las directivas que no son de PHP_INI_SYSTEM
@@ -187,7 +187,7 @@ Para que los cambios surtan efecto, reinicie la aplicación.
 
 ## <a name="access-diagnostic-logs"></a>Acceso a los registros de diagnóstico
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## <a name="open-ssh-session-in-browser"></a>Abrir sesión SSH en el explorador
 
@@ -198,7 +198,7 @@ Para que los cambios surtan efecto, reinicie la aplicación.
 Cuando una aplicación de PHP en funcionamiento se comporta de manera diferente en App Service o genera errores, intente lo siguiente:
 
 - [Acceso a la secuencia de registros](#access-diagnostic-logs).
-- Pruebe la aplicación localmente en modo de producción. App Service ejecuta las aplicaciones de Node.js en el modo de producción, por lo que deberá asegurarse de que el proyecto funciona según lo previsto en modo de producción localmente. Por ejemplo:
+- Pruebe la aplicación localmente en modo de producción. App Service ejecuta la aplicación en el modo de producción, por lo que deberá asegurarse de que el proyecto funciona según lo previsto en modo de producción localmente. Por ejemplo:
     - En función de su archivo *composer.json*, pueden instalarse distintos paquetes para el modo de producción (`require` frente a `require-dev`).
     - Algunas plataformas web pueden implementar archivos estáticos de forma diferente en modo de producción.
     - Algunas plataformas web pueden usar scripts de inicio personalizados cuando se ejecutan en modo de producción.

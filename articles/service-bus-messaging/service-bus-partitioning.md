@@ -1,20 +1,14 @@
 ---
 title: Creación de temas y colas con particiones de Azure Service Bus | Microsoft Docs
 description: Describe cómo realizar la partición de los temas y las colas de Service Bus mediante el uso de varios agentes de mensajes.
-services: service-bus-messaging
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 02/06/2020
-ms.author: aschhab
-ms.openlocfilehash: 671368993acb43c0d55eca73119effa934e3cff8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/23/2020
+ms.openlocfilehash: 6ea0bee255f489355056f91d82195382153786bb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230076"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85339646"
 ---
 # <a name="partitioned-queues-and-topics"></a>Temas y colas con particiones
 
@@ -30,6 +24,8 @@ No es posible cambiar la opción de particionamiento en una cola o tema existent
 Cada cola o tema con particiones consta de varias particiones. Cada partición se almacena en un almacén de mensajería diferente y la controla un agente de mensajes diferente. Cuando se envía un mensaje a una cola o un tema con particiones, Service Bus asigna el mensaje a una de las particiones. La selección se realiza de forma aleatoria mediante Service Bus o una clave de partición que el remitente puede especificar.
 
 Cuando un cliente quiere recibir un mensaje de una cola con particiones, o de una suscripción a un tema con particiones, Service Bus consulta en todas las particiones si hay mensajes y luego devuelve al receptor el primer mensaje que se obtiene de cualquiera de los almacenes de mensajería. Service Bus almacena en caché los demás mensajes y los devuelve cuando recibe solicitudes de recepción adicionales. Un cliente de recepción no es consciente de las particiones; el comportamiento de cara al cliente de una cola o tema con particiones (por ejemplo, lectura, finalización, aplazamiento, mensajes fallidos y captura previa) es idéntico al comportamiento de una entidad regular.
+
+La operación de inspección en una entidad sin particiones siempre devuelve el mensaje más antiguo, pero no en una entidad con particiones. En su lugar, devuelve el mensaje más antiguo en una de las particiones cuyo agente de mensajes respondió primero. No hay garantía de que el mensaje devuelto sea el más antiguo de todas las particiones. 
 
 No hay costos adicionales cuando se envía un mensaje a una cola o tema con particiones o cuando se recibe un mensaje de ellos.
 

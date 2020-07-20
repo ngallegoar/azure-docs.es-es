@@ -4,15 +4,16 @@ description: Solución de problemas de Azure Synapse Studio
 author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: conceptual
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: ede38317762e5aac5562c9bb3494713c3edacc69
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 20978a6389c790575fa26258c4468f891af733ff
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427476"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85211466"
 ---
 # <a name="azure-synapse-studio-preview-troubleshooting"></a>Solución de problemas de Azure Synapse Studio (versión preliminar)
 

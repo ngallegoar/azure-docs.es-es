@@ -4,14 +4,14 @@ description: Aprenda a configurar una instancia de Private Link para Azure Datab
 author: kummanish
 ms.author: manishku
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 4a4824a9f8340b12bca7e18562d723eb24e58b71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5547c78007d38788d71e84f8fbf3ca8b60dc1576
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79371926"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101756"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Creación y administración de Private Link para Azure Database for MySQL mediante el portal
 
@@ -39,7 +39,7 @@ En esta sección, va a crear una red virtual y una subred para hospedar la máqu
     | ------- | ----- |
     | Nombre | Escriba *MyVirtualNetwork*. |
     | Espacio de direcciones | Escriba *10.1.0.0/16*. |
-    | Subscription | Seleccione su suscripción.|
+    | Suscripción | Seleccione su suscripción.|
     | Resource group | Seleccione **Crear nuevo**, escriba *myResourceGroup* y, después, seleccione **Aceptar**. |
     | Location | Seleccione **Oeste de Europa**.|
     | Subred: nombre | Escriba *mySubnet*. |
@@ -56,7 +56,7 @@ En esta sección, va a crear una red virtual y una subred para hospedar la máqu
     | Configuración | Value |
     | ------- | ----- |
     | **DETALLES DEL PROYECTO** | |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.  |
     | **DETALLES DE INSTANCIA** |  |
     | Nombre de la máquina virtual | Escriba *myVm*. |
@@ -106,7 +106,7 @@ En esta sección, creará un servidor de Azure Database for MySQL en Azure.
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.|
     | **Detalles del servidor** |  |
     |Nombre de servidor  | Escriba *myServer*. Si el nombre ya existe, cree uno único.|
@@ -121,6 +121,10 @@ En esta sección, creará un servidor de Azure Database for MySQL en Azure.
 8. Seleccione **Revisar + crear**. Se le remitirá a la página **Revisar y crear**, donde Azure validará la configuración. 
 9. Cuando reciba el mensaje Validación superada, seleccione **Crear**. 
 10. Cuando reciba el mensaje Validación superada, seleccione Crear. 
+
+> [!NOTE]
+> En algunos casos, Azure Database for MySQL y la subred de red virtual se encuentran en distintas suscripciones. En estos casos debe garantizar las siguientes configuraciones:
+> - Asegúrese de que ambas suscripciones tengan el proveedor de recursos **Microsoft.DBforMySQL** registrado. Para más información, consulte [resource-manager-registration][resource-manager-portal].
 
 ## <a name="create-a-private-endpoint"></a>Creación de un punto de conexión privado
 
@@ -137,7 +141,7 @@ En esta sección, creará una instancia de MySQL Server y le agregará un punto 
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
-    | Subscription | Seleccione su suscripción. |
+    | Suscripción | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.|
     | **Detalles de instancia** |  |
     | Nombre | Escriba *myPrivateEndpoint*. Si el nombre ya existe, cree uno único. |
@@ -150,13 +154,13 @@ En esta sección, creará una instancia de MySQL Server y le agregará un punto 
     | Configuración | Value |
     | ------- | ----- |
     |Método de conexión  | Seleccione Connect to an Azure resource in my directory (Conectarse a un recurso de Azure en mi directorio).|
-    | Subscription| Seleccione su suscripción. |
+    | Suscripción| Seleccione su suscripción. |
     | Tipo de recurso | Seleccione **Microsoft.DBforMySQL/servers**. |
-    | Resource |Seleccione *miServidor*.|
+    | Recurso |Seleccione *miServidor*.|
     |Recurso secundario de destino |Seleccione *mysqlServer*.|
     |||
 7. Seleccione **Siguiente: Configuration** (Siguiente: Configuración).
-8. En **Crear un punto de conexión privado - Configuración**, escriba o seleccione esta información:
+8. En **Crear un punto de conexión privado: Configuración**, escriba o seleccione esta información:
 
     | Configuración | Value |
     | ------- | ----- |
@@ -167,6 +171,9 @@ En esta sección, creará una instancia de MySQL Server y le agregará un punto 
     |Integración con una zona DNS privada |Seleccione **Sí**. |
     |Zona DNS privada |Seleccione *(New)privatelink.mysql.database.azure.com* |
     |||
+
+    > [!Note] 
+    > Use la zona DNS privada predefinida para su servicio o proporcione el nombre de la zona DNS que prefiera. Consulte la [configuración de la zona DNS de los servicios de Azure](../private-link/private-endpoint-dns.md) para obtener más información.
 
 1. Seleccione **Revisar + crear**. Se le remitirá a la página **Revisar y crear**, donde Azure validará la configuración. 
 2. Cuando reciba el mensaje **Validación superada**, seleccione **Crear**. 
@@ -248,3 +255,6 @@ Cuando haya terminado de usar el punto de conexión privado, el servidor MySQL y
 ## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía paso a paso ha creado una VM en una red virtual, una instancia de Azure Database for MySQL y un punto de conexión privado para el acceso privado. Se ha conectado a una VM desde Internet y se ha comunicado de forma segura con el servidor MySQL mediante Private Link. Para más información sobre los puntos de conexión privados, consulte [¿Qué es un punto de conexión privado de Azure?](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

@@ -1,14 +1,14 @@
 ---
-title: 'Terminología: Azure'
+title: 'Terminología de Live Video Analytics en IoT Edge: Azure'
 description: En este artículo se proporciona información general sobre la terminología de Live Video Analytics on IoT Edge.
 ms.topic: conceptual
 ms.date: 05/30/2020
-ms.openlocfilehash: 51fcc962f6546d727dbbc5e7ff62dc9c4e5677af
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 58f3d7b54fd0bd19e6bc0a057ef053bb2c74cd97
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84260338"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84816531"
 ---
 # <a name="terminology"></a>Terminología
 

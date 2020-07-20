@@ -4,22 +4,41 @@ description: Describe el esquema de eventos para cada categoría en el registro 
 author: bwren
 services: azure-monitor
 ms.topic: reference
-ms.date: 12/04/2019
+ms.date: 06/09/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 25517b48ad7dcddffaaeb4ac2f86397d99e0be2c
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 553492a3ca6868279b1aec9446e2ce04ca673ab0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017518"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945365"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos del registro de actividad de Azure
-El [registro de actividad de Azure](platform-logs-overview.md) proporciona información sobre los eventos que se han producido en Azure en el nivel de la suscripción. En este artículo, se describe el esquema de eventos de cada categoría. 
+El [registro de actividad de Azure](platform-logs-overview.md) proporciona información sobre los eventos que se han producido en Azure en el nivel de la suscripción. En este artículo se describen las categorías de registro de actividad y el esquema de cada una. 
 
-En los ejemplos siguientes, se muestra el esquema cuando se accede al registro de actividad desde el portal, PowerShell, la CLI y la API REST. El esquema es diferente cuando el [registro de actividad se transmite a Azure Storage o a Event Hubs](resource-logs-stream-event-hubs.md). Al final del artículo, encontrará la correspondencia de las propiedades en el [esquema de registros de Azure](diagnostic-logs-schema.md).
+El esquema variará en función de cómo acceda al registro:
+ 
+- Los esquemas que se describen en este artículo corresponden al acceso al registro de actividad desde la [API REST](https://docs.microsoft.com/rest/api/monitor/activitylogs). Este es también el esquema que se usa al seleccionar la opción **JSON** al ver un evento en Azure Portal.
+- Consulte la sección final titulada [Esquema de la cuenta de almacenamiento y Event Hubs](#schema-from-storage-account-and-event-hubs) para el esquema correspondiente cuando se usa una [configuración de diagnóstico](diagnostic-settings.md) para enviar el registro de actividad a Azure Storage o Azure Event Hubs.
+- Consulte [Referencia de datos de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/reference/) parar conocer el esquema correspondiente cuando se usa una [configuración de diagnóstico](diagnostic-settings.md) para enviar el registro de actividad a un área de trabajo de Log Analytics.
 
-## <a name="administrative"></a>Administrativo
+
+## <a name="categories"></a>Categorías
+Cada evento del registro de actividad tiene una categoría determinada que se describe en la tabla siguiente. Consulte las secciones siguientes para más información sobre cada categoría y su esquema al acceder al registro de actividad desde el portal, PowerShell, la CLI y la API REST. El esquema es diferente cuando el [registro de actividad se transmite a Azure Storage o a Event Hubs](resource-logs-stream-event-hubs.md). En la última sección del artículo, encontrará la correspondencia de las propiedades en el [esquema de registros de recursos](diagnostic-logs-schema.md).
+
+| Category | Descripción |
+|:---|:---|
+| [Administrativas](#administrative-category) | Contiene el registro de todas las operaciones de creación, actualización, eliminación y acción realizadas mediante Resource Manager. Algunos ejemplos de eventos administrativos incluyen la _creación de una máquina virtual_ y la _eliminación de un grupo de seguridad de red_.<br><br>Cada acción realizada por un usuario o aplicación mediante Resource Manager se modela como una operación en un tipo de recurso determinado. Si el tipo de operación es _Write_, _Delete_ o _Action_, los registros de inicio y corrección o error de esa operación se registran en la categoría Administrativo. Los eventos de la categoría Administrativo también incluyen los cambios realizados en el control de acceso basado en rol de una suscripción. |
+| [Service Health](#service-health-category) | Contiene el registro de los incidentes de estado del servicio que se han producido en Azure. Ejemplo de un evento de Service Health: _SQL Azure está experimentando un tiempo de inactividad en la región Este de EE. UU._ . <br><br>Los eventos de Service Health pueden encuadrarse dentro de seis variedades: _Acción requerida_, _Recuperación asistida_, _Incidente_, _Mantenimiento_, _Información_ o _Seguridad_. Estos eventos solo se crean si tiene un recurso en la suscripción que se puede ver afectado por el evento.
+| [Estado de los recursos](#resource-health-category) | Contiene el registro de los eventos de estado de los recursos que se han producido en los recursos de Azure. Ejemplo de un evento de Resource Health: _Cambio del estado de mantenimiento de una máquina virtual a No disponible_.<br><br>Los eventos de Resource Health pueden representar uno de los cuatro estados de mantenimiento siguientes: _Disponible_, _No disponible_, _Degradado_ y _Desconocido_. Además, los eventos de Resource Health se pueden clasificar como _iniciados por la plataforma_ o _por el usuario_. |
+| [Alerta](#alert-category) | Contiene el registro de activaciones de alertas de Azure. Ejemplo de un evento de alerta: _% de CPU en myVM ha estado por encima de 80 durante los últimos 5 minutos_.|
+| [Autoscale](#autoscale-category) | Contiene el registro de los eventos relacionados con el funcionamiento del motor de escalado automático en función de cualquier configuración de escalado automático que haya definido en la suscripción. Ejemplo de un evento de escalado automático: _Error durante la acción de escalado vertical_. |
+| [Recomendación](#recommendation-category) | Contiene eventos de recomendación de Azure Advisor. |
+| [Seguridad](#security-category) | Contiene el registro de todas las alertas generadas por Azure Security Center. Ejemplo de un evento de seguridad: _Se ha ejecutado un archivo de extensión doble_. |
+| [Directiva](#policy-category) | Contiene registros de todas las operaciones de acción de efecto realizadas por Azure Policy. Ejemplos de eventos de directiva: _Auditar_ y _Denegar_. Cada acción llevada a cabo por Azure Policy se modela como una operación en un recurso. |
+
+## <a name="administrative-category"></a>Categoría administrativa
 Esta categoría contiene el registro de todas las operaciones de creación, actualización, eliminación y acción realizadas a través de Resource Manager. Los ejemplos de los tipos de eventos que aparecen en esta categoría incluyen "crear máquina virtual" y "eliminar grupo de seguridad de red". Cada acción realizada por un usuario o una aplicación mediante Resource Manager se modela como una operación en un tipo de recurso determinado. Si el tipo de operación es Write, Delete o Action, los registros de inicio y corrección o error de esa operación se registran en la categoría Administrativo. La categoría Administrativo también incluye los cambios realizados en el control de acceso basado en roles de una suscripción.
 
 ### <a name="sample-event"></a>Evento de ejemplo
@@ -137,7 +156,7 @@ Esta categoría contiene el registro de todas las operaciones de creación, actu
 | submissionTimestamp |Marca de tiempo de cuándo el evento empezó a estar disponible para las consultas. |
 | subscriptionId |Identificador de suscripción de Azure |
 
-## <a name="service-health"></a>Estado del servicio
+## <a name="service-health-category"></a>Categoría de estado del servicio
 Esta categoría contiene el registro de los incidentes de estado del servicio que se han producido en Azure. Un ejemplo del tipo de evento que aparece en esta categoría es "SQL Azure en el este de EE. UU. está experimentando un tiempo de inactividad". Los eventos de estado del servicio pueden encuadrarse dentro de cinco variedades: Acción requerida, Recuperación asistida, Incidente, Mantenimiento, Información o Seguridad, y solo aparecen si tiene un recurso en la suscripción que se podría ver afectado por el evento.
 
 ### <a name="sample-event"></a>Evento de ejemplo
@@ -197,7 +216,7 @@ Esta categoría contiene el registro de los incidentes de estado del servicio qu
 ```
 Consulte el artículo sobre las [notificaciones de estado de servicio](./../../azure-monitor/platform/service-notifications.md) para la documentación sobre los valores de las propiedades.
 
-## <a name="resource-health"></a>Estado de los recursos
+## <a name="resource-health-category"></a>Categoría de estado de los recursos
 Esta categoría contiene el registro de los eventos de estado del servicio que se han producido en los recursos de Azure. Un ejemplo del tipo de evento que aparece en esta categoría es "El estado de mantenimiento de la máquina virtual se cambió a No disponible". Los eventos de mantenimiento de recursos pueden representar uno de los cuatro estados de mantenimiento siguientes: Disponible, No disponible, Degradado y Desconocido. Además, los eventos de mantenimiento de recursos se pueden clasificar como iniciados por la plataforma o por el usuario.
 
 ### <a name="sample-event"></a>Evento de ejemplo
@@ -286,7 +305,7 @@ Esta categoría contiene el registro de los eventos de estado del servicio que s
 | properties.cause | Descripción de la causa del evento de estado del recurso. Ya sea "UserInitiated" o "PlatformInitiated". |
 
 
-## <a name="alert"></a>Alerta
+## <a name="alert-category"></a>Categoría de alertas
 Esta categoría contiene el registro de todas las activaciones de alertas de Azure clásicas. Un ejemplo del tipo de evento que aparece en esta categoría es "el % de CPU en myVM ha estado por encima de 80 durante los últimos 5 minutos". Varios sistemas de Azure tienen un concepto de alerta: puede definir una regla de algún tipo y recibir una notificación cuando las condiciones coincidan con esa regla. Cada vez que un tipo de alerta de Azure compatible "se activa" o se cumplen las condiciones para generar una notificación, también se inserta un registro de la activación en esta categoría del Registro de actividad.
 
 ### <a name="sample-event"></a>Evento de ejemplo
@@ -400,7 +419,7 @@ El campo Propiedades contendrá valores diferentes dependiendo del origen del ev
 | properties.MetricName | Nombre de la métrica usada en la evaluación de la regla de alertas de métrica. |
 | properties.MetricUnit | Unidad de la métrica usada en la evaluación de la regla de alertas de métrica. |
 
-## <a name="autoscale"></a>Escalado automático
+## <a name="autoscale-category"></a>Categoría de escalado automático
 Esta categoría contiene el registro de los eventos relacionados con el funcionamiento del motor de escalado automático en función de cualquier configuración de escalado automático que haya definido en la suscripción. Un ejemplo del tipo de evento que aparece en esta categoría es "Error de acción de escalado automático". Con el escalado automático puede escalar horizontalmente o reducir horizontalmente de forma automática el número de instancias de un tipo de recurso compatible en función de la hora del día o cargar datos (métricas) mediante una configuración de escalado automático. Cuando se cumplen las condiciones para escalar o reducir verticalmente, se registran los eventos de inicio y corrección o error en esta categoría.
 
 ### <a name="sample-event"></a>Evento de ejemplo
@@ -487,7 +506,7 @@ Esta categoría contiene el registro de los eventos relacionados con el funciona
 | submissionTimestamp |Marca de tiempo de cuándo el evento empezó a estar disponible para las consultas. |
 | subscriptionId |Identificador de suscripción de Azure |
 
-## <a name="security"></a>Seguridad
+## <a name="security-category"></a>Categoría de seguridad
 Esta categoría contiene el registro de todas las alertas generado por Azure Security Center. Un ejemplo del tipo de evento que vería en esta categoría es "Se ejecutó un archivo de extensión doble sospechoso".
 
 ### <a name="sample-event"></a>Evento de ejemplo
@@ -575,7 +594,7 @@ Esta categoría contiene el registro de todas las alertas generado por Azure Sec
 | submissionTimestamp |Marca de tiempo de cuándo el evento empezó a estar disponible para las consultas. |
 | subscriptionId |Identificador de suscripción de Azure |
 
-## <a name="recommendation"></a>Recomendación
+## <a name="recommendation-category"></a>Categoría de recomendaciones
 Esta categoría contiene el registro de cualquier recomendación nueva que se genere para los servicios. Un ejemplo de recomendación sería "Use conjuntos de disponibilidad para obtener una tolerancia a errores mejorada". Hay cuatro tipos de eventos de recomendación que se pueden generar: Alta disponibilidad, Rendimiento, Seguridad y Optimización de costos. 
 
 ### <a name="sample-event"></a>Evento de ejemplo
@@ -655,7 +674,7 @@ Esta categoría contiene el registro de cualquier recomendación nueva que se ge
 | properties.recommendationImpact| Impacto de la recomendación. Los valores posibles son "High", "Medium", "Low" |
 | properties.recommendationRisk| Riesgo de la recomendación. Los valores posibles son "Error", "Warning", "None" |
 
-## <a name="policy"></a>Directiva
+## <a name="policy-category"></a>Categoría de directivas
 
 Esta categoría contiene registros de todas las operaciones de acción de efecto realizadas por [Azure Policy](../../governance/policy/overview.md). Algunos ejemplos de los tipos de eventos que aparecen en esta categoría son _Auditoría_ y _Denegación_. Cada acción llevada a cabo por Azure Policy se modela como una operación en un recurso.
 
@@ -774,7 +793,7 @@ Esta categoría contiene registros de todas las operaciones de acción de efecto
 
 
 ## <a name="schema-from-storage-account-and-event-hubs"></a>Esquema de una cuenta de almacenamiento y un centro de eventos
-Cuando el registro de actividad de Azure se transmite a una cuenta de almacenamiento o a un centro de eventos, los datos siguen el [esquema de registros de recursos](diagnostic-logs-schema.md). En la tabla siguiente, se muestra la correspondencia de las propiedades entre el esquema anterior y el esquema de registros de recursos.
+Cuando el registro de actividad de Azure se transmite a una cuenta de almacenamiento o a un centro de eventos, los datos siguen el [esquema de registros de recursos](diagnostic-logs-schema.md). En la tabla siguiente, se muestra la correspondencia de las propiedades entre los esquemas anteriores y el esquema de los registros de recursos.
 
 > [!IMPORTANT]
 > El formato de los datos de registro de actividad escritos en una cuenta de almacenamiento cambiaron a Líneas JSON el 1 de noviembre de 2018. Consulte [Preparación para el cambio de formato a los registros de recursos de Azure Monitor archivados en una cuenta de almacenamiento](diagnostic-logs-append-blobs.md) para más información sobre este cambio de formato.
@@ -807,7 +826,7 @@ A continuación, se muestra un ejemplo de un evento que utiliza este esquema.
 {
     "records": [
         {
-            "time": "2015-01-21T22:14:26.9792776Z",
+            "time": "2019-01-21T22:14:26.9792776Z",
             "resourceId": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
             "operationName": "microsoft.support/supporttickets/write",
             "category": "Write",
@@ -831,7 +850,7 @@ A continuación, se muestra un ejemplo de un evento que utiliza este esquema.
                     "nbf": "1421876371",
                     "exp": "1421880271",
                     "ver": "1.0",
-                    "http://schemas.microsoft.com/identity/claims/tenantid": "1e8d8218-c5e7-4578-9acc-9abbd5d23315 ",
+                    "http://schemas.microsoft.com/identity/claims/tenantid": "00000000-0000-0000-0000-000000000000",
                     "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
                     "http://schemas.microsoft.com/identity/claims/objectidentifier": "2468adf0-8211-44e3-95xq-85137af64708",
                     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@contoso.com",

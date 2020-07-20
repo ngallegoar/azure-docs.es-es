@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 760bb5b62e9bba9b7a83f99760f7fe5d8c399dfb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 07/02/2020
 ms.locfileid: "67186266"
 ---
 1. En el Administrador de clústeres de conmutación por error, expanda **Roles** y, a continuación, resalte el grupo de disponibilidad.  
@@ -31,7 +31,7 @@ ms.locfileid: "67186266"
 
 8. Abra SQL Server Management Studio y conéctese a la réplica principal.
 
-9. Vaya a **Alta disponibilidad AlwaysOn** > **Grupos de disponibilidad** >  **\<nombre del grupo de disponibilidad\>**  > **Agentes de escucha del grupo de disponibilidad**.  
+9. Vaya a **Alta disponibilidad de AlwaysOn** > **Grupos de disponibilidad** >  **\<AvailabilityGroupName\>**  > **Clientes de escucha del grupo de disponibilidad**.  
     Debe mostrarse el nombre del agente de escucha que creó en el Administrador de clústeres de conmutación por error.
 
 10. Haga clic con el botón derecho en el nombre del agente de escucha y luego en **Propiedades**.

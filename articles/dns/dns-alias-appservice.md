@@ -4,15 +4,15 @@ description: Uso de un registro de alias de Azure DNS para hospedar aplicaciones
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/10/2019
 ms.author: rohink
-ms.openlocfilehash: 8ba96a028d51e6e5503bb4a8e6735b48033c9ba1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e7c4db7a2fc3ba931415e3b167f7fe72ee2b3980
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76937364"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710548"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Hospedaje de aplicaciones web de Azure con equilibrio de carga en el vértice de zona
 
@@ -26,11 +26,11 @@ En este artículo, aprenderá a crear un registro de alias para el vértice de d
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Debe tener un nombre de dominio disponible que pueda hospedar en Azure DNS para realizar las pruebas. Debe tener control total de este dominio. El control total incluye la capacidad de establecer los registros de nombre de servidor (NS) para el dominio.
 
-Para que obtener instrucciones para hospedar el dominio en Azure DNS, consulte [Tutorial: Hospedaje del dominio en Azure DNS](dns-delegate-domain-azure-dns.md).
+Para obtener instrucciones sobre cómo hospedar el dominio en Azure DNS, vea [Tutorial: Hospedaje del dominio en Azure DNS](dns-delegate-domain-azure-dns.md).
 
 El dominio en el ejemplo que se usa en este tutorial es contoso.com, pero debe usar su propio nombre de dominio.
 
@@ -76,7 +76,7 @@ Ahora debe anotar la dirección IP y el nombre de host de las aplicaciones web.
 
 Cree un perfil de Traffic Manager en el grupo de recursos. Use los valores predeterminados y escriba un nombre único dentro del espacio de nombres trafficmanager.net.
 
-Para información sobre la creación de un perfil de Traffic Manager, consulte [Guía de inicio rápido: Creación de un perfil de Traffic Manager para una aplicación web de alta disponibilidad](../traffic-manager/quickstart-create-traffic-manager-profile.md).
+Para obtener información sobre cómo crear un perfil de Traffic Manager, consulte [Inicio rápido: crear un perfil de Traffic Manager para una aplicación web de alta disponibilidad](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 
 ### <a name="create-endpoints"></a>Creación de puntos de conexión
 
@@ -89,8 +89,8 @@ Ahora puede crear los puntos de conexión de las dos aplicaciones web.
 
    |Tipo  |Nombre  |Destino  |Location  |Configuración de encabezado personalizado|
    |---------|---------|---------|---------|---------|
-   |Punto de conexión externo     |End-01|Dirección IP que anotó para App-01|Este de EE. UU.|host:\<la dirección URL que anotó para App-01\><br>Ejemplo: **host:app-01.azurewebsites.net**|
-   |Punto de conexión externo     |End-02|Dirección IP que anotó para App-02|Centro de EE. UU.|host:\<la dirección URL que anotó para App-02\><br>Ejemplo: **host:app-02.azurewebsites.net**
+   |Punto de conexión externo     |End-01|Dirección IP que anotó para App-01|Este de EE. UU.|Host:\<the URL you recorded for App-01\><br>Ejemplo: **host:app-01.azurewebsites.net**|
+   |Punto de conexión externo     |End-02|Dirección IP que anotó para App-02|Centro de EE. UU.|Host:\<the URL you recorded for App-02\><br>Ejemplo: **host:app-02.azurewebsites.net**
 
 ## <a name="create-dns-zone"></a>Creación de una zona DNS
 
@@ -134,7 +134,7 @@ Ahora cree un registro de alias para el vértice de la zona.
 
    |Nombre  |Tipo  |Conjunto de registros de alias  |Tipo de alias  |Recurso de Azure|
    |---------|---------|---------|---------|-----|
-   |@     |Un|Sí|Recurso de Azure|Traffic Manager: su perfil|
+   |@     |A|Sí|Recurso de Azure|Traffic Manager: su perfil|
 
 
 ## <a name="test-your-web-apps"></a>Prueba de las aplicaciones web
@@ -157,7 +157,7 @@ Ahora puede comprobar que puede llegar a la aplicación web y que se está equil
 Para más información sobre los registros de alias, consulte los artículos siguientes:
 
 - [Tutorial: Configuración de un registro de alias para hacer referencia a una dirección IP pública de Azure](tutorial-alias-pip.md)
-- [Tutorial: Configuración de un registro de alias de para admitir nombres de dominio de vértice con Traffic Manager](tutorial-alias-tm.md)
+- [Tutorial: Configuración de un registro de alias para admitir nombres de dominio de Apex con Traffic Manager](tutorial-alias-tm.md)
 - [Preguntas más frecuentes sobre DNS](https://docs.microsoft.com/azure/dns/dns-faq#alias-records)
 
 Para información sobre cómo migrar un nombre de DNS activo, consulte [Migración de un nombre de DNS activo a Azure App Service](../app-service/manage-custom-dns-migrate-domain.md).

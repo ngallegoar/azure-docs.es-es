@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 07/07/2020
 ms.author: victorh
-ms.openlocfilehash: d1ec04a0c16feb6d404018ff9538b9572e1d71c2
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 27cdff24672f70407e8f8f89c6c49a8c2de87d0a
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649612"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86078432"
 ---
 # <a name="azure-firewall-faq"></a>Preguntas frecuentes sobre Azure Firewall
 
@@ -176,7 +176,7 @@ La capacidad de rendimiento inicial de Azure Firewall es de 2,5 a 3 Gbps, y se 
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>¿Cuánto tiempo tarda Azure Firewall en escalar horizontalmente?
 
-Azure Firewall se escala gradualmente cuando el rendimiento medio o el consumo de CPU es del 60 %. El escalado horizontal tarda entre cinco y siete minutos. Cuando realice pruebas de rendimiento, asegúrese de que realiza una prueba de 10 a 15 minutos como mínimo e inicie nuevas conexiones para aprovechar los nodos de Firewall recién creados.
+Azure Firewall se escala gradualmente cuando el rendimiento medio o el consumo de CPU es del 60 %. El escalado horizontal tarda entre cinco y siete minutos. Cuando realice pruebas de rendimiento, asegúrese de que lleva a cabo una prueba de 10 a 15 minutos como mínimo e inicie nuevas conexiones para aprovechar los nodos de Firewall recién creados.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>¿Permite Azure Firewall el acceso a Active Directory de forma predeterminada?
 
@@ -211,3 +211,15 @@ Un ping de TCP no se conecta realmente al FQDN de destino. Esto ocurre porque el
 ## <a name="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups"></a>¿Existen límites para el número de direcciones IP admitidas por los grupos de IP?
 
 Sí. Para más información, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits).
+
+## <a name="can-i-move-an-ip-group-to-another-resource-group"></a>¿Puedo trasladar un grupo de direcciones IP a otro grupo de recursos?
+
+No, actualmente no se permite mover un grupo de direcciones IP a otro grupo de recursos.
+
+## <a name="what-is-the-tcp-idle-timeout-for-azure-firewall"></a>¿Cuál es el tiempo de espera de inactividad de TCP para Azure Firewall?
+
+Un comportamiento estándar de un firewall de red es asegurarse de que las conexiones TCP se mantengan activas y cerrarlas de inmediato si no hay ninguna actividad. El tiempo de espera de inactividad de TCP de Azure Firewall es de cuatro minutos. Este valor no se puede configurar. Si un período de inactividad es mayor que el valor de tiempo de espera, no hay ninguna garantía de que todavía exista la sesión TCP o HTTP. Una práctica común es usar TCP Keep-alive. Esta práctica mantiene la conexión activa durante un periodo más largo. Para más información, consulte estos [ejemplos de .NET](https://docs.microsoft.com/dotnet/api/system.net.servicepoint.settcpkeepalive?redirectedfrom=MSDN&view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
+
+## <a name="can-i-deploy-azure-firewall-without-a-public-ip-address"></a>¿Puedo implementar Azure Firewall sin una dirección IP pública?
+
+No, actualmente debe implementar Azure Firewall con una dirección IP pública.

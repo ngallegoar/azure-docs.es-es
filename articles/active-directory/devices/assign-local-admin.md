@@ -4,29 +4,29 @@ description: Aprenda a asignar roles de Azure al grupo de administradores locale
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc1812d955590ec0c7372e1311c9d69f93b9957c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a76d9ccbf7b83ea28de3ef5bb1d140caa7201ebd
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128878"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85386375"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Administración del grupo de administradores locales en dispositivos unidos a Azure AD
 
 Para administrar un dispositivo Windows, debe ser miembro del grupo de administradores locales. Como parte del proceso de unión a Azure Active Directory (Azure AD), Azure AD actualiza la pertenencia de este grupo en un dispositivo. Puede personalizar la actualización de la pertenencia para satisfacer los requisitos de su negocio. Una actualización de pertenencia es, por ejemplo, útil si desea permitir que el personal del soporte técnico realice tareas que requieran derechos de administrador en un dispositivo.
 
-En este artículo se explica cómo funciona la actualización de la pertenencia y cómo puede personalizarla durante una unión a Azure AD. El contenido de este artículo no se aplica a una unión a Azure AD **híbrido**.
+En este artículo se explica cómo funciona la actualización de la pertenencia de los administradores locales y cómo puede personalizarla durante una unión a Azure AD. El contenido de este artículo no se aplica a dispositivos **unidos a Azure AD híbrido**.
 
 ## <a name="how-it-works"></a>Funcionamiento
 
-Al conectar un dispositivo Windows con Azure AD mediante una unión a Azure AD, Azure AD agrega los siguientes principios de seguridad al grupo de administradores locales del dispositivo:
+Al conectar un dispositivo Windows con Azure AD mediante una unión a Azure AD, Azure AD agrega las siguientes entidades de seguridad al grupo de administradores locales del dispositivo:
 
 - El rol de administrador global de Azure AD
 - El rol de administrador de dispositivos de Azure AD 
@@ -59,10 +59,13 @@ Para modificar el rol de administrador de dispositivos, configure **Administrado
 >[!NOTE]
 > Esta opción requiere un inquilino de Azure AD Premium. 
 
-Los administradores de dispositivos se asignan a todos los dispositivos unidos a Azure AD. No se puede definir el ámbito de los administradores de dispositivos a un conjunto específico de dispositivos. La actualización del rol de administrador de dispositivos no necesariamente tiene un impacto inmediato en los usuarios afectados. En los dispositivos en los que un usuario ya ha iniciado sesión, la actualización de los privilegios tiene lugar cuando las *dos* acciones siguientes tienen lugar:
+Los administradores de dispositivos se asignan a todos los dispositivos unidos a Azure AD. No se puede definir el ámbito de los administradores de dispositivos a un conjunto específico de dispositivos. La actualización del rol de administrador de dispositivos no necesariamente tiene un impacto inmediato en los usuarios afectados. En los dispositivos en los que un usuario ya ha iniciado sesión, la elevación de los privilegios tiene lugar cuando las *dos* acciones siguientes tienen lugar:
 
-- Han pasado 4 horas para que Azure AD emita un nuevo token de actualización principal con los privilegios adecuados. 
+- Han pasado hasta cuatro horas para que Azure AD emita un nuevo token de actualización principal con los privilegios adecuados. 
 - El usuario cierra sesión y la vuelve a iniciar, sin bloquear o desbloquear, para actualizar su perfil.
+
+>[!NOTE]
+> Las acciones anteriores no se aplican a los usuarios que no han iniciado sesión en el dispositivo pertinente previamente. En este caso, los privilegios de administrador se aplican inmediatamente después de su primer inicio de sesión en el dispositivo. 
 
 ## <a name="manage-regular-users"></a>Administración de los usuarios normales
 
@@ -88,7 +91,7 @@ No puede asignar grupos al rol de administrador de dispositivos, solo se permite
 
 Los administradores de dispositivos se asignan a todos los dispositivos unidos a Azure AD. No se puede limitar a un conjunto específico de dispositivos.
 
-Cuando se quitan usuarios del rol de administrador de dispositivos, estos siguen teniendo el privilegio de administrador local en un dispositivo siempre que hayan iniciado sesión en él. El privilegio se revoca durante el siguiente inicio de sesión, o al cabo de cuatro horas cuando se emite un nuevo token de actualización principal.
+Cuando se quitan usuarios del rol de administrador de dispositivos, estos siguen teniendo el privilegio de administrador local en un dispositivo siempre que hayan iniciado sesión en él. El privilegio se revoca durante el siguiente inicio de sesión cuando se emite un nuevo token de actualización principal. Esta revocación, similar a la elevación de privilegios, puede tardar hasta cuatro horas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

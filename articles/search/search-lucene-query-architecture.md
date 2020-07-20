@@ -8,14 +8,14 @@ ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d46d0309b3d2ffb638016e88ba022e49009eedf2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8bb10c8e0e1f62e72d48d80014d75dd656490889
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236844"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565924"
 ---
-# <a name="how-full-text-search-works-in-azure-cognitive-search"></a>Funcionamiento de la búsqueda de texto completo en Azure Cognitive Search
+# <a name="full-text-search-in-azure-cognitive-search"></a>Búsqueda de texto completo en Azure Cognitive Search
 
 Este artículo está dirigido a los desarrolladores que necesitan un conocimiento más profundo sobre cómo funciona la búsqueda de texto completo de Lucene en Azure Cognitive Search. Para las consultas de texto, Azure Cognitive Search ofrecerá íntegramente los resultados esperados en la mayoría de los escenarios, pero en ocasiones, podría obtener un resultado que parezca erróneo de algún modo. En estas situaciones, tener experiencia en las cuatro fases de ejecución de la consulta de Lucene (análisis de consulta, análisis léxico, coincidencia de búsqueda y puntuación) puede ayudar a identificar los cambios específicos en la configuración del índice y los parámetros de la consulta que proporcionarán el resultado deseado. 
 
@@ -52,7 +52,7 @@ Una solicitud de búsqueda es una especificación completa de lo que se debe dev
 El ejemplo siguiente es una solicitud de búsqueda que puede enviar a Azure Cognitive Search mediante la [API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents).  
 
 ~~~~
-POST /indexes/hotels/docs/search?api-version=2019-05-06
+POST /indexes/hotels/docs/search?api-version=2020-06-30
 {
     "search": "Spacious, air-condition* +\"Ocean view\"",
     "searchFields": "description, title",
@@ -72,7 +72,7 @@ Para esta solicitud, el motor de búsqueda realiza lo siguiente:
 La mayor parte de este artículo es sobre el procesamiento de la *consulta de búsqueda*: `"Spacious, air-condition* +\"Ocean view\""`. El filtrado y la ordenación están fuera del ámbito. Para más información, consulte la [Documentación de referencia de API de búsqueda](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 <a name="stage1"></a>
-## <a name="stage-1-query-parsing"></a>Fase 1: Consulta de análisis 
+## <a name="stage-1-query-parsing"></a>Fase 1 Consulta de análisis 
 
 Como se mencionó anteriormente, la cadena de consulta es la primera línea de la solicitud: 
 
@@ -239,7 +239,7 @@ Para entender la recuperación, es útil conocer algunos conceptos básicos acer
 Para generar los términos en un índice invertido, el motor de búsqueda realiza un análisis léxico del contenido de los documentos, de forma similar a lo que sucede durante el procesamiento de consultas:
 
 1. Las *entradas de texto* se pasan al analizador, en minúsculas, con una puntuación fragmentada y así sucesivamente, dependiendo de la configuración del analizador. 
-2. Los *tokens* son las salidas del análisis de texto.
+2. Los *tokens* son las salidas del análisis léxico.
 3. Los *términos* se agregan al índice.
 
 Es común, pero no necesario, usar los mismos analizadores para las operaciones de búsqueda e indexación para que los términos de consulta tengan un aspecto más parecido a los términos de dentro del índice.
@@ -313,7 +313,7 @@ Durante la ejecución de la consulta, las consultas individuales se ejecutan en 
 
 En general, para la consulta en cuestión, los documentos que coinciden son 1, 2 y 3. 
 
-## <a name="stage-4-scoring"></a>Fase 4: Puntuación  
+## <a name="stage-4-scoring"></a>Fase 4: Puntuaciones  
 
 A todos los documentos de un conjunto de resultados de búsqueda se les asigna una puntuación de relevancia. La función de la puntuación de relevancia es rango superior en aquellos documentos que responden mejor a una pregunta de usuario según lo expresado por la consulta de búsqueda. La puntuación se calcula en función de propiedades estadísticas de términos que coinciden. La base de la fórmula de puntuación es [TF/IDF (frecuencia del documento de frecuencia inversa del término)](https://en.wikipedia.org/wiki/Tf%E2%80%93idf). En las consultas que contienen términos comunes y poco frecuentes, TF/IDF favorece a los resultados que contienen el término poco frecuente. Por ejemplo, en un índice hipotético con todos los artículos de Wikipedia, de documentos que coincidían con la consulta *el presidente*, los documentos que coinciden con *presidente* se consideran más importantes que los documentos que coinciden con *el*.
 

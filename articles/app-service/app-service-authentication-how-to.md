@@ -4,12 +4,12 @@ description: Aprenda a personalizar la característica de autenticación y autor
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: d57b196bf95ebdf31bc459ad4b9d718fd32ca495
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6efa5461fab9faf3ce1599a01540cf314b34281b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236196"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85205652"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avanzado de la autenticación y autorización en Azure App Service
 
@@ -35,7 +35,7 @@ En **Action to take when request is not authenticated** (Acción necesaria cuand
 
 En la página de inicio de sesión, en la barra de navegación o en cualquier otra ubicación de la aplicación, agregue un vínculo de inicio de sesión a cada uno de los proveedores que ha habilitado (`/.auth/login/<provider>`). Por ejemplo:
 
-```HTML
+```html
 <a href="/.auth/login/aad">Log in with Azure AD</a>
 <a href="/.auth/login/microsoftaccount">Log in with Microsoft Account</a>
 <a href="/.auth/login/facebook">Log in with Facebook</a>
@@ -47,7 +47,7 @@ Cuando el usuario haga clic en uno de los vínculos, la página de inicio de ses
 
 Para redirigir al usuario después del inicio de sesión a una dirección URL personalizada, use el parámetro de cadena de consulta `post_login_redirect_url` (que no debe confundirse con el URI de redireccionamiento den su configuración de proveedor de identidades). Por ejemplo, para redirigir al usuario a `/Home/Index` después de iniciar sesión, utilice el siguiente código HTML:
 
-```HTML
+```html
 <a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
 ```
 
@@ -103,7 +103,7 @@ Los usuarios pueden iniciar un cierre de sesión mediante el envío de una solic
 
 A continuación, se muestra un vínculo de cierre de sesión simple en una página web:
 
-```HTML
+```html
 <a href="/.auth/logout">Sign out</a>
 ```
 
@@ -176,7 +176,7 @@ Cuando el token de acceso de su proveedor (no el [token de sesión](#extend-sess
 - **Cuenta Microsoft**: cuando [defina la configuración de autenticación de Cuenta Microsoft](configure-authentication-provider-microsoft.md), seleccione el ámbito `wl.offline_access`.
 - **Azure Active Directory**: en [https://resources.azure.com](https://resources.azure.com), siga estos pasos:
     1. En la parte superior de la página, seleccione **Lectura y escritura**.
-    2. En el explorador de la izquierda, desplácese hasta **subscriptions** >  **\<_nombre\_suscripción_**  > **resourceGroups** >  **\<_nombre\_grupo\_recursos>_**  > **providers** > **Microsoft.Web** > **sites** >  **\<_nombre\_aplicación>_**  > **config** > **authsettings**. 
+    2. En el explorador de la izquierda, vaya a **subscriptions** > ** _\<subscription\_name_** > **resourceGroups** > **_ \<resource\_group\_name> _** > **providers** > **Microsoft.Web** > **sites** > **_ \<app\_name>_** > **config** > **authsettings**. 
     3. Haga clic en **Editar**.
     4. Modifique la siguiente propiedad. Reemplace _\<app\_id>_ por el identificador de aplicación de Azure Active Directory del servicio al que desea acceder.
 
@@ -190,7 +190,7 @@ Una vez configurado el proveedor, puede [buscar el token de actualización y el 
 
 Para actualizar el token de acceso en cualquier momento, simplemente llame a `/.auth/refresh` en cualquier lenguaje. El fragmento de código siguiente utiliza jQuery para actualizar los tokens de acceso de un cliente de JavaScript.
 
-```JavaScript
+```javascript
 function refreshTokens() {
   let refreshUrl = "/.auth/refresh";
   $.ajax(refreshUrl) .done(function() {
@@ -223,9 +223,9 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 Cuenta Microsoft y Azure Active Directory le permiten iniciar sesión desde varios dominios. Por ejemplo, Cuenta Microsoft permite cuentas de _outlook.com_, _live.com_ y _hotmail.com_. Azure AD permite cualquier número de dominios personalizados para las cuentas de inicio de sesión. Sin embargo, puede que quiera acelerar el proceso para que los usuarios accedan directamente a su propia página de inicio de sesión personalizada de Azure AD (por ejemplo, `contoso.com`). Para sugerir el nombre de dominio de las cuentas de inicio de sesión, siga estos pasos.
 
-En [https://resources.azure.com](https://resources.azure.com), desplácese hasta **subscriptions** >  **\<_nombre\_ suscripción_**  > **resourceGroups** >  **\<_nombre\_ grupo\_ recursos>_**  > **providers** > **Microsoft.Web** > **sites** >  **\<_nombre\_ aplicación>_**  > **config** > **authsettings**. 
+En [https://resources.azure.com](https://resources.azure.com), vaya a **subscriptions** > ** _\<subscription\_name_** > **resourceGroups** > **_ \<resource\_group\_name> _** > **providers** > **Microsoft.Web** > **sites** > **_ \<app\_name> _** > **config** > **authsettings**. 
 
-Haga clic en **Editar**, modifique la propiedad siguiente y luego haga clic en **Put**. No olvide reemplazar _\<domain\_name>_ por el dominio que desee.
+Haga clic en **Editar**, modifique la propiedad siguiente y luego haga clic en **Put**. Asegúrese de reemplazar _\<domain\_name>_ por el dominio que desee.
 
 ```json
 "additionalLoginParams": ["domain_hint=<domain_name>"]

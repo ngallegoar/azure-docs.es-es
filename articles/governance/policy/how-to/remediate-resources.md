@@ -1,14 +1,14 @@
 ---
 title: Corrección de recursos no compatibles
 description: En esta guía se explica la corrección de los recursos que no son conformes con las directivas de Azure Policy.
-ms.date: 02/26/2020
+ms.date: 06/09/2020
 ms.topic: how-to
-ms.openlocfilehash: acdb067e888ecbe68e3221944568b202f2510c41
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: be55f16734a94acfcc89d632f4cb79f550fa74d5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849967"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84636315"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corregir los recursos no conformes con Azure Policy
 
@@ -17,7 +17,7 @@ Los recursos que no son conformes con un directiva **deployIfNotExists** o **mod
 ## <a name="how-remediation-security-works"></a>Cómo funciona la seguridad de corrección
 
 Cuando Azure Policy ejecuta la plantilla en la definición de directiva **deployIfNotExists**, lo hace mediante una [identidad administrada](../../../active-directory/managed-identities-azure-resources/overview.md).
-Azure Policy crea una identidad administrada para cada asignación, pero debe proporcionar detalles sobre los roles que se conceden a la identidad administrada. Si faltan roles en la identidad administrada, este error se muestra durante la asignación de la directiva o una iniciativa. Al usar el portal, Azure Policy concede automáticamente a la identidad administrada los roles enumerados cuando se inicia la asignación. La _ubicación_ de la identidad administrada no afecta a su funcionamiento con Azure Policy.
+Azure Policy crea una identidad administrada para cada asignación, pero debe proporcionar detalles sobre los roles que se conceden a la identidad administrada. Si faltan roles en la identidad administrada, este error se muestra durante la asignación de la directiva o una iniciativa. Al usar el portal, Azure Policy concede automáticamente a la identidad administrada los roles enumerados cuando se inicia la asignación. La propiedad _location_ de la identidad administrada no afecta a su funcionamiento con Azure Policy.
 
 :::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Identidad administrada - función ausente" border="false":::
 
@@ -51,9 +51,6 @@ Al crear un trabajo mediante el portal, Azure Policy genera la identidad adminis
 - Al usar el SDK (por ejemplo, Azure PowerShell)
 - Cuando la plantilla modifica un recurso fuera del ámbito de asignación
 - Cuando la plantilla lee un recurso fuera del ámbito de asignación
-
-> [!NOTE]
-> Azure PowerShell y .NET son el únicos SDK que actualmente admiten esta funcionalidad.
 
 ### <a name="create-managed-identity-with-powershell"></a>Creación de una identidad administrada con PowerShell
 
@@ -183,7 +180,7 @@ Para obtener otros cmdlets de corrección y ejemplos, consulte el módulo [Az.Po
 
 ### <a name="create-a-remediation-task-during-policy-assignment-in-the-azure-portal"></a>Creación de una tarea de corrección durante la asignación de la directiva en Azure Portal
 
-Una forma optimizada de crear una tarea de corrección es hacerlo desde Azure Portal durante la asignación de la directiva. Si la definición de la directiva es asignar un efecto **deployIfNotExists** o un efecto **Modify**, el asistente que aparece en la pestaña **Corrección** ofrece una opción _Crear una tarea de corrección_. Si se selecciona esta opción, se crea una tarea de corrección al mismo tiempo que la asignación de la directiva.
+Una forma optimizada de crear una tarea de corrección es hacerlo desde Azure Portal durante la asignación de la directiva. Si la definición de la directiva a asignar es **deployIfNotExists** o un efecto **Modify**, el asistente de la pestaña **Corrección** ofrece una opción _Crear una tarea de corrección_. Si se selecciona esta opción, se crea una tarea de corrección al mismo tiempo que la asignación de la directiva.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

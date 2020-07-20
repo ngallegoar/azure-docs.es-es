@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 1fdee9a5d90fc065e198d880f9d0dea10804b881
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a9e6e8276733eeed88561ed39a6702aec76286a4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75972648"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85317776"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Creación de plantillas de Azure Resource Manager para automatizar la implementación de Azure Logic Apps
 
@@ -45,7 +45,7 @@ Al descargar la aplicación lógica, obtiene una plantilla que incluye las defin
 
 Puede crear plantillas de Resource Manager mediante Azure PowerShell con el [módulo LogicAppTemplate](https://github.com/jeffhollan/LogicAppTemplateCreator). Este módulo de código abierto evalúa primero la aplicación lógica y las conexiones que usa. Después, el módulo genera los recursos de plantilla con los parámetros necesarios para la implementación.
 
-Por ejemplo, suponga que tiene una aplicación lógica que recibe un mensaje de una cola de Azure Service Bus y sube datos a una base de datos de Azure SQL. El módulo conserva toda la lógica de orquestación y parametriza las cadenas de conexión de SQL y Service Bus con el fin de que se puedan proporcionar y cambiar esos valores en función de sus necesidades de implementación.
+Por ejemplo, suponga que tiene una aplicación lógica que recibe un mensaje de una cola de Azure Service Bus y sube datos a Azure SQL Database. El módulo conserva toda la lógica de orquestación y parametriza las cadenas de conexión de SQL y Service Bus con el fin de que se puedan proporcionar y cambiar esos valores en función de sus necesidades de implementación.
 
 En estos ejemplos se muestra cómo crear e implementar aplicaciones lógicas mediante plantillas de Azure Resource Manager, Azure Pipelines en Azure DevOps y Azure PowerShell:
 

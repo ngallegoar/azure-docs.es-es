@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 06/23/2020
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f4c3330b23b8b724cdbf5d7e09eec8a8dd5b8cfa
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 3bf9dc0e69707eaed8c2a844f6ed3169e65a5342
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81258990"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564078"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintaxis de consulta de Lucene en Azure Cognitive Search
 
@@ -46,13 +46,13 @@ En el ejemplo siguiente se buscan documentos en el índice mediante la sintaxis 
 El parámetro `searchMode=all` es significativo en este ejemplo. Cada vez que los operadores están en la consulta, normalmente debe establecer `searchMode=all` para asegurarse de que se busca la coincidencia con *todos* los criterios.
 
 ```
-GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2019-05-06&querytype=full
+GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2020-06-30&querytype=full
 ```
 
  Como alternativa, use POST:  
 
 ```
-POST /indexes/hotels/docs/search?api-version=2019-05-06
+POST /indexes/hotels/docs/search?api-version=2020-06-30
 {
   "search": "category:budget AND \"recently renovated\"^3",
   "queryType": "full",
@@ -166,21 +166,23 @@ En el siguiente ejemplo se muestran las diferencias. Suponga que hay un perfil d
  Para impulsar un término, use el símbolo de intercalación, "^", un símbolo con un factor de impulso (un número) al final del término que quiera buscar. También puede impulsar frases. Cuanto mayor sea el factor de prioridad, más relevante será el término en relación con otros términos de búsqueda. De forma predeterminada, el factor de prioridad es 1. Aunque el factor de impulso debe ser positivo, puede ser inferior a 1 (por ejemplo, 0,20).  
 
 ##  <a name="regular-expression-search"></a><a name="bkmk_regex"></a> Búsqueda de expresiones regulares  
- Una búsqueda de expresión regular encuentra una coincidencia en función del contenido entre barras diagonales "/", como se documentó en la [clase RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).  
+ Una búsqueda de expresión regular encuentra una coincidencia en función de los patrones que son válidos en Apache Lucene, como se documenta en la [clase RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html). En Azure Cognitive Search, se incluye una expresión regular entre barras diagonales `/`.
 
  Por ejemplo, para encontrar documentos que contengan "motel" o "hotel", especifique `/[mh]otel/`. Las búsquedas mediante expresiones regulares se comparan con las palabras individuales.
 
 Algunas herramientas y algunos idiomas imponen requisitos adicionales de caracteres de escape. En el caso de JSON, las cadenas que incluyen una barra diagonal tienen un carácter de escape con una barra diagonal inversa: "microsoft.com/azure/" se convierte en `search=/.*microsoft.com\/azure\/.*/`, donde `search=/.* <string-placeholder>.*/` configura la expresión regular y `microsoft.com\/azure\/` es la cadena con una barra diagonal de escape.
 
-##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a> Búsqueda con caracteres comodín  
+##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a> Búsqueda con caracteres comodín
 
-Puede utilizar la sintaxis generalmente reconocida para búsquedas con caracteres comodín únicas (?) o múltiples (*). Tenga en cuenta que el Analizador de consultas de Lucene admite el uso de estos símbolos con un único término y no una frase.
+Puede usar la sintaxis generalmente reconocida para búsquedas con caracteres comodín únicas (`*`) o múltiples (`?`). Por ejemplo, una expresión de consulta de `search=alpha*` devuelve "alfanumérico" o "alfabético". Tenga en cuenta que el Analizador de consultas de Lucene admite el uso de estos símbolos con un único término y no una frase.
 
-La búsqueda de prefijos también usa el carácter de asterisco (`*`). Por ejemplo, una expresión de consulta de `search=note*` devuelve "notebook" o "notepad". La sintaxis de Lucene completa no es necesaria para la búsqueda de prefijos. La sintaxis simple admite este escenario.
+La sintaxis de Lucene completa admite la coincidencia de prefijos, infijos y sufijos. Sin embargo, si solo necesita la coincidencia de prefijos, puede utilizar la sintaxis simple (la coincidencia de prefijos se admite en ambos).
 
-La búsqueda de sufijos, donde `*` o `?` precede a la cadena, requiere la sintaxis de Lucene completa y una expresión regular (no puede usar un símbolo * ni ? como primer carácter de una búsqueda). Dado el término "alfanumérico", una expresión de consulta de (`search=/.*numeric.*/`) encontrará la coincidencia.
+La coincidencia de sufijos, en la que `*` o `?` precede a la cadena (como en `search=/.*numeric./`) o la coincidencia de infijos requiere una sintaxis completa de Lucene, así como los delimitadores de barra diagonal `/` de la expresión regular. ¿No puede utilizar un símbolo * o ? como primer carácter de un término, o dentro de un término, sin `/`. 
 
 > [!NOTE]  
+> Como norma general, la coincidencia de patrones es lenta, por lo que es posible que desee explorar métodos alternativos, como la tokenización de n-gramas perimetrales que crea tokens para las secuencias de caracteres de un término. El índice será mayor, pero las consultas se podrían ejecutar más rápido, según la construcción del patrón y la longitud de las cadenas que se van a indexar.
+>
 > Durante el análisis de consultas, las consultas que se formulan como prefijo, sufijo, carácter comodín o expresiones regulares se pasan tal cual al árbol de consultas y se omite el [análisis léxico](search-lucene-query-architecture.md#stage-2-lexical-analysis). Solo se encontrarán coincidencias si el índice contiene las cadenas en el formato que especifica la consulta. En la mayoría de los casos, durante la indexación necesitará un analizador alternativo que conserve la integridad de las cadenas para que la coincidencia de patrones y términos parciales sea correcta. Para obtener más información, consulte [Búsqueda de términos parciales en las consultas de Azure Cognitive Search](search-query-partial-matching.md).
 
 ##  <a name="scoring-wildcard-and-regex-queries"></a><a name="bkmk_searchscoreforwildcardandregexqueries"></a> Puntuación de consultas de caracteres comodín y expresiones regulares

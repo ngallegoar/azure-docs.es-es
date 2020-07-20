@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 14bf43375e2ebe37d496a7343c5f85c41f55bc29
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 2ea850acf0ef581ea66733b0293ba044c87bb3a0
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307248"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362149"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Creación de un asistente de voz mediante comandos personalizados
 
@@ -24,7 +24,7 @@ En este inicio rápido, creará y probará una aplicación básica de Comandos p
 ## <a name="prerequisites"></a>Requisitos previos
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Creación de un recurso de voz de Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Cree un recurso de Voz de Azure en una región que admita Comandos personalizados.<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 > * Descargue el archivo JSON de ejemplo [Smart Room Lite](https://aka.ms/speech/cc-quickstart).
 > * Descargue la versión más reciente del [cliente de asistente de voz de Windows](https://aka.ms/speech/va-samples-wvac).
 
@@ -82,7 +82,8 @@ Ahora se debe mostrar una visión general de la nueva aplicación de Comandos pe
     - Turn on the tv (enciende el televisor)
     - Establecer la temperatura en 80 grados
     - Apagarlo
-    - Establecer una alarma
+    - El televisor
+    - Establecer una alarma a las 5 p.m.
 
 ## <a name="integrate-custom-commands-application-in-an-assistant"></a>Integración de la aplicación de Comandos personalizados en un asistente
 Para acceder a esta aplicación desde fuera de Speech Studio, debe publicarla. Para publicar una aplicación, tendrá que configurar el recurso LUIS de predicción.  
@@ -110,7 +111,7 @@ También puede obtener estos valores al seleccionar la sección **Configuración
 
 En este artículo, se usará el cliente del asistente de voz de Windows que descargó como parte de los requisitos previos. Descomprima la carpeta.
 1. Inicie **VoiceAssistantClient.exe**.
-1. Cree un nuevo perfil de publicación y especifique el valor de **Perfil de conexión**. En la sección **Configuración general**, escriba los valores de **Clave de suscripción**, **Subscription key region** (región de clave de suscripción) y **Custom commands app ID** (id. de la aplicación de comandos personalizados).
+1. Cree un nuevo perfil de publicación y especifique el valor de **Perfil de conexión**. En la sección **General Settings** (Configuración general), escriba los valores de **Subscription Key** (Clave de suscripción), que es el mismo que el valor de **Speech resource key** (Clave del recurso de Voz) que guardó al publicar la aplicación; **Subscription key region** (Región de clave de suscripción) y **Custom commands app ID** (Id. de la aplicación de comandos personalizados).
     > [!div class="mx-imgBorder"]
     > ![Creación de perfil de WVAC](media/custom-commands/create-profile.png)
 1. Seleccione **Save and Apply Profile** (guardar y aplicar perfil).

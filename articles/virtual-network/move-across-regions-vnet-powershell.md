@@ -3,15 +3,15 @@ title: Traslado de una red virtual de Azure a otra región de Azure mediante Azu
 description: Traslade una red virtual de Azure de una región de Azure a otra mediante una plantilla de Resource Manager y Azure PowerShell.
 author: asudbring
 ms.service: virtual-network
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: dc316e5bbb88359ff8b1e8a4fc35a56541a577f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e13164c3ec6049a8ae3954528a02d20e313dd883
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75646717"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711466"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-azure-powershell"></a>Traslado de una red virtual de Azure a otra región mediante Azure PowerShell
 
@@ -20,7 +20,7 @@ Hay varios escenarios para mover una red virtual de Azure existente de una regi�
 Puede usar una plantilla de Azure Resource Manager para completar el traslado de la red virtual a otra región. Para ello, exporte la red virtual a una plantilla, modifique los parámetros para que coincidan con la región de destino y, a continuación, implemente la plantilla en la región nueva. Para más información sobre las plantillas de Resource Manager, consulte [Exportación de grupos de recursos a plantillas](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates).
 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Asegúrese de que la red virtual se encuentra en la región de Azure desde la que desea moverla.
 
@@ -60,7 +60,7 @@ Para exportar la red virtual e implementar la red virtual de destino mediante Po
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-1. El archivo descargado tendrá el mismo nombre que el grupo de recursos desde el que se exportó el recurso. Busque el archivo *\<nombre-del-grupo-de-recursos>.json*, que exportó con el comando y, a continuación, ábralo en el editor:
+1. El archivo descargado tendrá el mismo nombre que el grupo de recursos desde el que se exportó el recurso. Busque el archivo *\<resource-group-name>.json*, que exportó con el comando y, a continuación, ábralo en el editor:
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
@@ -105,7 +105,7 @@ Para exportar la red virtual e implementar la red virtual de destino mediante Po
     Get-AzLocation | format-table
     ```
 
-1. (Opcional) También puede cambiar otros parámetros del archivo *\<nombre-del-grupo-de-recursos>.json*, según sus necesidades:
+1. (Opcional) También puede cambiar otros parámetros del archivo *\<resource-group-name>.json*, según sus requisitos:
 
     * **Espacio de direcciones**: antes de guardar el archivo, puede modificar el espacio de direcciones de la red virtual; para ello, modifique la sección **resources** > **addressSpace** y cambie la propiedad **addressPrefixes**:
 
@@ -193,7 +193,7 @@ Para exportar la red virtual e implementar la red virtual de destino mediante Po
          ]
         ```
 
-1. Guarde el archivo *\<nombre-del-grupo-de-recursos>.json*.
+1. Guarde el archivo *\<resource-group-name>.json*.
 
 1. Cree un grupo de recursos en la región de destino para la red virtual de destino que se va a implementar, mediante [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0):
     
@@ -201,7 +201,7 @@ Para exportar la red virtual e implementar la red virtual de destino mediante Po
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-1. Implemente el archivo *\<nombre-del-grupo-de-recursos>.json* editado en el grupo de recursos que creó en el paso anterior, mediante [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+1. Implemente el archivo *\<resource-group-name>.json* editado en el grupo de recursos que creó en el paso anterior mediante el recurso [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 

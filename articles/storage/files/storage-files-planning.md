@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5356ff0ac165deefc5053cf4faa40c1159e98678
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: d1d36c6f6413a9438063c6fe30403af095ed9a6b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856901"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84659637"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 [Azure Files](storage-files-introduction.md) se puede implementar de dos formas principales: montando directamente los recursos compartidos de archivos de Azure sin servidor o almacenando en caché recursos compartidos de archivos de Azure localmente mediante Azure File Sync. La opción de implementación que elija cambiará todo aquello que debe tener en cuenta a la hora de planear la implementación. 
@@ -160,17 +160,12 @@ Los nuevos recursos compartidos de archivo empiezan con la cantidad total de cr�
 [!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]
 
 ## <a name="migration"></a>Migración
-En muchos casos, no se establecerá un nuevo recurso compartido de archivos para su organización, sino que se migrará uno existente de un servidor de archivos local o un dispositivo NAS a Azure Files. Existen muchas herramientas, que proporcionan tanto Microsoft como terceros, para realizar una migración a un recurso compartido de archivos, pero se pueden dividir en dos categorías aproximadamente:
+En muchos casos, no se establecerá un nuevo recurso compartido de archivos para su organización, sino que se migrará uno existente de un servidor de archivos local o un dispositivo NAS a Azure Files. La elección de la herramienta y estrategia de migración adecuadas para el escenario es importante para el éxito de la migración. 
 
-- **Herramientas que mantienen atributos del sistema de archivos, como las ACL y las marcas de tiempo**:
-    - **[Azure File Sync](storage-sync-files-planning.md)** : Azure File Sync puede usarse como método para ingerir datos en un recurso compartido de archivos de Azure, incluso cuando la implementación final deseada no va a mantener una presencia local. Azure File Sync se puede instalar en su lugar en implementaciones existentes de Windows Server 2012 R2, Windows Server 2016 y Windows Server 2019. Una ventaja de utilizar Azure File Sync como mecanismo de ingesta es que los usuarios finales pueden seguir usando el recurso compartido de archivos existente. La desactivación del recurso compartido de archivos de Azure puede producirse después de cargar todos los datos en segundo plano.
-    - **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** : Robocopy es una herramienta de copia conocida que se incluye con Windows y Windows Server. Robocopy puede usarse para transferir datos a Azure Files al montar el recurso compartido de archivos localmente y luego usar la ubicación montada como destino en el comando de Robocopy.
-
-- **Herramientas que no mantienen atributos del sistema de archivos**:
-    - **Data Box**: Data Box proporciona un mecanismo de transferencia de datos sin conexión para enviar datos físicamente a Azure. Este método está diseñado para aumentar el rendimiento y ahorrar ancho de banda, pero actualmente no admite atributos del sistema de archivos como marcas de tiempo y listas ACL.
-    - **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : AzCopy es una utilidad de línea de comandos diseñada para copiar datos a y desde Azure Files, así como Azure Blob Storage, mediante sencillos comandos con un rendimiento óptimo.
+En el [artículo de introducción a la migración](storage-files-migration-overview.md) se describen brevemente los aspectos básicos y se incluye una tabla que le conduce a guías de migración que probablemente cubran su escenario.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md)
 * [Implementación de Azure Files](storage-files-deployment-guide.md)
 * [Implementación de Azure File Sync](storage-sync-files-deployment-guide.md)
+* [Consulte el artículo de introducción a la migración para encontrar la guía de migración para su escenario.](storage-files-migration-overview.md)

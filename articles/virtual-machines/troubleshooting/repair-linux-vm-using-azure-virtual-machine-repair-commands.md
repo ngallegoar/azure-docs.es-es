@@ -14,19 +14,24 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 9029082a275905bbdb9efe0cefa05337c9969a2f
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: a7357ef3b0151096746e37bddd235f0db53baed7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219906"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85444818"
 ---
 # <a name="repair-a-linux-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparación de una máquina virtual Linux mediante los comandos de reparación de máquinas virtuales de Azure
 
 Si la máquina virtual Linux de Azure se encuentra un error de disco o de arranque, deberá realizar la mitigación en el propio disco. Un ejemplo habitual sería una actualización de aplicación con error que impide que la máquina virtual se pueda arrancar correctamente. En este artículo se detalla cómo utilizar los comandos de reparación de máquinas virtuales de Azure para conectar el disco a otra máquina virtual Linux para corregir los errores y, posteriormente, reconstruir la máquina virtual original.
 
 > [!IMPORTANT]
-> Los scripts de este artículo solo se aplican a las máquinas virtuales que usan [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+> * Los scripts de este artículo solo se aplican a las máquinas virtuales que usan [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+> * La conectividad de salida de la máquina virtual (puerto 443) es necesaria para que se ejecute el script.
+> * Solo se puede ejecutar un script a la vez.
+> * Un script en ejecución no se puede cancelar.
+> * El tiempo máximo que se puede ejecutar un script es de noventa minutos después de agotarse el tiempo de espera.
+> * En el caso de las máquinas virtuales que usan Azure Disk Encryption, solo se admiten los discos administrados cifrados con el cifrado de un solo paso (con o sin KEK).
 
 ## <a name="repair-process-overview"></a>Información general del proceso de reparación
 
@@ -53,6 +58,8 @@ Para documentación e instrucciones adicionales, consulte [az vm repair](https:/
    Seleccione **Copiar** para copiar los bloques de código, luego pegue el código en Cloud Shell y, por último, seleccione **Entrar** para ejecutarlo.
 
    Si prefiere instalar y usar la CLI en un entorno local, para esta guía de inicio rápido se requiere la versión 2.0.30 de la CLI de Azure o una versión posterior. Ejecute ``az --version`` para encontrar la versión. Si necesita instalar o actualizar la CLI de Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+   
+   Si tiene que iniciar sesión en Cloud Shell con una cuenta diferente a la que ha iniciado sesión actualmente en Azure Portal, puede usar ``az login`` [de la referencia de az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login).  Para cambiar entre suscripciones asociadas a su cuenta, puede usar ``az account set --subscription`` [de la referencia de az account set](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set).
 
 2. Si es la primera vez que usa los comandos `az vm repair`, agregue la extensión de la CLI vm-repair.
 
@@ -66,7 +73,7 @@ Para documentación e instrucciones adicionales, consulte [az vm repair](https:/
    az extension update -n vm-repair
    ```
 
-3. Ejecute `az vm repair create`. Este comando creará una copia del disco del sistema operativo para la máquina virtual no funcional, creará una máquina virtual de reparación en un nuevo grupo de recursos y conectará la copia del disco del sistema operativo.  La máquina virtual de reparación tendrá el mismo tamaño y región que la máquina virtual no funcional especificada. El grupo de recursos y el nombre de la máquina virtual que se usan en todos los pasos serán los de la máquina virtual no funcional.
+3. Ejecute `az vm repair create`. Este comando creará una copia del disco del sistema operativo para la máquina virtual no funcional, creará una máquina virtual de reparación en un nuevo grupo de recursos y conectará la copia del disco del sistema operativo.  La máquina virtual de reparación tendrá el mismo tamaño y región que la máquina virtual no funcional especificada. El grupo de recursos y el nombre de la máquina virtual que se usan en todos los pasos serán los de la máquina virtual no funcional. Si la máquina virtual usa Azure Disk Encryption, el comando intentará desbloquear el disco cifrado para que sea accesible cuando se conecte a la máquina virtual de reparación.
 
    ```azurecli-interactive
    az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose

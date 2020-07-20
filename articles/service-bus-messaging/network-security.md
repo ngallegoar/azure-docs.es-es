@@ -1,23 +1,14 @@
 ---
 title: Seguridad de red para Azure Service Bus
 description: En este artículo se describen las características de seguridad de red, como las etiquetas de servicio, las reglas de firewall de IP, los puntos de conexión de servicio y los puntos de conexión privados.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/13/2020
-ms.author: aschhab
-ms.openlocfilehash: 95f8c2a3b47b59bab7df909be43dacdb1f9c58f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 731300179ce9a0ff72169cdad5c7c039749b20f6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79475990"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85341135"
 ---
 # <a name="network-security-for-azure-service-bus"></a>Seguridad de red para Azure Service Bus 
 En este artículo se describe cómo usar las siguientes características de seguridad con Azure Service Bus: 
@@ -29,7 +20,7 @@ En este artículo se describe cómo usar las siguientes características de segu
 
 
 ## <a name="service-tags"></a>Etiquetas de servicio
-Una etiqueta de servicio representa un grupo de prefijos de direcciones IP de un servicio de Azure determinado. Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian, lo que minimiza la complejidad de las actualizaciones frecuentes en las reglas de seguridad de red. Para obtener más información sobre las etiquetas de servicio, consulte [Introducción a las etiquetas de servicio](../virtual-network/service-tags-overview.md).
+Una etiqueta de servicio representa un grupo de prefijos de direcciones IP de un servicio de Azure determinado. Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian, lo que minimiza la complejidad de las actualizaciones frecuentes en las reglas de seguridad de red. Para más información sobre las etiquetas de servicio, consulte [Introducción a las etiquetas de servicio](../virtual-network/service-tags-overview.md).
 
 Puede usar etiquetas de servicio para definir controles de acceso a la red en [grupos de seguridad de red](../virtual-network/security-overview.md#security-rules) o [Azure Firewall](../firewall/service-tags.md). Utilice etiquetas de servicio en lugar de direcciones IP específicas al crear reglas de seguridad. Al especificar el nombre de la etiqueta de servicio (por ejemplo, **ServiceBus**) en el campo de *origen* o *destino* apropiado de una regla, puede permitir o denegar el tráfico para el servicio correspondiente.
 
@@ -37,6 +28,9 @@ Puede usar etiquetas de servicio para definir controles de acceso a la red en [g
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | **Service Bus** | Tráfico de Azure Service Bus que usa el nivel de servicio Premium. | Salida | Sí | Sí |
 
+
+> [!NOTE]
+> Solo puede usar etiquetas de servicio para los espacios de nombres **Premium**. Si usa un espacio de nombres **estándar**, use la dirección IP que aparece al ejecutar el siguiente comando: `nslookup <host name for the namespace>`. Por ejemplo: `nslookup contosons.servicebus.windows.net`. 
 
 ## <a name="ip-firewall"></a>Firewall de dirección IP 
 De forma predeterminada, los espacios de nombres de Service Bus son accesibles desde Internet, siempre que la solicitud venga con una autenticación y una autorización válidas. Con el firewall de IP, puede restringirlo aún más a solo un conjunto de direcciones o intervalos de direcciones IPv4 en notación [CIDR (Enrutamiento de interdominios sin clases)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).

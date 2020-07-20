@@ -2,21 +2,21 @@
 title: Procedimiento para configurar el inicio de sesión único con contraseña para aplicaciones de Azure AD | Microsoft Docs
 description: Procedimiento para configurar el inicio de sesión único (SSO) en aplicaciones empresariales que no están en la plataforma de identidad de Microsoft (Azure AD)
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/10/2019
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 563bda275b73f76b042b5e57a9909ca78c504bb3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 043adc309c3480865eb9aa7a7bff8d35e85bc78a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77063533"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763506"
 ---
 # <a name="configure-password-single-sign-on"></a>Configuración del inicio de sesión único con contraseña
 
@@ -68,7 +68,7 @@ Si la aplicación no se ha agregado a su inquilino de Azure AD, consulte [Incor
 
 Si se produce un error en el intento de análisis de Azure AD, puede configurar el inicio de sesión manualmente.
 
-1. En **Configuración de \<nombreDeAplicación>** , seleccione **Establecer configuración de inicio de sesión único con contraseña de \<nombreDeAplicación> para mostrar la página** **Configurar inicio de sesión**. 
+1. En **\<application name> Configuración**, seleccione  **Configurar\<application name> Establecer configuración de inicio de sesión único con contraseña** para mostrar la página **Configurar inicio de sesión**. 
 
 2. Seleccione **Detectar campos de inicio de sesión manualmente**. Aparecen instrucciones adicionales que describen la detección manual de los campos de inicio de sesión.
 

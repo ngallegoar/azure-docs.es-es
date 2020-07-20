@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Adición de una base de datos a un grupo de conmutación por error'
-description: Agregue una instancia de Azure SQL Database a un grupo de conmutación por error mediante Azure Portal, PowerShell o la CLI de Azure.
+title: 'Tutorial: Adición de una base de datos única a un grupo de conmutación por error'
+description: Agregue una base de datos de Azure SQL Database a un grupo de conmutación por error mediante Azure Portal, PowerShell o la CLI de Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,27 +11,27 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: 78904feac106fbd1b612dfd494a2e8a280b40b25
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 53645b6ba9f1463eac14ea974a17c356c1791db6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84040316"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85255320"
 ---
-# <a name="tutorial-add-an-azure-sql-database-to-an-auto-failover-group"></a>Tutorial: Adición de una instancia de Azure SQL Database a un grupo de conmutación por error
+# <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>Tutorial: Adición de una base de datos de Azure SQL Database a un grupo de conmutación por error
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Un [grupo de conmutación por error](auto-failover-group-overview.md) es una capa de abstracción declarativa que permite agrupar varias bases de datos con replicación geográfica. Aprenda a configurar un grupo de conmutación por error para una instancia de Azure SQL Database, y pruebe la conmutación por error mediante Azure Portal, PowerShell o la CLI de Azure.  En este tutorial, aprenderá a:
+Un [grupo de conmutación por error](auto-failover-group-overview.md) es una capa de abstracción declarativa que permite agrupar varias bases de datos con replicación geográfica. Aprenda a configurar un grupo de conmutación por error para una base de datos de Azure SQL Database y pruebe la conmutación por error mediante Azure Portal, PowerShell o la CLI de Azure.  En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 >
-> - Crear una base de datos en Azure SQL Database.
+> - Creación de una base de datos de Azure SQL Database
 > - Crear un grupo de conmutación por error para la base de datos entre dos servidores.
 > - Probar la conmutación por error.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="the-portal"></a>[Portal](#tab/azure-portal)
 
 Para completar este tutorial, asegúrese de disponer de los siguientes elementos:
 
@@ -44,7 +44,7 @@ Para completar el tutorial, asegúrese de que cuenta con los elementos siguiente
 - Suscripción a Azure. [Cree una cuenta gratuita](https://azure.microsoft.com/free/) si aún no tiene una.
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[La CLI de Azure](#tab/azure-cli)
 
 Para completar el tutorial, asegúrese de que cuenta con los elementos siguientes:
 
@@ -61,7 +61,7 @@ Para completar el tutorial, asegúrese de que cuenta con los elementos siguiente
 
 En este paso, va a crear un [grupo de conmutación por error](auto-failover-group-overview.md) entre un servidor existente y uno nuevo en otra región. A continuación, agregue la base de datos de ejemplo al grupo de conmutación por error.
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="the-portal"></a>[Portal](#tab/azure-portal)
 
 Cree el grupo de conmutación por error y agregue la base de datos mediante Azure Portal.
 
@@ -172,7 +172,7 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) | Obtiene una o más bases de datos en Azure SQL Database. |
 | [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Agrega una o varias bases de datos a un grupo de conmutación por error en Azure SQL Database. |
 
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[La CLI de Azure](#tab/azure-cli)
 
 Cree el grupo de conmutación por error y agregue la base de datos mediante la CLI de Azure.
 
@@ -197,7 +197,7 @@ En esta parte del tutorial se usan los siguientes cmdlets de la CLI de Azure:
 
 | Get-Help | Notas |
 |---|---|
-| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Crea un servidor que hospeda bases de datos y grupos elásticos. |
+| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Crea un servidor que hospeda las bases de datos y los grupos elásticos. |
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | Crea las reglas de firewall de un servidor. |
 | [az sql failover-group create](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create) | Crea un grupo de conmutación por error. |
 
@@ -207,7 +207,7 @@ En esta parte del tutorial se usan los siguientes cmdlets de la CLI de Azure:
 
 En este paso, se producirá un error en el grupo de conmutación por error en el servidor secundario y, a continuación, se realizará la conmutación por recuperación mediante Azure Portal.
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="the-portal"></a>[Portal](#tab/azure-portal)
 
 Pruebe la conmutación por error mediante Azure Portal.
 
@@ -222,10 +222,10 @@ Pruebe la conmutación por error mediante Azure Portal.
    ![Seleccione el grupo de conmutación por error en el portal.](./media/failover-group-add-single-database-tutorial/select-failover-group.png)
 
 1. Revise cuál es el servidor principal y cuál el secundario.
-1. Seleccione **Conmutación por error** en el panel de tareas para conmutar por error el grupo correspondiente que contiene la base de datos de ejemplo.
+1. Seleccione **Conmutación por error** en el panel de tareas para conmutar por error el grupo de conmutación por error que contiene la base de datos de ejemplo.
 1. Seleccione **Sí** en la advertencia que le notifica que las sesiones de TDS se desconectarán.
 
-   ![Conmutación por error del grupo de conmutación por error que contiene la base de datos SQL](./media/failover-group-add-single-database-tutorial/failover-sql-db.png)
+   ![Conmutación por error del grupo de conmutación por error que contiene la base de datos](./media/failover-group-add-single-database-tutorial/failover-sql-db.png)
 
 1. Revise qué servidor es ahora el principal y cuál el secundario. Si la conmutación por error se realiza correctamente, los dos servidores deben tener los roles intercambiados.
 1. Vuelva a seleccionar **Conmutación por error** para devolver los servidores a sus roles originales.
@@ -291,7 +291,7 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 | [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Obtiene o enumera grupos de conmutación por error de Azure SQL Database. |
 | [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Ejecuta una conmutación por error de un grupo de conmutación por error de Azure SQL Database. |
 
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[La CLI de Azure](#tab/azure-cli)
 
 Pruebe la conmutación por error mediante la CLI de Azure.
 
@@ -331,7 +331,7 @@ En esta parte del tutorial se usan los siguientes cmdlets de la CLI de Azure:
 
 Limpie los recursos mediante la eliminación del grupo de recursos.
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="the-portal"></a>[Portal](#tab/azure-portal)
 
 Elimine el grupo de recursos mediante Azure Portal.
 
@@ -359,7 +359,7 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina un grupo de recursos. |
 
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[La CLI de Azure](#tab/azure-cli)
 
 Elimine el grupo de recursos mediante la CLI de Azure.
 
@@ -419,7 +419,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | Establece el servidor principal del grupo de conmutación por error mediante la conmutación por error de todas las bases de datos desde el servidor principal actual. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="the-portal"></a>[Portal](#tab/azure-portal)
 
 No hay scripts disponibles para Azure Portal.
 
@@ -429,7 +429,7 @@ Puede encontrar otros scripts de Azure SQL Database aquí: [Azure PowerShell](po
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha agregado una instancia de Azure SQL Database a un grupo de conmutación por error y ha probado la conmutación por error. Ha aprendido a:
+En este tutorial, ha agregado una base de datos de Azure SQL Database a un grupo de conmutación por error y ha probado la conmutación por error. Ha aprendido a:
 
 > [!div class="checklist"]
 >

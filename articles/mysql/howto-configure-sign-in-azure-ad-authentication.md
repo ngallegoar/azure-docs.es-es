@@ -4,16 +4,16 @@ description: Información sobre cómo configurar Azure Active Directory (Azure
 author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/22/2019
-ms.openlocfilehash: 9d607f0ad1ab9d9924cd05ce1a66bee34e4ff18d
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: ff5d2e5546c8b29ed486c587a555f47fa2c7e31b
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84229857"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101433"
 ---
-# <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Uso de Azure Active Directory para la autenticación con MySQL
+# <a name="use-azure-active-directory-for-authentication-with-mysql"></a>Uso de Azure Active Directory para la autenticación con MySQL
 
 Este artículo le guiará por los pasos para configurar el acceso a Azure Active Directory con Azure Database for MySQL, y cómo conectarse con un token de Azure AD.
 
@@ -123,6 +123,15 @@ mysql -h mydb.mysql.database.azure.com \
   --enable-cleartext-plugin \ 
   --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken`
 ```
+
+Consideraciones importantes al conectarse:
+
+* `user@tenant.onmicrosoft.com` es el nombre del usuario de Azure AD o grupo al que está intentando conectarse.
+* Anexe siempre el nombre del servidor después del nombre del grupo o usuario de Azure AD (por ejemplo, `@mydb`).
+* Asegúrese de usar la forma exacta en que se ha escrito el nombre de usuario o grupo de Azure AD.
+* Los nombres de usuario y grupo de Azure AD distinguen mayúsculas de minúsculas.
+* Al conectarse como un grupo, use solo el nombre de grupo (por ejemplo, `GroupName@mydb`).
+* Si el nombre contiene espacios, utilice `\` antes de cada espacio para escaparlo.
 
 Tenga en cuenta el valor "enable-cleartext-plugin", debe usar una configuración similar con otros clientes para asegurarse de que el token se envíe al servidor sin síntesis del mensaje.
 

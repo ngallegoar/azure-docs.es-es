@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: b935355cce36a6e26b168db286ab40248f8f0f68
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f57c0353989cfcf924042d202bd80a57b476507b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471734"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85322310"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Supervisión de métricas y registro en Azure Front Door
 
@@ -88,6 +88,7 @@ Front Door actualmente proporciona los registros de diagnóstico (agrupados por
 | RequestUri | URI de la solicitud recibida. |
 | ResponseBytes | Bytes enviados por el servidor back-end como respuesta.  |
 | RoutingRuleName | El nombre de la regla de enrutamiento que coincidió con la solicitud. |
+| RulesEngineMatchNames | Los nombres de las reglas que coincidieron con la solicitud. |
 | SecurityProtocol | La versión del protocolo TLS/SSL utilizada por la solicitud o null si no hay cifrado. |
 | SentToOriginShield | Campo booleano que representa si se produjo un error de caché en el primer entorno y la solicitud se envió a la caché regional. Omita este campo si la regla de enrutamiento es un redireccionamiento o si no tiene habilitado el almacenamiento en caché. |
 | TimeTaken | El período de tiempo que tardó la acción, en milisegundos. |

@@ -5,12 +5,12 @@ description: Aprenda a crear de forma dinámica un volumen persistente con disco
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: 9ac41b1738d1691f6547f508d1a38dec89b0bb79
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 44741452f95995327914978bbfd5b0a49566faa5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208149"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84751353"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Creación dinámica y uso de un volumen persistente con discos de Azure en Azure Kubernetes Service (AKS)
 
@@ -38,7 +38,11 @@ Cada clúster de AKS incluye dos clases de almacenamiento creadas previamente y 
 * La clase de almacenamiento *Premium administrada* aprovisiona un disco de Azure premium.
     * Los discos Premium están respaldados por un disco de latencia reducida y alto rendimiento basado en SSD. Es perfecto para máquinas virtuales que ejecutan cargas de trabajo de producción. Si los nodos de AKS del clúster usan almacenamiento Premium, seleccione la clase *administrada Premium*.
     
-Estas clases de almacenamiento predeterminadas no permiten actualizar el tamaño del volumen una vez creado. Para habilitar esta capacidad, agregue la línea *allowVolumeExpansion: true* a una de las clases de almacenamiento predeterminadas o cree su propia clase de almacenamiento personalizada. Puede editar una clase de almacenamiento existente con el comando `kubectl edit sc`. Para más información sobre las clases de almacenamiento y la creación de la suya propia, consulte [Opciones de almacenamiento de aplicaciones en Azure Kubernetes Service (AKS)][storage-class-concepts].
+Si usa una de las clases de almacenamiento predeterminadas, no puede actualizar el tamaño del volumen una vez creada la clase de almacenamiento. Para poder actualizar el tamaño del volumen después de crear una clase de almacenamiento, agregue la línea `allowVolumeExpansion: true` a una de las clases de almacenamiento predeterminadas o también puede crear su propia clase de almacenamiento personalizada. Puede editar una clase de almacenamiento existente con el comando `kubectl edit sc`. 
+
+Por ejemplo, si desea usar un disco de 4 TiB de tamaño, debe crear una clase de almacenamiento que defina `cachingmode: None`, porque el [almacenamiento en caché de discos no se admite en discos de 4 TiB y más grandes](../virtual-machines/windows/premium-storage-performance.md#disk-caching).
+
+Para más información sobre las clases de almacenamiento y la creación de la suya propia, consulte [Opciones de almacenamiento de aplicaciones en AKS][storage-class-concepts].
 
 Use el comando [kubectl get sc][kubectl-get] para ver las clases de almacenamiento que se crearon previamente. El ejemplo siguiente muestra las clases de almacenamiento creadas previamente disponibles dentro de un clúster de AKS:
 

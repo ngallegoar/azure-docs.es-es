@@ -3,12 +3,12 @@ title: Completar una recuperación ante desastres de VM
 description: Este artículo muestra cómo realizar una recuperación ante desastres de VM utilizando AVS
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 5fdfc252486d94fcc22ebba9705fa5e259539921
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: 5ccaa009c8e3e059597636a8bb78cc3bd255fe68
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148164"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84749953"
 ---
 # <a name="complete-a-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Realización de una recuperación ante desastres de máquinas virtuales usando la solución de Azure VMware
 
@@ -56,7 +56,7 @@ Si fuese necesario, seleccione las opciones de replicación predeterminadas:
 
 - **Habilitar inactividad:** Pausa la VM para asegurarse de que se sincroniza una copia coherente con el sitio remoto.
 
-- **Almacenamiento de destino:** Seleccione el almacén de datos remoto para las VM protegidas. En una nube privada de AVS, esta selección debe ser el almacén de información de VSAN.
+- **Almacenamiento de destino:** Seleccione el almacén de datos remoto para las VM protegidas. En una nube privada de AVS, esta selección debe ser el almacén de información de vSAN.
 
 - **Contenedor del proceso:** El clúster de vSphere remoto o el grupo de recursos.
 

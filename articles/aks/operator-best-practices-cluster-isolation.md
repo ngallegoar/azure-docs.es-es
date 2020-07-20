@@ -5,12 +5,12 @@ description: Obtenga más información acerca de los procedimientos recomendados
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 00643dc1699d1cbd47efd271738015ea05e895e2
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 12c65f3b4241d3e732c51acb6ffa95ff314efb50
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668353"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077775"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para el aislamiento de clústeres en Azure Kubernetes Service (AKS)
 
@@ -30,7 +30,7 @@ Kubernetes proporciona características que permiten aislar de forma lógica los
   * Las características más avanzadas del programador incluyen manchas y tolerancias, selectores de nodo y afinidad o falta de afinidad del nodo y el pod. Para más información acerca de estas características, consulte [Procedimientos recomendados para características avanzadas del programador en Azure Kubernetes Service (AKS)][aks-best-practices-advanced-scheduler].
 * Las **redes** incluyen el uso de directivas de red para controlar el flujo de tráfico de entrada y salida de pods.
 * La **autenticación y autorización** incluyen el uso del control de acceso basado en rol (RBAC) y la integración de Azure Active Directory (AD), las identidades de pods y los secretos de Azure Key Vault. Para más información sobre estas características, consulte [Procedimientos recomendados para la autenticación y autorización en Azure Kubernetes Service (AKS)][aks-best-practices-identity].
-* Los **contenedores** incluyen directivas de seguridad de pods, contextos de seguridad de pods, análisis de imágenes y entornos de ejecución para las vulnerabilidades. Esto también implica el uso de AppArmor o Seccomp (informática segura) para restringir el acceso del contenedor al nodo subyacente.
+* **Containers** incluye el complemento de Azure Policy para AKS para exigir la seguridad de los pods, el uso de contextos de seguridad de pods y el análisis de las imágenes y el entorno de ejecución en busca de vulnerabilidades. Esto también implica el uso de AppArmor o Seccomp (informática segura) para restringir el acceso del contenedor al nodo subyacente.
 
 ## <a name="logically-isolate-clusters"></a>Aislamiento de clústeres de forma lógica
 

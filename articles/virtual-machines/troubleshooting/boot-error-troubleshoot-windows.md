@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/19/2019
 ms.author: tibasham
-ms.openlocfilehash: 5d6396efc9ab25baa0d32e7c33c7715863516249
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f7e2b70b111cd195f688e236bf8f05b077acb000
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77371360"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678773"
 ---
 # <a name="azure-windows-vm-shutdown-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>El apagado de máquinas virtuales Windows en Azure está atascado en "Reiniciando", "Apagando" o "Deteniendo servicios".
 
@@ -43,25 +43,25 @@ Windows usa el proceso de apagado tanto para realizar operaciones de mantenimien
 
 Use la [Consola serie](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) para completar los pasos siguientes:
 
-1. Abra un PowerShell administrativo y compruebe el servicio que se bloquea al detenerse.
+1. Abra una instancia de PowerShell administrativa y compruebe el servicio que se bloquea al detenerse.
 
    ``
    Get-Service | Where-Object {$_.Status -eq "STOP_PENDING"}
    ``
 
-2. En un CMD administrativo, obtenga el PID del servicio bloqueado.
+2. En un CMD administrativo, obtenga el PID del servicio que no responde.
 
    ``
    tasklist /svc | findstr /i <STOPING SERVICE>
    ``
 
-3. Obtenga un ejemplo de volcado de memoria de proceso bloqueado <STOPPING SERVICE>.
+3. Obtenga un ejemplo de volcado de memoria del proceso que no responde <STOPPING SERVICE>.
 
    ``
    procdump.exe -s 5 -n 3 -ma <PID>
    ``
 
-4. Ahora, elimine el proceso bloqueado para desbloquear el proceso de apagado.
+4. Ahora, elimine el proceso que no responde para desbloquear el proceso de apagado.
 
    ``
    taskkill /PID <PID> /t /f

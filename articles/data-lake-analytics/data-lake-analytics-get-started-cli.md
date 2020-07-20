@@ -7,25 +7,25 @@ ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: d9fc9bee98391f7272a417324b9c3a540b6adbe6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e8de36cca8386ed2a8ddba5782b7b48f248192e6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79474516"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85564830"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli"></a>Introducción al uso de la CLI de Azure por parte de Azure Data Lake Analytics
+
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-En este artículo se describe cómo utilizar la interfaz de la línea de comandos de la CLI de Azure para crear cuentas de Azure Data Lake Analytics, enviar trabajos de U-SQL y catálogos. El trabajo lee un archivo de valores separados por tabulaciones (TSV) y lo convierte en un otro de valores separados por comas (CSV). 
+En este artículo se describe cómo utilizar la interfaz de la línea de comandos de la CLI de Azure para crear cuentas de Azure Data Lake Analytics, enviar trabajos de U-SQL y catálogos. El trabajo lee un archivo de valores separados por tabulaciones (TSV) y lo convierte en un otro de valores separados por comas (CSV).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
+
 Antes de comenzar, necesita los siguientes elementos:
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* En este artículo se requiere que ejecute la versión de la CLI de Azure 2.0 o una versión posterior. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli). 
-
-
+* En este artículo se requiere que ejecute la versión de la CLI de Azure 2.0 o una versión posterior. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -46,6 +46,7 @@ az account set --subscription <subscription id>
 ```
 
 ## <a name="create-data-lake-analytics-account"></a>Creación de una cuenta de Análisis de Data Lake
+
 Para poder ejecutar cualquier trabajo es preciso tener una cuenta de Data Lake Analytics. Para crearla, debe especificar los siguientes elementos:
 
 * **Grupo de recursos de Azure**. Se debe crear una cuenta de Data Lake Analytics en un grupo de recursos de Azure. [Azure Resource Manager](../azure-resource-manager/management/overview.md) permite trabajar con los recursos de la aplicación como un grupo. Puede implementar, actualizar o eliminar todos los recursos de la aplicación en una operación única coordinada.  
@@ -88,10 +89,11 @@ Después de crear una cuenta, puede usar los comandos siguientes para enumerar l
 
 ```azurecli
 az dla account list
-az dla account show --account "<Data Lake Analytics Account Name>"            
+az dla account show --account "<Data Lake Analytics Account Name>"
 ```
 
 ## <a name="upload-data-to-data-lake-store"></a>Carga de datos en el Almacén Data Lake
+
 En este tutorial, va a procesar algunos registros de búsqueda.  El registro de búsqueda se puede almacenar en el Almacén de Data Lake o en el almacenamiento de blobs de Azure.
 
 Azure Portal proporciona una interfaz de usuario para copiar algunos archivos de datos de ejemplo a la cuenta predeterminada de Data Lake Store, entre los que se incluye un archivo de registro de búsqueda. Consulte [Preparar los datos de origen](data-lake-analytics-get-started-portal.md) para cargar los datos en la cuenta del Almacén Data Lake.
@@ -106,19 +108,20 @@ az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
 Análisis de Data Lake también puede acceder al almacenamiento de blobs de Azure.  Para cargar datos a Azure Blob Storage, consulte [Uso de la CLI de Azure con Azure Storage](../storage/common/storage-azure-cli.md).
 
 ## <a name="submit-data-lake-analytics-jobs"></a>Envío de trabajos de Análisis de Data Lake
+
 Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para más información sobre U-SQL, consulte la [introducción al lenguaje U-SQL](data-lake-analytics-u-sql-get-started.md) y la [referencia del lenguaje U-SQL](https://docs.microsoft.com/u-sql/).
 
-**Para crear un script de trabajo de Análisis de Data Lake**
+### <a name="to-create-a-data-lake-analytics-job-script"></a>Para crear un script de trabajo de Data Lake Analytics
 
 Cree un archivo de texto con el siguiente script U-SQL y guarde el archivo de texto en la estación de trabajo:
 
-```
-@a  = 
-    SELECT * FROM 
+```usql
+@a  =
+    SELECT * FROM
         (VALUES
             ("Contoso", 1500.0),
             ("Woodgrove", 2700.0)
-        ) AS 
+        ) AS
               D( customer, amount );
 OUTPUT @a
     TO "/data.csv"
@@ -131,22 +134,22 @@ No modifique ninguna de las dos rutas a menos que copie el archivo de origen en 
 
 Es más fácil usar rutas de acceso relativas para los archivos almacenados en las cuentas predeterminadas de Data Lake Store. También puede usar rutas de acceso absolutas.  Por ejemplo:
 
-```
+```usql
 adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
 ```
 
 Debe usar rutas de acceso absolutas para acceder a los archivos de cuentas de almacenamiento vinculadas.  La sintaxis de los archivos almacenados en la cuenta de Azure Storage vinculada es:
 
-```
+```usql
 wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 ```
 
 > [!NOTE]
-> El contenedor de blobs de Azure con blobs públicos no se admite.      
-> El contenedor de blobs de Azure con contenedores públicos no se admite.      
+> El contenedor de blobs de Azure con blobs públicos no se admite.
+> El contenedor de blobs de Azure con contenedores públicos no se admite.
 >
 
-**Para enviar trabajos**
+### <a name="to-submit-jobs"></a>Para enviar trabajos
 
 Para enviar un trabajo, use la sintaxis siguiente.
 
@@ -160,14 +163,14 @@ Por ejemplo:
 az dla job submit --account "myadlaaccount" --job-name "myadlajob" --script @"C:\DLA\myscript.txt"
 ```
 
-**Para enumerar los trabajos y mostrar los detalles de un trabajo**
+### <a name="to-list-jobs-and-show-job-details"></a>Para enumerar los trabajos y mostrar los detalles de un trabajo
 
 ```azurecli
 az dla job list --account "<Data Lake Analytics Account Name>"
 az dla job show --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
 ```
 
-**Para cancelar trabajos**
+### <a name="to-cancel-jobs"></a>Para cancelar trabajos
 
 ```azurecli
 az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"

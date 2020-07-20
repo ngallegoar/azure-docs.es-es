@@ -9,14 +9,14 @@ ms.author: johndeu
 ms.date: 04/16/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 0676b6b183c64dcd0fb15b87de48a4afed3a0011
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 53d68a18c5904b8b7e2f6145ae26221e99395a82
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641801"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84749927"
 ---
-# <a name="tested-on-premises-live-streaming-encoders"></a>Codificadores de streaming en vivo locales probados
+# <a name="verified-on-premises-live-streaming-encoders"></a>Codificadores de streaming en vivo locales comprobados
 
 En Azure Media Services, un [evento en directo](https://docs.microsoft.com/rest/api/media/liveevents) (canal) representa una canalización para procesar contenido de streaming en vivo. El evento en directo recibe las secuencias de entrada en vivo de una de estas dos formas:
 
@@ -29,7 +29,7 @@ En Azure Media Services, un [evento en directo](https://docs.microsoft.com/rest/
  
 * Un codificador en directo local envía una secuencia de velocidad de bits única al Evento en directo que está habilitado para realizar la codificación en vivo con Media Services, con uno de los siguientes formatos: RTMP o Smooth Streaming (MP4 fragmentado). Después, el Evento en directo codifica en vivo la secuencia entrante de velocidad de bits única en una secuencia de vídeo de velocidad de bits múltiple (adaptable).
 
-En este artículo se abordan los codificadores de streaming en vivo locales que se han probado. Para obtener instrucciones sobre cómo comprobar su codificador en vivo local, vea [Comprobación del codificador local](become-on-premises-encoder-partner.md).
+En este artículo se abordan los codificadores de streaming en vivo locales que se han comprobado. La comprobación se realiza a través de la autoverificación del proveedor o la verificación del cliente. Microsoft Azure Media Services no realiza pruebas completas o rigurosas de cada codificador y no vuelve a comprobar continuamente las actualizaciones. Para obtener instrucciones sobre cómo comprobar su codificador en vivo local, vea [Comprobación del codificador local](become-on-premises-encoder-partner.md).
 
 Para obtener información detallada sobre la codificación en vivo con Media Services, vea [Streaming en vivo con Azure Media Services v3](live-streaming-overview.md).
 
@@ -45,25 +45,30 @@ Al hacer el streaming mediante RTMP, compruebe la configuración del firewall o 
 Al hacer el streaming mediante RTMPS, compruebe la configuración del firewall o del proxy para confirmar que los puertos TCP salientes 2935 y 2936 están abiertos.
 
 > [!NOTE]
-> Los codificadores deben admitir TLS 1.2 al usar protocolos RTMP.
+> Los codificadores deben admitir TLS 1.2 al usar protocolos RTMPS.
 
 - Adobe Flash Media Live Encoder 3.2
+- [Blackmagic ATEM Mini y ATEM Mini PRO](https://www.blackmagicdesign.com/products/atemmini)
 - [Cambria Live 4.3](https://www.capellasystems.net/products/cambria-live/)
 - Elemental Live (versión 2.14.15 y posteriores)
+- [Ffmpeg](https://www.ffmpeg.org)
+- [GoPro](https://gopro.com/help/articles/block/getting-started-with-live-streaming) Hero 7 y Hero 8
 - Haivision KB
 - Haivision Makito X HEVC
+- [Restream.io](https://restream.io/)
 - OBS Studio
-- Switcher Studio (iOS)
+- [Streamlabs OBS](https://streamlabs.com/)
+- [Switcher Studio (iOS)](https://www.switcherstudio.com/)
 - Telestream Wirecast (versión 13.0.2 o posterior debido al requisito de TLS 1.2)
-- Telestream Wirecast S (solo se admite RTMP)
+- Telestream Wirecast S (solo se admite RTMP. No se admite RTMPS debido a la falta de TLS 1.2 o versiones posteriores)
 - Teradek Slice 756
 - VMIX
 - xStream
-- [Ffmpeg](https://www.ffmpeg.org)
-- [GoPro](https://gopro.com/help/articles/block/getting-started-with-live-streaming) Hero 7 y Hero 8
-- [Restream.io](https://restream.io/)
 
-## <a name="live-encoders-that-output-fragmented-mp4"></a>Codificadores en directo que generan una salida de MP4 fragmentado
+> [!WARNING]
+> La lista anterior de codificadores es solo una lista de recomendaciones. Microsoft no prueba ni valida los codificadores de forma continua, y se pueden producir actualizaciones o cambios importantes en los proveedores de codificadores o en los proyectos de código abierto que podrían interrumpir la compatibilidad. 
+
+## <a name="live-encoders-that-output-fragmented-mp4-smooth-streaming-ingest"></a>Codificadores en directo que generan una salida de MP4 fragmentado (ingesta de Smooth Streaming)
 
 Media Services recomienda usar uno de los codificadores en directo siguientes que tienen Smooth Streaming de velocidad de bits múltiple (MP4 fragmentado) como salida. Los esquemas URL admitidos son `http://` o `https://`.
 
@@ -74,12 +79,15 @@ Media Services recomienda usar uno de los codificadores en directo siguientes qu
 - Cisco Digital Media Encoder 2200
 - Elemental Live (versión 2.14.15 y posterior debido al requisito de TLS 1.2)
 - Envivio 4Caster C4 Gen III 
+- [Ffmpeg](https://www.ffmpeg.org)
 - Imagine Communications Selenio MCP3
 - Media Excel Hero Live y Hero 4K (UHD/HEVC)
-- [Ffmpeg](https://www.ffmpeg.org)
 
 > [!TIP]
 >  Si está transmitiendo eventos en directo en varios idiomas (por ejemplo, una pista de audio en inglés y una en español), puede hacerlo con el codificador en directo de elementos multimedia de Excel configurado para enviar la fuente en directo a un evento en directo de paso a través.
+
+> [!WARNING]
+> La lista anterior de codificadores es solo una lista de recomendaciones. Microsoft no prueba ni valida los codificadores de forma continua, y se pueden producir problemas de soporte o errores en los proveedores de codificadores o en los proyectos de código abierto que podrían interrumpir la compatibilidad. 
 
 ## <a name="configuring-on-premises-live-encoder-settings"></a>Configuración de los valores del codificador en directo local
 
@@ -95,8 +103,10 @@ Para volver a reproducir un contenido, debe haber una secuencia de audio y una s
 - Cuando tenga que determinar los requisitos de ancho de banda, duplique las velocidades de bits de streaming. Aunque no es obligatorio, esta sencilla regla ayuda a mitigar el impacto de la congestión de la red.
 - Cuando se usen codificadores por software, cierre todos los programas innecesarios.
 - Si se modifica la configuración del codificador una vez iniciada la inserción, se producirán efectos negativos en el evento. Los cambios de configuración pueden provocar que el evento se vuelva inestable. 
+- Pruebe y valide siempre las versiones más recientes del software del codificador para mantener una compatibilidad continua con Azure Media Services. Microsoft no vuelve a validar los codificadores de esta lista y la mayoría de las validaciones las realizan los proveedores de software directamente como una "certificación automática".
 - Asegúrese de dejar tiempo suficiente para configurar el evento. En el caso de los eventos a gran escala, se recomienda iniciar la configuración una hora antes del evento.
-- Use el vídeo H.264 y la salida de códec de audio AAC.
+- Use el vídeo H.264 y la salida de códec de audio AAC-LC.
+- Siga con las resoluciones y las velocidades de fotogramas admitidas para el tipo de evento en directo que se va a retransmitir (por ejemplo, 60fps se rechaza actualmente).
 - Asegúrese de que haya una alineación temporal de fotograma clave o de GOP a lo largo de las calidades de vídeo.
 - Asegúrese de que cada calidad de vídeo tiene un nombre de secuencia único.
 - Use la codificación CBR estricta recomendada para obtener un rendimiento óptimo de velocidad de bits adaptable.

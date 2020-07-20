@@ -1,5 +1,5 @@
 ---
-title: 'Ejecutar script R: referencia para los módulos'
+title: 'Ejecutar script R: Referencia del módulo'
 titleSuffix: Azure Machine Learning
 description: Obtenga información sobre cómo usar el módulo Ejecutar script R en Azure Machine Learning para ejecutar código R.
 services: machine-learning
@@ -9,18 +9,18 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/27/2020
-ms.openlocfilehash: 7b72d83740e0e2b02ef9d2ea3cd1cbf04a4c99cc
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 71e1a43728cf923207d209848b26627aeb7bd680
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983574"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84751756"
 ---
-# <a name="execute-r-script"></a>Ejecución script de R
+# <a name="execute-r-script-module"></a>Módulo Execute R Script
 
-En este artículo se describe cómo usar el módulo **Ejecutar script R** para ejecutar código R en la canalización del diseñador de Azure Machine Learning (versión preliminar).
+En este artículo se describe cómo usar el módulo Execute R Script (Ejecutar script R) para ejecutar código R en la canalización de Azure Machine Learning Designer (versión preliminar).
 
-Con R, puede realizar tareas que no son compatibles actualmente con los módulos existentes, como: 
+Con R, puede realizar tareas que no son compatibles actualmente con los módulos existentes, como: 
 - Crear transformaciones de datos personalizadas
 - Usar sus propias métricas para evaluar las predicciones
 - Generar modelos mediante algoritmos que no se implementan como módulos independientes en el diseñador
@@ -31,9 +31,9 @@ El diseñador de Azure Machine Learning usa la distribución CRAN (red de archiv
 
 ## <a name="supported-r-packages"></a>Paquetes de R admitidos
 
-El entorno de R viene preinstalado con más de 100 paquetes. Para obtener una lista completa, consulte la sección [Paquetes de R preinstalados](#pre-installed-r-packages).
+El entorno de R está preinstalado con más de 100 paquetes. Para obtener una lista completa, consulte la sección [Paquetes preinstalados de R](#preinstalled-r-packages).
 
-También puede agregar el código siguiente a cualquier módulo **Ejecutar script R** y para ver los paquetes instalados.
+También puede agregar el código siguiente a cualquier módulo Execute R Script (Ejecutar script R) para ver los paquetes instalados.
 
 ```R
 azureml_main <- function(dataframe1, dataframe2){
@@ -43,23 +43,23 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 > [!NOTE]
-> Si la canalización contiene varios módulos Ejecutar script R y necesita los mismos paquetes que no están en la lista preinstalada, instale los paquetes en cada módulo respectivamente. 
+> Si la canalización contiene varios módulos Execute R Script (Ejecutar script R) que necesitan paquetes que no están en la lista de elementos preinstalados, instale los paquetes en cada módulo. 
 
 ## <a name="installing-r-packages"></a>Instalación de paquetes de R
-Para instalar paquetes de R adicionales, use el método `install.packages()`. Se instalan paquetes para cada módulo **Ejecutar script R** y no se pueden compartir entre con otros módulos **Ejecutar script R**.
+Para instalar paquetes de R adicionales, use el método `install.packages()`. Los paquetes se instalan para cada módulo Execute R Script (Ejecutar script R). No se comparten con otros módulos Execute R Script (Ejecutar script R).
 
 > [!NOTE]
-> Especifique el repositorio de CRAN al instalar paquetes como `install.packages("zoo",repos = "http://cran.us.r-project.org")`
+> Especifique el repositorio de CRAN al instalar paquetes, como `install.packages("zoo",repos = "http://cran.us.r-project.org")`.
 
 En este ejemplo se muestra cómo instalar Zoo:
 ```R
 # R version: 3.5.1
-# The script MUST contain a function named azureml_main
+# The script MUST contain a function named azureml_main,
 # which is the entry point for this module.
 
-# Please note that functions dependant on X11 library
-# such as "View" are not supported because X11 library
-# is not pre-installed.
+# Note that functions dependent on the X11 library,
+# such as "View," are not supported because the X11 library
+# is not preinstalled.
 
 # The entry point function MUST have two input arguments.
 # If the input port is not connected, the corresponding
@@ -76,21 +76,21 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
  > [!NOTE]
-  > Compruebe si el paquete ya existe antes de instalarlo para evitar repetir la instalación. Como `  if(!require(zoo)) install.packages("zoo",repos = "http://cran.us.r-project.org")` en el código de ejemplo anterior. La instalación repetida puede provocar el tiempo de espera de la solicitud de servicio web.     
+ > Antes de instalar un paquete, compruebe si ya existe para no repetir una instalación. La repetición de instalaciones pueden hacer que se agote el tiempo de espera de las solicitudes de servicio web.     
 
-## <a name="upload-files"></a>Carga de archivos
-**Ejecutar script R** admite la carga de archivos con el SDK de R de Azure Machine Learning.
+## <a name="uploading-files"></a>Carga de archivos
+El módulo Execute R Script (Ejecutar script R) admite la carga de archivos mediante el SDK de R de Azure Machine Learning.
 
-En el ejemplo siguiente se muestra cómo cargar un archivo de imagen en **Ejecutar script R**:
+En el ejemplo siguiente se muestra cómo cargar un archivo de imagen en Execute R Script (Ejecutar script R):
 ```R
 
 # R version: 3.5.1
-# The script MUST contain a function named azureml_main
+# The script MUST contain a function named azureml_main,
 # which is the entry point for this module.
 
-# Please note that functions dependant on X11 library
-# such as "View" are not supported because X11 library
-# is not pre-installed.
+# Note that functions dependent on the X11 library,
+# such as "View," are not supported because the X11 library
+# is not preinstalled.
 
 # The entry point function MUST have two input arguments.
 # If the input port is not connected, the corresponding
@@ -114,49 +114,44 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 
-Cuando finalice la ejecución de la canalización, puede obtener una vista previa de la imagen en el panel derecho del módulo.
+Una vez que termina la ejecución de la canalización, se puede obtener una vista previa de la imagen en el panel derecho del módulo.
 
 > [!div class="mx-imgBorder"]
-> ![Imagen cargada](media/module/upload-image-in-r-script.png)
+> ![Vista previa de la imagen cargada](media/module/upload-image-in-r-script.png)
 
 ## <a name="how-to-configure-execute-r-script"></a>Procedimiento para configurar Ejecutar script R
 
-El módulo **Ejecutar script R** contiene código de ejemplo que puede usar como punto de partida. Para configurar el módulo **Ejecutar script R**, proporcione un conjunto de entradas y código para ejecutarlo.
+El módulo Execute R Script (Ejecutar script R) contiene código de ejemplo que puede usar como punto de partida. Para configurar el módulo Execute R Script (Ejecutar script R), proporcione un conjunto de entradas y código para ejecutarlo.
 
-![Módulo de R](media/module/execute-r-script.png)
+![Diagrama de entradas para un módulo de R](media/module/execute-r-script.png)
 
 Los conjuntos de datos almacenados en el diseñador se convierten automáticamente en una trama de datos R cuando se cargan con este módulo.
 
-1.  Agregue el módulo **Execute R Script** (Ejecutar script de R) a la canalización.
-
-  
+1.  Agregue el módulo **Execute R Script** (Ejecutar script de R) a la canalización.  
 
 1. Conecte cualquier entrada que necesite el script. Las entradas son opcionales y pueden incluir datos y código de R adicional.
 
-    * **Dataset1**: haga referencia a la primera entrada como `dataframe1`. El conjunto de datos de entrada debe tener el formato CSV, TSV o ARFF. También puede conectar un conjunto de datos de Azure Machine Learning.
+    * **Dataset1**: haga referencia a la primera entrada como `dataframe1`. El conjunto de datos de entrada tiene que tener el formato de un archivo CSV, TSV o ARFF. O bien, puede conectar un conjunto de datos de Azure Machine Learning.
 
-    * **Dataset2**: haga referencia a la segunda entrada como `dataframe2`. Este conjunto de datos también se debe formatear como archivo CSV, TSV o ARFF, o como conjunto de datos de Azure Machine Learning.
+    * **Dataset2**: haga referencia a la segunda entrada como `dataframe2`. Este conjunto de datos también tiene que tener un formato de archivo CSV, TSV o ARFF, o de conjunto de datos de Azure Machine Learning.
 
-    * **Conjunto de scripts**: la tercera entrada acepta archivos ZIP. El archivo ZIP puede contener varios archivos y varios tipos de archivo.
+    * **Conjunto de scripts**: la tercera entrada acepta archivos ZIP. Un archivo ZIP puede contener varios archivos y varios tipos de archivo.
 
 1. En el cuadro de texto **Script de R**, escriba o pegue el script de R válido.
 
     > [!NOTE]
-    > Tenga mucho cuidado al escribir el script y asegúrese de que no incluya ningún error de sintaxis, como el uso de variables no declaradas o de módulos o funciones no importados. Además, preste especial atención a la lista de paquetes preinstalados al final de este documento. Para usar paquetes que no aparecen en la lista, instálelos en el script como `install.packages("zoo",repos = "http://cran.us.r-project.org")`
+    > Escriba el script con cuidado. Asegúrese de que no hay errores de sintaxis, como el uso de variables no declaradas o de funciones o módulos no importados. Preste especial atención a la lista de paquetes preinstalados al final de este artículo. Para usar paquetes que no aparecen en la lista, instálelos en el script. Un ejemplo es `install.packages("zoo",repos = "http://cran.us.r-project.org")`.
     
-    > [!NOTE]
-    > Las funciones dependientes de la biblioteca X11 como "View" no se admiten porque la biblioteca X11 no está preinstalada.
-    
-    Para ayudarle a empezar, el cuadro de texto **Script de R** se muestra rellenado previamente con el código de ejemplo, que puede editar o reemplazar.
+    Para ayudarle a empezar, el cuadro de texto **Script de R** se muestra rellenado previamente con el código de ejemplo, que puede editar o reemplazar.
     
     ```R
     # R version: 3.5.1
-    # The script MUST contain a function named azureml_main
+    # The script MUST contain a function named azureml_main,
     # which is the entry point for this module.
 
-    # Please note that functions dependant on X11 library
-    # such as "View" are not supported because X11 library
-    # is not pre-installed.
+    # Note that functions dependent on the X11 library,
+    # such as "View," are not supported because the X11 library
+    # is not preinstalled.
     
     # The entry point function MUST have two input arguments.
     # If the input port is not connected, the corresponding
@@ -166,7 +161,7 @@ Los conjuntos de datos almacenados en el diseñador se convierten automáticamen
     azureml_main <- function(dataframe1, dataframe2){
     print("R script run.")
 
-    # If a zip file is connected to the third input port, it is
+    # If a .zip file is connected to the third input port, it's
     # unzipped under "./Script Bundle". This directory is added
     # to sys.path.
 
@@ -175,46 +170,44 @@ Los conjuntos de datos almacenados en el diseñador se convierten automáticamen
     }
     ```
 
- * El script debe contener una función denominada `azureml_main`, que es el punto de entrada para este módulo.
+    La función de punto de entrada tiene que tener los argumentos de entrada (`Param<dataframe1>` y `Param<dataframe2>`), aunque estos argumentos no se usen en la función.
 
- * La función de punto de entrada debe tener dos argumentos de entrada (`Param<dataframe1>` y `Param<dataframe2>`), aunque estos argumentos no se usen en la función.
-
-   > [!NOTE]
-    > Se hace referencia a los datos pasados al módulo **Ejecutar script R** como `dataframe1` y `dataframe2`, que es distinto del diseñador Azure Machine Learning (se hace referencia al diseñador como `dataset1`, `dataset2`). Asegúrese de que en el script se haga referencia correctamente a los datos de entrada.  
+    > [!NOTE]
+    > Se hace referencia a los datos pasados al módulo Execute R Script (Ejecutar script R) como `dataframe1` y `dataframe2`, lo que es distinto de Azure Machine Learning Designer, en este la referencia es `dataset1` y `dataset2`. Asegúrese de que la referencia de los datos de entrada es correcta en el script.  
  
     > [!NOTE]
-    >  Puede que el código R existente necesite pequeños cambios para ejecutarse en una canalización de diseñador. Por ejemplo, los datos de entrada que se proporcionan en formato CSV deben convertirse explícitamente en un conjunto de datos para que pueda usarlos en su código. Los tipos de datos y columnas que se usan en el lenguaje R también difieren en algunos aspectos de los tipos de columnas y datos que se usan en el diseñador.
+    > Puede que el código R existente necesite pequeños cambios para ejecutarse en una canalización de diseñador. Por ejemplo, los datos de entrada que se proporcionan en formato CSV deben convertirse explícitamente en un conjunto de datos para que pueda usarlos en su código. Los tipos de datos y columnas que se usan en el lenguaje R también difieren en algunos aspectos de los tipos de columnas y datos que se usan en el diseñador.
 
-1.  **Valor de inicialización aleatorio**: escriba un valor para usarlo en el entorno de R como valor de inicialización aleatorio. Este parámetro equivale a llamar a `set.seed(value)` en el código de R.  
+1.  Para **Random Seed** (Valor de inicialización aleatorio) escriba un valor para usarlo en el entorno de R como valor de inicialización aleatorio. Este parámetro equivale a llamar a `set.seed(value)` en el código de R.  
 
 1. Envíe la canalización.  
 
 ## <a name="results"></a>Results
 
-Los módulos **Ejecutar script R** pueden devolver varias salidas, pero se deben proporcionar como tramas de datos de R. Las tramas de datos se convierten automáticamente en conjuntos de datos en el diseñador para su compatibilidad con otros módulos.
+Los módulos Execute R Script (Ejecutar script R) pueden devolver varias salidas, pero se tienen que proporcionar como tramas de datos de R. Las tramas de datos se convierten automáticamente en conjuntos de datos en el diseñador para su compatibilidad con otros módulos.
 
 Los mensajes estándar y los errores de R se devuelven al registro del módulo.
 
-Si necesita imprimir los resultados del script de R, puede buscar los resultados impresos en **70_driver_log**, en la pestaña **Outputs+logs** (Salidas y registros) del panel derecho del módulo.
+Si necesita imprimir los resultados del script de R, puede buscar los resultados impresos en **70_driver_log**, en la pestaña **Outputs+logs** (Salidas y registros) del panel derecho del módulo.
 
 ## <a name="sample-scripts"></a>Muestras de scripts
 
-Hay muchas formas de ampliar la canalización mediante el script de R personalizado.  En esta sección se proporciona el código de ejemplo para las tareas comunes.
+Hay muchas formas de ampliar una canalización mediante los scripts de R personalizados. En esta sección se proporciona el código de ejemplo para las tareas comunes.
 
 
-### <a name="add-r-script-as-an-input"></a>Agregar el script de R como entrada
+### <a name="add-an-r-script-as-an-input"></a>Incorporación de un script de R como entrada
 
-El módulo **Ejecutar script R** admite archivos de script de R arbitrarios como entradas. Para ello, deben cargarse en el área de trabajo como parte del archivo ZIP.
+El módulo Execute R Script (Ejecutar script R) admite archivos de script de R arbitrarios como entradas. Para usarlos, tiene que cargarlos en el área de trabajo como parte del archivo. zip.
 
-1. Para cargar un archivo ZIP que contiene el código de R en el área de trabajo, diríjase a **Conjuntos de datos**, haga clic en **Crear conjunto de datos** y, a continuación, seleccione **From local file** (De un archivo local) y la opción de tipo de conjunto de datos **Archivo**.  
+1. Para cargar un archivo ZIP que contenga código R en el área de trabajo, vaya a la página de recurso **Datasets** (Conjuntos de datos). Seleccione **Create dataset** (Crear conjunto de datos) y, después, seleccione **From local file** (Desde archivo local) y la opción de tipo de conjunto de datos **File** (Archivo).  
 
-1. Compruebe que el archivo comprimido está disponible en la lista **Mis conjuntos de datos** en la categoría **Conjuntos de archivos** del árbol de módulos de la izquierda.
+1. Compruebe que el archivo comprimido está disponible en la lista **My Datasets** (Mis conjuntos de datos) en la categoría **Datasets** (Conjuntos de datos) del árbol de módulos de la izquierda.
 
 1.  Conecte el conjunto de datos al puerto de entrada del **conjunto de scripts**.
 
-1. Todos los archivos que se encuentran en el archivo ZIP están disponibles durante el tiempo de ejecución de la canalización. 
+1. Todos los archivos del archivo ZIP están disponibles durante el tiempo de ejecución de la canalización. 
 
-    Si el archivo del conjunto de scripts contiene una estructura de directorios, esta se conserva. Sin embargo, debe modificar el código para anteponer el directorio **./Conjunto de scripts** a la ruta de acceso.
+    Si el archivo del conjunto de scripts contiene una estructura de directorios, esta se conserva. Sin embargo, tiene que modificar el código para anteponer el directorio **./Script Bundle** a la ruta de acceso.
 
 ### <a name="process-data"></a>Datos de proceso
 
@@ -222,12 +215,12 @@ En el ejemplo siguiente se muestra cómo escalar y normalizar los datos de entra
 
 ```R
 # R version: 3.5.1
-# The script MUST contain a function named azureml_main
+# The script MUST contain a function named azureml_main,
 # which is the entry point for this module.
 
-# Please note that functions dependant on X11 library
-# such as "View" are not supported because X11 library
-# is not pre-installed.
+# Note that functions dependent on the X11 library,
+# such as "View," are not supported because the X11 library
+# is not preinstalled.
 
 # The entry point function MUST have two input arguments.
 # If the input port is not connected, the corresponding
@@ -236,17 +229,17 @@ En el ejemplo siguiente se muestra cómo escalar y normalizar los datos de entra
 #   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
   print("R script run.")
-  # If a zip file is connected to the third input port, it is
+  # If a .zip file is connected to the third input port, it's
   # unzipped under "./Script Bundle". This directory is added
   # to sys.path.
   series <- dataframe1$width
-  # find the maximum and minimum values of width column in dataframe1
+  # Find the maximum and minimum values of the width column in dataframe1
   max_v <- max(series)
   min_v <- min(series)
-  # calculate the scale and bias
+  # Calculate the scale and bias
   scale <- max_v - min_v
   bias <- min_v / dis
-  # apply min-max normalizing
+  # Apply min-max normalizing
   dataframe1$width <- dataframe1$width / scale - bias
   dataframe2$width <- dataframe2$width / scale - bias
   # Return datasets as a Named List
@@ -254,11 +247,11 @@ azureml_main <- function(dataframe1, dataframe2){
 }
  ```
 
-### <a name="read-a-zip-file-as-input"></a>Leer un archivo ZIP como entrada
+### <a name="read-a-zip-file-as-input"></a>Lectura de un archivo ZIP como entrada
 
-En este ejemplo se muestra cómo usar un conjunto de datos en un archivo ZIP como entrada para el módulo **Ejecutar script R**.
+En este ejemplo se muestra cómo usar un conjunto de datos en un archivo ZIP como entrada para el módulo Execute R Script (Ejecutar script R).
 
-1. Cree el archivo de datos en formato CSV y asígnele el nombre "mydatafile.csv".
+1. Cree el archivo de datos en formato CSV y asígnele el nombre **mydatafile.csv**.
 1. Cree un archivo ZIP y agregue el archivo CSV al archivo.
 1. Cargue el archivo comprimido en su área de trabajo de Azure Machine Learning. 
 1. Conecte el conjunto de datos resultante en la entrada **ScriptBundle** del módulo **Ejecutar script R**.
@@ -292,9 +285,9 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ### <a name="pass-r-objects-between-execute-r-script-modules"></a>Pasar objetos R entre módulos Ejecutar script R
 
-Puede pasar objetos R entre instancias del módulo **Ejecutar script R** mediante el mecanismo de serialización interno. En este ejemplo se da por supuesto que quiere mover el objeto de R denominado `A` entre dos módulos **Ejecutar script R**.
+Puede pasar objetos R entre instancias del módulo Execute R Script (Ejecutar script R) mediante el mecanismo de serialización interno. En este ejemplo se da por supuesto que quiere mover el objeto de R denominado `A` entre dos módulos Execute R Script (Ejecutar script R).
 
-1. Agregue el primer módulo **Ejecutar script R** a la canalización y escriba el siguiente código en el cuadro de texto **Script de R** para crear un objeto serializado `A` como columna en la tabla de datos de salida del módulo:  
+1. Agregue el primer módulo **Execute R Script** (Ejecutar script de R) a la canalización. Después, especifique el código siguiente en el cuadro de texto **Script de R** para crear un objeto serializado `A` como columna en la tabla de datos de salida del módulo:  
   
     ```R
     azureml_main <- function(dataframe1, dataframe2){
@@ -308,11 +301,11 @@ Puede pasar objetos R entre instancias del módulo **Ejecutar script R** mediant
     }
     ```
 
-    La conversión explícita al tipo entero se realiza porque la función de serialización devuelve los datos en el formato de R `Raw`, lo que no es compatible con el diseñador.
+    La conversión explícita al tipo entero se realiza porque la función de serialización devuelve los datos en el formato de R `Raw`, lo que el diseñador no admite.
 
 1. Agregue una segunda instancia del módulo **Ejecutar script R** y conéctelo al puerto de salida del módulo anterior.
 
-1. Escriba el siguiente código en el cuadro de texto **Script de R** para extraer el objeto `A` de la tabla de datos de entrada. 
+1. Escriba el siguiente código en el cuadro de texto **Script de R** para extraer el objeto `A` de la tabla de datos de entrada. 
 
     ```R
     azureml_main <- function(dataframe1, dataframe2){
@@ -323,9 +316,9 @@ Puede pasar objetos R entre instancias del módulo **Ejecutar script R** mediant
     }
     ```
 
-## <a name="pre-installed-r-packages"></a>Paquetes de R instalados previamente
+## <a name="preinstalled-r-packages"></a>Paquetes preinstalados de R
 
-Lista actual de paquetes de R preinstalados disponibles para su uso:
+Los siguientes paquetes preinstalados de R están disponibles actualmente:
 
 |              |            | 
 |--------------|------------| 

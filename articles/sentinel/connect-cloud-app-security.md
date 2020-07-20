@@ -1,6 +1,6 @@
 ---
 title: Conexión de datos de Cloud App Security a Azure Sentinel | Microsoft Docs
-description: Aprenda a conectar datos de Cloud App Security a Azure Sentinel.
+description: Aprenda a usar el conector de "Microsoft Cloud App Security" (MCAS) para transmitir alertas y registros de Cloud Discovery de MCAS a Azure Sentinel. 
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,20 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2020
 ms.author: yelevin
-ms.openlocfilehash: 266d97e834247088d40837cbec1436e00d0f4be2
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 8439c8f7aa4e75abd727d2ce2e80d98e6fce5411
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422139"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85563950"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Conectar datos de Microsoft Cloud App Security 
 
-
-
 El conector de [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) (MCAS) le permite transmitir alertas y [registros de Cloud Discovery](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it) de MCAS a Azure Sentinel. Esto le permitirá adquirir visibilidad sobre las aplicaciones en la nube, obtener análisis sofisticados para identificar y combatir las ciberamenazas y controlar cómo viajan los datos.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - El usuario debe tener permisos de lectura y escritura en el área de trabajo.
 - El usuario debe tener permisos de administrador global o de administrador de seguridad en el inquilino del área de trabajo.
@@ -49,6 +47,8 @@ Si Cloud App Security ya está implementado e ingiriendo datos, los datos de ale
 1. Seleccione qué registros quiere transmitir a Azure Sentinel. Aquí puede elegir **Alertas** y **Registros de Cloud Discovery** (versión preliminar). 
 
 1. Haga clic en **Aplicar cambios**.
+
+1. Puede seleccionar si quiere que las alertas de Azure Security Center generen incidentes en Azure Sentinel. En **Create incidents** (Crear incidentes), seleccione **Enabled** (Habilitado) para activar la regla de análisis predeterminada que crea automáticamente incidentes a partir de alertas. Luego, puede editar esta regla en **Analytics** (Análisis), en la pestaña **Active rules** (Reglas activas).
 
 1. Si quiere usar el esquema correspondiente en Log Analytics para las alertas de Cloud App Security, escriba `SecurityAlert` en la ventana de consulta. En el esquema de registros de Cloud Discovery, escriba `McasShadowItReporting`.
 

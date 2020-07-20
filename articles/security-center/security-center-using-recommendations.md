@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: memildin
-ms.openlocfilehash: a1034eb47010da2b0e795ee8c79646f06151cac1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8039be7b69444cc32e763e9a1fb074e7dda4a5ba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77603287"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84783238"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Uso de las recomendaciones de Azure Security Center para mejorar la seguridad
 Puede reducir las posibilidades de que se produzca un incidente de seguridad importante configurando una directiva de seguridad y, luego, implementando las recomendaciones de Azure Security Center. En este artículo se muestra cómo usar las recomendaciones y directivas de seguridad de Security Center para ayudar a mitigar un ataque de seguridad. 
@@ -57,7 +57,7 @@ Como parte de sus actividades de supervisión diarias, Jeff inicia sesión en Az
 
 2. Jeff comprueba la **puntuación segura** para obtener una imagen general de cuán seguras son las suscripciones y ve que la puntuación es de 548.
 
-3. Jeff tiene que decidir de qué recomendaciones ocuparse primero. Por lo que Jeff hace clic en Puntuación segura y empieza a encargarse de las recomendaciones en función de cuánto mejoran su [Impacto de la puntuación segura](security-center-secure-score.md).
+3. Jeff tiene que decidir de qué recomendaciones ocuparse primero. Por lo que Jeff hace clic en Puntuación segura y empieza a encargarse de las recomendaciones en función de cuánto mejoran su [puntuación segura](secure-score-security-controls.md).
 
 4. Dado que Jeff tiene una gran cantidad de servidores y VM conectados, decide centrarse en **Procesos y aplicaciones**.
 

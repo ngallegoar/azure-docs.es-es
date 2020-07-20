@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: ca5c8fdd14f155163dd55d944cafd2e209e7a94b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af14d4770d032c23216b805045eb27fadded5954
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84450009"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170265"
 ---
 # <a name="train-pytorch-model"></a>Entrenamiento del modelo de PyTorch
 
@@ -27,7 +27,7 @@ En este artículo se describe cómo usar el módulo **Entrenamiento del modelo d
 2. Agregue el módulo **Entrenamiento del modelo de PyTorch** a la canalización. Puede encontrar este módulo en la categoría **Entrenamiento del modelo**. Expanda **Entrenar** y luego arrastre el módulo **Entrenamiento del modelo de PyTorch** a la canalización.
 
    > [!NOTE]
-   > El módulo **Entrenamiento del modelo de PyTorch** solo se puede ejecutar en un proceso de tipo **GPU**; de lo contrario, se producirá un error en la canalización. Puede seleccionar el proceso para un módulo específico en el panel derecho del módulo estableciendo **Use other compute target** (Utilizar otro destino de proceso).
+   > El módulo **Entrenamiento del modelo de PyTorch** se ejecuta mejor en un proceso de tipo **GPU** para conjuntos de datos grandes; de lo contrario, se producirá un error en la canalización. Puede seleccionar el proceso para un módulo específico en el panel derecho del módulo estableciendo **Use other compute target** (Utilizar otro destino de proceso).
 
 3.  En la entrada izquierda, adjunte un modo no entrenado. Adjunte el conjunto de datos de entrenamiento y el conjunto de datos de validación a la entrada de la parte central y derecha de **Entrenamiento del modelo de PyTorch**.
 
@@ -53,7 +53,7 @@ En este artículo se describe cómo usar el módulo **Entrenamiento del modelo d
 
 ## <a name="results"></a>Results
 
-Una vez completada la ejecución de la canalización, para usar el modelo para la puntuación, conecte [Entrenamiento del modelo de Pytorch](train-pytorch-model.md) a [Puntuación del modelo de imagen](score-image-model.md), para predecir valores para los nuevos ejemplos de entrada.
+Una vez completada la ejecución de la canalización, para usar el modelo para la puntuación, conecte [Entrenamiento del modelo de PyTorch](train-pytorch-model.md) a [Puntuación del modelo de imagen](score-image-model.md), para predecir valores para los nuevos ejemplos de entrada.
 
 ## <a name="technical-notes"></a>Notas técnicas
 ###  <a name="expected-inputs"></a>Entradas esperadas  

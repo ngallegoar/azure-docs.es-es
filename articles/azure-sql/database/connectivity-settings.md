@@ -1,6 +1,6 @@
 ---
 title: Configuración de conectividad para Azure SQL Database y Data Warehouse
-description: En este artículo se describe la elección de la versión de TLS y el proxy en comparación con Configuración de la redirección para Azure SQL Database y Azure Synapse Analytics
+description: En este documento se describe la elección de la versión del protocolo de Seguridad de la capa de transporte (TLS) y el proxy en comparación con Configuración de la redirección para Azure SQL Database y Azure Synapse Analytics
 services: sql-database
 ms.service: sql-database
 titleSuffix: Azure SQL Database and SQL Data Warehouse
@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
-ms.date: 03/09/2020
-ms.openlocfilehash: 3397fcb14f27e6bc0cc64b048dedde7198d5a06b
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.date: 07/06/2020
+ms.openlocfilehash: 04c5d9c8eceb14ab68ca0d96f994bf6a64bbc431
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266090"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86045386"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Configuración de la conectividad de Azure SQL
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -33,9 +33,17 @@ Se puede acceder a la configuración de conectividad desde la pantalla **Firewal
 
 ## <a name="deny-public-network-access"></a>Denegación del acceso a una red pública
 
-En Azure Portal, si el valor **Deny public network access** (Denegar acceso a red pública) está establecido en **Sí**, solo se permiten las conexiones mediante puntos de conexión privados. Si el valor se establece en **No**, los clientes se podrán conectar mediante el punto de conexión privado o el público.
+Cuando la opción **Denegar acceso desde red pública** está establecida en **Sí**, solo se permiten las conexiones mediante puntos de conexión privados. Cuando esta opción se establece en **No**, los clientes pueden conectarse mediante puntos de conexión públicos (reglas de firewall basadas en IP, reglas de firewall basadas en redes virtuales) o puntos de conexión privados (mediante Private Link), tal como se describe en [Introducción al acceso de red](network-access-controls-overview.md). 
 
-Los clientes pueden conectarse a SQL Database mediante puntos de conexión públicos (reglas de firewall basadas en IP, reglas de firewall basadas en redes virtuales) o puntos de conexión privados (mediante Private Link), tal como se describe en la [información general del acceso a redes](network-access-controls-overview.md). 
+ ![Captura de pantalla de la conectividad con la opción Denegar acceso desde red pública][2]
+
+Cualquier intento de establecer **Denegar acceso desde red pública** en **Sí** sin puntos de conexión privados existentes en el servidor lógico producirá un error con un mensaje similar al siguiente:  
+
+```output
+Error 42102
+Unable to set Deny Public Network Access to Yes since there is no private endpoint enabled to access the server. 
+Please set up private endpoints and retry the operation. 
+```
 
 Cuando la opción **Deny public network access** (Denegar acceso a la red pública) está establecida en **Sí**, solo se permiten conexiones a través de puntos de conexión privados, y todas las conexiones a través de puntos de conexión públicos se deniegan con un mensaje de error similar al siguiente:  
 
@@ -44,6 +52,14 @@ Error 47073
 An instance-specific error occurred while establishing a connection to SQL Server. 
 The public network interface on this server is not accessible. 
 To connect to this server, use the Private Endpoint from inside your virtual network.
+```
+
+Cuando la opción **Denegar acceso desde red pública** está establecida en **Sí**, se denegará cualquier intento de agregar o actualizar las reglas de firewall con un mensaje de error similar al siguiente:
+
+```output
+Error 42101
+Unable to create or modify firewall rules when public network interface for the server is disabled. 
+To manage server or database level firewall rules, please enable the public network interface.
 ```
 
 ## <a name="change-public-network-access-via-powershell"></a>Cambio del acceso a la red pública mediante PowerShell
@@ -86,9 +102,12 @@ az sql server update -n sql-server-name -g sql-server-group --set publicNetworkA
 
 La opción de versión mínima de [Seguridad de la capa de transporte (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) permite a los clientes controlar la versión de TLS utilizada por sus instancias de Azure SQL Database.
 
-Actualmente, se admiten TLS 1.0, 1.1 y 1.2. La opción de versión mínima de TLS garantiza que se admitan las versiones posteriores más recientes de TLS. Por ejemplo, elegir una versión de TLS superior a 1.1. significa que solo se aceptan conexiones con TLS 1.1 y 1.2, y se rechaza TLS 1.0. Después de realizar las pruebas para confirmar que las aplicaciones son compatibles, se recomienda establecer la versión mínima de TLS en 1.2, ya que incluye correcciones de vulnerabilidades que se han encontrado en versiones anteriores, y es la versión más alta de TLS admitida en Azure SQL Database.
+Actualmente, se admiten TLS 1.0, 1.1 y 1.2. La opción de versión mínima de TLS garantiza que se admitan las versiones posteriores más recientes de TLS. Por ejemplo, si elige una versión de TLS mayor que la 1.1 significa que solo se aceptan conexiones con TLS 1.1 y 1.2, y se rechaza TLS 1.0. Después de realizar las pruebas para confirmar que las aplicaciones son compatibles, se recomienda establecer la versión mínima de TLS en 1.2, ya que incluye correcciones de vulnerabilidades que se han encontrado en versiones anteriores y es la versión más alta de TLS admitida en Azure SQL Database.
 
-En el caso de los clientes con aplicaciones que se basan en versiones anteriores de TLS, se recomienda establecer la versión mínima de TLS según los requisitos de las aplicaciones. En el caso de los clientes que se basan en aplicaciones para conectarse mediante una conexión sin cifrar, se recomienda no establecer ninguna versión mínima de TLS. 
+> [!IMPORTANT]
+> El valor predeterminado para la versión de TLS mínima es Permitir todas las versiones. Sin embargo, una vez que se aplica una versión de TLS, no es posible revertir al valor predeterminado.
+
+En el caso de los clientes con aplicaciones que se basan en versiones anteriores de TLS, se recomienda establecer la versión mínima de TLS según los requisitos de las aplicaciones. En el caso de los clientes que se basan en aplicaciones para conectarse mediante una conexión sin cifrar, se recomienda no establecer ninguna versión mínima de TLS.
 
 Para obtener más información, consulte [Consideraciones de TLS para la conectividad de SQL Database](connect-query-content-reference-guide.md#tls-considerations-for-database-connectivity).
 
@@ -205,3 +224,4 @@ az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 
 <!--Image references-->
 [1]: media/single-database-create-quickstart/manage-connectivity-settings.png
+[2]: media/single-database-create-quickstart/manage-connectivity-flowchart.png

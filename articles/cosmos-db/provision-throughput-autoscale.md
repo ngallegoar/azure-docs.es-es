@@ -5,13 +5,13 @@ author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.openlocfilehash: 533cd8fa69c01b8a36ff5e314ce61a4b624e62ec
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 06/04/2020
+ms.openlocfilehash: 20b0bcfe5043d4767199c36796fa1123ed779363
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655810"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791153"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Creación de contenedores y bases de datos de Azure Cosmos con rendimiento de escalabilidad automática
 
@@ -29,7 +29,7 @@ Las bases de datos y los contenedores de Azure Cosmos que se han configurado con
 
 * **Escalable:** Las bases de datos y los contenedores escalan automáticamente el rendimiento aprovisionado según sea necesario. No hay ninguna interrupción en las conexiones de cliente ni en las aplicaciones y no afectan a los SLA de Azure Cosmos DB.
 
-* **Rentable:** La escalabilidad automática ayuda a optimizar el uso de RU/s y el costo por uso mediante la reducción vertical cuando no está en uso. Solo paga por los recursos que necesitan las cargas de trabajo por hora.
+* **Rentable:** La escalabilidad automática ayuda a optimizar el uso de RU/s y el costo por uso mediante la reducción vertical cuando no está en uso. Solo paga por los recursos que necesitan las cargas de trabajo por hora. De todas las horas del mes, si establece el valor de RU/s (Tmax) y usa toda la cantidad durante el 66 % de las horas o menos, ahorrará con la escalabilidad automática. Para obtener más información, consulte el artículo de [procedimientos para elegir entre el rendimiento aprovisionado estándar (manual) y el de escalabilidad automática](how-to-choose-offer.md).
 
 * **Alta disponibilidad:** Las bases de datos y los contenedores que usan la escalabilidad automática usan el mismo back-end de Azure Cosmos DB distribuido globalmente, tolerante a errores y de alta disponibilidad para garantizar la durabilidad de los datos y la alta disponibilidad.
 
@@ -57,8 +57,9 @@ Cada hora, se le facturará el mayor rendimiento `T` al que se escaló el sistem
 
 El punto de entrada para el rendimiento máximo de la escalabilidad automática, `Tmax`, comienza en 4 000 RU/s, que se escalan entre 400 y 4 000 RU/s. Puede establecer `Tmax` en incrementos de 1 000 RU/s y cambiar el valor en cualquier momento.  
 
-## <a name="enable-autoscale-on-existing-resources"></a>Habilitación de la escalabilidad automática en recursos existentes ##
-Use [Azure Portal](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container) para habilitar la escalabilidad automática en una base de datos o un contenedor existentes. Puede cambiar entre la escalabilidad automática y el rendimiento aprovisionado estándar (manual) en cualquier momento. Consulte esta [documentación](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) para obtener más información.
+## <a name="enable-autoscale-on-existing-resources"></a>Habilitación de la escalabilidad automática en recursos existentes
+
+Use [Azure Portal](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container) para habilitar la escalabilidad automática en una base de datos o un contenedor existentes. Puede cambiar entre la escalabilidad automática y el rendimiento aprovisionado estándar (manual) en cualquier momento. Consulte esta [documentación](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) para obtener más información. Actualmente, para todas las API, solo puede usar Azure Portal a fin de habilitar el escalado automático en los recursos existentes.
 
 ## <a name="throughput-and-storage-limits-for-autoscale"></a><a id="autoscale-limits"></a> Límites de rendimiento y almacenamiento para Escalabilidad automática
 

@@ -2,31 +2,31 @@
 title: Omisión de la eliminación de los usuarios fuera de ámbito
 description: Aprenda a reemplazar el comportamiento predeterminado de desaprovisionamiento de los usuarios que estén fuera de ámbito.
 services: active-directory
-author: cmmdesai
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 12/10/2019
-ms.author: chmutali
+ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: 5f17886736efb87cf44bc54c82ccca794482a093
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 719258933dfadf34b8678bf03ee07ee6cc76e331
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593274"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84789912"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Omisión de la eliminación de cuentas de usuario que están fuera de ámbito
 
-De forma predeterminada, el motor de aprovisionamiento de Azure AD elimina o deshabilita los usuarios que están fuera del ámbito. Sin embargo, en determinados escenarios, como el aprovisionamiento entrante de usuarios de Workday a AD, es posible que este comportamiento no sea el esperado y puede que desee reemplazarlo.  
+De forma predeterminada, el motor de aprovisionamiento de Azure AD elimina o deshabilita los usuarios que están fuera del ámbito. Sin embargo, en determinados escenarios, como el aprovisionamiento entrante de usuarios de Workday a AD, es posible que este comportamiento no sea el esperado y puede que desee reemplazarlo.  
 
-En esta guía se describe cómo usar Microsoft Graph API y Microsoft Graph Explorer para establecer la marca ***SkipOutOfScopeDeletions*** que controla el procesamiento de las cuentas que salen del ámbito. 
-* Si ***SkipOutOfScopeDeletions*** se establece en 0 (false), las cuentas que queden fuera del ámbito se deshabilitarán en el destino
+En este artículo se describe cómo usar Microsoft Graph API y el explorador de Microsoft Graph API para establecer la marca ***SkipOutOfScopeDeletions*** que controla el procesamiento de las cuentas que quedan fuera del ámbito. 
+* Si ***SkipOutOfScopeDeletions*** se establece en 0 (false), las cuentas que queden fuera del ámbito se deshabilitarán en el destino.
 * Si ***SkipOutOfScopeDeletions*** se establece en 1 (true), las cuentas que queden fuera del ámbito no se deshabilitarán en el destino. Esta marca se establece en el nivel de la *aplicación de aprovisionamiento* y se puede configurar mediante Graph API. 
 
-Dado que esta configuración se utiliza profusamente con la aplicación de *aprovisionamiento de usuarios de Workday a Active Directory*, los siguientes pasos incluyen capturas de pantallas de la aplicación Workday. Sin embargo, también se puede usar con **todas las demás aplicaciones** como ServiceNow, Salesforce, Dropbox, etc.
+Como esta configuración se utiliza profusamente con la aplicación de *aprovisionamiento de usuarios de Workday a Active Directory*, los pasos siguientes incluyen capturas de pantallas de la aplicación Workday. Sin embargo, la configuración también se puede usar con *todas las demás aplicaciones*, como ServiceNow, Salesforce y Dropbox.
 
 ## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Paso 1: Recuperar el identificador de la entidad de servicio de la aplicación de aprovisionamiento (identificador de objeto)
 

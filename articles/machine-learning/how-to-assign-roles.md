@@ -5,18 +5,18 @@ description: Conozca cómo acceder a un área de trabajo de Azure Machine Learni
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/06/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 127a0a2b7f7573db91df9347169e90de3e14c4c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f289be1b3432d9c62b4841c513088afa16e0e447
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79232892"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85609255"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Administración del acceso a un área de trabajo de Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ Un área de trabajo de Azure Machine Learning es un recurso de Azure. Al igual q
 
 | Role | Nivel de acceso |
 | --- | --- |
-| **Lector** | Acciones de solo lectura en el área de trabajo. Los lectores pueden enumerar y ver los recursos de un área de trabajo, pero no pueden crear ni actualizar estos recursos. |
+| **Lector** | Acciones de solo lectura en el área de trabajo. Los lectores pueden enumerar y ver los recursos (incluidas las credenciales del [almacén de datos](how-to-access-data.md)) de un área de trabajo, pero no pueden crear ni actualizar estos recursos. |
 | **Colaborador** | Ver, crear, editar o eliminar (si procede) los recursos de un área de trabajo. Por ejemplo, los colaboradores pueden crear un experimento, crear o conectar un clúster de proceso, enviar una ejecución e implementar un servicio web. |
 | **Propietario** | Acceso total al área de trabajo, incluida la posibilidad de ver, crear, editar o eliminar (si procede) los recursos de un área de trabajo. Además, puede cambiar las asignaciones de roles. |
 
@@ -59,6 +59,14 @@ El campo `user` es la dirección de correo electrónico de un usuario existente 
 az ml workspace share -w my_workspace -g my_resource_group --role Contributor --user jdoe@contoson.com
 ```
 
+> [!NOTE]
+> El comando "az ml workspace share" no funciona para la cuenta federada de Azure Active Directory B2B. Use el portal de la interfaz de usuario de Azure en lugar del comando.
+
+
+## <a name="azure-machine-learning-operations"></a>Operaciones de Azure Machine Learning
+
+Las acciones integradas de Azure Machine Learning se utilizan para muchas operaciones y tareas. Para obtener una lista completa, consulte [Operaciones de proveedores de recursos de Azure](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+
 ## <a name="create-custom-role"></a>Creación de un rol personalizado
 
 Si los roles integrados no son suficientes, puede crear roles personalizados. Los roles personalizados pueden tener permisos para leer, escribir, eliminar y procesar recursos de ese área de trabajo. Puede hacer que el rol esté disponible en un nivel de área de trabajo específico, un nivel de grupo de recursos específico o un nivel de suscripción específico.
@@ -87,7 +95,8 @@ Para crear un rol personalizado, primero debe construir un archivo JSON de defin
 }
 ```
 
-Puede cambiar el campo `AssignableScopes` para establecer el ámbito de este rol personalizado en el nivel de suscripción, el nivel de grupo de recursos o un nivel de área de trabajo específica.
+> [!TIP]
+> Puede cambiar el campo `AssignableScopes` para establecer el ámbito de este rol personalizado en el nivel de suscripción, el nivel de grupo de recursos o un nivel de área de trabajo específica.
 
 Este rol personalizado puede hacer todo en el área de trabajo, excepto las siguientes acciones:
 
@@ -110,9 +119,6 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
 
 Para obtener información acerca de los roles personalizados, consulte [Roles personalizados en los recursos de Azure](/azure/role-based-access-control/custom-roles).
 
-Para más información sobre las operaciones (acciones) que se pueden usar con roles personalizados, consulte [Operaciones del proveedor de recursos](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
-
-
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 
@@ -126,7 +132,7 @@ En la tabla siguiente se proporciona un resumen de las actividades de Azure Mach
 | Crear un clúster de proceso | No se requiere | No se requiere | Propietario, colaborador o rol personalizado que permita: `workspaces/computes/write` |
 | Crear una máquina virtual de Notebook | No se requiere | Propietario o colaborador | No es posible |
 | Crear una instancia de proceso | No se requiere | No se requiere | Propietario, colaborador o rol personalizado que permita: `workspaces/computes/write` |
-| Actividad de plano de datos como el envío de una ejecución, el acceso a datos, la implementación de un modelo o la publicación de una canalización | No se requiere | No se requiere | Propietario, colaborador o rol personalizado que permita: `workspaces/*/write` <br/> Tenga en cuenta que también necesita un almacén de datos registrado en el área de trabajo para permitir que MSI tenga acceso a los datos de la cuenta de almacenamiento. |
+| Actividad de plano de datos como el envío de una ejecución, el acceso a datos, la implementación de un modelo o la publicación de una canalización | No se requiere | No se requiere | Propietario, colaborador o rol personalizado que permita: `workspaces/*/write` <br/> También necesita un almacén de datos registrado en el área de trabajo para permitir que MSI tenga acceso a los datos de la cuenta de almacenamiento. |
 
 
 ### <a name="q-how-do-i-list-all-the-custom-roles-in-my-subscription"></a>Q. ¿Cómo obtengo una lista de todos los roles personalizados en mi suscripción?
@@ -153,7 +159,7 @@ Ejecute el siguiente comando en la CLI de Azure.
 az role definition update --role-definition update_def.json --subscription <sub-id>
 ```
 
-Tenga en cuenta que debe tener permisos en todo el ámbito de la nueva definición de roles. Por ejemplo, si este nuevo rol tiene un ámbito entre tres suscripciones, debe tener permisos en las tres suscripciones. 
+Debe tener permisos en todo el ámbito de la nueva definición de roles. Por ejemplo, si este nuevo rol tiene un ámbito entre tres suscripciones, debe tener permisos en las tres suscripciones. 
 
 > [!NOTE]
 > Las actualizaciones de roles pueden tardar entre 15 minutos y una hora en aplicarse a todas las asignaciones de roles de ese ámbito.
@@ -172,5 +178,5 @@ Necesita permisos de nivel de suscripción para realizar cualquier operación re
 
 - [Introducción a la seguridad en la empresa](concept-enterprise-security.md)
 - [Ejecución de experimentos y realización de inferencias/puntuaciones de forma segura en una red virtual](how-to-enable-virtual-network.md)
-- [Tutorial: Modelos de entrenamiento](tutorial-train-models-with-aml.md)
+- [Tutorial: Entrenamiento de modelos](tutorial-train-models-with-aml.md)
 - [Operaciones del proveedor de recursos](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)

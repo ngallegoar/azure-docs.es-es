@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: d10744f2536cdf89115cdccd0bea6f1e5155774c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 18a37731171be5894a1481fb35569c9c7cf307f2
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79370464"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84790524"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Uso del enrutamiento de mensajes de IoT Hub para enviar mensajes del dispositivo a la nube a distintos puntos de conexión
 
@@ -35,7 +35,15 @@ Un centro de IoT tiene un punto de conexión integrado predeterminado (**mensaje
 
 Cada mensaje se enruta a todos los puntos de conexión cuyas consultas se correspondan con el mensaje. En otras palabras, un mensaje se puede enrutar a varios puntos de conexión.
 
-IoT Hub admite actualmente los siguientes servicios como puntos de conexión personalizados:
+
+Si el punto de conexión personalizado tiene configuraciones de firewall, considere la posibilidad de usar excepciones propias de confianza de Microsoft, para conceder a su IoT Hub acceso al punto de conexión específico: [Azure Storage](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing), [Azure Event Hubs](./virtual-network-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) y [Azure Service Bus](./virtual-network-support.md#egress-connectivity-to-service-bus-endpoints-for-routing). Esto está disponible en disponibles en las regiones seleccionadas para centros de IoT con [identidad de servicio administrada](./virtual-network-support.md).
+
+IoT Hub admite actualmente los siguientes puntos de conexión:
+
+ - Punto de conexión integrado
+ - Azure Storage
+ - Colas de Service Bus y temas de Service Bus
+ - Event Hubs
 
 ### <a name="built-in-endpoint"></a>Punto de conexión integrado
 
@@ -75,9 +83,6 @@ public void ListBlobsInContainer(string containerName, string iothub)
 }
 ```
 
-> [!NOTE]
-> Si la cuenta de almacenamiento tiene configuraciones de firewall que restringen la conectividad de IoT Hub, considere la posibilidad de usar [excepciones propias de confianza de Microsoft](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) (disponibles en las regiones seleccionadas para centros de IoT con identidad de servicio administrada).
-
 Para crear una cuenta de almacenamiento compatible con Azure Data Lake Gen2, cree una nueva cuenta de almacenamiento V2 y seleccione *habilitado* en el campo *Espacio de nombres jerárquico* en la pestaña **Avanzado**, como se muestra en la siguiente imagen:
 
 ![Seleccione el almacenamiento de Azure Date Lake Gen2.](./media/iot-hub-devguide-messages-d2c/selectadls2storage.png)
@@ -87,17 +92,9 @@ Para crear una cuenta de almacenamiento compatible con Azure Data Lake Gen2, cre
 
 Las colas y los temas de Service Bus usados como puntos de conexión de IoT Hub no deben tener habilitadas las opciones **Sesiones** o **Detección de duplicados**. Si cualquiera de estas opciones está habilitada, el punto de conexión aparece como **Inaccesible** en Azure Portal.
 
-> [!NOTE]
-> Si el recurso de Service Bus tiene configuraciones de firewall que restringen la conectividad de IoT Hub, considere la posibilidad de usar [excepciones propias de confianza de Microsoft](./virtual-network-support.md#egress-connectivity-to-service-bus-endpoints-for-routing) (disponibles en las regiones seleccionadas para centros de IoT con identidad de servicio administrada).
-
-
 ### <a name="event-hubs"></a>Event Hubs
 
 Aparte del punto de conexión compatible con Event Hubs integrado, también puede enrutar los datos a puntos de conexión personalizados de tipo Event Hubs. 
-
-> [!NOTE]
-> Si el recurso de Event Hubs tiene configuraciones de firewall que restringen la conectividad de IoT Hub, considere la posibilidad de usar [excepciones propias de confianza de Microsoft](./virtual-network-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) (disponibles en las regiones seleccionadas para centros de IoT con identidad de servicio administrada).
-
 
 ## <a name="reading-data-that-has-been-routed"></a>Lectura de datos que se han enrutado
 
@@ -146,11 +143,9 @@ En la mayoría de los casos, el aumento medio de la latencia es inferior a 500 m
 
 ## <a name="monitoring-and-troubleshooting"></a>Supervisión y solución de problemas
 
-IoT Hub proporciona varias métricas relacionadas con el enrutamiento y los puntos de conexión para ofrecerle una visión general del mantenimiento del centro y los mensajes enviados. Puede combinar información de varias métricas para identificar la causa principal de los problemas. Por ejemplo, use la métrica **Enrutamiento: mensajes de telemetría eliminados** o **d2c.telemetry.egress.dropped** para identificar el número de mensajes que se eliminaron por no coincidir con las consultas en ninguna de las rutas y la ruta de reserva estaba deshabilitada. [Métricas de IoT Hub](iot-hub-metrics.md) enumera todas las métricas que están habilitadas de forma predeterminada para el centro de IoT.
+IoT Hub proporciona varias métricas relacionadas con el enrutamiento y los puntos de conexión para ofrecerle una visión general del mantenimiento del centro y los mensajes enviados. [Métricas de IoT Hub](iot-hub-metrics.md) enumera todas las métricas que están habilitadas de forma predeterminada para el centro de IoT. Mediante los registros de diagnóstico de **rutas** de la [configuración de diagnóstico](../iot-hub/iot-hub-monitor-resource-health.md) de Azure Monitor, puede realizar un seguimiento de los errores producidos durante la evaluación de una consulta de enrutamiento y del mantenimiento del punto de conexión según lo percibido por IoT Hub. Puede usar la API REST [Get Endpoint Health](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) para obtener el [estado de mantenimiento](iot-hub-devguide-endpoints.md#custom-endpoints) de los puntos de conexión. 
 
-Puede usar la API REST [Get Endpoint Health](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) para obtener el [estado de mantenimiento](iot-hub-devguide-endpoints.md#custom-endpoints) de los puntos de conexión. Se recomienda usar las [métricas de IoT Hub](iot-hub-metrics.md) relativas a la latencia de mensajes de enrutamiento para identificar y depurar errores cuando el estado del punto de conexión sea inactivo o incorrecto. Por ejemplo, para el tipo de punto de conexión Event Hubs, puede supervisar **d2c.endpoints.latency.eventHubs**. El estado del punto de conexión incorrecto se actualizará a correcto cuando IoT Hub haya establecido finalmente un estado de mantenimiento coherente.
-
-Mediante los registros de diagnóstico de **rutas** de la [configuración de diagnóstico](../iot-hub/iot-hub-monitor-resource-health.md) de Azure Monitor, puede realizar un seguimiento de los errores producidos durante la evaluación de una consulta de enrutamiento y del mantenimiento del punto de conexión según lo percibido por IoT Hub, por ejemplo, cuando un punto de conexión está inactivo. Estos registros de diagnóstico se pueden enviar a los registros de Azure Monitor, Event Hubs o Azure Storage para su procesamiento personalizado.
+Use la[ guía de solución de problemas del enrutamiento](troubleshoot-message-routing.md) para obtener una información más detallada y soporte técnico para solucionar problemas de enrutamiento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

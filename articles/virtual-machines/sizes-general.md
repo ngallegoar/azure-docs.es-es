@@ -1,25 +1,20 @@
 ---
 title: 'Tamaños de las máquinas virtuales de Azure: uso general | Microsoft Docs'
 description: Enumera los tamaños diferentes de uso general disponibles para las máquinas virtuales en Azure. Se proporciona información sobre el número de unidades vCPU, discos de datos y NIC, así como sobre el rendimiento de almacenamiento y el ancho de banda de red para los tamaños de esta serie.
-services: virtual-machines
-documentationcenter: ''
 author: mimckitt
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.devlang: na
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: mimckitt
-ms.openlocfilehash: b5e597eebda6a730d301eefdbd2d7e6859f5a7cc
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 1e9cce7adc6dbc9062dd133d690fbce92c3190fc
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248318"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84783323"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Tamaños de máquina virtual de uso general
 
@@ -36,12 +31,13 @@ Los tamaños de VM de uso general proporcionan una relación equilibrada entre C
 
 - La [serie DCv2](dcv2-series.md) puede ayudar a proteger la confidencialidad y la integridad de los datos y del código mientras se están procesando en la nube pública. Estas máquinas están respaldadas por la última generación del procesador Intel XEON E-2288G con la tecnología SGX. Con la tecnología Intel Turbo Boost, estas máquinas pueden llegar hasta 5,0 GHz. Las instancias de la serie DCv2 permiten a los clientes compilar aplicaciones seguras basadas en enclave para proteger su código y sus datos mientras se usan.
 
-- Las máquinas virtuales de las [series Dv2 y Dsv2](dv2-dsv2-series.md), una continuación de la serie D original, presentan una CPU más potente y una configuración óptima de la CPU a la memoria, lo que las hace adecuadas para la mayoría de las cargas de trabajo de producción. La serie Dv2 es un 35 % aproximadamente más rápida que la serie D. La serie Dv2 se ejecuta en procesadores Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) o Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) con Intel Turbo Boost Technology 2.0. La serie Dv2 tiene las mismas configuraciones de disco y memoria que la serie D.
+- Las máquinas virtuales de las [series Dv2 y Dsv2](dv2-dsv2-series.md), una continuación de la serie D original, presentan una CPU más potente y una configuración óptima de la CPU a la memoria, lo que las hace adecuadas para la mayoría de las cargas de trabajo de producción. La serie Dv2 es un 35 % aproximadamente más rápida que la serie D. La serie Dv2 se ejecuta en procesadores Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® Xeon® 8171M 2.1GHz (Skylake), Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell), o Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) con la tecnología Intel Turbo Boost 2.0. La serie Dv2 tiene las mismas configuraciones de disco y memoria que la serie D.
 
-- Las [series Dv3 y Dsv3](dv3-dsv3-series.md) se ejecutan en procesadores Intel® Xeon® 8171M 2.1GHz (Skylake), Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) o Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) en una configuración de Hyper-Threading, lo que proporciona una mejor propuesta de valor para la mayoría de las cargas de trabajo de uso general. Se ha ampliado la memoria (de ~3,5 GiB/vCPU a 4 GiB/vCPU), y los límites de disco y red se han ajustado por núcleo para equipararse con el cambio a hyperthreading. La serie Dv3 ya no tiene los tamaños de máquina virtual de memoria alta de la serie D/Dv2, que se han pasado a las series [Ev3 y Esv3](ev3-esv3-series.md) optimizadas para memoria.
+- Las [series Dv3 y Dsv3](dv3-dsv3-series.md) se ejecutan en procesadores de segunda generación Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® Xeon® 8171M 2,1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell), o Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell) en una configuración de Hyper-Threading, lo que proporciona una mejor propuesta de valor para la mayoría de las cargas de trabajo de uso general. Se ha ampliado la memoria (de ~3,5 GiB/vCPU a 4 GiB/vCPU), y los límites de disco y red se han ajustado por núcleo para equipararse con el cambio a hyperthreading. La serie Dv3 ya no tiene los tamaños de máquina virtual de memoria alta de la serie D/Dv2, que se han pasado a las series [Ev3 y Esv3](ev3-esv3-series.md) optimizadas para memoria.
 
-- Las máquinas virtuales de las [series Ddv4 y Ddsv4](ddv4-ddsv4-series.md) se ejecutan en los procesadores de segunda generación Intel &reg;Xeon&reg; Platinum 8272CL (Cascade Lake), lo que proporciona una mejor propuesta de valor para la mayoría de las cargas de trabajo de uso general. Presenta una velocidad de reloj turbo sostenida de todos los núcleos de 3,4 GHz e incluye las tecnologías [Intel&reg; Turbo Boost 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html) e [Intel&reg; Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html), y las extensiones de vector avanzadas 512 de [Intel&reg; (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). 
+- Las máquinas virtuales de las [series Dv4 y Dsv4](dv4-dsv4-series.md) se ejecutan en los procesadores de segunda generación Intel &reg;Xeon&reg; Platinum 8272CL (Cascade Lake), lo que proporciona una mejor propuesta de valor para la mayoría de las cargas de trabajo de uso general. Las series Dv4 y Dsv4 son una nueva categoría de máquinas virtuales, que se basan en discos remotos y no proporcionan almacenamiento local temporal. Presenta una velocidad de reloj turbo sostenida de todos los núcleos de 3,4 GHz e incluye la tecnología [Intel&reg; Turbo Boost 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) y las [extensiones de vector avanzadas 512 (Intel AVX-512) de Intel&reg;](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). 
 
+- Las máquinas virtuales de las [series Ddv4 y Ddsv4](ddv4-ddsv4-series.md) se ejecutan en los procesadores de segunda generación Intel &reg;Xeon&reg; Platinum 8272CL (Cascade Lake), lo que proporciona una mejor propuesta de valor para la mayoría de las cargas de trabajo de uso general. Las series Ddv4 y Ddsv4 son una nueva categoría de máquinas virtuales que incluyen discos temporales de datos locales. Presenta una velocidad de reloj turbo sostenida de todos los núcleos de 3,4 GHz e incluye la tecnología [Intel&reg; Turbo Boost 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) y las [extensiones de vector avanzadas 512 (Intel AVX-512) de Intel&reg;](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). 
 
 ## <a name="other-sizes"></a>Otros tamaños
 

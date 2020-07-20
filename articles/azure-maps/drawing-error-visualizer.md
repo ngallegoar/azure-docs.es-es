@@ -3,28 +3,28 @@ title: Uso del visualizador de errores de dibujo de Azure Maps
 description: En este artículo, aprenderá a visualizar las advertencias y los errores devueltos por la API de conversión de Creator.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 01d131833f36c1b46eea1b9c08339b067fb9e937
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 7e43995c4221127580333c3f013fcb209730f863
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681954"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791133"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Uso del visualizador de errores de dibujo de Azure Maps
 
 El visualizador de errores de dibujo es una aplicación web independiente que muestra los [errores y advertencias de paquetes de dibujos](drawing-conversion-error-codes.md) detectados durante el proceso de conversión. La aplicación web del visualizador de errores consiste en una página estática que puede usar sin conectarse a Internet.  Puede usar el visualizador de errores para corregir errores y advertencias de acuerdo con los [requisitos del paquete de dibujos](drawing-requirements.md). La [API de conversión de Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) solo devuelve una respuesta con un vínculo al visualizador de errores cuando se detecta un error.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de poder descargar el visualizador de errores de dibujo, deberá:
 
 1. [Crear una cuenta de Azure Maps](quick-demo-map-app.md#create-an-account-with-azure-maps)
-2. [Obtener una clave de suscripción principal](quick-demo-map-app.md#get-the-primary-key-for-your-account), también conocida como clave principal o clave de suscripción.
+2. [Obtenga una clave de suscripción principal](quick-demo-map-app.md#get-the-primary-key-for-your-account), también conocida como clave principal o clave de suscripción.
 3. [Crear un recurso de Creator](how-to-manage-creator.md)
 
 En este tutorial se usa la aplicación [Postman](https://www.postman.com/), pero puede elegir un entorno de desarrollo de API diferente.
@@ -78,15 +78,15 @@ Abra el archivo _index.html_ con cualquiera de los exploradores siguientes, con 
 
 Después de iniciar la herramienta Visualizador de errores de dibujo, se mostrará la página de carga. La página cargar contiene un cuadro para arrastrar y colocar. El cuadro para arrastrar y colocar también funciona como botón que inicia un diálogo del explorador de archivos.
 
-![Aplicación Visualizador de errores de dibujos: página de inicio](./media/drawing-errors-visualizer/start-page.png)
+:::image type="content" source="./media/drawing-errors-visualizer/start-page.png" alt-text="Aplicación Visualizador de errores de dibujos: página de inicio":::
 
 El archivo _ConversionWarningsAndErrors.json_ se ha colocado en la raíz del directorio descargado. Para cargar el archivo _ConversionWarningsAndErrors.json_ puede arrastrar y colocar el archivo en el cuadro, o bien hacer clic en el cuadro, buscar el archivo en el cuadro de diálogo del explorador de archivos y, a continuación, cargar el archivo.
 
-![Aplicación Visualizador de errores de dibujo: arrastrar y colocar para cargar datos](./media/drawing-errors-visualizer/loading-data.gif)
+:::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="Aplicación Visualizador de errores de dibujo: arrastrar y colocar para cargar datos":::
 
-Cuando se cargue el archivo _ConversionWarningsAndErrors.json_, verá una lista de errores y advertencias del paquete de dibujos. Cada error o advertencia se especifica por capa, nivel y un mensaje detallado. Ahora puede ir a cada error para obtener más información sobre cómo resolverlo.  
+Cuando se cargue el archivo _ConversionWarningsAndErrors.json_, verá una lista de errores y advertencias del paquete de dibujos. Cada error o advertencia se especifica por capa, nivel y un mensaje detallado. Para ver información detallada acerca de un error o una advertencia, haga clic en el vínculo **Detalles**. A continuación, aparecerá una sección debajo de la lista. Ahora puede ir a cada error para obtener más información sobre cómo resolverlo.
 
-![Aplicación Visualizador de errores de dibujo: errores y advertencias](./media/drawing-errors-visualizer/errors.png)
+:::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="Aplicación Visualizador de errores de dibujo: errores y advertencias":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

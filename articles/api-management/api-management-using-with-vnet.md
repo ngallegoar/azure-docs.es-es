@@ -10,15 +10,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/21/2020
+ms.date: 06/10/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: f7a036a382ac3b16093529a67abe9ef78b897274
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 76107a3713a7570bc3bbca15aa1b47e76560bf66
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300100"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84674285"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Usar Azure API Management con redes virtuales
 Azure Virtual Network (redes virtuales) le permiten colocar cualquier recurso de Azure en una red distinta de Internet que se pueda enrutar y a la que controle el acceso. Después, estas redes se pueden conectar a sus redes locales mediante diversas tecnologías de VPN. Para más información sobre Azure Virtual Network, vea: [Información general sobre Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -32,7 +32,7 @@ Azure API Management se puede implementar dentro de la red virtual (VNET), por l
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para seguir los pasos que se describen en este artículo, debe tener:
 
@@ -118,16 +118,15 @@ A continuación se muestra una lista de problemas de errores de configuración c
 | * / 1433                     | Salida           | TCP                | VIRTUAL_NETWORK / SQL                 | **Acceso a los puntos de conexión de Azure SQL**                           | Externa e interna  |
 | * / 5671, 5672, 443          | Salida           | TCP                | VIRTUAL_NETWORK/EventHub            | Dependencia de la [directiva de registro en el centro de eventos](api-management-howto-log-event-hubs.md) y el agente de supervisión | Externa e interna  |
 | * / 445                      | Salida           | TCP                | VIRTUAL_NETWORK/Storage             | Dependencia del recurso compartido de archivos de Azure para [GIT](api-management-configuration-repository-git.md)                      | Externa e interna  |
-| * / 1886                     | Salida           | TCP                | VIRTUAL_NETWORK / AzureCloud            | Se necesita para publicar el estado de mantenimiento en Resource Health          | Externa e interna  |
-| * / 443                     | Salida           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publicar [registros de diagnóstico y métricas](api-management-howto-use-azure-monitor.md)                       | Externa e interna  |
-| */25                       | Salida           | TCP                | VIRTUAL_NETWORK/INTERNET            | Conexión a la retransmisión de SMTP para enviar correos electrónicos                    | Externa e interna  |
-| */587                      | Salida           | TCP                | VIRTUAL_NETWORK/INTERNET            | Conexión a la retransmisión de SMTP para enviar correos electrónicos                    | Externa e interna  |
-| * / 25028                    | Salida           | TCP                | VIRTUAL_NETWORK/INTERNET            | Conexión a la retransmisión de SMTP para enviar correos electrónicos                    | Externa e interna  |
-| * / 6381 - 6383              | Entrada y salida | TCP                | VIRTUAL_NETWORK/VIRTUAL_NETWORK     | Acceder al servicio de Redis para las directivas de [límite de frecuencia](api-management-access-restriction-policies.md#LimitCallRateByKey) entre máquinas         | Externa e interna  |
+| * / 443                     | Salida           | TCP                | VIRTUAL_NETWORK / AzureCloud            | Extensión Estado y supervisión         | Externa e interna  |
+| * / 1886, 443                     | Salida           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publicar [Registros de diagnóstico y métricas](api-management-howto-use-azure-monitor.md) y [Resource Health](../service-health/resource-health-overview.md)                     | Externa e interna  |
+| * / 25, 587, 25028                       | Salida           | TCP                | VIRTUAL_NETWORK/INTERNET            | Conexión a la retransmisión de SMTP para enviar correos electrónicos                    | Externa e interna  |
+| * / 6381 - 6383              | Entrada y salida | TCP                | VIRTUAL_NETWORK/VIRTUAL_NETWORK     | Acceso al servicio de Redis para las directivas de [almacenamiento en memoria caché](api-management-caching-policies.md) entre máquinas         | Externa e interna  |
+| * / 4290              | Entrada y salida | UDP                | VIRTUAL_NETWORK/VIRTUAL_NETWORK     | Sincronización de contadores para las directivas de [límite de velocidad](api-management-access-restriction-policies.md#LimitCallRateByKey) entre máquinas         | Externa e interna  |
 | * / *                        | Entrada            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Equilibrador de carga de la infraestructura de Azure                          | Externa e interna  |
 
 >[!IMPORTANT]
-> Los puertos para los que el *Propósito* está en **negrita** son necesarios para que el servicio API Management se implemente correctamente. Sin embargo, si se bloquean los otros puertos, se producirá la degradación de la capacidad de usar y supervisar el servicio en ejecución.
+> Los puertos para los que el *Propósito* está en **negrita** son necesarios para que el servicio API Management se implemente correctamente. Sin embargo, si se bloquean los otros puertos, se producirá la **degradación** de la capacidad de usar y **supervisar el servicio en ejecución y proporcionar el SLA comprometido**.
 
 + **Funcionalidad de TLS**: para permitir la creación y validación de la cadena de certificados TLS/SSL, el servicio API Management necesita conectividad de red saliente a ocsp.msocsp.com, mscrl.microsoft.com y crl.microsoft.com. Esta dependencia no es obligatoria, si los certificados que cargue en API Management contienen la cadena completa de la raíz de la entidad de certificación.
 
@@ -167,9 +166,9 @@ A continuación se muestra una lista de problemas de errores de configuración c
       - CAPTCHA del portal para desarrolladores
 
 ## <a name="troubleshooting"></a><a name="troubleshooting"> </a>Solución de problemas
-* **Programa de instalación inicial**: cuando la implementación inicial del servicio API Management en una subred no se realiza correctamente, se recomienda implementar una máquina virtual en la misma subred. Siga con el escritorio remoto en la máquina virtual y compruebe que hay conectividad al menos con cada recurso que abarca su suscripción de Azure
+* **Programa de instalación inicial**: cuando la implementación inicial del servicio API Management en una subred no se realiza correctamente, se recomienda implementar una máquina virtual en la misma subred. Siga con el escritorio remoto en la máquina virtual y compruebe que hay conectividad cada uno de los siguientes recursos de la suscripción de Azure.
     * Azure Storage Blob
-    * Azure SQL Database
+    * Azure SQL Database
     * Tabla de Azure Storage
 
   > [!IMPORTANT]
@@ -213,7 +212,7 @@ Las direcciones IP se dividen según el **entorno de Azure**. Cuando se permiten
 | Azure Public| Oeste de Reino Unido| 51.137.136.0|
 | Azure Public| Japón Occidental| 40.81.185.8|
 | Azure Public| Centro-Norte de EE. UU| 40.81.47.216|
-| Azure Public| Sur de Reino Unido 2| 51.145.56.125|
+| Azure Public| Sur de Reino Unido| 51.145.56.125|
 | Azure Public| Oeste de la India| 40.81.89.24|
 | Azure Public| Este de EE. UU.| 52.224.186.99|
 | Azure Public| Oeste de Europa| 51.145.179.78|

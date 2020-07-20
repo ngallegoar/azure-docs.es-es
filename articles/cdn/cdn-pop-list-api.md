@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/22/2019
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: a58fd7c6f50cd46ac3c34cd7e5bd329c0007e5f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7b98bb446fc400007e4061d09db8084960702943
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260197"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84668294"
 ---
 # <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Recuperación de la lista de direcciones IP POP para Azure CDN
 
@@ -39,7 +39,7 @@ Configure la creación de listas de control de acceso de IP de los back-end para
 * Azure CDN del espacio IP de back-end IPv4 de Microsoft: 147.243.0.0/16
 * Azure CDN del espacio IP de back-end IPv6 de Microsoft: 2a01:111:2050::/44
 
-Los intervalos IP y las etiquetas de servicio de los servicios de Microsoft se pueden encontrar [aquí](https://www.microsoft.com/download/details.aspx?id=56519).
+Para usar etiquetas de servicio con Azure CDN de Microsoft, use la etiqueta de Azure Front Door. Los intervalos IP y las etiquetas de servicio de los servicios de Microsoft se pueden encontrar [aquí](https://www.microsoft.com/download/details.aspx?id=56519).
 
 
 ## <a name="typical-use-case"></a>Caso de uso típico

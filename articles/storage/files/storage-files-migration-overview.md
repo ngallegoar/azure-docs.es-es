@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d6141d48d67dd44c348961c6e09acf4e2531a61e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 512688345c03ea9d5da0e4933cd6a794eaaf597b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81685990"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84660765"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migración a recursos compartidos de archivos de Azure
 
@@ -120,9 +120,9 @@ En la tabla siguiente se clasifican las herramientas de Microsoft y su idoneidad
 |![Sí, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| RoboCopy | Compatible. Los recursos compartidos de archivos de Azure se pueden montar como unidades de red. | Fidelidad completa* |
 |![Sí, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| Azure File Sync | Integrado de forma nativa en recursos compartidos de archivos de Azure. | Fidelidad completa* |
 |![Sí, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| Servicio de migración de almacenamiento | Indirectamente compatible. Los recursos compartidos de archivos de Azure se pueden montar como unidades de red en servidores de destino de SMS. | Fidelidad completa* |
+|![Sí, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy, versión 10.4 o posteriores| Compatible. | Fidelidad completa* |
 |![No es totalmente recomendable.](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Data Box | Compatible. | No copia los metadatos. [Data Box se puede usar con Azure File Sync](storage-sync-offline-data-transfer.md). |
-|![No recomendado](media/storage-files-migration-overview/circle-red-x.png)| AzCopy | Compatible. | No copia los metadatos. |
-|![No recomendado](media/storage-files-migration-overview/circle-red-x.png)| Explorador de Azure Storage | Compatible. | No copia los metadatos. |
+|![No es totalmente recomendable.](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Explorador de Azure Storage, versión 1.14 | Compatible. | No copia las ACL. Admite marcas de tiempo.  |
 |![No recomendado](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Compatible. | No copia los metadatos. |
 |||||
 

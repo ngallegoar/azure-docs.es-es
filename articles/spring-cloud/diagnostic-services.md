@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
-ms.openlocfilehash: 83b223ab2195516492d55ac85be6e7db0dffbd98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57850b45820ec259337a8ad5b67bfebfd6762c24
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176794"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84790592"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Análisis de registros y métricas con la configuración de diagnóstico
 
@@ -174,3 +174,31 @@ AppPlatformLogsforSpring
 ### <a name="learn-more-about-querying-application-logs"></a>Más información sobre la consulta de registros de aplicaciones
 
 Azure Monitor proporciona buen soporte técnico para consultar los registros de aplicaciones mediante Log Analytics. Para más información sobre este servicio, consulte [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/log-query/get-started-queries.md). Para más información sobre la compilación de consultas para analizar los registros de aplicaciones, consulte [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+
+## <a name="frequently-asked-questions-faq"></a>Preguntas más frecuentes
+
+### <a name="how-to-convert-multi-line-java-stack-traces-into-a-single-line"></a>¿Cómo se convierten los seguimientos de la pila de Java de varias líneas en una única línea?
+
+Hay una solución alternativa para convertir los seguimientos de la pila de varias líneas en una única línea. Puede modificar la salida del registro de Java para volver a dar formato a los mensajes de seguimiento de la pila, reemplazando los caracteres de nueva línea por un token. Si usa la biblioteca Logback de Java, puede volver a dar formato a los mensajes de seguimiento de la pila con la adición de `%replace(%ex){'[\r\n]+', '\\n'}%nopex` como se indica a continuación:
+
+```xml
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                level: %level, message: "%logger{36}: %msg", exceptions: "%replace(%ex){'[\r\n]+', '\\n'}%nopex"%n
+            </pattern>
+        </encoder>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>
+```
+Y después puede reemplazar el token por caracteres de nueva línea en Log Analytics como se indica a continuación:
+
+```sql
+AppPlatformLogsforSpring
+| extend Log = array_strcat(split(Log, '\\n'), '\n')
+```
+Es posible que pueda usar la misma estrategia para otras bibliotecas de registro de Java.

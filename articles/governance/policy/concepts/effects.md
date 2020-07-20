@@ -1,14 +1,14 @@
 ---
 title: Descripción del funcionamiento de los efectos
 description: Las definiciones de Azure Policy tienen diversos efectos que determinan cómo se administra y notifica el cumplimiento.
-ms.date: 05/20/2020
+ms.date: 06/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 223acb523b8a7e4bc14d894c0eb6781d147b8923
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 54c2a687c6386c075ef5802826bc60b87b4d3ee4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84308887"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84791425"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprender los efectos de Azure Policy
 
@@ -22,22 +22,26 @@ Actualmente, se admiten estos efectos en una definición de directiva:
 - [Deny](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [Deshabilitada](#disabled)
-- [EnforceOPAConstraint](#enforceopaconstraint) (versión preliminar)
-- [EnforceRegoPolicy](#enforceregopolicy) (versión preliminar)
 - [Modify](#modify)
+
+Los siguientes efectos se están _en desuso_:
+
+- [EnforceOPAConstraint](#enforceopaconstraint)
+- [EnforceRegoPolicy](#enforceregopolicy)
+
+> [!IMPORTANT]
+> En lugar de los efectos **EnforceOPAConstraint** o **EnforceRegoPolicy**, use _audit_ y _deny_ con el modo de Proveedor de recursos `Microsoft.Kubernetes.Data`. Se han actualizado las definiciones de directiva integradas. Cuando se modifican las asignaciones de directivas existentes de estas definiciones de directiva integradas, el parámetro _effect_ tiene que cambiarse a un valor en la lista _allowedValues_ actualizada.
 
 ## <a name="order-of-evaluation"></a>Orden de evaluación
 
-En primer lugar, Azure Policy evalúa las solicitudes para crear o actualizar un recurso a través de Azure Resource Manager. Azure Policy crea una lista de todas las asignaciones que se aplican al recurso y, a continuación, evalúa el recurso de acuerdo con cada definición. Azure Policy procesa algunos de los efectos antes de entregar la solicitud al proveedor de recursos adecuado. De este modo, se evita que un proveedor de recursos realice un procesamiento innecesario cuando un recurso no cumple con los controles de gobernanza diseñados de Azure Policy.
+En primer lugar Azure Policy evalúa las solicitudes para crear o actualizar un recurso. Azure Policy crea una lista de todas las asignaciones que se aplican al recurso y, a continuación, evalúa el recurso de acuerdo con cada definición. Para un [modo de Administrador de recursos](./definition-structure.md#resource-manager-modes) Azure Policy procesa algunos de los efectos antes de entregar la solicitud al proveedor de recursos adecuado. Al seguirse este orden se evita que un proveedor de recursos realice un procesamiento innecesario cuando un recurso no cumple con los controles de gobernanza diseñados de Azure Policy. Con un [modo de Proveedor de recursos](./definition-structure.md#resource-provider-modes), el proveedor de recursos administra la evaluación y el resultado, e informa a Azure Policy de los resultados.
 
 - Primero se selecciona **Deshabilitado** para determinar si se debe evaluar la regla de directivas.
-- Después se evalúan **Append** y **Modify**. Ambos efectos podrían alterar la solicitud; así, un cambio realizado por ellos podría impedir la activación de un efecto audit o deny.
+- Después se evalúan **Append** y **Modify**. Ambos efectos podrían alterar la solicitud; así, un cambio realizado por ellos podría impedir la activación de un efecto audit o deny. Estos efectos solo están disponibles con un modo de Administrador de recursos.
 - Luego se evalúa **deny**. La evaluación de deny antes de audit impide el doble registro de un recurso no deseado.
-- A continuación, se evalúa **audit** antes de que la solicitud vaya al proveedor de recursos.
+- **Audit** se evalúa en último lugar.
 
-Después de que el proveedor de recursos devuelva un código correcto, **AuditIfNotExists** y **DeployIfNotExists** se evalúan para determinar si es necesario realizar una acción o un registro de cumplimiento adicionales.
-
-Actualmente, no hay ningún orden de evaluación para los efectos **EnforceOPAConstraint** o **EnforceRegoPolicy**.
+Después de que el proveedor de recursos devuelva un código correcto en una solicitud de modo de Resource Manager, **AuditIfNotExists** y **DeployIfNotExists** evalúan para determinar si es necesario realizar una acción o un registro de cumplimiento adicionales.
 
 ## <a name="append"></a>Append
 
@@ -88,24 +92,30 @@ Ejemplo 2: Un único par **campo-valor** que usa un valor distinto de **\[\*\]**
 }
 ```
 
-
-
-
 ## <a name="audit"></a>Auditoría
 
 Audit se utiliza para crear un evento de advertencia en el registro de actividad cuando se evalúa un recurso no compatible, pero no se detiene la solicitud.
 
 ### <a name="audit-evaluation"></a>Evaluación de audit
 
-Audit es el último efecto que Azure Policy comprueba durante la creación o actualización de un recurso. A continuación, Azure Policy envía el recurso al proveedor de recursos. Audit funciona igual para una solicitud de recurso y un ciclo de evaluación. Azure Policy agrega una operación `Microsoft.Authorization/policies/audit/action` al registro de actividad y marca el recurso como no compatible.
+Audit es el último efecto que Azure Policy comprueba durante la creación o actualización de un recurso. Para un modo de Administrador de recursos, Azure Policy envía el recurso al proveedor de recursos. Audit funciona igual para una solicitud de recurso y un ciclo de evaluación. Azure Policy agrega una operación `Microsoft.Authorization/policies/audit/action` al registro de actividad y marca el recurso como no compatible.
 
 ### <a name="audit-properties"></a>Propiedades de audit
 
-El efecto audit no tiene propiedades adicionales para su uso en la condición **then** de la definición de directiva.
+Para un modo de Administrador de recursos, el efecto audit no tiene propiedades adicionales para su uso en la condición **then** de la definición de directiva.
+
+En el modo de Proveedor de recursos de `Microsoft.Kubernetes.Data`, el efecto audit tiene las siguientes subpropiedades adicionales de **details**.
+
+- **constraintTemplate** (obligatorio)
+  - La plantilla de restricción CustomResourceDefinition (CRD) que define nuevas restricciones. La plantilla define la lógica de Rego, el esquema de restricción y los parámetros de restricción que se pasan a través de **valores** desde Azure Policy.
+- **constraint** (obligatorio)
+  - La implementación de CRD de la plantilla de restricción. Usa los parámetros que se han pasado a través de **valores** como `{{ .Values.<valuename> }}`. En el ejemplo 2 siguiente, estos valores son `{{ .Values.excludedNamespaces }}` y `{{ .Values.allowedContainerImagesRegex }}`.
+- **values** (opcional)
+  - Define cualquier parámetro y valor para pasar a la restricción. Cada valor debe existir en la CRD de la plantilla de restricción.
 
 ### <a name="audit-example"></a>Ejemplo de audit
 
-Ejemplo: uso del efecto audit.
+Ejemplo 1: Uso del efecto audit para los modos de Administrador de recursos.
 
 ```json
 "then": {
@@ -113,9 +123,25 @@ Ejemplo: uso del efecto audit.
 }
 ```
 
+Ejemplo 2: Uso del efecto audit para un modo de Proveedor de recursos de `Microsoft.Kubernetes.Data`. La información adicional en **details** define la plantilla de restricción y el CRD que se va a usar en Kubernetes para limitar las imágenes de contenedor permitidas.
+
+```json
+"then": {
+    "effect": "audit",
+    "details": {
+        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/template.yaml",
+        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/constraint.yaml",
+        "values": {
+            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]",
+            "excludedNamespaces": "[parameters('excludedNamespaces')]"
+        }
+    }
+}
+```
+
 ## <a name="auditifnotexists"></a>AuditIfNotExists
 
-AuditIfNotExists habilita la auditoría en recursos que coinciden con la condición **if**, pero no tiene los componentes especificados en la propiedad **details** de la condición **then**.
+AuditIfNotExists habilita la auditoría de recursos _relacionados_ con el recurso que coincide con la condición **if**, pero no tiene las propiedades especificadas en **details** de la condición **then**.
 
 ### <a name="auditifnotexists-evaluation"></a>Evaluación de AuditIfNotExists
 
@@ -125,7 +151,7 @@ AuditIfNotExists se ejecuta después de que un proveedor de recursos haya operad
 
 La propiedad **details** de los efectos de AuditIfNotExists tiene todas las subpropiedades que definen los recursos relacionados para coincidir.
 
-- **Type** [obligatorio]
+- **Type** (obligatorio)
   - Especifica el tipo del recurso relacionado para coincidir.
   - Si **details.type** es un tipo de recurso debajo del recurso de condición **if**, la directiva consultará los recursos de este **tipo** que estén dentro del alcance del recurso evaluado. De lo contrario, la directiva realizará consultas dentro del mismo grupo de recursos que el recurso evaluado.
 - **Nombre** (opcional)
@@ -185,17 +211,26 @@ Deny se utiliza para evitar una solicitud de recursos que no coincida con los es
 
 ### <a name="deny-evaluation"></a>Evaluación de deny
 
-Al crear o actualizar un recurso coincidente, deny evita la solicitud antes de que se envíe al proveedor de recursos. La solicitud se devuelve como un código `403 (Forbidden)`. En el portal, este estado de prohibido puede verse como un estado en la implementación que evitó la asignación de directiva.
+Al crear o actualizar un recurso coincidente en un modo de Administrador de recursos, deny evita la solicitud antes de que se envíe al proveedor de recursos. La solicitud se devuelve como un código `403 (Forbidden)`. En el portal, este estado de prohibido puede verse como un estado en la implementación que evitó la asignación de directiva. Para el modo de Proveedor de recursos, el proveedor de recursos administra la evaluación del recurso.
 
 Durante la evaluación de los recursos existentes, los recursos que coinciden con una definición de directiva deny se marcan como no compatibles.
 
 ### <a name="deny-properties"></a>Propiedades de deny
 
-El efecto deny no tiene propiedades adicionales para su uso en la condición **then** de la definición de directiva.
+Para un modo de Administrador de recursos, el efecto deny no tiene propiedades adicionales para su uso en la condición **then** de la definición de directiva.
+
+En el modo de Proveedor de recursos de `Microsoft.Kubernetes.Data`, el efecto deny tiene las siguientes subpropiedades adicionales de **details**.
+
+- **constraintTemplate** (obligatorio)
+  - La plantilla de restricción CustomResourceDefinition (CRD) que define nuevas restricciones. La plantilla define la lógica de Rego, el esquema de restricción y los parámetros de restricción que se pasan a través de **valores** desde Azure Policy.
+- **constraint** (obligatorio)
+  - La implementación de CRD de la plantilla de restricción. Usa los parámetros que se han pasado a través de **valores** como `{{ .Values.<valuename> }}`. En el ejemplo 2 siguiente, estos valores son `{{ .Values.excludedNamespaces }}` y `{{ .Values.allowedContainerImagesRegex }}`.
+- **values** (opcional)
+  - Define cualquier parámetro y valor para pasar a la restricción. Cada valor debe existir en la CRD de la plantilla de restricción.
 
 ### <a name="deny-example"></a>Ejemplo de deny
 
-Ejemplo: uso del efecto deny.
+Ejemplo 1: Uso del efecto deny para los modos de Administrador de recursos.
 
 ```json
 "then": {
@@ -203,6 +238,21 @@ Ejemplo: uso del efecto deny.
 }
 ```
 
+Ejemplo 2: Uso del efecto deny para un modo de Proveedor de recursos de `Microsoft.Kubernetes.Data`. La información adicional en **details** define la plantilla de restricción y el CRD que se va a usar en Kubernetes para limitar las imágenes de contenedor permitidas.
+
+```json
+"then": {
+    "effect": "deny",
+    "details": {
+        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/template.yaml",
+        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/constraint.yaml",
+        "values": {
+            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]",
+            "excludedNamespaces": "[parameters('excludedNamespaces')]"
+        }
+    }
+}
+```
 
 ## <a name="deployifnotexists"></a>DeployIfNotExists
 
@@ -222,7 +272,7 @@ Durante un ciclo de evaluación, las definiciones de directiva con un efecto Dep
 
 La propiedad **details** del efecto DeployIfNotExists tiene todas las subpropiedades que definen los recursos relacionados con los que se establece la coincidencia y la implementación de plantilla que se ejecuta.
 
-- **Type** [obligatorio]
+- **Type** (obligatorio)
   - Especifica el tipo del recurso relacionado para coincidir.
   - Comienza tratando de recuperar un recurso debajo del recurso de condición **if** , luego consulta dentro del mismo grupo de recursos que el recurso de condición **if**.
 - **Nombre** (opcional)
@@ -246,14 +296,14 @@ La propiedad **details** del efecto DeployIfNotExists tiene todas las subpropied
   - Si algún recurso relacionado coincidente se evalúa como true, se cumple la condición del efecto y no se desencadena la implementación.
   - Puede utilizar [field()] para comprobar la equivalencia con los valores en la condición **if**.
   - Por ejemplo, podría usarse para validar que el recurso primario (en la condición **if**) está en la misma ubicación de recursos que el recurso relacionado coincidente.
-- **roleDefinitionIds** [obligatorio]
+- **roleDefinitionIds** (obligatorio)
   - Esta propiedad debe incluir una matriz de cadenas que coinciden con el identificador de rol de control de acceso basado en rol accesible por la suscripción. Para obtener más información, vea [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition) (corrección: configurar la definición de directiva).
 - **DeploymentScope** (opcional)
   - Los valores permitidos son _Subscription_ y _ResourceGroup_.
   - Establece el tipo de implementación que se desencadena. La _Suscripción_ indica una [implementación a nivel de suscripción](../../../azure-resource-manager/templates/deploy-to-subscription.md), _ResourceGroup_ indica una implementación en un grupo de recursos.
   - En la _Implementación_ debe especificarse una propiedad _location_ al usar las implementaciones de nivel de suscripción.
   - El valor predeterminado es _ResourceGroup_.
-- **Deployment** [obligatorio]
+- **Deployment** (obligatorio)
   - Esta propiedad debe incluir la implementación de plantilla completa, ya que luego se pasaría a la API PUT `Microsoft.Resources/deployments`. Para más información, consulte [Deployments REST API](/rest/api/resources/deployments) (API REST de implementaciones).
 
   > [!NOTE]
@@ -319,13 +369,12 @@ Este efecto es útil para probar situaciones o cuando la definición de directiv
 Una alternativa al efecto Disabled es **enforcementMode**, que se establece en la asignación de directiva.
 Cuando **enforcementMode**  es _Disabled_, los recursos se siguen evaluando. El registro, como los registros de actividad, y el efecto de la directiva no se producen. Para más información, consulte [Asignación de directivas: modo de cumplimiento](./assignment-structure.md#enforcement-mode).
 
-
 ## <a name="enforceopaconstraint"></a>EnforceOPAConstraint
 
 Este efecto se usa con un _modo_ de definición de directiva de `Microsoft.Kubernetes.Data`. Se usa para pasar reglas de control de admisión de Gatekeeper v3 definidas con [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) en [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) para clústeres de Kubernetes en Azure.
 
 > [!NOTE]
-> [Azure Policy para Kubernetes](./policy-for-kubernetes.md) está en versión preliminar y solo admite grupos de nodos de Linux y definiciones de directivas integradas.
+> [Azure Policy para Kubernetes](./policy-for-kubernetes.md) está en versión preliminar y solo admite grupos de nodos de Linux y definiciones de directivas integradas. Las definiciones de directivas integradas se encuentran en la categoría **Kubernetes**. Las definiciones de directivas de versión preliminar limitadas con efecto **EnforceOPAConstraint** y la categoría **Kubernetes Service** relacionada están _en desuso_. En su lugar, use los efectos _audit_ y _deny_ con el modo de Proveedor de recursos `Microsoft.Kubernetes.Data`.
 
 ### <a name="enforceopaconstraint-evaluation"></a>Evaluación de EnforceOPAConstraint
 
@@ -336,11 +385,11 @@ Cada 15 minutos, se completa un análisis completo del clúster y los resultados
 
 La propiedad de **detalles** del efecto EnforceOPAConstraint tiene las subpropiedades que describen la regla de control de admisión de Gatekeeper v3.
 
-- **constraintTemplate** [obligatorio]
+- **constraintTemplate** (obligatorio)
   - La plantilla de restricción CustomResourceDefinition (CRD) que define nuevas restricciones. La plantilla define la lógica de Rego, el esquema de restricción y los parámetros de restricción que se pasan a través de **valores** desde Azure Policy.
-- **constraint** [obligatorio]
+- **constraint** (obligatorio)
   - La implementación de CRD de la plantilla de restricción. Usa los parámetros que se han pasado a través de **valores** como `{{ .Values.<valuename> }}`. En el ejemplo siguiente, estos valores son `{{ .Values.cpuLimit }}` y `{{ .Values.memoryLimit }}`.
-- **values** [opcional]
+- **values** (opcional)
   - Define cualquier parámetro y valor para pasar a la restricción. Cada valor debe existir en la CRD de la plantilla de restricción.
 
 ### <a name="enforceopaconstraint-example"></a>Ejemplo de EnforceOPAConstraint
@@ -381,7 +430,7 @@ Ejemplo: regla de control de admisión de Gatekeeper v3 para establecer los lím
 Este efecto se usa con un _modo_ de definición de directiva de `Microsoft.ContainerService.Data`. Se usa para pasar las reglas de control de admisión de Gatekeeper v2 definidas con [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) a [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) en [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
 
 > [!NOTE]
-> [Azure Policy para Kubernetes](./policy-for-kubernetes.md) está en versión preliminar y solo admite grupos de nodos de Linux y definiciones de directivas integradas. Las definiciones de directivas integradas se encuentran en la categoría **Kubernetes**. Las definiciones de directivas de versión preliminar limitadas con efecto **EnforceRegoPolicy** y la categoría **Kubernetes Service** relacionada están _en desuso_. En su lugar, use el efecto actualizado [EnforceOPAConstraint](#enforceopaconstraint).
+> [Azure Policy para Kubernetes](./policy-for-kubernetes.md) está en versión preliminar y solo admite grupos de nodos de Linux y definiciones de directivas integradas. Las definiciones de directivas integradas se encuentran en la categoría **Kubernetes**. Las definiciones de directivas de versión preliminar limitadas con efecto **EnforceRegoPolicy** y la categoría **Kubernetes Service** relacionada están _en desuso_. En su lugar, use los efectos _audit_ y _deny_ con el modo de Proveedor de recursos `Microsoft.Kubernetes.Data`.
 
 ### <a name="enforceregopolicy-evaluation"></a>Evaluación de EnforceRegoPolicy
 
@@ -392,11 +441,11 @@ Cada 15 minutos, se completa un análisis completo del clúster y los resultados
 
 La propiedad de **detalles** del efecto EnforceRegoPolicy tiene las subpropiedades que describen la regla de control de admisión de Gatekeeper v2.
 
-- **policyId** [obligatorio]
+- **policyId** (obligatorio)
   - Un nombre único que pasa como parámetro a la regla de control de admisión de Rego.
-- **policy** [obligatorio]
+- **policy** (obligatorio)
   - Especifica el URI de la regla de control de admisión de Rego.
-- **policyParameters** [opcional]
+- **policyParameters** (opcional)
   - Define cualquier parámetro y valor para pasar a la directiva de Rego.
 
 ### <a name="enforceregopolicy-example"></a>Ejemplo de EnforceRegoPolicy
@@ -445,15 +494,21 @@ Cuando una definición de directiva que utiliza el efecto Modify se ejecuta como
 
 La propiedad **details** del efecto Modify tiene todas las subpropiedades que definen los permisos necesarios para la corrección y las propiedades **operations** que se usan para agregar, actualizar o quitar valores de etiqueta.
 
-- **roleDefinitionIds** [obligatorio]
+- **roleDefinitionIds** (obligatorio)
   - Esta propiedad debe incluir una matriz de cadenas que coinciden con el identificador de rol de control de acceso basado en rol accesible por la suscripción. Para obtener más información, vea [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition) (corrección: configurar la definición de directiva).
   - El rol definido debe incluir todas las operaciones concedidas al rol [Colaborador](../../../role-based-access-control/built-in-roles.md#contributor).
-- **operations** [obligatorio]
+- **conflictEffect** (opcional)
+  - Determina qué definición de directiva "gana" en caso de que haya más de una definición de directiva que modifique la misma propiedad.
+    - En el caso de los recursos nuevos o actualizados, la definición de la directiva con _deny_ tiene prioridad. Las definiciones de directivas con _Audit_ omiten todas las **operaciones**. Si más de una definición de directiva tiene _deny_, la solicitud se deniega como conflicto. Si todas las definiciones de directiva tienen _audit_, no se procesa ninguna de las **operaciones** de las definiciones de directiva en conflicto.
+    - En el caso de los recursos existentes, si hay más de una definición de directiva tenga _deny_, el estado de cumplimiento es _Conflict_. Si una o varias definiciones de directivas tienen _deny_, cada asignación devuelve un estado de cumplimiento de _Non-compliant_.
+  - Valores disponibles: _audit_, _deny_, _disabled_.
+  - El valor predeterminado es _deny_.
+- **operations** (obligatorio)
   - Una matriz de todas las operaciones de etiqueta que se van a llevar a cabo en los recursos coincidentes.
   - Propiedades:
-    - **operation** [obligatorio]
+    - **operation** (obligatorio)
       - Define qué acción se va a realizar en un recurso coincidente. Las opciones son: _addOrReplace_, _Add_, _Remove_. _Add_ se comporta de forma similar al efecto [Append](#append).
-    - **field** [obligatorio]
+    - **field** (obligatorio)
       - La etiqueta que se va a agregar, reemplazar o quitar. Los nombres de etiqueta deben seguir la misma convención de nomenclatura que otros [campos](./definition-structure.md#fields).
     - **value** (opcional)
       - Valor en el que se va a establecer la etiqueta.
@@ -528,6 +583,7 @@ Ejemplo 2: se quita la etiqueta `env` y se agrega la etiqueta `environment` o se
         "roleDefinitionIds": [
             "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
         ],
+        "conflictEffect": "deny",
         "operations": [
             {
                 "operation": "Remove",
@@ -542,8 +598,6 @@ Ejemplo 2: se quita la etiqueta `env` y se agrega la etiqueta `environment` o se
     }
 }
 ```
-
-
 
 ## <a name="layering-policy-definitions"></a>Definiciones de directivas en capas
 

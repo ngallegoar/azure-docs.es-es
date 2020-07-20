@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 048224a55c2bbcbc99281d070d88d34e2dc77168
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 295738ee5943a6cf54bc7e1e3ce4bba621dbe29f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309770"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84658682"
 ---
 # <a name="manage-user-settings-for-azure-multi-factor-authentication"></a>Administración de la configuración de usuarios para Azure Multi-Factor Authentication
 
@@ -31,6 +31,10 @@ Si tiene asignado el rol de *administrador de autenticación*, puede requerir a 
 1. Elija el usuario en el que quiere realizar una acción y seleccione **Métodos de autenticación**. En la parte superior de la ventana, elija una de las siguientes opciones para el usuario:
    - **Restablecer contraseña** restablece la contraseña del usuario y asigna una contraseña temporal que se debe cambiar en el siguiente inicio de sesión.
    - **Requerir volver a registrar MFA** hace que cuando el usuario inicie sesión la próxima vez, se le solicite que configure un nuevo método de autenticación MFA.
+   
+      > [!NOTE]
+      > Los métodos de autenticación del usuario registrados actualmente no se eliminan cuando un administrador requiere volver a registrarse para MFA. Después de que un usuario se registre de nuevo en MFA, se recomienda revisar la información de seguridad y eliminar los métodos de autenticación previamente registrados que ya no se puedan usar.
+   
    - **Revocar sesiones de MFA** borra las sesiones de MFA recordadas del usuario y le pide que realice MFA la próxima vez que la directiva lo exija en el dispositivo.
 
    ![Administración de los métodos de autenticación desde Azure Portal](./media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png)

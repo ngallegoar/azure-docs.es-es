@@ -8,17 +8,17 @@ manager: KumudD
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: allensu
-ms.openlocfilehash: e4197923fa71c719611bea7603113cab331d4ba8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 819b6af0d336e454aeeb67a9be62109cb6b08bb8
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147789"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708236"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Asignación de varias direcciones IP a máquinas virtuales mediante PowerShell
 
@@ -94,7 +94,7 @@ En los pasos siguientes se explica cómo crear una VM de ejemplo con varias dire
 
 6. Defina la configuración de la dirección IP principal para la NIC. Cambie 10.0.0.4 a una dirección válida en la subred que creó, si no usó el valor definido anteriormente. Antes de asignar una dirección IP estática, se recomienda que primero confirme que no está en uso. Escriba el comando `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Si la dirección está disponible, la salida devuelve *True*. Si no está disponible, la salida devuelve *False* y una lista de direcciones que están disponibles. 
 
-    En los comandos siguientes, **reemplace \<<reemplace por su nombre único> por el nombre DNS único que se va a usar.** El nombre debe ser único en todas las direcciones IP públicas dentro de una región de Azure. Se trata de un parámetro opcional. Se puede quitar si solo desea conectarse a la máquina virtual con la dirección IP pública.
+    En los siguientes comandos, **reemplace \<replace-with-your-unique-name> por el nombre DNS único que se va a usar.** El nombre debe ser único en todas las direcciones IP públicas dentro de una región de Azure. Se trata de un parámetro opcional. Se puede quitar si solo desea conectarse a la máquina virtual con la dirección IP pública.
 
     ```powershell
     

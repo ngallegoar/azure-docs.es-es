@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/29/2019
+ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: 5120e7ca3a29f12066343e5c4a81d6e51278f9ef
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: abcdc903e1509c266b9ea6666c296a59183e83c5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020411"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84711092"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personalización de la directiva de SQL Information Protection en Azure Security Center (versión preliminar)
  
@@ -75,7 +75,11 @@ Para personalizar la directiva de protección de información de su inquilino de
 7. Asegúrese de hacer clic en **Guardar** en la hoja principal **Etiquetas** para aplicar todos los cambios.
  
 Después de definir y guardar la directiva de protección de información, esta se aplicará a la clasificación de datos en todas las bases de datos de Azure SQL del inquilino.
- 
+
+## <a name="manage-sql-information-protection-using-azure-powershell"></a>Administración de la protección de la información de SQL mediante Azure PowerShell
+
+- [Get-AzSqlInformationProtectionPolicy](https://docs.microsoft.com/powershell/module/az.security/get-azsqlinformationprotectionpolicy): Recupera la directiva de protección de la información de SQL del inquilino en vigor.
+- [Set-AzSqlInformationProtectionPolicy](https://docs.microsoft.com/powershell/module/az.security/set-azsqlinformationprotectionpolicy): Establece la directiva de protección de la información de SQL del inquilino en vigor.
  
 ## <a name="next-steps"></a>Pasos siguientes
  
@@ -83,5 +87,5 @@ En este artículo, ha aprendido acerca de cómo definir una directiva de SQL Inf
 
 Para obtener más información acerca de las directivas de seguridad y la seguridad de datos en Azure Security Center, consulte los artículos siguientes:
  
-- [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure
-- [Seguridad de datos de Azure Security Center](security-center-data-security.md): aprenda cómo Security Center administra y protege los datos
+- [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
+- [Seguridad de datos de Azure Security Center](security-center-data-security.md): Aprenda cómo Security Center administra y protege los datos.

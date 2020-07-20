@@ -7,36 +7,66 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: d2b25fb93a1e35ffa82cf49c60d181b841b1692d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/12/2020
+ms.openlocfilehash: 3399ace71d3a28ea903991e0439f1c9ddcc939d4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77616193"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565399"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Recursos de documentación para el enriquecimiento con inteligencia artificial en Azure Cognitive Search
 
-El enriquecimiento con inteligencia artificial es una funcionalidad de indexación de Azure Cognitive Search que busca información latente en orígenes no textuales y texto sin diferenciar, y la transforma en contenido que permite búsquedas de texto completo en Azure Cognitive Search.
+El enriquecimiento con inteligencia artificial es un complemento a la indexación basada en indexadores que busca información latente en orígenes no textuales y texto sin diferenciar, y la transforma en contenido que permite búsquedas de texto completo en Azure Cognitive Search. 
 
-Los artículos siguientes son la documentación completa que trata sobre el enriquecimiento con inteligencia artificial.
+Para el procesamiento integrado, se llama internamente a los modelos de inteligencia artificial con entrenamiento previo de Cognitive Services para realizar los análisis. También puede integrar modelos personalizados con Azure Machine Learning, Azure Functions u otros enfoques.
 
-## <a name="getting-started"></a>Introducción
-+ [Introducción a la inteligencia artificial en Azure Cognitive Search](cognitive-search-concept-intro.md)
+A continuación se muestra una lista consolidada de la documentación sobre el enriquecimiento con IA.
+
+## <a name="concepts"></a>Conceptos
+
++ [Enriquecimientos con IA](cognitive-search-concept-intro.md)
++ [Conjuntos de aptitudes](cognitive-search-working-with-skillsets.md)
++ [Sesiones de depuración](cognitive-search-debug-session.md)
++ [Almacenes de conocimiento](knowledge-store-concept-intro.md)
++ [Proyecciones](knowledge-store-projection-overview.md)
++ [Enriquecimiento incremental (reutilización de un documento enriquecido en caché)](cognitive-search-incremental-indexing-conceptual.md)
+
+## <a name="hands-on-walkthroughs"></a>Tutoriales prácticos
+
 + [Inicio rápido: Creación de un conjunto de aptitudes cognitivo en Azure Portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Enriched indexing with AI](cognitive-search-tutorial-blob.md) (Tutorial: Indexación enriquecida con inteligencia artificial)
-+ [Ejemplo: Creación de una aptitud personalizada para el enriquecimiento con inteligencia artificial](cognitive-search-create-custom-skill-example.md)
++ [Tutorial: Diagnóstico, reparación y confirmación de cambios en el conjunto de aptitudes con sesiones de depuración](cognitive-search-tutorial-debug-sessions.md)
+
+## <a name="knowledge-stores"></a>Almacenes de conocimiento
+
++ [Inicio rápido: Creación de un almacén de conocimiento en Azure Portal](knowledge-store-create-portal.md)
++ [Creación de un almacén de conocimiento mediante REST y Postman](knowledge-store-create-rest.md)
++ [Visualización de un almacén de conocimiento con el Explorador de Storage](knowledge-store-view-storage-explorer.md)
++ [Conexión a un almacén de conocimiento con Power BI](knowledge-store-connect-power-bi.md)
++ [Ejemplos de proyección (dar forma y exportar enriquecimientos)](knowledge-store-projections-examples.md)
+
+## <a name="custom-skills-advanced"></a>Aptitudes personalizadas (avanzado)
+
++ [How to define a custom skills interface](cognitive-search-custom-skill-interface.md) (Definición de una interfaz de aptitudes personalizada)
++ [Ejemplo: Creación de una aptitud personalizada con Azure Functions (y Bing Entity Search API)](cognitive-search-create-custom-skill-example.md)
++ [Ejemplo: Creación de una aptitud personalizada con Python](cognitive-search-custom-skill-python.md)
++ [Ejemplo: Creación de una aptitud personalizada mediante Form Recognizer](cognitive-search-custom-skill-form.md) 
++ [Ejemplo: Creación de una aptitud personalizada con Azure Machine Learning](cognitive-search-tutorial-aml-custom-skill.md) 
 
 ## <a name="how-to-guidance"></a>Guía de procedimientos
-+ [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
-+ [How to reference annotations in a skillset](cognitive-search-concept-annotations-syntax.md) (Referencia a las anotaciones de un conjunto de aptitudes)
-+ [How to map fields to an index](cognitive-search-output-field-mapping.md) (Asignación de campos enriquecidos a un índice)
-+ [How to process and extract information from images](cognitive-search-concept-image-scenarios.md) (Procesamiento y extracción de información de imágenes)
-+ [How to rebuild an Azure Cognitive Search index](search-howto-reindex.md) (Reconstrucción de un índice de Azure Cognitive Search)
-+ [How to define a custom skills interface](cognitive-search-custom-skill-interface.md) (Definición de una interfaz de aptitudes personalizada)
-+ [Sugerencias para la solución de problemas](cognitive-search-concept-troubleshooting.md)
 
-## <a name="reference"></a>Referencia
++ [Adjuntar un recurso de Cognitive Services](cognitive-search-attach-cognitive-services.md)
++ [Define a skillset](cognitive-search-defining-skillset.md) (Definición de un conjunto de aptitudes)
++ [Referencia a las anotaciones de un conjunto de aptitudes](cognitive-search-concept-annotations-syntax.md)
++ [Asignación de campos enriquecidos a un índice](cognitive-search-output-field-mapping.md)
++ [Procesamiento y extracción de información de imágenes](cognitive-search-concept-image-scenarios.md)
++ [Configuración del almacenamiento en caché para el enriquecimiento incremental](search-howto-incremental-index.md)
++ [How to rebuild an Azure Cognitive Search index](search-howto-reindex.md) (Reconstrucción de un índice de Azure Cognitive Search)
++ [Sugerencias de diseño](cognitive-search-concept-troubleshooting.md)
++ [Errores y advertencias comunes](cognitive-search-common-errors-warnings.md)
+
+## <a name="skills-reference"></a>Referencia sobre aptitudes
 
 + [Aptitudes integradas](cognitive-search-predefined-skills.md)
   + [Microsoft.Skills.Text.KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md)
@@ -54,14 +84,17 @@ Los artículos siguientes son la documentación completa que trata sobre el enri
   + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
 
 + Aptitudes personalizadas
+  + [Microsoft.Skills.Custom.AmlSkill](cognitive-search-aml-skill.md)
   + [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md)
 
 + [Aptitudes en desuso](cognitive-search-skill-deprecated.md)
   + [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
 
+## <a name="apis"></a>API existentes
+
 + [REST API](https://docs.microsoft.com/rest/api/searchservice/)
-  + [Create Skillset (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-  + [Create Indexer (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
+  + [Creación de un conjunto de aptitudes (api-version=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
+  + [Create Indexer (api-version=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
 ## <a name="see-also"></a>Consulte también
 

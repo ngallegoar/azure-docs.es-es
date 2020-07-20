@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: cshoe
-ms.openlocfilehash: e4f35495d8a01146068cffb9159c29c46c3c0d29
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe5efd2bf4c235688aad90ae37b54268d290540c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75561874"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84676138"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Procesamiento de eventos fiable de Azure Functions
 
@@ -91,7 +91,7 @@ Hay dos partes necesarias para implementar un interruptor en un proceso de event
 
 Los detalles de implementación pueden variar, pero para compartir el estado entre las instancias, necesita un mecanismo de almacenamiento. Puede optar por almacenar el estado en Azure Storage, en una caché en Redis o en cualquier otra cuenta a la que se pueda tener acceso mediante una colección de funciones.
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) o las [entidades duraderas](./durable/durable-functions-overview.md) son una opción natural para administrar el flujo de trabajo y el estado del circuito. También puede usar otros servicios para ello, pero las aplicaciones lógicas se usarán en este ejemplo. Gracias a las aplicaciones lógicas, puede pausar y reiniciar la ejecución de una función, lo que le permitirá implementar el patrón del interruptor.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) y [Durable Functions](./durable/durable-functions-overview.md) son una opción natural para administrar el flujo de trabajo y el estado del circuito. También puede usar otros servicios para ello, pero las aplicaciones lógicas se usarán en este ejemplo. Gracias a las aplicaciones lógicas, puede pausar y reiniciar la ejecución de una función, lo que le permitirá implementar el patrón del interruptor.
 
 ### <a name="define-a-failure-threshold-across-instances"></a>Definir un umbral de error entre instancias
 
@@ -123,7 +123,7 @@ Gracias a esta opción, no se pierden los mensajes, todos ellos se procesan en o
 ## <a name="resources"></a>Recursos
 
 - [Ejemplos de procesamiento de eventos fiables](https://github.com/jeffhollan/functions-csharp-eventhub-ordered-processing)
-- [Interruptor de Azure Durable Functions](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
+- [Interruptor del circuito de entidades duraderas de Azure](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

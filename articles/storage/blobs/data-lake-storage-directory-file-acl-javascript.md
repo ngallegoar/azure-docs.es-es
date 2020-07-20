@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 9a95af730e8250539e8b33af4bd5a90dc3a604a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c774d3f56eaf666a31ff73f433a3b4a5a363ce2f
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84466075"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142487"
 ---
 # <a name="use-javascript-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Uso de JavaScript para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2
 
@@ -21,7 +21,7 @@ En este artículo se muestra cómo usar JavaScript para crear y administrar dire
 
 [Paquete (Administrador de paquetes de Node)](https://www.npmjs.com/package/@azure/storage-file-datalake) | [Ejemplos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples) | [Enviar comentarios](https://github.com/Azure/azure-sdk-for-java/issues)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 > [!div class="checklist"]
 > * Suscripción a Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
@@ -90,11 +90,11 @@ function GetDataLakeServiceClientAD(accountName, clientID, clientSecret, tenantI
 > [!NOTE]
 > Para ver más ejemplos, consulte la documentación de [Biblioteca cliente de Azure Identity para JS](https://www.npmjs.com/package/@azure/identity).
 
-## <a name="create-a-file-system"></a>Creación de un sistema de archivos
+## <a name="create-a-container"></a>Crear un contenedor
 
-Un sistema de archivos actúa como contenedor de los archivos. Puede crear uno mediante la obtención de una instancia de **FileSystemClient** y, a continuación, llamar al método **FileSystemClient.Create**.
+Un contenedor actúa como sistema de archivos para sus archivos. Puede crear uno mediante la obtención de una instancia de **FileSystemClient** y, a continuación, llamar al método **FileSystemClient.Create**.
 
-En este ejemplo se crea un sistema de archivos llamado `my-file-system`. 
+En este ejemplo se crea un contenedor denominado `my-file-system`. 
 
 ```javascript
 async function CreateFileSystem(datalakeServiceClient) {
@@ -112,7 +112,7 @@ async function CreateFileSystem(datalakeServiceClient) {
 
 Cree una referencia de directorio obteniendo una instancia de **DirectoryClient** y, a continuación, llame al método **DirectoryClient.create**.
 
-En este ejemplo se agrega un directorio denominado `my-directory` a un sistema de archivos. 
+En este ejemplo se agrega un directorio denominado `my-directory` a un contenedor. 
 
 ```javascript
 async function CreateDirectory(fileSystemClient) {

@@ -4,15 +4,15 @@ description: Más información sobre los códigos de error que podría ver al us
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 5a34dc2b9468c6c5af4af0e0addfd8b9ebb7e792
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 4625a0fa75f992ac18eeb91629af373a426aa955
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547811"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84676580"
 ---
 # <a name="error-messages-for-spot-vms-and-scale-sets"></a>Mensajes de error de las máquinas virtuales y los conjuntos de escalado de Spot
 
@@ -21,7 +21,7 @@ Estos son algunos de los códigos de error que podría recibir al usar las máqu
 
 | Clave | Message | Descripción |
 |-----|---------|-------------|
-| SkuNotAvailable | El nivel solicitado para el recurso "\<recurso\>" no está disponible actualmente en la ubicación "\<ubicación\>" para la suscripción "\<IDdesuscripción\>". Pruebe otro nivel o realice la implementación en una ubicación diferente. | No hay suficiente capacidad en Azure Spot para crear la máquina virtual o el conjunto de escalado. |
+| SkuNotAvailable | El nivel solicitado para el recurso "\<resource\>" no está disponible actualmente en la ubicación "\<location\>" para la suscripción "\<subscriptionID\>". Pruebe otro nivel o realice la implementación en una ubicación diferente. | No hay suficiente capacidad en Azure Spot para crear la máquina virtual o el conjunto de escalado. |
 | EvictionPolicyCanBeSetOnlyOnAzureSpotVirtualMachines  |  La directiva de expulsión solo se puede establecer en las máquinas virtuales de Azure Spot. | Esta máquina virtual no forma parte de Spot, por lo que no se puede establecer la directiva de expulsión. |
 | AzureSpotVMNotSupportedInAvailabilitySet  |  La máquina virtual de Azure Spot no es compatible con el conjunto de disponibilidad. | Tiene la opción de usar una máquina virtual de Spot o una de un conjunto de disponibilidad, no ambas. |
 | AzureSpotFeatureNotEnabledForSubscription  |  Suscripción no habilitada con la característica Azure Spot. | Use una suscripción que admita las máquinas virtuales de Spot. |

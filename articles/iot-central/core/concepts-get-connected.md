@@ -11,12 +11,12 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: ddbb1c6fd705e658867c0d594981e87bc8cd6afe
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: aa6aa7a8d98ae756a65a2618371c320118875c42
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930495"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710446"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Conexión a Azure IoT Central
 
@@ -261,7 +261,7 @@ En la tabla siguiente se resume cómo las características de los dispositivos d
 | Propiedad (grabable) | Propiedades deseadas y notificadas de dispositivos gemelos |
 | Get-Help | Métodos directos |
 
-Para obtener más información sobre el uso de los SDK de dispositivo, consulte [Conexión de un dispositivo DevKit a una aplicación de Azure IoT Central ](howto-connect-devkit.md) para obtener código de ejemplo.
+Para más información sobre el uso de los SDK de dispositivo, consulte [Conexión de un dispositivo MXChip IoT DevKit a una aplicación de Azure IoT Central](howto-connect-devkit.md) para obtener código de ejemplo.
 
 ### <a name="protocols"></a>Protocolos
 

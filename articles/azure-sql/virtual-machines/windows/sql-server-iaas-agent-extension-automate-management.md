@@ -4,7 +4,6 @@ description: En este artículo se describe cómo administrar la extensión Agent
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
-manager: jroth
 editor: ''
 tags: azure-resource-manager
 ms.assetid: effe4e2f-35b5-490a-b5ef-b06746083da4
@@ -17,12 +16,12 @@ ms.date: 08/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 08b9076ae81c8c8c071b03167d0242c1d933e619
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 89210cda6390fd7c3cf4ca2877b8899559a41321
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84034236"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84668719"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>Automatización de las tareas de administración en Azure Virtual Machines con la extensión del Agente de IaaS de SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -82,7 +81,7 @@ A continuación se indican los requisitos para usar la extensión del Agente de 
 
 
 ##  <a name="installation"></a>Instalación
-La extensión IaaS de SQL Server se instala al registrar la VM con SQL Server con el [proveedor de recursos de VM con SQL](sql-vm-resource-provider-register.md). Si es necesario, puede instalar el agente de IaaS de SQL Server manualmente con el comando de PowerShell siguiente: 
+La extensión IaaS de SQL Server se instala al registrar la máquina virtual con SQL Server con el [proveedor de recursos de VM con SQL Server](sql-vm-resource-provider-register.md). Si es necesario, puede instalar el agente de IaaS de SQL Server manualmente con el comando de PowerShell siguiente: 
 
   ```powershell-interactive
     Set-AzVMSqlServerExtension -VMName "sql2017" `

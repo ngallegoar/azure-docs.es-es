@@ -3,12 +3,12 @@ title: Etiquetado de una entidad en una expresión de ejemplo
 description: Aprenda a etiquetar una entidad de aprendizaje automático con subentidades en una expresión de ejemplo en una página de detalles de la intención del portal de LUIS.
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 959b9c6b25a7a76a87112fcbd1a10e7da12db1dd
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: f576f42f46930d81212ff754a14ee30c75b79624
+ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722650"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85610496"
 ---
 # <a name="label-machine-learning-entity-in-an-example-utterance"></a>Etiquetado de una entidad de aprendizaje automático en una expresión de ejemplo
 
@@ -16,7 +16,7 @@ Etiquetar una entidad en una expresión de ejemplo da a LUIS un ejemplo de qué 
 
 Puede etiquetar entidades y subentidades de aprendizaje automático.
 
-Dado que no se puede etiquetar expresiones regulares, listas o entidades generadas previamente, cree una entidad o subentidad y, a continuación, agregue estas entidades y características, si procede, a la entidad o subentidad.
+Dado que no se pueden etiquetar expresiones regulares, listas o entidades generadas previamente, cree una entidad o subentidad y, a continuación, agregue estas entidades como características, si procede, a la entidad o subentidad.
 
 ## <a name="label-example-utterances-from-the-intent-detail-page"></a>Etiquetado de expresiones de ejemplo desde la página de detalles de la intención
 

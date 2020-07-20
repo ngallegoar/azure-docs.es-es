@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 41f9f267880d199d2e221453eea5c3584ce96881
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 4a2038b44cf55f2a322b6bda202b8c33372f3716
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81868389"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808291"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorización de las cuentas de desarrollador mediante Azure Active Directory en Azure API Management
 
 En este artículo se muestra cómo habilitar el acceso al portal para desarrolladores para usuarios de Azure Active Directory. También se muestra cómo administrar grupos de usuarios de Azure AD mediante la adición de grupos externos que contienen a los usuarios.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 - Importe y publique una instancia de Azure API Management. Para más información, consulte [Importación y publicación](import-and-publish.md).
@@ -88,7 +88,7 @@ Para agregar un grupo de Azure AD externo a APIM, primero se debe completar la 
 
 1. Vuelva al Registro de aplicaciones que se ha creado en la sección anterior.
 2. Seleccione **Permisos de API** y, luego, haga clic en **Agregar un permiso**. 
-3. En el panel **Solicitud de permisos de API**, seleccione la pestaña **API de Microsoft** y, a continuación, seleccione el icono **Microsoft Graph**. Seleccione **Permisos de la aplicación**, busque **Directorio** y, a continuación, seleccione el permiso **Directory.Read.All**. 
+3. En el panel **Solicitud de permisos de API**, seleccione la pestaña **API de Microsoft** y, a continuación, seleccione el icono **Azure Active Directory Graph**. Seleccione **Permisos de la aplicación**, busque **Directorio** y, a continuación, seleccione el permiso **Directory.Read.All**. 
 4. Haga clic en **Agregar permisos** en la parte inferior del panel y, a continuación, haga clic en **Conceder consentimiento de administrador para {nombredeinquilino}** a fin de conceder acceso a todos los usuarios de este directorio. 
 
 Ahora los grupos externos de Azure AD se pueden agregan desde la pestaña **Grupos** de la instancia de API Management.
@@ -103,7 +103,7 @@ Después de agregar un grupo externo de Azure AD, puede revisar y configurar sus
  
 Los usuarios de la instancia de Azure AD configurada ya pueden iniciar sesión en el portal para desarrolladores. Pueden ver los grupos para los que tengan visibilidad y suscribirse a ellos.
 
-## <a name="developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"/> Portal para desarrolladores: incorporación de autenticación de cuenta de Azure AD
+## <a name="developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"></a> Portal para desarrolladores: incorporación de la autenticación de la cuenta de Azure AD
 
 En el portal para desarrolladores, se puede iniciar sesión con AAD utilizando el widget **Sign-in button OAuth** (Botón de inicio de sesión: OAuth). El widget ya está incluido en la página de inicio de sesión del contenido predeterminado del portal para desarrolladores.
 

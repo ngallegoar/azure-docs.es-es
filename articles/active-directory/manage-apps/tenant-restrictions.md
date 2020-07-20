@@ -3,8 +3,8 @@ title: 'Uso de restricciones de inquilino para administrar el acceso a las aplic
 description: Cómo usar restricciones de inquilino para administrar los usuarios que pueden tener acceso a las aplicaciones según su inquilino de Azure AD.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c43a1250f4d2be956b028689ee10eb4b968701f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: cd302791aa783f1a95d48f666366aa845fcaadbb
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680139"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84763030"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Uso de restricciones de inquilino para administrar el acceso a aplicaciones en la nube SaaS
 
@@ -60,7 +60,7 @@ Para usar restricciones de inquilino, los clientes deben ser capaces de conectar
 
 Se necesita la configuración siguiente para habilitar restricciones de inquilino a través de la infraestructura del proxy. Esta guía es genérica, por lo que debe remitirse a la documentación del proveedor del proxy para conocer los pasos de implementación específicos.
 
-#### <a name="prerequisites"></a>Prerrequisitos
+#### <a name="prerequisites"></a>Requisitos previos
 
 - El proxy debe ser capaz de realizar la intercepción de TLS y la inserción de encabezados HTTP, así como de filtrar destinos mediante direcciones URL o FQDN.
 
@@ -74,7 +74,7 @@ Para cada solicitud entrante de login.microsoftonline.com, login.microsoft.com y
 
 Los encabezados deben incluir los siguientes elementos:
 
-- Para *Restrict-Access-To-Tenants* (Restringir acceso para inquilinos), use un valor de \<permitted tenant list\> (lista de inquilinos permitidos), que es una lista separada por comas de los inquilinos a los que quiere que los usuarios puedan tener acceso. Se puede utilizar cualquier dominio que esté registrado con un inquilino para identificar al inquilino en esta lista. Por ejemplo, para permitir el acceso a los inquilinos Contoso y Fabrikam, el par nombre-valor puede ser algo así como: `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
+- Para *Restrict-Access-To-Tenants* (Restringir acceso a inquilinos), use un valor de \<permitted tenant list\>, que es una lista separada por comas de los inquilinos a los que quiere que los usuarios puedan tener acceso. Se puede utilizar cualquier dominio que esté registrado con un inquilino para identificar al inquilino en esta lista. Por ejemplo, para permitir el acceso a los inquilinos Contoso y Fabrikam, el par nombre-valor puede ser algo así como: `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
 
 - Para *Restrict-Access-Context* (Contexto para restringir acceso), use un valor de un identificador de directorio único que declare qué inquilino está estableciendo restricciones de inquilino. Por ejemplo, para declarar Contoso como el inquilino que establece la directiva de restricciones de inquilino, el par nombre-valor puede ser algo así como: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`.  
 
@@ -155,7 +155,7 @@ Fiddler es un proxy de depuración web gratis que puede usarse para capturar y m
 
    1. En la herramienta Fiddler Web Debugger, seleccione el menú **Reglas** y luego **Personalizar reglas...** para abrir el archivo CustomRules.
 
-   2. Agregue las líneas siguientes al principio de la función `OnBeforeRequest`. Reemplace \<tenant domain\> (dominio del inquilino) por un dominio registrado con el inquilino (por ejemplo, `contoso.onmicrosoft.com`). Reemplace \<directory ID\> por el identificador GUID de Azure AD del inquilino.
+   2. Agregue las líneas siguientes al principio de la función `OnBeforeRequest`. Reemplace \<tenant domain\> (dominio del inquilino) por un dominio registrado en el inquilino (por ejemplo, `contoso.onmicrosoft.com`). Reemplace \<directory ID\> por el identificador GUID de Azure AD del inquilino.
 
       ```JScript.NET
       if (

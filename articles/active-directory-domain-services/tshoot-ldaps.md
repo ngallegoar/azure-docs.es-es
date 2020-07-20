@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 22d1b6e2344256b52cfdbc48720a680a770a4216
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d2cd98a9af75b5f3a6ca084dbfd4c144e06643d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77132169"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84733796"
 ---
 # <a name="troubleshoot-secure-ldap-connectivity-issues-to-an-azure-active-directory-domain-services-managed-domain"></a>Solución de problemas de conectividad con LDAP seguro en un dominio administrado de Azure Active Directory Domain Services
 
@@ -26,18 +26,18 @@ Este artículo le ayuda a solucionar problemas de acceso LDAP seguro en Azure A
 
 ## <a name="common-connection-issues"></a>Problemas de conexión comunes
 
-Si tiene problemas para conectarse a un dominio administrado de Azure AD DS mediante LDAP seguro, revise los pasos siguientes de solución de problemas. Después de cada paso, intente conectarse de nuevo al dominio administrado de Azure AD DS:
+Si tiene problemas para conectarse a un dominio administrado de Azure AD DS mediante LDAP seguro, revise los pasos siguientes de solución de problemas. Después de cada paso de solución de problemas, intente conectarse de nuevo al dominio administrado:
 
 * La cadena del emisor del certificado LDAP seguro debe ser de confianza en el cliente. Puede agregar la entidad de certificación raíz (CA) en el almacén de certificados raíz de confianza en el cliente para establecer la confianza.
     * Asegúrese de [exportar el certificado a las máquinas cliente y aplicarlo][client-cert].
 * Compruebe que el certificado LDAP seguro para el dominio administrado tiene el nombre DNS en el atributo *Sujeto* o *Nombres alternativos del sujeto*.
     * Revise los [requisitos de certificado LDAP seguro][certs-prereqs] y cree un certificado de reemplazo si es necesario.
 * Compruebe que el cliente de LDAP (por ejemplo, *ldp.exe*) se conecta al punto de conexión de LDAP seguro con un nombre DNS, no con la dirección IP.
-    * El certificado que se aplica al dominio administrado de Azure AD DS no incluye las direcciones IP del servicio, sino solo los nombres DNS.
-* Compruebe el nombre DNS al que se conecta el cliente LDAP. Debe resolver a la dirección IP pública para LDAP seguro en el dominio administrado de Azure AD DS.
+    * El certificado que se aplica al dominio administrado no incluye las direcciones IP del servicio, sino solo los nombres DNS.
+* Compruebe el nombre DNS al que se conecta el cliente LDAP. Debe resolver a la dirección IP pública para LDAP seguro en el dominio administrado.
     * Si el nombre DNS se resuelve en la dirección IP interna, actualice el registro DNS para que se resuelva en la dirección IP externa.
 * Para la conectividad externa, el grupo de seguridad de red debe incluir una regla que permita el tráfico al puerto TCP 636 desde Internet.
-    * Si puede conectarse al dominio administrado de Azure AD DS mediante LDAP seguro desde los recursos conectados directamente a la red virtual, pero no a las conexiones externas, asegúrese de [crear una regla de grupo de seguridad de red que permita el tráfico LDAP seguro][ldaps-nsg].
+    * Si puede conectarse al dominio administrado mediante LDAP seguro desde los recursos conectados directamente a la red virtual, pero no con conexiones externas, asegúrese de [crear una regla de grupo de seguridad de red que permita el tráfico LDAP seguro][ldaps-nsg].
 
 ## <a name="next-steps"></a>Pasos siguientes
 

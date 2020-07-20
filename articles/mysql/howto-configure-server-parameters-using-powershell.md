@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurepowershell
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 4/29/2020
-ms.openlocfilehash: 0de816d25bbc1563885413d8dbd52dc7bda7d538
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 8f21b4daff6f5e30fdbb109e683ad7a3e75c8ad6
+ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614165"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86101637"
 ---
-# <a name="customize-azure-database-for-mysql-server-parameters-using-powershell"></a>Personalización de parámetros de servidor de Azure Database for MySQL mediante PowerShell
+# <a name="configure-server-parameters-in-azure-database-for-mysql-using-powershell"></a>Configuración de parámetros del servidor en Azure Database for MySQL con PowerShell
 
 Puede enumerar, mostrar y actualizar los parámetros de configuración de un servidor de Azure Database for MySQL mediante PowerShell. En el nivel del servidor, se expone y se puede modificar un subconjunto de las opciones de configuración del motor.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar esta guía, necesita:
 

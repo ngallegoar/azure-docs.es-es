@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5330c427088734b049b2cb4f7735ac0099a52b47
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 95f1027f4f5ace6963a38edf0dc028ddca351b7e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82943676"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84736679"
 ---
 # <a name="security-best-practices"></a>Recomendaciones de seguridad
 
@@ -137,7 +137,7 @@ Considere a los hosts de sesión como una extensión de la implementación de es
 
 ### <a name="manage-office-pro-plus-security"></a>Administración de la seguridad de Office Pro Plus
 
-Además de proteger los hosts de sesión, es importante proteger también las aplicaciones que se ejecutan dentro de ellos. Office Pro Plus es una de las aplicaciones más comunes que se implementan en hosts de sesión. Para mejorar la seguridad de la implementación de Office, se recomienda usar el [Asesor de directivas de seguridad](/DeployOffice/overview-of-security-policy-advisor) para las aplicaciones de Microsoft 365 para Empresas. Esta herramienta identifica las directivas que se pueden aplicar a la implementación para mayor seguridad. El Asesor de directivas de seguridad también recomienda directivas en función del impacto que tendrán en la seguridad y la productividad.
+Además de proteger los hosts de sesión, es importante proteger también las aplicaciones que se ejecutan dentro de ellos. Office Pro Plus es una de las aplicaciones más comunes que se implementan en hosts de sesión. Para mejorar la seguridad de la implementación de Office, se recomienda usar el [Asesor de directivas de seguridad](/DeployOffice/overview-of-security-policy-advisor) para las aplicaciones de Microsoft 365 para empresas. Esta herramienta identifica las directivas que se pueden aplicar a la implementación para mayor seguridad. El Asesor de directivas de seguridad también recomienda directivas en función del impacto que tendrán en la seguridad y la productividad.
 
 ### <a name="other-security-tips-for-session-hosts"></a>Otras sugerencias de seguridad para hosts de sesión
 

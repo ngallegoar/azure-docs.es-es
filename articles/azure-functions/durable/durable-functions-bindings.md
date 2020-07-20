@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 1f42c6c9b0086d49e539040334c83cfc0c6feb42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235392"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84698068"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Enlaces para Durable Functions (Azure Functions)
 
@@ -396,7 +396,7 @@ Cada función de entidad tiene un tipo de parámetro de `IDurableEntityContext`,
 * **GetState\<TState>(initfunction)** : obtiene el estado actual de la entidad. Si aún no existe, se crea llamando al parámetro `initfunction` que se proporciona. El parámetro `TState` debe ser un tipo primitivo o serializable de JSON. 
 * **SetState(arg)** : crea o actualiza el estado de la entidad. El parámetro `arg` debe ser un objeto serializable de JSON o primitivo.
 * **DeleteState()** : elimina el estado de la entidad. 
-* **GetInput\<TInput>()** : obtiene la entrada para la operación actual. El parámetro de tipo `TInput` debe ser un tipo primitivo o serializable de JSON.
+* **GetInput\<TInput>()** : obtiene la entrada de la operación actual. El parámetro de tipo `TInput` debe ser un tipo primitivo o serializable de JSON.
 * **Return(arg)** : devuelve un valor a la orquestación que ha llamado a la operación. El parámetro `arg` debe ser un objeto primitivo o serializable de JSON.
 * **SignalEntity(EntityId, scheduledTimeUtc, operation, input)** : envía un mensaje unidireccional a una entidad. El parámetro `operation` debe ser una cadena que no sea NULL, el parámetro `scheduledTimeUtc` opcional debe ser una fecha y hora UTC en la que invocar la operación y el parámetro `input` debe ser un objeto primitivo o serializable de JSON.
 * **CreateNewOrchestration(orchestratorFunctionName, input)** : inicia una nueva orquestación. El parámetro `input` debe ser un objeto primitivo o serializable de JSON.
@@ -533,7 +533,7 @@ Si utiliza lenguajes de scripting (por ejemplo, archivos *.csx* o *.js*) para de
 
 En funciones de .NET, habitualmente se enlaza a `IDurableEntityClient`, lo que proporciona acceso completo a todas las API de cliente compatibles con las entidades duraderas. También puede enlazar a la interfaz `IDurableOrchestrationClient`, que proporciona acceso a las API de cliente, tanto para las entidades como para las orquestaciones. Las API en el objeto de cliente incluyen:
 
-* **ReadEntityStateAsync\<T >** : lee el estado de una entidad. Devuelve una respuesta que indica si la entidad de destino existe y, si es así, cuál es su estado.
+* **ReadEntityStateAsync\<T>** : lee el estado de una entidad. Devuelve una respuesta que indica si la entidad de destino existe y, si es así, cuál es su estado.
 * **SignalEntityAsync**: envía un mensaje unidireccional a una entidad y espera a que se ponga en cola.
 * **ListEntitiesAsync**: consulta el estado de varias entidades. Las entidades se pueden consultar por *nombre* y *hora de la última operación*.
 

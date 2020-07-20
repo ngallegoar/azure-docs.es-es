@@ -1,24 +1,14 @@
 ---
 title: Información general de las características de Azure Event Hubs | Microsoft Docs
 description: En este artículo se proporcionan detalles acerca de las características y la terminología de Azure Event Hubs.
-services: event-hubs
-documentationcenter: .net
-author: ShubhaVijayasarathy
-manager: timlt
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.custom: seodec18
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/06/2018
-ms.author: shvija
-ms.openlocfilehash: c16dd4345e62fa9e826e657cce9a752186ec1b82
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.date: 06/23/2020
+ms.openlocfilehash: 5b646c1a0730b046dd3e66a5d5324b659999f83a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628664"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85320713"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Características y terminología de Azure Event Hubs
 
@@ -56,7 +46,7 @@ Event Hubs garantiza que todos los eventos que comparten un valor de clave de pa
 Los Event Hubs permiten un control granular sobre los publicadores de eventos a través de las *directivas de publicador*. Las directivas de publicador son características de tiempo de ejecución diseñadas para facilitar grandes números de publicadores de eventos independientes. Con las directivas de publicador, cada publicador usa su propio identificador único al publicar los eventos en un centro de eventos mediante el mecanismo siguiente:
 
 ```http
-//[my namespace].servicebus.windows.net/[event hub name]/publishers/[my publisher name]
+//<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
 ```
 
 No tiene que crear nombres de publicador con antelación, pero deben coincidir con el token de SAS que se usa al publicar un evento, con el fin de garantizar las identidades de publicador independientes. Al usar directivas de publicador, el valor **PartitionKey** se establece como el nombre del publicador. Para que funcione correctamente, estos valores deben coincidir.
@@ -85,12 +75,13 @@ En una arquitectura de procesamiento de flujos, cada aplicación de bajada se co
 
 Como máximo, puede haber cinco lectores simultáneos en una partición por grupo de consumidores; pero **se recomienda que solo haya un receptor activo en una partición por grupo de consumidores**. Cada lector recibe todos los mensajes dentro de una sola partición. Si tiene varios lectores en la misma partición, procesará los mensajes duplicados. Debe controlar esto en su código, pues no puede ser trivial. Sin embargo, es un enfoque válido en algunos escenarios.
 
+Algunos clientes que ofrecen los SDK de Azure son agentes de consumidor inteligentes que administran automáticamente los detalles para asegurarse de que cada partición tenga un lector único y que se estén leyendo todas las particiones para un centro de eventos. Esto permite que el código se centre en el procesamiento de los eventos que se leen desde el centro de eventos de modo que pueda omitir muchos detalles de las particiones. Para más información, consulte [Conexión a una partición](#connect-to-a-partition).
 
-A continuación se muestran ejemplos de la convención URI del grupo de consumidores:
+A continuación se muestran ejemplos de la convención de URI del grupo de consumidores:
 
 ```http
-//[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #1]
-//[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #2]
+//<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #1>
+//<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #2>
 ```
 
 La siguiente ilustración muestra la arquitectura de procesamiento del flujo de Event Hubs:
@@ -122,7 +113,12 @@ Todos los consumidores de Event Hubs se conectan a través de una sesión de AMQ
 
 #### <a name="connect-to-a-partition"></a>Conexión a una partición
 
-Es una práctica habitual al conectarse a particiones usar un mecanismo de concesiones para coordinar las conexiones del lector a particiones concretas. De este modo, es posible que cada partición de un grupo de consumidores solo tenga un lector activo. Los puntos de comprobación, la concesión y la administración de lectores se simplifica mediante el uso de la clase [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) para los clientes de .NET. El host del procesador de eventos es un agente de consumidor inteligente.
+Es una práctica habitual al conectarse a particiones usar un mecanismo de concesiones para coordinar las conexiones del lector a particiones concretas. De este modo, es posible que cada partición de un grupo de consumidores solo tenga un lector activo. Los puntos de comprobación, la concesión y la administración de lectores se simplifican mediante el uso de los clientes de los SDK de Event Hubs, que actúan como agentes de consumidor inteligentes. Dichos componentes son:
+
+- [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) para .NET
+- [EventProcessorClient](/java/api/com.azure.messaging.eventhubs.eventprocessorclient) para Java
+- [EventHubConsumerClient](/python/api/azure-eventhub/azure.eventhub.aio.eventhubconsumerclient) para Python
+- [EventHubSoncumerClient](/javascript/api/@azure/event-hubs/eventhubconsumerclient) para JavaScript o TypeScript
 
 #### <a name="read-events"></a>Lectura de eventos
 
@@ -142,13 +138,11 @@ Es su responsabilidad administrar el desplazamiento.
 Para obtener más información acerca de Event Hubs, visite los vínculos siguientes:
 
 - Introducción a Event Hubs
-    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [.NET](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
     - [Python](get-started-python-send-v2.md)
     - [JavaScript](get-started-java-send-v2.md)
 * [Guía de programación de Event Hubs](event-hubs-programming-guide.md)
 * [Disponibilidad y coherencia en Event Hubs](event-hubs-availability-and-consistency.md)
 * [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.md)
-* [Ejemplos de Event Hubs][]
-
-[Ejemplos de Event Hubs]: https://github.com/Azure/azure-event-hubs/tree/master/samples
+* [Ejemplos de Event Hubs](event-hubs-samples.md)

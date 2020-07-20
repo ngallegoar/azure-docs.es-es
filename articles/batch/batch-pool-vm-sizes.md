@@ -1,15 +1,15 @@
 ---
 title: Selección de los tamaños de máquina virtual para grupos
 description: Cómo elegir uno de los tamaños de máquina virtual disponibles para los nodos de proceso en grupos de Azure Batch
-ms.topic: how-to
-ms.date: 09/12/2019
+ms.topic: conceptual
+ms.date: 06/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2e0d403f405d58c0d7488ac6d0c306be2f2d79ea
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: e56632ce66cb25bf023813f2b98be6141f651465
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779150"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143527"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Selección de un tamaño de máquina virtual para nodos de proceso en un grupo de Azure Batch
 
@@ -29,15 +29,19 @@ Los grupos de Batch en la configuración de máquina virtual son compatibles con
 | Series de máquinas virtuales  | Tamaños admitidos |
 |------------|---------|
 | A básico | Todos los tamaños *excepto* Basic_A0 (A0) |
-| Un | Todos los tamaños *excepto* Standard_A0 |
+| A | Todos los tamaños *excepto* Standard_A0 |
 | Av2 | Todos los tamaños |
 | B | None |
 | DC | None |
 | Dv2, DSv2 | Todos los tamaños |
 | Dv3, Dsv3 | Todos los tamaños |
-| Dav4, Dasv4 | Ninguno: no disponible todavía |
+| Dav4<sup>1</sup> | Ninguno: no disponible todavía |
+| Dav4<sup>1</sup> | Todos los tamaños, excepto Standard_D48as_v4, Standard_D64as_v4 y Standard_D96as_v4 |
+| Ddv4, Ddsv4 |  Ninguno: no disponible todavía |
 | Ev3, Esv3 | Todos los tamaños, excepto E64is_v3 y E64i_v3 |
-| Eav4, Easv4 | Ninguno: no disponible todavía |
+| Eav4<sup>1</sup> | Todos los tamaños, excepto Standard_E48a_v4, Standard_E64a_v4 y Standard_E96a_v4 |
+| Easv4<sup>1</sup> | Todos los tamaños, excepto Standard_E48as_v4, Standard_E64as_v4 y Standard_E96as_v4 |
+| Edv4, Edsv4 |  Ninguno: no disponible todavía |
 | F, Fs | Todos los tamaños |
 | Fsv2 | Todos los tamaños |
 | G, Gs | Todos los tamaños |
@@ -46,8 +50,8 @@ Los grupos de Batch en la configuración de máquina virtual son compatibles con
 | HBv2<sup>1</sup> | Todos los tamaños |
 | HC<sup>1</sup> | Todos los tamaños |
 | LS | Todos los tamaños |
-| Lsv2 | Ninguno: no disponible todavía |
-| M<sup>1</sup> | Todos los tamaños, excepto M64, M64m, M128, M128m |
+| Lsv2<sup>1</sup> | Todos los tamaños |
+| M<sup>1</sup> | Todos los tamaños |
 | Mv2 | Ninguno: no disponible todavía |
 | NC | Todos los tamaños |
 | NCv2<sup>1</sup> | Todos los tamaños |
@@ -72,7 +76,7 @@ Los grupos de Batch en la configuración de Cloud Services son compatibles con t
 
 ## <a name="size-considerations"></a>Consideraciones de tamaño
 
-* **Requisitos de aplicación**: tenga en cuenta las características y los requisitos de la aplicación que se va a ejecutar en los nodos. Aspectos tales como si la aplicación es multiproceso y cuánta memoria consume pueden ayudar a determinar el tamaño de nodo más adecuado y rentable. Para varias instancias de [cargas de trabajo MPI](batch-mpi.md) o aplicaciones CUDA, considere la posibilidad de tamaños de máquina virtual especializados [HPC](../virtual-machines/linux/sizes-hpc.md) o [habilitado GPU](../virtual-machines/linux/sizes-gpu.md), respectivamente. (Consulte [Uso de instancias compatibles con RDMA o habilitadas para GPU en grupos de Batch](batch-pool-compute-intensive-sizes.md)).
+* **Requisitos de aplicación**: tenga en cuenta las características y los requisitos de la aplicación que se va a ejecutar en los nodos. Aspectos tales como si la aplicación es multiproceso y cuánta memoria consume pueden ayudar a determinar el tamaño de nodo más adecuado y rentable. Para varias instancias de [cargas de trabajo MPI](batch-mpi.md) o aplicaciones CUDA, considere la posibilidad de tamaños de máquina virtual especializados [HPC](../virtual-machines/sizes-hpc.md) o [habilitado GPU](../virtual-machines/sizes-gpu.md), respectivamente. (Consulte [Uso de instancias compatibles con RDMA o habilitadas para GPU en grupos de Batch](batch-pool-compute-intensive-sizes.md)).
 
 * **Tareas por nodo**: normalmente, se selecciona un tamaño de nodo bajo el supuesto de que no se ejecutará más que una sola tarea a la vez en un nodo. No obstante, puede tener ventajas [ejecutar en paralelo](batch-parallel-node-tasks.md) varias tareas y, por tanto, varias instancias de la aplicación, en varios nodos de proceso durante la ejecución del trabajo. En este caso, es habitual elegir un tamaño de nodo de varios núcleos para acomodar el aumento de la demanda por la ejecución de tareas en paralelo.
 

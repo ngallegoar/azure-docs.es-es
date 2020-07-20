@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 05/29/2020
-ms.openlocfilehash: 47879ab55a91904cdc41d9a486d77d55ed27f706
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.date: 06/10/2020
+ms.openlocfilehash: 9dfa45e463ecd53524e7516160324a80824e4d8d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235685"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84669535"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Límites de recursos para bases de datos únicas que utilizan el modelo de compra en núcleos virtuales
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ En este artículo se proporcionan los límites de recursos detallados para bases
 
 Para conocer los límites del modelo de compra en DTU para las bases de datos únicas en un servidor, consulte [Información general de los límites de recursos para un servidor](resource-limits-logical-server.md).
 
-Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de almacenamiento para una base de datos única mediante [Azure Portal](single-database-manage.md#azure-portal), [Transact-SQL](single-database-manage.md#transact-sql-t-sql), [PowerShell](single-database-manage.md#powershell), la [CLI de Azure](single-database-manage.md#azure-cli) o la [API REST](single-database-manage.md#rest-api).
+Puede establecer el nivel de servicio, el tamaño de proceso (objetivo de servicio) y la cantidad de almacenamiento para una base de datos única mediante [Azure Portal](single-database-manage.md#the-azure-portal), [Transact-SQL](single-database-manage.md#transact-sql-t-sql), [PowerShell](single-database-manage.md#powershell), la [CLI de Azure](single-database-manage.md#the-azure-cli) o la [API REST](single-database-manage.md#rest-api).
 
 > [!IMPORTANT]
 > Para información y consideraciones sobre el escalado, consulte [Escalado de una base de datos única](single-database-scale.md).
@@ -36,12 +36,12 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 
 ### <a name="gen5-compute-generation-part-1"></a>Generación de proceso Gen5 (parte 1)
 
-|Tamaño de proceso|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|GP_S_Gen5_6|GP_S_Gen5_8|
+|Tamaño de proceso (objetivo de servicio)|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|GP_S_Gen5_6|GP_S_Gen5_8|
 |:--- | --: |--: |--: |--: |--: |
 |Generación de procesos|Gen5|Gen5|Gen5|Gen5|Gen5|
 |Mínimo y máximo de núcleos virtuales|0,5 - 1|0,5 - 2|0,5 - 4|0,75 - 6|1,0 - 8|
 |Mínimo y máximo de memoria (GB)|2,02 - 3|2,05 - 6|2,10 - 12|2,25 - 18|3,00 - 24|
-|Retraso mínimo de pausa automática (minutos)|60|60|60|60|60|
+|Retraso mínimo y máximo de la pausa automática (minutos)|60 a 10 080|60 a 10 080|60 a 10 080|60 a 10 080|60 a 10 080|
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|
 |Tamaño máximo de datos (GB)|512|1024|1024|1024|1536|
@@ -62,12 +62,12 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 
 ### <a name="gen5-compute-generation-part-2"></a>Generación de proceso Gen5 (parte 2)
 
-|Tamaño de proceso|GP_S_Gen5_10|GP_S_Gen5_12|GP_S_Gen5_14|GP_S_Gen5_16|
+|Tamaño de proceso (objetivo de servicio)|GP_S_Gen5_10|GP_S_Gen5_12|GP_S_Gen5_14|GP_S_Gen5_16|
 |:--- | --: |--: |--: |--: |
 |Generación de procesos|Gen5|Gen5|Gen5|Gen5|
 |Mínimo y máximo de núcleos virtuales|1,25 - 10|1,50 - 12|1,75-14|2,00 - 16|
 |Mínimo y máximo de memoria (GB)|3,75 - 30|4,50 - 36|5,25 - 42|6,00 - 48|
-|Retraso mínimo de pausa automática (minutos)|60|60|60|60|
+|Retraso mínimo y máximo de la pausa automática (minutos)|60 a 10 080|60 a 10 080|60 a 10 080|60 a 10 080|
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|
 |Tamaño máximo de datos (GB)|1536|3072|3072|3072|
@@ -84,13 +84,40 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Escalado horizontal de lectura|N/D|N/D|N/D|N/D|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
+\* El valor máximo de los tamaños de e/s que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para más información, consulte [Regulación de E/S de los datos](resource-limits-logical-server.md#resource-governance).
+
+### <a name="gen5-compute-generation-part-3"></a>Generación de proceso Gen5 (parte 3)
+
+|Tamaño de proceso (objetivo de servicio)|GP_S_Gen5_18|GP_S_Gen5_20|GP_S_Gen5_24|GP_S_Gen5_32|GP_S_Gen5_40|
+|:--- | --: |--: |--: |--: |--:|
+|Generación de procesos|Gen5|Gen5|Gen5|Gen5|Gen5|
+|Mínimo y máximo de núcleos virtuales|2,25 - 18|2,5 a 20|3-24|4 a 32|5 a 40|
+|Mínimo y máximo de memoria (GB)|6,75 a 54|7,5 a 60|9 a 72|12 a 96|15 a 120|
+|Retraso mínimo y máximo de la pausa automática (minutos)|60 a 10 080|60 a 10 080|60 a 10 080|60 a 10 080|60 a 10 080|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|
+|Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|
+|Tamaño máximo de datos (GB)|3072|3072|4096|4096|4096|
+|Tamaño máximo de registro (GB)|922|922|1229|1229|1229|
+|Tamaño máximo de datos de TempDB (GB)|576|640|768|1024|1280|
+|Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
+|Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
+|Número máx. de IOPS de datos *|5760|6400|7680|10240|12800|
+|Velocidad de registro máx. (Mbps)|30|30|30|30|30|
+|Cantidad máxima de trabajos (solicitudes) simultáneos|1350|1\.500|1800|2400|3000|
+|N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|
+|Número de réplicas|1|1|1|1|1|
+|AZ múltiple|N/D|N/D|N/D|N/D|N/D|
+|Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|
+|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
+
 \* El valor máximo de los tamaños de e/s que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](resource-limits-logical-server.md#resource-governance).
+
 
 ## <a name="hyperscale---provisioned-compute---gen4"></a>Hiperescala: proceso aprovisionado: Gen4
 
 ### <a name="gen4-compute-generation-part-1"></a>Generación de proceso Gen4 (parte 1)
 
-|Nivel de rendimiento|HS_Gen4_1|HS_Gen4_2|HS_Gen4_3|HS_Gen4_4|HS_Gen4_5|HS_Gen4_6|
+|Tamaño de proceso (objetivo de servicio)|HS_Gen4_1|HS_Gen4_2|HS_Gen4_3|HS_Gen4_4|HS_Gen4_5|HS_Gen4_6|
 |:--- | --: |--: |--: |---: | --: |--: |
 |Generación de procesos|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |Núcleos virtuales|1|2|3|4|5|6|
@@ -115,7 +142,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 
 ### <a name="gen4-compute-generation-part-2"></a>Generación de proceso Gen4 (parte 2)
 
-|Nivel de rendimiento|HS_Gen4_7|HS_Gen4_8|HS_Gen4_9|HS_Gen4_10|HS_Gen4_16|HS_Gen4_24|
+|Tamaño de proceso (objetivo de servicio)|HS_Gen4_7|HS_Gen4_8|HS_Gen4_9|HS_Gen4_10|HS_Gen4_16|HS_Gen4_24|
 |:--- | ---: |--: |--: | --: |--: |--: |
 |Generación de procesos|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |Núcleos virtuales|7|8|9|10|16|24|
@@ -144,7 +171,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 
 ### <a name="gen5-compute-generation-part-1"></a>Generación de proceso Gen5 (parte 1)
 
-|Nivel de rendimiento|HS_Gen5_2|HS_Gen5_4|HS_Gen5_6|HS_Gen_8|HS_Gen5_10|HS_Gen5_12|HS_Gen5_14|
+|Tamaño de proceso (objetivo de servicio)|HS_Gen5_2|HS_Gen5_4|HS_Gen5_6|HS_Gen_8|HS_Gen5_10|HS_Gen5_12|HS_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |
 |Generación de procesos|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |Núcleos virtuales|2|4|6|8|10|12|14|
@@ -171,7 +198,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 
 ### <a name="gen5-compute-generation-part-2"></a>Generación de proceso Gen5 (parte 2)
 
-|Nivel de rendimiento|HS_Gen5_16|HS_Gen5_18|HS_Gen5_20|HS_Gen_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
+|Tamaño de proceso (objetivo de servicio)|HS_Gen5_16|HS_Gen5_18|HS_Gen5_20|HS_Gen_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
 |:--- | --: |--: |--: |--: |---: |--: |--: |
 |Generación de procesos|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |Núcleos virtuales|16|18|20|24|32|40|80|
@@ -211,7 +238,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 
 ### <a name="gen4-compute-generation-part-1"></a>Generación de proceso Gen4 (parte 1)
 
-|Tamaño de proceso|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
+|Tamaño de proceso (objetivo de servicio)|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
 |:--- | --: |--: |--: |--: |--: |--: |
 |Generación de procesos|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |Núcleos virtuales|1|2|3|4|5|6|
@@ -236,7 +263,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 
 ### <a name="gen4-compute-generation-part-2"></a>Generación de proceso Gen4 (parte 2)
 
-|Tamaño de proceso|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24
+|Tamaño de proceso (objetivo de servicio)|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24
 |:--- | --: |--: |--: |--: |--: |--: |
 |Generación de procesos|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |Núcleos virtuales|7|8|9|10|16|24|
@@ -263,7 +290,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 
 ### <a name="gen5-compute-generation-part-1"></a>Generación de proceso Gen5 (parte 1)
 
-|Tamaño de proceso|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
+|Tamaño de proceso (objetivo de servicio)|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Generación de procesos|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |Núcleos virtuales|2|4|6|8|10|12|14|
@@ -288,7 +315,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 
 ### <a name="gen5-compute-generation-part-2"></a>Generación de proceso Gen5 (parte 2)
 
-|Tamaño de proceso|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
+|Tamaño de proceso (objetivo de servicio)|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Generación de procesos|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |Núcleos virtuales|16|18|20|24|32|40|80|
@@ -315,7 +342,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 
 ### <a name="fsv2-series-compute-generation-preview"></a>Generación de proceso de la serie Fsv2 (versión preliminar)
 
-|Tamaño de proceso|GP_Fsv2_72|
+|Tamaño de proceso (objetivo de servicio)|GP_Fsv2_72|
 |:--- | --: |
 |Generación de procesos|Serie Fsv2|
 |Núcleos virtuales|72|
@@ -346,7 +373,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 
 ### <a name="gen4-compute-generation-part-1"></a>Generación de proceso Gen4 (parte 1)
 
-|Tamaño de proceso|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
+|Tamaño de proceso (objetivo de servicio)|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Generación de procesos|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |Núcleos virtuales|1|2|3|4|5|6|
@@ -372,7 +399,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 
 ### <a name="gen4-compute-generation-part-2"></a>Generación de proceso Gen4 (parte 2)
 
-|Tamaño de proceso|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
+|Tamaño de proceso (objetivo de servicio)|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Generación de procesos|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |Núcleos virtuales|7|8|9|10|16|24|
@@ -400,7 +427,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 
 ### <a name="gen5-compute-generation-part-1"></a>Generación de proceso Gen5 (parte 1)
 
-|Tamaño de proceso|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
+|Tamaño de proceso (objetivo de servicio)|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Generación de procesos|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |Núcleos virtuales|2|4|6|8|10|12|14|
@@ -426,7 +453,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 
 ### <a name="gen5-compute-generation-part-2"></a>Generación de proceso Gen5 (parte 2)
 
-|Tamaño de proceso|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
+|Tamaño de proceso (objetivo de servicio)|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Generación de procesos|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |Núcleos virtuales|16|18|20|24|32|40|80|
@@ -454,7 +481,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 
 ### <a name="m-series-compute-generation-preview"></a>Generación de proceso de la serie M (versión preliminar)
 
-|Tamaño de proceso|BC_M_128|
+|Tamaño de proceso (objetivo de servicio)|BC_M_128|
 |:--- | --: |
 |Generación de procesos|Serie M|
 |Núcleos virtuales|128|

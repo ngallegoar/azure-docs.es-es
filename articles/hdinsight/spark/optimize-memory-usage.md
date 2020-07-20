@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 6992359bbef743bffba0ccbb7f5db3f865e7993b
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 06bb8f2005dae9e36fe55547a31c81c36d0c7068
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83790752"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737655"
 ---
-# <a name="memory-usage-optimization"></a>Optimización del uso de la memoria
+# <a name="memory-usage-optimization-for-apache-spark"></a>Optimización del uso de memoria para Apache Spark
 
 En este artículo se describe cómo optimizar la administración de memoria del clúster de Apache Spark para obtener el mejor rendimiento en Azure HDInsight.
 

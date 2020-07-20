@@ -3,7 +3,6 @@ title: 'Inicio rápido: Creación de una VM con SQL Server Linux en Azure'
 description: Este tutorial muestra cómo crear una máquina virtual Linux con SQL Server 2017 en Azure Portal.
 services: virtual-machines-linux
 author: MashaMSFT
-manager: craigg
 ms.date: 10/22/2019
 tags: azure-service-management
 ms.topic: conceptual
@@ -11,14 +10,14 @@ ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ac7a836f339e86ce3705d64d04cad143f1043a81
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 41f39c7e60e79e034d4c855a77bfee0f6fa2094d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259531"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84669518"
 ---
-# <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Aprovisionamiento de una máquina virtual Linux con SQL Server en Azure Portal
+# <a name="provision-a-linux-virtual-machine-running-sql-server-in-the-azure-portal"></a>Aprovisionamiento de una máquina virtual Linux con SQL Server en Azure Portal
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
@@ -28,7 +27,7 @@ ms.locfileid: "84259531"
 En este tutorial de inicio rápido, se usa Azure Portal para crear una máquina virtual Linux con SQL Server 2017 instalado. Aprenderá lo siguiente: 
 
 
-* [Crear una máquina virtual Linux con SQL desde la Galería](#create)
+* [Crear una máquina virtual Linux que ejecute SQL Server desde la galería](#create)
 * [Conectarse a la nueva máquina virtual con SSH](#connect)
 * [Cambiar la contraseña de SA](#password)
 * [Realizar la configuración para conexiones remotas](#remote)
@@ -125,7 +124,7 @@ Si utiliza Windows y no tiene un shell de BASH, instale un cliente de SSH, como 
 
 Para más información acerca de cómo conectarse a máquinas virtuales Linux, consulte [Creación de máquinas virtuales Linux con Azure Portal](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal).
 
-> [!Note]
+> [!NOTE]
 > Si ve una alerta de seguridad de PuTTY que indique que la clave de host del servidor no se almacena en la caché del registro, elija entre las opciones siguientes. Si confía en este host, seleccione **Sí** para agregar la clave a la caché de PuTTY y siga conectándose. Si quiere conectarse solo una vez, sin agregar la clave a la caché, seleccione **No**. Si no confía en este host, seleccione **Cancelar** para abandonar la conexión.
 
 ## <a name="change-the-sa-password"></a><a id="password"></a> Cambio de la contraseña de SA

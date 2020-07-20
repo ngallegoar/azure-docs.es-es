@@ -1,29 +1,29 @@
 ---
 title: Errores de recurso no encontrado
-description: Describe cómo resolver errores cuando un recurso no se puede encontrar al implementarse con una plantilla de Resource Manager.
+description: Describe cómo resolver errores cuando no se encuentra un recurso. El error se puede producir al implementar una plantilla de Azure Resource Manager o al realizar acciones de administración.
 ms.topic: troubleshooting
-ms.date: 06/01/2020
-ms.openlocfilehash: 5d827f68ec97cfa77fb69a34284bd572286641a4
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.date: 06/10/2020
+ms.openlocfilehash: 224af4ce0fe5053201f25d8207f4ca8cdc73e638
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259361"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84667954"
 ---
-# <a name="resolve-not-found-errors-for-azure-resources"></a>Resolver errores de recursos de Azure no encontrados
+# <a name="resolve-resource-not-found-errors"></a>Solución de errores de recurso no encontrado
 
-En este artículo se describen los errores que pueden encontrar cuando no se encuentra un recurso durante la implementación.
+En este artículo se describen los errores que pueden aparecer cuando no se encuentra un recurso durante la implementación. Normalmente, este error se muestra al implementar recursos. También puede ver este error cuando realice tareas de administración y Azure Resource Manager no encuentre el recurso necesario. Por ejemplo, si intenta agregar etiquetas a un recurso que no existe, recibirá este error.
 
 ## <a name="symptom"></a>Síntoma
 
-Cuando la plantilla incluye el nombre de un recurso que no se puede resolver, recibe un error similar al siguiente:
+Hay dos códigos de error que indican que no se puede encontrar el recurso. El error **NotFound** devuelve un resultado similar al siguiente:
 
 ```
 Code=NotFound;
 Message=Cannot find ServerFarm with name exampleplan.
 ```
 
-Si usa las funciones [reference](template-functions-resource.md#reference) o [listKeys](template-functions-resource.md#listkeys) con un recurso que no se puede resolver, recibirá el error siguiente:
+El error **ResourceNotFound** devuelve un resultado similar al siguiente:
 
 ```
 Code=ResourceNotFound;
@@ -33,11 +33,23 @@ group {resource group name} was not found.
 
 ## <a name="cause"></a>Causa
 
-Resource Manager necesita recuperar las propiedades de un recurso, pero no puede identificar el recurso en su suscripción.
+Resource Manager necesita recuperar las propiedades de un recurso, pero no puede encontrar el recurso en las suscripciones.
 
-## <a name="solution-1---set-dependencies"></a>Solución 1: Establecimiento de dependencias
+## <a name="solution-1---check-resource-properties"></a>Solución 1: comprobación de las propiedades del recurso
 
-Si está tratando de implementar el recurso que falta en la plantilla, compruebe si tiene que agregar una dependencia. Cuando es posible, Resource Manager optimiza la implementación mediante la creación de recursos en paralelo. Si un recurso se debe implementar después de otro, debe usar el elemento **dependsOn** de la plantilla. Por ejemplo, al implementar una aplicación web, debe existir el plan de App Service. Si no ha especificado que la aplicación web dependa del plan de App Service, Resource Manager crea ambos recursos al mismo tiempo. Recibirá un error que indica que no se encuentra el recurso del plan de App Service, porque aún no existe cuando se intenta establecer una propiedad en la aplicación web. Este error se puede evitar estableciendo la dependencia en la aplicación web.
+Cuando reciba este error mientras realiza una tarea de administración, compruebe los valores que ha proporcionado para el recurso. Los tres valores que se deben comprobar son:
+
+* Nombre del recurso
+* Definición de un nombre de grupo de recursos
+* Suscripción
+
+Si usa PowerShell o la CLI de Azure, compruebe si el comando se ejecuta en la suscripción que contiene el recurso. Puede cambiar la suscripción con [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext) o [az account set](/cli/azure/account#az-account-set). Muchos comandos también proporcionan un parámetro de suscripción que le permite especificar una suscripción diferente a la del contexto actual.
+
+Si tiene problemas para comprobar las propiedades, inicie sesión en el [portal](https://portal.azure.com). Busque el recurso que intenta usar y examine el nombre del recurso, el grupo de recursos y la suscripción.
+
+## <a name="solution-2---set-dependencies"></a>Solución 2: establecimiento de dependencias
+
+Si recibe este error al implementar una plantilla, es posible que tenga que agregar una dependencia. Cuando es posible, Resource Manager optimiza la implementación mediante la creación de recursos en paralelo. Si un recurso se debe implementar después de otro, debe usar el elemento **dependsOn** de la plantilla. Por ejemplo, al implementar una aplicación web, debe existir el plan de App Service. Si no ha especificado que la aplicación web dependa del plan de App Service, Resource Manager crea ambos recursos al mismo tiempo. Recibirá un error que indica que no se encuentra el recurso del plan de App Service, porque aún no existe cuando se intenta establecer una propiedad en la aplicación web. Este error se puede evitar estableciendo la dependencia en la aplicación web.
 
 ```json
 {
@@ -70,23 +82,19 @@ Cuando se encuentre con problemas de dependencia, debe comprender mejor el orden
 
    ![implementación secuencial](./media/error-not-found/deployment-events-sequence.png)
 
-## <a name="solution-2---get-resource-from-different-resource-group"></a>Solución 2: Obtención de recursos de otro grupo de recursos
+## <a name="solution-3---get-external-resource"></a>Solución 3: obtención de recursos externos
 
-Si el recurso existe en un grupo de recursos diferente al que se va a implementar, utilice la [función resourceId](template-functions-resource.md#resourceid) para obtener el nombre completo del recurso.
+Si necesita obtener un recurso que existe en otro grupo de recursos u otra suscripción al implementar una plantilla, utilice la [función resourceId](template-functions-resource.md#resourceid). Esta función devuelve el nombre completo del recurso.
+
+Los parámetros de grupo de recursos y suscripción de la función resourceId son opcionales. Si no los proporciona, el valor predeterminado será la suscripción y el grupo de recursos actuales. Cuando trabaje con un recurso de otro grupo de recursos o suscripción, asegúrese de que proporciona dichos valores.
+
+En el ejemplo siguiente se obtiene el identificador de recurso de un recurso que existe en otro grupo de recursos.
 
 ```json
 "properties": {
   "name": "[parameters('siteName')]",
   "serverFarmId": "[resourceId('plangroup', 'Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
 }
-```
-
-## <a name="solution-3---check-reference-function"></a>Solución 3: Comprobación de la función de referencia
-
-Busque una expresión que incluya la función [reference](template-functions-resource.md#reference). Los valores que proporcione varían en función de si el recurso se está en la misma plantilla, grupo de recursos y suscripción. Compruebe que está proporcionando los valores de parámetro necesarios para su escenario. Si el recurso está en otro grupo de recursos, proporcione el identificador de recurso completo. Por ejemplo, para hacer referencia a una cuenta de almacenamiento en otro grupo de recursos, use:
-
-```json
-"[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
 ```
 
 ## <a name="solution-4---get-managed-identity-from-resource"></a>Solución 4: Obtención de una identidad administrada del recurso
@@ -116,4 +124,12 @@ O bien, para obtener el identificador de inquilino de una identidad administrada
 
 ```json
 "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), 2019-12-01, 'Full').Identity.tenantId]"
+```
+
+## <a name="solution-5---check-functions"></a>Solución 5: comprobación de las funciones
+
+Al implementar una plantilla, busque expresiones que usen las funciones [reference](template-functions-resource.md#reference) o [listKeys](template-functions-resource.md#listkeys). Los valores que proporcione varían en función de si el recurso se está en la misma plantilla, grupo de recursos y suscripción. Compruebe que proporciona los valores de parámetro necesarios para su escenario. Si el recurso está en otro grupo de recursos, proporcione el identificador de recurso completo. Por ejemplo, para hacer referencia a una cuenta de almacenamiento en otro grupo de recursos, use:
+
+```json
+"[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
 ```

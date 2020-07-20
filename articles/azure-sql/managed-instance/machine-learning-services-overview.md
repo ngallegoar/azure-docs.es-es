@@ -2,7 +2,7 @@
 title: Machine Learning Services de Instancia administrada de Azure SQL (versión preliminar)
 description: En este artículo se proporciona información general acerca de Machine Learning Services en Instancia administrada de Azure SQL.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: machine-learning
 ms.custom: ''
 ms.devlang: ''
@@ -11,13 +11,13 @@ author: garyericson
 ms.author: garye
 ms.reviewer: carlrab, davidph
 manager: cgronlun
-ms.date: 05/27/2020
-ms.openlocfilehash: fb74cc3aba3ad37e36a4d7cbe726bde4cb088e90
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/03/2020
+ms.openlocfilehash: b5daf283df1ef5d6b42da5bf0a4652aedf2f6284
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84031196"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84708746"
 ---
 # <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Machine Learning Services de Instancia administrada de Azure SQL (versión preliminar)
 
@@ -63,3 +63,4 @@ No se recomienda el uso de Machine Learning Services con Instancia administrada 
 - Consulte las [principales diferencias con Machine Learning Services en SQL Server](machine-learning-services-differences.md).
 - Para obtener información sobre cómo usar Python en Machine Learning Services, vea [Ejecución de scripts de Python](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15).
 - Para obtener información sobre cómo usar R en Machine Learning Services, vea [Ejecución de scripts de R](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15).
+- Para obtener más información sobre el aprendizaje automático en otras plataformas de SQL, consulte la [documentación del aprendizaje automático de SQL](https://docs.microsoft.com/sql/machine-learning/).

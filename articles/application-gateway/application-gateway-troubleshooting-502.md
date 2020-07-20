@@ -4,18 +4,18 @@ description: 'Obtenga información sobre cómo solucionar errores de Application
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: a48ed39af243296bcb76cb61f1fe64e4e95ab7e7
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 1b0abe998540c4fcc0a9b83f6d1175e18a560871
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801763"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808155"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Solución de errores de puerta de enlace incorrecta en el servicio Puerta de enlace de aplicaciones
-<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=66c070b6-1c47-4c7f-b928-317a8c8b452f" target='_blank'>Iniciar</a></span><span class="has-padding-small">Solucione el problema rápidamente con el agente virtual para ejecutar <b>diagnósticos automáticos.</b></span><span class="has-padding-small"><a href="https://privacy.microsoft.com/privacystatement" target='_blank'><div align="right"><sub>Declaración de privacidad</sub></div></a></span></p>
+
 Aprenda a solucionar problemas de errores de puerta de enlace incorrecta (502) recibidos al usar Azure Application Gateway.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -111,7 +111,7 @@ Se han agregado las siguientes propiedades adicionales:
 | Nombre |Nombre del sondeo. Este nombre se usa para hacer referencia al sondeo en la configuración de HTTP de back-end. |
 | Protocolo |Protocolo usado para enviar el sondeo. El sondeo utiliza el protocolo definido en la configuración de HTTP del back-end. |
 | Host |Nombre de host para enviar el sondeo. Solo es aplicable cuando se ha configurado un entorno multisitio en la instancia de Application Gateway. Es diferente al nombre de host de máquina virtual. |
-| Path |Ruta de acceso relativa del sondeo. La ruta de acceso válida se inicia desde '/'. La sonda se envía a \<protocolo\>://\<host\>:\<puerto\>\<ruta de acceso\> |
+| Path |Ruta de acceso relativa del sondeo. La ruta de acceso válida se inicia desde '/'. El sondeo se envía a \<protocol\>://\<host\>:\<port\>\<path\> |
 | Intervalo |Intervalo de sondeo en segundos. Es el intervalo de tiempo entre dos sondeos consecutivos. |
 | Tiempo de espera |Tiempo de espera del sondeo en segundos. Si no se recibe una respuesta válida dentro del período de espera, el sondeo se marca como erróneo. |
 | Umbral incorrecto |Número de reintentos de sondeo. El servidor back-end se marca como inactivo después de que el número de errores de sondeo consecutivos alcanza el umbral incorrecto. |
@@ -122,7 +122,7 @@ Valide que el sondeo de mantenimiento personalizado esté configurado correctame
 
 * Asegúrese de que la sonda se ha especificado correctamente según la [guía](application-gateway-create-probe-ps.md).
 * Si la instancia de Application Gateway está configurada para un único sitio, el nombre de host debería especificarse de forma predeterminada como `127.0.0.1`, salvo que se configure de otra manera en el sondeo personalizado.
-* Asegúrese de que una llamada a http://\<host\>:\<puerto\>\<ruta de acceso\> devuelva el código de resultado HTTP 200.
+* Asegúrese de que una llamada a http://\<host\>:\<port\>\<path\> devuelve el código de resultado HTTP 200.
 * Compruebe que los valores de Interval, Timeout y UnhealtyThreshold estén dentro de los rangos aceptables.
 * Si utiliza un sondeo HTTPS, asegúrese de que el servidor de back-end no requiera SNI; para ello, configure un certificado de reserva en dicho servidor.
 

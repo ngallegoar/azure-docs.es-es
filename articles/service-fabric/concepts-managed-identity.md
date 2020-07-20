@@ -4,12 +4,12 @@ description: Obtenga información sobre el uso de identidades administradas para
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: a26f188ed2f5e18bdf775cd1fb21001495ffdc89
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: a5c82f49195fc6d790ca4308d78b70106b6cc042
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81461453"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84710310"
 ---
 # <a name="using-managed-identities-for-azure-with-service-fabric"></a>Uso de identidades administradas para Azure con Service Fabric
 
@@ -35,7 +35,7 @@ Hay dos tipos de identidades administradas:
 - Las **identidades administradas asignadas por el sistema** se habilitan directamente en las instancias de servicio de Azure.  El ciclo de vida de una identidad administrada asignada por el sistema es único para la instancia de servicio de Azure en que está habilitada.
 - Las **identidades administrada asignadas por el usuario** se crean como recursos de Azure independientes. La identidad se puede asignar a una o varias instancias de servicio de Azure y se administra de forma independiente de los ciclos de vida de esas instancias.
 
-Para comprender mejor la diferencia entre los tipos de identidades administradas, consulte [¿Cómo funcionan las identidades administradas para recursos de Azure?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work)
+Para comprender mejor la diferencia entre los tipos de identidades administradas, consulte [¿Qué son las identidades administradas de recursos de Azure?](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)
 
 ## <a name="supported-scenarios-for-service-fabric-applications"></a>Escenarios admitidos para las aplicaciones de Service Fabric
 

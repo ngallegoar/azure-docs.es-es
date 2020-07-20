@@ -2,14 +2,14 @@
 title: 'Conceptos: Redes en Azure Kubernetes Service (AKS)'
 description: Obtenga más información sobre las redes en Azure Kubernetes Service (AKS), incluidas las redes de kubenet y Azure CNI, los controladores de entrada, los equilibradores de carga y las direcciones IP estáticas.
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 06/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 51773a46b77cb1e9a89b9c85a5f62c4a6b7af3be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ae1c2b95a948f2344119af234539b6fab4edaaac
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146055"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84789504"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceptos de redes de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -129,6 +129,8 @@ Los *controladores de entrada* funcionan en la capa 7 y puede usar reglas más i
 
 En AKS, puede crear un recurso de entrada con algo parecido a NGINX, o usar la característica de enrutamiento de aplicación HTTP de AKS. Cuando se habilita el enrutamiento de aplicación HTTP para un clúster de AKS, la plataforma Azure crea el controlador de entrada y un controlador de *DNS externo*. Cuando se crean nuevos recursos de entrada en Kubernetes, se crean los registros DNS A necesarios en una zona DNS específica del clúster. Para más información, consulte el artículo sobre la [implementación del enrutamiento de aplicaciones HTTP][aks-http-routing].
 
+El complemento del controlador de entrada de Application Gateway (AGIC) permite que los clientes de AKS aprovechen la tecnología nativa del equilibrador de carga de nivel 7 de Application Gateway para exponer el software en la nube a Internet. AGIC supervisa el clúster de Kubernetes en el que se hospeda y actualiza continuamente una instancia de Application Gateway para que los servicios seleccionados se expongan a Internet. Para más información sobre el complemento de AGIC para AKS, consulte [¿Qué es controlador de entrada de Application Gateway?][agic-overview]
+
 Otra característica común de los controladores de entrada es la terminación SSL/TLS. En aplicaciones web de gran tamaño, a las que se accede a través de HTTPS, la terminación TLS puede controlarse mediante el recurso de entrada en lugar de en la propia aplicación. Para proporcionar una configuración y generación automática de certificados TLS, puede configurar el recurso de entrada para que use proveedores como Let's Encrypt. Para más información sobre cómo configurar un controlador de entrada de NGINX con Let's Encrypt, consulte el artículo de [Entrada y TLS][aks-ingress-tls].
 
 También puede configurar el controlador de entrada para conservar la dirección IP de origen de cliente en las solicitudes a los contenedores en el clúster de AKS. Si la solicitud de un cliente se enruta a un contenedor del clúster de AKS mediante el controlador de entrada, la dirección IP de origen de la solicitud no estará disponible para el contenedor de destino. Al habilitar la *conservación de la dirección IP de origen de cliente*, la dirección IP de origen para el cliente está disponible en el encabezado de solicitud en *X-Forwarded-For*. Si usa la conservación de la dirección IP de origen de cliente en el controlador de entrada, no puede usar TLS de paso a través. La conservación de la dirección IP de origen de cliente y TLS de paso a través pueden usarse con otros servicios, como de tipo *LoadBalancer*.
@@ -180,6 +182,7 @@ Para obtener más información sobre los conceptos básicos de Kubernetes y AKS,
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-identity]: concepts-identity.md
+[agic-overview]: ../application-gateway/ingress-controller-overview.md
 [use-network-policies]: use-network-policies.md
 [operator-best-practices-network]: operator-best-practices-network.md
 [support-policies]: support-policies.md

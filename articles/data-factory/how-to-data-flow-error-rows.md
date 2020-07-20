@@ -8,22 +8,22 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: makromer
-ms.openlocfilehash: 8225143bb75118620b45c2520bb62ea30501a617
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 3f8ac2d1434019548b01d8468015a543d89d0fba
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81732685"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85254419"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Controlar las filas de errores de truncamiento de SQL en Data Factory con asignación de flujos de datos
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Un escenario común en Data Factory cuando se usa la asignación de flujos de datos consiste en escribir los datos transformados en una base de datos de Azure SQL. En este escenario, una condición de error común que se debe evitar es un posible truncamiento de columna. Siga estos pasos para proporcionar el registro de columnas que no quepan en una columna de cadena de destino, lo que permite que el flujo de datos continúe en esos escenarios.
+Un escenario común en Data Factory cuando se usan flujos de datos de asignación consiste en escribir los datos transformados en una base de datos de Azure SQL Database. En este escenario, una condición de error común que se debe evitar es un posible truncamiento de columna. Siga estos pasos para proporcionar el registro de columnas que no quepan en una columna de cadena de destino, lo que permite que el flujo de datos continúe en esos escenarios.
 
 ## <a name="scenario"></a>Escenario
 
-1. Tenemos una tabla de base de datos de Azure SQL de destino que tiene una columna ```nvarchar(5)``` denominada "Name" (Nombre).
+1. Tenemos una tabla de base de datos de destino que tiene una columna ```nvarchar(5)``` denominada "Name" (Nombre).
 
 2. Dentro de nuestro flujo de datos, queremos asignar títulos de películas de nuestro receptor a esa columna de "Name" de destino.
 

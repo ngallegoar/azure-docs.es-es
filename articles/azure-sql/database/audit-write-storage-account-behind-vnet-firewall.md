@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 03/19/2020
+ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: cf615da14e2749f998f900500cc33da68a625e16
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 7b8c6e09616f261c371b010b38d2c0f81376a6f9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84026286"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84944785"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Escritura de auditorías en una cuenta de almacenamiento detrás de una red virtual y un firewall
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -127,7 +127,7 @@ Para configurar una auditoría de SQL para que escriba eventos en una cuenta de 
    Solicitud de ejemplo
 
    ```html
-   PUT https://management.azure.com/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Sql/servers/<azure server name>?api-version=2017-03-01-preview
+     PUT https://management.azure.com/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Sql/servers/<azure server name>/auditingSettings/default?api-version=2017-03-01-preview
    ```
 
    Cuerpo de la solicitud
@@ -145,6 +145,18 @@ Para configurar una auditoría de SQL para que escriba eventos en una cuenta de 
 
 - [Crear o actualizar la directiva de auditoría de base de datos (Set-AzSqlDatabaseAudit)](/powershell/module/az.sql/set-azsqldatabaseaudit)
 - [Crear o actualizar la directiva de auditoría de servidor (Set-AzSqlServerAudit)](/powershell/module/az.sql/set-azsqlserveraudit)
+
+## <a name="using-azure-resource-manager-template"></a>Uso de la plantilla de Azure Resource Manager
+
+Puede configurar la auditoría para escribir los eventos de base de datos en una cuenta de almacenamiento detrás de la red virtual y el firewall mediante una plantilla de [Azure Resource Manager](../../azure-resource-manager/management/overview.md), como se muestra en el ejemplo siguiente:
+
+> [!IMPORTANT]
+> Para usar una cuenta de almacenamiento detrás de la red virtual y el firewall, debe establecer el parámetro **isStorageBehindVnet** en True.
+
+- [Implementación de un servidor de Azure SQL Server con la auditoría habilitada para escribir los registros de auditoría en un almacenamiento de blobs](https://azure.microsoft.com/resources/templates/201-sql-auditing-server-policy-to-blob-storage)
+
+> [!NOTE]
+> El ejemplo vinculado se encuentra en un repositorio público externo y se proporcionan "tal cual", sin ninguna garantía y no se admite en los programas o servicios de soporte técnico de Microsoft.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

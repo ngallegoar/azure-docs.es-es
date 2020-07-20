@@ -10,13 +10,13 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
-ms.date: 03/13/2020
-ms.openlocfilehash: 6d18a8d09749b832984872b57eec8a36abc1b2e2
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.date: 06/09/2020
+ms.openlocfilehash: 23563074bc8bbf02b36e86ff6c78acf3034670a6
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857699"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84655876"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creación y configuración de un entorno de ejecución de integración autohospedado
 
@@ -56,13 +56,13 @@ Para crear y configurar un entorno de ejecución de integración autohospedado, 
 
 Use los pasos siguientes para crear un IR autohospedado mediante la interfaz de usuario de Azure Data Factory.
 
-1. En la página **Let's get started** (Introducción) de la interfaz de usuario de Azure Data Factory, seleccione la pestaña **Author** (Crear) en el panel izquierdo.
+1. En la página **Comencemos** de la interfaz de usuario de Azure Data Factory, seleccione la [pestaña Administrar](https://docs.microsoft.com/azure/data-factory/author-management-hub) en el panel izquierdo.
 
-   ![Botón Crear de la página principal](media/doc-common-process/get-started-page-author-button.png)
+   ![Botón Administrar de la página principal](media/doc-common-process/get-started-page-manage-button.png)
 
-1. Haga clic en **Conexiones** en la parte inferior del panel izquierdo y cambie a **Integration runtimes** (Entornos de ejecución de integración) en la ventana **Conexiones**. Seleccione **+New** (+Nuevo).
+1. Seleccione **Entornos de ejecución de integración** en el panel izquierdo y, a continuación, seleccione **+ Nuevo**.
 
-   ![Creación de una instancia de Integration Runtime](media/create-self-hosted-integration-runtime/new-integration-runtime.png)
+   ![Creación de una instancia de Integration Runtime](media/doc-common-process/manage-new-integration-runtime.png)
 
 1. En la página **Configuración de Integration Runtime**, seleccione **Azure, Self-Hosted** (Azure, autohospedado) y, luego, seleccione **Continuar**. 
 
@@ -97,7 +97,7 @@ Puede automatizar la configuración del IR autohospedado en una máquina virtual
 
 Puede usar la línea de comandos para configurar o administrar un IR autohospedado. Este uso puede resultar especialmente útil para automatizar la instalación y el registro de nodos de IR autohospedado.
 
-Dmgcmd.exe se incluye en la instalación autohospedada. Normalmente se ubica en la carpeta C:\Program Files\Microsoft Integration Runtime\3.0\Shared\. Esta aplicación admite varios parámetros y puede invocarse a través de una línea de comandos mediante scripts por lotes para la automatización.
+Dmgcmd.exe se incluye en la instalación autohospedada. Normalmente se ubica en la carpeta C:\Archivos de programa\Microsoft Integration Runtime\4.0\Shared\. Esta aplicación admite varios parámetros y puede invocarse a través de una línea de comandos mediante scripts por lotes para la automatización.
 
 Use la aplicación de la manera siguiente:
 
@@ -153,7 +153,7 @@ A continuación se muestra un resumen de alto nivel de los pasos del flujo de da
 - Use el entorno de ejecución de integración autohospedado aunque el almacén de datos esté en la nube en una máquina virtual de infraestructura como servicio (IaaS) de Azure.
 - Las tareas pueden generar error en un entorno de ejecución de integración autohospedado que esté instalado en un equipo con Windows Server para el que está habilitado el cifrado compatible con FIPS. Para solucionar este problema, deshabilite el cifrado compatible con FIPS en el servidor. Para deshabilitar el cifrado compatible con FIPS, cambie el valor de la subclave del registro siguiente de 1 (habilitado) a 0 (deshabilitado): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Las versiones compatibles de Windows son:
   + Windows 7 Service Pack 1
@@ -375,9 +375,9 @@ Puede usar la herramienta Configuration Manager para ver y actualizar el proxy H
 
 Si selecciona la opción **Usar proxy del sistema** para el proxy HTTP, el entorno de ejecución de integración autohospedado utilizará la configuración de proxy de diahost.exe.config y diawp.exe.config. Cuando estos archivos no especifican ningún proxy, el entorno de ejecución de integración autohospedado se conecta al servicio en la nube directamente sin pasar por ningún proxy. En el procedimiento siguiente se proporcionan instrucciones para actualizar el archivo diahost.exe.config:
 
-1. En el Explorador de archivos, cree una copia segura de C:\Archivos de programa\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config como copia de seguridad del archivo original.
+1. En el Explorador de archivos, cree una copia segura de C:\Archivos de programa\Microsoft Integration Runtime\4.0\Shared\diahost.exe.config como copia de seguridad del archivo original.
 1. Abra el Bloc de notas ejecutándolo como administrador.
-1. En el Bloc de notas, abra el archivo de texto C:\Archivos de programa\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config.
+1. En el Bloc de notas, abra el archivo de texto C:\Archivos de programa\Microsoft Integration Runtime\4.0\Shared\diahost.exe.config.
 1. Encuentre la etiqueta predeterminada de **system.net** como se muestra en el siguiente código:
 
     ```xml
@@ -395,7 +395,7 @@ Si selecciona la opción **Usar proxy del sistema** para el proxy HTTP, el entor
     </system.net>
     ```
 
-    La etiqueta de proxy permite propiedades adicionales para especificar la configuración requerida, como `scriptLocation`. Consulte [\<proxy\> Elemento (Configuración de red)](https://msdn.microsoft.com/library/sa91de1e.aspx) para ver la sintaxis.
+    La etiqueta de proxy permite propiedades adicionales para especificar la configuración requerida, como `scriptLocation`. Consulte [\<proxy\>Elemento (Configuración de red)](https://msdn.microsoft.com/library/sa91de1e.aspx) para ver la sintaxis.
 
     ```xml
     <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>

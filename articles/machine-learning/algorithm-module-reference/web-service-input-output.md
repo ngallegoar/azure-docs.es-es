@@ -1,5 +1,5 @@
 ---
-title: Entrada/salida de servicio web
+title: 'Entrada/salida del servicio web: Referencia del módulo'
 description: Obtenga información sobre los módulos de servicio web en el diseñador de Azure Machine Learning (versión preliminar)
 titleSuffix: Azure Machine Learning
 services: machine-learning
@@ -9,44 +9,45 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/13/2020
-ms.openlocfilehash: be940e3ba693270707e22ffc7b9377dbea1df5f8
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: ded976fc9090535f3c683b5c6351646a55265205
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81462024"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84751102"
 ---
-# <a name="web-service-inputoutput"></a>Entrada/salida de servicio web
+# <a name="web-service-input-and-web-service-output-modules"></a>Módulos Web Service Input y Web Service Output
 
-En este artículo se describe el módulo **Entrada de servicio web** y el módulo **Salida de servicio web** en el diseñador de Azure Machine Learning (versión preliminar).
+En este artículo se describe los módulos Web Service Input (Entrada del servicio web) y Web Service Output (Salida del servicio web) en Azure Machine Learning Designer (versión preliminar).
 
-El módulo **Entrada de servicio web** solo puede conectarse al puerto de entrada con el tipo **DataFrameDirectory**. El módulo **Salida de servicio web** solo puede conectarse desde el puerto de salida con el tipo **DataFrameDirectory**. Los dos módulos pueden encontrarse en el árbol de módulos, en la categoría **Servicio web**. 
+El módulo Web Service Input (Entrada de servicio web) solo puede conectarse al puerto del entrada con el tipo **DataFrameDirectory**. El módulo Web Service Output (Salida del servicio web) solo puede conectarse desde el puerto de salida con el tipo **DataFrameDirectory**. Puede encontrar los dos módulos en el árbol de módulos, en la categoría de **servicio web**. 
 
-El módulo **Entrada de servicio web** se usa para indicar el lugar en el que los datos del usuario entran en la canalización, y el módulo **Salida de servicio web** se usa para indicar a dónde se devuelven los datos del usuario en una canalización de inferencia en tiempo real.
+El módulo Web Service Input (Entrada del servicio web) indica en dónde entran los datos de usuario en la canalización. El módulo Web Service Output (Salida del servicio web) indica a dónde se devuelven los datos de usuario en una canalización de inferencia en tiempo real.
 
-## <a name="how-to-use-web-service-inputoutput"></a>Uso de Entrada/salida de servicio web
+## <a name="how-to-use-web-service-input-and-output"></a>Procedimientos para el uso de los módulos de entrada y salida del servicio web
 
-- Al crear una canalización de inferencia en tiempo real a partir de la canalización de entrenamiento, los módulos **Entrada de servicio web** y **Salida de servicio web** se agregarán automáticamente para mostrar el lugar donde los datos del usuario entran en la canalización y a dónde se devuelven. 
+Al [crear una canalización de inferencia en tiempo real](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy#create-a-real-time-inference-pipeline) a partir de la canalización de entrenamiento, los módulos Web Service Input (Entrada de servicio web) y Web Service Output (Salida de servicio web) se agregarán automáticamente para mostrar el lugar en donde los datos del usuario entran en la canalización y aquel a donde se devuelven. 
 
-    Obtenga más información sobre la [creación una canalización de inferencia en tiempo real](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy#create-a-real-time-inference-pipeline).
+> [!NOTE]
+> La generación automática de una canalización de inferencia en tiempo real es un proceso de la mejor opción basado en reglas. No hay ninguna garantía de corrección. 
 
-    > [!NOTE]
-    > La generación automática de una canalización de inferencia en tiempo real es un proceso de mejor esfuerzo basado en reglas, no existe ninguna garantía de la corrección. Puede agregar o quitar manualmente módulos **Entrada/salida de servicio web** para satisfacer sus requisitos. Asegúrese de que haya al menos un módulo **Entrada de servicio web** y un módulo **Salida de servicio web** en la canalización de inferencia en tiempo real. Si tiene varios módulos **Entrada de servicio web** o **Salida de servicio web**, asegúrese de que tengan nombres únicos (puede especificar el nombre en el panel derecho del módulo).
+Puede agregar o quitar manualmente los módulos Web Service Input (Entrada de servicio web) y Web Service Output (Salida de servicio web) para satisfacer sus requisitos. Asegúrese de que la canalización de inferencia en tiempo real tenga por lo menos un módulo Web Service Input (Entrada de servicio web) y un módulo Web Service Output (Salida de servicio web). Si tiene varios módulos Web Service Input (Entrada de servicio web) y Web Service Output (Salida de servicio web), asegúrese de que tienen nombres únicos. Puede escribir el nombre en el panel derecho del módulo.
 
-- También puede crear manualmente una canalización de inferencia en tiempo real agregando módulos **Entrada de servicio web** y **Salida de servicio web** a la canalización sin enviar.
+También puede crear manualmente una canalización de inferencia en tiempo real agregando los módulos Web Service Input (Entrada de servicio web) y Web Service Output (Salida de servicio web) a la canalización sin enviar.
 
-    > [!NOTE]
-    >  El tipo de canalización se establecerá la primera vez que la envíe. Por lo tanto, asegúrese de agregar módulos **Entrada de servicio web** y **Salida de servicio web** antes de enviarla por primera vez si desea crear una canalización de inferencia en tiempo real.
+> [!NOTE]
+> El tipo de canalización se establecerá la primera vez que la envíe. Asegúrese de agregar los módulos Web Service Input (Entrada de servicio web) y Web Service Output (Salida de servicio web) antes de enviarlos por primera vez.
 
-   En el ejemplo siguiente se muestra cómo crear manualmente una canalización de inferencia en tiempo real desde el módulo **Ejecutar el script de Python**. 
+En el ejemplo siguiente se muestra cómo crear manualmente una canalización de inferencia en tiempo real desde el módulo Execute Python Script (Ejecutar el script de Python). 
 
-   ![Ejemplo](media/module/web-service-input-output-example.png)
+![Ejemplo](media/module/web-service-input-output-example.png)
    
-   Después de enviar la canalización y de que la ejecución se complete correctamente, podrá implementar el punto de conexión en tiempo real.
+Después de enviar la canalización y de que la ejecución se complete correctamente, puede implementar el punto de conexión en tiempo real.
    
-   > [!NOTE]
-   >  En el ejemplo anterior, **Enter Data Manually** proporciona el esquema de datos para la entrada del servicio web y es necesario para implementar el punto de conexión en tiempo real. En general, debe conectar siempre un módulo o un conjunto de datos al puerto al que está conectada la **Entrada de servicio web** para proporcionar el esquema de datos.
+> [!NOTE]
+>  En el ejemplo anterior, el módulo **Enter Data Manually** (Introducción manual de datos) proporciona el esquema de datos para la entrada del servicio web y es necesario para implementar el punto de conexión en tiempo real. En general, debe conectar siempre un módulo o un conjunto de datos al puerto al que está conectado **Web Service Input** (Entrada de servicio web) para proporcionar el esquema de datos.
    
 ## <a name="next-steps"></a>Pasos siguientes
-Obtenga más información sobre la [implementación del punto de conexión en tiempo real](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy#deploy-the-real-time-endpoint).
+Más información sobre la [implementación del punto de conexión en tiempo real](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy#deploy-the-real-time-endpoint).
+
 Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning.

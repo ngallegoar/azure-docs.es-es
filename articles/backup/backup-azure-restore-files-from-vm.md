@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a recuperar archivos y carpetas desde
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 68fa3bb2b17da01004220f5876911fa3289a2e7c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ded26718f176629f6c53ae90abf3c7e69b4df893
+ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124994"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86027172"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure
 
@@ -247,9 +247,9 @@ El acceso a `download.microsoft.com` es necesario para descargar los componentes
 
 ## <a name="file-recovery-from-virtual-machine-backups-having-large-disks"></a>Recuperación de archivos de copias de seguridad de máquinas virtuales con discos de gran tamaño
 
-En esta sección se explica cómo recuperar archivos a partir de copias de seguridad de máquinas virtuales de Azure con más de 16 discos, cada uno con un tamaño superior a 32 TB.
+En esta sección se explica cómo recuperar archivos a partir de copias de seguridad de máquinas virtuales de Azure con más de 16 discos o cada disco con un tamaño superior a 4 TB.
 
-Dado que el proceso de recuperación de archivos asocia todos los discos de la copia de seguridad, cuando se usa un gran número de discos (más de 16) o discos de gran tamaño (más de 32 TB cada uno), se recomiendan los siguientes puntos de acción:
+Dado que el proceso de recuperación de archivos asocia todos los discos de la copia de seguridad, cuando se usa un gran número de discos (más de 16) o discos de gran tamaño (más de 4 TB cada uno), se recomiendan los siguientes puntos de acción:
 
 - Mantenga un servidor de restauración independiente (máquinas virtuales D2v3 de Azure VM) para la recuperación de archivos. Úselo solo para la recuperación de archivos y, a continuación, apáguelo cuando no sea necesario. No se recomienda realizar la restauración en el equipo original, ya que tendrá un impacto significativo en la propia máquina virtual.
 - Después, ejecute el script una vez para comprobar si la operación de recuperación de archivos se realiza correctamente.

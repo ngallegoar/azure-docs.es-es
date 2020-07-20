@@ -1,26 +1,26 @@
 ---
-title: 'Series Ev3 y Esv3: Azure Virtual Machines'
+title: Series Ev3 y Esv3
 description: Especificaciones de las máquinas virtuales de las series Ev3 y Esv3.
-services: virtual-machines
 author: joelpelley
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: aad4610a44c59ed95cf1ad9777329097886c5bed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9fcb714e68548b95ed6d32bb16fb08c43ff0e5fa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78164379"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84707640"
 ---
 # <a name="ev3-and-esv3-series"></a>Series Ev3 y Esv3
 
-Las series Ev3 y Esv3 tienen el procesador Intel® Xeon® 8171M de 2,1 GHz (Skylake) o el procesador Intel® Xeon® E5-2673 v4 de 2,3 GHz (Broadwell) en una configuración de Hyper-Threading. Gracias a esto, proporcionan una mejor propuesta de valor para la mayoría de las cargas de trabajo de uso general y la serie Ev3 se equipara con las máquinas virtuales de uso general de la mayoría de las demás nubes.  Se ha ampliado la memoria (de 7 GiB/vCPU a 8 GiB/vCPU), y los límites de disco y red se han ajustado por núcleo para equipararse con el cambio a hyperthreading. La serie Ev3 es la continuación de los tamaños de máquina virtual de memoria alta de las familias D/Dv2.
+Las series Ev3 y Esv3 se ejecutan en el procesador Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® Xeon® 8171M 2.1 GHz (Skylake) o Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) en una configuración de Hyper-Threading. Gracias a esto, proporcionan una mejor propuesta de valor para la mayoría de las cargas de trabajo de uso general y la serie v4 se equipara con las máquinas virtuales de uso general de la mayoría de las demás nubes.  Se ha ampliado la memoria (de 7 GiB/vCPU a 8 GiB/vCPU), y los límites de disco y red se han ajustado por núcleo para equipararse con el cambio a hyperthreading. La serie Ev3 es la continuación de los tamaños de máquina virtual de memoria alta de las familias D/Dv2.
 
 ## <a name="ev3-series"></a>Serie Ev3
 
-Las instancias de la serie Ev3 tienen el procesador Intel® Xeon® 8171M de 2,1 GHz (Skylake) o el procesador Intel® Xeon® E5-2673 v4 de 2,3 GHz (Broadwell) con la tecnología Intel Turbo Boost 2.0. Las instancias de la serie Ev3 son ideales para aplicaciones empresariales de uso intensivo de memoria.
+Las instancias de la serie Ev3 se ejecutan en procesadores Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® Xeon® 8171M 2,1 GHz (Skylake) o Intel® Xeon® E5-2673 V4 2,3 GHz (Broadwell), además de la tecnología Intel Turbo Boost 2.0. Las instancias de la serie Ev3 son ideales para aplicaciones empresariales de uso intensivo de memoria.
 
 El almacenamiento en disco de datos se factura de forma independiente a las máquinas virtuales. Para usar discos de Premium Storage, utilice los tamaños ESv3. Los precios y los medidores de facturación para los tamaños ESv3 son los mismos que para la serie Ev3.
 
@@ -54,7 +54,7 @@ Actualizaciones con conservación de memoria: Compatible
 
 ## <a name="esv3-series"></a>Serie Esv3
 
-Las instancias de la serie Esv3 tienen el procesador Intel® Xeon® 8171M de 2,1 GHz (Skylake) o el procesador Intel® Xeon® E5-2673 v4 de 2,3 GHz (Broadwell), cuentan con la tecnología Intel Turbo Boost 2.0 y usan almacenamiento prémium. Las instancias de la serie Esv3 son ideales para aplicaciones empresariales de uso intensivo de memoria.
+Las instancias de la serie Esv3 se ejecutan en procesadores Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® Xeon® 8171M 2,1 GHz (Skylake) o Intel® Xeon® E5-2673 V4 2,3 GHz (Broadwell), además de la tecnología Intel Turbo Boost 2.0, y utilizan Premium Storage. Las instancias de la serie Esv3 son ideales para aplicaciones empresariales de uso intensivo de memoria.
 
 Las máquinas virtuales de la serie Esv3 cuentan con la tecnología Hyper-Threading de Intel®.
 

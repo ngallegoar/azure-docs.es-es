@@ -4,7 +4,6 @@ description: Amplíe la compatibilidad de SQL Server 2008 y SQL Server 2008 R
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
-manager: craigg
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.topic: conceptual
@@ -14,12 +13,12 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 62ed33b8344d0d5a79cd956274c5f7ddd62a714a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 48288ed3765fa939fc56a4469f64070315c4c6aa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84034256"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84668753"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Ampliar la compatibilidad de SQL Server 2008 y SQL Server 2008 R2 con Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -61,7 +60,7 @@ SQL Server necesita instantáneas coherentes con la aplicación de Azure Site R
 
 ### <a name="database-migration-service"></a>Database Migration Service
 
-[Database Migration Service](/azure/dms/dms-overview) es una opción para los clientes si migran desde un entorno local a una máquina virtual de Azure mediante la actualización de SQL Server a SQL Server 2012 y versiones posteriores.
+[Azure Database Migration Service](/azure/dms/dms-overview) es una opción para los clientes si migran desde un entorno local a una máquina virtual de Azure mediante la actualización de SQL Server a SQL Server 2012 y versiones posteriores.
 
 ## <a name="disaster-recovery"></a>Recuperación ante desastres
 
@@ -74,7 +73,7 @@ Las soluciones de recuperación ante desastres para SQL Server con finalizació
 ## <a name="security-patching"></a>Aplicación de revisiones de seguridad
 Las actualizaciones de seguridad ampliadas para las máquinas virtuales con SQL Server se entregarán en los canales de Microsoft Update cuando la máquina virtual con SQL Server se haya registrado en el [proveedor de recursos](sql-vm-resource-provider-register.md) de máquina virtual con SQL. Las revisiones se pueden descargar manual o automáticamente.
 
-*Automated patching* está habilitada de forma predeterminada. La aplicación de revisiones automatizada permite a Azure aplicar automáticamente las revisiones de SQL Server y del sistema operativo. Puede especificar un día de la semana, una hora y una duración para una ventana de mantenimiento si está instalada la extensión de SQL Server IaaS. Azure realiza la aplicación de revisión en esta ventana de mantenimiento. La programación de la ventana de mantenimiento utiliza la configuración regional de la máquina virtual para la hora.  Para más información, consulte [Aplicación de revisiones automatizada para SQL Server en Azure Virtual Machines](automated-patching.md).
+*Automated patching* está habilitada de forma predeterminada. La aplicación de revisiones automatizada permite a Azure aplicar automáticamente las revisiones de SQL Server y del sistema operativo. Puede especificar un día de la semana, una hora y una duración para una ventana de mantenimiento si está instalada la extensión de SQL Server IaaS. Azure realiza la aplicación de revisión en esta ventana de mantenimiento. La programación de la ventana de mantenimiento utiliza la configuración regional de la máquina virtual para la hora. Para más información, consulte [Aplicación de revisiones automatizada para SQL Server en Azure Virtual Machines](automated-patching.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

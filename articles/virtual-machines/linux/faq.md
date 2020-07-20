@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 3c6a5e011a536cc9c34565d4f72a9bee6c6a5254
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 278e7a89385eba975f4409237727c925da66c08b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78945162"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169840"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Preguntas frecuentes sobre las máquinas virtuales de Linux
 En este artículo se responden algunas preguntas comunes que los usuarios plantean sobre las máquinas virtuales Linux creadas en Azure mediante el modelo de implementación de Resource Manager. Para ver la versión de Windows de este tema, consulte [Preguntas más frecuentes sobre máquinas virtuales Windows](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -74,6 +74,7 @@ Hay distintos requisitos de longitud de contraseña, en función de la herramien
  - Portal: entre 12 y 72 caracteres
  - PowerShell: entre 8 y 123 caracteres
  - CLI: entre 12 y 123 caracteres
+ - Plantillas de Azure Resource Manager (ARM): entre 12 y 72 caracteres, y no es permiten caracteres de control
  
 
 Las contraseñas también deben cumplir 3 de estos 4 requisitos de complejidad:

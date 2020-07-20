@@ -5,12 +5,13 @@ ms.topic: conceptual
 author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
-ms.openlocfilehash: 0396bd8d150c6145a39f36e7be9e6e2dcacef2c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: tracking-python
+ms.openlocfilehash: c9d69c0f39d9cad52dc86c3ab33d202c88131ab0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77669954"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84753205"
 ---
 # <a name="track-incoming-requests-with-opencensus-python"></a>Seguimiento de las solicitudes entrantes con OpenCensus para Python
 
@@ -32,7 +33,7 @@ En primer lugar, instrumente la aplicación con el [SDK de OpenCensus para Pytho
     )
     ```
 
-3. Asegúrese de que AzureExporter está configurado correctamente en `settings.py` en `OPENCENSUS`.
+3. Asegúrese de que AzureExporter está configurado correctamente en `settings.py` en `OPENCENSUS`. Para las solicitudes de direcciones URL de las que no quiera realizar el seguimiento, agréguelas a `BLACKLIST_PATHS`.
 
     ```python
     OPENCENSUS = {
@@ -41,20 +42,7 @@ En primer lugar, instrumente la aplicación con el [SDK de OpenCensus para Pytho
             'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
                 connection_string="InstrumentationKey=<your-ikey-here>"
             )''',
-        }
-    }
-    ```
-
-4. También puede agregar direcciones URL a `settings.py` en `BLACKLIST_PATHS` para las solicitudes de las que no quiera realizar el seguimiento.
-
-    ```python
-    OPENCENSUS = {
-        'TRACE': {
-            'SAMPLER': 'opencensus.trace.samplers.ProbabilitySampler(rate=0.5)',
-            'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
-                connection_string="InstrumentationKey=<your-ikey-here>",
-            )''',
-            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent from it.
+            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
         }
     }
     ```
@@ -86,7 +74,7 @@ En primer lugar, instrumente la aplicación con el [SDK de OpenCensus para Pytho
     
     ```
 
-2. Puede configurar el middleware de `flask` directamente en el código. Para las solicitudes de direcciones URL de las que no quiera realizar el seguimiento, agréguelas a `BLACKLIST_PATHS`.
+2. También puede configurar la aplicación de `flask` mediante `app.config`. Para las solicitudes de direcciones URL de las que no quiera realizar el seguimiento, agréguelas a `BLACKLIST_PATHS`.
 
     ```python
     app.config['OPENCENSUS'] = {

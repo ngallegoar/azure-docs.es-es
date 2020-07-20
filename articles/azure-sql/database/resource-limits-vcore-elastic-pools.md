@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab, sstein
-ms.date: 05/29/2020
-ms.openlocfilehash: 03884a7d1b834ef8c176434ad4127e1638aabcb1
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.date: 06/10/2020
+ms.openlocfilehash: 4ffd92c0641b74682a74ffd2898e226999ac2dd4
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235745"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84668464"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Límites de recursos para grupos elásticos que usan el modelo de compra de núcleo virtual
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,7 +28,7 @@ Para información sobre los límites del modelo de compra de DTU, consulte [Lím
 > [!IMPORTANT]
 > En algunas circunstancias, puede que deba reducir una base de datos para reclamar el espacio no utilizado. Para obtener más información, consulte [Administración del espacio de archivo en Azure SQL Database](file-space-manage.md).
 
-Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de almacenamiento mediante [Azure Portal](elastic-pool-manage.md#azure-portal), [PowerShell](elastic-pool-manage.md#powershell), la [CLI de Azure](elastic-pool-manage.md#azure-cli) o la [API REST](elastic-pool-manage.md#rest-api).
+Puede establecer el nivel de servicio, el tamaño de proceso (objetivo de servicio) y la cantidad de almacenamiento mediante [Azure Portal](elastic-pool-manage.md#azure-portal), [PowerShell](elastic-pool-manage.md#powershell), la [CLI de Azure](elastic-pool-manage.md#azure-cli) o la [API REST](elastic-pool-manage.md#rest-api).
 
 > [!IMPORTANT]
 > Para obtener información sobre la guía y otras consideraciones del escalado, consulte [Escalar un grupo elástico](elastic-pool-scale.md).
@@ -40,7 +40,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>Nivel de servicio de uso general: Plataforma de procesos de generación 4 (parte 1)
 
-|Tamaño de proceso|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
+|Tamaño de proceso (objetivo de servicio)|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
 |:--- | --: |--: |--: |--: |--: |--: |
 |Generación de procesos|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |Núcleos virtuales|1|2|3|4|5|6|
@@ -72,7 +72,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>Nivel de servicio de uso general: Plataforma de procesos de generación 4 (parte 2)
 
-|Tamaño de proceso|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
+|Tamaño de proceso (objetivo de servicio)|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Generación de procesos|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |Núcleos virtuales|7|8|9|10|16|24|
@@ -106,7 +106,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>Nivel de servicio de uso general: Plataforma de procesos de generación 5 (parte 1)
 
-|Tamaño de proceso|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
+|Tamaño de proceso (objetivo de servicio)|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Generación de procesos|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |Núcleos virtuales|2|4|6|8|10|12|14|
@@ -138,7 +138,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>Nivel de servicio de uso general: Plataforma de procesos de generación 5 (parte 2)
 
-|Tamaño de proceso|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
+|Tamaño de proceso (objetivo de servicio)|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Generación de procesos|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |Núcleos virtuales|16|18|20|24|32|40|80|
@@ -172,7 +172,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 
 ### <a name="fsv2-series-compute-generation-preview"></a>Generación de proceso de la serie Fsv2 (versión preliminar)
 
-|Tamaño de proceso|GP_Fsv2_72|
+|Tamaño de proceso (objetivo de servicio)|GP_Fsv2_72|
 |:--- | --: |
 |Generación de procesos|Serie Fsv2|
 |Núcleos virtuales|72|
@@ -209,7 +209,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Nivel de servicio crítico para la empresa: Plataforma de procesos de generación 4 (parte 1)
 
-|Tamaño de proceso|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
+|Tamaño de proceso (objetivo de servicio)|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Generación de procesos|Gen4|Gen4|Gen4|Gen4|Gen4|
 |Núcleos virtuales|2|3|4|5|6|
@@ -241,7 +241,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>Nivel de servicio crítico para la empresa: Plataforma de procesos de generación 4 (parte 2)
 
-|Tamaño de proceso|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
+|Tamaño de proceso (objetivo de servicio)|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Generación de procesos|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |Núcleos virtuales|7|8|9|10|16|24|
@@ -275,7 +275,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>Nivel de servicio crítico para la empresa: Plataforma de procesos de generación 5 (parte 1)
 
-|Tamaño de proceso|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
+|Tamaño de proceso (objetivo de servicio)|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Generación de procesos|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |Núcleos virtuales|4|6|8|10|12|14|
@@ -307,7 +307,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>Nivel de servicio crítico para la empresa: Plataforma de procesos de generación 5 (parte 2)
 
-|Tamaño de proceso|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
+|Tamaño de proceso (objetivo de servicio)|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Generación de procesos|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |Núcleos virtuales|16|18|20|24|32|40|80|
@@ -341,7 +341,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 
 ### <a name="m-series-compute-generation-preview"></a>Generación de proceso de la serie M (versión preliminar)
 
-|Tamaño de proceso|BC_M_128|
+|Tamaño de proceso (objetivo de servicio)|BC_M_128|
 |:--- | --: |
 |Generación de procesos|Serie M|
 |Núcleos virtuales|128|
@@ -378,7 +378,7 @@ Si todos los núcleos virtuales de un grupo elástico están ocupados, cada una 
 En la tabla siguiente se describen las propiedades de las bases de datos agrupadas.
 
 > [!NOTE]
-> Los límites de recursos de las bases de datos individuales de los grupos elásticos suelen ser los mismos que los de las bases de datos únicas fuera de los grupos que tienen el mismo tamaño de proceso. Por ejemplo, el número máximo de trabajos simultáneos en una base de datos GP_Gen4_1 es 200 trabajos. Por lo tanto, el número máximo de trabajos simultáneos en una base de datos de un grupo GP_Gen4_1 también es 200 trabajos. Tenga en cuenta que el número total de trabajos simultáneos en el grupo GP_Gen4_1 es 210.
+> Los límites de recursos de las bases de datos individuales de los grupos elásticos suelen ser los mismos que los de las bases de datos únicas fuera de los grupos que tienen el mismo tamaño de proceso (objetivo de servicio). Por ejemplo, el número máximo de trabajos simultáneos en una base de datos GP_Gen4_1 es 200 trabajos. Por lo tanto, el número máximo de trabajos simultáneos en una base de datos de un grupo GP_Gen4_1 también es 200 trabajos. Tenga en cuenta que el número total de trabajos simultáneos en el grupo GP_Gen4_1 es 210.
 
 | Propiedad | Descripción |
 |:--- |:--- |
@@ -394,4 +394,4 @@ En la tabla siguiente se describen las propiedades de las bases de datos agrupad
 - Para conocer los límites de recursos de DTU para grupos elásticos, consulte los [límites de recursos para grupos elásticos que usan el modelo de compra de DTU](resource-limits-dtu-elastic-pools.md).
 - Para conocer los límites de recursos para instancias administradas, consulte los [límites de recursos para instancias administradas](../managed-instance/resource-limits.md).
 - Para más información sobre los límites generales de Azure, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md).
-- Para más información sobre los límites de recursos en un servidor lógico de SQL, consulte la [información general sobre los límites de recursos en un servidor lógico de SQL](resource-limits-logical-server.md) para obtener información acerca de los límites en los niveles de servidor y suscripción.
+- Para más información sobre los límites de recursos en un servidor SQL lógico, vea la [información general sobre los límites de recursos en un servidor SQL lógico](resource-limits-logical-server.md), donde encontrará datos sobre los límites en los niveles de servidor y suscripción.

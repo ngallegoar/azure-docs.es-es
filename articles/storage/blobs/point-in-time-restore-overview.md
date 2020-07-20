@@ -6,15 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 06/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 5dcbd3748215575edb37525e7350bedfb980650c
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.custom: references_regions
+ms.openlocfilehash: 60f83fae6e7e685a1065d1c01327a004d9bb2864
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193365"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84675659"
 ---
 # <a name="point-in-time-restore-for-block-blobs-preview"></a>Restauración a un momento dado para blobs en bloques (versión preliminar)
 
@@ -96,6 +97,7 @@ La versión preliminar tiene las limitaciones siguientes:
 Para registrarse y obtener la versión preliminar, ejecute estos comandos:
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
 ```powershell
 # Register for the point-in-time restore preview
 Register-AzProviderFeature -FeatureName RestoreBlobRanges -ProviderNamespace Microsoft.Storage
@@ -109,7 +111,9 @@ Register-AzProviderFeature -FeatureName Versioning -ProviderNamespace Microsoft.
 # Refresh the Azure Storage provider namespace
 Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```
+
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
 ```azurecli
 az feature register --namespace Microsoft.Storage --name RestoreBlobRanges
 az feature register --namespace Microsoft.Storage --name Changefeed
@@ -121,16 +125,17 @@ az provider register --namespace 'Microsoft.Storage'
 
 ### <a name="check-registration-status"></a>Comprobación del estado de registro
 
-Ejecute los siguientes comandos para comprobar el estado del registro:
+El registro de la restauración a un momento dado es automático y debe tardar menos de 10 minutos. Ejecute los siguientes comandos para comprobar el estado del registro:
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
+
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName RestoreBlobRanges
 
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Changefeed
-    
+
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Versioning
 ```
@@ -144,7 +149,6 @@ az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Versioning
 ```
 
 ---
-
 
 ## <a name="pricing-and-billing"></a>Precios y facturación
 

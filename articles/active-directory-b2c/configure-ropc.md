@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d1989f65f73ac4f9dc8dd328fa9d7ed267eec1aa
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4f44e9853182a8fcb222b8f895796cf5efc67def
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636410"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389605"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configuración del flujo de credenciales de contraseña de propietario del recurso en Azure AD B2C
 
@@ -50,9 +50,9 @@ El flujo de credenciales de contraseña de propietario del recurso (ROPC) es un 
 ## <a name="test-the-user-flow"></a>Prueba del flujo de usuario
 
 Use su aplicación favorita de desarrollo de API para generar una llamada API y revise la respuesta para depurar el flujo de usuario. Cree una llamada similar a esta con la información que se muestra en la tabla siguiente como el cuerpo de la solicitud POST:
-- Reemplace *\<nombre-inquilino>.onmicrosoft.com>* por el nombre del inquilino B2C.
-- Reemplace *\<B2C_1A_ROPC_Auth >* con el nombre completo de la directiva de credenciales de contraseña del propietario de recursos.
-- Reemplace *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* con el id. de la aplicación desde el registro.
+- Reemplace *\<tenant-name>.onmicrosoft.com* por el nombre del inquilino de B2C.
+- Reemplace *\<B2C_1A_ROPC_Auth>* por el nombre completo de la directiva de credenciales de contraseña del propietario del recurso.
+- Reemplace *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* por el identificador de aplicación del registro.
 
 `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 

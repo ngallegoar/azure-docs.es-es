@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/11/2020
+ms.date: 06/25/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 5f14a269478541eaa5852697a917afb3d771841a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: aa9327bd0ba6763aa4e89630611aabb3c5195655
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196928"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85448706"
 ---
 Por ahora, los discos Ultra tienen limitaciones adicionales, como se indica a continuación:
 
@@ -36,9 +36,9 @@ En la tabla siguiente se describen las regiones en las que los discos Ultra Disk
 |Sudeste de Asia     |Tres zonas         |
 |Norte de Europa     |Tres zonas          |
 |Oeste de Europa     |Tres zonas          |
-|Sur de Reino Unido 2     |Tres zonas          |
+|Sur de Reino Unido     |Tres zonas          |
 |Japón Oriental     |Dos zonas         |
-
+|Centro de Francia    |Dos zonas        |
 
 
 - Solo se admiten en las siguientes series de máquinas virtuales:
@@ -53,6 +53,7 @@ En la tabla siguiente se describen las regiones en las que los discos Ultra Disk
 - Solo pueden crearse como discos vacíos.  
 - Actualmente no admiten instantáneas de disco, imágenes de máquinas virtuales, conjuntos de disponibilidad, instancias de Azure Dedicated Host ni Azure Disk Encryption.
 - Actualmente no admiten la integración con Azure Backup o Azure Site Recovery.
+- Solo admite lecturas y escrituras sin almacenamiento en caché.
 - El límite máximo actual de IOPS en máquinas virtuales de disponibilidad general es 80 000.
 
 De forma predeterminada, los discos Ultra Disks de Azure ofrecen hasta 16 TiB por región y suscripción, pero los discos Ultra admiten una mayor capacidad por solicitud. Para solicitar un aumento del límite, póngase en contacto con Soporte técnico de Azure.

@@ -1,9 +1,9 @@
 ---
-title: 'Tutorial: Adición a un grupo de conmutación por error automática'
+title: 'Tutorial: Adición de SQL Managed Instance a un grupo de conmutación por error'
 titleSuffix: Azure SQL Managed Instance
-description: En este tutorial, creará dos Instancias administradas de Azure SQL como principal y secundaria y, a continuación, las agregará a un grupo de conmutación por error automática.
+description: En este tutorial, aprenderá a crear un grupo de conmutación por error entre una instancia principal y una secundaria de Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: high-availability
 ms.custom: sqldbrb=1
 ms.devlang: ''
@@ -11,29 +11,28 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sashan, carlrab
-manager: jroth
 ms.date: 08/27/2019
-ms.openlocfilehash: 925e6788035952a4e7b54b8d50b910243a754a09
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f1bf8eff4a6f518fc24c87c5fbd24984ef8f8b29
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84025766"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84718893"
 ---
-# <a name="tutorial-add-a-sql-managed-instance-to-a-failover-group"></a>Tutorial: Adición de una Instancia administrada de SQL a un grupo de conmutación por error
+# <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Tutorial: Adición de SQL Managed Instance a un grupo de conmutación por error
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Agregue una Instancia administrada de Azure SQL a un grupo de conmutación por error. En este artículo, aprenderá a:
+Agregue instancias administradas de Azure SQL Managed Instance a un grupo de conmutación por error. En este artículo, aprenderá a:
 
 > [!div class="checklist"]
-> - Crear una Instancia administrada de SQL principal
-> - Crear una Instancia administrada de SQL secundaria como parte de un [grupo de conmutación por error](../database/auto-failover-group-overview.md) 
-> - Conmutación por error de prueba
+> - Crear una instancia administrada principal.
+> - Crear una instancia administrada secundaria como parte de [un grupo de conmutación por error](../database/auto-failover-group-overview.md). 
+> - Probar la conmutación por error.
 
   > [!NOTE]
   > - Al completar este tutorial, asegúrese de configurar los recursos con los [requisitos previos para configurar grupos de conmutación por error para Instancia administrada de SQL](../database/auto-failover-group-overview.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
-  > - La creación de una Instancia administrada de SQL puede tardar bastante tiempo. Como resultado, este tutorial podría tardar varias horas en completarse. Para obtener más información sobre los tiempos de aprovisionamiento, consulte [Operaciones de administración de Instancia administrada de SQL](sql-managed-instance-paas-overview.md#management-operations). 
-  > - Las Instancias administradas de SQL que participan en un grupo de conmutación por error requieren [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) o dos puertas de enlace de VPN conectadas. En este tutorial se proporcionan los pasos para crear y conectar las puertas de enlace de VPN. Sáltese estos pasos si ya tiene ExpressRoute configurado. 
+  > - La creación de una instancia administrada puede tardar bastante tiempo. Como resultado, este tutorial podría tardar varias horas en completarse. Para obtener más información sobre los tiempos de aprovisionamiento, consulte [Operaciones de administración de Instancia administrada de SQL](sql-managed-instance-paas-overview.md#management-operations). 
+  > - Las instancias administradas que participan en un grupo de conmutación por error requieren [Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) o dos puertas de enlace de VPN conectadas. En este tutorial se proporcionan los pasos para crear y conectar las puertas de enlace de VPN. Sáltese estos pasos si ya tiene ExpressRoute configurado. 
 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -53,34 +52,34 @@ Para completar el tutorial, asegúrese de que cuenta con los elementos siguiente
 ---
 
 
-## <a name="1---create-resource-group-and-primary-sql-mi"></a>1\. Creación de un grupo de recursos y una Instancia administrada de SQL principal
+## <a name="1---create-a-resource-group-and-primary-managed-instance"></a>1\. Creación de un grupo de recursos y una instancia administrada principal
 
-En este paso, creará el grupo de recursos y la Instancia administrada de SQL principal para el grupo de conmutación por error mediante Azure Portal o PowerShell. 
+En este paso, creará el grupo de recursos y la instancia administrada principal del grupo de conmutación por error mediante Azure Portal o PowerShell. 
 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal) 
 
-Cree el grupo de recursos y la Instancia administrada de SQL principal mediante Azure Portal. 
+Cree el grupo de recursos y la instancia administrada principal mediante Azure Portal. 
 
-1. Seleccione **Azure SQL** en el menú izquierdo de Azure Portal. Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y escriba `Azure SQL` en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo. 
-1. Seleccione **+ Agregar** para abrir la página **Select SQL deployment option** (Seleccionar la opción de implementación de SQL). Para más información acerca de las distintas bases de datos, seleccione Mostrar detalles en el icono Bases de datos.
+1. Seleccione **Azure SQL** en el menú izquierdo de Azure Portal. Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y, a continuación, escriba `Azure SQL` en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo. 
+1. Seleccione **+ Agregar** para abrir la página **Select SQL deployment option** (Seleccionar la opción de implementación de SQL). Para ver más información acerca de las distintas bases de datos, seleccione **Mostrar detalles** en el icono **Bases de datos**.
 1. Seleccione **Crear** en el icono **Instancias administradas de SQL**. 
 
     ![Seleccione Instancia administrada de SQL](./media/failover-group-add-instance-tutorial/select-managed-instance.png)
 
-1. En la página **Crear instancia administrada de Azure SQL**, desde la pestaña **Aspectos básicos**
+1. En la página **Crear instancia administrada de Azure SQL**, desde la pestaña **Aspectos básicos**:
     1. En **Detalles del proyecto**, seleccione su **Suscripción** en la lista desplegable y, a continuación, elija **Crear nuevo** en grupo de recursos. Escriba un nombre para el grupo de recursos, como `myResourceGroup`. 
-    1. En **Detalles de la instancia administrada de SQL**, proporcione el nombre de la Instancia administrada de SQL y la región en la que quiere implementar la Instancia administrada de SQL. Deje el campo **Proceso y almacenamiento** con el valor predeterminado. 
+    1. En **Detalles de la instancia administrada de SQL**, proporcione el nombre de la instancia administrada y la región en la que quiere implementar la instancia administrada. Deje el campo **Proceso y almacenamiento** con el valor predeterminado. 
     1. En **Cuenta de administrador** proporcione un inicio de sesión de administrador (como `azureuser`) y una contraseña de administrador compleja. 
 
     ![Creación de una instancia administrada principal](./media/failover-group-add-instance-tutorial/primary-sql-mi-values.png)
 
 1. Deje el resto de la configuración en sus valores predeterminados y seleccione **Revisar y crear** para revisar la configuración de la Instancia administrada de SQL. 
-1. Seleccione **Crear** para crear la Instancia administrada de SQL principal. 
+1. Seleccione **Crear** para crear la instancia administrada principal. 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Cree el grupo de recursos y la Instancia administrada de SQL principal mediante PowerShell. 
+Cree el grupo de recursos y la instancia administrada principal mediante PowerShell. 
 
    ```powershell-interactive
    # Connect-AzAccount
@@ -88,12 +87,12 @@ Cree el grupo de recursos y la Instancia administrada de SQL principal mediante 
    $SubscriptionId = '<Subscription-ID>'
    # Create a random identifier to use as subscript for the different resource names
    $randomIdentifier = $(Get-Random)
-   # Set the resource group name and location for your SQL Managed Instance
+   # Set the resource group name and location for SQL Managed Instance
    $resourceGroupName = "myResourceGroup-$randomIdentifier"
    $location = "eastus"
    $drLocation = "eastus2"
    
-   # Set the networking values for your primary SQL Managed Instance
+   # Set the networking values for your primary managed instance
    $primaryVNet = "primaryVNet-$randomIdentifier"
    $primaryAddressPrefix = "10.0.0.0/16"
    $primaryDefaultSubnet = "primaryDefaultSubnet-$randomIdentifier"
@@ -108,7 +107,7 @@ Cree el grupo de recursos y la Instancia administrada de SQL principal mediante 
    $primaryGWConnection = $primaryGWName + "-connection"
    
    
-   # Set the networking values for your secondary SQL Managed Instance
+   # Set the networking values for your secondary managed instance
    $secondaryVNet = "secondaryVNet-$randomIdentifier"
    $secondaryAddressPrefix = "10.128.0.0/16"
    $secondaryDefaultSubnet = "secondaryDefaultSubnet-$randomIdentifier"
@@ -124,11 +123,11 @@ Cree el grupo de recursos y la Instancia administrada de SQL principal mediante 
    
    
    
-   # Set the SQL Managed Instance name for the new SQL Managed Instances
+   # Set the SQL Managed Instance name for the new managed instances
    $primaryInstance = "primary-mi-$randomIdentifier"
    $secondaryInstance = "secondary-mi-$randomIdentifier"
    
-   # Set the admin login and password for your SQL Managed Instance
+   # Set the admin login and password for SQL Managed Instance
    $secpasswd = "PWD27!"+(New-Guid).Guid | ConvertTo-SecureString -AsPlainText -Force
    $mycreds = New-Object System.Management.Automation.PSCredential ("azureuser", $secpasswd)
    
@@ -138,7 +137,7 @@ Cree el grupo de recursos y la Instancia administrada de SQL principal mediante 
    $vCores = 8
    $maxStorage = 256
    $computeGeneration = "Gen5"
-   $license = "LicenseIncluded" #"BasePrice" or LicenseIncluded if you have don't have SQL Server licence that can be used for AHB discount
+   $license = "LicenseIncluded" #"BasePrice" or LicenseIncluded if you have don't have SQL Server license that can be used for AHB discount
    
    # Set failover group details
    $vpnSharedKey = "mi1mi2psk"
@@ -160,15 +159,15 @@ Cree el grupo de recursos y la Instancia administrada de SQL principal mediante 
    # Suppress networking breaking changes warning (https://aka.ms/azps-changewarnings
    Set-Item Env:\SuppressAzurePowerShellBreakingChangeWarnings "true"
    
-   # Set subscription context
+   # Set the subscription context
    Set-AzContext -SubscriptionId $subscriptionId 
    
-   # Create a resource group
+   # Create the resource group
    Write-host "Creating resource group..."
    $resourceGroup = New-AzResourceGroup -Name $resourceGroupName -Location $location -Tag @{Owner="SQLDB-Samples"}
    $resourceGroup
    
-   # Configure primary virtual network
+   # Configure the primary virtual network
    Write-host "Creating primary virtual network..."
    $primaryVirtualNetwork = New-AzVirtualNetwork `
                          -ResourceGroupName $resourceGroupName `
@@ -184,7 +183,7 @@ Cree el grupo de recursos y la Instancia administrada de SQL principal mediante 
    $primaryVirtualNetwork
    
    
-   # Configure primary MI subnet
+   # Configure the primary managed instance subnet
    Write-host "Configuring primary MI subnet..."
    $primaryVirtualNetwork = Get-AzVirtualNetwork -Name $primaryVNet -ResourceGroupName $resourceGroupName
    
@@ -194,7 +193,7 @@ Cree el grupo de recursos y la Instancia administrada de SQL principal mediante 
                            -VirtualNetwork $primaryVirtualNetwork
    $primaryMiSubnetConfig
    
-   # Configure network security group management service
+   # Configure the network security group management service
    Write-host "Configuring primary MI subnet..."
    
    $primaryMiSubnetConfigId = $primaryMiSubnetConfig.Id
@@ -205,7 +204,7 @@ Cree el grupo de recursos y la Instancia administrada de SQL principal mediante 
                          -location $location
    $primaryNSGMiManagementService
    
-   # Configure route table management service
+   # Configure the route table management service
    Write-host "Configuring primary MI route table management service..."
    
    $primaryRouteTableMiManagementService = New-AzRouteTable `
@@ -366,7 +365,7 @@ Cree el grupo de recursos y la Instancia administrada de SQL principal mediante 
    Write-host "Primary network route table configured successfully."
    
    
-   # Create primary SQL Managed Instance
+   # Create the primary managed instance
    
    Write-host "Creating primary SQL Managed Instance..."
    Write-host "This will take some time, see https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance#managed-instance-management-operations or more information."
@@ -401,20 +400,20 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 | [Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup) | Actualiza un grupo de seguridad de red.  | 
 | [Add-AzRouteConfig](/powershell/module/az.network/add-azrouteconfig) | Agrega una ruta a una tabla de rutas. |
 | [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable) | Actualiza una tabla de rutas.  |
-| [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | Crea una Instancia administrada de Azure SQL.  |
+| [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | Crea una instancia administrada.  |
 
 ---
 
 ## <a name="2---create-secondary-virtual-network"></a>2\. Creación de una red virtual secundaria
 
-Si usa Azure Portal para crear la Instancia administrada de SQL, tendrá que crear la red virtual por separado, ya que hay un requisito de que la subred de la Instancia administrada de SQL principal y secundaria no tenga intervalos superpuestos. Si usa PowerShell para configurar la Instancia administrada de SQL, vaya al paso 3. 
+Si usa Azure Portal para crear la instancia administrada, tendrá que crear la red virtual por separado, ya que hay un requisito de que la subred de la instancia administrada principal y secundaria no tenga intervalos superpuestos. Si usa PowerShell para configurar la instancia administrada, vaya al paso 3. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal) 
 
 Para comprobar el intervalo de subred de la red virtual principal, siga estos pasos:
 
 1. En [Azure Portal](https://portal.azure.com), vaya a su grupo de recursos y seleccione la red virtual para la instancia principal.  
-2. Seleccione **Subredes** en **Configuración** y anote el **Intervalo de direcciones**. El intervalo de direcciones de subred perteneciente a la red virtual para la Instancia administrada de SQL secundaria no puede superponerse con el intervalo anotado. 
+2. Seleccione **Subredes** en **Configuración** y anote el **Intervalo de direcciones**. El intervalo de direcciones de subred perteneciente a la red virtual para la instancia administrada secundaria no puede superponerse con el intervalo anotado. 
 
 
    ![Subred principal](./media/failover-group-add-instance-tutorial/verify-primary-subnet-range.png)
@@ -423,77 +422,78 @@ Para crear una red virtual, siga estos pasos:
 
 1. En [Azure Portal](https://portal.azure.com), seleccione **Crear un recurso** y busque *red virtual*. 
 1. Seleccione la opción **Red virtual** publicada por Microsoft y, a continuación, seleccione **Crear** en la página siguiente. 
-1. Rellene los campos obligatorios para configurar la red virtual para la Instancia administrada de SQL secundaria y después seleccione **Crear**. 
+1. Rellene los campos obligatorios para configurar la red virtual para la instancia administrada secundaria y después seleccione **Crear**. 
 
    En la tabla siguiente se muestran los valores necesarios para la red virtual secundaria:
 
     | **Campo** | Value |
     | --- | --- |
-    | **Nombre** |  Nombre de la red virtual que va a usar la Instancia administrada de SQL secundaria, como `vnet-sql-mi-secondary`. |
+    | **Nombre** |  Nombre de la red virtual que va a usar la instancia administrada secundaria, como `vnet-sql-mi-secondary`. |
     | **Espacio de direcciones** | Espacio de direcciones de la red virtual, como `10.128.0.0/16`. | 
-    | **Suscripción** | Suscripción en la que residen la Instancia administrada de SQL principal y el grupo de recursos. |
-    | **Región** | Ubicación en la que implementará la Instancia administrada de SQL secundaria. |
+    | **Suscripción** | Suscripción en la que residen la instancia administrada principal y el grupo de recursos. |
+    | **Región** | Ubicación en la que implementará la instancia administrada secundaria. |
     | **Subred** | Nombre de la subred. De forma predeterminada, se proporciona `default`. |
-    | **Intervalo de direcciones**| Intervalo de direcciones para la subred. Debe ser distinto al intervalo de direcciones de subred que usó la red virtual de la Instancia administrada de SQL principal, como `10.128.0.0/24`.  |
+    | **Intervalo de direcciones**| Intervalo de direcciones para la subred. Debe ser distinto al intervalo de direcciones de subred que usó la red virtual de la instancia administrada principal, como `10.128.0.0/24`.  |
     | &nbsp; | &nbsp; |
 
     ![Valores de red virtual secundaria](./media/failover-group-add-instance-tutorial/secondary-virtual-network.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Este paso es necesario solo si utiliza Azure Portal para implementar la Instancia administrada de SQL. Si usa PowerShell, vaya al paso 3. 
+Este paso es necesario solo si utiliza Azure Portal para implementar SQL Managed Instance. Si usa PowerShell, vaya al paso 3. 
 
 ---
 
-## <a name="3---create-a-secondary-sql-managed-instance"></a>3\. Creación de una Instancia administrada de SQL secundaria
-En este paso, creará una Instancia administrada de SQL secundaria en Azure Portal, que también configurará las redes entre las dos Instancias administradas de SQL. 
+## <a name="3---create-a-secondary-managed-instance"></a>3\. Creación de una instancia administrada secundaria
+En este paso, creará una instancia administrada secundaria en Azure Portal, que también configurará las redes entre las dos instancias administradas. 
 
-La segunda Instancia administrada de SQL debe:
+La segunda instancia administrada debe:
 - Estar vacía. 
-- Tener una subred y un intervalo de direcciones IP distintos de los de la Instancia administrada de SQL principal. 
+- Tener una subred y un intervalo de direcciones IP distintos de los de la instancia administrada principal. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal) 
 
-Cree una Instancia administrada de SQL secundaria mediante Azure Portal. 
+Cree una instancia administrada secundaria mediante Azure Portal. 
 
-1. Seleccione **Azure SQL** en el menú izquierdo de Azure Portal. Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y escriba Azure SQL en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo. 
-1. Seleccione **+ Agregar** para abrir la página **Select SQL deployment option** (Seleccionar la opción de implementación de SQL). Para más información acerca de las distintas bases de datos, seleccione Mostrar detalles en el icono Bases de datos.
+1. Seleccione **Azure SQL** en el menú izquierdo de Azure Portal. Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y, a continuación, escriba `Azure SQL` en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo. 
+1. Seleccione **+ Agregar** para abrir la página **Select SQL deployment option** (Seleccionar la opción de implementación de SQL). Para ver más información acerca de las distintas bases de datos, seleccione **Mostrar detalles** en el icono **Bases de datos**.
 1. Seleccione **Crear** en el icono **Instancias administradas de SQL**. 
 
     ![Seleccione Instancia administrada de SQL](./media/failover-group-add-instance-tutorial/select-managed-instance.png)
 
-1. En la pestaña **Aspectos básicos** de la página **Crear instancia administrada de Azure SQL**, rellene los campos obligatorios para configurar la Instancia administrada de SQL secundaria. 
+1. En la pestaña **Aspectos básicos** de la página **Crear instancia administrada de Azure SQL**, rellene los campos obligatorios para configurar la instancia administrada secundaria. 
 
-   En la tabla siguiente se muestran los valores necesarios para la Instancia administrada de SQL secundaria:
+   En la tabla siguiente se muestran los valores necesarios para la instancia administrada secundaria:
  
     | **Campo** | Value |
     | --- | --- |
-    | **Suscripción** |  Suscripción en la que reside la Instancia administrada de SQL principal. |
-    | **Grupos de recursos**| Grupo de recursos en el que reside la Instancia administrada de SQL principal. |
-    | **Nombre de la Instancia administrada de SQL** | Nombre de la nueva Instancia administrada de SQL secundaria, como `sql-mi-secondary`  | 
-    | **Región**| Ubicación de la Instancia administrada de SQL secundaria.  |
-    | **Inicio de sesión de administrador de la Instancia administrada de SQL** | Inicio de sesión que quiere usar para la nueva Instancia administrada de SQL secundaria, como `azureuser`. |
-    | **Contraseña** | Contraseña compleja que usará el inicio de sesión del administrador para la nueva Instancia administrada de SQL secundaria.  |
+    | **Suscripción** |  Suscripción en la que reside la instancia administrada principal. |
+    | **Grupos de recursos**| Grupo de recursos en el que reside la instancia administrada principal. |
+    | **Nombre de la Instancia administrada de SQL** | Nombre de la nueva instancia administrada secundaria, por ejemplo, `sql-mi-secondary`.  | 
+    | **Región**| Ubicación de la instancia administrada secundaria.  |
+    | **Inicio de sesión de administrador de la Instancia administrada de SQL** | Inicio de sesión que quiere usar para la nueva instancia administrada secundaria, como `azureuser`. |
+    | **Contraseña** | Contraseña compleja que usará el inicio de sesión del administrador para la nueva instancia administrada secundaria.  |
     | &nbsp; | &nbsp; |
 
-1. En la pestaña **Redes**, como **Red virtual**, seleccione de la lista desplegable la red virtual que creó para la Instancia administrada de SQL secundaria.
+1. En la pestaña **Redes**, como **Red virtual**, seleccione la red virtual que creó para la instancia administrada secundaria de la lista desplegable.
 
    ![Redes de instancia administrada secundaria](./media/failover-group-add-instance-tutorial/networking-settings-for-secondary-mi.png)
 
-1. En la pestaña **Configuración adicional**, para la **Replicación geográfica** elija **Sí** en _Use as failover secondary_ (Usar como conmutación por error secundaria). Seleccione la Instancia administrada de SQL principal en la lista desplegable. 
-    1. Asegúrese de que la intercalación y la zona horaria coincidan con las de la Instancia administrada de SQL principal. La Instancia administrada de SQL principal creada en este tutorial usó el valor predeterminado de intercalación `SQL_Latin1_General_CP1_CI_AS` y la zona horaria `(UTC) Coordinated Universal Time`. 
+1. En la pestaña **Configuración adicional**, para **Replicación geográfica** elija **Sí** en _Usar como secundario de conmutación por error_. Seleccione la instancia administrada principal en la lista desplegable. 
+    
+   Asegúrese de que la intercalación y la zona horaria coinciden con las de la instancia administrada principal. La instancia administrada principal creada en este tutorial usó el valor predeterminado de intercalación `SQL_Latin1_General_CP1_CI_AS` y la zona horaria `(UTC) Coordinated Universal Time`. 
 
-   ![Redes de instancia administrada secundaria](./media/failover-group-add-instance-tutorial/secondary-mi-failover.png)
+   ![Redes de la instancia administrada secundaria](./media/failover-group-add-instance-tutorial/secondary-mi-failover.png)
 
-1. Seleccione **Revisar y crear** para revisar la configuración de la Instancia administrada de SQL secundaria. 
-1. Seleccione **Crear** para crear la Instancia administrada de SQL secundaria. 
+1. Seleccione **Revisar y crear** para revisar la configuración de la instancia administrada secundaria. 
+1. Seleccione **Crear** para crear la instancia administrada secundaria. 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Cree una Instancia administrada de SQL secundaria mediante PowerShell. 
+Cree una instancia administrada secundaria mediante PowerShell. 
 
    ```powershell-interactive
-   # Configure secondary virtual network
+   # Configure the secondary virtual network
    Write-host "Configuring secondary virtual network..."
    
    $SecondaryVirtualNetwork = New-AzVirtualNetwork `
@@ -509,7 +509,7 @@ Cree una Instancia administrada de SQL secundaria mediante PowerShell.
                        | Set-AzVirtualNetwork
    $SecondaryVirtualNetwork
    
-   # Configure secondary SQL Managed Instance subnet
+   # Configure the secondary managed instance subnet
    Write-host "Configuring secondary MI subnet..."
    
    $SecondaryVirtualNetwork = Get-AzVirtualNetwork -Name $secondaryVNet `
@@ -520,7 +520,7 @@ Cree una Instancia administrada de SQL secundaria mediante PowerShell.
                            -VirtualNetwork $SecondaryVirtualNetwork
    $secondaryMiSubnetConfig
    
-   # Configure secondary network security group management service
+   # Configure the secondary network security group management service
    Write-host "Configuring secondary network security group management service..."
    
    $secondaryMiSubnetConfigId = $secondaryMiSubnetConfig.Id
@@ -531,7 +531,7 @@ Cree una Instancia administrada de SQL secundaria mediante PowerShell.
                          -location $drlocation
    $secondaryNSGMiManagementService
    
-   # Configure secondary route table MI management service
+   # Configure the secondary route table MI management service
    Write-host "Configuring secondary route table MI management service..."
    
    $secondaryRouteTableMiManagementService = New-AzRouteTable `
@@ -691,7 +691,7 @@ Cree una Instancia administrada de SQL secundaria mediante PowerShell.
                        | Set-AzRouteTable
    Write-host "Secondary network security group configured successfully."
    
-   # Create secondary SQL Managed Instance
+   # Create the secondary managed instance
    
    $primaryManagedInstanceId = Get-AzSqlInstance -Name $primaryInstance -ResourceGroupName $resourceGroupName | Select-Object Id
    
@@ -730,44 +730,44 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 | [Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup) | Actualiza un grupo de seguridad de red.  | 
 | [Add-AzRouteConfig](/powershell/module/az.network/add-azrouteconfig) | Agrega una ruta a una tabla de rutas. |
 | [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable) | Actualiza una tabla de rutas.  |
-| [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | Crea una Instancia administrada de Azure SQL.  |
+| [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | Crea una instancia administrada.  |
 
 ---
 
-## <a name="4---create-primary-gateway"></a>4\. Creación de una puerta de enlace principal 
+## <a name="4---create-a-primary-gateway"></a>4\. Creación de una puerta de enlace principal 
 
-Para que dos Instancias administradas de SQL participen en un grupo de conmutación por error, debe haber una puerta de enlace o ExpressRoute configurados entre las redes virtuales de las dos Instancias administradas de SQL para permitir la comunicación en red. Si decide configurar [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) en lugar de conectar dos puertas de enlace de VPN, vaya al [paso 7](#7---create-a-failover-group).  
+Para que dos instancias administradas participen en un grupo de conmutación por error, debe haber una puerta de enlace o ExpressRoute configurados entre las redes virtuales de las dos instancias administradas para permitir la comunicación en red. Si decide configurar [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) en lugar de conectar dos puertas de enlace de VPN, vaya al [paso 7](#7---create-a-failover-group).  
 
 En este artículo se proporcionan los pasos para crear las dos puertas de enlace de VPN y conectarlas, pero puede ir directamente a la creación del grupo de conmutación por error si ha configurado ExpressRoute en su lugar. 
 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Cree la puerta de enlace para la red virtual de la Instancia administrada de SQL principal mediante Azure Portal. 
+Cree la puerta de enlace para la red virtual de la instancia administrada principal mediante Azure Portal. 
 
 
-1. En [Azure Portal](https://portal.azure.com), vaya al grupo de recursos y seleccione el recurso **Red virtual** para la Instancia administrada de SQL principal. 
+1. En [Azure Portal](https://portal.azure.com), navegue al grupo de recursos y seleccione el recurso **Red virtual** para la instancia administrada principal. 
 1. Seleccione **Subredes** en **Configuración** y, a continuación, seleccione para agregar una nueva **Subred de puerta de enlace**. Deje los valores predeterminados. 
 
-   ![Adición de una puerta de enlace para la Instancia administrada de SQL principal](./media/failover-group-add-instance-tutorial/add-subnet-gateway-primary-vnet.png)
+   ![Adición de una puerta de enlace para la instancia administrada principal](./media/failover-group-add-instance-tutorial/add-subnet-gateway-primary-vnet.png)
 
 1. Una vez creada la puerta de enlace de subred, seleccione **Crear un recurso** en el panel de navegación izquierdo y, a continuación, escriba `Virtual network gateway` en el cuadro de búsqueda. Seleccione el recurso **Puerta de enlace de red virtual** publicado por **Microsoft**. 
 
    ![Creación de una nueva puerta de enlace de red virtual](./media/failover-group-add-instance-tutorial/create-virtual-network-gateway.png)
 
-1. Rellene los campos obligatorios para configurar la puerta de enlace de la Instancia administrada de SQL principal. 
+1. Rellene los campos obligatorios para configurar la puerta de enlace de la instancia administrada principal. 
 
-   En la tabla siguiente se muestran los valores necesarios para la puerta de enlace de la Instancia administrada de SQL principal:
+   En la tabla siguiente se muestran los valores necesarios para la puerta de enlace de la instancia administrada principal:
  
     | **Campo** | Value |
     | --- | --- |
-    | **Suscripción** |  Suscripción en la que reside la Instancia administrada de SQL principal. |
+    | **Suscripción** |  Suscripción en la que reside la instancia administrada principal. |
     | **Nombre** | Nombre de la puerta de enlace de red virtual, como `primary-mi-gateway`. | 
-    | **Región** | Región donde se encuentra la Instancia administrada de SQL principal. |
+    | **Región** | Región donde se encuentra la instancia administrada principal. |
     | **Tipo de puerta de enlace** | Seleccione **VPN**. |
-    | **Tipo de VPN** | Seleccione **Basada en rutas**. |
+    | **Tipo de VPN** | seleccione **Basada en rutas**. |
     | **SKU**| Deje el valor predeterminado de `VpnGw1`. |
-    | **Ubicación**| Ubicación donde se encuentran la Instancia administrada de SQL principal y la red virtual principal.   |
+    | **Ubicación**| Ubicación donde se encuentran la instancia administrada principal y la red virtual principal.   |
     | **Red virtual**| Seleccione la red virtual que se creó en la sección 2, como `vnet-sql-mi-primary`. |
     | **Dirección IP pública**| Seleccione **Crear nuevo**. |
     | **Nombre de la dirección IP pública**| Escriba un nombre para la dirección IP, como `primary-gateway-IP`. |
@@ -782,10 +782,10 @@ Cree la puerta de enlace para la red virtual de la Instancia administrada de SQL
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Cree la puerta de enlace para la red virtual de la Instancia administrada de SQL principal mediante PowerShell. 
+Cree la puerta de enlace para la red virtual de la instancia administrada principal mediante PowerShell. 
 
    ```powershell-interactive
-   # Create primary gateway
+   # Create the primary gateway
    Write-host "Adding GatewaySubnet to primary VNet..."
    Get-AzVirtualNetwork `
                      -Name $primaryVNet `
@@ -824,32 +824,32 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 | [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | Actualiza una red virtual.  |
 | [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | Obtiene una subred en una red virtual. |
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Crea una dirección IP pública.  | 
-| [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Crea una configuración de IP para una puerta de enlace de Virtual Network. |
-| [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Crea una puerta de enlace de Virtual Network. |
+| [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Crea una configuración de IP para una puerta de enlace de red virtual. |
+| [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Crea una puerta de enlace de red virtual. |
 
 
 ---
 
 
 ## <a name="5---create-secondary-gateway"></a>5\. Creación de una puerta de enlace secundaria 
-En este paso, cree la puerta de enlace para la red virtual de la Instancia administrada de SQL secundaria mediante Azure Portal. 
+En este paso, va a crear la puerta de enlace para la red virtual de la instancia administrada secundaria mediante Azure Portal. 
 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Mediante Azure Portal, repita los pasos de la sección anterior para crear la subred y la puerta de enlace de la red virtual para la Instancia administrada de SQL secundaria. Rellene los campos obligatorios para configurar la puerta de enlace para la Instancia administrada de SQL secundaria. 
+Mediante Azure Portal, repita los pasos de la sección anterior para crear la subred y la puerta de enlace de la red virtual para la instancia administrada secundaria. Rellene los campos obligatorios para configurar la puerta de enlace para la instancia administrada secundaria. 
 
-   En la tabla siguiente se muestran los valores necesarios para la puerta de enlace de la Instancia administrada de SQL secundaria:
+   En la tabla siguiente se muestran los valores necesarios para la puerta de enlace de la instancia administrada secundaria:
 
    | **Campo** | Value |
    | --- | --- |
-   | **Suscripción** |  Suscripción en la que reside la Instancia administrada de SQL secundaria. |
+   | **Suscripción** |  Suscripción en la que reside la instancia administrada secundaria. |
    | **Nombre** | Nombre de la puerta de enlace de red virtual, como `secondary-mi-gateway`. | 
-   | **Región** | Región donde se encuentra la Instancia administrada de SQL secundaria. |
+   | **Región** | Región donde se encuentra la instancia administrada secundaria. |
    | **Tipo de puerta de enlace** | Seleccione **VPN**. |
-   | **Tipo de VPN** | Seleccione **Basada en rutas**. |
+   | **Tipo de VPN** | seleccione **Basada en rutas**. |
    | **SKU**| Deje el valor predeterminado de `VpnGw1`. |
-   | **Ubicación**| Ubicación donde se encuentran la Instancia administrada de SQL secundaria y la red virtual secundaria.   |
+   | **Ubicación**| Ubicación donde se encuentran la instancia administrada secundaria y la red virtual secundaria.   |
    | **Red virtual**| Seleccione la red virtual que se creó en la sección 2, como `vnet-sql-mi-secondary`. |
    | **Dirección IP pública**| Seleccione **Crear nuevo**. |
    | **Nombre de la dirección IP pública**| Escriba un nombre para la dirección IP, como `secondary-gateway-IP`. |
@@ -860,7 +860,7 @@ Mediante Azure Portal, repita los pasos de la sección anterior para crear la su
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Cree la puerta de enlace para la red virtual de la Instancia administrada de SQL secundaria mediante PowerShell. 
+Cree la puerta de enlace para la red virtual de la instancia administrada secundaria mediante PowerShell. 
 
    ```powershell-interactive
    # Create the secondary gateway
@@ -905,8 +905,8 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 | [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | Actualiza una red virtual.  |
 | [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | Obtiene una subred en una red virtual. |
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Crea una dirección IP pública.  | 
-| [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Crea una configuración de IP para una puerta de enlace de Virtual Network. |
-| [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Crea una puerta de enlace de Virtual Network. |
+| [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Crea una configuración de IP para una puerta de enlace de red virtual. |
+| [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Crea una puerta de enlace de red virtual. |
 
 ---
 
@@ -926,8 +926,8 @@ Conecte las dos puertas de enlace mediante Azure Portal.
 1. En la pestaña **Aspectos básicos**, seleccione los siguientes valores y luego seleccione **Aceptar**. 
     1. Seleccione `VNet-to-VNet` para el **tipo de conexión**. 
     1. Seleccione la suscripción en la lista desplegable. 
-    1. Seleccione el grupo de recursos de la Instancia administrada de SQL en la lista desplegable. 
-    1. Seleccione la ubicación de la Instancia administrada de SQL principal en la lista desplegable. 
+    1. Seleccione el grupo de recursos de la instancia de SQL Managed Instance en la lista desplegable. 
+    1. Seleccione la ubicación de la instancia administrada principal en la lista desplegable. 
 1. En la pestaña **Configuración**, seleccione o escriba los valores siguientes y, después, seleccione **Aceptar**:
     1. Elija la puerta de enlace de red principal para la **Primera puerta enlace de red virtual**, como `Primary-Gateway`.  
     1. Elija la puerta de enlace de red secundaria para la **Segunda puerta enlace de red virtual**, como `Secondary-Gateway`. 
@@ -971,20 +971,20 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 
 
 ## <a name="7---create-a-failover-group"></a>7\. Creación de un grupo de conmutación por error
-En este paso, creará el grupo de conmutación por error y le agregará ambas Instancias administradas de SQL. 
+En este paso, creará el grupo de conmutación por error y le agregará ambas instancias administradas. 
 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Cree el grupo de conmutación por error mediante Azure Portal. 
 
 
-1. Seleccione **Azure SQL** en el menú izquierdo de [Azure Portal](https://portal.azure.com). Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y escriba Azure SQL en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo. 
-1. Seleccione la Instancia administrada de SQL principal que creó en la primera sección, por ejemplo, `sql-mi-primary`. 
-1. En **Configuración**, navegue a **Grupos de conmutación por error de instancias** y, después, elija **Agregar grupo** para abrir la página **Grupo de conmutación por error de instancias**. 
+1. Seleccione **Azure SQL** en el menú izquierdo de [Azure Portal](https://portal.azure.com). Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y, a continuación, escriba `Azure SQL` en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo. 
+1. Seleccione la instancia administrada principal que creó en la primera sección, por ejemplo, `sql-mi-primary`. 
+1. En **Configuración**, vaya a **Grupos de conmutación por error de instancias** y, a continuación, elija **Agregar grupo** para abrir la página **Grupo de conmutación por error de instancias**. 
 
    ![Adición de un grupo de conmutación por error](./media/failover-group-add-instance-tutorial/add-failover-group.png)
 
-1. En la página **Grupo de conmutación por error de instancias**, escriba el nombre del grupo de conmutación por error, como `failovergrouptutorial`, y después elija la Instancia administrada de SQL secundaria, como `sql-mi-secondary`, en la lista desplegable. Seleccione **Crear** para crear el grupo de conmutación por error. 
+1. En la página **Grupo de conmutación por error de instancias**, escriba el nombre del grupo de conmutación por error, por ejemplo, `failovergrouptutorial`. A continuación, elija la instancia administrada secundaria (por ejemplo, `sql-mi-secondary`) en la lista desplegable. Seleccione **Crear** para crear el grupo de conmutación por error. 
 
    ![Creación de un grupo de conmutación por error](./media/failover-group-add-instance-tutorial/create-failover-group.png)
 
@@ -1021,17 +1021,17 @@ En este paso, se producirá un error en el grupo de conmutación por error en el
 Pruebe la conmutación por error mediante Azure Portal. 
 
 
-1. Vaya a la Instancia administrada de SQL _secundaria_ en [Azure Portal](https://portal.azure.com) y seleccione **Grupos de conmutación por error de instancias** en las opciones de configuración. 
-1. Revise cuál Instancia administrada de SQL es la principal y cuál es la secundaria. 
+1. Vaya a la instancia administrada _secundaria_ en [Azure Portal](https://portal.azure.com) y seleccione **Grupos de conmutación por error de instancias** en las opciones de configuración. 
+1. Revise cuál instancia administrada es la principal y cuál es la secundaria. 
 1. Seleccione **Conmutación por error** y, a continuación, seleccione **Sí** en la advertencia acerca de la desconexión de las sesiones TDS. 
 
    ![Conmutación por error del grupo de conmutación por error](./media/failover-group-add-instance-tutorial/failover-mi-failover-group.png)
 
-1. Revise cuál Instancia administrada de SQL es la principal y cuál es la secundaria. Si la conmutación por error se realiza correctamente, las dos instancias deben tener los roles cambiados. 
+1. Revise cuál instancia administrada es la principal y cuál es la secundaria. Si la conmutación por error se realiza correctamente, las dos instancias deben tener los roles cambiados. 
 
-   ![Las Instancias administradas de SQL cambian roles después de la conmutación por error](./media/failover-group-add-instance-tutorial/mi-switched-after-failover.png)
+   ![Las instancias administradas cambian roles después de la conmutación por error](./media/failover-group-add-instance-tutorial/mi-switched-after-failover.png)
 
-1. Vaya a la nueva Instancia administrada de SQL _secundaria_ y seleccione **Conmutación por error** para que la instancia principal vuelva a tener el rol principal. 
+1. Vaya a la nueva instancia administrada _secundaria_ y seleccione **Conmutación por error** para que la instancia principal vuelva a tener el rol principal. 
 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -1043,7 +1043,7 @@ Pruebe la conmutación por error mediante PowerShell.
    Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $resourceGroupName `
        -Location $location -Name $failoverGroupName
    
-   # Failover the primary SQL Managed Instance to the secondary role
+   # Fail over the primary managed instance to the secondary role
    Write-host "Failing primary over to the secondary location"
    Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $resourceGroupName `
        -Location $drLocation -Name $failoverGroupName | Switch-AzSqlDatabaseInstanceFailoverGroup
@@ -1058,7 +1058,7 @@ Revierta el grupo de conmutación por error al servidor principal:
    Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $resourceGroupName `
        -Location $drLocation -Name $failoverGroupName
    
-   # Fail primary SQL Managed Instance back to primary role
+   # Fail the primary managed instance back to the primary role
    Write-host "Failing primary back to primary role"
    Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $resourceGroupName `
        -Location $location -Name $failoverGroupName | Switch-AzSqlDatabaseInstanceFailoverGroup
@@ -1081,24 +1081,24 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Para limpiar los recursos, elimine primero la Instancia administrada de SQL, después el clúster virtual, a continuación el resto de los recursos y, por último, el grupo de recursos. 
+Para limpiar los recursos, elimine primero las instancias administradas, después el clúster virtual, a continuación el resto de los recursos y, por último, el grupo de recursos. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 1. Vaya a su grupo de recursos en [Azure Portal](https://portal.azure.com). 
-1. Seleccione las Instancias administradas de SQL y después seleccione **Eliminar**. Escriba `yes` en el cuadro de texto para confirmar que quiere eliminar el recurso y después seleccione **Eliminar**. Este proceso puede tardar algún tiempo en completarse en segundo plano y, hasta que finalice, no podrá eliminar el *Clúster virtual* ni ningún otro recurso dependiente. Supervise la eliminación en la pestaña Actividad para confirmar que la Instancia administrada de SQL se ha eliminado. 
-1. Una vez que se elimine la Instancia administrada de SQL, puede eliminar el *Clúster virtual* al seleccionarlo en el grupo de recursos y elegir **Eliminar**. Escriba `yes` en el cuadro de texto para confirmar que quiere eliminar el recurso y después seleccione **Eliminar**. 
+1. Seleccione las instancias administradas y después seleccione **Eliminar**. Escriba `yes` en el cuadro de texto para confirmar que quiere eliminar el recurso y después seleccione **Eliminar**. Este proceso puede tardar algún tiempo en completarse en segundo plano y, hasta que finalice, no podrá eliminar el *clúster virtual* ni ningún otro recurso dependiente. Supervise la eliminación en la pestaña **Actividad** para confirmar que la instancia administrada se ha eliminado. 
+1. Una vez que se elimine la instancia administrada, puede eliminar el *clúster virtual* si lo selecciona en el grupo de recursos y, después, elige **Eliminar**. Escriba `yes` en el cuadro de texto para confirmar que quiere eliminar el recurso y después seleccione **Eliminar**. 
 1. Elimine todos los recursos restantes. Escriba `yes` en el cuadro de texto para confirmar que quiere eliminar el recurso y después seleccione **Eliminar**. 
 1. Para eliminar el grupo de recursos, seleccione **Eliminar grupo de recursos**, escriba el nombre del grupo de recursos (`myResourceGroup`) y, a continuación, seleccione **Eliminar**. 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Tendrá que quitar el grupo de recursos dos veces. Al quitar el grupo de recursos la primera vez, se quitarán la Instancia administrada de SQL y los clústeres virtuales, pero se producirá el mensaje de error `Remove-AzResourceGroup : Long running operation failed with status 'Conflict'.`. Ejecute el comando Remove-AzResourceGroup una segunda vez para quitar los recursos residuales y el grupo de recursos.
+Tendrá que quitar el grupo de recursos dos veces. Al eliminar el grupo de recursos por primera vez, se eliminarán la instancia administrada y los clústeres virtuales, pero se producirá el mensaje de error `Remove-AzResourceGroup : Long running operation failed with status 'Conflict'`. Ejecute el comando Remove-AzResourceGroup una segunda vez para quitar los recursos residuales y el grupo de recursos.
 
 ```powershell-interactive
 Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
 Write-host "Removing SQL Managed Instance and virtual cluster..."
 Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
-Write-host "Removing residual resources and resouce group..."
+Write-host "Removing residual resources and resource group..."
 ```
 
 En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
@@ -1132,13 +1132,13 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | [Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup) | Actualiza un grupo de seguridad de red.  | 
 | [Add-AzRouteConfig](/powershell/module/az.network/add-azrouteconfig) | Agrega una ruta a una tabla de rutas. |
 | [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable) | Actualiza una tabla de rutas.  |
-| [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | Crea una Instancia administrada de Azure SQL.  |
-| [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance)| Devuelve información sobre la instancia de base de datos administrados de Azure SQL. |
+| [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | Crea una instancia administrada.  |
+| [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance)| Devuelve información sobre Instancia administrada de Azure SQL. |
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Crea una dirección IP pública.  | 
-| [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Crea una configuración de IP para una puerta de enlace de Virtual Network. |
-| [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Crea una puerta de enlace de Virtual Network. |
+| [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Crea una configuración de IP para una puerta de enlace de red virtual. |
+| [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Crea una puerta de enlace de red virtual. |
 | [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) | Crea una conexión entre las dos puertas de enlace de redes virtuales.   |
-| [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup)| Crea un nuevo grupo de conmutación por error de la Instancia administrada de Azure SQL.  |
+| [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup)| Crea un nuevo grupo de conmutación por error de SQL Managed Instance.  |
 | [Get-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) | Obtiene o enumera los grupos de conmutación por error de la Instancia administrada de SQL.| 
 | [Switch-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) | Ejecuta una conmutación por error de un grupo de conmutación por error de la Instancia administrada de SQL. | 
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina un grupo de recursos. | 
@@ -1151,17 +1151,17 @@ No hay scripts disponibles para Azure Portal.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, configuró un grupo de conmutación por error entre dos Instancias administradas de SQL. Ha aprendido a:
+En este tutorial, configuró un grupo de conmutación por error entre dos instancias administradas. Ha aprendido a:
 
 > [!div class="checklist"]
-> - Crear una Instancia administrada de SQL principal
-> - Crear una Instancia administrada de SQL secundaria como parte de un [grupo de conmutación por error](../database/auto-failover-group-overview.md) 
-> - Conmutación por error de prueba
+> - Crear una instancia administrada principal.
+> - Crear una instancia administrada secundaria como parte de [un grupo de conmutación por error](../database/auto-failover-group-overview.md). 
+> - Probar la conmutación por error.
 
-Continúe al siguiente inicio rápido sobre cómo conectarse a su Instancia administrada de SQL y cómo restaurar una base de datos en la Instancia administrada de SQL: 
+Continúe con la siguiente guía de inicio rápido sobre cómo conectarse a SQL Managed Instance y cómo restaurar una base de datos en SQL Managed Instance: 
 
 > [!div class="nextstepaction"]
-> [Conectarse a la Instancia administrada de SQL](connect-vm-instance-configure.md)
-> [Restaurar una base de datos en una Instancia administrada de SQL](restore-sample-database-quickstart.md)
+> [Conexión a SQL Managed Instance](connect-vm-instance-configure.md)
+> [Restauración de una base de datos en SQL Managed Instance](restore-sample-database-quickstart.md)
 
 

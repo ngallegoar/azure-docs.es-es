@@ -1,33 +1,34 @@
 ---
-title: 'Ejecución de script de Python: referencia para los módulos'
+title: 'Ejecución de script de Python: Referencia del módulo'
 titleSuffix: Azure Machine Learning
 description: Obtenga información sobre cómo usar el módulo Ejecución de script de Python en Azure Machine Learning para ejecutar código de Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
+ms.custom: tracking-python
 author: likebupt
 ms.author: keli19
-ms.date: 04/27/2020
-ms.openlocfilehash: 9b2114672db755efba1818505c8f399ac01aea71
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.date: 06/16/2020
+ms.openlocfilehash: 2115a0bae8b26113fc10648db2584210809441de
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983608"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147259"
 ---
 # <a name="execute-python-script-module"></a>Módulo Ejecutar script de Python
 
-En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
+En este artículo se describe el módulo Ejecución de script de Python del diseñador de Azure Machine Learning (versión preliminar).
 
-Utilice este módulo para ejecutar código de Python. Para obtener más información acerca de los principios de diseño y arquitectura de Python, consulte [el siguiente artículo.](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts)
+Utilice este módulo para ejecutar código de Python. Para obtener más información sobre los principios de arquitectura y diseño de Python, consulte [Ejecutar código de Python en el diseñador de Azure Machine Learning](../how-to-designer-python.md).
 
-Con Python, puede realizar las tareas que no son compatibles actualmente con los módulos existentes, como:
+Con Python, puede realizar tareas que los módulos existentes no admiten, como:
 
-+ Visualizar datos mediante `matplotlib`
-+ Usar bibliotecas de Python para enumerar los conjuntos de datos y modelos en el área de trabajo
-+ Leer, cargar y manipular datos de orígenes que no admitidos por el módulo [Import Data](./import-data.md) (Importar datos)
-+ Ejecutar código de aprendizaje profundo propio 
++ Visualizar datos mediante `matplotlib`.
++ Usar bibliotecas de Python para enumerar los conjuntos de datos y modelos en el área de trabajo.
++ Leer, cargar y manipular datos de orígenes que el módulo [Import Data](./import-data.md) (Importar datos) no admite.
++ Ejecute su propio código de aprendizaje profundo. 
 
 
 Azure Machine Learning usa la distribución Anaconda de Python, que incluye muchas utilidades comunes para el procesamiento de datos. La versión de Anaconda se actualizará automáticamente. La versión actual es:
@@ -144,26 +145,37 @@ Los paquetes instalados previamente son:
 -    werkzeug==0.16.1
 -    wheel==0.34.2
 
- Para instalar otros paquetes que no están en la lista instalada previamente, por ejemplo *scikit-misc*, agregue el código siguiente al script: 
+ Para instalar otros paquetes que no están en la lista preinstalada, por ejemplo *scikit-misc*, agregue el código siguiente al script: 
 
  ```python
 import os
 os.system(f"pip install scikit-misc")
 ```
+
+Use el código siguiente para instalar paquetes para mejorar el rendimiento, especialmente para la inferencia:
+```python
+import importlib.util
+package_name = 'scikit-misc'
+spec = importlib.util.find_spec(package_name)
+if spec is None:
+    import os
+    os.system(f"pip install scikit-misc")
+```
+
 > [!NOTE]
-> Si la canalización contiene varios módulos Ejecutar script de Python y necesita los mismos paquetes que no están en la lista preinstalada, instale los paquetes en cada módulo respectivamente. 
+> Si la canalización contiene varios módulos Ejecutar script de Python que necesitan paquetes que no están en la lista preinstalada, instale los paquetes en cada módulo.
 
 ## <a name="upload-files"></a>Carga de archivos
-**Ejecución de script de Python** admite la carga de archivos con el [SDK de Python de Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#upload-file-name--path-or-stream-).
+El módulo Ejecutar script de Python admite la carga de archivos con el [SDK de Python de Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#upload-file-name--path-or-stream-).
 
-En el ejemplo siguiente se muestra cómo cargar un archivo de imagen en **Ejecución de script de Python**:
+En el ejemplo siguiente se muestra cómo cargar un archivo de imagen en el módulo Ejecutar script de Python:
 
 ```Python
 
-# The script MUST contain a function named azureml_main
+# The script MUST contain a function named azureml_main,
 # which is the entry point for this module.
 
-# imports up here can be used to
+# Imports up here can be used to
 import pandas as pd
 
 # The entry point function must have two input arguments:
@@ -185,7 +197,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     run.upload_file(f"graphics/{img_file}", img_file)
 
     # Return value must be of a sequence of pandas.DataFrame
-    # E.g.
+    # For example:
     #   -  Single return value: return dataframe1,
     #   -  Two return values: return dataframe1, dataframe2
     return dataframe1,
@@ -195,60 +207,60 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 Una vez que termina la ejecución de la canalización, se puede obtener una vista previa de la imagen en el panel derecho del módulo.
 
 > [!div class="mx-imgBorder"]
-> ![Imagen cargada](media/module/upload-image-in-python-script.png).
+> ![Vista previa de la imagen cargada](media/module/upload-image-in-python-script.png)
 
 ## <a name="how-to-configure-execute-python-script"></a>Procedimiento para configurar Ejecución de script de Python
 
-El módulo **Ejecución de script de Python** contiene código de Python de ejemplo que puede usar como punto de partida. Para configurar el módulo **Ejecución de script de Python**, debe proporcionar un conjunto de entradas y código de Python que se ejecutará en el cuadro de texto **Python script** (Script de Python).
+El módulo Ejecución de script de Python contiene código de Python de ejemplo que puede usar como punto de partida. Para configurar el módulo Ejecución de script de Python, debe proporcionar un conjunto de entradas y código de Python que se ejecutará en el cuadro de texto **Script de Python**.
 
 1. Agregue el módulo **Execute Python Script** (Ejecutar script de Python) al experimento.
 
 2. Agregue y conecte en **Dataset1** los conjuntos de datos del diseñador que quiera usar para la entrada. Haga referencia a este conjunto de datos en el script de Python como **DataFrame1**.
 
-    El uso de un conjunto de datos es opcional, si desea generar datos mediante Python, o usar código de Python para importar los datos directamente al módulo.
+    El uso de un conjunto de datos es opcional. Úselo si quiere generar datos mediante Python, o use código de Python para importar los datos directamente en el módulo.
 
-    Este módulo admite la adición de un segundo conjunto de datos en **Dataset2**. Haga referencia al segundo conjunto de datos en el script de Python como DataFrame2.
+    Este módulo admite la adición de un segundo conjunto de datos en **Dataset2**. Haga referencia al segundo conjunto de datos en el script de Python como **DataFrame2**.
 
-    Los conjuntos de datos almacenados en Azure Machine Learning se convierten automáticamente en data.frames de **pandas** cuando se cargan con este módulo.
+    Los conjuntos de datos almacenados en Azure Machine Learning se convierten automáticamente en dataframes de pandas cuando se cargan con este módulo.
 
     ![Ejecución de asignación de entrada de Python](media/module/python-module.png)
 
-4. Para incluir nuevos paquetes o código de Python, agregue el archivo comprimido que contiene estos recursos personalizados a **Script bundle** (Agrupación de scripts). La entrada para **Script bundle** (Agrupación de scripts) debe ser un archivo comprimido cargado en el área de trabajo como conjunto de datos de tipo de archivo. Se puede cargar el conjunto de datos en la página de recursos **Conjuntos de datos**, y arrastrar y colocar el módulo de conjunto de datos desde la lista **My datasets** (Mis conjuntos de datos) del árbol del módulo situado a la izquierda en la página de creación del diseñador. 
+4. Para incluir nuevos paquetes o código de Python, agregue el archivo comprimido que contiene estos recursos personalizados en **Script bundle** (Agrupación de scripts). La entrada para **Script bundle** (Agrupación de scripts) debe ser un archivo comprimido cargado en el área de trabajo como conjunto de datos de tipo de archivo. Puede cargar el conjunto de datos en la página de recursos **Conjuntos de datos**. Puede arrastrar el módulo del conjunto de datos de la lista **My datasets** (Mis conjuntos de datos) en el árbol de módulos de la izquierda a la página de creación del diseñador. 
 
     Cualquier archivo incluido en el archivo comprimido cargado puede usarse durante la ejecución de la canalización. Si el archivo incluye una estructura de directorios, se conserva la estructura, pero debe anteponerse un directorio llamado **src** a la ruta de acceso.
 
 5. En el cuadro de texto **Python Script** (Script de Python), escriba o pegue el script de Python válido.
 
     > [!NOTE]
-    > Tenga mucho cuidado al escribir el script y asegúrese de que no incluya ningún error de sintaxis, como el uso de objetos no declarados o de módulos no importados. Además, preste atención adicional a la lista de módulos preinstalados. Para importar módulos que no aparecen en la lista, instale los paquetes correspondientes en el script como se indica a continuación:
+    >  Tenga cuidado al escribir el script. Asegúrese de que no hay errores de sintaxis, como el uso de variables no declaradas o de funciones o módulos no importados. Preste atención adicional a la lista de módulos preinstalados. Para importar módulos que no aparecen en la lista, instale los paquetes correspondientes en el script como se indica a continuación:
     >  ``` Python
     > import os
     > os.system(f"pip install scikit-misc")
     > ```
     
-    El cuadro de texto **Python Script** (Script de Python) se rellena previamente con algunas instrucciones de comentarios y código de ejemplo para el acceso a datos y salida. Debe editar o reemplazar este código. Asegúrese de seguir las convenciones de Python sobre la aplicación de sangría y mayúsculas y minúsculas.
+    El cuadro de texto **Script de Python** se rellena previamente con algunas instrucciones en los comentarios, y código de ejemplo para el acceso a datos y salida. Debe editar o reemplazar este código. Asegúrese de seguir las convenciones de Python sobre la aplicación de sangría y mayúsculas y minúsculas:
 
     + El script debe contener una función denominada `azureml_main` como punto de entrada para este módulo.
     + La función de punto de entrada debe tener dos argumentos de entrada (`Param<dataframe1>` y `Param<dataframe2>`), aunque estos argumentos no se usen en el script.
     + Los archivos comprimidos conectados al tercer puerto de entrada se descomprimen y almacenan en el directorio, `.\Script Bundle`, que también se agrega a `sys.path` de Python. 
 
-    Por lo tanto, si el archivo ZIP contiene `mymodule.py`, impórtelo mediante `import mymodule`.
+    Por lo tanto, si el archivo .zip contiene `mymodule.py`, impórtelo mediante `import mymodule`.
 
-    + Se pueden devolver dos conjuntos de datos al diseñador, que deben ser una secuencia de tipo `pandas.DataFrame`. Puede crear otras salidas en el código de Python y escribirlas directamente en Azure Storage.
+    Se pueden devolver dos conjuntos de datos al diseñador, que deben ser una secuencia de tipo `pandas.DataFrame`. Puede crear otras salidas en el código de Python y escribirlas directamente en Azure Storage.
 
-6. Envíe la canalización, o seleccione el módulo y haga clic en **Run selected** (Ejecutar seleccionados) para ejecutar solo el script de Python.
+6. Envíe la canalización, o seleccione el módulo y haga clic en **Ejecutar seleccionados** para ejecutar solo el script de Python.
 
     Todos los datos y el código se cargan en una máquina virtual y se ejecutan con el entorno de Python especificado.
 
 ## <a name="results"></a>Results
 
-Los resultados de todos los cálculos realizados por el código de Python insertado deben proporcionarse como pandas.DataFrame, que se convierte automáticamente en el formato de conjunto de datos de Azure Machine Learning, por lo que puede usar los resultados con otros módulos en la canalización.
+Los resultados de los cálculos del código de Python insertado deben proporcionarse como `pandas.DataFrame`, que se convierte automáticamente al formato de conjunto de datos de Azure Machine Learning. Después, puede usar los resultados con otros módulos de la canalización.
 
 El módulo devuelve dos conjuntos de datos:  
   
-+ **Conjunto de datos de resultados 1**, definido por el primer dataframe de pandas devuelto en el script de Python
++ **Conjunto de datos de resultados 1**, definido por el primer dataframe de pandas devuelto en un script de Python.
 
-+ **Conjunto de datos de resultados 2**, definido por el segundo dataframe de pandas devuelto en el script de Python
++ **Conjunto de datos de resultados 2**, definido por el segundo dataframe de pandas devuelto en un script de Python.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -1,10 +1,9 @@
 ---
 title: Configuración del almacenamiento para VM con SQL Server | Microsoft Docs
-description: En este tema se describe cómo Azure configura el almacenamiento para las máquinas virtuales de SQL Server durante el aprovisionamiento (modelo de implementación de Resource Manager). También se explica cómo configurar el almacenamiento para sus máquinas virtuales de SQL Server existentes.
+description: En este tema se describe cómo Azure configura el almacenamiento para las máquinas virtuales de SQL Server durante el aprovisionamiento (modelo de implementación de Azure Resource Manager). También se explica cómo configurar el almacenamiento para sus máquinas virtuales de SQL Server existentes.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: jroth
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
@@ -13,17 +12,17 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: f5f71f342152a1f7d524053f1a2f82937784dbd1
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 21609e38625d0911476c85a9d6e518f5ff7e9e61
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84030006"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84667376"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuración del almacenamiento para máquinas virtuales de SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Al configurar una imagen de máquina virtual de SQL Server en Azure, el Portal le ayuda a automatizar la configuración del almacenamiento. Esto incluye asociar el almacenamiento a la máquina virtual, hacer que el almacenamiento esté accesible para SQL Server y configurarlo para optimizarlo para sus requisitos de rendimiento específicos.
+Al configurar una imagen de máquina virtual de SQL Server en Azure, Azure Portal le ayuda a automatizar la configuración del almacenamiento. Esto incluye asociar el almacenamiento a la máquina virtual, hacer que el almacenamiento esté accesible para SQL Server y configurarlo para optimizarlo para sus requisitos de rendimiento específicos.
 
 Este tema explica cómo Azure configura el almacenamiento para sus máquinas virtuales de SQL Server durante el aprovisionamiento y para las máquinas virtuales existentes. Esta configuración se basa en los [procedimientos recomendados de rendimiento](performance-guidelines-best-practices.md) para máquinas virtuales de Azure en las que se ejecuta SQL Server.
 
@@ -76,7 +75,7 @@ En función de lo que elija, Azure realiza las siguientes tareas de configuraci�
 
 Para más información sobre cómo Azure define la configuración del almacenamiento, consulte la sección [Configuración del almacenamiento](#storage-configuration). Para ver información más detallada acerca de cómo crear una máquina virtual con SQL Server en Azure Portal, consulte el [tutorial de aprovisionamiento](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md).
 
-### <a name="resource-manage-templates"></a>Plantillas de Resource Manager
+### <a name="resource-manager-templates"></a>Plantillas de Resource Manager
 
 Si utiliza las siguientes plantillas de Resource Manager, se asocian dos discos de datos premium de forma predeterminada, sin configuración del grupo de almacenamiento. Sin embargo, puede personalizar estas plantillas para cambiar el número de discos de datos premium que se asocian a la máquina virtual.
 
@@ -113,7 +112,7 @@ Puede modificar la configuración de disco de las unidades que se configuraron d
 
 ## <a name="storage-configuration"></a>Configuración de almacenamiento
 
-Esta sección proporciona una referencia para los cambios en la configuración del almacenamiento que Azure realiza automáticamente durante el aprovisionamiento de la máquina virtual de SQL o la configuración en Azure Portal.
+Esta sección proporciona una referencia para los cambios en la configuración del almacenamiento que Azure realiza automáticamente durante el aprovisionamiento de la máquina virtual de SQL Server o la configuración en Azure Portal.
 
 * Azure configura un bloque de almacenamiento desde el almacenamiento seleccionado de la máquina virtual. En la sección siguiente de este tema se proporcionan los detalles de la configuración del bloque de almacenamiento.
 * La configuración automática del almacenamiento siempre utiliza discos de datos P30 de [discos SSD Premium](../../../virtual-machines/windows/disks-types.md). En consecuencia, hay una asignación 1:1 entre el número de terabytes seleccionado y el número de discos de datos asociados a la máquina virtual.
@@ -148,7 +147,7 @@ En la tabla siguiente se describen las opciones de tres tipos de carga de trabaj
 | **Almacenamiento de datos** |Optimiza el almacenamiento para las cargas de trabajo de informes y análisis. |Marca de seguimiento 610<br/>Marca de seguimiento 1117 |
 
 > [!NOTE]
-> Solo puede especificar el tipo de carga de trabajo cuando se aprovisiona una máquina virtual de SQL; para ello, selecciónelo en el paso de configuración del almacenamiento.
+> Solo puede especificar el tipo de carga de trabajo cuando se aprovisiona una máquina virtual de SQL Server; para ello, selecciónelo en el paso de configuración del almacenamiento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -4,15 +4,15 @@ description: Aprenda a crear un sondeo personalizado para la puerta de enlace de
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 0ba3e9ae7b5075d1f5457cb2960423ad1c737e94
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 3a555fff758fdd1f4ddff60c7828a3e44af008ce
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312549"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807281"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Creación de un sondeo personalizado para la Puerta de enlace de aplicaciones de Azure (clásica) mediante PowerShell
 
@@ -136,7 +136,7 @@ En el ejemplo siguiente se muestra cómo usar un archivo de configuración para 
 > [!IMPORTANT]
 > El elemento de protocolo Http o Https distingue mayúsculas de minúsculas.
 
-Se agrega un nuevo elemento de configuración \<Probe\> para configurar sondeos personalizados.
+Se agrega el nuevo elemento de configuración \<Probe\> para configurar sondeos personalizados.
 
 Los parámetros de configuración son:
 
@@ -149,7 +149,7 @@ Los parámetros de configuración son:
 | **Tiempo de espera** | Define el tiempo de espera de sondeo para una comprobación de respuesta HTTP.|
 | **UnhealthyThreshold** | El número de respuestas HTTP con error que es necesario para marcar la instancia del back-end como *incorrecta*.|
 
-Se hace referencia al nombre del sondeo en la configuración de \<BackendHttpSettings\> para asignar el grupo de back-end que usará la configuración de sondeo personalizado.
+Se hace referencia al nombre del sondeo en la configuración de \<BackendHttpSettings\> para asignar el grupo de back-end que usa la configuración de sondeo personalizado.
 
 ## <a name="add-a-custom-probe-to-an-existing-application-gateway"></a>Adición de un sondeo personalizado a una puerta de enlace de aplicaciones existente
 

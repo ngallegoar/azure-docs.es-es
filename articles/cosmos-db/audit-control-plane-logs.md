@@ -3,15 +3,15 @@ title: Auditoría de operaciones de plano de control de Azure Cosmos DB
 description: Aprenda a auditar las operaciones del plano de control, como agregar una región, actualizar el rendimiento, conmutar por error regiones o agregar una red virtual, entre otras, en Azure Cosmos DB
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 04/23/2020
+ms.topic: how-to
+ms.date: 06/25/2020
 ms.author: sngun
-ms.openlocfilehash: a5df7866f7897109dbd7a0ea8a52b857ab671875
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 4c9f02784507ee893b6396fef4ed34a87610166d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735358"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85414199"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Auditoría de operaciones de plano de control de Azure Cosmos DB
 
@@ -29,7 +29,7 @@ A continuación se muestran algunos escenarios de ejemplo en los que resulta út
 
 Antes de auditar las operaciones de plano de control en Azure Cosmos DB, deshabilite el acceso de escritura de los metadatos basado en claves en su cuenta. Al deshabilitar el acceso de escritura de metadatos basado en claves, los clientes que se conecten a la cuenta de Azure Cosmos a través de claves de cuenta no podrán acceder a la cuenta. Para deshabilitar el acceso de escritura, defina la propiedad `disableKeyBasedMetadataWriteAccess` como true. Una vez definida esta propiedad, pueden aplicar cambios en los recursos los usuarios con las credenciales y el rol de control de acceso basado en rol (RBAC) adecuados. Para obtener más información sobre cómo establecer esta propiedad, consulte el artículo [Evitar cambios de SDK](role-based-access-control.md#preventing-changes-from-cosmos-sdk). 
 
-Una vez activado `disableKeyBasedMetadataWriteAccess`, si los clientes basados en SDK ejecutan operaciones de creación o actualización, se devuelve un error de tipo *no se permite la operación "POST" en el recurso "ContainerNameorDatabaseName" mediante el punto de conexión de Azure Cosmos DB*. Tendrá que activar el acceso a dichas operaciones para su cuenta o realizar las operaciones de creación y actualización mediante Azure Resource Manager, la CLI de Azure o Azure PowerShell. Para volver a cambiar, establezca el valor disableKeyBasedMetadataWriteAccess en **falso** mediante la CLI de Azure, tal como se describe en el artículo [Evitar cambios en el SDK de Cosmos](role-based-access-control.md#preventing-changes-from-cosmos-sdk). Asegúrese de cambiar el valor de `disableKeyBasedMetadataWriteAccess` a falso en lugar de a true.
+Una vez activado `disableKeyBasedMetadataWriteAccess`, si los clientes basados en SDK ejecutan operaciones de creación o actualización, se devuelve un error de tipo *no se permite la operación "POST" en el recurso "ContainerNameorDatabaseName" mediante el punto de conexión de Azure Cosmos DB*. Tendrá que activar el acceso a dichas operaciones para su cuenta o realizar las operaciones de creación y actualización mediante Azure Resource Manager, la CLI de Azure o Azure PowerShell. Para volver a cambiar, establezca el valor disableKeyBasedMetadataWriteAccess en **falso** mediante la CLI de Azure, tal como se describe en el artículo [Evitar cambios en el SDK de Cosmos](role-based-access-control.md#preventing-changes-from-cosmos-sdk). Asegúrese de cambiar el valor de `disableKeyBasedMetadataWriteAccess` a falso en lugar de a true.
 
 Tenga en cuenta los siguientes puntos al desactivar el acceso de escritura de metadatos:
 
@@ -51,7 +51,7 @@ Siga estos pasos para habilitar el registro en las operaciones del plano de cont
 
 También puede almacenar los registros en una cuenta de almacenamiento o transmitir a un centro eventos. En este artículo se muestra cómo enviar registros a Log Analytics y, a continuación, consultarlos. Después de habilitarlos, los registros de diagnóstico tardan unos minutos en estar disponibles. Se puede realizar un seguimiento de todas las operaciones del plano de control realizadas después de ese punto. La captura de pantalla siguiente muestra cómo habilitar los registros del plano de control:
 
-![Habilitar el registro de solicitudes del plano de control](./media/audit-control-plane-logs/enable-control-plane-requests-logs.png)
+:::image type="content" source="./media/audit-control-plane-logs/enable-control-plane-requests-logs.png" alt-text="Habilitación del registro de solicitudes del plano de control":::
 
 ## <a name="view-the-control-plane-operations"></a>Ver las operaciones del plano de control
 
@@ -69,17 +69,17 @@ Después de activar el registro, siga estos pasos para realizar un seguimiento d
 
 Las capturas de pantalla siguientes capturan registros cuando se cambia un nivel de coherencia para una cuenta de Azure Cosmos:
 
-![Registros de plano de control cuando se agrega una red virtual](./media/audit-control-plane-logs/add-ip-filter-logs.png)
+:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Registros del plano de control cuando se agrega una red virtual":::
 
-Las capturas de pantalla siguientes capturan los registros cuando se actualiza el rendimiento de una tabla Cassandra:
+Las capturas de pantalla siguientes capturan los registros cuando se crea el espacio de claves o una tabla de una cuenta de Cassandra, y cuando se actualiza el rendimiento. Los registros del plano de control para las operaciones de creación y actualización en la base de datos y en el contenedor se registran por separado, tal como se muestra en la siguiente captura de pantalla:
 
-![Registros de plano de control cuando se actualiza el rendimiento](./media/audit-control-plane-logs/throughput-update-logs.png)
+:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Registros de plano de control cuando se actualiza el rendimiento":::
 
 ## <a name="identify-the-identity-associated-to-a-specific-operation"></a>Identificar la identidad asociada con una operación específica
 
 Si quiere depurar más, puedes identificar una operación específica en el **Registro de actividad** mediante el identificador de actividad o la marca de tiempo de la operación. La marca de tiempo se usa para algunos clientes de Resource Manager cuando el identificador de actividad no se pasa explícitamente. El registro de actividad proporciona detalles sobre la identidad con la que se inició la operación. En la captura de pantalla siguiente se muestra cómo usar el identificador de la actividad y buscar las operaciones asociadas con él en el registro de actividad:
 
-![Usar el identificador de actividad y buscar las operaciones](./media/audit-control-plane-logs/find-operations-with-activity-id.png)
+:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Uso del identificador de actividad y búsqueda de las operaciones":::
 
 ## <a name="control-plane-operations-for-azure-cosmos-account"></a>Operaciones del plano de control para la cuenta de Azure Cosmos
 
@@ -101,30 +101,39 @@ A continuación se indican las operaciones del plano de control disponibles en e
 
 A continuación se indican las operaciones del plano de control disponibles en el nivel de base de datos y contenedor. Estas operaciones están disponibles como métricas en Azure Monitor:
 
+* Base de datos SQL creada
 * SQL Database actualizada
-* Contenedor SQL actualizado
 * Rendimiento de SQL Database actualizado
-* Rendimiento de contenedor de SQL actualizado
 * SQL Database eliminada
+* Contenedor SQL creado
+* Contenedor SQL actualizado
+* Rendimiento de contenedor de SQL actualizado
 * Contenedor de SQL eliminado
+* Espacio de claves de Cassandra creado
 * Espacio de claves de Cassandra actualizado
-* Tabla de Cassandra actualizada
 * Rendimiento de un espacio de claves de Cassandra actualizado
-* Rendimiento de una tabla de Cassandra actualizado
 * Espacio de claves de Cassandra eliminado
+* Tabla de Cassandra creada
+* Tabla de Cassandra actualizada
+* Rendimiento de una tabla de Cassandra actualizado
 * Tabla de Cassandra eliminada
+* Base de datos de Gremlin creada
 * Base de datos de Gremlin actualizada
-* Grafo de Gremlin actualizado
 * Rendimiento de una base de datos de Gremlin actualizado
-* Rendimiento de un grafo de Gremlin actualizado
 * Base de datos de Gremlin eliminada
+* Grafo de Gremlin creado
+* Grafo de Gremlin actualizado
+* Rendimiento de un grafo de Gremlin actualizado
 * Gráfico de Gremlin eliminado
+* Base de datos de Mongo creada
 * Base de datos de Mongo actualizada
-* Colección de Mongo actualizada
 * Rendimiento de la base de datos de Mongo actualizado
-* Rendimiento de la colección de Mongo actualizado
 * Base de datos de Mongo eliminada
+* Colección de Mongo creada
+* Colección de Mongo actualizada
+* Rendimiento de la colección de Mongo actualizado
 * Colección de Mongo eliminada
+* Tabla de AzureTable creada
 * Tabla AzureTable actualizada
 * Rendimiento de la tabla AzureTable actualizado
 * Tabla AzureTable eliminada
@@ -144,14 +153,15 @@ A continuación se muestran los nombres de operación en los registros de diagn�
 
 Para las operaciones específicas de la API, la operación se denomina con el siguiente formato:
 
-* TipoDeApi + TipoRecursoDeTipoDeApi + TipoDeOperación + Start/Complete
-* TipoDeApi + TipoRecursoDeTipoDeApi + "Throughput" + TipoDeOperación + Start/Complete
+* ApiKind + ApiKindResourceType + OperationType
+* ApiKind + ApiKindResourceType + "Rendimiento" + operationType
 
 **Ejemplo** 
 
-* CassandraKeyspacesUpdateStart, CassandraKeyspacesUpdateComplete
-* CassandraKeyspacesThroughputUpdateStart, CassandraKeyspacesThroughputUpdateComplete
-* SqlContainersUpdateStart, SqlContainersUpdateComplete
+* CassandraKeyspacesCreate
+* CassandraKeyspacesUpdate
+* CassandraKeyspacesThroughputUpdate
+* SqlContainersUpdate
 
 La propiedad *ResourceDetails* contiene el cuerpo del recurso completo como una carga de solicitud y contiene todas las propiedades solicitadas para actualizar.
 
@@ -161,14 +171,28 @@ A continuación se muestran algunos ejemplos para obtener registros de diagnóst
 
 ```kusto
 AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersUpdateStart"
+| where Category startswith "ControlPlane"
+| where OperationName contains "Update"
+| project httpstatusCode_s, statusCode_s, OperationName, resourceDetails_s, activityId_g
 ```
 
 ```kusto
 AzureDiagnostics 
 | where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersThroughputUpdateStart"
+| where TimeGenerated >= todatetime('2020-05-14T17:37:09.563Z')
+| project TimeGenerated, OperationName, apiKind_s, apiKindResourceType_s, operationType_s, resourceDetails_s
+```
+
+```kusto
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersUpdate"
+```
+
+```kusto
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersThroughputUpdate"
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

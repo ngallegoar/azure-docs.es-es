@@ -9,14 +9,14 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/18/2020
 ms.author: iainfou
-ms.openlocfilehash: bdfc7d37d99dc5511f47e33d1848c3f142a9693e
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 99b61bdd4318bf7c77ae53cc9b77e66ebd6c098a
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654471"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84733405"
 ---
-# <a name="review-security-audit-events-in-azure-ad-domain-services-using-azure-monitor-workbooks"></a>Revisión de los eventos de auditoría de seguridad en Azure AD Domain Services mediante libros de Azure Monitor
+# <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Revisión de los eventos de auditoría de seguridad en Azure Active Directory Domain Services mediante libros de Azure Monitor
 
 Para ayudarle a entender el estado del dominio administrado de Azure Active Directory Domain Services (Azure AD DS), puede habilitar eventos de auditoría de seguridad. Estos eventos de auditoría de seguridad se pueden revisar posteriormente mediante libros de Azure Monitor que combinan texto, consultas de análisis y parámetros en informes interactivos enriquecidos. Azure AD DS incluye plantillas de libro para la información general de seguridad y la actividad de la cuenta, que le permiten profundizar en los eventos de auditoría y administrar el entorno.
 
@@ -31,7 +31,7 @@ Para completar este artículo, necesitará los siguientes recursos y privilegios
 * Un inquilino de Azure Active Directory asociado a su suscripción, ya sea sincronizado con un directorio en el entorno local o con un directorio solo en la nube.
     * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
 * Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
-    * Si es necesario, complete el tutorial para [crear y configurar una instancia de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Si es necesario, complete el tutorial para [crear y configurar un dominio administrado de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Eventos de auditoría de seguridad habilitados para el dominio administrado de Azure Active Directory Domain Services que transmiten los datos a un área de trabajo de Log Analytics.
     * Si es necesario, [habilite las auditorías de seguridad para Azure Active Directory Domain Services][enable-security-audits].
 

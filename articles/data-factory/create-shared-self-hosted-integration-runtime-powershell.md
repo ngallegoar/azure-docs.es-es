@@ -10,13 +10,13 @@ ms.author: abnarain
 author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
-ms.date: 10/31/2018
-ms.openlocfilehash: 0f018d6b94d1c5b9d9002a767b3ebceb6c9c746c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/10/2020
+ms.openlocfilehash: 8422d6978c21744696e3d37c34fdd867b014a19e
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106634"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84655756"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Creación de un entorno de ejecución de integración autohospedado compartido en Azure Data Factory
 
@@ -28,21 +28,19 @@ En esta guía se muestra cómo crear un entorno de ejecución de integración au
 
 Para crear un entorno de ejecución de integración autohospedado compartido mediante la interfaz de usuario de Azure Data Factory, puede llevar a cabo los siguientes pasos:
 
-1. En el IR autohospedado que se va a compartir, conceda permiso a la factoría de datos en la que desea crear el entorno de ejecución de integración vinculado.
+1. En el entorno de ejecución de integración autohospedado que se va a compartir, seleccione **Conceder permiso a otra factoría de datos** y, en la página "Configuración de Integration Runtime", seleccione la factoría de datos en la que desee crear el entorno de ejecución de integración vinculado.
       
-    ![El botón para conceder el permiso en la pestaña Compartir](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)
-      
-    ![Selecciones para asignar permisos](media/create-self-hosted-integration-runtime/3_rbac_permissions.png)     
+    ![El botón para conceder el permiso en la pestaña Compartir](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)  
     
-2. Anote el identificador de recurso del IR autohospedado que se va a compartir.
-      
-   ![Ubicación del identificador de recurso](media/create-self-hosted-integration-runtime/4_ResourceID_self-hostedIR.png)
-    
+2. Anote y copie el "Identificador de recurso" anterior del entorno de ejecución de integración autohospedado que se va a compartir.
+         
 3. En la factoría de datos en la que se concedieron los permisos, cree un nuevo IR autohospedado (vinculado) y escriba el identificador de recurso.
       
-   ![Botón para crear un entorno de ejecución de integración autohospedado vinculado](media/create-self-hosted-integration-runtime/6_create-linkedIR_2.png)
-      
-    ![Cuadros para nombre y el identificador de recurso](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
+    ![Botón para crear un entorno de ejecución de integración autohospedado](media/create-self-hosted-integration-runtime/create-linkedir-1.png)
+   
+    ![Botón para crear un entorno de ejecución de integración autohospedado vinculado](media/create-self-hosted-integration-runtime/create-linkedir-2.png) 
+
+    ![Cuadros para nombre y el identificador de recurso](media/create-self-hosted-integration-runtime/create-linkedir-3.png)
 
 ## <a name="create-a-shared-self-hosted-ir-using-azure-powershell"></a>Creación de un IR autohospedado compartido mediante Azure PowerShell
 

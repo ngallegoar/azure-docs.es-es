@@ -1,15 +1,15 @@
 ---
-title: Seguridad de Container Instances
+title: Consideraciones de seguridad para instancias de contenedor
 description: Recomendaciones para proteger las imágenes y los secretos de Azure Container Instances, y consideraciones generales de seguridad para cualquier plataforma de contenedores
 ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: 87fa28cf9bdb546a5f108284023a9f787645a1fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d339683c8864b85f7ccb1ac3c982f03aa7abf103
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458001"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84907030"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Consideraciones de seguridad para Azure Container Instances
 
@@ -18,6 +18,9 @@ En este artículo se presentan las consideraciones de seguridad para usar Azure 
 > [!div class="checklist"]
 > * **Recomendaciones de seguridad** para administrar imágenes y secretos de Azure Container Instances
 > * **Consideraciones para el ecosistema de contenedores** durante el ciclo de vida de un contenedor, para cualquier plataforma de contenedores
+
+Para consultar recomendaciones completas que le sirvan de ayuda a mejorar la posición de seguridad de una implementación, consulte la [Base de referencia de seguridad de Azure para Container Instances](security-baseline.md).
+
 
 ## <a name="security-recommendations-for-azure-container-instances"></a>Recomendaciones de seguridad para Azure Container Instances
 
@@ -140,6 +143,8 @@ Mantenga un registro de auditoría preciso del acceso administrativo a su ecosis
 * Registros de recurso para [Azure Container Instances](container-instances-log-analytics.md) y [Azure Container Registry](../container-registry/container-registry-diagnostics-audit-logs.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+* Consulte en la [Base de referencia de seguridad de Azure para Container Instances](security-baseline.md) recomendaciones completas que le servirán para mejorar la posición de seguridad de su implementación.
 
 * Más información sobre el uso de [Azure Security Center](../security-center/container-security.md) para la detección de amenazas en tiempo real en los entornos en contenedores.
 

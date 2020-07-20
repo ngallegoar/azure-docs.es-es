@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 3d02d3573902964a8549fa0eeb1f4f1471de1752
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cce3a0e6993ea91236a3ce8c8b14eb6c66f72ad1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79237328"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84717807"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autenticación de dispositivos mediante certificados de entidades de certificación X.509
 
@@ -50,7 +50,7 @@ El propietario de un certificado de entidad de certificación X.509 puede firmar
 
 ![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
 
-El certificado del dispositivo (también denominado certificado de hoja) debe tener *Nombre de sujeto* definido en el **Id. de dispositivo** que se usó al registrar el dispositivo de IoT en Azure IoT Hub. Esta opción de configuración es necesaria para la autenticación.
+El certificado del dispositivo (también denominado certificado de hoja) tiene que tener *Nombre de sujeto* establecido en el **Id. de dispositivo** (`CN=deviceId`) que se usó al registrar el dispositivo IoT en Azure IoT Hub. Esta opción de configuración es necesaria para la autenticación.
 
 Obtenga información aquí sobre cómo [crear una cadena de certificados](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) tal y como se hace cuando se firman los dispositivos.
 

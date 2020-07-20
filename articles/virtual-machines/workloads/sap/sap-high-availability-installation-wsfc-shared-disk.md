@@ -17,11 +17,11 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e50733c843dfd21e35572f00fc6690e1e84aba97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235888"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84688898"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Instalación de alta disponibilidad para SAP NetWeaver en un clúster de conmutación por error de Windows y un disco compartido para una instancia de ASCS/SCS de SAP en Azure
 
@@ -148,7 +148,7 @@ ms.locfileid: "79235888"
 
 Este artículo describe cómo instalar y configurar un sistema SAP de alta disponibilidad en Azure mediante el uso de un clúster de conmutación por error de Windows Server y un disco compartido de clúster para agrupar en clústeres una instancia de SAP ASCS/SCS.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar la instalación, consulte estos documentos:
 
@@ -185,7 +185,7 @@ Para instalar SAP con una instancia de ASCS/SCS de alta disponibilidad, siga est
 1. En el Administrador de DNS de Windows, cree una entrada de DNS para el nombre de host virtual de la instancia de ASCS/SCS.
 
    > [!IMPORTANT]
-   > La dirección IP que asigna al nombre de host virtual de la instancia de ASCS/SCS debe ser la misma dirección IP que asignó a Azure Load Balancer (\<SID\>-lb-ascs).  
+   > La dirección IP que asigna al nombre de host virtual de la instancia de ASCS/SCS debe ser la misma dirección IP que asignó a Azure Load Balancer (\<SID\>-lb-ascs).  
    >
    >
 
@@ -267,7 +267,7 @@ Para agregar un puerto de sondeo, siga estos pasos:
 
    El número de puerto está definido en las plantillas de Azure Resource Manager para SAP. Puede asignar el número de puerto en PowerShell.
 
-   Para establecer un nuevo valor de ProbePort del recurso de clúster SAP \<SID\> IP, ejecute el siguiente script de PowerShell para actualizar las variables de PowerShell para el entorno:
+   Para establecer un nuevo valor de ProbePort del recurso de clúster de IP de \<SID\> de SAP, ejecute el siguiente script de PowerShell para actualizar las variables de PowerShell para el entorno:
 
    ```powershell
    $SAPSID = "PR1"      # SAP <SID>
@@ -325,7 +325,7 @@ Para agregar un puerto de sondeo, siga estos pasos:
    }
    ```
 
-   Después de conectar el rol de clúster SAP \<SID\>, compruebe que **ProbePort** esté establecido en el nuevo valor.
+   Después de conectar el rol de clúster \<SID\> de SAP, compruebe que **ProbePort** esté establecido en el nuevo valor.
 
    ```powershell
    $SAPSID = "PR1"     # SAP <SID>
@@ -390,7 +390,7 @@ El grupo de clústeres SAP PR1 se ejecuta en el nodo de clúster A. Por ejemplo,
 
 ![Figura 6: Administrador de clústeres de conmutación por error: El grupo de clústeres \<SID\> de SAP se ejecuta en el nodo del clúster A][sap-ha-guide-figure-5000]
 
-_**Figura 6:** Administrador de clústeres de conmutación por error: El grupo de clústeres \<SID\> de SAP se ejecuta en el nodo del clúster A_
+_**Figura 6:** Administrador de clústeres de conmutación por error: El grupo de clústeres \<SID\> de SAP se ejecuta en el nodo del clúster A_.
 
 En la interfaz de usuario de SIOS DataKeeper y la herramienta de configuración, puede ver que los datos del disco compartido se replican sincrónicamente desde la unidad de volumen de origen S en el nodo de clúster A. Por ejemplo, de pr1-ascs-0 [10.0.0.40] a pr1-ascs-1 [10.0.0.41].
 
@@ -400,7 +400,7 @@ _**Figura 7:** En SIOS DataKeeper, replique el volumen local desde el nodo de cl
 
 ### <a name="failover-from-node-a-to-node-b"></a><a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a> Conmutación por error del nodo A al nodo B
 
-1. Elija una de estas opciones para iniciar una conmutación por error del grupo de clústeres \<SID\> de SAP desde el nodo del clúster A al nodo del clúster B:
+1. Elija una de estas opciones para iniciar una conmutación por error del grupo de clústeres \<SID\> de SAP desde el nodo del clúster A al B:
    - Administrador de clústeres de conmutación por error  
    - PowerShell del clúster de conmutación por error
 
@@ -411,15 +411,15 @@ _**Figura 7:** En SIOS DataKeeper, replique el volumen local desde el nodo de cl
    Move-ClusterGroup -Name $SAPClusterGroup
 
    ```
-2. Reinicie el nodo del clúster A dentro del sistema operativo invitado Windows. Al hacerlo, se inicia una conmutación automática por error del grupo de clústeres \<SID\> de SAP desde el nodo A al nodo B.  
-3. Reinicie el nodo del clúster A desde Azure Portal. Al hacerlo, se inicia una conmutación automática por error del grupo de clústeres \<SID\> de SAP desde el nodo A al nodo B.  
-4. Reinicie el nodo del clúster A mediante Azure PowerShell. Al hacerlo, se inicia una conmutación automática por error del grupo de clústeres \<SID\> de SAP desde el nodo A al nodo B.
+2. Reinicie el nodo del clúster A dentro del sistema operativo invitado Windows. Al hacerlo, se inicia una conmutación automática por error del grupo de clústeres \<SID\> de SAP del nodo A al B.  
+3. Reinicie el nodo del clúster A desde Azure Portal. Al hacerlo, se inicia una conmutación automática por error del grupo de clústeres \<SID\> de SAP del nodo A al B.  
+4. Reinicie el nodo del clúster A mediante Azure PowerShell. Al hacerlo, se inicia una conmutación automática por error del grupo de clústeres \<SID\> de SAP del nodo A al B.
 
    Después de la conmutación por error, el grupo de clústeres \<SID\> de SAP se ejecuta en el nodo del clúster B. Por ejemplo, en pr1-ascs-1.
 
    ![Figura 8: En el Administrador de clústeres de conmutación por error, el grupo de clústeres \<SID\> de SAP se ejecuta en el nodo del clúster B][sap-ha-guide-figure-5002]
 
-   _**Figura 8**: En el Administrador de clústeres de conmutación por error, el grupo de clústeres \<SID\> de SAP se ejecuta en el nodo del clúster B_
+   _**Figura 8**: En el Administrador de clústeres de conmutación por error, el grupo de clústeres \<SID\> de SAP se ejecuta en el nodo del clúster B._
 
    Ahora, el disco compartido está montado en el nodo del clúster B. SIOS DataKeeper replica datos desde la unidad de volumen de origen S en el nodo del clúster B a la unidad de volumen de destino S en el nodo del clúster A. Por ejemplo, de pr1-ascs-1 [10.0.0.41] a pr1-ascs-0 [10.0.0.40].
 

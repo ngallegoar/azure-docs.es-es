@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 4a117e7f69647af3ad82f9013bfa40556ccc0dbd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3ba190f40d3b9451aec6e86ea69b7d0fe6e66aa3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77152897"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84807839"
 ---
 # <a name="durable-functions-versions-overview"></a>Información general sobre las versiones de Durable Functions
 
@@ -82,3 +82,7 @@ Si una clase base abstracta contiene métodos virtuales, estos métodos virtuale
 #### <a name="functionjson-changes-javascript-and-c-script"></a>Cambios en function.json (JavaScript y Script de C#)
 
 En Durable Functions 1.x, el enlace del cliente de orquestación usa un `type` de `orchestrationClient`. En la versión 2.x se usa `durableClient` en su lugar.
+
+#### <a name="raise-event-changes"></a>Cambios en la generación de eventos
+
+En Durable Functions 1.x, llamar a la API para [generar evento](durable-functions-external-events.md#send-events) y especificar una instancia que no existía producía un error silencioso. A partir de la versión 2.x, si se genera un evento en una orquestación no existente, se produce una excepción.

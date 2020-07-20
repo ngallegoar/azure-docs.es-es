@@ -5,15 +5,15 @@ description: En este artículo se proporciona una guía sobre cómo configurar a
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
-ms.date: 11/14/2019
+ms.topic: how-to
+ms.date: 06/09/2020
 ms.author: absha
-ms.openlocfilehash: 0ec417b3c7a025d2d05bdd74ec683a2891c3b0de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1109dae90790c9667b3c60afb6416c20061a95fe
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74075173"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84808108"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configuración de App Service con Application Gateway
 
@@ -28,7 +28,7 @@ En este artículo aprenderá a:
 > - Crear un grupo de back-end y agregarle un App Service.
 > - Crear una configuración HTTP y un sondeo personalizado con los modificadores "Seleccionar nombre de host" habilitados.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Puerta de enlace de aplicaciones: Si no se dispone de una puerta de enlace de aplicaciones, consulte cómo [crear una puerta de enlace de aplicaciones](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 - Servicio de aplicaciones: Si no se tiene un servicio de aplicaciones existente, consulte la [documentación de servicio de aplicaciones](https://docs.microsoft.com/azure/app-service/).
@@ -59,7 +59,7 @@ En este artículo aprenderá a:
 3. Elija el protocolo como HTTP o HTTPS según el caso de uso. 
 
    > [!NOTE]
-   > Si selecciona HTTPS, no es necesario cargar ningún certificado de autenticación ni certificado raíz de confianza para incluir en la lista blanca el back-end del servicio de aplicaciones, ya que este es un servicio de Azure de confianza.
+   > Si selecciona HTTPS, no es necesario cargar ningún certificado de autenticación ni certificado raíz de confianza para permitir el back-end de App Service, ya que App Service es un servicio de Azure de confianza.
 
 4. Active la casilla **Uso para App Service**. Tenga en cuenta que los modificadores `Create a probe with pick host name from backend address` y `Pick host name from backend address` se habilitarán automáticamente. `Pick host name from backend address` reemplazará el encabezado del host de la solicitud por el nombre de host del back-end cuando la solicitud se enrute de Application Gateway al back-end.  
 

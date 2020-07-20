@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: e3fae34d0bb1aaaa2471f1cc9fd55ef9b4b73dfd
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: f3eed03c585ba6b48a21b36c21cb77585456fc2c
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594313"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84660273"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Direcciones IP de Azure Integration Runtime
 
@@ -31,35 +31,8 @@ Las direcciones IP que usa Azure Integration Runtime dependen de la región en l
 
 ## <a name="azure-integration-runtime-ip-addresses-specific-regions"></a>Direcciones IP de Azure Integration Runtime: Regiones específicas
 
-Permita el tráfico desde las direcciones IP enumeradas para el entorno de ejecución de integración de Azure en la región específica en la que se encuentran los recursos:
+Permita el tráfico desde las direcciones IP enumeradas para Azure Integration Runtime en la región específica en la que se encuentran los recursos. Puede obtener una lista de intervalos de IP de etiquetas de servicio en el [vínculo de descarga de intervalo IP de etiquetas de servicio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files). Por ejemplo, si la región de Azure es **AustraliaEast**, puede obtener una lista de intervalos IP en **DataFactory. AustraliaEast**.
 
-|                | Region              | Direcciones IP                                                 |
-| -------------- | ------------------- | ------------------------------------------------------------ |
-| Asia           | Este de Asia           | 20.189.104.128/25, </br>20.189.106.0/26, </br>13.75.39.112/28 |
-| &nbsp;         | Sudeste de Asia      | 20.43.128.128/25, </br>20.43.130.0/26, </br>40.78.236.176/28 |
-| Australia      | Este de Australia      | 20.37.193.0/25,</br>20.37.193.128/26,</br>13.70.74.144/28    |
-| &nbsp;         | Sudeste de Australia | 20.42.225.0/25,</br>20.42.225.128/26,</br>13.77.53.160/28    |
-| Brasil         | Sur de Brasil        | 191.235.224.128/25,</br>191.235.225.0/26,</br>191.233.205.160/28 |
-| Canadá         | Centro de Canadá      | 52.228.80.128/25,</br>52.228.81.0/26,</br>13.71.175.80/28    |
-| China          | Este de China 2        | 40.73.172.48/28,</br>52.130.0.128/25,</br>52.130.1.0/26      |
-| Europa         | Norte de Europa        | 20.38.82.0/23,</br>20.38.80.192/26,</br>13.69.230.96/28      |
-| &nbsp;         | Oeste de Europa         | 40.74.26.0/23,</br>40.74.24.192/26,</br>13.69.67.192/28      |
-| Francia         | Centro de Francia      | 20.43.40.128/25,</br>20.43.41.0/26,</br>40.79.132.112/28     |
-| India          | Centro de la India       | 52.140.104.128/25,</br>52.140.105.0/26,</br>20.43.121.48/28  |
-| Japón          | Japón Oriental          | 20.43.64.128/25,</br>20.43.65.0/26,</br>13.78.109.192/28     |
-| Corea          | Centro de Corea del Sur       | 20.41.64.128/25,</br>20.41.65.0/26,</br>52.231.20.64/28      |
-| Sudáfrica   | Norte de Sudáfrica  | 102.133.124.104/29,</br>102.133.216.128/25,</br>102.133.217.0/26 |
-| Reino Unido | Sur de Reino Unido 2            | 51.104.24.128/25,</br>51.104.25.0/26,</br>51.104.9.32/28     |
-| Estados Unidos  | Centro de EE. UU.          | 20.37.154.0/23,</br>20.37.156.0/26,</br>20.44.10.64/28       |
-|                | Este de EE. UU.             | 20.42.2.0/23,</br>20.42.4.0/26,</br>40.71.14.32/28           |
-|                | Este de EE. UU. 2            | 20.41.2.0/23,</br>20.41.4.0/26,</br>20.44.17.80/28           |
-|                | EUAP de Este de EE. UU. 2      | 20.39.8.128/26,</br>20.39.8.96/27,</br>40.75.35.144/28       |
-|                | Centro-Norte de EE. UU    | 40.80.185.0/24,</br>40.80.186.0/25,</br>52.162.111.48/28      |
-|                | Centro-sur de EE. UU.    | 40.119.9.0/25,</br>40.119.9.128/26,</br>13.73.244.32/28      |
-|                | Centro-Oeste de EE. UU.     | 52.150.137.128/25,</br>52.150.136.192/26,</br>13.71.199.0/28 |
-|                | Oeste de EE. UU.             | 40.82.250.0/23,</br>40.82.249.64/26,</br>13.86.219.208/28    |
-|                | Oeste de EE. UU. 2            | 20.42.132.0/23,</br>20.42.129.64/26,</br>13.66.143.128/28    |
-|                | US Gov - Virginia     | 52.127.45.96/28,</br>52.127.48.128/25,</br>52.127.49.0/26    |
 
 ## <a name="known-issue-with-azure-storage"></a>Problema conocido con Azure Storage
 

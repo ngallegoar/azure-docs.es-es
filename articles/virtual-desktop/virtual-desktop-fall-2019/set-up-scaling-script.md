@@ -4,16 +4,16 @@ description: Escalado automático de hosts de sesión de Windows Virtual Desktop
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f659a40cbb9e3ef2d0e7fe4e527518a76507d5ee
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: f94852a99f0bc430ac193b9951de607cdd7fa933
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745711"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362550"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Escalado de hosts de sesión con Azure Automation
 
@@ -33,7 +33,7 @@ En la actualidad, los informes de incidencias de la herramienta de escalado se c
 La herramienta de escalado proporciona una opción de automatización de bajo costo para aquellos clientes que deseen optimizar los costos de las máquinas virtuales del host de sesión.
 
 Puede usar la herramienta de escalado para:
- 
+
 - Programar las máquinas virtuales para que se inicien y se detengan según el horario comercial de horas punta y horas de menos uso.
 - Escalar horizontalmente las máquinas virtuales basadas en el número de sesiones por núcleo de CPU.
 - Reducir horizontalmente las máquinas virtuales durante las horas de menos uso, lo que mantiene en ejecución el número mínimo de máquinas virtuales del host de sesión.
@@ -59,7 +59,7 @@ Sin embargo, la herramienta también tiene las siguientes limitaciones:
 >[!NOTE]
 >La herramienta de escalado controla el modo de equilibrio de carga del grupo de hosts que se está escalando. Lo establece para equilibrar la amplitud de la primera carga tanto en las horas punta como en las horas de menos uso.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar a configurar la herramienta de escalado, asegúrese de tener preparado lo siguiente:
 
@@ -67,7 +67,7 @@ Antes de empezar a configurar la herramienta de escalado, asegúrese de tener pr
 - Máquinas virtuales del grupo de hosts de sesión configuradas y registradas en el servicio Windows Virtual Desktop
 - Un usuario con [acceso de colaborador](../../role-based-access-control/role-assignments-portal.md) en la suscripción de Azure
 
-La máquina que se usa para implementar la herramienta debe tener: 
+La máquina que se usa para implementar la herramienta debe tener:
 
 - Windows PowerShell 5.1 o posterior
 - El módulo Microsoft Az PowerShell
@@ -106,7 +106,8 @@ En primer lugar, necesitará una cuenta de Azure Automation para ejecutar el run
 
 6. Después de configurar la cuenta de Azure Automation, inicie sesión en la suscripción de Azure y asegúrese de que la cuenta de Azure Automation y el runbook correspondiente han aparecido en el grupo de recursos especificado, tal como se muestra en la siguiente imagen:
 
-![Una imagen de la página de información general de Azure que muestra la cuenta de Automation y el runbook creados recientemente.](../media/automation-account.png)
+> [!div class="mx-imgBorder"]
+> ![Una imagen de la página de información general de Azure que muestra la cuenta de automatización y el runbook creados recientemente](../media/automation-account.png)
 
   Para comprobar si el webhook está donde debe estar, seleccione el nombre del runbook. A continuación, vaya a la sección Recursos del runbook y seleccione **Webhooks**.
 
@@ -180,21 +181,21 @@ Por último, deberá crear la aplicación lógica de Azure y configurar una prog
 
      ```powershell
      $aadTenantId = (Get-AzContext).Tenant.Id
-     
+
      $azureSubscription = Get-AzSubscription | Out-GridView -PassThru -Title "Select your Azure Subscription"
      Select-AzSubscription -Subscription $azureSubscription.Id
      $subscriptionId = $azureSubscription.Id
-     
+
      $resourceGroup = Get-AzResourceGroup | Out-GridView -PassThru -Title "Select the resource group for the new Azure Logic App"
      $resourceGroupName = $resourceGroup.ResourceGroupName
      $location = $resourceGroup.Location
-     
+
      $wvdTenant = Get-RdsTenant | Out-GridView -PassThru -Title "Select your WVD tenant"
      $tenantName = $wvdTenant.TenantName
-     
+
      $wvdHostpool = Get-RdsHostPool -TenantName $wvdTenant.TenantName | Out-GridView -PassThru -Title "Select the host pool you'd like to scale"
      $hostPoolName = $wvdHostpool.HostPoolName
-     
+
      $recurrenceInterval = Read-Host -Prompt "Enter how often you'd like the job to run in minutes, e.g. '15'"
      $beginPeakTime = Read-Host -Prompt "Enter the start time for peak hours in local time, e.g. 9:00"
      $endPeakTime = Read-Host -Prompt "Enter the end time for peak hours in local time, e.g. 18:00"
@@ -204,12 +205,12 @@ Por último, deberá crear la aplicación lógica de Azure y configurar una prog
      $limitSecondsToForceLogOffUser = Read-Host -Prompt "Enter the number of seconds to wait before automatically signing out users. If set to 0, users will be signed out immediately"
      $logOffMessageTitle = Read-Host -Prompt "Enter the title of the message sent to the user before they are forced to sign out"
      $logOffMessageBody = Read-Host -Prompt "Enter the body of the message sent to the user before they are forced to sign out"
-     
+
      $automationAccount = Get-AzAutomationAccount -ResourceGroupName $resourceGroup.ResourceGroupName | Out-GridView -PassThru
      $automationAccountName = $automationAccount.AutomationAccountName
      $automationAccountConnection = Get-AzAutomationConnection -ResourceGroupName $resourceGroup.ResourceGroupName -AutomationAccountName $automationAccount.AutomationAccountName | Out-GridView -PassThru -Title "Select the Azure RunAs connection asset"
      $connectionAssetName = $automationAccountConnection.Name
-     
+
      $webHookURI = Read-Host -Prompt "Enter the URI of the WebHook returned by when you created the Azure Automation Account"
      $maintenanceTagName = Read-Host -Prompt "Enter the name of the Tag associated with VMs you don't want to be managed by this scaling tool"
 
@@ -236,11 +237,13 @@ Por último, deberá crear la aplicación lógica de Azure y configurar una prog
 
      Después de ejecutar el script, la aplicación lógica debe aparecer en un grupo de recursos, como se muestra en la siguiente imagen.
 
-     ![Imagen de la página de información general para ver una aplicación lógica de Azure de ejemplo.](../media/logic-app.png)
+     > [!div class="mx-imgBorder"]
+     > ![Imagen de la página de información general para ver una aplicación lógica de Azure de ejemplo](../media/logic-app.png)
 
 Para realizar cambios en la programación de ejecución, como cambiar el intervalo de periodicidad o la zona horaria, vaya al programador de escalabilidad automática y seleccione **Editar** para ir al diseñador de aplicaciones lógicas.
 
-![Una imagen del diseñador de aplicaciones lógicas. Los menús Periodicidad y Webhook que permiten al usuario editar los tiempos de periodicidad y el archivo de webhook están abiertos.](../media/logic-apps-designer.png)
+> [!div class="mx-imgBorder"]
+> ![Imagen del diseñador de aplicaciones lógicas. Los menús Periodicidad y Webhook que permiten al usuario editar los tiempos de periodicidad y el archivo de webhook están abiertos.](../media/logic-apps-designer.png)
 
 ## <a name="manage-your-scaling-tool"></a>Administración de la herramienta de escalado
 
@@ -252,7 +255,8 @@ Puede ver un resumen del estado de todos los trabajos del runbook o profundizar 
 
 A la derecha de la cuenta de Automation seleccionada, en "Estadísticas del trabajo" puede ver una lista de los resúmenes de todos los trabajos de runbook. Al abrir la página **Trabajos** en el lado izquierdo de la ventana, se muestran los estados de trabajo actuales, las horas de inicio y las horas de finalización.
 
-![Captura de pantalla de la página de estado del trabajo.](../media/jobs-status.png)
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla de la página de estado del trabajo](../media/jobs-status.png)
 
 ### <a name="view-logs-and-scaling-tool-output"></a>Visualización de registros y salida de la herramienta de escalado
 
@@ -260,5 +264,6 @@ Para ver los registros de las operaciones de escalabilidad y reducción horizont
 
 Vaya al runbook (el nombre predeterminado es WVDAutoScaleRunbook) en el grupo de recursos que hospeda la cuenta de Azure Automation y seleccione **Información general**. En la página Información general, seleccione un trabajo en Trabajos recientes para ver la salida de la herramienta de escalado, tal como se muestra en la siguiente imagen.
 
-![Imagen de la ventana de salida de la herramienta de escalado.](../media/tool-output.png)
+> [!div class="mx-imgBorder"]
+> ![Imagen de la ventana de salida de la herramienta de escalado](../media/tool-output.png)
 

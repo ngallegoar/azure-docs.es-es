@@ -7,18 +7,16 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 03/06/2020
 ms.author: mimckitt
-ms.openlocfilehash: c0dd5c8cd61d1c7abf11d97e858fdc30d774e456
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 444c3afefcf4cfdafc817af3b7bc6ce4463853c1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259123"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84678365"
 ---
 # <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>Datos personalizados y Cloud-Init en Azure Virtual Machines
 
-## <a name="what-is-custom-data"></a>¿Qué son los datos personalizados?
-
-Los clientes suelen preguntar cómo pueden insertar un script u otros metadatos en una máquina virtual de Microsoft Azure en tiempo de aprovisionamiento.  En otras nubes, este concepto suele conocerse como datos de usuario.  En Microsoft Azure, tenemos una característica similar llamada datos personalizados. 
+Es posible que tenga que insertar un script u otros metadatos en una máquina virtual de Microsoft Azure en tiempo de aprovisionamiento.  En otras nubes, este concepto suele conocerse como datos de usuario.  En Microsoft Azure, tenemos una característica similar llamada datos personalizados. 
 
 Los datos personalizados solo se ponen a disposición de la máquina virtual durante la primera configuración de arranque/inicial. Llamamos a esto "aprovisionamiento". El aprovisionamiento es el proceso donde los parámetros de creación de VM (por ejemplo, nombre de host, nombre de usuario, contraseña, certificados, datos personalizados, claves, etc.) se ponen a disposición de la máquina virtual y un agente de aprovisionamiento los procesa, como el [agente Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) y [cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init). 
 

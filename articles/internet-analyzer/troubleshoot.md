@@ -4,15 +4,15 @@ description: La referencia de solución de problemas de Azure Internet Analyzer.
 services: internet-analyzer
 author: diego-perez-botero
 ms.service: internet-analyzer
-ms.topic: guide
+ms.topic: troubleshooting
 ms.date: 12/04/2019
 ms.author: dibotero
-ms.openlocfilehash: 0c9e203d7e8be7b24c711f73e2152a7745a57dac
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: fe173ec4d4f28444d43739ea2ed51e43021916b1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745478"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84744364"
 ---
 # <a name="azure-internet-analyzer-troubleshooting"></a>Solución de problemas de Azure Internet Analyzer
 
@@ -20,9 +20,9 @@ Este artículo contiene los pasos para la solución de problemas comunes de Inte
 
 ## <a name="things-to-keep-in-mind"></a>Aspectos que debe tener en cuenta
 - El script de cliente se debe insertar en un sitio web **HTTPS**. No se recopilarán datos de medición si el script se ejecuta en un sitio web de texto no cifrado (**http://** ) o un sitio local (**file://** ).
-- Los datos de medición solo se recopilarán si el script de cliente del perfil de Internet Analyzer se ha incrustado en una aplicación que recibe tráfico de un usuario real. En general, el tráfico sintético (por ejemplo, las pruebas de rendimiento de Azure WebApp) no ejecuta código JavaScript incrustado, por lo que ese tipo de tráfico no generará ninguna medida.
+- Los datos de medición solo se recopilarán si el script de cliente del perfil de Internet Analyzer se ha incrustado en una aplicación que recibe tráfico de un usuario real. En general, el tráfico sintético (por ejemplo, las pruebas de rendimiento de Azure WebApp) no ejecuta código JavaScript insertado, por lo que ese tipo de tráfico no generará ninguna medida.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure portal
 **"No se ha generado ningún cuadro de mandos para la combinación de filtros seleccionada" en la sección Cuadros de mandos**
 - Los cuadros de mandos se generan a diario (al final de cada día, hora UTC).
 - Los cuadros de mandos solo se generan si se han recopilado más de 100 medidas para la combinación de filtros seleccionada (prueba, período de tiempo, país o región, etc.).

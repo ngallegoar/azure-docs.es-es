@@ -1,5 +1,5 @@
 ---
-title: Use el streaming en vivo de búsqueda de Azure Sentinel para detectar amenazas | Microsoft Docs
+title: Uso de Livestream de búsqueda de Azure Sentinel para detectar amenazas | Microsoft Docs
 description: En este artículo se describe cómo usar el streaming en vivo de búsqueda de Azure Sentinel para llevar un seguimiento de los datos.
 services: sentinel
 documentationcenter: na
@@ -9,25 +9,20 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2019
+ms.date: 06/14/2020
 ms.author: yelevin
-ms.openlocfilehash: b392644e504fa8187e637278bef8718c9c2caa3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 14928d3c94ced8d1cd0c12e76428be73b68b91d9
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77582133"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84783170"
 ---
 # <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Uso del streaming en vivo de búsqueda de Azure Sentinel para detectar amenazas
-
-> [!IMPORTANT]
-> El streaming en vivo de búsqueda de Azure Sentinel se encuentra actualmente en versión preliminar pública y se implementa gradualmente en los inquilinos.
-> Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 
 Use el streaming en vivo de búsqueda para crear sesiones interactivas que permitan probar las consultas recién creadas a medida que se produzcan eventos, recibir notificaciones de las sesiones cuando se encuentre una coincidencia e iniciar investigaciones si es necesario. Puede crear rápidamente una sesión de streaming en vivo mediante cualquier consulta de Log Analytics.
 
@@ -50,32 +45,32 @@ Puede crear una sesión de streaming en vivo a partir de una consulta de búsque
 
 1. En Azure Portal, vaya a **Sentinel** > **Administración de amenazas** > **Búsqueda**.
 
-2. Para crear una sesión de streaming en vivo a partir de una consulta de búsqueda:
+1. Para crear una sesión de streaming en vivo a partir de una consulta de búsqueda:
     
     1. En la pestaña **Consultas**, busque la consulta de búsqueda que se va a usar.
-    2. Haga clic con el botón secundario en la consulta y seleccione **Agregar a streaming en vivo**. Por ejemplo:
+    1. Haga clic con el botón secundario en la consulta y seleccione **Agregar a streaming en vivo**. Por ejemplo:
     
     > [!div class="mx-imgBorder"]
     > ![creación de una sesión de streaming en vivo desde una consulta de búsqueda de Azure Sentinel](./media/livestream/livestream-from-query.png)
 
-3. Para crear una sesión de streaming en vivo desde cero: 
+1. Para crear una sesión de streaming en vivo desde cero: 
     
     1. Seleccione la pestaña **Streaming en vivo**
-    2. Seleccione **Ir a streaming en vivo**.
+    1. Haga clic en **+ Nueva sesión de Live Stream**.
     
-4. En el panel de **Streaming en vivo**:
+1. En el panel de **Streaming en vivo**:
     
     - Si inició streaming en vivo desde una consulta, revise la consulta y realice los cambios que desee realizar.
     - Si inició streaming en vivo desde cero, cree la consulta. 
 
-5. En la barra de comandos, seleccione **Reproducir**.
+1. En la barra de comandos, seleccione **Reproducir**.
     
     La barra de estado de la barra de comandos indica si la sesión de streaming en vivo está en ejecución o en pausa. En el ejemplo siguiente, la sesión se está ejecutando:
     
     > [!div class="mx-imgBorder"]
     > ![creación de una sesión de streaming en vivo desde una búsqueda de Azure Sentinel](./media/livestream/livestream-session.png)
 
-6. En la barra de comandos, seleccione **Guardar**.
+1. En la barra de comandos, seleccione **Guardar**.
     
     A menos que seleccione **Pausar**, la sesión continuará ejecutándose hasta que salga del Azure Portal.
 
@@ -83,7 +78,7 @@ Puede crear una sesión de streaming en vivo a partir de una consulta de búsque
 
 1. En Azure Portal, vaya a **Sentinel** > **Administración de amenazas** > **Búsqueda** > **Streaming en vivo**.
 
-2. Seleccione la sesión de streaming en vivo que desea ver o editar. Por ejemplo:
+1. Seleccione la sesión de streaming en vivo que desea ver o editar. Por ejemplo:
     
     > [!div class="mx-imgBorder"]
     > ![creación de una sesión de streaming en vivo desde una consulta de búsqueda de Azure Sentinel](./media/livestream/livestream-tab.png)
