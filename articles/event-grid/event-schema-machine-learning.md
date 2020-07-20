@@ -3,12 +3,12 @@ title: Azure Machine Learning como origen de Event Grid
 description: Describe las propiedades que se proporcionan para los eventos del área de trabajo de Machine Learning con Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 11d8c38ee041ac9278e08166c4c060cdad87655f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b5a39539a6f39c78251a3cc7788b8e5ee4babbf9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102504"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181529"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Azure Machine Learning como origen de Event Grid
 
@@ -26,7 +26,7 @@ Azure Machine Learning emite los tipos de eventos siguientes:
 | Microsoft.MachineLearningServices.ModelDeployed | Se genera cuando los modelos se han implementado correctamente en un punto de conexión. |
 | Microsoft.MachineLearningServices.RunCompleted | Se genera cuando una ejecución se ha completado correctamente. |
 | Microsoft.MachineLearningServices.DatasetDriftDetected | Se genera cuando un monitor de desfase de datos detecta el desfase. |
-| Microsoft.MachineLearningServices.RunStatusChanged | Se genera cuando el estado de ejecución cambia a "Erróneo". |
+| Microsoft.MachineLearningServices.RunStatusChanged | Se genera cuando el estado de ejecución cambia. |
 
 ### <a name="the-contents-of-an-event-response"></a>El contenido de una respuesta de evento
 

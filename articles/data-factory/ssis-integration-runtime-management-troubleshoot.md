@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: e928a6b54e53f9076ffe184ed4868e7741661d7e
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: b2c1d08656ce9ef6b76e34a943f133859b78345a
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118832"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86172033"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Solución de problemas con la administración de SSIS Integration Runtime en Azure Data Factory
 
@@ -115,7 +115,7 @@ Este error significa que se ha producido un error al intentar cargar los registr
 ## <a name="virtual-network-configuration"></a>Configuración de redes virtuales
 
 Al unir SSIS IR a Azure Virtual Network, SSIS IR usa la red virtual que se encuentra en la suscripción del usuario. Para más información, consulte [Unión de Azure-SSIS Integration Runtime a una red virtual](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
-
+Después de que SSIS IR se inicie correctamente, si detecta problemas de conexión de red, puede intentar usar la [herramienta de diagnóstico de conectividad](ssis-integration-runtime-diagnose-connectivity-faq.md) para diagnosticar el problema.
 Cuando haya una incidencia relacionada con Virtual Network, verá uno de los siguientes errores.
 
 ### <a name="invalidvnetconfiguration"></a>InvalidVnetConfiguration

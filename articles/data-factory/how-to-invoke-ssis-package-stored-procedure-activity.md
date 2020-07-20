@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 04/17/2018
+ms.date: 07/09/2020
 ms.author: sawinark
-ms.openlocfilehash: 9309f431a820b800e652d7fa8afcea8f03a46062
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: e7729318e6121b0072546b8e111a8b782e95906d
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84114522"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86183433"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Ejecución de un paquete de SSIS mediante una actividad de procedimiento almacenado de Azure Data Factory
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 En este artículo se describe cómo ejecutar un paquete de SSIS desde una canalización de Azure Data Factory mediante una actividad de procedimiento almacenado. 
 
@@ -80,7 +80,7 @@ En este paso, usa la interfaz de Data Factory para crear una canalización. Agre
 2. En el cuadro de herramientas **Activities** (Actividades), expanda **General**, arrastre la actividad **Store Procedure** (Procedimiento almacenado) y colóquela en la superficie del diseñador de canalizaciones. 
 
     ![Operación de arrastrar y colocar la actividad de procedimiento almacenado](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
-3. En la ventana de propiedades de la actividad de procedimiento almacenado, cambie a la pestaña **SQL Account** (Cuenta de SQL) y haga clic en **+ New** (+ Nuevo). Crea una conexión a la base de datos de Azure SQL que hospeda el catálogo de SSIS (base de datos SSIDB). 
+3. En la ventana de propiedades de la actividad de procedimiento almacenado, cambie a la pestaña **SQL Account** (Cuenta de SQL) y haga clic en **+ New** (+ Nuevo). Crea una conexión a la base de datos de Azure SQL Database que hospeda el catálogo de SSIS (base de datos SSIDB). 
    
     ![Botón New linked service (Nuevo servicio vinculado)](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-linked-service-button.png)
 4. En la ventana **New Linked Service** (Nuevo servicio vinculado), realice los pasos siguientes: 
@@ -196,7 +196,7 @@ Tenga en cuenta los siguientes puntos:
 * Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Creación de un servicio vinculado de Azure SQL Database
-Cree un servicio vinculado para vincular su base de datos de Azure SQL que hospeda el catálogo de SSIS con la factoría de datos. Data Factory usa la información de este servicio vinculado para conectarse a la base de datos SSISDB y ejecuta un procedimiento almacenado para ejecutar un paquete de SSIS. 
+Cree un servicio vinculado para vincular su base de datos que hospeda el catálogo de SSIS con la factoría de datos. Data Factory usa la información de este servicio vinculado para conectarse a la base de datos SSISDB y ejecuta un procedimiento almacenado para ejecutar un paquete de SSIS. 
 
 1. Cree un archivo JSON denominado **AzureSQLDatabaseLinkedService.json** en la carpeta **C:\ADF\RunSSISPackage** con el siguiente contenido: 
 

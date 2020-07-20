@@ -5,18 +5,16 @@ author: HiteshMadan
 manager: rajarv
 ms.author: himad
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: 5c23b9ef280a4a4e3458d279ecf060d2e3d50295
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f39d22fe58d4375b3b68bacd237c1b200328c4b1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72991729"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171336"
 ---
-# <a name="module-twin-json-schema"></a>Esquema JSON de módulo gemelo
+# <a name="module-twin-json-schema-azure-event-grid"></a>Esquema JSON de módulo gemelo (Azure Event Grid)
 
 Event Grid en IoT Edge se integra con el ecosistema de IoT Edge y admite la creación de temas y suscripciones a través del módulo gemelo. También informa del estado actual de todos los temas y suscripciones de eventos a las propiedades notificadas en el módulo gemelo.
 

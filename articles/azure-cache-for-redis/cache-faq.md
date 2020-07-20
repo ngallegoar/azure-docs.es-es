@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: f0fba815cdc8425f016b74be7df36e5b28dfee3d
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 9a6ee4f5b18c6747796f33bc433d1d40982205a3
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856964"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185014"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Preguntas frecuentes sobre Azure Cache for Redis
 Conozca las respuestas a preguntas comunes, patrones y procedimientos recomendados para Azure Cache for Redis.
@@ -41,6 +41,7 @@ En las siguientes preguntas y respuestas se abordan los conceptos básicos y las
 * [¿Qué oferta y tamaño de Azure Cache for Redis debo utilizar?](#what-azure-cache-for-redis-offering-and-size-should-i-use)
 * [Rendimiento de Azure Cache for Redis](#azure-cache-for-redis-performance)
 * [¿En qué región debo buscar mi caché?](#in-what-region-should-i-locate-my-cache)
+* [¿Dónde residen mis datos en caché?](#where-do-my-cached-data-reside)
 * [¿Cómo se factura Azure Cache for Redis?](#how-am-i-billed-for-azure-cache-for-redis)
 * [¿Puedo utilizar Azure Cache for Redis con la nube de Azure Government, la nube de China de Azure o Microsoft Azure Alemania?](#can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany)
 
@@ -149,6 +150,13 @@ Para obtener instrucciones sobre cómo configurar stunnel o descargar las herram
 ### <a name="in-what-region-should-i-locate-my-cache"></a>¿En qué región debo buscar mi caché?
 Para el mejor rendimiento y la menor latencia, sitúe su instancia de Azure Cache for Redis en la misma región que la aplicación cliente de la caché.
 
+### <a name="where-do-my-cached-data-reside"></a>¿Dónde residen mis datos en caché?
+Azure Cache for Redis almacena los datos de la aplicación en la memoria RAM de la máquina virtual (o las máquinas virtuales, según el nivel), que hospeda la caché. Los datos residen estrictamente en la región de Azure que ha seleccionado de forma predeterminada. Hay dos casos en los que los datos pueden dejar una región:
+  1. Al habilitar la persistencia en la caché, Azure Cache for Redis realizará una copia de seguridad de los datos en una cuenta de Azure Storage que posea. Si la cuenta de almacenamiento que proporciona se encuentra en otra región, una copia de los datos terminará allí.
+  1. Si configura la replicación geográfica y la caché secundaria se encuentra en otra región, que sería lo habitual, los datos se replicarán en esa región.
+
+Tendrá que configurar explícitamente Azure Cache for Redis para usar estas características. También tiene control total sobre la región en la que se encuentra la cuenta de almacenamiento o la caché secundaria.
+
 <a name="cache-billing"></a>
 
 ### <a name="how-am-i-billed-for-azure-cache-for-redis"></a>¿Cómo se factura Azure Cache for Redis?
@@ -215,20 +223,20 @@ No hay ningún emulador local para Azure Cache for Redis, pero puede ejecutar la
 
 ```csharp
 private static Lazy<ConnectionMultiplexer>
-      lazyConnection = new Lazy<ConnectionMultiplexer>
-    (() =>
+    lazyConnection = new Lazy<ConnectionMultiplexer> (() =>
     {
-        // Connect to a locally running instance of Redis to simulate a local cache emulator experience.
+        // Connect to a locally running instance of Redis to simulate
+        // a local cache emulator experience.
         return ConnectionMultiplexer.Connect("127.0.0.1:6379");
     });
 
-    public static ConnectionMultiplexer Connection
+public static ConnectionMultiplexer Connection
+{
+    get
     {
-        get
-        {
-            return lazyConnection.Value;
-        }
+        return lazyConnection.Value;
     }
+}
 ```
 
 Si lo desea, también puede configurar un archivo [redis.conf](https://redis.io/topics/config) para ajustarse con más precisión a la [configuración de caché predeterminada](cache-configure.md#default-redis-server-configuration) del servicio en línea Azure Cache for Redis.
@@ -367,11 +375,11 @@ Básicamente, esto significa que cuando el número de subprocesos ocupados es ma
 
 Si examinamos un mensaje de error de ejemplo de StackExchange.Redis (compilación 1.0.450 o posterior), verá que ahora se imprimen estadísticas del grupo de subprocesos (consulte a continuación los detalles de trabajo e IOCP).
 
-```output
-    System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive,
-    queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0,
-    IOCP: (Busy=6,Free=994,Min=4,Max=1000),
-    WORKER: (Busy=3,Free=997,Min=4,Max=1000)
+```
+System.TimeoutException: Timeout performing GET MyKey, inst: 2, mgr: Inactive,
+queue: 6, qu: 0, qs: 6, qc: 0, wr: 0, wq: 0, in: 0, ar: 0,
+IOCP: (Busy=6,Free=994,Min=4,Max=1000),
+WORKER: (Busy=3,Free=997,Min=4,Max=1000)
 ```
 
 En el ejemplo anterior, puede ver que para el subproceso de IOCP hay seis subprocesos ocupados y el sistema está configurado para permitir cuatro subprocesos mínimos. En este caso, el cliente probablemente habría visto dos retrasos de 500 ms porque 6 > 4.
@@ -386,20 +394,20 @@ Cómo configurar este valor:
 
 * Se recomienda cambiar esta configuración mediante programación con el método [ThreadPool.SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) de `global.asax.cs`. Por ejemplo:
 
-```cs
-private readonly int minThreads = 200;
-void Application_Start(object sender, EventArgs e)
-{
-    // Code that runs on application startup
-    AreaRegistration.RegisterAllAreas();
-    RouteConfig.RegisterRoutes(RouteTable.Routes);
-    BundleConfig.RegisterBundles(BundleTable.Bundles);
-    ThreadPool.SetMinThreads(minThreads, minThreads);
-}
-```
+    ```csharp
+    private readonly int minThreads = 200;
+    void Application_Start(object sender, EventArgs e)
+    {
+        // Code that runs on application startup
+        AreaRegistration.RegisterAllAreas();
+        RouteConfig.RegisterRoutes(RouteTable.Routes);
+        BundleConfig.RegisterBundles(BundleTable.Bundles);
+        ThreadPool.SetMinThreads(minThreads, minThreads);
+    }
+    ```
 
-  > [!NOTE]
-  > El valor especificado por este método es una configuración global, que afecta a todo AppDomain. Por ejemplo, si tiene una máquina de 4 núcleos y desea establecer *minWorkerThreads* y *minIOThreads* a 50 por CPU durante el tiempo de ejecución, usaría **ThreadPool.SetMinThreads (200, 200)** .
+    > [!NOTE]
+    > El valor especificado por este método es una configuración global, que afecta a todo AppDomain. Por ejemplo, si tiene una máquina de 4 núcleos y desea establecer *minWorkerThreads* y *minIOThreads* a 50 por CPU durante el tiempo de ejecución, usaría **ThreadPool.SetMinThreads (200, 200)** .
 
 * También es posible especificar el valor mínimo de subprocesos mediante el conjunto de configuración [*minIoThreads* o *minWorkerThreads*](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) del elemento de configuración `<processModel>` de `Machine.config`, que normalmente está ubicado en `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Por lo general, no se recomienda establecer el número mínimo de subprocesos de esta forma, ya que es una configuración que afecta a todo el sistema.**
 
@@ -455,7 +463,7 @@ A continuación se indican algunas razones habituales por las que se desconecta 
   * Se han alcanzado los límites de umbral de ancho de banda.
   * Las operaciones de la CPU tardaron demasiado tiempo en completarse.
 * Causas de servidor
-  * En la oferta de caché estándar, el servicio Azure Cache for Redis inició una conmutación por error desde el nodo principal al nodo secundario.
+  * En la oferta de caché estándar, el servicio Azure Cache for Redis inició una conmutación por error desde el nodo principal al nodo de réplica.
   * Azure revisó la instancia donde se implementó la memoria caché
     * Esto puede servir para actualizaciones del servidor de Redis o para el mantenimiento general de máquinas virtuales.
 

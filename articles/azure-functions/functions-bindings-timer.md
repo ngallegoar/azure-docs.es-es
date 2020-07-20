@@ -6,19 +6,21 @@ ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
-ms.custom: ''
-ms.openlocfilehash: 566d6ccf43024692e19bcd6639fe5cfbbba0660d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: tracking-python
+ms.openlocfilehash: a832fe4e212ce39ca423263ed2554c2682455002
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80056406"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165673"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Desencadenador de temporizador para Azure Functions 
 
 En este artículo se explica cómo usar desencadenadores de temporizador en Azure Functions. Con un desencadenador de temporizador puede ejecutar una función de forma programada. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+Para información sobre cómo ejecutar manualmente una función desencadenada por un temporizador, consulte [Ejecución manual de una función no desencadenada por HTTP](./functions-manually-run-non-http.md).
 
 ## <a name="packages---functions-1x"></a>Paquetes: Functions 1.x
 
@@ -285,24 +287,7 @@ Estos son algunos ejemplos de expresiones NCRONTAB que puede usar para el desenc
 
 Los números de una expresión CRON hacen referencia a una hora y fecha, no un intervalo de tiempo. Por ejemplo, un 5 en el campo `hour` hace referencia a las 5:00 a. m., no a cada 5 horas.
 
-La zona horaria predeterminada que se usa con las expresiones CRON es la Hora universal coordinada (UTC). Para que la expresión CRON se base en otra zona horaria, cree una configuración de aplicación para la aplicación de función denominada `WEBSITE_TIME_ZONE`. Establezca el valor en el nombre de la zona horaria deseada como se muestra en [Microsoft Time Zone Index](https://technet.microsoft.com/library/cc749073) (Índice de zona horaria de Microsoft).
-
-  > [!NOTE]
-  > El plan de Consumo para Linux actualmente no admite `WEBSITE_TIME_ZONE`.
-
-Por ejemplo, la *Hora estándar del Este* (EST) es UTC-05:00. Para que el desencadenador de temporizador se dispare a las 10:00 a.m. (Hora estándar), use la siguiente expresión NCRONTAB que representa la zona horaria UTC:
-
-```
-"0 0 15 * * *"
-``` 
-
-O bien, cree una configuración de aplicación para la aplicación de función denominada `WEBSITE_TIME_ZONE` y establecer el valor en **Hora estándar del Este**.  A continuación, usa la expresión NCRONTAB siguiente: 
-
-```
-"0 0 10 * * *"
-``` 
-
-Si usa `WEBSITE_TIME_ZONE`, la hora se ajusta a los cambios de hora de la zona horaria en cuestión como, por ejemplo, al horario de verano. 
+[!INCLUDE [functions-timezone](../../includes/functions-timezone.md)]
 
 ## <a name="timespan"></a>TimeSpan
 

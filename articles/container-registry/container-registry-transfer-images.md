@@ -4,12 +4,12 @@ description: Transferir colecciones de imágenes u otros artefactos de un regist
 ms.topic: article
 ms.date: 05/08/2020
 ms.custom: ''
-ms.openlocfilehash: fd551671422931a51f5aa6468de87e28e3a81b5b
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: c80f10e8795c63b84bb46fc21fd3406a195b772e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006187"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186935"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Transferir artefactos a otro registro
 
@@ -30,7 +30,7 @@ Esta característica está disponible en el nivel de servicio de un registro de 
 > [!IMPORTANT]
 > Esta funcionalidad actualmente está en su versión preliminar. Las versiones preliminares están a su disposición con la condición de que acepte los [términos de uso adicionales][terms-of-use]. Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * **Registros de contenedor**: necesita un registro de origen existente con artefactos para transferir y un registro de destino. La transferencia de ACR está pensada para el movimiento entre nubes físicamente desconectadas. Para las pruebas, los registros de origen y de destino pueden estar en la misma o en otra suscripción de Azure, inquilino de Active Directory o nube. Si necesita crear un registro, consulte [Inicio rápido: Creación de un registro de contenedor privado con la CLI de Azure](container-registry-get-started-azure-cli.md). 
 * **Cuentas de almacenamiento**: cree cuentas de almacenamiento de origen y de destino en una suscripción y ubicación de su elección. Con fines de prueba, puede usar la misma suscripción o suscripciones que los registros de origen y de destino. En el caso de escenarios entre nubes, normalmente se crea una cuenta de almacenamiento independiente en cada nube. Si es necesario, cree las cuentas de almacenamiento con la [CLI de Azure](../storage/common/storage-account-create.md?tabs=azure-cli) u otras herramientas. 
@@ -58,7 +58,7 @@ La autenticación de almacenamiento usa tokens de SAS, administrados como secret
 * **[PipelineRun](#create-pipelinerun-for-export-with-resource-manager)** : recurso que se usa para invocar un recurso ExportPipeline o ImportPipeline.  
   * Para ejecutar el ExportPipeline manualmente, cree un recurso PipelineRun y especifique los artefactos que se van a exportar.  
   * Si se habilita un desencadenador de importación, el ImportPipeline se ejecuta automáticamente. También se puede ejecutar manualmente mediante un PipelineRun. 
-  * Actualmente, un máximo de **10 artefactos** se pueden transferir con cada PipelineRun.
+  * Actualmente, un máximo de **50 artefactos** se pueden transferir con cada PipelineRun.
 
 ### <a name="things-to-know"></a>Cosas que debe saber
 * ExportPipeline e ImportPipeline normalmente estarán en distintos inquilinos de Active Directory asociados a las nubes de origen y de destino. Este escenario requiere identidades administradas independientes y almacenes de claves para los recursos de exportación e importación. Con fines de prueba, estos recursos se pueden colocar en la misma nube, compartiendo identidades.
@@ -337,7 +337,7 @@ az deployment group delete \
 * **Problemas de AzCopy**
   * Consulte [Solución de problemas de AzCopy](../storage/common/storage-use-azcopy-configure.md#troubleshoot-issues).  
 * **Problemas de transferencia de artefactos**
-  * No se transfieren todos los artefactos o ninguno. Confirme la ortografía de los artefactos en la ejecución de la exportación y el nombre del blob en las ejecuciones de exportación e importación. Confirme que está transfiriendo un máximo de 10 artefactos.
+  * No se transfieren todos los artefactos o ninguno. Confirme la ortografía de los artefactos en la ejecución de la exportación y el nombre del blob en las ejecuciones de exportación e importación. Confirme que está transfiriendo un máximo de 50 artefactos.
   * Es posible que no se haya completado la ejecución de canalización. Una ejecución de exportación o importación puede tardar algún tiempo. 
   * Para otros problemas de canalización, proporcione el [id. de correlación](../azure-resource-manager/templates/deployment-history.md) de implementación de la ejecución de la exportación o la ejecución de la importación al equipo de Azure Container Registry.
 

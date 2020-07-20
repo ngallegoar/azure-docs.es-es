@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 40460b58ede0ca0da8fe25475906bdbe41bfffe0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 29605fc2a9094f70c26487691e74a4dd72a85813
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158289"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147273"
 ---
 # <a name="how-to-use-analytics-to-analyze-device-data"></a>Cómo usar análisis para analizar los datos del dispositivo
 
@@ -86,9 +86,11 @@ Cuando haya consultado los datos, podrá comenzar a visualizarlos en el gráfico
 
   ![Ampliación de los datos](media/howto-create-analytics/zoom.png)
 
-En los puntos suspensivos, hay más controles de gráfico para interactuar con los datos.
+En los puntos suspensivos, hay más controles de gráfico para interactuar con los datos:
 
 - **Mostrar cuadrícula:** los resultados están disponibles en formato de tabla para permitirle ver el valor específico para cada punto de datos.
+
+- **Descargar como CSV:** los resultados están disponibles para exportar como un archivo de valores separados por comas (CSV). El archivo .csv contiene datos para cada dispositivo. Los resultados se exportan mediante el intervalo y el período de tiempo especificados. 
 
 - **Colocar un marcador:** El control "Colocar un marcador" ofrece una manera de delimitar determinados punto de datos en el gráfico. Resulta útil cuando se intentan comparar datos de varias líneas en distintos períodos de tiempo.
 

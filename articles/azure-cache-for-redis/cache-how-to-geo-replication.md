@@ -6,16 +6,19 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: ce50c665fa79c361f638fda4ec373d5215c407f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9a2ec2e60ae38506d716a244872baddbbdf570e7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74129415"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184980"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Configuración de replicación geográfica para Azure Cache for Redis
 
-Replicación geográfica proporciona un mecanismo para vincular dos instancias de Azure Cache for Redis de nivel Premium. Una memoria caché se elige como la caché vinculada principal y la otra, como la caché vinculada secundaria. La caché vinculada secundaria pasa a ser de solo lectura, por lo que los datos escritos en la caché principal se replican en la caché vinculada secundaria. Esta funcionalidad se puede usar para replicar una caché en varias regiones de Azure. En este artículo se proporciona una guía para configurar la replicación geográfica para las instancias de Azure Cache for Redis de nivel Premium.
+Replicación geográfica proporciona un mecanismo para vincular dos instancias de Azure Cache for Redis de nivel Premium. Una memoria caché se elige como la caché vinculada principal y la otra, como la caché vinculada secundaria. La caché vinculada secundaria pasa a ser de solo lectura, por lo que los datos escritos en la caché principal se replican en la caché vinculada secundaria. TLS protege la transferencia de datos entre las instancias de caché principal y secundaria. La replicación geográfica se puede usar para configurar una memoria caché que abarque dos regiones de Azure. En este artículo se proporciona una guía para configurar la replicación geográfica para las instancias de Azure Cache for Redis de nivel Premium.
+
+> [!NOTE]
+> La replicación geográfica está diseñada como una solución de recuperación ante desastres. De forma predeterminada, la aplicación escribirá en la región primaria y leerá desde ahí. Opcionalmente, se puede configurar para leer desde la región secundaria. La replicación geográfica no proporciona conmutación por error automática debido a problemas de latencia de red agregada entre regiones si el resto de la aplicación permanece en la región primaria. Deberá administrar e iniciar la conmutación por error desvinculando la caché secundaria. Esto la promoverá para ser la nueva instancia principal.
 
 ## <a name="geo-replication-prerequisites"></a>Requisitos previos de la replicación geográfica
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 67aa9fcb51742432dcd629073f15a65d14bf3597
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d22b83e1f3464f6d87d2bc3821682b25e05d947b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961207"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142549"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Uso de PowerShell para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2
 
@@ -81,11 +81,11 @@ $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>
 $ctx = $storageAccount.Context
 ```
 
-## <a name="create-a-file-system"></a>Creación de un sistema de archivos
+## <a name="create-a-container"></a>Crear un contenedor
 
-Un sistema de archivos actúa como contenedor de los archivos. Puede crear uno con el cmdlet `New-AzStorageContainer`. 
+Un contenedor actúa como sistema de archivos para sus archivos. Puede crear uno con el cmdlet `New-AzStorageContainer`. 
 
-En este ejemplo se crea un sistema de archivos llamado `my-file-system`.
+En este ejemplo se crea un contenedor denominado `my-file-system`.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -96,7 +96,7 @@ New-AzStorageContainer -Context $ctx -Name $filesystemName
 
 Cree una referencia de directorio con el cmdlet `New-AzDataLakeGen2Item`. 
 
-En este ejemplo se agrega un directorio denominado `my-directory` a un sistema de archivos.
+En este ejemplo se agrega un directorio denominado `my-directory` a un contenedor.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -202,7 +202,7 @@ $properties.Group
 $properties.Owner
 ```
 
-Para mostrar el contenido de un sistema de archivos, omita el parámetro `-Path` del comando.
+Para mostrar el contenido de un contenedor, omita el parámetro `-Path` del comando.
 
 ## <a name="upload-a-file-to-a-directory"></a>Carga de un archivo en un directorio
 
@@ -270,7 +270,7 @@ Puede obtener, establecer y actualizar los permisos de acceso de los directorios
 
 Obtenga la ACL de un directorio o de un archivo con el cmdlet `Get-AzDataLakeGen2Item`.
 
-En este ejemplo se obtiene la ACL del directorio raíz de un **sistema de archivos** y luego se imprime la ACL en la consola.
+En este ejemplo se obtiene la ACL del directorio raíz de un **contenedor** y luego se imprime la ACL en la consola.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -305,7 +305,7 @@ En este ejemplo, el usuario propietario tiene permisos de lectura, escritura y e
 
 Use el cmdlet `set-AzDataLakeGen2ItemAclObject` para crear una ACL para el usuario propietario, el grupo propietario u otros usuarios. Luego, use el cmdlet `Update-AzDataLakeGen2Item` para confirmar la ACL.
 
-En este ejemplo se establece la ACL en el directorio raíz de un **sistema de archivos** del usuario propietario, el grupo propietario o de otros usuarios, y luego se imprime la ACL en la consola.
+En este ejemplo se establece la ACL en el directorio raíz de un **contenedor** del usuario propietario, el grupo propietario o de otros usuarios, y luego se imprime la ACL en la consola.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -349,9 +349,9 @@ En la siguiente imagen se muestra la salida después de establecer la ACL de un 
 En este ejemplo, el usuario propietario y el grupo propietario tienen permisos de solo lectura y escritura. Los demás usuarios tienen permisos de escritura y ejecución. Para más información sobre las listas de control de acceso, vea [Control de acceso en Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
 
-### <a name="set-acls-on-all-items-in-a-file-system"></a>Establecimiento de listas de control de acceso en todos los elementos de un sistema de archivos
+### <a name="set-acls-on-all-items-in-a-container"></a>Establecimiento de listas de control de acceso en todos los elementos de un contenedor
 
-`Get-AzDataLakeGen2Item` y el parámetro `-Recurse` se pueden usar junto con el cmdlet `Update-AzDataLakeGen2Item` de forma recursiva para establecer la ACL de los directorios y archivos de un sistema de archivos. 
+`Get-AzDataLakeGen2Item` y el parámetro `-Recurse` se pueden usar junto con el cmdlet `Update-AzDataLakeGen2Item` de forma recursiva para establecer la ACL de los directorios y archivos de un contenedor. 
 
 ```powershell
 $filesystemName = "my-file-system"

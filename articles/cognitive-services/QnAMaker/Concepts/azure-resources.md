@@ -3,12 +3,12 @@ title: 'Recursos de Azure: QnA Maker'
 description: QnA Maker usa varios orígenes de Azure, cada uno con un propósito diferente. Entender cómo se usan individualmente le permite planear y seleccionar el plan de tarifa correcto o saber cuándo debe cambiar el plan de tarifa. Entender cómo se usan en combinación le permite encontrar y corregir los problemas cuando se producen.
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 916f5b9b012d233c6a28d5cbb75ea0b4e073d064
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 7d6598510ae75a76e0a4fcaff59297b4c724ba78
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84236083"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171081"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Recursos de Azure para QnA Maker
 
@@ -44,11 +44,11 @@ Normalmente hay tres parámetros que necesita tener en cuenta:
 
 En la tabla siguiente se proporcionan algunas directrices de alto nivel.
 
-|                        | Administración de QnA Maker | App Service | Azure Cognitive Search | Limitaciones                      |
-| ---------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
-| Experimentación        | SKU gratuita             | Nivel Gratis   | Nivel Gratis    | Publicar hasta 2 KB; tamaño de 50 MB  |
-| Entorno de Desarrollo/pruebas   | SKU Estándar         | Compartido      | Básico        | Publicaciones de hasta 14 KB; tamaño de 2 GB    |
-| Entorno de producción | SKU Estándar         | Básico       | Estándar     | Publicar hasta 49 KB; tamaño de 25 GB |
+|                            | Administración de QnA Maker | App Service | Azure Cognitive Search | Limitaciones                      |
+| -------------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
+| **Experimentación**        | SKU gratuita             | Nivel Gratis   | Nivel Gratis    | Publicar hasta 2 KB; tamaño de 50 MB  |
+| **Entorno de desarrollo/pruebas**   | SKU Estándar         | Compartido      | Básico        | Publicaciones de hasta 14 KB; tamaño de 2 GB    |
+| **Entorno de producción** | SKU Estándar         | Básico       | Estándar     | Publicar hasta 49 KB; tamaño de 25 GB |
 
 ## <a name="recommended-settings"></a>Configuración recomendada
 

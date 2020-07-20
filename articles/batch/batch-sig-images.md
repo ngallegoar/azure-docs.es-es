@@ -4,12 +4,12 @@ description: Los grupos de imágenes personalizadas son una manera eficaz de con
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 962b3c84e7f3cecc5f4d64febbfca635733a0bae
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 38233bc5d279c1c0ae7789dd06acff78ea26fb89
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851724"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147285"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Uso de Shared Image Gallery para crear un grupo de imágenes personalizadas
 
@@ -30,7 +30,7 @@ El uso de una imagen de Shared Image configurada para su escenario puede proporc
 - **Preinstalar las aplicaciones.** Preinstalar las aplicaciones en el disco del sistema operativo es más eficaz y menos propenso a errores que instalar las aplicaciones después de aprovisionar los nodos de ejecución con una tarea de inicio.
 - **Copia de grandes cantidades de datos una vez.** Convierta en estáticos parte de los datos de la imagen de Shared Image administrada copiándolos en los discos de datos de una imagen administrada. Solo debe hacerse una vez y los datos estarán disponibles para cada nodo del grupo.
 - **Aumento de los grupos a tamaños más grandes.** Con Shared Image Gallery puede crear grupos más grandes con sus imágenes personalizadas junto con más réplicas de Shared Image.
-- **Mejor rendimiento que el uso de una imagen administrada como imagen personalizada.** Para un grupo de imágenes personalizadas de Shared Image, el tiempo necesario para alcanzar el estado estable es hasta un 25 % más rápido y la latencia de inactividad de la VM es hasta un 30 % más breve.
+- **Mejor rendimiento que el uso de una imagen administrada como imagen personalizada.** Para un grupo de imágenes personalizadas de Shared Image, el tiempo necesario para alcanzar el estado estable es hasta un 25 % más rápido y la latencia de inactividad de la máquina virtual es hasta un 30 % más breve.
 - **Control de versiones y agrupación de imágenes para facilitar su administración.** La definición de la agrupación de imágenes contiene información acerca de por qué se creó la imagen, para qué sistema operativo sirve e información acerca del uso de la imagen. La agrupación de imágenes permite una administración más sencilla de las imágenes. Para más información, consulte [Definiciones de imagen](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -83,7 +83,7 @@ Para crear una imagen administrada a partir de una instantánea, use las herrami
 
 ### <a name="create-a-shared-image-gallery"></a>Creación de una instancia de Shared Image Gallery
 
-Una vez que haya creado correctamente la imagen administrada, debe crear una instancia de Shared Image Gallery para que la imagen personalizada esté disponible. Para más información acerca de cómo crear una instancia de Shared Image Gallery para sus imágenes, consulte [Creación de una imagen de Shared Image Gallery con la CLI de Azure](../virtual-machines/linux/shared-images.md) o [Creación de una imagen de Shared Image Gallery mediante Azure Portal](../virtual-machines/linux/shared-images-portal.md).
+Una vez que haya creado correctamente la imagen administrada, debe crear una instancia de Shared Image Gallery para que la imagen personalizada esté disponible. Para más información acerca de cómo crear una instancia de Shared Image Gallery para sus imágenes, consulte [Creación de una imagen de Shared Image Gallery con la CLI de Azure](../virtual-machines/shared-images-cli.md) o [Creación de una imagen de Shared Image Gallery mediante Azure Portal](../virtual-machines/linux/shared-images-portal.md).
 
 ## <a name="create-a-pool-from-a-shared-image-using-the-azure-cli"></a>Creación de un grupo a partir de una imagen de Shared Image con la CLI de Azure
 

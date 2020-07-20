@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/24/2020
-ms.openlocfilehash: e522291bdf1982ff65a62f028107b15b3249898c
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 07/08/2020
+ms.openlocfilehash: fe0d3819701e062fa2253bc6dd0c3a28eaeaadfb
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847419"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171129"
 ---
 # <a name="evaluate-model-module"></a>Módulo Evaluate Model
 
@@ -35,10 +35,10 @@ Use este módulo para medir la precisión de un modelo entrenado. Hay que propor
 
 ## <a name="how-to-use-evaluate-model"></a>Cómo usar Evaluar modelo
 1. Conecte la salida de **Scored dataset** (Conjunto de datos puntuados) de [Score Model](./score-model.md) (Puntuar modelo) o la salida del conjunto de datos Resultado de [Assign Data to Clusters](./assign-data-to-clusters.md) (Asignar datos a los clústeres) al puerto de entrada izquierdo de **Evaluate Model** (Evaluar modelo). 
-  > [!NOTE] 
-  > Si se usan módulos como "Seleccionar columnas en conjunto de datos" para seleccionar parte del conjunto de datos de entrada, asegúrese de que la columna de etiqueta Real (usada en el entrenamiento) y las columnas "Probabilidades puntuadas" y "Etiquetas puntuadas" existen para calcular métricas como AUC o Precisión para la clasificación binaria/detección de anomalías.
-  > La columna de etiqueta Real y la columna "Etiquetas puntuadas" existen para calcular las métricas para la clasificación o regresión de varias clases.
-  > La columna "Assignments" y las columnas "DistancesToClusterCenter no.X" (X es índice centroide, que va de 0, ..., a número de centroides -1) existen para calcular las métricas de la agrupación en clústeres.
+    > [!NOTE] 
+    > Si se usan módulos como "Seleccionar columnas en conjunto de datos" para seleccionar parte del conjunto de datos de entrada, asegúrese de que la columna de etiqueta Real (usada en el entrenamiento) y las columnas "Probabilidades puntuadas" y "Etiquetas puntuadas" existen para calcular métricas como AUC o Precisión para la clasificación binaria/detección de anomalías.
+    > La columna de etiqueta Real y la columna "Etiquetas puntuadas" existen para calcular las métricas para la clasificación o regresión de varias clases.
+    > La columna "Assignments" y las columnas "DistancesToClusterCenter no.X" (X es índice centroide, que va de 0, ..., a número de centroides -1) existen para calcular las métricas de la agrupación en clústeres.
 
 2. [Opcional] Conecte la salida de **Scored dataset** (Conjunto de datos puntuados) de [Score Model](./score-model.md) (Puntuar modelo) o la salida del conjunto de datos Resultado de Assign Data to Clusters (Asignar datos a los clústeres) del segundo modelo al puerto de entrada **derecho** de **Evaluate Model** (Evaluar modelo). Puede comparar fácilmente los resultados de dos modelos distintos con los mismos datos. Los dos algoritmos de entrada deben ser del mismo tipo. O bien, puede comparar las puntuaciones de las dos ejecuciones diferentes con los mismos datos con parámetros diferentes.
 
@@ -49,7 +49,12 @@ Use este módulo para medir la precisión de un modelo entrenado. Hay que propor
 
 ## <a name="results"></a>Results
 
-Después de ejecutar **Evaluate Model** (Evaluar modelo), seleccione el módulo para abrir el panel de navegación **Evaluate Model** (Evaluar modelo) a la derecha.  Luego, elija la pestaña **Outputs + Logs** (Salidas y registros) y, en esa pestaña, la sección **Data Outputs** (Salidas de datos) tiene varios iconos.   El icono **Visualizar** tiene un icono gráfico de barras y es una primera forma de ver los resultados.
+Después de ejecutar **Evaluate Model** (Evaluar modelo), seleccione el módulo para abrir el panel de navegación **Evaluate Model** (Evaluar modelo) a la derecha.  Luego, elija la pestaña **Outputs + Logs** (Salidas y registros) y, en esa pestaña, la sección **Data Outputs** (Salidas de datos) tiene varios iconos. El icono **Visualizar** tiene un icono gráfico de barras y es una primera forma de ver los resultados.
+
+En el caso de la clasificación binaria, después de hacer clic en el icono **Visualizar**, puede visualizar la matriz de confusión binaria.
+En el caso de la clasificación múltiple, puede encontrar el archivo de trazado de la matriz de confusión en la pestaña **Salidas y registros**, como se muestra a continuación:
+> [!div class="mx-imgBorder"]
+> ![Vista previa de la imagen cargada](media/module/multi-class-confusion-matrix.png)
 
 Si conecta los conjuntos de datos a las dos entradas de **Evaluate Model**, los resultados contendrán las métricas para ambos conjuntos de datos, o ambos modelos.
 El modelo o los datos conectados al puerto izquierdo aparecen en primer lugar en el informe, seguido de las métricas del conjunto de datos, o el modelo conectado al puerto derecho.  
@@ -70,7 +75,8 @@ Esta sección describe las métricas devueltas para los tipos específicos de lo
 
 ### <a name="metrics-for-classification-models"></a>Métricas para modelos de clasificación
 
-Las siguientes métricas se notifican al evaluar los modelos de clasificación.
+
+Las siguientes métricas se notifican al evaluar los modelos de clasificación binaria.
   
 -   **Precisión** (Accuracy) mide la calidad de un modelo de clasificación como la proporción de resultados verdaderos en el total de casos.  
   
@@ -78,13 +84,10 @@ Las siguientes métricas se notifican al evaluar los modelos de clasificación.
   
 -   **Recuperación** es una fracción de todos los resultados correctos devueltos por el modelo.  
   
--   **Puntuación F** se calcula como el promedio ponderado de precisión y recuperación entre 0 y 1, donde el valor ideal de puntuación F es 1.  
+-   **Puntuación F1** se calcula como el promedio ponderado de precisión y recuperación entre 0 y 1, donde el valor ideal de puntuación F1 es 1.  
   
 -   **AUC** mide el área bajo la curva trazada con los verdaderos positivos en el eje y los falsos positivos en el eje x. Esta métrica es útil porque proporciona un número único que le permite comparar los modelos de diferentes tipos.  
-  
-- **Promedio de pérdida logarítmica** es una puntuación única que se usa para expresar la penalización de los resultados incorrectos. Se calcula como la diferencia entre dos distribuciones de probabilidad: la verdadera y la que aparece en el modelo.  
-  
-- **Pérdida logarítmica de entrenamiento** es una puntuación única que representa la ventaja del clasificador sobre una predicción aleatoria. La pérdida de registro mide la incertidumbre del modelo comparando las probabilidades que envía a los valores conocidos (datos verdaderos) en las etiquetas. Quiere minimizar la pérdida de registro para el modelo en conjunto.
+
 
 ### <a name="metrics-for-regression-models"></a>Métricas para los modelos de regresión
  
@@ -122,7 +125,7 @@ Se notifican las siguientes métricas para evaluar los modelos de agrupación en
   
      Si el número de puntos de datos asignado a los clústeres es menor que el número total de puntos de datos disponibles, significa que no se han podido asignar los puntos de datos a un clúster.  
   
--   Las puntuaciones de la columna **Maximal Distance to Cluster Center** (Distancia máxima al centro del clúster) representan la suma de las distancias entre cada punto y el centroide del clúster de ese punto.  
+-   Las puntuaciones de la columna **Maximal Distance to Cluster Center** (Distancia máxima al centro del clúster) representan las distancias máximas entre cada punto y el centroide del clúster de ese punto.  
   
      Si este número es alto, puede significar que el clúster está muy disperso. Debe revisar esta estadística junto con **Average Distance to Cluster Center** (Distancia media al centro del clúster) para determinar la dispersión del clúster.   
 

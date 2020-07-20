@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 2/10/2020
-ms.openlocfilehash: 39329eb9ea2c396f8b5f04287f3e933bb6242f85
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 07/09/2020
+ms.openlocfilehash: a4624d16f29834e8948a7bbc7ef882041727a823
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983013"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171880"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -239,7 +239,7 @@ Dado que cada instancia está aislada en su propia red virtual, se debe permitir
 
 ### <a name="creating-a-failover-group-between-managed-instances-in-different-subscriptions"></a>Creación de un grupo de conmutación por error entre instancias administradas en distintas suscripciones
 
-Puede crear un grupo de conmutación por error entre instancias administradas de SQL en dos suscripciones diferentes. Al usar PowerShell API, puede hacerlo especificando el parámetro `PartnerSubscriptionId` de la Instancia administrada de SQL secundaria. Al usar la API REST, cada identificador de instancia incluido en el parámetro `properties.managedInstancePairs` puede tener su propio subscriptionID.
+Puede crear un grupo de conmutación por error entre instancias de SQL Managed Instance en dos suscripciones diferentes, siempre que las suscripciones estén asociadas al mismo [inquilino de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Al usar la API de PowerShell, puede hacerlo especificando el parámetro `PartnerSubscriptionId` de la instancia secundaria de SQL Managed Instance. Al usar la API REST, cada identificador de instancia incluido en el parámetro `properties.managedInstancePairs` puede tener su propio subscriptionID.
   
 > [!IMPORTANT]
 > Azure Portal no admite la creación de grupos de conmutación por error en distintas suscripciones. Además, para los grupos de conmutación por error existentes en distintas suscripciones o grupos de recursos, no se puede iniciar manualmente la conmutación por error a través del portal desde la Instancia administrada de SQL principal. En su lugar, se inicia desde la instancia de la base de datos geográfica secundaria.

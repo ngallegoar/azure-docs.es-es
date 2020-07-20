@@ -4,12 +4,13 @@ description: Obtenga información acerca de cómo usar Azure Application Insight
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 2aaf52a528f929f183c9bf4565d9f0da4918f146
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 5560d24601b8aef0d8a4058cc2c04e27e9c86362
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757762"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170418"
 ---
 # <a name="monitor-azure-functions"></a>Monitor Azure Functions
 
@@ -138,7 +139,7 @@ El registrador de Azure Functions también incluye un *nivel de registro* con ca
 |------------|---|
 |Seguimiento       | 0 |
 |Depurar       | 1 |
-|Information | 2 |
+|Información | 2 |
 |Advertencia     | 3 |
 |Error       | 4 |
 |Crítico    | 5 |
@@ -245,7 +246,7 @@ Como se indicó en la sección anterior, el tiempo de ejecución agrega datos ac
 
 ## <a name="configure-sampling"></a>Configurar el muestreo
 
-Application Insights tiene una característica de [muestreo](../azure-monitor/app/sampling.md) que le puede ayudar a impedir que se recopilen demasiados datos de telemetría sobre las ejecuciones completadas en los momentos de picos de carga. Cuando tasa de ejecuciones entrantes supera un umbral especificado, Application Insights empieza a omitir aleatoriamente algunas de las ejecuciones entrantes. La configuración predeterminada para el número máximo de ejecuciones por segundo es de 20 (cinco en la versión 1.x). Puede configurar el muestreo en [host.json].  Este es un ejemplo:
+Application Insights tiene una característica de [muestreo](../azure-monitor/app/sampling.md) que le puede ayudar a impedir que se recopilen demasiados datos de telemetría sobre las ejecuciones completadas en los momentos de picos de carga. Cuando tasa de ejecuciones entrantes supera un umbral especificado, Application Insights empieza a omitir aleatoriamente algunas de las ejecuciones entrantes. La configuración predeterminada para el número máximo de ejecuciones por segundo es de 20 (cinco en la versión 1.x). Puede configurar el muestreo en [host.json](https://docs.microsoft.com/azure/azure-functions/functions-host-json#applicationinsights).  Este es un ejemplo:
 
 ### <a name="version-2x-and-later"></a>Versión 2.x y posterior
 
@@ -255,12 +256,15 @@ Application Insights tiene una característica de [muestreo](../azure-monitor/ap
     "applicationInsights": {
       "samplingSettings": {
         "isEnabled": true,
-        "maxTelemetryItemsPerSecond" : 20
+        "maxTelemetryItemsPerSecond" : 20,
+        "excludedTypes": "Request"
       }
     }
   }
 }
 ```
+
+En la versión 2. x, puede excluir determinados tipos de telemetría del muestreo. En el ejemplo anterior, los datos de tipo `Request` se excluyen del muestreo. Esto garantiza el registro de *todas* las ejecuciones de funciones (solicitudes) mientras que otros tipos de telemetría siguen sujetos al muestreo.
 
 ### <a name="version-1x"></a>Versión 1.x 
 
@@ -313,7 +317,7 @@ Esta es una representación de JSON de ejemplo de los datos `customDimensions`:
 
 ```json
 {
-  customDimensions: {
+  "customDimensions": {
     "prop__{OriginalFormat}":"C# Queue trigger function processed: {message}",
     "Category":"Function",
     "LogLevel":"Information",
@@ -682,6 +686,42 @@ Add-AzAccount
 Get-AzSubscription
 Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscription
 Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
+```
+
+## <a name="scale-controller-logs-preview"></a>Registros del controlador de escala (versión preliminar)
+
+Esta característica se encuentra en su versión preliminar. 
+
+El [controlador de escala de Azure Functions](./functions-scale.md#runtime-scaling) supervisa las instancias del host de Azure Functions en el que se ejecuta la aplicación. Este controlador toma decisiones sobre cuándo agregar o quitar instancias en función del rendimiento actual. Puede hacer que el controlador de escala emita registros en Application Insights o en Blob Storage para comprender mejor las decisiones que está tomando el controlador de escala para la aplicación de funciones.
+
+Para habilitar esta característica, agregue una nueva configuración de la aplicación denominada `SCALE_CONTROLLER_LOGGING_ENABLED`. El valor de esta configuración debe tener el formato `<DESTINATION>:<VERBOSITY>`, en función de lo siguiente:
+
+[!INCLUDE [functions-scale-controller-logging](../../includes/functions-scale-controller-logging.md)]
+
+Por ejemplo, el siguiente comando de la CLI de Azure activa el registro detallado del controlador de escala para Application Insights:
+
+```azurecli-interactive
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--settings SCALE_CONTROLLER_LOGGING_ENABLED=AppInsights:Verbose
+```
+
+En este ejemplo, reemplace `<FUNCTION_APP_NAME>` y `<RESOURCE_GROUP_NAME>` por el nombre de la aplicación de funciones y el nombre del grupo de recursos, respectivamente. 
+
+El siguiente comando de la CLI de Azure deshabilita el registro estableciendo el nivel de detalle en `None`:
+
+```azurecli-interactive
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--settings SCALE_CONTROLLER_LOGGING_ENABLED=AppInsights:None
+```
+
+También puede deshabilitar el registro si quita la configuración de `SCALE_CONTROLLER_LOGGING_ENABLED` con el siguiente comando de la CLI de Azure:
+
+```azurecli-interactive
+az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--setting-names SCALE_CONTROLLER_LOGGING_ENABLED
 ```
 
 ## <a name="disable-built-in-logging"></a>Deshabilitar el registro integrado

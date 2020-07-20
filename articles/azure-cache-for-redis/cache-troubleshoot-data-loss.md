@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: ef7824640dcd2b9dbae1d27f385e5334ba9875ff
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: ba0430461df5ce1a2d615b819dbe5e8a36ae52b7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83699231"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184538"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Solución de problemas de pérdida de datos en Azure Cache for Redis
 
@@ -23,7 +23,7 @@ En este artículo se describe cómo diagnosticar pérdidas de datos reales o per
 
 ## <a name="partial-loss-of-keys"></a>Pérdida parcial de claves
 
-Azure Cache for Redis no elimina aleatoriamente las claves una vez que se han almacenado en la memoria. Sin embargo, sí quita las claves en respuesta a las directivas de expiración o expulsión, así como a los comandos de eliminación de claves explícita. Es posible que las claves que se hayan escrito en el nodo maestro en una instancia Premium o Estándar de Azure Cache for Redis tampoco estén disponibles inmediatamente en una réplica. Los datos se replican desde el maestro a la réplica de forma asincrónica y sin bloqueo.
+Azure Cache for Redis no elimina aleatoriamente las claves una vez que se han almacenado en la memoria. Sin embargo, sí quita las claves en respuesta a las directivas de expiración o expulsión, así como a los comandos de eliminación de claves explícita. Es posible que las claves que se hayan escrito en el nodo principal en una instancia Premium o Estándar de Azure Cache for Redis tampoco estén disponibles inmediatamente en una réplica. Los datos se replican desde el principal a la réplica de forma asincrónica y sin bloqueo.
 
 Si observa que las claves han desaparecido de la caché, compruebe las siguientes causas posibles:
 
@@ -80,7 +80,7 @@ cmdstat_hdel:calls=1,usec=47,usec_per_call=47.00
 
 ### <a name="async-replication"></a>Replicación asincrónica
 
-Cualquier instancia de Azure Cache for Redis en el nivel Estándar o Premium se configura con un nodo maestro y al menos una réplica. Los datos se copian desde el maestro a una réplica de forma asincrónica mediante un proceso en segundo plano. En el sitio web [redis.io](https://redis.io/topics/replication) se describe cómo funciona la replicación de datos de Redis en general. En los escenarios en los que los clientes escriben en Redis con frecuencia, se puede producir una pérdida parcial de datos porque no se garantiza que esta replicación será instantánea. Por ejemplo, si el maestro deja de estar disponible *después* de que un cliente escriba una clave en él pero *antes* de que el proceso en segundo plano tenga ocasión de enviar esta clave a la réplica, la clave se perderá cuando la réplica tome el control como nuevo maestro.
+Cualquier instancia de Azure Cache for Redis en el nivel Estándar o Premium se configura con un nodo principal y al menos una réplica. Los datos se copian desde el principal a una réplica de forma asincrónica mediante un proceso en segundo plano. En el sitio web [redis.io](https://redis.io/topics/replication) se describe cómo funciona la replicación de datos de Redis en general. En los escenarios en los que los clientes escriben en Redis con frecuencia, se puede producir una pérdida parcial de datos porque no se garantiza que esta replicación será instantánea. Por ejemplo, si el principal deja de estar disponible *después* de que un cliente escriba una clave en él pero *antes* de que el proceso en segundo plano tenga ocasión de enviar esta clave a la réplica, la clave se perderá cuando la réplica tome el control como nuevo principal.
 
 ## <a name="major-or-complete-loss-of-keys"></a>Pérdida principal o completa de claves
 
@@ -112,7 +112,7 @@ Redis Cache utiliza la base de datos **db0** de manera predeterminada. Si cambi
 
 Redis es un almacén de datos en memoria. Los datos se mantienen en las máquinas físicas o virtuales que hospedan la caché de Redis. Una instancia de Redis Cache en el nivel Básico se ejecuta en una sola máquina virtual (VM). Si esa máquina virtual deja de estar disponible, se pierden todos los datos que ha almacenado en la caché. 
 
-Las memorias caché de los niveles Estándar y Premium ofrecen una resistencia mucho mayor frente a la pérdida de datos mediante el uso de dos máquinas virtuales en una configuración replicada. Cuando se produce un error en el nodo maestro de dicha caché, el nodo de réplica se encarga de servir los datos automáticamente. Estas máquinas virtuales se encuentran en dominios de errores y actualizaciones independientes para minimizar la posibilidad de que ambas no estén disponibles al mismo tiempo. Aunque, si se produce una interrupción importante del centro de datos, las máquinas virtuales pueden dejar de estar disponibles a la vez. Los datos se perderán en estos casos excepcionales.
+Las memorias caché de los niveles Estándar y Premium ofrecen una resistencia mucho mayor frente a la pérdida de datos mediante el uso de dos máquinas virtuales en una configuración replicada. Cuando se produce un error en el nodo principal de dicha caché, el nodo de réplica se encarga de servir los datos automáticamente. Estas máquinas virtuales se encuentran en dominios de errores y actualizaciones independientes para minimizar la posibilidad de que ambas no estén disponibles al mismo tiempo. Aunque, si se produce una interrupción importante del centro de datos, las máquinas virtuales pueden dejar de estar disponibles a la vez. Los datos se perderán en estos casos excepcionales.
 
 Considere la posibilidad de utilizar [Permanencia de datos de Redis](https://redis.io/topics/persistence) y [replicación geográfica](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-geo-replication) para mejorar la protección de sus datos contra estos fallos de infraestructura.
 

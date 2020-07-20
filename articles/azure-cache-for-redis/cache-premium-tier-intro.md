@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: aadcc13d2397f10ea40f06d1259c86b9a179c38b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 15b4764d32c536698246bddfcca50ffa6ce9b3b5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74121672"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184691"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Introducción a Azure Cache for Redis de nivel Prémium
 Azure Cache for Redis es una memoria caché distribuida y administrada que ayuda a compilar aplicaciones muy útiles y altamente escalables mediante el acceso ultrarrápido a los datos. 
@@ -19,21 +19,21 @@ Azure Cache for Redis es una memoria caché distribuida y administrada que ayuda
 Premium es un nuevo nivel destinado a las empresas que incluye todas las características del nivel Estándar y otras adicionales, como un mejor rendimiento, cargas de trabajo más grandes, recuperación ante desastres, importación/exportación y seguridad mejorada. Siga leyendo para obtener más información acerca de las características adicionales de la memoria caché del nivel Premium.
 
 ## <a name="better-performance-compared-to-standard-or-basic-tier"></a>Mejor rendimiento en comparación con el nivel Estándar o Básico
-**Mejor rendimiento respecto a los niveles Standard o Basic.** Las memorias caché de nivel Premium se implementan en hardware con procesadores más rápidos que ofrece un mejor rendimiento en comparación con el nivel Standard o Basic. Las cachés de nivel Premium tienen un mayor rendimiento y latencias más bajas. 
+**Mejor rendimiento respecto a los niveles Standard o Basic.** Las memorias caché de nivel Premium se implementan en hardware con procesadores más rápidos que ofrece un mejor rendimiento en comparación con el nivel Estándar o Básico. Las cachés de nivel Premium tienen un mayor rendimiento y latencias más bajas. 
 
 **El rendimiento de una memoria caché de nivel Premium es superior al de una memoria caché de nivel Standard del mismo tamaño .** Por ejemplo, el rendimiento de una memoria caché de 53 GB P4 (Premium) es de 250 000 solicitudes por segundo, en comparación con 150 000 para una memoria C6 (Standard).
 
 Para más información sobre el tamaño, la transferencia y el ancho de banda de las memorias caché de nivel Prémium, consulte el artículo [Azure Cache for Redis FAQ](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use) (Preguntas más frecuentes de Azure Cache for Redis).
 
 ## <a name="redis-data-persistence"></a>Persistencia de datos de Redis
-El nivel Premium permite conservar los datos de la memoria caché en una cuenta de Azure Storage. En las memorias caché de nivel Basic o Standard, todos los datos se almacenan únicamente en la memoria. En caso de problemas con la infraestructura subyacente, podría producirse una pérdida de los datos. Se recomienda usar la característica de persistencia de datos de Redis en el nivel Premium para aumentar la resistencia contra la pérdida de datos. Azure Cache for Redis ofrece las opciones RDB y AOF (próximamente) en la [persistencia de Redis](https://redis.io/topics/persistence). 
+El nivel Premium permite conservar los datos de la memoria caché en una cuenta de Azure Storage. En una caché de nivel Básico/Estándar todos los datos se almacenan solo en la memoria. En caso de problemas con la infraestructura subyacente, podría producirse una pérdida de los datos. Se recomienda usar la característica de persistencia de datos de Redis en el nivel Premium para aumentar la resistencia contra la pérdida de datos. Azure Cache for Redis ofrece las opciones RDB y AOF (próximamente) en la [persistencia de Redis](https://redis.io/topics/persistence). 
 
 Para instrucciones sobre cómo configurar la persistencia, consulte [Configuración de la persistencia para Azure Cache for Redis de nivel Prémium](cache-how-to-premium-persistence.md).
 
 ## <a name="redis-cluster"></a>Clúster Redis
 Si desea crear memorias caché de más de 53 GB o particionar los datos entre varios nodos de Redis, puede usar la agrupación en clústeres Redis, disponible en el nivel Premium. Cada nodo consta de un par de cachés principal-réplica administrado por Azure para ofrecer una alta disponibilidad. 
 
-**La agrupación en clústeres de Redis proporciona una escalabilidad y un rendimiento máximos.** El rendimiento aumenta de manera lineal a medida que aumenta el número de particiones (nodos) del clúster. P. ej. Si se crea un clúster P4 de 10 particiones, el rendimiento posible es de 250 000 * 10 = 2,5 millones de solicitudes por segundo. Consulte el artículo [Azure Cache for Redis FAQ](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use) (Preguntas más frecuentes de Azure Cache for Redis) para más detalles sobre el tamaño, rendimiento y ancho de banda de las memorias caché Prémium.
+**La agrupación en clústeres de Redis proporciona una escalabilidad y un rendimiento máximos.** El rendimiento aumenta de manera lineal a medida que aumenta el número de particiones (nodos) del clúster. Por ejemplo, si se crea un clúster P4 de 10 particiones, el rendimiento posible es de 250 000 * 10 = 2,5 millones de solicitudes por segundo. Consulte el artículo [Preguntas más frecuentes de Azure Cache for Redis](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use) para más detalles sobre el tamaño, rendimiento y ancho de banda de las memorias caché Premium.
 
 Para empezar a usar la agrupación en clústeres, consulte [How to configure clustering for a Premium Azure Cache for Redis](cache-how-to-premium-clustering.md) (Configuración de la agrupación en clústeres para Azure Cache for Redis de nivel Prémium).
 
@@ -54,10 +54,10 @@ Para más información, consulte [How to import data into and export data from A
 ## <a name="reboot"></a>Reboot
 El nivel premium permite reiniciar uno o varios nodos de la memoria caché a petición. De este modo, podrá probar la resiliencia de la aplicación en caso de error. Puede reiniciar los siguientes nodos.
 
-* Nodo maestro de la memoria caché
-* Nodo secundario de la caché
-* Nodos principales y secundarios de la caché
-* Cuando se usa una caché premium con agrupación en clústeres, puede reiniciar el nodo principal, el secundario, o ambos nodos, para particiones individuales en la caché.
+* Nodo principal de la caché
+* Nodo réplica de la caché
+* Nodos principal y réplica de la caché
+* Cuando se usa una caché premium con agrupación en clústeres, puede reiniciar el nodo principal o el réplica (o ambos) para particiones individuales en la caché.
 
 Para más información, consulte [Reboot](cache-administration.md#reboot) y [Preguntas más frecuentes sobre el reinicio](cache-administration.md#reboot-faq).
 
@@ -67,7 +67,7 @@ Para más información, consulte [Reboot](cache-administration.md#reboot) y [Pre
 >
 
 ## <a name="schedule-updates"></a>Programar actualizaciones
-La característica de actualizaciones programadas permite designar una ventana de mantenimiento para la memoria caché. Cuando se especifica la ventana de mantenimiento, las actualizaciones del servidor Redis se realizan en ese período. Para designar una ventana de mantenimiento, seleccione los días deseados y especifique la hora de inicio de la ventana de mantenimiento para cada día. Tenga en cuenta que la hora del período de mantenimiento está en formato UTC. 
+La característica de actualizaciones programadas permite designar una ventana de mantenimiento para la memoria caché. Cuando se especifica la ventana de mantenimiento, las actualizaciones del servidor Redis se realizan en ese período. Para designar una ventana de mantenimiento, seleccione los días deseados y especifique la hora de inicio de la ventana de mantenimiento para cada día. La hora del período de mantenimiento está en formato UTC. 
 
 Para más información, consulte [Programación de actualizaciones](cache-administration.md#schedule-updates) y [Preguntas más frecuentes sobre la programación de actualizaciones](cache-administration.md#schedule-updates-faq).
 
@@ -84,7 +84,7 @@ Para más información, consulte [Configuración de replicación geográfica par
 
 
 ## <a name="to-scale-to-the-premium-tier"></a>Para escalar al nivel premium
-Para escalar al nivel premium, basta con elegir uno de los niveles premium en la hoja **Cambiar el plan de tarifa** . También puede escalar la memoria caché al nivel premium con PowerShell y la CLI. Para instrucciones detalladas acerca del escalado, consulte [How to Scale Azure Cache for Redis](cache-how-to-scale.md) (Escalado de Azure Cache for Redis) y [How to automate a scaling operation](cache-how-to-scale.md#how-to-automate-a-scaling-operation) (Automatización de una operación de escalado).
+Para escalar al nivel Premium, elija uno de los niveles Premium en la hoja **Cambiar el plan de tarifa**. También puede escalar la memoria caché al nivel premium con PowerShell y la CLI. Para instrucciones detalladas acerca del escalado, consulte [How to Scale Azure Cache for Redis](cache-how-to-scale.md) (Escalado de Azure Cache for Redis) y [How to automate a scaling operation](cache-how-to-scale.md#how-to-automate-a-scaling-operation) (Automatización de una operación de escalado).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Cree una memoria caché y explore las nuevas características del nivel Premium.

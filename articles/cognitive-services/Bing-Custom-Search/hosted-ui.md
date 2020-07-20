@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 2cc89bf57167db75404c044f58d18ab48edfaf38
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7ec407b7f6baf56f0a2fe724089826d8f9303b85
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "68854077"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186850"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configure su experiencia de interfaz de usuario hospedada.
 
@@ -35,12 +35,10 @@ Para configurar una interfaz de usuario hospedada para las aplicaciones web, sig
   
 4. Seleccione un diseño.
 
-    |  |  |
-    |---------|---------|
-    |Barra de búsqueda y resultados (valor predeterminado)    | Muestra un cuadro de búsqueda con los resultados de búsqueda debajo de él.         |
-    |Solo los resultados     | Muestra solo los resultados de búsqueda sin un cuadro de búsqueda. Al utilizar este diseño, debe proporcionar la consulta de búsqueda (`&q=<query string>`). Agregue el parámetro de consulta a la dirección URL de solicitud en el fragmento de código de JavaScript o el vínculo de punto de conexión HTML.        |
-    |Ventana emergente     | Proporciona un cuadro de búsqueda y muestra los resultados de búsqueda en una superposición deslizante.        |
-    
+    - Barra de búsqueda y resultados (valor predeterminado): Muestra un cuadro de búsqueda con los resultados de búsqueda debajo de él.
+    - Solo los resultados: Muestra solo los resultados de búsqueda sin un cuadro de búsqueda. Al utilizar este diseño, debe proporcionar la consulta de búsqueda (`&q=<query string>`). Agregue el parámetro de consulta a la dirección URL de solicitud en el fragmento de código de JavaScript o el vínculo de punto de conexión HTML.
+    - Ventana emergente: Proporciona un cuadro de búsqueda y muestra los resultados de búsqueda en una superposición deslizante.
+
 5. Seleccione un tema de color. Puede personalizar los colores para ajustarse a la aplicación haciendo clic en **Personalizar tema**. Para cambiar un color, escriba el valor HEXADECIMAL RGB del color (por ejemplo, `#366eb8`) o haga clic en la vista previa del color.
 
    Puede obtener una vista previa de los cambios en el lado derecho del portal. Al hacer clic en **Restablecer valores predeterminados**, se revertirán los cambios para volver a los colores predeterminados del tema seleccionado.
@@ -96,55 +94,38 @@ Para configurar el comportamiento de la interfaz de usuario hospedada, haga clic
 
 ### <a name="web-search-configurations"></a>Configuraciones de búsqueda web
 
-|  |  |
-|---------|---------|
-|Resultados web habilitados    | Determina si está habilitada la búsqueda web (verá una pestaña Web en la parte superior de la página).        |
-|Habilitar las sugerencias automáticas     | Determina si están habilitadas las sugerencias automáticas personalizadas (consulte [precios](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) para conocer los posibles costos adicionales).        |
-|Resultados web por página    | Número de resultados de la búsqueda web para mostrar a la vez (el máximo son 50 resultados por página).        |
-|Leyenda de imagen   | Determina si las imágenes se muestran con resultados de búsqueda.|
-
+- Resultados web habilitados: Determina si está habilitada la búsqueda web (verá una pestaña Web en la parte superior de la página).
+- Habilitar las sugerencias automáticas: Determina si están habilitadas las sugerencias automáticas personalizadas (consulte [precios](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) para conocer los posibles costos adicionales).
+- Resultados web por página: Número de resultados de la búsqueda web para mostrar a la vez (el máximo son 50 resultados por página).
+- Leyenda de imagen: Determina si las imágenes se muestran con resultados de búsqueda.
 
 Las configuraciones siguientes se mostrarán si hace clic en **Mostrar configuraciones avanzadas**:
 
-
-|  | |
-|---------|---------|
-|Resaltar palabras     | Determina si se muestran los resultados con los términos de búsqueda en negrita.         |
-|Destino del vínculo    |  Determina si la página web se abre en una nueva pestaña del explorador (en blanco) o en la misma pestaña del explorador (suya propia) cuando el usuario hace clic en un resultado de búsqueda.        |
+- Resaltar palabras: Determina si se muestran los resultados con los términos de búsqueda en negrita.
+- Destino del vínculo: Determina si la página web se abre en una nueva pestaña del explorador (en blanco) o en la misma pestaña del explorador (suya propia) cuando el usuario hace clic en un resultado de búsqueda.
 
 ### <a name="image-search-configurations"></a>Configuraciones de búsqueda de imágenes
 
-| | |
-|---------|---------|
-|Resultados de imagen habilitados     | Determina si está habilitada la búsqueda de imágenes (verá una pestaña Imágenes en la parte superior de la página).            |
-|Resultados de imágenes por página     | Número de resultados de la búsqueda de imágenes para mostrar a la vez (el máximo son 150 resultados por página).          |
+- Resultados de imagen habilitados: Determina si está habilitada la búsqueda de imágenes (verá una pestaña Imágenes en la parte superior de la página).
+- Resultados de imágenes por página: Número de resultados de la búsqueda de imágenes para mostrar a la vez (el máximo son 150 resultados por página).
 
 La configuración siguiente se mostrará si hace clic en **Mostrar configuraciones avanzadas**.  
   
-| | |
-|---------|---------|
-| Habilitar filtros     | Agrega filtros que el usuario puede utilizar para filtrar las imágenes que devuelve Bing. Por ejemplo, el usuario puede filtrar los resultados para que aparezcan solo GIF animados.|
+- Habilitar filtros: Agrega filtros que el usuario puede utilizar para filtrar las imágenes que devuelve Bing. Por ejemplo, el usuario puede filtrar los resultados para que aparezcan solo GIF animados.
 
 ### <a name="video-search-configurations"></a>Configuraciones de búsqueda de vídeos
 
-|  | |
-|---------|---------|
-|Resultados de vídeo habilitados     | Determina si está habilitada la búsqueda de vídeos (verá una pestaña Vídeos en la parte superior de la página).           |
-|Resultados de vídeo por página   | Número de resultados de la búsqueda de vídeos para mostrar a la vez (el máximo son 150 resultados por página).        |
+- Resultados de vídeo habilitados: Determina si está habilitada la búsqueda de vídeos (verá una pestaña Vídeos en la parte superior de la página).
+- Resultados de vídeo por página: Número de resultados de la búsqueda de vídeos para mostrar a la vez (el máximo son 150 resultados por página).
 
 La configuración siguiente se mostrará si hace clic en **Mostrar configuraciones avanzadas**.  
   
-|  | |
-|---------|---------|
-|Habilitar filtros    | Agrega filtros que el usuario puede utilizar para filtrar los vídeos que devuelve Bing. Por ejemplo, el usuario puede filtrar los resultados de vídeos con una resolución específica o vídeos detectados en las últimas 24 horas.          |
+- Habilitar filtros: Agrega filtros que el usuario puede utilizar para filtrar los vídeos que devuelve Bing. Por ejemplo, el usuario puede filtrar los resultados de vídeos con una resolución específica o vídeos detectados en las últimas 24 horas.
 
 ### <a name="miscellaneous-configurations"></a>Configuraciones diversas
 
-
-| |  |
-|---------|---------|
-|Título de la página   | El texto mostrado en el área de título de la página de resultados de búsqueda (no para el diseño de ventana emergente).        |
-|Tema de la barra de herramientas    | Determina el color de fondo del área de título de la página de resultados de la búsqueda. |
+- Título de la página: El texto mostrado en el área de título de la página de resultados de búsqueda (no para el diseño de ventana emergente).
+- Tema de la barra de herramientas: Determina el color de fondo del área de título de la página de resultados de la búsqueda.
 
 Las configuraciones siguientes se mostrarán si hace clic en **Mostrar configuraciones avanzadas**.  
 

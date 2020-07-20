@@ -4,12 +4,12 @@ description: Aprenda a controlar eventos externos en la extensión Durable Funct
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 0877161f8d668141c8efb7c06b10643bf209341f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 387b5d920de4a295366cc7e948862a12cea901d3
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76262969"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165556"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Control de eventos externos con Durable Functions (Azure Functions)
 
@@ -20,7 +20,7 @@ Las funciones de orquestador tienen la capacidad de esperar y escuchar eventos e
 
 ## <a name="wait-for-events"></a>Espera de eventos
 
-Los métodos `WaitForExternalEvent` (.NET) y `waitForExternalEvent` (JavaScript) del [enlace de desencadenador de orquestación ](durable-functions-bindings.md#orchestration-trigger) permiten que una función de orquestador espere y escuche un evento externo de forma asincrónica. La función de orquestador de escucha declara el *nombre* del evento y la *forma de los datos* que espera recibir.
+Los métodos [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.NET) y `waitForExternalEvent` (JavaScript) del [enlace de desencadenador de orquestación](durable-functions-bindings.md#orchestration-trigger) permiten que una función de orquestador espere y escuche un evento externo de manera asincrónica. La función de orquestador de escucha declara el *nombre* del evento y la *forma de los datos* que espera recibir.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -173,7 +173,14 @@ module.exports = df.orchestrator(function*(context) {
 
 ## <a name="send-events"></a>Envío de eventos
 
-Los métodos `RaiseEventAsync` (.NET) o `raiseEvent` (JavaScript) del [enlace del cliente de orquestación](durable-functions-bindings.md#orchestration-client) envían los eventos que `WaitForExternalEvent` (.NET) o `waitForExternalEvent` (JavaScript) esperan.  El método `RaiseEventAsync` toma *eventName* y *eventData* como parámetros. Los datos del evento deben poderse serializar con JSON.
+Puede usar los métodos [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) (.NET) o `raiseEventAsync` (JavaScript) para enviar un evento externo a una orquestación. Estos métodos los expone el enlace del [cliente de orquestación](durable-functions-bindings.md#orchestration-client). También puede usar la [API de HTTP de generación de evento](durable-functions-http-api.md#raise-event) integrada para enviar un evento externo a una orquestación.
+
+Un evento generado incluye valores de *instance ID*, *eventName* y *eventData* como parámetros. Las funciones de Orchestrator controlan estos eventos con las API `WaitForExternalEvent` (.NET) o `waitForExternalEvent` (JavaScript). El valor de *eventName* debe coincidir con los extremos de envío y recepción para que se procese el evento. Los datos del evento también se deben poder serializar con JSON.
+
+De manera interna, los mecanismos de "generación de eventos" ponen en cola un mensaje que recoge la función de orquestador en espera. Si la instancia no está esperando el *nombre de evento* especificado, el mensaje del evento se agrega a una cola en memoria. Si la instancia de orquestación inicia posteriormente la escucha de ese *nombre de evento*, se comprobará si hay mensajes de eventos en la cola.
+
+> [!NOTE]
+> Si no hay ninguna instancia de orquestación con el *identificador de instancia* especificado, se descartará el mensaje del evento.
 
 A continuación se muestra una función desencadenada por la cola de ejemplo que envía un evento de aprobación a una instancia de la función de orquestador. El identificador de la instancia de orquestación procede del cuerpo del mensaje de la cola.
 
@@ -209,6 +216,19 @@ Internamente, `RaiseEventAsync` (.NET) o `raiseEvent` (JavaScript) pone en cola 
 
 > [!NOTE]
 > Si no hay ninguna instancia de orquestación con el *identificador de instancia* especificado, se descartará el mensaje del evento.
+
+### <a name="http"></a>HTTP
+
+A continuación, se muestra una solicitud HTTP que genera un evento de "Aprobación" para una instancia de orquestación. 
+
+```http
+POST /runtime/webhooks/durabletask/instances/MyInstanceId/raiseEvent/Approval&code=XXX
+Content-Type: application/json
+
+"true"
+```
+
+En este caso, el id. de la instancia está codificado de forma rígida como *MyInstanceId*.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

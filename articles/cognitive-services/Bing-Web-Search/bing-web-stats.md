@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 5d1b0b19523eb37aa83aa59b24114be9f76ffa55
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad2ac118908f1c1f77ea204ae2400913ac0807cb
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "68882769"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147409"
 ---
 # <a name="add-analytics-to-the-bing-search-apis"></a>Incorporación de análisis a Bing Search APIs
 
 Estadísticas de Bing proporcionan análisis para Bing Search APIs. Este análisis incluye el volumen de llamadas, las cadenas de consulta principales, la distribución geográfica y mucho más. Para habilitar Estadísticas de Bing en [Azure Portal](https://ms.portal.azure.com), vaya a su recurso de Azure y haga clic en **Enable Bing Statistics** (Habilitar estadísticas de Bing).
 
 > [!IMPORTANT]
-> * Estadísticas de Bing no está disponible con suscripciones de evaluación gratuita ni con recursos en el plan de tarifa gratuito `F0`.
+> * Estadísticas de Bing no están disponibles con los recursos en el plan de tarifa `F0` gratis.
 > * No se puede usar ningún dato disponible a través del panel de Estadísticas de Bing para crear aplicaciones y distribuirlas a terceros.
 > * Si habilita Estadísticas de Bing, la tasa de suscripción se incrementa ligeramente. Consulte [Precios](https://aka.ms/bingstatisticspricing) para obtener detalles.
 
@@ -53,7 +53,7 @@ De manera predeterminada, los diagramas y gráficos muestran todas las métricas
 - **Período de tiempo**: período de notificación. Puede especificar:
   - **Todos**: Incluye datos de hasta 13 meses.  
   - **Últimas 24 horas**: Incluye el análisis de las últimas 24 horas.  
-  - **Última semana**: Incluye el análisis de los siete días anteriores.  
+  - **Última semana**: Incluye el análisis de los 7 días anteriores.  
   - **Último mes**: Incluye el análisis de los 30 días anteriores.  
   - **Un intervalo de fechas personalizado**: Incluye el análisis del intervalo de fechas especificado, si está disponible.  
 

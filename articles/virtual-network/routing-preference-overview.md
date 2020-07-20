@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: ba01b89b54dc7209449490059555f531f7616720
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 171ae04a70f3639981e74d20d260a03359a0f2c8
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193369"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187445"
 ---
 # <a name="what-is-routing-preference-preview"></a>¿Qué es la preferencia de enrutamiento (versión preliminar)?
 
@@ -88,7 +88,7 @@ La diferencia de precio entre ambas opciones se refleja en los precios de transf
 
 La compatibilidad con preferencias de enrutamiento está disponible en las siguientes regiones para servicios como la máquina virtual y el equilibrador de carga accesible desde Internet que usan una dirección IP pública para la salida de Internet: Europa del Norte, Europa Occidental, Sur de Francia, Sur de Reino Unido, Este de EE. UU., Centro-norte de EE. UU., Centro-sur de EE. UU., Oeste de EE. UU., Centro-oeste de EE. UU., Sudeste Asiático, Centro-oeste de Alemania, Oeste de Suiza, Este de Japón y Oeste de Japón.
 
-La compatibilidad con preferencias de enrutamiento para la cuenta de almacenamiento está disponible en las siguientes regiones de Azure: Sur de Francia, Centro-norte de EE. UU., Centro-oeste de EE. UU., Este de Japón, Oeste de Japón, Centro-oeste de Alemania y Oeste de Suiza.
+La compatibilidad con preferencias de enrutamiento para la cuenta de almacenamiento está disponible en las siguientes regiones de Azure: Centro-norte de EE. UU., Centro-oeste de EE. UU., Centro-sur de EE. UU., Este de EE. UU., Oeste de EE. UU., Norte de Europa, Sur de Francia, Centro-oeste de Alemania, Oeste de Suiza, Sudeste de Asia,Japón Oriental y Japón Occidental.
 ## <a name="limitations"></a>Limitaciones
 
 * La preferencia de enrutamiento solo es compatible con la SKU estándar de la dirección IP pública. No se admite la SKU básica de la dirección IP pública.

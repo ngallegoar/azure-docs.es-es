@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
-ms.openlocfilehash: ab6ee597cfdc5d169bd33b77a061880b19e134b6
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 7be1c350af6c9bb84669b45a9bc8a1d9dd808133
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84302297"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165641"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Solución de problemas de alertas de registro en Azure Monitor  
 
@@ -183,9 +183,10 @@ Cada regla de alertas de registro creada en Azure Monitor como parte de su confi
 - No ha habido ningún flujo de datos para la plataforma de Analytics. El [ejecución de la consulta produce un error](https://dev.loganalytics.io/documentation/Using-the-API/Errors) porque no hay ningún dato para la consulta proporcionada.
 - Los cambios en el [lenguaje de consulta](https://docs.microsoft.com/azure/kusto/query/) incluyen un formato revisado para comandos y funciones. Por lo tanto, la consulta proporcionada anteriormente en una regla de alertas ya no es válida.
 
-[Azure Advisor](../../advisor/advisor-overview.md) le advierte acerca de este comportamiento. Se agregó una recomendación para la regla de alertas de registro específica en Azure Advisor, bajo la categoría de alta disponibilidad con un impacto medio y una descripción similar a "Reparar la regla de alertas de registro para garantizar la supervisión". Si una consulta de alerta de la regla de alertas de registro no se rectifica después de que Azure Advisor proporcione una recomendación durante siete días, Azure Monitor deshabilitará la alerta de registro y se asegurará de que no le facturen innecesariamente cuando la regla no pueda ejecutarse continuamente durante un período cuantificable (por ejemplo, una semana).
+[Azure Advisor](../../advisor/advisor-overview.md) le advierte acerca de este comportamiento. Se agregó una recomendación para la regla de alertas de registro específica en Azure Advisor, bajo la categoría de alta disponibilidad con un impacto medio y una descripción similar a "Reparar la regla de alertas de registro para garantizar la supervisión".
 
-Para averiguar la hora exacta en que Azure Monitor deshabilitó la regla de alertas de registro, puede buscar un evento en el [registro de actividad de Azure](../../azure-resource-manager/management/view-activity-logs.md).
+> [!NOTE]
+> Si una consulta de alerta de la regla de alertas de registro no se rectifica después de que Azure Advisor proporcione una recomendación durante siete días, Azure Monitor deshabilitará la alerta de registro y se asegurará de que no le facturen innecesariamente cuando la regla no pueda ejecutarse continuamente durante un período cuantificable (siete días). Para averiguar la hora exacta en que Azure Monitor deshabilitó la regla de alertas de registro, puede buscar un evento en el [registro de actividad de Azure](../../azure-resource-manager/management/view-activity-logs.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

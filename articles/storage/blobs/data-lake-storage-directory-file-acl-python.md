@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: tracking-python
-ms.openlocfilehash: f5ff33d021f27f2c5dfb86ca87f2579602f0d1cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07708de1326e0aba6485b2cf1fb0610d9710cdf7
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559152"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142473"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Uso de Python para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2
 
@@ -22,7 +22,7 @@ En este artículo se muestra cómo usar Python para crear y administrar director
 
 [Paquete (índice de paquetes de Python)](https://pypi.org/project/azure-storage-file-datalake/) | [Muestras](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples) | [Referencia de API](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0/azure.storage.filedatalake.html) | [Asignación de Gen1 a Gen2](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [Envíenos sus comentarios](https://github.com/Azure/azure-sdk-for-python/issues)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 > [!div class="checklist"]
 > * Suscripción a Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
@@ -94,11 +94,11 @@ def initialize_storage_account_ad(storage_account_name, client_id, client_secret
 > [!NOTE]
 > Para ver más ejemplos, consulte la documentación de la [biblioteca cliente de identidad de Azure para Python](https://pypi.org/project/azure-identity/).
 
-## <a name="create-a-file-system"></a>Creación de un sistema de archivos
+## <a name="create-a-container"></a>Crear un contenedor
 
-Un sistema de archivos actúa como contenedor de los archivos. Puede crear uno llamando al método **FileSystemDataLakeServiceClient.create_file_system**.
+Un contenedor actúa como sistema de archivos para sus archivos. Puede crear uno llamando al método **FileSystemDataLakeServiceClient.create_file_system**.
 
-En este ejemplo se crea un sistema de archivos llamado `my-file-system`.
+En este ejemplo se crea un contenedor denominado `my-file-system`.
 
 ```python
 def create_file_system():
@@ -116,7 +116,7 @@ def create_file_system():
 
 Cree una referencia de directorio llamando al método **FileSystemClient.create_directory**.
 
-En este ejemplo se agrega un directorio denominado `my-directory` a un sistema de archivos. 
+En este ejemplo se agrega un directorio denominado `my-directory` a un contenedor. 
 
 ```python
 def create_directory():

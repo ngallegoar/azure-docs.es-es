@@ -4,15 +4,15 @@ description: Lista de métricas disponibles para cada tipo de recurso con Azure 
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 04/06/2020
+ms.date: 06/16/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 3d7ab9d4e7a7c560fa05bdc06c7d1c357a2c2767
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: ffdfeacad2fcfa7f77f3bcb55e8b1edaea865202
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196625"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145169"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 
@@ -2013,9 +2013,9 @@ Existen algunas limitaciones en cuanto al contenido que se puede enrutar y al fo
 |cache_used_percent|Porcentaje de caché usada|Percent|Máxima|Porcentaje de caché usada. Solo se aplica a los almacenes de datos.|None|
 |sqlserver_process_core_percent<sup>1</sup> |Porcentaje de núcleos de proceso de SQL Server|Percent|Máxima|Porcentaje de uso de la CPU para el proceso de SQL Server, medido por el sistema operativo.|None|
 |sqlserver_process_memory_percent<sup>1</sup> |Porcentaje de memoria de proceso de SQL Server|Percent|Máxima|Porcentaje de uso de la memoria para el proceso de SQL Server, medido por el sistema operativo.|None|
-|tempdb_data_size<sup>2</sup> |Kilobytes de tamaño de archivo de datos Tempdb|Count|Máxima|Kilobytes de tamaño de archivo de datos Tempdb.|None|
-|tempdb_log_size<sup>2</sup> |Kilobytes de tamaño de archivo de registro Tempdb|Count|Máxima|Kilobytes de tamaño de archivo de registro Tempdb.|None|
-|tempdb_log_used_percent<sup>2</sup> |Porcentaje de registro de tempdb usado|Percent|Máxima|Porcentaje de registro de tempdb usado.|None|
+|tempdb_data_size<sup>1</sup> |Kilobytes de tamaño de archivo de datos Tempdb|Count|Máxima|Kilobytes de tamaño de archivo de datos Tempdb.|None|
+|tempdb_log_size<sup>1</sup> |Kilobytes de tamaño de archivo de registro Tempdb|Count|Máxima|Kilobytes de tamaño de archivo de registro Tempdb.|None|
+|tempdb_log_used_percent<sup>1</sup> |Porcentaje de registro de tempdb usado|Percent|Máxima|Porcentaje de registro de tempdb usado.|None|
 |local_tempdb_usage_percent|Porcentaje de tempdb local|Percent|Average|Porcentaje de tempdb local. Solo se aplica a los almacenes de datos.|None|
 |app_cpu_billed|CPU de aplicación facturada|Count|Total|CPU de aplicación facturada. Se aplica a las bases de datos sin servidor.|None|
 |app_cpu_percent|Porcentaje de CPU de la aplicación|Percent|Average|Porcentaje de CPU de la aplicación. Se aplica a las bases de datos sin servidor.|None|
@@ -2040,9 +2040,7 @@ Existen algunas limitaciones en cuanto al contenido que se puede enrutar y al fo
 |snapshot_backup_size_bytes|Tamaño de almacenamiento de copia de seguridad de instantánea|Bytes|Máxima|Tamaño de almacenamiento de copia de seguridad de instantánea acumulativa. Se aplica a las bases de datos de hiperescala.|None|
 |base_blob_size_bytes|Tamaño de almacenamiento de blobs de base|Bytes|Máxima|Tamaño de almacenamiento de blobs de base. Se aplica a las bases de datos de hiperescala.|None|
 
-<sup>1</sup> Esta métrica está disponible para las bases de datos que usan el modelo de compra de núcleos virtuales con 2 núcleos virtuales, o más, o 200 DTU, o más, para los modelos de compra basados en DTU. 
-
-<sup>2</sup> Esta métrica está disponible para las bases de datos que usan el modelo de compra de núcleos virtuales con 2 núcleos virtuales, o más, o 200 DTU, o más, para los modelos de compra basados en DTU. Esta métrica no está disponible actualmente para bases de datos de hiperescala o almacenamientos de datos.
+<sup>1</sup> Esta métrica está disponible para las bases de datos que usan el modelo de compra de núcleos virtuales con 2 núcleos virtuales, o más, o 200 DTU, o más, para el modelo de compra basado en DTU. 
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
@@ -2074,27 +2072,14 @@ Existen algunas limitaciones en cuanto al contenido que se puede enrutar y al fo
 |database_eDTU_used|CPU utilizada|Count|Average|CPU utilizada|DatabaseResourceId|
 |sqlserver_process_core_percent<sup>1</sup>|Porcentaje de núcleos de proceso de SQL Server|Percent|Máxima|Porcentaje de uso de la CPU para el proceso de SQL Server, medido por el sistema operativo. Se aplica a los grupos elásticos. |None|
 |sqlserver_process_memory_percent<sup>1</sup>|Porcentaje de memoria de proceso de SQL Server|Percent|Máxima|Porcentaje de uso de la memoria para el proceso de SQL Server, medido por el sistema operativo. Se aplica a los grupos elásticos. |None|
-|tempdb_data_size<sup>2</sup>|Kilobytes de tamaño de archivo de datos Tempdb|Count|Máxima|Kilobytes de tamaño de archivo de datos Tempdb.|None|
-|tempdb_log_size<sup>2</sup>|Kilobytes de tamaño de archivo de registro Tempdb|Count|Máxima|Kilobytes de tamaño de archivo de registro Tempdb. |None|
-|tempdb_log_used_percent<sup>2</sup>|Porcentaje de registro de tempdb usado|Percent|Máxima|Porcentaje de registro de tempdb usado.|None|
+|tempdb_data_size<sup>1</sup>|Kilobytes de tamaño de archivo de datos Tempdb|Count|Máxima|Kilobytes de tamaño de archivo de datos Tempdb.|None|
+|tempdb_log_size<sup>1</sup>|Kilobytes de tamaño de archivo de registro Tempdb|Count|Máxima|Kilobytes de tamaño de archivo de registro Tempdb. |None|
+|tempdb_log_used_percent<sup>1</sup>|Porcentaje de registro de tempdb usado|Percent|Máxima|Porcentaje de registro de tempdb usado.|None|
 |allocated_data_storage|Espacio de datos asignado|Bytes|Average|Espacio de datos asignado|None|
 |database_allocated_data_storage|Espacio de datos asignado|Bytes|Average|Espacio de datos asignado|DatabaseResourceId|
 |allocated_data_storage_percent|Porcentaje asignado de espacio de datos|Percent|Máxima|Porcentaje asignado de espacio de datos|None|
 
-<sup>1</sup> Esta métrica está disponible para las bases de datos que usan el modelo de compra de núcleos virtuales con 2 núcleos virtuales, o más, o 200 DTU, o más, para los modelos de compra basados en DTU. 
-
-<sup>2</sup> Esta métrica está disponible para las bases de datos que usan el modelo de compra de núcleos virtuales con 2 núcleos virtuales, o más, o 200 DTU, o más, para los modelos de compra basados en DTU. Esta métrica no está disponible actualmente para bases de datos de Hiperescala.
-
-
-## <a name="microsoftsqlservers"></a>Microsoft.Sql/servers
-
-|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
-|---|---|---|---|---|---|
-|dtu_consumption_percent|Porcentaje de DTU|Percent|Average|Porcentaje de DTU|ElasticPoolResourceId|
-|database_dtu_consumption_percent|Porcentaje de DTU|Percent|Average|Porcentaje de DTU|DatabaseResourceId,ElasticPoolResourceId|
-|storage_used|Espacio de datos usado|Bytes|Average|Espacio de datos usado|ElasticPoolResourceId|
-|database_storage_used|Espacio de datos usado|Bytes|Average|Espacio de datos usado|DatabaseResourceId,ElasticPoolResourceId|
-|dtu_used|DTU utilizada|Count|Average|DTU utilizada|DatabaseResourceId|
+<sup>1</sup> Esta métrica está disponible para las bases de datos que usan el modelo de compra de núcleos virtuales con 2 núcleos virtuales, o más, o 200 DTU, o más, para el modelo de compra basado en DTU. 
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
 

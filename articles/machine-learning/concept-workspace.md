@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 12/27/2019
-ms.openlocfilehash: 03bc49c24e3c2d32e97f3e5e03bd39da63428a6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 07/08/2020
+ms.openlocfilehash: 415c624153971e88afac3b18920a3ba3a8f2cfae
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77505576"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147039"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>¿Qué es un área de trabajo de Azure Machine Learning?
 
@@ -53,6 +53,7 @@ Puede interactuar con el área de trabajo de las siguientes formas:
 + En cualquier entorno de Python con el [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + En cualquier entorno de R con el [SDK de Azure Machine Learning para R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + En la línea de comandos con la [extensión de la CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) de Azure Machine Learning
++ [Extensión Azure Machine Learning para VS Code](how-to-manage-resources-vscode.md#workspaces)
 
 ## <a name="machine-learning-with-a-workspace"></a>Aprendizaje automático con un área de trabajo
 
@@ -70,13 +71,13 @@ Las tareas de aprendizaje automático leen o escriben artefactos en el área de 
 
 También puede realizar las siguientes tareas de administración de áreas de trabajo:
 
-| Tarea de administración de áreas de trabajo   | Portal              | Estudio | SDK para Python/SDK para R       | CLI        |
-|---------------------------|---------|---------|------------|------------|
-| Crear un área de trabajo        | **&check;**     | | **&check;** | **&check;** |
-| Administración del acceso al área de trabajo    | **&check;**   || |  **&check;**    |
-| Actualización a Enterprise Edition    | **&check;** | **&check;**  | |     |
-| Creación y administración de recursos de proceso    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
-| Creación de una máquina virtual de Notebook |   | **&check;** | |     |
+| Tarea de administración de áreas de trabajo   | Portal              | Estudio | SDK para Python/SDK para R       | CLI        | Código de VS
+|---------------------------|---------|---------|------------|------------|------------|
+| Crear un área de trabajo        | **&check;**     | | **&check;** | **&check;** | **&check;** |
+| Administración del acceso al área de trabajo    | **&check;**   || |  **&check;**    ||
+| Actualización a Enterprise Edition    | **&check;** | **&check;**  | |     ||
+| Creación y administración de recursos de proceso    | **&check;**   | **&check;** | **&check;** |  **&check;**   ||
+| Creación de una máquina virtual de Notebook |   | **&check;** | |     ||
 
 > [!WARNING]
 > No se admite mover el área de trabajo de Azure Machine Learning a otra suscripción ni mover la suscripción propietaria a un nuevo inquilino. Si lo hace, pueden producirse errores.
@@ -90,7 +91,7 @@ Hay varias maneras de crear un área de trabajo:
 * Use [Azure Portal](how-to-manage-workspace.md) si quiere utilizar una interfaz de apuntar y hacer clic que le guíe por cada paso.
 * Use el [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) si quiere crear un área de trabajo al momento a partir de scripts de Python o cuadernos de Jupyter.
 * Use una [plantilla de Azure Resource Manager](how-to-create-workspace-template.md) o la [CLI de Azure Machine Learning](reference-azure-machine-learning-cli.md) cuando necesite automatizar o personalizar la creación con estándares de seguridad corporativos.
-* Si trabaja en Visual Studio Code, use la [extensión de VS Code](tutorial-setup-vscode-extension.md).
+* Si trabaja en Visual Studio Code, use la [extensión de VS Code](how-to-manage-resources-vscode.md#create-a-workspace).
 
 > [!NOTE]
 > El nombre del área de trabajo no distingue mayúsculas de minúsculas.

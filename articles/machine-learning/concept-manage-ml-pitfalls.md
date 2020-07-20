@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: e1191c01ce3f62f34c351cefd29a5e40aa68bfd3
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 171b355f40939efb31e96a4bf8b2d77e97d19f25
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658400"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147095"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Evitar el sobreajuste y los datos desequilibrados con el aprendizaje automático automatizado
 
@@ -71,15 +71,13 @@ El aprendizaje automático automatizado también implementa **limitaciones de co
 La **validación cruzada (CV)** es el proceso de tomar muchos subconjuntos de los datos de entrenamiento completos y entrenar un modelo en cada subconjunto. La idea es que un modelo podría tener "suerte" y conseguir una gran precisión con un subconjunto, pero al usar muchos subconjuntos el modelo no la alcanzará cada vez. Al realizar la CV, se proporciona un conjunto de datos de exclusión de la validación, se especifican los plegamientos de la CV (número de subconjuntos) y el aprendizaje automático automatizado entrena el modelo y ajusta los hiperparámetros para minimizar el error en el conjunto de validación. Un plegamiento de la CV podría estar sobreajustado, pero si se usan muchos de ellos, se reduce la probabilidad de que el modelo final esté sobreajustado. La contrapartida es que la CV genera tiempos de entrenamiento más largos y, por tanto, un costo mayor, porque en lugar de entrenar un modelo una vez, se entrena una vez por cada *n* subconjuntos de CV. 
 
 > [!NOTE]
-> La validación cruzada no está habilitada de forma predeterminada; se debe configurar en la configuración de aprendizaje automático automatizado. Pero después de configurar la validación cruzada y proporcionar un conjunto de datos de validación, el proceso es automático. Vea 
+> La validación cruzada no está habilitada de forma predeterminada; se debe configurar en la configuración de aprendizaje automático automatizado. Pero después de configurar la validación cruzada y proporcionar un conjunto de datos de validación, el proceso es automático. Más información sobre la [configuración de validación cruzada en ML automatizado](how-to-configure-cross-validation-data-splits.md)
 
 <a name="imbalance"></a>
 
 ## <a name="identify-models-with-imbalanced-data"></a>Identificación de modelos con datos no equilibrados
 
 Los datos no equilibrados suelen encontrarse en los datos de escenarios de clasificación de aprendizaje automático y hacen referencia a los datos que contienen una relación desproporcionada de observaciones en cada clase. Este desequilibrio puede dar lugar a un efecto positivo percibido de manera falsa de la precisión de un modelo, ya que los datos de entrada tienen un sesgo hacia una clase, lo que da lugar a que el modelo entrenado imite ese sesgo. 
-
-Como la precisión de los algoritmos de clasificación se evalúa de forma habitual, comprobar la puntuación de precisión de un modelo es una buena manera de identificar si se ha visto afectada por datos no equilibrados. ¿Ha tenido una precisión realmente alta o realmente baja para ciertas clases?
 
 Además, las ejecuciones de ML automatizado generan automáticamente los gráficos siguientes, que pueden ayudar a entender la corrección de las clasificaciones del modelo e identificar los modelos potencialmente afectados por los datos no equilibrados.
 
@@ -91,17 +89,19 @@ Gráfico| Descripción
 
 ## <a name="handle-imbalanced-data"></a>Manejo de datos no equilibrados 
 
-Como parte de su objetivo de simplificar el flujo de trabajo de aprendizaje automático, el ML automatizado tiene funcionalidades integradas que ayudan a tratar con datos no equilibrados como, por ejemplo: 
+Como parte de su objetivo de simplificar el flujo de trabajo de aprendizaje automático, el **ML automatizado tiene funcionalidades integradas** que ayudan a tratar con datos no equilibrados como, por ejemplo: 
 
-- Una **columna de peso**: el ML automatizado admite una columna de peso como entrada, lo que provoca que las filas de los datos se puedan subir o bajar, lo que hace que una clase sea más o menos "importante".
+- Una **columna de peso**: el ML automatizado admite una columna de pesos como entrada, lo que provoca que las filas de los datos se puedan subir o bajar, que se puede usar para que una clase sea más o menos "importante".
 
-- Los algoritmos que usa el ML automatizado pueden controlar correctamente el desequilibrio de hasta 20:1, lo que significa que la clase más común puede tener 20 veces más filas en los datos que la clase menos común.
+- Los algoritmos que usa el ML automatizado detectan el desequilibrio cuando el número de muestras de la clase de minoría es igual o menor que el 20 % del número de muestras en la clase de mayoría, donde la clase de minoría se refiere a la que tiene menos muestras y la clase de mayoría, a la que tiene más muestras. Posteriormente, AutoML ejecutará un experimento con datos submuestreados para comprobar si el uso de pesos de clase solucionará este problema y mejorará el rendimiento. Si se garantiza un mejor rendimiento a través de este experimento, se aplica esta solución.
 
-Las técnicas siguientes son otras opciones para controlar los datos no equilibrados fuera del ML automatizado. 
+- Use una métrica de rendimiento que se ocupe mejor de los datos no equilibrados. Por ejemplo, AUC_weighted es una métrica primaria que calcula la contribución de cada clase en función del número relativo de muestras que representan esa clase, por lo que es más robusta frente al desequilibrio.
+
+Las técnicas siguientes son otras opciones para controlar los datos no equilibrados **fuera del ML automatizado**. 
 
 - Vuelva a muestrear para equilibrar el desequilibrio de clases, ya sea mediante el muestreo ascendente de las clases más pequeñas o el muestreo descendente de las más grandes. Estos métodos requieren conocimientos de proceso y análisis.
 
-- Use una métrica de rendimiento que se ocupe mejor de los datos no equilibrados. Por ejemplo, la puntuación F1 es un promedio ponderado de precisión y coincidencia. La precisión mide la exactitud de un clasificador (la precisión baja indica un gran número de falsos positivos), mientras que la coincidencia mide la integridad de un clasificador (la coincidencia baja indica un número elevado de falsos negativos). 
+- Revise las métricas de rendimiento de los datos desequilibrados. Por ejemplo, la puntuación F1 es un promedio ponderado de precisión y coincidencia. La precisión mide la exactitud de un clasificador (la precisión baja indica un gran número de falsos positivos), mientras que la coincidencia mide la integridad de un clasificador (la coincidencia baja indica un número elevado de falsos negativos).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

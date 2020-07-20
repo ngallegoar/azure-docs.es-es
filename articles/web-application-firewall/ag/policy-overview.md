@@ -7,19 +7,19 @@ author: winthrop28
 ms.service: web-application-firewall
 ms.date: 02/01/2020
 ms.author: victorh
-ms.openlocfilehash: fff4fb5707c07098fd7fac261a36909224365cdf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10a90a7f94633fac52086953697eb90a98d9509d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80060264"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143832"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Introducción a las directivas de firewall de aplicaciones web (WAF) de Azure
 
 Las directivas de firewall de aplicaciones web contienen todas las configuraciones y opciones de WAF. Esto incluye exclusiones, reglas personalizadas o reglas administradas, entre otras. Después, estas directivas se asocian a una puerta de enlace de aplicaciones (global), un cliente de escucha (por sitio) o una regla basada en ruta de acceso (por URI) para que surtan efecto.
 
 > [!NOTE]
-> Las directivas de firewall de aplicaciones web (WAF) de Azure por sitio y por URI se encuentran en versión preliminar pública.
+> Las directivas de firewall de aplicaciones web (WAF) de Azure por URI se encuentran en versión preliminar pública.
 > 
 > Esta versión preliminar pública se proporciona sin un acuerdo de nivel de servicio y no debe usarse para cargas de trabajo de producción. Puede que algunas características no se admitan, que tengan funcionalidades limitadas o que no estén disponibles en todas las ubicaciones de Azure. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

@@ -3,12 +3,12 @@ title: 'Análisis de vídeo en directo con la inteligencia artificial preferida:
 description: En este artículo se obtiene información para compilar un módulo de IoT Edge que se puede integrar con Live Video Analytics en IoT Edge a fin de analizar vídeo en directo con un modelo de Computer Vision de su elección.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: 0ac2af280eefd5ce293a8be422551d5ee6f6d3f3
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 6a1ea3ebd8c7de4c691d7a982dbc08e9d08d9e38
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84260648"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86182872"
 ---
 # <a name="analyze-live-video-with-ai-of-your-choice"></a>Análisis de vídeo en directo con la inteligencia artificial preferida
 
@@ -46,7 +46,7 @@ El contrato HTTP se define de la siguiente manera:
 
 Las solicitudes del módulo Live Video Analytics al módulo serían así:
 
-|||
+| Clave | Value |
 |---|---|
 |POST| `https://hostname/optional-path?optional-query`|
 |Accept|application/json, */*|
@@ -72,7 +72,7 @@ Content-Length: 519222
 
 Las respuestas del módulo al módulo Live Video Analytics deben ser de esta manera
 
-|||
+| Clave | Value |
 |---|---|
 |Códigos de estado|200 Correcto: Resultados de inferencia encontrados<br/>204 Sin contenido: La IA no ha encontrado ningún contenido<br/>400 Solicitud incorrecta: Inesperado<br/>500 Error interno del servidor: Inesperado<br/>503 Servidor ocupado: AMS se interrumpe en función del encabezado "Retry-after" o de una cantidad de tiempo predeterminada en caso de que el encabezado no esté preestablecido|
 |Content-Type|application/json|
@@ -265,7 +265,7 @@ El ejemplo siguiente contiene un solo evento con todos los tipos de inferencia a
  
 ## <a name="sample-http-extension-modules"></a>Módulos de extensión HTTP de ejemplo
 
-Hay algunos módulos de extensión HTTP de ejemplo en el [repositorio de GitHub de Live Video Analytics](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis). Uno de estos [ejemplos de análisis de vídeo](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) muestra cómo usar el modelo [Yolov3](https://pjreddie.com/darknet/yolo/) [ONNX](http://onnx.ai/) para compilar un módulo de IoT Edge para la detección de objetos. Puede usar el mismo enfoque para compilar un módulo propio con el modelo de inteligencia artificial que prefiera.
+Hay algunos módulos de extensión HTTP de ejemplo en el [repositorio de GitHub de Live Video Analytics](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis). Uno de estos [ejemplos de análisis de vídeo](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) muestra cómo usar el modelo [YOLOv3](https://pjreddie.com/darknet/yolo/) [ONNX](http://onnx.ai/) para compilar un módulo de IoT Edge para la detección de objetos. Otro [ejemplo de análisis de vídeo](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx-tiny) muestra cómo usar Tiny YOLOv3, una versión ligera del modelo YOLOv3 ONNX. Puede usar el mismo enfoque para compilar un módulo propio con el modelo de inteligencia artificial que prefiera.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

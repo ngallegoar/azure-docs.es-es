@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo puede usar Azure Backup para envia
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 642787e17f347bf8233e50c65d26a1661b08fcfb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e5761f56106989084f12b80620ffc417b781965d
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183898"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187836"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flujo de trabajo de copia de seguridad sin conexión en Azure Backup
 
@@ -42,10 +42,10 @@ Las características o cargas de trabajo de Azure Backup siguientes admiten el u
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
   > [!NOTE]
-  > El flujo de trabajo y los requisitos previos siguientes solo se aplican a la copia de seguridad sin conexión de archivos y carpetas con el [agente Azure Recovery Services más reciente](https://aka.ms/azurebackup_agent). Para crear copias de seguridad sin conexión de las cargas de trabajo con System Center DPM o Azure Backup Server, consulte [Flujo de trabajo de copia de seguridad sin conexión para DPM y Azure Backup Server](backup-azure-backup-server-import-export-.md).
+  > El flujo de trabajo y los requisitos previos siguientes solo se aplican a la copia de seguridad sin conexión de archivos y carpetas con el [agente Azure Recovery Services más reciente](https://aka.ms/azurebackup_agent). Para crear copias de seguridad sin conexión de las cargas de trabajo con System Center DPM o Azure Backup Server, consulte [Flujo de trabajo de copia de seguridad sin conexión para DPM y Azure Backup Server](backup-azure-backup-server-import-export.md).
 
 Antes de iniciar el flujo de trabajo de copia de seguridad sin conexión, complete estos requisitos previos:
 
@@ -90,7 +90,7 @@ En esta sección se describe el flujo de trabajo de la copia de seguridad sin co
 
     * **Ubicación de almacenamiento provisional**: la ubicación de almacenamiento temporal en la que se escribe la copia de seguridad inicial. La ubicación de almacenamiento provisional podría estar en un recurso compartido de red o en un equipo local. Si el equipo de copia y el equipo de origen son diferentes, especifique la ruta de acceso completa de red de la ubicación de ensayo.
     * **Cuenta de almacenamiento de Azure Resource Manager**: El nombre de la cuenta de almacenamiento de tipo Resource Manager (de uso general v1 o v2) en cualquier suscripción de Azure.
-    * **Contenedor de Azure Storage**: el nombre del blob de almacenamiento de destino de la cuenta de Azure Storage en la que se importan los datos de la copia de seguridad antes de que se copien en el almacén de Recovery Services.
+    * **Contenedor de Azure Storage**: el nombre del contenedor de almacenamiento del blob de destino de la cuenta de Azure Storage en la que se importan los datos de la copia de seguridad antes de que se copien en el almacén de Recovery Services.
     * **Identificador de suscripción de Azure**: el identificador de la suscripción de Azure en la que se crea la cuenta de Azure Storage.
     * **Nombre de trabajo de Azure Import**: el nombre único mediante el que el servicio Azure Import/Export y Azure Backup realizan el seguimiento de la transferencia de los datos enviados en discos a Azure.
   
@@ -136,7 +136,7 @@ La utilidad *AzureOfflineBackupDiskPrep* prepara las unidades de disco SATA que 
     | Parámetro | Descripción |
     | --- | --- |
     | s:&lt;*Ruta de acceso de la ubicación de ensayo*&gt; |Esta entrada obligatoria se usa para proporcionar la ruta de acceso a la ubicación de almacenamiento provisional que escribió en el flujo de trabajo en la sección "Iniciar copia de seguridad sin conexión". |
-    | p:&lt;*Ruta de acceso a PublishSettingsFile*&gt; |Esta entrada obligatoria se utiliza para proporcionar la ruta de acceso al archivo de Configuración de publicación de Azure especificado en el flujo de trabajo de la sección "Inicio de la copia de seguridad sin conexión". |
+    | p:&lt;*Ruta de acceso a PublishSettingsFile*&gt; |Esta entrada opcional se usa para proporcionar la ruta de acceso al archivo de configuración de publicación de Azure.  |
 
     Cuando se ejecuta el comando, la utilidad solicita la selección del trabajo de importación de Azure correspondiente a las unidades que deben estar preparadas. Si hay un solo trabajo de importación asociado con la ubicación de ensayo proporcionada, aparece una pantalla como esta.
 

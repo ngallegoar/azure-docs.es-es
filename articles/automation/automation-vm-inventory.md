@@ -4,14 +4,14 @@ description: En este artículo se explica cómo administrar la recopilación del
 services: automation
 ms.subservice: change-inventory-management
 keywords: inventario, automatización, cambio, seguimiento
-ms.date: 01/28/2020
+ms.date: 06/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: d237b016b8f3430ed0b28becd2712bd0c41d17b4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 32d3c17a5f3d152f32b19ffbfd5c9793a7a34b80
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830623"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185728"
 ---
 # <a name="manage-inventory-collection-from-vms"></a>Administración de la recopilación del inventario desde máquinas virtuales
 
@@ -100,7 +100,7 @@ Para ver los grupos de máquinas, seleccione la pestaña **Grupos de máquinas**
 
 ![Visualización de grupos de máquinas en la página Inventario](./media/automation-vm-inventory/inventory-machine-groups.png)
 
-Si selecciona un grupo de máquinas de la lista se abrirá la página Grupos de máquinas. Esta página muestra detalles sobre el grupo de máquinas. Estos detalles incluyen la consulta de Log Analytics que se usa para definir el grupo. En la parte inferior de la página, hay una lista paginada de las máquinas que forman parte de ese grupo.
+Si selecciona un grupo de máquinas de la lista se abrirá la página Grupos de máquinas. Esta página muestra detalles sobre el grupo de máquinas. Estos detalles incluyen la consulta del registro de Azure Monitor que se usa para definir el grupo. En la parte inferior de la página, hay una lista paginada de las máquinas que forman parte de ese grupo.
 
 ![Ver página Grupo de máquinas](./media/automation-vm-inventory/machine-group-page.png)
 
@@ -115,18 +115,21 @@ Si quiere crear un nuevo grupo de máquinas, haga clic en **+ Crear un grupo de 
 Para quitar la máquina virtual de la administración de Change Tracking e Inventario:
 
 1. En el panel izquierdo de Azure Portal, seleccione **Log Analytics** y elija el área de trabajo que usó al habilitar la máquina virtual para Change Tracking e Inventario.
-2. En la página Log Analytics, abra el menú **Recurso**.
+2. En la página **Log Analytics**, abra el menú **Recurso**.
 3. Seleccione **Máquinas virtuales** en **Orígenes de datos del área de trabajo**.
 4. En la lista, seleccione la máquina virtual que quiere desconectar. La máquina tiene una marca de verificación verde junto a **Esta área de trabajo** en la columna **Conexión a OMS**.
 
    >[!NOTE]
    >Operations Management Suite (OMS) ahora se conoce como registros de Azure Monitor.
-   
+
 5. En la parte superior de la página siguiente, haga clic en **Desconectar**.
 6. En la ventana de confirmación, haga clic en **Sí** para desconectar la máquina de la administración.
+
+>[!NOTE]
+>Las máquinas todavía se muestran después de anular la inscripción, ya que se informa de todas las máquinas que se han inventariado en las últimas 24 horas. Después de desconectar la máquina, debe esperar 24 horas antes de que ya no aparezcan en la lista.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener más información sobre cómo trabajar con la característica, consulte [Administración de Change Tracking e Inventario](change-tracking-file-contents.md).
-* Para más información sobre el seguimiento de cambios de software, consulte [Información general de Change Tracking e Inventario](../log-analytics/log-analytics-change-tracking.md).
+* Para más información sobre el seguimiento de cambios de software, consulte [Información general de Change Tracking e Inventario](./change-tracking.md).
 * Para solucionar problemas generales con la característica, consulte [Solución de problemas de Change Tracking e Inventario](troubleshoot/change-tracking.md).

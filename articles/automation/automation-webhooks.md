@@ -3,23 +3,25 @@ title: Inicio de un runbook de Azure Automation en un webhook
 description: En este artículo se indica cómo usar un webhook para iniciar un runbook en Azure Automation desde una llamada HTTP.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/16/2020
+ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2578e15a60b2021d9e599018043c4834d0c07d34
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 2d73b87248fff2e99f05d2d6d6263f2bb3abba57
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830504"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185643"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Inicio de un runbook desde un webhook
 
-Un webhook permite que un servicio externo inicie un runbook determinado en Azure Automation mediante una sola solicitud HTTP. Entre los servicios externos se incluyen Azure DevOps Services, GitHub, registros de Azure Monitor y aplicaciones personalizadas. Estos servicios pueden usar un webhook para iniciar un runbook sin tener que implementar la API completa de Azure Automation. Puede comparar los webhooks con otros métodos para iniciar un runbook en [Inicio de un runbook en Azure Automation](automation-starting-a-runbook.md).
+Un webhook permite que un servicio externo inicie un runbook determinado en Azure Automation mediante una sola solicitud HTTP. Entre los servicios externos se incluyen Azure DevOps Services, GitHub, registros de Azure Monitor y aplicaciones personalizadas. Estos servicios pueden usar un webhook para iniciar un runbook sin tener que implementar la API completa de Azure Automation. Puede comparar los webhooks con otros métodos para iniciar un runbook en [Inicio de un runbook en Azure Automation](./start-runbooks.md).
 
 > [!NOTE]
 > No se admite el uso de un webhook para iniciar un runbook de Python.
 
 ![Información general sobre webhooks](media/automation-webhooks/webhook-overview-image.png)
+
+Para comprender los requisitos de cliente para TLS 1.2 con webhooks, consulte el artículo sobre el [cumplimiento de TLS 1.2 para Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
 ## <a name="webhook-properties"></a>Propiedades de un webhook
 
@@ -81,9 +83,13 @@ Ahora pasamos el siguiente objeto JSON en la interfaz de usuario para el paráme
 
 La seguridad de un webhook se basa en la privacidad de su dirección URL, que contiene un token de seguridad que permite que se invoque el webhook. Azure Automation no realiza ninguna autenticación en una solicitud, siempre que se haga en la dirección URL correcta. Por esta razón, los clientes no deben utilizar webhooks en runbooks que realicen operaciones altamente confidenciales sin utilizar medios alternativos para validar la solicitud.
 
-Puede incluir lógica dentro de un runbook para determinar si se le llama desde un webhook. Establezca que el runbook compruebe la propiedad `WebhookName` del parámetro `WebhookData`. El runbook puede realizar más validaciones buscando información determinada en las propiedades `RequestHeader` y `RequestBody`.
+Considere las estrategias siguientes:
 
-Otra estrategia es hacer que el runbook realice alguna validación de una condición externa cuando recibe una solicitud de webhook. Por ejemplo, considere un runbook al que llama GitHub siempre que hay una nueva confirmación en un repositorio de GitHub. El runbook puede conectarse a GitHub para asegurarse de que se ha realizado una nueva confirmación antes de continuar.
+* Puede incluir lógica dentro de un runbook para determinar si se le llama desde un webhook. Establezca que el runbook compruebe la propiedad `WebhookName` del parámetro `WebhookData`. El runbook puede realizar más validaciones buscando información determinada en las propiedades `RequestHeader` y `RequestBody`.
+
+* Haga que el runbook realice alguna validación de una condición externa cuando recibe una solicitud de webhook. Por ejemplo, considere un runbook al que llama GitHub siempre que hay una nueva confirmación en un repositorio de GitHub. El runbook puede conectarse a GitHub para asegurarse de que se ha realizado una nueva confirmación antes de continuar.
+
+* Azure Automation admite etiquetas de servicio de red virtual de Azure, específicamente [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Puede usar etiquetas de servicio para definir controles de acceso a la red en [grupos de seguridad de red](../virtual-network/security-overview.md#security-rules) o [Azure Firewall](../firewall/service-tags.md) y desencadenar webhooks desde la red virtual. Las etiquetas de servicio se pueden usar en lugar de direcciones IP específicas al crear reglas de seguridad. Al especificar el nombre de la etiqueta de servicio **GuestAndHybridManagement** en el campo de origen o destino apropiado de una regla, puede permitir o denegar el tráfico para el servicio Automation. Esta etiqueta de servicio no permite un control más pormenorizado mediante la restricción de los intervalos de IP a una región específica.
 
 ## <a name="create-a-webhook"></a>Creación de un webhook
 
@@ -101,7 +107,8 @@ Use el procedimiento siguiente para crear un nuevo Webhook vinculado a un Runboo
    ![Dirección URL de Webhook](media/automation-webhooks/copy-webhook-url.png)
 
 1. Haga clic en **Parámetros** para especificar los valores de los parámetros del runbook. Si el runbook tiene parámetros obligatorios, no podrá crear el webhook a menos que proporcione valores para ellos.
-1. Haga clic en **Crear** para crear el proyecto.
+
+2. Haga clic en **Crear** para crear el proyecto.
 
 ## <a name="use-a-webhook"></a>Uso de webhooks
 
@@ -126,7 +133,7 @@ Si la solicitud es correcta, la respuesta del webhook contiene el identificador 
 {"JobIds":["<JobId>"]}
 ```
 
-El cliente no puede determinar cuando se completa el trabajo del runbook ni su estado de finalización a partir del webhook. Sin embargo, puede conseguir esta información si usa el identificador de trabajo con otro mecanismo, como [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) o la [API de Azure Automation](/rest/api/automation/job).
+El cliente no puede determinar cuando se completa el trabajo del runbook ni su estado de finalización a partir del webhook. Sin embargo, puede conseguir esta información si usa el identificador de trabajo con otro mecanismo, como [Windows PowerShell](/powershell/module/servicemanagement/azure/get-azureautomationjob) o la [API de Azure Automation](/rest/api/automation/job).
 
 ## <a name="renew-a-webhook"></a>Renovación de webhooks
 
@@ -144,7 +151,7 @@ Puede prolongar un webhook que no haya alcanzado su fecha de expiración. Para p
 El siguiente runbook de ejemplo acepta los datos de webhook e inicia las máquinas virtuales especificadas en el cuerpo de la solicitud. Para probar este runbook, en su cuenta de Automation, bajo **Runbooks**, haga clic en **Crear un Runbook**. Si no sabe cómo crear un runbook, consulte [Creación de un runbook](automation-quickstart-create-runbook.md).
 
 > [!NOTE]
-> En el caso de los runbooks de PowerShell no gráficos, `Add-AzAccount` y `Add-AzureRMAccount` son alias de [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Puede usar estos cmdlets o bien [actualizar los módulos](automation-update-azure-modules.md) de la cuenta de Automation a las versiones más recientes. Es posible que deba actualizar los módulos incluso si acaba de crear una nueva cuenta de Automation.
+> En el caso de los runbooks de PowerShell no gráficos, `Add-AzAccount` y `Add-AzureRMAccount` son alias de [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Puede usar estos cmdlets o bien [actualizar los módulos](automation-update-azure-modules.md) de la cuenta de Automation a las versiones más recientes. Es posible que deba actualizar los módulos incluso si acaba de crear una nueva cuenta de Automation.
 
 ```powershell
 param

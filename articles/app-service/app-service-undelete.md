@@ -5,12 +5,12 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: d147c87e8fb0fa9e01ba2dbaf732adaae082bcd7
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 94a5fd3ae1de0708f0e5550547f7ab2fc9f881cb
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167798"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146230"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>Restauración de aplicaciones de App Service eliminadas con PowerShell
 
@@ -18,6 +18,10 @@ Si por accidente ha eliminado su aplicación de Azure App Service, puede restaur
 
 > [!NOTE]
 > Las aplicaciones eliminadas se purgan del sistema 30 días después de la eliminación inicial. Una vez que se ha purgado una aplicación, no se puede recuperar.
+>
+
+> [!NOTE]
+> La funcionalidad de deshacer eliminación no es compatible con el plan de consumo.
 >
 
 ## <a name="re-register-app-service-resource-provider"></a>Volver a registrar el proveedor de recursos de App Service

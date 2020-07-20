@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 309adfbebd4f4b615ac1f4061823ca01f3d3ee15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eaeaa8625a5bdb5bbf8ce76a68e616a913da5655
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230116"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146995"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Sincronización de Azure AD Connect: Scheduler
 En este tema se describe el programador incorporado en la sincronización de Azure AD Connect (motor de sincronización).
@@ -39,6 +39,14 @@ El programador es responsable de dos tareas:
 * **Tareas de mantenimiento**. Renueve las claves y certificados para el restablecimiento de contraseña y el servicio de registro de dispositivos (DRS). Purgue las entradas antiguas en el registro de operaciones.
 
 El programador en sí, siempre está en ejecución, pero se puede configurar para que ejecute solo una o ninguna de estas tareas. Por ejemplo, si necesita tener su propio proceso de ciclo de sincronización, puede deshabilitar esta tarea en el programador y continuar ejecutando la tarea de mantenimiento.
+
+>[!IMPORTANT]
+>Un ciclo de sincronización se ejecuta cada 30 minutos de manera predeterminada. Si modificó el ciclo de sincronización, deberá asegurarse de que se ejecute un ciclo de sincronización al menos una vez cada siete días. 
+>
+>* Una sincronización diferencial debe ocurrir en un plazo de siete días desde la última sincronización diferencial.
+>* Una sincronización diferencial (después de una sincronización completa) tiene que realizarse en un plazo de siete días a partir del momento en que se completó la última sincronización completa.
+>
+>Si no lo hace, pueden generarse problemas de sincronización que requerirán que ejecute una sincronización completa para resolverlos. Esto también se aplica a los servidores en modo de almacenamiento provisional.
 
 ## <a name="scheduler-configuration"></a>Configuración de Scheduler
 Para ver la configuración actual, vaya a PowerShell y ejecute `Get-ADSyncScheduler`. Muestra algo parecido a esta imagen:

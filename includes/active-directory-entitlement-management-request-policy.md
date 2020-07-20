@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 7fd716be397d9ef6b9d6132cd4470f653f3cea0f
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: ae3efec3722570e7e94316c5d874a74c523b1f05
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655933"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86156508"
 ---
 ## <a name="for-users-in-your-directory"></a>para los usuarios del directorio
 
@@ -194,7 +194,7 @@ Por ejemplo, si especificó que Alice y Bob sean los primeros aprobadores, indiq
 
 1. En el cuadro **¿Dentro de cuántos días quiere realizar el reenvío a los aprobadores alternativos?** , escriba el número de días durante los cuales los aprobadores pueden aprobar o denegar una solicitud. Si ningún aprobador ha aprobado o denegado la solicitud en ese período, la solicitud expirará (tiempo de expiración) y el usuario deberá enviar otra solicitud para el paquete de acceso. 
 
-    Las solicitudes solo se pueden reenviar a los aprobadores alternativos un día después de la mitad de la duración de la solicitud. En este ejemplo, la duración de la solicitud es de 14 días. De este modo, la mitad de la duración de la solicitud es el día 7. Por lo tanto, la solicitud no se puede reenviar antes del día 8. Además, las solicitudes no se pueden reenviar el último día de la duración de la solicitud. Por lo tanto, en el ejemplo, la solicitud se puede reenviar a más tardar el día 13.
+    Las solicitudes solo se pueden reenviar a aprobadores alternativos un día después de que la duración de la solicitud llega a la mitad y la decisión de los aprobadores principales debe ser agotar el tiempo de espera después de 4 días como mínimo. Si el tiempo de espera de la solicitud es menor o igual que 3, no hay tiempo suficiente para reenviar la solicitud a los aprobadores alternativos. En este ejemplo, la duración de la solicitud es de 14 días. De este modo, la mitad de la duración de la solicitud es el día 7. Por lo tanto, la solicitud no se puede reenviar antes del día 8. Además, las solicitudes no se pueden reenviar el último día de la duración de la solicitud. Por lo tanto, en el ejemplo, la solicitud se puede reenviar a más tardar el día 13.
 
 ## <a name="enable-requests"></a>Habilitación de solicitudes
 

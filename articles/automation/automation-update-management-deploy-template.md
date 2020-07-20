@@ -6,13 +6,13 @@ ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/24/2020
-ms.openlocfilehash: 0a83117d6d58f45d6ee1de2b8d61c2157738fc75
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.date: 06/10/2020
+ms.openlocfilehash: ad9029b44ffb0c98bad58bbf012eb19d084d5446
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830998"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185762"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Habilitación de Update Management mediante una plantilla de Azure Resource Manager
 
@@ -23,35 +23,33 @@ Puede usar una [plantilla de Azure Resource Manager](../azure-resource-manager/t
 * La vinculación de la cuenta de Automation al área de trabajo de Log Analytics si aún no está vinculada.
 * Habilitar Update Management.
 
-La plantilla no automatiza la habilitación de una o varias máquinas virtuales de Azure o que no son de Azure.
+La plantilla no automatiza la habilitación de Update Management en una o varias máquinas virtuales de Azure o que no son de Azure.
 
-Si ya tiene un área de trabajo de Log Analytics y una cuenta de Automation implementada en una región admitida de la suscripción, no se vinculan. El área de trabajo aún no tiene Update Management habilitado. Con esta plantilla se crea correctamente el vínculo y se implementa Update Management para máquinas virtuales. 
-
->[!NOTE]
->El usuario **nxautomation** habilitado como parte de Update Management en Linux solo ejecuta runbooks firmados.
+Si ya tiene un área de trabajo de Log Analytics y una cuenta de Automation implementada en una región admitida de la suscripción, no se vinculan. Con esta plantilla se crea correctamente el vínculo y se implementa Update Management.
 
 ## <a name="api-versions"></a>Versiones de API
 
 En la tabla siguiente se muestra la versión de API de los recursos usados en esta plantilla.
 
-| Resource | Tipo de recurso | Versión de API |
+| Recurso | Tipo de recurso | Versión de API |
 |:---|:---|:---|
-| Área de trabajo | workspaces | 2017-03-15-preview |
-| Cuenta de Automation | automation | 2015-10-31 | 
+| Área de trabajo | workspaces | 01-03-2020 versión preliminar |
+| Cuenta de Automation | automation | 30-06-2018 | 
 | Solución | solutions | 2015-11-01-preview |
 
 ## <a name="before-using-the-template"></a>Antes de usar la plantilla
 
-Si decide instalar y usar PowerShell de forma local, para realizar los pasos de este artículo necesita el módulo Az de Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) para crear una conexión con Azure. Con Azure PowerShell, la implementación usa [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
+Si decide instalar y usar PowerShell de forma local, para realizar los pasos de este artículo necesita el módulo Az de Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) para crear una conexión con Azure. Con Azure PowerShell, la implementación usa [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
-Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.1.0 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Con la CLI de Azure, esta implementación usa [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
+Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.1.0 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Con la CLI de Azure, esta implementación usa [az group deployment create](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
 
 La plantilla JSON se configura para pedir al usuario:
 
-* El nombre del área de trabajo
-* La región en la que se va a crear el área de trabajo
-* El nombre de la cuenta de Automation
-* La región en la que se va a crear la cuenta
+* El nombre del área de trabajo.
+* La región en la que se va a crear el área de trabajo.
+* La habilitación de los permisos de recurso o de área de trabajo.
+* El nombre de la cuenta de Automation.
+* La región en la que se va a crear la cuenta.
 
 La plantilla JSON especifica un valor predeterminado para el resto de parámetros que es probable que se utilice como configuración estándar en el entorno. Puede almacenar la plantilla en una cuenta de Azure Storage para el acceso compartido en la organización. Para más información sobre cómo trabajar con plantillas, consulte [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../azure-resource-manager/templates/deploy-cli.md).
 
@@ -59,7 +57,6 @@ Los siguientes parámetros de la plantilla se configuran con un valor predetermi
 
 * SKU: el valor predeterminado es el nuevo plan de tarifa por GB publicado en el modelo de precios de abril de 2018
 * Retención de datos: el valor predeterminado es de 30 días
-* Reserva de capacidad: el valor predeterminado es de 100 GB.
 
 >[!WARNING]
 >Si se crea o configura un área de trabajo de Log Analytics en una suscripción que ha elegido el nuevo modelo de precios de abril de 2018, el único plan de tarifa válido de Log Analytics es **PerGB2018**.
@@ -114,18 +111,17 @@ Es importante comprender los detalles de configuración siguientes si no está f
                 "description": "Number of days of retention. Workspaces in the legacy Free pricing tier can only have 7 days."
             }
         },
-        "immediatePurgeDataOn30Days": {
-            "type": "bool",
-            "defaultValue": "[bool('false')]",
-            "metadata": {
-                "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
-            }
-        },
         "location": {
             "type": "string",
             "metadata": {
                 "description": "Specifies the location in which to create the workspace."
             }
+        },
+        "resourcePermissions": {
+              "type": "bool",
+              "metadata": {
+                "description": "true to use resource or workspace permissions. false to require workspace permissions."
+              }
         },
         "automationAccountName": {
             "type": "string",
@@ -150,13 +146,11 @@ Es importante comprender los detalles de configuración siguientes si no está f
         {
         "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2017-03-15-preview",
+            "apiVersion": "2020-03-01-preview",
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
-                    "Name": "[parameters('sku')]",
-                    "name": "CapacityReservation",
-                    "capacityReservationLevel": 100
+                    "name": "[parameters('sku')]",
                 },
                 "retentionInDays": "[parameters('dataRetention')]",
                 "features": {
@@ -168,7 +162,7 @@ Es importante comprender los detalles de configuración siguientes si no está f
             "resources": [
                 {
                     "apiVersion": "2015-11-01-preview",
-                    "location": "[resourceGroup().location]",
+                    "location": "[parameters('location')]",
                     "name": "[variables('Updates').name]",
                     "type": "Microsoft.OperationsManagement/solutions",
                     "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationsManagement/solutions/', variables('Updates').name)]",
@@ -189,7 +183,7 @@ Es importante comprender los detalles de configuración siguientes si no está f
         },
         {
             "type": "Microsoft.Automation/automationAccounts",
-            "apiVersion": "2015-01-01-preview",
+            "apiVersion": "2018-06-30",
             "name": "[parameters('automationAccountName')]",
             "location": "[parameters('automationAccountLocation')]",
             "dependsOn": [],
@@ -201,10 +195,10 @@ Es importante comprender los detalles de configuración siguientes si no está f
             },
         },
         {
-            "apiVersion": "2015-11-01-preview",
+            "apiVersion": "2020-03-01-preview",
             "type": "Microsoft.OperationalInsights/workspaces/linkedServices",
             "name": "[concat(parameters('workspaceName'), '/' , 'Automation')]",
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "dependsOn": [
                 "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
                 "[concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))]"
@@ -242,8 +236,7 @@ Es importante comprender los detalles de configuración siguientes si no está f
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para usar Update Management para máquinas virtuales, consulte [Administración de actualizaciones y revisiones para las máquinas virtuales de Azure](automation-tutorial-update-management.md).
+
 * Si ya no necesita el área de trabajo de Log Analytics, consulte las instrucciones en [Desvinculación de un área de trabajo de una cuenta de Automation para Update Management](automation-unlink-workspace-update-management.md).
+
 * Para eliminar máquinas virtuales de Update Management, consulte [Eliminación de una máquina virtual desde Update Management](automation-remove-vms-from-update-management.md).
-* Para solucionar los errores de Update Management generales, consulte [Solución de problemas de Update Management](troubleshoot/update-management.md).
-* Para solucionar problemas con el agente de Windows Update, consulte [Solución de problemas del agente de actualización de Windows](troubleshoot/update-agent-issues.md).
-* Para solucionar problemas con el agente de actualización de Linux, consulte [Solución de problemas del agente de actualización de Linux](troubleshoot/update-agent-issues-linux.md).

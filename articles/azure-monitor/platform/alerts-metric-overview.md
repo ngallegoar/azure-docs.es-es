@@ -1,15 +1,15 @@
 ---
 title: Comprender cómo funcionan las alertas de métricas en Azure Monitor.
 description: Obtenga información general acerca de lo que puede hacer con las alertas de métricas y cómo funcionan en Azure Monitor.
-ms.date: 03/17/2020
+ms.date: 07/09/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 603df6f9b00c9261885937a3d85052b3806ff4f8
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: cd8c28b2c26e8859eda1634d2441982336cdd460
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248828"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187530"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprender cómo funcionan las alertas de métricas en Azure Monitor
 
@@ -135,9 +135,13 @@ Esta característica se admite actualmente en las métricas de plataforma (no m�
 
 El ámbito de supervisión se puede especificar con una sola alerta de métrica de tres formas distintas. Por ejemplo, respecto a las máquinas virtuales, el ámbito se puede especificar como:  
 
-- una lista de máquinas virtuales de una región de Azure en una suscripción
+- una lista de máquinas virtuales (de una región de Azure) en una suscripción
 - todas las máquinas virtuales (de una región de Azure) en uno o varios grupos de recursos de una suscripción
 - todas las máquinas virtuales (de una región de Azure) en una suscripción
+
+> [!NOTE]
+>
+> El ámbito de una regla de alerta de métrica de varios recursos debe contener al menos un recurso del tipo de recurso seleccionado.
 
 La creación de reglas de alertas de métrica que supervisen varios recursos es similar a [crear cualquier otra alerta de métrica](alerts-metric.md) que supervise un único recurso. La única diferencia es que debe seleccionar todos los recursos que desea supervisar. Estas reglas también se pueden crear mediante las [plantillas de Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). Recibirá notificaciones diferentes de cada máquina virtual.
 

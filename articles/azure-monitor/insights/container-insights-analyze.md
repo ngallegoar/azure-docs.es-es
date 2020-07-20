@@ -3,12 +3,12 @@ title: Supervisión de Kubernetes con Azure Monitor para contenedores | Microsof
 description: En este artículo se describe cómo puede ver y analizar el rendimiento de un clúster de Kubernetes con Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 17efb89e36429f9658759a0ed90d4e7b785fe4b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8b298208794e4ba562a608f22f4d0a539b81b47
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340903"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166644"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Supervisión del rendimiento del clúster de Kubernetes con Azure Monitor para contenedores
 
@@ -66,7 +66,7 @@ El estado de mantenimiento calcula el estado general del clúster como *el peor*
 
 En la tabla siguiente se proporciona un desglose del cálculo que controla los estados de mantenimiento para un clúster supervisado en la vista de varios clústeres.
 
-| |Estado |Disponibilidad |
+| Clúster supervisado |Estado |Disponibilidad |
 |-------|-------|-----------------|
 |**Pod de usuario**| | |
 | |Healthy |100% |

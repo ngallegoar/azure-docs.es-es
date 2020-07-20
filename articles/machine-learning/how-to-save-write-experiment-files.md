@@ -12,12 +12,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 28b687577f01d6e83f012a51bd18ad082f2bd48d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3db7a1489b877544cd36627f3962b6b4e1b8c462
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84433270"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146439"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Dónde guardar y escribir los archivos para los experimentos de Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -30,7 +30,9 @@ Al iniciar las ejecuciones de entrenamiento en un [destino de proceso](how-to-se
 
 Para poder iniciar un experimento en la máquina local o en un destino de proceso, debe asegurarse de que los archivos necesarios están disponibles para ese destino de proceso, por ejemplo, los archivos de dependencia y los de datos que su código necesita para ejecutarse.
 
-Azure Machine Learning ejecuta los scripts de entrenamiento copiando la carpeta del script completa en el contexto del proceso de destino y, a continuación, toma una instantánea. El límite de almacenamiento para las instantáneas del experimento es de 300 MB y 2000 archivos.
+Azure Machine Learning ejecuta scripts de entrenamiento mediante la copia de todo el directorio de origen. Si tiene información confidencial que no quiere cargar, use un [archivo .ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) o no lo incluya en el directorio de origen. En su lugar, acceda a los datos mediante un [almacén de datos](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py).
+
+El límite de almacenamiento para las instantáneas del experimento es de 300 MB y 2000 archivos.
 
 Por este motivo, se recomienda:
 

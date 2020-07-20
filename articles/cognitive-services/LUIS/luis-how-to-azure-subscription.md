@@ -3,51 +3,170 @@ title: Cómo usar las claves de creación y tiempo de ejecución - LUIS
 description: La primera vez que use Language Understanding (LUIS), no es necesario crear una clave de suscripción. Cuando quiera publicar la aplicación, use el punto de conexión en tiempo de ejecución; a continuación, debe crear y asignar la clave de tiempo de ejecución a la aplicación.
 services: cognitive-services
 ms.topic: how-to
-ms.date: 04/06/2020
-ms.openlocfilehash: c566e8fe56d19856f5a577e472929b7610497d7c
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.date: 07/07/2020
+ms.openlocfilehash: dfe5c416adeb4ff850dfe8f28ae4c61c8bb0844f
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344465"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144634"
 ---
 # <a name="create-luis-resources"></a>Creación de recursos de LUIS
 
-Los recursos de creación y de tiempo de ejecución proporcionan autenticación a la aplicación LUIS y al punto de conexión de predicción.
+Los recursos de creación y de tiempo de ejecución de predicción de consultas proporcionan autenticación a la aplicación LUIS y al punto de conexión de predicción.
 
-<a name="create-luis-service"></a>
-<a name="create-language-understanding-endpoint-key-in-the-azure-portal"></a>
+<a name="azure-resources-for-luis"></a>
+<a name="programmatic-key" ></a>
+<a name="endpoint-key"></a>
+<a name="authoring-key"></a>
 
-Al iniciar sesión en el portal de LUIS, puede continuar usando:
+## <a name="luis-resources"></a>Recursos de LUIS
 
-* una [clave de evaluación](#trial-key) gratuita que proporciona la creación y algunas consultas de puntos de conexión de predicción.
-* un recurso de [creación de LUIS](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) de Azure.
+LUIS permite tres tipos de recursos de Azure y uno que no es de Azure:
+
+|Clave|Propósito|Cognitive Service `kind`|Cognitive Service `type`|
+|--|--|--|--|
+|Clave de creación|Acceda y administre los datos de la aplicación con la creación, el entrenamiento, la publicación y las pruebas. Cree una clave de creación de LUIS si tiene previsto crear aplicaciones de LUIS mediante programación.<br><br>El propósito de la clave de `LUIS.Authoring` es permitirle:<br>* administrar mediante programación las aplicaciones y los modelos de Language Understanding, incluido el entrenamiento y la publicación<br> * controlar los permisos para el recurso de creación mediante la asignación de usuarios al [rol de colaborador](#contributions-from-other-authors).|`LUIS.Authoring`|`Cognitive Services`|
+|Clave de predicción de consulta| Consulte las solicitudes del punto de conexión de predicción. Cree una clave de predicción de LUIS antes de que la aplicación cliente solicite predicciones más allá de las 1000 solicitudes proporcionadas por el recurso de inicio. |`LUIS`|`Cognitive Services`|
+|[Clave de recursos de varios servicios de Cognitive Services](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Consulte las solicitudes de punto de conexión de predicción compartidas con LUIS y otros servicios de Cognitive Services admitidos.|`CognitiveServices`|`Cognitive Services`|
+|Inicio|Creación gratuita (sin control de acceso basado en rol) a través del portal o las API de LUIS (incluidos los SDK), 1000 solicitudes gratuitas de punto de conexión de predicción al mes a través de un explorador, una API o SDK|-|No es un recurso de Azure|
+
+Cuando finalice el proceso de creación de recursos de Azure, [asigne la clave](#assign-a-resource-to-an-app) a la aplicación del portal de LUIS.
+
+Es importante crear las aplicaciones de LUIS en [regiones](luis-reference-regions.md#publishing-regions) en las que también quiera publicar y consultar contenido.
+
+## <a name="resource-ownership"></a>Propiedad de recurso
+
+Un recurso de Azure, como LUIS, pertenece a la suscripción que contiene el recurso.
+
+Para transferir la propiedad de un recurso, puede:
+* Transferir la [propiedad](../../cost-management-billing/manage/billing-subscription-transfer.md) de la suscripción.
+* Exportar la aplicación LUIS como archivo y, a continuación, importar la aplicación en una suscripción diferente. La exportación está disponible en la página **Mis aplicaciones** del portal LUIS.
+
+
+## <a name="resource-limits"></a>Límites de recursos
+
+### <a name="authoring-key-creation-limits"></a>Limites al establecimiento de claves de creación
+
+Puede crear hasta 10 claves de creación por región y por suscripción.
+
+Consulte [Límites de la clave](luis-limits.md#key-limits) y [Regiones de Azure](luis-reference-regions.md).
+
+Las regiones de publicación son diferentes de las regiones de creación. Asegúrese de que crea una aplicación en la región de creación correspondiente a la región de publicación donde quiera ubicar su aplicación cliente.
+
+### <a name="key-usage-limit-errors"></a>Errores de límite de uso de claves
+
+El límite de uso depende del plan de tarifa.
+
+Si supera su cuota de transacciones por segundo (TPS), recibirá un error HTTP 429. Si supera su cuota de transacciones por mes (TPS), recibirá un error HTTP 403.
+
+
+### <a name="reset-authoring-key"></a>Restablecimiento de la clave de creación
+
+Para [crear aplicaciones migradas de recursos](luis-migration-authoring.md): si la clave de creación se ve comprometida, restablezca la clave en Azure Portal en la página **Claves** para ese recurso de creación.
+
+En el caso de las aplicaciones que no se han migrado todavía: la clave se restablece en todas las aplicaciones del portal de LUIS. Si crea sus aplicaciones a través de las API de creación, debe cambiar el valor de Ocp-Apim-Subscription-Key por la clave nueva.
+
+### <a name="regenerate-azure-key"></a>Regeneración de la clave de Azure
+
+Vuelva a generar las claves de Azure desde Azure Portal, en la página de **claves**.
+
+
+<a name="securing-the-endpoint"></a>
+
+## <a name="app-ownership-access-and-security"></a>Propiedad, acceso y seguridad de la aplicación
+
+Una aplicación se define mediante sus recursos de Azure, que se determinan en función de la suscripción del propietario.
+
+Puede mover la aplicación de LUIS. Use los siguientes recursos de documentación en Azure Portal o la CLI de Azure:
+
+* [Mover la aplicación entre los recursos de creación de LUIS](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-move-app-to-another-luis-authoring-azure-resource)
+* [Mover los recursos a un nuevo grupo de recursos o a una nueva suscripción](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+* [Mueve el recurso dentro de la misma suscripción o entre suscripciones](../../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)
+
+
+### <a name="contributions-from-other-authors"></a>Contribuciones de otros autores
+
+Para la [creación de aplicaciones migradas de recursos](luis-migration-authoring.md): los _colaboradores_ se administran en Azure Portal para el recurso de creación, mediante la página del **control de acceso (IAM)** . Obtenga información acerca de [cómo agregar un usuario](luis-how-to-collaborate.md) mediante la dirección de correo electrónico del colaborador y el rol del _colaborador_.
+
+En el caso de las aplicaciones que no se han migrado todavía: todos los _colaboradores_ se administran en el portal de LUIS desde la página **Manage -> Collaborators** (Administrar -> Colaboradores).
+
+### <a name="query-prediction-access-for-private-and-public-apps"></a>Acceso de predicción de consultas para aplicaciones públicas y privadas
+
+Para una aplicación **privada**, el acceso al tiempo de ejecución de predicción de consultas está disponible para los propietarios y los colaboradores. Para una aplicación **pública**, el acceso al tiempo de ejecución está disponible para todos los usuarios que tengan su propio recurso de tiempo de ejecución de Azure [Cognitive Services](../cognitive-services-apis-create-account.md) o de [LUIS](#create-resources-in-the-azure-portal) y el identificador de la aplicación pública.
+
+Actualmente no hay un catálogo de aplicaciones públicas.
+
+### <a name="authoring-permissions-and-access"></a>Creación de permisos y accesos
+El acceso a la aplicación desde el portal de [LUIS](luis-reference-regions.md#luis-website) o las [API de creación](https://go.microsoft.com/fwlink/?linkid=2092087) lo controla el recurso de creación de Azure.
+
+El propietario y todos los colaboradores tienen acceso a la creación de la aplicación.
+
+|El acceso de creación incluye|Notas|
+|--|--|
+|Agregar o quitar claves del punto de conexión||
+|Exportar la versión||
+|Exportar los registros de punto de conexión||
+|Importar la versión||
+|Hacer pública la aplicación|Cuando una aplicación es pública, cualquiera que tenga una clave de creación o del punto de conexión puede consultar la aplicación.|
+|Modificar el modelo|
+|Publicar|
+|Revisar las expresiones de punto de conexión para un [aprendizaje activo](luis-how-to-review-endpoint-utterances.md)|
+|Train|
+
+<a name="prediction-endpoint-runtime-key"></a>
+
+### <a name="prediction-endpoint-runtime-access"></a>Acceso de tiempo de ejecución del punto de conexión de predicción
+
+El acceso para consultar el punto de conexión de predicción se controla mediante una opción de configuración de la página **Application Information** (Información de la aplicación) en la sección **Manage** (Administrar).
+
+|[Punto de conexión privado](#runtime-security-for-private-apps)|[Punto de conexión público](#runtime-security-for-public-apps)|
+|:--|:--|
+|Disponible para el propietario y los colaboradores.|Disponible para el propietario, los colaboradores y cualquier otra persona que conozca el identificador de la aplicación.|
+
+Puede controlar quién puede ver su clave de tiempo de ejecución de LUIS llamándola en un entorno de servidor a servidor. Si usa LUIS desde un bot, la conexión entre el bot y LUIS ya es segura. Si está llamando al punto de conexión de LUIS directamente, debe crear una API de servidor (por ejemplo, una [función](https://azure.microsoft.com/services/functions/) de Azure) con acceso controlado (como [AAD](https://azure.microsoft.com/services/active-directory/)). Cuando se llama a la API del lado servidor y se comprueba la autenticación y la autorización, pase la llamada a LUIS. Aunque esta estrategia no impide los ataques de tipo "Man in the middle", ofusca la clave y la dirección URL del punto de conexión de los usuarios, le permite realizar un seguimiento del acceso y agregar un registro de respuesta del punto de conexión (como [Application Insights](https://azure.microsoft.com/services/application-insights/)).
+
+### <a name="runtime-security-for-private-apps"></a>Seguridad del tiempo de ejecución para aplicaciones privadas
+
+El tiempo de ejecución de una aplicación privada solo está disponible para lo siguiente:
+
+|Clave y usuario|Explicación|
+|--|--|
+|Clave de creación del propietario| Hasta 1000 visitas del punto de conexión|
+|Claves de creación de colaborador| Hasta 1000 visitas del punto de conexión|
+|Cualquier clave que un autor o colaborador haya asignado a LUIS|Según el nivel de uso de las claves|
+
+### <a name="runtime-security-for-public-apps"></a>Seguridad del tiempo de ejecución para aplicaciones públicas
+
+Una vez que una aplicación se ha configurado como pública, _cualquier_ clave de creación de LUIS válida o clave del punto de conexión de LUIS puede consultar la aplicación, siempre y cuando la clave no haya alcanzado el límite de cuota del punto de conexión.
+
+Un usuario que no sea propietario ni colaborador solo podrá obtener acceso al tiempo de ejecución de una aplicación pública si se le proporciona el identificador de la aplicación. LUIS no tiene un _mercado_ público u otro medio para buscar una aplicación pública.
+
+Una aplicación pública se pone a disposición de los usuarios en todas las regiones para que los que tengan una clave de recurso de LUIS basada en regiones puedan acceder a la aplicación en cualquier región que esté asociada a la clave de recurso.
+
+
+### <a name="securing-the-query-prediction-endpoint"></a>Protección del punto de conexión de predicción de consulta
+
+Puede controlar quién puede ver su clave del punto de conexión de tiempo de ejecución de predicción de LUIS llamándola a un entorno de servidor a servidor. Si usa LUIS desde un bot, la conexión entre el bot y LUIS ya es segura. Si está llamando al punto de conexión de LUIS directamente, debe crear una API de servidor (por ejemplo, una [función](https://azure.microsoft.com/services/functions/) de Azure) con acceso controlado (como [AAD](https://azure.microsoft.com/services/active-directory/)). Cuando se llama a la API de servidor y se comprueba la autenticación y la autorización, pase la llamada a LUIS. Aunque esta estrategia no impide los ataques de tipo "Man in the middle", ofusca el punto de conexión de los usuarios, le permite realizar un seguimiento de acceso y agregar un registro de respuesta del punto de conexión (como [Application Insights](https://azure.microsoft.com/services/application-insights/)).
 
 <a name="starter-key"></a>
 
 ## <a name="sign-in-to-luis-portal-and-begin-authoring"></a>Inicio de sesión en el portal de LUIS y comience el proceso de creación
 
 1. Inicie sesión en el [portal de LUIS](https://www.luis.ai) y acepte las condiciones de uso.
-1. Inicie la aplicación LUIS seleccionando el tipo de clave de creación de LUIS que quiera usar: la clave de evaluación gratuita o la nueva clave de creación de LUIS de Azure.
+1. Comience su aplicación LUIS mediante la elección de la clave de creación de LUIS de Azure.
 
-    ![Elección de un tipo de recurso de creación de Language Understanding](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
+   ![Elección de un tipo de recurso de creación de Language Understanding](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
 
 1. Cuando haya terminado con el proceso de selección de recursos, [cree una aplicación nueva](luis-how-to-start-new-app.md#create-new-app-in-luis).
 
-## <a name="trial-key"></a>Clave de la versión de prueba
 
-La clave de la versión de prueba (de inicio) se proporciona automáticamente. Se usa como clave de autenticación para consultar el tiempo de ejecución del punto de conexión de predicción, y es capaz de realizar hasta 1000 consultas al mes.
-
-Se puede encontrar en la página de **configuración de usuario** y en las páginas **Administrar -> Recursos de Azure** del portal de LUIS.
-
-Cuando esté listo para publicar el punto de conexión de predicción, [cree](#create-luis-resources) y [asigne](#assign-a-resource-to-an-app) las claves de creación y de tiempo de ejecución de predicción para reemplazar la funcionalidad de la clave de inicio.
-
+<a name="create-azure-resources"></a>
 <a name="create-resources-in-the-azure-portal"></a>
 
+[!INCLUDE [Create LUIS resource in Azure portal](includes/create-luis-resource.md)]
 
-[!INCLUDE [Create LUIS resource](includes/create-luis-resource.md)]
-
-## <a name="create-resources-in-azure-cli"></a>Creación de recursos en la CLI de Azure
+### <a name="create-resources-in-azure-cli"></a>Creación de recursos en la CLI de Azure
 
 Use la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para crear cada recursos de manera individual.
 
@@ -79,7 +198,9 @@ Recurso: `kind`:
     > [!Note]
     > Estas claves **no** se usan en el portal de LUIS hasta que se asignan en dicho portal en **Manage -> Azure resources** (Administrar > Recursos de Azure).
 
-## <a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>Asignación de un recurso de creación en el portal de LUIS para todas las aplicaciones
+<a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>
+
+### <a name="assign-resource-in-the-luis-portal"></a>Asignación del recurso en el portal de LUIS
 
 Puede asignar un recurso de creación de una sola aplicación o de todas las aplicaciones en LUIS. En el siguiente procedimiento se asignan todas las aplicaciones a un único recurso de creación.
 
@@ -89,7 +210,7 @@ Puede asignar un recurso de creación de una sola aplicación o de todas las apl
 
 ## <a name="assign-a-resource-to-an-app"></a>Asignar un recurso a una aplicación
 
-Puede asignar un único recurso, creación o tiempo de ejecución de punto de conexión de predicción a una aplicación con el siguiente procedimiento.
+Puede asignar un recurso a una aplicación con el siguiente procedimiento.
 
 1. Inicie sesión en el [portal de LUIS](https://www.luis.ai) y seleccione una aplicación de la lista **My apps** (Mis aplicaciones).
 1. Vaya a la página **Manage -> Azure resources** (Administrar -> Recursos de Azure).
@@ -99,7 +220,7 @@ Puede asignar un único recurso, creación o tiempo de ejecución de punto de co
 1. Seleccione la pestaña de predicción o de recursos de creación y, a continuación, seleccione el botón **Add prediction resource** (Agregar recurso de predicción) o **Add authoring resource** (Agregar recurso de creación).
 1. Seleccione los campos en el formulario para buscar el recurso correcto y, a continuación, seleccione **Save** (Guardar).
 
-### <a name="assign-runtime-resource-without-using-luis-portal"></a>Asignación de recursos de tiempo de ejecución sin usar el portal de LUIS
+### <a name="assign-query-prediction-runtime-resource-without-using-luis-portal"></a>Asignación de recursos de tiempo de ejecución de predicción de consultas sin usar el portal de LUIS
 
 Para fines de automatización, como una canalización de CI/CD, puede automatizar la asignación de un recurso de tiempo de ejecución de LUIS a una aplicación de LUIS. Para ello, tiene que realizar los siguientes pasos:
 
@@ -107,7 +228,7 @@ Para fines de automatización, como una canalización de CI/CD, puede automatiza
 
     ![Solicitud de un token de Azure Resource Manager y recepción del token de Azure Resource Manager](./media/luis-manage-keys/get-arm-token.png)
 
-1. Use el token para solicitar los recursos de tiempo de ejecución de LUIS en distintas suscripciones desde la [API Get LUIS azure accounts](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), a la cual su cuenta de usuario tiene acceso.
+1. Use el token para solicitar los recursos de tiempo de ejecución de LUIS en distintas suscripciones desde la [API Get LUIS Azure accounts](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), a la cual su cuenta de usuario tiene acceso.
 
     Esta API POST requiere la siguiente configuración:
 
@@ -118,7 +239,7 @@ Para fines de automatización, como una canalización de CI/CD, puede automatiza
 
     Esta API devuelve una matriz de objetos JSON con las suscripciones de LUIS, incluidos el identificador de suscripción, el grupo de recursos y el nombre del recurso, que se devuelve como nombre de cuenta. Busque el elemento de la matriz que es el recurso de LUIS que se va a asignar a la aplicación de LUIS.
 
-1. Asigne el token al recurso de LUIS con la API [Assign a LUIS azure accounts to an application](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be32228e8473de116325515).
+1. Asigne el token al recurso de LUIS con la API [Assign a LUIS Azure accounts to an application](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be32228e8473de116325515).
 
     Esta API POST requiere la siguiente configuración:
 
@@ -140,15 +261,6 @@ Para fines de automatización, como una canalización de CI/CD, puede automatiza
 
 Al cancelar la asignación de un recurso, no se elimina de Azure. Solo se desvincula de LUIS.
 
-## <a name="reset-authoring-key"></a>Restablecimiento de la clave de creación
-
-**Para [crear aplicaciones migradas](luis-migration-authoring.md) de recursos**: si la clave de creación se ve comprometida, restablezca la clave en Azure Portal en la página **Claves** para ese recurso de creación.
-
-**En el caso de las aplicaciones que no se han migrado todavía**: la clave se restablece en todas las aplicaciones del portal de LUIS. Si crea sus aplicaciones a través de las API de creación, debe cambiar el valor de Ocp-Apim-Subscription-Key por la clave nueva.
-
-## <a name="regenerate-azure-key"></a>Regeneración de la clave de Azure
-
-Vuelva a generar las claves de Azure desde Azure Portal, en la página de **claves**.
 
 ## <a name="delete-account"></a>Eliminación de cuenta
 
@@ -192,6 +304,4 @@ Agregue una alerta de métrica para la métrica **Llamadas totales** para un per
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga información sobre [cómo usar versiones](luis-how-to-manage-versions.md) para controlar el ciclo de vida de la aplicación.
-* Entienda los conceptos, incluidos el [recurso de creación](luis-concept-keys.md#authoring-key) y los [colaboradores](luis-concept-keys.md#contributions-from-other-authors) de ese recurso.
-* Obtenga información sobre [cómo crear](luis-how-to-azure-subscription.md) los recursos de creación y de tiempo de ejecución.
 * Migre al nuevo [recurso de creación](luis-migration-authoring.md).

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: aahi
-ms.openlocfilehash: fd70fe14d3765fb7c21b92f62b4d73564176baa2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b9e6561c1ed9870b669ec5e9825a376f8bd03c4d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78201068"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145703"
 ---
 # <a name="extract-information-in-excel-using-text-analytics-and-power-automate"></a>Extracción de información en Excel con Text Analytics y Power Automate 
 
@@ -31,9 +31,9 @@ En este tutorial, aprenderá a:
 > * Extraer texto de Excel y enviarlo a la API Text Analytics 
 > * Utilizar la información de la API para actualizar una hoja de Excel
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
-- Una cuenta de Microsoft Azure. [Inicie una evaluación gratuita](https://azure.microsoft.com/free/) o [inicie sesión](https://portal.azure.com/).
+- Una cuenta de Microsoft Azure. [Cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) o [inicie sesión](https://portal.azure.com/).
 - Un recurso de Text Analytics. Si no tiene uno, puede [crearlo en Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) y usar el nivel gratuito para completar este tutorial.
 - La [clave y el punto de conexión](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) que se generaron automáticamente durante el registro.
 - Una hoja de cálculo que contiene los problemas de los inquilinos. En GitHub encontrará datos de ejemplo.
@@ -135,12 +135,12 @@ En el flujo, escriba la siguiente información para crear una conexión de Text 
 Una vez que se cree la conexión, busque **Text Analytics** y seleccione **Entidades**. Se extraerá la información de la columna de descripción del problema.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/extract-info.png" alt-text="Adición de las credenciales de Text Analytics al flujo.":::
+> :::image type="content" source="../media/tutorials/excel/extract-info.png" alt-text="Adición de credenciales de Text Analytics al flujo.":::
 
 Haga clic en el campo **Texto** y seleccione **Description** de la ventana de contenido dinámico que aparece. Escriba `en` en Idioma. (Haga clic en Mostrar opciones avanzadas si no ve el idioma).
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/description-from-dynamic-content.png" alt-text="Adición de las credenciales de Text Analytics al flujo.":::
+> :::image type="content" source="../media/tutorials/excel/description-from-dynamic-content.png" alt-text="Adición de credenciales de Text Analytics al flujo.":::
 
 
 ## <a name="extract-the-person-name"></a>Extracción del nombre de la persona
@@ -180,17 +180,17 @@ Escriba la información de Excel y actualice los campos **Columna de clave**, **
 Para minimizar la acción **Aplicar a cada uno 2**, haga clic en el nombre. A continuación, agregue otra acción **Aplicar a cada uno**, como antes. Se le asignará un nombre **Aplicar a cada uno 3**. Seleccione el cuadro de texto y agregue **entidades** como salida para esta acción. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-apply-action-3.png" alt-text="Adición de las credenciales de Text Analytics al flujo.":::
+> :::image type="content" source="../media/tutorials/excel/add-apply-action-3.png" alt-text="Adición de credenciales de Text Analytics al flujo.":::
 
 Dentro de **Aplicar a cada uno 3**, agregue un control **Condición**. Se denominará **Condición 2**. En el primer cuadro de texto, busque y agregue **Tipos de entidades** desde la ventana de contenido dinámico. Asegúrese de que el cuadro central esté establecido en **es igual a**. A continuación, en el cuadro de texto de la derecha, escriba `var_phone`. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/condition-2-options.png" alt-text="Adición de las credenciales de Text Analytics al flujo.":::
+> :::image type="content" source="../media/tutorials/excel/condition-2-options.png" alt-text="Adición de credenciales de Text Analytics al flujo.":::
 
 En la condición **En caso positivo**, agregue una acción **Actualizar una fila**. A continuación, escriba la información como se hizo anteriormente, para la columna de números de teléfono de la hoja de Excel. Esto anexará el número de teléfono detectado por la API a la hoja de Excel. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/condition-2-yes-column.png" alt-text="Adición de las credenciales de Text Analytics al flujo.":::
+> :::image type="content" source="../media/tutorials/excel/condition-2-yes-column.png" alt-text="Adición de credenciales de Text Analytics al flujo.":::
 
 
 ## <a name="get-the-plumbing-issues"></a>Obtención de los problemas de fontanería
@@ -198,7 +198,7 @@ En la condición **En caso positivo**, agregue una acción **Actualizar una fila
 Para minimizar **Aplicar a cada uno 3**, haga clic en el nombre. A continuación, cree otra acción **Aplicar a cada uno** en la acción primaria. Seleccione el cuadro de texto y agregue **Entidades** como salida para esta acción en la ventana de contenido dinámico. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-apply-action-4.png" alt-text="Adición de las credenciales de Text Analytics al flujo.":::
+> :::image type="content" source="../media/tutorials/excel/add-apply-action-4.png" alt-text="Adición de credenciales de Text Analytics al flujo.":::
 
 
 A continuación, el flujo comprobará si la descripción del problema de la fila de la tabla de Excel contiene la palabra "plumbing". En caso afirmativo, se agregará "plumbing" en la columna IssueType. De lo contrario, escribiremos "other".
@@ -206,7 +206,7 @@ A continuación, el flujo comprobará si la descripción del problema de la fila
 Dentro de la acción **Aplicar a cada uno 4**, agregue un control **Condición**. Se denominará **Condición 3**. En el primer cuadro de texto, busque y agregue **Descripción** desde la ventana de contenido dinámico. Asegúrese de que el cuadro central indique **contiene**. A continuación, en el cuadro de texto de la derecha, busque y seleccione `var_plumbing`. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/condition-3-options.png" alt-text="Adición de las credenciales de Text Analytics al flujo.":::
+> :::image type="content" source="../media/tutorials/excel/condition-3-options.png" alt-text="Adición de credenciales de Text Analytics al flujo.":::
 
 
 En la condición **En caso positivo**, haga clic en **Agregar una acción** y seleccione **Actualizar una fila**. A continuación, escriba la información como antes. En la columna IssueType, seleccione `var_plumbing`. Esto aplicará una etiqueta "plumbing" a la fila.
@@ -214,7 +214,7 @@ En la condición **En caso positivo**, haga clic en **Agregar una acción** y se
 En la condición **En caso negativo**, haga clic en **Agregar una acción** y seleccione **Actualizar una fila**. A continuación, escriba la información como antes. En la columna IssueType, seleccione `var_other`. Esto aplicará una etiqueta "other" a la fila.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/plumbing-issue-condition.png" alt-text="Adición de las credenciales de Text Analytics al flujo.":::
+> :::image type="content" source="../media/tutorials/excel/plumbing-issue-condition.png" alt-text="Adición de credenciales de Text Analytics al flujo.":::
 
 ## <a name="test-the-workflow"></a>Probar el flujo de trabajo
 

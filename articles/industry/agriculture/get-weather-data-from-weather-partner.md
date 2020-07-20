@@ -5,18 +5,20 @@ author: sunasing
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
-ms.openlocfilehash: 66fa4e7d3edf839ab1e497e86362bcfc979dc279
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 7666ee1a81c2ed93ee5e246b3ec79f056f9d63ab
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81265072"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187785"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>Obtener datos meteorológicos de asociados meteorológicos
 
 Azure FarmBeats le ayuda a reunir datos meteorológicos de los proveedores de datos meteorológicos mediante un marco de conectores basado en Docker. Con este marco, los proveedores de datos meteorológicos implementan un elemento de Docker que se puede integrar con FarmBeats. Actualmente, se admiten los siguientes proveedores de datos meteorológicos:
 
-[Datos de NOAA de Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/)
+  ![DTN](./media/get-sensor-data-from-sensor-partner/dtn-logo.png)
+
+  [DTN](https://www.dtn.com/dtn-content-integration/)
 
 Los datos meteorológicos se pueden usar para generar información procesable y compilar modelos de inteligencia artificial o aprendizaje automático en FarmBeats.
 
@@ -28,7 +30,7 @@ Para obtener datos meteorológicos, asegúrese de que ha instalado FarmBeats. **
 
 Para empezar a obtener datos meteorológicos en el centro de datos de FarmBeats, siga estos pasos:
 
-1. Vaya a Swagger en el centro de datos de FarmBeats (https://yourdatahub.azurewebsites.net/swagger) ).
+1. Vaya a Swagger en el centro de datos de FarmBeats (https://farmbeatswebsite-api.azurewebsites.net/swagger) ).
 
 2. Vaya a /Partner API y realice una solicitud POST con la carga de entrada siguiente:
 
@@ -40,7 +42,7 @@ Para empezar a obtener datos meteorológicos en el centro de datos de FarmBeats,
          "username": "<credentials to access private docker - not required for public docker>", 
          "password": "<credentials to access private docker – not required for public docker>"  
        },  
-       "imageName" : "<docker image name. Default is azurefarmbeats/fambeats-noaa>",
+       "imageName" : "<docker image name",
        "imageTag" : "<docker image tag, default:latest>",
        "azureBatchVMDetails": {  
          "batchVMSKU" : "<VM SKU. Default is standard_d2_v2>",  
@@ -59,13 +61,16 @@ Para empezar a obtener datos meteorológicos en el centro de datos de FarmBeats,
    }  
    ```
 
-   Por ejemplo, para obtener datos meteorológicos de NOAA en Azure Open Datasets, use la carga siguiente. Puede modificar el nombre y la descripción según sus preferencias.
+   Por ejemplo, para obtener datos meteorológicos de DTN, use la carga siguiente. Puede modificar el nombre y la descripción según sus preferencias.
+
+   > [!NOTE]
+   > El paso siguiente requiere una clave de API. Póngase en contacto con DTN para obtener la misma de la suscripción a DTN.
 
    ```json
    {
  
      "dockerDetails": {
-       "imageName": "azurefarmbeats/farmbeats-noaa",
+       "imageName": "dtnweather/dtn-farm-beats",
        "imageTag": "latest",
        "azureBatchVMDetails": {
          "batchVMSKU": "standard_d2_v2",
@@ -73,9 +78,12 @@ Para empezar a obtener datos meteorológicos en el centro de datos de FarmBeats,
          "nodeAgentSKUID": "batch.node.ubuntu 18.04"
        }
      },
+     "partnerCredentials": {
+      "apikey": "<API key from DTN>"
+      },
      "partnerType": "Weather",
-     "name": "ods-noaa",
-     "description": "NOAA data from Azure Open Datasets registered as a Weather Partner"
+     "name": "dtn-weather",
+     "description": "DTN registered as a Weather Partner in FarmBeats"
    }  
    ```
 
@@ -92,10 +100,12 @@ Para empezar a obtener datos meteorológicos en el centro de datos de FarmBeats,
 
 5. Ahora la instancia de FarmBeats tiene un asociado de datos meteorológicos activo y puede ejecutar trabajos para solicitar datos meteorológicos para una ubicación (latitud y longitud) y un intervalo de fechas determinados. Las propiedades JobType tendrá detalles sobre los parámetros necesarios para ejecutar trabajos meteorológicos.
 
-   Por ejemplo, para los datos de NOAA de Azure Open Datasets, se crearán las siguientes propiedades JobType:
-
-   - get_weather_data (obtener datos meteorológicos de ISD/históricos)
-   - get_weather_forecast_data (obtener datos meteorológicos de GFS/pronóstico)
+   Por ejemplo, para DTN, se crearán los siguientes JobType:
+   
+   - get_dtn_daily_observations (obtener las observaciones diarias de una ubicación y un período de tiempo)
+   - get_dtn_daily_forecasts (obtener las previsiones diarias de una ubicación y un período de tiempo)
+   - get_dtn_hourly_observations (obtener observaciones por hora para una ubicación y un período de tiempo)
+   - get_dtn_hourly_forecasts (obtener previsiones por hora para una ubicación y un período de tiempo)
 
 6. Anote el **identificador** y los parámetros de las propiedades JobType.
 
@@ -115,17 +125,15 @@ Para empezar a obtener datos meteorológicos en el centro de datos de FarmBeats,
        }
    ```
 
-   Por ejemplo, para ejecutar **get_weather_data**, use la siguiente carga:
+   Por ejemplo, para ejecutar **get_dtn_daily_observations**, use la siguiente carga:
 
    ```json
-   {
- 
+   { 
          "typeId": "<id of the JobType>",
          "arguments": {
                "latitude": 47.620422,
                "longitude": -122.349358,
-               "start_date": "yyyy-mm-dd",
-               "end_date": "yyyy-mm-dd"
+               "days": 5
          },
          "name": "<name of the job>",
          "description": "<description>",
@@ -137,10 +145,7 @@ Para empezar a obtener datos meteorológicos en el centro de datos de FarmBeats,
 
 ## <a name="query-ingested-weather-data"></a>Consulta de los datos meteorológicos ingeridos
 
-Una vez completados los trabajos meteorológicos, puede consultar los datos meteorológicos ingeridos para crear modelos o información procesable. Hay dos maneras de acceder a los datos meteorológicos y consultarlos desde FarmBeats:
-
-- La API y
-- Time Series Insights (TSI).
+Una vez completados los trabajos meteorológicos, puede consultar los datos meteorológicos ingeridos para crear modelos o información procesabl mediante las API REST de FarmBeats Datahub.
 
 ### <a name="query-using-rest-api"></a>Consulta mediante API REST
 
@@ -206,25 +211,16 @@ Para consultar datos meteorológicos mediante la API de REST de FarmBeats, siga 
 
 En el ejemplo anterior, la respuesta tiene datos para dos marcas de tiempo junto con el nombre de medida ("Temperature") y los valores de los datos meteorológicos notificados en las dos marcas de tiempo. Tendrá que consultar el modelo de datos meteorológicos asociado (como se describe en el paso 2 anterior) para interpretar el tipo y la unidad de los valores notificados.
 
-### <a name="query-using-azure-time-series-insights-tsi"></a>Consulta mediante Azure Time Series Insights (TSI)
+## <a name="troubleshoot-job-failures"></a>Solución de problemas de errores de trabajos
 
-FarmBeats utiliza [Azure Time Series Insights (TSI)](https://azure.microsoft.com/services/time-series-insights/) para ingerir, almacenar, consultar y visualizar datos a escala de IoT, muy contextualizados y optimizados para series temporales.
+Para solucionar los errores de los trabajos, puede buscar los registros de trabajo. Para ello, siga los pasos indicados [aquí](troubleshoot-azure-farmbeats.md#weather-data-job-failures).
 
-Los datos meteorológicos se reciben en EventHub y luego se insertan en un entorno de TSI dentro del grupo de recursos de FarmBeats. Después, los datos se pueden consultar directamente desde TSI. Para más información, vea la [documentación de TSI](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).
-
-Siga los pasos para visualizar datos en TSI:
-
-1. Vaya a **Azure Portal** > **FarmBeats DataHub resource group** (Grupo de recursos de centro de datos de FarmBeats) > seleccione el entorno de **Time Series Insights** (tsi-xxxx) > **Directivas de acceso a datos**. Agregue un usuario con acceso de lector o colaborador.
-
-2. Vaya a la página **Información general** del entorno de **Time Series Insights** (tsi-xxxx) y seleccione **URL del Explorador de Time Series Insights**. Ahora puede visualizar los datos meteorológicos ingeridos.
-
-Además del almacenamiento, la consulta y la visualización de los datos meteorológicos, TSI también permite la integración en un panel de Power BI. Para más información, vea [Visualización de datos de Time Series Insights en Power BI](https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi).
 
 ## <a name="appendix"></a>Apéndice
 
 |        Asociado   |  Detalles   |
 | ------- | -------             |
-|     DockerDetails - imageName         |          Nombre de la imagen de Docker. Por ejemplo, docker.io/azurefarmbeats/farmbeats-noaa (imagen en hub.docker.com) O myazureacr.azurecr.io/mydockerimage (imagen en Azure Container Registry), etc. Si no se proporciona ningún registro, el valor predeterminado es hub.docker.com.      |
+|     DockerDetails - imageName         |          Nombre de la imagen de Docker. Por ejemplo, docker.io/mydockerimage (imagen en hub.docker.com) O myazureacr.azurecr.io/mydockerimage (imagen en Azure Container Registry), etc. Si no se proporciona ningún registro, el valor predeterminado es hub.docker.com.      |
 |          DockerDetails - imageTag             |         Nombre de etiqueta de la imagen de Docker. El valor predeterminado es "latest".     |
 |  DockerDetails - credentials      |  Credenciales para acceder al elemento de Docker privado. Esto lo proporcionará el asociado al cliente.   |
 |  DockerDetails - azureBatchVMDetails - batchVMSKU     |    SKU de la máquina virtual de Azure Batch. Consulte [aquí](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para todas las máquinas virtuales Linux disponibles. Los valores válidos son: "Small', 'ExtraLarge', 'Large', 'A8', 'A9', 'Medium', 'A5', 'A6', 'A7', 'STANDARD_D1', 'STANDARD_D2', 'STANDARD_D3', 'STANDARD_D4', 'STANDARD_D11', 'STANDARD_D12', 'STANDARD_D13', 'STANDARD_D14', 'A10', 'A11', 'STANDARD_D1_V2', 'STANDARD_D2_V2', 'STANDARD_D3_V2', 'STANDARD_D4_V2', 'STANDARD_D11_V2', 'STANDARD_D12_V2', 'STANDARD_D13_V2', 'STANDARD_D14_V2', 'STANDARD_G1', 'STANDARD_G2', 'STANDARD_G3', 'STANDARD_G4', 'STANDARD_G5', 'STANDARD_D5_V2', 'BASIC_A1', 'BASIC_A2', 'BASIC_A3', 'BASIC_A4', 'STANDARD_A1', 'STANDARD_A2', 'STANDARD_A3', 'STANDARD_A4', 'STANDARD_A5', 'STANDARD_A6', 'STANDARD_A7', 'STANDARD_A8', 'STANDARD_A9', 'STANDARD_A10', 'STANDARD_A11', 'STANDARD_D15_V2', 'STANDARD_F1', 'STANDARD_F2', 'STANDARD_F4', 'STANDARD_F8', 'STANDARD_F16', 'STANDARD_NV6', 'STANDARD_NV12', 'STANDARD_NV24', 'STANDARD_NC6', 'STANDARD_NC12', 'STANDARD_NC24', 'STANDARD_NC24r', 'STANDARD_H8', 'STANDARD_H8m', 'STANDARD_H16', 'STANDARD_H16m', 'STANDARD_H16mr', 'STANDARD_H16r', 'STANDARD_A1_V2', 'STANDARD_A2_V2', 'STANDARD_A4_V2', 'STANDARD_A8_V2', 'STANDARD_A2m_V2', 'STANDARD_A4m_V2', 'STANDARD_A8m_V2', 'STANDARD_M64ms', 'STANDARD_M128s', 'STANDARD_D2_V3'. **El valor predeterminado es "standard_d2_v2"** .  |

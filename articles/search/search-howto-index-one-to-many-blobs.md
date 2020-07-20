@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1840bda0ecc9462a5d8f796b616d728d0bb412f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1f93ae8a017c889f6c465b3ccbbb66382577e871
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74112266"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146800"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indexación de blobs para producir varios documentos de búsqueda
 De manera predeterminada, un indexador de blobs tratará el contenido de un blob como un único documento de búsqueda. Determinados valores de **parsingMode** admiten escenarios donde un blob individual puede dar lugar a varios documentos de búsqueda. A continuación, se muestran los diferentes tipos de **parsingMode** que permiten que un indexador extraiga más de un documento de búsqueda de un blob:
@@ -42,21 +42,27 @@ Y que el contenedor de blobs tiene blobs con la estructura siguiente:
 
 _Blob1.json_
 
+```json
     { "temperature": 100, "pressure": 100, "timestamp": "2019-02-13T00:00:00Z" }
     { "temperature" : 33, "pressure" : 30, "timestamp": "2019-02-14T00:00:00Z" }
+```
 
 _Blob2.json_
 
+```json
     { "temperature": 1, "pressure": 1, "timestamp": "2018-01-12T00:00:00Z" }
     { "temperature" : 120, "pressure" : 3, "timestamp": "2013-05-11T00:00:00Z" }
+```
 
 Al crear un indexador y establecer el valor de **parsingMode** en `jsonLines`: sin especificar ninguna asignación de campo explícita para el campo de clave, se aplicará la siguiente asignación de forma implícita.
-    
+
+```http
     {
         "sourceFieldName" : "AzureSearch_DocumentKey",
         "targetFieldName": "id",
         "mappingFunction": { "name" : "base64Encode" }
     }
+```
 
 Esta configuración dará como resultado el índice de Azure Cognitive Search que contiene la información siguiente (el id. codificado en base64 se ha reducido para abreviar).
 
@@ -73,22 +79,28 @@ Adoptando la misma definición de índice que en el ejemplo anterior, supongamos
 
 _Blob1.json_
 
+```json
     recordid, temperature, pressure, timestamp
     1, 100, 100,"2019-02-13T00:00:00Z" 
     2, 33, 30,"2019-02-14T00:00:00Z" 
+```
 
 _Blob2.json_
 
+```json
     recordid, temperature, pressure, timestamp
     1, 1, 1,"2018-01-12T00:00:00Z" 
     2, 120, 3,"2013-05-11T00:00:00Z" 
+```
 
 Cuando se crea un indexador con **parsingMode** `delimitedText`, puede resultar natural configurar una función de asignación de campos para el campo de clave como se indica a continuación:
 
+```http
     {
         "sourceFieldName" : "recordid",
         "targetFieldName": "id"
     }
+```
 
 Sin embargo, esta asignación _no_ tendrá como resultado cuatro documentos que se muestran en el índice, porque el campo `recordid` no es único _entre blobs_. Por lo tanto, se recomienda hacer uso de la asignación de campos implícita que se aplica desde la propiedad `AzureSearch_DocumentKey` en el campo de índice de la clave para los modos de análisis de "uno a varios".
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.reviewer: nicking
 ms.custom: seodec18
-ms.openlocfilehash: b17a49535541c8f75f65cdbe9986a895427f3877
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f7edb632559dc8da2de32c58d994a7c51b1b09e8
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78255148"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169983"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Restauración de una aplicación en Azure desde una instantánea
 Este artículo muestra cómo restaurar una aplicación en [Azure App Service](../app-service/overview.md) desde una instantánea. Puede restaurar la aplicación a un estado anterior basado en una de las instantáneas de la aplicación. No es necesario habilitar la copia de seguridad de instantáneas, la plataforma guarda automáticamente una instantánea de todas las aplicaciones para fines de recuperación de datos.
@@ -37,15 +37,15 @@ La restauración desde instantáneas está disponible para las aplicaciones que 
 
 1. En la página **Configuración** de la aplicación en [Azure Portal](https://portal.azure.com), haga clic en **Copias de seguridad** para mostrar la página **Copias de seguridad**. A continuación, haga clic en **Restaurar** en la sección **Instantánea (Versión preliminar)** .
    
-    ![](./media/app-service-web-restore-snapshots/1.png)
+    ![Captura de pantalla que muestra cómo restaurar una aplicación a partir de una copia de seguridad de instantánea.](./media/app-service-web-restore-snapshots/1.png)
 
 2. En la página **Restaurar**, seleccione la instantánea para restaurar.
    
-    ![](./media/app-service-web-restore-snapshots/2.png)
+    ![Captura de pantalla que muestra cómo seleccionar la instantánea que se va a restaurar. ](./media/app-service-web-restore-snapshots/2.png)
    
 3. Especifique el destino de la restauración de la aplicación en **Destino de restauración**.
    
-    ![](./media/app-service-web-restore-snapshots/3.png)
+    ![Captura de pantalla que muestra cómo especificar el destino de la restauración.](./media/app-service-web-restore-snapshots/3.png)
    
    > [!WARNING]
    > Si elige **Sobrescribir**, se borrarán y sobrescribirán todos los datos existentes en el sistema de archivos actual de la aplicación. Antes de hacer clic en **Aceptar**, asegúrese de que es lo que desea hacer.
@@ -61,6 +61,6 @@ La restauración desde instantáneas está disponible para las aplicaciones que 
 
 4. Puede elegir restaurar la configuración del sitio.
    
-    ![](./media/app-service-web-restore-snapshots/4.png)
+    ![Captura de pantalla que muestra cómo restaurar la configuración del sitio.](./media/app-service-web-restore-snapshots/4.png)
 
 5. Haga clic en **OK**.

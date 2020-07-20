@@ -4,12 +4,12 @@ description: Supervise la aplicación web en tiempo real con métricas personali
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 10818a531a43b50b86a6d413c7a504e2c19c3986
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e554595a7a88e1455f7426636dc69db99a7d3e94
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85507353"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166491"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: supervisión y diagnóstico con una latencia de 1 segundo
 
@@ -49,12 +49,12 @@ Compruebe que [los puertos de salida de Live Metrics Stream](../../azure-monitor
 
 | |Live Stream | Explorador de métricas y Analytics |
 |---|---|---|
-|Latencia|Los datos se muestran en un segundo.|La agregación se realiza en minutos.|
-|Sin retención|Los datos se conservan solo mientras se encuentren en el gráfico y luego se descartan.|[Los datos se conservan durante 90 días.](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
-|A petición|Los datos solo se transmiten mientras el panel de Live Metrics está abierto. |Se envían datos siempre que el SDK esté instalado y habilitado.|
-|Gratuito|No se efectúa ningún cargo por los datos de Live Stream.|Están sujetos a aplicación de [precios](../../azure-monitor/app/pricing.md).
-|muestreo|Se transmiten todas las métricas y los contadores seleccionados. Se muestrean los errores y seguimientos de la pila. No se aplican elementos TelemetryProcessor.|Se pueden [muestrear](../../azure-monitor/app/api-filtering-sampling.md) eventos.|
-|Canal de control|Las señales de control de filtro se envían al SDK. Se recomienda proteger este canal.|La comunicación es unidireccional, hacia el portal|
+|**Latency**|Los datos se muestran en un segundo.|La agregación se realiza en minutos.|
+|**Sin retención**|Los datos se conservan solo mientras se encuentren en el gráfico y luego se descartan.|[Los datos se conservan durante 90 días.](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
+|**A petición**|Los datos solo se transmiten mientras el panel de Live Metrics está abierto. |Se envían datos siempre que el SDK esté instalado y habilitado.|
+|**Gratis**|No se efectúa ningún cargo por los datos de Live Stream.|Están sujetos a aplicación de [precios](../../azure-monitor/app/pricing.md).
+|**Muestreo**|Se transmiten todas las métricas y los contadores seleccionados. Se muestrean los errores y seguimientos de la pila. No se aplican elementos TelemetryProcessor.|Se pueden [muestrear](../../azure-monitor/app/api-filtering-sampling.md) eventos.|
+|**Canal de control**|Las señales de control de filtro se envían al SDK. Se recomienda proteger este canal.|La comunicación es unidireccional, hacia el portal|
 
 ## <a name="select-and-filter-your-metrics"></a>Selección y filtrado de métricas
 

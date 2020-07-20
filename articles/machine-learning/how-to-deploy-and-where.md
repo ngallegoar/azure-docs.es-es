@@ -5,18 +5,18 @@ description: Aprenda cómo y dónde implementar sus modelos de Azure Machine Lea
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 04/28/2020
-ms.custom: seoapril2019
-ms.openlocfilehash: f9558431d65a9c0f4fecf34141d9148afa514d86
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 07/08/2020
+ms.custom: seoapril2019, tracking-python
+ms.openlocfilehash: 57e1ecb080d816898b862951846b15a4b5709e38
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208574"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146552"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implementación de modelos con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ El flujo de trabajo es siempre parecido independientemente de [donde implemente]
 
 Para más información sobre los conceptos implicados en el flujo de trabajo de implementación, consulte [Administración, implementación y supervisión de modelos con Azure Machine Learning](concept-model-management-and-deployment.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Un área de trabajo de Azure Machine Learning. Para más información, consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
@@ -59,7 +59,7 @@ En el código siguiente se muestra cómo conectarse a un área de trabajo de Azu
 
 + **Uso de Visual Studio Code**
 
-   Cuando use Visual Studio Code, seleccione el área de trabajo mediante una interfaz gráfica. Para más información, consulte [Implementación y administración de modelos](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model) en la documentación de la extensión de Visual Studio Code.
+   Cuando use Visual Studio Code, seleccione el área de trabajo mediante una interfaz gráfica. Para más información, consulte [Implementación y administración de modelos](how-to-manage-resources-vscode.md#endpoints) en la documentación de la extensión de Visual Studio Code.
 
 ## <a name="register-your-model"></a><a id="registermodel"></a> Registro del modelo
 
@@ -255,9 +255,34 @@ file_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'my_model_folder', 'skl
 ```
 
 **Ejemplo de varios modelos**
+
+En este escenario, se registran dos modelos con el área de trabajo:
+
+* `my_first_model`: contiene un archivo (`my_first_model.pkl`) y solo hay una versión (`1`).
+* `my_second_model`: contiene un archivo (`my_second_model.pkl`) y hay dos versiones; `1` y `2`.
+
+Cuando se implementó el servicio, ambos modelos se proporcionan en la operación de implementación:
+
+```python
+first_model = Model(ws, name="my_first_model", version=1)
+second_model = Model(ws, name="my_second_model", version=2)
+service = Model.deploy(ws, "myservice", [first_model, second_model], inference_config, deployment_config)
+```
+
+En la imagen de Docker que hospeda el servicio, la variable de entorno `AZUREML_MODEL_DIR` contiene el directorio donde se encuentran los modelos.
+En este directorio, cada uno de los modelos se encuentra en una ruta de acceso al directorio de `MODEL_NAME/VERSION`. Donde `MODEL_NAME` es el nombre del modelo registrado y `VERSION` es la versión del modelo. Los archivos que componen el modelo registrado se almacenan en estos directorios.
+
+En este ejemplo, las rutas de acceso serían `$AZUREML_MODEL_DIR/my_first_model/1/my_first_model.pkl` y `$AZUREML_MODEL_DIR/my_second_model/2/my_second_model.pkl`.
+
+
 ```python
 # Example when the model is a file, and the deployment contains multiple models
-model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model', '1', 'sklearn_regression_model.pkl')
+first_model_name = 'my_first_model'
+first_model_version = '1'
+first_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), first_model_name, first_model_version, 'my_first_model.pkl')
+second_model_name = 'my_second_model'
+second_model_version = '2'
+second_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), second_model_name, second_model_version, 'my_second_model.pkl')
 ```
 
 ##### <a name="get_model_path"></a>get_model_path
@@ -322,6 +347,8 @@ def run(data):
         return error
 ```
 
+##### <a name="power-bi-compatible-endpoint"></a>Punto de conexión compatible con Power BI 
+
 En el ejemplo siguiente se muestra cómo definir datos de entrada como un diccionario `<key: value>` mediante DataFrame. Este método se admite para consumir el servicio Web implementado desde Power BI. ([Obtenga más información sobre cómo consumir el servicio web desde Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration)).
 
 ```python
@@ -358,8 +385,9 @@ input_sample = pd.DataFrame(data=[{
 # This is an integer type sample. Use the data type that reflects the expected result.
 output_sample = np.array([0])
 
-
-@input_schema('data', PandasParameterType(input_sample))
+# To indicate that we support a variable length of data input,
+# set enforce_shape=False
+@input_schema('data', PandasParameterType(input_sample, enforce_shape=False))
 @output_schema(NumpyParameterType(output_sample))
 def run(data):
     try:
@@ -516,6 +544,10 @@ La implementación usa la configuración de implementación de la configuración
 Puede usar los siguientes destinos o recursos de proceso para hospedar la implementación del servicio web:
 
 [!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
+
+> [!NOTE]
+> * ACI solo es adecuado para pequeños modelos con un tamaño inferior a 1 GB. 
+> * Se recomienda usar AKS de nodo único para desarrollo y pruebas de modelos más grandes.
 
 ### <a name="define-your-deployment-configuration"></a>Definición de la configuración de la implementación
 
@@ -925,13 +957,18 @@ output = service.run(input_payload)
 print(output)
 ```
 
-NOTA:  Estas dependencias se incluyen en el contenedor de inferencia sklearn integrado previamente:
+NOTA:  Estas dependencias se incluyen en el contenedor de inferencia Scikit-learn integrado previamente:
 
 ```yaml
+    - dill
     - azureml-defaults
     - inference-schema[numpy-support]
     - scikit-learn
     - numpy
+    - joblib
+    - pandas
+    - scipy
+    - sklearn_pandas
 ```
 
 ## <a name="package-models"></a>Modelos de paquetes
@@ -1129,7 +1166,7 @@ import requests
 # Load image data
 data = open('example.jpg', 'rb').read()
 # Post raw data to scoring URI
-res = request.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/octet-stream'})
+res = requests.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/octet-stream'})
 ```
 
 <a id="cors"></a>

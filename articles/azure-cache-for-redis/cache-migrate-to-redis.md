@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 05/30/2017
 ms.author: yegu
-ms.openlocfilehash: 9596b8cb771f114cb09c5d6c6ae33b4fc4a8cada
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 909329a4326354a890c3c4645002f7248f30e8fa
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74122691"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184793"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Migración desde Managed Cache Service a Azure Cache for Redis
 La migración de aplicaciones que usan Azure Managed Cache Service a Azure Cache for Redis se puede realizar con unos cambios mínimos en la aplicación, según las características de Managed Cache Service usadas por la aplicación de almacenamiento en caché. Si bien las API no son exactamente iguales, son parecidas, y gran parte del código existente que usa Managed Cache Service para tener acceso a una caché se puede reutilizar con cambios mínimos. En este artículo se muestra cómo realizar los cambios de aplicación y configuración necesarios para migrar las aplicaciones de Managed Cache Service que usen Azure Cache for Redis y se indica cómo se pueden usar algunas de las características de Azure Cache for Redis para implementar la funcionalidad de una caché de una memoria caché de Managed Cache Service.
@@ -40,7 +40,7 @@ Azure Managed Cache Service y Azure Cache for Redis guardan ciertas semejanzas p
 | Características de Managed Cache Service | Compatibilidad con Managed Cache Service | Compatibilidad con Azure Cache for Redis |
 | --- | --- | --- |
 | Cachés con nombre |Se configura una caché predeterminada y, en las ofertas de caché Estándar y Premium, se pueden configurar, si se desea, hasta nueve cachés con nombre adicionales. |Las instancias de Azure Cache for Redis tienen un número configurable de bases de datos (valor predeterminado: 16) que pueden utilizarse para implementar una funcionalidad similar a las memorias caché con nombre. Para más información, consulte [What are Redis databases?](cache-faq.md#what-are-redis-databases) (¿Qué son las bases de datos de Redis?) y [Configuración predeterminada del servidor Redis](cache-configure.md#default-redis-server-configuration). |
-| Alta disponibilidad |Proporciona alta disponibilidad para los elementos de la caché en las ofertas de caché Estándar y Premium. Si los elementos se pierden debido a un error, aún se puede acceder a las copias de seguridad de los elementos en la caché. Las escrituras en la caché secundaria se realizan de manera sincrónica. |Existe alta disponibilidad en las ofertas de caché Estándar y Premio, que tienen una configuración de réplica-principal de dos nodos (cada partición de una caché Premium tiene un par de réplica-principal). Las escrituras en la réplica se realizan de forma asincrónica. Para más información, consulte [Precios de Azure Cache for Redis](https://azure.microsoft.com/pricing/details/cache/). |
+| Alta disponibilidad |Proporciona alta disponibilidad para los elementos de la caché en las ofertas de caché Estándar y Premium. Si los elementos se pierden debido a un error, aún se puede acceder a las copias de seguridad de los elementos en la caché. Las escrituras en la caché de réplica se realizan de manera sincrónica. |Existe alta disponibilidad en las ofertas de caché Estándar y Premio, que tienen una configuración de réplica-principal de dos nodos (cada partición de una caché Premium tiene un par de réplica-principal). Las escrituras en la réplica se realizan de forma asincrónica. Para más información, consulte [Precios de Azure Cache for Redis](https://azure.microsoft.com/pricing/details/cache/). |
 | Notificaciones |Permite a los clientes recibir notificaciones asincrónicas cuando se producen diversas operaciones de caché en una caché con nombre. |Las aplicaciones cliente pueden usar pub/sub de Redis o [notificaciones de Keyspace](cache-configure.md#keyspace-notifications-advanced-settings) para lograr una funcionalidad similar a las notificaciones. |
 | Caché local |Almacena una copia de los objetos en caché de forma local en el cliente para un acceso a un más rápido. |Las aplicaciones cliente deberán implementar esta funcionalidad mediante un diccionario o una estructura de datos parecida. |
 | Directiva de expulsión |Ninguna o LRU. La directiva predeterminada es LRU. |Azure Cache for Redis admite las siguientes directivas de expulsión: volatile-lru, allkeys-lru, volatile-random, allkeys-random, volatile-ttl, noeviction. La directiva predeterminada es volatile-lru. Para obtener más información, consulte [Configuración de servidor predeterminada en Redis](cache-configure.md#default-redis-server-configuration). |

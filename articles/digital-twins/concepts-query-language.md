@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 3196004015046b4d3d2789745c80d323bacdced9
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 6da539ccd8ad293aed402a4a6d130b6701e7b9c2
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985248"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187122"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Acerca del lenguaje de consulta para Azure Digital Twins
 
@@ -30,10 +30,10 @@ Estas son las operaciones disponibles en el lenguaje de consulta de Azure Digita
 * Obtención de gemelos mediante propiedades de relación.
 * Obtención de gemelos en varios tipos de relación (consultas `JOIN`). Hay limitaciones con respecto al número de operaciones `JOIN` permitidas (un nivel para la versión preliminar pública).
 * Uso de la función personalizada `IS_OF_MODEL(twinCollection, twinTypeName)`, que permite filtrar en función del [modelo](concepts-models.md) del gemelo. Admite la herencia.
-* Uso de cualquier combinación (operador `AND`, `OR`, `NOT`) de lo anterior.
 * Uso de funciones escalares: `IS_BOOL`, `IS_DEFINED`, `IS_NULL`, `IS_NUMBER`, `IS_OBJECT`, `IS_PRIMITIVE`, `IS_STRING`, `STARTS_WITH`, `ENDS_WITH`.
-* Uso de operadores de comparación de consulta: `AND`/`OR`/`NOT`,  `IN`/`NOT IN`, `STARTSWITH`/`ENDSWITH`, `=`, `!=`, `<`, `>`, `<=`, `>=`.
-* Uso de la continuación: se crea una instancia del objeto de consulta con un tamaño de páginas (hasta 100). Puede recuperar los gemelos digitales una página a la vez, si repite las llamadas al método `nextAsTwin`.
+* Uso de operadores de comparación de consulta: `IN`/`NIN`, `=`, `!=`, `<`, `>`, `<=` y `>=`.
+* Uso de cualquier combinación (operador `AND`, `OR`, `NOT`) de lo anterior.
+* Uso de la continuación: se crea una instancia del objeto de consulta con un tamaño de páginas (hasta 100). Puede recuperar de página en página los gemelos digitales. Para ello, proporcione el token de continuación en las llamadas subsiguientes a la API.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

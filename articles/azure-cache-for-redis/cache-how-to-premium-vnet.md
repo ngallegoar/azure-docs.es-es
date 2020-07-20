@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: dae829336c5328bec4b620217c34c69fa5931b3a
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: f07e18498138d29497fa6ba85c5930a5a5f7ec4e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856853"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184776"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Configuración de la compatibilidad de red virtual con el nivel Premium de Azure Cache for Redis
 Azure Cache for Redis cuenta con diferentes opciones de caché, lo que proporciona flexibilidad en la elección del tamaño y las características de la memoria caché, incluidas algunas características del nivel Prémium, como la agrupación en clústeres, la persistencia y la compatibilidad con las redes virtuales. Una red virtual es una red privada en la nube. Cuando una instancia de Azure Cache for Redis se configure con una red virtual, no será posible acceder a ella públicamente, solo se podrá acceder a ella desde máquinas virtuales y aplicaciones de dentro de la red virtual. En este artículo se describe cómo configurar la compatibilidad con redes virtuales de una instancia de Azure Cache for Redis de nivel Premium.
@@ -60,10 +60,11 @@ Una vez que se crea la memoria caché, para ver la configuración de la red virt
 Para conectarse a la instancia de Azure Cache for Redis cuando usa una red virtual, especifique el nombre de host de la memoria caché en la cadena de conexión, como se muestra en el ejemplo siguiente:
 
 ```csharp
-private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-{
-    return ConnectionMultiplexer.Connect("contoso5premium.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
-});
+private static Lazy<ConnectionMultiplexer>
+    lazyConnection = new Lazy<ConnectionMultiplexer> (() =>
+    {
+        return ConnectionMultiplexer.Connect("contoso5premium.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
+    });
 
 public static ConnectionMultiplexer Connection
 {
@@ -98,7 +99,7 @@ Cuando Azure Cache for Redis se hospeda en una red virtual, se usan los puertos 
 
 #### <a name="outbound-port-requirements"></a>Requisitos de puerto de salida
 
-Existen nueve requisitos de puerto de salida. Las solicitudes que salen de estos intervalos son de salida a otros servicios necesarios para que la memoria caché funcione o internas a la subred de Redis para la comunicación entre nodos. Para la replicación geográfica, existen requisitos de salida adicionales para la comunicación entre subredes de la caché principal y secundaria.
+Existen nueve requisitos de puerto de salida. Las solicitudes que salen de estos intervalos son de salida a otros servicios necesarios para que la memoria caché funcione o internas a la subred de Redis para la comunicación entre nodos. Para la replicación geográfica, existen requisitos de salida adicionales para la comunicación entre subredes de la caché principal y la caché de réplica.
 
 | Puertos | Dirección | Protocolo de transporte | Propósito | IP local | Dirección IP remota |
 | --- | --- | --- | --- | --- | --- |

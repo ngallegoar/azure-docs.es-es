@@ -9,12 +9,12 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2edd62825de08becf22f2f953a63a7f89f55e0a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6e66dc05ac2b6e54a1be94576b8686390949145
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236880"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171846"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Modelado de tipos de datos complejos en Azure Cognitive Search
 
@@ -27,7 +27,7 @@ Azure Cognitive Search admite de forma nativa colecciones y tipos complejos. Est
 Para empezar, recomendamos el [conjunto de datos Hotels](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md), que puede cargarse en el asistente **Importar datos** de Azure Portal. El asistente detecta los tipos complejos en el origen y sugiere un esquema de índice basado en las estructuras detectadas.
 
 > [!Note]
-> La compatibilidad con tipos complejos está disponible con carácter general en `api-version=2019-05-06`. 
+> La compatibilidad con tipos complejos está disponible con carácter general desde `api-version=2019-05-06`. 
 >
 > Si su solución de búsqueda se basa en soluciones alternativas anteriores de conjuntos de datos planos de una colección, debe cambiar su índice para incluir tipos complejos según se admite en la versión más nueva de la API. Para obtener más información acerca de cómo actualizar las versiones de la API, consulte [Actualización a la versión más reciente de la API REST](search-api-migration.md) o [Actualización a la versión más reciente del SDK de .NET](search-dotnet-sdk-migration-version-9.md).
 
@@ -111,7 +111,7 @@ Las expresiones de búsqueda de forma libre funcionan según lo esperado con tip
 
 Las consultas adquieren más matices cuando tiene varios términos y operadores, y algunos términos tienen nombres de campos especificados, tal y como es posible con la [sintaxis de Lucene](query-lucene-syntax.md). Por ejemplo, esta consulta intenta hacer coincidir dos términos, "Portland" y "OR", con dos campos secundarios del campo Dirección:
 
-    search=Address/City:Portland AND Address/State:OR
+> `search=Address/City:Portland AND Address/State:OR`
 
 Las consultas de este tipo *no están correlacionadas*  para la búsqueda de texto completo, a diferencia de los filtros. En los filtros, las consultas a través de campos secundarios de una colección compleja se correlacionan mediante variables de rango en [`any` o `all`](search-query-odata-collection-operators.md). La consulta de Lucene anterior devuelve documentos que contienen "Portland, Maine" y "Portland, Oregon", junto con otras ciudades de Oregón. Esto sucede porque cada cláusula se aplica a todos los valores de su campo en todo el documento, por lo que no hay ningún concepto de un "documento secundario actual". Para obtener más información, consulte [Descripción de los filtros de colección de OData en Azure Cognitive Search](search-query-understand-collection-filters.md).
 
@@ -119,7 +119,7 @@ Las consultas de este tipo *no están correlacionadas*  para la búsqueda de tex
 
 El parámetro `$select` se utiliza para elegir qué campos se devuelven en los resultados de la búsqueda. Para utilizar este parámetro para seleccionar campos secundarios específicos de un campo complejo, incluya los campos primario y secundario separados por una barra diagonal (`/`).
 
-    $select=HotelName, Address/City, Rooms/BaseRate
+> `$select=HotelName, Address/City, Rooms/BaseRate`
 
 Los campos deben marcarse como Recuperables en el índice, si quiere que aparezcan en los resultados de la búsqueda. Solo los campos marcados como Recuperables se pueden usar en una instrucción `$select`.
 
@@ -143,11 +143,11 @@ Las operaciones de ordenación funcionan cuando los campos tienen un único valo
 
 Se puede hacer referencia a campos secundarios de un campo complejo en una expresión de filtro. Simplemente use la misma [sintaxis de ruta de acceso de OData](query-odata-filter-orderby-syntax.md) que se usa para ordenar y seleccionar campos, así como para definirles facetas. Por ejemplo, el filtro siguiente devolverá todos los hoteles de Canadá:
 
-    $filter=Address/Country eq 'Canada'
+> `$filter=Address/Country eq 'Canada'`
 
 Para filtrar según un campo de colección complejo, puede usar una **expresión lambda** con los [operadores `any` y `all`](search-query-odata-collection-operators.md). En ese caso, la **variable de rango** de la expresión lambda es un objeto con campos secundarios. Puede hacer referencia a esos campos secundarios con la sintaxis de ruta de acceso de OData estándar. Por ejemplo, el filtro siguiente devolverá los hoteles que tengan al menos una habitación deluxe y todas las habitaciones en las que no se permita fumar:
 
-    $filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)
+> `$filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)`
 
 Al igual que con los campos simples de nivel superior, los campos secundarios simples de campos complejos solo pueden incluirse en los filtros si tienen el atributo **filtrable** establecido en `true` en la definición del índice. Para obtener más información, vea la [referencia de la API de creación de índices](/rest/api/searchservice/create-index).
 

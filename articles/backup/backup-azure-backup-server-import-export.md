@@ -3,12 +3,12 @@ title: Copia de seguridad sin conexión para DPM y Azure Backup Server
 description: Con Azure Backup, puede enviar datos fuera de la red mediante el servicio Azure Import/Export. En este artículo se explica el flujo de trabajo de la copia de seguridad sin conexión para DPM y Azure Backup Server.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 0ff6198eed4e3e365b443a51e5c63534c2cf0973
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 3f02c48ddd2c5cd4831d8c7a84dbbf42f55a562a
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921256"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187802"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Flujo de trabajo de copia de seguridad sin conexión para DPM y Azure Backup Server (MABS)
 
@@ -124,7 +124,7 @@ La utilidad *AzureOfflineBackupDiskPrep* prepara las unidades de disco SATA que 
     | Parámetro | Descripción |
     | --- | --- |
     | s:&lt;*Ruta de acceso de la ubicación de ensayo*&gt; |Esta entrada obligatoria se usa para proporcionar la ruta de acceso a la ubicación de almacenamiento provisional que escribió en el flujo de trabajo en la sección "Iniciar copia de seguridad sin conexión". |
-    | p:&lt;*Ruta de acceso a PublishSettingsFile*&gt; |Esta entrada obligatoria se utiliza para proporcionar la ruta de acceso al archivo de Configuración de publicación de Azure especificado en el flujo de trabajo de la sección "Inicio de la copia de seguridad sin conexión". |
+    | p:&lt;*Ruta de acceso a PublishSettingsFile*&gt; |Esta entrada opcional se usa para proporcionar la ruta de acceso al archivo de configuración de publicación de Azure. |
 
     Cuando se ejecuta el comando, la utilidad solicita la selección del trabajo de importación de Azure correspondiente a las unidades que deben estar preparadas. Si hay un solo trabajo de importación asociado con la ubicación de ensayo proporcionada, aparece una pantalla como esta.
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 46ef67e5ede1ea41469a8dcc78244e74c0bffc45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 798137a74f22824dbfec9653bff327d3a0a1f3b4
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254334"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186765"
 ---
 # <a name="application-gateway-components"></a>Componentes de Application Gateway
 
@@ -144,7 +144,7 @@ Puede crear grupos back-end diferente para distintos tipos de solicitudes. Por e
 
 De forma predeterminada, una puerta de enlace de aplicaciones supervisa el estado de todos los recursos de su grupo back-end y elimina automáticamente los que tienen un estado incorrecto. A continuación, supervisa las instancias incorrectas y las agrega de vuelta al grupo back-end en buen estado cuando está disponible y responde a los sondeos de estado.
 
-Aparte del uso de la supervisión del sondeo de estado, también puede personalizar el sondeo de estado para adaptarlo a las necesidades de su aplicación. Los sondeos personalizados permiten un control más pormenorizado sobre la supervisión del estado. Cuando se usan sondeos personalizados, puede configurar el intervalo de sondeo, la dirección URL y la ruta de acceso para prueba, así como el número de respuestas erróneas que se aceptan antes de marcar la instancia del grupo back-end como en mal estado. Se recomienda configurar sondeos personalizados para supervisar el estado de cada grupo back-end.
+Aparte del uso de la supervisión del sondeo de estado, también puede personalizar el sondeo de estado para adaptarlo a las necesidades de su aplicación. Los sondeos personalizados permiten un control más pormenorizado sobre la supervisión del estado. Cuando se usan sondeos personalizados, puede configurar un nombre de host personalizado, la ruta de acceso de la dirección URL, el intervalo de sondeo y la cantidad de respuestas erróneas que se aceptan antes de marcar la instancia del grupo de back-end como en mal estado, la coincidencia de códigos de estado personalizados y cuerpos de respuesta, etc. Se recomienda configurar sondeos personalizados para supervisar el estado de cada grupo back-end.
 
 Para más información, consulte [Supervisión del estado de la puerta de enlace de aplicaciones](../application-gateway/application-gateway-probe-overview.md).
 

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: tracking-python
-ms.openlocfilehash: a8c70254c7ba7a9525b843240230ac158e29a338
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: da437f830a452a57ea1290b3d85a3faa92895bcd
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985742"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147052"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Entrenamiento de modelos con Azure Machine Learning
 
@@ -131,6 +131,10 @@ La CLI de Machine Learning es una extensión para la CLI de Azure. Proporciona c
 
 * [Use la extensión de la CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md)
 * [MLOps en Azure](https://github.com/microsoft/MLOps)
+
+## <a name="vs-code"></a>Código de VS
+
+Puede usar la extensión de VS Code para ejecutar y administrar los trabajos de entrenamiento. Visite la [guía paso a paso sobre la administración de recursos de VS Code](how-to-manage-resources-vscode.md#experiments) para obtener más información.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

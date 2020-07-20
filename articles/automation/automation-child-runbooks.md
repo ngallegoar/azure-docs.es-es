@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: c15ed6e9409bee71a778986d8f38ae1ab126c180
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 95e156c17b723c679772293401c730cbdff2220b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828651"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169891"
 ---
 # <a name="create-modular-runbooks"></a>Creación de runbooks modulares
 
@@ -20,12 +20,12 @@ Existen dos maneras de llamar a un runbook secundario y hay varias diferencias q
 
 |  | En línea | Cmdlet |
 |:--- |:--- |:--- |
-| Trabajo |Los runbooks secundarios se ejecutan en el mismo trabajo que el primario. |Se crea un trabajo independiente para el runbook secundario. |
-| Ejecución |El runbook primario espera a que el runbook secundario se complete antes de continuar. |El runbook primario continúa inmediatamente después de que se inicie el runbook secundario *o* el runbook primario espera a que finalice el trabajo secundario. |
-| Output |El runbook primario puede obtener los resultados directamente del runbook secundario. |El runbook primario debe obtener los resultados directamente del trabajo de runbook secundario *o* el runbook primario puede obtener los resultados directamente del runbook secundario. |
-| Parámetros |Los valores de los parámetros del runbook secundario se especifican por separado y pueden usar cualquier tipo de datos. |Los valores de los parámetros del runbook secundario deben combinarse en una sola tabla hash. Esta tabla hash solo puede incluir tipos de datos simples, de matriz y de objeto que usen la serialización JSON. |
-| Cuenta de Automation |El runbook primario solo puede usar el runbook secundario en la misma cuenta de Automation. |Los runbooks primarios pueden usar un runbook secundario desde cualquier cuenta de Automation, desde la misma suscripción de Azure e incluso desde otra suscripción con la que se tenga conexión. |
-| Publicación |El runbook secundario debe publicarse antes de publicar el runbook primario. |El runbook secundario se publica en cualquier momento antes de iniciar el runbook primario. |
+| **Trabajo** |Los runbooks secundarios se ejecutan en el mismo trabajo que el primario. |Se crea un trabajo independiente para el runbook secundario. |
+| **Ejecución** |El runbook primario espera a que el runbook secundario se complete antes de continuar. |El runbook primario continúa inmediatamente después de que se inicie el runbook secundario *o* el runbook primario espera a que finalice el trabajo secundario. |
+| **Salida** |El runbook primario puede obtener los resultados directamente del runbook secundario. |El runbook primario debe obtener los resultados directamente del trabajo de runbook secundario *o* el runbook primario puede obtener los resultados directamente del runbook secundario. |
+| **Parámetros** |Los valores de los parámetros del runbook secundario se especifican por separado y pueden usar cualquier tipo de datos. |Los valores de los parámetros del runbook secundario deben combinarse en una sola tabla hash. Esta tabla hash solo puede incluir tipos de datos simples, de matriz y de objeto que usen la serialización JSON. |
+| **Cuenta de Automation** |El runbook primario solo puede usar el runbook secundario en la misma cuenta de Automation. |Los runbooks primarios pueden usar un runbook secundario desde cualquier cuenta de Automation, desde la misma suscripción de Azure e incluso desde otra suscripción con la que se tenga conexión. |
+| **Publicación** |El runbook secundario debe publicarse antes de publicar el runbook primario. |El runbook secundario se publica en cualquier momento antes de iniciar el runbook primario. |
 
 ## <a name="invoke-a-child-runbook-using-inline-execution"></a>Invocación de un runbook secundario mediante la ejecución insertada
 

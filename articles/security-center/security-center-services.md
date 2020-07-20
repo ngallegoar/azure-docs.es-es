@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: memildin
-ms.openlocfilehash: 22f66a7be27f42bfd0305ad1eaf297ca8c8029fa
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 060db99cf0163876b68eeee2cff8ef2d03e2b5b9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996761"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187020"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de características para las máquinas
 
@@ -41,7 +41,6 @@ En las tablas siguientes se muestran las características de Azure Security Cent
 |[Controles de aplicación adaptables](security-center-adaptive-application.md)|✔|-|✔|Estándar|
 |[Mapa de red](security-center-network-recommendations.md#network-map)|✔|✔|-|Estándar|
 |[Protección de red adaptable](security-center-adaptive-network-hardening.md)|✔|-|-|Estándar|
-|Controles de red adaptables|✔|✔|-|Estándar|
 |[Panel e informes de cumplimiento normativo](security-center-compliance-dashboard.md)|✔|✔|✔|Estándar|
 |Recomendaciones y protección frente a amenazas en contenedores IaaS hospedados en Docker|-|-|-|Estándar|
 |Evaluación de revisiones de SO que faltan|✔|✔|✔|Gratuito|
@@ -106,7 +105,7 @@ Para más información sobre cuándo se generan recomendaciones para cada una de
  **\*** El estado de cobertura y los datos auxiliares solo están disponibles en el área de trabajo de Log Analytics asociada con las suscripciones protegidas. No se refleja en el portal de Azure Security Center.
 
 > [!NOTE]
-> La detección de System Center Endpoint Protection (SCEP) en una máquina virtual de Windows Server 2008 R2 requiere que SCEP se instale después de PowerShell 3.0 (o una versión superior).
+> La detección de System Center Endpoint Protection (SCEP) en una máquina virtual de Windows Server 2008 R2 requiere que SCEP se instale después de PowerShell 0 (v3.0 o una versión superior).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

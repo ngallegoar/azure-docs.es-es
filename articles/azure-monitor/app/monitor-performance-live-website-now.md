@@ -3,17 +3,17 @@ title: Supervisión de una aplicación web de ASP.NET con Azure Application Insi
 description: Supervise el rendimiento de un sitio web sin volver a implementarlo. Funciona con las aplicaciones web de ASP.NET hospedadas en local o en máquinas virtuales.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: ba17ee275a744b88f2c76e7e3f99a1ac9cc8e758
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: f4ce01ea8fc7b6bf1f294071f04e2bebce3e1d27
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536835"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166389"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentación de aplicaciones web en tiempo de ejecución con Adjuntar sin código de Application Insights
 
 > [!IMPORTANT]
-> Ya no se recomienda el uso de Monitor de estado. Se ha reemplazado por Azure Application Insights Agent (anteriormente denominado Monitor de estado V2). Consulte nuestra documentación sobre las [implementaciones de servidores locales](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) o las [implementaciones de máquinas virtuales y conjuntos de escalado de máquinas virtuales de Azure](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
+> Ya no se recomienda el uso del Monitor de estado y, **a partir del 1 de junio de 2021**, no se admitirá esta versión del Monitor de estado. Se ha reemplazado por Azure Application Insights Agent (anteriormente denominado Monitor de estado V2). Consulte nuestra documentación sobre las [implementaciones de servidores locales](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) o las [implementaciones de máquinas virtuales y conjuntos de escalado de máquinas virtuales de Azure](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
 
 Puede instrumentar una aplicación web activa con Azure Application Insights sin tener que modificar ni volver a implementar el código. Necesita una suscripción a [Microsoft Azure](https://azure.com) .
 
@@ -39,14 +39,14 @@ A continuación hay un resumen de lo que se obtiene por cada vía:
 
 |  | Tiempo de compilación | Tiempo de ejecución |
 | --- | --- | --- |
-| Solicitudes y excepciones |Sí |Sí |
-| [Excepciones más detalladas](../../azure-monitor/app/asp-net-exceptions.md) | |Sí |
-| [Diagnósticos de dependencia](../../azure-monitor/app/asp-net-dependencies.md) |En .NET 4.6 +, pero con menos detalle |Sí, detalles completos: códigos de resultado, texto de comandos SQL, verbo HTTP|
-| [Contadores de rendimiento del sistema](../../azure-monitor/app/performance-counters.md) |Sí |Sí |
-| [API para la telemetría personalizada][api] |Sí |No |
-| [Integración del registro de seguimiento](../../azure-monitor/app/asp-net-trace-logs.md) |Sí |No |
-| [Datos de usuario y página](../../azure-monitor/app/javascript.md) |Sí |No |
-| Es necesario volver a compilar el código |Sí | No |
+| **Solicitudes y excepciones** |Sí |Sí |
+| **[Excepciones más detalladas](../../azure-monitor/app/asp-net-exceptions.md)** | |Sí |
+| **[Diagnósticos de dependencia](../../azure-monitor/app/asp-net-dependencies.md)** |En .NET 4.6 +, pero con menos detalle |Sí, detalles completos: códigos de resultado, texto de comandos SQL, verbo HTTP|
+| **[Contadores de rendimiento del sistema](../../azure-monitor/app/performance-counters.md)** |Sí |Sí |
+| **[API para la telemetría personalizada][api]** |Sí |No |
+| **[Integración del registro de seguimiento](../../azure-monitor/app/asp-net-trace-logs.md)** |Sí |No |
+| **[Vista de página y datos de usuario](../../azure-monitor/app/javascript.md)** |Sí |No |
+| **Es necesario volver a compilar el código** |Sí | No |
 
 
 
@@ -92,13 +92,14 @@ Estos son algunos de los pasos que puede seguir para confirmar que la instalaci�
 
 - Confirme que el archivo applicationInsights.config esté en el directorio de la aplicación de destino y que incluya la clave de instrumentación.
 
-- Si sospecha que faltan datos, puede ejecutar una consulta sencilla en [Analytics](../log-query/get-started-portal.md) para mostrar todos los roles de la nube que actualmente envían datos de telemetría.
+- Si sospecha que faltan datos, puede ejecutar una consulta en [Analytics](../log-query/get-started-portal.md) para mostrar todos los roles de la nube que actualmente envían datos de telemetría.
   ```Kusto
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
 
-- Si tiene que confirmar que Application Insights se adjuntó correctamente, puede ejecutar [Sysinternals Handle](https://docs.microsoft.com/sysinternals/downloads/handle) en una ventana de comando para confirmar que IIS cargó applicationinsights.dll.
-  ```cmd
+- Si tiene que confirmar que Application Insights se ha adjuntado correctamente, puede ejecutar [Sysinternals Handle](https://docs.microsoft.com/sysinternals/downloads/handle) en una ventana de comando para confirmar que IIS cargó applicationinsights.dll.
+
+  ```console
   handle.exe /p w3wp.exe
   ```
 
@@ -109,7 +110,7 @@ Estos son algunos de los pasos que puede seguir para confirmar que la instalaci�
 
 ### <a name="unable-to-login"></a>Error de inicio de sesión
 
-* Si el Monitor de estado no puede iniciar sesión, haga una instalación de línea de comandos. El Monitor de estado intenta iniciar sesión para recopilar la clave de instrumentación, pero la puede proporcionar manualmente con el comando:
+Si el Monitor de estado no puede iniciar sesión, haga una instalación de línea de comandos. El Monitor de estado intenta iniciar sesión para recopilar la clave de instrumentación, pero la puede proporcionar manualmente con el comando:
 
 ```powershell
 Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'
@@ -192,7 +193,9 @@ Puede iniciar y detener la supervisión mediante PowerShell en el servidor IIS.
 
 En primer lugar, importe el módulo de Application Insights:
 
-`Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'`
+```powershell
+Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'
+```
 
 Encuentre las aplicaciones en supervisión:
 
@@ -221,12 +224,14 @@ Encuentre las aplicaciones en supervisión:
     Para descargar la versión más reciente, use Update-ApplicationInsightsVersion.
 * Si se descarga correctamente, devuelve `ApplicationInsightsApplication` . Si se produce un error, inicia un seguimiento a stderr.
 
-          Name                      : Default Web Site/WebApp1
-          InstrumentationKey        : 00000000-0000-0000-0000-000000000000
-          ProfilerState             : ApplicationInsights
-          SdkState                  : EnabledAfterDeployment
-          SdkVersion                : 1.2.1
-          LatestAvailableSdkVersion : 1.2.3
+   ```output
+   Name                      : Default Web Site/WebApp1
+   InstrumentationKey        : 00000000-0000-0000-0000-000000000000
+   ProfilerState             : ApplicationInsights
+   SdkState                  : EnabledAfterDeployment
+   SdkVersion                : 1.2.1
+   LatestAvailableSdkVersion : 1.2.3
+   ```
 
 `Stop-ApplicationInsightsMonitoring [-Name appName | -All]`
 
@@ -298,7 +303,7 @@ En el caso de las aplicaciones ya instrumentadas en el momento de la compilació
  * Llamadas de dependencia (.NET 4.5); valores devueltos en las llamadas de dependencia (.NET 4.6).
  * Valores de seguimiento de la pila de excepción.
 
-[Más información](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+[Más información](https://apmtips.com/posts/2016-11-18-how-application-insights-status-monitor-not-monitors-dependencies/)
 
 ## <a name="video"></a>Vídeo
 

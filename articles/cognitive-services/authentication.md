@@ -9,27 +9,26 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: erhopf
-ms.openlocfilehash: d36961a12162a587def76b1ffeb2109f9ed63f4d
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a56e815e3a4ac04d20b29163139ab40332c4bec4
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587687"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146969"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticación de solicitudes en Azure Cognitive Services
 
 Cada solicitud a una instancia de Azure Cognitive Services debe incluir un encabezado de autenticación. Este encabezado pasa una clave de suscripción o token de acceso, que se utiliza para validar su suscripción a un servicio o grupo de servicios. En este artículo, aprenderá sobre tres maneras de autenticar una solicitud y los requisitos para cada una.
 
-* [Autenticación con una clave de suscripción a un servicio único](#authenticate-with-a-single-service-subscription-key)
-* [Autenticación con una clave de suscripción a varios servicios](#authenticate-with-a-multi-service-subscription-key)
-* [Autenticación con un token](#authenticate-with-an-authentication-token)
-* [Autenticación mediante Azure Active Directory (AAD)](#authenticate-with-azure-active-directory)
+* Autenticación con una clave de suscripción a un [servicio único](#authenticate-with-a-single-service-subscription-key) o a [varios servicios](#authenticate-with-a-multi-service-subscription-key)
+* Autenticación con un [token](#authenticate-with-an-authentication-token)
+* Autenticación con [Azure Active Directory (AAD)](#authenticate-with-azure-active-directory)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de hacer una solicitud, necesita una cuenta de Azure y una suscripción a Azure Cognitive Services. Si ya tiene una cuenta, siga adelante y vaya a la sección siguiente. Si no tiene una cuenta, tenemos una guía para que la configure en unos minutos: [Creación de una cuenta de Cognitive Services para Azure](cognitive-services-apis-create-account.md).
 
-Puede obtener la clave de suscripción en [Azure Portal](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) después de crear la cuenta, o al activar una [evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/my-apis).
+Puede obtener la clave de suscripción en [Azure Portal](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) después de [crear la cuenta](https://azure.microsoft.com/free/cognitive-services/).
 
 ## <a name="authentication-headers"></a>Encabezados de autenticación
 

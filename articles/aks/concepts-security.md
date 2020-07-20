@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: 15bd0791917ca95e61a441b71947b70c81c0598e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d154ca6b67f3f587234deb34cef171ffc5924530
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831546"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145530"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceptos de seguridad de las aplicaciones y los clústeres en Azure Kubernetes Service (AKS)
 
@@ -19,11 +19,16 @@ Para proteger los datos de los clientes a medida que ejecuta cargas de trabajo d
 
 En este artículo se presentan los conceptos básicos para proteger sus aplicaciones en AKS:
 
-- [Seguridad de componentes maestros](#master-security)
-- [Seguridad de nodos](#node-security)
-- [Actualización de un clúster de Service Fabric](#cluster-upgrades)
-- [Seguridad de las redes](#network-security)
-- [Secretos de Kubernetes](#kubernetes-secrets)
+- [Conceptos de seguridad de las aplicaciones y los clústeres en Azure Kubernetes Service (AKS)](#security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks)
+  - [Seguridad de componentes maestros](#master-security)
+  - [Seguridad de nodos](#node-security)
+    - [Aislamiento de proceso](#compute-isolation)
+  - [Actualización de un clúster de Service Fabric](#cluster-upgrades)
+    - [Acordonamiento y purga](#cordon-and-drain)
+  - [Seguridad de las redes](#network-security)
+    - [Grupos de seguridad de red de Azure](#azure-network-security-groups)
+  - [Secretos de Kubernetes](#kubernetes-secrets)
+  - [Pasos siguientes](#next-steps)
 
 ## <a name="master-security"></a>Seguridad de componentes maestros
 
@@ -45,7 +50,14 @@ Los nodos se implementan en una subred de una red privada virtual, sin ninguna d
 
 Para proporcionar almacenamiento, los nodos usan Azure Managed Disks. Para la mayoría de los tamaños de nodo de máquina virtual, estos son los discos Premium respaldados por SSD de alto rendimiento. Los datos almacenados en discos administrados se cifran automáticamente en reposo dentro de la plataforma Azure. Para mejorar la redundancia, estos discos también se replican de forma segura en el centro de datos de Azure.
 
-Los entornos de Kubernetes en AKS o en cualquier otro lugar no están completamente seguros en este momento ante la utilización de multiinquilinos hostiles. Utilizar otras características de seguridad adicionales, como las *directivas de seguridad de pod* o los controles de acceso basados en roles (RBAC) más específicos, puede dificultar las vulnerabilidades de seguridad. Sin embargo, para que la seguridad resulte efectiva cuando se ejecutan cargas de trabajo multiinquilino hostiles, el hipervisor es el único nivel de seguridad en el que debe confiar. El dominio de seguridad de Kubernetes se convierte en todo el clúster, no en un nodo específico. En el caso de estos tipos de cargas de trabajo multiinquilino hostiles, debe usar clústeres que estén físicamente aislados. Para más información sobre las formas de aislar las cargas de trabajo, consulte [Procedimientos recomendados para el aislamiento de clústeres en Azure Kubernetes Service (AKS)][cluster-isolation].
+Los entornos de Kubernetes en AKS o en cualquier otro lugar no están completamente seguros en este momento ante la utilización de multiinquilinos hostiles. Utilizar otras características de seguridad adicionales, como las *directivas de seguridad de pod* o los controles de acceso basados en roles (RBAC) más específicos, puede dificultar las vulnerabilidades de seguridad. Sin embargo, para que la seguridad resulte efectiva cuando se ejecutan cargas de trabajo multiinquilino hostiles, el hipervisor es el único nivel de seguridad en el que debe confiar. El dominio de seguridad de Kubernetes se convierte en todo el clúster, no en un nodo específico. En el caso de estos tipos de cargas de trabajo multiinquilino hostiles, debe usar clústeres que estén físicamente aislados. Para obtener más información sobre las formas de aislar las cargas de trabajo, consulte [Procedimientos recomendados para el aislamiento de clústeres en AKS][cluster-isolation].
+
+### <a name="compute-isolation"></a>Aislamiento de proceso
+
+ Ciertas cargas de trabajo pueden requerir un alto grado de aislamiento de otras cargas de trabajo del cliente debido a los requisitos normativos o de cumplimiento. Para estas cargas de trabajo, Azure proporciona [máquinas virtuales aisladas](..\virtual-machines\linux\isolation.md), que se pueden usar como nodos de agente en un clúster de AKS. Estas máquinas virtuales aisladas están aisladas de un tipo de hardware específico y están dedicadas a un solo cliente. 
+
+ Para usar estas máquinas virtuales aisladas con un clúster de AKS, seleccione uno de los tamaños de máquinas virtuales aisladas que aparecen [aquí](..\virtual-machines\linux\isolation.md) como **tamaño de nodo** al crear un clúster de AKS o agregar un grupo de nodos.
+
 
 ## <a name="cluster-upgrades"></a>Actualizaciones de clústeres
 

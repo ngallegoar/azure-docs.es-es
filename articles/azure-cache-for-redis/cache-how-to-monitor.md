@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
-ms.openlocfilehash: 86cbeddba699e89ce1127dbac72dac81dcc41449
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8dd228add317b5c4cd19f1d0daefa90ce3c937b7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76547496"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184878"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Supervisión de Azure Cache for Redis
 
@@ -103,7 +103,7 @@ Cada métrica incluye dos versiones. Una métrica mide el rendimiento de toda la
 | Escritura de caché |La cantidad de datos que se escriben en la memoria caché en megabytes por segundo (MB/s) durante el intervalo de informes especificado. Este valor se deriva de las tarjetas de interfaz de red que admiten la máquina virtual que hospeda la caché y no es específica de Redis. Este valor corresponde al ancho de banda de red de los datos enviados a la memoria caché desde el cliente. |
 | Clientes conectados |El número de conexiones de clientes a la caché durante el intervalo de informes especificado. Esta cifra se asigna a `connected_clients` desde el comando INFO de Redis. Cuando se alcanza el [límite de conexión](cache-configure.md#default-redis-server-configuration), se producirá un error en los intentos de conexión a la caché posteriores. Incluso si no hay ninguna aplicación de cliente activa, puede haber algunas instancias de clientes conectadas debido a procesos y conexiones internos. |
 | CPU |El uso de CPU del servidor de Azure Cache for Redis como porcentaje durante el intervalo de informes especificado. Este valor se asigna al contador de rendimiento `\Processor(_Total)\% Processor Time` del sistema operativo. |
-| Errors | Errores específicos y problemas de rendimiento que puede experimentar la memoria caché durante un intervalo de notificación especificado. Esta métrica tiene ocho dimensiones que representan los diferentes tipos de errores, pero se podrían agregar más en el futuro. Los tipos de error que se representan ahora son los siguientes: <br/><ul><li>**Conmutación por error**: cuando una memoria caché conmuta por error (un elemento subordinado promociona a maestro)</li><li>**Dataloss**: se produce una pérdida de datos en la memoria caché</li><li>**UnresponsiveClients**: los clientes no leen los datos del servidor lo suficientemente rápido</li><li>**AOF**: hay un problema relacionado con la persistencia de AOF</li><li>**RDB**: hay un problema relacionado con la persistencia de RDB</li><li>**Importación**: hay un problema relacionado con la importación de RDB</li><li>**Exportación**: hay un problema relacionado con la exportación de RDB</li></ul> |
+| Errors | Errores específicos y problemas de rendimiento que puede experimentar la memoria caché durante un intervalo de notificación especificado. Esta métrica tiene ocho dimensiones que representan los diferentes tipos de errores, pero se podrían agregar más en el futuro. Los tipos de error que se representan ahora son los siguientes: <br/><ul><li>**Conmutación por error**: cuando una caché conmuta por error (un elemento subordinado promociona a un primario)</li><li>**Dataloss**: se produce una pérdida de datos en la memoria caché</li><li>**UnresponsiveClients**: los clientes no leen los datos del servidor lo suficientemente rápido</li><li>**AOF**: hay un problema relacionado con la persistencia de AOF</li><li>**RDB**: hay un problema relacionado con la persistencia de RDB</li><li>**Importación**: hay un problema relacionado con la importación de RDB</li><li>**Exportación**: hay un problema relacionado con la exportación de RDB</li></ul> |
 | Claves expulsadas |El número de elementos que se elimina de la caché durante el intervalo de informes especificado debido al límite `maxmemory` . Esta cifra se asigna a `evicted_keys` desde el comando INFO de Redis. |
 | Claves expiradas |El número de elementos expirados de la caché durante el intervalo de informes especificado. Este valor se asigna a `expired_keys` desde el comando INFO de Redis.|
 | Gets |El número de operaciones get de la caché durante el intervalo de informes especificado. Este valor es la suma de los siguientes valores de todos los comandos INFO de Redis: `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit` y `cmdstat_getrange`, y es equivalente a la suma de aciertos y errores de caché durante el intervalo de informes. |

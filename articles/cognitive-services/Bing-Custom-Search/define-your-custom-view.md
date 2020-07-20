@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: c14376cc80373371ec5fcb8f22a00584a6b2f714
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: fa518900b05ba552cb066fbf55e4dbeaa6c681e2
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84710174"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86183212"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configuración de la experiencia de Bing Custom Search
 
@@ -92,8 +92,8 @@ Puede probar la instancia de búsqueda mediante el panel de vista previa situado
 
 El portal le permite ajustar la clasificación de la búsqueda de contenido de supáginas, páginas web y dominios específicos. Después de enviar una consulta de búsqueda en el panel de vista previa, cada resultado de búsqueda contiene una lista de los ajustes que puede realizar:  
 
-|            |                                                                                                                                                                      |
-|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Ajuste | Descripción |
+|------------|-------------|
 | Block      | Mueve el dominio, la subpágina o la página web a la lista de bloqueados. Bing excluirá la aparición de contenido del sitio seleccionado en los resultados de búsqueda.                    |
 | Aumentar de nivel      | Coloca el contenido del dominio o la subpágina en un nivel más alto en los resultados de búsqueda.                                                                                        |
 | Reducir de nivel     | Coloca el contenido del dominio o la subpágina en un nivel inferior en los resultados de búsqueda. Seleccione si desea reducir de nivel el contenido del dominio o la subpágina a los que pertenece la página web. |
