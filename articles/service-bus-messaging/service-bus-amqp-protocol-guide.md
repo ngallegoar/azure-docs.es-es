@@ -1,25 +1,14 @@
 ---
 title: Guía del protocolo AMQP 1.0 en Azure Service Bus y Event Hubs | Microsoft Docs
 description: Guía del protocolo para expresiones y la descripción de AMQP 1.0 en Azure Service Bus y Event Hubs
-services: service-bus-messaging,event-hubs
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/23/2019
-ms.author: aschhab
-ms.openlocfilehash: d706e9b3351b0693a1f352e15b6b9b0cc5c7a65d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/23/2020
+ms.openlocfilehash: 79132ef7105de8de2261c35258006af3f0a665a5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77086148"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186918"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guía del protocolo AMQP 1.0 Azure Service Bus y Event Hubs
 
@@ -275,8 +264,8 @@ Cada conexión debe iniciar su propio vínculo de control para poder iniciar y f
 
 Para iniciar el trabajo transaccional. el controlador debe obtener un elemento `txn-id` desde el coordinador. Para ello, envía un mensaje de tipo `declare`. Si la declaración se realiza con éxito, el coordinador responde con un resultado de disposición, que lleva el elemento `txn-id` asignado.
 
-| Cliente (controlador) | | Service Bus (coordinador) |
-| --- | --- | --- |
+| Cliente (controlador) | Dirección | Service Bus (coordinador) |
+| :--- | :---: | :--- |
 | attach(<br/>name={link name},<br/>... ,<br/>role=**sender**,<br/>target=**Coordinator**<br/>) | ------> |  |
 |  | <------ | attach(<br/>name={link name},<br/>... ,<br/>target=Coordinator()<br/>) |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (**Declare()** )}| ------> |  |
@@ -288,8 +277,8 @@ El controlador concluye el trabajo transaccional mediante el envío de un mensaj
 
 > Nota: El elemento fail=true indica la reversión de una transacción, y fail=false hace referencia a la confirmación.
 
-| Cliente (controlador) | | Service Bus (coordinador) |
-| --- | --- | --- |
+| Cliente (controlador) | Dirección | Service Bus (coordinador) |
+| :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
 | | . . . <br/>Trabajo transaccional<br/>en otros vínculos<br/> . . . |
@@ -300,8 +289,8 @@ El controlador concluye el trabajo transaccional mediante el envío de un mensaj
 
 Todo el trabajo transaccional se realiza gracias al estado de la entrega transaccional `transactional-state` que transporta el valor de txn-id. En lo que respecta al envío de mensajes, el estado transaccional lo realiza el marco de transferencias del mensaje. 
 
-| Cliente (controlador) | | Service Bus (coordinador) |
-| --- | --- | --- |
+| Cliente (controlador) | Dirección | Service Bus (coordinador) |
+| :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
 | transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)** )<br/>{ payload }| ------> |  |
@@ -311,8 +300,8 @@ Todo el trabajo transaccional se realiza gracias al estado de la entrega transac
 
 La disposición del mensaje incluye operaciones como `Complete` / `Abandon` / `DeadLetter` / `Defer`. Para llevar a cabo estas operaciones dentro de una transacción, pase el elemento `transactional-state` con la disposición.
 
-| Cliente (controlador) | | Service Bus (coordinador) |
-| --- | --- | --- |
+| Cliente (controlador) | Dirección | Service Bus (coordinador) |
+| :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
 | | <------ |transfer(<br/>handle=2,<br/>delivery-id=11, <br/>state=null)<br/>{ payload }|  
@@ -410,8 +399,8 @@ Gracias a esta funcionalidad, puede crear un remitente y establecer el vínculo 
 
 > Nota: La autenticación debe realizarse en ambos elementos *via-entity* y *destination-entity* antes de establecer este vínculo.
 
-| Remoto | | Azure Service Bus |
-| --- | --- | --- |
+| Remoto | Dirección | Azure Service Bus |
+| :--- | :---: | :--- |
 | attach(<br/>name={link name},<br/>role=sender,<br/>source={client link ID},<br/>target= **{via-entity}** ,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
 | | <------ | attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link ID},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] ) |
 

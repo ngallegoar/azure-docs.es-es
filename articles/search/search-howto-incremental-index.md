@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 6af9db5ed76ecb79f8891895eab52ff71bcab048
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 4a732bd81b65c0c6b0cc227e1ed82de7bae3a1a0
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146877"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230713"
 ---
 # <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Configuración del almacenamiento en caché para el enriquecimiento en Azure Cognitive Search
 
@@ -174,7 +174,7 @@ En la tabla siguiente se resume el modo en que varias API se relacionan con la m
 | [Crear indexador (2020-06-30-Preview)](https://docs.microsoft.com/rest/api/searchservice/preview-api/create-indexer) | Crea y ejecuta un indexador en el primer uso, incluida la creación de una caché si la definición del indexador lo especifica. |
 | [Ejecutar indexador](https://docs.microsoft.com/rest/api/searchservice/run-indexer) | Ejecuta una canalización de enriquecimiento a petición. Esta API lee de la memoria caché si existe o crea una memoria caché si agregó el almacenamiento en caché a una definición de indexador actualizada. Al ejecutar un indexador que tiene habilitado el almacenamiento en caché, el indexador omite los pasos si se puede usar la salida almacenada en caché. Puede usar la versión preliminar de esta API o la que está disponible con carácter general.|
 | [Restablecer indexador](https://docs.microsoft.com/rest/api/searchservice/reset-indexer)| Borra el indexador de cualquier información de indexación incremental. La siguiente ejecución del indexador (ya sea a petición o programada) es un reprocesamiento completo desde cero, lo que incluye volver a ejecutar todas las aptitudes y volver a generar la memoria caché. Es funcionalmente equivalente a eliminar el indexador y volver a crearlo. Puede usar la versión preliminar de esta API o la que está disponible con carácter general.|
-| [Restablecer aptitudes](https://docs.microsoft.com/rest/api/searchservice/reset-skills) | Especifica las aptitudes que se deben volver a ejecutar en la siguiente ejecución del indexador, aunque no se hayan modificado las aptitudes. La memoria caché se actualiza en consecuencia. Las salidas, como un almacén de información o un índice de búsqueda, se actualizan con datos reutilizables de la memoria caché más el nuevo contenido de acuerdo con las aptitudes actualizadas. |
+| [Restablecer aptitudes](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) | Especifica las aptitudes que se deben volver a ejecutar en la siguiente ejecución del indexador, aunque no se hayan modificado las aptitudes. La memoria caché se actualiza en consecuencia. Las salidas, como un almacén de información o un índice de búsqueda, se actualizan con datos reutilizables de la memoria caché más el nuevo contenido de acuerdo con las aptitudes actualizadas. |
 
 Para obtener más información sobre cómo controlar lo que ocurre en la memoria caché, vea la información sobre la [administración de la memoria caché](cognitive-search-incremental-indexing-conceptual.md#cache-management).
 

@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: d154ca6b67f3f587234deb34cef171ffc5924530
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: f957ee5293d2804298d4723ed3a763fabac9dc93
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145530"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244538"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceptos de seguridad de las aplicaciones y los clústeres en Azure Kubernetes Service (AKS)
 
@@ -54,9 +54,9 @@ Los entornos de Kubernetes en AKS o en cualquier otro lugar no están completame
 
 ### <a name="compute-isolation"></a>Aislamiento de proceso
 
- Ciertas cargas de trabajo pueden requerir un alto grado de aislamiento de otras cargas de trabajo del cliente debido a los requisitos normativos o de cumplimiento. Para estas cargas de trabajo, Azure proporciona [máquinas virtuales aisladas](..\virtual-machines\linux\isolation.md), que se pueden usar como nodos de agente en un clúster de AKS. Estas máquinas virtuales aisladas están aisladas de un tipo de hardware específico y están dedicadas a un solo cliente. 
+ Ciertas cargas de trabajo pueden requerir un alto grado de aislamiento de otras cargas de trabajo del cliente debido a los requisitos normativos o de cumplimiento. Para estas cargas de trabajo, Azure proporciona [máquinas virtuales aisladas](../virtual-machines/linux/isolation.md), que se pueden usar como nodos de agente en un clúster de AKS. Estas máquinas virtuales aisladas están aisladas de un tipo de hardware específico y están dedicadas a un solo cliente. 
 
- Para usar estas máquinas virtuales aisladas con un clúster de AKS, seleccione uno de los tamaños de máquinas virtuales aisladas que aparecen [aquí](..\virtual-machines\linux\isolation.md) como **tamaño de nodo** al crear un clúster de AKS o agregar un grupo de nodos.
+ Para usar estas máquinas virtuales aisladas con un clúster de AKS, seleccione uno de los tamaños de máquinas virtuales aisladas que aparecen [aquí](../virtual-machines/linux/isolation.md) como **tamaño de nodo** al crear un clúster de AKS o agregar un grupo de nodos.
 
 
 ## <a name="cluster-upgrades"></a>Actualizaciones de clústeres
@@ -112,12 +112,12 @@ Para obtener más información sobre los conceptos básicos de Kubernetes y AKS,
 [kured]: https://github.com/weaveworks/kured
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [secret-risks]: https://kubernetes.io/docs/concepts/configuration/secret/#risks
-[encryption-atrest]: https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest
+[encryption-atrest]: ../security/fundamentals/encryption-atrest.md
 
 <!-- LINKS - Internal -->
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
 [aks-upgrade-cluster]: upgrade-cluster.md
-[aks-aad]: azure-ad-integration.md
+[aks-aad]: ./azure-ad-integration-cli.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-scale]: concepts-scale.md

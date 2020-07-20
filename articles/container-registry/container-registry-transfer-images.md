@@ -4,12 +4,12 @@ description: Transferir colecciones de imágenes u otros artefactos de un regist
 ms.topic: article
 ms.date: 05/08/2020
 ms.custom: ''
-ms.openlocfilehash: c80f10e8795c63b84bb46fc21fd3406a195b772e
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 7f63936ad8f2a97bae6ff63e783e38c15db35e13
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186935"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259462"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Transferir artefactos a otro registro
 
@@ -36,7 +36,7 @@ Esta característica está disponible en el nivel de servicio de un registro de 
 * **Cuentas de almacenamiento**: cree cuentas de almacenamiento de origen y de destino en una suscripción y ubicación de su elección. Con fines de prueba, puede usar la misma suscripción o suscripciones que los registros de origen y de destino. En el caso de escenarios entre nubes, normalmente se crea una cuenta de almacenamiento independiente en cada nube. Si es necesario, cree las cuentas de almacenamiento con la [CLI de Azure](../storage/common/storage-account-create.md?tabs=azure-cli) u otras herramientas. 
 
   Cree un contenedor de blobs para la transferencia de artefactos en cada cuenta. Por ejemplo, cree un contenedor denominado *transfer*. Dos o más canalizaciones de transferencia pueden compartir la misma cuenta de almacenamiento, pero deben usar diferentes ámbitos de contenedor de almacenamiento.
-* **Almacenes de claves**: los almacenes de claves son necesarios para almacenar los secretos de token de SAS que se usan para tener acceso a las cuentas de almacenamiento de origen y de destino. Cree los almacenes de claves de origen y de destino en la misma suscripción o suscripciones de Azure que los registros de origen y de destino. Si es necesario, cree los almacenes de claves con la [CLI de Azure](../key-vault/quick-create-cli.md) u otras herramientas.
+* **Almacenes de claves**: los almacenes de claves son necesarios para almacenar los secretos de token de SAS que se usan para tener acceso a las cuentas de almacenamiento de origen y de destino. Cree los almacenes de claves de origen y de destino en la misma suscripción o suscripciones de Azure que los registros de origen y de destino. Si es necesario, cree los almacenes de claves con la [CLI de Azure](../key-vault/secrets/quick-create-cli.md) u otras herramientas.
 * **Variables de entorno**: por ejemplo, los comandos de este artículo establecen las siguientes variables de entorno para los entornos de origen y de destino. Todos los ejemplos tienen el formato del shell de Bash.
   ```console
   SOURCE_RG="<source-resource-group>"
@@ -257,7 +257,7 @@ az storage blob list \
 
 Use la herramienta AzCopy u otros métodos para [transferir datos de blob](../storage/common/storage-use-azcopy-blobs.md#copy-blobs-between-storage-accounts) de la cuenta de almacenamiento de origen a la cuenta de almacenamiento de destino.
 
-Por ejemplo, el siguiente [`azcopy copy`](/azure/storage/common/storage-ref-azcopy-copy) comando copia myblob del contenedor *transfer* de la cuenta de origen en el contenedor *transfer* de la cuenta de destino. Si el blob existe en la cuenta de destino, se sobrescribe. La autenticación usa tokens de SAS con los permisos adecuados para los contenedores de origen y de destino. (No se muestran los pasos para crear tokens).
+Por ejemplo, el siguiente [`azcopy copy`](../storage/common/storage-ref-azcopy-copy.md) comando copia myblob del contenedor *transfer* de la cuenta de origen en el contenedor *transfer* de la cuenta de destino. Si el blob existe en la cuenta de destino, se sobrescribe. La autenticación usa tokens de SAS con los permisos adecuados para los contenedores de origen y de destino. (No se muestran los pasos para crear tokens).
 
 ```console
 azcopy copy \
@@ -366,6 +366,3 @@ Para importar imágenes de contenedor único a un registro de contenedor de Azur
 [az-deployment-group-show]: /cli/azure/deployment/group#az-deployment-group-show
 [az-acr-repository-list]: /cli/azure/acr/repository#az-acr-repository-list
 [az-acr-import]: /cli/azure/acr#az-acr-import
-
-
-

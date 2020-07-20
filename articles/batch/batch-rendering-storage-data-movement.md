@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 6fff0e224aaa6bb247543282ac16fbb33fe7e904
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 55ec04df2a107dabfc72298bc8849c13f3a926e0
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965270"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147298"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Opciones de almacenamiento y movimiento de datos para representar archivos de recursos y de salida
 
@@ -87,7 +87,7 @@ Como los archivos son simplemente blobs en Azure Storage, las API de blob están
 
 [Azure Files](../storage/files/storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados a los que se puede acceder mediante el protocolo SMB.  Se basa en Azure Blob Storage; es [rentable](https://azure.microsoft.com/pricing/details/storage/files/) y se puede configurar con la replicación de datos en otra región, así que es redundante de forma global.  [Escalar destinos](../storage/files/storage-files-scale-targets.md#azure-files-scale-targets) deben examinarse para determinar si se debe usar Azure Files dado el tamaño del grupo de previsión y el número de archivos de recursos.
 
-Hay una [entrada de blog](https://blogs.msdn.microsoft.com/windowsazurestorage/2014/05/26/persisting-connections-to-microsoft-azure-files/) y [documentación](../storage/files/storage-how-to-use-files-windows.md) que trata acerca de cómo montar un recurso compartido de Azure Files.
+Hay [documentación](../storage/files/storage-how-to-use-files-windows.md) que trata sobre cómo montar un recurso compartido de Azure Files.
 
 ### <a name="mounting-an-azure-files-share"></a>Montaje de un recurso compartido de Azure Files
 

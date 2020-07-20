@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: rolyon
-ms.openlocfilehash: f169cf45702d4a5051f9f6908b77c645c7a0018f
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: db1b030aed34498ade91a195d5ca68725b579ba3
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042397"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230849"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Transferencia de una suscripción de Azure a otro directorio de Azure AD (versión preliminar)
 
@@ -189,7 +189,7 @@ Las identidades administradas no se actualizan cuando una suscripción se transf
 
 1. Revise la [lista de servicios de Azure que admiten identidades administradas](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) para anotar dónde podría estar usando identidades administradas.
 
-1. Use [az ad sp list](/azure/ad/sp#az-ad-sp-list) para mostrar las identidades administradas asignadas por el sistema y por el usuario.
+1. Use [az ad sp list](/cli/azure/identity?view=azure-cli-latest#az-identity-list) para mostrar las identidades administradas asignadas por el sistema y por el usuario.
 
     ```azurecli
     az ad sp list --all --filter "servicePrincipalType eq 'ManagedIdentity'"

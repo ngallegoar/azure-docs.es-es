@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: erhopf
-ms.openlocfilehash: a56e815e3a4ac04d20b29163139ab40332c4bec4
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 4fab0be90e6941d1a6b8f137ae574223b0d7a9d1
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146969"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232753"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticación de solicitudes en Azure Cognitive Services
 
@@ -81,14 +81,21 @@ Cuando utilice la clave de suscripción a varios servicios con Traductor, debe e
 
 Se admite la autenticación de varios servicios en estas regiones:
 
-| | | |
-|-|-|-|
-| `australiaeast` | `brazilsouth` | `canadacentral` |
-| `centralindia` | `eastasia` | `eastus` |
-| `japaneast` | `northeurope` | `southcentralus` |
-| `southeastasia` | `uksouth` | `westcentralus` |
-| `westeurope` | `westus` | `westus2` |
-
+- `australiaeast`
+- `brazilsouth`
+- `canadacentral`
+- `centralindia`
+- `eastasia`
+- `eastus`
+- `japaneast`
+- `northeurope`
+- `southcentralus`
+- `southeastasia`
+- `uksouth`
+- `westcentralus`
+- `westeurope`
+- `westus`
+- `westus2`
 
 ### <a name="sample-requests"></a>Solicitudes de ejemplo
 
@@ -141,13 +148,21 @@ curl -v -X POST \
 
 Estas regiones de varios servicios admiten el intercambio de tokens:
 
-| | | |
-|-|-|-|
-| `australiaeast` | `brazilsouth` | `canadacentral` |
-| `centralindia` | `eastasia` | `eastus` |
-| `japaneast` | `northeurope` | `southcentralus` |
-| `southeastasia` | `uksouth` | `westcentralus` |
-| `westeurope` | `westus` | `westus2` |
+- `australiaeast`
+- `brazilsouth`
+- `canadacentral`
+- `centralindia`
+- `eastasia`
+- `eastus`
+- `japaneast`
+- `northeurope`
+- `southcentralus`
+- `southeastasia`
+- `uksouth`
+- `westcentralus`
+- `westeurope`
+- `westus`
+- `westus2`
 
 Después de obtener un token de autenticación, deberá pasarlo en cada solicitud como encabezado `Authorization`. Esta es una llamada de ejemplo al servicio Traductor:
 
