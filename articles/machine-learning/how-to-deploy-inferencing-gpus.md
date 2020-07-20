@@ -5,17 +5,18 @@ description: En este artículo se enseña a usar Azure Machine Learning para imp
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 03/05/2020
-ms.openlocfilehash: b0fd537d1930e7c9d5f7a33f56ec5d00b1556562
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/17/2020
+ms.custom: tracking-python
+ms.openlocfilehash: 344112e19adbfaa1b06eebab309f31ed4e070c7d
+ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78398330"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86077004"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Implementación de un modelo de aprendizaje profundo para la inferencia con GPU
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,7 +34,7 @@ La inferencia, o la puntuación del modelo, es la fase en que se usa el modelo i
 > [!NOTE]
 > La información de este artículo se basa en la información del artículo [Realización de implementaciones en Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md). Aunque en ese artículo se trata de forma general la realización de implementaciones en Azure Container Service, este trata la implementación específica de GPU.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 * Un área de trabajo de Azure Machine Learning. Para más información, consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
@@ -161,6 +162,9 @@ En este ejemplo, el archivo se guarda como `myenv.yml`.
 
 ## <a name="define-the-deployment-configuration"></a>Definición de la configuración de la implementación
 
+> [!IMPORTANT]
+> AKS no permite que los pods compartan los GPU, solo puede tener tantas réplicas de un servicio web habilitado para GPU como GPU haya en el clúster.
+
 La configuración de implementación define el entorno de Azure Kubernetes Service que se usa para ejecutar el servicio web:
 
 ```python
@@ -212,9 +216,6 @@ aks_service = Model.deploy(ws,
 aks_service.wait_for_deployment(show_output=True)
 print(aks_service.state)
 ```
-
-> [!NOTE]
-> Si el objeto `InferenceConfig` tiene `enable_gpu=True`, el parámetro `deployment_target` debe hacer referencia a un clúster que proporcione una GPU. De lo contrario, se producirá un error en la implementación.
 
 Para obtener más información, consulte la documentación de referencia del [modelo](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 

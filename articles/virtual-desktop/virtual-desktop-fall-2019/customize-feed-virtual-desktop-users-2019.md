@@ -4,16 +4,16 @@ description: Personalización de la fuente para los usuarios de Windows Virtual 
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a93aa35353940cfdbded1634448d4f6d2865c365
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 58f05b2f9f15166e161b31578b47cf06afcb13a0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614089"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362584"
 ---
 # <a name="customize-feed-for-windows-virtual-desktop-users"></a>Personalización de fuente para usuarios de Windows Virtual Desktop
 
@@ -37,14 +37,18 @@ Para recuperar una lista de instancias de RemoteApp publicadas para un grupo de 
 ```powershell
 Get-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
 ```
-![Captura de pantalla del cmdlet de PowerShell Get-RDSRemoteApp con el nombre y el nombre descriptivo resaltado.](../media/get-rdsremoteapp.png)
+
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla del cmdlet de PowerShell Get-RDSRemoteApp con el nombre y el nombre descriptivo resaltado](../media/get-rdsremoteapp.png)
 
 Para asignar un nombre descriptivo a RemoteApp, ejecute el siguiente cmdlet de PowerShell:
 
 ```powershell
 Set-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -Name <existingappname> -FriendlyName <newfriendlyname>
 ```
-![Captura de pantalla del cmdlet de PowerShell Set-RDSRemoteApp con el nombre y el nuevo nombre descriptivo resaltado.](../media/set-rdsremoteapp.png)
+
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla del cmdlet de PowerShell Set-RDSRemoteApp con el nombre y el nuevo nombre descriptivo resaltado](../media/set-rdsremoteapp.png)
 
 ## <a name="customize-the-display-name-for-a-remote-desktop"></a>Personalizar el nombre para mostrar de Escritorio remoto
 
@@ -55,18 +59,22 @@ Para recuperar el recurso de escritorio remoto, ejecute el siguiente cmdlet de P
 ```powershell
 Get-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
 ```
-![Captura de pantalla del cmdlet de PowerShell Get-RDSRemoteApp con el nombre y el nombre descriptivo resaltado.](../media/get-rdsremotedesktop.png)
+
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla del cmdlet de PowerShell Get-RDSRemoteApp con el nombre y el nombre descriptivo resaltado](../media/get-rdsremotedesktop.png)
 
 Para asignar un nombre descriptivo al recurso de escritorio remoto, ejecute el siguiente cmdlet de PowerShell:
 
 ```powershell
 Set-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -FriendlyName <newfriendlyname>
 ```
-![Captura de pantalla del cmdlet de PowerShell Set-RDSRemoteApp con el nombre y el nuevo nombre descriptivo resaltado.](../media/set-rdsremotedesktop.png)
+
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla del cmdlet de PowerShell Set-RDSRemoteApp con el nombre y el nuevo nombre descriptivo resaltado](../media/set-rdsremotedesktop.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que ha personalizado la fuente para los usuarios, puede iniciar sesión en un cliente de Windows Virtual Desktop para probarlo. Para ello, continúe para conectarse a los procedimientos para conectarse a Windows Virtual Desktop:
-    
+
  * [Conexión desde Windows 10 o Windows 7](../connect-windows-7-and-10.md)
- * [Conexión desde un explorador web](connect-web-2019.md) 
+ * [Conexión desde un explorador web](connect-web-2019.md)

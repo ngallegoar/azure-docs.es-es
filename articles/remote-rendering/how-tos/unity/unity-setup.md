@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 0415c0e7ee1432521c3cc2026feff5fc2a41d77e
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: f3400d82a6aa184daabfa2ebbe6b775b8e4c1562
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679186"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85565466"
 ---
 # <a name="set-up-remote-rendering-for-unity"></a>Configuración de Remote Rendering para Unity
 
@@ -74,9 +74,9 @@ RemoteManagerStatic.ShutdownRemoteRendering();
 
 No puede haber más de una instancia de `ARRServiceUnity` a la vez. Está pensada para que pueda empezar a trabajar más rápidamente implementando cierta funcionalidad común. Sin embargo, para una aplicación de mayor tamaño, puede ser preferible hacer esas cosas por sí mismo.
 
-Para obtener un ejemplo de configuración y uso de `ARRServiceUnity`, consulte [Tutorial: Configuración de un proyecto de Unity desde cero](../../tutorials/unity/project-setup.md).
+Para obtener un ejemplo de configuración y uso de `ARRServiceUnity`, consulte [Tutorial: Visualización de modelos representados de forma remota](../../tutorials/unity/view-remote-models/view-remote-models.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Instalación del paquete de Remote Rendering para Unity](install-remote-rendering-unity-package.md)
-* [Tutorial: Configuración de un proyecto de Unity desde cero](../../tutorials/unity/project-setup.md)
+* [Tutorial: Visualización de modelos representados de forma remota](../../tutorials/unity/view-remote-models/view-remote-models.md)

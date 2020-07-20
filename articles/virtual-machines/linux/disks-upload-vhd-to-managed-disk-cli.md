@@ -4,22 +4,22 @@ description: Obtenga información sobre cómo cargar un disco duro virtual en un
 services: virtual-machines,storage
 author: roygara
 ms.author: rogarana
-ms.date: 03/27/2020
-ms.topic: article
+ms.date: 06/15/2020
+ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: c32915617d3149eee42bfdfd03d22f9ce5799ef2
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 259b46d21cee4c1106e1d307eeb325a4c430613f
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580233"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84945637"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Carga de un VHD en Azure o copia de un disco administrado en otra región: CLI de Azure
 
 [!INCLUDE [disks-upload-vhd-to-disk-intro](../../../includes/disks-upload-vhd-to-disk-intro.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Descargue la [versión más reciente de AzCopy, v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
@@ -47,6 +47,9 @@ Antes de que pueda crear un HDD estándar vacío para cargar, necesitará el tam
 Cree un HDD estándar vacío para la carga mediante la especificación tanto del parámetro **-–for-upload** como del parámetro **--upload-size-bytes** en un cmdlet [disk create](/cli/azure/disk#az-disk-create):
 
 Reemplace `<yourdiskname>`, `<yourresourcegroupname>`, `<yourregion>` por los valores de su elección. El parámetro `--upload-size-bytes` contiene un valor de ejemplo de `34359738880`, reemplácelo por un valor adecuado.
+
+> [!TIP]
+> Si va a crear un disco del sistema operativo, agregue--hyper-v-generation <yourGeneration> a `az disk create`.
 
 ```azurecli
 az disk create -n <yourdiskname> -g <yourresourcegroupname> -l <yourregion> --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
@@ -100,6 +103,9 @@ El script siguiente lo hará automáticamente, el proceso es similar a los pasos
 > Debe agregar un desplazamiento de 512 cuando proporcione el tamaño de disco en bytes de un disco administrado de Azure. Esto se debe a que Azure omite el pie de página al devolver el tamaño del disco. Si no lo hace, se producirá un error en la copia. El siguiente script ya lo hace automáticamente.
 
 Reemplace los `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>` y `<yourTargetLocationHere>` (un ejemplo de un valor de ubicación sería uswest2) con sus valores y, a continuación, ejecute el siguiente script para copiar un disco administrado.
+
+> [!TIP]
+> Si va a crear un disco del sistema operativo, agregue--hyper-v-generation <yourGeneration> a `az disk create`.
 
 ```azurecli
 sourceDiskName = <sourceDiskNameHere>

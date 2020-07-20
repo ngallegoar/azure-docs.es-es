@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 0bc4792b44ccff23a141460c3521d684801c4567
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bddb4ea3759d19d1e122739fb69cf9bf96c66635
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84674268"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243552"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Control de errores en las directivas de API Management
 
@@ -51,7 +51,7 @@ Durante el procesamiento de una solicitud, se ejecutan pasos integrados junto co
 La sección de directivas `on-error` se puede utilizar en cualquier ámbito. Los publicadores de API pueden configurar comportamientos predeterminados, como registrar el error en los centros de eventos o crear una nueva respuesta para devolver al autor de la llamada.
 
 > [!NOTE]
-> La sección `on-error` no está presente en las directivas de forma predeterminada. Para agregar la sección `on-error` a una directiva, vaya a la directiva deseada en el editor de directivas y agréguela. Para más información sobre cómo configurar directivas, consulte [Directivas en API Management](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/).
+> La sección `on-error` no está presente en las directivas de forma predeterminada. Para agregar la sección `on-error` a una directiva, vaya a la directiva deseada en el editor de directivas y agréguela. Para más información sobre cómo configurar directivas, consulte [Directivas en API Management](./api-management-howto-policies.md).
 >
 > Si no hay ninguna sección `on-error`, los autores de la llamada recibirán mensajes de respuesta HTTP 400 o 500 si se produce una condición de error.
 
@@ -189,5 +189,5 @@ Para obtener más información sobre cómo trabajar con directivas, consulte:
 
 -   [Directivas de Azure API Management](api-management-howto-policies.md)
 -   [API de transformación](transform-api.md)
--   En la [Referencia de directivas](api-management-policy-reference.md) se muestra una lista completa de declaraciones de directivas y su configuración
+-   En la [Referencia de directivas](./api-management-policies.md) se muestra una lista completa de declaraciones de directivas y su configuración
 -   [Ejemplos de directivas](policy-samples.md)

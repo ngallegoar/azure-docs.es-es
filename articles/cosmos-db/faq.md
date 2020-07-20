@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: a5ef03689a6374dc1cf945a787f9f82b9979a1e0
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f6b2d081b0dc475e0950b12de31bab83cbe7da8b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834919"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213098"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Preguntas más frecuentes sobre diferentes API en Azure Cosmos DB
 
@@ -152,7 +152,7 @@ Sí, SQL API admite transacciones entre documentos expresadas como procedimiento
 
 Un contenedor es un grupo de documentos y su lógica de aplicación de JavaScript asociada. Un contenedor es una entidad facturable, en la que el [costo](performance-levels.md) se determina en función del rendimiento y del almacenamiento utilizado. Los contenedores pueden abarcar una o varias particiones o uno o varios servidores y se pueden escalar para administrar volúmenes prácticamente ilimitados de almacenamiento o rendimiento.
 
-* En el caso de SQL API, un contenedor se asigna a un objeto Container.
+* En el caso de la API de SQL, el recurso se denomina contenedor.
 * En el caso de la API de Cosmos DB para las cuentas de MongoDB, un contenedor se asigna a un objeto Collection.
 * Para las cuentas de Cassandra y Table API, se asigna un contenedor a una tabla.
 * Para las cuentas de API de Gremlin, se asigna un contenedor a un gráfico.

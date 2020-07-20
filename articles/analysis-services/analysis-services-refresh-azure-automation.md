@@ -6,31 +6,27 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: bbbc2863e06b4602a4175d46bbe21414041583ba
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: c3c9827814b7d638745761dbb5f3c7d2e581491b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926568"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85389979"
 ---
 # <a name="refresh-with-azure-automation"></a>Actualización con Azure Automation
 
 Mediante el uso de Azure Automation y los runbooks de PowerShell, puede realizar operaciones de actualización de datos automatizadas en los modelos tabulares de análisis de Azure.  
 
-El ejemplo de este artículo usa los [módulos SqlServer de PowerShell](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps).
-
-Más adelante en este artículo, se proporciona un ejemplo de un runbook de PowerShell que muestra cómo actualizar un modelo.  
+El ejemplo de este artículo usa el [módulo SqlServer de PowerShell](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps). Más adelante en este artículo, se proporciona un ejemplo de un runbook de PowerShell que muestra cómo actualizar un modelo.  
 
 ## <a name="authentication"></a>Authentication
 
-Todas las llamadas se deben autenticar con un token válido de Azure Active Directory (OAuth 2).  En los ejemplos de este artículo se usará una entidad de servicio (SPN) para la autenticación en Azure Analysis Services.
+Todas las llamadas se deben autenticar con un token válido de Azure Active Directory (OAuth 2).  En el ejemplo de este artículo se usa una entidad de servicio (SPN) para la autenticación en Azure Analysis Services. Para más información, consulte [Creación de una aplicación mediante Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
-Para obtener más información sobre cómo crear una entidad de servicio, consulte [Creación de una entidad de servicio mediante Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
-
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 > [!IMPORTANT]
-> En los ejemplos siguientes, se supone que el firewall de Azure Analysis Services está deshabilitado. Si el firewall está habilitado, la dirección IP pública del iniciador de la solicitud deberá figurar en la lista blanca del firewall.
+> En los ejemplos siguientes, se supone que el firewall de Azure Analysis Services está deshabilitado. Si el firewall está habilitado, la dirección IP pública del iniciador de la solicitud debe estar incluida en una regla de firewall.
 
 ### <a name="install-sqlserver-modules-from-powershell-gallery"></a>Instalación de módulos SqlServer desde la galería de PowerShell
 

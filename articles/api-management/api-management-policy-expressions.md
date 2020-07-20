@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 40ea26a2394b7ca093f1bba2456ebf5ef116cd0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1713f2ca8fda0c768727ea12e682b373d644bcba
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695817"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249825"
 ---
 # <a name="api-management-policy-expressions"></a>Expresiones de las directivas de API Management
 En este artículo se describe la sintaxis de expresiones de directiva en C# 7. Cada expresión tiene acceso a la variable de [contexto](api-management-policy-expressions.md#ContextVariables) proporcionada de forma implícita y a un [subconjunto](api-management-policy-expressions.md#CLRTypes) permitido de tipos de .NET Framework.
@@ -27,7 +27,7 @@ Para obtener más información:
 
 - Vea cómo proporcionar información de contexto al servicio back-end. Use las directivas [Establecer el parámetro de cadena de consulta](api-management-transformation-policies.md#SetQueryStringParameter) y [Establecer encabezado HTTP](api-management-transformation-policies.md#SetHTTPheader) para proporcionar esta información.
 - Vea cómo utilizar la directiva de [validación de JWT](api-management-access-restriction-policies.md#ValidateJWT) para preautorizar el acceso a operaciones según notificaciones de token.
-- Vea cómo se utiliza un seguimiento de [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) para ver cómo se evalúan las directivas y los resultados de las evaluaciones.
+- Vea cómo se utiliza un seguimiento de [API Inspector](./api-management-howto-api-inspector.md) para ver cómo se evalúan las directivas y los resultados de las evaluaciones.
 - Vea cómo usar expresiones con las directivas [Obtener de caché](api-management-caching-policies.md#GetFromCache) y [Almacenar en caché](api-management-caching-policies.md#StoreToCache) para configurar el almacenamiento en caché de la respuesta de API Management. Defina una duración que coincida con el almacenamiento en caché de la respuesta del servicio back-end especificado por la directiva `Cache-Control` del servicio back-end.
 - Vea cómo realizar el filtrado de contenido. Quite elementos de datos de la respuesta recibida desde el servicio back-end mediante las directivas [Flujo de control](api-management-advanced-policies.md#choose) y [Establecer cuerpo](api-management-transformation-policies.md#SetBody).
 - Para descargar las declaraciones de directiva, vaya a [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies) en el repositorio de GitHub.
@@ -252,5 +252,5 @@ Para obtener más información sobre cómo trabajar con directivas, consulte:
 
 + [Directivas de Azure API Management](api-management-howto-policies.md)
 + [API de transformación](transform-api.md)
-+ En la [Referencia de directivas](api-management-policy-reference.md) se muestra una lista completa de declaraciones de directivas y su configuración
++ En la [Referencia de directivas](./api-management-policies.md) se muestra una lista completa de declaraciones de directivas y su configuración
 + [Ejemplos de directivas](policy-samples.md)

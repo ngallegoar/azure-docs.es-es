@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 7f98b2c94659c083f5dbd2c43fd9015f8b60a9db
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 8e0927ccd8c94f589adf6eb11004b728f697b6e1
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307260"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362414"
 ---
 # <a name="create-application-with-simple-commands"></a>Creación de una aplicación con comandos simples
 
@@ -27,6 +27,10 @@ En este artículo aprenderá a:
 ## <a name="create-empty-application"></a>Creación de una aplicación vacía
 Cree una aplicación de Comandos personalizados vacía. Para obtener más información, consulte la [guía de inicio rápido](quickstart-custom-commands-application.md). Esta vez, en lugar de importar un proyecto, se crea un proyecto en blanco.
 
+1. En el cuadro **Nombre**, escriba el nombre del proyecto `Smart-Room-Lite` (u otro de su elección).
+1. En la lista **Idioma**, seleccione **Inglés (Estados Unidos)** .
+1. Seleccione o cree el recurso de LUIS que prefiera.
+
    > [!div class="mx-imgBorder"]
    > ![Creación de un proyecto](media/custom-commands/create-new-project.png)
 
@@ -36,7 +40,7 @@ Puede actualizar el recurso de creación que seleccionó en la ventana **Nuevo p
 
 ## <a name="add-turnon-command"></a>Adición del comando TurnOn
 
-En la aplicación de Comandos personalizados **smart room-lite**, agregue un comando simple que procese una expresión (`turn on the tv`), y responda con el mensaje `Ok, turning the tv on`.
+En la aplicación Comandos personalizados **Smart-Room-Lite** que acaba de crear, agregue un comando simple que procese una expresión, `turn on the tv`, y responda con el mensaje `Ok, turning the tv on`.
 
 1. Cree un nuevo comando; para ello, seleccione **Nuevo comando** en la parte superior del panel izquierdo. Se abre la ventana **Nuevo comando**.
 1. Especifique el valor del campo **Nombre** en **TurnOn**.
@@ -74,7 +78,7 @@ Por ahora, no hay ningún parámetro, así que podemos continuar con la sección
 
 A continuación, el comando debe contener una regla de finalización. Esta regla informa al usuario que se está llevando a cabo una acción de cumplimiento. Para obtener más información sobre las reglas y las reglas de finalización, vaya a las [referencias](./custom-commands-references.md).
 
-1. Seleccione la regla de finalización predeterminada **Listo** y edítela de la siguiente manera: 
+1. Seleccione la regla de finalización predeterminada **Listo** y edítela de la siguiente manera:
 
     
     | Configuración    | Valor sugerido                          | Descripción                                        |
@@ -84,13 +88,7 @@ A continuación, el comando debe contener una regla de finalización. Esta regla
     | **Acciones**    | Enviar respuesta de voz > Editor sencillo > Primera variación > `Ok, turning the tv on` | Acción que se realizará cuando la condición de la regla sea true. |
     
 
-1. También puede eliminar la regla de finalización predeterminada actual y crear una nueva; para ello, seleccione la opción **Agregar** en la parte superior del panel central.
-1. Proporcione un valor en la sección **Nombre**.
-1. Agregue una acción.
-   1. Cree una acción. Para hacerlo, seleccione **Agregar una acción** en la sección **Acciones**.
-   1. En la ventana **Nueva acción**, en la lista **Tipo**, seleccione **Send speech response** (enviar respuesta de voz).
-   1. En **Respuesta**, seleccione **Editor simple**.
-   1. En el campo **First variation** (primera variación), proporcione el valor de respuesta `Ok, turning the tv on`.
+
 
    > [!div class="mx-imgBorder"]
    > ![Creación de una respuesta de voz](media/custom-commands/create-speech-response-action.png)
@@ -98,6 +96,9 @@ A continuación, el comando debe contener una regla de finalización. Esta regla
 1. Seleccione **Guardar** para guardar la acción.
 1. De nuevo en la sección **Completion rules** (reglas de finalización), seleccione **Guardar** para guardar todos los cambios. 
 
+
+ > [!NOTE]
+    > No es necesario usar la regla de finalización predeterminada que viene con el comando. Si es preciso, puede eliminar la regla de finalización predeterminada existente y agregar su propia regla.
 
 ### <a name="try-it-out"></a>Prueba
 

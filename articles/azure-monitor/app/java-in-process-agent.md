@@ -3,12 +3,12 @@ title: 'Supervisión de aplicaciones Java en cualquier entorno: Application Insi
 description: Supervisión del rendimiento de aplicaciones para aplicaciones Java que se ejecutan en cualquier entorno sin instrumentar la aplicación. Seguimiento distribuido y mapa de aplicación.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 591cfad0f4719595835f212b9205354aad7cb9e8
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 3e3d108603ad6210143deea58049ff7b230bb6fa
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82508078"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85319710"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Supervisión de aplicaciones sin código de Java con Azure Monitor Application Insights: versión preliminar pública
 
@@ -24,11 +24,11 @@ Así mismo, puede enviar telemetría personalizada desde la aplicación. El agen
 
 **1. Descargue el agente.**
 
-Descargue el archivo [applicationinsights-agent-3.0.0-PREVIEW.4.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.4/applicationinsights-agent-3.0.0-PREVIEW.4.jar).
+Descargue [applicationinsights-agent-3.0.0-PREVIEW.5.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar).
 
 **2. Apunte JVM al agente.**
 
-Agregue `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.4.jar` a los argumentos de JVM de la aplicación.
+Agregue `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.5.jar` a los argumentos de JVM de la aplicación.
 
 Los argumentos típicos de JVM son `-Xmx512m` y `-XX:+UseG1GC`. Por lo tanto, si sabe dónde debe agregarlos, lo mismo se aplica para este.
 
@@ -44,7 +44,7 @@ Apunte el agente hacia el recurso de Application Insights, ya sea estableciendo 
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
 ```
 
-O creando un archivo de configuración denominado `ApplicationInsights.json` y colocándolo en el mismo directorio que `applicationinsights-agent-3.0.0-PREVIEW.4.jar`, con el siguiente contenido:
+O creando un archivo de configuración denominado `ApplicationInsights.json` y colocándolo en el mismo directorio que `applicationinsights-agent-3.0.0-PREVIEW.5.jar`, con el siguiente contenido:
 
 ```json
 {

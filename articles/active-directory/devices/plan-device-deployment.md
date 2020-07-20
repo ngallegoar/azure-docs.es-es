@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aab57d48e8bd95f1ce2aec2dde42303d5d991a58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa83e295460cc847647e83c7e4e8a9d7ee91f6f4
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444257"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165777"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planeación de la implementación de dispositivos de Azure Active Directory
 
@@ -102,7 +102,7 @@ Use este árbol para determinar las opciones para los dispositivos que son propi
 
 Los dispositivos iOS y Android solo se pueden registrar en Azure AD. En la tabla siguiente se presentan consideraciones generales para dispositivos cliente Windows. Úsela para obtener información general y, después, explore los distintos métodos de integración con más detalle.
 
-| | Registrado en Azure AD| Unión a Azure AD| Unión a Azure AD híbrido |
+| Consideración | Registrado en Azure AD| Unión a Azure AD| Unión a Azure AD híbrido |
 | - | - | - | - |
 | **Sistemas operativos cliente**| | |  |
 | Dispositivos Windows 10| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |

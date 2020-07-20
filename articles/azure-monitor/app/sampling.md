@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f4989f8dce32e2340357e30541548b3e7e9d8a44
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 664e61697c1fb0c339a4c2caf8d0125a73e608c3
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82508894"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85319641"
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
@@ -310,7 +310,7 @@ De manera predeterminada, no hay ningún muestreo habilitado en el agente ni en 
 
 #### <a name="configuring-java-agent"></a>Configuración del agente de Java
 
-1. Descargue el archivo [applicationinsights-agent-3.0.0-PREVIEW.4.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.4/applicationinsights-agent-3.0.0-PREVIEW.4.jar).
+1. Descargue [applicationinsights-agent-3.0.0-PREVIEW.5.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar).
 
 1. Para habilitar el muestreo, agregue lo siguiente al archivo `ApplicationInsights.json`:
 

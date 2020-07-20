@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 06/22/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c4d14c21174f9631a1ad72489d4c0bafe013572c
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 9502194b2020723801469b511f46d3e806290ba5
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681334"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85213999"
 ---
 # <a name="azure-storage-redundancy"></a>Redundancia de Azure Storage
 
@@ -62,8 +62,8 @@ En la tabla siguiente se muestran los tipos de cuentas de almacenamiento que adm
 |    Tipo de cuenta de almacenamiento    |    Regiones admitidas    |    Servicios admitidos    |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 |    Uso general v2<sup>1</sup>    | Sudeste de Asia<br /> Este de Australia<br /> Norte de Europa<br />  Oeste de Europa<br /> Centro de Francia<br /> Japón Oriental<br /> Norte de Sudáfrica<br /> Sur de Reino Unido<br /> Centro de EE. UU.<br /> Este de EE. UU.<br /> Este de EE. UU. 2<br /> Oeste de EE. UU. 2    |    Blobs en bloques<br /> Blobs en páginas<sup>2</sup><br /> Recursos compartidos de archivos (estándar)<br /> Tablas<br /> Colas<br /> |
-|    BlockBlobStorage<sup>1</sup>    | Oeste de Europa<br /> Este de EE. UU.    |    Solo blobs en bloques    |
-|    FileStorage    | Oeste de Europa<br /> Este de EE. UU.    |    Solo Azure Files    |
+|    BlockBlobStorage<sup>1</sup>    | Sudeste de Asia<br /> Oeste de Europa<br /> Este de EE. UU.    |    Solo blobs en bloques    |
+|    FileStorage    | Sudeste de Asia<br /> Oeste de Europa<br /> Este de EE. UU.    |    Solo Azure Files    |
 
 <sup>1</sup> El nivel de archivo no se admite actualmente en las cuentas de ZRS.<br />
 <sup>2</sup> Las cuentas de almacenamiento que contienen discos administrados de Azure para máquinas virtuales siempre usan almacenamiento con redundancia local. Los discos no administrados de Azure también deben usar almacenamiento con redundancia local. Es posible crear una cuenta de almacenamiento para discos no administrados de Azure que use almacenamiento con redundancia geográfica, pero no se recomienda debido a los posibles problemas de coherencia en la replicación geográfica asincrónica. Ni los discos administrados ni los no administrados admiten ZRS o GZRS. Para más información sobre los discos administrados, consulte [Precios de Azure Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -81,7 +81,7 @@ Azure Storage ofrece dos opciones para copiar los datos a una región secundaria
 - El **almacenamiento con redundancia geográfica (GRS)** copia los datos de forma sincrónica tres veces dentro de una única ubicación física en la región primaria mediante LRS. Luego copia los datos de forma asincrónica en una única ubicación física en la región secundaria.
 - El **almacenamiento con redundancia de zona geográfica (GZRS)** copia los datos de forma sincrónica en tres zonas de disponibilidad de Azure en la región primaria mediante ZRS. Luego copia los datos de forma asincrónica en una única ubicación física en la región secundaria.
 
-La principal diferencia entre GRS y GZRS es la forma en que los datos se replican en la región primaria. Dentro de la ubicación secundaria, los datos siempre se replican de forma sincrónica tres veces mediante LRS.
+La principal diferencia entre GRS y GZRS es la forma en que los datos se replican en la región primaria. Dentro de la ubicación secundaria, los datos siempre se replican de forma sincrónica tres veces mediante LRS. LRS en la región secundaria protege los datos frente a errores de hardware.
 
 Con GRS o GZRS, los datos de la ubicación secundaria no están disponible para el acceso de lectura o escritura a menos que suceda una conmutación por error en la región secundaria. Para obtener acceso de lectura a la región secundaria, configure la cuenta de almacenamiento para usar el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) o el almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS). Para más información, consulte [Acceso de lectura a los datos de la región secundaria](#read-access-to-data-in-the-secondary-region).
 
@@ -120,13 +120,15 @@ Para más información sobre los precios, consulte los detalles de precios de [b
 
 ## <a name="read-access-to-data-in-the-secondary-region"></a>Acceso de lectura a los datos de la región secundaria
 
-El almacenamiento con redundancia geográfica (con GRS o GZRS) replica los datos en otra ubicación física de la región secundaria para protegerlos frente a los apagones regionales. Sin embargo, los datos están disponibles para su lectura solo si el cliente o Microsoft inician una conmutación por error de la región primaria a la secundaria. Cuando habilita el acceso de lectura a la región secundaria, los datos están disponibles para leerse si la región primaria deja de estar disponible. Para obtener acceso de lectura a la región secundaria, habilite el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) o el almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS).
+El almacenamiento con redundancia geográfica (con GRS o GZRS) replica los datos en otra ubicación física de la región secundaria para protegerlos frente a los apagones regionales. Sin embargo, los datos están disponibles para su lectura solo si el cliente o Microsoft inician una conmutación por error de la región primaria a la secundaria. Cuando habilita el acceso de lectura a la región secundaria, los datos están disponibles para leerse en todo momento, incluso en una situación en que la región primaria no esté disponible. Para obtener acceso de lectura a la región secundaria, habilite el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) o el almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS).
 
 ### <a name="design-your-applications-for-read-access-to-the-secondary"></a>Diseño de aplicaciones para el acceso de lectura a la región secundaria
 
-Si la cuenta de almacenamiento está configurada para usar el acceso de lectura a la región secundaria, puede diseñar sus aplicaciones para que fácilmente pasen a leer datos de la región secundaria si la región primaria deja de estar disponible por cualquier motivo. La región secundaria siempre está disponible para el acceso de lectura, por lo que puede probar la aplicación para asegurarse de que leerá desde la región secundaria si se produce una interrupción. Para más información sobre cómo diseñar aplicaciones para alta disponibilidad, consulte [Uso de redundancia geográfica para diseñar aplicaciones de alta disponibilidad](geo-redundant-design.md).
+Si la cuenta de almacenamiento está configurada para usar el acceso de lectura a la región secundaria, puede diseñar sus aplicaciones para que fácilmente pasen a leer datos de la región secundaria si la región primaria deja de estar disponible por cualquier motivo. 
 
-Cuando está habilitado el acceso de lectura a la región secundaria, los datos se pueden leer desde el punto de conexión secundario y desde el punto de conexión primario de la cuenta de almacenamiento. El punto de conexión secundario anexa el sufijo *–secondary* al nombre de la cuenta. Por ejemplo, si el punto de conexión primario de Blob Storage es `myaccount.blob.core.windows.net`, el punto de conexión secundario es `myaccount-secondary.blob.core.windows.net`. Las claves de acceso de la cuenta son iguales para los puntos de conexión primario y secundario.
+La región secundaria siempre está disponible para el acceso de lectura después de habilitar RA-GRS o RA-GRS, por lo que puede probar la aplicación de antemano para asegurarse de que leerá desde la región secundaria si se produce una interrupción. Para más información sobre cómo diseñar aplicaciones para alta disponibilidad, consulte [Uso de redundancia geográfica para diseñar aplicaciones de alta disponibilidad](geo-redundant-design.md).
+
+Cuando está habilitado el acceso de lectura a la región secundaria, la aplicación se puede leer desde el punto de conexión secundario y desde el punto de conexión primario. El punto de conexión secundario anexa el sufijo *–secondary* al nombre de la cuenta. Por ejemplo, si el punto de conexión primario de Blob Storage es `myaccount.blob.core.windows.net`, el punto de conexión secundario es `myaccount-secondary.blob.core.windows.net`. Las claves de acceso de la cuenta son iguales para los puntos de conexión primario y secundario.
 
 ### <a name="check-the-last-sync-time-property"></a>Comprobación de la propiedad Hora de la última sincronización
 

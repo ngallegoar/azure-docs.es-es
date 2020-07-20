@@ -3,15 +3,15 @@ title: Configuración y uso de Azure Synapse Link para Azure Cosmos DB (versió
 description: Obtenga información sobre cómo habilitar Synapse Link para las cuentas de Azure Cosmos, crear un contenedor con el almacén analítico habilitado, conectar la base de datos de Azure Cosmos a un área de trabajo de Synapse y ejecutar consultas.
 author: SriChintala
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: srchi
-ms.openlocfilehash: 24f6f77f1371157ca1b57cfd85ac196cace822fc
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: d2a10d064bed3e2e2e798d16ce72ccf55c965f8d
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83676005"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85262045"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configuración y uso de Azure Synapse Link para Azure Cosmos DB (versión preliminar)
 
@@ -30,7 +30,7 @@ Siga estos pasos para ejecutar consultas analíticas con Synapse Link para Azure
 
 ## <a name="enable-azure-synapse-link-for-azure-cosmos-accounts"></a><a id="enable-synapse-link"></a>Habilitación de Azure Synapse Link para cuentas de Azure Cosmos
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 
@@ -40,11 +40,11 @@ Siga estos pasos para ejecutar consultas analíticas con Synapse Link para Azure
 
 1. Seleccione **Synapse Link** en la lista de características.
 
-   ![Búsqueda de la característica en vista previa Synapse Link](./media/configure-synapse-link/find-synapse-link-feature.png)
+   :::image type="content" source="./media/configure-synapse-link/find-synapse-link-feature.png" alt-text="Búsqueda de la característica en vista previa Synapse Link":::
 
 1. A continuación, se le pedirá que habilite Synapse Link en su cuenta. Seleccione Habilitar.
 
-   ![Habilitación de la característica Synapse Link](./media/configure-synapse-link/enable-synapse-link-feature.png)
+   :::image type="content" source="./media/configure-synapse-link/enable-synapse-link-feature.png" alt-text="Habilitación de la característica Synapse Link":::
 
 1. Ahora su cuenta está habilitada para usar Synapse Link. A continuación, consulte cómo crear contenedores habilitados para el almacén analítico para iniciar de forma automática la replicación de sus datos operativos desde el almacén transaccional hacia el almacén analítico.
 
@@ -59,7 +59,7 @@ Puede activar el almacén analítico en un contenedor de Azure Cosmos durante su
 > [!NOTE]
 > En este momento, puede habilitar el almacén analítico para los **nuevos** contenedores (tanto en cuentas nuevas como ya existentes).
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) o en el [explorador de Azure Cosmos](https://cosmos.azure.com/).
 
@@ -67,7 +67,7 @@ Puede activar el almacén analítico en un contenedor de Azure Cosmos durante su
 
 1. Seleccione **Nuevo contenedor** y escriba un nombre para la base de datos, el contenedor, la clave de partición y los detalles de capacidad de proceso. Active la opción **Analytical store** (Almacén analítico). Después de habilitar el almacén analítico, se crea un contenedor con la propiedad `AnalyicalTTL` establecida en el valor predeterminado de -1 (retención de datos infinita). Este almacén analítico conserva todas las versiones históricas de los registros.
 
-   ![Activación de un almacén analítico para un contenedor de Azure Cosmos](./media/configure-synapse-link/create-container-analytical-store.png)
+   :::image type="content" source="./media/configure-synapse-link/create-container-analytical-store.png" alt-text="Activación de un almacén analítico para un contenedor de Azure Cosmos":::
 
 1. Si no ha habilitado Synapse Link anteriormente en esta cuenta, se le pedirá que lo haga, ya que se trata de un requisito previo para crear un contenedor habilitado para almacén analítico. Si se le solicita, seleccione **Enable Synapse Link** (Habilitar Synapse Link).
 
@@ -144,7 +144,7 @@ container = client.CreateContainer(db['_self'], container_definition, options)
 
 Después de habilitar el almacén analítico con un valor de TTL determinado, puede actualizarlo a un valor válido diferente más tarde. Puede actualizar el valor mediante Azure Portal o los SDK. Para obtener información sobre las distintas opciones de configuración de TTL analítico, consulte el artículo [valores de TTL analítico admitidos](analytical-store-introduction.md#analytical-ttl).
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure portal
 
 Si creó un contenedor habilitado para el almacén analítico mediante Azure Portal, dicho contenedor contiene un TTL analítico predeterminado de -1. Siga estos pasos para actualizar dicho valor:
 

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 260811c4ae15b45de6f7bc1b22e3ed6dcea44259
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f8df703030220f2c5a79bdb34e3ffbac8ee84a0
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235296"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84762129"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Rendimiento y escalado horizontal en Durable Functions (Azure Functions)
 
@@ -52,6 +52,13 @@ El retraso de sondeo máximo se configura mediante la propiedad `maxQueuePolling
 
 > [!NOTE]
 > Cuando se ejecuta en los planes Consumo y Premium de Azure Functions, el [controlador de escala de Azure Functions](../functions-scale.md#how-the-consumption-and-premium-plans-work) sondeará cada cola de control y elemento de trabajo una vez cada 10 segundos. Este sondeo adicional es necesario para determinar cuándo activar instancias de aplicaciones de función y tomar decisiones de escalado. En el momento de escribir este artículo, este intervalo de 10 segundos es constante y no se puede configurar.
+
+### <a name="orchestration-start-delays"></a>Retrasos en el inicio de la orquestación
+Las instancias de las orquestaciones se inician con la inserción de un mensaje `ExecutionStarted` en una de las colas de control de la central de tareas. En determinadas condiciones, se pueden observar retrasos de varios segundos entre el momento en que se programa la ejecución de una orquestación y el momento en el que se inicia la ejecución. Durante este intervalo de tiempo, la instancia de la orquestación permanece en estado `Pending`. Hay dos causas posibles de este retraso:
+
+1. **Colas de control pendientes**: si la cola de control de esta instancia contiene un gran número de mensajes, puede tardar un tiempo antes de que el entorno de ejecución reciba y procese el mensaje `ExecutionStarted`. Los trabajos pendientes de mensajes se pueden producir cuando las orquestaciones procesan muchos eventos simultáneamente. Entre los eventos que van a la cola de control se incluyen los eventos de inicio de orquestación, finalización de actividad, temporizadores duraderos, terminación y eventos externos. Si este retraso se produce en circunstancias normales, considere la posibilidad de crear una nueva central de tareas con un mayor número de particiones. La configuración de más particiones hará que el entorno de ejecución cree más colas de control para la distribución de la carga.
+
+2. **Retrasos en los sondeos de retroceso**: otra causa común de los retrasos de la orquestación es el [comportamiento de los sondeos de retroceso que se ha descrito anteriormente para las colas de control](#queue-polling). Sin embargo, este retraso solo se espera cuando una aplicación se escala horizontalmente a dos o más instancias. Si solo hay una instancia de la aplicación o si la instancia de la aplicación que inicia la orquestación también es la misma instancia que sondea la cola de control de destino, no habrá un retraso en el sondeo de la cola. Los retrasos de los sondeos de retroceso se pueden reducir mediante la actualización de las opciones del archivo **host.json**, tal y como se ha descrito anteriormente.
 
 ## <a name="storage-account-selection"></a>Selección de una cuenta de almacenamiento
 

@@ -10,40 +10,75 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/14/2020
+ms.date: 6/12/2020
 ms.author: yohaddad
-ms.openlocfilehash: 9ea1caff5a0aba99bcd0d21b97650d075b830d2a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6cde6470a8e533879de72307b8f00c70f9f165a1
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656395"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "84737468"
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se realizan para la [familia][family-explain] determinada en la que se introdujeron.
 
-## <a name="may-2020-guest-os"></a>Sistema operativo invitado de mayo de 2020
->[!NOTE]
->El sistema operativo invitado de abril se está implementando actualmente en las VM del servicio en la nube que están configuradas para las actualizaciones automáticas. Una vez completada la implementación, esta versión estará disponible para las actualizaciones manuales mediante Azure Portal y los archivos de configuración. Las revisiones siguientes se incluyen en el sistema operativo invitado de abril. Esta lista está sujeta a cambios."
+## <a name="june-2020-guest-os"></a>SO invitado de junio de 2020
+">[!NOTE]
+>El sistema operativo invitado de junio se está implementando actualmente en las máquinas virtuales del servicio en la nube que están configuradas para las actualizaciones automáticas. Una vez completada la implementación, esta versión estará disponible para las actualizaciones manuales mediante Azure Portal y los archivos de configuración. Las revisiones siguientes se incluyen en el sistema operativo invitado de abril. Esta lista está sujeta a cambios."
+
 
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
-|  Versión 20-05   |  [4556798]  |  Internet Explorer   |  2.98, 3.85, 4.78  |  12 de mayo de 2020  |
-|  Versión 20-05   |  [4556813]  |  Actualización acumulativa más reciente (LCU)   |  5.43  |  12 de mayo de 2020  |
-|  Versión 20-05   |  [4551853]  |  Actualización acumulativa más reciente (LCU)   |  6.19  |  12 de mayo de 2020  |
-|  Versión 20-05   |  [4552940]  |  Acumulación mensual   |  2.98  |  12 de mayo de 2020  |
-|  Versión 20-05   |  [4556836]  |  Acumulación mensual   |  2.98  |  12 de mayo de 2020  |
-|  Versión 20-05   |  [4555449]  |  Actualización de la pila de servicio   |  2.98  |  12 de mayo de 2020  |
-|  Versión 20-05   |  [4552920]  |  Acumulación mensual   |  2.98  |  12 de mayo de 2020  |
-|  Versión 20-05   |  [4552979]  |  Acumulación mensual   |  3.85  |  12 de mayo de 2020  |
-|  Versión 20-05   |  [4556840]  |  Acumulación mensual   |  3.85  |  12 de mayo de 2020  |
-|  Versión 20-05   |  [4552947]  |  Acumulación mensual   |  3.85  |  12 de mayo de 2020  |
-|  Versión 20-05   |  [4552982]  |  Acumulación mensual   |  3.85  |  12 de mayo de 2020  |
-|  Versión 20-05   |  [4552946]  |  Acumulación mensual   |  4.78  |  12 de mayo de 2020  |
-|  Versión 20-05   |  [4556846]  |  Acumulación mensual   |  4.78  |  12 de mayo de 2020  |
-|  Versión 20-05   |  [4550994]  |  Actualización de la pila de servicio   |  5.43  |  14 de abril de 2020  |
-|  Versión 20-05   |  [4552924]  |  Acumulación mensual   |  6.19  |  12 de mayo de 2020  |
-|  Versión 20-05   |  [4549947]  |  Actualización de la pila de servicio   |  6.19  |  14 de abril de 2020  |
+|  Versión 20-06  |  [4561603]  |  Internet Explorer  |  2.99, 3.86, 4.79  |  9 de junio de 2020  |
+|  Versión 20-06  |  [4561616]  |  Actualización acumulativa más reciente (LCU)  |  5.44  |  9 de junio de 2020  |
+|  Versión 20-06  |  [4561608]  |  Actualización acumulativa más reciente (LCU)  |  6.20  |  9 de junio de 2020  |
+|  Versión 20-06  |  [4562030]  |  Actualización de la pila de servicio  |  2,99  |  9 de junio de 2020  |
+|  Versión 20-06  |  [4561643]  |  Acumulación mensual  |  2,99  |  9 de junio de 2020  |
+|  Versión 20-06  |  [4562252]  |  Actualización de la pila de servicio  |  3,86  |  9 de junio de 2020  |
+|  Versión 20-06  |  [4561612]  |  Acumulación mensual  |  3,86  |  9 de junio de 2020  |
+|  Versión 20-06  |  [4561600]  |  Intermitente  |  3.86, 4.79, 5.44, 6.20  |  9 de junio de 2020  |
+|  Versión 20-06  |  [4562253]  |  Actualización de la pila de servicio  |  4,79  |  9 de junio de 2020  |
+|  Versión 20-06  |  [4561666]  |  Acumulación mensual  |  4,79  |  9 de junio de 2020  |
+|  Versión 20-06  |  [4562561]  |  Actualización de la pila de servicio  |  5.44  |  9 de junio de 2020  |
+|  Versión 20-06  |  [4562562]  |  Actualización de la pila de servicio  |  6.20  |  9 de junio de 2020  |
+
+
+
+[4561603]: https://support.microsoft.com/kb/4561603
+[4561616]: https://support.microsoft.com/kb/4561616
+[4561608]: https://support.microsoft.com/kb/4561608
+[4562030]: https://support.microsoft.com/kb/4562030
+[4561643]: https://support.microsoft.com/kb/4561643
+[4562252]: https://support.microsoft.com/kb/4562252
+[4561612]: https://support.microsoft.com/kb/4561612
+[4561600]: https://support.microsoft.com/kb/4561600
+[4562253]: https://support.microsoft.com/kb/4562253
+[4561666]: https://support.microsoft.com/kb/4561666
+[4562561]: https://support.microsoft.com/kb/4562561
+[4562562]: https://support.microsoft.com/kb/4562562
+
+
+## <a name="may-2020-guest-os"></a>Sistema operativo invitado de mayo de 2020
+
+
+| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+|  Versión 20-05  |  [4556798]  |  Internet Explorer   |  [2.98], [3.85], [4.78]  |  12 de mayo de 2020  |
+|  Versión 20-05  |  [4556813]  |  Actualización acumulativa más reciente (LCU)   |  [5.43]  |  12 de mayo de 2020  |
+|  Versión 20-05  |  [4551853]  |  Actualización acumulativa más reciente (LCU)   |  [6.19]  |  12 de mayo de 2020  |
+|  Versión 20-05  |  [4552940]  |  Acumulación mensual   |  [2.98]  |  12 de mayo de 2020  |
+|  Versión 20-05  |  [4556836]  |  Acumulación mensual   |  [2.98]  |  12 de mayo de 2020  |
+|  Versión 20-05  |  [4555449]  |  Actualización de la pila de servicio   |  [2.98]  |  12 de mayo de 2020  |
+|  Versión 20-05  |  [4552920]  |  Acumulación mensual   |  [2.98]  |  12 de mayo de 2020  |
+|  Versión 20-05  |  [4552979]  |  Acumulación mensual   |  [3.85]  |  12 de mayo de 2020  |
+|  Versión 20-05  |  [4556840]  |  Acumulación mensual   |  [3.85]  |  12 de mayo de 2020  |
+|  Versión 20-05  |  [4552947]  |  Acumulación mensual   |  [3.85]  |  12 de mayo de 2020  |
+|  Versión 20-05  |  [4552982]  |  Acumulación mensual   |  [3.85]  |  12 de mayo de 2020  |
+|  Versión 20-05  |  [4552946]  |  Acumulación mensual   |  [4.78]  |  12 de mayo de 2020  |
+|  Versión 20-05  |  [4556846]  |  Acumulación mensual   |  [4.78]  |  12 de mayo de 2020  |
+|  Versión 20-05  |  [4550994]  |  Actualización de la pila de servicio   |  [5.43]  |  14 de abril de 2020  |
+|  Versión 20-05  |  [4552924]  |  Acumulación mensual   |  [6.19]  |  12 de mayo de 2020  |
+|  Versión 20-05  |  [4549947]  |  Actualización de la pila de servicio   |  [6.19]  |  14 de abril de 2020  |
 
 
 [4556798]: https://support.microsoft.com/kb/4556798
@@ -62,6 +97,11 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [4550994]: https://support.microsoft.com/kb/4550994
 [4552924]: https://support.microsoft.com/kb/4552924
 [4549947]: https://support.microsoft.com/kb/4549947
+[2.98]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3.85]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4.78]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5.43]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6.19]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 
 ## <a name="april-2020-guest-os"></a>SO invitado de abril de 2020

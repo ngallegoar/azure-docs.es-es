@@ -4,15 +4,15 @@ description: Aprenda a modelar una base de datos de grafos mediante Gremlin API
 author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: lbosq
-ms.openlocfilehash: dc9a5616aa2bb1f7e09045b9cfe4f4d7e9c69be2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ea3aab76c8d7eaad46ae1c20f6ddb4547b25b5b7
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78898318"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85261824"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelado de datos de grafo para la API para Gremlin de Azure Cosmos DB
 
@@ -47,11 +47,11 @@ Los siguientes son los procedimientos recomendados para las propiedades de los o
 
 | Object | Propiedad | Tipo | Notas |
 | --- | --- | --- |  --- |
-| Vértice | id | String | Se aplica de forma exclusiva por partición. Si no se proporciona un valor al realizar la inserción, se almacenará un GUID generado automáticamente. |
+| Vértice | ID | String | Se aplica de forma exclusiva por partición. Si no se proporciona un valor al realizar la inserción, se almacenará un GUID generado automáticamente. |
 | Vértice | etiqueta | String | Esta propiedad se utiliza para definir el tipo de entidad que representa el vértice. Si no se proporciona un valor, se usará el valor predeterminado "vértice". |
 | Vértice | properties | Cadena, booleano, numérico | Una lista de propiedades independientes que se almacenan como pares de clave-valor en cada vértice. |
 | Vértice | clave de partición | Cadena, booleano, numérico | Esta propiedad define dónde se almacenará el vértice y sus bordes salientes. Más información acerca de la [creación de particiones de grafos](graph-partitioning.md). |
-| perimetral | id | String | Se aplica de forma exclusiva por partición. Generado automáticamente de forma predeterminada. Normalmente, con los bordes no hay necesidad de recuperarlos de forma exclusiva mediante un identificador. |
+| perimetral | ID | String | Se aplica de forma exclusiva por partición. Generado automáticamente de forma predeterminada. Normalmente, con los bordes no hay necesidad de recuperarlos de forma exclusiva mediante un identificador. |
 | perimetral | etiqueta | String | Esta propiedad se utiliza para definir el tipo de relación que tienen dos vértices. |
 | perimetral | properties | Cadena, booleano, numérico | Una lista de propiedades independientes que se almacenan como pares de clave-valor en cada borde. |
 
@@ -73,11 +73,11 @@ Un problema común consiste en asignar propiedades de una sola entidad como vér
 
 * **Propiedades basadas en vértice**: En este enfoque, la entidad usa tres vértices independientes y dos bordes para describir sus propiedades. Aunque este enfoque podría reducir la redundancia, aumenta la complejidad del modelo. El aumento de la complejidad del modelo puede dar como resultado latencia agregada, complejidad de las consultas y costo de cálculo. Este modelo también puede presentar desafíos en la creación de particiones.
 
-![Modelo de entidad con vértices para las propiedades.](./media/graph-modeling/graph-modeling-1.png)
+:::image type="content" source="./media/graph-modeling/graph-modeling-1.png" alt-text="Modelo de entidad con vértices para las propiedades." border="false":::
 
 * **Vértices insertados en propiedad**: Este enfoque aprovecha las ventajas de la lista de par clave-valor para representar todas las propiedades de la entidad dentro de un vértice. Este enfoque proporciona una complejidad reducida del modelo, lo que dará lugar a consultas más sencillas y más recorridos rentables.
 
-![Modelo de entidad con vértices para las propiedades.](./media/graph-modeling/graph-modeling-2.png)
+:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Modelo de entidad con vértices para las propiedades." border="false":::
 
 > [!NOTE]
 > Los ejemplos anteriores muestran un modelo de grafo simplificado para mostrar únicamente la comparación entre las dos maneras de dividir las propiedades de entidad.
@@ -105,7 +105,7 @@ El uso de etiquetas de relación descriptivas puede mejorar la eficacia de las o
 * Use términos de no genéricos para etiquetar una relación.
 * Asocie la etiqueta del vértice de origen a la etiqueta del vértice de destino con el nombre de la relación.
 
-![Ejemplos del etiquetado de relaciones.](./media/graph-modeling/graph-modeling-3.png)
+:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Ejemplos del etiquetado de relaciones." border="false":::
 
 Cuanto más específica sea la etiqueta que use el recorredor para filtrar los bordes, mejor. Esta decisión puede también influir de forma significativa en el costo de la consulta. Puede evaluar el costo de consulta en cualquier momento [mediante el paso executionProfile](graph-execution-profile.md).
 

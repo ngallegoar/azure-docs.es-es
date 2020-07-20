@@ -16,20 +16,16 @@ ms.date: 08/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 89210cda6390fd7c3cf4ca2877b8899559a41321
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 67df782cf8044593859e7761278d93187d258d26
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668719"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231954"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>Automatización de las tareas de administración en Azure Virtual Machines con la extensión del Agente de IaaS de SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-
-> [!div class="op_single_selector"]
-> * [Resource Manager](sql-server-iaas-agent-extension-automate-management.md)
-> * [Clásico](../../../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)
 
 La extensión del agente de IaaS SQL Server (SqlIaasExtension) se ejecuta en Azure Virtual Machines para automatizar las tareas de administración. En este artículo se proporciona información general de los servicios que admite la extensión. En este artículo también se proporcionan instrucciones para la instalación, el estado y la eliminación de la extensión.
 

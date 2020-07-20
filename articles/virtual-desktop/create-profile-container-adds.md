@@ -4,22 +4,22 @@ description: En este artículo se describe cómo crear un contenedor de perfiles
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 916d34abfaf8223e3cf29977e13dfddf15a3fbf9
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 4ee1b8d849051b9192e53f761050f1c4b6480e1b
+ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607289"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85362448"
 ---
-# <a name="create-an-fslogix-profile-container-with-azure-files"></a>Creación de un contenedor de perfiles de FSLogix con Azure Files
+# <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Creación de un contenedor de perfiles con Azure Files y Azure AD DS
 
 En este artículo se muestra cómo crear un contenedor de perfiles de FSLogix con Azure Files y Azure Active Directory Domain Services (AD DS).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se supone que ya ha configurado una instancia de Azure AD DS. Si aún no tiene una, siga primero las instrucciones del artículo sobre la [creación de un dominio administrado básico](../active-directory-domain-services/tutorial-create-instance.md) y, después, continúe aquí.
 
@@ -41,7 +41,7 @@ Para agregar un administrador:
 
 ## <a name="set-up-an-azure-storage-account"></a>Configuración de una cuenta de Azure Storage
 
-Ahora es el momento de habilitar la autenticación de Azure AD DS en el bloque de mensajes del servidor (SMB). 
+Ahora es el momento de habilitar la autenticación de Azure AD DS en el bloque de mensajes del servidor (SMB).
 
 Para habilitar la autenticación:
 
@@ -93,7 +93,8 @@ Para obtener la clave de acceso a la cuenta de almacenamiento:
 
     Se descargará un archivo RDP que le permitirá iniciar sesión en la máquina virtual con sus propias credenciales.
 
-    ![Captura de pantalla de la pestaña RDP de la ventana Conectar a máquina virtual.](media/rdp-tab.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de la pestaña RDP de la ventana Conectar a máquina virtual](media/rdp-tab.png)
 
 6. Cuando haya iniciado sesión en la máquina virtual, ejecute un símbolo del sistema como administrador.
 
@@ -108,8 +109,8 @@ Para obtener la clave de acceso a la cuenta de almacenamiento:
     - Reemplace `<share-name>` por el nombre del recurso compartido que creó anteriormente.
     - Reemplace `<storage-account-key>` por la clave de la cuenta de almacenamiento de Azure.
 
-    Por ejemplo:  
-  
+    Por ejemplo:
+
      ```cmd
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
      ```
@@ -124,7 +125,7 @@ Para obtener la clave de acceso a la cuenta de almacenamiento:
     - Reemplace `<user-email>` por el UPN del usuario que usará este perfil para tener acceso a las máquinas virtuales del host de sesión.
 
     Por ejemplo:
-     
+
      ```cmd
      icacls y: /grant john.doe@contoso.com:(f)
      ```
@@ -156,11 +157,13 @@ Para configurar el contenedor de perfiles de FSLogix:
 
 9.  Haga clic con el botón derecho en **Profiles** (Perfiles), seleccione **Nuevo** y, después, **Valor de DWORD (32 bits)** . Asigne un nombre al valor **Habilitado** y establezca el valor de **Datos** en **1**.
 
-    ![Captura de pantalla de la clave Profiles El archivo de REG_DWORD está resaltado y su valor de datos se establece en 1.](media/dword-value.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de la clave Profiles El archivo REG_DWORD está resaltado y su valor de datos se establece en 1.](media/dword-value.png)
 
 10. Haga clic con el botón derecho en **Profiles**, seleccione **Nuevo** y, a continuación, seleccione **Valor de cadena múltiple**. Asigne un nombre al valor **VHDLocations** y escriba el URI para el recurso compartido de Azure Files `\\fsprofile.file.core.windows.net\share` como valor de Datos.
 
-    ![Captura de pantalla de la clave Profiles que muestra el archivo VHDLocations. Su valor de datos muestra el URI del recurso compartido de Azure Files.](media/multi-string-value.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de la clave Profiles que muestra el archivo VHDLocations. Su valor de datos muestra el URI del recurso compartido de Azure Files.](media/multi-string-value.png)
 
 ## <a name="assign-users-to-a-session-host"></a>Asignación de usuarios a un host de sesión
 
@@ -203,13 +206,13 @@ Para asignar usuarios:
 
      ```powershell
      $pool1 = "contoso"
-     
+
      $tenant = "contoso"
-     
+
      $appgroup = "Desktop Application Group"
-     
+
      $user1 = "jane.doe@contoso.com"
-     
+
      Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
      ```
 
