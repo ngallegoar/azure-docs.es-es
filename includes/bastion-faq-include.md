@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/04/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b8d30e7fe3138a26d9b64ec35d18260933df7999
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: efb32631c5ee1eedece6d2a06b94702b602ed418
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780321"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276128"
 ---
 ### <a name="which-regions-are-available"></a><a name="regions"></a>¿En qué regiones está disponible?
 
@@ -48,6 +48,10 @@ En este momento, solo se admiten las operaciones de copiado y pegado de texto. N
 ### <a name="which-browsers-are-supported"></a><a name="browsers"></a>¿Qué exploradores se admiten?
 
 Utilice el explorador Microsoft Edge o Google Chrome en Windows. Para Apple Mac, use Google Chrome. Microsoft Edge Chromium también es compatible tanto con Windows como con Mac.
+
+### <a name="where-does-azure-bastion-store-customer-data"></a><a name="data"></a>¿Dónde se almacenan los datos de los clientes en Azure Bastion?
+
+Azure Bastion no mueve ni almacena los datos de los clientes fuera de la región en la que se implementa.
 
 ### <a name="are-any-roles-required-to-access-a-virtual-machine"></a><a name="roles"></a>¿Se necesitan roles para acceder a una máquina virtual?
 

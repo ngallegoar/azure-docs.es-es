@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: f673fd4b49a33c2faf6bc8b489520f2a877b0689
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 69618604c38d82567260e45d651df523055c5f7b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85513814"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245337"
 ---
 # <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Tutorial: Creación e implementación de una aptitud personalizada con Azure Machine Learning 
 
@@ -29,6 +29,9 @@ Se proporcionan dos conjuntos de datos. Si quiere entrenar el modelo por su cuen
 > * Entrenamiento e implementación de un modelo en un clúster de Azure Kubernetes
 > * Vinculación de una canalización de enriquecimiento con IA al modelo implementado
 > * Ingesta de la salida del modelo implementado como una aptitud personalizada
+
+> [!IMPORTANT] 
+> Esta aptitud está actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Actualmente no hay compatibilidad con el SDK de .NET.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

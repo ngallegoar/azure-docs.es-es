@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6f6cb87cf7628c48ce6adf12336c4b712dc0ff9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b31bc86554998295bc97352d28fa3b3d4b330abe
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82202679"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146570"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Tutorial: Integración de Azure Active Directory con SAML SSO for Jira by resolution GmbH
 
@@ -35,7 +35,7 @@ La integración de SAML SSO for Jira by resolution GmbH con Azure AD proporciona
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD y SAML SSO for Jira by resolution GmbH, necesita los siguientes elementos:
 
@@ -117,7 +117,7 @@ Para configurar el inicio de sesión único con SAML SSO for Jira by resolution 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<server-base-url>/plugins/servlet/samlsso`
 
     > [!NOTE]
-    > Para los valores de identificador, dirección URL de respuesta y dirección URL de inicio de sesión, sustituya **\<server-base-url>** por la dirección URL base de la instancia de Jira. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal. Si tiene algún problema, póngase en contacto con el [equipo de soporte técnico de clientes de SAML SSO for Jira by resolution GmbH](https://www.resolution.de/go/support).
+    > Para los valores de identificador, dirección URL de respuesta y dirección URL de inicio de sesión, reemplace **\<server-base-url>** por la dirección URL base de la instancia de Jira. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal. Si tiene algún problema, póngase en contacto con el [equipo de soporte técnico de clientes de SAML SSO for Jira by resolution GmbH](https://www.resolution.de/go/support).
 
 4. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, descargue el archivo **XML de metadatos de federación**  y guárdelo en su equipo.
 
@@ -291,7 +291,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 Al hacer clic en el icono de SAML SSO for Jira by resolution GmbH en el Panel de acceso, debería iniciar sesión automáticamente en la solución SAML SSO for Jira by resolution GmbH para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-También puede probar el inicio de sesión único si va a `https://<server-base-url>/plugins/servlet/samlsso`. Sustituya **\<server-base-url>** por la dirección URL base de la instancia de Jira.
+También puede probar el inicio de sesión único si va a `https://<server-base-url>/plugins/servlet/samlsso`. Reemplace **\<server-base-url>** por la dirección URL base de la instancia de Jira.
 
 
 ## <a name="enable-single-sign-on-redirection-for-jira"></a>Habilitación de la redirección de inicio de sesión única para Jira
@@ -304,10 +304,12 @@ Para activar el redireccionamiento de inicio de sesión único, realice lo sigui
 
 1. Acceda a la página de configuración del complemento SAML SSO de Jira.
 1. Haga clic en **Redirección** en el panel izquierdo.
-![](./media/samlssojira-tutorial/ssore1.png)
+
+   ![Captura de pantalla parcial de la página Jira SAML SingleSignOn Plugin Configuration (Configuración del complemento de inicio de sesión único de SAML de Jira) que resalta el vínculo Redirection (Redireccionamiento) en el panel de navegación izquierdo.](./media/samlssojira-tutorial/ssore1.png)
 
 1. Marque **Enable SSO Redirect** (Habilitar la redirección de inicio de sesión único).
-![](./media/samlssojira-tutorial/ssore2.png) 
+
+   ![Captura de pantalla parcial de la página Jira SAML SingleSignOn Plugin Configuration (Configuración del complemento de inicio de sesión único de SAML de Jira) que resalta la casilla "Enable SSO Redirect" (Habilitar la redirección de inicio de sesión único) seleccionada.](./media/samlssojira-tutorial/ssore2.png) 
 
 1. Presione el botón **Save Settings** (Guardar configuración) en la esquina superior derecha.
 

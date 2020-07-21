@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: ed105ce6bd1d7d8980799049649b8d5b95dcb761
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: e13d5f3421f3c0d4f3e14da29581ca585e7f9438
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536121"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145867"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web de Java
 
@@ -24,7 +24,7 @@ En este inicio rápido, aprenderá a integrar una aplicación web de Java con la
 
 Cuando haya completado esta guía de inicio rápido, la aplicación aceptará inicios de sesión de cuentas personales de Microsoft (como outlook.com, live.com, etc.) y cuentas profesionales o educativas de cualquier empresa u organización que use Azure Active Directory. (Para ilustrar este tema, consulte el apartado en el que se explica el [funcionamiento del ejemplo](#how-the-sample-works).)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para ejecutar este ejemplo, necesitará lo siguiente:
 
@@ -56,7 +56,7 @@ Para ejecutar este ejemplo, necesitará lo siguiente:
 >    - Seleccione **Registrar**.
 > 1. En la página **Información general**, busque los valores de **Identificador de la aplicación (cliente)** y **el identificador del Directorio (inquilino)**  de la aplicación. Copie estos valores para más adelante.
 > 1. Seleccione la **Autenticación** en el menú y, después, agregue la siguiente información:
->    - Agregue la configuración de la plataforma **web**.  Agregue `https://localhost:8080/msal4jsample/secure/aad` y `https://localhost:8080/msal4jsample/graph/me` como **URI de redirección**.
+>    - Agregue la configuración de la plataforma **web**.  Agregue `https://localhost:8443/msal4jsample/secure/aad` y `https://localhost:8443/msal4jsample/graph/me` como **URI de redirección**.
 >    - Seleccione **Guardar**.
 > 1. Seleccione los **Certificados y secretos** en el menú y, en la sección de **Secretos de cliente**, haga clic en **Nuevo secreto de cliente**:
 >
@@ -70,7 +70,7 @@ Para ejecutar este ejemplo, necesitará lo siguiente:
 >
 > Para que el código de ejemplo de este inicio rápido funcione, es preciso:
 >
-> 1. Agregue las direcciones URL de respuesta como `https://localhost:8080/msal4jsample/secure/aad` y `https://localhost:8080/msal4jsample/graph/me`.
+> 1. Agregue las direcciones URL de respuesta como `https://localhost:8443/msal4jsample/secure/aad` y `https://localhost:8443/msal4jsample/graph/me`.
 > 1. Cree un secreto de cliente.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Realizar estos cambios por mí]()
@@ -115,8 +115,8 @@ Para ejecutar este ejemplo, necesitará lo siguiente:
 >    aad.clientId=Enter_the_Application_Id_here
 >    aad.authority=https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/
 >    aad.secretKey=Enter_the_Client_Secret_Here
->    aad.redirectUriSignin=https://localhost:8080/msal4jsample/secure/aad
->    aad.redirectUriGraph=https://localhost:8080/msal4jsample/graph/me
+>    aad.redirectUriSignin=https://localhost:8443/msal4jsample/secure/aad
+>    aad.redirectUriGraph=https://localhost:8443/msal4jsample/graph/me
 >    aad.msGraphEndpointHost="https://graph.microsoft.com/"
 >    ```
 > Donde:
@@ -149,11 +149,11 @@ Ejecutarlo directamente desde el IDE mediante el servidor de Spring boot integra
 
 ##### <a name="running-from-ide"></a>Ejecutarlo desde IDE
 
-Si está ejecutando la aplicación web desde un IDE, haga clic en ejecutar y, luego, vaya a la Página principal del proyecto. En este ejemplo, la dirección URL de la Página principal estándar es https://localhost:8080.
+Si está ejecutando la aplicación web desde un IDE, haga clic en ejecutar y, luego, vaya a la Página principal del proyecto. En este ejemplo, la dirección URL de la Página principal estándar es https://localhost:8443
 
 1. En la página de información, seleccione el botón **Inicio de sesión** para redirigir a Azure Active Directory y solicite al usuario sus credenciales.
 
-1. Una vez autenticado el usuario, se redirigen a *https://localhost:8080/msal4jsample/secure/aad* . Ahora han iniciado sesión y la página mostrará información sobre la cuenta que ha iniciado sesión. La interfaz de usuario de ejemplo tiene los siguientes botones:
+1. Una vez autenticado el usuario, se redirigen a *https://localhost:8443/msal4jsample/secure/aad* . Ahora han iniciado sesión y la página mostrará información sobre la cuenta que ha iniciado sesión. La interfaz de usuario de ejemplo tiene los siguientes botones:
     - *Sign Out* (Cerrar sesión): Cierra la sesión del usuario actual de la aplicación y lo redirige a la página principal.
     - *Mostrar información de usuario*: Adquiere un token para Microsoft Graph y llama a Microsoft Graph con una solicitud que contiene el token, que devuelve información básica sobre el usuario que inició sesión.
 
@@ -163,15 +163,6 @@ Si desea implementar el ejemplo web en Tomcat, necesitará hacer un par de cambi
 
 1. Abra ms-identity-java-webapp/pom.xml
     - En `<name>msal-web-sample</name>` agregue `<packaging>war</packaging>`
-    - Agregue dependency:
-
-         ```xml
-         <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-tomcat</artifactId>
-          <scope>provided</scope>
-         </dependency>
-         ```
 
 2. Abra ms-identity-java-webapp/src/main/java/com.microsoft.azure.msalwebsample/MsalWebSampleApplication
 
@@ -199,13 +190,26 @@ Si desea implementar el ejemplo web en Tomcat, necesitará hacer un par de cambi
     }
    ```
 
-3. Abra un símbolo del sistema, vaya a la carpeta raíz del proyecto y ejecute `mvn package`
+3.   El puerto HTTP predeterminado de Tomcat es 8080, aunque se necesita una conexión HTTPS en el puerto 8443. Para configurar estos:
+        - Vaya a tomcat/conf/server. xml
+        - Busque la etiqueta `<connector>` y reemplace el conector existente por:
+        ```
+        <Connector
+                   protocol="org.apache.coyote.http11.Http11NioProtocol"
+                   port="8443" maxThreads="200"
+                   scheme="https" secure="true" SSLEnabled="true"
+                   keystoreFile="C:/Path/To/Keystore/File/keystore.p12" keystorePass="KeystorePassword"
+                   clientAuth="false" sslProtocol="TLS"/>
+        ``` 
+       
+4. Abra un símbolo del sistema, vaya a la carpeta raíz de este ejemplo (donde se encuentra el archivo pom.xml) y ejecute `mvn package` para compilar el proyecto.
     - Se generará el archivo `msal-web-sample-0.1.0.war` en el directorio /targets.
-    - Cambie el nombre del archivo a `ROOT.war`.
+    - Cambie el nombre del archivo a `msal4jsample.war`.
     - Implemente este archivo .war mediante Tomcat, o cualquier otra solución de contenedor de J2EE.
-        - Para realizar la implementación en un contenedor de Tomcat, copie el archivo. war en la carpeta webapps de la instalación de Tomcat y, después, inicie el servidor de Tomcat.
+        - Para realizar la implementación, copie el archivo. msal4jsample.war en el directorio `/webapps/` de la instalación de Tomcat y, después, inicie el servidor de Tomcat.
 
-El archivo se hospedará automáticamente en https://localhost:8080/.
+5. Una vez implementado, vaya a https://localhost:8443/msal4jsample en el explorador.
+
 
 > [!IMPORTANT]
 > Esta aplicación de inicio rápido usa un secreto de cliente para identificarse como cliente confidencial. Dado que el secreto de cliente se agrega como texto sin formato a los archivos de proyecto, por motivos de seguridad se recomienda que use un certificado en lugar de un secreto de cliente antes de considerar la aplicación como aplicación de producción. Para más información sobre cómo usar un certificado, consulte [Credenciales de certificado para la autenticación de la aplicación](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).

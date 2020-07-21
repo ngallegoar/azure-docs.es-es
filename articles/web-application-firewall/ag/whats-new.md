@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: overview
 ms.date: 10/24/2019
 ms.author: victorh
-ms.openlocfilehash: 11212c931e38b1c6319c7c3554155d9d17a1080c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 5033d19de2321e0dfd3b6d89d2da3306b1723bd0
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745143"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146593"
 ---
 # <a name="whats-new-in-azure-web-application-firewall"></a>Novedades del firewall de aplicaciones web de Azure
 
@@ -27,6 +27,7 @@ El firewall de aplicaciones web de Azure se actualiza de forma continuada. Para 
 
 |Característica  |Descripción  |Fecha de adición  |
 |---------|---------|---------|
+|Disponibilidad general de la directiva por sitio| La directiva por sitio ya está disponible con carácter general. | Julio de 2020 |
 |Conjunto de reglas de mitigación de bots (versión preliminar)|Puede habilitar un conjunto de reglas de mitigación de bots, junto con el conjunto de reglas de CRS que elija. | Noviembre de 2019 |
 |Integración con GeoDB (versión preliminar)|Ahora puede crear reglas personalizadas que restrinjan el tráfico por país o región de origen. | Noviembre de 2019 |
 |Directiva de WAF por sitio/por URI (versión preliminar)|WAF-v2 ahora admite la aplicación de una directiva a los clientes de escucha, así como reglas basadas en rutas de acceso. Consulte [Creación de una directiva de WAF](create-waf-policy-ag.md). | Noviembre de 2019 |

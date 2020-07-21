@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/01/2020
-ms.openlocfilehash: 8406c556ecaa0cea968fc1976d709b4f3c51c78b
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 1613486880885a3b7838b1bf806c17f88e3be06d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852510"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231291"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Inicio rápido: Creación de un trabajo de Azure Stream Analytics mediante la CLI de Azure
 
@@ -49,7 +49,7 @@ En este inicio rápido se usa la CLI de Azure para definir un trabajo de Stream 
     az extension add --name stream-analytics
     ```
 
-   Ejecute el siguiente comando para instalar la [extensión de Azure IoT](/cli/azure/ext/azure-iot/azure-iot):
+   Ejecute el siguiente comando para instalar la [extensión de Azure IoT](/cli/azure/ext/azure-iot):
 
     ```azurecli
     az extension add --name azure-iot
@@ -198,7 +198,7 @@ az stream-analytics input create
 
 Agregue una salida al trabajo mediante el cmdlet [az stream-analytics output create](/cli/azure/ext/stream-analytics/stream-analytics/output?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-output-create). Este cmdlet toma como parámetros el nombre del trabajo, el nombre de salida del trabajo, el nombre del grupo de recursos y la definición de salida del trabajo. La definición de la salida del trabajo es un archivo JSON que contiene las propiedades necesarias para configurar la salida del trabajo. En este ejemplo se usa el almacenamiento de blobs como salida.
 
-En su máquina local, cree un archivo denominado `datasink.json` y agréguele los siguientes datos JSON. Asegúrese de reemplazar el valor de `accountKey` por la clave de acceso de su cuenta de almacenamiento que sea el valor almacenado en $storageAccountKey.
+En su máquina local, cree un archivo denominado `datasink.json` y agréguele los siguientes datos JSON. Asegúrese de reemplazar el valor de `accountKey` por la clave de acceso de la cuenta de almacenamiento que sea el valor almacenado en $storageAccountKey.
 
 ```json
 {

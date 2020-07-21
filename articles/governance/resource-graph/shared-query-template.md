@@ -4,28 +4,30 @@ description: En este inicio rápido, se usa una plantilla de Azure Resource Mana
 ms.date: 07/06/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 3cdcff4898a8644008193943a243be4a2ef9e8c4
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: a05be04064df81373f856ea0e8ca59664078695f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969814"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252375"
 ---
-# <a name="quickstart-create-a-shared-query-by-using-an-azure-resource-manager-template"></a>Inicio rápido: Creación de una consulta compartida mediante una plantilla de Azure Resource Manager
+# <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>Inicio rápido: Creación de una consulta compartida mediante una plantilla de Resource Manager
 
 Las consultas de Resource Graph se pueden guardar como una _consulta privada_ o una _consulta compartida_. Una consulta privada se guarda en el perfil del portal del usuario y no es visible para otros usuarios. Una consulta compartida es un objeto de Resource Manager que se puede compartir con otros mediante permisos y acceso basado en roles. Una consulta compartida proporciona una ejecución común y coherente de la detección de recursos. En este inicio rápido se usa una plantilla de Azure Resource Manager para crear una consulta compartida.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+
+:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Implementar la plantilla de Resource Manager para crear una consulta compartida en Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="create-a-shared-query"></a>Creación de una consulta compartida
+## <a name="review-the-template"></a>Revisión de la plantilla
 
 En este inicio rápido, creará una consulta compartida denominada _Recuento de máquinas virtuales por sistema operativo_. Para probar esta consulta en el SDK o en el portal con el explorador de Resource Graph, consulte [Ejemplos: recuento de máquinas virtuales por sistema operativo](./samples/starter.md#count-os).
-
-### <a name="review-the-template"></a>Revisión de la plantilla
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/).
 
@@ -35,7 +37,7 @@ El recurso definido en la plantilla es el siguiente:
 
 - [Microsoft.ResourceGraph/queries](/azure/templates/microsoft.resourcegraph/queries)
 
-### <a name="deploy-the-template"></a>Implementación de la plantilla
+## <a name="deploy-the-template"></a>Implementación de la plantilla
 
 > [!NOTE]
 > Azure Resource Graph es un servicio gratuito. Para más información, consulte [Información general de Azure Resource Graph](./overview.md).
@@ -60,7 +62,7 @@ El recurso definido en la plantilla es el siguiente:
 
 Algunos recursos adicionales:
 
-- Para buscar más plantillas de ejemplo, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
+- Puede encontrar más plantillas de ejemplo en [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
 - Para ver la referencia de plantilla, vaya a la [referencia de plantilla de Azure](/azure/templates/microsoft.resourcegraph/allversions).
 - Para aprender a desarrollar plantillas de Resource Manager, consulte la [documentación de Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 - Para información sobre la implementación de nivel de suscripción, consulte [Create resource groups and resources at the subscription level](../../azure-resource-manager/templates/deploy-to-subscription.md) (Creación de grupos de recursos y recursos en el nivel de suscripción).

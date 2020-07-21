@@ -17,12 +17,12 @@ ms.date: 04/30/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/30/2019
-ms.openlocfilehash: b7ee3afc2e8b9958a868c8c117262d2017c9b600
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 273827e68a81e87dcff15760f0b400b2d5ce8723
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80126873"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220871"
 ---
 # <a name="tutorial-send-notifications-to-specific-devices-using-notification-hubs-and-google-firebase-cloud-messaging"></a>Tutorial: Envío de notificaciones a dispositivos específicos mediante Azure Notification Hubs y Google Firebase Cloud Messaging
 
@@ -42,7 +42,7 @@ En este tutorial realizará lo siguiente:
 > * Enviar notificaciones con etiquetas.
 > * Prueba de la aplicación
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Este tutorial se basa en la aplicación que creó en el [Tutorial: Envío de notificaciones push a dispositivos Android con Azure Notification Hubs y Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md). Antes de comenzar este tutorial, realice el [Tutorial: Envío de notificaciones push a dispositivos Android con Azure Notification Hubs y Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
@@ -117,7 +117,7 @@ El primer paso es agregar los elementos de la interfaz de usuario a la actividad
 
     El diseño gráfico de `main_activity.xml` debe ser similar al de la siguiente imagen:
 
-    ![][A1]
+    ![Captura de pantalla de un emulador que muestra el aspecto del diseño gráfico de la actividad principal X M L.][A1]
 3. Cree una clase `Notifications` en el mismo paquete que la clase `MainActivity`.
 
     ```java

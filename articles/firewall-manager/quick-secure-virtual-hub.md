@@ -8,30 +8,32 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 6641cc29025d39ddff33e706dd9b1b0da517b884
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 1917bed7727b97de27e560a0f2d8032a8ae08996
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563701"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242022"
 ---
-# <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---resource-manager-template"></a>Inicio rápido: Protección de un centro virtual mediante Azure Firewall Manager (plantilla de Resource Manager)
+# <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---arm-template"></a>Inicio rápido: Protección de un centro virtual mediante Azure Firewall Manager: plantilla de Resource Manager
 
-En este inicio rápido, usará una plantilla de Resource Manager para proteger el centro virtual mediante Azure Firewall Manager. El firewall implementado tiene una regla de aplicación que permite conexiones a `www.microsoft.com`. Para probar el firewall, se implementan dos máquinas virtuales con Windows Server 2019. Para realizar la conexión al servidor de cargas de trabajo, se usa un servidor de saltos. Desde el servidor de cargas de trabajo, solo puede conectarse a `www.microsoft.com`.
+En este inicio rápido, usará una plantilla de Azure Resource Manager para proteger el centro virtual mediante Azure Firewall Manager. El firewall implementado tiene una regla de aplicación que permite conexiones a `www.microsoft.com`. Para probar el firewall, se implementan dos máquinas virtuales con Windows Server 2019. Para realizar la conexión al servidor de cargas de trabajo, se usa un servidor de saltos. Desde el servidor de cargas de trabajo, solo puede conectarse a `www.microsoft.com`.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Para más información sobre Azure Firewall Manager, consulte [¿Qué es Azure Firewall Manager?](overview.md)
 
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffwm-docs-qs%2Fazuredeploy.json)
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-a-secured-virtual-hub"></a>Crear un centro virtual protegido
+## <a name="review-the-template"></a>Revisión de la plantilla
 
 Esta plantilla crea un centro virtual protegido mediante Azure Firewall Manager, junto con los recursos necesarios para admitir el escenario.
-
-### <a name="review-the-template"></a>Revisión de la plantilla
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/fwm-docs-qs/).
 
@@ -51,7 +53,7 @@ En la plantilla se definen varios recursos de Azure:
 - [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 
-### <a name="deploy-the-template"></a>Implementación de la plantilla
+## <a name="deploy-the-template"></a>Implementación de la plantilla
 
 Implementación de la plantilla de Resource Manager en Azure:
 
@@ -86,7 +88,7 @@ Ahora, pruebe las reglas de firewall para confirmar que funcionan según lo prev
 
 Con ello, ha comprobado que las reglas de firewall funcionan:
 
-* Puede navegar al FQDN permitido pero no a ningún otro.
+- Puede navegar al FQDN permitido pero no a ningún otro.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

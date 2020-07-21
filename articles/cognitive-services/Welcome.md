@@ -10,16 +10,18 @@ ms.subservice: ''
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: nitinme
-ms.openlocfilehash: 2906734a37fbb5516596d456386929c11c8dc1e4
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6272d050e6a71032f32c72be696d8c3918fc3d61
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588299"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223761"
 ---
 # <a name="what-are-azure-cognitive-services"></a>¿Qué es Azure Cognitive Services?
 
 Azure Cognitive Services son las API, SDK y servicios disponibles para ayudar a los desarrolladores a compilar aplicaciones inteligentes sin necesidad de inteligencia artificial directa o aptitudes ni conocimientos sobre ciencia de datos. Azure Cognitive Services permiten a los desarrolladores agregar fácilmente características cognitivas en sus aplicaciones. El objetivo de Azure Cognitive Services es ayudar a los desarrolladores a crear aplicaciones que puedan ver, oír, hablar, comprender e incluso empezar a razonar. El catálogo de servicios de Azure Cognitive Services se puede dividir en cinco pilares principales: Vision, Voz, Lenguaje, Web Search y Decision.
+
+¿Desea ver las novedades y la documentación actualizada de Cognitive Services? Consulte [Novedades en la documentación de Cognitive Services](whats-new-docs.md).
 
 ## <a name="vision-apis"></a>API de visión
 
@@ -78,17 +80,13 @@ Azure Cognitive Services son las API, SDK y servicios disponibles para ayudar a 
 |[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|Content Moderator proporciona la supervisión de posibles contenidos ofensivos, indeseables y peligrosos.|
 |[Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "Personalizer")|Personalizer permite elegir la mejor experiencia para mostrar a los usuarios y aprender de su comportamiento en tiempo real.|
 
-## <a name="use-free-trials"></a>Uso de evaluaciones gratuitas
-
-El [registro para las evaluaciones gratuitas](https://azure.microsoft.com/try/cognitive-services/ "Ayuda para suscribirse") solo requiere un correo electrónico y unos pocos pasos sencillos. Necesita una cuenta de Microsoft si aún no tiene una. Recibirá un par de claves único para cada API solicitada. El segundo par es tan solo de reserva. No comparta las claves secretas con nadie. Las versiones de evaluación tienen un límite de velocidad, transacciones por segundo o minuto, y un límite de uso mensual. Una transacción es simplemente una llamada API. Puede actualizar a un plan de pago para desbloquear las restricciones.
-
 ## <a name="subscription-management"></a>Administración de suscripciones
 
 Una vez que ha iniciado sesión con la cuenta Microsoft, puede acceder a [Mis suscripciones](https://www.microsoft.com/cognitive-services/subscriptions "Mis suscripciones") para mostrar los productos que está usando, la cuota restante y la posibilidad de agregar productos adicionales a la suscripción.
 
 ## <a name="upgrade-to-unlock-limits"></a>Actualización para desbloquear los límites
 
-Todas las API tienen un plan de evaluación gratuita que tiene límites de uso y rendimiento.  Estos límites se pueden aumentar mediante una oferta de pago y la selección de la opción de plan de tarifa adecuada al implementar el servicio en Azure Portal. [Más información sobre las ofertas y los precios](https://azure.microsoft.com/pricing/details/cognitive-services/ "ofertas y precios"). Tendrá que configurar una cuenta de suscriptor de Azure con una tarjeta de crédito y un número de teléfono. Si tiene necesidades especiales o simplemente quiere comunicarse con el departamento de ventas, haga clic en el botón "Póngase en contacto con nosotros" en la parte superior de la página de precios.
+Todas las API tienen un nivel gratuito, que tiene límites de uso y rendimiento.  Estos límites se pueden aumentar mediante una oferta de pago y la selección de la opción de plan de tarifa adecuada al implementar el servicio en Azure Portal. [Más información sobre las ofertas y los precios](https://azure.microsoft.com/pricing/details/cognitive-services/ "ofertas y precios"). Tendrá que configurar una cuenta de suscriptor de Azure con una tarjeta de crédito y un número de teléfono. Si tiene necesidades especiales o simplemente quiere comunicarse con el departamento de ventas, haga clic en el botón "Póngase en contacto con nosotros" en la parte superior de la página de precios.
 
 ## <a name="regional-availability"></a>Disponibilidad regional
 

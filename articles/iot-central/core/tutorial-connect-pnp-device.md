@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 42098d54725cc12691839b63c508efbecf042aa0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6727a2c45187e0e6bb583bb65e176024067d81e2
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80064412"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220001"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-and-connect-it-to-your-iot-central-application"></a>Tutorial: Uso de un modelo de funcionalidad de dispositivo para crear un dispositivo IoT Plug and Play (versión preliminar) y conectarlo a la aplicación de IoT Central
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a:
 > * Ejecutar el código del dispositivo en Windows y ver si se conecta a la aplicación IoT Central.
 > * Especificar los datos de telemetría simulados que envía el dispositivo.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Complete el inicio rápido [Creación de una aplicación de Azure IoT Central](./quick-deploy-iot-central.md) para crear una aplicación de IoT Central mediante la plantilla **Aplicación personalizada > Aplicación personalizada**.
 
@@ -86,7 +86,9 @@ Para conectar un dispositivo a una aplicación IoT Central, se necesita una clav
 
 1. Vaya a la página **Administration** (Administración) y seleccione **Device Connection** (Conexión de dispositivo).
 
-1. Anote los valores de **ID Scope** (Ámbito de id.) y **Primary Key** (Clave principal) que ve al seleccionar **View Keys** (Ver claves). Estos valores se usarán más adelante en el tutorial.
+1. Anote el **ámbito de identificador**. Usará este valor más adelante en este tutorial.
+
+1. Seleccione el grupo de inscripción **SAS-IoT-Devices**. Anote el valor de la **clave principal**. Usará este valor más adelante en este tutorial.
 
     ![Conexión del dispositivo](./media/tutorial-connect-pnp-device/device-connection.png)
 

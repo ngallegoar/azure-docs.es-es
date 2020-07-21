@@ -6,15 +6,15 @@ author: kevinvngo
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql-dw
-ms.date: 05/06/2020
+ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: f5f6c6970ad8bb697ceb118b6725b37e93ca80b5
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: f9aa0214712704c1a80f73ae3fd05929f7245eb3
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213064"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274156"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Carga de datos de forma segura mediante el uso de Synapse SQL
 
@@ -23,10 +23,10 @@ En este artículo se resaltan los mecanismos de autenticación segura para la in
 
 En la siguiente matriz se describen los métodos de autenticación compatibles tanto con cada tipo de archivo como con una cuenta de almacenamiento. Esto se aplica a la ubicación de almacenamiento de origen y a la ubicación del archivo de error.
 
-|                      |                CSV                |              Parquet              |                ORC                |
-| :------------------: | :-------------------------------: | :-------------------------------: | :-------------------------------: |
-|  Almacenamiento de blobs de Azure  | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |              SAS/KEY              |              SAS/KEY              |
-| Azure Data Lake Gen2 | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |
+|                          |                CSV                |              Parquet              |                ORC                |
+| :----------------------: | :-------------------------------: | :-------------------------------: | :-------------------------------: |
+|  **Azure Blob Storage**  | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |              SAS/KEY              |              SAS/KEY              |
+| **Azure Data Lake Gen2** | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |
 
 ## <a name="a-storage-account-key-with-lf-as-the-row-terminator-unix-style-new-line"></a>A. Clave de cuenta de almacenamiento con LF como terminador de fila (nueva línea de estilo Unix)
 
@@ -68,7 +68,7 @@ WITH (
 
 La autenticación de Identidad administrada es necesaria cuando la cuenta de almacenamiento está conectada a una red virtual. 
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 1. Instale Azure PowerShell mediante esta [guía](/powershell/azure/install-az-ps?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Si tiene una cuenta de uso general v1 o de Blob Storage, primero debe actualizar a Uso general v2 mediante esta [guía](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
@@ -93,6 +93,11 @@ La autenticación de Identidad administrada es necesaria cuando la cuenta de alm
    > [!NOTE]
    > Solo los miembros con el privilegio Propietario pueden realizar este paso. Para obtener los distintos roles integrados para los recursos de Azure, consulte esta [guía](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
    
+    > [!IMPORTANT]
+    > Especifique los roles de RBAC de **Propietario, Colaborador o Lector** de los **datos de Storage Blob**. Estos roles son diferentes de los roles integrados de Azure de Propietario, Colaborador y Lector. 
+
+    ![Concesión de permiso de RBAC para carga](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
+
 4. Ya puede ejecutar la instrucción COPY especificando "Identity administrada":
 
     ```sql
@@ -104,14 +109,15 @@ La autenticación de Identidad administrada es necesaria cuando la cuenta de alm
     )
     ```
 
-> [!IMPORTANT]
->
-> - Especifique los roles de RBAC de **Propietario, Colaborador o Lector** de los **datos de Storage Blob**. Estos roles son diferentes de los roles integrados de Azure de Propietario, Colaborador y Lector. 
-
 ## <a name="d-azure-active-directory-authentication-aad"></a>D. Autenticación con Azure Active Directory (AAD)
 #### <a name="steps"></a>Pasos
 
 1. En la cuenta de almacenamiento, vaya a **Control de acceso (IAM)** y seleccione **Agregar asignación de roles**. Asigne los roles de RBAC **Lector, Colaborador o Propietario de datos de Storage Blob** al usuario de AAD. 
+
+    > [!IMPORTANT]
+    > Especifique los roles de RBAC de **Propietario, Colaborador o Lector** de los **datos de Storage Blob**. Estos roles son diferentes de los roles integrados de Azure de Propietario, Colaborador y Lector.
+
+    ![Concesión de permiso de RBAC para carga](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
 2. Para configurar la autenticación de Azure AD, consulte la siguiente [documentación](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#create-an-azure-ad-administrator-for-azure-sql-server). 
 
@@ -125,9 +131,6 @@ La autenticación de Identidad administrada es necesaria cuando la cuenta de alm
     )
     ```
 
-> [!IMPORTANT]
->
-> - Especifique los roles de RBAC de **Propietario, Colaborador o Lector** de los **datos de Storage Blob**. Estos roles son diferentes de los roles integrados de Azure de Propietario, Colaborador y Lector. 
 
 ## <a name="e-service-principal-authentication"></a>E. Autenticación de la entidad de servicio
 #### <a name="steps"></a>Pasos

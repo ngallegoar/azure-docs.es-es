@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: overview
 ms.date: 07/07/2020
 ms.author: allensu
-ms.openlocfilehash: 51b00119a5cb7e49a04f02978613678a5144f8b9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f1718de6bc9a86f85cadf4531386e663d5a420d3
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113979"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86273768"
 ---
 # <a name="backend-pool-management"></a>Administración de grupos de back-end
 El grupo de back-end es un componente esencial del equilibrador de carga. Define el grupo de recursos que atenderán el tráfico de una regla de equilibrio de carga determinada.
@@ -22,9 +22,9 @@ Hay dos formas de configurar un grupo de back-end:
 * Tarjeta de interfaz de red (NIC)
 * Combinación de dirección IP e identificador de recurso de red virtual
 
-Configure el grupo de back-end mediante NIC si usa máquinas virtuales y conjuntos de escalado de máquinas virtuales. Este método crea el vínculo más directo entre el recurso y el grupo de back-end. 
+Configure el grupo de back-end por la NIC si usa máquinas virtuales y conjuntos de escalado de máquinas virtuales existentes. Este método crea el vínculo más directo entre el recurso y el grupo de back-end. 
 
-En escenarios en los que una NIC no está disponible, como los contenedores o los pods de Kubernetes, configure el grupo de back-end mediante la combinación de dirección IP e identificador de red virtual.
+Al asignar previamente el grupo de back-end con un intervalo de direcciones IP con el que planea crear posteriormente máquinas virtuales y conjuntos de escalado de máquinas virtuales, configure el grupo de back-end por la combinación de dirección IP e identificador de red virtual.
 
 Las secciones de configuración de este artículo se centrarán en los siguientes elementos:
 
@@ -249,7 +249,7 @@ Cuerpo de la solicitud JSON:
 Siga la [plantilla de Resource Manager de este inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/) para implementar un equilibrador de carga y máquinas virtuales, y para agregar las máquinas virtuales al grupo de back-end a través de la interfaz de red.
 
 ## <a name="configure-backend-pool-by-ip-address-and-virtual-network"></a>Configuración del grupo de back-end por dirección IP y red virtual
-En escenarios con contenedores o con un grupo de back-end rellenado previamente con direcciones IP, use la combinación de dirección IP y red virtual.
+En escenarios con grupos de back-end rellenados previamente, use dirección IP y red virtual.
 
 Toda la administración del grupo de back-end se realiza directamente en el objeto de grupo de back-end, como se resalta en los ejemplos siguientes.
 

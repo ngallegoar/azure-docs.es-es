@@ -6,14 +6,14 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
-ms.openlocfilehash: cf7e075244a83190b83e629ef300a4903b114a6d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0d3fcbbb317ef70687c83ff21e2ab817d89051a6
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77920083"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142461"
 ---
-# <a name="tutorial-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Tutorial: Supervisión de recursos de Spring Cloud mediante alertas y grupos de acciones
+# <a name="tutorial-how-to-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Tutorial: Supervisión de recursos de Spring Cloud mediante alertas y grupos de acciones
 
 Las alertas de Azure Spring Cloud permiten supervisar los recursos en función de condiciones tales como el almacenamiento disponible, la tasa de solicitudes o el uso de datos. Una alerta envía una notificación cuando las condiciones cumplen las especificaciones definidas.
 
@@ -21,13 +21,10 @@ Hay dos pasos para configurar una canalización de alertas:
 1. Configure un grupo de acciones con las acciones que se llevarán a cabo cuando se desencadene una alerta; por ejemplo, correo electrónico, SMS, runbook o webhook. Los grupos de acciones se pueden volver a usar con distintas alertas.
 2. Configure las reglas de alerta. Las reglas asocian los patrones de las métricas con los grupos de acciones según el recurso de destino, la métrica, la condición, la agregación de tiempo, etc.
 
-## <a name="prerequisites"></a>Prerrequisitos
-Además de los requisitos de Azure Spring, este tutorial depende de los siguientes recursos.
+## <a name="prerequisites"></a>Requisitos previos
 
-* Una instancia de Azure Spring Cloud implementada.  Siga nuestro [inicio rápido](spring-cloud-quickstart-launch-app-cli.md) para comenzar.
+Además de los requisitos de Azure Spring, los procedimientos de este tutorial funcionan con una instancia implementada de Azure Spring Cloud.  Siga un [inicio rápido](spring-cloud-quickstart-launch-app-cli.md) para comenzar.
 
-* Un recurso de Azure para supervisar. En este ejemplo se supervisa una instancia de Spring Cloud.
- 
 Los procedimientos siguientes inicializan **Grupo de acciones** y **Alertas** a partir de la opción **Alertas** situada en el panel de navegación izquierdo de una instancia de Spring Cloud. (El procedimiento también se puede iniciar desde la página **Información general de Monitor**, en Azure Portal). 
 
 Vaya desde un grupo de recursos a la instancia de Spring Cloud. Seleccione **Alertas** en el panel izquierdo y, a continuación, seleccione **Administrar acciones**:
@@ -109,7 +106,11 @@ También se puede crear una regla mediante la página **Métricas**:
    ![Captura de pantalla del portal con la nueva regla de alerta](media/alerts-action-groups/alerts-5.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Métricas en Azure Spring Cloud](spring-cloud-concept-metrics.md#user-metrics-options)
-* [Creación y administración de grupos de acciones en Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
-* [Comportamiento de las alertas por SMS en los grupos de acciones](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)
-* [Tutorial: Uso del seguimiento distribuido con Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)
+
+En este tutorial ha aprendido a configurar alertas y grupos de acciones para una aplicación de Azure Spring Cloud. Para más información sobre los grupos de acciones, consulte:
+
+> [!div class="nextstepaction"]
+> [Creación y administración de grupos de acciones en Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+
+> [!div class="nextstepaction"]
+> [Comportamiento de las alertas por SMS en los grupos de acciones](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/01/2020
 ms.author: allensu
-ms.openlocfilehash: faf77411abca63516b00ac953bc7203da69f3ca9
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: d08d7a81fddfe70593c31ac3ebd2191679ea1220
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854091"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206357"
 ---
 # <a name="azure-load-balancer-skus"></a>SKU de Azure Load Balancer
 
@@ -34,19 +34,19 @@ Las máquinas virtuales independientes, los conjuntos de disponibilidad y los co
 
 | | Standard Load Balancer | Versión Básico de Load Balancer |
 | --- | --- | --- |
-| [Tamaño de grupo de back-end](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer) | Admite hasta 1000 instancias. | Admite hasta 300 instancias. |
-| Puntos de conexión del grupo de back-end | Todas las máquinas virtuales o conjuntos de escalado de máquinas virtuales de una red virtual individual. | Máquinas virtuales en un único conjunto de disponibilidad o conjunto de escalado de máquinas virtuales. |
-| [Sondeos de mantenimiento](./load-balancer-custom-probe-overview.md#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [Comportamiento del sondeo de mantenimiento](./load-balancer-custom-probe-overview.md#probedown) | Las conexiones TCP permanecen activas en el sondeo de la instancia __y__ en todos los sondeos. | Las conexiones TCP permanecen activas en un sondeo de instancia. Todas las conexiones TCP finalizan cuando todos los sondeos están inactivos. |
-| Zonas de disponibilidad | Servidores front-end con redundancia de zona y zonales para el tráfico de entrada y salida. | No disponible |
-| Diagnóstico | [Métricas multidimensionales de Azure Monitor](./load-balancer-standard-diagnostics.md) | [Registros de Azure Monitor](./load-balancer-monitor-log.md) |
-| Puertos HA | [Disponibles para el equilibrador de carga interno](./load-balancer-ha-ports-overview.md) | No disponible |
-| Seguro de forma predeterminada | Cerrado a los flujos de entrada, a menos que lo permita un grupo de seguridad de red. Tenga en cuenta que se permite el tráfico interno de la red virtual al equilibrador de carga interno. | Abrir de forma predeterminada. Grupo de seguridad de red opcional. |
-| Reglas de salida | [Configuración declarativa de NAT de salida](./load-balancer-outbound-rules-overview.md) | No disponible |
-| Restablecimiento de TCP en tiempo de inactividad | [Disponible en cualquier regla](./load-balancer-tcp-reset.md) | No disponible |
-| [Varios servidores front-end](./load-balancer-multivip-overview.md) | Entrada y [salida](./load-balancer-outbound-connections.md) | Solo de entrada |
-| Operaciones de administración | La mayoría de las operaciones en menos de 30 segundos | Normalmente, entre 60 y 90 segundos |
-| Contrato de nivel de servicio | [99.99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | No disponible | 
+| **[Tamaño de grupo de back-end](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer)** | Admite hasta 1000 instancias. | Admite hasta 300 instancias. |
+| **Puntos de conexión del grupo de back-end** | Todas las máquinas virtuales o conjuntos de escalado de máquinas virtuales de una red virtual individual. | Máquinas virtuales en un único conjunto de disponibilidad o conjunto de escalado de máquinas virtuales. |
+| **[Sondeos de estado](./load-balancer-custom-probe-overview.md#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
+| **[Comportamiento del sondeo de mantenimiento](./load-balancer-custom-probe-overview.md#probedown)** | Las conexiones TCP permanecen activas en el sondeo de la instancia __y__ en todos los sondeos. | Las conexiones TCP permanecen activas en un sondeo de instancia. Todas las conexiones TCP finalizan cuando todos los sondeos están inactivos. |
+| **Zonas de disponibilidad** | Servidores front-end con redundancia de zona y zonales para el tráfico de entrada y salida. | No disponible |
+| **Diagnóstico** | [Métricas multidimensionales de Azure Monitor](./load-balancer-standard-diagnostics.md) | [Registros de Azure Monitor](./load-balancer-monitor-log.md) |
+| **Puertos de alta disponibilidad** | [Disponibles para el equilibrador de carga interno](./load-balancer-ha-ports-overview.md) | No disponible |
+| **Seguro de forma predeterminada** | Cerrado a los flujos de entrada, a menos que lo permita un grupo de seguridad de red. Tenga en cuenta que se permite el tráfico interno de la red virtual al equilibrador de carga interno. | Abrir de forma predeterminada. Grupo de seguridad de red opcional. |
+| **Reglas de salida** | [Configuración declarativa de NAT de salida](./load-balancer-outbound-rules-overview.md) | No disponible |
+| **Restablecimiento de TCP en tiempo de espera de inactividad** | [Disponible en cualquier regla](./load-balancer-tcp-reset.md) | No disponible |
+| **[Varios servidores front-end](./load-balancer-multivip-overview.md)** | Entrada y [salida](./load-balancer-outbound-connections.md) | Solo de entrada |
+| **Operaciones de administración** | La mayoría de las operaciones en menos de 30 segundos | Normalmente, entre 60 y 90 segundos |
+| **Acuerdo de Nivel de Servicio** | [99.99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | No disponible | 
 
 Para más información, consulte [Límites del equilibrador de carga](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer). Para más información de Load Balancer Estándar, consulte los artículos de [introducción](load-balancer-standard-overview.md), [precios](https://aka.ms/lbpricing) y [Acuerdo de Nivel de Servicio](https://aka.ms/lbsla).
 

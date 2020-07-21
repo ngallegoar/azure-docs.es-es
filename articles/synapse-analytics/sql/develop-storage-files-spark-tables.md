@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: e36f98a20d1fc6392aef1aebf5fc86e18085cc10
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: db6b2d95bf8f38495296885d14260b9900af1d51
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85204905"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247054"
 ---
 # <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-sql-on-demand-preview"></a>Sincronización de Apache Spark para las definiciones de tablas externas de Azure Synapse en SQL On-Demand (versión preliminar)
 
@@ -34,7 +34,10 @@ En el caso de las consultas de las tablas externas de Spark, ejecute una consult
 SELECT * FROM [db].dbo.[spark_table]
 ```
 
-## <a name="spark-data-types-to-sql-data-types-mapping"></a>Asignación de tipos de datos de Spark a tipos de datos de SQL
+> [!NOTE]
+> Las operaciones de agregar, quitar o modificar columnas de tablas externas de Spark no se reflejarán en tablas externas de SQL a petición.
+
+## <a name="apache-spark-data-types-to-sql-data-types-mapping"></a>Asignación de tipos de datos de Apache Spark a tipos de datos de SQL
 
 | Tipo de datos de Spark | Tipo de datos de SQL               |
 | --------------- | --------------------------- |

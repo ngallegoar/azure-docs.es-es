@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 6ce2e5a71d48942642ee01d8d2cc75a232abf259
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f06387ea317029f5648ab0884cea80262e8640a2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82159956"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245014"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Tutorial: Supervisión y diagnóstico de una aplicación de ASP.NET Core en Service Fabric mediante Application Insights
 
@@ -32,7 +32,7 @@ En esta serie de tutoriales, se aprende a:
 > * [Configuración de CI/CD con Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * Configurar la supervisión y el diagnóstico para la aplicación
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar este tutorial:
 
@@ -102,7 +102,7 @@ Estos son los pasos necesarios para configurar el paquete NuGet:
     ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
 5. Haga clic en **Aceptar** en el cuadro de diálogo *Vista previa de los cambios* que aparece y apruebe la *Aceptación de licencia*. Esto completará la adición del paquete NuGet a los servicios.
 6. Ahora debe configurar el inicializador de telemetría en los dos servicios. Para hacerlo, abra *VotingWeb.cs* y *VotingData.cs*. Para ambos, siga estos dos pasos:
-    1. Agréguelos *mediante* instrucciones en la parte superior de cada archivo *\<NombreServicio>.cs*, después de las instrucciones *using* ya existentes:
+    1. Agréguelos *mediante* instrucciones en la parte superior de cada archivo *\<ServiceName>.cs*, después de las instrucciones *using* ya existentes:
 
     ```csharp
     using Microsoft.ApplicationInsights.Extensibility;
@@ -268,4 +268,4 @@ Ahora que ha completado la configuración de la supervisión y el diagnóstico p
 
 * [Explorar la supervisión y el diagnóstico en Service Fabric](service-fabric-diagnostics-overview.md)
 * [Análisis de eventos de Service Fabric con Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* Para obtener más información acerca de Application Insights, consulte [Documentación de Application Insights](https://docs.microsoft.com/azure/application-insights/)
+* Para obtener más información acerca de Application Insights, consulte [Documentación de Application Insights](/azure/application-insights/)

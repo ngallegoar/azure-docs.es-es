@@ -7,17 +7,14 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 1d86749a4e6071213ba5e229765bb6391affb199
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 05a3fc7524b16033c48170b6cf0fa4e004c9eb9b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737128"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257990"
 ---
 # <a name="what-is-azure-digital-twins"></a>¿Qué es Azure Digital Twins?
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 **Azure Digital Twins** es una plataforma de IoT que permite la creación de modelos digitales completos de entornos completos. Estos entornos podrían ser edificios, fábricas, granjas, redes energéticas, ferrocarriles, estadios, etc., e incluso ciudades enteras. Estos modelos digitales se pueden usar para obtener información que impulse mejores productos, operaciones optimizadas, costos reducidos y experiencias de cliente innovadoras.
 
@@ -46,6 +43,12 @@ DTDL se utiliza para los modelos de datos en otros servicios de Azure IoT, como 
 ### <a name="live-execution-environment"></a>Entorno de ejecución dinámico
 
 Los modelos digitales de Azure Digital Twins son representaciones dinámicas actualizadas del mundo real. Mediante el uso de las relaciones de los modelos de DTDL personalizados, conectará gemelos a un **gráfico dinámico** que representa el entorno.
+
+Puede tener una visualización del gráfico de Azure Digital Twins con la ayuda de una aplicación de ejemplo, el [**explorador de Azure Digital Twins**](https://github.com/Azure-Samples/digital-twins-explorer).
+
+Así es la visualización de ejemplo:
+
+:::image type="content" source="media/includes/azure-digital-twins-explorer.png" alt-text="Captura de pantalla de la aplicación de ejemplo Explorador de Azure Digital Twins, que muestra un gráfico de nodos que representan gemelos digitales" lightbox="media/includes/azure-digital-twins-explorer.png":::
 
 Azure Digital Twins proporciona un **sistema de eventos** completo para mantener ese gráfico actualizado con la lógica de negocios y el procesamiento de datos. Puede conectar recursos de proceso externos, como [Azure Functions](../azure-functions/functions-overview.md), para impulsar este procesamiento de datos de maneras flexibles y personalizadas.
 

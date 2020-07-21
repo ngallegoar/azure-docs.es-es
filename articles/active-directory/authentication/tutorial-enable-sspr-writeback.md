@@ -11,12 +11,12 @@ author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 353bc49ad6a64ff00a8a3ab8594fd76e02ca7913
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: a25fe090c88d2540bdf63cd6479d25b879090a38
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85551737"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202554"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutorial: Habilitación de la escritura diferida del autoservicio de restablecimiento de contraseña de Azure Active Directory en un entorno local
 
@@ -43,7 +43,7 @@ Para completar este tutorial, necesitará los siguientes recursos y privilegios:
     * Si es necesario, [complete el tutorial anterior para habilitar SSPR de Azure AD](tutorial-enable-sspr.md).
 * Un entorno de AD DS local existente configurado con una versión actual de Azure AD Connect.
     * Si es necesario, configure Azure AD Connect con la configuración [rápida](../hybrid/how-to-connect-install-express.md) o [personalizada](../hybrid/how-to-connect-install-custom.md).
-    * Para usar la escritura diferida de contraseñas, los controladores de dominio deben ser Windows Server 2008 R2, o posteriores.
+    * Para usar la escritura diferida de contraseñas, los controladores de dominio deben ser Windows Server 2012 o posteriores.
 
 ## <a name="configure-account-permissions-for-azure-ad-connect"></a>Configuración de los permisos de cuenta para Azure AD Connect
 

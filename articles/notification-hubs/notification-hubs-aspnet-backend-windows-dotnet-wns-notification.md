@@ -17,12 +17,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: 914ccc2ac74048abb2a66b61aa65b771f8141d5e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a8a939f0d0c3575adec147c1942ddbbef334cb65
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "71212057"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220157"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones a usuarios concretos mediante Azure Notification Hubs
 
@@ -46,7 +46,7 @@ En este tutorial, realizará los siguientes pasos:
 > * Actualización del código para el proyecto de cliente
 > * Prueba de la aplicación
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Este tutorial se basa en el centro de notificaciones y el proyecto de Visual Studio que creó en el [Tutorial: Envío de notificaciones a aplicaciones de Plataforma universal de Windows mediante Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md). Por consiguiente, complételo antes de iniciar este.
 
@@ -331,11 +331,11 @@ En esta sección, actualizará el código del proyecto que completó en el [Tuto
 2. Especifique un **nombre de usuario** y una **contraseña**, tal como se muestra en la pantalla siguiente. Debe diferir del nombre de usuario y contraseña que escriba en Windows Phone.
 3. Haga clic en **Iniciar sesión y registrarse** y compruebe que el cuadro de diálogo se muestre que ha iniciado sesión. Este código también habilita el botón **Send Push** (Enviar inserción).
 
-    ![][14]
+    ![Captura de pantalla de la aplicación Notification Hubs que muestra el nombre de usuario y la contraseña rellenados.][14]
 5. Después, en el campo **Recipient Username Tag** (Etiqueta de nombre de usuario destinatario), especifique el nombre de usuario registrado. Escriba un mensaje de notificación y haga clic en **Enviar inserción**.
 6. Solo los dispositivos que se han registrado con la etiqueta de nombre de usuario coincidente reciben el mensaje de notificación.
 
-    ![][15]
+    ![Captura de pantalla de la aplicación Notification Hubs que muestra el mensaje que se ha insertado.][15]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

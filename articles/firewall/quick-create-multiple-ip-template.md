@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Creación de una instancia de Azure Firewall con varias direcciones IP públicas: plantilla de Resource Manager'
-description: Aprenda a usar una plantilla de Resource Manager para crear una instancia de Azure Firewall con varias direcciones IP públicas.
+description: Aprenda a usar una plantilla de Azure Resource Manager para crear una instancia de Azure Firewall con varias direcciones IP públicas.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,30 +8,32 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/14/2020
 ms.author: victorh
-ms.openlocfilehash: b81362f191e6317aa7ffa974a6d432b0c7514d8f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 7e89188e7ebc979c403b86ee26c876e8c40aa208
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680549"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260557"
 ---
-# <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---resource-manager-template"></a>Inicio rápido: Creación de una instancia de Azure Firewall con varias direcciones IP públicas: plantilla de Resource Manager
+# <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---arm-template"></a>Inicio rápido: Creación de una instancia de Azure Firewall con varias direcciones IP públicas: plantilla de Resource Manager
 
-En este inicio rápido, usará una plantilla de Resource Manager para implementar una instancia de Azure Firewall con varias direcciones IP públicas. El firewall implementado tiene reglas de recopilación de reglas NAT que permiten conexiones RDP a dos máquinas virtuales Windows Server 2019.
+En este inicio rápido, usará una plantilla de Azure Resource Manager para implementar una instancia de Azure Firewall con varias direcciones IP públicas. El firewall implementado tiene reglas de recopilación de reglas NAT que permiten conexiones RDP a dos máquinas virtuales Windows Server 2019.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Para más información acerca de Azure Firewall con varias direcciones IP públicas, consulte [Implementación de una instancia de Azure Firewall con varias direcciones IP públicas mediante Azure PowerShell](deploy-multi-public-ip-powershell.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffw-docs-qs%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-an-azure-firewall"></a>Creación de una instancia de Azure Firewall
+## <a name="review-the-template"></a>Revisión de la plantilla
 
 Esta plantilla crea una instancia de Azure Firewall con dos grupos de direcciones IP públicas, junto con los recursos necesarios para admitir Azure Firewall.
-
-### <a name="review-the-template"></a>Revisión de la plantilla
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/fw-docs-qs).
 
@@ -48,7 +50,7 @@ En la plantilla se definen varios recursos de Azure:
 - [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
 - [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 
-### <a name="deploy-the-template"></a>Implementación de la plantilla
+## <a name="deploy-the-template"></a>Implementación de la plantilla
 
 Implementación de la plantilla de Resource Manager en Azure:
 

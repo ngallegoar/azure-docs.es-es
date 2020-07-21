@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 9f9fcc0b3d8dfe19961668e77da91bc9f14ff2d1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: be490c5ec11ab4bafcd68731a535483d1803a8c7
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81453907"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146416"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Incorporación de un certificado TLS/SSL en Azure App Service
 
@@ -29,7 +29,7 @@ En la tabla siguiente se enumeran las opciones que tiene para agregar certificad
 | Carga de un certificado privado | Si ya tiene un certificado privado de un proveedor de terceros, puede cargarlo. Consulte [Requisitos de certificados privados](#private-certificate-requirements). |
 | Carga de un certificado público | Los certificados públicos no se usan para proteger los dominios personalizados, pero se pueden cargar en el código si se necesitan para acceder a recursos remotos. |
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar esta guía paso a paso, debe:
 
@@ -64,7 +64,7 @@ El certificado administrado de App Service gratuito es una solución inmediata p
 - No admite certificados comodín.
 - No admite dominios desnudos.
 - No se puede exportar.
-- No admite registros A de DNS.
+- No admite registros A. Por ejemplo, la renovación automática no funciona con registros A.
 
 > [!NOTE]
 > El certificado gratuito lo emite DigiCert. En algunos dominios de nivel superior debe permitir explícitamente DigiCert como emisor de certificados mediante la creación de un [registro de dominio de CAA](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) con el valor `0 issue digicert.com`.
@@ -72,7 +72,7 @@ El certificado administrado de App Service gratuito es una solución inmediata p
 
 Para crear un certificado administrado de App Service gratuito:
 
-En <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, en el menú de la izquierda, seleccione **App Services** >  **\<nombre-de-aplicación>** .
+En <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, en el menú de la izquierda, seleccione **App Services** >  **\<app-name>** .
 
 En el panel de navegación izquierdo de la aplicación, seleccione **Configuración de TLS/SSL** > **Certificados de clave privada (.pfx)**  > **Crear certificado administrado de App Service**.
 
@@ -117,7 +117,7 @@ Use la tabla siguiente para obtener ayuda para configurar el certificado. Cuando
 |-|-|
 | Nombre | Nombre descriptivo para el certificado de App Service. |
 | Nombre de host de dominio desnudo | Especifique aquí el dominio raíz. El certificado emitido protege *al mismo tiempo* el dominio raíz y el subdominio `www`. En el certificado emitido, el campo Nombre común contiene el dominio raíz, mientras que el campo Nombre alternativo del firmante contiene el dominio `www`. Para proteger cualquier subdominio solamente, especifique el nombre de dominio completo del subdominio aquí (por ejemplo, `mysubdomain.contoso.com`).|
-| Subscription | La suscripción que contendrá el certificado. |
+| Suscripción | La suscripción que contendrá el certificado. |
 | Resource group | El grupo de recursos que contendrá el certificado. Puede usar un nuevo grupo de recursos o seleccionar el mismo grupo de recursos que la aplicación de App Service, por ejemplo. |
 | SKU de certificado | Determine el tipo de certificado a crear, ya sea un certificado estándar o un [certificado comodín](https://wikipedia.org/wiki/Wildcard_certificate). |
 | Términos legales | Haga clic para confirmar que está de acuerdo con los términos legales. Los certificados se obtienen de GoDaddy. |
@@ -163,7 +163,7 @@ Seleccione **Comprobación de App Service**. Puesto que ya ha asignado el domini
 
 ### <a name="import-certificate-into-app-service"></a>Importación del certificado en App Service
 
-En <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, en el menú de la izquierda, seleccione **App Services** >  **\<nombre-de-aplicación>** .
+En <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, en el menú de la izquierda, seleccione **App Services** >  **\<app-name>** .
 
 En el panel izquierdo de la aplicación, seleccione **Configuración de TLS/SSL** > **Certificados de clave privada (.pfx)**  > **Importar certificado de App Service**.
 
@@ -183,7 +183,7 @@ Cuando se complete la operación, verá el certificado en la lista **Certificado
 
 Si usa Azure Key Vault para administrar los certificados, puede importar un certificado PKCS12 de Key Vault en App Service, siempre que [cumpla los requisitos](#private-certificate-requirements).
 
-En <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, en el menú de la izquierda, seleccione **App Services** >  **\<nombre-de-aplicación>** .
+En <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, en el menú de la izquierda, seleccione **App Services** >  **\<app-name>** .
 
 En el panel izquierdo de la aplicación, seleccione **Configuración de TLS/SSL** > **Certificados de clave privada (.pfx)**  > **Importar certificado de Key Vault**.
 
@@ -193,7 +193,7 @@ Use la tabla siguiente como ayuda para seleccionar el certificado.
 
 | Configuración | Descripción |
 |-|-|
-| Subscription | Suscripción a la que pertenece la instancia de Key Vault. |
+| Suscripción | Suscripción a la que pertenece la instancia de Key Vault. |
 | Key Vault | Almacén que incluye el certificado que desea importar. |
 | Certificado | Seleccione en la lista de certificados PKCS12 del almacén. Se enumeran todos los certificados PKCS12 del almacén con sus huellas digitales, pero no todos se admiten en App Service. |
 
@@ -253,7 +253,7 @@ Si usó IIS o _Certreq.exe_ para generar la solicitud de certificado, instale el
 
 Ya está listo para cargar el certificado en App Service.
 
-En <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, en el menú de la izquierda, seleccione **App Services** >  **\<nombre-de-aplicación>** .
+En <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, en el menú de la izquierda, seleccione **App Services** >  **\<app-name>** .
 
 En el panel izquierdo de la aplicación, seleccione **Configuración de TLS/SSL** > **Certificados de clave privada (.pfx)**  > **Cargar certificado**.
 
@@ -273,7 +273,7 @@ Cuando se complete la operación, verá el certificado en la lista **Certificado
 
 Se admiten certificados públicos en el formato *.cer*. 
 
-En <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, en el menú de la izquierda, seleccione **App Services** >  **\<nombre-de-aplicación>** .
+En <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, en el menú de la izquierda, seleccione **App Services** >  **\<app-name>** .
 
 En el panel de navegación izquierdo de la aplicación, haga clic en **Configuración de TLS/SSL** > **Certificados públicos (.cer)**  > **Cargar certificado de clave pública**.
 

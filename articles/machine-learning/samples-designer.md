@@ -1,5 +1,5 @@
 ---
-title: Conjuntos de datos y canalizaciones de ejemplo en el diseñador
+title: Canalizaciones de ejemplo y conjuntos de datos para el diseñador (versión preliminar)
 titleSuffix: Azure Machine Learning
 description: Use los ejemplos del diseñador de Azure Machine Learning para iniciar las canalizaciones de aprendizaje automático.
 services: machine-learning
@@ -10,18 +10,18 @@ author: peterclu
 ms.author: peterlu
 ms.date: 03/29/2020
 ms.custom: designer
-ms.openlocfilehash: e40c49cdcaae6fa84a72c645f5fea4bac99ee03f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d2ed9a605b19287c2ea693187c445dc8a4b3b932
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654553"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206320"
 ---
-# <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Conjuntos de datos y canalizaciones de ejemplo en el diseñador de Azure Machine Learning
+# <a name="example-pipelines--datasets-for-azure-machine-learning-designer-preview"></a>Conjuntos de datos y canalizaciones de ejemplo en el diseñador de Azure Machine Learning (versión preliminar)
 
 Use los ejemplos integrados en el diseñador de Azure Machine Learning para empezar a crear rápidamente sus propias canalizaciones de aprendizaje automático. El [repositorio de GitHub](https://github.com/Azure/MachineLearningDesigner) del diseñador de Azure Machine Learning contiene documentación detallada para ayudarle a conocer algunos escenarios comunes de aprendizaje automático.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree).
 * Un área de trabajo de Azure Machine Learning con un SKU de Enterprise.

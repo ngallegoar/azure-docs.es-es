@@ -11,12 +11,12 @@ ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 835eb66444dd9f4c4da7689196c759621cfef999
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: fd9eff90f144909b9746e85a9c42aae2fdf02ed6
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85360765"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146806"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Aprovisionamiento piloto en la nube para un bosque de AD sincronizado existente 
 
@@ -35,7 +35,7 @@ Antes de empezar con este tutorial, considere los siguientes elementos:
 
 4. Este es un escenario avanzado. Asegúrese de que sigue los pasos de este tutorial con precisión.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 A continuación, se indican los requisitos previos necesarios para completar este tutorial:
 - Un entorno de prueba con la versión 1.4.32.0, o cualquier versión posterior, de la sincronización de Azure AD Connect.
 - Una unidad organizativa o un grupo que estén en el ámbito de la sincronización y que pueda usar en la prueba piloto. Se recomienda empezar con un pequeño conjunto de objetos.
@@ -165,18 +165,18 @@ Use los pasos siguientes para configurar el aprovisionamiento:
  2. Haga clic en **Azure Active Directory**.
  3. Haga clic en **Azure AD Connect**.
  4. Seleccione **Administración del aprovisionamiento (versión preliminar)** 
- ![](media/how-to-configure/manage1.png).</br>
+ ![Captura de pantalla que muestra el vínculo "Administración del aprovisionamiento (versión preliminar)".](media/how-to-configure/manage1.png)</br>
  5.  Haga clic en **Nueva configuración**
- ![](media/tutorial-single-forest/configure1.png).</br>
+ ![Captura de pantalla de "Aprovisionamiento de Azure AD (versión preliminar)" con el vínculo "Nueva configuración" resaltado.](media/tutorial-single-forest/configure1.png)</br>
  6.  En la pantalla de configuración, escriba un **correo electrónico de notificación**, mueva el selector a **Habilitar** y haga clic en **Guardar**.
- ![](media/tutorial-single-forest/configure2.png)</br>
+ ![Captura de la pantalla de configuración con un correo electrónico de notificación rellenado y Habilitar seleccionado.](media/tutorial-single-forest/configure2.png)</br>
  7. En **Configurar**, seleccione **Todos los usuarios** para cambiar el ámbito de la regla de configuración.
- ![](media/how-to-configure/scope2.png)</br>
+ ![Captura de pantalla de la pantalla Configuración con "Todos los usuarios" resaltado junto a "Usuarios del ámbito".](media/how-to-configure/scope2.png)</br>
  8. A la derecha, cambie el ámbito para que incluya la unidad organizativa específica que acaba de crear "OU=CPUsers,DC=contoso,DC=com".
- ![](media/tutorial-existing-forest/scope2.png)</br>
+ ![Captura de pantalla de la pantalla Usuarios del ámbito que resalta el ámbito cambiado a la unidad organizativa creada.](media/tutorial-existing-forest/scope2.png)</br>
  9.  Haga clic en **Listo** y en **Guardar**.
  10. Ahora el ámbito se debe establecer en una unidad organizativa. 
- ![](media/tutorial-existing-forest/scope3.png)</br>
+ ![Captura de pantalla de la pantalla Configuración con "1 unidad organizativa" resaltada junto a "Usuarios del ámbito".](media/tutorial-existing-forest/scope3.png)</br>
  
 
 ## <a name="verify-users-are-provisioned-by-cloud-provisioning"></a>Comprobación de que el aprovisionamiento en la nube aprovisiona a los usuarios

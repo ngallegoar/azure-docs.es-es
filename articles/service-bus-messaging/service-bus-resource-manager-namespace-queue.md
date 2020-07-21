@@ -8,28 +8,28 @@ ms.custom: subject-armqs
 ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: e382d39e10e1907c9892f03a3da64945f3049fee
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: cb87b33ee3f88e17f7d9b7557040849745b2d95f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85337031"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248465"
 ---
-# <a name="quickstart-create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Inicio rápido: Creación de un espacio de nombres de Service Bus y una cola mediante una plantilla de Azure Resource Manager
+# <a name="quickstart-create-a-service-bus-namespace-and-a-queue-using-an-arm-template"></a>Inicio rápido: Creación de una cola y un espacio de nombres de Service Bus con una plantilla de ARM
 
-En este artículo se muestra cómo utilizar una plantilla de Azure Resource Manager que crea una cola y un espacio de nombres de Service Bus dentro de un espacio de nombres. En el artículo se explica cómo especificar los recursos que se implementan y cómo definir los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
+En este artículo se muestra cómo usar una plantilla de Azure Resource Manager que crea un espacio de nombres y una cola de Service Bus dentro de ese espacio de nombres. En el artículo se explica cómo especificar los recursos que se implementan y cómo definir los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-queue%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Requisitos previos
+
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
-
-None
-
-## <a name="create-a-service-bus-namespace-and-a-queue"></a>Creación de un espacio de nombres de Service Bus y una cola
-
-### <a name="review-the-template"></a>Revisión de la plantilla
+## <a name="review-the-template"></a>Revisión de la plantilla
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/201-servicebus-create-queue).
 
@@ -41,16 +41,16 @@ Los recursos definidos en la plantilla incluyen:
 - [**Microsoft.ServiceBus/namespaces/queues**](/azure/templates/microsoft.servicebus/namespaces/queues)
 
 > [!NOTE]
-> Las siguientes plantillas de Azure Resource Manager están disponibles para su descarga e implementación.
+> Las siguientes plantillas de ARM están disponibles para su descarga e implementación.
 >
 > * [Creación de un espacio de nombres de Service Bus con regla de autorización y cola](service-bus-resource-manager-namespace-auth-rule.md)
 > * [Creación de un espacio de nombres de Service Bus con un tema y una suscripción](service-bus-resource-manager-namespace-topic.md)
 > * [Creación de un espacio de nombres de Service Bus](service-bus-resource-manager-namespace.md)
 > * [Create a Service Bus namespace with topic, subscription, and rule](service-bus-resource-manager-namespace-topic-with-rule.md) (Creación de un espacio de nombres de Service Bus con tema, suscripción y regla)
 
-Puede encontrar más plantillas en [las plantillas de Inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Servicebus&pageNumber=1&sort=Popular)
+Puede encontrar más plantillas en las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Servicebus&pageNumber=1&sort=Popular).
 
-### <a name="deploy-the-template"></a>Implementación de la plantilla
+## <a name="deploy-the-template"></a>Implementación de la plantilla
 
 Con esta plantilla, implementa un espacio de nombres de Service Bus con una cola.
 
@@ -58,9 +58,9 @@ Las [colas de Service Bus](service-bus-queues-topics-subscriptions.md#queues) of
 
 Para ejecutar automáticamente la implementación, haga clic en el botón siguiente: Cree un nuevo grupo de recursos para la implementación de forma que pueda realizar una limpieza más rápida.
 
-[![Implementación en Azure](./media/service-bus-resource-manager-namespace-queue/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-queue%2Fazuredeploy.json)
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-queue%2Fazuredeploy.json)
 
-## <a name="verify-the-deployment"></a>Comprobar la implementación
+## <a name="validate-the-deployment"></a>Validación de la implementación
 
 1. Seleccione **Notificaciones** en la parte superior para ver el estado de la implementación. Espere hasta que la implementación se realice correctamente. A continuación, seleccione **Ir al grupo de recursos** en el mensaje de notificación para ir a la página del grupo de recursos que contiene el espacio de nombres de Service Bus. 
 
@@ -70,7 +70,7 @@ Para ejecutar automáticamente la implementación, haga clic en el botón siguie
     ![Grupo de recursos: espacio de nombres](./media/service-bus-resource-manager-namespace-queue/resource-group-namespace.png)
 3. Seleccione el espacio de nombres en la lista para ver la página de **espacio de nombres de Service Bus**. 
 
-## <a name="cleanup-resources"></a>Limpieza de recursos
+## <a name="clean-up-resources"></a>Limpieza de recursos
 
 1. En Azure Portal, vaya a la página **Grupo de recursos** del grupo de recursos.
 2. Seleccione **Eliminar grupo de recursos** en la barra de herramientas. 
@@ -82,7 +82,7 @@ Para ejecutar automáticamente la implementación, haga clic en el botón siguie
 
 Vea el siguiente tema, en el que se explica cómo crear una regla de autorización para la cola o el espacio de nombres:
 
-[Creación de una regla de autorización de Service Bus para un espacio de nombres y una cola mediante una plantilla de Azure Resource Manager](service-bus-resource-manager-namespace-auth-rule.md)
+[Creación de una regla de autorización de Service Bus para un espacio de nombres y una cola mediante una plantilla de Resource Manager](service-bus-resource-manager-namespace-auth-rule.md)
 
 Vea los siguientes artículos para aprender a administrar estos recursos:
 

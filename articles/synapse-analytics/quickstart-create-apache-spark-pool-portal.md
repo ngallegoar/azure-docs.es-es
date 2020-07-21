@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2b199848e6c84370bd9d8711eed25dbf6c3f4dfa
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 959ad0413c83389aef6a7607c1239043e242b75b
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194940"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274363"
 ---
 # <a name="quickstart-create-a-new-apache-spark-pool-preview-using-the-azure-portal"></a>Inicio rápido: Creación de un grupo de Apache Spark (versión preliminar) mediante Azure Portal
 
@@ -27,7 +27,7 @@ En este inicio rápido, va a aprender a usar Azure Portal para crear un trabajo 
 
 Si no tiene una suscripción a Azure, [cree una cuenta gratuita antes de empezar](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 - [Área de trabajo de Synapse Analytics](quickstart-create-workspace.md)

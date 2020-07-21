@@ -2,20 +2,20 @@
 title: Etiquetado de imágenes en un proyecto de etiquetado
 title.suffix: Azure Machine Learning
 description: Obtenga información sobre el uso de las herramientas de etiquetado de datos en un proyecto de etiquetado de Azure Machine Learning.
-author: lobrien
-ms.author: laobri
+author: sdgilley
+ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 0421e5ad164c440c1b841cae66e7dafc5deadb81
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 90ef75c704459ca726480e6950ba748162c66b8e
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025138"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147016"
 ---
-# <a name="tag-images-in-a-labeling-project-preview"></a>Etiquetado de imágenes en un proyecto de etiquetado (versión preliminar)
+# <a name="tag-images-in-a-labeling-project"></a>Etiquetado de imágenes en un proyecto de etiquetado 
 
 Después de que el administrador del proyecto [cree un proyecto de etiquetado](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) en Azure Machine Learning, puede usar la herramienta de etiquetado (versión preliminar pública) para preparar rápidamente los datos para un proyecto de Machine Learning. En este artículo se describe:
 
@@ -24,7 +24,7 @@ Después de que el administrador del proyecto [cree un proyecto de etiquetado](h
 > * Herramientas de etiquetado
 > * Cómo usar las herramientas para tareas específicas de etiquetado
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una [cuenta Microsoft](https://account.microsoft.com/account) o una cuenta de Azure Active Directory para la organización y el proyecto
 * Acceso de nivel de colaborador al área de trabajo que contiene el proyecto de etiquetado.
@@ -64,7 +64,7 @@ Azure habilita el botón **Enviar** una vez etiquetadas todas las imágenes de l
 
 Una vez que haya enviado etiquetas para los datos con los que está trabajando, Azure actualizará la página con un nuevo conjunto de imágenes de la cola de trabajo.
 
-### <a name="assisted-machine-learning"></a>Aprendizaje automático asistido 
+### <a name="assisted-machine-learning-preview"></a>Aprendizaje automático automatizado (versión preliminar) 
 
 Se pueden desencadenar algoritmos de aprendizaje automático. Si estos algoritmos se han habilitado en su proyecto, puede ver lo siguiente:
 

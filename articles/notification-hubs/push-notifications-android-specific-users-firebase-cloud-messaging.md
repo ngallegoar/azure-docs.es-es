@@ -17,12 +17,12 @@ ms.date: 09/11/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: c2d3789082130cbbc42021a0706249dd3966b9ef
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 16191dfd33d5211fbd082bc1f7e458a238bb2138
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75531129"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224237"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-android-apps-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones push a aplicaciones de Android mediante Azure Notification Hubs
 
@@ -37,7 +37,7 @@ En este tutorial, realizará los siguientes pasos:
 > * Actualizar la aplicación Android.
 > * Prueba de la aplicación
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Complete el [Tutorial: Envío de notificaciones push a dispositivos Android con Azure Notification y Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md) antes de realizar este tutorial.
 
@@ -151,7 +151,7 @@ El siguiente paso consiste en actualizar la aplicación Android creada en el [Tu
 
     El diseño gráfico de `main_activity.xml` debe ser similar al de la siguiente imagen:
 
-    ![][A1]
+    ![Captura de pantalla de un emulador que muestra el aspecto del diseño gráfico de la actividad principal X M L.][A1]
 3. Cree una clase denominada `RegisterClient` en el mismo paquete que su clase `MainActivity`. Use el código siguiente para el archivo de la nueva clase.
 
     ```java
@@ -487,7 +487,7 @@ El siguiente paso consiste en actualizar la aplicación Android creada en el [Tu
 2. En la aplicación de Android, escriba un nombre de usuario y una contraseña. Ambos deben tener el mismo valor de cadena y no pueden contener espacios ni caracteres especiales.
 3. En la aplicación de Android, haga clic en **Iniciar sesión**. Espere que aparezca un mensaje de aviso que indique que **se ha iniciado la sesión y se ha registrado**. Así se habilita el botón **Enviar notificación**.
 
-    ![][A2]
+    ![Captura de pantalla de un emulador que muestra el aspecto de la aplicación para notificar a los usuarios de Notification Hubs después de iniciar sesión.][A2]
 4. Haga clic en los botones de alternancia para habilitar todas las plataformas en las que ejecutó la aplicación y registró un usuario.
 5. Escriba el nombre del usuario que recibe el mensaje de notificación. Ese usuario debe estar registrado para recibir notificaciones en los dispositivos de destino.
 6. Escriba un mensaje para que el usuario lo reciba como un mensaje de notificación push.

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17d0c91d31f7746c53d62af87670c40e9902554c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 9ea2c20a7720cc80b36ff88595aa6ca5c57f6b9a
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026838"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232396"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Akamai
 
@@ -61,13 +61,13 @@ Akamai EAA se configura como una sola aplicación en Azure AD. El administrador
 
 **Ventajas**:
 
-• Solo tiene que configurar IDP una vez
+* Solo tiene que configurar IDP una vez.
 
 **Inconvenientes**:
 
-• Los usuarios terminan teniendo dos portales de aplicaciones
+* Los usuarios terminan teniendo dos portales de aplicaciones.
 
-• Cobertura de la directiva de CA común única para todas las aplicaciones.
+* Cobertura de la directiva de CA común única para todas las aplicaciones.
 
 ![Escenario de integración 1](./media/header-akamai-tutorial/scenario1.png)
 
@@ -77,13 +77,14 @@ La aplicación Akamai EAA se configura de forma individual en el portal de Azure
 
 **Ventajas**:
 
-• Puede definir directivas de CA individuales.
+* Puede definir directivas de CA individuales.
 
-• Todas las aplicaciones se representan en el panel de myApps.microsoft.com y O365 Waffle.
+* Todas las aplicaciones se representan en el panel de myApps.microsoft.com y 0365 Waffle.
+
 
 **Inconvenientes**:
 
-• Debe configurar varios IDP.
+* Debe configurar varios IDP.
 
 ![Escenario de integración 2](./media/header-akamai-tutorial/scenario2.png)
 
@@ -450,7 +451,7 @@ Haga clic en Save and go to Deployment (Guardar e ir a Implementación).
 
 ### <a name="kerberos-authentication"></a>Autenticación Kerberos
 
-En el ejemplo siguiente, publicaremos un servidor web interno [http://frp-app1.superdemo.live](http://frp-app1.superdemo.live/) y habilitaremos SSO con KCD
+En el ejemplo siguiente, publicaremos un servidor web interno <code>http://frp-app1.superdemo.live</code> y habilitaremos el inicio de sesión único con KCD.
 
 #### <a name="general-tab"></a>Pestaña General
 

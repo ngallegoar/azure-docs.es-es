@@ -8,14 +8,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: e20b7b447797a957f860c6b1dd9679519960ebc5
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8c0aabc3242bf9576de917ad63ce4f71bec9905e
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025189"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146533"
 ---
-# <a name="create-a-data-labeling-project-preview-and-export-labels"></a>Creación de un proyecto de etiquetado de datos (versión preliminar) y exportación de etiquetas 
+# <a name="create-a-data-labeling-project-and-export-labels"></a>Creación de un proyecto de etiquetado de datos y exportación de etiquetas 
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -144,7 +144,7 @@ En el caso de los rectángulos de selección, estas son algunas preguntas import
 >[!NOTE]
 > Recuerde que los etiquetadores podrán seleccionar las 9 primeras etiquetas usando las claves numéricas de 1 a 9.
 
-## <a name="use-ml-assisted-labeling"></a>Uso del etiquetado con asistencia de ML
+## <a name="use-ml-assisted-labeling-preview"></a>Uso del etiquetado con asistencia de ML (versión preliminar)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 

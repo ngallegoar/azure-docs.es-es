@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 06/29/2020
+ms.date: 07/09/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 13949bef7b26058c577a3ab85b4fb2e736bba8f5
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 219551f2bba229fb627092548fe5c5f5ff8798b9
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562971"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220626"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Creación de una conexión de sitio a sitio mediante Azure Virtual WAN
 
@@ -87,17 +87,7 @@ En este paso, conectará el sitio VPN al centro de conectividad.
 
 ## <a name="connect-the-vnet-to-the-hub"></a><a name="vnet"></a>Conexión de la red virtual al centro de conectividad
 
-En este paso, creará la conexión entre una red virtual y el centro de conectividad. Repita estos pasos para cada red virtual que desee conectar.
-
-1. En la página de la red WAN virtual, haga clic en **Conexiones de red virtual**.
-2. En la página de conexión de red virtual, haga clic en **+ Agregar conexión**.
-3. En la página **Agregar conexión**, rellene los campos siguientes:
-
-    * **Nombre de la conexión**: asigne un nombre a la conexión.
-    * **Centros**: seleccione el concentrador que desea asociar a esta conexión.
-    * **Suscripción**: compruebe la suscripción.
-    * **Red virtual**: seleccione la red virtual que quiere conectar con este concentrador. La red virtual no puede tener una puerta de enlace de red virtual ya existente.
-4. Haga clic en **Aceptar** para crear la conexión de red virtual.
+[!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 
 ## <a name="download-vpn-configuration"></a><a name="device"></a>Descarga de la configuración de VPN
 
@@ -262,7 +252,7 @@ En la página **Editar VPN Gateway**, puede ver los valores siguientes:
 * Dirección IP pública de VPN Gateway (la asigna Azure).
 * Dirección IP privada de VPN Gateway (la asigna Azure).
 * Dirección IP de BGP predeterminada de VPN Gateway (la asigna Azure).
-* Opción de configuración para la dirección IP de BGP personalizada: Este campo está reservado para APIPA (direcciones IP privadas automáticas). Azure admite IP de BGP en los intervalos 169.254.21.* y 169.254.22.*
+* Opción de configuración para la dirección IP de BGP personalizada: Este campo está reservado para APIPA (direcciones IP privadas automáticas). Azure admite IP de BGP en los intervalos 169.254.21.* y 169.254.22.*. Azure acepta conexiones BGP en estos intervalos, pero marcará la conexión con la IP de BGP predeterminada.
 
    :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Ver configuración" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 

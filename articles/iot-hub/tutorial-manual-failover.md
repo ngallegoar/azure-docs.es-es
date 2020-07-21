@@ -11,16 +11,16 @@ ms.author: robinsh
 ms.custom:
 - mvc
 - mqtt
-ms.openlocfilehash: 86b39beb2958194f7c86409c5d78992616234b05
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 26679a7111e11eaf48e948fa6d3622814327433a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769908"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252579"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>Tutorial: Realización de una conmutación por error manual de una instancia de IoT Hub
 
-La conmutación por error manual es una característica del servicio IoT Hub que permite a los clientes [realizar la conmutación por error](https://en.wikipedia.org/wiki/Failover) de las operaciones de su centro desde una región primaria a la región de Azure emparejada geográficamente correspondiente. La conmutación por error manual se puede realizar si se produce un desastre regional o una interrupción prolongada del servicio. También se puede realizar una conmutación por error planeada para probar las funcionalidades de recuperación ante desastres, aunque se recomienda usar un centro de IoT de prueba, en lugar del centro que se ejecuta en producción. La característica de conmutación por error manual se ofrece a los clientes sin costo adicional.
+La conmutación por error manual es una característica del servicio IoT Hub que permite a los clientes [realizar la conmutación por error](https://en.wikipedia.org/wiki/Failover) de las operaciones de su centro desde una región primaria a la región de Azure emparejada geográficamente correspondiente. La conmutación por error manual se puede realizar si se produce un desastre regional o una interrupción prolongada del servicio. También se puede realizar una conmutación por error planeada para probar las funcionalidades de recuperación ante desastres, aunque se recomienda usar un centro de IoT de prueba, en lugar del centro que se ejecuta en producción. La característica de conmutación por error manual se ofrece a los clientes sin costo adicional para los centros de IoT creados después del 18 de mayo de 2017.
 
 En este tutorial se realizan las siguientes tareas:
 
@@ -31,7 +31,7 @@ En este tutorial se realizan las siguientes tareas:
 > * Realizar una conmutación por recuperación para devolver las operaciones del centro de IoT a la ubicación principal. 
 > * Confirmar que el concentrador se ejecuta adecuadamente en la ubicación correcta.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

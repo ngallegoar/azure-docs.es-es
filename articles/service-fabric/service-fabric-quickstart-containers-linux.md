@@ -5,14 +5,14 @@ ms.topic: quickstart
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: eb0a83d0110002cc32998af4083d06cf6e86e16a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d765168ea2eddaf42715536b5da67f15bb8a8cee
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75372693"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258551"
 ---
-# <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Inicio rápido: Implementación de contenedores de Linux en Service Fabric
+# <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Inicio rápido: Implementar contenedores Linux en Service Fabric
 
 Azure Service Fabric es una plataforma de sistemas distribuidos para implementar y administrar microservicios y contenedores escalables y confiables.
 
@@ -20,7 +20,7 @@ Este inicio rápido muestra cómo implementar contenedores Linux en un clúster 
 
 ![Página web de la aplicación de votación][quickstartpic]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar esta guía de inicio rápido:
 
@@ -108,7 +108,7 @@ Mozilla Firefox es el explorador predeterminado en Ubuntu 16.04. Para importar e
     ./install.sh
     ```
 
-3. Abra un explorador web y navegue hasta el punto de conexión de Service Fabric Explorer del clúster. El punto de conexión tiene el formato siguiente: **https://\<my-azure-service-fabric-cluster-url>:19080/Explorer**, por ejemplo, `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`. </br>
+3. Abra un explorador web y navegue hasta el punto de conexión de Service Fabric Explorer del clúster. El punto de conexión tiene el siguiente formato: **https://\<my-azure-service-fabric-cluster-url>: 19080/Explorer**; por ejemplo, `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`. </br>
 
 4. Expanda el nodo **Aplicaciones** para comprobar que ahora hay una entrada para el tipo de aplicación de votación y la instancia que ha creado.
 
@@ -179,7 +179,7 @@ az group delete --name $ResourceGroupName
 ```
 
 Si ya ha terminado de trabajar con el clúster, puede eliminar el certificado del almacén de certificados. Por ejemplo:
-- En Windows: use el [complemento MMC de certificados](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). No olvide seleccionar **Mi cuenta de usuario** al agregar el complemento. Vaya a `Certificates - Current User\Personal\Certificates` y elimine el certificado.
+- En Windows: use el [complemento MMC de certificados](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). No olvide seleccionar **Mi cuenta de usuario** al agregar el complemento. Vaya a `Certificates - Current User\Personal\Certificates` y elimine el certificado.
 - En Mac: use la aplicación Keychain.
 - En Ubuntu: siga los pasos utilizados para ver los certificados y elimine el certificado.
 

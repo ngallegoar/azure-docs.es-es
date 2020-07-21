@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: 0ba4531ed15630a8887cb7be843a00ba23a439cc
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 0eaa4a828716f1a52161726e768acc817d1fde17
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682031"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86134173"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Inicio rápido: Inicio de sesión de los usuarios y obtención de un token de acceso en una SPA de JavaScript mediante el flujo de código de autorización
 
@@ -28,7 +28,7 @@ En este inicio rápido aprenderá a ejecutar un código de ejemplo que muestra c
 
 En este inicio rápido se usa MSAL.js 2.0 con el flujo de código de autorización. Puede encontrar un inicio rápido similar que usa MSAL.js 1.0 con el flujo implícito en [Inicio rápido: Inicio de sesión de usuarios en aplicaciones de página única de JavaScript](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-javascript).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure: [cree una de forma gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Node.js](https://nodejs.org/en/download/)
@@ -181,7 +181,7 @@ Ejecute el proyecto con un servidor web mediante Node.js:
 
 ### <a name="how-the-sample-works"></a>Funcionamiento del ejemplo
 
-:::image type="content" source="media/quickstart-v2-javascript-auth-code/diagram-01-auth-code-flow.png" alt-text="Diagrama que muestra el flujo de código de autorización para una aplicación de página única":::
+![Diagrama que muestra el flujo de código de autorización para una aplicación de página única.](media/quickstart-v2-javascript-auth-code/diagram-01-auth-code-flow.png)
 
 ### <a name="msaljs"></a>msal.js
 

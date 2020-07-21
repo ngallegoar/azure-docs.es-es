@@ -4,19 +4,19 @@ description: archivo de inclusión
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/16/2020
+ms.date: 07/08/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 5af9deef7b6c3e2ea688f9e8ad5cc498f79c784e
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 2d0030549acdb55ce2be94534ec59bb07b11869d
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84317453"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221650"
 ---
-La galería de imágenes compartidas es un servicio que ayuda a crear la estructura y la organización en torno a las imágenes administradas. Las galerías de imágenes compartidas proporcionan:
+Shared Image Gallery es un servicio que ayuda a crear la estructura y la organización en torno a las imágenes. Las galerías de imágenes compartidas proporcionan:
 
-- Replicación global administrada de las imágenes.
+- Replicación global de imágenes.
 - Control de versiones y agrupación de las imágenes para facilitar la administración.
 - Imágenes de alta disponibilidad con cuentas de almacenamiento con redundancia de zona (ZRS) en las regiones donde esté disponible Availability Zones. ZRS ofrece mejor resistencia a errores de zona.
 - Se admite Premium Storage (Premium_LRS).
@@ -33,7 +33,7 @@ La característica de galería de imágenes compartidas tiene varios tipos de re
 
 | Recurso | Descripción|
 |----------|------------|
-| **Origen de imagen** | Se trata de un recurso que se puede usar para crear una **versión de imagen** en una galería de imágenes. Un origen de imagen puede ser una máquina virtual de Azure existente, ya sea [generalizada o especializada](#generalized-and-specialized-images); una imagen administrada; una instantánea o una versión de imagen de otra galería de imágenes. |
+| **Origen de imagen** | Se trata de un recurso que se puede usar para crear una **versión de imagen** en una galería de imágenes. Un origen de imagen puede ser una máquina virtual de Azure existente, ya sea [generalizada o especializada](#generalized-and-specialized-images); una imagen administrada; una instantánea; un disco duro virtual o una versión de imagen de otra galería de imágenes. |
 | **Galería de imágenes** | Al igual que Azure Marketplace, una **galería de imágenes** es un repositorio para administrar y compartir imágenes, pero usted puede controlar quién tiene acceso. |
 | **Definición de la imagen** | Las definiciones de imagen se crean dentro de una galería y contienen información sobre la imagen y los requisitos para usarla internamente. Esto incluye si la imagen es Windows o Linux, notas de la versión y los requisitos de memoria mínima y máxima. Es una definición de un tipo de imagen. |
 | **Versión de la imagen** | Una **versión de la imagen** es lo que se usa para crear una VM cuando se usa una galería. Puede tener varias versiones de una imagen según sea necesario para su entorno. Al igual que una imagen administrada, cuando se usa una **versión de la imagen** para crear una VM, la versión de la imagen se usa para crear nuevos discos para la VM. Las versiones de las imágenes pueden usarse varias veces. |
@@ -68,6 +68,7 @@ Los siguientes son otros parámetros que se pueden establecer en la definición 
 * Número mínimo y máximo de vCPU y recomendaciones de memoria: si la imagen tiene vCPU y recomendaciones de memoria, puede adjuntar esa información a la definición de imagen.
 * Tipos de disco no permitidos: puede proporcionar información acerca de las necesidades de almacenamiento para la máquina virtual. Por ejemplo, si la imagen no es adecuada para los discos HDD estándar, agréguelos a la lista de no permitidos.
 * Generación de Hyper-V: puede especificar si la imagen se creó a partir de un disco duro virtual de Hyper-V de generación 1 o generación 2.
+* Información del plan de compra para imágenes de Marketplace: `-PurchasePlanPublisher `, `-PurchasePlanName`y `-PurchasePlanProduct`. Para más información sobre el plan de compra, consulte [Buscar imágenes en Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) e [Indicación de la información del plan de compra de Azure Marketplace al crear imágenes](../articles/virtual-machines/marketplace-images.md).
 
 ## <a name="generalized-and-specialized-images"></a>Imágenes generalizadas y especializadas
 
@@ -82,24 +83,7 @@ Las máquinas virtuales especializadas no han pasado por un proceso para quitar 
 
 ## <a name="regional-support"></a>Compatibilidad regional
 
-Las regiones de origen se muestran en la tabla siguiente. Todas las regiones públicas pueden ser regiones de destino, pero para replicar en el Centro de Australia y Centro de Australia 2 debe tener su suscripción en la lista de permitidos. Para solicitar la inclusión en la lista blanca, visite: https://azure.microsoft.com/global-infrastructure/australia/contact/
-
-
-| Regiones de origen        |                   |                    |                    |
-| --------------------- | ----------------- | ------------------ | ------------------ |
-| Centro de Australia     | Este de China        | Sur de la India        | Oeste de Europa        |
-| Centro de Australia 2   | Este de China 2      | Sudeste de Asia     | Sur de Reino Unido           |
-| Este de Australia        | Norte de China       | Japón Oriental         | Oeste de Reino Unido            |
-| Sudeste de Australia   | Norte de China 2     | Japón Occidental         | US DoD (centro)     |
-| Sur de Brasil          | Este de Asia         | Centro de Corea del Sur      | US DoD (este)        |
-| Centro de Canadá        | Este de EE. UU.           | Corea del Sur        | US Gov: Arizona     |
-| Este de Canadá           | Este de EE. UU. 2         | Centro-Norte de EE. UU   | US Gov Texas       |
-| Centro de la India         | EUAP de Este de EE. UU. 2    | Norte de Europa       | US Gov - Virginia    |
-| Centro de EE. UU.            | Centro de Francia    | Centro-sur de EE. UU.   | Oeste de la India         |
-| EUAP del centro de EE. UU.       | Sur de Francia      | Centro-Oeste de EE. UU.    | Oeste de EE. UU.            |
-|                       |                   |                    | Oeste de EE. UU. 2          |
-
-
+Todas las regiones públicas pueden ser regiones de destino, pero para replicar en el Centro de Australia y Centro de Australia 2 debe tener su suscripción en la lista de permitidos. Para solicitar la inclusión en la lista blanca, visite: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
 ## <a name="limits"></a>Límites 
 
@@ -246,13 +230,7 @@ Sí. Hay tres escenarios basados en los tipos de imagen que pueda tener.
 
 ### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>¿Puedo crear una versión de la imagen desde un disco especializado?
 
-Sí, la compatibilidad con discos especializados como imágenes está en versión preliminar. Solo puede crear una VM a partir de una imagen especializada mediante el portal, PowerShell o API. 
-
-
-Use [PowerShell para crear una imagen de una VM especializada](../articles/virtual-machines/image-version-vm-powershell.md).
-
-Use el portal para crear una imagen de [Windows](../articles/virtual-machines/linux/shared-images-portal.md) o [Linux] (../articles/virtual-machines/linux/shared-images-portal.md). 
-
+Sí, puede crear una máquina virtual a partir de una imagen especializada mediante la [CLI](../articles/virtual-machines/vm-specialized-image-version-cli.md), [PowerShell](../articles/virtual-machines/vm-specialized-image-version-powershell.md) o la API. 
 
 ### <a name="can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created"></a>¿Puedo mover el recurso de Shared Image Gallery a otra suscripción después de crearlo?
 

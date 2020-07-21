@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: overview
 ms.date: 05/12/2020
-ms.openlocfilehash: 09a7a28716e437bab71c7386bd332712a4d192dd
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 75c6f8ec8410ff90b3da4fb6a50c9ef8ba7d1618
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196372"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184627"
 ---
 # <a name="azure-cache-for-redis"></a>Azure Cache for Redis
 
@@ -39,8 +39,8 @@ Azure Redis Cache está disponible en los niveles siguientes:
 
 | Nivel | Descripción |
 |---|---|
-Básica | Caché de un solo nodo. Este nivel admite varios tamaños de memoria (250 MB-53 GB) y es ideal para el desarrollo o la realización de pruebas, así como para cargas de trabajo no críticas. El nivel Básico no tiene ningún Acuerdo de Nivel de Servicio (SLA) |
-| Estándar | Memoria caché replicada en una configuración de dos nodos, principal y secundario, administrada por Azure y con un Acuerdo de Nivel de Servicio de alta disponibilidad (99,9 %). |
+Básico | Caché de un solo nodo. Este nivel admite varios tamaños de memoria (250 MB-53 GB) y es ideal para el desarrollo o la realización de pruebas, así como para cargas de trabajo no críticas. El nivel Básico no tiene ningún Acuerdo de Nivel de Servicio (SLA) |
+| Estándar | Una memoria caché replicada en una configuración de dos nodos, principal y de réplica, administrada por Azure y con un Acuerdo de Nivel de Servicio de alta disponibilidad (99,9 %). |
 | Premium | El nivel Premium es el nivel específico para la empresa. Las memorias caché de nivel Premium admiten más características y tienen un rendimiento mayor con latencias más bajas. En el nivel Premium, las memorias caché se implementan en un hardware más potente, lo que proporciona un mejor rendimiento en comparación con los niveles Estándar o Básico. Esta ventaja significa que el rendimiento de una caché del mismo tamaño será mayor en el nivel Premium, en comparación con el nivel Estándar. |
 
 > [!TIP]
@@ -53,7 +53,7 @@ Una vez creada, la memoria caché se puede escalar a un nivel superior. Sin emba
 
 En la página [Precios de Azure Cache for Redis](https://azure.microsoft.com/pricing/details/cache/) encontrará una comparación detallada de cada nivel. La tabla siguiente le ayuda a describir algunas de las características que admite cada nivel:
 
-| Descripción de la característica | Premium | Estándar | Básica |
+| Descripción de la característica | Premium | Estándar | Básico |
 | ------------------- | :-----: | :------: | :---: |
 | [Acuerdo de Nivel de Servicio (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |✔|✔|-|
 | [Persistencia de datos de Redis](cache-how-to-premium-persistence.md) |✔|-|-|

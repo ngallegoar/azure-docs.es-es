@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 986e061c03634fe33af985c9d11569848500862c
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 963f728db55f587f7ae72aec702a099882cf401a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170501"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249383"
 ---
-# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---resource-manager-template"></a>Inicio rápido: Dirección del tráfico web con Azure Application Gateway en una plantilla de Resource Manager
+# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---arm-template"></a>Inicio rápido: Dirección del tráfico web con Azure Application Gateway: plantilla de ARM
 
-En este inicio rápido, usará una plantilla de Resource Manager para crear una instancia de Azure Application Gateway. A continuación, pruebe la puerta de enlace de aplicaciones para asegurarse de que funciona correctamente.
+En este inicio rápido, va a usar una plantilla de Azure Resource Manager (plantilla de ARM) para crear una instancia de Azure Application Gateway. A continuación, pruebe la puerta de enlace de aplicaciones para asegurarse de que funciona correctamente.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -26,17 +26,19 @@ También se puede completar este inicio rápido mediante [Azure Portal](quick-cr
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-qs%2Fazuredeploy.json)
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
+## <a name="review-the-template"></a>Revisión de la plantilla
 
 Para simplificar, en esta plantilla se crea una configuración sencilla con una dirección IP de front-end pública, un cliente de escucha básica que hospeda un único sitio en la puerta de enlace de aplicaciones, una regla de enrutamiento de solicitudes básica y dos máquinas virtuales que se usan con el grupo de back-end.
 
-### <a name="review-the-template"></a>Revisión de la plantilla
-
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/ag-docs-qs/azuredeploy.json).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/ag-docs-qs/).
 
 :::code language="json" source="~/quickstart-templates/ag-docs-qs/azuredeploy.json" range="001-343" highlight="197-297":::
 
@@ -50,10 +52,9 @@ En la plantilla se definen varios recursos de Azure:
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces): dos para las máquinas virtuales
 - [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions): para configurar las páginas web e IIS
 
+## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-### <a name="deploy-the-template"></a>Implementación de la plantilla
-
-Implementación de la plantilla de Resource Manager en Azure:
+Implementación de la plantilla de ARM en Azure:
 
 1. Seleccione **Implementar en Azure** para iniciar sesión en Azure y abrir la plantilla. La plantilla crea una puerta de enlace de aplicaciones, la infraestructura de red y dos máquinas virtuales en el grupo de back-end que ejecuta IIS.
 

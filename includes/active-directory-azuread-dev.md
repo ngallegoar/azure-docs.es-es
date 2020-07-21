@@ -14,13 +14,13 @@ ms.workload: identity
 ms.date: 01/24/2020
 ms.author: ryanwi
 ms.custom: include file
-ms.openlocfilehash: 4e5371a4d2b160b5de8b69b0d25ef0f49f80927b
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: ebd8c1d794293ead55374865057424e15e6f7d7a
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82784085"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86277909"
 ---
 > [!IMPORTANT]
-> La [Plataforma de identidad de Microsoft (versión 2.0)](/azure/active-directory/develop/v2-overview) es una evolución de la plataforma para desarrolladores de Azure Active Directory (Azure AD) (versión 1.0). Permite a los desarrolladores compilar aplicaciones que inicien sesión en todas las identidades de Microsoft, obtener tokens para llamar a las API de Microsoft como Microsoft Graph, o a otras API que los desarrolladores hayan creado.
+> La [Plataforma de identidad de Microsoft (versión 2.0)](/azure/active-directory/develop/v2-overview) es una evolución [ de la plataforma para desarrolladores de Azure Active Directory (Azure AD) (versión 1.0)](../articles/active-directory/azuread-dev/about-microsoft-identity-platform.md). Permite a los desarrolladores compilar aplicaciones que inicien sesión en todas las identidades de Microsoft, obtener tokens para llamar a las API de Microsoft como Microsoft Graph, o a otras API que los desarrolladores hayan creado.
 > Este contenido es el punto de conexión anterior de Azure AD v1.0. Se recomienda usar el punto de conexión v2.0 para los proyectos nuevos. Para más información, consulte [Motivos para actualizar a la Plataforma de identidad de Microsoft (v2.0)](/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison) así como las [limitaciones de la Plataforma de identidad de Microsoft](/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison#limitations).

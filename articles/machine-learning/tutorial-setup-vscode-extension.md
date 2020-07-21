@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configuración de la extensión de Visual Studio Code'
+title: 'Tutorial: Configuración de la extensión de Visual Studio Code (Versión preliminar)'
 titleSuffix: Azure Machine Learning
 description: Aprenda a configurar la extensión Azure Machine Learning para Visual Studio Code.
 services: machine-learning
@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 04/13/2020
-ms.openlocfilehash: 731ab18346ac9f100862174312c2c9950026f1eb
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.date: 07/09/2020
+ms.openlocfilehash: 48fb2ce3672634af202500ccb256e7730933fff8
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81272935"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86199770"
 ---
-# <a name="set-up-azure-machine-learning-visual-studio-code-extension"></a>Configuración de la extensión Azure Machine Learning para Visual Studio Code
+# <a name="set-up-azure-machine-learning-visual-studio-code-extension-preview"></a>Configuración de la extensión Azure Machine Learning para Visual Studio Code (Versión preliminar)
 
 Aprenda a instalar y ejecutar scripts con la extensión Azure Machine Learning para Visual Studio Code.
 
@@ -27,7 +27,7 @@ En este tutorial, ha aprendido las tareas siguientes:
 > * Inicio de sesión en la cuenta de Azure desde Visual Studio Code
 > * Uso de la extensión Azure Machine Learning para ejecutar un script de ejemplo
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Suscripción de Azure. Si no tiene una, regístrese para probar la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 - Código de Visual Studio. Si no lo tiene, [instálelo](https://code.visualstudio.com/docs/setup/setup-overview).
@@ -69,6 +69,9 @@ Ahora que ha iniciado sesión en Azure con sus credenciales de cuenta, siga los 
 
 1. Cuando se expanda la paleta de comandos, siga las indicaciones.
 
+    > [!NOTE]
+    > Si ya tiene recursos de Azure Machine Learning aprovisionados, consulte el [procedimiento para ejecutar experimentos en VS Code](./how-to-manage-resources-vscode.md#run-experiment).
+
     1. Seleccione su suscripción a Azure.
     1. Seleccione **Archivo de dependencias de Conda** en la lista de entornos.
     1. Presione **Entrar** para examinar el archivo de dependencias de Conda. Este archivo contiene las dependencias necesarias para ejecutar el script. En este caso, el archivo de dependencias es el archivo `env.yml` dentro del directorio `mnist-vscode-docs-sample`.
@@ -78,18 +81,18 @@ Ahora que ha iniciado sesión en Azure con sus credenciales de cuenta, siga los 
 
     ```json
     {
-        "workspace": "WS04131142",
-        "resourceGroup": "WS04131142-rg1",
+        "workspace": "WS06271500",
+        "resourceGroup": "WS06271500-rg2",
         "location": "South Central US",
-        "experiment": "WS04131142-exp1",
+        "experiment": "WS06271500-exp1",
         "compute": {
-            "name": "WS04131142-com1",
+            "name": "WS06271500-com1",
             "vmSize": "Standard_D1_v2, Cores: 1; RAM: 3.5GB;"
         },
         "runConfiguration": {
-            "filename": "WS04131142-com1-rc1",
+            "filename": "WS06271500-com1-rc1",
             "environment": {
-                "name": "WS04131142-env1",
+                "name": "WS06271500-env1",
                 "conda_dependencies": [
                     "python=3.6.2",
                     "tensorflow=1.15.0",

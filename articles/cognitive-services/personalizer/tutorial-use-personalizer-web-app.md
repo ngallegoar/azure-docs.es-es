@@ -1,17 +1,17 @@
 ---
 title: 'Uso de una aplicación web: Personalizer'
 description: Personalice una aplicación web de .NET en C# con un bucle de Personalizer que proporcione el contenido correcto a un usuario en función de las acciones (con características) y de las características del contexto.
-ms.topic: troubleshooting
+ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: diberry
-ms.openlocfilehash: 9def69a1540e81b99723c16ad34ba522d1737c7f
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 9514e92432c2be5441dec5ff998a9deede35d7f4
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84713895"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207597"
 ---
-# <a name="add-personalizer-to-a-net-web-app"></a>Incorporación de Personalizer a una aplicación web de .NET
+# <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Tutorial: Incorporación de Personalizer a una aplicación web de .NET
 
 Personalice una aplicación web de .NET en C# con un bucle de Personalizer que proporcione el contenido correcto a un usuario en función de las acciones (con características) y de las características del contexto.
 
@@ -156,7 +156,7 @@ La aplicación web usa Personalizer para seleccionar la mejor acción de la list
 * **acciones** con sus características como `taste` y `spiceLevel`
 * características de **contexto** como `time` del día, preferencias de `taste` del usuario y la información del agente de usuario del explorador.
 * **acciones a excluir** como, por ejemplo, zumo
-* **eventid**, que es diferente para cada llamada a la API Rank.
+* **eventId**, que es diferente para cada llamada a la API Rank.
 
 ## <a name="personalizer-model-features-in-a-web-app"></a>Características del modelo de Personalizer en una aplicación web
 

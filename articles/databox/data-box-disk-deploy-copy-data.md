@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 93a7181a3b720a3b313bb75855b2564c4cd33bc1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ff57a67d5e6d617d6d51c924161f586f90f92c3c
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79214333"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231546"
 ---
 ::: zone target="docs"
 
@@ -40,7 +40,7 @@ En este tutorial, aprenderá a:
 > * Copia de datos a Data Box Disk
 > * Comprobación de datos
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar, asegúrese de que:
 - Ha completado el [Tutorial: Instalación y operación configuración de Azure Data Box Disk](data-box-disk-deploy-set-up.md).
@@ -111,7 +111,7 @@ Realice los pasos siguientes para conectarse y copiar datos desde el equipo a Da
     |/NFL                | Especifica que los nombres de archivo no se van a registrar.        |
     |/NDL                | Especifica que los nombres de directorio no se van a registrar.        |
     |/FFT                | Se da por supuesto que se trata de tiempos de archivos FAT (precisión de dos segundos).        |
-    |/Log:\<Archivo de registro>     | Escribe la salida del estado en el archivo de registro (sobrescribe el archivo de registro existente).         |
+    |/Log:\<Log File>     | Escribe la salida del estado en el archivo de registro (sobrescribe el archivo de registro existente).         |
 
     Se pueden usar varios discos en paralelo con varios trabajos que se ejecutan en cada disco.
 
@@ -273,7 +273,7 @@ Una vez completada la copia de datos, puede continuar para validar los datos. Si
 
 Si no usó la herramienta de copia y división para copiar los datos, tendrá que validarlos. Para comprobar los datos, realice los pasos siguientes.
 
-1. Ejecute `DataBoxDiskValidation.cmd` para la validación de la suma de comprobación en la carpeta *DataBoxDiskImport* de la unidad.
+1. Ejecute `DataBoxDiskValidation.cmd` para la validación de la suma de comprobación en la carpeta *DataBoxDiskImport* de la unidad. Solo está disponible para el entorno Windows. Los usuarios de Linux deben validar que los datos de origen que se copian en el disco cumplan los [requisitos previos](https://docs.microsoft.com/azure/databox/data-box-disk-limits).
     
     ![Salida de la herramienta de validación Data Box Disk](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 

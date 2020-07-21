@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 2398bfa2ce828e716831cc7ce438bd1c241ca5f8
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 4bf2f12ef79f8551291316b5446121f2735d9347
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75378541"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206579"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutorial: Integración de Power BI con Text Analytics de Cognitive Services
 
@@ -30,11 +30,11 @@ En este tutorial, aprenderá a:
 > * Usar Text Analytics Key Phrases API para extraer las frases más importantes de los comentarios de clientes
 > * Crear una nube de palabras de los comentarios de clientes
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 <a name="Prerequisites"></a>
 
 - Microsoft Power BI Desktop. [Descarga gratuita](https://powerbi.microsoft.com/get-started/).
-- Una cuenta de Microsoft Azure. [Inicie una evaluación gratuita](https://azure.microsoft.com/free/) o [inicie sesión](https://portal.azure.com/).
+- Una cuenta de Microsoft Azure. [Cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) o [inicie sesión](https://portal.azure.com/).
 - Una cuenta de Cognitive Services API con Text Analytics API. Si no tiene una, puede [registrarse](../../cognitive-services-apis-create-account.md) y usar el nivel gratis para 5000 transacciones al mes (vea los [detalles de precios](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) para completar este tutorial).
 - La [clave de acceso a Text Analytics](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) que se generó automáticamente durante el registro.
 - Comentarios de clientes. Puede usar [nuestros datos de ejemplo](https://aka.ms/cogsvc/ta) o sus propios datos. En este tutorial se supone que está utilizando los datos de ejemplo.
@@ -91,7 +91,7 @@ También podría considerar el filtrado de mensajes en blanco con el filtro Quit
 
 [Key Phrases API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) del servicio Text Analytics puede procesar hasta un millar de documentos de texto por cada solicitud HTTP. Power BI prefiere trabajar con registros de uno en uno, así que en este tutorial las llamadas a la API contendrán solo un documento a la vez. Key Phrases API requiere que se procesen los siguientes campos para cada documento.
 
-| | |
+| Campo | Descripción |
 | - | - |
 | `id`  | Un identificador único para este documento dentro de la solicitud. La respuesta también contiene este campo. De este modo, si procesa más de un documento, puede asociar fácilmente las frases clave extraídas con el documento del que proceden. En este tutorial, puesto que está procesando un solo documento por solicitud, puede codificar el valor de `id` para que sea el mismo para cada solicitud.|
 | `text`  | El texto que se va a procesar. El valor de este campo procede de la columna `Merged` que creó en la [sección anterior](#PreparingData), que contiene el texto de comentario y de línea de asunto combinados. La API de frases clave requiere que estos datos no tengan más de 5120 caracteres.|

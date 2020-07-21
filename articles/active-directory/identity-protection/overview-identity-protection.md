@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27adab85f684143db29e248739492b68af869404
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 59f83c7896ca371809d9103489b140ae73d5a42d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647347"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256667"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>¿Qué es Azure Active Directory Identity Protection?
 
@@ -94,7 +94,7 @@ Los administradores de acceso condicional también pueden crear directivas que r
 
 [!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
 
-| Capacidad | Detalles | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
+| Capacidad | Detalles | Azure AD Premium P2 | Azure AD Premium P1 | Aplicaciones de Azure AD Free/Office 365 |
 | --- | --- | --- | --- | --- |
 | Directivas de riesgo | Directiva de riesgo de usuario (mediante Identity Protection) | Sí | No | No |
 | Directivas de riesgo | Directiva de riesgo de inicio de sesión (mediante Identity Protection o acceso condicional) | Sí | No | No |

@@ -9,18 +9,18 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 04343f684539307957cd635822ba1ba5a1ce24c9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: dd429dadcbe67f0ac91da19d6606626b39f34ef5
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76313780"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201086"
 ---
-# <a name="get-started-with-azure-data-box"></a>Introducción a Azure Data Box 
+# <a name="get-started-with-azure-data-box-to-import-data-into-azure"></a>Introducción a Azure Data Box para importar datos en Azure
 
 ::: zone target="docs"
 
-En esta guía de inicio rápido se describe cómo implementar Azure Data Box mediante Azure Portal. Los pasos incluyen cómo cablear, configurar y copiar datos en Data Box para que se cargan en Azure. La guía de inicio rápido se realiza en Azure Portal y en la interfaz de usuario web local del dispositivo.
+En este inicio rápido se describe cómo implementar Azure Data Box mediante Azure Portal para realizar un pedido de importación. Los pasos incluyen cómo cablear, configurar y copiar datos en Data Box para que se cargan en Azure. Los pasos del inicio rápido se realizan en Azure Portal y en la interfaz de usuario web local del dispositivo.
 
 Para obtener instrucciones detalladas para realizar una implementación y el seguimiento del proceso, vaya a [Tutorial: Realización de pedidos de Azure Data Box](data-box-deploy-ordered.md)
 
@@ -28,13 +28,13 @@ Para obtener instrucciones detalladas para realizar una implementación y el seg
 
 ::: zone target="chromeless"
 
-En esta guía se describe cómo implementar Azure Data Box mediante Azure Portal. Los pasos incluyen la revisión de los requisitos previos, los detalles sobre el cable y la conexión del dispositivo y la copia de datos en el dispositivo para que se cargue en Azure.
+En esta guía se describe cómo implementar Azure Data Box mediante Azure Portal para realizar una importación. Los pasos incluyen la revisión de los requisitos previos, los detalles sobre el cable y la conexión del dispositivo y la copia de datos en el dispositivo para que se cargue en Azure.
 
 ::: zone-end
 
 ::: zone target="docs"
  
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar:
 
@@ -58,7 +58,7 @@ Antes de empezar:
 
 ::: zone target="chromeless"
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar, asegúrese de que:
 

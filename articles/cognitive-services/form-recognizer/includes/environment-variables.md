@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 28362a81461b63440ad752071f11b3603a979995
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d63e902a59411a549235c955a39d7dbc4be068ba
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86100368"
+ms.locfileid: "86156479"
 ---
 Con la clave y el punto de conexión del recurso que ha creado, cree dos variables de entorno para la autenticación:
 
@@ -23,7 +23,7 @@ Con la clave y el punto de conexión del recurso que ha creado, cree dos variabl
   * `https://<your-custom-subdomain>.cognitiveservices.azure.com`
 
 >[!NOTE]
-> Los puntos de conexión de los recursos creados que no son de prueba usan desde el 1 de julio de 2019 el formato de subdominio personalizado que se muestra a continuación. Para más información y para obtener una lista completa de los puntos de conexión regionales, consulte [Nombres de subdominios personalizados para Cognitive Services.](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) 
+> Los puntos de conexión de los recursos creados después del 1 de julio de 2019 usan el formato de subdominio personalizado que se muestra a continuación. Para más información y para obtener una lista completa de los puntos de conexión regionales, consulte [Nombres de subdominios personalizados para Cognitive Services.](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) 
 
 Siga estas instrucciones para establecer las variables de entorno en el sistema operativo.
 

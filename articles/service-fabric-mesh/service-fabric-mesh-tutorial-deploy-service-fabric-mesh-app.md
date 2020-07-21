@@ -6,14 +6,14 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d2bb37252bc93c982dbc090a0c3f20aef842325f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3f0dca5aa9e430fa21d09509121a7ad26feda446
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75351860"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261323"
 ---
-# <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Tutorial: Implementación de una aplicación de Service Fabric Mesh
+# <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Tutorial: Implementación de una aplicación Service Fabric Mesh
 
 Este tutorial es la tercera parte de una serie y muestra cómo publicar una aplicación web de Azure Service Fabric Mesh directamente desde Visual Studio.
 
@@ -33,7 +33,7 @@ En esta serie de tutoriales, se aprende a:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar este tutorial:
 
@@ -61,7 +61,7 @@ A continuación, verá un cuadro de diálogo **Publicación de la aplicación de
 
 Seleccione la cuenta y la suscripción de Azure. Elija una **ubicación**. En este artículo se utiliza **Este de EE. UU**.
 
-En **Grupo de recursos**, seleccione **\<Crear un nuevo grupo de recursos...>** . Aparece un cuadro de diálogo donde se va a crear un nuevo grupo de recursos. En este artículo se utiliza la ubicación **Este de EE. UU.** y llama al grupo **sfmeshTutorial1RG** (si la organización tiene varias personas con la misma suscripción, elija un nombre de grupo único).  Presione **Crear** para crear el grupo de recursos y volver al cuadro de diálogo Publicar.
+En **Grupo de recursos**, seleccione **\<Create New Resource Group...>** . Aparece un cuadro de diálogo donde se va a crear un nuevo grupo de recursos. En este artículo se utiliza la ubicación **Este de EE. UU.** y llama al grupo **sfmeshTutorial1RG** (si la organización tiene varias personas con la misma suscripción, elija un nombre de grupo único).  Presione **Crear** para crear el grupo de recursos y volver al cuadro de diálogo Publicar.
 
 ![Cuadro de diálogo del nuevo grupo de recursos de Service Fabric mesh en Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-resource-group-dialog.png)
 
@@ -139,4 +139,4 @@ Avance hasta el siguiente tutorial:
 > [!div class="nextstepaction"]
 > [Actualizar una aplicación de Service Fabric Mesh](service-fabric-mesh-tutorial-upgrade.md)
 
-[azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli-install]: /cli/azure/install-azure-cli?view=azure-cli-latest

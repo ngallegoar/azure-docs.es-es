@@ -4,12 +4,12 @@ description: En este tutorial, aprenderá a compilar una imagen de contenedor de
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 82b539ba8f275755ee31a00c2127a0dba7c38d9f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7178d7171d4c9c0183eb744f19776f6b2fac09ef
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78398515"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259498"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: Compilación e implementación de imágenes de contenedor en la nube con Azure Container Registry Tasks
 
@@ -32,7 +32,7 @@ En tutoriales posteriores, aprenderá a usar ACR Tasks para compilaciones automa
 
 Si quiere usar la CLI de Azure de forma local, debe tener la versión **2.0.46** u otra posterior instalada y registrada con [az login][az-login]. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli].
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="github-account"></a>Cuenta de GitHub
 
@@ -50,7 +50,7 @@ Bifurque este repositorio: https://github.com/Azure-Samples/acr-build-helloworld
 
 Una vez que se ha bifurcado el repositorio, clone la bifurcación y especifique el directorio que contiene el clon local.
 
-Clone el repositorio con `git`, reemplace **\<your-github-username\>** por su nombre de usuario de GitHub:
+Clone el repositorio con `git` y reemplace **\<your-github-username\>** por su nombre de usuario de GitHub:
 
 ```console
 git clone https://github.com/<your-github-username>/acr-build-helloworld-node
@@ -176,7 +176,7 @@ Todos los escenarios de producción deben usar [entidades de servicio][service-p
 
 #### <a name="create-a-key-vault"></a>Creación de un Almacén de claves
 
-Si todavía no tiene un almacén en [Azure Key Vault](/azure/key-vault/), cree uno con la CLI de Azure mediante los siguientes comandos.
+Si todavía no tiene un almacén en [Azure Key Vault](../key-vault/index.yml), cree uno con la CLI de Azure mediante los siguientes comandos.
 
 ```azurecli-interactive
 AKV_NAME=$ACR_NAME-vault

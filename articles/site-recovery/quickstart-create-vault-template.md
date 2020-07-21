@@ -4,30 +4,28 @@ description: En este inicio rápido, aprenderá a crear un almacén de Azure Rec
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/29/2020
-author: davidsmatlak
-ms.author: v-dasmat
-ms.openlocfilehash: cf85939a1dbaf8d3e8a90a3acf10bda9faac83bc
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 9112841f6f07808d80fa2b8b61e612d57d0ec20e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84217295"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248832"
 ---
-# <a name="quickstart-create-a-recovery-services-vault-using-a-resource-manager-template"></a>Inicio rápido: Creación de un almacén de Recovery Services mediante una plantilla de Resource Manager
+# <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>Inicio rápido: Creación de un almacén de Recovery Services mediante una plantilla de Resource Manager
 
-En este inicio rápido, se describe cómo instalar un almacén de Azure Recovery Services mediante una plantilla de Azure Resource Manager. El servicio [Azure Site Recovery](site-recovery-overview.md) contribuye a la estrategia de continuidad empresarial y recuperación ante desastres (BCDR) para que las aplicaciones empresariales permanezcan en línea durante las interrupciones planeadas y no planeadas. Site Recovery administra la recuperación ante desastres de máquinas locales y las máquinas virtuales de Azure (VM), lo que incluye su replicación, conmutación por error y recuperación.
+En este inicio rápido, se describe cómo instalar un almacén de Recovery Services mediante una plantilla de Azure Resource Manager. El servicio [Azure Site Recovery](site-recovery-overview.md) contribuye a la estrategia de continuidad empresarial y recuperación ante desastres (BCDR) para que las aplicaciones empresariales permanezcan en línea durante las interrupciones planeadas y no planeadas. Site Recovery administra la recuperación ante desastres de máquinas locales y las máquinas virtuales de Azure (VM), lo que incluye su replicación, conmutación por error y recuperación.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Si no tiene una suscripción activa a Azure, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-recovery-services-vault-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Ninguno.
+Si no tiene una suscripción activa a Azure, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
-
-### <a name="review-the-template"></a>Revisión de la plantilla
+## <a name="review-the-template"></a>Revisión de la plantilla
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-recovery-services-vault-create/).
 
@@ -42,7 +40,7 @@ La plantilla incluye parámetros opcionales para la configuración de las copias
 
 Para ver más plantillas de Azure Recovery Services, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Recoveryservices&pageNumber=1&sort=Popular).
 
-### <a name="deploy-the-template"></a>Implementación de la plantilla
+## <a name="deploy-the-template"></a>Implementación de la plantilla
 
 Para implementar la plantilla, se requieren los valores de **Suscripción**, **Grupo de recursos** y **Nombre de almacén**.
 

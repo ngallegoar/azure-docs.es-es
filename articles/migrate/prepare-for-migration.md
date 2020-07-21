@@ -4,12 +4,12 @@ description: Aprenda a preparar máquinas locales para la migración con Azure M
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: MVC
-ms.openlocfilehash: e6840b75d58bf19f742f94caad74e10aebe24666
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: aec2e95b65be2e3c69b2d29111fa1cfdbd66674e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044165"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223625"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparación de las máquinas locales para la migración a Azure
 
@@ -122,7 +122,7 @@ Para otras versiones, prepare las máquinas como se resume en la tabla.
 --- | --- | ---
 **Instalar los servicios de integración de Linux de Hyper-V** | Recompile la imagen init de Linux para que contenga los controladores de Hyper-V necesarios. La recompilación de la imagen init garantiza que la máquina virtual se iniciará en Azure. | La mayoría de las nuevas versiones de las distribuciones de Linux lo incluyen de forma predeterminada.<br/><br/> Si no se ha incluido, instálelo manualmente para todas las versiones excepto las mencionadas anteriormente.
 **Habilitar el registro de la consola serie de Azure** | La habilitación del registro de la consola ayuda a solucionar problemas. No es necesario reiniciar la máquina virtual. La máquina virtual de Azure se iniciará mediante la imagen de disco. El arranque desde la imagen de disco equivale a un reinicio de la nueva máquina virtual.<br/><br/> Siga [estas instrucciones](../virtual-machines/troubleshooting/serial-console-linux.md) para habilitarlo.
-**Actualizar el archivo de asignación de dispositivos** | Actualice el archivo de asignación de dispositivos que contiene las asociaciones de nombre de dispositivo y volumen para usar identificadores de dispositivo persistentes. | Instálelo manualmente para todas las versiones excepto las mencionadas anteriormente.
+**Actualizar el archivo de asignación de dispositivos** | Actualice el archivo de asignación de dispositivos que contiene las asociaciones de nombre de dispositivo y volumen para usar identificadores de dispositivo persistentes. | Instálelo manualmente para todas las versiones excepto las mencionadas anteriormente. (Solo se aplica en el escenario de VMware basado en agente)
 **Actualizar las entradas de fstab** |  Actualice las entradas para utilizar identificadores de volumen persistentes.    | Actualícelo manualmente para todas las versiones excepto las mencionadas anteriormente.
 **Eliminar regla udev** | Elimine las reglas udev que reserven los nombres de interfaz en función de la dirección MAC, etc. | Elimínelas de forma manual para todas las versiones excepto las mencionadas anteriormente.
 **Actualizar las interfaces de red** | Actualice las interfaces de red para recibir direcciones IP basadas en DHCP. | Actualícelo manualmente para todas las versiones excepto las mencionadas anteriormente.

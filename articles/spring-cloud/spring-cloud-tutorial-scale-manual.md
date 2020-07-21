@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Escalado de una aplicación en Azure Spring Cloud | Microsoft Docs'
-description: En este tutorial aprenderá a escalar una aplicación con Azure Spring Cloud en Azure Portal.
+description: Aprenda a escalar una aplicación con Azure Spring Cloud en Azure Portal
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
-ms.openlocfilehash: 93cefd0c71e2d51187e68c6f5f02777d158e95a4
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: ca889e48510ec20b4823c6ec5e4e0149d5aaaa62
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84792071"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86141883"
 ---
-# <a name="scale-an-application-in-azure-spring-cloud"></a>Escalado de una aplicación en Azure Spring Cloud
+# <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>Tutorial: Escalado de una aplicación en Azure Spring Cloud
 
 En este tutorial se muestra cómo escalar cualquier aplicación de microservicios mediante el panel de Azure Spring Cloud de Azure Portal.
 
@@ -23,10 +23,10 @@ Cuando termine, sabrá cómo realizar cambios manuales rápidos en cada aplicaci
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para completar este tutorial, necesita:
+Para seguir estos procedimientos, necesita:
 
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
-* Una instancia del servicio Azure Spring Cloud implementada.  Para comenzar, siga nuestro [inicio rápido sobre la implementación de una aplicación mediante la CLI de Azure](spring-cloud-quickstart-launch-app-cli.md).
+* Una instancia del servicio Azure Spring Cloud implementada.  Como comienzo, siga el [inicio rápido para implementar una aplicación mediante la CLI de Azure](spring-cloud-quickstart-launch-app-cli.md).
 * Al menos una aplicación ya creada en su instancia de servicio.
 
 ## <a name="navigate-to-the-scale-page-in-the-azure-portal"></a>Vaya a la página Escalar de Azure Portal
@@ -64,7 +64,7 @@ Si está en el nivel Básico y se le imponen una o varias de estas [limitaciones
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial ha aprendido a escalar manualmente las aplicaciones de Azure Spring Cloud. Para aprender a supervisar la aplicación, continúe con el siguiente tutorial.
+En este tutorial ha aprendido a escalar manualmente una aplicación de Azure Spring Cloud. Para información sobre cómo supervisar una aplicación mediante la configuración de alertas, continúe con el siguiente tutorial.
 
 > [!div class="nextstepaction"]
-> [Aprender a supervisar una aplicación](spring-cloud-tutorial-distributed-tracing.md)
+> [Aprenda a configurar las alertas](spring-cloud-tutorial-alerts-action-groups.md)

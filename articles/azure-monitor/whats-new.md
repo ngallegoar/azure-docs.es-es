@@ -5,17 +5,96 @@ ms.subservice: ''
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 04/06/2020
-ms.openlocfilehash: 561767b6857f4b52b3ee1eb17fedd51ad409ee29
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.date: 07/08/2020
+ms.openlocfilehash: 4d061e7a105fc73f7f44c8336df82ff363ee6ded
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84462981"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203760"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Novedades en la documentación de Azure Monitor
 
 En este artículo se enumeran los artículos de Azure Monitor que son nuevos o que se han actualizado de forma significativa. Se actualizará la primera semana de cada mes para que incluya las actualizaciones de artículos del mes anterior.
+
+## <a name="june-2020"></a>Junio de 2020
+
+### <a name="general"></a>General
+- [Implementación de Azure Monitor](platform/deploy-scale.md). Nuevo artículo.
+- [Clave administrada por el cliente de Azure Monitor](platform/customer-managed-keys.md). Propiedad billingtype actualizada. Comandos PowerShell incorporados.
+
+### <a name="agents"></a>Agentes
+- [Introducción al agente de Log Analytics](platform/log-analytics-agent.md). Requisito de Python 2 incorporado.
+
+### <a name="alerts"></a>Alertas
+- [Actualización de reglas de alertas o reglas de acción cuando su recurso de destino se mueve a otra región de Azure](platform/alerts-resource-move.md). Nuevo artículo.
+- [Solución de problemas en las alertas de métricas de Azure Monitor](platform/alerts-troubleshoot-metric.md). Nuevo artículo.
+- [Solución de problemas de alertas de registro en Azure Monitor](platform/alerts-troubleshoot-metric.md). Nuevo artículo.
+  
+### <a name="application-insights"></a>Application Insights
+- [Azure Application Insights para aplicaciones web de JavaScript](app/javascript.md). Actualización de la sección del SDK de JavaScript. Fragmento de código actualizado para informar sobre errores de carga.
+- [Configuración de BYOS (Traiga su propio almacenamiento) para Profiler y Snapshot Debugger](app/profiler-bring-your-own-storage.md). Nuevo artículo.
+- [Seguimiento de las solicitudes entrantes en Azure Application Insights con OpenCensus para Python](app/opencensus-python-request.md). Registro y configuración actualizadas para OpenCensus.
+- [Supervisión de una aplicación web de ASP.NET con Azure Application Insights](app/monitor-performance-live-website-now.md). Actualización de la fecha de desuso para el Monitor de estado v1.
+- [Supervisión de servicios de node. js con Azure Application Insights](app/nodejs.md). Varias actualizaciones, incluida la migración desde versiones anteriores y la configuración del SDK
+- [Supervisión de aplicaciones de Python con Azure Monitor (versión preliminar)](app/opencensus-python.md). Incorporación de una sección sobre la configuración de los exportadores de Azure Monitor.
+- [Supervisión de las aplicaciones sin cambios de código: instrumentación automática para Azure Monitor Application Insights](app/codeless-overview.md). Nuevo artículo.
+- [Solución de problemas de errores de carga del SDK para aplicaciones web de JavaScript](app/javascript-sdk-load-failure.md). Nuevo artículo.
+
+### <a name="containers"></a>Contenedores
+- [Cómo detener la supervisión del clúster híbrido de Kubernetes](insights/container-insights-optout-hybrid.md). Sección agregada para Kubernetes habilitado para Arc.
+- [Configuración de un clúster de Kubernetes habilitado para Azure Arc con Azure Monitor para contenedores](insights/container-insights-enable-arc-enabled-clusters.md). Nuevo artículo.
+- [Configuración de la versión 4.x de Red Hat OpenShift en Azure con Azure Monitor para contenedores](insights/container-insights-azure-redhat4-setup.md).Requisitos previos actualizados.
+- [Configuración de datos en directo (versión preliminar) de Azure Monitor para contenedores](insights/container-insights-livedata-setup.md). Eliminación de nota sobre la característica que no está disponible en Azure US Government.
+
+### <a name="insights"></a>Información detallada
+- [Preguntas más frecuentes: Solución Network Performance Monitor en Azure](insights/network-performance-monitor-faq.md). Incorporación de preguntas más frecuentes sobre Supervisión de ExpressRoute.
+
+### <a name="logs"></a>Registros
+- [Eliminación y recuperación de un área de trabajo de Azure Log Analytics](platform/delete-workspace.md). Incorporación de un comando de PowerShell. Actualización de Solución de problemas.
+- [Administración de áreas de trabajo de Log Analytics en Azure Monitor](platform/manage-access.md). Incorporación de ejemplo para tablas no permitidas en la sección RBAC.
+- [Administración del uso y los costos con los registros de Azure Monitor](platform/manage-cost-storage.md). Detalles adicionales sobre el cálculo del tamaño de los datos. Se actualizó la configuración de alertas de volumen de datos. Detalles sobre los datos de seguridad recopilados por Azure Sentinel. Aclaración sobre el límite de datos.
+- [Uso de Azure Monitor Logs con Azure Logic Apps y Power Automate](platform/logicapp-flow-connector.md). Incorporación de límites de conector.
+
+### <a name="metrics"></a>Métricas
+- [Métricas compatibles de Azure Monitor por tipo de recurso](platform/metrics-supported.md). Actualización de métricas de SQL Server.
+
+
+### <a name="platform-logs"></a>Registros de plataforma
+
+- [Ejemplos de plantillas de Resource Manager para la configuración de diagnóstico](samples/resource-manager-diagnostic-settings.md). Corrección de la configuración de diagnóstico del registro de actividad.
+- [Envío del registro de actividad de Azure al área de trabajo de Log Analytics mediante Azure Portal](learn/quick-collect-activity-log-portal.md). Nuevo artículo.
+- [Envío del registro de actividad de Azure al área de trabajo de Log Analytics mediante una plantilla de Azure Resource Manager](learn/quick-collect-activity-log-arm.md). Nuevo artículo.
+
+#### <a name="new-and-updated-articles-from-restructure-and-consolidation-of-platform-log-content"></a>Artículos nuevos y actualizados sobre reestructuración y consolidación del contenido de registros de plataforma
+- [Archivado de registros de recursos de Azure en la cuenta de almacenamiento](platform/resource-logs-collect-storage.md)
+- [Esquema de eventos del registro de actividad de Azure](platform/activity-log-schema.md)
+- [Registro de actividad de Azure](platform/activity-log.md)
+- [Ejemplos de la CLI de Azure Monitor](samples/cli-samples.md)
+- [Ejemplos de PowerShell de Azure Monitor](samples/powershell-samples.md)
+- [Tutorial sobre la API de REST de supervisión de Azure](platform/rest-api-walkthrough.md)
+- [Servicios y esquemas admitidos de los registros de recursos de Azure](platform/diagnostic-logs-schema.md)
+- [Registros de recursos de Azure](platform/resource-logs.md)
+- [Recopilación y análisis del registro de actividad de Azure en Azure Monitor](platform/activity-log-collect.md)
+- [Recopilación de registros de recursos de Azure en el área de trabajo de Log Analytics](platform/resource-logs-collect-workspace.md)
+- [Creación de una configuración de diagnóstico para enviar registros de plataforma y métricas a diferentes destinos](platform/diagnostic-settings.md)
+- [Exportación del registro de actividad de Azure](platform/activity-log-export.md)
+- [Introducción a los registros de plataforma Azure](platform/platform-logs-overview.md)
+- [Transmisión de registros de plataforma de Azure a un centro de eventos](platform/resource-logs-stream-event-hubs.md)
+- [Visualización de eventos del registro de actividad de Azure en Azure Monitor](platform/activity-log-view.md)
+
+### <a name="virtual-machines"></a>Máquinas virtuales
+- [Habilitación de Azure Monitor para VM en Azure Portal](insights/vminsights-enable-single-vm.md). Actualización para incluir Azure Arc.
+- [Información general sobre la habilitación de Azure Monitor para VM](insights/vminsights-enable-overview.md). Actualización para incluir Azure Arc.
+- [¿Qué es Azure Monitor para VM?](insights/vminsights-overview.md) Actualización para incluir Azure Arc.
+
+
+### <a name="visualizations"></a>Visualizaciones
+- [Orígenes de datos de libros de Azure Monitor](platform/workbooks-data-sources.md). Incorporación de las secciones de Alertas y Punto de conexión personalizado.
+- [Solución de problemas de conclusiones basadas en libros de Azure Monitor](insights/troubleshoot-workbooks.md). Nuevo artículo.
+- [Actualización de las visualizaciones del panel de Log Analytics](log-query/dashboard-upgrade.md). Nuevo artículo.
+
+
 
 ## <a name="may-2020"></a>Mayo de 2020
 

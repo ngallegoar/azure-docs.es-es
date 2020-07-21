@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/30/2020
 ms.author: victorh
-ms.openlocfilehash: 9b9b7926caa717c1a02988ac7a927bd9bd39d52a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: cec7ff020ce7e5894d4909263b5ab1aa2275caac
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683711"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260632"
 ---
-# <a name="quickstart-deploy-azure-firewall-with-availability-zones---resource-manager-template"></a>Inicio rápido: Implementación de Azure Firewall con Availability Zones: plantilla de Resource Manager
+# <a name="quickstart-deploy-azure-firewall-with-availability-zones---arm-template"></a>Inicio rápido: Implementación de Azure Firewall con Availability Zones: plantilla de Resource Manager
 
-En este inicio rápido, se usa una plantilla de Resource Manager para implementar una instancia de Azure Firewall en tres instancias de Availability Zones. 
+En este inicio rápido, se usa una plantilla de Azure Resource Manager para implementar una instancia de Azure Firewall en tres instancias de Availability Zones.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -29,15 +29,17 @@ Una ruta definida por el usuario señala el tráfico de red desde la subred *Ser
 
 Para más información sobre Azure Firewall, vea [Implementación y configuración de Azure Firewall mediante Azure Portal](tutorial-firewall-deploy-portal.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-with-zones-sandbox%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-an-azure-firewall-with-availability-zones"></a>Creación de una instancia de Azure Firewall con Availability Zones
+## <a name="review-the-template"></a>Revisión de la plantilla
 
 Esta plantilla crea una instancia de Azure Firewall con Availability Zones, junto con los recursos necesarios para admitir Azure Firewall.
-
-### <a name="review-the-template"></a>Revisión de la plantilla
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-azurefirewall-with-zones-sandbox).
 
@@ -54,9 +56,9 @@ En la plantilla se definen varios recursos de Azure:
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines):
 - [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
 
-### <a name="deploy-the-template"></a>Implementación de la plantilla
+## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-Implemente la plantilla de Resource Manager en Azure:
+Implementación de la plantilla de Resource Manager en Azure:
 
 1. Seleccione **Implementar en Azure** para iniciar sesión en Azure y abrir la plantilla. La plantilla crea una instancia de Azure Firewall, la infraestructura de red y dos máquinas virtuales.
 
@@ -64,9 +66,9 @@ Implemente la plantilla de Resource Manager en Azure:
 
 2. En el portal, en la página **Create a sandbox setup of Azure Firewall** (Crear una configuración de espacio aislado de Azure Firewall), escriba o seleccione los valores siguientes:
    - **Grupo de recursos**: seleccione **Crear nuevo**, escriba un nombre para el grupo de recursos y seleccione **Aceptar**. 
-   - **Nombre de la red virtual**: escriba un nombre para la red virtual nueva. 
+   - **Nombre de la red virtual**: escriba un nombre para la red virtual nueva.
    - **Nombre de usuario administrador**: escriba un nombre de usuario para la cuenta de usuario de administrador.
-   - **Contraseña de administrador**: escriba una contraseña de administrador. 
+   - **Contraseña de administrador**: escriba una contraseña de administrador.
 
 3. Lea los términos y condiciones, y seleccione **Acepto los términos y condiciones indicados anteriormente** y, después, seleccione **Comprar**. La implementación puede tardar 10 minutos o más en completarse.
 
@@ -78,7 +80,7 @@ Para información sobre la sintaxis y las propiedades de JSON de un firewall en 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no los necesite, puede quitar el grupo de recursos, el firewall y todos los recursos relacionados mediante la ejecución del comando de PowerShell `Remove-AzResourceGroup`. Para quitar un grupo de recursos llamado *MyResourceGroup*, ejecute: 
+Cuando ya no los necesite, puede quitar el grupo de recursos, el firewall y todos los recursos relacionados mediante la ejecución del comando de PowerShell `Remove-AzResourceGroup`. Para quitar un grupo de recursos llamado *MyResourceGroup*, ejecute:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name MyResourceGroup

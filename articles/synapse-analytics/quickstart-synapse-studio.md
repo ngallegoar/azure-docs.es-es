@@ -1,5 +1,5 @@
 ---
-title: Uso de Synapse Studio (versión preliminar)
+title: 'Inicio rápido: Uso de Synapse Studio'
 description: En este artículo de inicio rápido, verá y aprenderá lo fácil que es consultar diversos tipos de archivos mediante Synapse Studio.
 services: synapse-analytics
 author: jovanpop-msft
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 182c6a20af51508c357079b9542b2bda695fdae4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 271fd77e519ce9d78e2fa4e4837004a77cf73522
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658516"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276063"
 ---
 # <a name="quickstart-use-synapse-studio-preview"></a>Inicio rápido: Uso de Synapse Studio (versión preliminar)
 
@@ -26,7 +26,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 [Cree un área de trabajo de Azure Synapse y una cuenta de almacenamiento asociada](quickstart-create-workspace.md).
 

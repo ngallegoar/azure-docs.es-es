@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
-ms.openlocfilehash: e4ea76a888ba51b3560139e9efc3df512c4fbadf
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 118e1e49393a797a065f1e9968a83a6d4464868e
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120949"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171047"
 ---
 # <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>Inicio rápido: Inicio de una aplicación de Azure Spring Cloud existente desde Azure Portal
 
@@ -43,14 +43,6 @@ Para completar esta guía de inicio rápido:
 3. [Instalación de Maven 3.0, o cualquier versión superior](https://maven.apache.org/download.cgi)
 4. [Instalación de la CLI de Azure versión 2.0.67 o superior](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 5. [Registro para obtener una suscripción a Azure](https://azure.microsoft.com/free/)
-
-## <a name="install-the-azure-cli-extension"></a>Instalación de la extensión de la CLI de Azure
-
-Instale la extensión de Azure Spring Cloud para la CLI de Azure, para lo cual debe usar el siguiente comando
-
-```azurecli
-az extension add --name spring-cloud
-```
 
 ## <a name="provision-a-service-instance-on-the-azure-portal"></a>Aprovisionamiento de una instancia de servicio en Azure Portal
 
@@ -112,7 +104,7 @@ El servicio tarda aproximadamente 5 minutos en implementarse.  Una vez implemen
 
 ## <a name="build-and-deploy-microservice-applications"></a>Compilación e implementación de aplicaciones de microservicios
 
-1. Abra una instancia de [Azure Cloud Shell](https://shell.azure.com) y clone el repositorio de la aplicación de ejemplo en la máquina local.  Aquí, primero se crea un directorio temporal denominado `source-code` antes de clonar la aplicación.
+1. Abra una instancia de [Azure Cloud Shell](https://shell.azure.com) o el shell local con la CLI de Azure instalada. Aquí, primero se crea un directorio temporal denominado `source-code` antes de clonar la aplicación de ejemplo.
 
     ```console
     mkdir source-code
@@ -127,18 +119,20 @@ El servicio tarda aproximadamente 5 minutos en implementarse.  Una vez implemen
     mvn clean package -DskipTests
     ```
 
-3. Asigne nombres a su grupo de recursos y a su servicio. Asegúrese de sustituir los marcadores de posición siguientes por el nombre del grupo de recursos y el nombre del servicio que aprovisionó anteriormente en este tutorial.
+3. Instale la extensión de Azure Spring Cloud para la CLI de Azure, para lo cual debe usar el siguiente comando
+
+    ```azurecli
+    az extension add --name spring-cloud
+    ```
+
+4. Asigne nombres a su grupo de recursos y a su servicio. Asegúrese de sustituir los marcadores de posición siguientes por el nombre del grupo de recursos y el nombre del servicio que aprovisionó anteriormente en este tutorial.
 
     ```azurecli
     az configure --defaults group=<resource group name>
     az configure --defaults spring-cloud=<service instance name>
     ```
 
-4. Cree la aplicación `gateway` e implemente el archivo JAR.  Los pasos siguientes requieren la extensión de Spring Cloud. Si no la instaló con los requisitos previos, ejecute el siguiente comando:
-
-    ```azurecli
-    az extension add --name spring-cloud
-    ```
+5. Cree la aplicación `gateway` e implemente el archivo JAR.
 
     Con la extensión de Spring Cloud, cree la aplicación:
 
@@ -147,7 +141,7 @@ El servicio tarda aproximadamente 5 minutos en implementarse.  Una vez implemen
     az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar
     ```
 
-5. Siguiendo el mismo patrón, cree las aplicaciones `account-service` y `auth-service`, e implemente sus archivos JAR.
+6. Siguiendo el mismo patrón, cree las aplicaciones `account-service` y `auth-service`, e implemente sus archivos JAR.
 
     ```azurecli
     az spring-cloud app create -n account-service
@@ -156,7 +150,7 @@ El servicio tarda aproximadamente 5 minutos en implementarse.  Una vez implemen
     az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar
     ```
 
-6. La implementación de las aplicaciones tarda unos minutos en completarse. Para confirmar que se han implementado, vaya a la hoja **Aplicaciones** de Azure Portal. Debería ver una línea de cada una de las tres aplicaciones.
+7. La implementación de las aplicaciones tarda unos minutos en completarse. Para confirmar que se han implementado, vaya a la hoja **Aplicaciones** de Azure Portal. Debería ver una línea de cada una de las tres aplicaciones.
 
 > [!div class="nextstepaction"]
 > [He tenido un problema](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=deploy)

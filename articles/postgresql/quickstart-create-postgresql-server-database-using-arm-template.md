@@ -7,18 +7,22 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/14/2020
-ms.openlocfilehash: 28671484460407efac8798505f630c13ec0b4918
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 5bdcbe620e88700c5607162cd2471f6b2c3e7532
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84325089"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86132826"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>Inicio rápido: Uso de una plantilla de Resource Manager para crear una instancia de Azure Database for PostgreSQL: un solo servidor
 
-Azure Database for PostgreSQL es un servicio administrado que usa para ejecutar, administrar y escalar bases de datos de PostgreSQL de alta disponibilidad en la nube. En este inicio rápido se usa una plantilla de Resource Manager para crear una instancia de Azure Database for PostgreSQL: un solo servidor en Azure Portal, PowerShell o la CLI de Azure.
+Azure Database for PostgreSQL es un servicio administrado que usa para ejecutar, administrar y escalar bases de datos de PostgreSQL de alta disponibilidad en la nube. En este inicio rápido se usa una plantilla de Azure Resource Manager para crear una instancia de Azure Database for PostgreSQL: servidor único en Azure Portal, PowerShell o la CLI de Azure.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -38,11 +42,9 @@ Una cuenta de Azure con una suscripción activa. [cree una de forma gratuita](ht
 
 ---
 
-## <a name="create-an-azure-database-for-postgresql-server"></a>Creación de un servidor de Azure Database for PostgreSQL
+## <a name="review-the-template"></a>Revisión de la plantilla
 
 Cree un servidor de Azure Database for PostgreSQL con un conjunto configurado de recursos de proceso y almacenamiento. Para más información, consulte [Planes de tarifa en Azure Database for PostgreSQL: un solo servidor](concepts-pricing-tiers.md). Cree el servidor dentro en un [grupo de recursos de Azure](../azure-resource-manager/management/overview.md).
-
-### <a name="review-the-template"></a>Revisión de la plantilla
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-managed-postgresql-with-vnet/).
 
@@ -58,7 +60,7 @@ La plantilla define cinco recursos de Azure:
 
 Puede encontrar más ejemplos de plantillas de Azure Database for PostgreSQL en [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql&pageNumber=1&sort=Popular).
 
-### <a name="deploy-the-template"></a>Implementación de la plantilla
+## <a name="deploy-the-template"></a>Implementación de la plantilla
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -210,4 +212,4 @@ read -p "Press [ENTER] to continue: "
 Para obtener un tutorial paso a paso que le guíe en el proceso de creación de una plantilla, consulte:
 
 > [!div class="nextstepaction"]
-> [ Tutorial: Creación e implementación de la primera plantilla de Azure Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [ Tutorial: Creación e implementación de su primera plantilla de Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

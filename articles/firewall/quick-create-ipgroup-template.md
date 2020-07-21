@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Creación de una instancia de Azure Firewall y grupos de IP: plantilla de Resource Manager'
-description: Aprenda a usar una plantilla de Resource Manager para crear una instancia de Azure Firewall y grupos de IP.
+description: Aprenda a usar las plantillas de Azure Resource Manager para crear una instancia de Azure Firewall y grupos de IP.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,28 +8,30 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/06/2020
 ms.author: victorh
-ms.openlocfilehash: 403aaafebcae680f337aeff551b81a80a9549252
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 5ac1248ddcdf8c0eef68b7c32e322398fa01a6f2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680566"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260573"
 ---
-# <a name="quickstart-create-an-azure-firewall-and-ip-groups---resource-manager-template"></a>Inicio rápido: Creación de una instancia de Azure Firewall y grupos de IP: plantilla de Resource Manager
+# <a name="quickstart-create-an-azure-firewall-and-ip-groups---arm-template"></a>Inicio rápido: Creación de una instancia de Azure Firewall y grupos de IP: plantilla de Resource Manager
 
-En este inicio rápido, se va a usar una plantilla de Resource Manager para implementar una instancia de Azure Firewall con grupos de IP de ejemplo usados en una regla de red y una regla de aplicación. Un grupo de IP es un recurso de nivel superior que le permite definir y agrupar direcciones IP, intervalos y subredes en un único objeto. Resulta útil para administrar direcciones IP en reglas de Azure Firewall. Puede especificar manualmente las direcciones IP o importarlas desde un archivo.
+En este inicio rápido, se va a usar una plantilla de Azure Resource Manager para implementar una instancia de Azure Firewall con grupos de IP de ejemplo usados en una regla de red y una regla de aplicación. Un grupo de IP es un recurso de nivel superior que le permite definir y agrupar direcciones IP, intervalos y subredes en un único objeto. Resulta útil para administrar direcciones IP en reglas de Azure Firewall. Puede especificar manualmente las direcciones IP o importarlas desde un archivo.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-create-with-ipgroups-and-linux-jumpbox%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-an-azure-firewall-and-ip-groups"></a>Creación de una instancia de Azure Firewall y grupos de IP
+## <a name="review-the-template"></a>Revisión de la plantilla
 
 Esta plantilla crea una instancia de Azure Firewall y grupos de IP, junto con los recursos necesarios para admitir Azure Firewall.
-
-### <a name="review-the-template"></a>Revisión de la plantilla
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox).
 
@@ -47,7 +49,7 @@ En la plantilla se definen varios recursos de Azure:
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines):
 - [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
 
-### <a name="deploy-the-template"></a>Implementación de la plantilla
+## <a name="deploy-the-template"></a>Implementación de la plantilla
 
 Implementación de la plantilla de Resource Manager en Azure:
 
@@ -76,7 +78,7 @@ En Azure Portal, revise los recursos implementados, especialmente las reglas de 
 
 :::image type="content" source="media/quick-create-ipgroup-template/network-rule.png" alt-text="Reglas de red."::::
 
-Para información sobre la sintaxis y las propiedades de JSON de un firewall en una plantilla, consulte la [referencia de plantilla de Microsoft.Network/azureFirewalls](https://docs.microsoft.com/azure/templates/Microsoft.Network/2019-11-01/azureFirewalls).
+Para información sobre la sintaxis y las propiedades de JSON de un firewall en una plantilla, consulte la [referencia de plantilla de Microsoft.Network/azureFirewalls](/azure/templates/Microsoft.Network/2019-11-01/azureFirewalls).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

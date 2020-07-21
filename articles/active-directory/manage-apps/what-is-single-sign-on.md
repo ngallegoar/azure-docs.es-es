@@ -12,12 +12,12 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a50f2cf6fc00189c8cc764a132b550153b80b52e
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: b7b2a75bff21825a47f4364a8936ee7d5f122c1a
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144603"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223897"
 ---
 # <a name="what-is-single-sign-on-sso"></a>¿Qué es el inicio de sesión único (SSO)?
 
@@ -90,6 +90,9 @@ Elija el inicio de sesión único basado en contraseñas si:
 - Una aplicación no admite el protocolo de inicio de sesión único de SAML.
 - Una aplicación se autentica con un nombre de usuario y una contraseña en lugar de con tokens de acceso y encabezados.
 
+>[!NOTE]
+>No se pueden aplicar directivas de acceso condicional ni la autenticación multifactor para el inicio de sesión único basado en contraseña.
+
 Se admite el inicio de sesión único basado en contraseñas para cualquier aplicación basada en la nube cuya página de inicio de sesión esté basada en HTML. Puede utilizar cualquiera de los siguientes exploradores:
 
 - Internet Explorer 11 en Windows 7 o posterior
@@ -136,6 +139,9 @@ El inicio de sesión único vinculado permite a Azure AD proporcionar inicio de 
 El inicio de sesión vinculado puede proporcionar una experiencia de usuario coherente durante la migración de aplicaciones durante un período de tiempo. Si va a migrar aplicaciones a Azure Active Directory, puede usar un inicio de sesión vinculado para publicar rápidamente los vínculos a todas las aplicaciones que pretende migrar.  Los usuarios pueden encontrar todos los vínculos en el [portal Mis aplicaciones](../user-help/active-directory-saas-access-panel-introduction.md) o en el [iniciador de aplicaciones de Office 365](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Los usuarios no saben que están accediendo a una aplicación vinculada o una aplicación migrada.  
 
 Una vez que el usuario se ha autenticado con una aplicación vinculada, se debe crear un registro de cuenta antes de proporcionar al usuario final el acceso de inicio de sesión único. El aprovisionamiento de este registro de cuenta puede producirse automáticamente o bien lo puede realizar manualmente un administrador.
+
+>[!NOTE]
+>No se pueden aplicar directivas de acceso condicional ni la autenticación multifactor a una aplicación vinculada. Esto se debe a que las aplicaciones vinculadas no proporcionan funcionalidades de inicio de sesión único mediante Azure AD. Al configurar una aplicación vinculada, simplemente se agrega un vínculo que aparecerá en el iniciador de aplicaciones o en el portal Aplicaciones. 
 
 ## <a name="disabled-sso"></a>Inicio de sesión único deshabilitado
 

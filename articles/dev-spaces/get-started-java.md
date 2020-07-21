@@ -8,12 +8,12 @@ ms.topic: tutorial
 description: En este tutorial se muestra cómo usar Azure Dev Spaces y Visual Studio Code para depurar e iterar rápidamente una aplicación Java en Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: c71471d1a89188a065bafef2c5b6372aeff35851
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 5616e92d64854d145c30aa3fd32bf61d65ca4221
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80240531"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224322"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>Creación de un espacio de desarrollo de Kubernetes: Visual Studio Code y Java con Azure Dev Spaces
 
@@ -171,7 +171,7 @@ Pero hay un método *más rápido* para desarrollar código, que se verá en la 
 
 En esta sección, usará VS Code para depurar directamente el contenedor que se ejecuta en Azure. También aprenderá a obtener un bucle de edición-ejecución-prueba más rápido.
 
-![](media/common/edit-refresh-see.png)
+![Diagrama que muestra el código de edición, el contenedor de actualización y el mensaje para ver el ciclo de actualización.](media/common/edit-refresh-see.png)
 
 > [!Note]
 > **Si se queda bloqueado** en cualquier momento, consulte la sección [Solución de problemas](troubleshooting.md) o publique un comentario en esta página.
@@ -183,13 +183,13 @@ Abra la **Paleta de comandos** (mediante el menú **Vista | Paleta de comandos**
 
 Esto agrega la configuración de depuración para los espacios de Azure Dev Spaces en la carpeta `.vscode`. Este comando no se debe confundir con el comando `azds prep`, que configura el proyecto para la implementación.
 
-![](media/common/command-palette.png)
+![Captura de pantalla que muestra la opción Azure Dev Spaces en la paleta de comandos de VS Code](media/common/command-palette.png)
 
 ### <a name="select-the-azds-debug-configuration"></a>Selección de la configuración de depuración de AZDS
 1. Para abrir la vista de depuración, haga clic en el icono de depuración en la **barra de actividad** en el lateral de VS Code.
 1. Seleccione **Launch Java Program (AZDS)** [Iniciar programa Java (AZDS)] como la configuración de depuración activa.
 
-![](media/get-started-java/debug-configuration.png)
+![Captura de pantalla de la característica de depuración de VS Code con la opción Iniciar programa Java que se describe en rojo.](media/get-started-java/debug-configuration.png)
 
 > [!Note]
 > Si no ve ningún comando de Azure Dev Spaces en la paleta de comandos, asegúrese de haber instalado la extensión de Visual Studio Code para Azure Dev Spaces. Asegúrese de que el área de trabajo que abre en VS Code es la carpeta que contiene `azds.yaml`.
@@ -202,7 +202,7 @@ De forma similar al comando `up`, el código se sincroniza con el espacio de des
 > [!Tip]
 > La barra de estado de VS Code se volverá de color naranja, lo que indica que el depurador se ha asociado. También mostrará una dirección URL interactiva, que puede usar para abrir la aplicación.
 
-![](media/common/vscode-status-bar-url.png)
+![Captura de pantalla de la barra de estado de VS Code una vez que se ha vuelto naranja.](media/common/vscode-status-bar-url.png)
 
 Establezca un punto de interrupción en un archivo de código del lado servidor, por ejemplo en la función `greeting()` del archivo de origen `src/main/java/com/ms/sample/webfrontend/Application.java`. Al actualizar la página del navegador, el punto de interrupción se activa.
 
@@ -220,7 +220,7 @@ public String greeting()
 
 Guarde el archivo y, en el **panel de acciones de depuración**, haga clic en el botón **Reiniciar**.
 
-![](media/common/debug-action-refresh.png)
+![Captura de pantalla del panel de acciones de depuración de VS Code con la opción de reinicio que se describe en rojo.](media/common/debug-action-refresh.png)
 
 En lugar de volver a crear e implementar una nueva imagen de contenedor cada vez que se realizan modificaciones en el código, lo que a menudo lleva un tiempo considerable, Azure Dev Spaces volverá a compilar el código de manera incremental dentro del contenedor existente para proporcionar un bucle de modificación/depuración más rápido.
 

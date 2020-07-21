@@ -3,14 +3,15 @@ title: Publicación de la aplicación administrada del catálogo de servicios
 description: Se explica cómo crear una aplicación administrada de Azure diseñada para los miembros de su organización.
 author: tfitzmac
 ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 04/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 47eda62810b1098fcaca5b734be4f74edc0db49a
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: d0a3e2a435be679a2a35941dfa24978ae77291b0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82609364"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249043"
 ---
 # <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Inicio rápido: Creación y publicación de una definición de aplicación administrada
 
@@ -20,15 +21,15 @@ Para publicar una aplicación administrada en el catálogo de servicios, debe ha
 
 * Cree una plantilla que defina los recursos que va a implementar con la aplicación administrada.
 * Defina los elementos de la interfaz de usuario del portal cuando implemente la aplicación administrada.
-* Cree un paquete .zip que contenga los archivos de plantilla necesarios.
+* Cree un paquete _.zip_ que contenga los archivos de plantilla necesarios.
 * Decida qué usuario, grupo o aplicación necesita acceder al grupo de recursos en la suscripción del usuario.
-* Cree la definición de aplicación administrada que apunta al paquete .zip y solicita acceso para la identidad.
+* Cree la definición de aplicación administrada que apunte al paquete _.zip_ y solicite la identidad de acceso.
 
 ## <a name="create-the-arm-template"></a>Creación de la plantilla de Resource Manager
 
-Todas las definiciones de aplicaciones administradas incluyen un archivo denominado **mainTemplate.json**. En él, se definen los recursos de Azure que desea implementar. La plantilla no difiere de una plantilla habitual de Azure Resource Manager (ARM).
+Todas las definiciones de aplicaciones administradas incluyen un archivo denominado _mainTemplate.json_. En él, se definen los recursos de Azure que desea implementar. La plantilla no es diferente de una plantilla de Resource Manager normal.
 
-Cree un archivo denominado **mainTemplate.json**. El nombre distingue mayúsculas de minúsculas.
+Cree un archivo denominado _mainTemplate.json_. El nombre distingue mayúsculas de minúsculas.
 
 Agregue el siguiente JSON al archivo. Define los parámetros para crear una cuenta de almacenamiento y especifica las propiedades de la cuenta de almacenamiento.
 
@@ -73,13 +74,13 @@ Agregue el siguiente JSON al archivo. Define los parámetros para crear una cuen
 }
 ```
 
-Guarde el archivo mainTemplate.json.
+Guarde el archivo _mainTemplate.json_.
 
 ## <a name="define-your-create-experience"></a>Definición de la experiencia de creación
 
-Como publicador, defina la experiencia del portal para crear la aplicación administrada. El archivo **createUiDefinition.json** genera la interfaz del portal. Defina cómo los usuarios proporcionan la entrada para cada parámetro mediante [elementos de control](create-uidefinition-elements.md), incluidas las listas desplegables, los cuadros de texto y los cuadros de contraseña.
+Como publicador, defina la experiencia del portal para crear la aplicación administrada. El archivo _createUiDefinition.json_ genera la interfaz del portal. Defina cómo los usuarios proporcionan la entrada para cada parámetro mediante [elementos de control](create-uidefinition-elements.md), incluidas las listas desplegables, los cuadros de texto y los cuadros de contraseña.
 
-Cree un archivo denominado **createUiDefinition.json** (distingue mayúsculas de minúsculas).
+Cree un archivo denominado _createUiDefinition.json_ (distingue mayúsculas de minúsculas).
 
 Agregue el siguiente código de inicio JSON y guárdelo.
 
@@ -136,7 +137,7 @@ Para más información, consulte [Introducción a CreateUiDefinition](create-uid
 
 ## <a name="package-the-files"></a>Empaquetado de los archivos
 
-Agregue los dos archivos a un archivo .zip denominado app.zip. Los dos archivos tienen que estar en el nivel raíz del archivo ZIP. Si los coloca en una carpeta, recibe un error al crear la definición de aplicación administrada que indica que los archivos requeridos no están presentes.
+Agregue los dos archivos a un archivo _.zip_ denominado _app.zip_. Los dos archivos tienen que estar en el nivel raíz del archivo _.zip_. Si los coloca en una carpeta, recibe un error al crear la definición de aplicación administrada que indica que los archivos requeridos no están presentes.
 
 Cargue el paquete en una ubicación accesible desde donde pueda consumirse. Deberá proporcionar un nombre único para la cuenta de almacenamiento.
 
@@ -291,14 +292,14 @@ Algunos de los parámetros usados en el ejemplo anterior son:
 * **grupo de recursos**: El nombre del grupo de recursos donde se creó la definición de aplicación administrada.
 * **nivel de bloqueo**: El tipo de bloqueo aplicado al grupo de recursos administrado. Impide que el cliente realice operaciones no deseadas en este grupo de recursos. Actualmente, ReadOnly es el único nivel de bloqueo admitido. Cuando se especifica ReadOnly, el cliente solo puede leer los recursos presentes en el grupo de recursos administrado. Las identidades del publicador a las que se concede acceso al grupo de recursos administrados están exentas del bloqueo.
 * **authorizations**: Describe el identificador de entidad de seguridad y el identificador de definición de rol que se usan para conceder el permiso al grupo de recursos administrado. Se especifica en el formato `<principalId>:<roleDefinitionId>`. Si se necesita más de un valor, especifíquelos en el formulario `<principalId1>:<roleDefinitionId1>,<principalId2>:<roleDefinitionId2>`. Los valores van separados por una coma.
-* **URI del archivo de paquete**: La ubicación de un paquete .zip que contiene los archivos necesarios.
+* **URI del archivo de paquete**: La ubicación de un paquete _.zip_ que contiene los archivos necesarios.
 
 ## <a name="bring-your-own-storage-for-the-managed-application-definition"></a>Traiga su propio almacenamiento para la definición de aplicación administrada
 
 Puede optar por almacenar la definición de aplicación administrada en la cuenta de almacenamiento que proporcionara durante la creación para poder administrar totalmente su ubicación y acceso en función de las necesidades regulatorias aplicables.
 
 > [!NOTE]
-> Traiga su propio almacenamiento solo es compatible con las implementaciones de la plantilla de ARM o la API REST de la definición de aplicación administrada.
+> La opción para traer su propio almacenamiento solo es compatible con las implementaciones de la plantilla de Resource Manager o de la API REST de la definición de aplicación administrada.
 
 ### <a name="select-your-storage-account"></a>Selección de la cuenta de almacenamiento
 
@@ -317,9 +318,9 @@ Para que la definición de aplicación administrada pueda implementarse en la cu
 1. En **Seleccionar**, busque el rol **Appliance Resource Provider** y selecciónelo.
 1. Guarde la asignación de roles.
 
-### <a name="deploy-the-managed-application-definition-with-an-arm-template"></a>Implementación de la definición de aplicación administrada con una plantilla de ARM 
+### <a name="deploy-the-managed-application-definition-with-an-arm-template"></a>Implementación de la definición de aplicación administrada con una plantilla de Resource Manager
 
-Use la plantilla de ARM siguiente para implementar la aplicación administrada empaquetada como una definición de aplicación administrada nueva en el catálogo de servicios cuyos archivos de definición se guardan y mantienen en la cuenta de almacenamiento del usuario:
+Use la plantilla de Resource Manager siguiente para implementar la aplicación administrada empaquetada como una definición de aplicación administrada nueva en el catálogo de servicios cuyos archivos de definición se guardan y mantienen en la cuenta de almacenamiento del usuario:
    
 ```json
     {
@@ -391,9 +392,9 @@ Use la plantilla de ARM siguiente para implementar la aplicación administrada e
 }
 ```
 
-Se ha agregado una nueva propiedad llamada **storageAccountId** a las propiedades de applicationDefintion y se proporciona el identificador de la cuenta de almacenamiento en donde almacenar la definición como valor:
+Se ha agregado una nueva propiedad llamada `storageAccountId` a las propiedades de `applicationDefinitions` y se proporciona como valor el identificador de la cuenta de almacenamiento en donde almacenar la definición:
 
-Puede comprobar que los archivos de definición de aplicación se guardan en la cuenta de almacenamiento proporcionada en un contenedor titulado **applicationdefinitions**.
+Puede comprobar que los archivos de definición de aplicación se guardan en la cuenta de almacenamiento proporcionada en un contenedor titulado `applicationDefinitions`.
 
 > [!NOTE]
 > Para mayor seguridad, puede crear una definición de aplicación administrada y almacenarla en un [blob de cuenta de almacenamiento de Azure con el cifrado habilitado](../../storage/common/storage-service-encryption.md). El contenido de la definición se cifra mediante las opciones de cifrado de la cuenta de almacenamiento. Solo los usuarios con permisos para el archivo pueden ver la definición en el catálogo de servicios.
