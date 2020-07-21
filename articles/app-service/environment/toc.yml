@@ -46,6 +46,8 @@
       href: forced-tunnel-support.md
     - name: Integración de Firewall
       href: firewall-integration.md
+    - name: Redundancia de zona
+      href: zone-redundancy.md
 - name: Referencia
   items:
     - name: Direcciones de administración
@@ -83,7 +85,7 @@
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/app-service/'
     - name: Información de cuota
-      href: '../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits'
+      href: ../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
     - name: Actualizaciones del servicio
       href: 'https://azure.microsoft.com/updates/?product=app-service'
     - name: Procedimientos recomendados
