@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 06/18/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c1246c2d3a58ad29503c0767b5c4af303d1f0c54
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3814711f090a7d996271f8fa5bef9ff1394d135a
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957493"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276590"
 ---
 # <a name="what-is-azure-private-link"></a>¿Qué es Azure Private Link? 
 Azure Private Link le permite acceder a los servicios PaaS de Azure (por ejemplo, Azure Storage y SQL Database) y a los servicios hospedados en Azure que son propiedad de los clientes, o a los servicios de asociados, a través de un [punto de conexión privado](private-endpoint-overview.md) de la red virtual.
@@ -48,7 +48,7 @@ Azure Private Link proporciona las ventajas siguientes:
 |  Azure SQL Database         | Todas las regiones públicas      |  Compatible con la [directiva de conexión](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) de proxy | Disponibilidad general <br/> [Más información](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
 |Azure Synapse Analytics (SQL Data Warehouse)| Todas las regiones públicas |  Compatible con la [directiva de conexión](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) de proxy |Disponibilidad general <br/> [Más información](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
 |Azure Cosmos DB|  Todas las regiones públicas | |Disponibilidad general <br/> [Más información](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
-|  Azure Database for PostgreSQL: servidor único         | Todas las regiones públicas      |  | Disponibilidad general <br/> [Más información](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
+|  Azure Database for PostgreSQL: servidor único         | Todas las regiones públicas      | Compatible con los planes de tarifa Uso general y Optimizado para memoria | Disponibilidad general <br/> [Más información](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
 |  Azure Database for MySQL         | Todas las regiones públicas      |  | Disponibilidad general <br/> [Más información](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
 |  Azure Database for MariaDB         | Todas las regiones públicas      |  | Disponibilidad general <br/> [Más información](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
 |  Azure Key Vault         | Todas las regiones públicas      |  | Disponibilidad general   <br/> [Más información](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
@@ -61,7 +61,7 @@ Azure Private Link proporciona las ventajas siguientes:
 |Azure Service Bus | Todas las regiones públicas  | Esta característica es compatible con el nivel Premium de Azure Service Bus. [Haga clic para ver los niveles](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging) | Disponibilidad general   <br/> [Más información](https://docs.microsoft.com/azure/service-bus-messaging/private-link-service)    |
 |Azure Relay | Todas las regiones públicas      |  | Versión preliminar <br/> [Más información](https://docs.microsoft.com/azure/service-bus-relay/private-link-service)  |
 |Azure Event Grid| Todas las regiones públicas       |  | Disponibilidad general   <br/> [Más información](https://docs.microsoft.com/azure/event-grid/network-security) |
-|Azure Web Apps | Todas las regiones públicas      |  | Versión preliminar   <br/> [Más información](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
+|Azure Web Apps | Todas las regiones públicas      | Compatible con las funciones PremiumV2 de Windows y Linux y elástico prémium  | Versión preliminar   <br/> [Más información](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
 |Azure Machine Learning | ESTE DE EE. UU., OESTE DE EE. UU. 2, CENTRO DE EE. UU.      |  | Versión preliminar   <br/> [Más información](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
 | Azure Automation  | Todas las regiones públicas |  | Versión preliminar | |
 | Azure IoT Hub | Todas las regiones públicas    |  | Disponibilidad general   <br/> [Más información](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
