@@ -46,8 +46,6 @@
               href: class-type-sql-server.md
             - name: Cuadernos de Python y Jupyter Notebook
               href: class-type-jupyter-notebook.md
-            - name: Desarrollo de aplicaciones móviles con Android Studio
-              href: class-type-mobile-dev-android-studio.md
             - name: Análisis de macrodatos
               href: class-type-big-data-analytics.md
             - name: MATLAB
