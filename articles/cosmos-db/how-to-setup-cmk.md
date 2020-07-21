@@ -28,7 +28,7 @@ Debe almacenar las claves administradas por el cliente en [Azure Key Vault](../
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/), vaya a la suscripción de Azure y seleccione **Proveedores de recursos** en la pestaña **Configuración**:
 
-   :::image type="content" source="./media/how-to-setup-cmk/portal-rp.png" alt-text="Entrada "Proveedores de recursos" en el menú izquierdo":::
+   :::image type="content" source="./media/how-to-setup-cmk/portal-rp.png" alt-text="Entrada Proveedores de recursos en el menú izquierdo":::
 
 1. Busque el proveedor de recursos **Microsoft.DocumentDB**. Compruebe si el proveedor de recursos ya está marcado como registrado. Si no es así, elija el proveedor de recursos y seleccione **Registrar**:
 
@@ -51,7 +51,7 @@ Si usa una instancia de Azure Key Vault existente y desea verificar si estas pro
 
 1. En Azure Portal, vaya a la instancia de Azure Key Vault que planea usar para hospedar las claves de cifrado. Seleccione **Directivas de acceso** en el menú izquierdo:
 
-   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-ap.png" alt-text=""Directivas de acceso" en el menú izquierdo":::
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-ap.png" alt-text="Directivas de acceso en el menú izquierdo":::
 
 1. Seleccione **+ Agregar directiva de acceso**.
 
@@ -69,7 +69,7 @@ Si usa una instancia de Azure Key Vault existente y desea verificar si estas pro
 
 1. En Azure Portal, vaya a la instancia de Azure Key Vault que planea usar para hospedar las claves de cifrado. A continuación, seleccione **Claves** en el menú izquierdo:
 
-   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keys.png" alt-text="Entrada "Claves" en el menú izquierdo":::
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keys.png" alt-text="Entrada Claves en el menú izquierdo":::
 
 1. Seleccione **Generar/Importar**, proporcione un nombre para la nueva clave y seleccione un tamaño de clave RSA. Para mejorar la seguridad, se recomienda un mínimo de 3072. A continuación, seleccione **Crear**:
 
