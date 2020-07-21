@@ -72,6 +72,10 @@
           href: how-to-manage-routes.md
         - name: Integración con Azure Maps
           href: how-to-integrate-maps.md
+    - name: Solución de problemas
+      items:
+        - name: Problemas conocidos
+          href: troubleshoot-known-issues.md
 - name: Referencia
   items:
     - name: Límites del servicio Digital Twins
