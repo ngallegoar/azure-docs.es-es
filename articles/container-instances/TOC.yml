@@ -16,6 +16,8 @@
     - name: 'Implementación de una instancia de contenedor: plantilla de Resource Manager'
       displayName: Resource Manager
       href: container-instances-quickstart-template.md
+    - name: 'Implementación de una instancia de contenedor: CLI de Docker'
+      href: container-instances-quickstart-docker-cli.md
 - name: Tutoriales
   items:
     - name: Creación e implementación de una imagen de contenedor
@@ -94,8 +96,10 @@
           href: container-instances-gpu.md
         - name: Habilitación de un punto de conexión SSL en sidecar
           href: container-instances-container-group-ssl.md
-        - name: Exposición de dirección IP estática
+        - name: "Exposición de una dirección\_IP estática con App Gateway"
           href: container-instances-application-gateway.md
+        - name: Uso de Azure Firewall para la entrada y salida
+          href: container-instances-egress-ip-address.md
     - name: Montaje de volúmenes de datos
       items:
         - name: Recurso compartido de archivos de Azure

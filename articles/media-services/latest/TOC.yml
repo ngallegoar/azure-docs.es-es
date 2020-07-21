@@ -194,7 +194,7 @@
               href: job-error-codes.md
     - name: Alta disponibilidad
       items:
-        - name: Encoding
+        - name: Vídeo bajo demanda
           displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-encoding.md
         - name: Streaming

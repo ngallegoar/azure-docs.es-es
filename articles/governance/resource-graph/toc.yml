@@ -1,6 +1,6 @@
 - name: Documentación de Azure Resource Graph
   href: index.yml
-- name: Introducción
+- name: Información general
   items:
     - name: ¿Qué es Azure Resource Graph?
       displayName: 'Resource Manager, query language, rbac, permissions'
@@ -29,6 +29,9 @@
     - name: 'Ejecución de la primera consulta: Python'
       displayName: 'library, azure-mgmt, cli'
       href: ./first-query-python.md
+    - name: 'Ejecución de la primera consulta: Ruby'
+      displayName: 'gem, azure-mgmt'
+      href: ./first-query-ruby.md
     - name: 'Ejecución de la primera consulta: REST'
       displayName: 'armclient, postman'
       href: ./first-query-rest-api.md

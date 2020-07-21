@@ -13,20 +13,19 @@ ms.topic: sample
 ms.date: 10/31/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 252e7b8d13cf53a98ea1f25b207740c0e623f92c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b5b8c82aa420b62e3b6e68ee53352eb9f77988f2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242974"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506696"
 ---
 # <a name="api-management-policy-samples"></a>Ejemplos de directivas de API Management
 
 Las [directivas](../api-management-howto-policies.md) constituyen una funcionalidad del sistema eficaz que permite al editor cambiar el comportamiento de la API mediante la configuración. Las directivas son una colección de declaraciones que se ejecutan secuencialmente en la solicitud o respuesta de una API. En la tabla siguiente se incluyen vínculos a ejemplos y una breve descripción de cada ejemplo.
 
-|                                                                                                                                                                      |                                                                                                                                                                                                                             |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Directivas de entrada**                                                                                                                                                 |                                                                                                                                                                                                                             |
+| Directivas de entrada | Descripción |
+| ---------------- | ----------- |
 | [Incorporación de un encabezado de reenviado para permitir que la API de back-end cree direcciones URL correctas](./set-header-to-enable-backend-to-construct-urls.md) | Muestra cómo agregar un encabezado de reenviado a la solicitud de entrada para permitir que la API de back-end cree direcciones URL correctas.                                                                                                        |
 | [Incorporación de un encabezado con un identificador de correlación](./add-correlation-id.md)                                                             | Muestra cómo agregar un encabezado con un identificador de correlación para la solicitud de entrada.                                                                                                                                        |
 | [Incorporación de funcionalidades a un servicio back-end y almacenamiento de la respuesta en caché](./cache-response.md)                                             | Muestra cómo agregar funcionalidades a un servicio back-end. Por ejemplo, aceptar el nombre de un lugar en vez de su latitud y longitud en una API de pronóstico meteorológico.                                                                    |
@@ -40,7 +39,7 @@ Las [directivas](../api-management-howto-policies.md) constituyen una funcionali
 | [Enrutamiento de la solicitud en función del tamaño de su cuerpo](./route-requests-based-on-size.md)                                            | Muestra cómo enrutar las solicitudes en función del tamaño de su cuerpo.                                                                                                                                                       |
 | [Envío de información contextual de la solicitud al servicio de back-end](./send-request-context-info-to-backend-service.md)                    | Muestra cómo enviar información contextual al servicio de back-end para el registro o el procesamiento.                                                                                                                                |
 | [Establecimiento de la duración en caché de las respuestas](./set-cache-duration.md)                                                                          | Muestra cómo establecer la duración en caché de las respuestas con el valor maxAge en el encabezado de control de caché que envía el back-end.                                                                                                             |
-| **Directivas de salida**                                                                                                                                                |                                                                                                                                                                                                                             |
+| **Directivas de salida** | **Descripción** |
 | [Filtrado del contenido de la respuesta](./filter-response-content.md)                                                                         | Muestra cómo filtrar los elementos de datos de la carga de respuesta según el producto asociado a la solicitud.                                                                                                        |
-| **Directivas de errores**                                                                                                                                                |                                                                                                                                                                                                                             |
+| **Directivas de errores** | **Descripción** |
 | [Registro de errores en Stackify](./log-errors-to-stackify.md)                                                                           | Muestra cómo agregar una directiva de registro de errores para enviarlos a Stackify para el registro.                                                                                                                                            |

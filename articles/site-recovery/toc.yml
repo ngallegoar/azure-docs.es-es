@@ -62,6 +62,8 @@
           href: tutorial-dr-drill-azure.md
         - name: Conmutación por error a Azure
           href: hyper-v-azure-failover-failback-tutorial.md
+        - name: Habilitación de la replicación local con puntos de conexión privados
+          href: ./hybrid-how-to-enable-replication-private-endpoints.md
     - name: Migración a Azure
       items:
         - name: Preparación de Azure para la replicación local
@@ -186,6 +188,8 @@
               href: azure-to-azure-how-to-enable-replication-s2d-vms.md
             - name: Habilitar la replicación para un disco agregado
               href: azure-to-azure-enable-replication-added-disk.md
+            - name: Habilitación de la replicación con puntos de conexión privados
+              href: ./azure-to-azure-how-to-enable-replication-private-endpoints.md
             - name: Exclusión de discos
               href: azure-to-azure-exclude-disks.md
             - name: Reprotección de máquinas virtuales de Azure después de la conmutación por error
@@ -242,6 +246,8 @@
               href: vmware-azure-set-up-target.md
             - name: Configuración de las opciones de replicación
               href: vmware-azure-set-up-replication.md
+            - name: Habilitación de la replicación local con puntos de conexión privados
+              href: ./hybrid-how-to-enable-replication-private-endpoints.md
             - name: Implementación de Mobility Service
               items:
                 - name: Introducción e instalación de Mobility Service
@@ -308,6 +314,8 @@
               href: physical-azure-set-up-source.md
             - name: Configuración del entorno de destino
               href: vmware-azure-set-up-target.md
+            - name: Habilitación de la replicación local con puntos de conexión privados
+              href: ./hybrid-how-to-enable-replication-private-endpoints.md
             - name: Implementación de Mobility Service
               items:
                 - name: Acerca de la instalación de Mobility Service

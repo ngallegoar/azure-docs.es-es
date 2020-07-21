@@ -6,14 +6,15 @@
       href: devtest-lab-overview.md
     - name: Azure DevTest Labs y Lab Services
       href: lab-services-overview.md
+- name: Guía de inicio rápido
+  items:
+    - name: 'Creación de un laboratorio: plantilla de Resource Manager'
+      displayName: Resource Manager
+      href: create-lab-windows-vm-template.md
 - name: Tutoriales
   items:
     - name: Configuración de un laboratorio
-      items:
-        - name: Usar Azure Portal
-          href: tutorial-create-custom-lab.md
-        - name: Uso de plantillas de Resource Manager
-          href: create-lab-windows-vm-template.md
+      href: tutorial-create-custom-lab.md
     - name: Acceso a un laboratorio
       href: tutorial-use-custom-lab.md
 - name: Ejemplos
@@ -64,6 +65,10 @@
           href: devtest-lab-training-lab.md
         - name: Escenarios de uso de VM reclamables
           href: devtest-lab-use-claim-capabilities.md
+    - name: Seguridad
+      items:
+        - name: Línea de base de seguridad
+          href: security-baseline.md
 - name: Guías paso a paso
   items:
     - name: Configuración de un laboratorio
@@ -122,18 +127,26 @@
           href: personal-data-delete-export.md
     - name: Uso de máquinas virtuales en un laboratorio
       items:
-        - name: 'Creación de una máquina virtual: Azure Portal'
-          href: devtest-lab-add-vm.md
-        - name: 'Creación de una máquina virtual: Azure PowerShell'
-          href: devtest-lab-vm-powershell.md
-        - name: 'Creación de una máquina virtual: CLI de Azure'
-          href: devtest-lab-vmcli.md
-        - name: 'Creación de una máquina virtual: Plantilla de Resource Manager'
-          href: devtest-lab-use-resource-manager-template.md
-        - name: Creación de una máquina virtual con una imagen de la galería de imágenes compartidas
-          href: add-vm-use-shared-image.md
-        - name: Conexión a la máquina virtual mediante un explorador
-          href: connect-virtual-machine-through-browser.md
+        - name: Crear una VM
+          items:
+            - name: Azure portal
+              href: devtest-lab-add-vm.md
+            - name: Azure PowerShell
+              href: devtest-lab-vm-powershell.md
+            - name: Azure CLI
+              href: devtest-lab-vmcli.md
+            - name: Plantilla de Resource Manager
+              href: devtest-lab-use-resource-manager-template.md
+            - name: Creación de una máquina virtual con una imagen de la galería de imágenes compartidas
+              href: add-vm-use-shared-image.md
+        - name: Conexión a una máquina virtual
+          items:
+            - name: Conexión a una máquina virtual Windows
+              href: connect-windows-virtual-machine.md
+            - name: Conexión a una máquina virtual Linux
+              href: connect-linux-virtual-machine.md
+            - name: Conexión a la máquina virtual mediante un explorador
+              href: connect-virtual-machine-through-browser.md
         - name: Inicio o detención de una máquina virtual mediante PowerShell o la CLI
           href: use-command-line-start-stop-virtual-machines.md
         - name: Reinicio de una máquina virtual
@@ -263,6 +276,12 @@
           href: troubleshoot-vm-environment-creation-failures.md
         - name: Solución de errores de artefactos
           href: devtest-lab-troubleshoot-artifact-failure.md
+    - name: Supervisión
+      items:
+        - name: Visualización de registros de actividad
+          href: activity-logs.md
+        - name: Creación de alertas del registro de actividad
+          href: create-alerts.md
 - name: Referencia
   items:
     - name: CLI

@@ -1,0 +1,56 @@
+- name: Documentación del Centro de Education de Azure
+  href: ./index.yml
+- name: Información general
+  items:
+    - name: ¿Qué es el Centro de Education?
+      href: about-education-hub.md
+- name: Guías de inicio rápido
+  items:
+    - name: Acceso al Centro de Education
+      href: access-education-hub.md
+    - name: Introducción al Centro de Education
+      href: get-started-education-hub.md
+    - name: Configuración de un curso y creación de una aula
+      href: set-up-course-classroom.md
+- name: Guías paso a paso
+  items:
+    - name: Administración de la concesión académica
+      href: hub-overview-page.md
+    - name: Creación de una asignación y asignación de un crédito
+      href: create-assignment-allocate-credit.md
+- name: Soporte técnico
+  items:
+    - name: Departamento de servicios
+      href: educator-service-desk.md
+- name: Azure Dev Tools for Teaching
+  items:
+    - name: Información general
+      items:
+        - name: Azure Dev Tools for Teaching
+          href: azure-dev-tools-teaching/about-program.md
+        - name: Azure for Students
+          href: azure-dev-tools-teaching/azure-students-program.md
+        - name: Paquete de inicio de Azure for Students
+          href: azure-dev-tools-teaching/azure-students-starter-program.md
+    - name: Guías de inicio rápido
+      items:
+        - name: Inscripción o renovación de una suscripción
+          href: azure-dev-tools-teaching/enroll-renew-subscription.md
+        - name: Configuración del acceso
+          href: azure-dev-tools-teaching/set-up-access.md
+    - name: Guías paso a paso
+      items:
+        - name: Administración de estudiantes
+          href: azure-dev-tools-teaching/manage-students.md
+        - name: Descarga de software
+          href: azure-dev-tools-teaching/download-software.md
+    - name: Solución de problemas
+      items:
+        - name: Errores de inicio de sesión
+          href: azure-dev-tools-teaching/troubleshoot-login.md
+- name: Recursos
+  items:
+    - name: Preguntas más frecuentes
+      href: azure-dev-tools-teaching/program-faq.md
+    - name: Soporte técnico
+      href: azure-dev-tools-teaching/program-support.md
