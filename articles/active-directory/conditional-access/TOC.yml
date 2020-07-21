@@ -47,8 +47,6 @@
       href: controls.md
     - name: Migraciones con directiva clásica
       href: policy-migration.md
-    - name: Directivas de protección básicas
-      href: concept-baseline-protection.md
 - name: Guías paso a paso
   expanded: true
   items:
