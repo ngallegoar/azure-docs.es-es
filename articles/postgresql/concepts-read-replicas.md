@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/24/2020
-ms.openlocfilehash: 0d678d900ec31b00d27eba19617d533c5010c1dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/10/2020
+ms.openlocfilehash: f2f752d6435b311c1737d531f5572aed5af223f2
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368009"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276658"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas de lectura en Azure Database for PostgreSQL: servidor único
 
@@ -161,12 +161,14 @@ El servidor debe reiniciarse después de un cambio de este parámetro. Intername
 Las réplicas de lectura se crean como nuevos servidores Azure Database for PostgreSQL. Un servidor no puede volver a convertirse en una réplica. No se puede crear una réplica de otra réplica de lectura.
 
 ### <a name="replica-configuration"></a>Configuración de réplicas
-Una réplica se crea con la misma configuración de proceso y almacenamiento que el servidor maestro. Después de crear una réplica, se pueden cambiar varias configuraciones independientemente del servidor maestro: generación de proceso, núcleos virtuales, almacenamiento y período de retención de copia de seguridad. El plan de tarifa también se puede cambiar de forma independiente, excepto si es con origen o destino en el nivel Básico.
+Una réplica se crea con la misma configuración de proceso y almacenamiento que el servidor maestro. Una vez creada una réplica, se pueden cambiar varias configuraciones, incluido el período de retención de almacenamiento y copia de seguridad.
+
+Los núcleos virtuales y el plan de tarifa también se pueden cambiar en la réplica en las siguientes condiciones:
+* PostgreSQL requiere que el valor del parámetro `max_connections` en la réplica de lectura sea mayor o igual que el valor principal; en caso contrario, no se iniciará la réplica. En Azure Database for PostgreSQL, el valor del parámetro `max_connections` se basa en la SKU (núcleos virtuales y plan de tarifa). Para obtener más información, consulte el artículo de [límites de Azure Database for PostgreSQL](concepts-limits.md). 
+* No es admite el escalado a ni desde el plan de tarifa Básico.
 
 > [!IMPORTANT]
 > Antes de actualizar una configuración del servidor maestro con un nuevo valor, actualice la configuración de la réplica con un valor igual o superior. Esta acción garantiza que la réplica puede hacer frente a los cambios realizados en el servidor maestro.
-
-PostgreSQL requiere que el valor del parámetro `max_connections` en la réplica de lectura sea mayor o igual que el valor principal; en caso contrario, no se iniciará la réplica. En Azure Database for PostgreSQL, el valor del parámetro `max_connections` se basa en la SKU. Para obtener más información, consulte el artículo de [límites de Azure Database for PostgreSQL](concepts-limits.md). 
 
 Si trata de actualizar los valores del servidor descritos previamente, pero no cumple los límites, recibirá un error.
 

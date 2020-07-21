@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: ee81b391587b994bd79e9f0950d041de70153b5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 926a1867a77b543057fa1de170cdb64ccfefe7cb
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488804"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218282"
 ---
 Cuando se utiliza la versión regional de Integración con red virtual, la aplicación puede acceder a:
 
@@ -41,7 +41,7 @@ Si enruta todo el tráfico de salida a la VNet, este estará sujeto a los grupos
 Existen algunas limitaciones cuando se la característica Integración con red virtual se utiliza con redes virtuales que están en la misma región:
 
 * No se puede acceder a los recursos en las conexiones de emparejamiento global.
-* La característica solo está disponible en las unidades de escalado de Azure App Service más recientes que admiten planes PremiumV2 de App Service.
+* La característica solo está disponible en las unidades de escalado de Azure App Service más recientes que admiten planes PremiumV2 de App Service. Tenga en cuenta que *esto no significa que la aplicación deba ejecutarse con una tarifa de precios PremiumV2*, solo que se debe ejecutar en un plan de App Service en el que esté disponible la opción PremiumV2 (lo que implica que se trata de una unidad de escalado más reciente donde también está disponible esta característica de integración con la red virtual).
 * La subred de integración solo puede usarla un plan de App Service.
 * Las aplicaciones del plan Aislado que estén en una instancia de App Service Environment no pueden usar la característica.
 * La característica requiere una subred sin usar que sea /27 con un mínimo de 32 direcciones en una VNet de Azure Resource Manager.

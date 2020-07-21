@@ -3,12 +3,12 @@ title: Compatibilidad con la migración de VMware en Azure Migrate
 description: Aprenda sobre la compatibilidad con la migración de máquinas virtuales de VMware en Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 7b026d07c6ac1630048d8aee6778215f3a99dddb
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d8a2488e16031a4d960d039d646d9da5de1c1c2e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134994"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223710"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de compatibilidad para la migración de VMware
 
@@ -162,7 +162,7 @@ Arquitectura del sistema operativo invitado | 64 bits
 Tamaño del disco del sistema operativo | Hasta 2048 GB 
 Número de discos del sistema operativo | 1 
 Número de discos de datos | 64 o menos 
-Tamaño del disco de datos | Hasta 4095 GB 
+Tamaño del disco de datos | Hasta 8095 GB
 Adaptadores de red | Se admiten varios adaptadores.
 VHD compartido | No compatible. 
 Disco FC | No compatible. 

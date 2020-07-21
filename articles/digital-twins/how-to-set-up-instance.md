@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4cac7a3f663d9ede966b8d6e5753c48629049dcd
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: fecacbd2c7c6549a1321367157bb179321779ca9
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057490"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206506"
 ---
 # <a name="set-up-an-azure-digital-twins-instance"></a>Configuración de una instancia de Azure Digital Twins
 
@@ -57,15 +57,15 @@ Para usar Azure Digital Twins con una aplicación cliente, también debe asegura
 
 Cree una asignación de roles para sí mismo en la instancia de Azure Digital Twins mediante el correo electrónico asociado al inquilino de AAD en su suscripción a Azure. 
 
-Para poder hacerlo, debe clasificarse como propietario en su suscripción de Azure. Puede comprobarlo al ejecutar el comando `az role assignment list --assignee <your-Azure-email>` y al comprobar en la salida que el valor de *roleDefinitionName* sea *Propietario*. Si observa que el valor es *Colaborador* o algo distinto de *Propietario*, póngase en contacto con su administrador de suscripciones con la capacidad de conceder permisos en su suscripción para elevar el rol.
+Para poder hacerlo, debe clasificarse como propietario en su suscripción de Azure. Puede comprobarlo al ejecutar el comando `az role assignment list --assignee <your-Azure-email>` y al comprobar en la salida que el valor de *roleDefinitionName* sea *Propietario*. Si observa que el valor es *Colaborador* o algo distinto de *Propietario*, póngase en contacto con el administrador de suscripciones con la capacidad de conceder permisos en su suscripción. Puede elevar el rol en toda la suscripción para poder ejecutar el siguiente comando, o bien un propietario puede ejecutar el siguiente comando en su nombre para configurar los permisos de Azure Digital Twins.
 
-Como propietario de la suscripción, puede usar el siguiente comando para asignar su usuario a un rol de propietario de la instancia de Azure Digital Twins:
+Para asignar permisos de usuario "propietario" en la instancia de Azure Digital Twins, use el siguiente comando (debe ejecutarlo un propietario de la suscripción de Azure):
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-AAD-email>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
-El resultado de este comando es la información de salida acerca de la asignación de roles que ha creado.
+El resultado de este comando es la información de salida acerca de la asignación de roles que se ha creado.
 
 > [!TIP]
 > Si en su lugar obtiene un error *400: BadRequest*, ejecute el siguiente comando para obtener el *ObjectID* para el usuario:
@@ -74,7 +74,7 @@ El resultado de este comando es la información de salida acerca de la asignaci�
 > ```
 > A continuación, repita el comando de asignación de roles *id. de objeto* de su usuario en lugar de su correo electrónico.
 
-Ahora tiene lista una instancia de Azure Digital Twins.
+Ahora tiene lista una instancia de Azure Digital Twins y los permisos para administrarla.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -2,13 +2,13 @@
 title: Procedimientos recomendados para las plantillas
 description: En este artículo se describen los enfoques recomendados para la creación de plantillas de Azure Resource Manager. Se ofrecen sugerencias para evitar problemas comunes al usar las plantillas.
 ms.topic: conceptual
-ms.date: 06/09/2020
-ms.openlocfilehash: a85e9afd64c416628c35bd36d16086f28d0732d3
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.date: 07/10/2020
+ms.openlocfilehash: 272c7e7f824eb193ed48d79c5256167f1dbbbce5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058068"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248924"
 ---
 # <a name="arm-template-best-practices"></a>Procedimientos recomendados para plantilla de Resource Manager
 
@@ -160,7 +160,7 @@ La siguiente información puede ser útil cuando se trabaja con [variables](temp
 
 A la hora de decidir qué [dependencias](define-resource-dependency.md) establecer, use las siguientes directrices:
 
-* Use la función **reference** y pase el nombre del recurso para establecer dependencias implícitas entre los recursos que deben compartir una propiedad. No agregue un elemento `dependsOn` explícito cuando ya haya definido una dependencia implícita. Este enfoque reduce el riesgo de que se tengan dependencias innecesarias.
+* Use la función **reference** y pase el nombre del recurso para establecer dependencias implícitas entre los recursos que deben compartir una propiedad. No agregue un elemento `dependsOn` explícito cuando ya haya definido una dependencia implícita. Este enfoque reduce el riesgo de que se tengan dependencias innecesarias. Para un ejemplo de cómo establecer una dependencia implícita, vea [dependencia implícita](define-resource-dependency.md#reference-and-list-functions).
 
 * Establezca un recurso secundario como dependiente de su recurso principal.
 

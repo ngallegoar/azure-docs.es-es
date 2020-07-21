@@ -1,14 +1,14 @@
 ---
 title: Visualización y administración de proveedores de servicios
 description: Los clientes pueden usar la página proveedores de servicios en Azure Portal para ver información acerca de los proveedores de servicios, ofertas de proveedores de servicios y recursos delegados.
-ms.date: 07/07/2020
+ms.date: 07/10/2020
 ms.topic: how-to
-ms.openlocfilehash: 56ba5b8c88cd4653c9d41f7f3fcc6219cc376256
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: bc0de0d3fd7ac4fe7c00720aab41961d9100ff5a
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111633"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86273785"
 ---
 # <a name="view-and-manage-service-providers"></a>Visualización y administración de proveedores de servicios
 
@@ -19,7 +19,7 @@ Para acceder a la página **Proveedores de servicios** de Azure Portal, el clien
 > [!NOTE]
 > Para ver la página **Proveedores de servicios**, un usuario del inquilino del cliente debe tener el [rol integrado Lector](../../role-based-access-control/built-in-roles.md#reader) (u otro que incluya el acceso de lectura).
 >
-> Para agregar ofertas, delegar recursos y quitar ofertas, el usuario debe tener el [rol integrado Propietario](../../role-based-access-control/built-in-roles.md#owner) para la suscripción.
+> Para agregar o actualizar ofertas, delegar recursos y quitar ofertas, el usuario debe tener el [rol integrado Propietario](../../role-based-access-control/built-in-roles.md#owner) para la suscripción.
 
 Tenga en cuenta que la página de **Proveedores de servicios** solo muestra información sobre los proveedores de servicios que tienen acceso a las suscripciones o grupos de recursos del cliente mediante Azure Lighthouse. Si un cliente trabaja con proveedores de servicios adicionales que no usan Azure Lighthouse para acceder a los recursos del cliente, la información sobre esos proveedores de servicios no se muestra aquí.
 

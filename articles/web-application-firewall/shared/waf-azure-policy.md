@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: rimansdo
-ms.openlocfilehash: 12ad18edbb434bdfaec2ae817ea079a843661ef6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 937f220980d602b755b6329da4d93df0e4b372ab
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111358"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224067"
 ---
 # <a name="azure-web-application-firewall-and-azure-policy"></a>Azure Policy y firewall de aplicaciones web de Azure
 
@@ -38,10 +38,12 @@ Hay varias directivas de Azure integradas para administrar los recursos de WAF. 
 
 2.  En el servicio de directivas de Azure, en **Creación**, seleccione **Asignaciones**.
 
+[!div class="mx-imgBorder"]
 ![Firewall de aplicaciones web de Azure](../media/waf-azure-policy/policy-home.png)
 
 3.  En la página asignaciones, seleccione el icono **Directivas de asignación** en la parte superior.
 
+[!div class="mx-imgBorder"]
 ![Firewall de aplicaciones web de Azure](../media/waf-azure-policy/assign-policy.png)
 
 4.  En la pestaña de conceptos básicos de la página de Directivas de asignación, actualice los campos siguientes:
@@ -49,6 +51,7 @@ Hay varias directivas de Azure integradas para administrar los recursos de WAF. 
     2.  **Exclusiones**: Seleccionar los recursos del ámbito que se van a excluir de la directiva. 
     3.  **Definición de directiva**: Seleccione la Azure Policy que se va a aplicar al ámbito con exclusiones. Escriba "Firewall de aplicaciones web" en la barra de búsqueda para elegir el Azure Policy de seguridad de aplicaciones web pertinente.
 
+[!div class="mx-imgBorder"]
 ![Firewall de aplicaciones web de Azure](../media/waf-azure-policy/policy-listing.png)
 
 

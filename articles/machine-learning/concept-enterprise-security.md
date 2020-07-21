@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: be0e24977bbb1aeec74e8847b3fb128267a9ec0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5afa6b9127317fcd1a683651be86cdfe078cfcd6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392240"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259444"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Seguridad de empresa para Azure Machine Learning
 
@@ -111,14 +111,19 @@ También puede habilitar Azure Private Link para el área de trabajo. Private Li
 
 ## <a name="data-encryption"></a>Cifrado de datos
 
+> [!IMPORTANT]
+> Para el cifrado de nivel de producción durante el __aprendizaje__, Microsoft recomienda usar el clúster de proceso de Azure Machine Learning. Para el cifrado de nivel de producción durante la __inferencia__, Microsoft recomienda usar Azure Kubernetes Service.
+>
+> La instancia de proceso de Azure Machine Learning es un entorno de desarrollo/pruebas. Cuando se usa, se recomienda almacenar los archivos, como cuadernos s y scripts, en un recurso compartido de archivos. Los datos deben almacenarse en un almacén de datos.
+
 ### <a name="encryption-at-rest"></a>Cifrado en reposo
 
 > [!IMPORTANT]
 > Si su área de trabajo contiene datos confidenciales, se recomienda establecer el parámetro [hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) a la hora de crearla. 
 
-La marca `hbi_workspace` controla la cantidad de datos que Microsoft recopila para fines de diagnóstico y permite el cifrado adicional en entornos administrados por Microsoft. Además, permite lo siguiente:
+La marca `hbi_workspace` controla la cantidad de datos que Microsoft recopila para fines de diagnóstico y permite el cifrado adicional en entornos administrados por Microsoft. Además, permite las siguientes acciones:
 
-* Inicia el cifrado del disco temporal local en el clúster de Amlcompute siempre que no haya creado ningún clúster anterior en esa suscripción. En caso contrario, debe generar una incidencia de soporte técnico para habilitar el cifrado del disco temporal de los clústeres de proceso. 
+* Inicia el cifrado del disco temporal local en el clúster de proceso de Azure Machine Learning, siempre que no haya creado ningún clúster anterior en esa suscripción. En caso contrario, debe generar una incidencia de soporte técnico para habilitar el cifrado del disco temporal de los clústeres de proceso. 
 * Limpia el disco temporal local entre ejecuciones.
 * Pasa de forma segura las credenciales de la cuenta de almacenamiento, el registro de contenedor y la cuenta SSH desde la capa de ejecución a los clústeres de proceso mediante el almacén de claves.
 * Habilita el filtrado de IP para asegurarse de que los servicios externos que no sean AzureMachineLearningService no puedan llamar a los grupos de lotes subyacentes.
@@ -228,7 +233,7 @@ Azure Databricks se puede utilizar en canalizaciones de Azure Machine Learning. 
 
 Azure Machine Learning usa TLS para proteger la comunicación interna entre varios microservicios de Azure Machine Learning. Todo el acceso de Azure Storage se realiza también a través de un canal seguro.
 
-Para proteger las llamadas externas al punto de conexión de puntuación, Azure Machine Learning usa TLS. Para obtener más información, vea [Uso de TLS para proteger un servicio web mediante Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
+Para proteger las llamadas externas realizadas al punto de conexión de puntuación, Azure Machine Learning usa TLS. Para obtener más información, vea [Uso de TLS para proteger un servicio web mediante Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
 
 ### <a name="using-azure-key-vault"></a>Uso de Azure Key Vault
 

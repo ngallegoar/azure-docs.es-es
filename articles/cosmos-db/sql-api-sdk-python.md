@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
 ms.custom: tracking-python
-ms.openlocfilehash: e70d7d1f2ca7aa0eeec08d69720e37c5be34f8ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6bd880806a4b067139c1f22a0e4d4e6df5c88451
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391917"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247071"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Python para Azure Cosmos DB para SQL API: Notas de la versión y recursos
 
@@ -134,7 +134,7 @@ ms.locfileid: "85391917"
 
 * Todas las operaciones que toman parámetros `request_options` o `feed_options`, se han migrado a parámetros solo de palabra clave. Además, aunque todavía se admiten estos diccionarios de opciones, cada una de las opciones individuales del diccionario ahora se admiten como argumentos de palabra clave explícitos.
 
-* La jerarquía de errores ahora se hereda de `azure.core.AzureError` en lugar de, que se ha quitado.
+* La jerarquía de errores ahora se hereda de `azure.core.AzureError`:
 
   * El nombre de `HTTPFailure` ha cambiado a `CosmosHttpResponseError`
   * `JSONParseFailure` se ha quitado y se ha reemplazado por `azure.core.DecodeError`

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 975d6842110ffa864a534e09cf35d0d33612d7d5
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 191f0468a01c98ec60b85ea7aca6333807bf4b80
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135085"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221211"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Vista previa: Creación de una plantilla de Azure Image Builder 
 
@@ -150,6 +150,9 @@ La API requiere un "SourceType" que define el origen de la compilación de image
 - PlatformImage: indicado para los casos en que la imagen de origen es una imagen de Marketplace.
 - ManagedImage: use esta opción cuando empiece desde una imagen administrada normal.
 - SharedImageVersion: se utiliza cuando se usa como origen una versión de la imagen de una galería de imágenes compartidas.
+
+> [!NOTE]
+> Al usar imágenes personalizadas de Windows existentes, puede ejecutar el comando Sysprep hasta 8 veces en una sola imagen de Windows. Para obtener más información, consulte la documentación de [sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep).
 
 ### <a name="iso-source"></a>Origen de ISO
 Vamos a dejar de usar esta funcionalidad de Image Builder, ya que ahora contamos con [imágenes de la suscripción Traiga su propia licencia de RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/byos), revise las escalas de tiempo siguientes:
@@ -468,7 +471,10 @@ Azure Image Builder admite tres destinos de distribución:
 - **sharedImage**: galería de imágenes compartidas.
 - **VHD**: disco duro virtual en una cuenta de almacenamiento.
 
-Puede distribuir una imagen a ambos tipos de destino en la misma configuración; para ello, consulte estos [ejemplos](https://github.com/danielsollondon/azvmimagebuilder/blob/7f3d8c01eb3bf960d8b6df20ecd5c244988d13b6/armTemplates/azplatform_image_deploy_sigmdi.json#L80).
+Puede distribuir una imagen a ambos tipos de destino en la misma configuración.
+
+> [!NOTE]
+> El comando sysprep predeterminado de AIB no incluye "/mode:vm"; sin embargo, puede que sea necesario al crear imágenes que vayan a tener instalado el rol de HyperV. Si necesita agregar este argumento de comando, debe invalidar el comando sysprep.
 
 Dado que puede tener más de un destino al que distribuir, Image Builder mantiene un estado para cada destino de distribución al que puede accederse consultando el `runOutputName`.  El `runOutputName` es un objeto que puede consultar después de la distribución para obtener información acerca de esa distribución. Por ejemplo, puede consultar la ubicación del disco duro virtual o las regiones a las que se ha replicado la versión de la imagen o donde se ha creado la versión de la imagen de SIG. Se trata de una propiedad de cada destino de distribución. El `runOutputName` debe ser único para cada destino de distribución. Este es un ejemplo, en el que se consulta una distribución de Shared Image Gallery:
 
