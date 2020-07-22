@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: overview
 ms.custom: mvc
 ms.date: 03/11/2020
-ms.openlocfilehash: 08b3863ac9a03cda2659cf4934b781eeb9330e17
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 3496dfd7813818ced8963175d73ec0f8ef6892d4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563804"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536239"
 ---
 # <a name="overview---what-is-azure-logic-apps"></a>Introducción: ¿Qué es Azure Logic Apps?
 
@@ -74,7 +74,7 @@ Empiece poco a poco con sus servicios y sistemas actuales y crezca de forma grad
 
 * Utilice estos productos y servicios para compilar:
 
-  * [Microsoft BizTalk Server](https://docs.microsoft.com/biztalk/core/introducing-biztalk-server)
+  * [Microsoft BizTalk Server](/biztalk/core/introducing-biztalk-server)
   * [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
   * [Funciones de Azure](../azure-functions/functions-overview.md)
   * [Azure API Management](../api-management/api-management-key-concepts.md)
@@ -85,7 +85,7 @@ Empiece poco a poco con sus servicios y sistemas actuales y crezca de forma grad
 
 * Intercambie mensajes con los protocolos [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md), [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md) y [X12](../logic-apps/logic-apps-enterprise-integration-x12.md).
 
-* Almacene y administre estos artefactos B2B y mucho más en un solo lugar con [cuentas de integración](../logic-apps/logic-apps-enterprise-integration-accounts.md):
+* Almacene y administre estos artefactos B2B y mucho más en un solo lugar con [cuentas de integración](./logic-apps-enterprise-integration-create-integration-account.md):
 
   * [Asociados](../logic-apps/logic-apps-enterprise-integration-partners.md)
   * [Contratos](../logic-apps/logic-apps-enterprise-integration-agreements.md) 
@@ -94,7 +94,7 @@ Empiece poco a poco con sus servicios y sistemas actuales y crezca de forma grad
 
 Por ejemplo, si usa Microsoft BizTalk Server, Logic Apps podrá comunicarse con BizTalk Server utilizando el [conector de BizTalk Server](../connectors/apis-list.md#on-premises-connectors). Posteriormente, podrá ampliar o realizar operaciones como en BizTalk mediante las aplicaciones lógicas. Para ello, solo tiene que incluir [conectores de cuentas de integración](../connectors/apis-list.md#integration-account-connectors), que están disponibles con Enterprise Integration Pack.
 
-Por otro lado, BizTalk Server puede establecer conexión y comunicación con Logic Apps utilizando el [adaptador de Microsoft BizTalk Server para Logic Apps](https://www.microsoft.com/download/details.aspx?id=54287). Aprenda a [configurar y usar el adaptador de BizTalk Server](https://docs.microsoft.com/biztalk/core/logic-app-adapter).
+Por otro lado, BizTalk Server puede establecer conexión y comunicación con Logic Apps utilizando el [adaptador de Microsoft BizTalk Server para Logic Apps](https://www.microsoft.com/download/details.aspx?id=54287). Aprenda a [configurar y usar el adaptador de BizTalk Server](/biztalk/core/logic-app-adapter).
 
 ### <a name="write-once-reuse-often"></a>Escriba una vez y úselo tanto como quiera
 

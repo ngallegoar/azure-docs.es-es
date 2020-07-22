@@ -6,24 +6,24 @@ ms.author: karler
 ms.date: 10/14/2019
 ms.topic: quickstart
 zone_pivot_groups: java-build-tools-set
-ms.openlocfilehash: d9815fd27a57acc8b418962e610d2ae1c106edde
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: e5b1250170830af24ddc1f2e3b78965ebcea051e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673283"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540322"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Conexión de la función de Java a Azure Storage
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
-En este artículo se muestra cómo integrar la función que creó en el [artículo de inicio rápido anterior](functions-create-first-java-maven.md) con una cola de Azure Storage. El enlace de salida que se agrega a esta función escribe datos de una solicitud HTTP en un mensaje de la cola.
+En este artículo se muestra cómo integrar la función que creó en el [artículo de inicio rápido anterior](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser) con una cola de Azure Storage. El enlace de salida que se agrega a esta función escribe datos de una solicitud HTTP en un mensaje de la cola.
 
 La mayoría de los enlaces requieren una cadena de conexión almacenada que se usa en Functions para acceder al servicio enlazado. Para facilitar la conexión, usará la cuenta de almacenamiento que creó con la aplicación de funciones. La conexión a esta cuenta ya está almacenada en una configuración de aplicación llamada `AzureWebJobsStorage`.  
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Antes de empezar este artículo, realice los pasos de la [parte 1 del inicio rápido de Java](functions-create-first-java-maven.md).
+Antes de empezar este artículo, realice los pasos de la [parte 1 del inicio rápido de Java](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser).
 
 ## <a name="download-the-function-app-settings"></a>Descarga de la configuración de la aplicación de función
 

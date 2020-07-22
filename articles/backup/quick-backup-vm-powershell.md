@@ -5,16 +5,16 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/16/2019
 ms.custom: mvc
-ms.openlocfilehash: 8021ca553a1434c891bee911e85d351c61938594
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: fa190c670c5bdcae8bcb31d2b8d5d9bd011acae9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74171958"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538605"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Copia de seguridad de una máquina virtual en Azure con PowerShell
 
-El módulo [Azure PowerShell AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts.
+El módulo [Azure PowerShell AZ](/powershell/azure/new-azureps-module-az) se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts.
 
 [Azure Backup](backup-overview.md) puede hacer copias de seguridad de máquinas locales, aplicaciones y máquinas virtuales de Azure. En este artículo se muestra cómo realizar una copia de seguridad de una máquina virtual de Azure con el módulo AZ. Como alternativa, puede realizar una copia de seguridad de una máquina virtual mediante la [CLI de Azure](quick-backup-vm-cli.md), o en [Azure Portal](quick-backup-vm-portal.md).
 
@@ -46,7 +46,7 @@ Al crear el almacén:
 
 - Como grupo de recursos y ubicación, especifique el grupo de recursos y la ubicación de la máquina virtual de la que desea realizar la copia de seguridad.
 - Si ha usado el [script de ejemplo](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) para crear la máquina virtual, el grupo de recursos se denomina **myResourceGroup**, la máquina virtual es ***myVM** y los recursos están en la región **Oeste de Europa**.
-- Azure Backup administra automáticamente el almacenamiento de los datos de los que se ha hecho la copia de seguridad. De forma predeterminada, el almacén usa el [almacenamiento con redundancia geográfica (GRS)](../storage/common/storage-redundancy-grs.md). El almacenamiento con redundancia geográfica garantiza que se repliquen los datos de copia de seguridad en una región de Azure secundaria que se encuentra a cientos de kilómetros de distancia de la región primaria.
+- Azure Backup administra automáticamente el almacenamiento de los datos de los que se ha hecho la copia de seguridad. De forma predeterminada, el almacén usa el [almacenamiento con redundancia geográfica (GRS)](../storage/common/storage-redundancy.md). El almacenamiento con redundancia geográfica garantiza que se repliquen los datos de copia de seguridad en una región de Azure secundaria que se encuentra a cientos de kilómetros de distancia de la región primaria.
 
 Ahora, cree un almacén:
 
@@ -66,7 +66,7 @@ Ahora, cree un almacén:
         -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesVaultContext
     ```
 
-3. Cambie la configuración de redundancia de almacenamiento (LRS y GRS) del almacén con [Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperty), tal como se muestra a continuación:
+3. Cambie la configuración de redundancia de almacenamiento (LRS y GRS) del almacén con [Set-AzRecoveryServicesBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty), tal como se muestra a continuación:
 
     ```powershell
     Get-AzRecoveryServicesVault `

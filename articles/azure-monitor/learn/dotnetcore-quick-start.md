@@ -7,18 +7,18 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: 9aa19dfa0626ff0726911815addbb03945ee36f1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e066ef1910373734d9a6607500e45e8a9ccc80b2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82144859"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539761"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Inicio de la supervisión de la aplicación web ASP.NET Core
 
 Con Azure Application Insights puede supervisar fácilmente la disponibilidad, el rendimiento y el uso de su aplicación web. También puede identificar y diagnosticar errores en la aplicación rápidamente sin tener que esperar a que un usuario informe de ellos. 
 
-Esta guía de inicio rápido le ayudará a agregar el SDK de Application Insights a una aplicación web ASP.NET Core existente. Para información sobre cómo configurar Application Insights sin Visual Studio, consulte este [artículo](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core).
+Esta guía de inicio rápido le ayudará a agregar el SDK de Application Insights a una aplicación web ASP.NET Core existente. Para información sobre cómo configurar Application Insights sin Visual Studio, consulte este [artículo](../app/asp-net-core.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -45,7 +45,7 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
 1. Seleccione **Crear un recurso** > **Herramientas de desarrollo** > **Application Insights**.
 
    > [!NOTE]
-   >Si esta es la primera vez que crea un recurso de Application Insights, puede obtener más información visitando la documentación [Creación de recursos en Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
+   >Si esta es la primera vez que crea un recurso de Application Insights, puede obtener más información visitando la documentación [Creación de recursos en Application Insights](../app/create-new-resource.md).
 
     Aparece un cuadro de configuración, use la tabla siguiente para rellenar los campos de entrada.
 
@@ -112,4 +112,4 @@ Cuando haya realizado las pruebas, puede eliminar el grupo de recursos y todos l
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Búsqueda y diagnóstico de excepciones en tiempo de ejecución](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-runtime-exceptions)
+> [Búsqueda y diagnóstico de excepciones en tiempo de ejecución](./tutorial-runtime-exceptions.md)

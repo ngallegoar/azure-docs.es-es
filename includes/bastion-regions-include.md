@@ -5,15 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 05/19/2020
+ms.date: 07/16/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b4cdb787fe65c52a77fa4761a65e9108e7927c40
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: a924cb42ce1c5fccde3d49fa8f9c2d402997df52
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83721740"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544451"
 ---
 >[!NOTE]
 >Estamos trabajando para agregar regiones adicionales. Cuando se agregue una región, se incorporará a esta lista.
@@ -65,3 +65,6 @@ ms.locfileid: "83721740"
 * US Gov Iowa
 * US Gov Texas
 * US Gov - Virginia
+
+**Azure en China**
+* Norte de China 2

@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 0b3559a27fe9fae6c34b07c648a289d205560bd8
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 2fdb83a61f7eaaefb3fab10af46315893791590c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321593"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536290"
 ---
 # <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>Inicio rápido: Creación del primer flujo de trabajo mediante Azure Logic Apps: Azure Portal
 
@@ -20,10 +20,10 @@ En esta guía de inicio rápido se presentan los conceptos generales básicos so
 
 ![Flujo de trabajo de aplicación lógica de ejemplo de alto nivel](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
 
-Para este escenario, necesita una suscripción a Azure o [registrarse para una cuenta de Azure gratis](https://azure.microsoft.com/free/), una cuenta de correo electrónico de un servicio compatible con Azure Logic Apps, como Office 365 Outlook, Outlook.com o Gmail. Para otros servicios de correo electrónico compatibles, [revise la lista de conectores aquí](https://docs.microsoft.com/connectors/). En este ejemplo, la aplicación lógica usa cuenta de Office 365 Outlook. Si usa un servicio de correo electrónico diferente, los pasos generales son los mismos, pero la interfaz de usuario podría diferir ligeramente.
+Para este escenario, necesita una suscripción a Azure o [registrarse para una cuenta de Azure gratis](https://azure.microsoft.com/free/), una cuenta de correo electrónico de un servicio compatible con Azure Logic Apps, como Office 365 Outlook, Outlook.com o Gmail. Para otros servicios de correo electrónico compatibles, [revise la lista de conectores aquí](/connectors/). En este ejemplo, la aplicación lógica usa cuenta de Office 365 Outlook. Si usa un servicio de correo electrónico diferente, los pasos generales son los mismos, pero la interfaz de usuario podría diferir ligeramente.
 
 > [!IMPORTANT]
-> Si quiere usar el conector de Gmail, solo las cuentas empresariales de G-Suite pueden usar este conector sin restricciones en las aplicaciones lógicas. Si tiene una cuenta de consumidor de Gmail, puede usar este conector solo con servicios específicos aprobados por Google o puede [crear una aplicación cliente de Google para usarla en la autenticación con el conector de Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Para más información, consulte [Directivas de privacidad y seguridad de datos de los conectores de Google en Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+> Si quiere usar el conector de Gmail, solo las cuentas empresariales de G-Suite pueden usar este conector sin restricciones en las aplicaciones lógicas. Si tiene una cuenta de consumidor de Gmail, puede usar este conector solo con servicios específicos aprobados por Google o puede [crear una aplicación cliente de Google para usarla en la autenticación con el conector de Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Para más información, consulte [Directivas de privacidad y seguridad de datos de los conectores de Google en Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
