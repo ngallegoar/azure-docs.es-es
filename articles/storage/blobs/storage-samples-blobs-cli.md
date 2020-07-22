@@ -7,18 +7,18 @@ ms.date: 06/13/2017
 ms.service: storage
 ms.subservice: blobs
 ms.topic: sample
-ms.openlocfilehash: 345710e1ade459d49602c18820d47826141e6f81
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: aa9dcc45656256e1f666bbf1b096c5c66b123b31
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68721940"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528509"
 ---
 # <a name="azure-cli-samples-for-azure-blob-storage"></a>Ejemplos de la CLI de Azure para Azure Blob Storage
 
 En la tabla siguiente se incluyen vínculos a scripts de Bash creados con la CLI de Azure que crean y administran Azure Storage.
 
-| | |
+| Script | Descripción |
 |---|---|
 |**Cuentas de almacenamiento**||
 | [Create a storage account and retrieve/rotate the access keys](../scripts/storage-common-rotate-account-keys-cli.md?toc=%2fcli%2fazure%2ftoc.json) (Creación de una cuenta de almacenamiento y recuperación o rotación de las claves de acceso) | Describe cómo crear una cuenta de Azure Storage y recuperar y rotar sus claves de acceso. |

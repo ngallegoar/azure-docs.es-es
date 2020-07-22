@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: overview
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 88b7dc60b865325ef7dcd9e79015fdee10b4f9a2
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 6e532634fb40eee100e73a333ac6aa7e0a79cf3c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563717"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521656"
 ---
 # <a name="azure-firewall-manager-policy-overview"></a>Información general sobre la directiva de Azure Firewall Manager
 
@@ -47,8 +47,8 @@ Mediante la herencia, los cambios en la directiva primaria se aplican automátic
 Azure Firewall admite las reglas y las directivas tradicionales. En la siguiente tabla se comparan las directivas y las reglas:
 
 
-|         |Directiva  |Reglas  |
-|---------|---------|---------|
+| Asunto | Directiva  | Reglas |
+| ------- | ------- | ----- |
 |Contains     |Reglas de NAT, red y aplicación, configuración de proxy DNS y DNS personalizado, grupos de direcciones IP y configuración de inteligencia sobre amenazas (incluida la lista de permitidos)|Reglas de NAT, red y aplicación, configuración de proxy DNS y DNS personalizado, grupos de direcciones IP y configuración de inteligencia sobre amenazas (incluida la lista de permitidos)|
 |Protege     |Centros virtuales y redes virtuales|Solo redes virtuales|
 |Experiencia del portal     |Administración centralizada mediante Firewall Manager|Experiencia de firewall independiente|

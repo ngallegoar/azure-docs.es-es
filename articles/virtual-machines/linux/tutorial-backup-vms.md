@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d233cba65d190178c500f78d4817e233ab46d780
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 9dcc1b6f6f3792682f81c0d37ef2046bd1840657
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460077"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527003"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Tutorial: Copia de seguridad y restauración de archivos en máquinas virtuales Linux en Azure
 
@@ -34,7 +34,7 @@ Para proteger sus datos realice copias de seguridad a intervalos regulares. Azur
 
 Cuando el servicio Azure Backup inicia una copia de seguridad, desencadena que la extensión de copia de seguridad tome una instantánea de un momento dado. En Linux, el servicio Azure Backup usa la extensión _VMSnapshotLinux_. La extensión se instala cuando se realiza la primera copia de seguridad de la máquina virtual, en caso de que esta esté en ejecución. Si no se está ejecutando la máquina virtual, el servicio Azure Backup toma una instantánea del almacenamiento subyacente (ya que no se produce ninguna escritura de la aplicación mientras se detiene la máquina virtual).
 
-De forma predeterminada, Azure Backup toma una instantánea coherente con el sistema de archivos de la máquina virtual Linux, pero puede configurarse para que tome una [instantánea coherente con la aplicación mediante el marco de script anterior y posterior](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). Después de que el servicio Azure Backup toma la instantánea, se transfieren los datos al almacén. Para que el proceso resulte más eficaz, el servicio identifica y transfiere únicamente los bloques de datos que han cambiado desde la última copia de seguridad.
+De forma predeterminada, Azure Backup toma una instantánea coherente con el sistema de archivos de la máquina virtual Linux, pero puede configurarse para que tome una [instantánea coherente con la aplicación mediante el marco de script anterior y posterior](../../backup/backup-azure-linux-app-consistent.md). Después de que el servicio Azure Backup toma la instantánea, se transfieren los datos al almacén. Para que el proceso resulte más eficaz, el servicio identifica y transfiere únicamente los bloques de datos que han cambiado desde la última copia de seguridad.
 
 Cuando finaliza la transferencia de datos, se elimina la instantánea y se crea un punto de recuperación.
 
@@ -171,4 +171,3 @@ En el siguiente tutorial se explica cómo supervisar máquinas virtuales.
 
 > [!div class="nextstepaction"]
 > [Control de máquinas virtuales](tutorial-govern-resources.md)
-

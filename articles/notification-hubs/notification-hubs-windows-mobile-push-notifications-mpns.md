@@ -18,12 +18,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 2a2db9f7342b984a8c539a345f8e5038caf5ff85
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: fcf8eb8cd110fab4f1fc85a317f1dd491d21c091
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170282"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529954"
 ---
 # <a name="tutorial-send-push-notifications-to-windows-phone-apps-using-notification-hubs"></a>Tutorial: Envío de notificaciones push a aplicaciones de Windows Phone Notification Hubs
 
@@ -65,7 +65,7 @@ La realización de este tutorial es un requisito previo para todos los demás tu
     El concentrador se crea y configura ahora para enviar una notificación sin autenticar para Windows Phone.
 
     > [!NOTE]
-    > Este tutorial usa MPNS en modo sin autenticar. El modo sin autenticar de MPNS viene con restricciones sobre las notificaciones que puede enviar a cada canal. Notification Hubs admite el [modo autenticado de MPNS](https://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx) al permitir que cargue su certificado.
+    > Este tutorial usa MPNS en modo sin autenticar. El modo sin autenticar de MPNS viene con restricciones sobre las notificaciones que puede enviar a cada canal. Notification Hubs admite el [modo autenticado de MPNS](/previous-versions/windows/apps/ff941099(v=vs.105)) al permitir que cargue su certificado.
 
 ## <a name="create-a-windows-phone-application"></a>Crear una aplicación Windows Phone
 
@@ -117,7 +117,7 @@ En esta sección se creará una aplicación de Windows Phone que se registra aut
     ```
 
    > [!NOTE]
-   > El valor `MyPushChannel` es un índice que se utiliza para buscar un canal existente en la colección [HttpNotificationChannel](https://msdn.microsoft.com/library/windows/apps/microsoft.phone.notification.httpnotificationchannel.aspx). Si no hay uno ya allí, cree una nueva entrada con ese nombre.
+   > El valor `MyPushChannel` es un índice que se utiliza para buscar un canal existente en la colección [HttpNotificationChannel](/previous-versions/ff402781(v=vs.110)). Si no hay uno ya allí, cree una nueva entrada con ese nombre.
 
     Inserte el nombre del centro y la cadena de conexión denominada `DefaultListenSharedAccessSignature` que anotó en la sección anterior.
     Este código recupera el URI del canal de la aplicación desde MPNS y, luego, lo registra con su centro de notificaciones. Garantiza también que el URI del canal se registre en su centro de notificaciones cada vez que se inicia la aplicación.
@@ -174,10 +174,10 @@ En este sencillo ejemplo, ha difundido notificaciones push a todos los dispositi
 [213]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-console-app.png
 
 <!-- URLs. -->
-[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
-[MPNS authenticated mode]: https://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
+[Notification Hubs Guidance]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
+[MPNS authenticated mode]: /previous-versions/windows/apps/ff941099(v=vs.105)
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
-[toast catalog]: https://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
-[tile catalog]: https://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
+[toast catalog]: /previous-versions/windows/apps/jj662938(v=vs.105)
+[tile catalog]: /previous-versions/windows/apps/hh202948(v=vs.105)
 [tutorial Notification Hubs: Windows Phone Silverlight]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari

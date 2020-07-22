@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: 4d061e7a105fc73f7f44c8336df82ff363ee6ded
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 192219a804365957e9eaa0577019ff18d75861bf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203760"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498515"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Novedades en la documentación de Azure Monitor
 
@@ -67,21 +67,21 @@ En este artículo se enumeran los artículos de Azure Monitor que son nuevos o q
 - [Envío del registro de actividad de Azure al área de trabajo de Log Analytics mediante una plantilla de Azure Resource Manager](learn/quick-collect-activity-log-arm.md). Nuevo artículo.
 
 #### <a name="new-and-updated-articles-from-restructure-and-consolidation-of-platform-log-content"></a>Artículos nuevos y actualizados sobre reestructuración y consolidación del contenido de registros de plataforma
-- [Archivado de registros de recursos de Azure en la cuenta de almacenamiento](platform/resource-logs-collect-storage.md)
+- [Archivado de registros de recursos de Azure en la cuenta de almacenamiento](./platform/resource-logs.md#send-to-azure-storage)
 - [Esquema de eventos del registro de actividad de Azure](platform/activity-log-schema.md)
 - [Registro de actividad de Azure](platform/activity-log.md)
 - [Ejemplos de la CLI de Azure Monitor](samples/cli-samples.md)
 - [Ejemplos de PowerShell de Azure Monitor](samples/powershell-samples.md)
 - [Tutorial sobre la API de REST de supervisión de Azure](platform/rest-api-walkthrough.md)
-- [Servicios y esquemas admitidos de los registros de recursos de Azure](platform/diagnostic-logs-schema.md)
+- [Servicios y esquemas admitidos de los registros de recursos de Azure](./platform/resource-logs-schema.md)
 - [Registros de recursos de Azure](platform/resource-logs.md)
-- [Recopilación y análisis del registro de actividad de Azure en Azure Monitor](platform/activity-log-collect.md)
-- [Recopilación de registros de recursos de Azure en el área de trabajo de Log Analytics](platform/resource-logs-collect-workspace.md)
+- [Recopilación y análisis del registro de actividad de Azure en Azure Monitor](./platform/activity-log.md)
+- [Recopilación de registros de recursos de Azure en el área de trabajo de Log Analytics](./platform/resource-logs.md#send-to-log-analytics-workspace)
 - [Creación de una configuración de diagnóstico para enviar registros de plataforma y métricas a diferentes destinos](platform/diagnostic-settings.md)
-- [Exportación del registro de actividad de Azure](platform/activity-log-export.md)
+- [Exportación del registro de actividad de Azure](./platform/activity-log.md#legacy-collection-methods)
 - [Introducción a los registros de plataforma Azure](platform/platform-logs-overview.md)
-- [Transmisión de registros de plataforma de Azure a un centro de eventos](platform/resource-logs-stream-event-hubs.md)
-- [Visualización de eventos del registro de actividad de Azure en Azure Monitor](platform/activity-log-view.md)
+- [Transmisión de registros de plataforma de Azure a un centro de eventos](./platform/resource-logs.md#send-to-azure-event-hubs)
+- [Visualización de eventos del registro de actividad de Azure en Azure Monitor](./platform/activity-log.md#view-the-activity-log)
 
 ### <a name="virtual-machines"></a>Máquinas virtuales
 - [Habilitación de Azure Monitor para VM en Azure Portal](insights/vminsights-enable-single-vm.md). Actualización para incluir Azure Arc.
@@ -155,7 +155,7 @@ En este artículo se enumeran los artículos de Azure Monitor que son nuevos o q
 
 ### <a name="insights"></a>Información detallada
 - [Azure Monitor para Azure Cache for Redis (versión preliminar)](insights/redis-cache-insights-overview.md): nuevo artículo.
-- [Supervisión de Key Vault con Azure Monitor para Key Vault (versión preliminar)](insights/key-vaults-insights-overview.md): nuevo artículo.
+- [Supervisión de Key Vault con Azure Monitor para Key Vault (versión preliminar)](./insights/key-vault-insights-overview.md): nuevo artículo.
 
 ### <a name="logs"></a>Registros
 - [Creación y configuración de Log Analytics con PowerShell](platform/powershell-workspace-configuration.md): se ha agregado una sección de solución de problemas.
@@ -258,7 +258,7 @@ En este artículo se enumeran los artículos de Azure Monitor que son nuevos o q
 - [Supervisión de aplicaciones de Python con Azure Monitor (versión preliminar)](app/opencensus-python.md): se han agregado métricas estándar.
 - [Compatibilidad del mapa de origen con las aplicaciones de JavaScript: Application Insights para Azure Monitor](app/source-map-support.md): nuevo artículo.
 
-### <a name="containers"></a>Contenedores
+### <a name="containers"></a>Containers
 
 - [Preguntas más frecuentes sobre Azure Monitor](faq.md): actualización de Azure Monitor para contenedores.
 - [Configuración de la supervisión de GPU con Azure Monitor para contenedores](insights/container-insights-gpu-monitoring.md): nuevo artículo.
@@ -280,7 +280,7 @@ En este artículo se enumeran los artículos de Azure Monitor que son nuevos o q
 
 ### <a name="platform-logs"></a>Registros de plataforma
 
-- [Recopilación y análisis del registro de actividad de Azure en Azure Monitor](platform/activity-log-collect.md): se ha redactado de nuevo para explicar mejor la recopilación del registro de actividad con configuración de diagnóstico.
+- [Recopilación y análisis del registro de actividad de Azure en Azure Monitor](./platform/activity-log.md): se ha redactado de nuevo para explicar mejor la recopilación del registro de actividad con configuración de diagnóstico.
 
 ### <a name="virtual-machines"></a>Máquinas virtuales
 
@@ -326,7 +326,7 @@ Actualizaciones múltiples como parte de la reescritura del contenido de la exte
 
 #### <a name="azure-monitor-for-containers"></a>Azure Monitor para contenedores
 
-- [Integración de Azure Active Directory con Azure Kubernetes Service](../aks/azure-ad-integration.md): se ha agregado una nota para crear una aplicación cliente que admita clústeres habilitados para RBAC con el fin de admitir Azure Monitor para contenedores.
+- [Integración de Azure Active Directory con Azure Kubernetes Service](../aks/azure-ad-integration-cli.md): se ha agregado una nota para crear una aplicación cliente que admita clústeres habilitados para RBAC con el fin de admitir Azure Monitor para contenedores.
 
 #### <a name="azure-monitor-for-vms"></a>Azure Monitor para máquinas virtuales
 
@@ -412,8 +412,8 @@ Varios artículos nuevos para la guía de conversión del diseñador de vistas a
 
 ### <a name="platform-logs"></a>Registros de plataforma
 
-- [Recopilación del registro de actividad de Azure con configuración de diagnóstico: Azure Monitor](platform/diagnostic-settings-legacy.md): se ha agregado información adicional sobre las propiedades modificadas.
-- [Exportación del registro de actividad de Azure](platform/activity-log-export.md): se ha actualizado con los cambios de la interfaz de usuario. 
+- [Recopilación del registro de actividad de Azure con configuración de diagnóstico: Azure Monitor](./platform/activity-log.md): se ha agregado información adicional sobre las propiedades modificadas.
+- [Exportación del registro de actividad de Azure](./platform/activity-log.md#legacy-collection-methods): se ha actualizado con los cambios de la interfaz de usuario. 
 
 ## <a name="december-2019"></a>Diciembre de 2019
 
@@ -450,7 +450,7 @@ Varios artículos nuevos para la guía de conversión del diseñador de vistas a
 
 ### <a name="insights-and-solutions"></a>Conclusiones y soluciones
 
-- [Preguntas más frecuentes sobre Azure Monitor para contenedores](insights/container-insights-faq.md): se ha agregado una pregunta sobre los campos Image y Name.
+- [Preguntas más frecuentes sobre Azure Monitor para contenedores](./faq.md): se ha agregado una pregunta sobre los campos Image y Name.
 - [Solución Azure SQL Analytics en Azure Monitor](insights/azure-sql.md): se han actualizado los tiempos de espera de la base de datos para la compatibilidad con Instancia administrada.
 - [Configuración de la recopilación de datos del agente de Azure Monitor para contenedores](insights/container-insights-agent-config.md): se ha agregado la configuración de enrich_container_logs.
 - [Configuración de los clústeres híbridos de Kubernetes con Azure Monitor para contenedores](insights/container-insights-hybrid-setup.md): se ha agregado la sección de solución de problemas.
@@ -474,19 +474,19 @@ Varios artículos nuevos para la guía de conversión del diseñador de vistas a
 
 Se han actualizado varios artículos como parte de la reestructuración de contenido de los registros de la plataforma en función de la nueva característica para configurar el registro de actividad mediante la configuración de diagnóstico.
 
-- [Archivado de registros de recursos de Azure en la cuenta de almacenamiento](platform/resource-logs-collect-storage.md)
+- [Archivado de registros de recursos de Azure en la cuenta de almacenamiento](./platform/resource-logs.md#send-to-azure-storage)
 - [Esquema de eventos del registro de actividad de Azure](platform/activity-log-schema.md)
 - [Límites de servicio de Azure Monitor](service-limits.md)
-- [Recopilación y análisis de los registros de actividad de Azure en un área de trabajo de Log Analytics](platform/activity-log-collect.md)
-- [Recopilación del registro de actividad de Azure con configuración de diagnóstico (versión preliminar): Azure Monitor](platform/diagnostic-settings-legacy.md)
+- [Recopilación y análisis de los registros de actividad de Azure en un área de trabajo de Log Analytics](./platform/activity-log.md)
+- [Recopilación del registro de actividad de Azure con configuración de diagnóstico (versión preliminar): Azure Monitor](./platform/activity-log.md)
 - [Recopilación de registros de actividad de Azure en un área de trabajo de Log Analytics entre inquilinos de Azure](platform/activity-log-collect-tenants.md)
-- [Recopilación de registros de recursos de Azure en el área de trabajo de Log Analytics](platform/resource-logs-collect-workspace.md)
+- [Recopilación de registros de recursos de Azure en el área de trabajo de Log Analytics](./platform/resource-logs.md#send-to-log-analytics-workspace)
 - [Creación de la configuración de diagnóstico en Azure con una plantilla de Resource Manager](platform/diagnostic-settings-template.md)
 - [Creación de una configuración de diagnóstico para recopilar registros y métricas en Azure](platform/diagnostic-settings.md)
-- [Exportación del registro de actividad de Azure](platform/activity-log-export.md)
+- [Exportación del registro de actividad de Azure](./platform/activity-log.md#legacy-collection-methods)
 - [Introducción a los registros de plataforma Azure](platform/platform-logs-overview.md)
 - [Transmisión de datos de supervisión de Azure a un centro de eventos](platform/stream-monitoring-data-event-hubs.md)
-- [Transmisión de registros de plataforma de Azure a un centro de eventos](platform/resource-logs-stream-event-hubs.md)
+- [Transmisión de registros de plataforma de Azure a un centro de eventos](./platform/resource-logs.md#send-to-azure-event-hubs)
 
 ### <a name="quickstarts-and-tutorials"></a>Guías de inicio rápido y tutoriales
 

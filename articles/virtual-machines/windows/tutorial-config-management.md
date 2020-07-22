@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ed36dc669c8b89ba4a2b7831c6eb6f8742e73730
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cf01e4baf96e4403dae443fa6c98f74c571641a8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100420"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508325"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: Supervisión de cambios y actualización de una máquina virtual Windows en Azure
 
@@ -37,13 +37,13 @@ También puede abrir Cloud Shell en una pestaña independiente acudiendo a [http
 
 Para configurar la supervisión y la administración de actualizaciones de Azure en este tutorial, necesita una máquina virtual Windows en Azure.
 
-En primer lugar, establezca un nombre de usuario de administrador y una contraseña para la máquina virtual con [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+En primer lugar, establezca un nombre de usuario de administrador y una contraseña para la máquina virtual con [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-A continuación, cree la máquina virtual con [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). El siguiente ejemplo crea una máquina virtual llamada `myVM` en la ubicación `East US`. Si aún no existen, se crea el grupo de recursos `myResourceGroupMonitor` y los recursos de red de soporte:
+A continuación, cree la máquina virtual con [New-AzVM](/powershell/module/az.compute/new-azvm). El siguiente ejemplo crea una máquina virtual llamada `myVM` en la ubicación `East US`. Si aún no existen, se crea el grupo de recursos `myResourceGroupMonitor` y los recursos de red de soporte:
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -76,7 +76,7 @@ Para habilitar Update Management en una máquina virtual:
 
 Se realiza la validación para determinar si Update Management está habilitado para esta máquina virtual. La validación incluye comprobaciones de un área de trabajo de Log Analytics, para una cuenta de Automation vinculada, y si la solución está en el área de trabajo.
 
-Use un área de trabajo de [Log Analytics](../../log-analytics/log-analytics-overview.md) para recopilar los datos que se generan mediante características y servicios como Update Management. El área de trabajo proporciona una única ubicación para revisar y analizar datos desde varios orígenes.
+Use un área de trabajo de [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) para recopilar los datos que se generan mediante características y servicios como Update Management. El área de trabajo proporciona una única ubicación para revisar y analizar datos desde varios orígenes.
 
 Para llevar a cabo en las máquinas virtuales acciones adicionales que requieran actualizaciones, puede usar Azure Automation para ejecutar runbooks en máquinas virtuales. Estas acciones incluyen la descarga o la aplicación de actualizaciones.
 
@@ -86,8 +86,8 @@ En la ventana **Habilitar la administración de actualizaciones**, elija el áre
 
 Los requisitos previos siguientes que falten durante la incorporación se agregarán automáticamente:
 
-* Área de trabajo de [Log Analytics](../../log-analytics/log-analytics-overview.md)
-* [Automation](../../automation/automation-offering-get-started.md)
+* Área de trabajo de [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)
+* [Automation](../../automation/index.yml)
 * [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md), que está habilitado en la máquina virtual
 
 Una vez habilitada la solución, se abre la ventana **Administración de actualizaciones**. Configure la ubicación, el área de trabajo de Log Analytics y la cuenta de Automation que va a usar y seleccione **Habilitar**. Si estas opciones aparecen atenuadas, significa que otra solución de automatización está habilitada en la máquina virtual y que deben usarse el área de trabajo de esa solución y la cuenta de Automation.

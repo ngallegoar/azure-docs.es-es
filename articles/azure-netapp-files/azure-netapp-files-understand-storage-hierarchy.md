@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 02/27/2020
+ms.date: 07/15/2020
 ms.author: b-juche
-ms.openlocfilehash: 70d3a2a501952a5e20b1ff8e99f48f4d7aefce8d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0b150491fff953434062cc583566e1113947a679
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78163971"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504910"
 ---
 # <a name="what-is-the-storage-hierarchy-of-azure-netapp-files"></a>¿Qué es la jerarquía de almacenamiento de Azure NetApp Files?
 
@@ -52,7 +52,6 @@ Antes de crear un volumen en Azure NetApp Files, debe adquirir y configurar un g
 - Cada volumen pertenece a un solo grupo, pero un grupo puede contener varios volúmenes. 
 - Un volumen no pueden moverse entre grupos de capacidad. <!--Within the same NetApp account, you can move a volume across pools.  -->   
   Por ejemplo, en el siguiente [diagrama conceptual de la jerarquía de almacenamiento](#conceptual_diagram_of_storage_hierarchy), no puede mover los volúmenes del grupo de capacidad 1 al grupo de capacidad 2.
-- Un volumen no se puede eliminar hasta que se han eliminado todas sus instantáneas.
 
 ## <a name="conceptual-diagram-of-storage-hierarchy"></a><a name="conceptual_diagram_of_storage_hierarchy"></a>Diagrama conceptual de la jerarquía de almacenamiento 
 El ejemplo siguiente muestra las relaciones de la suscripción de Azure, las cuentas de NetApp, los grupos de capacidad y los volúmenes.   
