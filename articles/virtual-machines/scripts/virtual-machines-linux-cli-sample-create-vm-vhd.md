@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c7260730ccf94e909238c116cb77572463550ed9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 18ceab0b7a16362ddefe841b8e5bc6c4b5bc5bf6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81458567"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501422"
 ---
 # <a name="create-a-vm-with-a-virtual-hard-disk"></a>Crear una máquina virtual con un disco duro virtual
 
@@ -52,19 +52,19 @@ Este script usa los siguientes comandos para crear un grupo de recursos, una má
 
 | Get-Help | Notas |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [az storage account list](https://docs.microsoft.com/cli/azure/storage/account) | Enumera las cuentas de almacenamiento |
-| [az storage account check-name](https://docs.microsoft.com/cli/azure/storage/account) | Comprueba que un nombre de cuenta de almacenamiento es válido y que no existe ya |
-| [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys) | Enumera las claves de las cuentas de almacenamiento |
-| [az storage blob exists](https://docs.microsoft.com/cli/azure/storage/blob) | Comprueba si existe el blob |
-| [az storage container create](https://docs.microsoft.com/cli/azure/storage/container) | Crea un contenedor en una cuenta de almacenamiento. |
-| [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob) | Crea un blob en el contenedor cargando el VHD. |
-| [az vm list](https://docs.microsoft.com/cli/azure/vm) | Se usa con `--query` para comprobar si el nombre de la máquina virtual está en uso. | 
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Crea las máquinas virtuales. |
-| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az-vm-list-ip-addresses) | Obtiene la dirección IP de la máquina virtual que se creó. |
+| [az group create](/cli/azure/group) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [az storage account list](/cli/azure/storage/account) | Enumera las cuentas de almacenamiento |
+| [az storage account check-name](/cli/azure/storage/account) | Comprueba que un nombre de cuenta de almacenamiento es válido y que no existe ya |
+| [az storage account keys list](/cli/azure/storage/account/keys) | Enumera las claves de las cuentas de almacenamiento |
+| [az storage blob exists](/cli/azure/storage/blob) | Comprueba si existe el blob |
+| [az storage container create](/cli/azure/storage/container) | Crea un contenedor en una cuenta de almacenamiento. |
+| [az storage blob upload](/cli/azure/storage/blob) | Crea un blob en el contenedor cargando el VHD. |
+| [az vm list](/cli/azure/vm) | Se usa con `--query` para comprobar si el nombre de la máquina virtual está en uso. | 
+| [az vm create](/cli/azure/vm/availability-set) | Crea las máquinas virtuales. |
+| [az vm list-ip-addresses](/cli/azure/vm#az-vm-list-ip-addresses) | Obtiene la dirección IP de la máquina virtual que se creó. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure).
+Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](/cli/azure).
 
 Encontrará más ejemplos de scripts de la CLI de máquina virtual en la [documentación sobre máquinas virtuales Linux de Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

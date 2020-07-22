@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: d356042d65c419163de4951e64a635a22ea90e6d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f2c780ffb7705575bf1bb5cabb6a09d9dabc0690
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78269187"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505846"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Tutorial: Recopilación y análisis de registros de recurso desde un recurso de Azure
 
@@ -86,7 +86,7 @@ Los datos se recuperan de un área de trabajo de Log Analytics mediante una cons
    
     ![Registros](media/tutorial-resource-logs/logs.png)
 
-4. El servicio que se muestra en el ejemplo escribe los registros de recurso en la tabla **AzureDiagnostics**, pero otros servicios pueden escribir en tablas distintas. Consulte [Servicios, esquemas y categorías admitidos en los registros de recursos de Azure](../platform/diagnostic-logs-schema.md) para conocer las tablas que usan los distintos servicios de Azure.
+4. El servicio que se muestra en el ejemplo escribe los registros de recurso en la tabla **AzureDiagnostics**, pero otros servicios pueden escribir en tablas distintas. Consulte [Servicios, esquemas y categorías admitidos en los registros de recursos de Azure](../platform/resource-logs-schema.md) para conocer las tablas que usan los distintos servicios de Azure.
 
     > [!NOTE]
     > Varios servicios escriben registros de recurso en la tabla AzureDiagnostics. Si inicia Log Analytics desde el menú de Azure Monitor, tendrá que agregar una instrucción `where` con la columna `ResourceProvider` para especificar el servicio concreto. Al iniciar Log Analytics desde el menú de un recurso, el ámbito se establece solo en los registros de este recurso, por lo que esta columna no es necesaria. Consulte la documentación del servicio para ver consultas de ejemplo.

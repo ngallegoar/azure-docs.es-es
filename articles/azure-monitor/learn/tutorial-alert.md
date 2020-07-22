@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/10/2019
 ms.custom: mvc
-ms.openlocfilehash: 7195de1cf58e5dd2e1d0b49b309f3afc718cca92
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1c39bfdbcfb924505473b20b3d56a28d54c84f93
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77656269"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505880"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Supervise el estado de la aplicación y envíe alertas con Azure Application Insights.
 
@@ -28,7 +28,7 @@ Aprenderá a:
 
 Para completar este tutorial:
 
-Cree un [recurso de Application Insights](https://docs.microsoft.com/azure/azure-monitor/learn/dotnetcore-quick-start#enable-application-insights).
+Cree un [recurso de Application Insights](./dotnetcore-quick-start.md#enable-application-insights).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -56,7 +56,7 @@ Las pruebas de disponibilidad en Application Insights le permiten probar automá
 
     ![Editar alerta](media/tutorial-alert/edit-alert-001.png)
 
-6. Seleccione que el valor de ubicaciones con error sea mayor o igual a 3. Cree un [grupo de acciones](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) para configurar quiénes reciben notificaciones al superarse el umbral de alerta.
+6. Seleccione que el valor de ubicaciones con error sea mayor o igual a 3. Cree un [grupo de acciones](../platform/action-groups.md) para configurar quiénes reciben notificaciones al superarse el umbral de alerta.
 
     ![Interfaz de usuario para guardar alerta](media/tutorial-alert/save-alert-001.png)
 

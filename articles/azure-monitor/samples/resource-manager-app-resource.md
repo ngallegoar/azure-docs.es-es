@@ -6,12 +6,12 @@ ms.topic: sample
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/08/2020
-ms.openlocfilehash: 82032c6a5ac8ec65265ffb44f896be6cea8fe4ce
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: d7a8a7b7fa75d7d9bb4dc45a3432370bac4cb4d6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86208927"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498651"
 ---
 # <a name="resource-manager-template-samples-for-creating-application-insights-resources"></a>Ejemplos de plantilla de Resource Manager para la creación de recursos de Application Insights
 
@@ -21,7 +21,7 @@ En este artículo se incluyen [plantillas de Azure Resource Manager](../../azure
 
 ## <a name="classic-application-insights-resource"></a>Recurso de Application Insights clásico
 
-En el ejemplo siguiente se crea un [recurso de Application Insights clásico](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource). 
+En el ejemplo siguiente se crea un [recurso de Application Insights clásico](../app/create-new-resource.md). 
 
 ### <a name="template-file"></a>Archivo de plantilla
 
@@ -107,7 +107,7 @@ En el ejemplo siguiente se crea un [recurso de Application Insights clásico](ht
 
 ## <a name="workspace-based-application-insights-resource"></a>Recurso de Application Insights basado en área de trabajo 
 
-En el ejemplo siguiente se crea un [recurso de Application Insights basado en el área de trabajo](https://docs.microsoft.com/azure/azure-monitor/app/create-workspace-resource). Los recursos de Application Insights basados en el área de trabajo están actualmente en **versión preliminar**. 
+En el ejemplo siguiente se crea un [recurso de Application Insights basado en el área de trabajo](../app/create-workspace-resource.md). Los recursos de Application Insights basados en el área de trabajo están actualmente en **versión preliminar**. 
 
 
 ### <a name="template-file"></a>Archivo de plantilla
