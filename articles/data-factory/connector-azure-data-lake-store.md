@@ -10,17 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/12/2020
-ms.openlocfilehash: 833dd0948a4a6a0ecc5c33ea8c92723169b52387
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: dbfd90c760f4f5f9f6cf1bac8c7d75f474f6827b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737808"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223676"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Copia de datos con Azure Data Lake Storage Gen1 como origen o destino mediante Azure Data Factory
 
 > [!div class="op_single_selector" title1="Seleccione la versión de Azure Data Factory que usa:"]
+>
 > * [Versión 1](v1/data-factory-azure-datalake-connector.md)
 > * [Versión actual](connector-azure-data-lake-store.md)
 
@@ -207,9 +208,11 @@ Las propiedades siguientes se admiten para Azure Data Lake Store Gen1 en la conf
 | type                     | La propiedad type de `storeSettings` se debe establecer en **AzureDataLakeStoreReadSettings**. | Sí                                          |
 | ***Buscar los archivos que se van a copiar:*** |  |  |
 | OPCIÓN 1: ruta de acceso estática<br> | Copia de la ruta de acceso de archivo o carpeta especificada en el conjunto de datos. Si quiere copiar todos los archivos de una carpeta, especifique también `wildcardFileName` como `*`. |  |
-| OPCIÓN 2: carácter comodín<br>- wildcardFolderPath | Ruta de acceso de carpeta con caracteres comodín para filtrar las carpetas de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro. <br>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | No                                            |
-| OPCIÓN 2: carácter comodín<br>- wildcardFileName | Nombre de archivo con caracteres comodín en la propiedad folderPath o wildcardFolderPath indicada para filtrar los archivos de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro.  Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sí |
-| OPCIÓN 3: una lista de archivos<br>- fileListPath | Indica que se copie un conjunto de archivos determinado. Apunte a un archivo de texto que incluya una lista de los archivos que quiere copiar, con un archivo por línea, que sea la ruta de acceso relativa a la ruta de acceso configurada en el conjunto de datos.<br/>Al utilizar esta opción, no especifique el nombre de archivo en el conjunto de datos. Ver más ejemplos en [Ejemplos de lista de archivos](#file-list-examples). |No |
+| OPCIÓN 2: intervalo de nombres<br>- listAfter | Recupera las carpetas o los archivos cuyo nombre aparece después de este valor por orden alfabético (exclusivo). Usa el filtro del lado de servicio para ADLS Gen1, que proporciona un mejor rendimiento que un filtro de caracteres comodín. <br/>La factoría de datos aplica este filtro a la ruta de acceso definida en el conjunto de datos, y solo se admite un nivel de entidad. Consulte más ejemplos en [Ejemplos de filtros de intervalos de nombres](#name-range-filter-examples). | No |
+| OPCIÓN 2: intervalo de nombres<br/>- listBefore | Recupera las carpetas o los archivos cuyo nombre aparece antes de este valor por orden alfabético (inclusivo). Usa el filtro del lado de servicio para ADLS Gen1, que proporciona un mejor rendimiento que un filtro de caracteres comodín.<br>La factoría de datos aplica este filtro a la ruta de acceso definida en el conjunto de datos, y solo se admite un nivel de entidad. Consulte más ejemplos en [Ejemplos de filtros de intervalos de nombres](#name-range-filter-examples). | No |
+| OPCIÓN 3: carácter comodín<br>- wildcardFolderPath | Ruta de acceso de carpeta con caracteres comodín para filtrar las carpetas de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro. <br>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | No                                            |
+| OPCIÓN 3: carácter comodín<br>- wildcardFileName | Nombre de archivo con caracteres comodín en la propiedad folderPath o wildcardFolderPath indicada para filtrar los archivos de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro.  Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sí |
+| OPCIÓN 4: una lista de archivos<br>- fileListPath | Indica que se copie un conjunto de archivos determinado. Apunte a un archivo de texto que incluya una lista de los archivos que quiere copiar, con un archivo por línea, que sea la ruta de acceso relativa a la ruta de acceso configurada en el conjunto de datos.<br/>Al utilizar esta opción, no especifique el nombre de archivo en el conjunto de datos. Ver más ejemplos en [Ejemplos de lista de archivos](#file-list-examples). |No |
 | ***Configuración adicional:*** |  | |
 | recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establece en true y el receptor es un almacén basado en archivos, no se crea una carpeta o una subcarpeta vacía en el receptor. <br>Los valores permitidos son: **True** (valor predeterminado) y **False**.<br>Esta propiedad no se aplica al configurar `fileListPath`. |No |
 | deleteFilesAfterCompletion | Indica si los archivos binarios se eliminarán del almacén de origen después de moverse correctamente al almacén de destino. Cada archivo se elimina individualmente, de modo que cuando se produzca un error en la actividad de copia, algunos archivos ya se habrán copiado al destino y se habrán eliminado del origen, mientras que otros seguirán aún en el almacén de origen. <br/>Esta propiedad solo es válida en el escenario de copia de archivos binarios, en el que los almacenes de origen de datos son Blob, ADLS Gen1, ADLS Gen2, S3, Google Cloud Storage, File, Azure File, SFTP o FTP. El valor predeterminado es false. |No |
@@ -305,6 +308,13 @@ Las propiedades siguientes se admiten para Azure Data Lake Store Gen1 en la conf
     }
 ]
 ```
+### <a name="name-range-filter-examples"></a>Ejemplos de filtros de intervalos de nombres
+
+En esta sección se describe el comportamiento resultante de los filtros de intervalos de nombres.
+
+| Estructura de origen de ejemplo | Configuración de ADF | Resultado |
+|:--- |:--- |:--- |
+|root<br/>&nbsp;&nbsp;&nbsp;&nbsp;a<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;ax<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file2.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;ax.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;b<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;bx.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;c<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file4.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;cx.csv| **En el conjunto de datos:**<br>- Ruta de acceso a la carpeta: `root`<br><br>**En origen de la actividad de copia:**<br>- Enumerar después de: `a`<br>- Enumerar antes de: `b`| A continuación, se copiarán los siguientes archivos:<br><br>root<br/>&nbsp;&nbsp;&nbsp;&nbsp;ax<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file2.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;ax.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;b<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file3.csv |
 
 ### <a name="folder-and-file-filter-examples"></a>Ejemplos de filtros de carpetas y archivos
 
@@ -350,10 +360,11 @@ Si quiere replicar las listas de control de acceso (ACL) junto con los archivos 
 ## <a name="mapping-data-flow-properties"></a>Propiedades de Asignación de instancias de Data Flow
 
 Al transformar datos en los flujos de datos de asignación, puede leer y escribir archivos de Azure Data Lake Storage Gen1 en los siguientes formatos:
-* [JSON](format-json.md#mapping-data-flow-properties)
 * [Avro](format-avro.md#mapping-data-flow-properties)
 * [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties)
-* [Parquet](format-parquet.md#mapping-data-flow-properties).
+* [Excel](format-excel.md#mapping-data-flow-properties)
+* [JSON](format-json.md#mapping-data-flow-properties)
+* [Parquet](format-parquet.md#mapping-data-flow-properties)
 
 La configuración específica de formato se encuentra en la documentación de ese formato. Para obtener más información, consulte los artículos sobre la [transformación de origen en un flujo de datos de asignación](data-flow-source.md) y la [transformación de receptor en un flujo de datos de asignación](data-flow-sink.md).
 

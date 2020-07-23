@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: d9c46368b42cac1d06f7d78d5e0d03ad2de0bada
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d240ed426bb270ac4cf09f3806bd36a6a52d3633
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478406"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86275400"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedimientos: Personalizar las notificaciones emitidas en tokens para una determinada aplicación de un inquilino (versión preliminar)
 
@@ -362,7 +362,7 @@ En función del método elegido, se espera un conjunto de entradas y salidas. De
 |TransformationMethod|Entrada prevista|Salida prevista|Descripción|
 |-----|-----|-----|-----|
 |Join|string1, string2, separator|outputClaim|Se combinan las cadenas de entrada mediante un separador entre ellas. Por ejemplo: string1:"foo@bar.com" , string2:"sandbox" , separator:"." da como resultado outputClaim:"foo@bar.com.sandbox"|
-|ExtractMailPrefix|mail|outputClaim|Extrae la parte local de una dirección de correo electrónico. Por ejemplo: mail:"foo@bar.com" da como resultado outputClaim:"foo". Si no existe ningún signo \@, la cadena de entrada original se devuelve tal y como está.|
+|ExtractMailPrefix|Correo electrónico o UPN|UPN|ExtensionAttributes 1-15 o cualquier otra extensión de esquema que almacene un valor de UPN o de dirección de correo electrónico del usuario, p. ej., johndoe@contoso.com. Extrae la parte local de una dirección de correo electrónico. Por ejemplo: mail:"foo@bar.com" da como resultado outputClaim:"foo". Si no existe ningún signo \@, la cadena de entrada original se devuelve tal y como está.|
 
 **InputClaims:** use un elemento InputClaims para pasar los datos de una entrada de esquema de notificación a una transformación. Tiene dos atributos: **ClaimTypeReferenceId** y **TransformationClaimType**.
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/31/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 285f5aabe32013a629eebb150e55ba343150f589
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0880f697ceea9c10a070ede0a73235022ce0529d
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734850"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220296"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-active-directory-domain-services-managed-domain"></a>Implementación de Azure AD Application Proxy para el acceso seguro a las aplicaciones internas en un dominio administrado de Azure Active Directory Domain Services
 
@@ -40,9 +40,9 @@ Para completar este artículo, necesitará los siguientes recursos y privilegios
 
 ## <a name="create-a-domain-joined-windows-vm"></a>Creación de una máquina virtual Windows unida a un dominio
 
-Para enrutar el tráfico a las aplicaciones que se ejecutan en su entorno, puede instalar el componente del conector de Azure AD Application Proxy. Este conector de Azure AD Application Proxy se debe instalar en máquinas virtuales (VM) con Windows Server que están unidas al dominio administrado. En el caso de algunas aplicaciones, puede implementar varios servidores que tengan instalado el conector. Esta opción de implementación ofrece mayor disponibilidad y lo ayuda a administrar cargas de autenticación más intensas.
+Para enrutar el tráfico a las aplicaciones que se ejecutan en su entorno, puede instalar el componente del conector de Azure AD Application Proxy. Este conector de Azure AD Application Proxy se debe instalar en una máquina virtual (VM) con Windows Server que estén unida al dominio administrado. En el caso de algunas aplicaciones, puede implementar varios servidores que tengan instalado el conector. Esta opción de implementación ofrece mayor disponibilidad y lo ayuda a administrar cargas de autenticación más intensas.
 
-La máquina virtual que ejecuta el conector de Azure AD Application Proxy debe estar en la misma red virtual (o en una emparejada) en la que se habilitó Azure AD DS. Las máquinas virtuales que hospedan las aplicaciones que se publican con Application Proxy también se deben implementar en la misma red virtual de Azure.
+La máquina virtual que ejecuta el conector de Azure AD Application Proxy debe estar en la misma red virtual (o en una emparejada) que el dominio administrado. Las máquinas virtuales que hospedan las aplicaciones que se publican con Application Proxy también se deben implementar en la misma red virtual de Azure.
 
 Para crear una máquina virtual para el conector de Azure AD Application Proxy, complete los pasos siguientes:
 
@@ -72,7 +72,7 @@ Con una máquina virtual lista para usarla como el conector de Azure AD Applica
         > [!NOTE]
         > La cuenta de administrador global que se usa para registrar el conector debe pertenecer al mismo directorio donde haya habilitado el servicio Application Proxy.
         >
-        > Por ejemplo, si el dominio de Azure AD es *aaddscontoso.com*, el administrador global debe ser `admin@aaddscontoso.com` u otro alias válido en ese dominio.
+        > Por ejemplo, si el dominio de Azure AD es *contoso.com*, el administrador global debe ser `admin@contoso.com` u otro alias válido en ese dominio.
 
    * Si la configuración de seguridad mejorada de Internet Explorer está activada en la máquina virtual donde instala el conector, la pantalla de registro podría bloquearse. Para permitir el acceso, siga las instrucciones del mensaje de error o desactive la seguridad mejorada de Internet Explorer durante el proceso de instalación.
    * Si el registro del conector no funciona, consulte [Solución de problemas de Proxy de aplicación](../active-directory/manage-apps/application-proxy-troubleshoot.md).

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: c1f4945cda9db0f99799ea072737d4524f04e481
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 183ece0d82431a8a961902d75d2fc24b013bc97b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076579"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252273"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mariadb"></a>Información acerca de la continuidad empresarial en Azure Database for MariaDB
 
@@ -51,6 +51,10 @@ La otra opción es usar la característica de replicación geográfica de Azure 
 ## <a name="cross-region-read-replicas"></a>Réplicas de lectura entre regiones
 
 Puede usar réplicas de lectura entre regiones para mejorar el planeamiento de la continuidad empresarial y recuperación ante desastres. Las réplicas de lectura se actualizan de manera asincrónica mediante la tecnología de replicación de registros binarios de MariaDB. Obtenga más información sobre las réplicas de lectura, las regiones disponibles y la conmutación por error en el [artículo sobre los conceptos de las réplicas de lectura](concepts-read-replicas.md). 
+
+## <a name="faq"></a>Preguntas más frecuentes
+### <a name="where-does-azure-database-for-mariadb-store-customer-data"></a>¿Dónde almacena los datos de los clientes Azure Database for MariaDB?
+De manera predeterminada, Azure Database for MariaDB no mueve ni almacena los datos de los clientes fuera de la región en la que se han implementado. Sin embargo, los clientes tienen la opción de optar por habilitar las [copias de seguridad con redundancia geográfica](concepts-backup.md#backup-redundancy-options) o crear [réplicas de lectura entre regiones](concepts-read-replicas.md#cross-region-replication) para almacenar los datos en otra región.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

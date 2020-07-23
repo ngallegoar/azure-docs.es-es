@@ -1,7 +1,7 @@
 ---
 title: 'Compatibilidad con idiomas: Computer Vision'
 titleSuffix: Azure Cognitive Services
-description: 'En este artículo se proporciona una lista de lenguajes naturales admitidos por las características de Computer Vision: OCR, Reconocer texto y Lectura.'
+description: 'En este artículo se proporciona una lista de lenguajes naturales que admiten las características de Computer Vision: OCR y análisis de imagen.'
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 680e3647e7a5847e132a53986e2cf17150bceac3
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 81d0183b6dde1a5fe6bd9cd36910fd3dfc1cc5b1
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560169"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205286"
 ---
 # <a name="language-support-for-computer-vision"></a>Compatibilidad con idiomas para Computer Vision
 
 Algunas características de Computer Vision admiten varios idiomas; las características que no se mencionan aquí solo admiten inglés.
 
-## <a name="text-detection-ocr"></a>Detección de texto (OCR)
+## <a name="optical-character-recognition-ocr"></a>Reconocimiento óptico de caracteres (OCR)
 
-Computer Vision puede detectar texto en varios idiomas. OCR o Read API no requieren que se especifique un código de idioma. Consulte [Lectura de texto de imágenes y documentos](concept-recognizing-text.md) para obtener más información sobre esta funcionalidad y las ventajas de cada API.
+Las API de OCR de Computer Vision admiten varios idiomas. No requieren que especifique un código de idioma. Consulte [Reconocimiento óptico de caracteres (OCR)](concept-recognizing-text.md) para obtener más información.
 
 |Idioma| Código de lenguaje | API de OCR | Read API |
 |:-----|:----:|:-----:|:---:|

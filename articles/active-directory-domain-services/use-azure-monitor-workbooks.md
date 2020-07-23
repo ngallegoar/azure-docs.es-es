@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/18/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 99b61bdd4318bf7c77ae53cc9b77e66ebd6c098a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 879138d882913b8ab43c5689ff72a40e6987c104
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84733405"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223047"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Revisión de los eventos de auditoría de seguridad en Azure Active Directory Domain Services mediante libros de Azure Monitor
 
@@ -32,8 +32,8 @@ Para completar este artículo, necesitará los siguientes recursos y privilegios
     * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
 * Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
     * Si es necesario, complete el tutorial para [crear y configurar un dominio administrado de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
-* Eventos de auditoría de seguridad habilitados para el dominio administrado de Azure Active Directory Domain Services que transmiten los datos a un área de trabajo de Log Analytics.
-    * Si es necesario, [habilite las auditorías de seguridad para Azure Active Directory Domain Services][enable-security-audits].
+* Eventos de auditoría de seguridad habilitados para el dominio administrado que transmiten los datos a un área de trabajo de Log Analytics.
+    * Si es necesario, [habilite las auditorías de seguridad para Azure AD DS][enable-security-audits].
 
 ## <a name="azure-monitor-workbooks-overview"></a>Introducción a los libros de Azure Monitor
 
@@ -61,7 +61,9 @@ Para acceder a la plantilla de libro del informe general sobre seguridad, comple
     ![Selección de la opción de menú Libros en Azure Portal](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
 
 1. Seleccione **Informe general sobre seguridad**.
-1. En los menús desplegables de la parte superior del libro, seleccione la suscripción de Azure y, después, el área de trabajo de Azure Monitor. Elija un **Intervalo de tiempo**, por ejemplo, *Últimos 7 días*.
+1. En los menús desplegables de la parte superior del libro, seleccione la suscripción a Azure y, después, un área de trabajo de Azure Monitor.
+
+    Elija un **intervalo de tiempo**, como *Últimos 7 días*, tal como se muestra en la siguiente captura de pantalla de ejemplo:
 
     ![Selección de la opción de menú Libros en Azure Portal](./media/use-azure-monitor-workbooks/select-query-filters.png)
 
@@ -85,7 +87,11 @@ Para acceder a la plantilla de libro del informe de actividades de la cuenta, co
 1. Seleccione el dominio administrado como, por ejemplo, *aaddscontoso.com*.
 1. En el menú de la izquierda, elija **Supervisión > Libros**.
 1. Seleccione el **Informe de actividades de la cuenta**.
-1. En los menús desplegables de la parte superior del libro, seleccione la suscripción de Azure y, después, el área de trabajo de Azure Monitor. Elija un **Intervalo de tiempo** , como *Últimos 30 días* y, después, cómo quiere que se representen los datos en la **Vista de icono**. Puede filtrar por **Nombre de usuario de la cuenta**, por ejemplo *felix*, como se muestra en el siguiente informe de ejemplo:
+1. En los menús desplegables de la parte superior del libro, seleccione la suscripción a Azure y, después, un área de trabajo de Azure Monitor.
+
+    Elija un **Intervalo de tiempo** , como *Últimos 30 días* y, después, cómo quiere que se representen los datos en la **Vista de icono**.
+
+    Puede filtrar por **Nombre de usuario de la cuenta**, por ejemplo *felix*, como se muestra en el siguiente informe de ejemplo:
 
     [![](./media/use-azure-monitor-workbooks/account-activity-report-cropped.png "Account activity report in Azure Monitor Workbooks")](./media/use-azure-monitor-workbooks/account-activity-report.png#lightbox)
 

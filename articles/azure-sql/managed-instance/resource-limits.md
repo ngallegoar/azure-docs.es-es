@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 02/25/2020
-ms.openlocfilehash: 85d347c45e1ca2cd39c7504e44bd3ea063f788d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 013433d60b9f3e7f251f8d80d7b9b8f24b2395b3
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708425"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206192"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Introducción a los límites de recursos de Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -33,11 +33,11 @@ Instancia administrada de SQL tiene características y límites de recursos que 
 
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
-| Hardware | Procesadores Intel E5-2673 v3 (Haswell) de 2,4 GHz; núcleo virtual SSD conectado equivalente a 1 PP (núcleo físico) | Procesadores Intel E5-2673 v4 (Broadwell) a 2,3 GHz e Intel SP-8160 (Skylake), SSD NVMe rápido, vCore=1 LP (hiperproceso) |
-| Número de núcleos virtuales | 8, 16, 24 núcleos virtuales | 4, 8, 16, 24, 32, 40, 64 y 80 núcleos virtuales |
-| Memoria máxima (relación memoria/núcleo) | 7 GB por núcleo virtual<br/>Agregue más núcleos virtuales para obtener más memoria. | 5,1 GB por núcleo virtual<br/>Agregue más núcleos virtuales para obtener más memoria. |
-| Memoria máxima de OLTP en memoria | Límite de instancia: 1-1,5 GB por núcleo virtual| Límite de instancia: 0,8-1,65 GB por núcleo virtual |
-| Número máximo de almacenamiento reservado de instancia |  Uso general: 8 TB<br/>Crítico para la empresa: 1 TB | Uso general: 8 TB<br/> Crítico para la empresa: 1 TB, 2 TB o 4 TB, en función del número de núcleos |
+| **Hardware** | Procesadores Intel E5-2673 v3 (Haswell) de 2,4 GHz; núcleo virtual SSD conectado equivalente a 1 PP (núcleo físico) | Procesadores Intel E5-2673 v4 (Broadwell) a 2,3 GHz e Intel SP-8160 (Skylake), SSD NVMe rápido, vCore=1 LP (hiperproceso) |
+| **Número de núcleos virtuales** | 8, 16, 24 núcleos virtuales | 4, 8, 16, 24, 32, 40, 64 y 80 núcleos virtuales |
+| **Memoria máxima (relación memoria/núcleo)** | 7 GB por núcleo virtual<br/>Agregue más núcleos virtuales para obtener más memoria. | 5,1 GB por núcleo virtual<br/>Agregue más núcleos virtuales para obtener más memoria. |
+| **Memoria máxima de OLTP en memoria** | Límite de instancia: 1-1,5 GB por núcleo virtual| Límite de instancia: 0,8-1,65 GB por núcleo virtual |
+| **Tamaño máximo de almacenamiento reservado de instancia** |  Uso general: 8 TB<br/>Crítico para la empresa: 1 TB | Uso general: 8 TB<br/> Crítico para la empresa: 1 TB, 2 TB o 4 TB, en función del número de núcleos |
 
 > [!IMPORTANT]
 > - El hardware de Gen4 está en proceso de eliminación gradual y ya no está disponible para las nuevas implementaciones. Todas las nuevas instancias de Instancia administrada de SQL deben implementarse en el hardware de Gen5.

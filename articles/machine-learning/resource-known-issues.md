@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: a3e78ff2936cb3dbbc1bcf432f130fbd17622d14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc41152bb39b0f5022d51dbefe16e3d56107c457
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610074"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223465"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemas conocidos y solución de problemas en Azure Machine Learning
 
@@ -181,7 +181,27 @@ Si usa un recurso compartido de archivos para otras cargas de trabajo, como la t
 |Al revisar imágenes, no se muestran las imágenes recién etiquetadas.     |   Para cargar todas las imágenes etiquetadas, elija el botón **Primera**. El botón **Primera** le llevará al principio de la lista, pero carga todos los datos etiquetados.      |
 |Al presionar la tecla ESC mientras se etiqueta para la detección de objetos, se crea una etiqueta de tamaño cero en la esquina superior izquierda. El envío de etiquetas en este estado produce un error.     |   Haga clic en la cruz junto a la etiqueta para eliminarla.  |
 
-### <a name="data-drift-monitors"></a>Monitores de desfase de datos
+### <a name="data-drift-monitors"></a><a name="data-drift"></a> Monitores de desfase de datos
+
+Limitaciones y problemas conocidos de los monitores de desfase de datos:
+
+* El intervalo de tiempo del análisis de datos históricos está limitado a 31 intervalos de la configuración de frecuencia del monitor. 
+* Limitación de 200 características, a menos que no se especifique ninguna lista de características (se usan todas las características).
+* El tamaño de proceso debe ser lo suficientemente grande como para controlar los datos.
+* Asegúrese de que el conjunto de datos tiene datos dentro de las fechas de inicio y finalización de una ejecución de monitor determinada.
+* Los monitores del conjunto de datos solo funcionarán en conjuntos de datos que contengan 50 filas, o más.
+* Las columnas, o características, del conjunto de datos se clasifican como categóricas o numéricas en función de las condiciones de la tabla siguiente. Si la característica no cumple estas condiciones, por ejemplo, una columna de tipo cadena con > 100 valores únicos, la característica se quita de nuestro algoritmo de desfase de datos, pero se perfila aún así. 
+
+    | Tipo de característica | Tipo de datos | Condición | Limitaciones | 
+    | ------------ | --------- | --------- | ----------- |
+    | Categorías | string, bool, int, float | El número de valores únicos de la característica es menor que 100 y menor que el 5 % del número de filas. | NULL se trata como su propia categoría. | 
+    | Numérico | int, float | Los valores de la característica son de un tipo de datos numérico y no cumplen la condición de una característica de categoría. | Característica quitada si más del 15 % de los valores son NULL. | 
+
+* Cuando haya [creado un monitor de desfase de datos](how-to-monitor-datasets.md), pero no pueda ver datos en la página **Monitores de conjuntos de datos** en Azure Machine Learning Studio, intente lo siguiente.
+
+    1. Compruebe si ha seleccionado el intervalo de fechas correcto en la parte superior de la página.  
+    1. En la pestaña **Monitores de conjuntos de datos**, seleccione el vínculo de experimento para comprobar el estado de la ejecución.  El vínculo se encuentra en el extremo derecho de la tabla.
+    1. Si la ejecución se completó correctamente, compruebe los registros del controlador para ver el número de métricas que se han generado o si hay algún mensaje de advertencia.  Busque registros de controladores en la pestaña **Output + logs** (Salida y registros) después de hacer clic en un experimento.
 
 * Si la función `backfill()` del SDK no genera la salida esperada, puede deberse a un problema de autenticación.  Cuando cree el proceso para pasar esta función, no utilice `Run.get_context().experiment.workspace.compute_targets`.  En su lugar, use una [ServicePrincipalAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) como la siguiente para crear el proceso que se pasa en esa función `backfill()`: 
 

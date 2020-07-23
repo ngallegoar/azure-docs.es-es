@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 01/21/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 5d3300151dc5fdfde0b34aa3f76c3ed9494d34fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91a060e8a5fe1bdaf3e6ea08811814297c355108
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734068"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86222979"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Problemas conocidos: Alertas comunes y resolución en Azure Active Directory Domain Services
 
@@ -34,7 +34,7 @@ En este artículo se proporciona información para solución de problemas de ale
 
 Este error se produce habitualmente cuando una suscripción de Azure se pasa a un nuevo directorio de Azure AD y se elimina el directorio de Azure AD anterior que está asociado con Azure AD DS.
 
-Este error es irrecuperable. Para resolver la alerta, debe [eliminar el dominio administrado de Azure AD DS existente](delete-aadds.md) y volver a crearlo en el directorio nuevo. Si tiene problemas para eliminar el dominio administrado, [abra una solicitud de soporte técnico de Azure][azure-support] para obtener ayuda adicional para la solución de problemas.
+Este error es irrecuperable. Para resolver la alerta, debe [eliminar el dominio administrado existente](delete-aadds.md) y volver a crearlo en el directorio nuevo. Si tiene problemas para eliminar el dominio administrado, [abra una solicitud de soporte técnico de Azure][azure-support] para obtener ayuda adicional para la solución de problemas.
 
 ## <a name="aadds101-azure-ad-b2c-is-running-in-this-directory"></a>AADDS101: Azure AD B2C se ejecuta en este directorio
 
@@ -67,7 +67,7 @@ Antes de empezar, asegúrese de que comprende los [espacios de direcciones IP v
 Dentro de una red virtual, las máquinas virtuales pueden realizar solicitudes a los recursos de Azure que se encuentran en el mismo intervalo de direcciones IP que los configurados para la subred. Si configura un intervalo de direcciones IP públicas para una subred, es posible que las solicitudes enrutadas dentro de una red virtual no lleguen a los recursos web deseados. Esta configuración puede conducir a errores impredecibles con Azure AD DS.
 
 > [!NOTE]
-> Si es propietario del intervalo de direcciones IP que está configurado en la red virtual, puede omitir esta alerta. Sin embargo, Azure AD Domain Services no puede garantizar el cumplimiento del [Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/) con esta configuración, ya que puede conducir a errores impredecibles.
+> Si es propietario del intervalo de direcciones IP que está configurado en la red virtual, puede omitir esta alerta. Sin embargo, Azure AD Domain Services no puede garantizar el cumplimiento del [Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/) con esta configuración, ya que puede dar lugar a errores impredecibles.
 
 Para resolver esta alerta, elimine el dominio administrado existente y vuelva a crearlo en una red virtual con un intervalo de direcciones IP privado. Este proceso es perjudicial porque el dominio administrado no está disponible y se pierden todos los recursos personalizados que haya creado como unidades organizativas o cuentas de servicio.
 
@@ -76,7 +76,7 @@ Para resolver esta alerta, elimine el dominio administrado existente y vuelva a 
 1. En *Configuración*, seleccione **Espacio de direcciones**.
 1. Para actualizar el intervalo de direcciones, elija el intervalo existente y edítelo o agregue uno. Asegúrese de que el intervalo de direcciones IP nuevo esté en un intervalo IP privado. Cuando esté preparado, **guarde** los cambios.
 1. En el menú de navegación de la izquierda, seleccione **Subredes**.
-1. Elija la subred que desea editar o cree una.
+1. Elija la subred que quiera editar o cree una adicional.
 1. Actualice o especifique un intervalo de direcciones IP privadas y, a continuación, **Guarde** los cambios.
 1. [Cree un dominio administrado de reemplazo](tutorial-create-instance.md). Asegúrese de elegir una subred de red virtual actualizada con un intervalo de direcciones IP privadas.
 
@@ -148,7 +148,7 @@ Esta alerta se genera cuando se elimina uno de estos recursos necesarios. Si el 
 
 ### <a name="resolution"></a>Resolución
 
-La subred de la red virtual para Azure AD DS necesita direcciones IP suficientes para los recursos creados automáticamente. Este espacio de direcciones IP incluye la necesidad de crear recursos de reemplazo si hay un evento de mantenimiento. Para minimizar el riesgo de quedarse sin direcciones IP disponibles, no implemente recursos adicionales, como sus propias máquinas virtuales, en la misma subred de red virtual que Azure AD DS.
+La subred de la red virtual para Azure AD DS necesita direcciones IP suficientes para los recursos creados automáticamente. Este espacio de direcciones IP incluye la necesidad de crear recursos de reemplazo si hay un evento de mantenimiento. Para minimizar el riesgo de quedarse sin direcciones IP disponibles, no implemente recursos adicionales, como sus propias máquinas virtuales, en la misma subred de red virtual que el dominio administrado.
 
 Este error es irrecuperable. Para resolver la alerta, [elimine el dominio administrado existente](delete-aadds.md) y vuelva a crearlo. Si tiene problemas para eliminar el dominio administrado, [abra una solicitud de soporte técnico de Azure][azure-support] para obtener ayuda adicional para la solución de problemas.
 
@@ -173,16 +173,16 @@ Algunas entidades de servicio generadas automáticamente se utilizan para admini
 
 ### <a name="resolution"></a>Resolución
 
-La subred de la red virtual para Azure AD DS necesita direcciones IP suficientes para los recursos creados automáticamente. Este espacio de direcciones IP incluye la necesidad de crear recursos de reemplazo si hay un evento de mantenimiento. Para minimizar el riesgo de quedarse sin direcciones IP disponibles, no implemente recursos adicionales, como sus propias máquinas virtuales, en la misma subred de red virtual que Azure AD DS.
+La subred de la red virtual para Azure AD DS necesita direcciones IP suficientes para los recursos creados automáticamente. Este espacio de direcciones IP incluye la necesidad de crear recursos de reemplazo si hay un evento de mantenimiento. Para minimizar el riesgo de quedarse sin direcciones IP disponibles, no implemente recursos adicionales, como sus propias máquinas virtuales, en la misma subred de red virtual que el dominio administrado.
 
 Para resolver esta alerta, elimine el dominio administrado existente y vuelva a crearlo en una red virtual con un intervalo de direcciones IP suficientemente grande. Este proceso es perjudicial porque el dominio administrado no está disponible y se pierden todos los recursos personalizados que haya creado como unidades organizativas o cuentas de servicio.
 
 1. [Elimine el dominio administrado](delete-aadds.md) del directorio.
-1. Para actualizar el intervalo de direcciones IP de la red virtual, busque *Red virtual* en Azure Portal y selecciónelo. Seleccione la red virtual para Azure AD DS que tenga el intervalo de direcciones IP pequeño.
+1. Para actualizar el intervalo de direcciones IP de la red virtual, busque *Red virtual* en Azure Portal y selecciónelo. Seleccione la red virtual para el dominio administrado que tenga el intervalo de direcciones IP pequeño.
 1. En *Configuración*, seleccione **Espacio de direcciones**.
-1. Para actualizar el intervalo de direcciones, elija el intervalo existente y edítelo o agregue uno. Asegúrese de que el nuevo intervalo de direcciones IP sea lo suficientemente grande para el intervalo de subred de Azure AD DS. Cuando esté preparado, **guarde** los cambios.
+1. Para actualizar el intervalo de direcciones, elija el intervalo existente y edítelo o agregue uno. Asegúrese de que el nuevo intervalo de direcciones IP sea lo suficientemente grande para el intervalo de subred del dominio administrado. Cuando esté preparado, **guarde** los cambios.
 1. En el menú de navegación de la izquierda, seleccione **Subredes**.
-1. Elija la subred que desea editar o cree una.
+1. Elija la subred que quiera editar o cree una adicional.
 1. Actualice o especifique un intervalo de direcciones IP suficientemente grande y, a continuación, **guarde** los cambios.
 1. [Cree un dominio administrado de reemplazo](tutorial-create-instance.md). Asegúrese de elegir una subred de red virtual actualizada con un intervalo de direcciones IP suficientemente grande.
 
@@ -220,7 +220,7 @@ Los bloqueos de recursos se pueden aplicar a recursos de Azure para impedir el c
 
 Para comprobar los bloqueos de recursos en los componentes de Azure AD DS y quitarlos, siga estos pasos:
 
-1. Para cada uno de los componentes de red de Azure AD DS en el grupo de recursos, como red virtual, interfaz de red o dirección IP pública, compruebe los registros de operaciones en Azure Portal. Estos registros de operaciones deben indicar por qué se produce un error en una operación y dónde se aplica un bloqueo de recursos.
+1. Para cada uno de los componentes de red del dominio administrado en el grupo de recursos, como la red virtual, la interfaz de red o la dirección IP pública, compruebe los registros de operaciones en Azure Portal. Estos registros de operaciones deben indicar por qué se produce un error en una operación y dónde se aplica un bloqueo de recursos.
 1. Seleccione el recurso en el que se aplica un bloqueo y, en **Bloqueos**, seleccione los bloqueos y quítelos.
 
 ## <a name="aadds116-resources-are-unusable"></a>AADDS116: Los recursos no son utilizables
@@ -235,7 +235,7 @@ Las directivas se aplican a los recursos y los grupos de recursos de Azure que c
 
 Para comprobar las directivas aplicadas en los componentes de Azure AD DS y quitarlas, siga estos pasos:
 
-1. Para cada uno de los componentes de red de Azure AD DS en el grupo de recursos, como red virtual, NIC o dirección IP pública, compruebe los registros de operaciones en Azure Portal. Estos registros de operaciones deben indicar por qué se produce un error en una operación y dónde se aplica una directiva restrictiva.
+1. Para cada uno de los componentes de red del dominio administrado en el grupo de recursos, como la red virtual, el adaptador de red o la dirección IP pública, compruebe los registros de operaciones en Azure Portal. Estos registros de operaciones deben indicar por qué se produce un error en una operación y dónde se aplica una directiva restrictiva.
 1. Seleccione el recurso al que se aplica una directiva y, en **Directivas**, seleccione y edite la directiva para que sea menos restrictiva.
 
 ## <a name="aadds500-synchronization-has-not-completed-in-a-while"></a>AADDS500: Hace un tiempo que no se realiza una sincronización
@@ -248,9 +248,9 @@ Para comprobar las directivas aplicadas en los componentes de Azure AD DS y qu
 
 [Compruebe el estado de Azure AD DS](check-health.md) para ver las alertas que podrían indicar problemas en la configuración del dominio administrado. Los problemas con la configuración de red pueden bloquear la sincronización desde Azure AD. Si puede resolver las alertas que indican un problema de configuración, espere dos horas y compruebe de nuevo para ver si se ha completado la sincronización correctamente.
 
-Los siguientes motivos comunes provocan que la sincronización se detenga en los dominios administrados:
+Los siguientes motivos comunes provocan que la sincronización se detenga en un dominio administrado:
 
-* La conectividad de red necesaria se bloquea. Para más información sobre cómo comprobar la red virtual de Azure para detectar si hay problemas y qué se requiere, consulte [cómo solucionar problemas de grupos de seguridad de red](alert-nsg.md) y los [requisitos de red para Azure AD Domain Services](network-considerations.md).
+* La conectividad de red necesaria se bloquea. Para obtener más información sobre cómo comprobar la red virtual de Azure para detectar si hay problemas y qué se requiere, consulte [cómo solucionar problemas de grupos de seguridad de red](alert-nsg.md) y los [requisitos de red para Azure AD DS](network-considerations.md).
 *  La sincronización de contraseñas no se configuró o se completó incorrectamente cuando se implementó el dominio administrado. Puede configurar la sincronización de contraseñas para los [usuarios solo de nube](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) o para los [usuarios de entornos híbridos desde el entorno local](tutorial-configure-password-hash-sync.md).
 
 ## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501: Hace un tiempo que no se realiza una copia de seguridad

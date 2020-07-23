@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4e31560126919e4c61b176a6eaa62ee7f9b4a624
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a400ae798245cc4912724c16840421d5282b3a0
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85112086"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86277739"
 ---
 Los discos del sistema operativo efímeros se crean en el almacenamiento local de la máquina virtual y no se guardan en la instancia remota de Azure Storage. Estos discos están indicados para cargas de trabajo sin estado, donde las aplicaciones toleran errores de máquinas virtuales individuales, pero tienen más en cuenta el tiempo de implementación de las máquinas virtuales o el restablecimiento de la imagen inicial de dichas máquinas. Con los discos del sistema operativo efímeros, observará una latencia de lectura y escritura inferior en el disco del sistema operativo y un restablecimiento más rápido de la imagen inicial de la máquina virtual. 
  
@@ -30,17 +30,17 @@ Las principales características de los discos efímeros son:
  
 Principales diferencias entre discos del sistema operativo efímeros y persistentes:
 
-|                             | Disco del sistema operativo persistente                          | Disco de sistema operativo efímero                              |    |
+|                             | Disco del sistema operativo persistente                          | Disco de sistema operativo efímero                              |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
-| Límite de tamaño del disco del sistema operativo      | 2 TiB                                                                                        | El tamaño de caché para el tamaño de máquina virtual o 2 TiB, el que sea menor. Para el **tamaño de caché en GiB**, consulte [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md) y [GS](/azure/virtual-machines/linux/sizes-previous-gen#gs-series).              |
-| Tamaños de máquina virtual admitidos          | All                                                                                          | DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
-| Compatibilidad con los tipos de discos           | Disco del sistema operativo administrado y no administrado                                                                | Solo disco del sistema operativo administrado                                                               |
-| Regiones admitidas              | Todas las regiones                                                                                  | Todas las regiones                              |
-| Persistencia de los datos            | Los datos del disco del sistema operativo escritos en un disco del sistema operativo se almacenan en Azure Storage.                                  | Los datos escritos en un disco del sistema operativo se almacenan en el almacenamiento de máquina virtual local y no se conservan en Azure Storage. |
-| Estado detenido (desasignado)      | Las máquinas virtuales y las instancias del conjunto de escalado pueden estar detenidas (desasignadas) y reiniciarse a partir de este estado. | Las máquinas virtuales y las instancias del conjunto de escalado no pueden estar detenidas (desasignadas).                                  |
-| Compatibilidad con discos del sistema operativo especializados | Sí                                                                                          | No                                                                                 |
-| Cambio de tamaño del disco del sistema operativo              | Se admite durante la creación de la máquina virtual y después de que esta se detiene (desasigna).                                | Se admite solo durante la creación de la máquina virtual                                                  |
-| Cambio a un nuevo tamaño de máquina virtual   | Se conservan los datos del disco del sistema operativo                                                                    | Se eliminan los datos del disco del sistema operativo, se vuelve a aprovisionar el sistema operativo.                                      |
+| **Límite de tamaño del disco del sistema operativo**      | 2 TiB                                                                                        | El tamaño de caché para el tamaño de máquina virtual o 2 TiB, el que sea menor. Para el **tamaño de caché en GiB**, consulte [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md) y [GS](/azure/virtual-machines/linux/sizes-previous-gen#gs-series).              |
+| **Tamaños de máquina virtual admitidos**          | All                                                                                          | Tamaños de máquina virtual que admiten Premium Storage, como DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, LSv2 y M                                               |
+| **Compatibilidad con los tipos de discos**           | Disco del sistema operativo administrado y no administrado                                                                | Solo disco del sistema operativo administrado                                                               |
+| **Regiones admitidas**              | Todas las regiones                                                                                  | Todas las regiones                              |
+| **Persistencia de los datos**            | Los datos del disco del sistema operativo escritos en un disco del sistema operativo se almacenan en Azure Storage.                                  | Los datos escritos en un disco del sistema operativo se almacenan en el almacenamiento de máquina virtual local y no se conservan en Azure Storage. |
+| **Estado detenido (desasignado)**      | Las máquinas virtuales y las instancias del conjunto de escalado pueden estar detenidas (desasignadas) y reiniciarse a partir de este estado. | Las máquinas virtuales y las instancias del conjunto de escalado no pueden estar detenidas (desasignadas).                                  |
+| **Compatibilidad con discos del sistema operativo especializados** | Sí                                                                                          | No                                                                                 |
+| **Cambio de tamaño del disco del sistema operativo**              | Se admite durante la creación de la máquina virtual y después de que esta se detiene (desasigna).                                | Se admite solo durante la creación de la máquina virtual                                                  |
+| **Cambio a un nuevo tamaño de máquina virtual**   | Se conservan los datos del disco del sistema operativo                                                                    | Se eliminan los datos del disco del sistema operativo, se vuelve a aprovisionar el sistema operativo.                                      |
 
 ## <a name="size-requirements"></a>Requisitos de tamaño
 

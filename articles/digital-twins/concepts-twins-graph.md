@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 248725c7281c8c63e4ca5c0c70428b4fc997d350
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 955a3b8d12eb3b93bc9d44c624953cd5c1007318
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142401"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258214"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Explicación del concepto de gemelos digitales y su grafo gemelo
 
@@ -21,11 +21,27 @@ En una solución de Azure Digital Twins, las entidades de su entorno se represen
 > [!TIP]
 > "Azure Digital Twins" hace referencia a este servicio de Azure en conjunto. "Gemelos digitales" o simplemente "gemelos" hace referencia a nodos gemelos individuales dentro de la instancia del servicio.
 
-## <a name="creating-digital-twins"></a>Creación de los gemelos digitales
+## <a name="digital-twins"></a>Gemelos digitales
 
 Para poder crear un gemelo digital en la instancia de Azure Digital Twins, debe tener un *modelo* cargado en el servicio. Un modelo describe el conjunto de propiedades, los mensajes de telemetría y las relaciones que puede tener un gemelo determinado, entre otras cosas. Para conocer los tipos de información que se definen en un modelo, consulte [Conceptos: Modelos personalizados](concepts-models.md).
 
 Después de crear y cargar un modelo, la aplicación cliente puede crear una instancia del tipo, que es un gemelo digital. Por ejemplo, después de crear un modelo de *Floor*, puede crear uno o varios gemelos digitales que usen este tipo (como un gemelo de tipo *Floor* denominado *GroundFloor*, otro denominado *Floor2*, etc.). 
+
+## <a name="relationships-a-graph-of-digital-twins"></a>Relaciones: un grafo de gemelos digitales
+
+Los gemelos se conectan a un grafo de gemelos a través de sus relaciones. Las relaciones que un gemelo puede tener se definen como parte de su modelo.  
+
+Por ejemplo, el modelo *Floor* podría definir una relación *contains* dirigida a gemelos de tipo *Room*. Con esta definición, Azure Digital Twins le permitirá crear relaciones *contains* desde cualquier gemelo *Floor* en cualquier gemelo *Room* (incluidos los gemelos que son de subtipos *Room*). 
+
+El resultado de este proceso es un conjunto de nodos (los gemelos digitales) conectado a través de bordes (sus relaciones) en un grafo.
+
+[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
+
+## <a name="create-with-the-apis"></a>Creación con las API
+
+En esta sección se muestra en qué se basa la creación de gemelos digitales y relaciones desde una aplicación cliente. Contiene ejemplos de código de .NET que usan las [API de DigitalTwins](how-to-use-apis-sdks.md), para proporcionar contexto adicional sobre lo que sucede dentro de cada uno de estos conceptos.
+
+### <a name="create-digital-twins"></a>Creación de gemelos digitales
 
 A continuación se muestra un fragmento de código de cliente que usa las [API de DigitalTwins](how-to-use-apis-sdks.md) para crear una instancia de un gemelo de tipo *Room*.
 
@@ -59,11 +75,7 @@ public Task<boolean> CreateRoom(string id, double temperature, double humidity)
 }
 ```
 
-## <a name="relationships-creating-a-graph-of-digital-twins"></a>Relaciones: Creación de un grafo de gemelos digitales
-
-Los gemelos se conectan a un grafo de gemelos a través de sus relaciones. Las relaciones que un gemelo puede tener se definen como parte de su modelo.  
-
-Por ejemplo, el modelo *Floor* podría definir una relación *contains* dirigida a gemelos de tipo *Room*. Con esta definición, Azure Digital Twins le permitirá crear relaciones *contains* desde cualquier gemelo *Floor* en cualquier gemelo *Room* (incluidos los gemelos que son de subtipos *Room*). 
+### <a name="create-relationships"></a>Crear relaciones
 
 A continuación se incluye un ejemplo de código de cliente que usa las [API de DigitalTwins](how-to-use-apis-sdks.md) para crear una relación entre un gemelo digital de tipo *Floor* denominado *GroundFloor* y un gemelo digital de tipo *Room* denominado *Cafe*.
 
@@ -84,8 +96,6 @@ try
     Console.WriteLine($"*** Error creating relationship: {e.Response.StatusCode}");
 }
 ```
-
-El resultado de este proceso es un conjunto de nodos (los gemelos digitales) conectado a través de bordes (sus relaciones) en un grafo.
 
 ## <a name="json-representations-of-graph-elements"></a>Representaciones JSON de elementos de grafo
 
