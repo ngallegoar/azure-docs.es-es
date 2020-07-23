@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 630304bec17dd34befab4e5bd9f1cfdfb6505645
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: d723e60afe543808c88b1ae040e2979412ff324c
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811427"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86273479"
 ---
 # <a name="azure-customer-data-protection"></a>Protección de datos de cliente de Azure   
-El personal de operaciones y soporte técnico de Microsoft no tiene libre acceso a los datos de los clientes, ya que se les deniega de forma predeterminada. Cuando se concede acceso a los datos del cliente, se requiere la aprobación de la dirección y, a continuación, el acceso se administra y registra cuidadosamente. Los requisitos de control de acceso se establecen mediante la directiva de seguridad de Azure siguiente:
+El personal de operaciones y soporte técnico de Microsoft no tiene libre acceso a los datos de los clientes, ya que se les deniega de forma predeterminada. Cuando se concede el acceso a los datos relacionados con un caso de soporte técnico, solo se concede mediante un modelo Just-in-Time (JIT) usando directivas que se auditan y aprueban en función de las directivas de cumplimiento y privacidad.  Los requisitos de control de acceso se establecen mediante la directiva de seguridad de Azure siguiente:
 
 - No hay acceso a los datos de clientes de manera predeterminada.
 - Ninguna cuenta de usuario o administrador en las máquinas virtuales de cliente.
@@ -38,14 +38,11 @@ Azure proporciona a los clientes una fuerte seguridad de los datos, tanto de man
 
 **Segregación de datos**: Azure es un servicio multiinquilino, lo que significa que las implementaciones y máquinas virtuales de varios clientes se almacenan en el mismo hardware físico. Azure usa un aislamiento lógico para separar los datos de cada cliente de los del resto. La segregación ofrece las ventajas de escala económicas de los servicios multiinquilino, a la vez que evita rigurosamente que los clientes tengan acceso a los datos de otros.
 
-**Protección de datos en reposo**: los clientes son responsables de garantizar que los datos almacenados en Azure se cifren según sus propios estándares. Azure facilita una amplia gama de funcionalidades de cifrado, por lo que ofrece a los clientes la flexibilidad de poder elegir la solución que mejor se ajusta a sus necesidades. Azure Key Vault le permite a los clientes mantener de forma fácil el control de las claves que usan los servicios y las aplicaciones en la nube para cifrar datos. Azure Disk Encryption permite a los clientes cifrar máquinas virtuales. Azure Storage Service Encryption permite cifrar todos los datos que se colocan en la cuenta de almacenamiento de un cliente.
+**Protección de datos en reposo**: los clientes son responsables de garantizar que los datos almacenados en Azure se cifren según sus propios estándares. Azure facilita una amplia gama de funcionalidades de cifrado, por lo que ofrece a los clientes la flexibilidad de poder elegir la solución que mejor se ajusta a sus necesidades. Azure Key Vault le permite a los clientes mantener de forma fácil el control de las claves que usan los servicios y las aplicaciones en la nube para cifrar datos. Azure Disk Encryption permite a los clientes cifrar máquinas virtuales. El cifrado del servicio Azure Storage permite cifrar todos los datos que se colocan en la cuenta de almacenamiento de un cliente.
 
-**Protección de datos en tránsito**: los clientes pueden habilitar el cifrado para el tráfico entre sus propias VM y los usuarios finales. Azure protege los datos en tránsito desde o hacia los componentes exteriores y los datos en tránsito internamente, por ejemplo, entre dos redes virtuales. Azure usa el protocolo de Seguridad de la capa de transporte (TLS) 1.2 o superior estándar del sector con claves de cifrado 2,048-bit RSA/SHA256, tal y como recomiendan CESG/NCSC, para cifrar las comunicaciones entre:
+**Protección de datos en tránsito**: Microsoft ofrece una serie de opciones que los clientes pueden usar para proteger los datos en tránsito internamente, dentro de la red de Azure, y externamente, a través de Internet, dirigidos al usuario final.  Entre ellas se incluyen la comunicación a través de redes privadas virtuales (mediante el cifrado IPsec/IKE), Seguridad de la capa de transporte (TLS) 1.2 o posterior (a través de componentes de Azure, como Application Gateway o Azure Front Door), protocolos directamente en las máquinas virtuales de Azure (como Windows IPsec o SMB) y mucho más. 
 
-- El cliente y la nube
-- Internamente entre centros de datos y sistemas de Azure
-
-**Cifrado**: los clientes pueden implementar el cifrado de datos en almacenamiento y en tránsito como procedimiento recomendado para garantizar la confidencialidad e integridad de los datos. Los clientes pueden configurar de manera sencilla sus servicios en la nube de Azure para usar TLS para proteger las comunicaciones de Internet e incluso entre sus máquinas virtuales hospedadas en Azure.
+Además, el "cifrado de forma predeterminada" con MACsec (un estándar de IEEE en la capa de enlace de datos) está habilitado para todo el tráfico de Azure que viaja entre los centros de datos de Azure con el fin de garantizar la confidencialidad y la integridad de los datos de los clientes. 
 
 **Data redundancy** (Redundancia de datos): Microsoft ayuda a garantizar que los datos están protegidos si se produce un ciberataque o daños físicos en un centro de datos. Los clientes pueden optar por:
 

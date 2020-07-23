@@ -1,37 +1,37 @@
 ---
-title: Realizar un seguimiento y un registro de eventos de Azure Data Box y Azure Data Box Heavy | Microsoft Docs
-description: Describe cómo realizar un seguimiento y registrar los eventos en las distintas fases de su pedido de Azure Data Box y Azure Data Box Heavy.
+title: Seguimiento y registro de eventos de Azure Data Box y Azure Data Box Heavy para pedidos de importación| Microsoft Docs
+description: En este artículo se describe cómo realizar un seguimiento de los eventos y registrarlos en las distintas fases de un pedido de importación de Azure Data Box y Azure Data Box Heavy.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/08/2019
+ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 74d38af4a64a184b26bd6ba1105db0d2530d8ba6
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: b65d9579686cdf53f1cac35ba47bc5850b45c8e2
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81676405"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86204308"
 ---
-# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Seguimiento y registro de eventos para Azure Data Box y Azure Data Box Heavy
+# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Seguimiento y registro de eventos para un pedido de importación de Azure Data Box y Azure Data Box Heavy
 
-Un pedido de Data Box o de Data Box Heavy pasa por los pasos siguientes: pedido, configuración, copia de datos, devolución, carga en Azure y comprobación, y eliminación de datos. Acorde a cada paso del pedido, puede realizar varias acciones para controlar el acceso al pedido, auditar los eventos, hacer un seguimiento del pedido e interpretar los distintos registros que se generan.
+Un pedido de importación de Data Box o Data Box Heavy recorre los pasos siguientes: pedido, configuración, copia de datos, devolución, carga en Azure y comprobación, y eliminación de datos. Acorde a cada paso del pedido, puede realizar varias acciones para controlar el acceso al pedido, auditar los eventos, hacer un seguimiento del pedido e interpretar los distintos registros que se generan.
 
-En la tabla siguiente se muestra un resumen de los pasos del pedido de Data Box o Data Box Heavy y las herramientas disponibles para realizar un seguimiento y auditar el pedido durante cada paso.
+En la tabla siguiente se muestra un resumen de los pasos del pedido de importación de Data Box o Data Box Heavy y las herramientas disponibles para realizar un seguimiento y auditar el pedido durante cada paso.
 
-| Fase del pedido de Data Box       | Herramienta de seguimiento y auditoría                                                                        |
+| Fase del pedido de importación de Data Box       | Herramienta de seguimiento y auditoría                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
 | Crear pedido               | [Configuración del control de acceso en el pedido a través de RBAC](#set-up-access-control-on-the-order)                                                    |
-| Pedido procesado            | [Seguimiento del pedido](#track-the-order) a través de: <ul><li> Portal de Azure </li><li> Sitio web del transportista </li><li>Notificaciones por correo electrónico</ul> |
+| Pedido procesado            | [Seguimiento del pedido](#track-the-order) a través de: <ul><li> Azure portal </li><li> Sitio web del transportista </li><li>Notificaciones por correo electrónico</ul> |
 | Configuración de un dispositivo              | Registro del acceso de las credenciales del dispositivo en los [registros de actividad](#query-activity-logs-during-setup)                                              |
 | Copia de los datos a un dispositivo        | [Visualización de los archivos *error.xml*](#view-error-log-during-data-copy) para la copia de datos                                                             |
 | Preparación para el envío            | [Inspección de los archivos BOM](#inspect-bom-during-prepare-to-ship) o los archivo de manifiesto en el dispositivo                                      |
 | Carga de datos en Azure       | [Revisión de los registros de copia](#review-copy-log-during-upload-to-azure) en busca de errores durante la carga de datos en el centro de datos de Azure                         |
 | Eliminación de datos del dispositivo   | [Visualización de los registros de la cadena de custodia](#get-chain-of-custody-logs-after-data-erasure), incluidos los registros de auditoría y el historial de pedidos                |
 
-En este artículo se describen detalladamente los distintos mecanismos o herramientas disponibles para realizar el seguimiento y auditar un pedido de Data Box o Data Box Heavy. La información de este artículo se aplica tanto a Data Box como a Data Box Heavy. En las secciones posteriores, todas las referencias a Data Box también se aplican a Data Box Heavy.
+En este artículo se describen de forma detallada los distintos mecanismos o herramientas disponibles para realizar el seguimiento de un pedido de importación de Data Box o Data Box Heavy y auditarlo. La información de este artículo se aplica a pedidos de importación tanto de Data Box como de Data Box Heavy. En las secciones posteriores, todas las referencias a Data Box también se aplican a Data Box Heavy.
 
 ## <a name="set-up-access-control-on-the-order"></a>Configuración del control de acceso en el pedido
 

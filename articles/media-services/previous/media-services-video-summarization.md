@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: a79e718c04f81b1552d63ab98b6dcd6bb428fb50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1b85cffe497ad0b374edb18a1089412da839cdf8
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77918344"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231852"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Usar Miniaturas de vídeo multimedia de Azure para crear un resumen de vídeo  
 
@@ -67,10 +67,10 @@ En este momento puede modificar los siguientes parámetros:
 
 En la tabla siguiente se describe la duración predeterminada cuando no se usa **maxMotionThumbnailInSecs** .
 
-|  |  |  |
+|  | Pequeña | Mayor |
 | --- | --- | --- |
-| Duración del vídeo |d < 3 min |3 min < d < 15 min |
-| Duración de la miniatura |15 s (2-3 escenas) |30 s (3-5 escenas) |
+| **Duración del vídeo** |d < 3 min |3 min < d < 15 min |
+| **Duración de la miniatura** |15 s (2-3 escenas) |30 s (3-5 escenas) |
 
 El siguiente JSON establece los parámetros disponibles.
 

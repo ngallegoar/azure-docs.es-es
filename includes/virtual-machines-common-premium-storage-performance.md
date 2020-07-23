@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 2c8c0430e8a1f54daa99d3fd986bae0c3eaf7f61
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e10d1d5aa5b45c0ea0e31df4d5d847f8541838b9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017618"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218192"
 ---
 ## <a name="application-performance-indicators"></a>Indicadores del rendimiento de las aplicaciones
 
@@ -119,10 +119,10 @@ En la tabla siguiente se resumen los factores de rendimiento y los pasos necesar
 
 Para obtener más información sobre los tamaños de máquina virtual y la IOPS, el rendimiento y la latencia disponibles para cada tipo de máquina virtual, vea los [tamaños de máquinas virtuales Linux](../articles/virtual-machines/linux/sizes.md) o [tamaños de máquinas virtuales Windows](../articles/virtual-machines/windows/sizes.md).
 
-| &nbsp; | **E/S** | **Rendimiento** | **Latency** |
+| | **E/S** | **Rendimiento** | **Latency** |
 | --- | --- | --- | --- |
 | **Escenario de ejemplo** |Aplicación OLTP empresarial que requiere una tasa muy alta de transacciones por segundo. |Aplicación de Almacenamiento de datos de empresa que procesa grandes cantidades de datos. |Aplicaciones casi en tiempo real que requieren respuestas instantáneas a solicitudes de usuario, como juegos en línea. |
-| Factores de rendimiento | &nbsp; | &nbsp; | &nbsp; |
+| **Factores de rendimiento** | &nbsp; | &nbsp; | &nbsp; |
 | **Tamaño de E/S** |Un tamaño de E/S menor produce una mayor IOPS. |Un tamaño de E/S mayor produce un mayor rendimiento. | &nbsp;|
 | **Tamaño de VM** |Use un tamaño de máquina virtual que ofrezca una IOPS mayor que los requisitos de la aplicación. |Use un tamaño de máquina virtual con un límite de rendimiento mayor que los requisitos de la aplicación. |Use un tamaño de máquina virtual que ofrezca una escala de límites mayor que los requisitos de la aplicación. |
 | **Tamaño del disco** |Use un tamaño de disco que ofrezca una IOPS mayor que los requisitos de la aplicación. |Use un tamaño de disco con un límite de rendimiento mayor que los requisitos de la aplicación. |Use un tamaño de disco que ofrezca una escala de límites mayor que los requisitos de la aplicación. |

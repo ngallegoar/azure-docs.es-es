@@ -1,28 +1,26 @@
 ---
-title: Selección de imágenes de máquina virtual Windows en Azure
+title: Búsqueda y uso de imágenes de Azure Marketplace
 description: Use Azure PowerShell para determinar el publicador, la oferta, la SKU y la versión para imágenes de VM de Marketplace.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 46a2badbbe957f6a8a6af7f5a40633ea24cadcd4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1ddc354e95185b6b2ba8bcb821fcabd5721c442
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82083372"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224254"
 ---
-# <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Buscar imágenes de VM de Windows en Azure Marketplace con Azure PowerShell
+# <a name="find-and-use-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Búsqueda y uso de imágenes de máquina virtual en Azure Marketplace con Azure PowerShell
 
-En este artículo se describe cómo usar Azure PowerShell para buscar imágenes de VM en Azure Marketplace. A continuación, puede especificar una imagen de Marketplace cuando se crea una máquina virtual mediante programación con PowerShell, plantillas de Resource Manager u otras herramientas.
+En este artículo se describe cómo usar Azure PowerShell para buscar imágenes de VM en Azure Marketplace. Después, puede especificar una imagen de Marketplace cuando cree una máquina virtual.
 
 También puede examinar las imágenes y ofertas disponibles mediante el escaparate de [Azure Marketplace](https://azuremarketplace.microsoft.com/), [Azure Portal](https://portal.azure.com) o la [CLI de Azure](../linux/cli-ps-findimage.md). 
 
- 
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
@@ -318,7 +316,6 @@ Luego, la configuración de la VM se pasará junto con los objetos de configurac
 
 Para crear una máquina virtual rápidamente con el cmdlet `New-AzVM` mediante información de imagen básica, consulte [Creación de una máquina virtual Windows con PowerShell](quick-create-powershell.md).
 
-
-Consulte un ejemplo de script de PowerShell para [crear una máquina virtual completamente configurada](../scripts/virtual-machines-windows-powershell-sample-create-vm.md).
+Para más información sobre el uso de imágenes de Azure Marketplace para crear imágenes personalizadas en una galería de imágenes compartidas, consulte [Indicación de la información del plan de compra de Azure Marketplace al crear imágenes](../marketplace-images.md).
 
 

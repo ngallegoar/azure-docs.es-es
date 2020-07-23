@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: a96e22ee8d2f9565ae676574e263beae96b5c1f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e00d6b674453f12f94a2859f9b0533aea0e7332c
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809405"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207556"
 ---
 # <a name="load-balancer-health-probes"></a>Sondeos de estado de Load Balancer
 
@@ -29,8 +29,8 @@ Los sondeos de estado admiten varios protocolos. La disponibilidad de un protoco
 
 | | SKU Estándar | SKU Básico |
 | --- | --- | --- |
-| [Tipos de sondeo](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [Comportamiento de sondeo inactivo](#probedown) | Todos los sondeos inactivos y todos los flujos TCP continúan. | Todos los sondeos inactivos y todos los flujos TCP expiran. | 
+| **[Tipos de sondeo](#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
+| **[Comportamiento de sondeo inactivo](#probedown)** | Todos los sondeos inactivos y todos los flujos TCP continúan. | Todos los sondeos inactivos y todos los flujos TCP expiran. | 
 
 
 >[!IMPORTANT]
@@ -92,8 +92,8 @@ Los protocolos disponibles dependen de la SKU de Load Balancer usada:
 
 || TCP | HTTP | HTTPS |
 | --- | --- | --- | --- |
-| SKU Estándar |    &#9989; |   &#9989; |   &#9989; |
-| SKU Básico |   &#9989; |   &#9989; | &#10060; |
+| **SKU estándar** |    &#9989; |   &#9989; |   &#9989; |
+| **SKU básica** |   &#9989; |   &#9989; | &#10060; |
 
 ### <a name="tcp-probe"></a><a name="tcpprobe"></a>Sondeo TCP
 

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 07/17/2020
 ms.author: victorh
-ms.openlocfilehash: 3174576201f0068191c2918b47fbd99eaa1ec182
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: b984bb581df54cba79a551dc870786ed228eaa43
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232090"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536976"
 ---
 # <a name="azure-firewall-faq"></a>Preguntas frecuentes sobre Azure Firewall
 
@@ -22,15 +22,7 @@ Azure Firewall es un servicio de seguridad de red administrado y basado en la nu
 
 ## <a name="what-capabilities-are-supported-in-azure-firewall"></a>¿Qué funcionalidades son compatibles con Azure Firewall?
 
-* Firewall con estado como servicio
-* Alta disponibilidad integrada con escalabilidad en la nube sin restricciones
-* Filtrado de FQDN
-* Etiquetas FQDN
-* Reglas de filtrado de tráfico de red
-* Compatibilidad con SNAT saliente
-* Compatibilidad con DNAT entrante
-* Creación, aplicación y registro de directivas de aplicación y de conectividad de red en las suscripciones y redes virtuales de Azure
-* Totalmente integrado con Azure Monitor para registros y análisis
+Para obtener información sobre las características de Azure Firewall, consulte [Características de Azure Firewall](features.md).
 
 ## <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>¿Cuál es el modelo de implementación típico para Azure Firewall?
 

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: dae72454cd9c0b3cb7370873619595840b770ed3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17536f49e24da8c508da17c4c2ff5fb2f9bead62
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83799976"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200882"
 ---
 # <a name="logs-in-azure-monitor"></a>Registros en Azure Monitor
 
@@ -39,13 +39,13 @@ Un tipo común de entrada de registro es un evento. Los eventos se recopilan de 
 En la tabla siguiente se enumeran las distintas formas en que se pueden usar los registros en Azure Monitor.
 
 
-|  |  |
+|  | Descripción |
 |:---|:---|
-| Analizar | Use [Log Analytics](../log-query/get-started-portal.md) en Azure Portal para escribir [consultas de registros](../log-query/log-query-overview.md) y analizar los datos de registro de forma interactiva mediante el potente motor de análisis de Data Explorer.<br>Use la [consola de análisis de Application Insights](../app/analytics.md) en Azure Portal para escribir consultas de registros y analizar de forma interactiva los datos de registro desde Application Insights. |
-| Visualizar | Ancle los resultados representados como tablas o gráficos a un [panel de Azure](../../azure-portal/azure-portal-dashboards.md).<br>Cree un [libro](../platform/workbooks-overview.md) para combinar con varios conjuntos de datos en un informe interactivo. <br>Exportar los resultados de una consulta a [Power BI](powerbi.md) para usar diferentes visualizaciones y compartirlos con usuarios fuera de Azure.<br>Exporte los resultados de una consulta a [Grafana](grafana-plugin.md) para aprovechar sus paneles y combinar con otros orígenes de datos.|
-| Alerta | Configurar un [regla de alerta de registro](alerts-log.md) que envíe una notificación o realice [una acción automatizada](action-groups.md) cuando los resultados de la consulta coincidan con un resultado concreto.<br>Configure una [regla de alerta de métrica](alerts-metric-logs.md) en determinados registros de datos de registro extraídos como métricas. |
-| Recuperar | Obtenga acceso a los resultados de la consulta de registro desde una línea de comandos mediante la [CLI de Azure](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Obtenga acceso a los resultados de la consulta de registro desde una línea de comandos mediante [cmdlets de PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Obtenga acceso a los resultados de la consulta de registro de una aplicación personalizada con la [API REST](https://dev.loganalytics.io/). |
-| Exportación | Cree un flujo de trabajo para recuperar datos de registro y cópielo en una ubicación externa mediante [Logic Apps](~/articles/logic-apps/index.yml). |
+| **Análisis** | Use [Log Analytics](../log-query/get-started-portal.md) en Azure Portal para escribir [consultas de registros](../log-query/log-query-overview.md) y analizar los datos de registro de forma interactiva mediante el potente motor de análisis de Data Explorer.<br>Use la [consola de análisis de Application Insights](../app/analytics.md) en Azure Portal para escribir consultas de registros y analizar de forma interactiva los datos de registro desde Application Insights. |
+| **Visualizar** | Ancle los resultados representados como tablas o gráficos a un [panel de Azure](../../azure-portal/azure-portal-dashboards.md).<br>Cree un [libro](../platform/workbooks-overview.md) para combinar con varios conjuntos de datos en un informe interactivo. <br>Exportar los resultados de una consulta a [Power BI](powerbi.md) para usar diferentes visualizaciones y compartirlos con usuarios fuera de Azure.<br>Exporte los resultados de una consulta a [Grafana](grafana-plugin.md) para aprovechar sus paneles y combinar con otros orígenes de datos.|
+| **Alerta** | Configurar un [regla de alerta de registro](alerts-log.md) que envíe una notificación o realice [una acción automatizada](action-groups.md) cuando los resultados de la consulta coincidan con un resultado concreto.<br>Configure una [regla de alerta de métrica](alerts-metric-logs.md) en determinados registros de datos de registro extraídos como métricas. |
+| **Recuperar** | Obtenga acceso a los resultados de la consulta de registro desde una línea de comandos mediante la [CLI de Azure](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Obtenga acceso a los resultados de la consulta de registro desde una línea de comandos mediante [cmdlets de PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Obtenga acceso a los resultados de la consulta de registro de una aplicación personalizada con la [API REST](https://dev.loganalytics.io/). |
+| **Exportarar** | Cree un flujo de trabajo para recuperar datos de registro y cópielo en una ubicación externa mediante [Logic Apps](~/articles/logic-apps/index.yml). |
 
 
 ## <a name="how-is-data-in-azure-monitor-logs-structured"></a>¿Cómo se estructuran los registros de Azure Monitor?

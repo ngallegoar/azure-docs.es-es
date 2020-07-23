@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 06/30/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4959d530e1f7a3c777aa3db21fe577c853fbca13
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 58c5fdcfef5e866d0c69d65412582c0ed649f7c6
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855993"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230832"
 ---
 # <a name="key-vault-versions"></a>Versiones de Key Vault
 
@@ -62,9 +62,9 @@ La versión 2015-06-01 de disponibilidad general se anunció el 24 de junio de 2
 - Obtención de información acerca de una clave: se ha quitado el campo "uso".
 - Importación de una clave en un almacén: se ha quitado el campo "uso".
 - Restauración de una clave: se ha quitado el campo "uso".     
-- Se ha cambiado "RSA_OAEP" a "RSA-OAEP" para algoritmos RSA. Consulte [Información acerca de claves, secretos y certificados](about-keys-secrets-certificates.md).    
+- Se ha cambiado "RSA_OAEP" a "RSA-OAEP" para los algoritmos RSA. Consulte [Información acerca de claves, secretos y certificados](about-keys-secrets-certificates.md).    
  
-La segunda versión preliminar 2015-02-01-preview se anunció el 20 de abril de 2015. Para más información, consulte la entrada de blog [REST API Update](https://blogs.technet.com/b/kv/archive/2015/04/20/empty-3.aspx) (Actualización de API REST). Se actualizaron las siguientes tareas:
+La segunda versión preliminar 2015-02-01-preview se anunció el 20 de abril de 2015. Para más información, consulte la entrada de blog [REST API Update](https://docs.microsoft.com/archive/blogs/kv/rest-api-update) (Actualización de API REST). Se actualizaron las siguientes tareas:
  
 - Enumeración de las claves en un almacén: se ha agregado compatibilidad con la paginación a la operación.
 - Enumeración de las versiones de una clave: se ha agregado una operación para enumerar las versiones de una clave.  

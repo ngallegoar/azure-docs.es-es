@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 9456d975ffb6d7726166f9badbcb8fe0ccbe5256
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dc7de4e69d42a2165f5845f3d8214975d67cdc3c
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68965355"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203979"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>Comparación de las opciones de transferencia de datos StorSimple con Azure File Sync y Data Box Edge 
 
@@ -28,14 +28,14 @@ Este documento contiene información general sobre las opciones de transferencia
 
 |                           |StorSimple 8000   |Azure File Sync   |Data Box Edge           |
 |---------------------------|----------------------------------------|-------------------------------|-----------------------------------------|
-|Información general         |Almacenamiento híbrido en capas y archivado|Almacenamiento del servidor de archivos general con nube por niveles y sincronización multisitio.  |Solución de almacenamiento para procesar previamente los datos y enviarlos a Azure a través de la red.        |
-|Escenarios        |Servidor de archivos, archivado y destino de copia de seguridad |Servidor de archivos, archivado (multisitio)   |Transferencia de datos, procesamiento previo de datos, como ML, inferencias, IoT o archivado    |
-|Proceso perimetral     |No disponible |No disponible |Admite la ejecución de contenedores con Azure IoT Edge    |
-|Factor de forma      |Dispositivo físico   |Agente instalado en Windows Server |Dispositivo físico   |
-|Hardware         |Dispositivo físico que proporciona Microsoft como parte del servicio | Proporcionado por el cliente |Dispositivo físico que proporciona Microsoft como parte del servicio  |
-|Formato de datos      |Personalizar formato   |Archivos         |Blobs o archivos    |
-|Compatibilidad con protocolos |iSCSI          |SMB, NFS    | SMB o NFS      |
-|Precios          |[StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Azure File Sync](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
+|**Información general**     |Almacenamiento híbrido en capas y archivado|Almacenamiento del servidor de archivos general con nube por niveles y sincronización multisitio.  |Solución de almacenamiento para procesar previamente los datos y enviarlos a Azure a través de la red.        |
+|**Escenarios**    |Servidor de archivos, archivado y destino de copia de seguridad |Servidor de archivos, archivado (multisitio)   |Transferencia de datos, procesamiento previo de datos, como ML, inferencias, IoT o archivado    |
+|**Proceso perimetral** |No disponible |No disponible |Admite la ejecución de contenedores con Azure IoT Edge    |
+|**Factor de forma**  |Dispositivo físico   |Agente instalado en Windows Server |Dispositivo físico   |
+|**Hardware**     |Dispositivo físico que proporciona Microsoft como parte del servicio | Proporcionado por el cliente |Dispositivo físico que proporciona Microsoft como parte del servicio  |
+|**Formato de datos**  |Personalizar formato   |Archivos         |Blobs o archivos    |
+|**Compatibilidad con protocolos** |iSCSI          |SMB, NFS    | SMB o NFS      |
+|**Precios**      |[StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Azure File Sync](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

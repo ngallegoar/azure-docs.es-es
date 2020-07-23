@@ -9,12 +9,12 @@ ms.date: 06/15/2020
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: f54adb54ca842ea389b0d3ea203d747df0071ee5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2338c523c13b16b4a63ee9de0d966182e26c3286
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84792037"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223302"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Introducción a blobs en páginas de Azure
 
@@ -123,7 +123,7 @@ Tan pronto como una solicitud de escritura para un conjunto secuencial de págin
 
 En el siguiente diagrama se muestran dos operaciones de escritura independientes:
 
-![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure2.png)
+![Diagrama que muestra las dos opciones de escritura independientes.](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure2.png)
 
 1.  Una operación de escritura, que comienza en el desplazamiento 0 de 1024 bytes de longitud. 
 2.  Una operación de escritura, que comienza en el desplazamiento 4096 de 1024 bytes de longitud. 
@@ -151,7 +151,7 @@ Esto permite descargar el blob completo o un intervalo de bytes a partir de cual
 
 En la siguiente ilustración se muestra una operación de lectura con un desplazamiento de 256 y un rango de tamaño de 4352. Los datos devueltos están resaltados en naranja. Se devuelven ceros para las páginas NUL.
 
-![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
+![Un diagrama que muestra una operación de lectura con un desplazamiento de 256 y un rango de tamaño de 4352](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
 
 Si tiene un blob apenas lleno, es posible que quiera cargar solo las regiones de página válidas para evitar pagar la salida de cero bytes y reducir la latencia de descarga.  
 

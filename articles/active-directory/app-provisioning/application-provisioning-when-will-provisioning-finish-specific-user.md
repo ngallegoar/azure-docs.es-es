@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/03/2019
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 03af572c94500e046265a5e9affa4f1742fae544
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8f712604ae854a1870fe96112db3ae0f2ed60a8
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782031"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203014"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Comprobación del estado de aprovisionamiento de usuarios
 
@@ -77,12 +77,11 @@ En la siguiente tabla se resumen los tiempos de sincronización de escenarios co
 | Sincronizar todos usuarios en Azure AD|  < 1000  | < 30 minutos | < 30 minutos |
 | Sincronizar todos usuarios en Azure AD | 1000 - 10.000  | 43 - 86 minutos | < 30 minutos |
 
-
 Para la configuración **Sincronizar solo los usuarios y grupos asignados**, puede usar las siguientes fórmulas para determinar aproximadamente el número mínimo y máximo esperado de veces que se realiza el **ciclo inicial**:
 
-    Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
-    Maximum minutes = 0.08 x [Number of assigned users, groups, and group members] 
-    
+- Mínimo de minutos = 0,01 x [número de usuarios, grupos y miembros de grupo asignados]
+- Máximo de minutos = 0,08 x [número de usuarios, grupos y miembros de grupo asignados]
+
 Resumen de los factores que influyen en el tiempo que lleva completar una **ciclo inicial**:
 
 - El número total de usuarios y grupos del ámbito para el aprovisionamiento.

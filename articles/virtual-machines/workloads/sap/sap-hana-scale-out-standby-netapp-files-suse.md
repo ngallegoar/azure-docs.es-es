@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: radeltch
-ms.openlocfilehash: 15cdd4c53105998488d2ae1f544e34c1e07a157a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 549fd9851ffce4459e16b4d84f368234bfdf207d
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147126"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86275825"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Implementación de un sistema de escalabilidad horizontal de SAP HANA con nodo en espera en VM de Azure mediante Azure NetApp Files en SUSE Linux Enterprise Server 
 
@@ -137,7 +137,7 @@ En las siguientes instrucciones se supone que ya ha implementado la [red virtual
 
 5. Implemente los volúmenes de Azure NetApp Files según las instrucciones de [Creación de un volumen de NFS para Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes).  
 
-   Cuando vaya a implementar los volúmenes, asegúrese de seleccionar la versión **NFSv 4.1**. Actualmente, el acceso a NFSv4.1 requiere una lista blanca adicional. Implemente los volúmenes en la [subred](https://docs.microsoft.com/rest/api/virtualnetwork/subnets) de Azure NetApp Files designada. Las direcciones IP de los volúmenes de Azure NetApp se asignan automáticamente. 
+   Cuando vaya a implementar los volúmenes, asegúrese de seleccionar la versión **NFSv 4.1**. Actualmente, el acceso a NFS, versión 4.1, debe agregarse a una lista de permitidos. Implemente los volúmenes en la [subred](https://docs.microsoft.com/rest/api/virtualnetwork/subnets) de Azure NetApp Files designada. Las direcciones IP de los volúmenes de Azure NetApp se asignan automáticamente. 
    
    Tenga en cuenta que los recursos de Azure NetApp Files y las VM de Azure deben estar en la misma red virtual de Azure o en redes virtuales de Azure emparejadas. Por ejemplo**HN1**-data-mnt00001, **HN1**-log-mnt00001, etc. son los nombres de los volúmenes y nfs://10.23.1.5/**HN1**-data-mnt00001, nfs://10.23.1.4/**HN1**-log-mnt00001, etc. son las rutas de acceso para los volúmenes de Azure NetApp Files.  
 

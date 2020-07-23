@@ -1,5 +1,5 @@
 ---
-title: Copia de una versión de una imagen desde otra galería
+title: Copia de una versión de una imagen desde otra galería mediante la CLI
 description: Copie una versión de una imagen desde otra galería con la CLI de Azure.
 author: cynthn
 ms.service: virtual-machines
@@ -9,14 +9,14 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: add08d7b8ef39322f03e0faf78959b08a6ae2a14
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 764fe98ad20aa29506b4fba723762124e24af245
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793984"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224339"
 ---
-# <a name="copy-an-image-from-another-gallery"></a>Copia de una imagen desde otra galería
+# <a name="copy-an-image-from-another-gallery-using-the-azure-cli"></a>Copia de una imagen de otra galería mediante la CLI de Azure
 
 Si tiene varias galerías en su organización, también puede crear versiones de imágenes a partir de otras versiones existentes que estén almacenadas en otras galerías. Por ejemplo, puede tener una galería de desarrollo y pruebas para crear y probar imágenes nuevas. Cuando estén listas para usarlas en producción, puede copiarlas a una galería de producción con este ejemplo. También puede usar [Azure PowerShell](image-version-another-gallery-powershell.md) para crear una imagen a partir de una imagen de otra galería.
 
@@ -162,3 +162,5 @@ az sig image-version create \
 Cree una máquina virtual a partir de una versión de imagen [generalizada](vm-generalized-image-version-cli.md) o [especializada](vm-specialized-image-version-cli.md).
 
 Pruebe también [Azure Image Builder (versión preliminar)](./linux/image-builder-overview.md), que puede ayudarle a automatizar la creación de versiones de la imagen; incluso se puede usar para actualizar y [crear una nueva versión de la imagen a partir de una versión de imagen existente](./linux/image-builder-gallery-update-image-version.md). 
+
+Para obtener información sobre cómo proporcionar información del plan de compra, consulte [Indicación de la información del plan de compra de Azure Marketplace al crear imágenes](marketplace-images.md).

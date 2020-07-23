@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: 87932887edd0aac536a2c7fbd25a02d2442f9db9
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 84fa7ae50b69e7e1a2fe341e34497f2bf1a75b0d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267637"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260174"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Alta disponibilidad y recuperación ante desastres de IoT Hub
 
@@ -75,6 +75,8 @@ El RTO prolongado se debe a que Microsoft debe ejecutar la operación de conmuta
 Si no se cumplen los objetivos de tiempo de actividad del negocio con el RTO que ofrece la conmutación por error iniciada por Microsoft, considere el uso de la conmutación por error manual para desencadenar el proceso de conmutación por error por sí mismo. El RTO con el uso de esta opción podría ser cualquier valor entre 10 minutos y un par de horas. Actualmente, el RTO es una función del número de dispositivos registrados en la instancia de IoT Hub en la que se realiza la conmutar por error. Puede esperar que el RTO de un centro que hospeda aproximadamente 100 000 dispositivos sea aproximadamente de 15 minutos. El tiempo total de las operaciones de tiempo de ejecución para conseguir la operatividad total una vez desencadenado este proceso se describe en la sección "Tiempo de recuperación".
 
 La opción de conmutación por error manual siempre está disponible para su uso con independencia de si la región primaria está experimentando tiempos de inactividad o no. Por lo tanto, esta opción puede emplearse para realizar conmutaciones por error planeadas. Un ejemplo de uso de las conmutaciones por error planeadas consiste en realizar operaciones periódicas de conmutación por error. Sin embargo hay que tener la precaución de que una operación de conmutación por error planeada genera un tiempo de inactividad del centro durante el período definido por el RTO para esta opción, lo que genera también una pérdida de datos, según se define en la tabla del RPO anterior. Puede considerar la posibilidad de configurar una prueba de instancia de IoT Hub para ejecutar la opción de conmutación por error planeada periódicamente para incrementar la confiabilidad en su capacidad de ejecutar las soluciones de un extremo a otro cuando se produce un desastre real.
+
+La conmutación por error manual está disponible sin costo adicional para los centros de IoT creados después del 18 de mayo de 2017.
 
 Para obtener instrucciones paso a paso, consulte [Tutorial: Realización de una conmutación por error manual de una instancia de IoT Hub](tutorial-manual-failover.md)
 

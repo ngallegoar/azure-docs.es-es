@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0348461e2a58bd8e71b8dff10667c512125d7b03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9160ab530037da1f24a2f07903b949b42ecbb34b
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83656695"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207078"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Creación y configuración de un almacén de claves para Azure Disk Encryption
 
@@ -23,6 +23,9 @@ Azure Disk Encryption usa Azure Key Vault para controlar y administrar las clave
 > - Si ya ha usado Azure Disk Encryption con Azure AD para cifrar una VM, debe seguir usando esta opción para cifrar la VM. Para más información, consulte [Creación y configuración de un almacén de claves para Azure Disk Encryption con Azure AD (versión anterior)](disk-encryption-key-vault-aad.md).
 
 La creación y configuración de un almacén de claves para su uso con Azure Disk Encryption conlleva estos tres pasos:
+
+> [!Note]
+> Debe seleccionar la opción en la configuración de la directiva de acceso de Azure Key Vault para habilitar el acceso a Azure Disk Encryption para el cifrado del volumen.
 
 1. Creación de un grupo de recursos, en caso de que sea necesario.
 2. Creación de un almacén de claves. 

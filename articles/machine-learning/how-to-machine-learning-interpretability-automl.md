@@ -1,5 +1,5 @@
 ---
-title: La explicación en ML automatizado
+title: Capacidad de explicación en aprendizaje automático automatizado (versión preliminar)
 titleSuffix: Azure Machine Learning
 description: Aprenda a obtener explicaciones sobre cómo el modelo de aprendizaje automático automatizado determina la importancia de las características y realiza predicciones al usar el SDK de Azure Machine Learning.
 services: machine-learning
@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: mesameki
 author: mesameki
-ms.date: 03/11/2020
-ms.openlocfilehash: 6fcebb34f82565fcf83a9535e8c036231c5b3cf7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: af3fe7bffbf985936a1648088daaf1a294a69905
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84430533"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206591"
 ---
-# <a name="interpretability-model-explanations-in-automated-machine-learning"></a>Interpretación: explicaciones de los modelos de aprendizaje automático automatizado
+# <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Capacidad de interpretación: explicaciones de los modelos en el aprendizaje automático automatizado (versión preliminar)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -30,7 +30,7 @@ En este artículo aprenderá a:
 - Habilitar visualizaciones para ayudarle a ver patrones en datos y explicaciones.
 - Implementar la interpretación durante la inferencia o puntuación.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Características de interoperabilidad. Ejecute `pip install azureml-interpret azureml-contrib-interpret` para obtener los paquetes necesarios.
 - Conocimiento de la compilación de experimentos de aprendizaje automático automatizado. Para más información sobre cómo usar el SDK de Azure Machine Learning, complete este [tutorial de modelo de regresión](tutorial-auto-train-models.md) o consulte cómo [configurar experimentos de aprendizaje automático automatizado](how-to-configure-auto-train.md).

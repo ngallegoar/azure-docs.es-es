@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bf5e161b46b9ec6e39702ddd8435a7c7672111f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72acf60bd9bc5baeba37d8ccffa79fe597954f16
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550122"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230390"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historial de lanzamiento de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -47,6 +47,22 @@ No todas las versiones de Azure AD Connect estarán disponibles para la actualiz
 >Si ha habilitado Azure AD Connect para la sincronización, pronto comenzará a recibir notificaciones de estado automáticamente, que le avisarán sobre las próximas retiradas si ejecuta una de las versiones anteriores.
 >
 >Consulte [este artículo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) para obtener más información sobre cómo actualizar Azure AD Connect a la versión más reciente.
+
+## <a name="15420"></a>1.5.42.0
+
+### <a name="release-status"></a>Estado de la versión
+07/10/2020: publicado para descarga.
+
+### <a name="functional-changes"></a>Cambios funcionales
+Esta versión incluye una versión preliminar pública de la funcionalidad para exportar la configuración de un servidor de Azure AD Connect existente a un archivo .JSON que se puede usar al instalar un nuevo servidor de Azure AD Connect para crear una copia del servidor original.
+
+Puede encontrar una descripción detallada de esta nueva característica en [este artículo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-import-export-config).
+
+### <a name="fixed-issues"></a>Problemas corregidos
+- Se corrigió un error por el que habría una advertencia falsa sobre el tamaño de la base de datos local en las compilaciones localizadas durante la actualización.
+- Se corrigió un error por el que habría un error falso en los eventos de la aplicación para el cambio de nombre de cuenta/nombre de dominio.
+- Se corrigió un error por el que Azure AD Connect no podía instalarse en un controlador de dominio, con el mensaje "no se encontró el miembro".
+
 
 ## <a name="15300"></a>1.5.30.0.
 

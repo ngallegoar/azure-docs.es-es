@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
-ms.openlocfilehash: 1413676eb5f3ab6f472648335996c1e607bc8b27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efb61a3360ee2514fa6fd61e125ebc345474c62f
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84771026"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224628"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copia de datos desde SAP Business Warehouse con Open Hub en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -38,10 +38,10 @@ Puede copiar los datos desde SAP Business Warehouse con Open Hub en cualquier al
 
 Concretamente, este conector de Open Hub para SAP Business Warehouse admite:
 
-- SAP Business Warehouse **versión 7.01 o posteriores (en una pila de paquetes de soporte técnico de SAP reciente lanzada después de 2015)** .
+- SAP Business Warehouse **versión 7.01 o posteriores (en una pila de paquetes de soporte técnico de SAP reciente lanzada después de 2015)** . Este conector no admite SAP BW4/HANA.
 - Copiar datos con la tabla local del destino Open Hub que, de forma subyacente, puede ser DSO, InfoCube, MultiProvider, DataSource, etc.
 - Copiar datos con la autenticación básica.
-- Conectarse al servidor de aplicaciones.
+- Conexión a un servidor de aplicaciones SAP o a un servidor de mensajes SAP.
 
 ## <a name="sap-bw-open-hub-integration"></a>Integración de Open Hub con SAP BW 
 

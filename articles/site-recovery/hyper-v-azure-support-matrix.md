@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/27/2020
+ms.date: 7/10/2020
 ms.author: raynew
-ms.openlocfilehash: b48dfba6fa5dc270a4d711864d15e9128f4beb98
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: b7551ec01e3401c0636b47a25d83173b6322d06e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132402"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86219885"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales locales de Hyper-V en Azure
 
@@ -76,6 +76,7 @@ Proxy HTTPS | No | No
 
 
 
+
 ## <a name="azure-vm-network-configuration-after-failover"></a>Configuración de la red de máquina virtual de Azure (después de la conmutación por error)
 
 **Componente** | **Hyper-V con Virtual Machine Manager** | **Hyper-V sin Virtual Machine Manager**
@@ -136,11 +137,13 @@ Almacenamiento de acceso frecuente| No | No
 Blobs en bloques | No | No
 Cifrado en reposo (SSE)| Sí | Sí
 Cifrado en reposo (CMK) <br></br> (Solo para conmutación por error en discos administrados)| Sí (a través del módulo PowerShell Az 3.3.0 en adelante) | Sí (a través del módulo PowerShell Az 3.3.0 en adelante)
+Cifrado de datos en reposo doble <br></br> (Solo para conmutación por error en discos administrados) <br></br> Más información sobre las regiones admitidas para [Windows](../virtual-machines/windows/disk-encryption.md) y [Linux](../virtual-machines/linux/disk-encryption.md) | Sí (a través del módulo PowerShell Az 3.3.0 en adelante) | Sí (a través del módulo PowerShell Az 3.3.0 en adelante)
 Premium Storage | Sí | Sí
 Standard Storage | Sí | Sí
 Servicio Import/Export | No | No
 Cuentas de Azure Storage con firewall habilitado | Sí. Para almacenamiento de destino y en caché. | Sí. Para almacenamiento de destino y en caché.
 Modificar cuenta de almacenamiento | No. No se puede modificar la cuenta de Azure Storage de destino después de habilitar la replicación. Para modificarla, deshabilite la recuperación ante desastres y vuelva a habilitarla. | No
+Opción de transferencia segura | Sí
 
 
 ## <a name="azure-compute-features"></a>Características de proceso de Azure

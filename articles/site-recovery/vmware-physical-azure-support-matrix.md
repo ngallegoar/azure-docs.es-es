@@ -2,13 +2,13 @@
 title: Matriz de compatibilidad para la recuperación ante desastres de VMware/físicos en Azure Site Recovery
 description: Resume la compatibilidad de la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure mediante Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.openlocfilehash: ff99fd1dd1710cd96f6257096b97ae1912a61dc6
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.date: 07/10/2020
+ms.openlocfilehash: 86aed87be2d65a78b2485d0ce71ce1f674ea9407
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131876"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224645"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure.
 
@@ -59,9 +59,6 @@ Puertos | 443 se usa para la orquestación del canal de control<br/>9443 se usa 
 ## <a name="replicated-machines"></a>Máquinas replicadas
 
 Site Recovery admite la replicación de cualquier carga de trabajo que se ejecute en una máquina compatible.
-
-> [!Note]
-> En la tabla siguiente se muestra la compatibilidad con máquinas con arranque BIOS. Consulte la sección [Almacenamiento](#storage) para obtener soporte técnico sobre las máquinas basadas en UEFI.
 
 **Componente** | **Detalles**
 --- | ---
@@ -181,6 +178,7 @@ IP estática de la red de invitado o de servidor (Linux) | Sí. <br/><br/>Las m�
 Varios adaptadores de red de la red de invitado o de servidor | Sí.
 
 
+
 ## <a name="azure-vm-network-after-failover"></a>Red de máquinas virtuales de Azure (después de la conmutación por error)
 
 **Componente** | **Compatible**
@@ -224,7 +222,7 @@ Invitado/servidor: disco de exclusión | Sí
 Varias rutas (MPIO) de invitado/servidor | No
 Particiones GPT de invitado/servidor | Se admiten cinco particiones desde el [paquete acumulativo de actualizaciones 37](https://support.microsoft.com/help/4508614/) (versión 9.25 de Mobility Service) y versiones posteriores. Antes se admitían cuatro.
 ReFS | El sistema de archivos resistente es compatible con Mobility Service versión 9.23 o posterior
-Arranque de EFI/UEFI de invitado/servidor | -Compatible con Windows Server 2012 o posterior, SLES 12 SP4 y RHEL 8.0 con versión del agente de movilidad 9.30 en adelante<br/> - No se admite el tipo de arranque seguro de UEFI. [Más información.](../virtual-machines/windows/generation-2.md#on-premises-vs-azure-generation-2-vms)
+Arranque de EFI/UEFI de invitado/servidor | - Compatible con todos los [sistemas operativos de Azure MARKETPLACE UEFI](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-images-in-azure-marketplace) con la versión 9.30 del agente de movilidad de Site Recovery y posteriores. <br/> - No se admite el tipo de arranque seguro de UEFI. [Más información.](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#on-premises-vs-azure-generation-2-vms)
 
 ## <a name="replication-channels"></a>Canales de replicación
 
@@ -246,7 +244,9 @@ Almacenamiento de acceso frecuente| No
 Blobs en bloques | No
 Cifrado en reposo (SSE)| Sí
 Cifrado en reposo (CMK)| Sí (a través del módulo PowerShell Az 3.3.0 en adelante)
+Cifrado de datos en reposo doble | Sí (con el módulo PowerShell Az 3.3.0 y versiones posteriores). Obtenga más información sobre las regiones admitidas para [Windows](../virtual-machines/windows/disk-encryption.md) y [Linux](../virtual-machines/linux/disk-encryption.md).
 Premium Storage | Sí
+Opción de transferencia segura | Sí
 Servicio Import/Export | No
 Firewalls de Azure Storage para redes virtuales | Sí.<br/> Configurados en la cuenta de almacenamiento o la cuenta de almacenamiento en caché de destino (se usa para almacenar los datos de replicación).
 Cuentas de almacenamiento de uso general v2 (capas de acceso frecuente y esporádico) | Sí (los costos de transacción son sustancialmente más elevados para V2 en comparación con V1)

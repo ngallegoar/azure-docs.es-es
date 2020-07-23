@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 07/10/2020
 ms.author: mayg
-ms.openlocfilehash: 1e4dcd8847d7d79d816d80b453a37f58c45417fd
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 92b35284fd7bbb3d4f1196ee0d9bae4ce42d7c9e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135733"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224118"
 ---
 # <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>Replicación de máquinas con discos habilitados para claves administradas por el cliente (CMK)
 
@@ -81,3 +81,8 @@ Siga estos pasos para modificar los valores de destino predeterminados de Site R
 * He agregado un nuevo disco habilitado para CMK al elemento replicado. ¿Cómo puedo replicar este disco con Azure Site Recovery?
 
     No se admite la adición de un nuevo disco habilitado para CMK a un elemento replicado existente. Deshabilite la replicación y vuelva a habilitarla para la máquina virtual.
+
+* He habilitado las claves administradas por el cliente y la plataforma, ¿cómo puedo proteger mis discos?
+
+    La habilitación del cifrado doble con claves administradas por el cliente y la plataforma se admite en Site Recovery. Siga las instrucciones de este artículo para proteger la máquina. Previamente, debe crear un DES con el cifrado doble habilitado en la región de destino. En el momento de habilitar la replicación para esta máquina virtual, puede proporcionar este DES a Site Recovery.
+

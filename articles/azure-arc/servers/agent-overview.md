@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/01/2020
+ms.date: 07/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: e3d3521cfb3d3b0c6659013922ab11fe765af882
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ed95b902c2c0768f50a0c6dadbfc617292932c2b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111259"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242957"
 ---
 # <a name="overview-of-azure-arc-for-servers-agent"></a>Información general del agente de Azure Arc para servidores
 
@@ -62,7 +62,7 @@ Después de instalar el agente Connected Machine para Windows, se aplican los si
 
     |Carpeta |Descripción |
     |-------|------------|
-    |C:\Archivos de programa\AzureConnectedMachineAgent |Ruta de instalación predeterminada que contiene los archivos de compatibilidad del agente.|
+    |%ProgramFiles%\AzureConnectedMachineAgent |Ruta de instalación predeterminada que contiene los archivos de compatibilidad del agente.|
     |%ProgramData%\AzureConnectedMachineAgent |Contiene los archivos de configuración del agente.|
     |%ProgramData%\AzureConnectedMachineAgent\Tokens |Contiene los tokens adquiridos.|
     |%ProgramData%\AzureConnectedMachineAgent\Config |Contiene el archivo de configuración del agente `agentconfig.json` que registra su información de registro con el servicio.|
@@ -99,7 +99,7 @@ Después de instalar el agente Connected Machine para Windows, se aplican los si
 
 * Durante la desinstalación del agente, no se quitan los artefactos siguientes.
 
-    * C:\Archivos de programa\AzureConnectedMachineAgent\Logs
+    * %ProgramFiles%\AzureConnectedMachineAgent\Logs
     * %ProgramData%\AzureConnectedMachineAgent y subdirectorios
     * %ProgramData%\GuestConfig
 
@@ -170,9 +170,9 @@ Las siguientes versiones de los sistemas operativos Windows y Linux son compatib
 
 ### <a name="required-permissions"></a>Permisos necesarios
 
-- Para incorporar máquinas, debe ser miembro del rol **Incorporación de Azure Connected Machine**.
+* Para incorporar máquinas, debe ser miembro del rol **Incorporación de Azure Connected Machine**.
 
-- Para leer, modificar, volver a incorporar y eliminar una máquina, debe ser miembro del rol **Administrador de recursos de Azure Connected Machine**. 
+* Para leer, modificar, volver a incorporar y eliminar una máquina, debe ser miembro del rol **Administrador de recursos de Azure Connected Machine**. 
 
 ### <a name="azure-subscription-and-service-limits"></a>Límites del servicio y la suscripción de Azure
 
@@ -195,19 +195,20 @@ Si la conectividad saliente está restringida por el firewall o el servidor prox
 
 Etiquetas de servicio:
 
-- AzureActiveDirectory
-- AzureTrafficManager
+* AzureActiveDirectory
+* AzureTrafficManager
 
 Direcciones URL:
 
 | Recurso del agente | Descripción |
 |---------|---------|
-|management.azure.com|Azure Resource Manager|
-|login.windows.net|Azure Active Directory|
-|dc.services.visualstudio.com|Application Insights|
-|agentserviceapi.azure-automation.net|Configuración de invitado|
-|*-agentservice-prod-1.azure-automation.net|Configuración de invitado|
-|*.his.arc.azure.com|Servicio de identidad híbrida|
+|`management.azure.com`|Azure Resource Manager|
+|`login.windows.net`|Azure Active Directory|
+|`dc.services.visualstudio.com`|Application Insights|
+|`agentserviceapi.azure-automation.net`|Configuración de invitado|
+|`*-agentservice-prod-1.azure-automation.net`|Configuración de invitado|
+|`*.guestconfiguration.azure.com` |Configuración de invitado|
+|`*.his.arc.azure.com`|Servicio de identidad híbrida|
 
 Para obtener una lista de direcciones IP para cada etiqueta o región de servicio, consulte el archivo JSON [Rangos de direcciones IP y etiquetas de servicio de Azure: nube pública](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publica actualizaciones semanales que incluyen cada uno de los servicios de Azure y los intervalos IP que usan. Para más información, consulte [Etiquetas de servicio](../../virtual-network/security-overview.md#service-tags).
 
@@ -217,8 +218,8 @@ Se requieren las direcciones URL de la tabla anterior junto con la información 
 
 Azure Arc para servidores (versión preliminar) depende de los siguientes proveedores de recursos de Azure de la suscripción para poder usar este servicio:
 
-- **Microsoft.HybridCompute**
-- **Microsoft.GuestConfiguration**
+* **Microsoft.HybridCompute**
+* **Microsoft.GuestConfiguration**
 
 Si no están registrados, puede registrarlos con los comandos siguientes:
 

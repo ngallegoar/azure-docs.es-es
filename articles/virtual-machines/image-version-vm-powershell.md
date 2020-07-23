@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 454ed810f950924d3dd790a2442fe29816bf940d
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: caa8e928a10deb3d6d97e601c607074c09e0572e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838474"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223523"
 ---
 # <a name="preview-create-an-image-from-a-vm"></a>Vista previa: Creación de una imagen a partir de una máquina virtual
 
@@ -24,7 +24,7 @@ Puede capturar una imagen a partir de máquinas virtuales [especializadas y gene
 
 Las imágenes de una galería de imágenes tienen dos componentes, que se crearán durante este ejemplo:
 - Una **definición de imagen**, que contiene información sobre la imagen y los requisitos para usarla. Esto incluye si la imagen es Windows o Linux, si es generalizada o especializada, las notas de la versión y los requisitos de memoria mínima y máxima. Es una definición de un tipo de imagen. 
-- Una **versión de imagen** es lo que se usa para crear una máquina virtual cuando se usa una instancia de Shared Image Gallery. Puede tener varias versiones de una imagen según sea necesario para su entorno. Cuando crea una VM, la versión de la imagen se usa para crear nuevos discos para dicha VM. Las versiones de las imágenes pueden usarse varias veces.
+- Una **versión de imagen** es lo que se usa para crear una máquina virtual cuando se usa Shared Image Gallery. Puede tener varias versiones de una imagen según sea necesario para su entorno. Cuando crea una máquina virtual, la versión de la imagen se usa para crear nuevos discos para dicha máquina virtual. Las versiones de las imágenes pueden usarse varias veces.
 
 
 ## <a name="before-you-begin"></a>Antes de empezar
@@ -139,3 +139,5 @@ $job.State
 ## <a name="next-steps"></a>Pasos siguientes
 
 Una vez que haya comprobado que la nueva versión de la imagen funciona correctamente, puede crear una máquina virtual. Cree una máquina virtual a partir de una [versión de imagen especializada](vm-specialized-image-version-powershell.md) o [generalizada](vm-generalized-image-version-powershell.md).
+
+Para saber cómo proporcionar información del plan de compra, consulte [Indicación de la información del plan de compra de Azure Marketplace al crear imágenes](marketplace-images.md).

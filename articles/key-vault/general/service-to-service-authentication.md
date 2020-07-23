@@ -9,12 +9,12 @@ ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: 7ad3af46be26816231a15156d13fbec3275a5559
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 132663ed26eab41747f6fce25bdb2beabe286322
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855086"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232617"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticación entre servicios en Azure Key Vault mediante .NET
 
@@ -226,17 +226,20 @@ Para usar un certificado de cliente para la autenticación de la entidad de serv
 
 ## <a name="connection-string-support"></a>Compatibilidad de la cadena de conexión
 
-De forma predeterminada, `AzureServiceTokenProvider` utiliza varios métodos para recuperar un token.
+De forma predeterminada, `AzureServiceTokenProvider` intenta los siguientes métodos de autenticación, en orden, para recuperar un token:
 
-Para controlar el proceso, utilice una cadena de conexión pasada al constructor `AzureServiceTokenProvider` o especificada en la variable de entorno *AzureServicesAuthConnectionString*.
+- [Una identidad administrada para recursos de Azure](../..//active-directory/managed-identities-azure-resources/overview.md)
+- Autenticación de Visual Studio
+- [Autenticación de la CLI de Azure](/azure/authenticate-azure-cli?view=azure-cli-latest)
+- [Autenticación integrada de Windows](/aspnet/web-api/overview/security/integrated-windows-authentication)
 
-Se admiten las siguientes opciones:
+Para controlar el proceso, utilice una cadena de conexión pasada al constructor `AzureServiceTokenProvider` o especificada en la variable de entorno *AzureServicesAuthConnectionString*.  Se admiten las siguientes opciones:
 
 | Opción de la cadena de conexión | Escenario | Comentarios|
 |:--------------------------------|:------------------------|:----------------------------|
 | `RunAs=Developer; DeveloperTool=AzureCli` | Desarrollo local | `AzureServiceTokenProvider` usa AzureCli para obtener el token. |
 | `RunAs=Developer; DeveloperTool=VisualStudio` | Desarrollo local | `AzureServiceTokenProvider` usa Visual Studio para obtener el token. |
-| `RunAs=CurrentUser` | Desarrollo local | `AzureServiceTokenProvider` usa la autenticación integrada de Azure AD para obtener el token. |
+| `RunAs=CurrentUser` | Desarrollo local | No se admite en .NET Core. `AzureServiceTokenProvider` usa la autenticación integrada de Azure AD para obtener el token. |
 | `RunAs=App` | [Identidades administradas para recursos de Azure](../../active-directory/managed-identities-azure-resources/index.yml) | `AzureServiceTokenProvider` usa una identidad administrada para obtener el token. |
 | `RunAs=App;AppId={ClientId of user-assigned identity}` | [Identidad asignada por el usuario para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) | `AzureServiceTokenProvider` usa una identidad asignada por el usuario para obtener el token. |
 | `RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}` | Autenticación en servicios personalizados | `KeyVaultCertificateSecretIdentifier` es el identificador secreto del certificado. |

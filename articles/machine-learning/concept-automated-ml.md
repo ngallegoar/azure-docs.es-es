@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: f12f080f2b1b7379b622fe4d7c5e0b35e358d0ef
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 5f4b48dfbef7362a0b49e53a17b080e127701c94
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041734"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86199874"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>¿Qué es el aprendizaje automático automatizado (AutoML)?
 
@@ -220,21 +220,21 @@ Los valores siguientes le permiten configurar el experimento de aprendizaje auto
 
 | |SDK de Python|La experiencia web de Studio|
 ----|:----:|:----:
-Divide los datos en conjuntos de entrenamiento y validación| ✓|✓
-Admite tareas de Machine Learning: clasificación, regresión y predicción| ✓| ✓
-Optimiza en función de la métrica principal| ✓| ✓
-Admite el proceso de AML como destino de proceso | ✓|✓
-Configura el horizonte de previsión, los intervalos de destino y el período acumulado|✓|✓
-Establece criterios de salida |✓|✓ 
-Establece el número de iteraciones simultáneas| ✓|✓
-Quitar columnas| ✓|✓
-Bloquea algoritmos|✓|✓
-Validación cruzada |✓|✓
-Admite el aprendizaje en clústeres de Azure Databricks| ✓|
-Muestra nombres de características con ingeniería|✓|
-Resumen de características| ✓|
-Caracterización para festivos|✓|
-Niveles de detalle del archivo de registro| ✓|
+|**Divide los datos en conjuntos de entrenamiento y validación**| ✓|✓
+|**Admite tareas de Machine Learning: clasificación, regresión y predicción**| ✓| ✓
+|**Optimiza en función de la métrica principal**| ✓| ✓
+|**Admite el proceso de AML como destino de proceso** | ✓|✓
+|**Configura el horizonte de previsión, los intervalos de destino y el período acumulado**|✓|✓
+|**Establece criterios de salida** |✓|✓ 
+|**Establece el número de iteraciones simultáneas**| ✓|✓
+|**Quitar columnas**| ✓|✓
+|**Bloquea algoritmos**|✓|✓
+|**Validación cruzada** |✓|✓
+|**Admite el aprendizaje en clústeres de Azure Databricks**| ✓|
+|**Muestra nombres de características con ingeniería**|✓|
+|**Resumen de características**| ✓|
+|**Caracterización para festivos**|✓|
+|**Niveles de detalle del archivo de registro**| ✓|
 
 ### <a name="model-settings"></a>Configuración del modelo
 
@@ -242,11 +242,11 @@ Estos valores se pueden aplicar al mejor modelo como resultado del experimento d
 
 | |SDK de Python|La experiencia web de Studio|
 |----|:----:|:----:|
-|Registro, implementación y explicación mejores del modelo| ✓|✓|
-|Habilita los modelos del conjunto de votación y el conjunto de pila| ✓|✓|
-|Muestra el mejor modelo en función de una métrica que no es la principal|✓||
-|Habilita o deshabilita la compatibilidad con el modelo de ONNX|✓||
-|Prueba del modelo | ✓| |
+|**Registro, implementación y explicación mejores del modelo**| ✓|✓|
+|**Habilita los modelos del conjunto de votación y el conjunto de pila**| ✓|✓|
+|**Muestra el mejor modelo en función de una métrica que no es la principal**|✓||
+|**Habilita o deshabilita la compatibilidad con el modelo de ONNX**|✓||
+|**Prueba del modelo** | ✓| |
 
 ### <a name="run-control-settings"></a>Ejecuta la configuración de un control
 
@@ -254,10 +254,10 @@ Estos valores le permiten revisar y controlar las ejecuciones de los experimento
 
 | |SDK de Python|La experiencia web de Studio|
 |----|:----:|:----:|
-|Ejecuta una tabla de resumen| ✓|✓|
-|Cancelar ejecuciones y ejecuciones secundarias| ✓|✓|
-|Obtiene límites de protección| ✓|✓|
-|Pausar y reanudar ejecuciones| ✓| |
+|**Ejecuta una tabla de resumen**| ✓|✓|
+|**Cancelar ejecuciones y ejecuciones secundarias**| ✓|✓|
+|**Obtiene límites de protección**| ✓|✓|
+|**Pausar y reanudar ejecuciones**| ✓| |
 
 <a name="use-with-onnx"></a>
 

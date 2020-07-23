@@ -5,15 +5,15 @@ services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 12/13/2018
+ms.date: 07/15/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: b19dc7a85fafa1a4d875c84db9bbefabb3cd5a7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d22b0100074a230451e5c6b3967fa5dbc8ae3f56
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651605"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515925"
 ---
 En la siguiente tabla se muestra la información de cuotas específica de la mensajería de Azure Service Bus. Para obtener información sobre los precios y otras cuotas de Service Bus, vea [Precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
@@ -22,7 +22,7 @@ En la siguiente tabla se muestra la información de cuotas específica de la men
 | Número máximo de espacios de nombres Básico o Estándar por suscripción de Azure |Espacio de nombres |Azure Portal rechaza las solicitudes posteriores de espacios de nombres Básico o Estándar adicionales. |100|
 | Número máximo de espacios de nombres Premium por suscripción de Azure |Espacio de nombres |El portal rechaza las solicitudes posteriores de espacios de nombres Premium adicionales. |100 |
 | Tamaño de cola o tema |Entidad |Se define al crear la cola o el tema. <br/><br/> Los sucesivos mensajes entrantes se rechazan y el código que llama recibe una excepción. |1, 2, 3, 4 o 5 GB.<br /><br />En la SKU Premium y en la SKU Estándar con [particiones](/azure/service-bus-messaging/service-bus-partitioning) habilitadas, el tamaño máximo de cola o tema es de 80 GB. |
-| Número de conexiones simultáneas en un espacio de nombres |Espacio de nombres |Las solicitudes posteriores de conexiones adicionales se rechazan y el código que llama recibe una excepción. Las operaciones REST no cuentan para las conexiones de TCP simultáneas. |NetMessaging: 1000.<br /><br />AMQP: 5000. |
+| Número de conexiones simultáneas en un espacio de nombres |Espacio de nombres |Las solicitudes posteriores de conexiones adicionales se rechazan y el código que llama recibe una excepción. Las operaciones REST no cuentan para las conexiones de TCP simultáneas. |Número neto de mensajes: 1000.<br /><br />AMQP: 5000. |
 | Número de solicitudes de recepción simultáneas en una cola, un tema o una entidad de suscripción |Entidad |Las solicitudes de recepción posteriores se rechazan y el código que llama recibe una excepción. Esta cuota se aplica a un número combinado de operaciones de recepción simultáneas en todas las suscripciones de un tema. |5\.000 |
 | Número de temas o colas por espacio de nombres |Espacio de nombres |Se rechazan las posteriores solicitudes de creación colas o temas nuevos en el espacio de nombres. Como resultado, si se configuran mediante [Azure Portal][Azure portal], se genera un mensaje de error. Si se realiza una llamada desde la API de administración, el código de llamada recibe una excepción. |10 000 para el nivel Básico o Estándar. El número total de temas y colas de un espacio de nombres debe ser menor o igual a 10 000. <br/><br/>En el nivel Premium, 1000 por unidad de mensajería (MU). El límite máximo es 4000. |
 | Número de [temas o colas con particiones](/azure/service-bus-messaging/service-bus-partitioning) por espacio de nombres |Espacio de nombres |Se rechazan las posteriores solicitudes de creación colas o temas con particiones nuevos en el espacio de nombres. Como resultado, si se configuran mediante [Azure Portal][Azure portal], se genera un mensaje de error. Si se realiza una llamada desde la API de administración, el código que llama recibe una excepción **QuotaExceededException**. |Niveles Básico y Estándar: 100.<br/><br/>No se admiten entidades con particiones en el nivel [Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md).<br/><br />Cada cola o tema con particiones cuenta para la cuota de 1000 entidades por espacio de nombres. |
@@ -31,7 +31,7 @@ En la siguiente tabla se muestra la información de cuotas específica de la men
 | Tamaño máximo de un [identificador de mensaje](/dotnet/api/microsoft.azure.servicebus.message.messageid) | Entidad |- | 128 |
 | Tamaño máximo de un [identificador de sesión](/dotnet/api/microsoft.azure.servicebus.message.sessionid) de mensaje | Entidad |- | 128 |
 | Tamaño de mensaje de una cola, un tema o una entidad de suscripción |Entidad |Los mensajes entrantes que superan estas cuotas se rechazan y el código que llama recibe una excepción. |Tamaño de mensaje máximo: 256 KB para el [nivel Estándar](../articles/service-bus-messaging/service-bus-premium-messaging.md), 1 MB para el [nivel Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md). <br /><br />Debido a la sobrecarga del sistema, este límite es menor que estos valores.<br /><br />Tamaño de encabezado máximo: 64 KB.<br /><br />Número máximo de propiedades de encabezado en el contenedor de propiedades: **byte/int.MaxValue**.<br /><br />Tamaño máximo de la propiedad en el contenedor de propiedades: sin límite explícito. Limitado por tamaño de encabezado máximo. |
-| Tamaño de propiedad de mensaje para una cola, un tema o una entidad de suscripción |Entidad | Se genera la excepción **SerializationException**. |El tamaño máximo de propiedad de mensaje para cada propiedad es 32 000. El tamaño acumulado de todas las propiedades no puede superar 64 000. Este límite se aplica a todo el encabezado de [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage), que contiene tanto las propiedades de usuario como las propiedades del sistema, como [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber), [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label) y [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid). |
+| Tamaño de propiedad de mensaje para una cola, un tema o una entidad de suscripción |Entidad | Se genera la excepción `SerializationException`. |El tamaño máximo de propiedad de mensaje para cada propiedad es 32 000. El tamaño acumulado de todas las propiedades no puede superar 64 000. Este límite se aplica a todo el encabezado del [mensaje asincrónico](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage), que contiene tanto las propiedades de usuario como las propiedades del sistema, como [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber), [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label) y [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid). |
 | Número de suscripciones por tema |Entidad |Se rechazan las posteriores solicitudes de creación de suscripciones adicionales para el tema. Como resultado, si se configura a través del portal, se muestra un mensaje de error. Si se realiza una llamada desde la API de administración, el código de llamada recibe una excepción. |2000 por tema para el nivel Estándar. |
 | Número de filtros SQL por tema |Entidad |Se rechazan las posteriores solicitudes de creación de filtros adicionales en el tema y el código que realiza la llamada recibe una excepción. |2\.000 |
 | Número de filtros de correlación por tema |Entidad |Se rechazan las posteriores solicitudes de creación de filtros adicionales en el tema y el código que realiza la llamada recibe una excepción. |100 000 |

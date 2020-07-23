@@ -1,5 +1,5 @@
 ---
-title: 'Depuración interactiva: Instancias de proceso de VS Code y ML'
+title: 'Depuración interactiva: Instancias de proceso de VS Code y ML (versión preliminar)'
 titleSuffix: Azure Machine Learning
 description: Configure VS Code remoto para depurar de forma interactiva el código con Azure Machine Learning.
 services: machine-learning
@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: jmartens
 author: j-martens
-ms.date: 12/09/2019
-ms.openlocfilehash: 19d4b6e7994450eacacab51e9a01cbf58eab803a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: 46aefa62ab00c0b3bc2b90467a9fafd61439a10e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84433123"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203445"
 ---
-# <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>Depuración interactiva en una instancia de proceso de Azure Machine Learning con VS Code remoto
+# <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote-preview"></a>Depuración interactiva en una instancia de proceso de Azure Machine Learning con VS Code remoto (versión preliminar)
 
 En este artículo, aprenderá a configurar Visual Studio Code remoto en una instancia de proceso de Azure Machine Learning para que pueda **depurar el código de forma interactiva** desde VS Code. 
 

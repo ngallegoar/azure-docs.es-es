@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/22/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 35f92afea9f9e8da3cf1eeefa81cac0cb712843a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2802445bbb80a4412787362a3ee9aaee4adcd40
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734629"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223506"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migración de Azure Active Directory Domain Services desde el modelo de red virtual clásica a Resource Manager
 
@@ -98,13 +98,15 @@ A medida que prepara y después migra un dominio administrado, existen algunas c
 
 Las direcciones IP de controlador de dominio para un dominio administrado cambian después de la migración. Este cambio incluye la dirección IP pública para el punto de conexión de LDAP seguro. Las nuevas direcciones IP están dentro del intervalo de direcciones de la nueva subred de la red virtual de Resource Manager.
 
-Si se realiza una reversión, tras ella las direcciones IP pueden cambiar.
+Si necesita realizar una reversión, es posible que las direcciones IP cambien después de esta.
 
 Por lo general, Azure AD DS usa las dos primeras direcciones IP disponibles en el intervalo de direcciones, pero esto no se garantiza. Actualmente no se pueden especificar las direcciones IP que se van a usar después de la migración.
 
 ### <a name="downtime"></a>Tiempo de inactividad
 
-El proceso de migración implica que los controladores de dominio están sin conexión durante un período de tiempo. No se puede acceder a los controladores de dominio mientras Azure AD DS se migra al modelo de implementación y la red virtual de Resource Manager. El tiempo medio de inactividad es de 1 a 3 horas. Este período de tiempo comienza cuando los controladores de dominio se desconectan y termina en el momento en que el primer controlador de dominio vuelve a estar en línea. Esta media no incluye el tiempo que tarda el segundo controlador de dominio en replicarse ni el tiempo que pueden tardar los recursos adicionales en migrar al modelo de implementación de Resource Manager.
+El proceso de migración implica que los controladores de dominio están sin conexión durante un período de tiempo. No se puede acceder a los controladores de dominio mientras Azure AD DS se migra al modelo de implementación y la red virtual de Resource Manager.
+
+El tiempo medio de inactividad es de 1 a 3 horas. Este período de tiempo comienza cuando los controladores de dominio se desconectan y termina en el momento en que el primer controlador de dominio vuelve a estar en línea. Esta media no incluye el tiempo que tarda el segundo controlador de dominio en replicarse ni el tiempo que pueden tardar los recursos adicionales en migrar al modelo de implementación de Resource Manager.
 
 ### <a name="account-lockout"></a>Bloqueo de cuenta
 
@@ -207,7 +209,7 @@ Para preparar el dominio administrado para la migración, realice los siguientes
 
 ## <a name="migrate-the-managed-domain"></a>Migración del dominio administrado
 
-Ahora que el dominio administrado está preparado y se ha efectuado la copia de seguridad, se puede migrar el dominio. Este paso vuelve a crear las máquinas virtuales del controlador de dominio de Azure AD Domain Services con el modelo de implementación de Resource Manager. Este paso puede tardar de 1 a 3 horas en completarse.
+Ahora que el dominio administrado está preparado y se ha efectuado la copia de seguridad, se puede migrar el dominio. En este paso se vuelven a crear las máquinas virtuales del controlador de dominio de Azure AD DS con el modelo de implementación de Resource Manager. Este paso puede tardar de 1 a 3 horas en completarse.
 
 Ejecute el cmdlet `Migrate-Aadds` con el parámetro *-Commit*. Proporcione el valor *-ManagedDomainFqdn* de su propio dominio administrado preparado en la sección anterior, como *aaddscontoso.com*:
 
@@ -248,7 +250,9 @@ Con el modelo de implementación de Resource Manager, los recursos de red para e
 
 Cuando haya al menos un controlador de dominio disponible, complete los siguientes pasos de configuración para la conectividad de red con las máquinas virtuales:
 
-* **Actualice la configuración del servidor DNS**. Para permitir que otros recursos de la red virtual de Resource Manager resuelvan y usen el dominio administrado, actualice la configuración de DNS con las direcciones IP de los nuevos controladores de dominio. Azure Portal puede configurar automáticamente estos valores. Para más información sobre cómo configurar la red virtual de Resource Manager, consulte [Actualización de la configuración DNS para la red virtual de Azure][update-dns].
+* **Actualice la configuración del servidor DNS**. Para permitir que otros recursos de la red virtual de Resource Manager resuelvan y usen el dominio administrado, actualice la configuración de DNS con las direcciones IP de los nuevos controladores de dominio. Azure Portal puede configurar automáticamente estos valores.
+
+    Para más información sobre cómo configurar la red virtual de Resource Manager, consulte [Actualización de la configuración DNS para la red virtual de Azure][update-dns].
 * **Reinicie las máquinas virtuales unidas a los dominios**. Las direcciones IP del servidor DNS para los controladores de dominio de Azure AD DS cambian, por lo que debe reiniciar las máquinas virtuales unidas a los dominios; de este modo usarán la nueva configuración de servidor DNS. Si las aplicaciones o las máquinas virtuales tienen configuraciones de DNS manuales, actualícelas también manualmente con las nuevas direcciones IP del servidor DNS para los controladores de dominio que se muestran en Azure Portal.
 
 Ahora pruebe la conexión y la resolución de nombres de la red virtual. En una máquina virtual conectada a la red virtual de Resource Manager, o emparejada con ella, realice las siguientes pruebas de comunicación de red:
@@ -270,7 +274,7 @@ Azure AD DS expone registros de auditoría para ayudar a solucionar problemas 
 
 Puede usar plantillas para supervisar información importante expuesta en los registros. Por ejemplo, la plantilla de libro del registro de auditoría puede supervisar posibles bloqueos de cuenta en el dominio administrado.
 
-### <a name="configure-azure-ad-domain-services-email-notifications"></a>Configuración de notificaciones por correo electrónico de Azure AD Domain Services
+### <a name="configure-email-notifications"></a>Configuración de notificaciones de correo electrónico
 
 Para recibir una notificación cuando se detecte un problema en el dominio administrado, actualice la configuración de notificaciones por correo electrónico en Azure Portal. Para más información, consulte [Configuración de las opciones de notificación][notifications].
 
@@ -297,7 +301,7 @@ Hasta cierto punto en el proceso de migración, puede optar por revertir o resta
 
 ### <a name="roll-back"></a>Reversión
 
-Si se produce un error al ejecutar el cmdlet de PowerShell para preparar la migración en el paso 2 o para la propia migración en el paso 3, el dominio administrado puede revertirse a la configuración original. Esta reversión requiere la red virtual clásica original. Tenga en cuenta que las direcciones IP todavía pueden cambiar después de la reversión.
+Si se produce un error al ejecutar el cmdlet de PowerShell para preparar la migración en el paso 2 o para la propia migración en el paso 3, el dominio administrado puede revertirse a la configuración original. Esta reversión requiere la red virtual clásica original. Las direcciones IP todavía pueden cambiar después de la reversión.
 
 Ejecute el cmdlet `Migrate-Aadds` con el parámetro *-Abort*. Proporcione el valor *-ManagedDomainFqdn* de su propio dominio administrado preparado en una sección anterior, como *aaddscontoso.com*, y el nombre de la red virtual clásica, como *myClassicVnet*:
 

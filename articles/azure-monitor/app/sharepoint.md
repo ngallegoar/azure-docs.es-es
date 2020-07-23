@@ -3,12 +3,12 @@ title: Supervisión de un sitio de SharePoint con Application Insights
 description: Inicio de la supervisión de una nueva aplicación con una nueva clave de instrumentación
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.openlocfilehash: 395e8d667985318f4a084428c6fd4c395ee8b956
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9b31a715b19d6c06cbddb91c0bd9279088c4447
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671450"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221058"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Supervisión de un sitio de SharePoint con Application Insights
 Azure Application Insights le permite supervisar la disponibilidad, el rendimiento y el uso de sus aplicaciones. Aquí aprenderá a configurarlo para un sitio de SharePoint.
@@ -49,18 +49,18 @@ Si se puede editar la página maestra del sitio, dispondrá de supervisión para
 
 Desproteja y edite la página maestra mediante SharePoint Designer o cualquier otro editor.
 
-![](./media/sharepoint/03-master.png)
+![Captura de pantalla que muestra cómo editar la página maestra mediante SharePoint Designer u otro editor.](./media/sharepoint/03-master.png)
 
 Agregue el código justo antes de la etiqueta </head> . 
 
-![](./media/sharepoint/04-code.png)
+![Captura de pantalla que muestra dónde agregar el código a la página del sitio.](./media/sharepoint/04-code.png)
 
 #### <a name="or-on-individual-pages"></a>O, en páginas individuales
 Para supervisar un conjunto limitado de páginas, agregue el script por separado a cada página. 
 
 Inserte un elemento web e incruste el fragmento de código en él.
 
-![](./media/sharepoint/05-page.png)
+![Captura de pantalla que muestra cómo agregar el script para supervisar un conjunto limitado de páginas.](./media/sharepoint/05-page.png)
 
 ## <a name="view-data-about-your-app"></a>Visualización de los datos de la aplicación
 Vuelva a implementar la aplicación.
@@ -69,7 +69,7 @@ Vuelva a la hoja de la aplicación en el [Portal de Azure](https://portal.azure.
 
 Los primeros eventos aparecerán en la búsqueda. 
 
-![](./media/sharepoint/09-search.png)
+![Captura de pantalla que muestra los nuevos datos que se pueden ver en la aplicación.](./media/sharepoint/09-search.png)
 
 Si espera más datos, haga clic en Actualizar después de unos segundos.
 
@@ -78,7 +78,7 @@ El fragmento de código de una página web estándar no captura el identificador
 
 1. Copie la clave de instrumentación de la aplicación de la lista desplegable Essentials en Application Insights . 
 
-    ![](./media/sharepoint/02-props.png)
+    ![Captura de pantalla que muestra la copia de la instrumentación de la aplicación desde la lista desplegable de Essentials en Application Insights.](./media/sharepoint/02-props.png)
 
 1. En el siguiente fragmento, sustituya la clave de instrumentación por "XXXX". 
 2. Inserte el script en la aplicación de SharePoint en lugar del fragmento de código que obtenga desde el portal.

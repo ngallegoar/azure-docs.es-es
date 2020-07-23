@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: mbaldwin
-ms.openlocfilehash: c45839d622f4bad5097006a364a36db05ce5dacc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 005932f4a4be9e4a7bae85a6b380c934de5e9874
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84012983"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276539"
 ---
 # <a name="azure-encryption-overview"></a>Información general del cifrado de Azure
 
@@ -53,9 +53,9 @@ Los tres modelos de cifrado del servidor ofrecen características de administrac
 
 - **Claves administradas del servicio**: proporcionan una combinación de control y comodidad con una sobrecarga reducida.
 
-- **Claves administradas por el cliente**: le permiten controlar las claves, con compatibilidad con Bring Your Own Keys (BYOK), o generar claves nuevas.
+- **Claves administradas del cliente**: le permiten controlar las claves, incluyendo la con compatibilidad con Bring Your Own Keys (BYOK), o generar claves nuevas.
 
-- **Claves administradas del servicio en el hardware controlado por el cliente**: le permiten administrar las claves en el repositorio de su propiedad, fuera del control de Microsoft. Esta característica se denomina Host Your Own Key (HYOK). Sin embargo, la configuración es compleja y la mayoría de los servicios de Azure no son compatibles con este modelo.
+- **Claves administradas del servicio en el hardware que controla el cliente**: le permiten administrar las claves en el repositorio de su propiedad, fuera del control de Microsoft. Esta característica se denomina Host Your Own Key (HYOK). Sin embargo, la configuración es compleja y la mayoría de los servicios de Azure no son compatibles con este modelo.
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
@@ -79,7 +79,7 @@ Para obtener más información acerca de la biblioteca cliente de Azure Storage 
 
 Cuando se usa el cifrado de cliente con Key Vault, los datos se cifran con una clave de cifrado de contenido (CEK) simétrica única generada por el SDK de cliente de Azure Storage. La CEK se cifra mediante una clave de cifrado de claves (KEK), que puede ser una clave simétrica o un par de claves asimétricas. Puede administrarla de forma local o almacenarla en Key Vault. A continuación, se cargan los datos cifrados en Azure Storage.
 
-Para obtener más información acerca del cifrado de cliente con Key Vault e iniciar las instrucciones sobre procedimientos, vea [Tutorial: Cifrado y descifrado de blobs en Azure Storage con Key Vault](../../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md).
+Para obtener más información acerca del cifrado del lado cliente con Key Vault e iniciar las instrucciones sobre los procedimientos, consulte [Tutorial: cifrado y descifrado de blobs en Azure Storage mediante Key Vault](../../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md).
 
 Por último, también puede usar la biblioteca cliente de Azure Storage para Java para realizar el cifrado de cliente antes de cargar datos en Azure Storage y descifrar los datos cuando se descargan en el cliente. Esta biblioteca también admite la integración con [Key Vault](https://azure.microsoft.com/services/key-vault/) para la administración de las claves de la cuenta de almacenamiento.
 
@@ -117,9 +117,13 @@ Se utilizan tres tipos de claves en el cifrado y descifrado de datos: la clave d
 
 Azure ofrece varios mecanismos para mantener la privacidad de los datos cuando se mueven de una ubicación a otra.
 
-### <a name="tlsssl-encryption-in-azure"></a>Cifrado TLS/SSL en Azure
+### <a name="data-link-layer-encryption-in-azure"></a>Cifrado de capa de vínculo de datos en Azure
 
-Microsoft usa el protocolo [Seguridad de la capa de transporte](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) para proteger los datos cuando se transmiten entre los servicios en la nube y los clientes. Los centros de datos de Microsoft negocian una conexión TLS con sistemas cliente que se conectan a servicios de Azure. TLS proporciona una autenticación sólida, privacidad de mensajes e integridad (lo que permite la detección de la manipulación, interceptación y falsificación de mensajes), interoperabilidad, flexibilidad de algoritmo, y facilidad de implementación y uso.
+Cada vez que el tráfico de los clientes de Azure se mueve entre los centros de datos —fuera de los límites físicos no controlados por Microsoft (o en nombre de Microsoft)—, un método de cifrado de capa de vínculo de datos que usa los [estándares de seguridad de MAC IEEE 802.1AE](https://1.ieee802.org/security/802-1ae/) (también conocidos como MACsec) se aplica de punto a punto en el hardware de red subyacente.  Los paquetes se cifran y descifran en los dispositivos antes de enviarse, lo que evita ataques físicos de tipo "Man in the middle" o de supervisión/escucha telefónica.  Dado que esta tecnología se integra en el propio hardware de red, proporciona cifrado de velocidad de línea en el hardware de red sin aumento de la latencia de vínculo mensurable.  Este cifrado de MACsec está activado de forma predeterminada para todo el tráfico de Azure que viaja dentro de una región o entre regiones, y no se requiere ninguna acción por parte de los clientes para su habilitación. 
+
+### <a name="tls-encryption-in-azure"></a>Cifrado TLS en Azure
+
+Microsoft usa el protocolo [Seguridad de la capa de transporte](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) de forma predeterminada para proteger los datos cuando se transmiten entre los servicios en la nube y los clientes. Los centros de datos de Microsoft negocian una conexión TLS con sistemas cliente que se conectan a servicios de Azure. TLS proporciona una autenticación sólida, privacidad de mensajes e integridad (lo que permite la detección de la manipulación, interceptación y falsificación de mensajes), interoperabilidad, flexibilidad de algoritmo, y facilidad de implementación y uso.
 
 [Confidencialidad directa total](https://en.wikipedia.org/wiki/Forward_secrecy) (PFS) protege las conexiones entre los sistemas cliente de los clientes y los servicios en la nube de Microsoft mediante claves únicas. Las conexiones también usan longitudes de clave de cifrado RSA de 2048 bits. Esta combinación hace difícil para un usuario interceptar y acceder a datos que están en tránsito.
 
@@ -141,7 +145,7 @@ De forma predeterminada, una vez que se activa el cifrado SMB para un recurso co
 
 ## <a name="in-transit-encryption-in-vms"></a>Cifrado en tránsito en VM
 
-Los datos en tránsito de destino, de origen y entre VM que ejecutan Windows se cifran de diversas formas, según la naturaleza de la conexión.
+Los datos en tránsito de destino, de origen y entre VM que ejecutan Windows, se pueden cifrar de diversas formas, según la naturaleza de la conexión.
 
 ### <a name="rdp-sessions"></a>Sesiones RDP
 
@@ -173,7 +177,7 @@ Para obtener más información acerca de las conexiones VPN de punto a sitio par
 
 [Configuración de una conexión de punto a sitio a una red virtual mediante la autenticación de certificación: Azure Portal](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) 
 
-[Configuración de una conexión de punto a sitio a una red virtual mediante la autenticación de certificados: PowerShell](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+[Configuración de una conexión de punto a sitio a una red virtual mediante la autenticación de certificado: PowerShell](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
 ### <a name="site-to-site-vpns"></a>VPN de sitio a sitio 
 

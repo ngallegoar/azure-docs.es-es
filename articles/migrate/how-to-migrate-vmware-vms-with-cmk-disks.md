@@ -7,12 +7,12 @@ ms.manager: carmonm
 ms.topic: article
 ms.date: 03/12/2020
 ms.author: raynew
-ms.openlocfilehash: c6b791fda43a018a26204b2b43dc1e581ff3a945
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01f30305529e7f142be0ca6ddffa0f5a12a235bb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79232704"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260025"
 ---
 # <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>Migración de VM de VMware a VM de Azure habilitadas con cifrado del lado servidor y claves administradas por el cliente
 
@@ -24,7 +24,7 @@ En los ejemplos de este artículo se usa [Azure PowerShell](/powershell/azure/ne
 
 [Obtenga más información](../virtual-machines/windows/disk-encryption.md) sobre el cifrado del lado servidor (SSE) con claves administradas por el cliente (CMK) para discos administrados.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - [Revise el tutorial](tutorial-migrate-vmware.md) sobre la migración de VM de VMware a Azure mediante la replicación sin agente para comprender los requisitos de herramientas.
 - [Siga estas instrucciones](how-to-add-tool-first-time.md) para crear un proyecto de Azure Migrate y agregarle la herramienta **Azure Migrate: Server Migration**.
@@ -58,7 +58,11 @@ La experiencia del portal de Migración del servidor simplifica la preparación 
 
 Un objeto de conjunto de cifrado de disco asigna instancias de Managed Disks a una instancia de Key Vault que contiene las claves CMK que se van a usar para SSE. Para replicar VM con CMK, deberá crear un conjunto de cifrado de disco y pasarlo como una entrada para la operación de replicación.
 
-Siga el ejemplo que encontrará [aquí](../virtual-machines/windows/disk-encryption.md#powershell) para crear un conjunto de cifrado de disco mediante Azure PowerShell. Asegúrese de que el conjunto de cifrado de disco se ha creado en la suscripción de destino donde se migrarán las VM y en la región de Azure de destino de la migración.
+Siga el ejemplo que encontrará [aquí](../virtual-machines/windows/disks-enable-customer-managed-keys-powershell.md) para crear un conjunto de cifrado de disco mediante Azure PowerShell. Asegúrese de que el conjunto de cifrado de disco se ha creado en la suscripción de destino donde se migrarán las VM y en la región de Azure de destino de la migración.
+
+El conjunto de cifrado de disco puede configurarse para cifrar discos administrados con una clave administrada por el cliente o para el cifrado doble con una clave administrada por el cliente y una clave de plataforma. Para usar la opción de doble cifrado en reposo, configure el conjunto de cifrado de disco como se describe [aquí](../virtual-machines/windows/disks-enable-double-encryption-at-rest-powershell.md).
+
+En el ejemplo que se muestra a continuación, el conjunto de cifrado de discos está configurado para usar una clave administrada por el cliente.
 
 ```azurepowershell
 $Location = "southcentralus"                           #Target Azure region for migration 

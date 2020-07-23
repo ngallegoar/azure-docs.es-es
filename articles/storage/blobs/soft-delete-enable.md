@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 05/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 970a6dfc167a6bef7984598c60e7ce89c6e4b34c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2914dfed14360c114476025c74f3dc0c03d82e25
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463729"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224900"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Habilitación y administración de la eliminación temporal para blobs
 
-La eliminación temporal evita que los datos de blob se modifiquen o eliminen de forma accidental o errónea. Cuando la eliminación temporal está habilitada para una cuenta de almacenamiento, los blobs, las versiones del blob (versión preliminar) y las instantáneas de esa cuenta de almacenamiento pueden recuperarse una vez eliminados, dentro de un período de retención que especifique.
+La eliminación temporal evita que los datos de blob se modifiquen o eliminen de forma accidental o errónea. Cuando la eliminación temporal está habilitada para una cuenta de almacenamiento, los blobs, las versiones de blobs (versión preliminar) y las instantáneas de esa cuenta de almacenamiento pueden recuperarse una vez eliminados, dentro de un período de retención que especifique.
 
 Si existe la posibilidad de que una aplicación u otro usuario de la cuenta de almacenamiento modifiquen o borren sus datos accidentalmente, Microsoft aconseja activar la eliminación temporal.
 
@@ -40,31 +40,31 @@ Habilite la eliminación temporal de blobs en la cuenta de almacenamiento median
 
 5. Elija el botón **Guardar** para confirmar la configuración de protección de datos.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
+![Captura de pantalla de Azure Portal con el servicio de protección de datos de blobs elegido.](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
 
 Para ver los blobs eliminados temporalmente, active la casilla **Mostrar blobs eliminados**.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted.png)
+![Captura de pantalla de la página del servicio de protección de datos de blobs con la opción Mostrar blobs eliminados resaltada.](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted.png)
 
 Para ver instantáneas eliminadas temporalmente de un blob dado, seleccione el blob y haga clic en **Ver instantáneas**.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots.png)
+![Captura de pantalla de la página del servicio de protección de datos de blobs con la opción Ver instantáneas resaltada.](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots.png)
 
 Asegúrese de que la casilla **Mostrar instantáneas eliminadas** está activada.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots-check.png)
+![Captura de pantalla de la página Ver instantáneas con la opción Mostrar blobs eliminados resaltada.](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots-check.png)
 
 Al hacer clic en un blob o en una instantánea eliminados temporalmente, observe las nuevas propiedades del blob. Indican cuándo se eliminó el objeto y el número de días que quedan hasta que el blob o la instantánea de blob expire de forma permanente. Si el objeto que se ha eliminado temporalmente no es una instantánea, también tendrá la opción de recuperarlo.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-properties.png)
+![Captura de pantalla de los detalles de un objeto eliminado temporalmente.](media/soft-delete-enable/storage-blob-soft-delete-portal-properties.png)
 
 Recuerde que al recuperar un blob también se recuperan todas las instantáneas asociadas. Para recuperar las instantáneas eliminadas temporalmente de un blob activo, haga clic en el blob y seleccione **Undelete all snapshots** (Recuperar todas las instantáneas).
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-undelete-all-snapshots.png)
+![Captura de pantalla de los detalles de un blob eliminado temporalmente.](media/soft-delete-enable/storage-blob-soft-delete-portal-undelete-all-snapshots.png)
 
 Después de recuperar las instantáneas de un blob, puede hacer clic en **Promover** para copiar una instantánea en el blob raíz, con lo que se restaura el blob en la instantánea.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-promote-snapshot.png)
+![Captura de pantalla de la página Ver instantáneas con la opción Promote (Promover) resaltada.](media/soft-delete-enable/storage-blob-soft-delete-portal-promote-snapshot.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

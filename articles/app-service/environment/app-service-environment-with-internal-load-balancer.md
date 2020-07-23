@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 009b1ff08f9a3a0b840a20a01be5b16cd28d4533
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49045c8b8c7b3ccfa44a1077e59683191393e1ee
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833110"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220820"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Uso de un equilibrador de carga interno con un entorno de App Service
 
@@ -54,7 +54,7 @@ Apenas hay diferencias entre crear un ASE con un ILB y del modo habitual. Para u
 7. Proporcione el nombre del subdominio (será el que utilicen las aplicaciones creadas en este ASE).
 8. Seleccione **Aceptar** y, después, **Crear**.
 
-![][1]
+![Muestra las pantallas usadas para crear una instancia de ASE de ILB.][1]
 
 En el panel de la red virtual, hay una opción de configuración de redes virtuales que permite seleccionar entre una VIP externa o interna. El valor predeterminado es Externa. Si lo ha establecido en Externa, el ASE utilizará una dirección VIP accesible desde Internet. Si selecciona Interna, el ASE se configura con un ILB en una dirección IP de su red virtual. 
 
@@ -70,7 +70,7 @@ En un ASE con un ILB, las aplicaciones se crean de la misma forma que en un ASE 
 5. Seleccione o cree un plan de App Service (ASP). Si va a crear un nuevo ASP, seleccione el ASE como la ubicación y elija el grupo de trabajo en el que quiera que se cree. Cuando cree el ASP, seleccione el ASE como la ubicación y el grupo de trabajo. Al especificar el nombre de la aplicación, verá que el subdominio que se encuentra bajo el nombre de la aplicación se reemplaza por el subdominio del ASE. 
 6. Seleccione **Crear**. Asegúrese de activar la casilla **Anclar al panel** si quiere que la aplicación se muestre en el panel. 
 
-![][2]
+![Muestra cómo crear una aplicación en una instancia de ASE de ILB en Azure Portal.][2]
 
 Debajo del nombre de la aplicación, el nombre del subdominio se actualiza para reflejar el subdominio del ASE. 
 
@@ -79,11 +79,11 @@ Un ASE con un ILB es ligeramente diferente a un ASE sin ILB. Como ya se ha indic
 
 Después de crear el ASE, observará que el subdominio muestra el subdominio que especificó y que hay un nuevo elemento en el menú **Configuración** llamado **Certificado de ILB**. El ASE se crea con un certificado autofirmado, lo que facilita la prueba HTTPS. El portal le indica que debe proporcionar su propio certificado para HTTPS con el fin de disponer un certificado que vaya con el subdominio. 
 
-![][3]
+![Muestra el subdominio que especificó al crear la instancia de ASE.][3]
 
 Si solo está probando las características y no sabe cómo crear un certificado, puede utilizar la aplicación de consola de MMC en IIS para crear un certificado autofirmado. Una vez creado, puede exportarlo como un archivo .pfx y, a continuación, cargarlo en la interfaz de usuario del certificado de ILB. Al acceder a un sitio protegido con un certificado autofirmado, el explorador le muestra una advertencia que indica que el sitio al que está accediendo no es seguro debido a que no se puede validar el certificado. Si quiere evitar que aparezca esa advertencia, necesita un certificado firmado correctamente que coincida con el subdominio y que tenga una cadena de confianza que reconozca el explorador.
 
-![][6]
+![Muestra cómo usar la aplicación de consola MMC de IIS para crear un certificado autofirmado.][6]
 
 Si desea probar el flujo con sus propios certificados y probar el acceso HTTP y HTTPS en su ASE:
 
@@ -98,7 +98,7 @@ Si desea probar el flujo con sus propios certificados y probar el acceso HTTP y 
 
 La dirección IP del ILB aparece en las Propiedades como la dirección IP virtual.
 
-![][4]
+![Muestra que la dirección IP del ILB aparece en las propiedades como dirección IP virtual.][4]
 
 ## <a name="using-an-ilb-ase"></a>Uso de un ASE con un ILB
 #### <a name="network-security-groups"></a>Grupos de seguridad de red
@@ -108,7 +108,7 @@ Si quiere usar los NSG con este fin, debe asegurarse de no interrumpir la comuni
 
 Para configurar los NSG, debe conocer la dirección IP que usa Azure para administrar el ASE. Esa dirección IP también es la dirección IP saliente del ASE en caso de que realice solicitudes de Internet. La dirección IP saliente del ASE permanecerá estática durante la vida del ASE. Si elimina y vuelve a crear el ASE, recibirá una nueva dirección IP. Para encontrar la dirección IP, vaya a **Configuración -> Propiedades** y busque **Dirección IP saliente**. 
 
-![][5]
+![Muestra dónde puede encontrar la dirección IP de salida para la instancia de ASE.][5]
 
 #### <a name="general-ilb-ase-management"></a>Administración general de ASE con un ILB
 Apenas hay diferencias entre administrar un ASE con un ILB y del modo habitual. Debe escalar verticalmente los grupos de trabajo para hospedar más instancias de ASP y escalar verticalmente los servidores de front-end para administrar una mayor cantidad de tráfico HTTP y HTTPS. Para información general sobre la administración de la configuración de una instancia de ASE, consulte [Configuración de una instancia de App Service Environment][ASEConfig]. 

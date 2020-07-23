@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/27/2020
+ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bcf7b5b8791b813a28133d8a662d1736aacf35a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9bd19093034b4427d9e1b637a653a90e0568cddf
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358725"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223931"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Requisitos previos de Azure AD Connect
 En este tema se describen los requisitos previos y los de hardware de Azure AD Connect.
@@ -48,34 +48,35 @@ Antes de instalar Azure AD Connect, hay algunas cosas que necesita.
 * Se recomienda [habilitar la papelera de reciclaje de Active Directory](how-to-connect-sync-recycle-bin.md).
 
 ### <a name="azure-ad-connect-server"></a>Servidor de Azure AD Connect
->[!IMPORTANT]
->El servidor de Azure AD Connect contiene datos de identidad críticos y debería tratarse como un componente de nivel 0, tal como se documenta en el [modelo de nivel administrativo de Active Directory](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
+El servidor de Azure AD Connect contiene datos de identidad críticos. Es importante que el acceso administrativo a este servidor esté protegido correctamente, siguiendo las directrices descritas en [Protección del acceso con privilegios](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access). 
 
-* Azure AD Connect no puede instalarse en Small Business Server o Windows Server Essentials antes de 2019 (se admite Windows Server Essentials 2019). El servidor debe usar Windows Server estándar o una versión superior.
-* No se recomienda instalar Azure AD Connect en un controlador de dominio debido a las prácticas de seguridad y una configuración más restrictiva que puede impedir que se instale correctamente Azure AD Connect.
-* El servidor de Azure AD Connect debe tener una GUI completa instalada. **No se admite** la instalación en Server Core.
->[!IMPORTANT]
->No se admite la instalación de Azure AD Connect en Small Business Server, Server Essentials o Core Server.
+El servidor de Azure AD Connect debería tratarse como un componente de nivel 0, tal como se documenta en el [modelo de nivel administrativo de Active Directory](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).  
 
-* Azure AD Connect debe estar instalado en Windows Server 2012 o en una versión superior. Este servidor debe estar unido a un dominio y puede ser un controlador de dominio o un servidor miembro.
-* El servidor de Azure AD Connect no debe tener la directiva de grupo de transcripción de PowerShell habilitada si usa el Asistente de Azure AD Connect para administrar la configuración de ADFS. Puede habilitar la transcripción de PowerShell si usa el asistente de Azure AD Connect para administrar la configuración de sincronización.
-* Si se implementa Servicios de federación de Active Directory, los servidores en los que se instale AD FS o el Proxy de aplicación web deben ser Windows Server 2012 R2 o versiones posteriores. [Administración remota de Windows](#windows-remote-management) debe estar habilitada en estos servidores para la instalación remota.
-* Si se implementa Servicios de federación de Active Directory, necesita [Certificados TLS/SSL](#tlsssl-certificate-requirements).
-* Si se implementan los Servicios de federación de Active Directory, necesitará configurar la [resolución de nombres](#name-resolution-for-federation-servers).
-* Si los administradores globales tienen MFA habilitado, la dirección URL **https://secure.aadcdn.microsoftonline-p.com** debe estar en la lista de sitios de confianza. Se le solicita que agregue este sitio a la lista de sitios de confianza cuando se le pide un desafío MFA y no se ha agregado antes. Puede utilizar Internet Explorer para agregarla a los sitios de confianza.
-* Microsoft recomienda reforzar su servidor Azure AD Connect para reducir la superficie de ataque de seguridad para este componente esencial de su entorno de TI.  Siga las recomendaciones que tiene a continuación y podrá reducir los riesgos de seguridad de su organización.
+Para obtener más información acerca de cómo proteger el entorno de Active Directory, consulte [Procedimientos recomendados para proteger Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
-* Implemente Azure AD Connect en un servidor unido a un dominio y restrinja el acceso administrativo a los administradores del dominio o a otros grupos de seguridad rigurosamente controlados.
+#### <a name="installation-prerequisites"></a>Requisitos previos de instalación 
 
-Para obtener más información, consulte: 
+- Azure AD Connect debe estar instalado en una instancia de Windows Server 2012 o una versión posterior unida a dominio. Se recomienda encarecidamente que este servidor sea un controlador de dominio. 
+- Azure AD Connect no puede instalarse en Small Business Server o Windows Server Essentials antes de 2019 (se admite Windows Server Essentials 2019). El servidor debe usar Windows Server estándar o una versión superior.  
+- El servidor de Azure AD Connect debe tener una GUI completa instalada. No se admite la instalación de Azure AD Connect en Windows Server Core. 
+- El servidor de Azure AD Connect no debe tener la directiva de grupo de transcripción de PowerShell habilitada si usa el Asistente de Azure AD Connect para administrar la configuración de ADFS. Puede habilitar la transcripción de PowerShell si usa el asistente de Azure AD Connect para administrar la configuración de sincronización. 
+- Si se implementa Servicios de federación de Active Directory: 
+    - los servidores en los que se instale AD FS o el Proxy de aplicación web deben ser Windows Server 2012 R2 o versiones posteriores. La Administración remota de Windows debe estar habilitada en estos servidores para la instalación remota. 
+    - debe configurar los certificados TLS/SSL.  Vea [Administración de los protocolos SSL/TLS y los conjuntos de cifrado para AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) y [Administrar certificados SSL en AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
+    - debe configurar la resolución de nombres. 
+- Si los administradores globales tienen MFA habilitado, la dirección URL https://secure.aadcdn.microsoftonline-p.com **debe** estar en la lista de sitios de confianza. Se le solicita que agregue este sitio a la lista de sitios de confianza cuando se le pide un desafío MFA y no se ha agregado antes. Puede utilizar Internet Explorer para agregarla a los sitios de confianza.  
 
-* [Protección de los grupos de administradores](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+#### <a name="hardening-your-azure-ad-connect-server"></a>Protección del servidor de Azure AD Connect 
+Microsoft recomienda reforzar su servidor Azure AD Connect para reducir la superficie de ataque de seguridad para este componente esencial de su entorno de TI. Siga las recomendaciones que tiene a continuación para reducir algunos riesgos de seguridad de su organización.
 
-* [Protección de las cuentas predefinidas de administrador](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+- Debe tratar Azure AD Connect igual que un controlador de dominio y otros recursos de nivel 0: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material 
+- Debe restringir el acceso administrativo al servidor de Azure AD Connect a solo los administradores del dominio o a otros grupos de seguridad rigurosamente controlados.
+- Debe crear una [cuenta dedicada para todo el personal con privilegios de acceso](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access). Los administradores no deben explorar la Web, consultar su correo electrónico y realizar las tareas de productividad cotidianas con cuentas con privilegios elevados.
+- Debe seguir las instrucciones que se proporcionan en [Protección del acceso con privilegios](https://docs.microsoft.com/windows-server/security/credentials-protection-and-management/how-to-configure-protected-accounts). 
+- Debe asegurarse de que todas las máquinas tienen una contraseña de administrador local única. La [solución de contraseña de administrador local (LAPS)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) puede configurar contraseñas aleatorias únicas en cada estación de trabajo y almacenarlas en Active Directory (AD) protegidas mediante una ACL. Solo los usuarios autorizados válidos pueden leer o solicitar el restablecimiento de estas contraseñas de cuenta de administrador local. Puede obtener las soluciones de contraseña de administrador local para su uso en estaciones de trabajo y servidores desde el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=46899#:~:text=The%20%22Local%20Administrator%20Password%20Solution,it%20or%20request%20its%20reset.). Puede encontrar orientación adicional para el funcionamiento de un entorno con soluciones de contraseña de administrador local y estaciones de trabajo de acceso privilegiado en [Estándares operativos basados en el principio del origen limpio](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle). 
+- Debe implementar [estaciones de trabajo de acceso privilegiado (PAW)](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations) dedicadas para todo el personal con acceso con privilegios a los sistemas de información de su organización. 
+- Debe seguir estas [instrucciones adicionales](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) para reducir la superficie expuesta a ataques de su entorno de Active Directory.
 
-* [Mejora de la seguridad y el sostenimiento al reducir las superficies de ataque](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
-
-* [Reducción de la superficie de ataque de Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server usado por Azure AD Connect
 * Azure AD Connect requiere una base de datos de SQL Server para almacenar datos de identidad. De forma predeterminada, se instala SQL Server 2012 Express LocalDB (versión ligera de SQL Server Express). SQL Server Express tiene un límite de tamaño de 10 GB que le permite administrar aproximadamente 100 000 objetos. Si tiene que administrar un volumen superior de objetos de directorio, es necesario que el asistente para la instalación apunte a otra instalación de SQL Server. El tipo de instalación de SQL Server puede afectar al [rendimiento de Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors#sql-database-factors).

@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ad8990512cb09f6048b169c1d0c0a259a62b61b
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 4956014e3a950a729ef3993e10ca455ab8aae6f4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827155"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256686"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Preguntas más frecuentes sobre Azure Active Directory Connect
 
@@ -257,6 +257,16 @@ En raras ocasiones, el servicio Azure AD Connect no se inicia después de realiz
 
 **P: No estoy seguro de los riesgos derivados de la actualización a una versión más reciente de Azure AD Connect. ¿Puede llamarme para ayudarme con la actualización?**  
 Si necesita ayuda para actualizar a una versión más reciente de Azure AD Connect, abra un vale de soporte; en [Create a service request to contact Office 365 support](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/) (Crear una solicitud de servicio para ponerse en contacto con el soporte técnico de Office 365).
+
+## <a name="operational-best-practice"></a>Prácticas recomendadas de uso    
+A continuación se muestran algunos procedimientos recomendados que debe implementar al sincronizar entre Windows Server Active Directory y Azure Active Directory.
+
+**Aplique Multi-Factor Authentication para todas las cuentas sincronizadas**. Azure Multi-Factor Authentication ayuda a proteger el acceso a los datos y aplicaciones, y al mismo tiempo mantiene la simplicidad para los usuarios. Proporciona más seguridad, ya que requiere una segunda forma de autenticación y ofrece autenticación segura a través de una gama de métodos de autenticación fáciles de usar. Puede que los usuarios se vean desafiados por la MFA en función de las decisiones de configuración que tome un administrador. Puede leer más sobre MFA aquí: https://www.microsoft.com/security/business/identity/mfa?rtc=1
+
+[Siga las instrucciones del seguridad del servidor de Azure AD Connect](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). El servidor de Azure AD Connect contiene datos de identidad críticos y debería tratarse como un componente de nivel 0, tal como se documenta en el **modelo de nivel administrativo de Active Directory**. Consulte también nuestras [instrucciones para proteger el servidor AADConnect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#azure-ad-connect-server).
+
+**Habilite PHS para la detección de credenciales filtradas**. La sincronización de hash de contraseña también habilita la [detección de credenciales filtradas](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-risks) para cuentas híbridas. Microsoft trabaja con investigadores de la Web oscura y organismos de aplicación de la ley para encontrar pares de nombre de usuario y contraseña disponibles públicamente. Si alguno de estos pares coincide con el de sus usuarios, la cuenta asociada pasa a ser de alto riesgo. 
+
 
 ## <a name="troubleshooting"></a>Solución de problemas
 **P: ¿Cómo puedo obtener ayuda con Azure AD Connect?**

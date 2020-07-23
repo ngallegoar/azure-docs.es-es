@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 0104547a432f7f78d74731e11926bcd82088cef7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e53e9599da3c12fdf01c8902a7275fc75ce86643
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76264040"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223608"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Instrucciones sobre arquitectura de inserción empresarial
 
@@ -37,7 +37,7 @@ Esta es la arquitectura general de la solución (generalizada con varias aplicac
 
 ## <a name="architecture"></a>Architecture
 
-![][1]
+![Diagrama de la arquitectura empresarial que muestra el flujo a través de eventos, suscripciones y mensajes de inserción.][1]
 
 La pieza clave en este diagrama arquitectónico es Azure Service Bus que proporciona un modelo de programación de temas y suscripciones (se puede obtener más información al respecto en [Programación Pub/Sub de Service Bus]). El receptor, en este caso el back-end móvil (normalmente el [servicio móvil de Azure], que inicia una inserción en las aplicaciones móviles) no recibe los mensajes directamente de los sistemas back-end, sino de una capa de abstracción intermedia que proporciona [Azure Service Bus] que permite que el back-end móvil reciba mensajes de uno o varios sistemas back-end. Se debe crear un tema de Service Bus para cada uno de los sistemas back-end, por ejemplo, Cuentas, RR.HH., Finanzas, que son básicamente "temas" de interés que iniciarán mensajes para enviarse como notificaciones de inserción. Los sistemas back-end envían mensajes a estos temas. Un back-end móvil puede suscribirse a uno o varios de estos temas mediante la creación de una suscripción a Service Bus. Esto permite al back-end móvil recibir una notificación del sistema back-end correspondiente. El back-end móvil sigue escuchando mensajes en sus suscripciones y, en cuanto llega uno, da la vuelta y lo envía como notificación a su centro de notificaciones. Los centros de notificaciones entregan finalmente el mensaje a la aplicación móvil. Esta es la lista de componentes clave:
 
@@ -58,7 +58,7 @@ La pieza clave en este diagrama arquitectónico es Azure Service Bus que proporc
 
 ## <a name="sample"></a>Muestra
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Requisitos previos
 
 Para familiarizarse con los conceptos, así como con los pasos comunes de creación y configuración, realice los siguientes tutoriales:
 
@@ -228,15 +228,17 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
 
     e. Para publicar esta aplicación como un **trabajo web**, haga clic con el botón derecho en la solución en Visual Studio y seleccione **Publicar como trabajo web**.
 
-    ![][2]
+    ![Captura de pantalla de las opciones de clic con el botón derecho que se muestran con la opción Publish as Azure WebJob (Publicar como WebJob de Azure) enmarcada en rojo.][2]
 
     f. Seleccione su perfil de publicación y cree un sitio web de Azure, si aún no existe, que hospede este trabajo web. Cuando tenga el sitio web, haga clic en **Publicar**.
 
-    ![][3]
+    :::image type="complex" source="./media/notification-hubs-enterprise-push-architecture/PublishAsWebJob.png" alt-text="Captura de pantalla que muestra el flujo de trabajo para crear un sitio en Azure.":::
+    Captura de pantalla del cuadro de diálogo Publicación web con la opción Sitios web de Microsoft Azure seleccionada, una flecha verde que apunta al cuadro de diálogo Seleccionar sitio web existente con la opción Nuevo enmarcada en rojo, y una flecha verde que apunta al cuadro de diálogo Crear sitio en Microsoft Azure con las opciones Nombre del sitio y Crear enmarcadas en rojo.
+    :::image-end:::
 
     g. Configure el trabajo como "Ejecutar continuamente", de modo que cuando inicie sesión en [Azure Portal] vea algo parecido a esto:
 
-    ![][4]
+    ![Captura de pantalla de Azure Portal con los trabajos web de back-end de inserción empresarial mostrados y los valores de Nombre, Programación y Registros enmarcados en rojo.][4]
 
 3. **EnterprisePushMobileApp**
 
@@ -270,11 +272,11 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
 2. Ejecute **EnterprisePushMobileApp**, que inicia la aplicación de la Tienda Windows.
 3. Ejecute la aplicación de consola **EnterprisePushBackendSystem** que simula el back-end LoB e inicia el envío de mensajes, de modo que verá que aparecen notificaciones del sistema como la siguiente imagen:
 
-    ![][5]
+    ![Captura de pantalla de una consola que ejecuta la aplicación Enterprise Push Backend System y el mensaje enviado por ella.][5]
 
 4. Los mensajes se enviaron originalmente a temas de Service Bus, los cuales son supervisadas por las suscripciones de Service Bus en el trabajo web. Cuando se recibe un mensaje, se crea una notificación y se envía a la aplicación móvil. Puede examinar los registros del trabajo web para confirmar el procesamiento en el vínculo Registros en [Azure Portal] correspondiente a su trabajo web:
 
-    ![][6]
+    ![Captura de pantalla del cuadro de diálogo Continuous WebJob Details (Detalles de WebJobs continuos) con el mensaje que se envía enmarcado en rojo.][6]
 
 <!-- Images -->
 [1]: ./media/notification-hubs-enterprise-push-architecture/architecture.png

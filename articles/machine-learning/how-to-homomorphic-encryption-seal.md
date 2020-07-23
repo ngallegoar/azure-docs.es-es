@@ -1,23 +1,23 @@
 ---
-title: Implementación de un servicio de inferencia cifrada
+title: Implementación de un servicio de inferencia cifrada (versión preliminar)
 titleSuffix: Azure Machine Learning
 description: Información sobre cómo usar Microsoft SEAL para implementar un servicio de predicción cifrada para la clasificación de imágenes
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 05/18/2020
+ms.date: 07/09/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: tracking-python
-ms.openlocfilehash: b92293973ac9b5027a9f1a10c2d19fd164c41e3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c67ddf2d82a1cebaaa43a90111f4a42edb20058e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560193"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206782"
 ---
-# <a name="how-to-deploy-an-encrypted-inferencing-web-service"></a>Cómo implementar un servicio web de inferencia cifrada
+# <a name="how-to-deploy-an-encrypted-inferencing-web-service-preview"></a>Implementación de un servicio web de inferencia cifrada (versión preliminar)
 
 Obtenga información sobre cómo implementar un modelo de clasificación de imágenes como un servicio web de inferencia cifrada en [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). El servicio web es una imagen de contenedor de Docker que contiene el modelo y la lógica de puntuación.
 
@@ -34,7 +34,7 @@ ACI es una excelente solución para probar y conocer el flujo de trabajo de impl
 
 El método de cifrado que se usa en este ejemplo es el [cifrado homomórfico](https://github.com/Microsoft/SEAL#homomorphic-encryption). El cifrado homomórfico permite realizar cálculos en datos cifrados sin necesidad de tener acceso a una clave secreta (descifrado). Los resultados de los cálculos están cifrados y solo los puede revelar el propietario de la clave secreta. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En esta guía se da por supuesto que tiene un modelo de clasificación de imágenes registrado en Azure Machine Learning. Si no es así, registre el modelo con un [modelo previamente entrenado](https://github.com/Azure/MachineLearningNotebooks/raw/master/tutorials/image-classification-mnist-data/sklearn_mnist_model.pkl) o cree el suyo propio; para ello, complete el [tutorial de entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning](tutorial-train-models-with-aml.md).
 

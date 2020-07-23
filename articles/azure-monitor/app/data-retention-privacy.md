@@ -3,12 +3,12 @@ title: Retención y almacenamiento de datos en Azure Application Insights | Micr
 description: Declaración de directiva de retención y privacidad
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 848285accd7e05607bac418b6b4ae39055a5772f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: acee1ad0b531f23a872d78111ccd9f0ac09bcfb1
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601367"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224492"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recopilación, retención y almacenamiento de datos en Application Insights
 
@@ -62,7 +62,7 @@ Las principales categorías son:
 ## <a name="how-can-i-verify-whats-being-collected"></a>¿Cómo se puede comprobar lo que se recopila?
 Si desarrolla la aplicación mediante Visual Studio, ejecútela en modo de depuración (F5). Los datos de telemetría aparecen en la ventana de salida. Desde ahí, puede copiarlos y darles formato como JSON para facilitar su inspección. 
 
-![](./media/data-retention-privacy/06-vs.png)
+![Captura de pantalla que muestra la ejecución de la aplicación en modo de depuración en Visual Studio.](./media/data-retention-privacy/06-vs.png)
 
 También existe una vista más legible en la ventana Diagnóstico.
 

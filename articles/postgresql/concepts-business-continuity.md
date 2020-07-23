@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: afa03399933bdc8bd8ff869125955cfd9e0abecb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35b2236ae6ffd3df3e458cdbd4bc01e89a1da2b2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75981927"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245313"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Introducción a la continuidad empresarial con Azure Database for PostgreSQL con un único servidor
 
@@ -52,6 +52,11 @@ La característica de restauración geográfica restaura el servidor mediante co
 
 ## <a name="cross-region-read-replicas"></a>Réplicas de lectura entre regiones
 Puede usar réplicas de lectura entre regiones para mejorar el planeamiento de la continuidad empresarial y recuperación ante desastres. Las réplicas de lectura se actualizan de manera asincrónica mediante la tecnología de replicación física de PostgreSQL. Obtenga más información sobre las réplicas de lectura, las regiones disponibles y la conmutación por error en el [artículo sobre los conceptos de las réplicas de lectura](concepts-read-replicas.md). 
+
+## <a name="faq"></a>Preguntas más frecuentes
+### <a name="where-does-azure-database-for-postgresql-store-customer-data"></a>¿Dónde Azure Database for PostgreSQL almacena los datos de los clientes?
+De manera predeterminada Azure Database for PostgreSQL no mueve ni almacena los datos de los clientes fuera de la región en la que se ha implementado. Sin embargo, los clientes tienen la opción de elegir habilitar las [copias de seguridad con redundancia geográfica](concepts-backup.md#backup-redundancy-options) o crear [réplicas de lectura entre regiones](concepts-read-replicas.md#cross-region-replication) para almacenar los datos en otra región.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga más información acerca de las [copias de seguridad automatizadas en Azure Database for PostgreSQL](concepts-backup.md). 

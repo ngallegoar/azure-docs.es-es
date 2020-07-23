@@ -1,5 +1,5 @@
 ---
-title: Creación y administración de recursos con la extensión de VS Code
+title: Creación y administración de recursos con la extensión de VS Code (versión preliminar)
 titleSuffix: Azure Machine Learning
 description: Creación y administración de recursos con la extensión de VS Code
 services: machine-learning
@@ -9,15 +9,15 @@ ms.reviewer: luquinta
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 07/08/2020
-ms.openlocfilehash: 5ff435a291d742b8a174d7571aa443b7cef4d1e1
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.date: 07/09/2020
+ms.openlocfilehash: 2deb939745647636cc04ae124d1e843db0bef7f6
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86156406"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206497"
 ---
-# <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension"></a>Administración de recursos de Azure Machine Learning con la extensión de VS Code
+# <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Administración de recursos de Azure Machine Learning con la extensión de VS Code (versión preliminar)
 
 Aprenda a administrar los recursos de Azure Machine Learning con la extensión de VS Code.
 

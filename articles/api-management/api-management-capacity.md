@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b6d949b50be348e72cedfc3710383308b04de106
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4eb90cc0e8867230c7fb1a2a169b5ba0126e46a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336004"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205892"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Capacidad de una instancia de Azure API Management
 
@@ -28,7 +28,7 @@ En este artículo se explica lo que es la **capacidad** y su comportamiento. Mue
 > [!IMPORTANT]
 > En este artículo se describe cómo puede supervisar y escalar su instancia de Azure API Management en función de su métrica de capacidad. Sin embargo, es igualmente importante comprender lo que ocurre cuando una instancia individual de API Management ha *alcanzado* realmente su capacidad. Azure API Management no aplicará ninguna limitación de nivel de servicio para evitar una sobrecarga física de las instancias. Cuando una instancia alcanza su capacidad física, se comporta de forma similar a cualquier servidor web sobrecargado que no puede procesar las solicitudes entrantes: la latencia aumentará, se eliminarán las conexiones, se producirán errores de tiempo de espera, etc. Es decir, los clientes de API deben estar preparados para hacer frente a esta posibilidad de manera similar a como ocurre con cualquier otro servicio externo (por ejemplo, mediante la aplicación de directivas de reintento).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para seguir los pasos de este artículo, debe tener:
 
@@ -106,4 +106,5 @@ La **capacidad** la métrica de para tomar decisiones acerca de si se debe escal
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Escalado o actualización de una instancia del servicio Azure API Management](upgrade-and-scale.md)
+- [Escalado o actualización de una instancia del servicio Azure API Management](upgrade-and-scale.md)
+- [Optimización y ahorro del gasto en la nube](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

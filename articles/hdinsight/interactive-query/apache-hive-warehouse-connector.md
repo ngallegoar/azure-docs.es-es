@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 3efccc44255067b7e47c468c9a35853def2fce69
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c2590a2c745969313ae73521dbcd110fbf3b7551
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085861"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221024"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-hive-warehouse-connector-in-azure-hdinsight"></a>Aprenda a integrar Apache Spark y Apache Hive con Hive Warehouse Connector en Azure HDInsight
 
@@ -37,6 +37,9 @@ Algunas de las operaciones compatibles con el conector de Hive Warehouse son:
 * Escritura de un flujo de Spark o DataFrame en Hive mediante Hive Streaming
 
 ## <a name="hive-warehouse-connector-setup"></a>Configuración del conector de Hive Warehouse
+
+> [!IMPORTANT]
+> La instancia interactiva de HiveServer2 instalada en los clústeres de Spark 2.4 Enterprise Security Package no se admite para usarse con Hive Warehouse Connector. En su lugar, debe configurar un clúster interactivo de HiveServer2 independiente para hospedar las cargas de trabajo interactivas de HiveServer2. No se admite una configuración de Hive Warehouse Connector que use un solo clúster de Spark 2.4.
 
 Hive Warehouse Connector necesita clústeres independientes para las cargas de trabajo de Spark y de Interactive Query. Siga estos pasos para configurar estos clústeres en Azure HDInsight.
 
@@ -99,7 +102,7 @@ Además de las configuraciones mencionadas en la sección anterior, agregue la s
 
         ![Nodo principal de Hive Warehouse Connector](./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png)
 
-    * Use el [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para conectarse al clúster de Interactive Query. Busque el parámetro `default_realm` en el archivo `/etc/krb5.conf`. Reemplace `<AAD-DOMAIN>` por este valor como una cadena en mayúsculas; de lo contrario, la credencial no se encontrará.
+    * Use el [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para conectarse al clúster de Interactive Query. Busque el parámetro `default_realm` en el archivo `/etc/krb5.conf`. Reemplace `<AAD-DOMAIN>` por este valor como una cadena en mayúsculas. De lo contrario, la credencial no se encontrará.
 
         ![Dominio de AAD de Hive Warehouse Connector](./media/apache-hive-warehouse-connector/aad-domain.png)
 

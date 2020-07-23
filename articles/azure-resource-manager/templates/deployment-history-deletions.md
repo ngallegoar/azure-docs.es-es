@@ -2,13 +2,13 @@
 title: Eliminaciones del historial de implementación
 description: Describe cómo Azure Resource Manager elimina automáticamente las implementaciones del historial de implementaciones. Las implementaciones se eliminan cuando el historial está próximo a superar el límite de 800.
 ms.topic: conceptual
-ms.date: 07/06/2020
-ms.openlocfilehash: 70730ce814ebc689d9672952bad7c3dd39b5a7f1
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 07/10/2020
+ms.openlocfilehash: 8ec3291dc5e35689d4e2c614949e0328057fbfd3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981663"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248995"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Eliminaciones automáticas del historial de implementaciones
 
@@ -23,16 +23,18 @@ Azure Resource Manager empezará pronto a eliminar automáticamente las implemen
 
 ## <a name="when-deployments-are-deleted"></a>Cuando las implementaciones se eliminan
 
-Las implementaciones se eliminan del historial de implementaciones cuando se alcanzan 790 implementaciones. Azure Resource Manager elimina un pequeño conjunto de las implementaciones más antiguas para liberar espacio para futuras implementaciones. La mayor parte del historial permanece sin cambios. Las implementaciones más antiguas siempre se eliminan primero.
+Las implementaciones se eliminan del historial cuando se alcanzan 775 implementaciones o más. Azure Resource Manager elimina las implementaciones hasta que el historial baja hasta 750. Las implementaciones más antiguas siempre se eliminan primero.
 
 :::image type="content" border="false" source="./media/deployment-history-deletions/deployment-history.svg" alt-text="Eliminaciones del historial de implementaciones":::
+
+> [!NOTE]
+> El número de partida (775) y el número final (750) están sujetos a cambios.
+>
+> Si el grupo de recursos ya está en el límite de 800, se producirá un error en la siguiente implementación. El proceso de eliminación automática se inicia inmediatamente. Puede volver a probar la implementación después de una breve espera.
 
 Además de las implementaciones, también se desencadenan eliminaciones al ejecutar la [operación what-if](template-deploy-what-if.md) o validar una implementación.
 
 Cuando asigna a una implementación el mismo nombre que el de una existente en el historial, se restablece su lugar en el historial. La implementación se mueve a la posición más reciente en el historial. El lugar de una implementación también se restablece cuando se [revierte a esa implementación](rollback-on-error.md) después de un error.
-
-> [!NOTE]
-> Si el grupo de recursos ya está en el límite de 800, se producirá un error en la siguiente implementación. El proceso de eliminación automática se inicia inmediatamente. Puede volver a probar la implementación después de una breve espera.
 
 ## <a name="opt-out-of-automatic-deletions"></a>Rechazo de eliminaciones automáticas
 

@@ -13,12 +13,12 @@ ms.date: 06/16/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 52a4a7131c85231107a2a23a1916016776b219fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f84e479c4780437b09ab463781edbb52d8dfdfaa
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367434"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255632"
 ---
 # <a name="migrate-applications-to-microsoft-authentication-library-msal"></a>Migración de aplicaciones a la Biblioteca de autenticación de Microsoft (MSAL)
 
@@ -75,5 +75,5 @@ A. Consulte la sección [Guía de migración](#migration-guidance) de este artí
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Actualización de las aplicaciones para usar la Biblioteca de autenticación de Microsoft y Microsoft Graph API](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/update-your-applications-to-use-microsoft-authentication-library/ba-p/1257363)
-- [Obtenga más información sobre la plataforma de identidad de Microsoft (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
-- [Revise nuestros ejemplos de código de MSAL.](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code)
+- [Información general sobre la Plataforma de identidad de Microsoft](v2-overview.md)
+- [Revise nuestros ejemplos de código de MSAL.](sample-v2-code.md)

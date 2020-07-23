@@ -4,12 +4,12 @@ description: Obtenga información sobre el clúster básico y los componentes de
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 9b54bdbfcbc37d3863d4e6b86ae6fe5522bb5be9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fe687ddd63ee85faec2d1aa4c02fa2636a3058f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85336635"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251865"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)
 
@@ -38,7 +38,7 @@ Un clúster de Kubernetes se divide en dos componentes:
 
 ## <a name="control-plane"></a>Plano de control
 
-Cuando crea un clúster AKS, se crea y configura automáticamente un plano de control. Este plano de control se proporciona como un recurso de Azure administrado que se extrae del usuario. No hay ningún costo para el plano de control, solo los nodos que forman parte del clúster de AKS.
+Cuando crea un clúster AKS, se crea y configura automáticamente un plano de control. Este plano de control se proporciona como un recurso de Azure administrado que se extrae del usuario. No hay ningún costo para el plano de control, solo los nodos que forman parte del clúster de AKS. El plano de control y sus recursos solo residen en la región en la que creó el clúster.
 
 El plano de control incluye los siguientes componentes principales de Kubernetes:
 
@@ -73,7 +73,7 @@ Si tiene que utilizar un sistema operativo de host diferente, otro entorno de ej
 
 ### <a name="resource-reservations"></a>Reservas de recursos
 
-Los recursos de nodo se usan en AKS para integrar la función de nodo en el clúster. Esto puede crear discrepancias entre los recursos totales del nodo y los recursos que se pueden asignar cuando se usan en AKS. Es importante tener esto en cuenta al establecer las solicitudes y los límites de los pods implementados por el usuario.
+Los recursos de nodo se usan en AKS para integrar la función de nodo en el clúster. Este uso puede crear discrepancias entre los recursos totales del nodo y los recursos que se pueden asignar cuando se usan en AKS. Es importante tener en cuenta esta información al establecer las solicitudes y los límites de los pods implementados por el usuario.
 
 Para buscar la ejecución de los recursos de un nodo que se pueden asignar:
 ```kubectl
@@ -94,7 +94,7 @@ Para mantener la funcionalidad y el rendimiento de los nodos, AKS reserva los si
 
 - **Memoria**: La memoria utilizada por AKS incluye la suma de dos valores.
 
-1. El demonio kubelet se instala en todos los nodos de agente de Kubernetes para administrar la creación y terminación de contenedores. De forma predeterminada en AKS, este demonio tiene la siguiente regla de desalojo: *memory.available <750Mi*, lo que significa que un nodo siempre debe tener al menos 750 Mi asignables en todo momento.  Cuando un host está por debajo de ese umbral de memoria disponible, el kubelet terminará uno de los pods en ejecución para liberar memoria en la máquina host y protegerla. Se trata de una acción reactiva una vez que la memoria disponible disminuye más allá del umbral de 750 Mi.
+1. El demonio kubelet se instala en todos los nodos de agente de Kubernetes para administrar la creación y terminación de contenedores. De forma predeterminada en AKS, este demonio tiene la siguiente regla de desalojo: *memory.available <750Mi*, lo que significa que un nodo siempre debe tener al menos 750 Mi asignables en todo momento.  Cuando un host está por debajo de ese umbral de memoria disponible, el kubelet terminará uno de los pods en ejecución para liberar memoria en la máquina host y protegerla. Esta acción se desencadena una vez que la memoria disponible disminuye más allá del umbral de 750 Mi.
 
 2. El segundo valor es una tasa de regresión de reservas de memoria para que el demonio kubelet funcione correctamente (kube-reserved).
     - 25 % de los primeros 4 GB de memoria
@@ -153,7 +153,7 @@ Al crear un pod, puede definir *solicitudes de recursos* para solicitar una dete
 
 Para obtener más información, consulte [Pods de Kubernetes][kubernetes-pods] y [Ciclo de vida de pods de Kubernetes][kubernetes-pod-lifecycle].
 
-Un pod es un recurso lógico, pero los contenedores se refieren al lugar donde se ejecutan las cargas de trabajo de la aplicación. Normalmente los pods son recursos desechables y efímeros, y los pods programados individualmente pierden algunas de las características de redundancia y alta disponibilidad que proporciona Kubernetes. En su lugar, los pods suelen implementarse y administrarse mediante *controladores* de Kubernetes, como el controlador de implementación.
+Un pod es un recurso lógico, pero los contenedores se refieren al lugar donde se ejecutan las cargas de trabajo de la aplicación. Normalmente los pods son recursos desechables y efímeros, y los pods programados individualmente pierden algunas de las características de redundancia y alta disponibilidad que proporciona Kubernetes. En su lugar, los pods se implementan y administran mediante *controladores* de Kubernetes, como el controlador de implementación.
 
 ## <a name="deployments-and-yaml-manifests"></a>Implementaciones y manifiestos YAML
 
@@ -163,9 +163,9 @@ Puede actualizar implementaciones para cambiar la configuración de los pods, la
 
 La mayoría de las aplicaciones sin estado de AKS debe usar el modelo de implementación en lugar de programar pods individuales. Kubernetes puede supervisar el estado de las implementaciones para asegurarse de que se ejecute el número de réplicas necesario dentro del clúster. Cuando solo programa pods individuales, los pods no se reinician si se produce un problema y no se reprograman en nodos correctos si su nodo actual encuentra un problema.
 
-Si una aplicación requiere que un cuórum de instancias siempre esté disponible para tomar decisiones de administración, el usuario no quiere que un proceso de actualización interrumpa dicha capacidad. Los *presupuestos de interrupción de pods* se pueden usar para definir el número de réplicas de una implementación que se pueden quitar durante una actualización o la actualización de un nodo. Por ejemplo, si tiene *5* réplicas en la implementación, puede definir una interrupción del pod de *4* para permitir que solo se elimine o se vuelva a programar una réplica a la vez. Como en el caso de los límites de recursos del pod, un procedimiento recomendado consiste en definir los presupuestos de interrupciones de pods en aplicaciones que requieren que siempre esté presente un número mínimo de réplicas.
+Si una aplicación requiere que un cuórum de instancias siempre esté disponible para tomar decisiones de administración, el usuario no quiere que un proceso de actualización interrumpa dicha capacidad. Los *presupuestos de interrupción de pods* se pueden usar para definir el número de réplicas de una implementación que se pueden quitar durante una actualización o la actualización de un nodo. Por ejemplo, si tiene *cinco (5)* réplicas en la implementación, puede definir una interrupción del pod de *4* para permitir que solo se elimine o se vuelva a programar una réplica a la vez. Como en el caso de los límites de recursos del pod, un procedimiento recomendado consiste en definir los presupuestos de interrupciones de pods en aplicaciones que requieren que siempre esté presente un número mínimo de réplicas.
 
-Normalmente, las implementaciones se crean o administran con `kubectl create` o `kubectl apply`. Para crear una implementación, defina un archivo de manifiesto en formato YAML (YAML no tiene lenguaje de marcado). En el ejemplo siguiente, se crea una implementación básica del servidor web NGINX. La implementación especifica que se creen *3* réplicas y que se abra el puerto *80* en el contenedor. También se definen las solicitudes de recursos y los límites de CPU y memoria.
+Normalmente, las implementaciones se crean o administran con `kubectl create` o `kubectl apply`. Para crear una implementación, defina un archivo de manifiesto en formato YAML (YAML no tiene lenguaje de marcado). En el ejemplo siguiente, se crea una implementación básica del servidor web NGINX. La implementación especifica que se crearán *tres (3)* réplicas y requiere que el puerto *80* esté abierto en el contenedor. También se definen las solicitudes de recursos y los límites de CPU y memoria.
 
 ```yaml
 apiVersion: apps/v1

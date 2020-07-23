@@ -14,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: a36fdbb985711887baa04320bb75e1a85cab84fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0819f5196fffca25a840dc16d1df04cdd0a55029
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253875"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223319"
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>Registro del usuario actual para las notificaciones de inserción mediante ASP.NET
 
@@ -44,11 +44,11 @@ En este tema se describe cómo solicitar el registro de las notificaciones de in
 
      En este punto, su storyboard debe presentar la siguiente apariencia:
 
-     ![][0]
+     ![Captura de pantalla de la aplicación MainStoryboard_iPhone.storyboard con los componentes agregados.][0]
 
 2. En el editor del asistente, cree salidas para todos los controles cambiados y llámelos, conecte los campos de texto con el controlador de vista (delegado) y cree una **acción** para el botón de **inicio de sesión**.
 
-    ![][1]
+    ![Captura de pantalla del editor del asistente en la aplicación MainStoryboard_iPhone.storyboard][1]
 
     El archivo BreakingNewsViewController.h ahora debe contener el siguiente código:
 

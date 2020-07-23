@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: c6f7c2422e043da6df498fe81da938576687b916
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 45d2ec6cf4b2a54b899036d932bc310caede3c29
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83649128"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223863"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configuración de credenciales de implementación para Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) admite dos tipos de credenciales para la [implementación de GIT local](deploy-local-git.md) y la [implementación FTP/S](deploy-ftp.md). Estas credenciales no son las mismas que las de su suscripción a Azure.
@@ -40,17 +40,17 @@ En Azure Portal, debe tener al menos una aplicación para poder acceder a la pá
 
 1. En [Azure Portal](https://portal.azure.com), en el menú de la izquierda, seleccione **App Services** >  **\<any_app>**  > **Centro de implementación** > **FTP** > **Panel**.
 
-    ![](./media/app-service-deployment-credentials/access-no-git.png)
+    ![Muestra cómo puede seleccionar el panel FTP desde el centro de implementación en Azure App Services.](./media/app-service-deployment-credentials/access-no-git.png)
 
     O bien, si ya ha configurado la implementación de Git, seleccione **App Services** >  **&lt;any_app>**  > **Centro de implementaciones** > **FTP/Credenciales**.
 
-    ![](./media/app-service-deployment-credentials/access-with-git.png)
+    ![Muestra cómo puede seleccionar el panel FTP desde el centro de implementación en Azure App Services para la implementación de GIT configurada.](./media/app-service-deployment-credentials/access-with-git.png)
 
 2. Seleccione **Credenciales de usuario**, configure el nombre de usuario y la contraseña, y luego haga clic en **Guardar credenciales**.
 
 Una vez que haya configurado las credenciales de implementación, puede encontrar el nombre de usuario de implementación de *Git* en la página **Información general** de la aplicación.
 
-![](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
+![Muestra cómo buscar el nombre de usuario de implementación de GIT en la página de información general de la aplicación.](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
 Si se configura la implementación de Git, la página muestra un **nombre de usuario de implementación o Git**; de lo contrario, un **nombre de usuario de implementación o FTP**.
 

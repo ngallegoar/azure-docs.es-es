@@ -6,12 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
-ms.openlocfilehash: c04fc82b8b04e474a656a0849177f7aa5d27b427
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: e078f81db75dd6b89a65ff2d00bb2805ea912d0d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81676427"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249145"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Esquema de Windows Diagnostics Extension
 Azure Diagnostics Extension es un agente de Azure Monitor que recopila datos de supervisión del sistema operativo invitado y de las cargas de trabajo de los recursos de proceso. En este artículo, se describe el esquema que se usa para configurar Diagnostics Extension en máquinas virtuales Windows y otros recursos de proceso.
@@ -76,7 +76,7 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 |----------------|-----------------|  
 | **overallQuotaInMB** | La cantidad máxima de espacio en disco local que se puede utilizar en los distintos tipos de datos de diagnóstico que recopila Azure Diagnostics. La configuración predeterminada es 4096 MB.<br />
 |**useProxyServer** | Configure Azure Diagnostics para utilizar la configuración del servidor proxy tal como se estableció en la configuración de Internet Explorer.|
-|**sinks** | Agregado en 1.5. Opcional. Apunta a una ubicación de receptor para enviar datos de diagnóstico de todos los elementos secundarios que admiten receptores. Ejemplo de receptor es Application Insights o Event Hubs.|  
+|**sinks** | Agregado en 1.5. Opcional. Apunta a una ubicación de receptor para enviar datos de diagnóstico de todos los elementos secundarios que admiten receptores. Ejemplo de receptor es Application Insights o Event Hubs. Tenga en cuenta que debe agregar la propiedad *resourceId* en el elemento *Metrics* si desea que los eventos cargados en Event Hubs tengan un identificador de recurso. |  
 
 
 <br /> <br />
@@ -189,7 +189,7 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 
  Le permite generar una tabla de contadores de rendimiento optimizada para las consultas rápidas. Cada contador de rendimiento que se define en el elemento **PerformanceCounters** se almacena en la tabla de métricas además de la tabla de contadores de rendimiento.  
 
- El atributo **resourceId** es necesario.  El identificador de recurso de la máquina virtual o conjunto de escalado de máquinas virtuales en donde se va a implementar Azure Diagnostics. Obtenga el valor de **resourceID** en [Azure Portal](https://portal.azure.com). Seleccione **Examinar** -> **Grupos de recursos** ->  **<Nombre\>** . Haga clic en el icono **Propiedades** y copie el valor del campo **ID**.  
+ El atributo **resourceId** es necesario.  El identificador de recurso de la máquina virtual o conjunto de escalado de máquinas virtuales en donde se va a implementar Azure Diagnostics. Obtenga el valor de **resourceID** en [Azure Portal](https://portal.azure.com). Seleccione **Examinar** -> **Grupos de recursos** ->  **<Nombre\>** . Haga clic en el icono **Propiedades** y copie el valor del campo **ID**.  Esta propiedad resourceID se usa para enviar métricas personalizadas y para agregar una propiedad resourceID a los datos enviados a Event Hubs. Tenga en cuenta que debe agregar la propiedad *resourceId* en el elemento *Metrics* si desea que los eventos cargados en Event Hubs tengan un identificador de recurso.
 
 |Elementos secundarios|Descripción|  
 |--------------------|-----------------|  
@@ -209,7 +209,7 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 |Elemento secundario|Descripción|  
 |-------------------|-----------------|  
 |**PerformanceCounterConfiguration**|Los atributos siguientes son necesarios:<br /><br /> - **counterSpecifier**: el nombre del contador de rendimiento. Por ejemplo, `\Processor(_Total)\% Processor Time`. Para obtener una lista de contadores de rendimiento en el host, ejecute el comando `typeperf`.<br /><br /> - **sampleRate**: la frecuencia de muestreo del contador.<br /><br /> Atributo opcional:<br /><br /> **unit**: la unidad de medida del contador. Los valores están disponibles en la [clase UnitType](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.sql.models.unittype?view=azure-dotnet) |
-|**sinks** | Agregado en 1.5. Opcional. Apunta a una ubicación de receptor para enviar datos de diagnóstico. Por ejemplo, Azure Monitor o Event Hubs.|    
+|**sinks** | Agregado en 1.5. Opcional. Apunta a una ubicación de receptor para enviar datos de diagnóstico. Por ejemplo, Azure Monitor o Event Hubs. Tenga en cuenta que debe agregar la propiedad *resourceId* en el elemento *Metrics* si desea que los eventos cargados en Event Hubs tengan un identificador de recurso.|    
 
 
 
@@ -239,7 +239,7 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 |**bufferQuotaInMB**|**unsignedInt**|Opcional. Especifica la cantidad máxima de almacenamiento del sistema de archivos que está disponible para los datos especificados.<br /><br /> El valor predeterminado es 0.|  
 |**scheduledTransferLogLevelFilter**|**string**|Opcional. Especifica el nivel de gravedad mínimo para las entradas de registro que se van a transferir. El valor predeterminado es **Undefined**, que transfiere todos los registros. Otros valores posibles (en orden de mayor a menor información) son **Verbose**, **Information**, **Warning**, **Error** y **Critical**.|  
 |**scheduledTransferPeriod**|**duration**|Opcional. Especifica el intervalo existente entre las transferencias programadas de datos, redondeado al minuto más cercano.<br /><br /> El valor predeterminado es PT0S.|  
-|**sinks** |**string**| Agregado en 1.5. Opcional. Apunta a una ubicación de receptor para enviar datos de diagnóstico. Por ejemplo, Application Insights o Event Hubs.|  
+|**sinks** |**string**| Agregado en 1.5. Opcional. Apunta a una ubicación de receptor para enviar datos de diagnóstico. Por ejemplo, Application Insights o Event Hubs. Tenga en cuenta que debe agregar la propiedad *resourceId* en el elemento *Metrics* si desea que los eventos cargados en Event Hubs tengan un identificador de recurso.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
@@ -327,7 +327,7 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 Los elementos *PublicConfig* y *PrivateConfig* están separados porque, en la mayoría de los casos de uso de JSON, se pasan utilizando variables diferentes. Entre estos casos, se incluyen las plantillas de Resource Manager, PowerShell y Visual Studio.
 
 > [!NOTE]
-> En la configuración pública, la definición del receptor de datos de Azure Monitor tiene dos propiedades: *resourceId* y *region*. Solo se necesitan para las máquinas virtuales clásicas y los servicios en la nube clásica. Estas propiedades no deben usarse con otros recursos.
+> En la configuración pública, la definición del receptor de datos de Azure Monitor tiene dos propiedades: *resourceId* y *region*. Solo se necesitan para las máquinas virtuales clásicas y los servicios en la nube clásica. La propiedad *region* no debe usarse para otros recursos, la propiedad *resourceId* se usa en máquinas virtuales ARM para rellenar el campo resourceID en los registros cargados en Event Hubs.
 
 ```json
 "PublicConfig" {

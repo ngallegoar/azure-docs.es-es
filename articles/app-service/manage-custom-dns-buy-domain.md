@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
-ms.openlocfilehash: 47daf4ecd034c390a1460610e78d4fffd9277ac7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0d0d0d19b9b84649867085a05efa656131e48c5a
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535713"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220727"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Comprar un nombre de dominio personalizado para Azure App Service
 
@@ -18,7 +18,7 @@ Los dominios de App Service son dominios de nivel superior que se administran di
 
 Para Azure Virtual Machines o Azure Storage, vea [Assign App Service domain to Azure VM or Azure Storage](https://azure.github.io/AppService/2017/07/31/Assign-App-Service-domain-to-Azure-VM-or-Azure-Storage) (Asignación del dominio de App Service a Azure Virtual Machines o Azure Storage). Para Cloud Services, vea [Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial:
 
@@ -78,11 +78,11 @@ Abra [Azure Portal](https://portal.azure.com/) e inicie sesión con su cuenta de
 ### <a name="launch-buy-domains"></a>Iniciar Comprar dominios
 En la pestaña **App Service**, haga clic en el nombre de la aplicación, seleccione **Configuración** y elija **Dominios personalizados**
    
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+![Captura de pantalla de la opción Dominios personalizados resaltada.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
 En la página **Dominios personalizados**, haga clic en **Comprar dominio**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
+![Captura de pantalla de la opción Comprar dominio resaltada.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
 
 > [!NOTE]
 > Si no aparece la sección **Dominios de App Service**, debe quitar el límite de gasto de la cuenta de Azure (vea los [requisitos previos](#prerequisites)).
@@ -93,7 +93,7 @@ En la página **Dominios personalizados**, haga clic en **Comprar dominio**.
 
 En la página **Dominio de App Service**, escriba el nombre de dominio que quiere comprar en el cuadro **Buscar dominio** y escriba `Enter`. Los dominios disponibles sugeridos se muestran justo debajo del cuadro de texto. Seleccione uno o varios dominios que quiera comprar.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
+![Captura de pantalla del cuadro de búsqueda Buscar dominio.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
 
 > [!NOTE]
 > Los siguientes [dominios de primer nivel](https://wikipedia.org/wiki/Top-level_domain) son compatibles con los dominios de App Service: _com_, _net_, _co.uk_, _org_, _nl_, _in_, _biz_, _org.uk_ y _co.in_.
@@ -122,19 +122,19 @@ Haga clic en **Condiciones legales** para consultar las condiciones y los gastos
 
 De nuevo en la hoja **Dominio de App Service**, haga clic en **Aceptar**. Mientras la operación está en curso, verá las notificaciones siguientes:
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-validate.png)
+![Captura de pantalla que muestra el mensaje de validación en curso.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-validate.png)
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-purchase-success.png)
+![Captura de pantalla que muestra la notificación de que la compra se realizó correctamente.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-purchase-success.png)
 
 ### <a name="test-the-hostnames"></a>Probar los nombres de host
 
 Si ha asignado nombres de host predeterminados a la aplicación, también verá una notificación de operación correcta para cada nombre de host seleccionado.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
+![Captura de pantalla que muestra la notificación de éxito para cada nombre de host seleccionado.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
 También verá los nombres de host seleccionados en la página **Dominios personalizados**, en la sección **Nombres de host personalizados**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
+![Captura de pantalla de los nombres de host seleccionados en la sección Nombres de host personalizados de la página Dominios personalizados.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
 > [!NOTE]
 > Si un dominio personalizado contiene la etiqueta **Not Secure**, significa que aún no está enlazado a un certificado TLS/SSL y que todas las solicitudes HTTPS de un explorador que lleguen a dicho dominio personalizado recibirán un error o una advertencia, en función del explorador que se use. Para configurar un enlace TLS, consulte [Protección de un nombre DNS personalizado con un enlace TLS/SSL en Azure App Service](configure-ssl-bindings.md).
@@ -154,11 +154,11 @@ También puede asignar nombres de host en el dominio de App Service a cualquier 
 ### <a name="launch-add-hostname"></a>Iniciar Agregar nombre de host
 En la página **App Services**, seleccione el nombre de la aplicación a la que quiere asignar los nombres de host, seleccione **Configuración** y después **Dominios personalizados**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+![Captura de pantalla de la opción Dominios personalizados resaltada.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
 Asegúrese de que el dominio comprado aparece en la sección **Dominios de App Service**, pero no lo seleccione. 
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
+![Captura de pantalla del dominio adquirido en la sección Dominios de App Service.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
 
 > [!NOTE]
 > Todos los dominios de App Service de la misma suscripción se muestran en la página **Dominios personalizados** de la aplicación. Si el dominio está en la suscripción de la aplicación, pero no puede verlo en la página **Dominios personalizados** de la aplicación, intente volver a abrir la página **Dominios personalizados** o actualice la página web. Compruebe también la campana de notificación situada en la parte superior de Azure Portal para ver el progreso o los errores de creación.
@@ -180,14 +180,14 @@ Seleccione **Agregar nombre de host**.
 
 Una vez completada la operación, verá una notificación de operación correcta para el nombre de host asignado.  
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
+![Captura de pantalla de la notificación de éxito para el nombre de host asignado.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
 ### <a name="close-add-hostname"></a>Cerrar Agregar nombre de host
 En la página **Agregar nombre de host**, asigne otros nombres de host a la aplicación, según sea necesario. Cuando termine, cierre la página **Agregar nombre de host**.
 
 Ahora debería ver el nombre de host recién asignado en la página **Dominios personalizados** de la aplicación.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added2.png)
+![Captura de pantalla de los nombres de host recién asignados en la página Dominios personalizados de la aplicación.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added2.png)
 
 ### <a name="test-the-hostnames"></a>Probar los nombres de host
 
@@ -201,15 +201,15 @@ Si desea desactivar la renovación automática, o si desea renovar manualmente s
 
 En la pestaña **App Service**, haga clic en el nombre de la aplicación, seleccione **Configuración** y elija **Dominios personalizados**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+![Captura de pantalla de la opción Dominios personalizados resaltada.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
 En la sección **Dominios de App Service**, seleccione el dominio que desea configurar.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
+![Captura de pantalla del dominio adquirido en la sección Dominios de App Service.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
 
 En el panel de navegación izquierdo del dominio, seleccione **Renovación de dominios**. Para detener la renovación automática del dominio, seleccione **Desactivar** y, después, **Guardar**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
+![Captura de pantalla de la opción de renovación automática del dominio.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
 
 Para renovar el dominio manualmente, seleccione **Renovar dominio**. Sin embargo, este botón no está activo hasta [noventa días antes de la expiración del dominio](#when-domain-expires).
 
@@ -237,7 +237,7 @@ En Azure, los registros DNS para un dominio de App Service se administran median
 
 En Azure Portal, en el menú de la izquierda, seleccione **Todos los servicios** > **Dominios de App Service**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
+![Captura de pantalla que muestra dónde acceder a los Dominios de App Service.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
 Seleccione el dominio que se va a administrar. 
 
@@ -245,7 +245,7 @@ Seleccione el dominio que se va a administrar.
 
 En el menú de la izquierda del dominio, seleccione **Zona DNS**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-dns-zone.png)
+![Captura de pantalla que muestra dónde seleccionar la zona DNS.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-dns-zone.png)
 
 Esta acción abre la página [Zona DNS](../dns/dns-zones-records.md) de su dominio de App Service en DNS de Azure. Para obtener información sobre cómo editar los registros DNS, vea [Administración de zonas DNS en Azure Portal](../dns/dns-operations-dnszones-portal.md).
 
@@ -257,7 +257,7 @@ Después de comprar el dominio de App Service, dispone de cinco días para cance
 
 En Azure Portal, en el menú de la izquierda, seleccione **Todos los servicios** > **Dominios de App Service**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
+![Captura de pantalla que muestra dónde acceder a los Dominios de App Service.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
 Seleccione el dominio que quiera cancelar o eliminar. 
 
@@ -265,13 +265,13 @@ Seleccione el dominio que quiera cancelar o eliminar.
 
 En el menú de la izquierda del dominio, seleccione **Enlaces de nombre de host**. Aquí se enumeran los enlaces de nombre de host de todos los servicios de Azure.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostname-bindings.png)
+![Captura de pantalla de la página Enlaces de nombre de host.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostname-bindings.png)
 
 No se puede eliminar el dominio de App Service hasta que se eliminen todos los enlaces de nombre de host.
 
 Para eliminar todos los enlaces de nombre de host, seleccione **...**  > **Eliminar**. Después de eliminarlos todos, haga clic en **Guardar**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png)
+![Captura de pantalla que muestra dónde se deben eliminar los enlaces de nombre de host.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png)
 
 ### <a name="cancel-or-delete"></a>Cancelar o eliminar
 
@@ -279,7 +279,7 @@ En el menú de la izquierda del dominio, seleccione **Información general**.
 
 Si no ha transcurrido el período de cancelación en el dominio comprado, haga clic en **Cancelar compra**. De lo contrario, en su lugar verá el botón **Eliminar**. Para eliminar el dominio sin un reembolso, haga clic en **Eliminar**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png)
+![Captura de pantalla que muestra dónde se debe eliminar o cancelar un dominio adquirido.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png)
 
 Para confirmar la operación, seleccione **Sí**.
 

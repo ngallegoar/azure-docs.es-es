@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: a1726e18ea8c1ba86d77d7b9ca3d50c444620361
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d2862d5ab2c42ebdd1787022dc86119bc4e0f596
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77657170"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229370"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Información general de seguridad de Azure Virtual Machines
 Este artículo ofrece una introducción a las principales características de seguridad de Azure que pueden usarse con máquinas virtuales.
@@ -61,7 +61,7 @@ Para una protección aún más eficaz, considere el uso de la [Protección contr
 * [Protección de próxima generación](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
 * [Protección y respuesta de punto de conexión](/windows/security/threat-protection/windows-defender-atp/overview-endpoint-detection-response)
 * [Investigación y corrección automatizadas](/windows/security/threat-protection/windows-defender-atp/automated-investigations-windows-defender-advanced-threat-protection)
-* [Puntuación segura](/windows/security/threat-protection/microsoft-defender-atp/configuration-score)
+* [Puntuación segura](/windows/security/threat-protection/microsoft-defender-atp/tvm-microsoft-secure-score-devices)
 * [Búsqueda avanzada](/windows/security/threat-protection/windows-defender-atp/overview-hunting-windows-defender-advanced-threat-protection)
 * [Administración y API](/windows/security/threat-protection/windows-defender-atp/management-apis)
 * [Protección contra amenazas de Microsoft](/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
@@ -158,9 +158,9 @@ Más información:
 
 ## <a name="confidential-computing"></a>Computación confidencial
 
-Si bien la computación confidencial técnicamente no forma parte de la seguridad de la máquina virtual, el tema de la seguridad de la máquina virtual pertenece al tema de nivel superior de la seguridad "computacional". La computación confidencial pertenece a la categoría de seguridad "computacional".
+Si bien la computación confidencial técnicamente no forma parte de la seguridad de la máquina virtual, esta seguridad pertenece al tema de nivel superior de la seguridad "computacional". La computación confidencial pertenece a la categoría de seguridad "computacional".
 
-La computación confidencial asegura que cuando los datos están "descubiertos", lo cual se requiere para un procesamiento eficiente, se mantienen protegidos dentro de un entorno de ejecución de confianza https://en.wikipedia.org/wiki/Trusted_execution_environment (también conocido como un enclave), de lo cual se muestra un ejemplo en la ilustración siguiente.  
+La computación confidencial garantiza que los datos, cuando están "descubiertos" (lo cual es necesario para un procesamiento eficiente), se mantienen protegidos dentro de un entorno de ejecución de confianza https://en.wikipedia.org/wiki/Trusted_execution_environment (también conocido como enclave). En la ilustración siguiente se muestra un ejemplo.  
 
 Los entornos de ejecución de confianza garantizan que no hay ninguna manera de ver datos u operaciones desde el exterior, ni siquiera con un depurador. Incluso aseguran que solo se permite el acceso a los datos al código autorizado. Si el código está alterado o modificado, se deniegan las operaciones y se deshabilita el entorno. El entorno de ejecución de confianza aplica estas protecciones a todo el proceso de ejecución del código que contiene.
 

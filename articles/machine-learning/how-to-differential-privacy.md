@@ -1,5 +1,5 @@
 ---
-title: Conservación de la privacidad de datos mediante los paquetes de WhiteNoise
+title: Conservación de la privacidad de los datos mediante los paquetes de WhiteNoise (versión preliminar)
 titleSuffix: Azure Machine Learning
 description: Obtenga información sobre cómo aplicar procedimientos recomendados de privacidad diferencial a los modelos de Azure Machine Learning mediante los paquetes de WhiteNoise.
 services: machine-learning
@@ -9,15 +9,15 @@ ms.topic: how-to
 ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
-ms.date: 05/17/2020
-ms.openlocfilehash: b43fd25e77e07b7b64416d8784d47c14fed48ea7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: 0ef20eee7e73c3a73a2f2e895242d7c1fce307c9
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84981853"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206349"
 ---
-# <a name="use-differential-privacy-in-azure-machine-learning"></a>Uso de la privacidad diferencial en Azure Machine Learning
+# <a name="use-differential-privacy-in-azure-machine-learning-preview"></a>Uso de la privacidad diferencial en Azure Machine Learning (versión preliminar)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 

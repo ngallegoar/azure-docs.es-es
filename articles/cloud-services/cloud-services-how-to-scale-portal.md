@@ -7,12 +7,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: 5880544137855a2ea5bcd6d6e4bada46563564ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e5452e0794083afabbee2759c5b37feb1eed0c88
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75360844"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223693"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Procedimiento para configurar el escalado automático para un servicio en la nube en el Portal
 
@@ -43,10 +43,10 @@ Después de seleccionar el servicio en la nube, debe tener visible la hoja del s
 1. En la hoja del servicio en la nube, seleccione el nombre del servicio en la nube en el icono de **Roles e instancias** .   
    **IMPORTANTE**: No se olvide de hacer clic en el rol del servicio en la nube, no en la instancia de rol que está debajo de dicho rol.
 
-    ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
+    ![Captura de pantalla del icono Roles e instancias con la opción Worker Role With S B Queue 1 enmarcada en rojo.](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. Seleccione el icono de **escala** .
 
-    ![](./media/cloud-services-how-to-scale-portal/scale-tile.png)
+    ![Captura de pantalla de la página Operaciones con el mosaico Venta enmarcado en rojo.](./media/cloud-services-how-to-scale-portal/scale-tile.png)
 
 ## <a name="automatic-scale"></a>Escala automática
 Puede configurar la configuración de escala de un rol con estos dos modos: **Manual** o **Automático**. Con el modo Manual, como cabe de esperar, establece el número absoluto de instancias. Sin embargo, con Automático, se pueden establecer reglas que rijan cómo se debe realizar la operación de escala y en qué medida.
@@ -89,7 +89,7 @@ Las reglas se agregan a un perfil y representan una condición que desencadenar�
 
 El desencadenador de reglas se basa en una métrica del servicio en la nube (uso de CPU o actividad del disco o de la red) a la que puede agregar un valor condicional. Además, puede basar la acción desencadenadora en una cola de mensajes o en la métrica de algún otro recurso de Azure asociado a la suscripción.
 
-![](./media/cloud-services-how-to-scale-portal/rule-settings.png)
+![Captura de pantalla del cuadro de diálogo Regla con la opción Nombre de la métrica enmarcada en rojo.](./media/cloud-services-how-to-scale-portal/rule-settings.png)
 
 Después de haber configurado la regla, seleccione el botón **Aceptar** situado en la parte inferior de la hoja de la regla.
 

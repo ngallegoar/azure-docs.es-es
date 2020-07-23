@@ -5,15 +5,15 @@ services: virtual-desktop
 author: HeidiLohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 07/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 158ac92a930b53e02ee81570c62711ca27dc4ae8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12caa6fce4d49e86d1ad5da16aa7abba30f26207
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85200399"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260814"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configuración del tipo de asignación de grupo de host de escritorio personal
 
@@ -28,7 +28,7 @@ Puede configurar el tipo de asignación del grupo de host de escritorio personal
 >[!NOTE]
 > Las instrucciones de este artículo solo se aplican a los grupos de host de escritorio personal, no a los grupos de host agrupados, ya que los usuarios de grupos de host agrupados no se asignan a hosts de sesión específicos.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se da por supuesto que ya ha descargado e instalado el módulo de PowerShell para Windows Virtual Desktop. Si no lo ha hecho, siga las instrucciones que se indican en [Configuración del módulo de PowerShell](powershell-module.md).
 
@@ -72,11 +72,26 @@ Para asignar un usuario a un host de sesión específico, ejecute el siguiente c
 Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -ResourceGroupName <resourcegroupname> -AssignedUser <userupn>
 ```
 
+Para asignar directamente un usuario a un host de sesión en Azure Portal:
+
+1. Inicie sesión en Azure Portal en <https://portal.azure.com>.
+2. Escriba **Windows Virtual Desktop** en la barra de búsqueda.
+3. En **Servicios**, seleccione **Windows Virtual Desktop**.
+4. En la página Windows Virtual Desktop, vaya al menú a la izquierda de la ventana y seleccione **Grupos de hosts**.
+5. Seleccione el nombre del grupo de hosts que quiera actualizar.
+6. Luego, vaya al menú del lado izquierdo de la ventana y seleccione **Grupos de aplicaciones**.
+7. Seleccione el nombre del grupo de aplicaciones de escritorio que desee editar y, a continuación, seleccione **Asignaciones** en el menú del lado izquierdo de la ventana.
+8. Seleccione **+ Agregar** y, a continuación, seleccione los usuarios o grupos de usuarios para los que desea publicar este grupo de aplicaciones de escritorio.
+9. Seleccione **Assign VM** (Asignar VM) en la barra de información para asignar un host de sesión a un usuario.
+10. Seleccione el host de sesión que desea asignar al usuario y, a continuación, seleccione **Asignar**.
+11. Seleccione el usuario al que desea asignar el host de sesión de la lista de usuarios disponibles.
+12. Cuando finalice, haga clic en **Seleccionar**.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que ha configurado el tipo de asignación de escritorio personal, puede iniciar sesión en un cliente de Windows Virtual Desktop para probarlo como parte de una sesión de usuario. En las dos guías paso a paso siguientes se indica cómo conectarse a una sesión mediante el cliente que elija:
 
-- [Conexión con el cliente de Escritorio de Windows](connect-windows-7-and-10.md)
+- [Conexión con el cliente de Escritorio de Windows](connect-windows-7-10.md)
 - [Conexión con el cliente web](connect-web.md)
 - [Conexión con el cliente de Android](connect-android.md)
 - [Conexión con el cliente iOS](connect-ios.md)

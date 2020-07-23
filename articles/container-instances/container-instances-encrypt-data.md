@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: ad232c5d9df9f6bfae3a79dbd72e2c68143be949
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3c7a84dad1f107d8709e3bcdeac696414cdf883d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79080367"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259705"
 ---
 # <a name="encrypt-deployment-data"></a>Cifrado de datos de implementación
 
@@ -26,10 +26,10 @@ Puede confiar en las claves administradas por Microsoft para el cifrado de los d
 
 |    |    Claves administradas por Microsoft     |     Claves administradas por el cliente     |
 |----|----|----|
-|    Operaciones de cifrado y descifrado    |    Azure    |    Azure    |
-|    Almacenamiento de claves    |    Almacén de claves de Microsoft    |    Azure Key Vault    |
-|    Responsabilidad de la rotación de claves    |    Microsoft    |    Customer    |
-|    Acceso a la clave    |    Solo Microsoft    |    Microsoft, cliente    |
+|    **Operaciones de cifrado y descifrado**    |    Azure    |    Azure    |
+|    **Almacenamiento de claves**    |    Almacén de claves de Microsoft    |    Azure Key Vault    |
+|    **Responsabilidad de la rotación de claves**    |    Microsoft    |    Customer    |
+|    **Acceso a la clave**    |    Solo Microsoft    |    Microsoft, cliente    |
 
 En el resto del documento se describen los pasos necesarios para cifrar los datos de implementación de ACI con su clave (clave administrada por el cliente). 
 
@@ -39,7 +39,7 @@ En el resto del documento se describen los pasos necesarios para cifrar los dato
 
 ### <a name="create-service-principal-for-aci"></a>Crear una entidad de servicio para ACI
 
-El primer paso es asegurarse de que el [inquilino de Azure](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) tiene asignada una entidad de servicio para conceder permisos al servicio de Azure Container Instances. 
+El primer paso es asegurarse de que el [inquilino de Azure](../active-directory/develop/quickstart-create-new-tenant.md) tiene asignada una entidad de servicio para conceder permisos al servicio de Azure Container Instances. 
 
 > [!IMPORTANT]
 > Para ejecutar el siguiente comando y crear una entidad de servicio correctamente, confirme que tiene permisos para crear entidades de servicio en el inquilino.
@@ -59,7 +59,7 @@ En caso de que no pueda crear correctamente la entidad de servicio:
 
 ### <a name="create-a-key-vault-resource"></a>Creación de un recurso de Key Vault
 
-Cree una instancia de Azure Key Vault mediante [Azure Portal](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault), la [CLI](https://docs.microsoft.com/azure/key-vault/quick-create-cli) o [PowerShell](https://docs.microsoft.com/azure/key-vault/quick-create-powershell). 
+Cree una instancia de Azure Key Vault mediante [Azure Portal](../key-vault/secrets/quick-create-portal.md#create-a-vault), la [CLI](../key-vault/secrets/quick-create-cli.md) o [PowerShell](../key-vault/secrets/quick-create-powershell.md). 
 
 En el caso de las propiedades del almacén de claves, siga estas instrucciones: 
 * Nombre: se requiere un nombre único. 
@@ -96,7 +96,7 @@ La directiva de acceso debe mostrarse ahora en las directivas de acceso del alma
 > [!IMPORTANT]
 > El cifrado de datos de implementación con una clave administrada por el cliente está disponible en la versión más reciente de la API (2019-12-01) que se está implementando actualmente. Especifique esta versión de API en la plantilla de implementación. Si tiene algún problema con este valor, póngase en contacto con el soporte técnico de Azure.
 
-Una vez configuradas la clave del almacén de claves y la directiva de acceso, agregue las siguientes propiedades a la plantilla de implementación de ACI. Obtenga más información sobre la implementación de recursos de ACI con una plantilla en el [Tutorial: Implementación de un grupo con varios contenedores con una plantilla de Resource Manager](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+Una vez configuradas la clave del almacén de claves y la directiva de acceso, agregue las siguientes propiedades a la plantilla de implementación de ACI. Obtenga más información sobre la implementación de recursos de ACI con una plantilla en el [Tutorial: Implementación de un grupo con varios contenedores con una plantilla de Resource Manager](./container-instances-multi-container-group.md). 
 * En `resources`, establezca `apiVersion` en `2019-12-01`.
 * En la sección Propiedades del grupo de contenedores de la plantilla de implementación, agregue un elemento `encryptionProperties` con los siguientes valores:
   * `vaultBaseUrl`: nombre DNS del almacén de claves, que se puede encontrar en la hoja de Información general del recurso de almacén de claves en el portal.
@@ -129,7 +129,7 @@ El siguiente fragmento de plantilla muestra estas propiedades adicionales para c
 ]
 ```
 
-A continuación se muestra una plantilla completa, adaptada a partir de la plantilla de [Tutorial: Implementación de un grupo con varios contenedores con una plantilla de Resource Manager](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+A continuación se muestra una plantilla completa, adaptada a partir de la plantilla de [Tutorial: Implementación de un grupo con varios contenedores con una plantilla de Resource Manager](./container-instances-multi-container-group.md). 
 
 ```json
 {
@@ -233,14 +233,14 @@ Para crear un grupo de recursos, use el comando [az group create][az-group-creat
 az group create --name myResourceGroup --location eastus
 ```
 
-Implemente la plantilla con el comando [az group deployment create][az-group-deployment-create].
+Implemente la plantilla con el comando [az deployment group create][az-deployment-group-create].
 
 ```azurecli-interactive
-az group deployment create --resource-group myResourceGroup --template-file deployment-template.json
+az deployment group create --resource-group myResourceGroup --template-file deployment-template.json
 ```
 
 Al cabo de unos segundos, debe recibir una respuesta inicial de Azure. Una vez completada la implementación, todos los datos relacionados con Azure que conserva el servicio ACI se cifrarán con la clave proporcionada.
 
 <!-- LINKS - Internal -->
 [az-group-create]: /cli/azure/group#az-group-create
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group/#az-deployment-group-create

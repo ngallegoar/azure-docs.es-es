@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/14/2020
 ms.subservice: blobs
-ms.openlocfilehash: e2dcc070baa94ecf1ea27100fd49d4cde1dac637
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccad51d18a5e76f68633103af64e9ba6cc3f19c0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833353"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203361"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedaje de sitios web estáticos en Azure Storage
 
@@ -76,13 +76,15 @@ Puede modificar el nivel de acceso público del contenedor **$web**, lo cual no 
 
 En la siguiente captura de pantalla se muestra la configuración del nivel de acceso público en Azure Portal:
 
-![Captura de pantalla que muestra cómo establecer el nivel de acceso público en el portal](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
+![Captura de pantalla que muestra cómo establecer el nivel de acceso público en el portal](./media/anonymous-read-access-configure/configure-public-access-container.png)
 
 Aunque el punto de conexión principal del sitio web estático no se ve afectado, un cambio en el nivel de acceso público afecta al punto de conexión principal de Blob service.
 
 Por ejemplo, si cambia el nivel de acceso público del contenedor **$web** de **Privado (sin acceso anónimo)** a **Blob (acceso anónimo de lectura solo para blobs)** , el nivel de acceso público al punto de conexión principal del sitio web estático `https://contosoblobaccount.z22.web.core.windows.net/index.html` no cambia.
 
 Sin embargo, el acceso público al punto de conexión principal de Blob service `https://contosoblobaccount.blob.core.windows.net/$web/index.html` cambia de privado a público. Ahora los usuarios pueden abrir ese archivo mediante cualquiera de estos dos punto de conexión.
+
+Deshabilitar el acceso público en una cuenta de almacenamiento no afecta a los sitios web estáticos que se hospedan en ella. Para más información, consulte [Configuración del acceso de lectura público anónimo a contenedores y blobs](anonymous-read-access-configure.md).
 
 ## <a name="mapping-a-custom-domain-to-a-static-website-url"></a>Asignación de un dominio personalizado a una dirección URL de un sitio web estático
 

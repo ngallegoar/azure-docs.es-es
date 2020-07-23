@@ -1,27 +1,25 @@
 ---
-title: Administración de roles de Azure AD en Privileged Identity Management (PIM) | Microsoft Docs
+title: Características de roles de Azure AD en Privileged Identity Management | Microsoft Docs
 description: Procedimiento para administrar roles de Azure AD para la asignación de Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: pim
-ms.devlang: na
-ms.topic: how-to
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/06/2019
+ms.date: 07/10/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 501efaf2e9e97f37521daa770e6c760cc794fa36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54a286ed63d842dba08ad545b17498cb4000a5cf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742868"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256635"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Funcionalidades de administración de los roles de Azure AD en Privileged Identity Management
 
@@ -29,10 +27,9 @@ La experiencia de administración de los roles de Azure AD en Privileged Identi
 
 Con la actualización que se está implementando actualmente, combinamos las dos en una sola experiencia de administración y, en ella, se obtiene la misma funcionalidad para los roles de Azure AD que para los roles de recursos de Azure. En este artículo se detallan las características actualizadas y los requisitos.
 
-
 ## <a name="time-bound-assignments"></a>Asignaciones con límites temporales
 
-Anteriormente, en Privileged Identity Management para los roles de Azure AD, estaba familiarizado con las asignaciones de roles con dos estados posibles: *válido* y *permanente*. Ahora puede establecer una hora de inicio y finalización para cada tipo de asignación. Esta adición le proporciona cuatro estados posibles en los que puede colocar una asignación:
+Anteriormente, había dos estados posibles para las asignaciones de roles: *válido* y *permanente*. Ahora también puede establecer una hora de inicio y finalización para cada tipo de asignación. Esta adición le proporciona cuatro estados posibles en los que puede colocar una asignación:
 
 - Válido de manera permanente
 - Activo de manera permanente
@@ -43,14 +40,17 @@ En muchos casos, aunque no quiera que los usuarios tengan la asignación válida
 
 ## <a name="new-role-settings"></a>Nueva configuración de rol
 
-También hemos agregado nuevas opciones de configuración para los roles de Azure AD. Anteriormente, solo podía establecer la configuración de activación según el rol. Es decir, la configuración de activación, como los requisitos de autenticación multifactor y los de incidencias de incidentes y solicitudes, se aplica a todos los usuarios que pueden usar un rol específico. Ahora puede configurar si un usuario individual debe realizar la autenticación multifactor antes de poder activar un rol. Además, puede disponer de un control avanzado sobre los correos electrónicos de Privileged Identity Management relacionados con roles específicos.
+También hemos agregado nuevas opciones de configuración para los roles de Azure AD.
+
+- **Anteriormente**, solo podía establecer la configuración de activación según el rol. Es decir, la configuración de activación, como los requisitos de autenticación multifactor y los de incidencias de incidentes y solicitudes, se aplica a todos los usuarios que pueden usar un rol específico.
+- **Ahora** puede configurar si un usuario individual debe realizar la autenticación multifactor antes de poder activar un rol. Además, puede disponer de un control avanzado sobre los correos electrónicos de Privileged Identity Management relacionados con roles específicos.
 
 ## <a name="extend-and-renew-assignments"></a>Extensión y renovación de asignaciones
 
 Tan pronto como comprenda la asignación con límites temporales, lo primero que probablemente se preguntará es qué sucede si expira un rol. En esta nueva versión, se proporcionan dos opciones para este escenario:
 
-- Extensión: cuando una asignación de roles está a punto de expirar, el usuario puede usar Privileged Identity Management para solicitar una extensión para esa asignación de roles.
-- Renovación: cuando una asignación de roles ha expirado, el usuario puede usar Privileged Identity Management para solicitar una renovación para esa asignación de roles.
+- **Extensión**: cuando una asignación de roles está a punto de expirar, el usuario puede usar Privileged Identity Management para solicitar una extensión para esa asignación de roles.
+- **Renovación**: cuando una asignación de roles ha expirado, el usuario puede usar Privileged Identity Management para solicitar una renovación para esa asignación de roles.
 
 Ambas acciones iniciadas por el usuario requieren una aprobación de un administrador global o un administrador de roles con privilegios. Los administradores ya no tendrán que encargarse de administrar estas expiraciones. Únicamente recibirán las solicitudes de extensión o renovación y deberán aprobarlas si son válidas.
 

@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/17/2020
+ms.date: 06/29/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 661339545f2c3f01ffd2e07b0fad08de8ac90278
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cf82080a54075353d2ff1d98a2ea19fc6a96dc7
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078884"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86204023"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Creación de una revisión de acceso de los grupos y las aplicaciones en las revisiones de acceso de Azure AD
 
@@ -28,7 +28,7 @@ El acceso a los grupos y las aplicaciones para empleados e invitados cambia a lo
 
 En este artículo se describe cómo crear una o varias revisiones de acceso para el acceso de los miembros de un grupo o aplicación.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 - Azure AD Premium P2
 - administrador global o administrador de usuarios.
@@ -106,7 +106,7 @@ Para obtener más información, consulte [Requisitos de licencia](access-reviews
 
 1. Para especificar configuraciones adicionales, expanda la sección **Configuración avanzada**.
 
-    ![Creación de una revisión de acceso: configuración avanzada](./media/create-access-review/advanced-settings.png)
+    ![Creación de una revisión de acceso: configuración avanzada](./media/create-access-review/advanced-settings-preview.png)
 
 1. Establezca **Mostrar recomendaciones** en **Habilitar** para mostrar las recomendaciones del sistema de los revisores según la información del acceso del usuario.
 
@@ -114,9 +114,14 @@ Para obtener más información, consulte [Requisitos de licencia](access-reviews
 
 1. Establezca **Notificaciones de correo** en **Habilitar**para que Azure AD envíe notificaciones de correo electrónico a los revisores cuando se inicia una revisión de acceso y a los administradores cuando se complete.
 
-1. Establezca **Avisos** en **Habilitar** para que Azure AD envíe recordatorios de revisiones de acceso en curso a los revisores que no hayan completado su revisión.
+1. Establezca **Avisos** en **Habilitar** para que Azure AD envíe recordatorios de revisiones de acceso en curso a los revisores que no hayan completado su revisión. 
 
-    De forma predeterminada, Azure AD envía automáticamente un recordatorio hacia la mitad del plazo de finalización a los revisores que no hayan respondido.
+    >[!NOTE]
+    > De forma predeterminada, Azure AD envía automáticamente un recordatorio, hacia la mitad del plazo de finalización, a los revisores que no hayan respondido.
+
+1. (Versión preliminar) El contenido del correo electrónico enviado a los revisores se genera automáticamente en función de los detalles de la revisión, como el nombre de la revisión, el nombre del recurso, la fecha de vencimiento, etc. Si necesita una forma de comunicar más información, como instrucciones adicionales o información de contacto, puede especificar estos detalles en el correo electrónico de contenido adicional para el revisor que se incluirá en la invitación y en los correos electrónicos de recordatorio enviados a los revisores asignados. La sección resaltada a continuación es donde se mostrará esta información.
+
+    ![Revisión del acceso de los usuarios a un grupo](./media/create-access-review/review-users-access-group.png)
 
 ## <a name="start-the-access-review"></a>Inicio de la revisión de acceso
 
@@ -130,7 +135,7 @@ Si ha asignado como revisores a invitados y no han aceptado la invitación, no r
 
 ## <a name="access-review-status-table"></a>Tabla de estado de revisión de acceso
 
-| Status | Definición |
+| Estado | Definición |
 |--------|------------|
 |NotStarted | Se ha creado la revisión y la detección de usuarios está en espera para empezar. |
 |Inicializando   | La detección de usuarios está en curso para identificar a todos los usuarios que forman parte de la revisión. |

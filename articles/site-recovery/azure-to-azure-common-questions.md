@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 22848d84896989b1872c55e687c4a5e73da31de8
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 52c7a4bfeddf808e5a714c7ad4ab164d65868940
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134048"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201201"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Preguntas frecuentes: Recuperación ante desastres de Azure a Azure
 
@@ -120,7 +120,7 @@ No, se trata de un escenario no admitido. Pero si mueve accidentalmente cuentas 
 Una directiva de replicación define la configuración del historial de retención de puntos de recuperación. La directiva también define la frecuencia de las instantáneas coherentes con la aplicación. De forma predeterminada, Azure Site Recovery crea una nueva directiva de replicación con la configuración predeterminada de:
 
 - 24 horas para el historial de retención de puntos de recuperación.
-- 60 minutos para la frecuencia de las instantáneas coherentes con la aplicación.
+- 4 horas para la frecuencia de las instantáneas coherentes con la aplicación.
 
 [Más información sobre la configuración de replicación](./azure-to-azure-tutorial-enable-replication.md#configure-replication-settings).
 

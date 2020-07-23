@@ -3,12 +3,12 @@ title: Exportación mediante Stream Analytics desde Azure Application Insights |
 description: Stream Analytics puede transformar, filtrar y enrutar continuamente los datos de que exportan desde Application Insights.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 400c727b44d3794dc9a17c59959dc5c75cea71fe
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 71b19f0b49dec8f7176a53eeb656519c65f9c1d0
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110494"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224526"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Uso de Stream Analytics para procesar datos exportados de Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) es la herramienta ideal para procesar los datos [exportados desde Application Insights](export-telemetry.md). Stream Analytics puede extraer datos de una variedad de orígenes. Puede transformar y filtrar los datos y, después, enrutarlos a una variedad de receptores.
@@ -60,7 +60,7 @@ La exportación continua siempre envía los datos a una cuenta de Azure Storage,
     Y, además, exportará los datos en el almacenamiento. 
 2. Inspeccione los datos exportados. En Visual Studio, elija **Ver/Cloud Explorer** y abra Azure/Almacenamiento. (Si no tiene esta opción de menú, deberá instalar Azure SDK: abra el cuadro de diálogo Nuevo proyecto y Visual C#/Nube/Obtener Microsoft Azure SDK para. NET).
    
-    ![](./media/export-stream-analytics/04-data.png)
+    ![Captura de pantalla que muestra cómo establecer los tipos de evento que desea ver.](./media/export-stream-analytics/04-data.png)
    
     Tome nota de la parte común del nombre de la ruta de acceso, que se deriva del nombre de la aplicación y de la clave de instrumentación. 
 
@@ -69,21 +69,21 @@ Los eventos se escriben en archivos de blob en formato JSON. Cada archivo puede 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Creación de una instancia de Azure Stream Analytics
 Desde [Azure Portal](https://portal.azure.com/), seleccione el servicio Azure Stream Analytics y cree un nuevo trabajo de Stream Analytics:
 
-![](./media/export-stream-analytics/SA001.png)
+![Captura de pantalla que muestra la página principal para crear un trabajo de Stream Analytics en Azure Portal.](./media/export-stream-analytics/SA001.png)
 
-![](./media/export-stream-analytics/SA002.png)
+![Captura de pantalla que muestra los detalles necesarios al crear un nuevo trabajo de Stream Analytics.](./media/export-stream-analytics/SA002.png)
 
 Cuando se cree el nuevo trabajo, seleccione **Ir al recurso**.
 
-![](./media/export-stream-analytics/SA003.png)
+![Captura de pantalla que muestra el mensaje recibido cuando la nueva implementación de trabajo de Stream Analytics se realiza correctamente.](./media/export-stream-analytics/SA003.png)
 
 ### <a name="add-a-new-input"></a>Incorporación de una nueva entrada
 
-![](./media/export-stream-analytics/SA004.png)
+![Captura de pantalla que muestra cómo agregar entradas al trabajo de Stream Analytics.](./media/export-stream-analytics/SA004.png)
 
 Configúrelo de manera que tome los datos del blob de Exportación continua:
 
-![](./media/export-stream-analytics/SA0005.png)
+![Captura de pantalla que muestra la configuración del trabajo de Stream Analytics para tomar la entrada de un blob de exportación continua.](./media/export-stream-analytics/SA0005.png)
 
 Ahora, necesitará la clave de acceso principal de la cuenta de almacenamiento, que anotó anteriormente. Establézcala como la clave de cuenta de almacenamiento.
 
@@ -109,7 +109,7 @@ En este ejemplo:
 ## <a name="add-new-output"></a>Incorporación de una nueva salida
 Ahora seleccione el trabajo > **Salidas** > **Agregar**.
 
-![](./media/export-stream-analytics/SA006.png)
+![Captura de pantalla que muestra la selección del trabajo de Stream Analytics para agregar una nueva salida.](./media/export-stream-analytics/SA006.png)
 
 
 ![Seleccione el canal nuevo, haga clic en Salidas, Agregar, Power BI](./media/export-stream-analytics/SA010.png)

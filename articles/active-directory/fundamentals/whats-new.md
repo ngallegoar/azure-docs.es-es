@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30c6be98eeca4433798ad8ed2bacb9338331b112
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: cbf811fdb8ff051ec1bb782eb3da12ea45b29bdf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170452"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256823"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>¿Cuáles son las novedades de Azure Active Directory?
 
@@ -259,7 +259,7 @@ Hemos introducido una nueva propiedad riskEventsTypes_v2 (cadena) en signIns v1
 **Funcionalidad del producto:** Seguridad y protección de la identidad
  
 
-Vamos a realizar los siguientes cambios en las notificaciones por correo electrónico de MFA para MFA:
+Vamos a realizar los siguientes cambios en las notificaciones por correo electrónico de MFA en la nube:
 
 Las notificaciones por correo electrónico se enviarán desde las siguientes direcciones: azure-noreply@microsoft.com y msonlineservicesteam@microsoftonline.com. Estamos actualizando el contenido de los correos electrónicos de alerta sobre fraudes a fin de explicar mejor los pasos necesarios para desbloquear los usos.
 

@@ -4,19 +4,19 @@ description: Obtenga más información sobre cómo llevar su solución Azure IoT
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/25/2020
+ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 128504c59690476afef03aa82a03d69769968e99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f5698c5390a341df505bf5a1f849e121bd754a2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84431931"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258787"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparación para implementar la solución IoT Edge en producción
 
@@ -38,11 +38,14 @@ Los dispositivos IoT Edge pueden ser cualquier cosa, desde un dispositivo Raspbe
 
 ### <a name="install-production-certificates"></a>Instalar certificados de producción
 
-Cada dispositivo IoT Edge en producción necesita un certificado de la entidad de certificación (CA) instalado en él. Este certificado de entidad de certificación se declara en el entorno de ejecución de Azure IoT Edge en el archivo config.yaml. En escenarios de desarrollo y prueba, el entorno de ejecución de IoT Edge crea certificados temporales si no se declara ningún certificado en el archivo config.yaml. Sin embargo, estos certificados temporales expiran después de tres meses y no son seguros para escenarios de producción.
+Cada dispositivo IoT Edge en producción necesita un certificado de la entidad de certificación (CA) instalado en él. Este certificado de entidad de certificación se declara en el entorno de ejecución de Azure IoT Edge en el archivo config.yaml. En escenarios de desarrollo y prueba, el entorno de ejecución de IoT Edge crea certificados temporales si no se declara ningún certificado en el archivo config.yaml. Sin embargo, estos certificados temporales expiran después de tres meses y no son seguros para escenarios de producción. En el caso de los escenarios de producción, debe proporcionar su propio certificado de CA de dispositivo, ya sea de una entidad de certificación autofirmada o adquirido de una entidad de certificación comercial.
+
+> [!NOTE]
+> Actualmente, una limitación en libiothsm impide el uso de certificados que expiran el 1 de enero de 2050 o en una fecha posterior.
 
 Para comprender el rol del certificado de entidad de certificación del dispositivo, consulte [Información de uso de los certificados de Azure IoT Edge](iot-edge-certs.md).
 
-Para obtener más información sobre cómo instalar certificados en un dispositivo IoT Edge y hacer referencia a ellos desde el archivo config.yaml, consulte el artículo sobre [instalación de certificados de producción en un dispositivo IoT Edge](how-to-manage-device-certificates.md).
+Para obtener más información sobre cómo instalar certificados en un dispositivo IoT Edge y hacer referencia a él desde el archivo config.yaml, consulte [Administración de certificados en un dispositivo IoT Edge](how-to-manage-device-certificates.md).
 
 ### <a name="have-a-device-management-plan"></a>Disponer de un plan de administración de dispositivos
 

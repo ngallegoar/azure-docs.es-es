@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: 2d746167f993438e5fce467365844df2078c08a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b8f100d253dc5ecb321934eb49a1aba60595a5e8
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77919318"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232583"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Detección de caras y emociones con Análisis multimedia de Azure
 
@@ -167,8 +167,8 @@ A continuación figuran valores recomendados para la configuración de ventana e
 
 || Valores predeterminados | Máximos | Mínimos |
 |--- | --- | --- | --- |
-| AggregateEmotionWindowMs |0.5 |2 |0,25|
-| AggregateEmotionIntervalMs |0.5 |1 |0,25|
+| **AggregateEmotionWindowMs** |0.5 |2 |0,25|
+| **AggregateEmotionIntervalMs** |0.5 |1 |0,25|
 
 ### <a name="json-output"></a>Salida de JSON
 Salida de JSON para la emoción agregada (truncada):

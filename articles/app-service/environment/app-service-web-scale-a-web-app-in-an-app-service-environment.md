@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 43849ca7084f2237c37ad537c50f4e94ac4ea7c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0e665ec27da0a898e754817f946b965ac7360fda
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74688678"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220565"
 ---
 # <a name="scaling-apps-in-an-app-service-environment-v1"></a>Escalado de aplicaciones en una instancia de App Service Environment v1
 En Azure App Service hay normalmente tres cosas que puede escalar:
@@ -30,7 +30,7 @@ Con respecto a los tamaños de trabajo, el administrador de ASE puede asignar el
 
 El cambio de cualquier elemento se realiza a través de la IU adecuada mostrada con sus planes de App Service hospedados en el ASE.  
 
-![][1]
+![Captura de pantalla que muestra dónde ver los detalles del plan de servicio de escalado y el plan de servicio del grupo de trabajo.][1]
 
 No podrá escalar verticalmente el plan del Servicio de aplicaciones por encima de la cantidad de recursos de proceso disponibles en el grupo de trabajo en el que se encuentra dicho plan.  Si necesita recursos de proceso de ese grupo de trabajo, tendrá que obtener el administrador de ASE para agregarlos.  Para obtener información sobre la reconfiguración de ASE, lea esta información: [Configuración de una instancia de App Service Environment][HowtoConfigureASE].  Puede que también quiera aprovechar las características de escalado automático de ASE para agregar capacidad en función de una programación o unas métricas.  Para obtener más detalles sobre la configuración de la escalabilidad automática para el propio entorno de ASE, vea [Escalado automático y App Service Environment][ASEAutoscale].
 
@@ -41,14 +41,14 @@ Cuando cree su aplicación web por primera vez en un Entorno de App Service, com
 
 Si su ASE tiene suficiente capacidad, entonces esto es bastante sencillo.  Vaya a su plan de App Service que contiene los sitios que desea escalar verticalmente y seleccione Escalar.  Se abre la interfaz de usuario, donde puede establecer manualmente la escala del ASP o configurar reglas de escalado automático para este.  Para escalar manualmente la aplicación, simplemente establezca ***Escalar por*** en ***un recuento de instancias que escribe manualmente***.  Desde aquí, arrastre el control deslizante a la cantidad deseada o escríbala en el cuadro situado junto a él.  
 
-![][2] 
+![Captura de pantalla que muestra dónde puede establecer la escala del ASP o configurar reglas de escalado automático para él.][2] 
 
 Las reglas de escalado automático de un ASP en un ASE funcionan igual que lo hacen normalmente.  Puede seleccionar ***Porcentaje de CPU*** en ***Escalar por*** y crear reglas de escalado automático para el ASP según el porcentaje de CPU, o puede crear reglas más complejas con ***reglas de programación y rendimiento***.  Para obtener más detalles sobre la configuración de la escalabilidad automática, use la guía [Escalado de aplicaciones en un entorno de App Service][AppScale]. 
 
 ### <a name="worker-pool-selection"></a>selección de grupo de trabajo
 Como se indicó anteriormente, a la selección del grupo de trabajo se accede desde la interfaz de usuario de ASP.  Abra la hoja del ASP que quiera escalar y seleccione un grupo de trabajo.  Verá todos los grupos de trabajo que ha configurado en el entorno de App Service.  Si solamente tiene un grupo de trabajo, solo se mostrará ese grupo en la lista.  Para cambiar el grupo de trabajo en el que se encuentra el ASP, simplemente seleccione el grupo de trabajo al que quiere mover su plan de App Service.  
 
-![][3]
+![Captura de pantalla que muestra dónde se puede cambiar el grupo de trabajo en el que se encuentra el ASP.][3]
 
 Antes de mover el ASP de un grupo de trabajo a otro, es importante asegurarse de que tendrá la capacidad adecuada para él.  En la lista de grupos de trabajo, no solo se muestra el nombre del grupo de trabajo, sino que también puede ver cuántos trabajos están disponibles en ese grupo de trabajo.  Asegúrese de que hay suficientes instancias disponibles para contener su plan de App Service.  Si necesita más recursos de proceso en el grupo de trabajo al que desea moverse, tendrá que agregarlos a través del administrador de ASE.  
 

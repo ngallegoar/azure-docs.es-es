@@ -8,12 +8,12 @@ ms.author: bobuc
 ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 4c1604eaad1ebdedf6a360a647fe5b9f95c829c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4ed1a7cacc6c40cb12976c8703164d46e0dc0458
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76844401"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202388"
 ---
 # <a name="coarse-relocalization"></a>Relocalización general
 
@@ -120,13 +120,11 @@ cloudSpatialAnchorSession.LocationProvider(sensorProvider);
 
 A continuación, deberá decidir qué sensores desea usar para la relocalización general. Esta decisión es específica de la aplicación que está desarrollando, pero las recomendaciones de la tabla siguiente deben proporcionarle un buen punto de partida:
 
-
-|             | Interiores | Exteriores |
-|-------------|---------|----------|
-| GPS         | Off | Por |
-| Wi-Fi        | Por | Activado (opcional) |
-| Las balizas de BLE | Activado (opcional con advertencias, consulte a continuación) | Off |
-
+|                 | Interiores | Exteriores |
+|-----------------|---------|----------|
+| **GPS**         | Off | Por |
+| **WiFi**        | Por | Activado (opcional) |
+| **Balizas de BLE** | Activado (opcional con advertencias, consulte a continuación) | Off |
 
 ### <a name="enabling-gps"></a>Habilitar GPS
 
@@ -658,12 +656,11 @@ En la siguiente tabla se calcula el espacio de búsqueda esperado para cada tipo
 
 En la tabla siguiente se resumen los datos de sensor recopilados en cada una de las plataformas admitidas, junto con las advertencias específicas de la plataforma:
 
-
-|             | HoloLens | Android | iOS |
-|-------------|----------|---------|-----|
-| GPS         | N/D | Compatible con las API [LocationManager][3] (tanto GPS como NETWORK) | Compatible con las API [CLLocationManager][4] |
-| Wi-Fi        | Compatible con una frecuencia de aproximadamente un escaneo cada 3 segundos | Compatible. Comenzando con el nivel 28 de API, los escaneos WiFi se aceleran a 4 llamadas cada 2 minutos. Desde Android 10, la limitación se puede deshabilitar desde el menú de configuración del Desarrollador. Para más información, consulte la [documentación de Android][5]. | N/A: sin API pública |
-| Las balizas de BLE | Limitado a [Eddystone][1] y [iBeacon][2] | Limitado a [Eddystone][1] y [iBeacon][2] | Limitado a [Eddystone][1] y [iBeacon][2] |
+|                 | HoloLens | Android | iOS |
+|-----------------|----------|---------|-----|
+| **GPS**         | N/D | Compatible con las API [LocationManager][3] (tanto GPS como NETWORK) | Compatible con las API [CLLocationManager][4] |
+| **WiFi**        | Compatible con una frecuencia de aproximadamente un escaneo cada 3 segundos | Compatible. Comenzando con el nivel 28 de API, los escaneos WiFi se aceleran a 4 llamadas cada 2 minutos. Desde Android 10, la limitación se puede deshabilitar desde el menú de configuración del Desarrollador. Para más información, consulte la [documentación de Android][5]. | N/A: sin API pública |
+| **Balizas de BLE** | Limitado a [Eddystone][1] y [iBeacon][2] | Limitado a [Eddystone][1] y [iBeacon][2] | Limitado a [Eddystone][1] y [iBeacon][2] |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

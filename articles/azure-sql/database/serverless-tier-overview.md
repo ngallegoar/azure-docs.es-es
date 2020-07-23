@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 7/6/2020
-ms.openlocfilehash: 130b19f280c69bfbe4ca49abe1bcba5db7f23caa
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 7/9/2020
+ms.openlocfilehash: 38ca6528b77d9f36c84f5aacaa34a64d113b5978
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045967"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206939"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sin servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -324,6 +324,19 @@ La cantidad de proceso facturada se expone mediante la métrica siguiente:
 - **Frecuencia de informes**: Por minuto
 
 Esta cantidad se calcula cada segundo y se agrega en un intervalo de 1 minuto.
+
+### <a name="minimum-compute-bill"></a>Factura de proceso mínimo
+
+Si una base de datos sin servidor está en pausa, la factura de proceso es cero.  Si una base de datos sin servidor no está en pausa, la factura de proceso mínimo no es inferior a la cantidad de núcleos virtuales basada en el número máximo (número mínimo de núcleos virtuales, GB de memoria mínima * 1/3).
+
+Ejemplos:
+
+- Supongamos que una base de datos sin servidor no está en pausa y está configurada con 8 núcleos virtuales como máximo y 1 núcleo virtual como mínimo, lo que corresponde a 3,0 GB de memoria mínima.  La factura de proceso mínimo se basa entonces en el número máximo (1 núcleo virtual, 3,0 GB * 1 núcleo virtual/3 GB) = 1 núcleo virtual.
+- Supongamos que una base de datos sin servidor no está en pausa y está configurada con 4 núcleos virtuales como máximo y 0,5 núcleos virtuales como mínimo, lo que corresponde a 2,1 GB de memoria mínima.  La factura de proceso mínimo se basa entonces en el número máximo (0,5 núcleos virtuales, 2,1 GB * 1 núcleo virtual/3 GB) = 0,7 núcleos virtuales.
+
+La [calculadora de precios de Azure SQL Database](https://azure.microsoft.com/pricing/calculator/?service=sql-database) para escenarios sin servidor se puede usar para determinar la cantidad mínima de memoria configurable en función del número de núcleos virtuales máximos y mínimos configurados.  Por norma general, si el número mínimo de núcleos virtuales configurado es superior a 0,5 núcleos virtuales, la factura de proceso mínimo es independiente de la memoria mínima configurada y solo se basa en el número mínimo de núcleos virtuales configurado.
+
+### <a name="example-scenario"></a>Escenario de ejemplo
 
 Considere la posibilidad de una base de datos sin servidor configurada con 1 núcleo virtual como mínimo y 4 como máximo.  Esto se corresponde a aproximadamente 3 GB de memoria como mínimo y 12 GB de memoria como máximo.  Supongamos que la demora de la pausa automática se establece en 6 horas y la carga de trabajo de la base de datos está activa durante las primeras 2 horas de un período de 24 horas e inactiva el resto del tiempo.    
 

@@ -3,15 +3,15 @@ title: Autenticación y autorización
 description: Obtenga información sobre el soporte de autenticación y autorización integrado en Azure App Service y Azure Functions, y cómo puede ayudarle a proteger la aplicación frente al acceso no autorizado.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
-ms.date: 04/15/2020
+ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: f51a396e997a9e6392f3e86a6f77e581753d6ada
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9588777305ca42603623075b908eee5d76164c84
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83196434"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206757"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticación y autorización en Azure App Service y Azure Functions
 
@@ -35,7 +35,7 @@ Para información específica de aplicaciones móviles nativas, consulte [Autent
 
 El módulo de autenticación y autorización se ejecuta en el mismo espacio aislado que el código de aplicación. Cuando está habilitado, cada solicitud HTTP entrante pasa a través de él antes de que el código de aplicación lo controle.
 
-![](media/app-service-authentication-overview/architecture.png)
+![Diagrama de arquitectura que muestra las solicitudes que intercepta un proceso en el espacio aislado del sitio que interactúa con los proveedores de identidades antes de permitir el tráfico al sitio implementado](media/app-service-authentication-overview/architecture.png)
 
 Este módulo controla varios aspectos de la aplicación:
 
@@ -82,8 +82,11 @@ App Service usa la [identidad federada](https://en.wikipedia.org/wiki/Federated_
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
 | [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |
+| Cualquier proveedor de [OpenID Connect](https://openid.net/connect/) (versión preliminar) | `/.auth/login/<providerName>` |
 
-Cuando habilita la autenticación y autorización con uno de estos proveedores, su punto de conexión de inicio de sesión está disponible para la autenticación de usuarios y para la validación de tokens de autenticación del proveedor. Se puede proporcionar a los usuarios cualquier número de estas opciones de inicio de sesión con facilidad. También puede integrar otro proveedor de identidades o [su propia solución de identidad personalizada][custom-auth].
+Cuando habilita la autenticación y autorización con uno de estos proveedores, su punto de conexión de inicio de sesión está disponible para la autenticación de usuarios y para la validación de tokens de autenticación del proveedor. Se puede proporcionar a los usuarios cualquier número de estas opciones de inicio de sesión con facilidad.
+
+Existe una [ruta de extensibilidad heredada][custom-auth] para la integración con otros proveedores de identidades o una solución de autenticación personalizada, pero no se recomienda. En su lugar, considere la posibilidad de usar la compatibilidad con OpenID Connect.
 
 ## <a name="authentication-flow"></a>Flujo de autenticación
 
@@ -113,7 +116,7 @@ Para los exploradores del cliente, App Service puede dirigir automáticamente to
 
 En [Azure Portal](https://portal.azure.com), puede configurar la autorización de App Service con varios comportamientos cuando la solicitud entrante no esté autenticada.
 
-![](media/app-service-authentication-overview/authorization-flow.png)
+![Captura de pantalla que muestra la lista desplegable "Acción necesaria cuando la solicitud no está autenticada".](media/app-service-authentication-overview/authorization-flow.png)
 
 Los encabezados siguientes describen las opciones.
 
@@ -151,13 +154,14 @@ Guías de procedimientos específicas del proveedor:
 * [Configuración de la aplicación para usar el inicio de sesión de Google][Google]
 * [Configuración de la aplicación para usar el inicio de sesión de la cuenta Microsoft][MSA]
 * [Configuración de la aplicación para usar el inicio de sesión de Twitter][Twitter]
-* [Cómo: Uso de la autenticación personalizada en una aplicación][custom-auth]
+* [Configuración de la aplicación para usar un proveedor de OpenID Connect para el inicio de sesión (versión preliminar)][OIDC]
 
 [AAD]: configure-authentication-provider-aad.md
 [Facebook]: configure-authentication-provider-facebook.md
 [Google]: configure-authentication-provider-google.md
 [MSA]: configure-authentication-provider-microsoft.md
 [Twitter]: configure-authentication-provider-twitter.md
+[OIDC]: configure-authentication-provider-openid-connect.md
 
 [custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
 

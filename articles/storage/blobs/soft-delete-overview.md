@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: dd5d9c721c3e0204a66367b76654f9a917e26ba6
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: f8e84e845910b8f84a9b3f84ad414f2ecdd250a5
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82884270"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223795"
 ---
 # <a name="soft-delete-for-blob-storage"></a>Eliminación temporal para Blob Storage
 
@@ -54,7 +54,7 @@ La eliminación temporal conserva los datos en muchos casos en los que los objet
 
 Si se sobrescribe un blob mediante **Put Blob**, **Put Block List** o **Copy Blob**, se genera automáticamente una versión o instantánea del estado del blob antes de la operación de escritura. Este objeto es invisible, a menos que se muestren explícitamente los objetos eliminados temporalmente. Para aprender a enumerar objetos que se han eliminado temporalmente, consulte la sección [Recuperación](#recovery).
 
-![](media/soft-delete-overview/storage-blob-soft-delete-overwrite.png)
+![Diagrama que muestra cómo se almacenan las instantáneas de blobs cuando se sobrescriben con Put Blob, Put Block List o Copy Blob.](media/soft-delete-overview/storage-blob-soft-delete-overwrite.png)
 
 *Los datos eliminados temporalmente son de color gris, mientras que los datos activos están son de color azul. Los últimos datos escritos aparecen debajo de los datos más antiguos. Cuando B0 se sobrescribe con B1, se genera una instantánea de eliminación temporal de B0. Cuando B1 se sobrescribe con B2, se genera una instantánea de eliminación temporal de B1.*
 
@@ -66,13 +66,13 @@ Si se sobrescribe un blob mediante **Put Blob**, **Put Block List** o **Copy Blo
 
 Si se llama a **Delete Blob** en una instantánea, esta se marca como eliminada temporalmente. No se una nueva instantánea.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-explicit-delete-snapshot.png)
+![Diagrama que muestra cómo las instantáneas de blobs se eliminan temporalmente al usar Delete Blob.](media/soft-delete-overview/storage-blob-soft-delete-explicit-delete-snapshot.png)
 
 *Los datos eliminados temporalmente son de color gris, mientras que los datos activos están son de color azul. Los últimos datos escritos aparecen debajo de los datos más antiguos. Si se llama a **Snapshot Blob**, B0 pasa a ser una instantánea y B1 es el estado activo del blob. Cuando se elimina la instantánea B0, se marca como eliminada temporalmente.*
 
 Cuando se llama a **Delete Blob** en un blob base (cualquier blob que sea en sí mismo una instantánea), dicho blob se marca como eliminado temporalmente. Por coherencia con el comportamiento anterior, si se llama a **Delete Blob** en un blob que tiene instantáneas activas, se produce un error. Sin embargo, si se llama a **Delete Blob** en un blob con instantáneas eliminadas temporalmente, no se produce un error. Si la eliminación temporal está activada, se pueden eliminar un blob y todas sus instantáneas en una sola operación. Al hacerlo, tanto el blob base como las instantáneas de marcan como eliminados temporalmente.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-explicit-include.png)
+![Diagrama que muestra lo que sucede cuando se llama a Delete blog en un blob de base.](media/soft-delete-overview/storage-blob-soft-delete-explicit-include.png)
 
 *Los datos eliminados temporalmente son de color gris, mientras que los datos activos están son de color azul. Los últimos datos escritos aparecen debajo de los datos más antiguos. En este caso, se realiza una llamada a **Delete Blob** para eliminar B2 y todas las instantáneas asociadas. El blob activo, B2, y todas las instantáneas asociadas se marcan como eliminados temporalmente.*
 
@@ -105,7 +105,7 @@ Si se llama a la operación [Undelete Blob](/rest/api/storageservices/undelete-b
 
 Para restaurar un blob en una instantánea eliminada temporalmente, puede llamar a **Undelete Blob** en el blob base. Luego puede copiar la instantánea sobre el blob activo. También puede copiar la instantánea en un blob nuevo.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-recover.png)
+![Diagrama que muestra lo que sucede cuando se usa Undelete blob.](media/soft-delete-overview/storage-blob-soft-delete-recover.png)
 
 *Los datos eliminados temporalmente son de color gris, mientras que los datos activos están son de color azul. Los últimos datos escritos aparecen debajo de los datos más antiguos. En este caso, **Undelete Blob** se llama en el blob B, con lo que se restaura el blob base, B1, y todas las instantáneas asociadas, aquí simplemente B0, como activas. En el segundo paso, se copia B0 sobre el blob base. Esta operación de copia genera una instantánea de eliminación automática de B1.*
 

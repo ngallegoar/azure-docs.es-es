@@ -1,7 +1,7 @@
 ---
-title: Entrenamiento e implementación de un modelo de aprendizaje de refuerzo.
+title: Entrenamiento e implementación de un modelo de aprendizaje de refuerzo (versión preliminar).
 titleSuffix: Azure Machine Learning
-description: Obtenga información acerca de cómo usar el aprendizaje de refuerzo de Azure Machine Learning (RL) para entrenar un agente de RL para que juegue a Pong.
+description: Obtenga información acerca de cómo usar el aprendizaje de refuerzo de Azure Machine Learning (versión preliminar) para entrenar un agente de RL para que juegue a Pong.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
 ms.custom: tracking-python
-ms.openlocfilehash: f8559733de9b7acfb23e2846e4d92ce6db5e2df0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b918369f68c3b0047213c24f1d4666fd0593cf30
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84556937"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203288"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Aprendizaje de refuerzo (versión preliminar) con Azure Machine Learning
 
@@ -36,7 +36,7 @@ En este artículo, aprenderá a:
 
 Este artículo se basa en el [ejemplo RLlib Pong](https://aka.ms/azureml-rl-pong) que puede encontrarse en el cuaderno de Azure Machine Learning del [repositorio de GitHub](https://aka.ms/azureml-rl-notebooks).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Ejecute este código en cualquiera de los siguientes entornos. Le recomendamos que pruebe la instancia de proceso de Azure Machine Learning para obtener un inicio más rápido. Los cuadernos de ejemplo de refuerzo están disponibles para clonar y ejecutar contenido rápidamente en la instancia de proceso de Azure Machine Learning.
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
-ms.openlocfilehash: a1d411662fd7afe57c714b97ab67b9d490acd40d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 407db727f521ea7731f0cbdbdd05c4338c9f452e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076375"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207728"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Ejecución de trabajos de MapReduce con Apache Hadoop en HDInsight con REST
 
@@ -22,7 +22,7 @@ Aprenda a usar la API REST de Apache Hive WebHCat para ejecutar trabajos de MapR
 > [!NOTE]  
 > Si ya está familiarizado con el uso de servidores de Hadoop basado en Linux, pero no conoce HDInsight, consulte el documento [Lo que necesita saber acerca de Apache Hadoop en HDInsight basado en Linux](../hdinsight-hadoop-linux-information.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Un clúster de Apache Hadoop en HDInsight. Consulte [Creación de clústeres de Apache Hadoop mediante Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -61,7 +61,7 @@ Opciones:
 
     La respuesta que recibe es similar al código JSON siguiente:
 
-    ```output
+    ```json
     {"version":"v1","status":"ok"}
     ```
 
@@ -83,9 +83,7 @@ Opciones:
      * **class**: la clase que contiene la lógica de MapReduce.
      * **arg**: los argumentos que se pasarán al trabajo de MapReduce. En este caso, el archivo de texto de entrada y el directorio que se utilizan para el resultado.
 
-    Este comando debe devolver un identificador de trabajo que se pueda usar para comprobar el estado del trabajo:
-
-       job_1415651640909_0026
+    Este comando debe devolver un identificador de trabajo que se pueda usar para comprobar el estado del trabajo: `job_1415651640909_0026`.
 
 1. Para revisar el estado del trabajo, use el siguiente comando. Reemplace el valor de `JOBID` por el valor **real** devuelto en el paso anterior. Revise la ubicación de **jq** según sea necesario.
 
@@ -116,7 +114,7 @@ Opciones:
 
     La respuesta que recibe es similar al código JSON siguiente:
 
-    ```output
+    ```json
     {"version":"v1","status":"ok"}
     ```
 
@@ -146,9 +144,7 @@ Opciones:
     * **class**: la clase que contiene la lógica de MapReduce.
     * **arg**: los argumentos que se pasarán al trabajo de MapReduce. En este caso, el archivo de texto de entrada y el directorio que se utilizan para el resultado.
 
-   Este comando debe devolver un identificador de trabajo que se pueda usar para comprobar el estado del trabajo:
-
-       job_1415651640909_0026
+   Este comando debe devolver un identificador de trabajo que se pueda usar para comprobar el estado del trabajo: `job_1415651640909_0026`.
 
 1. Para revisar el estado del trabajo, use el siguiente comando:
 

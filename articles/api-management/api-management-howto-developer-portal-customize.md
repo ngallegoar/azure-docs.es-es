@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/05/2020
 ms.author: apimpm
-ms.openlocfilehash: af7c995c11322a538dd9e27a905f1ddbc723e8ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 345b4950e25f48eb1a48c5e583908d0f771771ba
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79224892"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206246"
 ---
 # <a name="access-and-customize-developer-portal"></a>Acceso al portal para desarrolladores y su personalización
 
@@ -36,7 +36,7 @@ Puede encontrar más detalles del portal para desarrolladores en [Introducción 
 
 ![Modo de administrador del portal para desarrolladores de API Management](media/api-management-howto-developer-portal-customize/cover.png)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
 - Importe y publique una instancia de Azure API Management. Para obtener más información, consulte [Importación y publicación](import-and-publish.md).
@@ -131,6 +131,7 @@ Después de publicar el portal, puede acceder a él en la misma dirección URL q
 Debe habilitar CORS (uso compartido de recursos entre orígenes) en las API para que los visitantes del portal puedan probar las API con la consola interactiva integrada. Consulte [este artículo de la documentación](api-management-howto-developer-portal.md#cors) para más detalles.
 
 ## <a name="next-steps"></a>Pasos siguientes
+- [¿Quiere optimizar y ahorrar en el gasto en la nube?](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 Obtenga más información sobre el portal para desarrolladores:
 

@@ -2,14 +2,14 @@
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 06/28/2020
+ms.date: 07/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 37d87d9613c679bbc9060a390055ff5920185eda
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: cda0efdc3eb168ec760cbc8d7932a93ba9c079fe
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86141998"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224830"
 ---
 | Category              | Almacén de datos                                                   | [Actividad de copia](../articles/data-factory/copy-activity-overview.md) (origen/receptor) | [Flujo de datos de asignación](../articles/data-factory/concepts-data-flow-overview.md) (origen/receptor) | [Actividad Lookup](../articles/data-factory/control-flow-lookup-activity.md) | [Actividad de obtención de metadatos](../articles/data-factory/control-flow-get-metadata-activity.md)/[Actividad de validación](../articles/data-factory/control-flow-validation-activity.md) | [Eliminar actividad](../articles/data-factory/delete-activity.md) |
 | :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ | :----------------------------------------------------------- |
@@ -74,7 +74,7 @@ ms.locfileid: "86141998"
 | &nbsp;                | [Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) | ✓/✓                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Dynamics AX](../articles/data-factory/connector-dynamics-ax.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) | ✓/✓                                                          |                                                              | ✓                                                            |                                                              |                                                              |
-| &nbsp;                | [GitHub](../articles/data-factory/connector-github.md)       |                                                              | Para la referencia de entidad de Common Data Model                       |                                                              |                                                              |                                                              |
+| &nbsp;                | [GitHub](../articles/data-factory/connector-github.md) |                                                           |  <small>Para la referencia de entidad de Common Data Model</small> |              |                                                              |                                                              |
 | &nbsp;                | [Google AdWords](../articles/data-factory/connector-google-adwords.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [HubSpot (versión preliminar)](../articles/data-factory/connector-hubspot.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Jira](../articles/data-factory/connector-jira.md)           | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |

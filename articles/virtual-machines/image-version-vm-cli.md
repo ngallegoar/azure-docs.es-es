@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: f53a6b63c744b0e3e41f7ad22270cd842da57674
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 1a983fd65a4934f53643bb21c8751e90dcb9eb21
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793836"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223540"
 ---
 # <a name="create-an-image-version-from-a-vm-in-azure-using-the-azure-cli"></a>Creación de la versión de una imagen a partir de una máquina virtual de Azure mediante la CLI de Azure
 
@@ -99,9 +99,11 @@ az sig image-version create \
 > [!NOTE]
 > Deberá esperar a que la versión de la imagen termine de compilarse y replicarse por completo antes de poder usar la misma imagen administrada para crear otra versión de la imagen.
 >
-> También puede almacenar la imagen en almacenamiento Premium agregando `--storage-account-type  premium_lrs` o en [almacenamiento con redundancia de zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) agregando `--storage-account-type  standard_zrs` al crear la versión de la imagen.
+> También puede almacenar la imagen en almacenamiento Premium al agregar `--storage-account-type  premium_lrs`, o en el [almacenamiento con redundancia de zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) al agregar `--storage-account-type  standard_zrs` durante la creación de la versión de la imagen.
 >
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora puede crear una máquina virtual a partir de la [imagen generalizada](vm-generalized-image-version-cli.md) mediante la CLI de Azure.
+
+Para saber cómo proporcionar información del plan de compra, consulte [Indicación de la información del plan de compra de Azure Marketplace al crear imágenes](marketplace-images.md).

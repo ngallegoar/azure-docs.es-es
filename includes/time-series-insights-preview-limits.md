@@ -9,29 +9,29 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.custom: include file
-ms.openlocfilehash: 7bc6938523a6d66a2bc20b37c659568fc5ca494d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1171c07a754b056fb9df2cee73ddf224427037cc
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77123210"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86277835"
 ---
 ### <a name="general-availability-and-preview-comparison"></a>Comparación entre disponibilidad general y versión preliminar
 
 En la tabla siguiente se resumen varias diferencias clave entre las instancias de disponibilidad general (GA) y versión preliminar de Azure Time Series Insights.
 
-| | GA | Vista previa |
+| | Disponibilidad general | Versión preliminar |
 | --- | --- | ---|
-| Ciudadano de primera clase | Centrada en eventos | Centrada en series temporales |
-| Razonamiento semántico | Bajo nivel (datos de referencia) | Alto nivel (modelos) |
-| Contextualización de datos | Nivel no de dispositivo | Nivel de dispositivo y no de dispositivo |
-| Almacenamiento de lógica de proceso | No | Almacenado en la parte de variables de tipo del modelo |
-| Control de almacenamiento y acceso | No | Habilitado a través del modelo |
-| Agregaciones/muestreo | No | Evento ponderado y tiempo ponderado |
-| Reconstrucción de señal | No | Interpolación |
-| Producción de series temporales derivadas | No | Sí, combinaciones y uniones |
-| Flexibilidad de lenguaje | No admite composición | Admite composición |
-| Lenguaje de expresiones | Cadena de predicados | Expresiones de series temporales (cadenas de predicado, valores, expresiones y funciones) |
+| **Ciudadano de primera clase** | Centrada en eventos | Centrada en series temporales |
+| **Razonamiento semántico** | Bajo nivel (datos de referencia) | Alto nivel (modelos) |
+| **Contextualización de datos** | Nivel no de dispositivo | Nivel de dispositivo y no de dispositivo |
+| **Almacenamiento de lógica de proceso** | No | Almacenado en la parte de variables de tipo del modelo |
+| **Control de almacenamiento y acceso** | No | Habilitado a través del modelo |
+| **Agregaciones/muestreo** | No | Evento ponderado y tiempo ponderado |
+| **Reconstrucción de señal** | No | Interpolación |
+| **Producción de series temporales derivadas** | No | Sí, combinaciones y uniones |
+| **Flexibilidad de lenguaje** | No admite composición | Admite composición |
+| **Lenguaje de expresiones** | Cadena de predicados | Expresiones de series temporales (cadenas de predicado, valores, expresiones y funciones) |
 
 ### <a name="property-limits"></a>Límites de propiedad
 

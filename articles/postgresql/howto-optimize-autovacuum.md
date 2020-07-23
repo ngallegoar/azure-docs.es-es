@@ -5,18 +5,20 @@ author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 5/6/2019
-ms.openlocfilehash: 9b0e263d3b8bce9e04548f5e8433ff90d2bda274
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/09/2020
+ms.openlocfilehash: a94afc1ab970c2cd3f509c86efba4e455d46fd13
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116365"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274516"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Optimización del vaciado automático en Azure Database for PostgreSQL con un único servidor
+
 En este artículo se describe cómo optimizar con eficacia el vaciado automático en un servidor de Azure Database for PostgreSQL.
 
 ## <a name="overview-of-autovacuum"></a>Información general sobre el vaciado automático
+
 PostgreSQL usa el control de simultaneidad multiversión (MVCC) para permitir mayor simultaneidad de base de datos. Cada actualización da como resultado una inserción y eliminación, y cada proceso de eliminación da como resultado que las filas estén marcadas de forma temporal para su eliminación. El marcado temporal identifica tuplas inactivas que se purgarán más adelante. Para llevar a cabo estas tareas, PostgreSQL ejecuta un trabajo de vaciado.
 
 Puede activar un trabajo de vaciado de forma manual o automática. Aparecerán más tuplas inactivas cuando la base de datos experimente una gran cantidad de operaciones de actualización o eliminación, y aparecerán menos cuando esta esté inactiva. Cuando la carga de la base de datos es muy elevada, tiene que vaciar con más frecuencia, lo que hace poco práctico el vaciado de trabajos *manual*.
@@ -36,6 +38,7 @@ Si no vacía de vez en cuando, las tuplas inactivas que se acumulan en pueden co
 - Aumento de E/S.
 
 ## <a name="monitor-bloat-with-autovacuum-queries"></a>Supervisión del sobredimensionamiento con consultas de vaciado automático
+
 La siguiente consulta de ejemplo está diseñada para identificar el número de tuplas inactivas y activas en una tabla llamada XYZ:
 
 ```sql
@@ -43,7 +46,9 @@ SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRa
 ```
 
 ## <a name="autovacuum-configurations"></a>Configuraciones del vaciado automático
+
 Los parámetros de configuración que controlan el vaciado automático se basan en las respuestas a dos preguntas clave:
+
 - ¿Cuándo debe comenzar?
 - ¿Cuánto debe limpiar después de iniciarse?
 
@@ -55,10 +60,10 @@ autovacuum_vacuum_threshold|Especifica el número mínimo de tuplas actualizadas
 autovacuum_vacuum_scale_factor|Especifica una fracción del tamaño de la tabla para agregar a autovacuum_vacuum_threshold cuando se decide activar una operación de vaciado. El valor predeterminado es 0,2 (20 % del tamaño de la tabla). Configure este parámetro solo en el archivo postgresql.conf o en la línea de comandos del servidor. Para anular la configuración de tablas individuales, cambie los parámetros de almacenamiento de la tabla en cuestión.|0,2
 autovacuum_vacuum_cost_limit|Especifica el valor límite del costo usado en las operaciones de vaciado automáticas. Si se especifica -1, que es el valor predeterminado, se usará el valor normal vacuum_cost_limit. Si hay más de un trabajo, el valor se distribuye proporcionalmente entre los trabajos de vaciado automático en funcionamiento. La suma de los límites de cada trabajo no excede el valor de esta variable. Configure este parámetro solo en el archivo postgresql.conf o en la línea de comandos del servidor. Para anular la configuración de tablas individuales, cambie los parámetros de almacenamiento de la tabla en cuestión.|-1
 autovacuum_vacuum_cost_delay|Especifica el valor de demora del costo usado en las operaciones de vaciado automáticas. Si se especifica -1, se usa el valor normal vacuum_cost_delay. El valor predeterminado es 20 milisegundos. Configure este parámetro solo en el archivo postgresql.conf o en la línea de comandos del servidor. Para anular la configuración de tablas individuales, cambie los parámetros de almacenamiento de la tabla en cuestión.|20 ms
-autovacuum_nap_time|Especifica el retraso mínimo entre las ejecuciones de vaciado automáticas en cualquier base de datos determinada. En cada ronda, el demonio examina la base de datos y emite los comandos VACUUM y ANALYZE según sea necesario para las tablas en esa base de datos. El retraso se mide en segundos y el valor predeterminado es de un minuto (1 minuto). Configure este parámetro solo en el archivo postgresql.conf o en la línea de comandos del servidor.|15 s
-autovacuum_max_workers|Especifica el número máximo de procesos de vaciado automático (distintos del selector de vaciado automático) que pueden ejecutarse en cualquier momento. El valor predeterminado es tres. Establezca este parámetro solo al inicio del servidor.|3
+autovacuum_naptime | Especifica el retraso mínimo entre las ejecuciones de vaciado automáticas en cualquier base de datos determinada. En cada ronda, el demonio examina la base de datos y emite los comandos VACUUM y ANALYZE según sea necesario para las tablas en esa base de datos. El retraso se mide en segundos. Configure este parámetro solo en el archivo postgresql.conf o en la línea de comandos del servidor.| 15 s
+autovacuum_max_workers | Especifica el número máximo de procesos de vaciado automático (distintos del selector de vaciado automático) que pueden ejecutarse en cualquier momento. El valor predeterminado es tres. Establezca este parámetro solo al inicio del servidor.|3
 
-Para anular la configuración de tablas individuales, cambie los parámetros de almacenamiento de la tabla en cuestión. 
+Para anular la configuración de tablas individuales, cambie los parámetros de almacenamiento de la tabla en cuestión.
 
 ## <a name="autovacuum-cost"></a>Costo del vaciado automático
 
@@ -82,12 +87,14 @@ El factor de escala predeterminado de 20 % funciona bien en las tablas con un p
 Con PostgreSQL puede configurar estos parámetros a nivel de tabla o de instancia. Hoy en día, puede configurar estos parámetros a nivel de tabla solo en Azure Database for PostgreSQL.
 
 ## <a name="estimate-the-cost-of-autovacuum"></a>Estimación del costo del vaciado automático
+
 La ejecución del vaciado automático es "costosa" y hay parámetros para controlar el tiempo de ejecución de las operaciones de vaciado. Los siguientes parámetros le ayudarán a estimar el costo de ejecutar el vaciado:
+
 - vacuum_cost_page_hit = 1
 - vacuum_cost_page_miss = 10
 - vacuum_cost_page_dirty = 20
 
-El proceso de vaciado lee las páginas físicas y busca tuplas desactivadas. Se considera que cada página en shared_buffers tiene un costo de 1 (vacuum_cost_page_hit); todas las demás páginas tienen un costo de 20 (vacuum_cost_page_dirty) si existen tuplas inactivas, o de 10 (vacuum_cost_page_miss) si no existen tuplas inactivas. La operación de vaciado se detiene cuando el proceso excede el valor de autovacuum_vacuum_cost_limit. 
+El proceso de vaciado lee las páginas físicas y busca tuplas desactivadas. Se considera que cada página en shared_buffers tiene un costo de 1 (vacuum_cost_page_hit); todas las demás páginas tienen un costo de 20 (vacuum_cost_page_dirty) si existen tuplas inactivas, o de 10 (vacuum_cost_page_miss) si no existen tuplas inactivas. La operación de vaciado se detiene cuando el proceso excede el valor de autovacuum_vacuum_cost_limit.
 
 Una vez que se alcanza el límite, el proceso se detiene durante el tiempo que especificó el parámetro autovacuum_vacuum_cost_delay antes de volver a iniciarlo. Si no se alcanza el límite, el vaciado automático comienza después del valor que especificó el parámetro autovacuum_nap_time.
 

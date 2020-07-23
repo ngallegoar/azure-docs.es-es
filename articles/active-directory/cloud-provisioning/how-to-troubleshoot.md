@@ -8,12 +8,12 @@ ms.date: 12/02/2019
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 009e762b69d4f3512158d69ef3c67089096c9da7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77ea5a354dde7adb006c95e9548d8fcc37e2dc12
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360799"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256873"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>Solución de problemas de aprovisionamiento en la nube
 
@@ -55,9 +55,7 @@ Para comprobar que Azure ve el agente y que este es correcto, siga estos pasos.
 
 ### <a name="verify-the-port"></a>Comprobación del puerto
 
-Para comprobar que Azure está escuchando en el puerto 443 y que el agente puede comunicarse con él, utilice la siguiente herramienta:
-
-https://aadap-portcheck.connectorporttest.msappproxy.net/ 
+Compruebe que Azure está escuchando en el puerto 443 y que el agente puede comunicarse con él. 
 
 En esta prueba se comprobará que los agentes pueden comunicarse con Azure a través del puerto 443. Abra un explorador y vaya a la dirección URL anterior desde el servidor en el que está instalado el agente.
 

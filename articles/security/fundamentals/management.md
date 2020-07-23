@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
-ms.openlocfilehash: e1223560c5d7b19bf9da4c7c16a56c4741e582a0
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: d8baf1c70d115b80e3238d3eedf128057684d2e6
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80981314"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224713"
 ---
 # <a name="security-management-in-azure"></a>Administración de la seguridad en Azure
 Los suscriptores de Azure pueden administrar sus entornos de nube desde diversos dispositivos, incluidas estaciones de trabajo de administración, equipos de desarrollador e incluso dispositivos de usuario final con privilegios que tengan permisos específicos para la tarea. En algunos casos, las funciones administrativas se realizan mediante consolas web tales como [Azure Portal](https://azure.microsoft.com/features/azure-portal/). En otros casos, puede haber conexiones directas a Azure desde sistemas locales a través de redes privadas virtuales (VPN), Terminal Services, protocolos de aplicación de cliente o Azure Service Management API (SMAPI). Además, los puntos de conexión de cliente pueden estar unidos a un dominio o aislados y no administrados, como tabletas o smartphones.
 
 Aunque las diversas funcionalidades de administración y acceso proporcionan un amplio conjunto de opciones, esta variabilidad puede suponer un riesgo importante para una implementación en la nube y dificultar la administración, el seguimiento y la auditoría de las acciones administrativas. Esta variabilidad también puede presentar amenazas para la seguridad debidas al acceso no regulado a los puntos de conexión de cliente que se usan para administrar los servicios en la nube. El uso de estaciones de trabajo personales o generales para desarrollar y administrar infraestructuras abre la puerta a amenazas impredecibles que se producen tanto en la exploración web (por ejemplo, ataques a los sitios web más utilizados) como en el correo electrónico (tales como ingeniería social y suplantación de identidad [phishing]).
 
-![](./media/management/typical-management-network-topology.png)
+![Diagrama que muestra las distintas formas en que una amenaza puede perpetrar ataques.](./media/management/typical-management-network-topology.png)
 
 En este tipo de entorno, el riesgo de ataques es mayor porque es difícil construir las directivas y los mecanismos de seguridad para administrar correctamente el acceso a las interfaces de Azure (como SMAPI) desde puntos de conexión muy diversos.
 
@@ -157,12 +157,12 @@ Con una estación de trabajo protegida independiente, los administradores tienen
 
 En el escenario de la estación de trabajo protegida independiente (se muestra a continuación), la instancia local de Firewall de Windows (o un firewall de cliente no sea de Microsoft) está configurada para bloquear las conexiones entrantes, como RDP. El administrador puede iniciar sesión en la estación de trabajo protegida e iniciar una sesión de RDP que se conecta a Azure después de establecer una conexión de VPN con Azure Virtual Network, pero no puede iniciar sesión en un equipo corporativo ni usar RDP para conectarse a la propia estación de trabajo protegida.
 
-![](./media/management/stand-alone-hardened-workstation-topology.png)
+![Diagrama que muestra el escenario de una estación de trabajo protegida independiente.](./media/management/stand-alone-hardened-workstation-topology.png)
 
 ### <a name="corporate-pc-as-virtual-machine"></a>Equipo corporativo como máquina virtual
 En aquellos casos en los que una estación de trabajo independiente protegida sea muy cara o no resulte conveniente, la estación de trabajo protegida puede hospedar una máquina virtual para llevar a cabo tareas no administrativas.
 
-![](./media/management/hardened-workstation-enabled-with-hyper-v.png)
+![Diagrama que muestra la estación de trabajo protegida que hospeda una máquina virtual para realizar tareas no administrativas.](./media/management/hardened-workstation-enabled-with-hyper-v.png)
 
 Para evitar varios riesgos de seguridad que pueden surgir del uso de una estación de trabajo para la administración de sistemas y otras tareas del trabajo diario, puede implementar una máquina virtual de Windows Hyper-V en la estación de trabajo protegido. Esta máquina virtual puede usarse como equipo corporativo. El entorno del equipo corporativo puede permanecer aislado del host, lo que reduce la superficie de ataque y evita que las actividades diarias del usuario (por ejemplo, el correo electrónico) coexistan con tareas administrativas importantes.
 

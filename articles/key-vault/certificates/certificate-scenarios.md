@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 316a6c13b55664bdabf7c0cb3e37d7bb18b8649f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d99d211ec48a507b205c4cef21618054c11aec9b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84765104"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224866"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introducción a los certificados de Key Vault
 En los escenarios siguientes se describen algunos de los usos principales de servicio de administración de certificados de Key Vault, como los pasos adicionales necesarios para crear el primer certificado en el almacén de claves.
@@ -80,6 +80,9 @@ Nota: Este proceso, con el paso 3.1, es una operación que no tendrá que repeti
 [Operación de obtención de certificado](/rest/api/keyvault/getcertificateoperation/getcertificateoperation)  
       -   Estado: completado, erróneo con la información del error, o cancelado  
       -   Si la creación se retrasa, se puede iniciar una operación de cancelación. Puede que la cancelación se lleve a cabo o no.  
+
+### <a name="network-security-and-access-policies-associated-with-integrated-ca"></a>Directivas de acceso y seguridad de red asociadas a la entidad de certificación integrada
+El servicio Key Vault envía solicitudes a la entidad de certificación (tráfico saliente). Por lo tanto, es totalmente compatible con los almacenes de claves habilitados para el firewall. El almacén Key Vault no comparte las directivas de acceso con la entidad de certificación. La entidad de certificación debe estar configurada para aceptar solicitudes de firma de forma independiente. [Guía sobre la integración de entidad de certificación de confianza](https://docs.microsoft.com/azure/key-vault/certificates/how-to-integrate-certificate-authority)
 
 ## <a name="import-a-certificate"></a>Importación de un certificado  
  Como alternativa, se puede importar un certificado a Key Vault (PFX o PEM).  

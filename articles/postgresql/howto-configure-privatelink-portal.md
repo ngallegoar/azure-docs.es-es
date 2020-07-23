@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 6986d5882e4d62ffc2e25b7ea998f46f41c67330
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f05b70c8197283d9fa576d6ea464aa08554dd773
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102470"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206775"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Creación y administración de Private Link para el servidor único de Azure Database for PostgreSQL con el portal
 
@@ -164,7 +164,7 @@ En esta sección, creará un servidor PostgreSQL y le agregará un punto de cone
     | ------- | ----- |
     |**REDES**| |
     | Virtual network| Seleccione *MyVirtualNetwork*. |
-    | Subnet | Seleccione  *mySubnet*. |
+    | Subnet | Seleccione *mySubnet*. |
     |**INTEGRACIÓN DE DNS PRIVADO**||
     |Integración con una zona DNS privada |Seleccione **Sí**. |
     |Zona DNS privada |Seleccione *(New)privatelink.postgres.database.azure.com* |
@@ -209,7 +209,7 @@ Después de crear **myVm**, conéctese a ella desde Internet como se indica a co
 
 ## <a name="access-the-postgresql-server-privately-from-the-vm"></a>Acceso al servidor PostgreSQL de forma privada desde la VM
 
-1. En el Escritorio remoto de  *myVm*, abra PowerShell.
+1. En el Escritorio remoto de *myVm*, abra PowerShell.
 
 2. Escriba  `nslookup mydemopostgresserver.privatelink.postgres.database.azure.com`. 
 
@@ -246,7 +246,7 @@ Después de crear **myVm**, conéctese a ella desde Internet como se indica a co
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 Cuando haya terminado de usar el punto de conexión privado, el servidor PostgreSQL y la máquina virtual, elimine el grupo de recursos y todos los recursos que contiene:
 
-1. Escriba *myResourceGroup* en el cuadro **Buscar** de la parte superior del portal y seleccione *myResourceGroup* en los resultados de la búsqueda.
+1. Escriba *myResourceGroup* en el cuadro **Buscar** de la parte superior del portal y seleccione  *myResourceGroup*  en los resultados.
 2. Seleccione **Eliminar grupo de recursos**.
 3. Escriba myResourceGroup en **ESCRIBA EL NOMBRE DEL GRUPO DE RECURSOS** y seleccione **Eliminar**.
 

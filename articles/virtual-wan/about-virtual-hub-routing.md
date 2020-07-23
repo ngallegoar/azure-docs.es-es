@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 368440976558730bd7bb9600a0bf45c56d1ee300
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 659cb9aabe5fcca68aea9a73ea9beadb8e52ec50
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147381"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259173"
 ---
 # <a name="about-virtual-hub-routing"></a>Acerca del enrutamiento de centros virtuales
 
@@ -63,6 +63,9 @@ También está disponible una **tabla de rutas None** para cada centro virtual. 
 ### <a name="configuring-static-routes-in-a-virtual-network-connection"></a><a name="static"></a>Configuración de rutas estáticas en una conexión de red virtual
 
 La configuración de rutas estáticas proporciona un mecanismo para dirigir el tráfico a través de una dirección IP de próximo salto, que podría ser de una aplicación virtual de red (NVA) aprovisionada en una red virtual radial conectada a un centro virtual. La ruta estática se compone de un nombre de ruta, una lista de prefijos de destino y una dirección IP de próximo salto.
+
+## <a name="reset-hub"></a><a name="route"></a>Restablecimiento del centro
+Esta opción solo está disponible en Azure Portal y proporciona al usuario una forma de devolver todos los recursos con errores, como las tablas de enrutamiento, el enrutador del centro o el propio recurso del centro virtual a su estado de aprovisionamiento correcto. Esta es una opción adicional que el usuario debe tener en cuenta antes de ponerse en contacto con Microsoft para recibir soporte técnico. Esta operación no restablece ninguna de las puertas de enlace de ningún centro virtual. 
 
 ## <a name="route-tables-in-basic-and-standard-virtual-wans-prior-to-the-feature-set-of-association-and-propagation"></a><a name="route"></a>Tablas de ruta en las versiones Básico y Estándar de Virtual WAN antes del conjunto de características de asociación y propagación
 

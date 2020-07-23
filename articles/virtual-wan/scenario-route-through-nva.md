@@ -8,16 +8,22 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0716ca8f0457ca801098c97dd7a5e68751822d4d
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: ed64b9d281cfbbf8202a99335ea2759b27a6fc42
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848093"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142971"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Escenario: Enrutamiento del tráfico a través de una aplicación virtual de red
 
 Al trabajar con el enrutamiento de centros virtuales de Virtual WAN, hay bastantes escenarios disponibles. En este escenario de NVA, el objetivo consiste en enrutar el tráfico a través de una NVA (aplicación virtual de red) para rama a red virtual y red virtual a rama. Para obtener información sobre el enrutamiento de centros virtuales, vea [Acerca del enrutamiento de centros virtuales](about-virtual-hub-routing.md).
+
+> [!NOTE]
+> Es posible que algunas de estas funcionalidades de enrutamiento todavía se estén implementando. Si la implementación no se ha producido todavía en su región, siga los pasos descritos en estas versiones de los artículos mientras tanto:
+>* [Artículo de Azure Portal](virtual-wan-route-table-nva-portal.md)
+>* [Artículo de PowerShell](virtual-wan-route-table-nva.md)
+>
 
 ## <a name="scenario-architecture"></a><a name="architecture"></a>Arquitectura del escenario
 

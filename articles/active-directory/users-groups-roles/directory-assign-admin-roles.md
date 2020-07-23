@@ -1,5 +1,5 @@
 ---
-title: 'Permisos y descripciones de roles de administrador: Azure AD | Microsoft Docs'
+title: Descripciones y permisos del rol de Azure AD| Microsoft Docs
 description: Un rol de administrador puede agregar usuarios, asignar roles administrativos, restablecer contraseñas de usuario, administrar licencias de usuario o administrar dominios.
 services: active-directory
 author: curtand
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 04/29/2020
+ms.date: 06/15/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1e648058e866be57deaf8dd159c89fc08141b68
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: dd0d17732991fd97b2406c9c5f182408f4746d96
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166678"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223880"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permisos de roles de administrador en Azure Active Directory
 
@@ -42,6 +42,11 @@ Es posible que uno o varios roles se hayan agregado a Azure AD que proporcionan
 ## <a name="assign-or-remove-administrator-roles"></a>Asignación o eliminación de roles de administrador
 
 Para obtener información sobre cómo asignar roles administrativos a un usuario en Azure Active Directory, consulte [Ver y asignar roles de administrador en Azure Active Directory](directory-manage-roles-portal.md).
+
+> [!Note]
+> Si tiene una licencia de Azure AD Premium P2 y ya es un usuario Privileged Identity Management (PIM), todas las tareas de administración de roles se llevan a cabo en Privilege Identity Management y no en Azure AD.
+>
+> ![Roles de Azure AD administrados en PIM para los usuarios que ya usan PIM y tienen una licencia Premium P2](./media/directory-manage-roles-portal/pim-manages-roles-for-p2.png)
 
 ## <a name="available-roles"></a>Roles disponibles
 
@@ -180,6 +185,7 @@ este rol está disponible solo para la asignación como un administrador local a
 ### <a name="directory-readers"></a>[Lectores de directorio](#directory-readers-permissions)
 
 Los usuarios que tienen este rol pueden leer la información básica del directorio. Debe utilizarse para:
+
 * Conceder acceso de lectura a un conjunto específico de usuarios invitados, en lugar de hacerlo para todos los usuarios invitados.
 * Conceder acceso a Azure Portal a un conjunto específico de usuarios que no sean administradores cuando la opción "Restringir el acceso al portal de administración de Azure AD" esté establecida en "Sí".
 * Conceder acceso a las entidades de servicio a aquellos directorios en los que Directory.Read.All no sea una opción.
@@ -309,6 +315,7 @@ los usuarios con este rol pueden supervisar todas las notificaciones del Centro 
 los usuarios con este rol pueden supervisar las notificaciones y las actualizaciones de mantenimiento de aviso en el [Centro de mensajes de Office 365](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) para su organización en los servicios configurados, como Exchange, Intune y Microsoft Teams. Los lectores del centro de mensajes reciben semanal resúmenes de correo electrónico de publicaciones y actualizaciones y pueden compartir entradas del centro de mensajes en Office 365. En Azure AD, los usuarios asignados a este rol solo tendrán acceso de solo lectura en los servicios de Azure AD, como usuarios y grupos. Este rol no tiene acceso para ver, crear o administrar incidencias de soporte técnico.
 
 ### <a name="modern-commerce-administrator"></a>[Administrador de comercio moderno](#modern-commerce-administrator-permissions)
+
 No debe usarse. Este rol se asigna automáticamente al servicio desde el comercio y no está previsto ni se admite para ningún otro uso. Vea los detalles a continuación.
 
 El rol de administrador de comercio moderno concede a ciertos usuarios permiso para acceder al centro de administración de Microsoft 365 y ver las entradas de navegación izquierda para **Inicio**, **Facturación** y **Soporte**. El contenido disponible en estas áreas se controla mediante [roles específicos de comercio](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-mca-roles) asignados a los usuarios para administrar los productos que han comprado para ellos mismos o para su organización. Esto puede incluir tareas como el pago de facturas o el acceso a cuentas de facturación y perfiles de facturación. 
@@ -316,17 +323,17 @@ El rol de administrador de comercio moderno concede a ciertos usuarios permiso p
 Normalmente, los usuarios con el rol de administrador de comercio moderno tienen permisos administrativos en otros sistemas de adquisición de Microsoft, pero no tienen roles de Administrador global o de Administrador de facturación usados para acceder al centro de administración. 
 
 **¿Cuándo se asigna el rol de administrador de comercio moderno?**
+
 * **Compra de autoservicio en el centro de administración de Microsoft 365**: la compra de autoservicio proporciona a los usuarios la oportunidad de probar nuevos productos comprando o suscribiéndose ellos mismos. Estos productos se administran en el centro de administración. A los usuarios que realizan una compra de autoservicio se les asigna un rol en el sistema de comercio y el rol de administrador de comercio moderno para que puedan administrar sus compras en el centro de administración. Los administradores pueden bloquear las compras de autoservicio (para Power BI, Power Apps, Power Automatic) mediante [PowerShell](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). Para más información, consulte [preguntas más frecuentes sobre compras de autoservicio](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide).  
-* **Compras de Marketplace comercial de Microsoft**: similar a la compra de autoservicio, cuando un usuario adquiere un producto o servicio de Microsoft AppSource o de Azure Marketplace, se asigna el rol de administrador de comercio moderno si no tiene el rol administrador global o administrador de facturación. En algunos casos, es posible que los usuarios no puedan realizar estas compras. Para más información, consulte [Marketplace comercial de Microsoft](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase).   
-* **Propuestas de Microsoft**: una propuesta es una oferta formal de Microsoft para que su organización compre productos y servicios de Microsoft. Cuando la persona que acepta la propuesta no tiene un rol de administrador global o administrador de facturación en Azure AD, se le asigna un rol específico del comercio para completar la propuesta y el rol de administrador de comercio moderno para acceder al centro de administración. Cuando acceden al centro de administración, solo pueden usar características autorizadas por su rol específico de comercio. 
+* **Compras de Marketplace comercial de Microsoft**: similar a la compra de autoservicio, cuando un usuario adquiere un producto o servicio de Microsoft AppSource o de Azure Marketplace, se asigna el rol de administrador de comercio moderno si no tiene el rol administrador global o administrador de facturación. En algunos casos, es posible que los usuarios no puedan realizar estas compras. Para más información, consulte [Marketplace comercial de Microsoft](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase).
+* **Propuestas de Microsoft**: una propuesta es una oferta formal de Microsoft para que su organización compre productos y servicios de Microsoft. Cuando la persona que acepta la propuesta no tiene un rol de administrador global o administrador de facturación en Azure AD, se le asigna un rol específico del comercio para completar la propuesta y el rol de administrador de comercio moderno para acceder al centro de administración. Cuando acceden al centro de administración, solo pueden usar características autorizadas por su rol específico de comercio.
 * **Roles específicos de comercio**: a algunos usuarios se les asignan roles específicos de comercio. Si un usuario no es un administrador global o de facturación, obtiene el rol de administrador de comercio moderno para que pueda acceder al centro de administración.  
 
-Si el rol de administrador de comercio moderno no está asignado a un usuario, pierde el acceso al centro de administración de Microsoft 365. Si estuvieran administrando cualquier producto, ya sea por sí mismos o para su organización, no podrán administrarlos. Esto puede incluir la asignación de licencias, el cambio de métodos de pago, el pago de facturas u otras tareas para administrar las suscripciones. 
+Si el rol de administrador de comercio moderno no está asignado a un usuario, pierde el acceso al centro de administración de Microsoft 365. Si estuvieran administrando cualquier producto, ya sea por sí mismos o para su organización, no podrán administrarlos. Esto puede incluir la asignación de licencias, el cambio de métodos de pago, el pago de facturas u otras tareas para administrar las suscripciones.
 
 ### <a name="network-administrator"></a>[Administrador de red](#network-administrator-permissions)
 
-Los usuarios de este rol pueden revisar las recomendaciones de la arquitectura de perímetro de red de Microsoft que se basan en la telemetría de red desde sus ubicaciones de usuario. El rendimiento de red para Office 365 se basa en una arquitectura de perímetro de red de cliente empresarial rigurosa que suele ser específica de la ubicación del usuario. Este rol permite la edición de ubicaciones de usuario detectadas y la configuración de parámetros de red para esas ubicaciones con el fin de facilitar la mejora de las medidas de telemetría y las recomendaciones de diseño. 
-
+Los usuarios de este rol pueden revisar las recomendaciones de la arquitectura de perímetro de red de Microsoft que se basan en la telemetría de red desde sus ubicaciones de usuario. El rendimiento de red para Office 365 se basa en una arquitectura de perímetro de red de cliente empresarial rigurosa que suele ser específica de la ubicación del usuario. Este rol permite la edición de ubicaciones de usuario detectadas y la configuración de parámetros de red para esas ubicaciones con el fin de facilitar la mejora de las medidas de telemetría y las recomendaciones de diseño.
 ### <a name="office-apps-administrator"></a>[Administrador de aplicaciones de Office](#office-apps-administrator-permissions)
 
 Los usuarios de este rol pueden administrar la configuración de la nube de las aplicaciones de Office 365. Esto incluye la administración de directivas en la nube, la administración de la descarga de autoservicio y la capacidad de ver el informe relacionado con las aplicaciones de Office. Este rol además ofrece la capacidad de crear y administrar las incidencias de soporte técnico y supervisar el estado del servicio. Los usuarios asignados a este rol también pueden administrar la comunicación de las nuevas características de las aplicaciones de Office. 
@@ -460,7 +467,7 @@ los usuarios con este rol tienen permisos globales en Microsoft SharePoint Onlin
 > En Microsoft Graph API y Azure AD PowerShell, este rol se identifica como "Administrador de servicios de SharePoint". En [Azure Portal](https://portal.azure.com) es "Administrador de SharePoint".
 
 > [!NOTE]
-> Este rol también concede permisos de ámbito a Microsoft Graph API para Microsoft Intune, lo que facilita la administración y configuración de directivas relacionadas con los recursos de SharePoint y Onedrive.
+> Este rol también concede permisos de ámbito a Microsoft Graph API para Microsoft Intune, lo que facilita la administración y configuración de directivas relacionadas con los recursos de SharePoint y OneDrive.
 
 ### <a name="skype-for-business--lync-administrator"></a>[Administrador de Skype Empresarial o Lync](#lync-service-administrator-permissions)
 
@@ -487,13 +494,13 @@ los usuarios con este rol pueden administrar todos los aspectos de la carga de t
 
 ### <a name="user-administrator"></a>[Administrador de usuarios](#user-administrator-permissions)
 
-los usuarios con este rol pueden crear y administrar todos los aspectos de los usuarios con algunas restricciones (véase la información siguiente) y pueden actualizar las directivas de expiración de las contraseñas. Además, los usuarios con este rol pueden crear y administrar todos los grupos. Este rol también incluye la capacidad de crear y administrar vistas de usuarios, administrar las incidencias de soporte técnico y supervisar el estado del servicio. Los administradores de usuarios no tienen permiso para administrar algunas propiedades de usuario en la mayoría de los roles de administrador. El usuario con este rol no tiene los permisos para administrar MFA. En la tabla siguiente se indican los roles que son excepciones a esta restricción.
+Los usuarios con este rol pueden crear y administrar todos los aspectos de los usuarios con algunas restricciones (vea la tabla) y pueden actualizar las directivas de expiración de las contraseñas. Además, los usuarios con este rol pueden crear y administrar todos los grupos. Este rol también incluye la capacidad de crear y administrar vistas de usuarios, administrar las incidencias de soporte técnico y supervisar el estado del servicio. Los administradores de usuarios no tienen permiso para administrar algunas propiedades de usuario en la mayoría de los roles de administrador. El usuario con este rol no tiene los permisos para administrar MFA. En la tabla siguiente se indican los roles que son excepciones a esta restricción.
 
-| Permiso | Puede hacer |
+| **Permiso** | **Puede hacer** |
 | --- | --- |
 |Permisos globales|<p>Creación de usuarios y grupos</p><p>Crear y administrar vistas de usuario</p><p>Administrar incidencias de soporte técnico de Office<p>Actualización de directivas de expiración de contraseñas|
-|<p>En todos los usuarios, incluidos todos los administradores</p>|<p>Administrar licencias</p><p>Administrar todas las propiedades de usuario, excepto el nombre principal de usuario</p>
-|Solo en los usuarios que no son administradores o en cualquiera de los siguientes roles de administrador limitados:<ul><li>Lectores de directorios<li>Invitador de usuarios<li>Administrador del departamento de soporte técnico<li>Lector del Centro de mensajes<li>Lector de informes<li>Administrador de usuarios|<p>Eliminar y restaurar</p><p>Deshabilitar y habilitar</p><p>Invalidar tokens de actualización</p><p>Administrar todas las propiedades de usuario, incluido el nombre principal de usuario</p><p>Restablecimiento de contraseña</p><p>Actualizar las claves de dispositivo (FIDO)</p>|
+| <p>En todos los usuarios, incluidos todos los administradores</p>|<p>Administrar licencias</p><p>Administrar todas las propiedades de usuario, excepto el nombre principal de usuario</p>
+| Solo en los usuarios que no son administradores o en cualquiera de los siguientes roles de administrador limitados:<ul><li>Lectores de directorios<li>Invitador de usuarios<li>Administrador del departamento de soporte técnico<li>Lector del Centro de mensajes<li>Lector de informes<li>Administrador de usuarios|<p>Eliminar y restaurar</p><p>Deshabilitar y habilitar</p><p>Invalidar tokens de actualización</p><p>Administrar todas las propiedades de usuario, incluido el nombre principal de usuario</p><p>Restablecimiento de contraseña</p><p>Actualizar las claves de dispositivo (FIDO)</p>|
 
 > [!IMPORTANT]
 > Los usuarios con este rol pueden cambiar las contraseñas de las personas que pueden tener acceso a información confidencial o privada o configuración crítica dentro y fuera de Azure Active Directory. Cambiar la contraseña de un usuario puede significar la capacidad de asumir la identidad y los permisos del usuario. Por ejemplo:

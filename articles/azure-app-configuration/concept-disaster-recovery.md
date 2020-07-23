@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 96ef09ac081aa328014217592a7fcd3ed6314c0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5c62f10d67345d68cde27af7d0a7663b22d978a0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77523771"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207189"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Resistencia y recuperación ante desastres
 
@@ -64,7 +64,11 @@ Observe el parámetro `optional` pasado a la función `AddAzureAppConfiguration`
 
 ## <a name="synchronization-between-configuration-stores"></a>Sincronización entre los almacenes de configuración
 
-Es importante que los almacenes de configuración con redundancia geográfica tengan todos el mismo conjunto de datos. Puede usar la función **Exportar** de App Configuration para copiar datos del almacén principal al secundario a petición. Esta función está disponible mediante Azure Portal y la CLI.
+Es importante que los almacenes de configuración con redundancia geográfica tengan todos el mismo conjunto de datos. Hay dos formas de lograrlo:
+
+### <a name="backup-manually-using-the-export-function"></a>Copia de seguridad manual mediante la función Exportar
+
+Puede usar la función **Exportar** de App Configuration para copiar datos del almacén principal al secundario a petición. Esta función está disponible mediante Azure Portal y la CLI.
 
 En Azure Portal, puede insertar un cambio en otro almacén de configuración mediante estos pasos.
 
@@ -72,15 +76,19 @@ En Azure Portal, puede insertar un cambio en otro almacén de configuración med
 
 1. En la nueva hoja que se abre, especifique la suscripción, el grupo de recursos y el nombre del recurso del almacén secundario y, luego, seleccione **Aplicar**.
 
-1. La interfaz de usuario se actualiza para que pueda elegir qué datos de configuración quiere exportar al almacén secundario. Puede dejar el valor de tiempo predeterminado tal cual y establecer **De la etiqueta** y **Para etiquetar** en el mismo valor. Seleccione **Aplicar**.
+1. La interfaz de usuario se actualiza para que pueda elegir qué datos de configuración quiere exportar al almacén secundario. Puede dejar el valor de tiempo predeterminado tal cual y establecer **De la etiqueta** y **Etiquetar** en el mismo valor. Seleccione **Aplicar**. Repita este paso para todas las etiquetas del almacén principal.
 
-1. Repita los pasos anteriores con todos los cambios de configuración.
+1. Repita los pasos anteriores cada vez que cambie la configuración.
 
-Para automatizar este proceso de exportación, use la CLI de Azure. El comando siguiente muestra cómo exportar un único cambio de configuración del almacén principal al secundario:
+También puede realizar el proceso de exportación mediante la CLI de Azure. El comando siguiente muestra cómo exportar todas las configuraciones del almacén principal al secundario:
 
 ```azurecli
-    az appconfig kv export --destination appconfig --name {PrimaryStore} --label {Label} --dest-name {SecondaryStore} --dest-label {Label}
+    az appconfig kv export --destination appconfig --name {PrimaryStore} --dest-name {SecondaryStore} --label * --preserve-labels -y
 ```
+
+### <a name="backup-automatically-using-azure-functions"></a>Copia de seguridad automática con Azure Functions
+
+El proceso de copia de seguridad se puede automatizar mediante Azure Functions. Con ello se aprovecha la integración con Azure Event Grid en App Configuration. Una vez configurada, App Configuration publicará eventos en Event Grid para cualquier cambio realizado en los valores de clave de un almacén de configuración. De este modo, una aplicación de Azure Functions puede escuchar estos eventos y realizar una copia de seguridad de los datos en consecuencia con los mismos. Para más información, consulte el tutorial sobre [Procedimientos para la realización de copias de seguridad de los almacenes de App Configuration automáticamente](./howto-backup-config-store.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

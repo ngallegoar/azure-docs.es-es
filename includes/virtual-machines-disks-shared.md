@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/08/2020
+ms.date: 07/10/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6e7294f10ba094a1adaae399187fb9973397a561
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: 2589c2abf13edc19b930d597a4d75a2be823f45d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83868095"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86277722"
 ---
 Los discos compartidos de Azure (versión preliminar) son una nueva característica de Azure Managed Disks que permite adjuntar un disco administrado en varias máquinas virtuales (VM) al mismo tiempo. Si adjunta un disco administrado en varias VM, podrá implementar nuevas aplicaciones en clúster o migrar las existentes a Azure.
 
@@ -41,7 +41,7 @@ La mayoría de los clústeres basados en Windows se compilan en WSFC, que contro
 
 Entre las aplicaciones populares que se ejecutan en WSFC se incluyen:
 
-- Instancias del clúster de conmutación por error (FCI) de SQL Server Versions
+- [Creación de una FCI con discos compartidos de Azure (SQL Server en VM de Azure)](../articles/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md)
 - Servidor de archivos de escalabilidad horizontal (SoFS)
 - Servidor de archivos para uso general (carga de trabajo IW)
 - Disco de perfil de usuario del servidor de Escritorio remoto (RDS UPD)
@@ -87,7 +87,12 @@ Ultra Disks ofrece una limitación adicional, para un total de dos limitaciones.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="Imagen de una tabla que muestra el acceso ReadOnly (de solo lectura) o Read/Write (de lectura y escritura) para el Reservation Holder (titular de reserva), el Registered (registrado) y Others (otros).":::
 
-## <a name="ultra-disk-performance-throttles"></a>Limitaciones de rendimiento de Ultra Disks
+## <a name="performance-throttles"></a>Limitaciones de rendimiento
+
+### <a name="premium-ssd-performance-throttles"></a>Limitaciones de rendimiento de SSD Premium
+Con SSD Premium, la IOPS y el rendimiento del disco son fijos, por ejemplo, la IOPS de un P30 es 5000. Este valor permanece si el disco se comparte entre 2 máquinas virtuales o 5 máquinas virtuales. Los límites de disco se pueden alcanzar desde una sola máquina virtual o dividirse entre dos o más máquinas virtuales. 
+
+### <a name="ultra-disk-performance-throttles"></a>Limitaciones de rendimiento de Ultra Disks
 
 Ultra Disks tiene la capacidad única de permitirle establecer el rendimiento mediante la exposición de atributos modificables y la posibilidad de modificarlos. De forma predeterminada, solo hay dos atributos modificables, pero las instancias compartidas de Ultra Disks tienen dos atributos adicionales.
 
@@ -111,23 +116,23 @@ Las fórmulas siguientes explican cómo se pueden establecer los atributos de re
     - El límite de rendimiento de un solo disco es de 256 KiB/s por cada IOPS aprovisionada, y hasta 2000 MBps como máximo por disco.
     - El rendimiento mínimo garantizado por disco es 4 KiB/s por cada IOPS aprovisionada, con una base de referencia total mínima de 1 MBps.
 
-### <a name="examples"></a>Ejemplos
+#### <a name="examples"></a>Ejemplos
 
 En los siguientes ejemplos se muestran algunos escenarios en los que se muestra cómo la limitación puede funcionar, en concreto, con instancias compartidas de Ultra Disks.
 
-#### <a name="two-nodes-cluster-using-cluster-shared-volumes"></a>Clúster de dos nodos con volúmenes compartidos en clúster
+##### <a name="two-nodes-cluster-using-cluster-shared-volumes"></a>Clúster de dos nodos con volúmenes compartidos en clúster
 
 A continuación, se presenta un ejemplo de un WSFC de dos nodos mediante volúmenes compartidos en clúster. Con esta configuración, ambas máquinas virtuales tienen acceso de escritura simultáneo al disco, lo que da lugar a que se divida la limitación de lectura y escritura entre las dos máquinas virtuales y a que no se use la limitación de solo lectura.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="Ejemplo de disco Ultra de dos nodos en CSV":::
 
-#### <a name="two-node-cluster-without-cluster-share-volumes"></a>Clúster de dos nodos sin volúmenes compartidos en clúster
+##### <a name="two-node-cluster-without-cluster-share-volumes"></a>Clúster de dos nodos sin volúmenes compartidos en clúster
 
 A continuación, se presenta un ejemplo de un WSFC de dos nodos que no usa volúmenes compartidos en clúster. Con esta configuración, solo una máquina virtual tiene acceso de escritura al disco. Esto da como resultado que la limitación de lectura y escritura se use exclusivamente para la máquina virtual principal y que solo la secundaria use la limitación de solo lectura.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Ejemplo de disco Ultra no CSV de dos nodos en CSV":::
 
-#### <a name="four-node-linux-cluster"></a>Clúster Linux de cuatro nodos
+##### <a name="four-node-linux-cluster"></a>Clúster Linux de cuatro nodos
 
 A continuación, se proporciona un ejemplo de un clúster Linux de cuatro nodos con un solo escritor y tres lectores de escalabilidad horizontal. Con esta configuración, solo una máquina virtual tiene acceso de escritura al disco. Esto da como resultado que la limitación de lectura y escritura se use exclusivamente para la máquina virtual principal y que la limitación de solo lectura se divida entre las máquinas virtuales secundarias.
 

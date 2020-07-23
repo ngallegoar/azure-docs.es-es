@@ -5,12 +5,12 @@ author: stevelas
 ms.topic: article
 ms.date: 05/11/2020
 ms.author: stevelas
-ms.openlocfilehash: 35525906135db02c453c55d8798e1405396c8598
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 315de5151547c4339255639cb65d1be30f7213ff
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84508801"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247139"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replicación geográfica en Azure Container Registry
 
@@ -28,7 +28,7 @@ Un registro con replicación geográfica le proporciona las siguientes ventajas:
 >
 
 ## <a name="example-use-case"></a>Ejemplo de caso de uso
-Contoso ejecuta un sitio web de presencia pública ubicado en los Estados Unidos, Canadá y Europa. Para poder atender a estos mercados con contenido local y cercano a la red, Contoso ejecuta los clústeres de [Azure Kubernetes Service](/azure/aks/) (AKS) en el Este y Oeste de EE. UU, Centro de Canadá y Oeste de Europa. La aplicación del sitio web se implementa como una imagen de Docker y utiliza el mismo código e imagen en todas las regiones. El contenido (que es local en esa región) se recupera de una base de datos que se aprovisiona de forma única en cada región. Cada implementación regional tiene su configuración única para recursos tales como la base de datos local.
+Contoso ejecuta un sitio web de presencia pública ubicado en los Estados Unidos, Canadá y Europa. Para poder atender a estos mercados con contenido local y cercano a la red, Contoso ejecuta los clústeres de [Azure Kubernetes Service](../aks/index.yml) (AKS) en el Este y Oeste de EE. UU, Centro de Canadá y Oeste de Europa. La aplicación del sitio web se implementa como una imagen de Docker y utiliza el mismo código e imagen en todas las regiones. El contenido (que es local en esa región) se recupera de una base de datos que se aprovisiona de forma única en cada región. Cada implementación regional tiene su configuración única para recursos tales como la base de datos local.
 
 El equipo de desarrollo que está ubicado en Seattle (WA) usará el centro de datos del Oeste de EE. UU.
 

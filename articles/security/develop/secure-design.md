@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 533f287693ca8aac76a3233674d95f3f49d4ae22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0cffbd1fa09abef9853e0ef853696c3c8ed353c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82857161"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246816"
 ---
 # <a name="design-secure-applications-on-azure"></a>Diseño de aplicaciones seguras en Azure
 En esta serie de artículos se presentan las actividades y controles de seguridad que hay que tener en cuenta al diseñar aplicaciones para la nube. Se abarcan los recursos de entrenamiento junto con los conceptos y preguntas de seguridad que se han de tener en cuenta durante las fases de diseño y requisitos del [ciclo de vida de desarrollo de seguridad (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) de Microsoft. El objetivo es ayudarle a definir actividades y servicios de Azure que pueden usarse para diseñar una aplicación más segura.
@@ -209,7 +209,7 @@ Use la autenticación en dos fases. La autenticación en dos fases es el estánd
 
 Use los mecanismos de autenticación y autorización proporcionados en la plataforma en lugar del código personalizado. Esto se debe a que el desarrollo de código de autenticación personalizado puede resultar propenso a errores. El código comercial (por ejemplo, de Microsoft) suele revisarse de manera amplia a efectos de seguridad. [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) es la solución de Azure para la administración de identidades y de acceso. Estas herramientas y servicios de Azure AD contribuyen a un desarrollo seguro:
 
-- La [plataforma de identidad de Azure AD (Azure AD para desarrolladores)](../../active-directory/develop/about-microsoft-identity-platform.md) es un servicio de identidad en la nube que usan los desarrolladores para compilar aplicaciones con inicio de sesión de usuarios seguro. Azure AD ayuda tanto a desarrolladores que compilan aplicaciones de línea de negocio (LOB) de inquilino único como a desarrolladores que quieren desarrollar aplicaciones multiinquilino. Además del inicio de sesión básico, las aplicaciones que se compilan mediante Azure AD pueden llamar a las API de Microsoft y a las API personalizadas que se basan en la plataforma de Azure AD. La plataforma de identidad de Azure AD admite protocolos estándar del sector tales como OAuth 2.0 y OpenID Connect.
+- La [plataforma de identidad de Microsoft](/azure/active-directory/develop/) es un conjunto de componentes que los desarrolladores usan para compilar aplicaciones que permiten el inicio de sesión seguro de los usuarios. La plataforma ayuda tanto a desarrolladores que compilan aplicaciones de línea de negocio (LOB) de inquilino único como a desarrolladores que quieren desarrollar aplicaciones multiinquilino. Además del inicio de sesión básico, las aplicaciones compiladas con la plataforma de identidad de Microsoft pueden llamar a las API de Microsoft y a API personalizadas. La plataforma de identidad de Microsoft admite protocolos estándar del sector tales como OAuth 2.0 y OpenID Connect.
 
 - [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml) es un servicio de administración de identidades que puede usar para personalizar y controlar la manera en que los clientes se registran, inician sesión y administran sus perfiles al usar las aplicaciones. Esto incluye las aplicaciones que se desarrollan para iOS, Android y .NET, entre otros. Azure AD B2C permite estas acciones al tiempo que protege las identidades de los clientes.
 

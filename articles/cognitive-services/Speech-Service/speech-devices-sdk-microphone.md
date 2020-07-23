@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
-ms.openlocfilehash: a87bdd7a55036e8b70f0bc5816d2b587c1569202
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eace63effdbd62d8f08395aa16683627b475a963
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77168136"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232532"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Recomendaciones de matriz de micrófonos del SDK de dispositivos de voz
 
@@ -27,7 +27,7 @@ El SDK de dispositivos de voz funciona mejor con una matriz de micrófonos que s
 
 Se recomiendan las geometrías de matriz siguientes para su uso con la pila de audio de Microsoft. La ubicación de las fuentes de sonido y el rechazo del ruido ambiental se han mejorado con un número mayor de micrófonos con dependencias de aplicaciones y escenarios de usuario específicos, y el factor de forma del dispositivo.
 
-|     | Matriz circular |     | Matriz lineal |     |
+| Micrófonos y geometría | Matriz circular | Matriz circular | Matriz lineal | Matriz lineal |
 | --- | -------------- | --- | ------------ | --- |
 |     | <img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/> | <img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/> |
 | \# Micrófonos | 7 | 4 | 4 | 2 |

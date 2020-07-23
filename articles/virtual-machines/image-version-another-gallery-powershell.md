@@ -1,5 +1,5 @@
 ---
-title: Copia de una imagen desde otra galería
+title: Copia de una imagen de otra galería mediante PowerShell
 description: Copie una imagen de otra galería mediante Azure PowerShell.
 author: cynthn
 ms.service: virtual-machines
@@ -9,14 +9,14 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 10cd8514b529f29f68ea3df14cdc208dd8fdd556
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 1fe26a880979a431e456d9a1819dfd1b18d25f77
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793944"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221228"
 ---
-# <a name="copy-an-image-from-another-gallery"></a>Copia de una imagen desde otra galería
+# <a name="copy-an-image-from-another-gallery-using-powershell"></a>Copia de una imagen de otra galería mediante PowerShell
 
 Si tiene varias galerías en la organización, puede crear imágenes a partir de imágenes que estén almacenadas en otras galerías. Por ejemplo, puede tener una galería de desarrollo y pruebas para crear y probar imágenes nuevas. Cuando estén listas para usarse en producción, puede copiarlas a una galería de producción con este ejemplo. También pueda usar la [CLI de Azure](image-version-another-gallery-cli.md) para crear una imagen a partir de una imagen en otra galería.
 
@@ -165,3 +165,5 @@ $job.State
 Cree una máquina virtual a partir de una versión de imagen [generalizada](vm-generalized-image-version-powershell.md) o [especializada](vm-specialized-image-version-powershell.md).
 
 [Azure Image Builder (versión preliminar)](./linux/image-builder-overview.md) puede ayudar a automatizar la creación de versiones de la imagen, incluso se puede usar para actualizar y [crear una nueva versión de la imagen a partir de una versión de imagen existente](./linux/image-builder-gallery-update-image-version.md). 
+
+Para saber cómo proporcionar información del plan de compra, consulte [Indicación de la información del plan de compra de Azure Marketplace al crear imágenes](marketplace-images.md).

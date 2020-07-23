@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: how-to
-ms.date: 06/03/2019
+ms.topic: article
+ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 4e16f57d7a8ee10ef870ac102c5458cea4946304
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34b1ce42850fcefcc2b0d146e7f33d720fd8062d
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608254"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202534"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Use la interfaz de usuario web local para administrar los dispositivos Data Box y Data Box Heavy
 
@@ -28,6 +28,8 @@ Este artículo incluye los siguientes tutoriales:
 - Descarga de los archivos del manifiesto o la lista de materiales
 - Ver la capacidad disponible del dispositivo
 - Omitir la validación de la suma de comprobación
+
+[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="generate-support-package"></a>Generar un paquete de soporte técnico
 
@@ -80,9 +82,9 @@ Para reiniciar su Data Box, realice los pasos siguientes.
 
 ## <a name="download-bom-or-manifest-files"></a>Descarga de los archivos del manifiesto o la lista de materiales
 
-Los archivos del manifiesto o la lista de materiales (BOM) contienen la lista de archivos que se copian en Data Box o en Data Box Heavy. Estos archivos se generan al preparar el dispositivo para el envío.
+Los archivos del manifiesto o la lista de materiales (BOM) contienen la lista de archivos que se copian en Data Box o en Data Box Heavy. Estos archivos se generan para un pedido de importación al preparar el dispositivo para el envío.
 
-Antes de comenzar, asegúrese de completar en el dispositivo el paso **Preparación para el envío**. Siga estos pasos para descargar los archivos del manifiesto o la lista de materiales:
+Antes de comenzar, asegúrese de completar en el dispositivo el paso **Preparación para el envío**. Siga estos pasos para descargar los archivos de manifiesto o la lista de materiales para el pedido de importación:
 
 1. Vaya a la interfaz de usuario web local de su dispositivo. Ahí podrá ver si el dispositivo ha completado la preparación para el envío. Una vez completada la preparación del dispositivo, su estado se muestra como **Listo para el envío**.
 
@@ -102,7 +104,7 @@ Antes de comenzar, asegúrese de completar en el dispositivo el paso **Preparaci
     |---------|---------|---------|
     |databoxe2etest_BlockBlob.txt     |Blobs en bloques         |SMB/NFS         |
     |databoxe2etest_PageBlob.txt     |Blobs en páginas         |SMB/NFS         |
-    |databoxe2etest_AzFile-BOM.txt    |Archivos de Azure         |SMB/NFS         |
+    |databoxe2etest_AzFile-BOM.txt    |Azure Files         |SMB/NFS         |
     |databoxe2etest_PageBlock_Rest-BOM.txt     |Blobs en páginas         |REST        |
     |databoxe2etest_BlockBlock_Rest-BOM.txt    |Blobs en bloques         |REST         |
     |mydbmdrg1_MDisk-BOM.txt    |Disco administrado         |SMB/NFS         |
@@ -168,6 +170,8 @@ Puede usar el panel del dispositivo para ver la capacidad disponible y utilizada
 
 Las sumas de comprobación se generan para sus datos de forma predeterminada cuando se prepara el envío. En algunos casos poco frecuentes, según el tipo de datos (tamaños de archivo reducidos), el rendimiento puede ser lento. En tales casos, puede omitir la suma de comprobación.
 
+El cálculo de la suma de comprobación durante la preparación para el envío solo se realiza en los pedidos de importación y no en los pedidos de exportación. 
+
 Recomendamos encarecidamente que no deshabilite la suma de comprobación, a menos que el rendimiento se vea afectado considerablemente.
 
 1. En la esquina superior derecha de la interfaz de usuario web local del dispositivo, vaya a **Configuración**.
@@ -177,7 +181,8 @@ Recomendamos encarecidamente que no deshabilite la suma de comprobación, a meno
 2. **Deshabilite** la validación de la suma de comprobación.
 3. Haga clic en **Aplicar**.
 
-## <a name="next-steps"></a>Pasos siguientes
+> [!NOTE]
+> La opción para omitir el cálculo de la suma de comprobación solo está disponible cuando Azure Data Box está desbloqueado. No verá esta opción cuando el dispositivo esté bloqueado.
 
 - Obtenga información sobre cómo [administrar Data Box y Data Box Heavy mediante Azure Portal](data-box-portal-admin.md).
 

@@ -11,17 +11,26 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/06/2020
-ms.openlocfilehash: 43b2a02acc04a5c81b9e7bfbe3bfb1551b48ed52
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9f41cb11960dbe9487231f14b005376261075a83
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964624"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231512"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Cambios en la documentación de SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Azure permite implementar una máquina virtual (VM) con una imagen de SQL Server integrada. En este artículo se resumen los cambios en la documentación asociados a las nuevas características y mejoras de las versiones recientes de [SQL Server en Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
+
+## <a name="july-2020"></a>Julio de 2020
+
+
+| Cambios | Detalles |
+| --- | --- |
+| **Migración del registro a un disco Ultra** | Obtenga información acerca de cómo puede [migrar el archivo de registro a un disco Ultra](storage-migrate-to-ultradisk.md) para aprovechar el alto rendimiento y la baja latencia. | 
+
+
 
 
 ## <a name="june-2020"></a>Junio de 2020

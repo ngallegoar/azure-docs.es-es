@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: a82a0644fac099b568ab86ea213b98cd8e7d5c22
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 720931cf9f955f63075e3881b6b9f2e884bd3a76
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78199655"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232464"
 ---
 # <a name="live-event-low-latency-settings"></a>Configuración de latencia baja en eventos en directo
 
@@ -62,15 +62,15 @@ En la tabla siguiente se muestran los resultados típicos de latencia (cuando es
 
 ||Baja latencia de GOP de 2 s habilitada|Baja latencia de GOP de 1 s habilitada|
 |---|---|---|
-|DASH en AMP|10 s|8 s|
-|HLS en el reproductor de iOS nativo|14 s|10 s|
+|**DASH en AMP**|10 s|8 s|
+|**HLS en el reproductor de iOS nativo**|14 s|10 s|
 
 ### <a name="live-encoding"></a>Live Encoding
 
 ||Baja latencia de GOP de 2 s habilitada|Baja latencia de GOP de 1 s habilitada|
 |---|---|---|
-|DASH en AMP|14 s|10 s|
-|HLS en el reproductor de iOS nativo|18 s|13 s|
+|**DASH en AMP**|14 s|10 s|
+|**HLS en el reproductor de iOS nativo**|18 s|13 s|
 
 > [!NOTE]
 > Latencia de extremo a extremo puede variar según las condiciones de la red local o al introducir una capa de almacenamiento en caché de CDN. Debe probar las configuraciones exactas.

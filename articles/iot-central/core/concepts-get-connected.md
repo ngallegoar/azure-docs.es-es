@@ -3,20 +3,19 @@ title: Conectividad de dispositivos en Azure IoT Central | Microsoft Docs
 description: En este artículo se presentan conceptos clave relacionados con la conectividad de dispositivos en Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/09/2019
+ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: aa6aa7a8d98ae756a65a2618371c320118875c42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a66613406de66cf9478b90d4ad58c115a30fdf5d
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710446"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224772"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Conexión a Azure IoT Central
 
@@ -73,27 +72,48 @@ Utilice la información de conexión del archivo de exportación del código del
 
 En un entorno de producción, se recomienda el uso de certificados X.509 como mecanismo de autenticación de dispositivos para IoT Central. Para más información consulte [Autenticación de dispositivos mediante certificados de entidades de certificación X.509](../../iot-hub/iot-hub-x509ca-overview.md).
 
-Antes de conectar un dispositivo con un certificado X.509, agregue y verifique un certificado X.509 intermedio o raíz en la aplicación. Los dispositivos deben usar certificados X.509 de hoja generados a partir del certificado raíz o intermedio.
+Para conectar un dispositivo con un certificado X.509 a la aplicación, haga lo siguiente:
 
-### <a name="add-and-verify-a-root-or-intermediate-certificate"></a>Adición y verificación de un certificado raíz o intermedio
+1. Cree un *grupo de inscripción* que use el tipo de atestación **Certificados (X.509)** .
+2. Agregue y verifique un certificado X.509 intermedio o raíz en el grupo de inscripción.
+3. Registre y conecte dispositivos que usen certificados X.509 de hoja generados a partir del certificado raíz o intermedio en el grupo de inscripción.
 
-Vaya a **Administration > Device Connection > Manage primary certificate** (Administración > Conexión de dispositivos > Administrar certificado principal) y agregue el certificado X.509 raíz o intermedio que va a usar para generar los certificados de dispositivo.
+### <a name="create-an-enrollment-group"></a>Creación de un grupo de inscripción
 
-![Configuración de conexión](media/concepts-get-connected/manage-x509-certificate.png)
+Un [grupo de inscripción](../../iot-dps/concepts-service.md#enrollment) es un grupo de dispositivos que comparten el mismo tipo de atestación. Los dos tipos de atestación admitidos son certificados X.509 y SAS:
 
-La verificación de la titularidad del certificado garantiza que la persona que carga el certificado está en posesión de la clave privada. Para verificar el certificado:
+- En un grupo de inscripción X.509, todos los dispositivos que se conectan a IoT Central utilizan certificados X.509 de hoja generados a partir del certificado raíz o intermedio en el grupo de inscripción.
+- En un grupo de inscripción SAS, todos los dispositivos que se conectan a IoT Central utilizan un token SAS generado a partir del token SAS en el grupo de inscripción.
 
-  1. Seleccione el botón junto a **Código de verificación** para generar un código.
-  1. Cree un certificado de verificación X.509 con el código de verificación que generó en el paso anterior. Guarde el certificado como archivo .cer.
-  1. Cargue el certificado de verificación firmado y seleccione **Verificar**. El certificado se marca como **verificado** cuando la verificación se realiza correctamente.
+Los dos grupos de inscripción predeterminados de cada aplicación de IoT Central son grupos de inscripción SAS: uno para dispositivos IoT y otro para dispositivos Azure IoT Edge. Para crear un grupo de inscripción X.509, vaya a la página **Conexión del dispositivo** y seleccione **+ Agregar grupo de inscripciones**:
+
+:::image type="content" source="media/concepts-get-connected/add-enrollment-group.png" alt-text="Captura de pantalla de adición de un grupo de inscripción X.509":::
+
+### <a name="add-and-verify-a-root-or-intermediate-x509-certificate"></a>Adición y verificación de un certificado X.509 raíz o intermedio
+
+Para agregar y verificar un certificado raíz o intermedio en su grupo de inscripción, haga lo siguiente:
+
+1. Vaya al grupo de inscripción X.509 que acaba de crear. Tiene la opción de agregar certificados X.509 principales y secundarios. Seleccione **+ Administrar principal**.
+
+1. En la página **Certificado principal**, cargue el certificado X.509 principal. Este es su certificado raíz o intermedio:
+
+    :::image type="content" source="media/concepts-get-connected/upload-primary-certificate.png" alt-text="Captura de pantalla del certificado principal":::
+
+1. Use el **código de verificación** para generar un código de verificación en la herramienta que usa. A continuación, seleccione **Verificar** para cargar el certificado de verificación.
+
+1. Cuando la verificación se haya realizado correctamente, verá la confirmación siguiente:
+
+    :::image type="content" source="media/concepts-get-connected/verified-primary-certificate.png" alt-text="Captura de pantalla de certificado principal verificado":::
+
+La verificación de la titularidad del certificado garantiza que la persona que carga el certificado está en posesión de la clave privada.
 
 Si sufre una infracción de seguridad o si el certificado principal está configurado para expirar, use el certificado secundario para reducir el tiempo de inactividad. Puede continuar con el aprovisionamiento de los dispositivos mediante el certificado secundario al actualizar el principal.
 
 ### <a name="register-and-connect-devices"></a>Registro y conexión de dispositivos
 
-Para conectar dispositivos de forma masiva mediante certificados X.509, registre primero los dispositivos en la aplicación mediante un archivo CSV para [importar los identificadores y los nombres de los dispositivos](howto-manage-devices.md#import-devices). Todos los identificadores de dispositivo deben estar en minúsculas.
+Para conectar dispositivos de forma masiva mediante certificados X.509, registre primero los dispositivos en la aplicación mediante un archivo CSV para [importar los identificadores y los nombres de los dispositivos](howto-manage-devices.md#import-devices). Todos los identificadores de dispositivo deben estar en minúsculas.
 
-Genere certificados X.509 de hoja para los dispositivos con el certificado raíz o intermedio cargado. Use el valor de **Device ID** (Id. de dispositivo) como valor `CNAME` en los certificados de hoja. El código del dispositivo necesita el valor de **ID scope** (Id. de ámbito) de la aplicación, el valor de **device ID** (Id. de dispositivo) y el certificado de dispositivo correspondiente.
+Genere certificados X.509 de hoja para los dispositivos con el certificado raíz o intermedio que cargó en el grupo de inscripción X.509. Use el valor de **Device ID** (Id. de dispositivo) como valor `CNAME` en los certificados de hoja. El código del dispositivo necesita el valor de **ID scope** (Id. de ámbito) de la aplicación, el valor de **device ID** (Id. de dispositivo) y el certificado de dispositivo correspondiente.
 
 #### <a name="sample-device-code"></a>Código del dispositivo de ejemplo
 
@@ -123,9 +143,9 @@ El flujo es ligeramente diferente en función de si los dispositivos usan tokens
 
 ### <a name="connect-devices-that-use-sas-tokens-without-registering"></a>Conexión de los dispositivos que usan tokens de SAS sin registrarse
 
-1. Copie la clave principal del grupo de la aplicación de IoT Central:
+1. Copie la clave principal del grupo desde el grupo de inscripción **SAS-IoT-Devices**:
 
-    ![Clave SAS principal del grupo de la aplicación](media/concepts-get-connected/group-sas-keys.png)
+    :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="Clave principal del grupo desde el grupo de inscripción SAS-IoT-Devices":::
 
 1. Use la herramienta [dps-keygen](https://www.npmjs.com/package/dps-keygen) para generar las claves SAS del dispositivo. Use la clave principal del grupo del paso anterior. El identificador del dispositivo debe estar en minúsculas:
 
@@ -146,7 +166,7 @@ El flujo es ligeramente diferente en función de si los dispositivos usan tokens
 
 ### <a name="connect-devices-that-use-x509-certificates-without-registering"></a>Conexión de dispositivos que usan certificados X.509 sin registrarse
 
-1. [Agregue y verifique un certificado X.509 raíz o intermedio](#connect-devices-using-x509-certificates) a la aplicación de IoT Central.
+1. [Cree un grupo de inscripción](#create-an-enrollment-group) y, luego, [agregue y verifique un certificado X.509 raíz o intermedio](#add-and-verify-a-root-or-intermediate-x509-certificate) a la aplicación de IoT Central.
 
 1. genere los certificados de hoja para sus dispositivos mediante el certificado raíz o intermedio que agregó a la aplicación de IoT Central. Use los identificadores de dispositivo en minúsculas como `CNAME` en los certificados de hoja.
 

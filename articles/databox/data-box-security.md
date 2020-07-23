@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 19f06893c862e1e34cd79a42c428d202918f92e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ec5889d952e2836f1d112e38b8248f667cab586
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84817713"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200416"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Protección de datos y seguridad de Azure Data Box
 
@@ -30,11 +30,14 @@ La solución Microsoft Azure Data Box consta de cuatro componentes principales q
 - **Clientes/hosts conectados al dispositivo**: los clientes en la infraestructura que se conectan al dispositivo de Data Box y contienen los datos que se deben proteger.
 - **Almacenamiento en la nube** : la ubicación en la nube de Azure donde se almacenan los datos. Suele ser la cuenta de almacenamiento vinculada al recurso de Azure Data Box que ha creado.
 
-El diagrama siguiente indica el flujo de datos a través de la solución Azure Data Box desde el entorno local a Azure.
+El diagrama siguiente indica el flujo de datos a través de la solución Azure Data Box desde el entorno local a Azure. Este flujo es para un pedido de importación de Data Box.
 
 ![Seguridad de Data Box](media/data-box-security/data-box-security-2.png)
 
-Mientras los datos fluyen a través de esta solución, se registran los eventos y se generan registros. Para obtener más información, vaya a [Seguimiento y registro de eventos para Azure Data Box](data-box-logs.md).
+Mientras los datos fluyen a través de esta solución, se registran los eventos y se generan registros. Para obtener más información, consulte:
+
+- [Seguimiento y registro de eventos para los pedidos de importación de Azure Data Box](data-box-logs.md).
+- [Seguimiento y registro de eventos para los pedidos de exportación de Azure Data Box](data-box-export-logs.md).
 
 ## <a name="security-features"></a>Características de seguridad
 

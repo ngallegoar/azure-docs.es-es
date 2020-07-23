@@ -8,12 +8,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 90a9672e3a58a068d1a4488a514a6fd51c272a56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69fec93c2426f4274e0c890d76bdcbbb4678fa7d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85081113"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230764"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Modelos de diseño para aplicaciones SaaS multiinquilino y Azure Cognitive Search
 
@@ -43,12 +43,12 @@ Hay algunos [planes de tarifas](https://azure.microsoft.com/pricing/details/sear
 
 |  | Básico | Standard1 | Standard2 | Standard3 | Standard3 HD |
 | --- | --- | --- | --- | --- | --- |
-| Número máximo de réplicas por servicio |3 |12 |12 |12 |12 |
-| Número máximo de particiones por servicio |1 |12 |12 |12 |3 |
-| Número máximo de unidades de búsqueda (réplicas * particiones) por servicio |3 |36 |36 |36 |36 (3 particiones como máximo) |
-| Almacenamiento máximo por servicio |2 GB |300 GB |1,2 TB |2,4 TB |600 GB |
-| Almacenamiento máximo por partición |2 GB |25 GB |100 GB |200 GB |200 GB |
-| Número máximo de índices por servicio |5 |50 |200 |200 |3000 (1000 índices/partición como máximo) |
+| **Número máximo de réplicas por servicio** |3 |12 |12 |12 |12 |
+| **Número máximo de particiones por servicio** |1 |12 |12 |12 |3 |
+| **Número máximo de unidades de búsqueda (réplicas * particiones) por servicio** |3 |36 |36 |36 |36 (3 particiones como máximo) |
+| **Almacenamiento máximo por servicio** |2 GB |300 GB |1,2 TB |2,4 TB |600 GB |
+| **Almacenamiento máximo por partición** |2 GB |25 GB |100 GB |200 GB |200 GB |
+| **Número máximo de índices por servicio** |5 |50 |200 |200 |3000 (1000 índices/partición como máximo) |
 
 #### <a name="s3-high-density"></a>S3 alta densidad'
 En el plan de tarifa S3 de Azure Cognitive Search, hay una opción para el modo de alta densidad (HD) diseñada específicamente para los escenarios de varios inquilinos. En muchos casos, es necesario admitir un gran número de inquilinos más pequeños en un único servicio para lograr las ventajas de la simplicidad y la rentabilidad.

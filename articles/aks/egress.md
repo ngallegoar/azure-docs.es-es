@@ -5,12 +5,12 @@ description: Aprenda a crear y usar una dirección IP pública estática para el
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: a2f0394b172361e9053b1490a46357a5d3f2f47d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: f66a33f49d856abde97756a2b4b483cfa6050d0a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145496"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205789"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>Usar una dirección IP pública estática para el tráfico de salida en Azure Kubernetes Service (AKS)
 
@@ -96,7 +96,7 @@ Cree el servicio y la implementación con el comando `kubectl apply`.
 kubectl apply -f egress-service.yaml
 ```
 
-Este servicio configura una nueva dirección IP de front-end en Azure Load Balancer. Si no tiene más direcciones IP configuradas, entonces ahora **todo** el tráfico de salida debería usar esta dirección. Cuando hay varias direcciones configuradas en Azure Load Balancer, la salida usa la primera dirección IP en el equilibrador de carga.
+Este servicio configura una nueva dirección IP de front-end en Azure Load Balancer. Si no tiene más direcciones IP configuradas, entonces ahora **todo** el tráfico de salida debería usar esta dirección. Cuando hay varias direcciones configuradas en Azure Load Balancer, cualquiera de estas direcciones IP públicas son candidatas para los flujos de salida y se selecciona una de forma aleatoria.
 
 ## <a name="verify-egress-address"></a>Comprobar la dirección de salida
 

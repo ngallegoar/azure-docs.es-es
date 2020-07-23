@@ -8,14 +8,17 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: d017472715e8fe924a11080fc837ac837f5bd48f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 598a8383350cae98d61b8ab74f7687161d3d33e8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982159"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245303"
 ---
 # <a name="aml-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Aptitud de AML en una canalización de enriquecimiento de Azure Cognitive Search
+
+> [!IMPORTANT] 
+> Esta aptitud está actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Actualmente no hay compatibilidad con el SDK de .NET.
 
 La aptitud **AML** permite ampliar el enriquecimiento de IA con un modelo personalizado de [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml) (AML). Una vez que un modelo de AML se ha [entrenado e implementado](https://docs.microsoft.com/azure/machine-learning/concept-azure-machine-learning-architecture#workflow), una aptitud de **AML** lo integra en el enriquecimiento con IA.
 

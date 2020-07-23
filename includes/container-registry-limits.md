@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 643cf8fd400adf06bf61f070947bd78ba7be50eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f68ca0fc577e6cf3f896ede0418f11f59756701
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85242199"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512627"
 ---
 | Recurso | Básico | Estándar | Premium |
 |---|---|---|---|
@@ -28,6 +28,7 @@ ms.locfileid: "85242199"
 | Replicación geográfica | N/D | N/D | [Compatible][geo-replication] |
 | Confianza de contenido | N/D | N/D | [Compatible][content-trust] |
 | Vínculo privado con puntos de conexión privados | N/D | N/D | [Compatible][plink] |
+| &bull; Puntos de conexión privados | N/D | N/D | 10 |
 | Acceso a red virtual del punto de conexión de servicio | N/D | N/D | [Versión preliminar][vnet] |
 | Claves administradas por el cliente | N/D | N/D | [Compatible][cmk] |
 | Permisos de ámbito de repositorio | N/D | N/D | [Versión preliminar][token]|

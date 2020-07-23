@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 12/07/2016
 ms.author: tagore
-ms.openlocfilehash: e862818a4fe2471af574d153d43f0096af7847b8
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 169b12ff4fbf2471270aa912d5d1f8242371036b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811400"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223744"
 ---
 # <a name="how-to-configure-cloud-services"></a>Configuración de Cloud Service
 
@@ -48,7 +48,7 @@ Si tiene como destino una versión de sistema operativo específica, puede estab
 
 Puede agregar alertas a su servicio en la nube. Haga clic en **Configuración** > **Reglas de alerta** > **Agregar alerta**.
 
-![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
+![Captura de pantalla del panel Configuración con la opción Reglas de alerta resaltada y señalada en rojo y la opción Agregar alerta señalada en rojo.](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
 Desde aquí, puede configurar una alerta. Mediante el cuadro desplegable **Métrica**, puede configurar una alerta para los siguientes tipos de datos.
 
@@ -58,7 +58,7 @@ Desde aquí, puede configurar una alerta. Mediante el cuadro desplegable **Métr
 * Red externa
 * Porcentaje de CPU
 
-![](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
+![Captura de pantalla del panel Agregar una regla de alerta con todas las opciones de configuración establecidas.](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
 
 ### <a name="configure-monitoring-from-a-metric-tile"></a>Configuración de la supervisión desde un icono de métrica
 

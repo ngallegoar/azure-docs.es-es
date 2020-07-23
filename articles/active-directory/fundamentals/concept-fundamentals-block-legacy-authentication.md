@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1799f676e8971726832cc50598e119f029bc331d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e17421b27082a079d078f53c38d0c942db7ae71
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83196391"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200539"
 ---
 # <a name="blocking-legacy-authentication"></a>Bloqueo de la autenticación heredada
  
@@ -32,9 +32,9 @@ Hoy en día, la mayoría de los intentos de inicio de sesión que ponen en pelig
 
 Para poder bloquear la autenticación heredada en su directorio, primero debe entender si los usuarios tienen aplicaciones que la usen y cómo afecta a su directorio global. Se pueden usar los registros de inicio de sesión de Azure AD para saber si usa la autenticación heredada.
 
-1. Vaya a  **Azure Portal** > **Azure Active Directory** > **Inicios de sesión**.
+1. Vaya a **Azure Portal** > **Azure Active Directory** > **Inicios de sesión**.
 1. Agregue la columna **Aplicación cliente** si no se muestra; para ello, haga clic en  **Columnas** > **Aplicación cliente**.
-1. Filtre por  **Aplicación cliente**  y marque todas las opciones de **Clientes de autenticación heredados** que se presentan.
+1. Filtre por **Aplicación cliente** y marque todas las opciones de **Legacy Authentication Clients** (Clientes de autenticación heredados) que se presentan.
 1. Filtre por **Estado** > **Correcto**. 
 1. Expanda el intervalo de fechas si es necesario con el filtro **Fecha**.
 

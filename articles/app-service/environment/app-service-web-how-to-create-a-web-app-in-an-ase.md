@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5c947617f0c27708e72f9bff92e2b0041473cd92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba94f15f21696c87b336dc1f17b6f9f9def75c6c
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701837"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220701"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Creación de una aplicación web en una instancia de App Service Environment v1
 
@@ -28,13 +28,13 @@ Este tutorial muestra cómo crear aplicaciones web y planes de App Service en un
 > 
 > 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 En este tutorial se supone que ha creado un entorno de App Service. Si no es así, consulte [Creación de un entorno de App Service](app-service-web-how-to-create-an-app-service-environment.md). 
 
 ## <a name="create-a-web-app"></a>Creación de una aplicación web
 1. En [Azure Portal](https://portal.azure.com/), haga clic en **Crear un recurso > Web y móvil > Aplicación web**. 
    
-    ![][1]
+    ![Captura de pantalla que muestra dónde crear una aplicación web en Azure Portal.][1]
 2. Seleccione su suscripción.  
    
     Si tiene varias suscripciones, tenga en cuenta que para crear una aplicación en el entorno de App Service, debe usar la misma suscripción que usó para crear el entorno. 
@@ -47,7 +47,7 @@ En este tutorial se supone que ha creado un entorno de App Service. Si no es as�
    
     Puede identificar los planes de App Service de su ASE con solo mirar la ubicación que se indica bajo el nombre del plan.  
    
-    ![][5]
+    ![Captura de pantalla que muestra dónde ver los planes de App Service en el ASE.][5]
    
     Si quiere usar un plan de App Service que ya existe en el entorno de App Service, seleccione ese plan. Si quiere crear un nuevo plan de App Service, consulte la sección siguiente de este tutorial, [Creación de un plan de App Service en un entorno de App Service](#createplan).
 5. Escriba el nombre de la aplicación web y luego haga clic en **Crear**. 
@@ -69,18 +69,18 @@ Las siguientes instrucciones muestran cómo crear un plan de App Service mientra
    
     Como un entorno de App Service es básicamente una ubicación de implementación privada, se muestra en Ubicación. 
    
-    ![][2]
+    ![Captura de pantalla del selector de ubicación para seleccionar el ASE que desea.][2]
    
     Después de seleccionar un ASE en el selector de ubicación, se actualiza la interfaz de usuario de creación del plan de App Service.  La ubicación muestra ahora el nombre del sistema ASE y la región en la que está, y el selector de plan de precios se sustituye por un selector de grupos de trabajo.  
    
-    ![][3]
+    ![Captura de pantalla de los detalles del sistema ASE después de seleccionar el ASE en el selector de ubicación.][3]
 
 ### <a name="selecting-a-worker-pool"></a>Selección de un grupo de trabajo
 Normalmente, en Azure App Service y fuera de un entorno de App Service, hay tres tamaños de proceso disponibles con la selección de un plan de precios dedicado.  De igual forma, puede definir hasta tres grupos de trabajo para un ASE y especificar el tamaño de proceso que se usa para ese grupo de trabajo.  Para los inquilinos del ASE, eso significa que en lugar de seleccionar un plan de precios con el tamaño de proceso de su plan de App Service, se selecciona lo que se conoce como un *grupo de trabajo*.  
 
 La interfaz de usuario de selección del grupo de trabajo muestra el tamaño de proceso usado para ese grupo de trabajo debajo del nombre.  La cantidad disponible se refiere al número de instancias de proceso que están disponibles para usarse en ese grupo.  El grupo total puede tener en realidad un número de instancias superior a este, pero este valor se refiere simplemente al número que no está en uso.  Si necesita ajustar el entorno de App Service para agregar más recursos de proceso, consulte [Configuración del entorno de App Service](app-service-web-configure-an-app-service-environment.md).
 
-![][4]
+![Captura de pantalla del panel grupo de trabajo, donde se pueden seleccionar grupos de trabajo para el ASE.][4]
 
 En este ejemplo puede ver que solo hay dos grupos de trabajo disponibles. Eso se debe a que el administrador de ASE solamente asigna hosts en esos dos grupos de trabajo.  El tercero se mostraría cuando haya máquinas virtuales asignadas a él.  
 

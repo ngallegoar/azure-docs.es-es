@@ -8,12 +8,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 23f52e48c6a435678a01569d25e0072d9c8a3e28
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: febfdf5405038e5b60a3133a554eba7a756f617d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648579"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242379"
 ---
 # <a name="building-an-accessible-application"></a>Creación de una aplicación accesible
 
@@ -22,7 +22,7 @@ Más del 20 % de los usuarios de Internet necesitan aplicaciones web accesibles
 Cuando se trata de contenido interactivo enriquecido como un mapa, algunas consideraciones de accesibilidad comunes son:
 - Ser compatible con lectores de pantalla para los usuarios que tengan dificultades para ver la aplicación web.
 - Disponer de varios métodos para interactuar y navegar por la aplicación web, como mouse, función táctil y teclado.
-- Asegurarse de que el contraste de color sea tal que los colores no se mezclen entre sí y se vuelvan difíciles de distinguir. 
+- Asegurarse de que el contraste de color sea tal que los colores no se mezclen entre sí y se haga difíciles distinguirlos. 
 
 El SDK web de Azure Maps viene precompilado con muchas características de accesibilidad tales como:
 - Descripciones del lector de pantalla cuando se mueve el mapa y cuando el usuario se centra en un control o un elemento emergente.
@@ -46,6 +46,7 @@ Hay varias maneras de ampliar, desplazar lateralmente, girar e inclinar el mapa.
 - Con el mapa centrado, use el signo menos, el guion (`-`) o el carácter de subrayado (`_`) para alejarse un nivel.
 - Use el control de zoom con el mouse, la entrada táctil o las teclas de tabulación/ingreso del teclado.
 - Mantenga presionado el botón `Shift` y presione el botón izquierdo del mouse sobre el mapa y arrastre para dibujar un área para aplicar zoom al mapa.
+- Con algunos paneles multitáctiles, arrastre dos dedos hacia arriba para alejar o hacia abajo para acercar.
 
 **Desplazamiento lateral del mapa**
 
@@ -110,7 +111,7 @@ El mapa tiene una serie de métodos abreviados de teclado integrados que facilit
 | Signo menos, guion (`-`) o <sup>*</sup>carácter de subrayado (`_`) | Alejamiento | 
 | `Shift` + arrastre del mouse en el mapa al área de dibujo | Acercamiento al área |
 
-<sup>*</sup> Normalmente, estos métodos abreviados de teclado comparten la misma tecla en un teclado. Estos métodos abreviados se han incorporado para mejorar la experiencia del usuario. En estos métodos abreviados, no importa si el usuario utiliza la tecla Mayús.
+<sup>*</sup> Normalmente, estos métodos abreviados de teclado comparten la misma tecla en un teclado. Estos métodos abreviados se han incorporado para mejorar la experiencia del usuario. En estos métodos abreviados, no importa si el usuario utiliza o no la tecla Mayús.
 
 ## <a name="screen-reader-support"></a>Compatibilidad con el lector de pantalla
 

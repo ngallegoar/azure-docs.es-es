@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/20/2019
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 991bb3e296f18ef6d5182048d8ce4601c0fc09c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc665503413d2f022b10ae043aac3315597c6ba4
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735003"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221398"
 ---
 # <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>Problemas conocidos: Alertas de entidades de servicio en Azure Active Directory Domain Services
 
@@ -34,11 +34,11 @@ Si se elimina una entidad de servicio necesaria, la plataforma Azure no puede re
 
 ### <a name="check-for-missing-service-principals"></a>Comprobación de las entidades de servicio que faltan
 
-Para comprobar qué entidad de servicio falta y debe volver a crearse, complete los pasos siguientes:
+Para comprobar qué entidad de servicio falta y debe volver a crearse, haga lo siguiente:
 
 1. En Azure Portal, seleccione **Azure Active Directory** en el menú de navegación izquierdo.
 1. Seleccione **Aplicaciones empresariales**. En el menú desplegable **Tipo de aplicación**, seleccione *Todas las aplicaciones* y **Aplicar**.
-1. Busque cada uno de los identificadores de la aplicación. Si no se encuentra ninguna aplicación existente, siga los pasos de la *Resolución* para crear la entidad de servicio o volver a registrar el espacio de nombres.
+1. Busque cada uno de los siguientes identificadores de aplicación. Si no se encuentra ninguna aplicación existente, siga los pasos de la *Resolución* para crear la entidad de servicio o volver a registrar el espacio de nombres.
 
     | Identificador de aplicación | Resolución |
     | :--- | :--- |
@@ -49,9 +49,9 @@ Para comprobar qué entidad de servicio falta y debe volver a crearse, complete 
 
 ### <a name="recreate-a-missing-service-principal"></a>Volver a crear una entidad de servicio que falta
 
-Si falta el identificador de aplicación *2565bd9d-da50-47d4-8b85-4c97f669dc36* en el directorio Azure AD, use Azure AD PowerShell para completar los pasos siguientes. Para más información, consulte [Instalación de Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
+Si falta el identificador de aplicación *2565bd9d-da50-47d4-8b85-4c97f669dc36* en el directorio Azure AD, use Azure AD PowerShell para completar los pasos siguientes. Para más información, consulte [PowerShell de Azure AD](/powershell/azure/active-directory/install-adv2).
 
-1. Instale el módulo de PowerShell de Azure AD e impórtelo de la forma siguiente:
+1. Si es necesario, instale el módulo de PowerShell de Azure AD e impórtelo de la forma siguiente:
 
     ```powershell
     Install-Module AzureAD
@@ -89,7 +89,7 @@ Azure AD DS sincroniza automáticamente las cuentas de usuario y las credencial
 
 Para volver a crear la aplicación de Azure AD utilizada para la sincronización de credenciales, use Azure AD PowerShell para completar los pasos siguientes. Para más información, consulte [Instalación de Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
 
-1. Instale el módulo de PowerShell de Azure AD e impórtelo de la forma siguiente:
+1. Si es necesario, instale el módulo de PowerShell de Azure AD e impórtelo de la forma siguiente:
 
     ```powershell
     Install-Module AzureAD

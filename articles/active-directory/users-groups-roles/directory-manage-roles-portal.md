@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 06/15/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9bfc7f194730545469e7d17d46c47f7293f016e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e067e8d56f8a928f952648fc76cd5d6b7a1afe7
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84728901"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221289"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Visualización y asignación de roles de administrador en Azure Active Directory
 
@@ -26,29 +26,50 @@ Ahora puede ver y administrar todos los miembros de los roles de administrador e
 
 ## <a name="view-all-roles"></a>Ver todos los roles
 
-Busque y seleccione **Azure Active Directory**. Seleccione **Roles y administradores** para ver la lista de todos los roles disponibles.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra **Azure Active Directory**.
 
-Haga clic en el botón de puntos suspensivos a la derecha de cada fila para abrir la descripción detallada del rol.
+1. Seleccione **Roles y administradores** para ver la lista de todos los roles disponibles.
 
-![lista de roles en el portal de Azure AD](./media/directory-manage-roles-portal/view-roles-in-azure-active-directory.png)
+1. Seleccione los puntos suspensivos a la derecha de cada fila para ver los permisos del rol. Seleccione un rol para ver los usuarios asignados a él. Si lo que ve no concuerda con la siguiente imagen, lea la nota de [Visualización de asignaciones de roles con privilegios](#view-assignments-for-privileged-roles) para comprobar si se encuentra en Privileged Identity Management (PIM).
+
+    ![lista de roles en el portal de Azure AD](./media/directory-manage-roles-portal/view-roles-in-azure-active-directory.png)
 
 ## <a name="view-my-roles"></a>Ver mis roles
 
 También es fácil ver sus propios permisos. Seleccione **su rol** en la página **Roles y administradores** para ver los roles que tiene asignados actualmente.
 
-## <a name="view-assignments-for-a-role"></a>Ver las asignaciones de un rol
+## <a name="view-assignments-for-privileged-roles"></a>Visualización de asignaciones de roles con privilegios
 
-Haga clic en un rol para ver los usuarios asignados a dicho rol. Puede hacer clic en **Administrar en PIM** para obtener funcionalidades de administración adicionales. Los administradores de roles con privilegios pueden cambiar las asignaciones "Permanentes" (siempre activas en el rol) a "Elegibles" (en el rol solo cuando se elevan). Si no dispone de PIM, todavía puede hacer clic en **Administrar en PIM** para registrarse y obtener una versión de prueba. Privileged Identity Management requiere un [Plan de licencias de Azure AD Premium P2](../privileged-identity-management/subscription-requirements.md).
+Puede hacer clic en **Administrar en PIM** para obtener funcionalidades de administración adicionales. Los administradores de roles con privilegios pueden cambiar las asignaciones "Permanentes" (siempre activas en el rol) a "Elegibles" (en el rol solo cuando se elevan). Si no tiene Privileged Identity Management, todavía puede seleccionar **Administrar en PIM** para registrarse en una versión de prueba. Privileged Identity Management requiere un [Plan de licencias de Azure AD Premium P2](../privileged-identity-management/subscription-requirements.md).
 
 ![lista de miembros de un rol de administrador](./media/directory-manage-roles-portal/member-list.png)
 
 Si es un administrador global o un administrador de roles con privilegios, puede agregar o quitar miembros, filtrar la lista o seleccionar un miembro fácilmente para ver sus roles asignados activos.
+
+> [!Note]
+> Si tiene una licencia Azure AD Premium P2 y ya usa Privileged Identity Management, todas las tareas de administración de roles se realizan ahí y no en Azure AD.
+>
+> ![Roles de Azure AD administrados en PIM para los usuarios que ya usan PIM y tienen una licencia Premium P2](./media/directory-manage-roles-portal/pim-manages-roles-for-p2.png)
 
 ## <a name="view-a-users-role-permissions"></a>Ver permisos de rol de un usuario
 
 Cuando esté viendo los miembros de un rol, haga clic en **Descripción** para ver una lista completa de los permisos otorgados por la asignación de roles. En la página se incluyen vínculos a documentación relevante que le guiarán a través de la administración de los roles de directorio.
 
 ![lista de permisos para un rol de administrador](./media/directory-manage-roles-portal/role-description.png)
+
+## <a name="assign-a-role"></a>Asignar un rol
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con los permisos de administrador global o administrador de roles con privilegios y seleccione **Azure Active Directory**.
+
+1. Seleccione **Roles y administradores** para ver la lista de todos los roles disponibles.
+
+1. Seleccione un rol para ver sus asignaciones.
+
+    ![lista de permisos para un rol de administrador](./media/directory-manage-roles-portal/member-list.png)
+
+1. Seleccione **Agregar asignaciones** y elija los roles que quiere asignar. Puede hacer clic en **Administrar en PIM** para obtener funcionalidades de administración adicionales. Si lo que ve no concuerda con la siguiente imagen, lea la nota de [Visualización de asignaciones de roles con privilegios](#view-assignments-for-privileged-roles) para comprobar si se encuentra en PIM.
+
+    ![lista de permisos para un rol de administrador](./media/directory-manage-roles-portal/directory-role-select-role.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

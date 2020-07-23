@@ -3,12 +3,12 @@ title: Procedimientos en Azure Application Insights | Microsoft Docs
 description: P+F en Application Insights.
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: 665d98378fc52e972986111847872ae30701f631
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: bda0091fe06c93150d5b3cae27f278f3fd9a91ea
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110239"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224475"
 ---
 # <a name="how-do-i--in-application-insights"></a>¿Cómo ... en Application Insights?
 ## <a name="get-an-email-when-"></a>Recibir un correo electrónico cuando...
@@ -18,7 +18,7 @@ Establecer una [prueba web de disponibilidad](../../azure-monitor/app/monitor-we
 ### <a name="email-if-my-site-is-overloaded"></a>Enviar un correo electrónico si mi sitio está sobrecargado
 Establecer una [alerta](../../azure-monitor/platform/alerts-log.md) en **Tiempo de respuesta del servidor**. Un umbral entre 1 y 2 segundos debería funcionar.
 
-![](./media/how-do-i/030-server.png)
+![Captura de pantalla que muestra cómo establecer una alerta en el tiempo de respuesta del servidor.](./media/how-do-i/030-server.png)
 
 La aplicación también podría mostrar señales de esfuerzo al devolver códigos de error. Establezca una alerta en **Solicitudes con error**.
 
@@ -53,11 +53,11 @@ telemetry.TrackMetric("Alarm", 0.5);
 
 Cree un gráfico en el [Explorador de métricas](../../azure-monitor/platform/metrics-charts.md) para ver la alarma:
 
-![](./media/how-do-i/010-alarm.png)
+![Captura de pantalla que muestra cómo crear un gráfico en el explorador de métricas para ver la alarma.](./media/how-do-i/010-alarm.png)
 
 Ahora establezca que se desencadene una alerta cuando la métrica esté por encima de un valor medio durante un período breve de tiempo:
 
-![](./media/how-do-i/020-threshold.png)
+![Captura de pantalla que muestra cómo establecer una alerta para que se active cuando la métrica supere el valor medio durante un breve período.](./media/how-do-i/020-threshold.png)
 
 Establecer el período promedio en el mínimo.
 
@@ -106,11 +106,11 @@ Seguidamente, puede:
 
 * Buscar identificadores de usuario específicos
 
-![](./media/how-do-i/110-search.png)
+![Captura de pantalla que muestra las opciones de búsqueda en identificadores de usuario específicos.](./media/how-do-i/110-search.png)
 
 * Filtrar métricas a los usuarios anónimos o autenticados
 
-![](./media/how-do-i/115-metrics.png)
+![Captura de pantalla que muestra las métricas de filtrado para usuarios anónimos o autenticados.](./media/how-do-i/115-metrics.png)
 
 ## <a name="modify-property-names-or-values"></a>Modificación de valores o nombres de propiedad
 Cree un [filtro](../../azure-monitor/app/api-filtering-sampling.md#filtering). Esto le permite modificar o filtrar telemetría antes de que se envíe desde su aplicación a Application Insights.

@@ -7,18 +7,18 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 3a24f6c7c8339ee5e63fea4c0cd4d7edc9da2a17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4dddc2eab5004377afd6743c4722498dd5c6e2a0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512002"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259998"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Solución de problemas de Azure File en Linux
 
 En este artículo se enumeran los problemas habituales relacionados con Azure Files cuando se conecta desde clientes Linux. También se proporcionan posibles causas de estos problemas y sus resoluciones. 
 
-Además de los pasos de solución de problemas de este artículo, también puede usar [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) para asegurarse de que el cliente de Linux cumple los requisitos previos. AzFileDiagnostics automatiza la detección de la mayoría de los síntomas que se mencionan en este artículo. Le ayuda a configurar su entorno para obtener un rendimiento óptimo. También puede encontrar esta información en el [solucionador de problemas de recursos compartidos de Azure Files](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). El solucionador de problemas proporciona pasos para ayudarle con problemas de conexión, asignación y montaje de recursos compartidos de Azure Files.
+Además de los pasos de solución de problemas de este artículo, también puede usar [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux) para asegurarse de que el cliente de Linux cumple los requisitos previos. AzFileDiagnostics automatiza la detección de la mayoría de los síntomas que se mencionan en este artículo. Le ayuda a configurar su entorno para obtener un rendimiento óptimo. También puede encontrar esta información en el [solucionador de problemas de recursos compartidos de Azure Files](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). El solucionador de problemas proporciona pasos para ayudarle con problemas de conexión, asignación y montaje de recursos compartidos de Azure Files.
 
 ## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>No se puede conectar a un recurso compartido de archivos de Azure ni montarlo
 
@@ -30,12 +30,12 @@ Las causas comunes de este problema son las siguientes:
 
 |   | SMB 2.1 <br>(Se monta en máquinas virtuales dentro de la misma región de Azure) | SMB 3.0 <br>(Puede montar desde el nivel local a entre regiones) |
 | --- | :---: | :---: |
-| Ubuntu Server | 14.04+ | 16.04 (o posterior) |
-| RHEL | 7 (o posterior) | 7.5 (o posterior) |
-| CentOS | 7 (o posterior) |  7.5 (o posterior) |
-| Debian | 8 (o posterior) |   |
-| openSUSE | 13.2 (o posterior) | 42.3+ |
-| SUSE Linux Enterprise Server | 12 | 12 SP3 (o posterior) |
+| **Ubuntu Server** | 14.04+ | 16.04 (o posterior) |
+| **RHEL** | 7 (o posterior) | 7.5 (o posterior) |
+| **CentOS** | 7 (o posterior) |  7.5 (o posterior) |
+| **Debian** | 8 (o posterior) |   |
+| **openSUSE** | 13.2 (o posterior) | 42.3+ |
+| **SUSE Linux Enterprise Server** | 12 | 12 SP3 (o posterior) |
 
 - Las utilidades de CIFS (cfs-utils) no están instaladas en el cliente.
 - La versión 2.1 mínima de SMB/CIFS no está instalada en el cliente.
@@ -84,9 +84,9 @@ En Linux, recibe un mensaje de error similar al siguiente:
 
 ### <a name="cause"></a>Causa
 
-Se ha alcanzado el límite superior de identificadores abiertos simultáneos permitidos para un archivo.
+Se ha alcanzado el límite superior de identificadores abiertos simultáneos permitidos para un archivo o directorio.
 
-Hay una cuota de 2000 identificadores abiertos en un único archivo. Si tiene 2000 identificadores abiertos, se muestra un mensaje de error que indica que se ha alcanzado la cuota.
+Hay una cuota de 2000 identificadores abiertos en un único archivo o directorio. Si tiene 2000 identificadores abiertos, se muestra un mensaje de error que indica que se ha alcanzado la cuota.
 
 ### <a name="solution"></a>Solución
 
