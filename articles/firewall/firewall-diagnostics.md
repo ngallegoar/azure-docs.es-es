@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 07/10/2020
 ms.author: victorh
-ms.openlocfilehash: e55f92c624ec338005cd23ba5e6063a9ca7f82c4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 82202705c5dbd4539eec4775d0844a749fd405f9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261571"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537010"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Supervisión de métricas y registros de Azure Firewall
 
@@ -97,5 +97,4 @@ Navegue a una instancia de Azure Firewall y, en **Supervisión** seleccione **M�
 
 Ahora que ha configurado el firewall para recopilar registros, puede explorar los registros de Azure Monitor para ver los datos.
 
-> [!div class="nextstepaction"]
-> [Soluciones de supervisión de redes en registros de Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md)
+[Soluciones de supervisión de redes en registros de Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md)

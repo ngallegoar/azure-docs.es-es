@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: bf94631c821c8a7ba5e2870af0bf1ecfd268e888
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: d0bbde0ee4fd0eaf7387abaf6d548dc563e5b715
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203586"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515451"
 ---
 # <a name="create-and-configure-a-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Crear y configurar el área de trabajo de Log Analytics en Azure Monitor con PowerShell
 En este artículo se proporcionan dos ejemplos de código que muestran cómo crear y configurar un área de trabajo de Log Analytics en Azure Monitor.  
@@ -21,7 +21,7 @@ En este artículo se proporcionan dos ejemplos de código que muestran cómo cre
 > Log Analytics se llamaba anteriormente Operational Insights, razón por la cual se utiliza este nombre en los cmdlets.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Estos ejemplos funcionan con la versión 1.0.0 o posterior del módulo Az.OperationalInsights.
 
 ## <a name="create-workspace"></a>Creación del espacio de trabajo
@@ -193,7 +193,7 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 ```
 
 > [!NOTE]
-> El formato del parámetro **CustomLogRawJson** que define la configuración de un registro personalizado puede ser complejo. Utilice [Get-AzOperationalInsightsDataSource](https://docs.microsoft.com/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) para recuperar la configuración de un registro personalizado existente. La propiedad **Properties** es la configuración necesaria para el parámetro **CustomLogRawJson**.
+> El formato del parámetro **CustomLogRawJson** que define la configuración de un registro personalizado puede ser complejo. Utilice [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) para recuperar la configuración de un registro personalizado existente. La propiedad **Properties** es la configuración necesaria para el parámetro **CustomLogRawJson**.
 
 En el ejemplo anterior, regexDelimiter se definió como "\\n" para la nueva línea. El delimitador de registro también puede ser una marca de tiempo.  Estos son los formatos admitidos:
 
@@ -212,14 +212,13 @@ En el ejemplo anterior, regexDelimiter se definió como "\\n" para la nueva lín
 | `yyyy-MM-ddTHH:mm:ss` <br> La T es una letra T literal | `((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))T((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]` |
 
 ## <a name="troubleshooting"></a>Solución de problemas
-Al crear un área de trabajo que se eliminó en los últimos 14 días y en [estado de eliminación temporal](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#soft-delete-behavior), la operación podría tener un resultado diferente en función de la configuración del área de trabajo:
+Al crear un área de trabajo que se eliminó en los últimos 14 días y en [estado de eliminación temporal](./delete-workspace.md#soft-delete-behavior), la operación podría tener un resultado diferente en función de la configuración del área de trabajo:
 1. Si proporciona el mismo nombre de área de trabajo, grupo de recursos, suscripción y región que en el área de trabajo eliminado, se recuperará el área de trabajo, incluidos los datos, la configuración y los agentes conectados.
 2. Si usa el mismo nombre de área de trabajo, pero un grupo de recursos, una suscripción o una región diferentes, obtendrá un error *El nombre del área de trabajo "nombre del área de trabajo" no es único* o causa *conflicto*. Para invalidar la eliminación temporal y eliminar inmediatamente el área de trabajo y crear una con el mismo nombre, siga estos pasos para recuperar el área de trabajo primero y realizar una eliminación permanente:
-   * [Recuperar](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) el área de trabajo
-   * [Eliminación permanente del área de trabajo](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete)
+   * [Recuperar](./delete-workspace.md#recover-workspace) el área de trabajo
+   * [Eliminación permanente del área de trabajo](./delete-workspace.md#permanent-workspace-delete)
    * Crear una nueva área de trabajo con el mismo nombre
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Revise los cmdlets de PowerShell de Log Analytics](https://docs.microsoft.com/powershell/module/az.operationalinsights/) para obtener información adicional sobre cómo usar PowerShell para la configuración de Log Analytics.
-
+* [Revise los cmdlets de PowerShell de Log Analytics](/powershell/module/az.operationalinsights/) para obtener información adicional sobre cómo usar PowerShell para la configuración de Log Analytics.

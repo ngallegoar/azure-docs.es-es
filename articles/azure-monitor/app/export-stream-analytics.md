@@ -3,12 +3,12 @@ title: Exportación mediante Stream Analytics desde Azure Application Insights |
 description: Stream Analytics puede transformar, filtrar y enrutar continuamente los datos de que exportan desde Application Insights.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 71b19f0b49dec8f7176a53eeb656519c65f9c1d0
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 70f952dcd6f8d942ac272afed58a7fe0f47d8a6e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224526"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539965"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Uso de Stream Analytics para procesar datos exportados de Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) es la herramienta ideal para procesar los datos [exportados desde Application Insights](export-telemetry.md). Stream Analytics puede extraer datos de una variedad de orígenes. Puede transformar y filtrar los datos y, después, enrutarlos a una variedad de receptores.
@@ -138,7 +138,7 @@ GROUP BY TumblingWindow(minute, 1), flat.ArrayValue.name
 
 * export-input es el alias que damos a la entrada de transmisiones
 * pbi-output es el alias que hemos definido para la salida
-* Usamos [OUTER APPLY GetElements](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) porque el nombre del evento se encuentra en una matriz JSON anidada. A continuación, la opción Select selecciona el nombre de evento, junto con el recuento del número de instancias con dicho nombre en el período de tiempo. La cláusula [Group By](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) agrupa los elementos en períodos de tiempo de un minuto.
+* Usamos [OUTER APPLY GetElements](/stream-analytics-query/apply-azure-stream-analytics) porque el nombre del evento se encuentra en una matriz JSON anidada. A continuación, la opción Select selecciona el nombre de evento, junto con el recuento del número de instancias con dicho nombre en el período de tiempo. La cláusula [Group By](/stream-analytics-query/group-by-azure-stream-analytics) agrupa los elementos en períodos de tiempo de un minuto.
 
 ### <a name="query-to-display-metric-values"></a>Consulta para mostrar valores de métrica
 
@@ -212,4 +212,3 @@ Noam Ben Zeev muestra cómo procesar los datos exportados mediante Stream Analyt
 * [Exportación continua](export-telemetry.md)
 * [Referencia detallada del modelo de datos para los tipos y valores de propiedad.](export-data-model.md)
 * [Application Insights](../../azure-monitor/app/app-insights-overview.md)
-

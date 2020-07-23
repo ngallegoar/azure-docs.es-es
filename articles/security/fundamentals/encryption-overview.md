@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 07/10/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 005932f4a4be9e4a7bae85a6b380c934de5e9874
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 4990d696986336e52fec3e87f4c3ea0c7517d3f8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276539"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496390"
 ---
 # <a name="azure-encryption-overview"></a>Información general del cifrado de Azure
 
@@ -53,9 +53,9 @@ Los tres modelos de cifrado del servidor ofrecen características de administrac
 
 - **Claves administradas del servicio**: proporcionan una combinación de control y comodidad con una sobrecarga reducida.
 
-- **Claves administradas del cliente**: le permiten controlar las claves, incluyendo la con compatibilidad con Bring Your Own Keys (BYOK), o generar claves nuevas.
+- **Claves administradas por el cliente**: le permiten controlar las claves, con compatibilidad con Bring Your Own Keys (BYOK), o generar claves nuevas.
 
-- **Claves administradas del servicio en el hardware que controla el cliente**: le permiten administrar las claves en el repositorio de su propiedad, fuera del control de Microsoft. Esta característica se denomina Host Your Own Key (HYOK). Sin embargo, la configuración es compleja y la mayoría de los servicios de Azure no son compatibles con este modelo.
+- **Claves administradas del servicio en el hardware controlado por el cliente**: le permiten administrar las claves en el repositorio de su propiedad, fuera del control de Microsoft. Esta característica se denomina Host Your Own Key (HYOK). Sin embargo, la configuración es compleja y la mayoría de los servicios de Azure no son compatibles con este modelo.
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
@@ -79,7 +79,7 @@ Para obtener más información acerca de la biblioteca cliente de Azure Storage 
 
 Cuando se usa el cifrado de cliente con Key Vault, los datos se cifran con una clave de cifrado de contenido (CEK) simétrica única generada por el SDK de cliente de Azure Storage. La CEK se cifra mediante una clave de cifrado de claves (KEK), que puede ser una clave simétrica o un par de claves asimétricas. Puede administrarla de forma local o almacenarla en Key Vault. A continuación, se cargan los datos cifrados en Azure Storage.
 
-Para obtener más información acerca del cifrado del lado cliente con Key Vault e iniciar las instrucciones sobre los procedimientos, consulte [Tutorial: cifrado y descifrado de blobs en Azure Storage mediante Key Vault](../../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md).
+Para obtener más información acerca del cifrado de cliente con Key Vault e iniciar las instrucciones sobre procedimientos, vea [Tutorial: Cifrado y descifrado de blobs en Azure Storage con Key Vault](../../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md).
 
 Por último, también puede usar la biblioteca cliente de Azure Storage para Java para realizar el cifrado de cliente antes de cargar datos en Azure Storage y descifrar los datos cuando se descargan en el cliente. Esta biblioteca también admite la integración con [Key Vault](https://azure.microsoft.com/services/key-vault/) para la administración de las claves de la cuenta de almacenamiento.
 

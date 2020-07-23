@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: c2590a2c745969313ae73521dbcd110fbf3b7551
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 24968511d038b2cea41a59187c0a361684c6720e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221024"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511898"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-hive-warehouse-connector-in-azure-hdinsight"></a>Aprenda a integrar Apache Spark y Apache Hive con Hive Warehouse Connector en Azure HDInsight
 
@@ -102,7 +102,7 @@ Además de las configuraciones mencionadas en la sección anterior, agregue la s
 
         ![Nodo principal de Hive Warehouse Connector](./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png)
 
-    * Use el [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para conectarse al clúster de Interactive Query. Busque el parámetro `default_realm` en el archivo `/etc/krb5.conf`. Reemplace `<AAD-DOMAIN>` por este valor como una cadena en mayúsculas. De lo contrario, la credencial no se encontrará.
+    * Use el [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para conectarse al clúster de Interactive Query. Busque el parámetro `default_realm` en el archivo `/etc/krb5.conf`. Reemplace `<AAD-DOMAIN>` por este valor como una cadena en mayúsculas; de lo contrario, la credencial no se encontrará.
 
         ![Dominio de AAD de Hive Warehouse Connector](./media/apache-hive-warehouse-connector/aad-domain.png)
 
@@ -179,9 +179,9 @@ Una vez que compile el código Scala/Java junto con las dependencias en un archi
 
 Para Python, agregue también la configuración siguiente. 
 
-    ```python
-    --py-files /usr/hdp/current/hive_warehouse_connector/pyspark_hwc-<VERSION>.zip
-    ```
+```python
+--py-files /usr/hdp/current/hive_warehouse_connector/pyspark_hwc-<VERSION>.zip
+```
     
 ## <a name="run-queries-on-enterprise-security-package-esp-clusters"></a>Ejecute consultas a los clústeres de Enterprise Security Package (ESP)
 

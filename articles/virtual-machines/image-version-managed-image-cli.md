@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 7b671bb63934eec129e992c369ba8516c191c589
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 2ef54da76750617a77c4b2e117b694cb170ff752
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223574"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502901"
 ---
 # <a name="migrate-from-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Migración desde una imagen administrada a una versión de la imagen mediante la CLI de Azure
 Si tiene una imagen administrada existente que desee migrar a Shared Image Gallery, puede crear una imagen de Shared Image Gallery directamente desde la imagen administrada. Una vez que haya probado la nueva imagen, puede eliminar la imagen administrada de origen. También puede migrar de una imagen administrada a Shared Image Gallery mediante [PowerShell](image-version-managed-image-powershell.md).
@@ -40,7 +40,7 @@ Dado que las imágenes administradas son siempre imágenes generalizadas, crear�
 
 Los nombres de las definiciones de imagen pueden estar formados por letras mayúsculas o minúsculas, números, puntos y guiones. 
 
-Para más información sobre los valores que se pueden especificar para una definición de imagen, consulte [Definiciones de imagen](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
+Para más información sobre los valores que se pueden especificar para una definición de imagen, consulte [Definiciones de imagen](./linux/shared-image-galleries.md#image-definitions).
 
 Cree una definición de imagen en la galería mediante [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
@@ -92,7 +92,7 @@ az sig image-version create \
 > [!NOTE]
 > Deberá esperar a que la versión de la imagen termine de compilarse y replicarse por completo antes de poder usar la misma imagen administrada para crear otra versión de la imagen.
 >
-> También puede almacenar todas las réplicas de la versión de la imagen en [almacenamiento con redundancia de zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) si agrega `--storage-account-type standard_zrs` al crear la versión de la imagen.
+> También puede almacenar todas las réplicas de la versión de la imagen en [almacenamiento con redundancia de zona](../storage/common/storage-redundancy.md) si agrega `--storage-account-type standard_zrs` al crear la versión de la imagen.
 >
 
 ## <a name="next-steps"></a>Pasos siguientes
