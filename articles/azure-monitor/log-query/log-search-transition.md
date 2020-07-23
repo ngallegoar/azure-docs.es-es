@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2019
-ms.openlocfilehash: 6cc7fc94162ed101d06fbbbc4722867be46987b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f34389785c0f4a43bfcab3e50f2dcd132b2cb629
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670141"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505812"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Transición desde la búsqueda de registros de Log Analytics a los registros de Azure Monitor
 La búsqueda de registros en Log Analytics se ha reemplazado recientemente por una nueva experiencia para analizar los registros de Azure Monitor. La página de búsqueda de registros sigue siendo accesible con el elemento de menú **Registros (clásicos)** de la página **Áreas de trabajo de Log Analytics** en Azure Portal, pero se retirará el 15 de febrero de 2019. En este artículo se describen las diferencias entre las dos experiencias para ayudar a realizar la transición desde la búsqueda de registros. 
@@ -58,7 +58,7 @@ En los registros de Azure Monitor, debe modificar la consulta para que devuelva 
 ![Exploración en profundidad de los registros de Azure Monitor](media/log-search-transition/drilldown-logs.png)
 
 ## <a name="take-action"></a>Realizar acción
-En la búsqueda de registros, puede seleccionar **Realizar acción** para [iniciar un runbook](take-action.md).
+En la búsqueda de registros, puede seleccionar **Realizar acción** para [iniciar un runbook](../platform/action-groups.md).
 
 ![Realizar acción](media/log-search-transition/take-action-log-search.png)
 

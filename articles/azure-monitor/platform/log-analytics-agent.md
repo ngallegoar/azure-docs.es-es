@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: ce7edf4dd5ae52f3ea604fe4b8d88d1a29de5a69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6bd45324313ebc44bd4c59cd6f09e2eaab28d32
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608373"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505149"
 ---
 # <a name="log-analytics-agent-overview"></a>Introducción al agente de Log Analytics
-El agente de Log Analytics se desarrolló para administrar de forma integral máquinas virtuales de cualquier nube, máquinas del entorno local y máquinas supervisadas por [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). Los agentes de Windows y Linux envían los datos recopilados de diferentes orígenes al área de trabajo de Log Analytics de Azure Monitor, así como cualquier registro o métrica únicos que se hayan definido en una solución de supervisión. El agente de Log Analytics también permite utilizar información detallada y otros servicios de Azure Monitor, como [Azure Monitor para VM](../insights/vminsights-enable-overview.md), [Azure Security Center](/azure/security-center/) y [Azure Automation](../../automation/automation-intro.md).
+El agente de Log Analytics se desarrolló para administrar de forma integral máquinas virtuales de cualquier nube, máquinas del entorno local y máquinas supervisadas por [System Center Operations Manager](/system-center/scom/). Los agentes de Windows y Linux envían los datos recopilados de diferentes orígenes al área de trabajo de Log Analytics de Azure Monitor, así como cualquier registro o métrica únicos que se hayan definido en una solución de supervisión. El agente de Log Analytics también permite utilizar información detallada y otros servicios de Azure Monitor, como [Azure Monitor para VM](../insights/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml) y [Azure Automation](../../automation/automation-intro.md).
 
 En este artículo se proporciona una descripción detallada del agente, de los requisitos del sistema y de la red, y de los diferentes métodos de implementación.
 
@@ -31,7 +31,7 @@ Las principales diferencias que debe tener en cuenta son:
 
 - Azure Diagnostics Extension solo se puede usar con máquinas virtuales de Azure. El agente de Log Analytics se puede usar con máquinas virtuales de Azure, de otras nubes y del entorno local.
 - Azure Diagnostics Extension envía datos a Azure Storage, a las [métricas de Azure Monitor](data-platform-metrics.md) (solo en Windows) y a Event Hubs. El agente de Log Analytics recopila los datos en los [registros en Azure Monitor](data-platform-logs.md).
-- El agente de Log Analytics es necesario para las [soluciones](../monitor-reference.md#insights-and-core-solutions), [Azure Monitor para VM](../insights/vminsights-overview.md) y otros servicios, como [Azure Security Center](/azure/security-center/).
+- El agente de Log Analytics es necesario para las [soluciones](../monitor-reference.md#insights-and-core-solutions), [Azure Monitor para VM](../insights/vminsights-overview.md) y otros servicios, como [Azure Security Center](../../security-center/index.yml).
 
 ## <a name="costs"></a>Costos
 El agente de Log Analytics no cuesta nada, pero puede generar gastos por los datos ingeridos. Consulte [Administrar el uso y los costos con los registros de Azure Monitor](manage-cost-storage.md) para más información sobre los precios de los datos recopilados en el área de trabajo de Log Analytics.
@@ -59,7 +59,7 @@ Si se usan los agentes de Log Analytics para recopilar datos, es preciso conocer
 
 * Para recopilar datos de los agentes de Windows, puede [configurar cada agente para que informe a una o varias áreas de trabajo](agent-windows.md), aun cuando informen a un grupo de administración de System Center Operations Manager. El agente de Windows puede notificar hasta cuatro áreas de trabajo.
 * El agente de Linux no admite el hospedaje múltiple y solo puede informar a un área de trabajo.
-* El agente de Windows admite el [estándar FIPS 140](https://docs.microsoft.com/windows/security/threat-protection/fips-140-validation), mientras que el agente de Linux no lo admite.  
+* El agente de Windows admite el [estándar FIPS 140](/windows/security/threat-protection/fips-140-validation), mientras que el agente de Linux no lo admite.  
 
 Si usa System Center Operations Manager 2012 R2, o cualquier versión posterior:
 
@@ -125,7 +125,7 @@ A partir de las versiones publicadas después de agosto de 2018, hemos realizado
 Se debe crear el alias "python" para el ejecutable python2 mediante el comando siguiente:
 
 ```
-alternatives --set python /usr/sbin/python2
+alternatives --set python `which python2`
 ```
 
 ### <a name="supported-distros"></a>Distribuciones admitidas
@@ -193,7 +193,7 @@ En la tabla siguiente se muestra la información de configuración de proxy y fi
 |*.blob.core.windows.net |Puerto 443 |Salida|Sí |
 |*.azure-automation.net |Puerto 443 |Salida|Sí |
 
-Para obtener información sobre el firewall necesaria para Azure Government, vea [Administración de Azure Government](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
+Para obtener información sobre el firewall necesaria para Azure Government, vea [Administración de Azure Government](../../azure-government/compare-azure-government-global-azure.md#azure-monitor-logs). 
 
 Si tiene previsto usar Hybrid Runbook Worker de Azure Automation para conectarse al servicio Automation y registrarse en él para usar runbooks o soluciones de administración en el entorno, debe tener acceso al número de puerto y las direcciones URL descritos en [Configuración de la red para Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 

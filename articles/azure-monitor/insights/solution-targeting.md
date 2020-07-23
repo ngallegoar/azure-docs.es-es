@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
-ms.openlocfilehash: dd3279db67fb45aee43cf1b0ef1bebf49433eef4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5cecf24f4ba086feba5ab87b5752fd665c540dff
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77663239"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498685"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Soluciones de supervisión como destino en Azure Monitor (versión preliminar)
 Cuando se agrega una solución de supervisión a la suscripción, se implementa automáticamente de forma predeterminada en todos los agentes de Windows y Linux conectados al área de trabajo de Log Analytics.  Quizá quiera administrar los costos y limitar la cantidad de datos recopilados para una solución mediante la limitación a un conjunto determinado de agentes.  En este artículo se describe cómo usar **Selección de destino de solución**, que es una característica que permite aplicar un ámbito a sus soluciones.
@@ -59,7 +59,7 @@ Aplique una configuración de ámbito mediante el proceso siguiente.
 A continuación se muestran los criterios para agentes y soluciones que no se pueden utilizar con la selección de destino de solución.
 
 - La selección de destino de solución solo se aplica a soluciones que se implementan en agentes.
-- La selección de destino de solución solo se aplica a soluciones proporcionadas por Microsoft.  No se aplica a las soluciones [creadas por usted o sus socios](solutions-creating.md).
+- La selección de destino de solución solo se aplica a soluciones proporcionadas por Microsoft.  No se aplica a las soluciones [creadas por usted o sus socios](./solutions.md).
 - Solo puede filtrar los agentes que se conectan directamente a Azure Monitor.  Las soluciones se implementarán automáticamente en los agentes que forman parte de un grupo de administración de Operations Manager conectado o no están incluidos en una configuración de ámbito.
 
 ### <a name="exceptions"></a>Excepciones

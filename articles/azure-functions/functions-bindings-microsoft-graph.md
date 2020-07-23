@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: ef746186717f3eb6bb93263c7f86c26606f65ea9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 290765b17cf34417176930dc9116309bdfd754c8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84322522"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506543"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Enlaces de Microsoft Graph para Azure Functions
 
@@ -59,7 +59,7 @@ Si utiliza Visual Studio, puede obtener las extensiones mediante la instalación
 
 ### <a name="configuring-authentication--authorization"></a>Configuración de autenticación o autorización
 
-Los enlaces que se describen en este artículo requieren una identidad para usarlos. Esto permite que Microsoft Graph aplique permisos y audite interacciones. La identidad puede ser el acceso de un usuario a la aplicación o la propia aplicación. Para configurar esta identidad, configure [Autenticación o autorización de App Service](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) con Azure Active Directory. También deberá solicitar los permisos del recurso que requieren sus funciones.
+Los enlaces que se describen en este artículo requieren una identidad para usarlos. Esto permite que Microsoft Graph aplique permisos y audite interacciones. La identidad puede ser el acceso de un usuario a la aplicación o la propia aplicación. Para configurar esta identidad, configure [Autenticación o autorización de App Service](../app-service/overview-authentication-authorization.md) con Azure Active Directory. También deberá solicitar los permisos del recurso que requieren sus funciones.
 
 > [!Note] 
 > La extensión de Microsoft Graph solo admite la autenticación de Azure AD. Los usuarios deben iniciar sesión con una cuenta profesional o educativa.
@@ -983,7 +983,7 @@ Los webhooks le permiten reaccionar antes los eventos de Microsoft Graph. Para a
 - Un [enlace de entrada de la suscripción de webhook de Microsoft Graph](#webhook-input) le permite mostrar las suscripciones existentes y, opcionalmente, actualizarlas.
 - Un [enlace de salida de la suscripción de webhook de Microsoft Graph](#webhook-output) le permite crear o eliminar suscripciones de webhook.
 
-Los enlaces en sí mismos no requieren ningún permiso de Azure AD, pero es necesario solicitar permisos relevantes para el tipo de recurso ante el que va a reaccionar. Para obtener una lista de los permisos necesarios para cada tipo de recurso, consulte [permisos de suscripción](https://docs.microsoft.com/graph/api/subscription-post-subscriptions?view=graph-rest-1.0).
+Los enlaces en sí mismos no requieren ningún permiso de Azure AD, pero es necesario solicitar permisos relevantes para el tipo de recurso ante el que va a reaccionar. Para obtener una lista de los permisos necesarios para cada tipo de recurso, consulte [permisos de suscripción](/graph/api/subscription-post-subscriptions?view=graph-rest-1.0).
 
 Para más información sobre los webhooks, consulte [Trabajar con Intune en Microsoft Graph].
 

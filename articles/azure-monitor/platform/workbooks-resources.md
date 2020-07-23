@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: cc2cde7932f783f63ee2783f0589ce4f88f248a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b5822c1af4f3bc5d9519af93054a01c3cdc82001
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77658109"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504998"
 ---
 # <a name="workbook-resource-parameters"></a>Parámetros de recursos de libro
 
@@ -61,7 +61,7 @@ Los valores de los selectores de recursos pueden provenir del contexto del libro
 > [!NOTE]
 > Azure Resource Graph no está disponible en todas las nubes. Si elige este enfoque, asegúrese de que se admita en la nube de destino.
 
-[Documentación de Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview)
+[Documentación de Azure Resource Graph](../../governance/resource-graph/overview.md)
 
 ## <a name="creating-a-resource-parameter--json-list"></a>Creación de un parámetro de recurso (lista JSON)
 1. Comience con un libro vacío en modo de edición.

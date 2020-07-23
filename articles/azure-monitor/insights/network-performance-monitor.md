@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 9660e87f3ee4e1c1c6a270f14928fdd111664e66
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 51111d92e85c6ddbdfac85c333293c2af8b31fbe
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79480885"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498974"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solución Network Performance Monitor en Azure
 
@@ -32,7 +32,7 @@ Network Performance Monitor ofrece tres amplias funcionalidades:
 
 * [Supervisión de ExpressRoute](network-performance-monitor-expressroute.md): supervise el rendimiento y la conectividad de un extremo a otro entre las sucursales y Azure a través de Azure ExpressRoute.  
 
-Hay más información sobre las diferentes funcionalidades compatibles con [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) disponible en línea.
+Hay más información sobre las diferentes funcionalidades compatibles con [Network Performance Monitor](../../networking/network-monitoring-overview.md) disponible en línea.
  
 ## <a name="supported-regions"></a>Regiones admitidas
 NPM puede supervisar la conectividad entre redes y aplicaciones en cualquier parte del mundo, desde un área de trabajo que se hospede en una de las siguientes regiones:
@@ -61,7 +61,7 @@ NPM puede supervisar la conectividad entre redes y aplicaciones en cualquier par
 * Este de China 2
 
 
-La lista de regiones admitidas para la Supervisión de ExpressRoute está disponible en la [documentación](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117).
+La lista de regiones admitidas para la Supervisión de ExpressRoute está disponible en la [documentación](../../expressroute/how-to-npm.md?utm_swu=8117).
 
 
 ## <a name="set-up-and-configure"></a>Instalación y configuración
@@ -256,9 +256,9 @@ Todos los datos expuestos mediante gráficos en las páginas de exploración en 
 
 ## <a name="alerts"></a>Alertas
 
-Network Performance Monitor usa las capacidades de alerta de [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts).
+Network Performance Monitor usa las capacidades de alerta de [Azure Monitor](../platform/alerts-overview.md).
 
-Esto quiere decir que todas las notificaciones se administran con [grupos de acciones](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups).  
+Esto quiere decir que todas las notificaciones se administran con [grupos de acciones](../platform/action-groups.md).  
 
 Si es un usuario de NPM que crea una alerta mediante Log Analytics: 
 1. Verá un vínculo que le redirigirá a Azure Portal. Haga clic en él para obtener acceso al portal.
@@ -269,7 +269,7 @@ Si es un usuario de NPM que crea una alerta mediante Log Analytics:
 Si es un usuario NPM que va a crear una alerta a través de Azure Portal:  
 1. Puede escribir directamente el correo electrónico o puede crear alertas a través de grupos de acciones.
 2. Si decide escribir directamente el correo electrónico, se crea un grupo de acciones con el nombre **NPM Email ActionGroup** (Grupo de acciones de correo electrónico NPM) y se agrega el id. de correo electrónico a ese grupo de acciones.
-3. Si decide usar grupos de acciones, tendrá que seleccionar un grupo de acciones creado anteriormente. Puede aprender a crear un grupo de acciones [aquí.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
+3. Si decide usar grupos de acciones, tendrá que seleccionar un grupo de acciones creado anteriormente. Puede aprender a crear un grupo de acciones [aquí.](../platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) 
 4. Una vez que se ha creado correctamente la alerta, puede usar el vínculo Administrar alertas para administrar las alertas. 
 
 Cada vez que cree una alerta, NPM creará una regla de alertas de registro basada en consultas en Azure Monitor. Esta consulta se desencadena de forma predeterminada cada cinco minutos. Azure Monitor no realiza ningún cargo por las primeras 250 reglas de alertas de registro creadas; pero las reglas de alertas por encima del límite de 250 reglas de alertas de registro se facturan según los [Precios de alertas en la página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).

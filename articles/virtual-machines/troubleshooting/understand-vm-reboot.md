@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: e94ffb3d34082745c3d7ca86cfda2b93c0ed08da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 08fb794839adf9e8a986f53da00b4855e5535af5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77919420"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508872"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Descripción de un reinicio del sistema de una máquina virtual de Azure
 
@@ -34,7 +34,7 @@ Para más información sobre los conjuntos de disponibilidad, consulte [Administ
 
 ## <a name="resource-health-information"></a>Información acerca de Resource Health
 
-Azure Resource Health es un servicio que expone el estado de los recursos individuales de Azure y proporciona instrucciones para solucionar problemas. En un entorno de nube donde no es posible acceder directamente a los servidores o a elementos de la infraestructura, el objetivo de Resource Health es reducir el tiempo que se tarda en solucionar los problemas. En concreto, el objetivo es reducir el tiempo que se tarda en determinar si la raíz del problema se encuentra en la aplicación o en un evento de la plataforma Azure. Para más información, consulte la [introducción al uso de Resource Health](../../resource-health/resource-health-overview.md).
+Azure Resource Health es un servicio que expone el estado de los recursos individuales de Azure y proporciona instrucciones para solucionar problemas. En un entorno de nube donde no es posible acceder directamente a los servidores o a elementos de la infraestructura, el objetivo de Resource Health es reducir el tiempo que se tarda en solucionar los problemas. En concreto, el objetivo es reducir el tiempo que se tarda en determinar si la raíz del problema se encuentra en la aplicación o en un evento de la plataforma Azure. Para más información, consulte la [introducción al uso de Resource Health](../../service-health/resource-health-overview.md).
 
 ## <a name="actions-and-events-that-can-cause-the-vm-to-reboot"></a>Acciones y eventos que pueden hacer que la máquina virtual se reinicie
 
@@ -46,8 +46,8 @@ Sin embargo, algunas de ellas requieren un reinicio. En estos casos, las máquin
 
 Para saber qué es el mantenimiento planeado de Azure y cómo afecta a la disponibilidad de las máquinas virtuales Linux, consulte los artículos que se enumeran aquí. En estos artículos se proporciona información general acerca del proceso del mantenimiento planeado de Azure y de cómo programarlo para reducir aún más sus efectos negativos.
 
-- [Mantenimiento planeado de máquinas virtuales en Azure](../windows/planned-maintenance.md)
-- [Programación del mantenimiento planeado en máquinas virtuales de Azure](../windows/classic/planned-maintenance-schedule.md)
+- [Mantenimiento planeado de máquinas virtuales en Azure](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json)
+- [Programación del mantenimiento planeado en máquinas virtuales de Azure](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json)
 
 ### <a name="memory-preserving-updates"></a>Actualizaciones de conservación de memoria
 
@@ -72,7 +72,7 @@ Otros escenarios que suelen provocar el reinicio de la máquina virtual incluyen
 
 ### <a name="azure-security-center-and-windows-update"></a>Azure Security Center y Windows Update
 
-Azure Security Center supervisa diariamente las máquinas virtuales Windows y Linux por si faltan actualizaciones del sistema operativo. Security Center recupera una lista de actualizaciones críticas y de seguridad disponibles desde Windows Update o Windows Server Update Services (WSUS), dependiendo de qué servicio está configurado en una máquina virtual Windows. Security Center también comprueba las últimas actualizaciones de los sistemas Linux. Si falta una actualización del sistema en la máquina virtual, Security Center le recomienda que aplique las actualizaciones del sistema. Este proceso se controla a través de Security Center en Azure Portal. Tras la aplicación de algunas actualizaciones, puede ser necesario reiniciar la máquina virtual. Para más información, consulte [Aplicar actualizaciones del sistema en Azure Security Center](../../security-center/security-center-apply-system-updates.md).
+Azure Security Center supervisa diariamente las máquinas virtuales Windows y Linux por si faltan actualizaciones del sistema operativo. Security Center recupera una lista de actualizaciones críticas y de seguridad disponibles desde Windows Update o Windows Server Update Services (WSUS), dependiendo de qué servicio está configurado en una máquina virtual Windows. Security Center también comprueba las últimas actualizaciones de los sistemas Linux. Si falta una actualización del sistema en la máquina virtual, Security Center le recomienda que aplique las actualizaciones del sistema. Este proceso se controla a través de Security Center en Azure Portal. Tras la aplicación de algunas actualizaciones, puede ser necesario reiniciar la máquina virtual. Para más información, consulte [Aplicar actualizaciones del sistema en Azure Security Center](../../security-center/security-center-virtual-machine-protection.md).
 
 Al igual que los servidores locales, Azure no inserta las actualizaciones de Windows Update en las máquinas virtuales de Windows, ya que estas máquinas están diseñadas para que las administren los usuarios. No obstante, se recomienda dejar habilitada la configuración automática de Windows Update. La instalación automática de actualizaciones de Windows Update también puede provocar el reinicio tras su aplicación. Para más información, consulte [Windows Update: preguntas frecuentes](https://support.microsoft.com/help/12373/windows-update-faq).
 
@@ -115,7 +115,7 @@ Las máquinas puede que solo permanezcan cinco minutos apagadas, pero también p
 
 **Superación de los límites de E/S**
 
-Las máquinas virtuales pueden apagarse temporalmente cuando las solicitudes de E/S se limitan en sincronía con el volumen de operaciones de entrada/salida por segundo (IOPS) al superar los límites de E/S del disco (el almacenamiento en disco estándar está limitado a 500 IOPS). Para mitigar este problema, utilice el seccionamiento del disco o configure el espacio de almacenamiento dentro de la máquina virtual invitada en función de la carga de trabajo. Para más información, consulte [Configuring Azure Virtual Machines for Optimal Storage Performance](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx) (Configuración de máquinas virtuales de Azure para que el rendimiento del almacenamiento sea óptimo).
+Las máquinas virtuales pueden apagarse temporalmente cuando las solicitudes de E/S se limitan en sincronía con el volumen de operaciones de entrada/salida por segundo (IOPS) al superar los límites de E/S del disco (el almacenamiento en disco estándar está limitado a 500 IOPS). Para mitigar este problema, utilice el seccionamiento del disco o configure el espacio de almacenamiento dentro de la máquina virtual invitada en función de la carga de trabajo. 
 
 ### <a name="other-incidents"></a>Otros incidentes
 

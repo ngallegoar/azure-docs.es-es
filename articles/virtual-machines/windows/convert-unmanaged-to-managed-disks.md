@@ -7,12 +7,12 @@ ms.subservice: disks
 ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: 6173f2f60f5dd0b2b06c415bbf55ed31bacbe8b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b5d2e82b439454ff33a263af7710fe79f246893
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84658195"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508617"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Conversión de máquina virtual Windows con discos no administrados en discos administrados
 
@@ -35,7 +35,7 @@ Si ya dispone de máquinas virtuales Windows que usan discos no administrados, p
 ## <a name="convert-single-instance-vms"></a>Conversión de máquinas virtuales de instancia única
 En esta sección se explica cómo convertir máquinas virtuales de Azure de instancia única de Unmanaged Disks a Managed Disks. (Si las máquinas virtuales se encuentran en un conjunto de disponibilidad, consulte la sección siguiente). 
 
-1. Desasigne la VM con el cmdlet [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm). En el ejemplo siguiente se desasigna la VM `myVM` en el grupo de recursos denominado `myResourceGroup`: 
+1. Desasigne la VM con el cmdlet [Stop-AzVM](/powershell/module/az.compute/stop-azvm). En el ejemplo siguiente se desasigna la VM `myVM` en el grupo de recursos denominado `myResourceGroup`: 
 
    ```azurepowershell-interactive
    $rgName = "myResourceGroup"
@@ -43,7 +43,7 @@ En esta sección se explica cómo convertir máquinas virtuales de Azure de inst
    Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
    ```
 
-2. Convierta la VM a discos administrados con el cmdlet [ConvertTo-AzVMManagedDisk](https://docs.microsoft.com/powershell/module/az.compute/convertto-azvmmanageddisk). El proceso siguiente convierte la VM anterior, incluidos el disco del SO y todos los discos de datos, e inicia la máquina virtual:
+2. Convierta la VM a discos administrados con el cmdlet [ConvertTo-AzVMManagedDisk](/powershell/module/az.compute/convertto-azvmmanageddisk). El proceso siguiente convierte la VM anterior, incluidos el disco del SO y todos los discos de datos, e inicia la máquina virtual:
 
    ```azurepowershell-interactive
    ConvertTo-AzVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
@@ -55,7 +55,7 @@ En esta sección se explica cómo convertir máquinas virtuales de Azure de inst
 
 Si las VM que desea convertir en discos administrados se encuentran en un conjunto de disponibilidad, primero debe convertir el conjunto de disponibilidad en un conjunto de disponibilidad administrado.
 
-1. Convierta el conjunto de disponibilidad con el cmdlet [Update-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/update-azavailabilityset). En el ejemplo siguiente se actualiza el conjunto de disponibilidad denominado `myAvailabilitySet` en el grupo de recursos con nombre `myResourceGroup`:
+1. Convierta el conjunto de disponibilidad con el cmdlet [Update-AzAvailabilitySet](/powershell/module/az.compute/update-azavailabilityset). En el ejemplo siguiente se actualiza el conjunto de disponibilidad denominado `myAvailabilitySet` en el grupo de recursos con nombre `myResourceGroup`:
 
    ```azurepowershell-interactive
    $rgName = 'myResourceGroup'
@@ -72,7 +72,7 @@ Si las VM que desea convertir en discos administrados se encuentran en un conjun
    Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
    ```
 
-2. Desasigne y convierta las máquinas virtuales del conjunto de disponibilidad. El siguiente script desasigna cada VM mediante el cmdlet [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm), la convierte con [ConvertTo-AzVMManagedDisk](https://docs.microsoft.com/powershell/module/az.compute/convertto-azvmmanageddisk) y la reinicia automáticamente como parte del proceso de conversión:
+2. Desasigne y convierta las máquinas virtuales del conjunto de disponibilidad. El siguiente script desasigna cada VM mediante el cmdlet [Stop-AzVM](/powershell/module/az.compute/stop-azvm), la convierte con [ConvertTo-AzVMManagedDisk](/powershell/module/az.compute/convertto-azvmmanageddisk) y la reinicia automáticamente como parte del proceso de conversión:
 
    ```azurepowershell-interactive
    $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
@@ -108,4 +108,3 @@ La máquina virtual se detendrá y se reiniciará una vez completada la migraci�
 [Conversión de Managed Disks estándar a premium](convert-disk-storage.md)
 
 Realice una copia de solo lectura de una máquina virtual mediante [instantáneas](snapshot-copy-managed-disk.md).
-

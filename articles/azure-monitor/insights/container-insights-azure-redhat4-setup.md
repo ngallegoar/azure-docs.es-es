@@ -3,12 +3,12 @@ title: Configuración de la versión 4.x de Red Hat OpenShift en Azure con Azure
 description: En este artículo se describe cómo configurar la supervisión de un clúster de Kubernetes con Azure Monitor hospedado en la versión 4 o posterior de Red Hat OpenShift en Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 49097d96ecf58d7c5bf7d1a60ff01fc7182587c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91b5644c13ac560910703454c4052e223f958014
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801485"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499178"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-azure-monitor-for-containers"></a>Configuración de la versión 4.x de Red Hat OpenShift en Azure con Azure Monitor para contenedores
 
@@ -20,7 +20,7 @@ Azure Monitor para contenedores proporciona una experiencia de supervisión enri
 
 Azure Monitor para contenedores se puede habilitar para una o más implementaciones existentes de la versión 4.x de Red Hat OpenShift en Azure con los métodos admitidos que se describen en este artículo.
 
-Para un clúster existente, ejecute este [script de Bash en la CLI de Azure](https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create).
+Para un clúster existente, ejecute este [script de Bash en la CLI de Azure](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create).
 
 ## <a name="supported-and-unsupported-features"></a>Características admitidas y no admitidas
 
@@ -172,4 +172,4 @@ La vista de varios clústeres de Azure Monitor para contenedores resalta los cl�
 
 - Para extraer y analizar las métricas de Prometheus desde el clúster, consulte [Configuración de la extracción de métricas de Prometheus](container-insights-prometheus-integration.md).
 
-- Para aprender a detener la supervisión del clúster con Azure Monitor para contenedores, consulte [Cómo detener la supervisión del clúster de Red Hat OpenShift en Azure](container-insights-optout-openshift.md).
+- Para aprender a detener la supervisión del clúster con Azure Monitor para contenedores, consulte [Cómo detener la supervisión del clúster de Red Hat OpenShift en Azure](./container-insights-optout-openshift-v3.md).

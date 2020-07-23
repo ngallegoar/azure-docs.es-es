@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 5e756258bb92d7def195959d909068e87e765c0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d66c690c3a0ba638a92150c9aa1dbb0dc2a41268
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82562073"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506169"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Uso de Azure Functions Proxies
 
@@ -89,7 +89,7 @@ Los parámetros de respuesta pueden utilizarse como parte de la modificación de
 
 ### <a name="reference-application-settings"></a><a name="use-appsettings"></a>Referencia a la configuración de la aplicación
 
-También puede hacer referencia a la [configuración de la aplicación definida para la aplicación de función](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) rodeando el nombre de la configuración con signos de porcentaje (%).
+También puede hacer referencia a la [configuración de la aplicación definida para la aplicación de función](./functions-how-to-use-azure-function-app-settings.md) rodeando el nombre de la configuración con signos de porcentaje (%).
 
 Por ejemplo, en la dirección URL de back-end *https://%ORDER_PROCESSING_HOST%/api/orders* , "%ORDER_PROCESSING_HOST%" se sustituiría por el valor de la opción ORDER_PROCESSING_HOST.
 
@@ -110,7 +110,7 @@ Deshabilite por completo los seguimientos añadiendo `"debug":false` a cualquier
 
 ## <a name="advanced-configuration"></a>Configuración avanzada
 
-Los servidores proxy que configura se almacenan en un archivo *proxies.json*, ubicado en la raíz de un directorio de la aplicación de función. Puede editar este archivo manualmente e implementarlo como parte de la aplicación cuando se utiliza cualquiera de los [métodos de implementación](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) compatibles con Functions. 
+Los servidores proxy que configura se almacenan en un archivo *proxies.json*, ubicado en la raíz de un directorio de la aplicación de función. Puede editar este archivo manualmente e implementarlo como parte de la aplicación cuando se utiliza cualquiera de los [métodos de implementación](./functions-continuous-deployment.md) compatibles con Functions. 
 
 > [!TIP] 
 > Si no ha configurado alguno de los métodos de implementación, también puede trabajar con el archivo *proxies.json* en el portal. Vaya a la aplicación de función y seleccione **Características de la plataforma** y **Editor de App Service**. Al hacerlo, puede ver toda la estructura de archivos de la aplicación de función y realizar cambios.
@@ -244,7 +244,7 @@ Una configuración de ejemplo puede tener el siguiente aspecto:
 > En este ejemplo, el cuerpo de la respuesta se define directamente, por lo que no se necesita ninguna propiedad `backendUri`. En el ejemplo, se muestra cómo usar Azure Functions Proxies para simular las API.
 
 [Azure Portal]: https://portal.azure.com
-[Desencadenadores HTTP]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook
+[Desencadenadores HTTP]: ./functions-bindings-http-webhook.md
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response
 [Definición de un objeto requestOverrides]: #requestOverrides

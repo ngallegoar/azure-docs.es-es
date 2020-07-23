@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 46c46faf8f7ee52978ae5542ab7ebd72a41b8357
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: fd04e92804a1d37afd8ee2cefb159c1e686748d4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536457"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496186"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objetivos de escalabilidad y rendimiento de Azure Files
 
@@ -74,7 +74,7 @@ En el caso de Azure File Sync, el rendimiento es fundamental en dos fases:
 
 Para ayudarle a planear la implementación de cada una de las fases, a continuación encontrará los resultados observados durante las pruebas internas en un sistema con una configuración
 
-| Configuración del sistema |  |
+| Configuración del sistema | Detalles |
 |-|-|
 | CPU | 64 núcleos virtuales con una memoria caché L3 de 64 MiB |
 | Memoria | 128 GB |
@@ -82,7 +82,7 @@ Para ayudarle a planear la implementación de cada una de las fases, a continuac
 | Red | Red de 1 Gbps |
 | Carga de trabajo | Servidor de archivos de uso general|
 
-| Aprovisionamiento inicial que se realiza una sola vez  |  |
+| Aprovisionamiento inicial que se realiza una sola vez  | Detalles |
 |-|-|
 | Número de objetos | 25 millones de objetos |
 | Tamaño del conjunto de datos| ~4,7 TiB |
@@ -92,7 +92,7 @@ Para ayudarle a planear la implementación de cada una de las fases, a continuac
 
 \* Cuando se crea un nuevo punto de conexión de servidor, el agente de Azure File Sync no descarga nada del contenido del archivo. En primer lugar sincroniza el espacio de nombres completo y, después, desencadena la recuperación en segundo plano para descargar los archivos, ya sea en su totalidad o, si está habilitada la organización en niveles en la nube, la directiva de niveles en la nube establecida en el punto de conexión del servidor.
 
-| Sincronización en curso  |   |
+| Sincronización en curso  | Detalles  |
 |-|--|
 | Número de objetos sincronizados| 125 000 objetos (renovación ~ 1 %) |
 | Tamaño del conjunto de datos| 50 GiB |

@@ -4,12 +4,12 @@ description: Implemente características de Azure Monitor a escala mediante Azur
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 4be403f8efc8e328548b6ef38b36be78a8fb96d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbfc0cafe83f53bd7cab2b93899e9c2cb02d52e3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678705"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505217"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Implementación de Azure Monitor a escala mediante Azure Policy
 Aunque algunas características de Azure Monitor se configuran una vez o un número limitado de veces, otras se deben repetir para cada recurso que desee supervisar. En este artículo se describen los métodos para usar Azure Policy para implementar Azure Monitor a escala con el fin de asegurarse de que la supervisión se configura de forma coherente y precisa para todos los recursos de Azure.
@@ -31,7 +31,7 @@ Azure Policy consta de los objetos de la tabla siguiente. Consulte [Objetos de A
 | Asignación | Una definición de directiva o una iniciativa no tienen efecto hasta que se asignan a un ámbito. Por ejemplo, asigne una directiva a un grupo de recursos para aplicarla a todos los recursos creados en ese recurso o aplíquela a una suscripción para aplicarla a todos los recursos de esa suscripción.  Para más información, consulte [Estructura de las asignaciones de Azure Policy](../../governance/policy/concepts/assignment-structure.md). |
 
 ## <a name="built-in-policy-definitions-for-azure-monitor"></a>Definiciones de directivas integradas para Azure Monitor
-Azure Policy incluye varias definiciones creadas previamente relacionadas con Azure Monitor. Puede asignar estas definiciones de directiva a la suscripción existente o utilizarlas como base para crear sus propias definiciones personalizadas. Para obtener una lista completa de la directivas integradas de la categoría **Supervisión**, consulte [Definiciones de directivas integradas de Azure Policy para Azure Monitor](../policy-samples.md).
+Azure Policy incluye varias definiciones creadas previamente relacionadas con Azure Monitor. Puede asignar estas definiciones de directiva a la suscripción existente o utilizarlas como base para crear sus propias definiciones personalizadas. Para obtener una lista completa de la directivas integradas de la categoría **Supervisión**, consulte [Definiciones de directivas integradas de Azure Policy para Azure Monitor](../samples/policy-samples.md).
 
 Para ver las definiciones de directivas integradas relacionadas con la supervisión, realice lo siguiente:
 
@@ -60,7 +60,7 @@ En el caso de los tipos de recursos que no tienen una directiva integrada, debe 
 El script [Create-AzDiagPolicy](https://www.powershellgallery.com/packages/Create-AzDiagPolicy) crea archivos de directivas para un tipo de recurso determinado que se pueden instalar mediante PowerShell o la CLI. Use el procedimiento siguiente para crear una definición de directiva personalizada para la configuración de diagnóstico.
 
 
-1. Asegúrese de que tiene instalado [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+1. Asegúrese de que tiene instalado [Azure PowerShell](/powershell/azure/install-az-ps).
 2. Instale el script con el comando siguiente:
   
     ```azurepowershell

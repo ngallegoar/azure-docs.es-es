@@ -4,12 +4,12 @@ description: En este artículo obtendrá información sobre cómo crear y admini
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 0718ebc3612f53f1c2cc279096dd92de69bb5ef6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2fa35ed5e03ad174407e4c82fb5d4bbe69ee8131
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76963859"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497818"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Creación de directivas de copia de seguridad de Azure Recovery Services mediante API REST
 
@@ -133,7 +133,7 @@ La directiva indica:
 
 ## <a name="responses"></a>Respuestas
 
-La creación o actualización de las directivas de copia de seguridad es una [operación asincrónica](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Significa que esta operación crea otra que tiene que ser seguida por separado.
+La creación o actualización de las directivas de copia de seguridad es una [operación asincrónica](../azure-resource-manager/management/async-operations.md). Significa que esta operación crea otra que tiene que ser seguida por separado.
 
 Devuelve las dos respuestas: 202 - Aceptado cuando se crea otra operación y 200 - Correcto cuando se completa dicha operación.
 

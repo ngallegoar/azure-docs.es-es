@@ -9,15 +9,15 @@ ms.subservice: template
 ms.date: 04/26/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: af2f000b9f9a7bf64898c46b3126cf180802b445
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f47e07dcffd977121b4142924a77bdb93de3fc3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83198120"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503054"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Más información sobre las plantillas de conjuntos de escalado de máquinas virtuales
-Las [plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process) constituyen una excelente manera de implementar grupos de recursos relacionados. En esta serie de tutoriales se explica cómo crear una plantilla de conjunto de escalado básico y cómo modificarla para adaptarla a distintos escenarios. Todos los ejemplos proceden de este [repositorio de GitHub](https://github.com/gatneil/mvss).
+Las [plantillas de Azure Resource Manager](../azure-resource-manager/templates/overview.md#template-deployment-process) constituyen una excelente manera de implementar grupos de recursos relacionados. En esta serie de tutoriales se explica cómo crear una plantilla de conjunto de escalado básico y cómo modificarla para adaptarla a distintos escenarios. Todos los ejemplos proceden de este [repositorio de GitHub](https://github.com/gatneil/mvss).
 
 Esta plantilla está diseñada para ser sencilla. Para ejemplos más completos de plantillas de conjuntos de escalado, consulte el [repositorio de GitHub de plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates) y busque las carpetas que contienen la cadena `vmss`.
 
@@ -115,7 +115,7 @@ En este caso, solo hay un elemento en la lista: la máquina virtual del ejemplo 
 ## <a name="specify-scale-set-properties"></a>Especificación de propiedades de conjunto de escalado
 Los conjuntos de escalado tienen muchas propiedades para personalizar las máquinas virtuales en el conjunto de escalado. Para una lista completa de estas propiedades, vea la [referencia de la plantilla](/azure/templates/microsoft.compute/virtualmachinescalesets). En ese tutorial solo se establecen algunas propiedades de uso frecuente.
 ### <a name="supply-vm-size-and-capacity"></a>Suministro de capacidad y tamaño de máquina virtual
-El conjunto de escalado necesita saber qué tamaño de máquina virtual debe crear ("nombre de SKU") y cuántas crear ("capacidad de SKU"). Para ver qué tamaños de máquinas virtuales están disponibles, consulte la [documentación de tamaños de máquina virtual](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes).
+El conjunto de escalado necesita saber qué tamaño de máquina virtual debe crear ("nombre de SKU") y cuántas crear ("capacidad de SKU"). Para ver qué tamaños de máquinas virtuales están disponibles, consulte la [documentación de tamaños de máquina virtual](../virtual-machines/windows/sizes.md).
 
 ```json
        "sku": {

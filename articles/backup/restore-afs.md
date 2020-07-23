@@ -3,16 +3,16 @@ title: Restauración de recursos compartidos de archivos de Azure
 description: Aprenda a usar Azure Portal para restaurar un recurso compartido de archivos completo o archivos específicos desde un punto de restauración creado por Azure Backup.
 ms.topic: conceptual
 ms.date: 01/12/2020
-ms.openlocfilehash: 5668328637ae9b5a5dd3db02085a7f15de2a2456
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: f0e232fcde12a0c035afa139e3043bfa52fbe714
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980669"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503649"
 ---
 # <a name="restore-azure-file-shares"></a>Restauración de recursos compartidos de archivos de Azure
 
-En este artículo se explica cómo usar Azure Portal para restaurar un recurso compartido de archivos completo o archivos específicos desde un punto de restauración creado por [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview).
+En este artículo se explica cómo usar Azure Portal para restaurar un recurso compartido de archivos completo o archivos específicos desde un punto de restauración creado por [Azure Backup](./backup-overview.md).
 
 En este artículo, aprenderá a:
 

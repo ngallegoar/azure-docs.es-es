@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/04/2018
-ms.openlocfilehash: d7a37d51c411488231205fd036f9a287f5206ce5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c76cf939959d198d2c28181295a695a65ae46af9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77672453"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505710"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Análisis de datos de texto en registros de Azure Monitor
-Algunos datos de registro recopilados por Azure Monitor incluyen varios fragmentos de información en una sola propiedad. El análisis de estos datos en varias propiedades facilita su uso en las consultas. Un ejemplo común es un [registro personalizado](../../log-analytics/log-analytics-data-sources-custom-logs.md) que recopila una entrada de registro completo con varios valores en una sola propiedad. Al crear propiedades independientes para los distintos valores, puede buscar y agregar en cada uno.
+Algunos datos de registro recopilados por Azure Monitor incluyen varios fragmentos de información en una sola propiedad. El análisis de estos datos en varias propiedades facilita su uso en las consultas. Un ejemplo común es un [registro personalizado](../platform/data-sources-custom-logs.md) que recopila una entrada de registro completo con varios valores en una sola propiedad. Al crear propiedades independientes para los distintos valores, puede buscar y agregar en cada uno.
 
 En este artículo se describen distintas opciones para analizar los datos de Azure Monitor cuando estos se ingieren y cuando se recuperan en una consulta, y se comparan las ventajas relativas para cada uno.
 
@@ -23,7 +23,7 @@ En este artículo se describen distintas opciones para analizar los datos de Azu
 Puede analizar los datos ya sea en el momento de la ingesta cuando se recopilan o bien al realizar la consulta cuando los datos se analizan con una consulta. Cada estrategia tiene unas ventajas únicas, como se describe a continuación.
 
 ### <a name="parse-data-at-collection-time"></a>Análisis de los datos en el momento de la recopilación
-Cuando se analizan los datos en el momento de la recopilación, se configuran [campos personalizados](../../log-analytics/log-analytics-custom-fields.md) que crean nuevas propiedades en la tabla. Las consultas no tienen que incluir ninguna lógica de análisis y simplemente se usan estas propiedades como cualquier otro campo de la tabla.
+Cuando se analizan los datos en el momento de la recopilación, se configuran [campos personalizados](../platform/custom-fields.md) que crean nuevas propiedades en la tabla. Las consultas no tienen que incluir ninguna lógica de análisis y simplemente se usan estas propiedades como cualquier otro campo de la tabla.
 
 Las ventajas que presenta este método son, entre otras:
 

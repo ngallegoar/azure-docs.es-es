@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 46716cf5bd810225cbfc3b54d246917c9559f78f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ff76ea3bd39f31880d0140e182ad99f293689e6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124474"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505370"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Envío de métricas de SO invitado al almacén de métricas de Azure Monitor en Cloud Services clásico 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Con la [extensión Diagnostics](diagnostics-extension-overview.md) de Azure Monitor, puede recopilar métricas y registros del sistema operativo invitado (SO invitado) que se ejecuta como parte de un clúster de Service Fabric, un servicio en la nube o una máquina virtual. La extensión puede enviar datos de telemetría a [muchas ubicaciones diferentes](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json).
+Con la [extensión Diagnostics](diagnostics-extension-overview.md) de Azure Monitor, puede recopilar métricas y registros del sistema operativo invitado (SO invitado) que se ejecuta como parte de un clúster de Service Fabric, un servicio en la nube o una máquina virtual. La extensión puede enviar datos de telemetría a [muchas ubicaciones diferentes](./data-platform.md?toc=/azure/azure-monitor/toc.json).
 
 En este artículo se describe el proceso de envío de métricas de rendimiento del SO invitado para Cloud Services clásico de Azure al almacén de métricas de Azure Monitor. A partir de Diagnostics versión 1.11, puede escribir las métricas directamente en el almacén de métricas de Azure Monitor, donde ya se recopilan métricas de la plataforma estándar. 
 
@@ -30,9 +30,9 @@ El proceso descrito en este artículo solo funciona para los contadores de rendi
 
 - Debe ser [administrador de servicios o administrador](../../cost-management-billing/manage/add-change-subscription-administrator.md) en su suscripción de Azure. 
 
-- La suscripción debe estar registrada en [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- La suscripción debe estar registrada en [Microsoft.Insights](../../azure-resource-manager/management/resource-providers-and-types.md). 
 
-- Debe tener instalado [Azure PowerShell](/powershell/azure) o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+- Debe tener instalado [Azure PowerShell](/powershell/azure) o [Azure Cloud Shell](../../cloud-shell/overview.md).
 
 - Su servicio en la nube debe estar en una [región que admita métricas personalizadas](metrics-custom-overview.md#supported-regions).
 
@@ -46,7 +46,7 @@ El proceso descrito en este artículo solo funciona para los contadores de rendi
 
 ## <a name="create-a-service-principal"></a>Creación de una entidad de servicio 
 
-Cree una entidad de servicio en su inquilino de Azure Active Directory siguiendo las instrucciones de [Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Tenga en cuenta lo siguiente al realizar este proceso: 
+Cree una entidad de servicio en su inquilino de Azure Active Directory siguiendo las instrucciones de [Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos](../../active-directory/develop/howto-create-service-principal-portal.md). Tenga en cuenta lo siguiente al realizar este proceso: 
 
 - Puede colocar cualquier dirección URL como dirección URL de inicio de sesión.  
 - Cree un nuevo secreto de cliente para esta aplicación.  
@@ -192,4 +192,3 @@ Puede usar las funcionalidades de división y de filtrado de dimensiones para ve
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información acerca de las [métricas personalizadas](metrics-custom-overview.md).
-

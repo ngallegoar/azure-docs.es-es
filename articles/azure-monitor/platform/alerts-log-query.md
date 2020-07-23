@@ -6,12 +6,12 @@ ms.author: yossiy
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.subservice: alerts
-ms.openlocfilehash: fdf492b8f103e725046b9b1cbbd079c4d249664a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be2d49a824066b8926ae455978facb34c0b44310
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77667795"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505472"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Consultas de alertas de registro en Azure Monitor
 Las [reglas de alertas basadas en registros de Azure Monitor](alerts-unified-log.md) se ejecutan a intervalos regulares, por lo que debe asegurarse de que están escritas de manera eficiente para minimizar la sobrecarga y la latencia. Este artículo proporciona recomendaciones sobre cómo escribir consultas eficaces para las alertas de registro y un proceso para convertir las consultas existentes. 
@@ -50,7 +50,7 @@ workspace('Contoso-workspace1').Perf
 ```
 
 >[!NOTE]
->La [consulta entre recursos](../log-query/cross-workspace-query.md) en las alertas de registro se admite en la nueva [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). De forma predeterminada, Azure Monitor usa la [API de alerta heredada de Log Analytics](api-alerts.md) para crear nuevas reglas de alerta de registro desde Azure Portal, a menos que cambie de [API de alerta de registro heredada](alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Después del cambio, la nueva API se convierte en la predeterminada para las nuevas reglas de alerta en Azure Portal y le permite crear reglas de alertas de registro de consulta entre recursos. Puede crear reglas de alertas de registro de [consulta entre recursos](../log-query/cross-workspace-query.md) sin realizar el cambio mediante la [plantilla de ARM de la API scheduledQueryRules](alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template); sin embargo, esta regla de alertas se puede administrar mediante la [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) y no desde Azure Portal.
+>La [consulta entre recursos](../log-query/cross-workspace-query.md) en las alertas de registro se admite en la nueva [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules). De forma predeterminada, Azure Monitor usa la [API de alerta heredada de Log Analytics](api-alerts.md) para crear nuevas reglas de alerta de registro desde Azure Portal, a menos que cambie de [API de alerta de registro heredada](alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Después del cambio, la nueva API se convierte en la predeterminada para las nuevas reglas de alerta en Azure Portal y le permite crear reglas de alertas de registro de consulta entre recursos. Puede crear reglas de alertas de registro de [consulta entre recursos](../log-query/cross-workspace-query.md) sin realizar el cambio mediante la [plantilla de ARM de la API scheduledQueryRules](alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template); sin embargo, esta regla de alertas se puede administrar mediante la [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) y no desde Azure Portal.
 
 ## <a name="examples"></a>Ejemplos
 Los siguientes ejemplos incluyen las consultas de registro que usan `search` y `union` y proporcionan los pasos que puede usar para modificar estas consultas para su uso con las reglas de alertas.
@@ -217,4 +217,3 @@ on Hour
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información sobre las [alertas de registro](alerts-log.md) de Azure Monitor.
 - Más información acerca de las [consultas de registro](../log-query/log-query-overview.md).
-

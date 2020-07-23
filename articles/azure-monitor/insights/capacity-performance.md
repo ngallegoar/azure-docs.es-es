@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: 75c65cf9f76e711a3aeed764de8b92ed619bad2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d52138f5b23a6a0ac8ff8c585e6aed0edd92eaf0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77666950"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499552"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Con la solución Capacidad y rendimiento (en desuso) puede planear la capacidad de máquinas virtuales de Hyper-V.
 
@@ -44,7 +44,7 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 | [Agentes de Windows](../../azure-monitor/platform/agent-windows.md) | Sí | La solución recopila información de datos de rendimiento y capacidad de los agentes de Windows. |
 | [Agentes de Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | No    | La solución no recopila información de datos de rendimiento y capacidad de los agentes directos de Linux.|
 | [Grupo de administración de SCOM](../../azure-monitor/platform/om-agents.md) | Sí |La solución recopila datos de rendimiento y capacidad de los agentes de un grupo de administración de SCOM conectado. No se requiere una conexión directa entre el agente de SCOM y Log Analytics.|
-| [Cuenta de Almacenamiento de Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md) | No | Azure Storage no incluye datos de capacidad y rendimiento.|
+| [Cuenta de Almacenamiento de Azure](../platform/resource-logs.md#send-to-log-analytics-workspace) | No | Azure Storage no incluye datos de capacidad y rendimiento.|
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -109,7 +109,7 @@ Haga clic en el icono Capacidad y rendimiento para abrir el panel Capacidad y re
 
 Los entornos informáticos de producción difieren considerablemente de una organización a otra. Además, la capacidad y las cargas de trabajo de rendimiento pueden depender del funcionamiento de las máquinas virtuales y de lo que se considere normal. Es probable que los procedimientos concretos que le ayudan a medir el rendimiento no se apliquen a su entorno. Por consiguiente, es mejor usar instrucciones más generales. Microsoft publica varios artículos con instrucciones que pueden ayudarle a medir el rendimiento.
 
-En resumen, la solución recopila datos de capacidad y rendimiento de varios orígenes, entre los que se incluyen los contadores de rendimiento. Use los datos de capacidad y rendimiento que se presentan en distintas superficies en la solución y compare los resultados con los del artículo [Measuring Performance on Hyper-V](https://msdn.microsoft.com/library/cc768535.aspx) (Medición del rendimiento en Hyper-V). Aunque el artículo se publicó hace un tiempo, las métricas, consideraciones y directrices siguen teniendo la validez. El artículo contiene vínculos a otros recursos útiles.
+En resumen, la solución recopila datos de capacidad y rendimiento de varios orígenes, entre los que se incluyen los contadores de rendimiento. Use los datos de capacidad y rendimiento que se presentan en distintas superficies en la solución y compare los resultados con los del artículo [Measuring Performance on Hyper-V](https://www.microsoft.com/en-us/download/details.aspx?id=56495) (Medición del rendimiento en Hyper-V). Aunque el artículo se publicó hace un tiempo, las métricas, consideraciones y directrices siguen teniendo la validez. El artículo contiene vínculos a otros recursos útiles.
 
 
 ## <a name="sample-log-searches"></a>Búsquedas de registros de ejemplo

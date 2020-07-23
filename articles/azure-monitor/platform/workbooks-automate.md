@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: mbullwin
-ms.openlocfilehash: 76ecc3ee17353ebd0bbead1bba959f85d521d0df
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: e2463c2ea4044af0b20a1dee91b30870639dc7ce
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982146"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504927"
 ---
 # <a name="programmatically-manage-workbooks"></a>Administración de libros mediante programación
 
@@ -78,7 +78,7 @@ Hay dos tipos de recursos de libro que se pueden administrar mediante programaci
     }
     ```
 1. En el objeto `galleries`, rellene las claves `name` y `category` con sus valores. Más información sobre los [parámetros](#parameters) en la sección siguiente.
-2. Implemente esta plantilla de Azure Resource Manager mediante [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template), la [interfaz de la línea de comandos](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell), etc.
+2. Implemente esta plantilla de Azure Resource Manager mediante [Azure Portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), la [interfaz de la línea de comandos](../../azure-resource-manager/templates/deploy-cli.md), [PowerShell](../../azure-resource-manager/templates/deploy-powershell.md), etc.
 3. Abra Azure Portal y vaya a la galería de libros elegida en la plantilla de Azure Resource Manager. En la plantilla de ejemplo, vaya a la galería de libros de Azure Monitor:
     1. Abra Azure Portal y vaya a Azure Monitor.
     2. Abra `Workbooks` desde la tabla de contenido

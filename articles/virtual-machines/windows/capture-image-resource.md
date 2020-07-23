@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: cf8d4cd3c70e28a6c70ab9321a8f55271ead754f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3aa4a7db9982d41cf32c1ddc4de6762bf1fdecf4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807509"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508804"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Captura de una imagen administrada de una máquina virtual generalizada en Azure
 
@@ -24,9 +24,9 @@ Una sola imagen administrada admite hasta 20 implementaciones simultáneas. Cua
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Generalización de VM con Windows mediante Sysprep
 
-Sysprep elimina toda la información de seguridad y de la cuenta personal y luego prepara la máquina para usarse como imagen. Para más información acerca de Sysprep, consulte la [Introducción a Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
+Sysprep elimina toda la información de seguridad y de la cuenta personal y luego prepara la máquina para usarse como imagen. Para más información acerca de Sysprep, consulte la [Introducción a Sysprep](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
-Asegúrese de que los roles de servidor que se ejecutan en la máquina sean compatibles con Sysprep. Para más información, consulte [Compatibilidad de Sysprep con roles de servidor](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) y [Escenarios no admitidos](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios). Sysprep requiere que las unidades se descifren por completo antes de la ejecución. Si ha habilitado el cifrado en la VM, deshabilite el cifrado antes de ejecutar Sysprep.
+Asegúrese de que los roles de servidor que se ejecutan en la máquina sean compatibles con Sysprep. Para más información, consulte [Compatibilidad de Sysprep con roles de servidor](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) y [Escenarios no admitidos](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios). Sysprep requiere que las unidades se descifren por completo antes de la ejecución. Si ha habilitado el cifrado en la VM, deshabilite el cifrado antes de ejecutar Sysprep.
 
 > [!IMPORTANT]
 > Una vez que se ha ejecutado sysprep en una máquina virtual, se considera *generalizada* y no se puede reiniciar. El proceso de generalización de una máquina virtual no es reversible. Si necesita mantener el funcionamiento original de la máquina virtual, debe crear una [copia de la máquina virtual](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) y generalizar la copia. 
@@ -52,7 +52,7 @@ Para generalizar la máquina virtual de Windows, siga estos pasos:
 6. Cuando Sysprep finaliza, apaga la máquina virtual. No reinicie la VM.
 
 > [!TIP]
-> **Opcional** Use [DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) para optimizar la imagen y reducir el tiempo de arranque de la máquina virtual.
+> **Opcional** Use [DISM](/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) para optimizar la imagen y reducir el tiempo de arranque de la máquina virtual.
 >
 > Para optimizar la imagen, monte el disco duro virtual; para ello, haga doble clic en él en el Explorador de Windows y, a continuación, ejecute DISM con el parámetro `/optimize-image`.
 >
@@ -247,4 +247,3 @@ Para crear una imagen administrada a partir de una máquina virtual que no usa d
     
 ## <a name="next-steps"></a>Pasos siguientes
 - [Creación de una máquina virtual a partir de una imagen administrada](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)    
-

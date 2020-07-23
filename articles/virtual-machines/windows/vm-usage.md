@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: 62880542e2cc4a93585011837b4cc962c8e79c0e
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: d480b9309c9028d8f55ab50c72a86889f320810b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773782"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500122"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Descripción de uso de máquinas virtuales de Azure
 Mediante el análisis de los datos de uso de Azure, es posible obtener información importante sobre el consumo, es decir, información que puede permitirle mejorar la asignación y administración de los costos en toda la organización. En este documento se profundiza en los detalles de consumo de Azure Compute. Para más detalles sobre el uso general de Azure, navegue a [Descripción de la factura](../../cost-management-billing/understand/review-individual-bill.md).
@@ -138,10 +138,9 @@ Las máquinas virtuales compatibles con el almacenamiento Premium se facturan co
 
 Hay tres lugares posibles en las API que pueden devolver el sistema operativo que se ejecuta en la máquina virtual:
 
-1) Las máquinas virtuales en ejecución que incluyen el agente invitado (todas las máquinas virtuales Linux y la mayoría de las máquinas virtuales Windows) mostrarán el nombre y la versión del sistema operativo en la vista de instancias de máquina virtual. Este método es preciso en todo momento, pero debido al hecho de que la información procede del agente invitado, no estará disponible para todas las máquinas virtuales. Consulte la documentación de API [aquí](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview#virtualmachineagentinstanceview).
-2) Las máquinas virtuales implementadas a partir de una imagen de plataforma contendrán los detalles de la imagen, que pueden indicar la versión del sistema operativo en los nombres seleccionados por el editor para la oferta o el SKU. Sin embargo, se trata de selecciones del editor, por lo que no hay ninguna garantía de que el sistema operativo sea reconocible en la nomenclatura. Consulte la documentación de API [aquí](https://docs.microsoft.com/rest/api/compute/images/get#operatingsystemtypes).
-3) Cada disco del sistema operativo tendrá un valor especificado Windows o Linux. Este valor se heredó de la imagen cuando se creó el disco del sistema operativo a partir de una imagen. Cuando un disco de sistema operativo se carga directamente en la plataforma, el valor del sistema operativo se establece cuando se crea el disco del mismo. Este valor siempre está presente, pero la plataforma Azure no garantiza que sea correcto. Consulte la documentación de API [aquí](https://docs.microsoft.com/rest/api/compute/virtualmachineimages/get#operatingsystemtypes).
+1) Las máquinas virtuales en ejecución que incluyen el agente invitado (todas las máquinas virtuales Linux y la mayoría de las máquinas virtuales Windows) mostrarán el nombre y la versión del sistema operativo en la vista de instancias de máquina virtual. Este método es preciso en todo momento, pero debido al hecho de que la información procede del agente invitado, no estará disponible para todas las máquinas virtuales. Consulte la documentación de API [aquí](/rest/api/compute/virtualmachines/instanceview#virtualmachineagentinstanceview).
+2) Las máquinas virtuales implementadas a partir de una imagen de plataforma contendrán los detalles de la imagen, que pueden indicar la versión del sistema operativo en los nombres seleccionados por el editor para la oferta o el SKU. Sin embargo, se trata de selecciones del editor, por lo que no hay ninguna garantía de que el sistema operativo sea reconocible en la nomenclatura. Consulte la documentación de API [aquí](/rest/api/compute/images/get#operatingsystemtypes).
+3) Cada disco del sistema operativo tendrá un valor especificado Windows o Linux. Este valor se heredó de la imagen cuando se creó el disco del sistema operativo a partir de una imagen. Cuando un disco de sistema operativo se carga directamente en la plataforma, el valor del sistema operativo se establece cuando se crea el disco del mismo. Este valor siempre está presente, pero la plataforma Azure no garantiza que sea correcto. Consulte la documentación de API [aquí](/rest/api/compute/virtualmachineimages/get#operatingsystemtypes).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre los detalles de uso, consulte [Comprender la factura de Microsoft Azure](../../cost-management-billing/understand/review-individual-bill.md).
-

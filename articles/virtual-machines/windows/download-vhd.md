@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 01/13/2019
 ms.author: cynthn
-ms.openlocfilehash: e87f2436f69abed4c0d0ee415226f99b52f2e804
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 20236ccf1ec8e1f8d8113f0597d37c20e2788987
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82085372"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500436"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Descargar un VHD de Windows desde Azure
 
@@ -22,7 +22,7 @@ En este artículo aprenderá a descargar un archivo de disco duro virtual (VHD) 
 
 ## <a name="optional-generalize-the-vm"></a>Opcional: Generalización de la máquina virtual
 
-Si quiere usar el VHD como una [imagen](tutorial-custom-images.md) para crear otras máquinas virtuales, debe usar [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) para generalizar el sistema operativo. 
+Si quiere usar el VHD como una [imagen](tutorial-custom-images.md) para crear otras máquinas virtuales, debe usar [Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) para generalizar el sistema operativo. 
 
 Para usar el VHD como imagen para crear otras máquinas virtuales, generalice la máquina virtual.
 
@@ -45,7 +45,7 @@ No se puede descargar un VHD desde Azure si está conectado a una máquina virtu
 
 ## <a name="generate-download-url"></a>Generación de la dirección URL de descarga
 
-Para descargar el archivo de VHD, debe generar una dirección URL de [firma de acceso compartido (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Una vez generada la dirección URL, se asigna un tiempo de expiración a la dirección URL.
+Para descargar el archivo de VHD, debe generar una dirección URL de [firma de acceso compartido (SAS)](../../storage/common/storage-sas-overview.md?toc=/azure/virtual-machines/windows/toc.json). Una vez generada la dirección URL, se asigna un tiempo de expiración a la dirección URL.
 
 1. En la página de la máquina virtual, haga clic en **Discos** en el menú de la izquierda.
 1. Seleccione el disco de sistema operativo de la máquina.
@@ -68,4 +68,3 @@ Para descargar el archivo de VHD, debe generar una dirección URL de [firma de a
 - Más información sobre cómo [cargar un archivo de VHD en Azure](upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 - [Create managed disks from unmanaged disks in a storage account](attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Creación de discos administrados a partir de discos no administrados en una cuenta de almacenamiento).
 - [Manage Azure disks with PowerShell](tutorial-manage-data-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Administrar discos de Azure con PowerShell).
-

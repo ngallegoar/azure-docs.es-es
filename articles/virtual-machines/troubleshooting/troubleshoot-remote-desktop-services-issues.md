@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: f41f3bd38013cb0ebd2cad55168551c303c1d231
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0b00785fed7708986885e9da9102e8f1b4fd4539
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084335"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508889"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Los Servicios de Escritorio remoto no se inician en la máquina virtual de Azure
 
@@ -218,7 +218,7 @@ Para solucionar este problema, utilice la consola serie. O bien, [repare la máq
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Conecte el disco del sistema operativo a una máquina virtual de recuperación.
 
-1. [Conecte el disco del sistema operativo a una máquina virtual de recuperación](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Conecte el disco del sistema operativo a una máquina virtual de recuperación](./troubleshoot-recovery-disks-portal-windows.md).
 2. Inicie una conexión mediante el Escritorio remoto a la máquina virtual de recuperación. Asegúrese de que el disco asociado aparece marcado como **En línea** en la consola de Administración de discos. Anote la letra de unidad que está asignada al disco del sistema operativo conectado.
 3. Abra una instancia del símbolo del sistema con privilegios elevados (**Ejecutar como administrador**). A continuación, ejecute el siguiente script. Se supone que la letra de unidad que está asignada al disco del sistema operativo conectado es **F**. Reemplácela por el valor adecuado en la máquina virtual. 
 
@@ -234,7 +234,7 @@ Para solucionar este problema, utilice la consola serie. O bien, [repare la máq
    reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v type /t REG_DWORD /d 16 /f
    ```
 
-4. [Desconecte el disco del sistema operativo y vuelva a crear la máquina virtual](../windows/troubleshoot-recovery-disks-portal.md). A continuación, compruebe si se ha resuelto el problema.
+4. [Desconecte el disco del sistema operativo y vuelva a crear la máquina virtual](./troubleshoot-recovery-disks-portal-windows.md). A continuación, compruebe si se ha resuelto el problema.
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
 

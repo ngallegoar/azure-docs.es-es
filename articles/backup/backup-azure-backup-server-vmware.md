@@ -3,12 +3,12 @@ title: Copia de seguridad de máquinas virtuales de VMware con Azure Backup Serv
 description: En este artículo, aprenderá a usar Azure Backup Server para realizar una copia de seguridad de las máquinas virtuales de VMware que se ejecutan en un servidor de VMWare vCenter y ESXi.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: fed088a9c5eea461f93c844dcb0eead74761237e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c9868012698fcdf5a2352c289de85261b6899dc3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081067"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497920"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Copia de seguridad de máquinas virtuales de VMware con Azure Backup Server
 
@@ -24,7 +24,7 @@ En este artículo se explica lo siguiente:
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
-- Compruebe que está ejecutando una versión de vCenter/ESXi compatible con la copia de seguridad. Consulte la matriz de compatibilidad [aquí](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix).
+- Compruebe que está ejecutando una versión de vCenter/ESXi compatible con la copia de seguridad. Consulte la matriz de compatibilidad [aquí](./backup-mabs-protection-matrix.md).
 - Asegúrese de que ha configurado Azure Backup Server. En caso contrario, [hágalo](backup-azure-microsoft-azure-backup.md) antes de empezar. Se debe ejecutar Azure Backup Server con las actualizaciones más recientes.
 - Asegúrese de que los siguientes puertos de red están abiertos:
   - TCP 443 entre MABS y vCenter
@@ -41,7 +41,7 @@ De forma predeterminada, Azure Backup Server se comunica con los servidores de V
 - Es importante entender cómo Azure Backup Server administra las copias de seguridad.
   - Como primer paso, Azure Backup Server realiza una copia de seguridad de los datos en el espacio de almacenamiento del disco local. Azure Backup Server usa un grupo de almacenamiento, un conjunto de discos y volúmenes en los que Azure Backup Server almacenará los datos protegidos en los puntos de recuperación del disco. El grupo de almacenamiento puede ser almacenamiento conectado directamente (DAS), una red de área de almacenamiento de canal de fibra o un dispositivo de almacenamiento o una red de área de almacenamiento iSCI. Es importante asegurarse de que tiene suficiente espacio de almacenamiento para la copia de seguridad local de los datos de la máquina virtual de VMware.
   - En ese momento, Azure Backup Server realiza la copia de seguridad del espacio de almacenamiento del disco local en Azure.
-  - [Consulte](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1807#figure-out-how-much-storage-space-you-need) cuánto espacio de almacenamiento necesita. La información es para DPM, pero también se puede usar para Azure Backup Server.
+  - [Consulte](/system-center/dpm/create-dpm-protection-groups#figure-out-how-much-storage-space-you-need) cuánto espacio de almacenamiento necesita. La información es para DPM, pero también se puede usar para Azure Backup Server.
 
 ### <a name="set-up-the-certificate"></a>Configuración del certificado
 

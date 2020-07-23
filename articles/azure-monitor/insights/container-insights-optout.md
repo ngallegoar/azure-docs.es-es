@@ -3,12 +3,12 @@ title: Cómo detener la supervisión del clúster de Azure Kubernetes Service | 
 description: En este artículo se describe cómo puede interrumpir la supervisión del clúster de Azure AKS con Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 08/19/2019
-ms.openlocfilehash: 618a4d7e10212dd2b042724b1ea11c97920dad57
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: caa932815ea46da2603c2621bef40e467fdf16c7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84691941"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499059"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Cómo detener la supervisión de Azure Kubernetes Service (AKS) con Azure Monitor para contenedores
 
@@ -17,7 +17,7 @@ Después de habilitar la supervisión del clúster de AKS, puede dejar de superv
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Use el comando [az aks disable-addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) para deshabilitar Azure Monitor para contenedores. El comando quita el agente de los nodos del clúster, no la solución ni los datos ya recopilados y almacenados en el recurso de Azure Monitor.  
+Use el comando [az aks disable-addons](/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) para deshabilitar Azure Monitor para contenedores. El comando quita el agente de los nodos del clúster, no la solución ni los datos ya recopilados y almacenados en el recurso de Azure Monitor.  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
@@ -37,7 +37,7 @@ Si no conoce el concepto de implementación de recursos mediante una plantilla, 
 >La plantilla debe implementarse en el mismo grupo de recursos que el clúster. Si omite cualquier otra propiedad o complemento al usar esta plantilla, puede dar lugar a su retirada del clúster. Por ejemplo, *enableRBAC* para las directivas RBAC implementadas en el clúster o *aksResourceTagValues* si se especifican etiquetas para el clúster AKS.  
 >
 
-Si decide usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe ejecuta la versión 2.0.27 de la CLI de Azure, o cualquier versión posterior. Para identificar la versión, ejecute `az --version`. Si necesita instalar o actualizar la CLI de Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Si decide usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe ejecuta la versión 2.0.27 de la CLI de Azure, o cualquier versión posterior. Para identificar la versión, ejecute `az --version`. Si necesita instalar o actualizar la CLI de Azure, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 ### <a name="create-template"></a>Creación de una plantilla
 
@@ -164,4 +164,4 @@ ProvisioningState       : Succeeded
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si el área de trabajo se creó solamente para admitir la supervisión del clúster y ya no es necesario, tiene que eliminarlo manualmente. Si no está familiarizado con la eliminación de un área de trabajo, consulte [Eliminación de una área de trabajo de Azure Log Analytics con Azure Portal](../../log-analytics/log-analytics-manage-del-workspace.md). No se olvide del **identificador de recurso del área de trabajo** que copió anteriormente en el paso 4; lo necesitará.
+Si el área de trabajo se creó solamente para admitir la supervisión del clúster y ya no es necesario, tiene que eliminarlo manualmente. Si no está familiarizado con la eliminación de un área de trabajo, consulte [Eliminación de una área de trabajo de Azure Log Analytics con Azure Portal](../platform/delete-workspace.md). No se olvide del **identificador de recurso del área de trabajo** que copió anteriormente en el paso 4; lo necesitará.

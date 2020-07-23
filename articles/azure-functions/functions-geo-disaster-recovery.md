@@ -4,12 +4,12 @@ description: Uso de regiones geográficas para la redundancia y conmutar por err
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 08/29/2019
-ms.openlocfilehash: 481a716bd6ced5c304da41c70fdcfc687b76661d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 446a76b823ce3592a83d0c2f898041951361b47e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79080234"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506288"
 ---
 # <a name="azure-functions-geo-disaster-recovery"></a>Recuperación ante desastres geográfica de Azure Functions
 
@@ -22,7 +22,7 @@ Azure Functions se ejecuta en una región específica.  Para obtener una mayor d
 * Activo/activo. Ambas regiones están activas y recibiendo eventos (duplicados o de forma rotativa). Se recomienda el patrón activo/activo para las funciones HTTPS en combinación con Azure Front Door.
 * Activo/pasivo. Una región está activa y recibiendo eventos, mientras que una secundaria está inactiva.  Cuando se requiere la conmutación por error, la región secundaria se activa y se encarga del procesamiento.  Se recomienda para funciones no HTTP como Service Bus y Event Hubs.
 
-Para más información sobre las implementaciones en varias regiones, lea cómo [ejecutar aplicaciones en varias regiones](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region).
+Para más información sobre las implementaciones en varias regiones, lea cómo [ejecutar aplicaciones en varias regiones](/azure/architecture/reference-architectures/app-service-web-app/multi-region).
 
 ## <a name="activeactive-for-https-functions"></a>Patrón activo/activo para funciones HTTPS
 

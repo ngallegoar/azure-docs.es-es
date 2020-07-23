@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b73b8418b202563ca7c4a73181b1b1b404db6ee2
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: e56c76583f601c2e13ab4a35c1fef2996d2e3e67
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170401"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506237"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatización de la implementación de recursos para una aplicación de función en Azure Functions
 
@@ -309,7 +309,7 @@ El plan Premium ofrece la misma escala que el plan de consumo, pero incluye func
 
 ### <a name="create-a-premium-plan"></a>Creación de un plan Premium
 
-Un plan Premium es un tipo especial de recurso de "granja de servidores". Puede especificarlo mediante `EP1`, `EP2` o `EP3` para el valor de la propiedad `Name` en el [objeto de descripción](https://docs.microsoft.com/azure/templates/microsoft.web/2018-02-01/serverfarms#skudescription-object) de `sku`.
+Un plan Premium es un tipo especial de recurso de "granja de servidores". Puede especificarlo mediante `EP1`, `EP2` o `EP3` para el valor de la propiedad `Name` en el [objeto de descripción](/azure/templates/microsoft.web/2018-02-01/serverfarms#skudescription-object) de `sku`.
 
 ```json
 {
@@ -516,7 +516,7 @@ Las aplicaciones de Linux también deberían incluir una propiedad `linuxFxVersi
 }
 ```
 
-Si está [implementando una imagen de contenedor personalizada](./functions-create-function-linux-custom-image.md), debe especificarla con `linuxFxVersion` e incluir una configuración que permita extraer la imagen, como en [Web Apps for Containers](/azure/app-service/containers). Además, establezca `WEBSITES_ENABLE_APP_SERVICE_STORAGE` en `false`, ya que el contenido de la aplicación se proporciona en el propio contenedor:
+Si está [implementando una imagen de contenedor personalizada](./functions-create-function-linux-custom-image.md), debe especificarla con `linuxFxVersion` e incluir una configuración que permita extraer la imagen, como en [Web Apps for Containers](../app-service/containers/index.yml). Además, establezca `WEBSITES_ENABLE_APP_SERVICE_STORAGE` en `false`, ya que el contenido de la aplicación se proporciona en el propio contenedor:
 
 ```json
 {

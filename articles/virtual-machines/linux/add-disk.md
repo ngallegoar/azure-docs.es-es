@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/13/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: eb18207c15007820bf93254886ab38a43bc5b48f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1791d33627f04f69d10916c8ff0a154f7d8b967b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84658340"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502833"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adición de un disco a una máquina virtual de Linux
 En este artículo se muestra cómo conectar un disco persistente a la máquina virtual para que se puedan conservar los datos, incluso si la máquina virtual se vuelve a aprovisionar por mantenimiento o cambio de tamaño.
@@ -198,9 +198,9 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 > [!NOTE]
 > Después, la eliminación de un disco de datos sin editar fstab podría provocar un error en el inicio de la máquina virtual. La mayoría de las distribuciones proporcionan las opciones de fstab *nofail* y/o *nobootwait*. Estas opciones permiten que el sistema arranque incluso si no se monta el disco en el momento del arranque. Consulte la documentación de su distribución para obtener más información sobre estos parámetros.
 >
-> La opción *nofail* garantiza que la máquina virtual se inicia incluso si el sistema de archivos está dañado o el disco no existe en tiempo de arranque. Sin esta opción, puede encontrarse con el comportamiento que se describe en [Cannot SSH to Linux VM due to FSTAB errors](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/) (No se puede conectar mediante SSH a una máquina virtual Linux debido a errores de FSTAB).
+> La opción *nofail* garantiza que la máquina virtual se inicia incluso si el sistema de archivos está dañado o el disco no existe en tiempo de arranque. Sin esta opción, puede encontrarse con el comportamiento que se describe en [Cannot SSH to Linux VM due to FSTAB errors](/archive/blogs/linuxonazure/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting) (No se puede conectar mediante SSH a una máquina virtual Linux debido a errores de FSTAB).
 >
-> La consola serie de máquina virtual de Azure puede usarse para el acceso de consola a la máquina virtual si al modificar fstab se ha producido un error de arranque. Puede encontrar más información en la [documentación de la consola serie](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux).
+> La consola serie de máquina virtual de Azure puede usarse para el acceso de consola a la máquina virtual si al modificar fstab se ha producido un error de arranque. Puede encontrar más información en la [documentación de la consola serie](../troubleshooting/serial-console-linux.md).
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Compatibilidad de TRIM/UNMAP con Linux en Azure
 Algunos kernels de Linux admiten operaciones TRIM/UNMAP para descartar bloques no usados del disco. Esta característica es especialmente útil en el almacenamiento estándar para informar a Azure de que las páginas eliminadas ya no son válidas y se pueden descartar. Además, le permitirá ahorrar dinero si crea archivos de gran tamaño y luego los elimina.

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: d05902f47dff3dd2f8a63ae240c0b8825a5c441f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 443751ee974dae3c426f36cbc262bc1a3af65bd0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77658037"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504944"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Visualizaciones de libro de Azure Monitor
 
@@ -51,7 +51,7 @@ Los libros admiten gráficos para registros y orígenes de datos de métricas.
 1. Para cambiar el libro al modo de edición, haga clic en el elemento de la barra de herramientas **Editar**.
 2. Use el vínculo **Agregar consulta** para agregar un control de consulta de registro al libro.
 3. Seleccione el tipo de consulta **Registro**, el tipo de recurso (por ejemplo, Application Insights) y los recursos de destino.
-4. Utilice el editor de consultas para especificar el [KQL](https://docs.microsoft.com/azure/kusto/query/) para el análisis (por ejemplo, la tendencia de las solicitudes).
+4. Utilice el editor de consultas para especificar el [KQL](/azure/kusto/query/) para el análisis (por ejemplo, la tendencia de las solicitudes).
 5. Establezca la visualización en una de las siguientes opciones: **Área**, **Barra**, **Barra (categoría)** , **Línea**, **Circular**, **Dispersión**o **tiempo**.
 6. Si es necesario, establezca otros parámetros, como el intervalo de tiempo, la visualización, el tamaño, la paleta de colores y la leyenda.
 

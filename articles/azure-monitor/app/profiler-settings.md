@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6b6f98f3c7f540e00743ae27b532b24d2310453e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 9d9cc377ead0c297e8334d34255bd2c7c7cd39fc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205720"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499416"
 ---
 # <a name="configure-application-insights-profiler"></a>Configuración de Application Insights Profiler
 
@@ -41,7 +41,7 @@ Sesiones de generación de perfiles recientes | muestra información acerca de l
 ## <a name="profile-now"></a>Generar perfiles ahora
 Esta opción le permite iniciar una sesión de creación de perfiles bajo petición. Cuando haga clic en este vínculo, todos los agentes de Profiler que envían datos a esta instancia de Application Insights comenzarán a capturar un perfil. Después de 5 a 10 minutos, la sesión de creación del perfil se mostrará en la lista que tiene a continuación.
 
-Para que un usuario desencadene manualmente una sesión de Profiler, requiere como mínimo tener "acceso de escritura" en su rol para el componente de Application Insights. En la mayoría de los casos, este acceso se obtiene automáticamente y no es necesario realizar ninguna tarea adicional. Si tiene problemas, el rol del ámbito de suscripción que debe agregar es el rol de "Colaborador de componentes de Application Insights". [Obtenga más información sobre el control de acceso de rol con Azure Monitoring](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
+Para que un usuario desencadene manualmente una sesión de Profiler, requiere como mínimo tener "acceso de escritura" en su rol para el componente de Application Insights. En la mayoría de los casos, este acceso se obtiene automáticamente y no es necesario realizar ninguna tarea adicional. Si tiene problemas, el rol del ámbito de suscripción que debe agregar es el rol de "Colaborador de componentes de Application Insights". [Obtenga más información sobre el control de acceso de rol con Azure Monitoring](./resources-roles-access-control.md).
 
 ## <a name="trigger-settings"></a>Configuración del desencadenador
 ![Control flotante de los ajustes del desencadenador][trigger-settings-flyout]

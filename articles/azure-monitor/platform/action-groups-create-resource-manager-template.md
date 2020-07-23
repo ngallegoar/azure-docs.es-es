@@ -7,21 +7,21 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 50ad9d57b24fab9ee57c2f9caae8f4c39d2681f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a97fd56f1dc3409666ad86e81a7ac74fee076fa1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77669087"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505693"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Creación de un grupo de acciones con una plantilla de Resource Manager
-En este artículo se muestra cómo utilizar una [plantilla de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) para configurar grupos de acciones. Mediante el uso de plantillas, puede configurar automáticamente grupos de acciones que se pueden reutilizar en determinados tipos de alertas. Estos grupos de acciones garantizan que se notifique a todas las entidades correctas cuando se desencadene una alerta.
+En este artículo se muestra cómo utilizar una [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para configurar grupos de acciones. Mediante el uso de plantillas, puede configurar automáticamente grupos de acciones que se pueden reutilizar en determinados tipos de alertas. Estos grupos de acciones garantizan que se notifique a todas las entidades correctas cuando se desencadene una alerta.
 
 Los pasos básicos son:
 
 1. Crear una plantilla en forma de archivo JSON que describa cómo crear la alerta del grupo de acciones.
 
-2. Implemente la plantilla mediante [cualquier método de implementación](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
+2. Implemente la plantilla mediante [cualquier método de implementación](../../azure-resource-manager/templates/deploy-powershell.md).
 
 En primer lugar, se describe cómo crear una plantilla de Resource Manager para un grupo de acciones donde las definiciones de acción están codificadas en la plantilla. En segundo lugar, se describe cómo crear una plantilla que toma la información de configuración de webhook como parámetros de entrada cuando se implementa la plantilla.
 
@@ -166,4 +166,3 @@ Para crear un grupo de acciones mediante una plantilla de Resource Manager, cree
 * Más información sobre los [grupos de acciones](../../azure-monitor/platform/action-groups.md).
 * Obtenga más información sobre [alertas](alerts-overview.md).
 * Aprenda a agregar [alertas mediante una plantilla de Resource Manager](../../azure-monitor/platform/alerts-activity-log.md).
-

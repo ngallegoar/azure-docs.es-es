@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: 92b6737f48d8d8704f461c9adac92284b323b05f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62d16bc9ca6c4238ff7c6304c5e1964c2956c898
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847390"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505302"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Conexión de Operations Manager con Azure Monitor
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Para mantener su inversión existente en [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) y usar las funcionalidades ampliadas con Azure Monitor, puede integrar Operations Manager con el área de trabajo de Log Analytics. Esto le permite aprovechar las oportunidades de los registros en Azure Monitor mientras sigue utilizando Operations Manager para:
+Para mantener su inversión existente en [System Center Operations Manager](/system-center/scom/key-concepts?view=sc-om-1807) y usar las funcionalidades ampliadas con Azure Monitor, puede integrar Operations Manager con el área de trabajo de Log Analytics. Esto le permite aprovechar las oportunidades de los registros en Azure Monitor mientras sigue utilizando Operations Manager para:
 
 * Supervisar el estado de los servicios de TI con Operations Manager
 * Mantener la integración con sus soluciones ITSM compatibles con la administración de incidentes y problemas
@@ -154,7 +154,7 @@ Si el servidor proxy necesita autenticación, siga este procedimiento para confi
 1. Abra la consola de Operations Manager y seleccione el área de trabajo **Administración** .
 1. En **RunAs Configuration**, seleccione **Perfiles**.
 1. Abra el perfil de **proxy del perfil Ejecutar como de System Center Advisor** .
-1. En el Asistente para crear perfiles de ejecución, haga clic en Agregar para usar una cuenta de ejecución. Puede crear una [cuenta de ejecución](https://technet.microsoft.com/library/hh321655.aspx) o usar una existente. Esta cuenta debe contar con los permisos suficientes para pasar a través del servidor proxy.
+1. En el Asistente para crear perfiles de ejecución, haga clic en Agregar para usar una cuenta de ejecución. Puede crear una [cuenta de ejecución](/previous-versions/system-center/system-center-2012-R2/hh321655(v=sc.12)) o usar una existente. Esta cuenta debe contar con los permisos suficientes para pasar a través del servidor proxy.
 1. Para establecer la cuenta que se va a administrar, elija **una clase seleccionada, un grupo o un objeto**, haga clic en **Seleccionar** y, después, en **Agrupar**. Para abrir el cuadro **Búsqueda de grupos**.
 1. Busque y seleccione **Microsoft System Center Advisor Monitoring Server Group**(Grupo de servidores de supervisión de Microsoft System Center Advisor). Haga clic en **Aceptar** después de seleccionar el grupo para cerrar el cuadro **Búsqueda de grupos**.
 1. Haga clic en **Aceptar** para cerrar el cuadro **Agregar una ejecución como cuenta**.
@@ -173,7 +173,7 @@ Después de finalizar la configuración, el grupo de administración de Operatio
 * **Microsoft.SystemCenter.Advisor.MPUpdate**: actualiza los módulos de administración base de Azure Monitor. Se ejecuta cada 12 horas de forma predeterminada.
 * **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** : Actualiza los módulos de administración de las soluciones habilitados en el área de trabajo. Se ejecuta cada cinco (5) minutos de forma predeterminada.
 
-Puede invalidar estas dos reglas para evitar la descarga automática mediante la deshabilitación o modificación de la frecuencia de sincronización del servidor de administración con Azure Monitor para determinar si está disponible un nuevo módulo de administración y si debe descargarse. Siga los pasos [Cómo reemplazar una regla o monitor](https://technet.microsoft.com/library/hh212869.aspx) para modificar el parámetro **Frequency** con un valor en segundos para cambiar la programación de sincronización o modificar el parámetro **Enabled** para deshabilitar las reglas. Dirige las invalidaciones para todos los objetos de la clase del grupo de administración de Operations Manager.
+Puede invalidar estas dos reglas para evitar la descarga automática mediante la deshabilitación o modificación de la frecuencia de sincronización del servidor de administración con Azure Monitor para determinar si está disponible un nuevo módulo de administración y si debe descargarse. Siga los pasos [Cómo reemplazar una regla o monitor](/previous-versions/system-center/system-center-2012-R2/hh212869(v=sc.12)) para modificar el parámetro **Frequency** con un valor en segundos para cambiar la programación de sincronización o modificar el parámetro **Enabled** para deshabilitar las reglas. Dirige las invalidaciones para todos los objetos de la clase del grupo de administración de Operations Manager.
 
 Para seguir el proceso de control de cambios existente para controlar las versiones del módulo de administración en el grupo de administración de producción, puede deshabilitar las reglas y habilitarlas durante determinadas horas cuando se permiten las actualizaciones. Si tiene un grupo de desarrollo o de administración de control de calidad en el entorno y tiene conectividad a Internet, puede configurar ese grupo de administración con un área de trabajo de Log Analytics para admitir este escenario. Esto le permite revisar y evaluar las versiones iterativas de los módulos de administración de Azure Monitor antes de publicarlas en el grupo de administración de producción.
 

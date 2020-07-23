@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/10/2019
-ms.openlocfilehash: 9a7521f61dc59bd954629a05638c159ab0e70556
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e351abeede6d1057a9b37ab1f1cfb9021ccd06e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77658496"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505097"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Creación de vistas personalizadas mediante el Diseñador de vistas en Azure Monitor
 Con el uso del Diseñador de vistas en Azure Monitor, puede crear una variedad de vistas personalizadas en Azure Portal que pueden ayudarle a visualizar datos en el área de trabajo de Log Analytics. Este artículo presenta una información general sobre Diseñador de vistas y los procedimientos para crear y editar vistas personalizadas.
@@ -52,7 +52,7 @@ Las opciones se describen en la tabla siguiente:
 | Opción | Descripción |
 |:--|:--|
 | Actualizar   | Actualiza la vista con los datos más recientes. | 
-| Registros      | Abre [Log Analytics](../log-query/portals.md) para analizar los datos con consultas de registro. |
+| Registros      | Abre [Log Analytics](../log-query/log-query-overview.md) para analizar los datos con consultas de registro. |
 | Editar       | Abre la vista en el Diseñador de vistas para editar su contenido y configuración.  |
 | Clonar      | Crea una vista nueva y la abre en el Diseñador de vistas. La vista nueva tiene el mismo nombre que la original con la palabra *Copy* agregada al final. |
 | Intervalo de fechas | Establezca un filtro de tiempo y fechas para los datos que se incluye en la vista. Este intervalo de fechas se aplica antes de cualquier conjunto de intervalo de fechas en consultas de la vista.  |

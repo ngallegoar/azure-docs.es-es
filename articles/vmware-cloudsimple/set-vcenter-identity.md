@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5355e43ca6ac075e76a76ceb51be135cf4b62b0a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e040f42db195760cf40f6dbdf651826b544b65a4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77564030"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507580"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Configuración de orígenes de identidad de vCenter para usar Active Directory
 
@@ -80,7 +80,7 @@ Para configurar un nuevo bosque y dominio de Active Directory, necesita:
 * Una o varias máquinas virtuales que ejecuten Microsoft Windows Server para usarlas como controladores de dominio para el nuevo bosque y dominio de Active Directory.
 * Una o varias máquinas virtuales que ejecuten el servicio DNS para la resolución de nombres.
 
-Para ver los pasos detallados, consulte [Instalar un nuevo bosque de Active Directory de Windows Server 2012](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/install-a-new-windows-server-2012-active-directory-forest--level-200-).
+Para ver los pasos detallados, consulte [Instalar un nuevo bosque de Active Directory de Windows Server 2012](/windows-server/identity/ad-ds/deploy/install-a-new-windows-server-2012-active-directory-forest--level-200-).
 
 > [!TIP]
 > Para lograr una alta disponibilidad de los servicios, se recomienda configurar varios controladores de dominio y servidores DNS.
@@ -94,7 +94,7 @@ Para configurar un nuevo dominio de Active Directory en un bosque de Active Di
 * Conexión VPN de sitio a sitio a la ubicación del bosque de Active Directory.
 * Servidor DNS para resolver el nombre del bosque de Active Directory existente.
 
-Para ver los pasos detallados, consulte [Instalar un nuevo dominio secundario o de árbol de Active Directory de Windows Server 2012](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/install-a-new-windows-server-2012-active-directory-child-or-tree-domain--level-200-).
+Para ver los pasos detallados, consulte [Instalar un nuevo dominio secundario o de árbol de Active Directory de Windows Server 2012](/windows-server/identity/ad-ds/deploy/install-a-new-windows-server-2012-active-directory-child-or-tree-domain--level-200-).
 
 Después de configurar el dominio de Active Directory, puede [agregar un origen de identidad en vCenter](#add-an-identity-source-on-vcenter) para la nueva instancia de Active Directory.
 

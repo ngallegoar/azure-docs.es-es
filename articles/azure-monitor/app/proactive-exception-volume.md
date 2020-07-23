@@ -3,18 +3,18 @@ title: 'Aumento anómalo del volumen de excepciones: Azure Application Insights'
 description: Supervise las excepciones de las aplicaciones con la detección inteligente en Azure Application Insights para detectar patrones poco habituales del volumen de excepciones.
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: a08fae4774a8afb9959f55ea3196cd1a45c33439
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 00b7a28a51f91c969b41d2ab85b611f6dde51396
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671773"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499433"
 ---
 # <a name="abnormal-rise-in-exception-volume-preview"></a>Aumento anormal del volumen de excepciones (versión preliminar)
 
 Application Insights analiza automáticamente las excepciones generadas en la aplicación y puede avisarle sobre los patrones inusuales en la telemetría de excepciones.
 
-Esta característica no requiere ninguna configuración especial, excepto la [configuración de los informes de excepciones](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-exceptions#set-up-exception-reporting) de la aplicación. Se activará cuando la aplicación genere suficiente telemetría de excepciones.
+Esta característica no requiere ninguna configuración especial, excepto la [configuración de los informes de excepciones](./asp-net-exceptions.md#set-up-exception-reporting) de la aplicación. Se activará cuando la aplicación genere suficiente telemetría de excepciones.
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>¿Cuándo recibiré este tipo de notificación de detección inteligente?
 Es posible que obtenga este tipo de notificación si la aplicación presenta un aumento anormal en el número de excepciones de un tipo específico durante un día, en comparación con una base de referencia calculada durante los últimos siete días.

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: jonbeck
-ms.openlocfilehash: eeb43247253386d6dd58a4c35ef0cba15a991b9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ad1c3bfd7a7bb3dba36790d8dae0f503ba938c3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82086205"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508634"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>Tamaños de VM que admiten vCPU restringidas
 
@@ -24,12 +24,11 @@ ms.locfileid: "82086205"
 
 
 ## <a name="other-sizes"></a>Otros tamaños
-- [Proceso optimizado](../windows/sizes-compute.md)
-- [Memoria optimizada](sizes-memory.md)
-- [Almacenamiento optimizado](sizes-storage.md)
-- [GPU](sizes-gpu.md)
-- [Proceso de alto rendimiento](sizes-hpc.md)
+- [Proceso optimizado](../sizes-compute.md)
+- [Memoria optimizada](../sizes-memory.md)
+- [Almacenamiento optimizado](../sizes-storage.md)
+- [GPU](../sizes-gpu.md)
+- [Proceso de alto rendimiento](../sizes-hpc.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Obtenga más información sobre cómo las [unidades de proceso de Azure (ACU)](acu.md) pueden ayudarlo a comparar el rendimiento en los distintos SKU de Azure.
-
+Obtenga más información sobre cómo las [unidades de proceso de Azure (ACU)](../acu.md) pueden ayudarlo a comparar el rendimiento en los distintos SKU de Azure.

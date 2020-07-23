@@ -1,22 +1,22 @@
 ---
-title: Reacción a eventos de mapa mediante Event Grid | Microsoft Azure Maps
+title: Reaccionar a eventos de Azure Maps mediante Event Grid
 description: En este artículo, obtendrá información sobre cómo reaccionar a eventos de Microsoft Azure Maps mediante Event Grid.
-author: philmea
-ms.author: philmea
-ms.date: 02/08/2019
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 07/16/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
+manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 9c9483af191e5439af0c0b5e433187d6475c178c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eb64634f25564abc4044364950b4d462a22608aa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335712"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499518"
 ---
-# <a name="react-to-azure-maps-events-by-using-event-grid"></a>Reaccionar a eventos de Azure Maps mediante Event Grid 
+# <a name="react-to-azure-maps-events-by-using-event-grid"></a>Reaccionar a eventos de Azure Maps mediante Event Grid
 
 Azure Maps se integra con Azure Event Grid, de forma que los usuarios pueden enviar notificaciones de eventos a otros servicios y desencadenar procesos de bajada. Este artículo tiene como objetivo ayudarle a configurar las aplicaciones empresariales para que escuchen eventos de Azure Maps. Esto permite a los usuarios reaccionar ante eventos críticos de forma confiable, escalable y segura. Por ejemplo, los usuarios pueden compilar una aplicación para actualizar una base de datos, crear un vale y enviar una notificación por correo electrónico cada vez que un dispositivo entra en una geovalla.
 
@@ -41,39 +41,32 @@ Event Grid usa las [suscripciones a eventos](https://docs.microsoft.com/azure/ev
 En el ejemplo siguiente, se muestra el esquema de GeofenceResult:
 
 ```JSON
-{   
-   "id":"451675de-a67d-4929-876c-5c2bf0b2c000", 
-   "topic":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Maps/accounts/{accountName}", 
-   "subject":"/spatial/geofence/udid/{udid}/id/{eventId}", 
-   "data":{   
-      "geometries":[   
-         {   
-            "deviceId":"device_1", 
-            "udId":"1a13b444-4acf-32ab-ce4e-9ca4af20b169", 
-            "geometryId":"1", 
-            "distance":999.0, 
-            "nearestLat":47.609833, 
-            "nearestLon":-122.148274 
-         }, 
-         {   
-            "deviceId":"device_1", 
-            "udId":"1a13b444-4acf-32ab-ce4e-9ca4af20b169", 
-            "geometryId":"2", 
-            "distance":999.0, 
-            "nearestLat":47.621954, 
-            "nearestLon":-122.131841 
-         } 
-      ], 
-      "expiredGeofenceGeometryId":[   
-      ], 
-      "invalidPeriodGeofenceGeometryId":[   
-      ] 
-   }, 
-   "eventType":"Microsoft.Maps.GeofenceResult", 
-   "eventTime":"2018-11-08T00:52:08.0954283Z", 
-   "metadataVersion":"1", 
-   "dataVersion":"1.0" 
+{
+    "id":"451675de-a67d-4929-876c-5c2bf0b2c000",
+    "topic":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Maps/accounts/{accountName}",
+    "subject":"/spatial/geofence/udid/{udid}/id/{eventId}",
+    "data":{
+        "geometries":[
+            {
+                "deviceId":"device_1",
+                "udId":"1a13b444-4acf-32ab-ce4e-9ca4af20b169",
+                "geometryId":"1",
+                "distance":999.0,
+                "nearestLat":47.609833,
+                "nearestLon":-122.148274
+            }
+        ],
+        "expiredGeofenceGeometryId":[
+        ],
+        "invalidPeriodGeofenceGeometryId":[
+        ]
+    },
+    "eventType":"Microsoft.Maps.GeofenceResult",
+    "eventTime":"2018-11-08T00:52:08.0954283Z",
+    "metadataVersion":"1",
+    "dataVersion":"1.0"
 }
+
 ```
 
 ## <a name="tips-for-consuming-events"></a>Sugerencias para consumir eventos

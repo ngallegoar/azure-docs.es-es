@@ -4,16 +4,16 @@ description: Use Azure Functions para programar una tarea que se conecte a Azure
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 974d9da9bb5782672603f1ae8c58742941899a14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29e90838d91de69af43ae9cf8ec0d99b534f66be
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254283"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506084"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Uso de Azure Functions para conectarse a una base de datos de Azure SQL Database
 
-En este artículo se indica cómo usar Azure Functions para crear un trabajo programado que se conecte a una instancia de Azure SQL Database o una instancia administrada de Azure SQL. El código de función limpia las filas de una tabla de la base de datos. La nueva función de C# se crea a partir de una plantilla de desencadenador del temporizador predefinida de Visual Studio 2019. Para que este escenario sea posible, también debe establecer una cadena de conexión de base de datos como una configuración de aplicación en la aplicación de función. En el caso de la instancia administrada de Azure SQL, debe [habilitar el punto de conexión público](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) para poder conectarse desde Azure Functions. En este escenario se utiliza una operación masiva en la base de datos. 
+En este artículo se indica cómo usar Azure Functions para crear un trabajo programado que se conecte a una instancia de Azure SQL Database o una instancia administrada de Azure SQL. El código de función limpia las filas de una tabla de la base de datos. La nueva función de C# se crea a partir de una plantilla de desencadenador del temporizador predefinida de Visual Studio 2019. Para que este escenario sea posible, también debe establecer una cadena de conexión de base de datos como una configuración de aplicación en la aplicación de función. En el caso de la instancia administrada de Azure SQL, debe [habilitar el punto de conexión público](../azure-sql/managed-instance/public-endpoint-configure.md) para poder conectarse desde Azure Functions. En este escenario se utiliza una operación masiva en la base de datos. 
 
 Si es la primera vez que trabaja con funciones de C#, debe leer la [referencia para desarrolladores de C# de Azure Functions](functions-dotnet-class-library.md).
 
@@ -23,7 +23,7 @@ Si es la primera vez que trabaja con funciones de C#, debe leer la [referencia p
 
 + En este artículo se realiza una demostración de un comando de Transact-SQL que ejecuta una operación de limpieza masiva en la tabla **SalesOrderHeader** de la base de datos AdventureWorksLT de ejemplo. Para crear la base de datos de ejemplo AdventureWorksLT, efectúe los pasos indicados en el artículo [Creación de una base de datos de Azure SQL Database mediante Azure Portal](../azure-sql/database/single-database-create-quickstart.md).
 
-+ Debe agregar una [regla de firewall de nivel de servidor](../sql-database/sql-database-get-started-portal-firewall.md) para la dirección IP pública del equipo que usa para seguir este inicio rápido. Esta regla debe ser capaz de acceder a la instancia de SQL Database desde el equipo local.  
++ Debe agregar una [regla de firewall de nivel de servidor](../azure-sql/database/firewall-create-server-level-portal-quickstart.md) para la dirección IP pública del equipo que usa para seguir este inicio rápido. Esta regla debe ser capaz de acceder a la instancia de SQL Database desde el equipo local.  
 
 ## <a name="get-connection-information"></a>Obtención de información sobre la conexión
 

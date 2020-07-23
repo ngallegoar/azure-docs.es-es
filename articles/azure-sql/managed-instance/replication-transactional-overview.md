@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 04/20/2020
-ms.openlocfilehash: 00f456d87bd5791b7d49644cb801dca20431b0b5
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ee481067a3904c208061607b7109fcba0f3faaa7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086405"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504074"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance"></a>Replicación transaccional con Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -104,11 +104,10 @@ La replicación transaccional resulta útil en los siguientes escenarios:
 
 ### <a name="compare-data-sync-with-transactional-replication"></a>Comparación de Data Sync con replicación transaccional
 
-| | Sincronización de datos | Replicación transaccional |
+| Category | Sincronización de datos | Replicación transaccional |
 |---|---|---|
 | Ventajas | - Compatibilidad activo-activo<br/>- Bidireccional entre el entorno local y Azure SQL Database | - Menor latencia<br/>- Coherencia transaccional<br/>- Reutilización de la topología existente después de la migración |
 | Inconvenientes | - 5 minutos o más de latencia<br/>- Sin coherencia transaccional<br/>- Mayor impacto en el rendimiento | - No se puede publicar desde Azure SQL Database <br/>- Alto costo de mantenimiento |
-| | | |
 
 ## <a name="common-configurations"></a>Configuraciones comunes
 

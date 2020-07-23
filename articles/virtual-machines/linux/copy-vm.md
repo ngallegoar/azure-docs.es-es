@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: 406eda6902ae451c7fdf79e1bd1215c035a66750
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 8532c0da7d9977b12a4d1099e430584de1e17fe0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792231"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502748"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Creación de una copia de una máquina virtual Linux mediante la CLI de Azure y Managed Disks
 
-En este artículo se muestra cómo crear una copia de su máquina virtual (VM) de Azure con Linux mediante la CLI de Azure. Para copiar, crear, almacenar y compartir imágenes de VM a escala, consulte [Shared Image Gallery](shared-images.md).
+En este artículo se muestra cómo crear una copia de su máquina virtual (VM) de Azure con Linux mediante la CLI de Azure. Para copiar, crear, almacenar y compartir imágenes de VM a escala, consulte [Shared Image Gallery](../shared-images-cli.md).
 
 También puede [cargar y crear una máquina virtual a partir de un VHD](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -126,4 +126,4 @@ az vm create --resource-group myResourceGroup \
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a usar una [galería de imágenes compartidas](shared-images.md) para administrar imágenes de máquinas virtuales.
+Aprenda a usar una [galería de imágenes compartidas](../shared-images-cli.md) para administrar imágenes de máquinas virtuales.

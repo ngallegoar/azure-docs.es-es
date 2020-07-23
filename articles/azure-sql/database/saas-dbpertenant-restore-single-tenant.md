@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 65331136b5b137c44577fd09f3914e8869cc2dcb
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 1567d38f8e582c062aa024b40cf0ede1d8b691f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84027906"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504347"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Restauración de un solo inquilino con una aplicación SaaS de base de datos por inquilino
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ En este tutorial, conocerá dos patrones de recuperación de datos:
 > * Restauración de una base de datos en una base de datos en paralelo (lado a lado).
 > * Restauración de una base de datos en contexto, reemplazando la base de datos existente.
 
-|||
+| Patrón | Descripción |
 |:--|:--|
 | Restauración en una base de datos en paralelo | Este patrón se puede usar para tareas como la revisión, la auditoría, el cumplimiento, etc. para permitir que un inquilino inspeccione los datos desde un punto anterior. La base de datos actual del inquilino sigue en línea y sin modificaciones. |
 | Restauración en contexto | Este patrón se usa habitualmente para recuperar un inquilino a un punto anterior, después de que un inquilino elimina o daña datos de manera accidental. La base de datos original se deja sin conexión y se reemplaza por la base de datos restaurada. |

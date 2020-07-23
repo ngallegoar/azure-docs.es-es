@@ -3,18 +3,18 @@ title: Restauración de bases de datos de SAP HANA en máquinas virtuales de Azu
 description: En este artículo se describe cómo restaurar bases de datos de SAP HANA que se ejecutan en máquinas virtuales de Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: a3db88ca3c995c3c190da051dbf9df6ae5e29530
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: c62ea68683355fc703a5258e6e5fa0f3795f7e34
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851447"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503598"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Restauración de bases de datos de SAP HANA en máquinas virtuales de Azure
 
 En este artículo se describe cómo restaurar bases de datos de SAP HANA que se ejecutan en una máquina virtual (VM) de Azure de la que el servicio Azure Backup ha realizado una copia de seguridad en un almacén de Recovery Services. Las restauraciones se pueden usar para crear copias de los datos para escenarios de desarrollo y pruebas, o para volver a un estado anterior.
 
-Para más información sobre cómo hacer una copia de seguridad de bases de datos de SAP HANA, consulte [Copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database).
+Para más información sobre cómo hacer una copia de seguridad de bases de datos de SAP HANA, consulte [Copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure](./backup-azure-sap-hana-database.md).
 
 ## <a name="restore-to-a-point-in-time-or-to-a-recovery-point"></a>Restauración a un momento dado o a un punto de recuperación
 

@@ -10,12 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: ccdeefabeedfca4959239696361ccce0bc6c1c78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1ab9834d4bf25c7c18171ecb271f18b213d15b0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76289805"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507886"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Rehospedaje del sistema central en Azure Virtual Machines
 
@@ -70,11 +70,11 @@ Primeros pasos:
 
 El entorno IBM DB2 pureScale proporciona un clúster de base de datos para Azure. No es idéntico al entorno original, pero ofrece escalabilidad y una disponibilidad y una escala similares a IBM DB2 para z/OS que se ejecuta en una configuración de Parallel Sysplex.
 
-Para empezar, consulte [IBM DB2 pureScale en Azure](/azure/virtual-machines/linux/ibm-db2-purescale-azure).
+Para empezar, consulte [IBM DB2 pureScale en Azure](../../linux/ibm-db2-purescale-azure.md).
 
 ## <a name="considerations"></a>Consideraciones
 
-Al migrar cargas de trabajo del sistema central a la infraestructura como servicio (IaaS) de Azure, puede elegir entre varios tipos de recursos informáticos a petición y escalables, incluidas las VM de Azure. Azure ofrece una variedad de VM [Linux](/azure/virtual-machines/linux/overview) y [Windows](/azure/virtual-machines/windows/overview).
+Al migrar cargas de trabajo del sistema central a la infraestructura como servicio (IaaS) de Azure, puede elegir entre varios tipos de recursos informáticos a petición y escalables, incluidas las VM de Azure. Azure ofrece una variedad de VM [Linux](../../linux/overview.md) y [Windows](../../windows/overview.md).
 
 ### <a name="compute"></a>Proceso
 
@@ -86,21 +86,21 @@ Aprenda a [mover el proceso del sistema central a Azure](./concepts/mainframe-co
 
 Azure ofrece contratos de nivel de servicio (SLA) basados en compromisos. La disponibilidad de varios nueves es el valor predeterminado, y los SLA se pueden optimizar con replicación local o basada en la ubicación de los servicios. En el [SLA de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo se explica la disponibilidad garantizada de Azure como un conjunto.
 
-Con IaaS de Azure como una VM, funciones del sistema específicas proporcionan compatibilidad con la conmutación por error; por ejemplo, instancias de clústeres de conmutación por error y conjuntos de disponibilidad. Cuando se usan recursos de la plataforma como servicio (PaaS) de Azure, la plataforma controla automáticamente la conmutación por error. Algunos ejemplos son [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) y [Azure Cosmos DB](/azure/cosmos-db/introduction).
+Con IaaS de Azure como una VM, funciones del sistema específicas proporcionan compatibilidad con la conmutación por error; por ejemplo, instancias de clústeres de conmutación por error y conjuntos de disponibilidad. Cuando se usan recursos de la plataforma como servicio (PaaS) de Azure, la plataforma controla automáticamente la conmutación por error. Algunos ejemplos son [Azure SQL Database](../../../azure-sql/database/sql-database-paas-overview.md) y [Azure Cosmos DB](../../../cosmos-db/introduction.md).
 
 ### <a name="scalability"></a>Escalabilidad
 
-Los sistemas centrales suelen escalarse verticalmente, mientras que los entornos de nube se escalan horizontalmente. Azure ofrece una variedad de tamaños de [Linux](/azure/virtual-machines/linux/sizes) y [Windows](/azure/virtual-machines/windows/sizes) para satisfacer sus necesidades. La nube también se puede escalar o reducir verticalmente para ajustarse a las especificaciones exactas del usuario. La eficacia de proceso, el almacenamiento y los servicios se [escalan](/azure/architecture/best-practices/auto-scaling) a petición en un modelo de facturación basado en uso.
+Los sistemas centrales suelen escalarse verticalmente, mientras que los entornos de nube se escalan horizontalmente. Azure ofrece una variedad de tamaños de [Linux](../../linux/sizes.md) y [Windows](../../windows/sizes.md) para satisfacer sus necesidades. La nube también se puede escalar o reducir verticalmente para ajustarse a las especificaciones exactas del usuario. La eficacia de proceso, el almacenamiento y los servicios se [escalan](/azure/architecture/best-practices/auto-scaling) a petición en un modelo de facturación basado en uso.
 
 ### <a name="storage"></a>Storage
 
-En la nube, tiene una variedad de opciones de almacenamiento flexibles y escalables, y solo paga por lo que necesita. [Azure Storage](/azure/storage/common/storage-introduction) ofrece un almacén de objetos que se puede escalar de forma masiva destinado a objetos de datos, un servicio de sistema de archivos para la nube, un almacén de mensajería para mensajería confiable y un almacén NoSQL. En cuanto a las máquinas virtuales, los discos administrados y no administrados proporcionan un almacenamiento de disco persistente y seguro.
+En la nube, tiene una variedad de opciones de almacenamiento flexibles y escalables, y solo paga por lo que necesita. [Azure Storage](../../../storage/common/storage-introduction.md) ofrece un almacén de objetos que se puede escalar de forma masiva destinado a objetos de datos, un servicio de sistema de archivos para la nube, un almacén de mensajería para mensajería confiable y un almacén NoSQL. En cuanto a las máquinas virtuales, los discos administrados y no administrados proporcionan un almacenamiento de disco persistente y seguro.
 
 Aprenda a [mover el almacenamiento del sistema central a Azure](./concepts/mainframe-storage-azure.md).
 
 ### <a name="backup-and-recovery"></a>Copia de seguridad y recuperación
 
-El mantenimiento de un sitio de recuperación ante desastres propio puede ser una propuesta costosa. Azure tiene opciones fáciles de implementar y muy rentables para realizar la [copia de seguridad](/azure/backup/backup-introduction-to-azure-backup), la [recuperación](/azure/site-recovery/site-recovery-overview) y la [redundancia](/azure/storage/common/storage-redundancy) a nivel local o regional, o por medio de la redundancia geográfica.
+El mantenimiento de un sitio de recuperación ante desastres propio puede ser una propuesta costosa. Azure tiene opciones fáciles de implementar y muy rentables para realizar la [copia de seguridad](../../../backup/backup-overview.md), la [recuperación](../../../site-recovery/site-recovery-overview.md) y la [redundancia](../../../storage/common/storage-redundancy.md) a nivel local o regional, o por medio de la redundancia geográfica.
 
 ## <a name="azure-government-for-mainframe-migrations"></a>Azure Government para las migraciones del sistema central
 
@@ -118,7 +118,7 @@ Consulte también:
 
 - [Notas del producto sobre los temas de sistemas centrales](mainframe-white-papers.md)
 - [Migración del sistema central](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Solución de problemas](/azure/virtual-machines/troubleshooting/)
+- [Solución de problemas](../../troubleshooting/index.yml)
 - [Demystifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/) (Desmitificación de la migración del sistema central a Azure)
 
 <!-- INTERNAL LINKS -->

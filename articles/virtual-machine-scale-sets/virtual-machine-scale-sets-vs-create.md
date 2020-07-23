@@ -9,12 +9,12 @@ ms.subservice: visual-studio
 ms.date: 09/09/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 826dc1858984508e54e160675dd10f6dfad88af8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2db281f1b3278e37deca8486971a7f7a83f85ccf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124370"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503088"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Procedimiento para crear un conjunto de escalado de máquinas virtuales con Visual Studio
 
@@ -22,7 +22,7 @@ En este artículo se muestra cómo implementar un conjunto de escalado de máqui
 
 Los [conjuntos de escalado de máquinas virtuales de Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) constituyen un recurso de Azure Compute para implementar y administrar un conjunto de máquinas virtuales similares con equilibrio de carga y escalado automático. Puede aprovisionar e implementar conjuntos de escalado de máquinas virtuales mediante [plantillas de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates). Las plantillas de Azure Resource Manager se pueden implementar mediante la CLI de Azure, PowerShell, REST y también directamente desde Visual Studio. Visual Studio proporciona un conjunto de plantillas de ejemplo que se pueden implementar como parte de un proyecto de implementación de grupo de recursos de Azure.
 
-Las implementaciones de grupo de recursos de Azure son una forma de agrupar y publicar un conjunto de recursos de Azure relacionados en una única operación de implementación. Para más información, consulte [Creación e implementación de grupos de recursos de Azure mediante Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+Las implementaciones de grupo de recursos de Azure son una forma de agrupar y publicar un conjunto de recursos de Azure relacionados en una única operación de implementación. Para más información, consulte [Creación e implementación de grupos de recursos de Azure mediante Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

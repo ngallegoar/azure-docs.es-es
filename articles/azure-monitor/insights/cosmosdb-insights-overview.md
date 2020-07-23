@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 3fd4bcd13b4d92d2c6e61d10ae9e62996b5dfcf5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8043dfb7fdda972d4ede6798d07355936b23bf93
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945501"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498923"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Exploración de Azure Monitor para Azure Cosmos DB
 
@@ -78,7 +78,7 @@ Seleccione **Errores** en la parte superior de la página; se abrirá la secció
 | `201 Created` | Una operación POST para crear un recurso se ha realizado correctamente. |
 | `404 Not Found` | La operación está intentando actuar en un recurso que ya no existe. Por ejemplo, puede que el recurso ya se haya eliminado. |
 
-Para obtener una lista completa de códigos de estado, consulte el artículo [Códigos de estado HTTP de Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
+Para obtener una lista completa de códigos de estado, consulte el artículo [Códigos de estado HTTP de Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 ### <a name="capacity"></a>Capacity
 
@@ -98,7 +98,7 @@ De modo que, en el ejemplo siguiente, verá que `eastus-billingint` está recibi
 
 ## <a name="pin-export-and-expand"></a>Anclaje, exportación y expansión
 
-Cualquiera de las secciones de métricas se puede anclar a un panel de [Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards); para ello, seleccione el icono de chincheta en la parte superior derecha de la sección.
+Cualquiera de las secciones de métricas se puede anclar a un panel de [Azure](../../azure-portal/azure-portal-dashboards.md); para ello, seleccione el icono de chincheta en la parte superior derecha de la sección.
 
 ![Ejemplo de la sección de métricas anclada al panel](./media/cosmosdb-insights-overview/pin.png)
 
@@ -126,6 +126,6 @@ Para obtener instrucciones para la solución de problemas, consulte el [artícul
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Configure [alertas de métricas](../platform/alerts-metric.md) y [notificaciones de estado del servicio](../../service-health/alerts-activity-log-service-notifications.md) para generar alertas automáticas que ayuden a detectar los problemas.
+* Configure [alertas de métricas](../platform/alerts-metric.md) y [notificaciones de estado del servicio](../../service-health/alerts-activity-log-service-notifications-portal.md) para generar alertas automáticas que ayuden a detectar los problemas.
 
 * Conozca los escenarios para los que están concebidos los libros, cómo crear informes y personalizar los ya existentes y otros muchos temas en el artículo [Crear informes interactivos con libros de Azure Monitor](../platform/workbooks-overview.md).

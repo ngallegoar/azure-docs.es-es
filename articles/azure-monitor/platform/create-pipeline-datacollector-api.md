@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/09/2018
-ms.openlocfilehash: 96c64f6a0167b678f14bf0199069ecd6b4c8d57a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ac2b79046718fe45ad0dad0396b6f7653efbb779
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80055110"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505336"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Creación de una canalización de datos con Data Collector API
 
@@ -43,7 +43,7 @@ En este artículo no se explica cómo crear datos ni cómo [cargarlos en una cue
 
 Aunque la configuración detallada del almacenamiento de blobs, la aplicación lógica o la función de Azure no se describen en este artículo, hay disponibles instrucciones detalladas en las páginas de los productos específicos.
 
-Para supervisar esta canalización, se usan Application Insights para supervisar la función de Azure [(más información aquí)](../../azure-functions/functions-monitoring.md) y Azure Monitor para supervisar la aplicación lógica [(más información aquí)](../../logic-apps/logic-apps-monitor-your-logic-apps-oms.md). 
+Para supervisar esta canalización, se usan Application Insights para supervisar la función de Azure [(más información aquí)](../../azure-functions/functions-monitoring.md) y Azure Monitor para supervisar la aplicación lógica [(más información aquí)](../../logic-apps/monitor-logic-apps-log-analytics.md). 
 
 ## <a name="setting-up-the-pipeline"></a>Configuración de la canalización
 Para establecer la canalización, primero debe asegurarse de que tiene el contenedor de blobs creado y configurado. Del mismo modo, asegúrese de que se ha creado el área de trabajo de Log Analytics donde le gustaría enviar los datos.

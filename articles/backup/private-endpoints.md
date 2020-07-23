@@ -3,16 +3,16 @@ title: Puntos de conexión privados
 description: Comprenda el proceso de creación de puntos de conexión privados para Azure Backup y los escenarios en los que el uso de puntos de conexión privados ayuda a preservar la seguridad de los recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 8ce767073e9acfe271e6e57f9e6d1237910b33e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9c8f142e9781946f572f6f3a744d8bc2736a3de
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124262"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503768"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Puntos de conexión privados para Azure Backup
 
-Azure Backup permite realizar copias de seguridad de los datos y restaurarlos de forma segura desde los almacenes de Recovery Services mediante [puntos de conexión privados](https://docs.microsoft.com/azure/private-link/private-endpoint-overview). Los puntos de conexión privados usan una o más direcciones IP privadas de la red virtual para incorporar el servicio de manera eficaz a su red virtual.
+Azure Backup permite realizar copias de seguridad de los datos y restaurarlos de forma segura desde los almacenes de Recovery Services mediante [puntos de conexión privados](../private-link/private-endpoint-overview.md). Los puntos de conexión privados usan una o más direcciones IP privadas de la red virtual para incorporar el servicio de manera eficaz a su red virtual.
 
 Este artículo le ayudará a comprender el proceso de creación de puntos de conexión privados para Azure Backup y los escenarios en los que el uso de puntos de conexión privados ayuda a preservar la seguridad de los recursos.
 
@@ -45,7 +45,7 @@ En esta sección se tratan los pasos necesarios para crear y usar puntos de cone
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
-Consulte [esta sección](#create-a-recovery-services-vault-using-the-azure-resource-manager-client) para aprender a crear un almacén mediante el cliente de Azure Resource Manager. Esto crea un almacén con su identidad administrada ya habilitada. Obtenga más información sobre los almacenes de Recovery Services [aquí](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview).
+Consulte [esta sección](#create-a-recovery-services-vault-using-the-azure-resource-manager-client) para aprender a crear un almacén mediante el cliente de Azure Resource Manager. Esto crea un almacén con su identidad administrada ya habilitada. Obtenga más información sobre los almacenes de Recovery Services [aquí](./backup-azure-recovery-services-vault-overview.md).
 
 ## <a name="enable-managed-identity-for-your-vault"></a>Habilitar la identidad administrada del almacén
 
@@ -111,9 +111,9 @@ Consulte [esta lista](https://download.microsoft.com/download/1/2/6/126a410b-0e0
 
 Para las convenciones de nomenclatura de direcciones URL en regiones nacionales:
 
-- [China](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
-- [Alemania](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
-- [US Gov](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide)
+- [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
+- [Alemania](../germany/germany-developer-guide.md#endpoint-mapping)
+- [US Gov](../azure-government/documentation-government-developer-guide.md)
 
 ### <a name="linking-private-dns-zones-with-your-virtual-network"></a>Vinculación de zonas DNS privadas con la red virtual
 

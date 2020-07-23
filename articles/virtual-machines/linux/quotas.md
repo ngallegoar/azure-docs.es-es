@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 4f8d181194328725c2e7c02f6e73752cf568ef4e
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: ce08ebeba6ad09ec4cba063d787c510dce6e1e2f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81759183"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501995"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Cuotas de vCPU de máquinas virtuales
 
@@ -57,8 +57,8 @@ Premium Storage Managed Disks                  5    10000
 ## <a name="reserved-vm-instances"></a>Instancias reservadas de máquina virtual
 Las instancias reservadas de máquina virtual, cuyo ámbito es una sola suscripción sin tamaño de máquina virtual flexible, agregarán un aspecto nuevo a las cuotas de vCPU. Estos valores describen el número de instancias del tamaño indicado que deben poderse implementar en la suscripción. Actúan como un marcador de posición en el sistema de cuotas para asegurarse de que las reservas de Azure puedan implementarse en la suscripción. Por ejemplo, si una suscripción específica tiene diez reservas Standard_D1, el límite de usos para las reservas Standard_D1 será diez. Esto hará que Azure se asegure de que siempre hay al menos 10 vCPU disponibles en el total de la cuota de vCPU regional que se utilizará para instancias de Standard_D1 y que hay al menos 10 vCPU disponibles en la cuota de vCPU de la Familia D estándar que se utilizará para las instancias de Standard_D1.
 
-Si es necesario aumentar la cuota para adquirir una instancia reservada de suscripción única, puede [solicitar un aumento de la cuota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) en su suscripción.
+Si es necesario aumentar la cuota para adquirir una instancia reservada de suscripción única, puede [solicitar un aumento de la cuota](../../azure-portal/supportability/resource-manager-core-quotas-request.md) en su suscripción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre facturación y cuotas, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/billing/TOC.json).
+Para obtener más información sobre facturación y cuotas, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/billing/TOC.json).

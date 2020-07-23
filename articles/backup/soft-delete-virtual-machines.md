@@ -3,12 +3,13 @@ title: Eliminación temporal de máquinas virtuales
 description: Aprenda sobre la eliminación temporal de máquinas virtuales aumenta la seguridad de las copias de seguridad.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: ba00b235ea70bcc2dabbd5a91a3f7003f9bbed49
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.custom: references_regions
+ms.openlocfilehash: e447db2c3f862d2f577a9e7d8767946375abf4e0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82761425"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503547"
 ---
 # <a name="soft-delete-for-virtual-machines"></a>Eliminación temporal de máquinas virtuales
 
@@ -67,7 +68,7 @@ Tal y como se ha descrito anteriormente para Azure Portal, la secuencia de pasos
 
 ### <a name="delete-the-backup-item-using-azure-powershell"></a>Eliminación del elemento de copia de seguridad con Azure PowerShell
 
-Puede eliminar el elemento de copia de seguridad mediante el cmdlet de PS [Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0).
+Puede eliminar el elemento de copia de seguridad mediante el cmdlet de PS [Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection).
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
@@ -94,7 +95,7 @@ VM;iaasvmcontainerv2;selfhostrg;AppVM1    AzureVM             iaasvmcontainerv2;
 $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID -Name AppVM1
 ```
 
-A continuación, realice la operación para deshacer la eliminación con el cmdlet de PS [Undo-AzRecoveryServicesBackupItemDeletion](https://docs.microsoft.com/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion?view=azps-3.1.0).
+A continuación, realice la operación para deshacer la eliminación con el cmdlet de PS [Undo-AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion).
 
 ```powershell
 Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force
@@ -104,7 +105,7 @@ WorkloadName     Operation            Status               StartTime            
 AppVM1           Undelete             Completed            12/5/2019 12:47:28 PM     12/5/2019 12:47:40 PM     65311982-3755-46b5-8e53-c82ea4f0d2a2
 ```
 
-El elemento "DeleteState" del elemento de copia de seguridad se revertirá a "NotDeleted". Pero la protección sigue detenida. [Reanude la copia de seguridad](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#change-policy-for-backup-items) para volver a habilitar la protección.
+El elemento "DeleteState" del elemento de copia de seguridad se revertirá a "NotDeleted". Pero la protección sigue detenida. [Reanude la copia de seguridad](./backup-azure-vms-automation.md#change-policy-for-backup-items) para volver a habilitar la protección.
 
 ## <a name="soft-delete-for-vms-using-rest-api"></a>Eliminación temporal para máquinas virtuales con API REST
 

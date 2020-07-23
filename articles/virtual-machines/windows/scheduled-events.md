@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviwer: mimckitt
-ms.openlocfilehash: 20e7e0dd7df469aa797100bd9d2df3cd6d633dca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 213d9fe2db148c6260a1271c3c2b22978b98a8f3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260906"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508209"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata Service: Scheduled Events para máquinas virtuales Windows
 
@@ -39,7 +39,7 @@ Con Scheduled Events, la aplicación puede detectar cuándo se producirá el man
 
 Eventos programados proporciona eventos en los casos de uso siguientes:
 
-- [Mantenimiento iniciado por la plataforma](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (por ejemplo, reinicio de máquina virtual, migración en vivo o actualizaciones con conservación de memoria para el host)
+- [Mantenimiento iniciado por la plataforma](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json) (por ejemplo, reinicio de máquina virtual, migración en vivo o actualizaciones con conservación de memoria para el host)
 - La máquina virtual funciona en un [hardware de host degradado](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) que se predice que fallará pronto
 - Mantenimiento iniciado por el usuario (por ejemplo, el usuario reinicia o vuelve a implementar una máquina virtual)
 - Expulsiones de instancias de [máquina virtual de Spot](spot-vms.md) y [conjunto de escalado de Spot](../../virtual-machine-scale-sets/use-spot.md).
@@ -187,7 +187,7 @@ import json
 import socket
 import urllib2
 
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01"
+metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01"
 this_host = socket.gethostname()
 
 
@@ -231,4 +231,4 @@ if __name__ == '__main__':
 - Mire [Scheduled Events on Azure Friday](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) (Scheduled Events en Azure Friday) para ver una demostración. 
 - Repase los ejemplos de código de Scheduled Events en el [repositorio de GitHub Azure Instance Metadata Scheduled Events](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm) (Scheduled Events de Azure Instance Metadata).
 - En [Instance Metadata Service](instance-metadata-service.md), puede obtener más información sobre las API disponibles.
-- Obtenga información sobre cómo realizar [el mantenimiento planeado para máquinas virtuales Windows en Azure](planned-maintenance.md).
+- Obtenga información sobre cómo realizar [el mantenimiento planeado para máquinas virtuales Windows en Azure](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json).

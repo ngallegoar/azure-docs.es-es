@@ -3,12 +3,12 @@ title: Supervisión del uso y el rendimiento en las aplicaciones de escritorio d
 description: Analice el uso y el rendimiento de la aplicación de escritorio de Windows con Application Insights.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 1b8909c47594ebd752035ca88b23d4b836345f88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddb602536e1b8bbc987c4ba366e2007163c814ec
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84718791"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499195"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Supervisión del uso y el rendimiento en las aplicaciones de escritorio de Windows clásicas
 
@@ -73,9 +73,9 @@ using Microsoft.ApplicationInsights;
 
 De forma predeterminada, este SDK recopilará y almacenará el nombre de equipo del sistema que emite la telemetría.
 
-El [plan de tarifa Enterprise (por nodo) heredado](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier) de Application Insights usa el nombre de equipo para la facturación interna. De forma predeterminada, si usa un inicializador de telemetría para invalidar `telemetry.Context.Cloud.RoleInstance`, se enviará una propiedad `ai.internal.nodeName` independiente con el valor del nombre de equipo. Este valor no se almacenará con los datos de telemetría de Application Insights, sino que se usa internamente en la ingesta para permitir la compatibilidad con versiones anteriores con el modelo de facturación basado en nodos heredado.
+El [plan de tarifa Enterprise (por nodo) heredado](./pricing.md#legacy-enterprise-per-node-pricing-tier) de Application Insights usa el nombre de equipo para la facturación interna. De forma predeterminada, si usa un inicializador de telemetría para invalidar `telemetry.Context.Cloud.RoleInstance`, se enviará una propiedad `ai.internal.nodeName` independiente con el valor del nombre de equipo. Este valor no se almacenará con los datos de telemetría de Application Insights, sino que se usa internamente en la ingesta para permitir la compatibilidad con versiones anteriores con el modelo de facturación basado en nodos heredado.
 
-Si está en el [plan de tarifa Enterprise (por nodo) heredado](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier) y simplemente necesita invalidar el almacenamiento del nombre de equipo, use un inicializador de telemetría:
+Si está en el [plan de tarifa Enterprise (por nodo) heredado](./pricing.md#legacy-enterprise-per-node-pricing-tier) y simplemente necesita invalidar el almacenamiento del nombre de equipo, use un inicializador de telemetría:
 
 **Escriba un elemento TelemetryInitializer personalizado como el siguiente.**
 
@@ -116,7 +116,7 @@ Cree una instancia del inicializador en el método `Main()` de `Program.cs` que 
 
 ## <a name="override-transmission-of-computer-name"></a>Invalidación de la transmisión del nombre de equipo
 
-Si no está en el [plan de tarifa Enterprise (por nodo) heredado](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier) y desea evitar completamente que los datos de telemetría contengan el nombre de equipo, debe usar un procesador de telemetría.
+Si no está en el [plan de tarifa Enterprise (por nodo) heredado](./pricing.md#legacy-enterprise-per-node-pricing-tier) y desea evitar completamente que los datos de telemetría contengan el nombre de equipo, debe usar un procesador de telemetría.
 
 ### <a name="telemetry-processor"></a>Procesador de telemetría
 
@@ -172,11 +172,10 @@ namespace WindowsFormsApp2
 ```
 
 > [!NOTE]
-> Aunque técnicamente puede usar un procesador de telemetría tal y como se describió anteriormente aunque se encuentre en el plan de tarifa [empresa heredada (por nodo)](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier), esto dará lugar a una posible facturación excesiva debido a la incapacidad de distinguir correctamente los nodos en el caso de los precios por nodo.
+> Aunque técnicamente puede usar un procesador de telemetría tal y como se describió anteriormente aunque se encuentre en el plan de tarifa [empresa heredada (por nodo)](./pricing.md#legacy-enterprise-per-node-pricing-tier), esto dará lugar a una posible facturación excesiva debido a la incapacidad de distinguir correctamente los nodos en el caso de los precios por nodo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Creación de un panel](../../azure-monitor/app/overview-dashboard.md)
 * [Búsqueda de diagnóstico](../../azure-monitor/app/diagnostic-search.md)
 * [Exploración de métricas](../../azure-monitor/platform/metrics-charts.md)
-* [Escribir consultas de Analytics](../../azure-monitor/app/analytics.md)
-
+* [Escribir consultas de Analytics](../log-query/log-query-overview.md)

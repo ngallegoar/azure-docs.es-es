@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 67af4eae03b773fad9cf38964152c1fb9d623bd5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55eb9a0bca3f142c1065f867cebd840cc7958b7e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72025939"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499926"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Instalación del entorno de desarrollo y pruebas de IBM zD&T en Azure
 
@@ -56,13 +56,13 @@ En este artículo se muestra cómo configurar la versión Enterprise Edition del
 
 ## <a name="create-the-base-image-and-connect"></a>Creación de la imagen base y conexión
 
-1. En Azure Portal, [cree una máquina virtual](/azure/virtual-machines/linux/quick-create-portal) con la configuración del sistema operativo que quiera. En este artículo se da por hecho una máquina virtual B4ms (con 4 vCPU y 16 GB de memoria) que ejecuta Ubuntu 16.04.
+1. En Azure Portal, [cree una máquina virtual](../../../linux/quick-create-portal.md) con la configuración del sistema operativo que quiera. En este artículo se da por hecho una máquina virtual B4ms (con 4 vCPU y 16 GB de memoria) que ejecuta Ubuntu 16.04.
 
 2. Una vez creada la máquina virtual, abra los puertos de entrada 22 para SSH, 21 para FTP y 9443 para el servidor web.
 
 3. Obtenga las credenciales SSH que se muestran en la hoja **Información general** de la máquina virtual mediante el botón **Conectar**. Seleccione la pestaña **SSH** y copie el comando de inicio de sesión SSH en el Portapapeles.
 
-4. Inicie sesión en un [shell de Bash](/azure/cloud-shell/quickstart) desde su equipo local y pegue el comando. El formato es **ssh\<user id\>\@\<IP Address\>** . Cuando se le soliciten las credenciales, escríbalas para establecer una conexión con el directorio de inicio.
+4. Inicie sesión en un [shell de Bash](../../../../cloud-shell/quickstart.md) desde su equipo local y pegue el comando. El formato es **ssh\<user id\>\@\<IP Address\>** . Cuando se le soliciten las credenciales, escríbalas para establecer una conexión con el directorio de inicio.
 
 ## <a name="copy-the-installation-file-to-the-server"></a>Copia del archivo de instalación en el servidor
 

@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
-ms.openlocfilehash: ecdcc8a84cdccb05ec514003d63f808583d719c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3a59b6658e6ea0229f65492b20b5f5f2882d12a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83797682"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499246"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Enviar identificadores contextuales de usuario para habilitar las experiencias de uso en Azure Application Insights
 
@@ -19,10 +19,10 @@ ms.locfileid: "83797682"
 
 Application Insights le permite supervisar y realizar un seguimiento de los usuarios a través de un conjunto de herramientas de uso del producto:
 
-- [Usuarios, sesiones, eventos](https://docs.microsoft.com/azure/application-insights/app-insights-usage-segmentation)
-- [Embudos](https://docs.microsoft.com/azure/application-insights/usage-funnels)
-- Cohortes de [retención](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention)
-- [Libros](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
+- [Usuarios, sesiones, eventos](./usage-segmentation.md)
+- [Embudos](./usage-funnels.md)
+- Cohortes de [retención](./usage-retention.md)
+- [Libros](../platform/workbooks-overview.md)
 
 Para realizar un seguimiento de lo que hace un usuario a lo largo del tiempo, Application Insights necesita un identificador para cada usuario o sesión. Incluya los siguientes identificadores en cada evento personalizado o vista de página.
 
@@ -42,11 +42,11 @@ Los identificadores de usuario se deben conservar entre las sesiones de usuario 
 
 El identificador debe ser un GUID u otra cadena lo suficientemente compleja como para identificar de forma única a cada usuario. Por ejemplo, podría ser un número aleatorio largo.
 
-Si el identificador contiene información de identificación personal sobre el usuario, no es un valor adecuado para enviarlo a Application Insights como identificador de usuario. Puede enviar un identificador de ese tipo como [identificador de usuario autenticado](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#authenticated-users), pero no cumplirá el requisito de identificador de usuario para los escenarios de uso.
+Si el identificador contiene información de identificación personal sobre el usuario, no es un valor adecuado para enviarlo a Application Insights como identificador de usuario. Puede enviar un identificador de ese tipo como [identificador de usuario autenticado](./api-custom-events-metrics.md#authenticated-users), pero no cumplirá el requisito de identificador de usuario para los escenarios de uso.
 
 ## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>Aplicaciones ASP.NET: Establecimiento del contexto de usuario en un inicializador de telemetría
 
-Cree un inicializador de telemetría, tal como se describe [aquí](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#addmodify-properties-itelemetryinitializer) en detalle. Pase el id. de sesión a través de la telemetría de solicitudes y establezca Context.User.Id y Context.Session.Id.
+Cree un inicializador de telemetría, tal como se describe [aquí](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) en detalle. Pase el id. de sesión a través de la telemetría de solicitudes y establezca Context.User.Id y Context.Session.Id.
 
 Este ejemplo establece el identificador de usuario en un identificador que expira después de la sesión. Si es posible, use un identificador de usuario que se conserve entre sesiones.
 
@@ -128,7 +128,7 @@ namespace MvcWebRole.Telemetry
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para habilitar las experiencias de uso, empiece por enviar [eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) o [vistas de páginas](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Para habilitar las experiencias de uso, empiece por enviar [eventos personalizados](./api-custom-events-metrics.md#trackevent) o [vistas de páginas](./api-custom-events-metrics.md#page-views).
 - Si ya ha enviado eventos personalizados o vistas de página, explore las herramientas de uso para obtener información sobre cómo los usuarios utilizan el servicio.
     - [Información general del uso](usage-overview.md)
     - [Usuarios, sesiones y eventos](usage-segmentation.md)

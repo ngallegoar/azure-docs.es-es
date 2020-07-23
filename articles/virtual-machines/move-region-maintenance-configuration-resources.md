@@ -6,18 +6,18 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: shants
-ms.openlocfilehash: baf7201176fc3d6c70881817ff21b44c2615241a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38532fba2be1fedd275ed2e7f9dfc1bf5752499d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676898"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501660"
 ---
 # <a name="move-resources-in-a-maintenance-control-configuration-to-another-region"></a>Traslado de recursos de configuración de control de mantenimiento a otra región
 
 Siga este artículo para mover recursos asociados a una configuración de control de mantenimiento a otra región de Azure. Puede que quiera mover una configuración por una serie de motivos. Por ejemplo, para aprovechar una nueva región, para implementar características o servicios que solo están disponibles en una región concreta, para cumplir los requisitos de gobernanza y las directivas internas o en respuesta al planeamiento de capacidad.
 
-El control de mantenimiento, con configuraciones de mantenimiento personalizadas, le permite controlar cómo se aplican las actualizaciones de plataforma a VM [Windows](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-cli?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json) y [Linux](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-cli?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Flinux%2Fbreadcrumb%2Ftoc.json&view=azure-java-stable) y a instancias de Azure Dedicated Host. Hay un par de escenarios para mover el control de mantenimiento entre regiones:
+El control de mantenimiento, con configuraciones de mantenimiento personalizadas, le permite controlar cómo se aplican las actualizaciones de plataforma a VM [Windows](./maintenance-control-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json) y [Linux](./maintenance-control-cli.md?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Flinux%2Fbreadcrumb%2Ftoc.json&view=azure-java-stable) y a instancias de Azure Dedicated Host. Hay un par de escenarios para mover el control de mantenimiento entre regiones:
 
 - Para mover los recursos asociados a una configuración de mantenimiento, pero no la propia configuración, siga este artículo.
 - Para mover la configuración de control de mantenimiento, pero no los recursos asociados a la configuración, siga [estas instrucciones](move-region-maintenance-configuration.md).
@@ -49,7 +49,7 @@ Antes de empezar a mover los recursos asociados a una configuración de control 
     $adh | Nombre del host dedicado | "myHost"
     $adhParentName | Nombre del recursos primario | "HostGroup"
     
-2. Para recuperar las configuraciones de mantenimiento mediante el comando [Get-AZConfigurationAssignment](https://docs.microsoft.com/powershell/module/az.maintenance/Get-AzConfigurationAssignment?view=azps-3.5.0) de PowerShell:
+2. Para recuperar las configuraciones de mantenimiento mediante el comando [Get-AZConfigurationAssignment](/powershell/module/az.maintenance/get-azconfigurationassignment?view=azps-3.5.0) de PowerShell:
 
     - Para las instancias de Azure Dedicated Host, ejecute:
         ```
@@ -61,7 +61,7 @@ Antes de empezar a mover los recursos asociados a una configuración de control 
         ```
         Get-AzConfigurationAssignment -ResourceGroupName $rgName -ResourceName $vmName -ProviderName Microsoft.Compute -ResourceType virtualMachines | Format-Table Name
         ```
-3. Para recuperar las configuraciones de mantenimiento mediante el comando [az maintenance assignment](https://docs.microsoft.com/cli/azure/ext/maintenance/maintenance/assignment?view=azure-cli-latest) de la CLI:
+3. Para recuperar las configuraciones de mantenimiento mediante el comando [az maintenance assignment](/cli/azure/ext/maintenance/maintenance/assignment?view=azure-cli-latest) de la CLI:
 
     - Para las instancias de Azure Dedicated Host:
 
@@ -78,7 +78,7 @@ Antes de empezar a mover los recursos asociados a una configuración de control 
 
 ## <a name="move"></a>Move 
 
-1. [Siga estas instrucciones](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json) para mover las VM de Azure a la nueva región.
+1. [Siga estas instrucciones](../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json) para mover las VM de Azure a la nueva región.
 2. Una vez que se muevan los recursos, vuelva a aplicar las configuraciones de mantenimiento a los recursos de la nueva región según corresponda, en función de si ha movido las configuraciones de mantenimiento. Puede aplicar una configuración de mantenimiento a un recurso mediante [PowerShell](../virtual-machines/maintenance-control-powershell.md) o la [CLI](../virtual-machines/maintenance-control-cli.md).
 
 

@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: 8d4b57fb2fee3849e102868c86fe3cab465fc70d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e85ae50321b9aa034f6a6d2cadcc329a24dafa62
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67707795"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500025"
 ---
 # <a name="known-issues-with-hb-series-and-hc-series-vms"></a>Problemas conocidos de las máquinas virtuales de las series HB y HC
 
@@ -89,4 +89,4 @@ Puede pasarlos por alto. Esto es debido a una limitación conocida del hiperviso
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre la [informática de alto rendimiento](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) en Azure.
+Más información sobre la [informática de alto rendimiento](/azure/architecture/topics/high-performance-computing/) en Azure.

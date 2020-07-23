@@ -4,12 +4,12 @@ description: Aprenda a desarrollar funciones con PowerShell.
 author: eamonoreilly
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.openlocfilehash: 41f977e7e7c23c2f49fd656461b7a3920802997e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b8c84583bd80a7c3cbadde1caba231eed801c1f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84697279"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506135"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guía del desarrollador de PowerShell para Azure Functions
 
@@ -19,7 +19,7 @@ Una función de Azure de PowerShell (función) se representa como un script de P
 
 Al igual que otros tipos de funciones, las funciones de script de PowerShell toman parámetros que coinciden con los nombres de todos los enlaces de entrada definidos en el archivo `function.json`. También se pasa un parámetro `TriggerMetadata` que contiene información adicional sobre el desencadenador que inició la función.
 
-En este artículo se supone que ya ha leído [Referencia para desarrolladores de Azure Functions](functions-reference.md). Debe haber completado también el [inicio rápido de Functions para PowerShell](functions-create-first-function-powershell.md) para crear su primera función de PowerShell.
+En este artículo se supone que ya ha leído [Referencia para desarrolladores de Azure Functions](functions-reference.md). Debe haber completado también el [inicio rápido de Functions para PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell) para crear su primera función de PowerShell.
 
 ## <a name="folder-structure"></a>Estructura de carpetas
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 93f3820b7cf1db85b9ff4cd514fe22efc75a90d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ba93db3e692a34de42849b469978cea4459c6fc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84690021"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498872"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de conectividad de servicio
 
@@ -57,7 +57,7 @@ Comience a crear las pruebas para supervisar la conectividad de red con los punt
 
     * Seleccione **Web** para supervisar la conectividad con un servicio que responde a las solicitudes HTTP/S, como outlook.office365.com o bing.com.<br>
     * Seleccione **Red** para supervisar la conectividad con un servicio que responde a solicitudes TCP pero no a solicitudes HTTP/S, como SQL Server, servidor FTP o puerto SSH. 
-    * Por ejemplo: Para crear una prueba web con una cuenta de Blob Storage, seleccione **Web** y especifique el destino como *yourstorageaccount*. blob.core.windows.net. De forma similar, puede crear pruebas para Table Storage, Queue Storage y Azure Files mediante [este vínculo](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints).
+    * Por ejemplo: Para crear una prueba web con una cuenta de Blob Storage, seleccione **Web** y especifique el destino como *yourstorageaccount*. blob.core.windows.net. De forma similar, puede crear pruebas para Table Storage, Queue Storage y Azure Files mediante [este vínculo](../../storage/common/storage-account-overview.md#storage-account-endpoints).
 4. Si no desea realizar mediciones de red, como la latencia de la red, la pérdida de paquetes y la detección de topología, desactive la casilla **Realizar mediciones de red**. Manténgala activada para aprovechar al máximo la funcionalidad. 
 5. En **Destino**, escriba la dirección IP, el FQDN o la dirección URL en que desea supervisar la conectividad de red.
 6. En **Número de puerto**, escriba el número de puerto del servicio de destino. 

@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: shants
-ms.openlocfilehash: 3caf8b63cbd86338bbef653e9be9916907578627
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5dcf4ad7acb3becd2ca04407bc8e5b3ac45701f1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84675886"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501711"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Mantenimiento de máquinas virtuales en Azure
 
@@ -77,7 +77,7 @@ Si decide esperar a la fase de mantenimiento programado, hay algunas cosas que d
 
 #### <a name="paired-regions"></a>Regiones emparejadas
 
-Cada región de Azure se empareja con otra región de la misma proximidad geográfica. Juntas, forman un par de regiones. Durante la fase de mantenimiento programado, Azure solo actualiza las máquinas virtuales en una sola región perteneciente a un par de regiones. Por ejemplo, al actualizar las máquinas virtuales de la zona Centro-norte de EE. UU., Azure no actualizará las máquinas virtuales de Centro-sur de EE. UU. al mismo tiempo. Sin embargo, otras regiones como Norte de Europa pueden estar en mantenimiento al mismo tiempo que el Este de EE. UU. Comprender cómo funcionan los pares de regiones puede ayudar a distribuir mejor las máquinas virtuales entre regiones. Para más información, consulte [Regiones de Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Cada región de Azure se empareja con otra región de la misma proximidad geográfica. Juntas, forman un par de regiones. Durante la fase de mantenimiento programado, Azure solo actualiza las máquinas virtuales en una sola región perteneciente a un par de regiones. Por ejemplo, al actualizar las máquinas virtuales de la zona Centro-norte de EE. UU., Azure no actualizará las máquinas virtuales de Centro-sur de EE. UU. al mismo tiempo. Sin embargo, otras regiones como Norte de Europa pueden estar en mantenimiento al mismo tiempo que el Este de EE. UU. Comprender cómo funcionan los pares de regiones puede ayudar a distribuir mejor las máquinas virtuales entre regiones. Para más información, consulte [Regiones de Azure](../best-practices-availability-paired-regions.md).
 
 #### <a name="availability-sets-and-scale-sets"></a>Conjuntos de disponibilidad y conjuntos de escalado
 

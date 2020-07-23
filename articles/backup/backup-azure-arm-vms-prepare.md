@@ -3,12 +3,12 @@ title: Copia de seguridad de máquinas virtuales de Azure en un almacén de Reco
 description: Aquí se describe cómo realizar una copia de seguridad de VM de Azure en un almacén de Recovery Services con Azure Backup
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: cba042efb08f121d4cd9fa5693edd69c827f1465
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 88e7be7e2238637f1e6d5ac84abebdca0b9e1674
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83727019"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497937"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services
 
@@ -67,10 +67,10 @@ Una vez que se crea el almacén, aparece en la lista de almacenes de Recovery Se
 
 ### <a name="modify-storage-replication"></a>Modificar la replicación de almacenamiento
 
-De forma predeterminada, los almacenes usan el [almacenamiento con redundancia geográfica (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+De forma predeterminada, los almacenes usan el [almacenamiento con redundancia geográfica (GRS)](../storage/common/storage-redundancy.md).
 
 * Si el almacén es su mecanismo principal de copia de seguridad, le recomendamos que use GRS.
-* Puede usar el [almacenamiento con redundancia local (LRS) ](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) si busca una opción más barata.
+* Puede usar el [almacenamiento con redundancia local (LRS) ](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) si busca una opción más barata.
 
 Modifique el tipo de replicación del almacenamiento tal como se indica a continuación:
 
@@ -189,7 +189,7 @@ Azure Backup realiza una copia de seguridad de máquinas virtuales de Azure inst
 **VM** | **Detalles**
 --- | ---
 **Windows** | 1. [Descargue e instale](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) el archivo MSI del agente.<br/><br/> 2. Realice la instalación con permisos de administrador en el equipo.<br/><br/> 3. Compruebe la instalación. En *C:\WindowsAzure\Packages* en la VM, haga clic con el botón derecho en **WaAppAgent.exe** > **Propiedades**. En la pestaña **Detalles**, la **versión del producto** debe ser 2.6.1198.718 o superior.<br/><br/> Si va a actualizar el agente, asegúrese de que no se ejecuta ninguna operación de copia de seguridad y [vuelva a instalar el agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
-**Linux** | Realice la instalación con un paquete de RPM o DEB del repositorio de paquetes de su distribución. Este es el método preferido para instalar y actualizar el agente Linux de Azure. Todos los [proveedores de distribución aprobada](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integran el paquete de agente Linux de Azure en sus imágenes y repositorios. El agente está disponible en [GitHub](https://github.com/Azure/WALinuxAgent), pero no se recomienda instalarlo desde allí.<br/><br/> Si va a actualizar el agente, asegúrese de que no se ejecuta ninguna operación de copia de seguridad y actualice los archivos binarios.
+**Linux** | Realice la instalación con un paquete de RPM o DEB del repositorio de paquetes de su distribución. Este es el método preferido para instalar y actualizar el agente Linux de Azure. Todos los [proveedores de distribución aprobada](../virtual-machines/linux/endorsed-distros.md) integran el paquete de agente Linux de Azure en sus imágenes y repositorios. El agente está disponible en [GitHub](https://github.com/Azure/WALinuxAgent), pero no se recomienda instalarlo desde allí.<br/><br/> Si va a actualizar el agente, asegúrese de que no se ejecuta ninguna operación de copia de seguridad y actualice los archivos binarios.
 
 >[!NOTE]
 > **Azure Backup admite ahora la copia de seguridad y restauración de discos selectivos mediante la solución de copia de seguridad de máquinas virtuales de Azure.**

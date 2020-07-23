@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: 97bea90e67b9449a8f5fd7b333b9ac149abef2f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b52a1ee67c22fb3bded49a80d35305bdf612f10
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945467"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498965"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Supervisión del servicio de almacén de claves con Azure Monitor para Key Vault (versión preliminar)
 Azure Monitor para Key Vault (versión preliminar) proporciona una supervisión completa de los almacenes de claves proporcionando una vista unificada del rendimiento, los errores, la latencia y las solicitudes de Key Vault.
@@ -24,7 +24,7 @@ Antes de saltar a la experiencia, debe entender cómo se presenta y se visualiza
 -   **Análisis en profundidad** de un almacén de claves determinado para realizar un análisis detallado.
 -    **Personalizable**, que le permite cambiar las métricas que desea ver y modificar, o establecer umbrales en consonancia con sus límites y guardar su propio libro. Los gráficos del libro se pueden anclar a los paneles de Azure.
 
-Azure Monitor para Key Vault combina los registros y las métricas para proporcionar una solución de supervisión global. Todos los usuarios pueden acceder a los datos de supervisión basados en métricas; sin embargo, la inclusión de visualizaciones basadas en registros puede requerir que los usuarios [habiliten el registro de su instancia de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-logging).
+Azure Monitor para Key Vault combina los registros y las métricas para proporcionar una solución de supervisión global. Todos los usuarios pueden acceder a los datos de supervisión basados en métricas; sin embargo, la inclusión de visualizaciones basadas en registros puede requerir que los usuarios [habiliten el registro de su instancia de Azure Key Vault](../../key-vault/general/logging.md).
 
 ## <a name="configuring-your-key-vaults-for-monitoring"></a>Configuración de los almacenes de claves para la supervisión
 
@@ -39,7 +39,7 @@ Azure Monitor para Key Vault combina los registros y las métricas para proporci
 
 3. Una vez guardada la configuración de diagnóstico, podrá ver todos los gráficos y visualizaciones basados en registros debajo de las conclusiones de Key Vault. Tenga en cuenta que se puede tardar entre varios minutos y horas en empezar a rellenar los registros.
 
-4. Para obtener ayuda adicional sobre cómo habilitar los registros de diagnóstico para el servicio Key Vault, lea la [guía completa](https://docs.microsoft.com/azure/key-vault/key-vault-logging).
+4. Para obtener ayuda adicional sobre cómo habilitar los registros de diagnóstico para el servicio Key Vault, lea la [guía completa](../../key-vault/general/logging.md).
 
 ## <a name="view-from-azure-monitor"></a>Vista desde Azure Monitor
 
@@ -75,7 +75,7 @@ La codificación de color condicional o los mapas térmicos de las columnas del 
 
 El libro muestra Correctos (códigos de estado 2xx), Authentication Errors (Errores de autenticación) (códigos de estado 401/403), Limitación (códigos de estado 429) y Other Failures (Otros errores) (códigos de estado 4xx).
 
-Para comprender mejor lo que representan cada uno de los códigos de estado, se recomienda leer la documentación sobre los [códigos de estado y respuesta de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/authentication-requests-and-responses).
+Para comprender mejor lo que representan cada uno de los códigos de estado, se recomienda leer la documentación sobre los [códigos de estado y respuesta de Azure Key Vault](../../key-vault/general/authentication-requests-and-responses.md).
 
 ## <a name="operations--latency-workbook"></a>Libro de operaciones y latencia
 
@@ -120,7 +120,7 @@ El libro Operaciones permite a los usuarios profundizar en los detalles completo
 Los usuarios también pueden ver las vistas en función de tipos de transacciones específicos en la tabla superior, que actualiza dinámicamente la tabla inferior, donde los usuarios pueden ver los detalles de las operaciones completas en un panel de contexto emergente.
 
 >[!NOTE]
-> Tenga en cuenta que los usuarios deben tener habilitada la configuración de diagnóstico para ver este libro. Para obtener más información sobre cómo habilitar la configuración de diagnóstico, lea [Registro de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/logging).
+> Tenga en cuenta que los usuarios deben tener habilitada la configuración de diagnóstico para ver este libro. Para obtener más información sobre cómo habilitar la configuración de diagnóstico, lea [Registro de Azure Key Vault](../../key-vault/general/logging.md).
 
 ## <a name="pin-and-export"></a>Anclar y exportar
 
@@ -164,7 +164,7 @@ Esta sección le ayudará con el diagnóstico y la solución de algunos de los p
 
 ### <a name="resolving-performance-issues-or-failures"></a>Resolución de problemas de rendimiento o errores
 
-Para ayudar a solucionar los problemas relacionados con el almacén de claves que identifique con Azure Monitor para Key Vault (versión preliminar), consulte la [documentación de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/).
+Para ayudar a solucionar los problemas relacionados con el almacén de claves que identifique con Azure Monitor para Key Vault (versión preliminar), consulte la [documentación de Azure Key Vault](../../key-vault/index.yml).
 
 ### <a name="why-can-i-only-see-200-key-vaults"></a>¿Por qué solo puedo ver doscientos almacenes de claves?
 
@@ -208,4 +208,4 @@ Puede editar el libro existente mediante el uso del modo de edición y luego gua
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Conozca los escenarios para los que están concebidos los libros, cómo crear informes y personalizar los ya existentes y otros muchos temas en el artículo [Crear informes interactivos con libros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).
+Conozca los escenarios para los que están concebidos los libros, cómo crear informes y personalizar los ya existentes y otros muchos temas en el artículo [Crear informes interactivos con libros de Azure Monitor](../platform/workbooks-overview.md).

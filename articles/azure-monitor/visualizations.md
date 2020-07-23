@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 2da0cd2ede33abe8ebbe3616192349112fb24bae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0176454b38dfa88480e63fedfae175a63192eaee
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83797497"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498600"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizar datos de Azure Monitor
 En este artículo se proporciona un resumen de los métodos disponibles para visualizar los datos de métricas y de registro almacenados en Azure Monitor.
@@ -40,6 +40,8 @@ Los [libros](../azure-monitor/platform/workbooks-overview.md) son documentos int
 Los [paneles de Azure](../azure-portal/azure-portal-dashboards.md) son la tecnología de panel principal de Azure. Son especialmente útiles para proporcionar una hoja de cristal sobre su infraestructura de Azure y servicios, lo que permite identificar rápidamente problemas importantes.
 
 ![Panel](media/visualizations/dashboard.png)
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH]
 
 ### <a name="advantages"></a>Ventajas
 - Integración profunda en Azure. Las visualizaciones se pueden anclar a paneles desde varias páginas de Azure, que incluyen el Explorador de métricas, Log Analytics y Application Insights.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2019
-ms.openlocfilehash: 6b81aba553fc775821c80631aa83bbb3e8ac63b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1dda2df64dc116a950498aaf581ec39a86db72bb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80631791"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505744"
 ---
 # <a name="azure-monitor-log-queries"></a>Consultas de registros de Azure Monitor
 
@@ -27,7 +27,7 @@ Los registros de Azure Monitor se crean en Azure Data Explorer y las consultas d
 ## <a name="concepts"></a>Conceptos
 
 - El [análisis de los datos de registro en Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) ofrece una breve introducción a las consultas de registros y describe cómo se estructuran los datos de Azure Monitor.
-- En [Visualización y análisis de datos de registro en Azure Monitor](../../azure-monitor/log-query/portals.md) se explican los portales donde se crean y ejecutan las consultas de registros.
+- En [Visualización y análisis de datos de registro en Azure Monitor](./log-query-overview.md) se explican los portales donde se crean y ejecutan las consultas de registros.
 
 ## <a name="reference"></a>Referencia
 

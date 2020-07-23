@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 07/01/2020
-ms.openlocfilehash: 6fb9f691afc8874b19ca4575408027357f07cc89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2824d46917536957839a5734a8d446da7a44ee9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833543"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505778"
 ---
 # <a name="upgrading-your-log-analytics-dashboard-visualizations"></a>Actualización de las visualizaciones del panel de Log Analytics
 
@@ -25,7 +25,7 @@ Esta tecnología de visualización nueva prepara el camino para tener experienci
 
 Los paneles de Azure son una forma de visualizar el estado de toda el área expuesta de Azure. Están diseñados para proporcionar un panel único del estado de los recursos de Azure y permitir una variedad de accesos directos para las acciones comunes. 
 
-Para más información, consulte [Paneles de Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards).
+Para más información, consulte [Paneles de Azure](../../azure-portal/azure-portal-dashboards.md).
 
 
 ## <a name="upgrading-log-analytics-dashboard-parts"></a>Actualización de los elementos de los paneles de Log Analytics

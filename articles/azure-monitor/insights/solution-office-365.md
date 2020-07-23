@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: 4d89c64b7ceea730dab61ffe1254d838d219b785
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 14f7b5546d30d98adf4a14408882c972687a2d71
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971052"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498804"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solución de administración de Office 365 en Azure (versión preliminar)
 
@@ -228,7 +228,7 @@ Se le pedirán las credenciales. Proporcione las credenciales para el área de t
 
 ## <a name="data-collection"></a>datos, recopilación
 
-Inicialmente, la recopilación de datos puede tardar unas horas. Cuando comienza la recopilación, Office 365 envía una [notificación de webhook](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) con datos detallados a Azure Monitor cada vez que se crea un registro. Este registro está disponible en Azure Monitor al cabo de unos minutos de su recepción.
+Inicialmente, la recopilación de datos puede tardar unas horas. Cuando comienza la recopilación, Office 365 envía una [notificación de webhook](/office/office-365-management-api/office-365-management-activity-api-reference#receiving-notifications) con datos detallados a Azure Monitor cada vez que se crea un registro. Este registro está disponible en Azure Monitor al cabo de unos minutos de su recepción.
 
 ## <a name="using-the-solution"></a>Uso de la solución
 

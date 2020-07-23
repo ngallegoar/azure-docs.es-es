@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: 4e4abdd5d5a9e3cddf00cf47d7388a57d0d4d6fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5366166a31ee45c74c34b8af0e01da251bd7f7f0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807713"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499229"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure Monitor
 
@@ -30,7 +30,7 @@ En septiembre de 2018, Microsoft combinó Azure Monitor, Log Analytics y Applic
 Las características de Azure Monitor que están habilitadas automáticamente, como la recopilación de métricas y los registros de actividad, se proporcionan sin costo alguno. Hay un costo asociado a otras características, como las consultas de registro y las alertas. Para obtener información detallada sobre los precios, consulte la [página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### <a name="how-do-i-enable-azure-monitor"></a>¿Cómo puedo habilitar Azure Monitor?
-Azure Monitor está habilitado en el momento en que se crea una nueva suscripción de Azure y se recopilan automáticamente el [registro de actividad](platform/activity-logs-overview.md) y las [métricas](platform/data-platform-metrics.md) de la plataforma. Puede crear una [configuración de diagnóstico](platform/diagnostic-settings.md) para recopilar información más detallada sobre el funcionamiento de los recursos de Azure y agregar [soluciones de supervisión](insights/solutions.md) e [información detallada](insights/insights-overview.md) para proporcionar un análisis adicional de los datos recopilados de servicios específicos. 
+Azure Monitor está habilitado en el momento en que se crea una nueva suscripción de Azure y se recopilan automáticamente el [registro de actividad](./platform/platform-logs-overview.md) y las [métricas](platform/data-platform-metrics.md) de la plataforma. Puede crear una [configuración de diagnóstico](platform/diagnostic-settings.md) para recopilar información más detallada sobre el funcionamiento de los recursos de Azure y agregar [soluciones de supervisión](insights/solutions.md) e [información detallada](insights/insights-overview.md) para proporcionar un análisis adicional de los datos recopilados de servicios específicos. 
 
 ### <a name="how-do-i-access-azure-monitor"></a>¿Cómo puedo acceder a Azure Monitor?
 Puede acceder a todas las características y los datos de Azure Monitor desde el menú **Monitor** de Azure Portal. La sección **Supervisión** del menú de los distintos servicios de Azure proporciona acceso a las mismas herramientas con datos filtrados para un recurso determinado. También se puede acceder a los datos de Azure Monitor para una variedad de escenarios mediante la CLI, PowerShell y una API REST.
@@ -315,7 +315,7 @@ Buscamos la dirección IP (IPv4 o IPv6) del cliente web mediante [GeoLite2](http
 
 * Telemetría del explorador: recopilamos la dirección IP del remitente.
 * Telemetría del servidor: el módulo de Application Insights recopila la dirección IP del cliente. No se recopila si `X-Forwarded-For` está establecido.
-* Para más información acerca de cómo se recopilan los datos de la dirección IP y la ubicación geográfica en Application Insights, consulte este [artículo](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection).
+* Para más información acerca de cómo se recopilan los datos de la dirección IP y la ubicación geográfica en Application Insights, consulte este [artículo](./app/ip-collection.md).
 
 
 Puede configurar `ClientIpHeaderTelemetryInitializer` para tomar la dirección IP de un encabezado distinto. En algunos sistemas, por ejemplo, se mueve mediante un servidor proxy, un equilibrador de carga o la red CDN `X-Originating-IP`. [Más información](https://apmtips.com/posts/2016-07-05-client-ip-address/).
@@ -328,7 +328,7 @@ Eche un vistazo a [Privacidad y retención de los datos][data].
 
 ### <a name="what-happens-to-application-insights-telemetry-when-a-server-or-device-loses-connection-with-azure"></a>¿Qué ocurre con los datos de telemetría de Application Insights cuando un servidor o dispositivo pierde la conexión con Azure?
 
-Todos nuestros SDK, incluido el SDK web, incluyen "transporte confiable" o "transporte eficaz". Cuando el servidor o el dispositivo pierde la conexión con Azure, los datos de telemetría se [almacenan localmente en el sistema de archivos](https://docs.microsoft.com/azure/azure-monitor/app/data-retention-privacy#does-the-sdk-create-temporary-local-storage) (los SDK de servidor) o en el almacenamiento de la sesión HTML5 (SDK web). El SDK volverá a intentar periódicamente enviar estos datos de telemetría hasta que nuestro servicio de ingesta los considere "obsoletos" (48 horas en el caso de los registros y 30 minutos en el caso de las métricas). Los datos de telemetría obsoletos se eliminarán. En algunos casos, como cuando el almacenamiento local está lleno, no se realizará ningún reintento.
+Todos nuestros SDK, incluido el SDK web, incluyen "transporte confiable" o "transporte eficaz". Cuando el servidor o el dispositivo pierde la conexión con Azure, los datos de telemetría se [almacenan localmente en el sistema de archivos](./app/data-retention-privacy.md#does-the-sdk-create-temporary-local-storage) (los SDK de servidor) o en el almacenamiento de la sesión HTML5 (SDK web). El SDK volverá a intentar periódicamente enviar estos datos de telemetría hasta que nuestro servicio de ingesta los considere "obsoletos" (48 horas en el caso de los registros y 30 minutos en el caso de las métricas). Los datos de telemetría obsoletos se eliminarán. En algunos casos, como cuando el almacenamiento local está lleno, no se realizará ningún reintento.
 
 
 ### <a name="could-personal-data-be-sent-in-the-telemetry"></a>¿Se podrían enviar datos personales en la telemetría?
@@ -410,7 +410,7 @@ No puede configurar un informe del Explorador de métricas ni configurar la expo
 
 #### <a name="querying-the-telemetry"></a>Consulta de la telemetría
 
-Use la [API de REST](https://dev.applicationinsights.io/) para ejecutar consultas de [Analytics](app/analytics.md).
+Use la [API de REST](https://dev.applicationinsights.io/) para ejecutar consultas de [Analytics](./log-query/log-query-overview.md).
 
 ### <a name="how-can-i-set-an-alert-on-an-event"></a>¿Cómo puedo establecer una alerta sobre un evento?
 
@@ -477,7 +477,7 @@ La puerta de enlace debe redirigir el tráfico a la dirección base del punto de
 #### <a name="proxy-passthrough"></a>Paso a través de proxy
 
 El paso a través de proxy se puede lograr mediante la configuración de un proxy de nivel de equipo o de nivel de aplicación.
-Para obtener más información, vea el artículo de dotnet sobre [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
+Para obtener más información, vea el artículo de dotnet sobre [DefaultProxy](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
  
  Ejemplo de Web.config:
  ```xml
@@ -735,7 +735,7 @@ En esta condición, verá la opción **Probar ahora** al abrir la VM y seleccion
 ## <a name="next-steps"></a>Pasos siguientes
 Si su pregunta no se ha respondido aquí, puede consultar los siguientes foros para obtener preguntas y respuestas adicionales.
 
-- [Log Analytics](https://docs.microsoft.com/answers/topics/azure-monitor.html)
-- [Application Insights](https://docs.microsoft.com/answers/topics/azure-monitor.html)
+- [Log Analytics](/answers/topics/azure-monitor.html)
+- [Application Insights](/answers/topics/azure-monitor.html)
 
 Para comentarios generales sobre Azure Monitor, visite el [foro de comentarios](https://feedback.azure.com/forums/34192--general-feedback).

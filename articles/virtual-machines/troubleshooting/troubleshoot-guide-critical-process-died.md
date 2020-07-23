@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 9e4c4b9c809a626c71b4a7e9235d917b442be160
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c04f3b27c7214dcf821c7698796bfaea399b947d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80373291"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509110"
 ---
 # <a name="windows-stop-error---0x000000ef-critical-process-died"></a>Error de parada de Windows: #0x000000EF; proceso crítico interrumpido
 
@@ -27,13 +27,13 @@ En este artículo se proporcionan los pasos para resolver los problemas en los q
 
 ## <a name="symptom"></a>Síntoma
 
-Si usa [diagnósticos de arranque](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para ver la captura de pantalla de la VM, verá que esta muestra el error *#0x000000EF*con un mensaje que indica que *se interrumpió un proceso crítico*.
+Si usa [diagnósticos de arranque](./boot-diagnostics.md) para ver la captura de pantalla de la VM, verá que esta muestra el error *#0x000000EF*con un mensaje que indica que *se interrumpió un proceso crítico*.
 
 !["Se produjo un problema con su equipo y se debe reiniciar. Solo vamos a recopilar alguna información de error y, a continuación, podrá reiniciar. (## % completado) Si quiere más información, puede buscar más tarde en línea este error: 0x000000EF"](media/troubleshoot-guide-critical-process-died/1.jpg)
 
 ## <a name="cause"></a>Causa
 
-Normalmente, se debe a un error en el proceso del sistema crítico durante el arranque. Puede obtener más información sobre los problemas de proceso críticos en "[Comprobación de error 0xEF: CRITICAL_PROCESS_DIED](https://docs.microsoft.com/windows-hardware/drivers/debugger/bug-check-0xef--critical-process-died)".
+Normalmente, se debe a un error en el proceso del sistema crítico durante el arranque. Puede obtener más información sobre los problemas de proceso críticos en "[Comprobación de error 0xEF: CRITICAL_PROCESS_DIED](/windows-hardware/drivers/debugger/bug-check-0xef--critical-process-died)".
 
 ## <a name="solution"></a>Solución
 
@@ -49,7 +49,7 @@ Normalmente, se debe a un error en el proceso del sistema crítico durante el ar
 
 ### <a name="create-and-access-a-repair-vm"></a>Creación de una VM de reparación y acceso a ella
 
-1. Siga los [pasos 1 a 3 de los comandos de reparación de VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar una VM de reparación.
+1. Siga los [pasos 1 a 3 de los comandos de reparación de VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar una VM de reparación.
 2. Use Conexión a Escritorio remoto para conectarse a la VM de reparación.
 
 ### <a name="fix-any-os-corruption"></a>Corrección de daños en el sistema operativo
@@ -61,7 +61,7 @@ Normalmente, se debe a un error en el proceso del sistema crítico durante el ar
 
    * Donde <BOOT DISK DRIVE> es el volumen de arranque de la VM de reparación (normalmente, "C:") y <BROKEN DISK DRIVE> será la letra de unidad del disco conectado de la VM interrumpida. Sustituya los símbolos mayor/menor que, así como el texto que contienen (p. ej., "<este texto>"), con la letra correspondiente.
 
-3. A continuación, siga el [paso 5 de los comandos de reparación de la VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para volver a ensamblar la VM y comprobar si arranca.
+3. A continuación, siga el [paso 5 de los comandos de reparación de la VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para volver a ensamblar la VM y comprobar si arranca.
 4. Si la VM sigue sin arrancar, continúe con la recopilación del archivo de volcado de memoria.
 
 ### <a name="collect-the-memory-dump-file"></a>Recopilación de un archivo de volcado de memoria
@@ -70,7 +70,7 @@ Si el problema persiste después de ejecutar SFC, se necesitará el análisis de
 
 ### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Conecte el disco del sistema operativo a una nueva VM de recuperación
 
-1. Siga los pasos 1 a 3 de los [comandos de reparación de VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar una VM de reparación.
+1. Siga los pasos 1 a 3 de los [comandos de reparación de VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar una VM de reparación.
 2. Use Conexión a Escritorio remoto para conectarse a la VM de reparación.
 
 ### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>Busque el archivo de volcado de memoria y envíe una incidencia de soporte técnico
@@ -128,4 +128,4 @@ Si no hay suficiente espacio en el disco del sistema operativo, debe cambiar la 
 
 ### <a name="rebuild-the-original-vm"></a>Recompilación de la VM original
 
-Siga el [paso 5 de los comandos de reparación de la VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para volver a ensamblar la VM.
+Siga el [paso 5 de los comandos de reparación de la VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para volver a ensamblar la VM.

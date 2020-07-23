@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo el agente de MARS admite los escen
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 64f43f42fc23b1ca9591b6a49c3acce6c52c09d6
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 417fc385750ccab5c2f11f8160d9bbc85a013cde
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134973"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497954"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Acerca del agente de Microsoft Azure Recovery Services (MARS)
 
@@ -40,10 +40,10 @@ El agente de MARS admite los siguientes escenarios de restauración:
 ## <a name="backup-process"></a>Proceso de copia de seguridad
 
 1. En Azure Portal, cree un [almacén de Recovery Services](install-mars-agent.md#create-a-recovery-services-vault) y elija los archivos, las carpetas y el estado del sistema de entre los **objetivos de copia de seguridad**.
-2. [Descargue las credenciales del almacén de Recovery Services y el instalador del agente](https://docs.microsoft.com/azure/backup/install-mars-agent#download-the-mars-agent) en una máquina local.
+2. [Descargue las credenciales del almacén de Recovery Services y el instalador del agente](./install-mars-agent.md#download-the-mars-agent) en una máquina local.
 
-3. [Instale el agente](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) y use las credenciales del almacén que descargó para registrar la máquina en el almacén de Recovery Services.
-4. Desde la consola del agente en el cliente, [configure la copia de seguridad](https://docs.microsoft.com/azure/backup/backup-windows-with-mars-agent#create-a-backup-policy) para especificar de qué se hará una copia de seguridad, cuándo se hará (programación), cuánto tiempo se conservará en Azure (directiva de retención) e inicie la protección.
+3. [Instale el agente](./install-mars-agent.md#install-and-register-the-agent) y use las credenciales del almacén que descargó para registrar la máquina en el almacén de Recovery Services.
+4. Desde la consola del agente en el cliente, [configure la copia de seguridad](./backup-windows-with-mars-agent.md#create-a-backup-policy) para especificar de qué se hará una copia de seguridad, cuándo se hará (programación), cuánto tiempo se conservará en Azure (directiva de retención) e inicie la protección.
 
 ![Diagrama del agente de Azure Backup](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
 
@@ -57,12 +57,12 @@ El agente de MARS admite los siguientes escenarios de restauración:
 
 ### <a name="additional-scenarios"></a>Otros escenarios
 
-- **Hacer una copia de seguridad de archivos y carpetas específicos dentro de la VM de Azure**: el método principal para hacer copias de seguridad de máquinas virtuales (VM) de Azure es mediante una extensión de Azure Backup en la VM. La extensión realiza una copia de seguridad de toda la máquina virtual. Si quiere hacer una copia de seguridad de archivos y carpetas específicos dentro de una VM, puede instalar el agente de MARS en las máquinas virtuales de Azure. Para obtener más información, consulte [Arquitectura: copia de seguridad integrada de máquina virtual de Azure](https://docs.microsoft.com/azure/backup/backup-architecture#architecture-built-in-azure-vm-backup).
+- **Hacer una copia de seguridad de archivos y carpetas específicos dentro de la VM de Azure**: el método principal para hacer copias de seguridad de máquinas virtuales (VM) de Azure es mediante una extensión de Azure Backup en la VM. La extensión realiza una copia de seguridad de toda la máquina virtual. Si quiere hacer una copia de seguridad de archivos y carpetas específicos dentro de una VM, puede instalar el agente de MARS en las máquinas virtuales de Azure. Para obtener más información, consulte [Arquitectura: copia de seguridad integrada de máquina virtual de Azure](./backup-architecture.md#architecture-built-in-azure-vm-backup).
 
 - **Propagación sin conexión**: las copias de seguridad completas iniciales de los datos en Azure normalmente transfieren grandes cantidades de datos y requieren más ancho de banda de red. Las copias de seguridad posteriores solo transfieren los datos Delta, o incrementales. Azure Backup permite comprimir las copias de seguridad iniciales. A través del proceso de *propagación sin conexión*, Azure Backup puede usar discos para cargar los datos comprimidos iniciales de la copia de seguridad sin conexión en Azure. Para obtener más información, consulte [Copia de seguridad sin conexión de Azure Backup con Azure Data Box](offline-backup-azure-data-box.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Matriz de compatibilidad del agente de MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent)
+[Matriz de compatibilidad del agente de MARS](./backup-support-matrix-mars-agent.md)
 
-[Preguntas más frecuentes del agente de MARS](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq)
+[Preguntas más frecuentes del agente de MARS](./backup-azure-file-folder-backup-faq.md)

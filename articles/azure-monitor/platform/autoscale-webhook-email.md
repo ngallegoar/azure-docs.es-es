@@ -4,12 +4,12 @@ description: Aprenda a usar las acciones de escalado automático para llamar a d
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: autoscale
-ms.openlocfilehash: c82b170bb3801bdc701ed84230db57f5691523ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3b1f13fd1ce8bedcbe58385d4cee321f1d1405df
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77120692"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505526"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Monitor
 En este artículo se muestra cómo configurar desencadenadores para que pueda llamar a direcciones URL web específicas o enviar mensajes de correo electrónico en función de las acciones de escalado automático en Azure.  
@@ -29,7 +29,7 @@ Puede participar desde Azure Portal en Cloud Services y granjas de servidores (A
 
 ## <a name="virtual-machine-scale-sets"></a>Conjuntos de escalado de máquina virtual
 Para las máquinas virtuales más recientes creadas con Resource Manager (conjuntos de escala de máquina virtual), puede configurar esto con la API de REST, las plantillas de Resource Manager, PowerShell y CLI. Aún no se encuentra disponible una interfaz de portal.
-Al utilizar la API REST o la plantilla de Resource Manager, incluya el elemento de notificaciones en el objeto [autoscalesettings](https://docs.microsoft.com/azure/templates/microsoft.insights/2015-04-01/autoscalesettings) con las siguientes opciones.
+Al utilizar la API REST o la plantilla de Resource Manager, incluya el elemento de notificaciones en el objeto [autoscalesettings](/azure/templates/microsoft.insights/2015-04-01/autoscalesettings) con las siguientes opciones.
 
 ```
 "notifications": [
@@ -117,4 +117,3 @@ Cuando se genera la notificación de escalado automático, los metadatos siguien
 | oldCapacity |Sí |Recuento de instancias (antiguo) actual cuando el escalado automático ha realizado una acción de escalado. |
 | newCapacity |Sí |Nuevo recuento de instancias al que el escalado automático escaló el recurso. |
 | properties |No |Opcional. Conjunto de pares <Clave, Valor> (por ejemplo, Diccionario <Cadena, Cadena>). El campo de propiedades es opcional. En una interfaz de usuario personalizada o un flujo de trabajo basado en una aplicación lógica, puede escribir las claves y los valores que se pueden transmitir utilizando la carga. La forma alternativa para transmitir propiedades personalizadas a la llamada de Webhook de salida es mediante el propio URI de Webhook (como parámetros de consulta). |
-

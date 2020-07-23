@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 8f65912d0e2ab322d73315828a98cc48274850fc
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: e0f9bbf4e0d8edd153798b39f880f0adb8be6587
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83696491"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502301"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Información sobre los reinicios de máquinas virtuales: mantenimiento frente a tiempo de inactividad
 Hay tres escenarios que pueden afectar a la máquina virtual de Azure: mantenimiento de hardware no planeado, tiempo de inactividad inesperado y mantenimiento planeado.
@@ -45,7 +45,7 @@ Una zona de disponibilidad de una región de Azure es una combinación de un **d
 
 Con las zonas de disponibilidad, Azure ofrece el mejor Acuerdo de Nivel de Servicio del sector de tiempo de actividad de máquina virtual, con un 99,99 %. Si diseña las soluciones para que usen máquinas virtuales replicadas en zonas, puede proteger los datos y las aplicaciones frente a la pérdida de un centro de datos. Aunque una zona esté en peligro, las aplicaciones y los datos replicados estarán disponibles instantáneamente en otra zona.
 
-![Zonas de disponibilidad](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
+![Zonas de disponibilidad](./media/virtual-machines-common-manage-availability/three-zones-per-region.png)
 
 Obtenga más información acerca de cómo implementar una máquina virtual [Windows](../articles/virtual-machines/windows/create-powershell-availability-zone.md) o [Linux](../articles/virtual-machines/linux/create-cli-availability-zone.md) en una zona de disponibilidad.
 

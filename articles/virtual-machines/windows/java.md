@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: e6218906760baad0673b6599a278d50c6c73e1a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f73abe108ca9c33a8ec6865a760400d16393e51
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84232967"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508498"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Creación y administración de máquinas virtuales Windows en Azure mediante Java
 
@@ -465,5 +465,4 @@ Esta aplicación de consola tardará unos cinco minutos en ejecutarse completame
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para obtener más información sobre cómo usar las [bibliotecas de Azure para Java](https://docs.microsoft.com/java/azure/java-sdk-azure-overview).
-
+* Para obtener más información sobre cómo usar las [bibliotecas de Azure para Java](/java/azure/java-sdk-azure-overview).

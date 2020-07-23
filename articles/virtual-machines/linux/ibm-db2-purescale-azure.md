@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: d8309a69c9c38610fa7bea3fee202a60d836980c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8aa2b936f97b037bdc62a01f607945ad270faa13
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78945050"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502340"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale en Azure
 
@@ -67,7 +67,7 @@ Esta arquitectura ejecuta las capas de datos, de aplicación y de almacenamiento
 
 -   Un clúster de DB2 pureScale. El tipo de recursos de proceso que necesita en Azure depende de su configuración. En general, puede usar dos enfoques:
 
-    -   Usar una red de informática de alto rendimiento (HPC) de varios nodos en la que varias instancias pequeñas y medianas acceden al almacenamiento compartido. Para este tipo de configuración de HPC, las [máquinas virtuales](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) de Azure de la serie E optimizadas para memoria o de la serie L optimizadas para almacenamiento proporcionan la potencia de proceso necesaria.
+    -   Usar una red de informática de alto rendimiento (HPC) de varios nodos en la que varias instancias pequeñas y medianas acceden al almacenamiento compartido. Para este tipo de configuración de HPC, las [máquinas virtuales](../windows/sizes.md) de Azure de la serie E optimizadas para memoria o de la serie L optimizadas para almacenamiento proporcionan la potencia de proceso necesaria.
 
     -   Usar menos instancias grandes de máquinas virtuales para los motores de datos. Para instancias grandes, las máquinas virtuales de la [serie M](https://azure.microsoft.com/pricing/details/virtual-machines/series/) optimizadas para memoria son idóneas para cargas de trabajo intensas en memoria. Es posible que necesite una instancia dedicada, según el tamaño de la partición lógica (LPAR) que se usa para ejecutar DB2.
 
@@ -96,11 +96,11 @@ Un clúster de DB2 pureScale grande puede requerir un almacenamiento compartido 
 
 IBM recomienda las redes InfiniBand para todos los miembros de un clúster de DB2 pureScale. DB2 pureScale también usa el acceso directo a memoria remota (RDMA), cuando es posible, para los CF.
 
-Durante la instalación, se crea un [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) de Azure para contener todas las máquinas virtuales. Por lo general, agrupa los recursos según su vigencia y quién los administra. Las máquinas virtuales de esta arquitectura requieren [redes aceleradas](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Es una característica de Azure que proporciona una latencia de red muy baja y coherente a través de la virtualización de E/S de raíz única (SR-IOV) a una máquina virtual.
+Durante la instalación, se crea un [grupo de recursos](../../azure-resource-manager/management/overview.md) de Azure para contener todas las máquinas virtuales. Por lo general, agrupa los recursos según su vigencia y quién los administra. Las máquinas virtuales de esta arquitectura requieren [redes aceleradas](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Es una característica de Azure que proporciona una latencia de red muy baja y coherente a través de la virtualización de E/S de raíz única (SR-IOV) a una máquina virtual.
 
-Cada máquina virtual de Azure se implementa en una red virtual que tiene varias subredes: principal, front-end de Gluster FS (gfsfe), back-end de Gluster FS (bfsbe), DB2 pureScale (db2be) y front-end de DB2 purescale (db2fe). El script de instalación también crea la [tarjeta de interfaz de red](https://docs.microsoft.com/azure/virtual-machines/linux/multiple-nics) principal en las máquinas virtuales de la subred principal.
+Cada máquina virtual de Azure se implementa en una red virtual que tiene varias subredes: principal, front-end de Gluster FS (gfsfe), back-end de Gluster FS (bfsbe), DB2 pureScale (db2be) y front-end de DB2 purescale (db2fe). El script de instalación también crea la [tarjeta de interfaz de red](./multiple-nics.md) principal en las máquinas virtuales de la subred principal.
 
-Use [grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) para restringir el tráfico de red en la red virtual y para aislar las subredes.
+Use [grupos de seguridad de red](../../virtual-network/virtual-network-vnet-plan-design-arm.md) para restringir el tráfico de red en la red virtual y para aislar las subredes.
 
 En Azure, DB2 pureScale debe usar TCP/IP como la conexión de red para el almacenamiento.
 

@@ -3,12 +3,12 @@ title: Solución de problemas de errores de copia de seguridad de bases de datos
 description: En este artículo se describe cómo se solucionan los errores comunes que pueden producirse al usar Azure Backup para realizar copias de seguridad de bases de datos de SAP HANA.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 5c1ad55a86e80808b9055fd1b34a2d72209464a2
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 88d8f5e500c39f51e5bc1afbc2ec7804b9bc79db
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697067"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503615"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Solución de problemas al realizar copias de seguridad de bases de datos de SAP HANA en Azure
 
@@ -46,14 +46,14 @@ Consulte las secciones sobre los [requisitos previos](tutorial-backup-sap-hana-d
 | Mensaje de error      | <span style="font-weight:normal">No se admite la operación de SAP HANA especificada</span>              |
 | ------------------ | ------------------------------------------------------------ |
 | **Causas posibles:**    | La copia de seguridad de Azure para SAP HANA no es compatible con la copia de seguridad incremental ni con las acciones realizadas en clientes nativos de SAP HANA (Studio/Cockpit/DBA Cockpit). |
-| **Acción recomendada** | Para más información, consulte [aquí](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). |
+| **Acción recomendada** | Para más información, consulte [aquí](./sap-hana-backup-support-matrix.md#scenario-support). |
 
 ### <a name="usererrorhanapodoesnotsupportbackuptype"></a>UserErrorHANAPODoesNotSupportBackupType
 
 | Mensaje de error      | <span style="font-weight:normal">Esta base de datos de SAP HANA no admite el tipo de copia de seguridad solicitada</span>  |
 | ------------------ | ------------------------------------------------------------ |
 | **Causas posibles:**    | La copia de seguridad de Azure no es compatible con la copia de seguridad incremental ni con la copia de seguridad mediante instantáneas. |
-| **Acción recomendada** | Para más información, consulte [aquí](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). |
+| **Acción recomendada** | Para más información, consulte [aquí](./sap-hana-backup-support-matrix.md#scenario-support). |
 
 ### <a name="usererrorhanalsnvalidationfailure"></a>UserErrorHANALSNValidationFailure
 
@@ -67,14 +67,14 @@ Consulte las secciones sobre los [requisitos previos](tutorial-backup-sap-hana-d
 | Mensaje de error      | <span style="font-weight:normal">Actualización de SDC a MDC detectada</span>                                   |
 | ------------------ | ------------------------------------------------------------ |
 | **Causas posibles:**    | La instancia de SAP HANA se actualizó de SDC a MDC. Las copias de seguridad presentarán un error después de la actualización. |
-| **Acción recomendada** | Siga los pasos indicados en [actualización de SDC a MDC](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#sdc-to-mdc-upgrade-with-a-change-in-sid) para resolver el problema. |
+| **Acción recomendada** | Siga los pasos indicados en [actualización de SDC a MDC](#sdc-to-mdc-upgrade-with-a-change-in-sid) para resolver el problema. |
 
 ### <a name="usererrorinvalidbackintconfiguration"></a>UserErrorInvalidBackintConfiguration
 
 | Mensaje de error      | <span style="font-weight:normal">Se detectó una configuración de tipo Backint no válida</span>                       |
 | ------------------ | ------------------------------------------------------------ |
 | **Causas posibles:**    | Los parámetros de BackInt están incorrectamente especificados para Azure Backup. |
-| **Acción recomendada** | Compruebe si se establecieron estos parámetros (BackInt):<br/>\* [catalog_backup_using_backint:true]<br/>\* [enable_accumulated_catalog_backup:false]<br/>\* [parallel_data_backup_backint_channels:1]<br/>\* [log_backup_timeout_s:900)]<br/>\* [backint_response_timeout:7200]<br/>Si los parámetros basados en BackInt están presentes en el host, quítelos. Si los parámetros no están presentes en el nivel del host, pero se han modificado manualmente en el nivel de la base de datos, reviértalos a los valores apropiados como se describió anteriormente. O bien, ejecute [Detener la protección y conservar los datos de copia de seguridad](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#stop-protection-for-an-sap-hana-database) en Azure Portal y, después, seleccione **Reanudar copia de seguridad**. |
+| **Acción recomendada** | Compruebe si se establecieron estos parámetros (BackInt):<br/>\* [catalog_backup_using_backint:true]<br/>\* [enable_accumulated_catalog_backup:false]<br/>\* [parallel_data_backup_backint_channels:1]<br/>\* [log_backup_timeout_s:900)]<br/>\* [backint_response_timeout:7200]<br/>Si los parámetros basados en BackInt están presentes en el host, quítelos. Si los parámetros no están presentes en el nivel del host, pero se han modificado manualmente en el nivel de la base de datos, reviértalos a los valores apropiados como se describió anteriormente. O bien, ejecute [Detener la protección y conservar los datos de copia de seguridad](./sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) en Azure Portal y, después, seleccione **Reanudar copia de seguridad**. |
 
 ### <a name="usererrorincompatiblesrctargetsystemsforrestore"></a>UserErrorIncompatibleSrcTargetSystemsForRestore
 
@@ -204,4 +204,4 @@ En los escenarios anteriores, se recomienda desencadenar una operación de nuevo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Revise las [preguntas frecuentes](https://docs.microsoft.com/azure/backup/sap-hana-faq-backup-azure-vm) sobre cómo hacer copias de seguridad de las bases de datos SAP HANA en máquinas virtuales de Azure.
+- Revise las [preguntas frecuentes](./sap-hana-faq-backup-azure-vm.md) sobre cómo hacer copias de seguridad de las bases de datos SAP HANA en máquinas virtuales de Azure.

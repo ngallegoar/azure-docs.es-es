@@ -9,18 +9,18 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: c003d66f59f932d818740bdd378280049bbeb7d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37245711008442acd0379a35b393ac88c3775482
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373886"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505543"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuración avanzada de escalado automático con plantillas de Resource Manager para conjuntos de escalado de máquinas virtuales
 Puede reducir y escalar horizontalmente los conjuntos de escalado de máquinas virtuales según umbrales de métricas de rendimiento, siguiendo una programación periódica o por una fecha determinada. También puede configurar notificaciones de correo electrónico y webhook para las acciones de escalado. Este tutorial muestra un ejemplo de configuración de todos estos objetos utilizando una plantilla de Resource Manager en un conjunto de escalado de máquinas virtuales.
 
 > [!NOTE]
-> Aunque en este tutorial se explican los pasos para VM Scale Sets, la misma información se aplica al escalado automático de [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service Web Apps](https://azure.microsoft.com/services/app-service/web/) y [servicios de API Management](https://docs.microsoft.com/azure/api-management/api-management-key-concepts). Para conocer una configuración simple de escalado y reducción horizontal en una instancia de VM Scale Set en una métrica de rendimiento simple, como CPU, consulte los documentos para [Linux](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) y [Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md).
+> Aunque en este tutorial se explican los pasos para VM Scale Sets, la misma información se aplica al escalado automático de [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service Web Apps](https://azure.microsoft.com/services/app-service/web/) y [servicios de API Management](../../api-management/api-management-key-concepts.md). Para conocer una configuración simple de escalado y reducción horizontal en una instancia de VM Scale Set en una métrica de rendimiento simple, como CPU, consulte los documentos para [Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) y [Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md).
 >
 >
 
@@ -195,7 +195,7 @@ En este tutorial, usaremos el [Explorador de recursos de Azure](https://resource
             }
           }
     ```
-    Para los campos compatibles y sus valores, consulte la [documentación de la API de REST de escalado automático](https://msdn.microsoft.com/library/azure/dn931928.aspx). La configuración de escalado automático contiene ahora los tres perfiles explicados anteriormente.
+    Para los campos compatibles y sus valores, consulte la [documentación de la API de REST de escalado automático](/rest/api/monitor/autoscalesettings). La configuración de escalado automático contiene ahora los tres perfiles explicados anteriormente.
 
 7. Por último, echemos un vistazo a la sección de **notificación** del escalado automático. Las notificaciones de escalado automático le permiten hacer tres cosas cuando se desencadena correctamente un escalado o una reducción horizontal.
    - Notificar a los administradores y coadministradores de su suscripción
@@ -243,9 +243,9 @@ Siga estos vínculos para más información sobre el escalado automático:
 
 [Procedimientos recomendados de escalado automático](autoscale-best-practices.md)
 
-[Administración del escalado automático con PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
+[Administración del escalado automático con PowerShell](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
 
-[Administración del escalado automático con CLI](cli-samples.md#autoscale)
+[Administración del escalado automático con CLI](../samples/cli-samples.md#autoscale)
 
 [Configuración de webhooks y notificaciones por correo electrónico en el escalado automático](autoscale-webhook-email.md)
 

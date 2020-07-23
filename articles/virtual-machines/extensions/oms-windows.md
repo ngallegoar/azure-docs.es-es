@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: aa8f5fa9901055957c5c94923ebd74c3d57ce41a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 302a0361c19d247b6da4abd516d3a5df8dfd10c7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481789"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494673"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual de Log Analytics para Windows
 
@@ -98,7 +98,7 @@ En el siguiente JSON se muestra el esquema para la extensión del agente de Log 
 \* El identificador del área de trabajo se denomina identificador de consumidor en la API de Log Analytics.
 
 > [!NOTE]
-> Para obtener más propiedades, vea [Conexión de equipos Windows a Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows) de Azure.
+> Para obtener más propiedades, vea [Conexión de equipos Windows a Azure Monitor](../../azure-monitor/platform/agent-windows.md) de Azure.
 
 ## <a name="template-deployment"></a>Implementación de plantilla
 

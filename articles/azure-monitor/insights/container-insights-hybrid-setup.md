@@ -3,12 +3,12 @@ title: Configuración de los clústeres híbridos de Kubernetes con Azure Monito
 description: En este artículo se describe cómo puede configurar Azure Monitor para contenedores con el fin de supervisar clústeres de Kubernetes hospedados en Azure Stack u otro entorno.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: c7a92476fca2bc61d51ab518c22ff0c436fb78f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2ca977f572ee9f60c1ca72fc472f3a6ee6c6362
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801468"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498906"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configuración de los clústeres híbridos de Kubernetes con Azure Monitor para contenedores
 
@@ -22,7 +22,7 @@ Las siguientes configuraciones se admiten oficialmente con Azure Monitor para co
 
     - Kubernetes en un entorno local.
     
-    - Motor de AKS en Azure y Azure Stack. Para más información, consulte [Motor de AKS en Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
+    - Motor de AKS en Azure y Azure Stack. Para más información, consulte [Motor de AKS en Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
     
     - [OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) versión 4 y posteriores, en el entorno local o en otros entornos en la nube.
 
@@ -85,7 +85,7 @@ Si no conoce el concepto de implementación de recursos mediante una plantilla, 
 
 - [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
-Si decide usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe ejecutar la versión 2.0.59 de la CLI de Azure, o cualquier versión posterior. Para identificar la versión, ejecute `az --version`. Si necesita instalar o actualizar la CLI de Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Si decide usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe ejecutar la versión 2.0.59 de la CLI de Azure, o cualquier versión posterior. Para identificar la versión, ejecute `az --version`. Si necesita instalar o actualizar la CLI de Azure, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 Este método incluye dos plantillas JSON. Una plantilla especifica la configuración para habilitar la supervisión y la otra contiene los valores de los parámetros que se configuran para especificar lo siguiente:
 
@@ -202,7 +202,7 @@ Para localizar primero el identificador de recurso completo del área de trabajo
     }
     ```
 
-7. Edite los valores de **workspaceResourceId** con el valor que copió en el paso 3, y para **workspaceRegion** copie el valor de **Región** después de ejecutar el comando CLI de Azure [az monitor log-analytics workspace show](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list).
+7. Edite los valores de **workspaceResourceId** con el valor que copió en el paso 3, y para **workspaceRegion** copie el valor de **Región** después de ejecutar el comando CLI de Azure [az monitor log-analytics workspace show](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list).
 
 8. Guarde este archivo como containerSolutionParams.json en una carpeta local.
 

@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 2f04b5ecb2019a77bbb38e97c3869cc0a9447955
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a33d74c01771c2b60ac8667a1494ebe80271a8ac
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698519"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494792"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extensión de DSC para Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
 Desired State Configuration (DSC) es una plataforma de administración que puede utilizar para administrar la infraestructura de TI y de desarrollo con configuración como código.
 
 > [!NOTE]
-> La extensión de DSC para Linux y la [extensión de máquina virtual de Azure Monitor para Linux](/azure/virtual-machines/extensions/oms-linux) presentan actualmente un conflicto y no se admiten en una configuración en paralelo. No use las dos soluciones en la misma máquina virtual.
+> La extensión de DSC para Linux y la [extensión de máquina virtual de Azure Monitor para Linux](./oms-linux.md) presentan actualmente un conflicto y no se admiten en una configuración en paralelo. No use las dos soluciones en la misma máquina virtual.
 
 Microsoft publica y admite la extensión DSCForLinux. La extensión instala los agentes OMI y DSC en las máquinas virtuales de Azure. La extensión DSC también puede realizar las siguientes acciones:
 
@@ -42,7 +42,7 @@ Microsoft publica y admite la extensión DSCForLinux. La extensión instala los 
 
 ### <a name="operating-system"></a>Sistema operativo
 
-La extensión DSC de Linux es compatible con todas las [distribuciones de Linux aprobadas en Azure](/azure/virtual-machines/linux/endorsed-distros), excepto:
+La extensión DSC de Linux es compatible con todas las [distribuciones de Linux aprobadas en Azure](../linux/endorsed-distros.md), excepto:
 
 | Distribución | Versión |
 |---|---|

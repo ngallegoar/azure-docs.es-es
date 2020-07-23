@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 43a5360965c13df3227ecbc0c716327346244ebd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93b63450d65f55e96897f91a5c0c9fae1b0b47f8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83653623"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503292"
 ---
 # <a name="azure-advanced-threat-detection"></a>Detección de amenazas avanzada de Azure
 
@@ -340,14 +340,13 @@ La API de detección de anomalías es una solución eficaz y eficiente para una 
 
 Con las herramientas que ayudan a descubrir zonas oscuras de TI, evaluar los riesgos, aplicar directivas, investigar actividades y detener amenazas, la organización puede mover datos a la nube con mayor seguridad y sin perder el control sobre los datos críticos.
 
-| | |
-|---|---|
+| Categoría | Descripción |
+| -------- | ----------- |
 | Descubra | Descubra las zonas oscuras de TI con Cloud App Security. Gane visibilidad al descubrir aplicaciones, actividades, usuarios, datos y archivos del entorno de la nube. Descubra las aplicaciones de terceros conectadas a su nube.|
 |Investigación | Investigue las aplicaciones de nube mediante herramientas forenses de nube en profundidad en las aplicaciones de riesgo o archivos y usuarios específicos de la red. Identifique patrones en los datos recopilados de la nube. Genere informes para supervisar su nube. |
 | Control | Mitigue el riesgo al establecer directivas y alertas para lograr el máximo control sobre el tráfico de red en la nube. Use Cloud App Security para migrar los usuarios a alternativas de aplicaciones de nube seguras y autorizadas. |
 | Protección | Use Cloud App Security para autorizar o prohibir aplicaciones, prevenir la pérdida de datos, otorgar permisos de control, compartir y generar alertas e informes personalizados. |
 | Control | Mitigue el riesgo al establecer directivas y alertas para lograr el máximo control sobre el tráfico de red en la nube. Use Cloud App Security para migrar los usuarios a alternativas de aplicaciones de nube seguras y autorizadas. |
-| | |
 
 
 ![Diagrama de Cloud App Security](./media/threat-detection/azure-threat-detection-fig14.png)

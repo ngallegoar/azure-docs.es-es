@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f657e18d7185d6b3c63ac8f1424da9d36d4189e9
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 2cc2f954f4255c00b7c3549ab5d33d71b240fb70
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793047"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507681"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Optimización de la nube privada de CloudSimple para la instalación de Oracle RAC
 
@@ -169,7 +169,7 @@ Para implementar un clúster de vSphere en la nube privada, siga este proceso:
 
 Las directivas de vSAN definen los errores tolerables y la fragmentación de discos para los datos almacenados en los discos de VM.  La directiva de almacenamiento creada debe aplicarse a los discos de VM al crear la VM.
 
-1. [Inicie sesión en el cliente de vSphere](https://docs.microsoft.com/azure/vmware-cloudsimple/vcenter-access) de la nube privada.
+1. [Inicie sesión en el cliente de vSphere](./vcenter-access.md) de la nube privada.
 2. En el menú superior, seleccione **Directivas y perfiles**.
 3. En el menú de la izquierda, seleccione **VM Storage Policies** (Directivas de almacenamiento de VM) y, a continuación, seleccione **Create a VM storage Policy** (Crear una directiva de almacenamiento de VM).
 4. Escriba un nombre descriptivo para la directiva y haga clic en **SIGUIENTE**.

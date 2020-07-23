@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: cshoe
-ms.openlocfilehash: fe5efd2bf4c235688aad90ae37b54268d290540c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93a12d40e876293eb587ffba865a1d3b1f5f4983
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676138"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506033"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Procesamiento de eventos fiable de Azure Functions
 
@@ -70,7 +70,7 @@ Si introduce las bibliotecas de control de errores en las funciones, podrá defi
 > [!NOTE]
 > [Polly](https://github.com/App-vNext/Polly) es un ejemplo de una biblioteca de capacidad de recuperación y administración de errores transitorios para aplicaciones de C#.
 
-Al trabajar con bibliotecas precompiladas de clase C#, los [filtros de excepción](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-catch) le permiten ejecutar código cada vez que se produce una excepción no controlada.
+Al trabajar con bibliotecas precompiladas de clase C#, los [filtros de excepción](/dotnet/csharp/language-reference/keywords/try-catch) le permiten ejecutar código cada vez que se produce una excepción no controlada.
 
 Los ejemplos que muestran cómo usar filtros de excepción están disponibles en el repositorio del [SDK de Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
 

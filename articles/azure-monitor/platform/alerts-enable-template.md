@@ -6,12 +6,12 @@ ms.author: robb
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.subservice: alerts
-ms.openlocfilehash: 5a868167f80aaa735e4fbeab32fd1d308dd6da1f
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: fef975c9822cd44b94074874621e1c87a60ed27d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81114429"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505455"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Creación de una alerta de métrica clásica con una plantilla de Resource Manager
 > [!WARNING]
@@ -176,7 +176,7 @@ Para crear una alerta mediante una plantilla de Resource Manager, cree un recurs
 }
 ```
 
-La explicación del esquemas y las propiedades de una regla de alertas [está disponible aquí](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+La explicación del esquemas y las propiedades de una regla de alertas [está disponible aquí](/rest/api/monitor/alertrules).
 
 ## <a name="resource-manager-template-for-a-resource-with-a-classic-metric-alert"></a>Plantilla de Resource Manager para un recurso con una alerta de métricas clásica
 Una alerta en una plantilla de Resource Manager suele ser más útil al crear una alerta mientras se crea un recurso. Por ejemplo, desea asegurarse de que se configura una regla "CPU % > 80" cada vez que implementa una máquina virtual. Para ello, agregue la regla de alerta como un recurso en la matriz de recursos para la plantilla de máquina virtual y agregue también una dependencia utilizando la propiedad `dependsOn` para el identificador de recurso de máquina virtual. A continuación se presenta un ejemplo completo que crea una máquina virtual Windows y agrega una alerta que notifica a los administradores de la suscripción cuando el uso de CPU supera el 80 %.
@@ -402,4 +402,3 @@ Una alerta en una plantilla de Resource Manager suele ser más útil al crear un
 * [Más información sobre alertas](alerts-overview.md)
 * [Agregue la Configuración de diagnóstico](../../azure-monitor/platform/diagnostic-settings-template.md) a la plantilla de Resource Manager
 * Para conocer las propiedades y la sintaxis de JSON, consulte la referencia de la plantilla [Microsoft.Insights/alertrules](/azure/templates/microsoft.insights/alertrules).
-

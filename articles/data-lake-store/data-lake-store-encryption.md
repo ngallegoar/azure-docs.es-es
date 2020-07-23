@@ -8,12 +8,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: a009f212bd8baaa353d602dc6090aeeccddd4936
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a187b31657ec2a67c306d817a75150d19a5cf9b6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60878449"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497189"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Cifrado de datos en Azure Data Lake Storage Gen1
 
@@ -52,8 +52,8 @@ En ambos modos, la clave de cifrado maestra está protegida al estar almacenada 
 
 Esta es una breve comparación de las funcionalidades que proporcionan ambos modos de administración de las MEK.
 
-|  | Claves administradas por el servicio | Claves administradas por el cliente |
-| --- | --- | --- |
+| Pregunta | Claves administradas por el servicio | Claves administradas por el cliente |
+| -------- | -------------------- | --------------------- |
 |¿Cómo se almacenan los datos?|Siempre se cifran antes de almacenarse.|Siempre se cifran antes de almacenarse.|
 |¿Dónde se almacena la clave de cifrado maestra?|Key Vault|Key Vault|
 |¿Hay claves de cifrado almacenadas sin cifrar fuera de Key Vault? |No|No|
@@ -107,7 +107,7 @@ En el siguiente diagrama, se ilustra este concepto:
 
 Cuando se usan claves administradas por el cliente, puede rotar la clave MEK. Para aprender a configurar una cuenta de Data Lake Storage Gen1 con claves administradas por el cliente, consulte [Introducción](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Requisitos previos
 
 Cuando configuró la cuenta de Data Lake Storage Gen1, eligió usar sus propias claves. Esta opción no se puede cambiar una vez creada la cuenta. En los siguientes pasos se supone que usa claves administradas por el cliente (es decir, ha elegido sus propias claves de Key Vault).
 

@@ -3,18 +3,18 @@ title: Creación de alertas de Azure Advisor para nuevas recomendaciones mediant
 description: Creación de alertas de Azure Advisor para nuevas recomendaciones
 ms.topic: article
 ms.date: 09/09/2019
-ms.openlocfilehash: 351d1faf0cb049babe1091aaac465ff975ab47cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b3984b82cd5265f4940cd88597ccb29d51e1118
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85568029"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507223"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations-using-the-azure-portal"></a>Creación de alertas de Azure Advisor para nuevas recomendaciones mediante Azure Portal 
 
 En este artículo se muestra cómo configurar una alerta para nuevas recomendaciones desde Azure Advisor mediante Azure Portal. 
 
-Cada vez que Azure Advisor detecta una nueva recomendación para uno de los recursos, se almacena un evento en el [registro de actividad de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview). Puede configurar alertas para estos eventos desde Azure Advisor creando alertas específicas para la recomendación. Puede seleccionar una suscripción y, si lo desea, un grupo de recursos para especificar los recursos sobre los que desea recibir alertas. 
+Cada vez que Azure Advisor detecta una nueva recomendación para uno de los recursos, se almacena un evento en el [registro de actividad de Azure](../azure-monitor/platform/platform-logs-overview.md). Puede configurar alertas para estos eventos desde Azure Advisor creando alertas específicas para la recomendación. Puede seleccionar una suscripción y, si lo desea, un grupo de recursos para especificar los recursos sobre los que desea recibir alertas. 
 
 También puede determinar los tipos de recomendaciones mediante el uso de estas propiedades:
 
@@ -57,7 +57,7 @@ Para más información sobre los grupos de acciones, consulte [Creación y admin
 
     ![Grupo de acciones de alerta de Advisor](./media/advisor-alerts/create6.png)
 
-7. En la sección **grupos de acciones**, seleccione **Agregar existente** para usar un grupo de acciones que ya haya creado o seleccione **Crear nuevo** para configurar un nuevo [grupo de acciones](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups). 
+7. En la sección **grupos de acciones**, seleccione **Agregar existente** para usar un grupo de acciones que ya haya creado o seleccione **Crear nuevo** para configurar un nuevo [grupo de acciones](../azure-monitor/platform/action-groups.md). 
 
     ![Agregar alerta existente de Advisor](./media/advisor-alerts/create7.png)
 

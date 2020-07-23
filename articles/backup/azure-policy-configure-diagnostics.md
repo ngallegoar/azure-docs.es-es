@@ -3,20 +3,20 @@ title: Configuración de los valores de diagnóstico del almacén a gran escala
 description: Configuración de diagnóstico de Log Analytics de diagnóstico para todos los almacenes de un ámbito determinado mediante Azure Policy
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: e6ba8eb98ca1d6af9fc745d9baf3840ccd1ac224
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2400be15dcd46084e9a605076c00cf5c5ac92463
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82195713"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498056"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configuración de los valores de diagnóstico del almacén a gran escala
 
-La solución de informes proporcionada por Azure Backup utiliza Log Analytics (LA). En el caso de los datos de un almacén determinado que se va a enviar a LA, se debe crear una [configuración de diagnóstico](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events) para ese almacén.
+La solución de informes proporcionada por Azure Backup utiliza Log Analytics (LA). En el caso de los datos de un almacén determinado que se va a enviar a LA, se debe crear una [configuración de diagnóstico](./backup-azure-diagnostic-events.md) para ese almacén.
 
 A menudo, agregar manualmente una configuración de diagnóstico por almacén puede ser una tarea complicada. Además, cualquier nuevo almacén creado también debe tener habilitada la configuración de diagnóstico para poder ver los informes que contiene.
 
-Para simplificar la creación de la configuración de diagnóstico a gran escala (con LA como destino), Azure Backup tiene una instancia de [Azure Policy](https://docs.microsoft.com/azure/governance/policy/) integrada. Esta directiva agrega una configuración de diagnóstico de LA a todos los almacenes de una suscripción o un grupo de recursos determinado. En las secciones siguientes se proporcionan instrucciones para usar esta directiva.
+Para simplificar la creación de la configuración de diagnóstico a gran escala (con LA como destino), Azure Backup tiene una instancia de [Azure Policy](../governance/policy/index.yml) integrada. Esta directiva agrega una configuración de diagnóstico de LA a todos los almacenes de una suscripción o un grupo de recursos determinado. En las secciones siguientes se proporcionan instrucciones para usar esta directiva.
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
@@ -70,7 +70,7 @@ La tarea de corrección se aplica a los almacenes que no son compatibles según 
 * No hay ninguna configuración de diagnóstico para el almacén.
 * La configuración de diagnóstico está presente para el almacén, pero ninguna de las opciones tiene **todos** los eventos específicos del recurso habilitados con LA como destino y **Específico del recurso** seleccionado en el botón de alternancia.
 
-Por tanto, aunque un usuario tenga un almacén con el evento AzureBackupReport habilitado en el modo AzureDiagnostics (que es compatible con Informes de copia de seguridad), la tarea de corrección se seguirá aplicando a este almacén, ya que el modo Específico del recurso es la manera recomendada de crear la configuración de diagnóstico [en adelante](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event).
+Por tanto, aunque un usuario tenga un almacén con el evento AzureBackupReport habilitado en el modo AzureDiagnostics (que es compatible con Informes de copia de seguridad), la tarea de corrección se seguirá aplicando a este almacén, ya que el modo Específico del recurso es la manera recomendada de crear la configuración de diagnóstico [en adelante](./backup-azure-diagnostic-events.md#legacy-event).
 
 Además, si un usuario tiene un almacén con solo un subconjunto de los seis eventos específicos del recurso habilitados, la tarea de corrección se aplicará a este almacén, ya que Informes de copia de seguridad funcionará según lo previsto solo si los seis eventos específicos del recurso están habilitados.
 
@@ -84,6 +84,6 @@ Además, si un usuario tiene un almacén con solo un subconjunto de los seis eve
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Información sobre el uso de Informes de copia de seguridad](https://docs.microsoft.com/azure/backup/configure-reports)
-* [Más información acerca de Azure Policy](https://docs.microsoft.com/azure/governance/policy/)
-* [Uso de Azure Policy para habilitar automáticamente la copia de seguridad de todas las VM de un ámbito determinado](https://docs.microsoft.com/azure/backup/backup-azure-auto-enable-backup)
+* [Información sobre el uso de Informes de copia de seguridad](./configure-reports.md)
+* [Más información acerca de Azure Policy](../governance/policy/index.yml)
+* [Uso de Azure Policy para habilitar automáticamente la copia de seguridad de todas las VM de un ámbito determinado](./backup-azure-auto-enable-backup.md)

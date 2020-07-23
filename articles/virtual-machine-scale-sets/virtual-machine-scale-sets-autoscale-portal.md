@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: ea9d243e46aace9030c25222217ac3ad09a31c38
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: cfbd5af7063a4764820b5ce892a9a2b8a305b1b7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124948"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494945"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Creación de reglas de escalado automático de conjuntos de escalado de máquinas virtuales en Azure Portal
 Al crear un conjunto de escalado, puede definir el número de instancias de máquina virtual que quiere ejecutar. A medida que cambia la demanda de las aplicaciones, puede aumentar o reducir automáticamente el número de estas instancias. La posibilidad de realizar el escalado automático le permite satisfacer la demanda del cliente o responder a los cambios de rendimiento de la aplicación a lo largo del ciclo de vida de esta.
@@ -123,6 +123,6 @@ Para ver cómo se aplican las reglas de escalado automático, seleccione **Histo
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido a utilizar reglas de escalado automático para escalar horizontalmente y aumentar o reducir el *número* de instancias de máquina virtual del conjunto de escalado. También puede escalar verticalmente para aumentar o reducir el *tamaño* de la instancia de máquina virtual. Para más información, consulte [Escalado automático vertical con conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
-Para más información acerca de cómo administrar las instancias de máquina virtual, consulte [Manage virtual machine scale sets with Azure PowerShell](virtual-machine-scale-sets-windows-manage.md) (Administración de conjuntos de escalado de máquinas virtuales con Azure PowerShell).
+Para más información acerca de cómo administrar las instancias de máquina virtual, consulte [Manage virtual machine scale sets with Azure PowerShell](./virtual-machine-scale-sets-manage-powershell.md) (Administración de conjuntos de escalado de máquinas virtuales con Azure PowerShell).
 
-Para más información acerca de cómo generar alertas cuando la regla de escalado automático se desencadena, consulte [Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Monitor](../azure-monitor/platform/autoscale-webhook-email.md). También puede consultar [Llamada a un webhook cuando se activan alertas del registro de actividades de Azure](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).
+Para más información acerca de cómo generar alertas cuando la regla de escalado automático se desencadena, consulte [Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Monitor](../azure-monitor/platform/autoscale-webhook-email.md). También puede consultar [Llamada a un webhook cuando se activan alertas del registro de actividades de Azure](../azure-monitor/platform/alerts-log-webhook.md).
