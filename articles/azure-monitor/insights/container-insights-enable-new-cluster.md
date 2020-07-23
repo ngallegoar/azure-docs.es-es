@@ -3,16 +3,17 @@ title: Supervisión de un nuevo clúster de Azure Kubernetes Service (AKS) | Mic
 description: Obtenga información sobre cómo habilitar la supervisión de un nuevo clúster de Azure Kubernetes Service (AKS) con la suscripción de Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: c731826f2780c45358730f9ce20d6a6151f6f259
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-terraform
+ms.openlocfilehash: 86ace49ea60bf1bd11633b5a883401f678ecaf8d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847219"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516641"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Habilitar la supervisión de un nuevo clúster de Azure Kubernetes Service (AKS)
 
-En este artículo se describe cómo configurar Azure Monitor para contenedores para supervisar el clúster de Kubernetes administrado, hospedado en [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/), que está preparando para implementar en la suscripción.
+En este artículo se describe cómo configurar Azure Monitor para contenedores para supervisar el clúster de Kubernetes administrado, hospedado en [Azure Kubernetes Service](../../aks/index.yml), que está preparando para implementar en la suscripción.
 
 Puede habilitar la supervisión de un clúster de AKS mediante uno de los métodos admitidos:
 
@@ -24,7 +25,7 @@ Puede habilitar la supervisión de un clúster de AKS mediante uno de los métod
 Para habilitar la supervisión de un nuevo clúster de AKS creado con la CLI de Azure, siga el paso correspondiente del artículo de la guía de inicio rápido, en la sección [Creación de un clúster de AKS](../../aks/kubernetes-walkthrough.md#create-aks-cluster).  
 
 >[!NOTE]
->Si decide usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe ejecutar la versión 2.0.74 de la CLI de Azure, o cualquier versión posterior. Para identificar la versión, ejecute `az --version`. Si necesita instalar o actualizar la CLI de Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Si ha instalado la versión de extensión de la CLI de AKS en versión preliminar 0.4.12 o posterior, quite los cambios que haya realizado para habilitar una extensión de la versión preliminar, ya que puede invalidar el comportamiento predeterminado de la CLI de Azure porque las características de la versión preliminar de AKS no están disponibles en la nube de Azure US Government.
+>Si decide usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe ejecutar la versión 2.0.74 de la CLI de Azure, o cualquier versión posterior. Para identificar la versión, ejecute `az --version`. Si necesita instalar o actualizar la CLI de Azure, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Si ha instalado la versión de extensión de la CLI de AKS en versión preliminar 0.4.12 o posterior, quite los cambios que haya realizado para habilitar una extensión de la versión preliminar, ya que puede invalidar el comportamiento predeterminado de la CLI de Azure porque las características de la versión preliminar de AKS no están disponibles en la nube de Azure US Government.
 
 ## <a name="enable-using-terraform"></a>Habilitación con Terraform
 

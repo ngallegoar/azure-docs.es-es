@@ -4,12 +4,12 @@ description: Obtenga información acerca del esquema del archivo JSON que se pub
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: c076b8dcea350f9ddd66977e89ce99b81f377b17
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1db12f352ec79a3112eada68d82279c9e0343a04
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77669053"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516165"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks para alertas del registro de actividad de Azure
 Como parte de la definición de un grupo de acciones, se pueden configurar puntos de conexión de webhook para recibir notificaciones de alertas del registro de actividad. Los webhooks permiten enrutar estas notificaciones a otros sistemas para su procesamiento posterior o acciones personalizadas. Este artículo muestra el aspecto de la carga útil para HTTP POST a un webhook.
@@ -214,7 +214,7 @@ La carga útil JSON incluida en la operación POST difiere según el campo data.
 }
 ```
 
-Para obtener detalles del esquema específico sobre alertas del registro de actividad de notificaciones de mantenimiento del servicio, consulte [Notificaciones de mantenimiento del servicio](../../azure-monitor/platform/service-notifications.md). Además, puede obtener información acerca de cómo [configurar notificaciones webhook del estado del servicio con las soluciones de administración de problemas existentes](../../service-health/service-health-alert-webhook-guide.md).
+Para obtener detalles del esquema específico sobre alertas del registro de actividad de notificaciones de mantenimiento del servicio, consulte [Notificaciones de mantenimiento del servicio](../../service-health/service-notifications.md). Además, puede obtener información acerca de cómo [configurar notificaciones webhook del estado del servicio con las soluciones de administración de problemas existentes](../../service-health/service-health-alert-webhook-guide.md).
 
 ### <a name="resourcehealth"></a>ResourceHealth
 
@@ -292,4 +292,3 @@ Para obtener información del esquema específico en todas las otras alertas del
 * [Uso de una aplicación lógica para enviar un SMS a través de Twilio desde una alerta de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Este ejemplo es para alertas de métrica, pero podría modificarse para funcionar con una alerta del registro de actividad.
 * [Uso de una aplicación lógica para enviar un mensaje de Slack desde una alerta de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Este ejemplo es para alertas de métrica, pero podría modificarse para funcionar con una alerta del registro de actividad.
 * [Uso de una aplicación lógica para enviar un mensaje a una cola de Azure desde una alerta de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Este ejemplo es para alertas de métrica, pero podría modificarse para funcionar con una alerta del registro de actividad.
-

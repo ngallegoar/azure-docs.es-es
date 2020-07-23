@@ -5,12 +5,12 @@ author: sumukhs
 ms.topic: conceptual
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: 8765e86ffeae86b9f4e2b693c0dbf92478632dbf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 640ee925a0a91c4f8424546e7ae734dfbeaed21d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86253174"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518969"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configurar Reliable Services con estado
 Hay dos conjuntos de valores de configuración para los servicios de confianza. Un conjunto es global para todos los servicios de confianza del clúster, mientras que el otro conjunto es específico para un servicio de confianza determinado.
@@ -29,13 +29,15 @@ La configuración global de los servicios de confianza se especifica en el manif
 
 En una plantilla de JSON o Azure ARM local, en el ejemplo siguiente se muestra cómo cambiar el registro de transacciones compartido que se crea para realizar copias de cualquier colección confiable de servicios con estado.
 
-    "fabricSettings": [{
-        "name": "KtlLogger",
-        "parameters": [{
-            "name": "SharedLogSizeInMB",
-            "value": "4096"
-        }]
+```json
+"fabricSettings": [{
+    "name": "KtlLogger",
+    "parameters": [{
+        "name": "SharedLogSizeInMB",
+        "value": "4096"
     }]
+}]
+```
 
 ### <a name="sample-local-developer-cluster-manifest-section"></a>Sección de manifiesto de clúster del desarrollador local de ejemplo
 Si desea cambiar este valor en su entorno de desarrollo local, debe editar el archivo clustermanifest.xml local.

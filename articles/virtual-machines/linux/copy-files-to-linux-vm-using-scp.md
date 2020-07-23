@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/12/2017
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 531edf5bb857b570e595fc1a179a887013e094f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f56118750fc980c249c88b796728f4ecb2641a88
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659772"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510963"
 ---
 # <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>Traslado de archivos a una máquina virtual Linux o desde ella mediante SCP
 
@@ -69,4 +69,4 @@ La marca `-r` indica a SCP que copie de forma recursiva los archivos y directori
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Administración de usuarios, SSH y comprobar o reparar discos en máquinas virtuales de Linux de Azure con la extensión VMAccess](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Administración de usuarios, SSH y comprobar o reparar discos en máquinas virtuales de Linux de Azure con la extensión VMAccess](../extensions/vmaccess.md?toc=/azure/virtual-machines/linux/toc.json)

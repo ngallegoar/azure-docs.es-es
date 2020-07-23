@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 568f4189c55b49aa6f3e2d4e86582165a4a89cdd
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: eef0304248c7cc9a1bf63e06247f86d607afce46
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201111"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510113"
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Tamaños de las máquinas virtuales Linux en Azure
 
@@ -31,16 +31,16 @@ En este artículo se describen los tamaños y las opciones disponibles para las 
 
 - Para obtener información sobre los precios de los diferentes tamaños, consulte [Precios de máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux). 
 - Para ver la disponibilidad de los tamaños de máquina virtual en las regiones de Azure, consulte [Productos disponibles por región](https://azure.microsoft.com/regions/services/).
-- Para ver los límites generales de las máquinas virtuales de Azure, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../../azure-subscription-service-limits.md).
+- Para ver los límites generales de las máquinas virtuales de Azure, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Obtenga más información sobre cómo las [unidades de proceso de Azure (ACU)](../acu.md) pueden ayudarlo a comparar el rendimiento en los distintos SKU de Azure.
 
 ## <a name="rest-api"></a>API DE REST
 
 Para obtener información sobre el uso de la API de REST para consultar los tamaños de máquina virtual, consulte lo siguiente:
 
-- [Lista de tamaños de máquina virtual disponibles para cambio de tamaño](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)
-- [Lista de tamaños de máquina virtual disponibles para una suscripción](https://docs.microsoft.com/rest/api/compute/resourceskus/list)
-- [Lista de tamaños de máquina virtual disponibles en un conjunto de disponibilidad](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes)
+- [Lista de tamaños de máquina virtual disponibles para cambio de tamaño](/rest/api/compute/virtualmachines/listavailablesizes)
+- [Lista de tamaños de máquina virtual disponibles para una suscripción](/rest/api/compute/resourceskus/list)
+- [Lista de tamaños de máquina virtual disponibles en un conjunto de disponibilidad](/rest/api/compute/availabilitysets/listavailablesizes)
 
 ## <a name="acu"></a>ACU
 

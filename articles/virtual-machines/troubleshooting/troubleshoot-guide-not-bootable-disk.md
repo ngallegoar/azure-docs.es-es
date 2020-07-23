@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 9f0c6350b89dcfecefcadcc166f7af35abc4b128
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 16f6919577955bda5b04db26deb9fe78a467e364
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80299192"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509042"
 ---
 # <a name="boot-error--this-is-not-a-bootable-disk"></a>Error de arranque: This is not a bootable disk (Este disco no es de arranque)
 
@@ -27,7 +27,7 @@ En este artículo se proporcionan los pasos para resolver problemas en que el di
 
 ## <a name="symptoms"></a>Síntomas
 
-Cuando use los [diagnósticos de arranque](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para ver la captura de pantalla de la VM, verá que esta captura de pantalla muestra un mensaje que indica que el disco no es de arranque y le solicita que inserte un disco y presione cualquier tecla para volverlo a intentar....
+Cuando use los [diagnósticos de arranque](./boot-diagnostics.md) para ver la captura de pantalla de la VM, verá que esta captura de pantalla muestra un mensaje que indica que el disco no es de arranque y le solicita que inserte un disco y presione cualquier tecla para volverlo a intentar....
 
    En la Ilustración 1
 
@@ -52,7 +52,7 @@ Este mensaje de error significa que el proceso de arranque del sistema operativo
 
 ### <a name="create-and-access-a-repair-vm"></a>Creación de una VM de reparación y acceso a ella
 
-1. Siga los pasos 1 a 3 de los [comandos de reparación de VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar una VM de reparación.
+1. Siga los pasos 1 a 3 de los [comandos de reparación de VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar una VM de reparación.
 2. Use Conexión a Escritorio remoto para conectarse a la VM de reparación.
 
 ### <a name="set-partition-status-to-active"></a>Establecer el estado de la partición en Activo
@@ -148,4 +148,4 @@ Para habilitar la recopilación de volcado de memoria y Serial Console, ejecute 
 
 ### <a name="rebuild-the-original-vm"></a>Recompilación de la VM original
 
-Siga el [paso 5 de los comandos de reparación de la VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para volver a ensamblar la VM.
+Siga el [paso 5 de los comandos de reparación de la VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para volver a ensamblar la VM.

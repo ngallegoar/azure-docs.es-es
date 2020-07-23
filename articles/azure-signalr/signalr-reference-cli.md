@@ -6,18 +6,18 @@ ms.service: signalr
 ms.topic: reference
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 3c28781362e60d22b0d9a4e3754daaa24e5b61ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 99ebe9c078ef4775e8f0df0545fb0af4b3d1057b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74158130"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515247"
 ---
 # <a name="azure-cli-reference"></a>Referencia de la CLI de Azure
 
 En la tabla siguiente se incluyen vínculos a scripts de Bash para Azure SignalR Service creados con la CLI de Azure.
 
-| | |
+| Script | Descripciones |
 |-|-|
 |**Creación**||
 | [Creación de una instancia nueva de SignalR Service y un nuevo grupo de recursos](scripts/signalr-cli-create-service.md) | Crea un nuevo recurso de Azure SignalR Service en un nuevo grupo de recursos con un nombre aleatorio.  |

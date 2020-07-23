@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cea89087742f1987f693b8bfb627bd71038a0c14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 98ecb9ab208b6ead3944455b95f7fe6baa044d35
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77616918"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525116"
 ---
 # <a name="sap-hana-large-instances-deployment"></a>Implementación de SAP HANA (instancias grandes) 
 
@@ -36,7 +36,7 @@ Microsoft requiere la siguiente información para implementar unidades de instan
 - Para cada región de implementación de Azure:
     - Un intervalo de direcciones IP /29 para conexiones ER-P2P para conectar redes virtuales de Azure con HANA (instancias grandes).
     - Un bloque CIDR /24 usado para el grupo de direcciones IP de servidor de HANA (instancias grandes).
-    - Opcionalmente, cuando se usa [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) para habilitar el enrutamiento directo desde un entorno local a las unidades de HANA (instancias grandes), o bien el enrutamiento entre unidades de HANA (instancias grandes) en diferentes regiones de Azure, es preciso reservar otro intervalo de direcciones IP /29. Este intervalo concreto no se puede superponer con ninguno de los otros intervalos de direcciones IP definidos antes.
+    - Opcionalmente, cuando se usa [ExpressRoute Global Reach](../../../expressroute/expressroute-global-reach.md) para habilitar el enrutamiento directo desde un entorno local a las unidades de HANA (instancias grandes), o bien el enrutamiento entre unidades de HANA (instancias grandes) en diferentes regiones de Azure, es preciso reservar otro intervalo de direcciones IP /29. Este intervalo concreto no se puede superponer con ninguno de los otros intervalos de direcciones IP definidos antes.
 - Los valores del intervalo de direcciones IP usados en el atributo de espacio de direcciones de red virtual de cada red virtual de Azure que se conecta a HANA (instancias grandes).
 - Datos para cada sistema de HANA (instancias grandes):
   - Nombre de host deseado, preferiblemente el nombre de dominio completo.
@@ -53,4 +53,3 @@ Use la secuencia siguiente para conectarse a HANA (instancias grandes) una vez q
 1. [Conexión de las máquinas virtuales de Azure a HANA (instancias grandes)](hana-connect-azure-vm-large-instances.md)
 2. [Conexión de una red virtual a ExpressRoute de HANA (instancias grandes)](hana-connect-vnet-express-route.md)
 3. [Requisitos de red adicionales (opcional)](hana-additional-network-requirements.md)
-

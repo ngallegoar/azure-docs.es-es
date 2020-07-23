@@ -3,12 +3,12 @@ title: Seguridad de red para Azure Event Hubs
 description: En este artículo se describe cómo configurar el acceso desde puntos de conexión privados
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: de4c5c6ddc658aab549ccf6960edbca3285e338d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddb816e872625da06e370a7e130b4dd444de8de7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85312836"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521860"
 ---
 # <a name="network-security-for-azure-event-hubs"></a>Seguridad de red para Azure Event Hubs 
 En este artículo se describe cómo usar las siguientes características de seguridad con Azure Event Hubs: 
@@ -20,7 +20,7 @@ En este artículo se describe cómo usar las siguientes características de segu
 
 
 ## <a name="service-tags"></a>Etiquetas de servicio
-Una etiqueta de servicio representa un grupo de prefijos de direcciones IP de un servicio de Azure determinado. Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian, lo que minimiza la complejidad de las actualizaciones frecuentes en las reglas de seguridad de red. Para obtener más información sobre las etiquetas de servicio, consulte [Introducción a las etiquetas de servicio](../virtual-network/service-tags-overview.md).
+Una etiqueta de servicio representa un grupo de prefijos de direcciones IP de un servicio de Azure determinado. Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian, lo que minimiza la complejidad de las actualizaciones frecuentes en las reglas de seguridad de red. Para más información sobre las etiquetas de servicio, consulte [Introducción a las etiquetas de servicio](../virtual-network/service-tags-overview.md).
 
 Puede usar etiquetas de servicio para definir controles de acceso a la red en [grupos de seguridad de red](../virtual-network/security-overview.md#security-rules)  o  [Azure Firewall](../firewall/service-tags.md). Utilice etiquetas de servicio en lugar de direcciones IP específicas al crear reglas de seguridad. Al especificar el nombre de la etiqueta de servicio (por ejemplo, **EventHub**) en el campo de *origen* o *destino*  apropiado de una regla, puede permitir o denegar el tráfico para el servicio correspondiente.
 
@@ -32,7 +32,7 @@ Puede usar etiquetas de servicio para definir controles de acceso a la red en [g
 ## <a name="ip-firewall"></a>Firewall de dirección IP 
 De forma predeterminada, los espacios de nombres de Azure Event Hubs son accesibles desde Internet, siempre que la solicitud venga con una autenticación y una autorización válidas. Con el firewall de IP, puede restringirlo aún más a solo un conjunto de direcciones o intervalos de direcciones IPv4 en notación [CIDR (Enrutamiento de interdominios sin clases)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
-Esta característica es útil en escenarios en los que Azure Event Hubs debe ser accesible únicamente desde ciertos sitios conocidos. Las reglas de firewall permiten configurar reglas para aceptar el tráfico procedente de direcciones IPv4 concretas. Por ejemplo, si usa Event Hubs con [Azure ExpressRoute](/azure/expressroute/expressroute-faqs#supported-services), puede crear una **regla de firewall** para permitir el tráfico procedente única y exclusivamente de las direcciones IP de la infraestructura local. 
+Esta característica es útil en escenarios en los que Azure Event Hubs debe ser accesible únicamente desde ciertos sitios conocidos. Las reglas de firewall permiten configurar reglas para aceptar el tráfico procedente de direcciones IPv4 concretas. Por ejemplo, si usa Event Hubs con [Azure ExpressRoute](../expressroute/expressroute-faqs.md#supported-services), puede crear una **regla de firewall** para permitir el tráfico procedente única y exclusivamente de las direcciones IP de la infraestructura local. 
 
 Las reglas de firewall de IP se aplican en el nivel del espacio de nombres de Event Hubs. Por lo tanto, las reglas se aplican a todas las conexiones de clientes que usan cualquier protocolo admitido. Cualquier intento de conexión desde una dirección IP que no coincida con una regla IP admitida en el espacio de nombres de Event Hubs se rechaza como no autorizado. La respuesta no menciona la regla IP. Las reglas de filtro IP se aplican en orden y la primera regla que coincida con la dirección IP determina la acción de aceptar o rechazar.
 

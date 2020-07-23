@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 11fb2b7785540f24b0a8318428da01a4edd5cb5b
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: d7c3613a0ddce217e9d07c3fc2eba55b78c53a1b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860654"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516570"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Creación de un área de trabajo de Log Analytics con la CLI de Azure 2.0
 
@@ -32,10 +32,10 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI en un entorno local, en esta guía de inicio rápido es preciso que ejecute la versión 2.0.30 de la CLI de Azure o una posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Si decide instalar y usar la CLI en un entorno local, en esta guía de inicio rápido es preciso que ejecute la versión 2.0.30 de la CLI de Azure o una posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="create-a-workspace"></a>Crear un área de trabajo
-Cree un área de trabajo con [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). En el ejemplo siguiente se creará un área de trabajo en la ubicación *Este de EE. UU.* mediante una plantilla de Resource Manager desde la máquina local. La plantilla JSON está configurada para solicitar solo el nombre del área de trabajo y especifica un valor predeterminado para los restantes parámetros que es probable que se utilice como configuración estándar en su entorno. O bien, puede almacenar la plantilla en una cuenta de Azure Storage para el acceso compartido en su organización. Para más información sobre cómo trabajar con plantillas, consulte [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../../azure-resource-manager/templates/deploy-cli.md).
+Cree un área de trabajo con [az group deployment create](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). En el ejemplo siguiente se creará un área de trabajo en la ubicación *Este de EE. UU.* mediante una plantilla de Resource Manager desde la máquina local. La plantilla JSON está configurada para solicitar solo el nombre del área de trabajo y especifica un valor predeterminado para los restantes parámetros que es probable que se utilice como configuración estándar en su entorno. O bien, puede almacenar la plantilla en una cuenta de Azure Storage para el acceso compartido en su organización. Para más información sobre cómo trabajar con plantillas, consulte [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../../azure-resource-manager/templates/deploy-cli.md).
 
 Para obtener información sobre las regiones compatibles, consulte [las regiones en las que Log Analytics está disponible](https://azure.microsoft.com/regions/services/) y busque Azure Monitor desde el campo **Buscar un producto**.
 
@@ -106,7 +106,7 @@ Los siguientes parámetros establecen un valor predeterminado:
     }
     ```
 
-2. Edite la plantilla para adecuarla a sus requisitos. Consulte la referencia [Plantilla Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) para saber qué propiedades y valores son compatibles.
+2. Edite la plantilla para adecuarla a sus requisitos. Consulte la referencia [Plantilla Microsoft.OperationalInsights/workspaces](/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) para saber qué propiedades y valores son compatibles.
 3. Guarde este archivo como **deploylaworkspacetemplate.json** en una carpeta local.   
 4. Está listo para implementar esta plantilla. Use los siguientes comandos desde la carpeta que contiene la plantilla. Cuando se le pida un nombre de área de trabajo, proporcione un nombre que sea globalmente único en todas las suscripciones de Azure.
 
@@ -119,17 +119,17 @@ La implementación puede demorar unos minutos en completarse. Cuando termine, ve
 ![Resultado de ejemplo cuando se completa la implementación](media/quick-create-workspace-cli/template-output-01.png)
 
 ## <a name="troubleshooting"></a>Solución de problemas
-Al crear un área de trabajo que se eliminó en los últimos 14 días y en [estado de eliminación temporal](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#soft-delete-behavior), la operación podría tener un resultado diferente en función de la configuración del área de trabajo:
+Al crear un área de trabajo que se eliminó en los últimos 14 días y en [estado de eliminación temporal](../platform/delete-workspace.md#soft-delete-behavior), la operación podría tener un resultado diferente en función de la configuración del área de trabajo:
 1. Si proporciona el mismo nombre de área de trabajo, grupo de recursos, suscripción y región que en el área de trabajo eliminado, se recuperará el área de trabajo, incluidos los datos, la configuración y los agentes conectados.
 2. Si usa el mismo nombre de área de trabajo, pero un grupo de recursos, una suscripción o una región diferentes, obtendrá un error *El nombre del área de trabajo "nombre del área de trabajo" no es único* o causa *conflicto*. Para invalidar la eliminación temporal y eliminar inmediatamente el área de trabajo y crear una con el mismo nombre, siga estos pasos para recuperar el área de trabajo primero y realizar una eliminación permanente:
-   * [Recuperar](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) el área de trabajo
-   * [Eliminación permanente del área de trabajo](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete)
+   * [Recuperar](../platform/delete-workspace.md#recover-workspace) el área de trabajo
+   * [Eliminación permanente del área de trabajo](../platform/delete-workspace.md#permanent-workspace-delete)
    * Crear una nueva área de trabajo con el mismo nombre
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que tiene un área de trabajo disponible, puede configurar la recopilación de datos de telemetría de supervisión, realizar búsquedas en el registro para analizar dichos datos y agregar una solución de administración que proporcione datos adicionales e información de los análisis.  
 
-* Para habilitar la recopilación de datos de recursos de Azure con Azure Diagnostics o Azure Storage, consulte [Recopilación de registros y métricas de Azure para servicios de Log Analytics](../platform/collect-azure-metrics-logs.md).  
+* Para habilitar la recopilación de datos de recursos de Azure con Azure Diagnostics o Azure Storage, consulte [Recopilación de registros y métricas de Azure para servicios de Log Analytics](../platform/resource-logs.md#send-to-log-analytics-workspace).  
 * [Agregue System Center Operations Manager como origen de datos](../platform/om-agents.md) para recopilar datos de agentes que informan a su grupo de administración de Operations Manager y almacenarlos en el repositorio del área de trabajo de Log Analytics.  
 * Conecte [Configuration Manager](../platform/collect-sccm.md) para importar equipos que son miembros de colecciones en la jerarquía.  
 * Revise las [soluciones de supervisión](../insights/solutions.md) disponibles y cómo agregar o quitar una solución del área de trabajo.

@@ -3,12 +3,12 @@ title: Solución de problemas de lentitud en la copia de seguridad de archivos y
 description: Le proporciona una guía para solucionar problemas que le ayudará a diagnosticar la causa de los problemas de rendimiento de Azure Backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 07f596f0900fbd92391a383678ade99df30592f1
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 7bdda02b837cc2312b997b23ba7b714ca7ebb41a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135051"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513849"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Solución de problemas de lentitud en la copia de seguridad de archivos y carpetas en Azure Backup
 
@@ -95,7 +95,7 @@ Los siguientes indicadores pueden ayudarle a entender el cuello de botella y tra
 * **La interfaz de usuario muestra el progreso de la transferencia de datos**. La transferencia de datos no ha finalizado. El ancho de banda de la red o el tamaño de datos pueden estar causando retrasos.
 * **La interfaz de usuario no muestra el progreso de la transferencia de datos**. Abra los registros ubicados en "C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Temp" y busque en ellos la entrada FileProvider::EndData. Esta entrada indica que la transferencia de datos ha finalizado y que se está realizando la operación de catálogo. No cancele los trabajos de copia de seguridad. Es preferible que espere hasta que finalice la operación de catálogo. Si el problema persiste, póngase en contacto con el [servicio de soporte técnico de Azure](https://portal.azure.com/#create/Microsoft.Support).
 
-Si está intentando realizar una copia de seguridad de discos de gran tamaño, se recomienda usar [Azure Data Box](https://docs.microsoft.com/azure/backup/offline-backup-azure-data-box) para la primera copia de seguridad (replicación inicial).  Si no puede usar Data Box, los problemas de red transitorios que se produzcan en el entorno durante las transferencias de datos largas a través de la red pueden provocar errores de copia de seguridad.  Para protegerse frente a estos errores, puede agregar algunas carpetas a la copia de seguridad inicial y seguir agregando más carpetas de manera incremental hasta que se haya realizado correctamente la copia de seguridad de todas las carpetas en Azure.  Las copias de seguridad incrementales posteriores serán relativamente más rápidas.
+Si está intentando realizar una copia de seguridad de discos de gran tamaño, se recomienda usar [Azure Data Box](./offline-backup-azure-data-box.md) para la primera copia de seguridad (replicación inicial).  Si no puede usar Data Box, los problemas de red transitorios que se produzcan en el entorno durante las transferencias de datos largas a través de la red pueden provocar errores de copia de seguridad.  Para protegerse frente a estos errores, puede agregar algunas carpetas a la copia de seguridad inicial y seguir agregando más carpetas de manera incremental hasta que se haya realizado correctamente la copia de seguridad de todas las carpetas en Azure.  Las copias de seguridad incrementales posteriores serán relativamente más rápidas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

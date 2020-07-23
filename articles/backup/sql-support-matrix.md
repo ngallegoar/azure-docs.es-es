@@ -3,12 +3,13 @@ title: Matriz de compatibilidad de Azure Backup para la copia de seguridad de SQ
 description: Proporciona un resumen de opciones de compatibilidad y limitaciones para realizar copias de seguridad de SQL Server en VM de Azure con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: f9594b9157f84a0536ffd4b62f792fd86fb1c243
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.custom: references_regions
+ms.openlocfilehash: 4d197f8b3c1ed74ef45c1f7942ead52ccef0c14a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234244"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513190"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matriz de compatibilidad para la copia de seguridad de SQL Server en VM de Azure
 
@@ -27,7 +28,7 @@ Puede usar Azure Backup para realizar copias de seguridad de bases de datos de S
 ## <a name="feature-consideration-and-limitations"></a>Consideraciones y limitaciones de las características
 
 * La copia de seguridad de SQL Server se puede configurar en Azure Portal o **PowerShell**. La CLI no se admite.
-* La solución es compatible con ambos tipos de [implementaciones](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model): las máquinas virtuales de Azure Resource Manager y las máquinas virtuales clásicas.
+* La solución es compatible con ambos tipos de [implementaciones](../azure-resource-manager/management/deployment-models.md): las máquinas virtuales de Azure Resource Manager y las máquinas virtuales clásicas.
 * La máquina virtual que ejecuta SQL Server requiere conectividad a Internet para acceder a las direcciones IP públicas de Azure.
 * La **instancia del clúster de conmutación por error (FCI)** de SQL Server no se admite.
 * No se admiten operaciones de copia de seguridad y restauración de bases de datos reflejadas ni de instantáneas de bases de datos.

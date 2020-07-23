@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/19/2019
-ms.openlocfilehash: d1c0652844556b545cf0617032d21b80dd67d198
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d469566d7ae5feda37944dda5a0702dca6fca19b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79479848"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515587"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Orígenes de datos de supervisión para Azure Monitor
 Azure Monitor se basa en una [plataforma de datos de supervisión común](data-platform.md) que incluye [registros](data-platform-logs.md) y [métricas](data-platform-metrics.md). La recopilación de datos en esta plataforma permite que los datos de múltiples recursos se analicen juntos mediante un conjunto común de herramientas en Azure Monitor. Los datos de supervisión también pueden enviarse a otras ubicaciones para admitir determinados escenarios, y algunos recursos pueden realizar operaciones de escritura en otras ubicaciones para poder recopilarse en registros o métricas.
@@ -70,17 +70,17 @@ El [registro de actividad de Azure](platform-logs-overview.md) incluye registros
 
 | Destination | Descripción | Referencia |
 |:---|:---|
-| Registro de actividades | El registro de actividad se recopila en su propio almacén de datos, que puede ver en el menú de Azure Monitor o utilizar para crear alertas de registro de actividad. | [Consulta del registro de actividad de Azure en Azure Portal](activity-log-view.md#azure-portal) |
-| Registros de Azure Monitor | Configure los registros de Azure Monitor para que recopilen el registro de actividad para analizarlo con otros datos de supervisión. | [Recopilación y análisis de los registros de actividad de Azure en un área de trabajo de Log Analytics en Azure Monitor](activity-log-collect.md) |
-| Azure Storage | Exporte el registro de actividad en Azure Storage para realizar el procedimiento de archivado. | [Archivo del registro de actividad](resource-logs-collect-storage.md)  |
-| Event Hubs | Transmita el registros de actividad a otras ubicaciones mediante Event Hubs. | [Transmisión del registro de actividad al centro de eventos](resource-logs-stream-event-hubs.md). |
+| Registro de actividades | El registro de actividad se recopila en su propio almacén de datos, que puede ver en el menú de Azure Monitor o utilizar para crear alertas de registro de actividad. | [Consulta del registro de actividad de Azure en Azure Portal](./activity-log.md#view-the-activity-log) |
+| Registros de Azure Monitor | Configure los registros de Azure Monitor para que recopilen el registro de actividad para analizarlo con otros datos de supervisión. | [Recopilación y análisis de los registros de actividad de Azure en un área de trabajo de Log Analytics en Azure Monitor](./activity-log.md) |
+| Azure Storage | Exporte el registro de actividad en Azure Storage para realizar el procedimiento de archivado. | [Archivo del registro de actividad](./resource-logs.md#send-to-azure-storage)  |
+| Event Hubs | Transmita el registros de actividad a otras ubicaciones mediante Event Hubs. | [Transmisión del registro de actividad al centro de eventos](./resource-logs.md#send-to-azure-event-hubs). |
 
 ### <a name="azure-service-health"></a>Azure Service Health
 [Azure Service Health](../../service-health/service-health-overview.md) proporciona información sobre el estado de los servicios de Azure de la suscripción de los que dependen la aplicación y los recursos.
 
 | Destination | Descripción | Referencia |
 |:---|:---|:---|
-| Registro de actividades<br>Registros de Azure Monitor | Los registros de Service Health se almacenan en el registro de actividad de Azure, por lo que puede verlos en Azure Portal o realizar otras actividades que permita el registro de actividad. | [Visualización de notificaciones de mantenimiento del servicio mediante Azure Portal](service-notifications.md) |
+| Registro de actividades<br>Registros de Azure Monitor | Los registros de Service Health se almacenan en el registro de actividad de Azure, por lo que puede verlos en Azure Portal o realizar otras actividades que permita el registro de actividad. | [Visualización de notificaciones de mantenimiento del servicio mediante Azure Portal](../../service-health/service-notifications.md) |
 
 
 ## <a name="azure-resources"></a>Recursos de Azure
@@ -95,19 +95,19 @@ La mayoría de los servicios de Azure generarán [métricas de plataforma](data-
 | Destination | Descripción | Referencia |
 |:---|:---|:---|
 | Métricas de Azure Monitor | Las métricas de la plataforma se escribirán en la base de datos de métricas de Azure Monitor sin ninguna configuración. Acceda a las métricas de la plataforma del Explorador de métricas.  | [Introducción al Explorador de métricas de Azure](metrics-getting-started.md)<br>[Métricas compatibles con Azure Monitor](metrics-supported.md) |
-| Registros de Azure Monitor | Copie las métricas de la plataforma en los registros para las tendencias y otros análisis con Log Analytics. | [Diagnósticos de Azure Diagnostics directos a Log Analytics](resource-logs-collect-workspace.md) |
+| Registros de Azure Monitor | Copie las métricas de la plataforma en los registros para las tendencias y otros análisis con Log Analytics. | [Diagnósticos de Azure Diagnostics directos a Log Analytics](./resource-logs.md#send-to-log-analytics-workspace) |
 | Event Hubs | Transmita métricas a otras ubicaciones mediante Event Hubs. |[Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa](stream-monitoring-data-event-hubs.md) |
 
 ### <a name="resource-logs"></a>Registros del recurso
 Los [registros de recursos](platform-logs-overview.md) proporcionan información detallada sobre el funcionamiento _interno_ de un recurso de Azure.  Los registros de recursos se crean automáticamente, pero debe crear una configuración de diagnóstico para especificar un destino para que se recopilen de cada recurso.
 
-Los requisitos de configuración y el contenido de los registros de recursos varían según el tipo de recurso, y no todos los servicios los crean. Consulte [Servicios, esquemas y categorías admitidos en los registros de recursos de Azure](diagnostic-logs-schema.md) para más información sobre los servicios y obtener vínculos a los procedimientos de configuración detallados. Si el servicio no aparece en este artículo, significa que se servicio no crea actualmente registros de recursos.
+Los requisitos de configuración y el contenido de los registros de recursos varían según el tipo de recurso, y no todos los servicios los crean. Consulte [Servicios, esquemas y categorías admitidos en los registros de recursos de Azure](./resource-logs-schema.md) para más información sobre los servicios y obtener vínculos a los procedimientos de configuración detallados. Si el servicio no aparece en este artículo, significa que se servicio no crea actualmente registros de recursos.
 
 | Destination | Descripción | Referencia |
 |:---|:---|:---|
-| Registros de Azure Monitor | Envíe registros de recursos a registros de Azure Monitor para el análisis con otros datos de registro recopilados. | [Recopilación de registros de recursos de Azure en el área de trabajo de Log Analytics en Azure Monitor](resource-logs-collect-storage.md) |
-| Storage | Envíe registros de recursos a Azure Storage para archivarlos. | [Archivado de registros de recursos de Azure](resource-logs-collect-workspace.md) |
-| Event Hubs | Transmita registros de recursos a otras ubicaciones mediante Event Hubs. |[Transmisión de registros de recursos de Azure a un centro de eventos](resource-logs-stream-event-hubs.md) |
+| Registros de Azure Monitor | Envíe registros de recursos a registros de Azure Monitor para el análisis con otros datos de registro recopilados. | [Recopilación de registros de recursos de Azure en el área de trabajo de Log Analytics en Azure Monitor](./resource-logs.md#send-to-azure-storage) |
+| Storage | Envíe registros de recursos a Azure Storage para archivarlos. | [Archivado de registros de recursos de Azure](./resource-logs.md#send-to-log-analytics-workspace) |
+| Event Hubs | Transmita registros de recursos a otras ubicaciones mediante Event Hubs. |[Transmisión de registros de recursos de Azure a un centro de eventos](./resource-logs.md#send-to-azure-event-hubs) |
 
 ## <a name="operating-system-guest"></a>Sistema operativo (invitado)
 Los recursos de proceso en Azure, en otras nubes y en el entorno local tienen un sistema operativo invitado para supervisar. Con la instalación de uno o más agentes, puede recopilar datos de telemetría del invitado en Azure Monitor para analizarlos con las mismas herramientas de supervisión que los propios servicios de Azure.
@@ -144,7 +144,7 @@ Instale el agente de Log Analytics para la supervisión y administración comple
 
 
 ## <a name="application-code"></a>Código de aplicación
-Se realiza la supervisión detallada de la aplicación en Azure Monitor con [Application Insights](https://docs.microsoft.com/azure/application-insights/), que recopila datos de aplicaciones que se ejecutan en una variedad de plataformas. La aplicación se puede ejecutar en Azure, en otra nube o en el entorno local.
+Se realiza la supervisión detallada de la aplicación en Azure Monitor con [Application Insights](/azure/application-insights/), que recopila datos de aplicaciones que se ejecutan en una variedad de plataformas. La aplicación se puede ejecutar en Azure, en otra nube o en el entorno local.
 
 ![Recopilación de datos de aplicación](media/data-sources/applications.png)
 
@@ -170,11 +170,11 @@ Las [soluciones de supervisión](../insights/solutions.md) y [perspectivas](../i
 
 | Destination | Descripción | Referencia
 |:---|:---|:---|
-| Registros de Azure Monitor | Las soluciones de supervisión recopilan datos en registros de Azure Monitor, donde se pueden analizar mediante un lenguaje de consulta o [vistas](view-designer.md) que se suelen incluir en la solución. | [Detalles de la recopilación de datos para las soluciones de supervisión en Azure](../insights/solutions-inventory.md) |
+| Registros de Azure Monitor | Las soluciones de supervisión recopilan datos en registros de Azure Monitor, donde se pueden analizar mediante un lenguaje de consulta o [vistas](view-designer.md) que se suelen incluir en la solución. | [Detalles de la recopilación de datos para las soluciones de supervisión en Azure](../monitor-reference.md) |
 
 
 ### <a name="azure-monitor-for-containers"></a>Azure Monitor para contenedores
-[Azure Monitor para contenedores](../insights/container-insights-overview.md) proporciona una experiencia de supervisión personalizada para [Azure Kubernetes Service (AKS)](/azure/aks/). Recopila los datos adicionales sobre estos recursos que se describen en la tabla siguiente.
+[Azure Monitor para contenedores](../insights/container-insights-overview.md) proporciona una experiencia de supervisión personalizada para [Azure Kubernetes Service (AKS)](../../aks/index.yml). Recopila los datos adicionales sobre estos recursos que se describen en la tabla siguiente.
 
 | Destination | Descripción | Referencia |
 |:---|:---|:---|
@@ -201,8 +201,8 @@ Otros servicios de Azure escriben datos en la plataforma de datos de Azure Monit
 
 | Servicio | Destination | Descripción | Referencia |
 |:---|:---|:---|:---|
-| [Azure Security Center](/azure/security-center/) | Registros de Azure Monitor | Azure Security Center almacena los datos de seguridad que recopila en el área de trabajo de Log Analytics, que permite que estos se analicen con otros datos de registro recopilados por Azure Monitor.  | [Recopilación de datos en Azure Security Center](../../security-center/security-center-enable-data-collection.md) |
-| [Azure Sentinel](/azure/sentinel/) | Registros de Azure Monitor | Azure Sentinel almacena los datos que recopila a partir de diferentes orígenes de datos en el área de trabajo de Log Analytics, que permite que estos se analicen con otros datos de registro recopilados por Azure Monitor.  | [Conexión con orígenes de datos](/azure/sentinel/quickstart-onboard) |
+| [Azure Security Center](../../security-center/index.yml) | Registros de Azure Monitor | Azure Security Center almacena los datos de seguridad que recopila en el área de trabajo de Log Analytics, que permite que estos se analicen con otros datos de registro recopilados por Azure Monitor.  | [Recopilación de datos en Azure Security Center](../../security-center/security-center-enable-data-collection.md) |
+| [Azure Sentinel](../../sentinel/index.yml) | Registros de Azure Monitor | Azure Sentinel almacena los datos que recopila a partir de diferentes orígenes de datos en el área de trabajo de Log Analytics, que permite que estos se analicen con otros datos de registro recopilados por Azure Monitor.  | [Conexión con orígenes de datos](../../sentinel/quickstart-onboard.md) |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

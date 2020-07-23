@@ -3,12 +3,12 @@ title: Escalabilidad - Azure Event Hubs | Microsoft Docs
 description: En este artículo se proporciona información sobre cómo escalar Azure Event Hubs mediante el uso de particiones y unidades de procesamiento.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 6d1c7bc5a0206b634e5a85243f25b2c926762d7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4dacb24ace2332f590db54959cbf1f06694b982b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315476"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521962"
 ---
 # <a name="scaling-with-event-hubs"></a>Escalado con Event Hubs
 
@@ -23,7 +23,7 @@ La capacidad de rendimiento de Event Hubs se controla mediante *unidades de rend
 * Entrada: hasta 1 MB por segundo o 1000 eventos por segundo, lo que ocurra primero.
 * Salida: hasta 2 MB por segundo o 4096 eventos por segundo.
 
-Si supera la capacidad de las unidades de rendimiento adquiridas, la entrada se limitará y se devolverá una excepción [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception). La salida no produce excepciones de limitación, pero sigue estando limitada a la capacidad de las unidades de rendimiento adquiridas. Si recibe excepciones de tasa de publicación o espera ver una salida superior, compruebe cuántas unidades de rendimiento adquirió para el espacio de nombres. Puede administrar las unidades de procesamiento en la hoja **Escala** de los espacios de nombres en [Azure Portal](https://portal.azure.com). También puede administrar unidades de procesamiento mediante programación con las [API de Event Hubs](event-hubs-api-overview.md).
+Si supera la capacidad de las unidades de rendimiento adquiridas, la entrada se limitará y se devolverá una excepción [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception). La salida no produce excepciones de limitación, pero sigue estando limitada a la capacidad de las unidades de rendimiento adquiridas. Si recibe excepciones de tasa de publicación o espera ver una salida superior, compruebe cuántas unidades de rendimiento adquirió para el espacio de nombres. Puede administrar las unidades de procesamiento en la hoja **Escala** de los espacios de nombres en [Azure Portal](https://portal.azure.com). También puede administrar unidades de procesamiento mediante programación con las [API de Event Hubs](./event-hubs-samples.md).
 
 Las unidades de procesamiento se adquieren previamente y se facturan por hora. Cuando se adquieren, las unidades de procesamiento se facturan durante un período mínimo de una hora. Se pueden adquirir hasta 20 unidades de procesamiento para un espacio de nombres de Event Hubs y compartir entre todos los centros de eventos del espacio de nombres.
 
@@ -50,4 +50,4 @@ El publicador de eventos solo conoce su clave de partición, no la partición en
 Para más información acerca de Event Hubs, visite los vínculos siguientes:
 
 - [Escalado automático de las unidades de rendimiento](event-hubs-auto-inflate.md)
-- [Información general sobre el servicio Event Hubs](event-hubs-what-is-event-hubs.md)
+- [Información general sobre el servicio Event Hubs](./event-hubs-about.md)

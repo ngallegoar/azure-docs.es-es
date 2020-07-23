@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
-ms.openlocfilehash: dbeaa58da109c5afceb03a560e69e0c8bf63ad42
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 240a261f8dd401f36ef763e4c1274a1c0760f2dd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81768118"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515655"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Administración del área de trabajo de Log Analytics mediante las plantillas de Azure Resource Manager
 
@@ -153,7 +153,7 @@ Para la reserva de capacidad, se define una reserva de capacidad determinada par
    >* "name": "CapacityReservation",
    >* "capacityReservationLevel": 100
 
-2. Edite la plantilla para adecuarla a sus requisitos. Plantéese la posibilidad de crear un [archivo de parámetros de Resource Manager](../../azure-resource-manager/templates/parameter-files.md) en lugar de pasar los parámetros como valores insertados. Consulte la referencia [Plantilla Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) para saber qué propiedades y valores son compatibles. 
+2. Edite la plantilla para adecuarla a sus requisitos. Plantéese la posibilidad de crear un [archivo de parámetros de Resource Manager](../../azure-resource-manager/templates/parameter-files.md) en lugar de pasar los parámetros como valores insertados. Consulte la referencia [Plantilla Microsoft.OperationalInsights/workspaces](/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) para saber qué propiedades y valores son compatibles. 
 
 3. Guarde este archivo como **deploylaworkspacetemplate.json** en una carpeta local.
 

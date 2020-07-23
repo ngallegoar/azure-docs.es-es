@@ -3,12 +3,12 @@ title: Obtención de ayuda con los errores de implementación o aprovisionamient
 description: Cómo obtener la información necesaria de la nube privada de Azure VMware Solution (AVS) para realizar una solicitud de servicio para los errores de aprovisionamiento o implementación de AVS.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: 3032c01d48617347c454d71498571b0e6b789e32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05c9dee088b37c37cdcdee7e745cdcd2222b63e0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84986864"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514584"
 ---
 # <a name="get-help-with-azure-vmware-solution-deployment-or-provisioning-failures"></a>Obtención de ayuda con los errores de implementación o aprovisionamiento de Azure VMware Solution
 
@@ -72,7 +72,7 @@ Pegue el id. de ExpressRoute en el campo correspondiente de la nueva solicitud d
 
 ## <a name="create-your-support-request"></a>Creación de una solicitud de soporte técnico
 
-Para obtener instrucciones generales sobre cómo crear una solicitud de soporte técnico, consulte [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). 
+Para obtener instrucciones generales sobre cómo crear una solicitud de soporte técnico, consulte [Creación de una solicitud de soporte técnico de Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
 Esta es una guía adicional específica para la creación de una solicitud de servicio para errores de implementación o aprovisionamiento de AVS.
 

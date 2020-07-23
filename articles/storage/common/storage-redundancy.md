@@ -10,12 +10,12 @@ ms.date: 06/22/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 9502194b2020723801469b511f46d3e806290ba5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 903560f5c0400a906918f0c17eafb2e1e09bdd30
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213999"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518511"
 ---
 # <a name="azure-storage-redundancy"></a>Redundancia de Azure Storage
 
@@ -62,8 +62,8 @@ En la tabla siguiente se muestran los tipos de cuentas de almacenamiento que adm
 |    Tipo de cuenta de almacenamiento    |    Regiones admitidas    |    Servicios admitidos    |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 |    Uso general v2<sup>1</sup>    | Sudeste de Asia<br /> Este de Australia<br /> Norte de Europa<br />  Oeste de Europa<br /> Centro de Francia<br /> Japón Oriental<br /> Norte de Sudáfrica<br /> Sur de Reino Unido<br /> Centro de EE. UU.<br /> Este de EE. UU.<br /> Este de EE. UU. 2<br /> Oeste de EE. UU. 2    |    Blobs en bloques<br /> Blobs en páginas<sup>2</sup><br /> Recursos compartidos de archivos (estándar)<br /> Tablas<br /> Colas<br /> |
-|    BlockBlobStorage<sup>1</sup>    | Sudeste de Asia<br /> Oeste de Europa<br /> Este de EE. UU.    |    Solo blobs en bloques    |
-|    FileStorage    | Sudeste de Asia<br /> Oeste de Europa<br /> Este de EE. UU.    |    Solo Azure Files    |
+|    BlockBlobStorage<sup>1</sup>    | Sudeste de Asia<br /> Este de Australia<br /> Oeste de Europa<br /> Este de EE. UU.    |    Solo blobs en bloques    |
+|    FileStorage    | Sudeste de Asia<br /> Este de Australia<br /> Oeste de Europa<br /> Este de EE. UU.    |    Solo Azure Files    |
 
 <sup>1</sup> El nivel de archivo no se admite actualmente en las cuentas de ZRS.<br />
 <sup>2</sup> Las cuentas de almacenamiento que contienen discos administrados de Azure para máquinas virtuales siempre usan almacenamiento con redundancia local. Los discos no administrados de Azure también deben usar almacenamiento con redundancia local. Es posible crear una cuenta de almacenamiento para discos no administrados de Azure que use almacenamiento con redundancia geográfica, pero no se recomienda debido a los posibles problemas de coherencia en la replicación geográfica asincrónica. Ni los discos administrados ni los no administrados admiten ZRS o GZRS. Para más información sobre los discos administrados, consulte [Precios de Azure Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -110,7 +110,7 @@ GZRS y RA-GZRS se admiten en las siguientes regiones:
 - Norte de Europa
 - Oeste de Europa
 - Japón Oriental
-- Sur de Reino Unido
+- Sur de Reino Unido 2
 - Centro de EE. UU.
 - Este de EE. UU.
 - Este de EE. UU. 2
@@ -148,7 +148,7 @@ En la tabla siguiente se describen los parámetros clave de cada opción de redu
 
 | Parámetro                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| Porcentaje de durabilidad de los objetos a lo largo de un año determinado<sup>1</sup>                                          | al menos 99,999999999 % (once nueves) | al menos 99,9999999999 % (doce nueves) | Como mínimo 99,99999999999999 % (dieciséis nueves) | Como mínimo 99,99999999999999 % (dieciséis nueves) |
+| Porcentaje de durabilidad de los objetos a lo largo de un año determinado<sup>1</sup>                                          | al menos 99,999999999 % (once nueves) | al menos 99,9999999999 % (doce nueves) | Como mínimo 99.99999999999999 % (dieciséis nueves) | Como mínimo 99,99999999999999 % (dieciséis nueves) |
 | SLA de disponibilidad para las solicitudes de lectura<sup>1</sup>  | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) para GRS<br /><br />Al menos un 99,9 % (99,99 % para el nivel de acceso esporádico) para RA-GRS | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) para GZRS<br /><br />Al menos un 99,9 % (99,99 % para el nivel de acceso esporádico) para RA-GZRS |
 | SLA de disponibilidad para las solicitudes de escritura<sup>1</sup>  | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) |
 
@@ -161,7 +161,7 @@ En la tabla siguiente se indica si los datos son duraderos y están disponibles 
 | Escenario de interrupción                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
 | Un nodo de un centro de datos deja de estar disponible                                                                 | Sí                             | Sí                              | Sí                                  | Sí                                 |
-| Un centro de datos completo (de zona o no de zona) deja de estar disponible                                           | No                              | Sí                              | Sí<sup>1</sup>                                  | Sí                                  |
+| Un centro de datos completo (de zona o no de zona) deja de estar disponible                                           | Sin                              | Sí                              | Sí<sup>1</sup>                                  | Sí                                  |
 | Se produce una interrupción en toda la región en la región primaria                                                                                     | No                              | No                               | Sí<sup>1</sup>                                  | Sí<sup>1</sup>                                  |
 | Hay disponible acceso de lectura a la región secundaria si la región primaria deja de estar disponible | No                              | No                               | Sí (con RA-GRS)                                   | Sí (con RA-GZRS)                                 |
 

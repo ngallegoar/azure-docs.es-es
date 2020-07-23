@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15f94e93c270c8d62436b81a7caedbf181c1aeb8
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5b6879d11a4b47c0090f13baa0a15dcc696c8534
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022549"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525388"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP
 
@@ -307,7 +307,7 @@ ms.locfileid: "84022549"
 [xplat-cli-azure-resource-manager]:../../../xplat-cli-azure-resource-manager.md
 
 
-En este documento se describen las diferentes áreas que se deben tener en cuenta al implementar Oracle Database para la carga de trabajo de SAP en IaaS de Azure. Antes de leer este documento, le recomendamos leer [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](dbms_guide_general.md). También se recomienda leer otras guías que aparecen en la [documentación sobre la carga de trabajo de SAP en Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
+En este documento se describen las diferentes áreas que se deben tener en cuenta al implementar Oracle Database para la carga de trabajo de SAP en IaaS de Azure. Antes de leer este documento, le recomendamos leer [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](dbms_guide_general.md). También se recomienda leer otras guías que aparecen en la [documentación sobre la carga de trabajo de SAP en Azure](./get-started.md). 
 
 Puede encontrar información sobre las versiones de Oracle y las versiones de SO correspondientes que se admiten para ejecutar SAP en Oracle en Azure en la nota de SAP [2039619].
 
@@ -348,14 +348,14 @@ De acuerdo con los manuales de instalación de SAP, los archivos relacionados co
 
 Si tiene máquinas virtuales más pequeñas, se recomienda instalar o buscar Oracle home, satage, "saptrace", "saparch", "sapbackup", "sapcheck" o "sapreorg" en el disco del sistema operativo. Estas partes de los componentes del DBMS de Oracle no usan en gran medida la E/S y la capacidad de proceso. Esto significa que el disco del sistema operativo puede ocuparse de los requisitos de E/S. El tamaño predeterminado del disco del sistema operativo es de 127 GB. 
 
-Si no hay espacio libre disponible suficiente, se puede [cambiar el tamaño](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk) del disco a 2048 GB. Los archivos de registro de puesta al día y Oracle Database tienen que almacenarse en discos de datos independientes. Hay una excepción con el espacio de tablas temporales de Oracle. Los archivos temporales se pueden crear en la unidad D:/ (unidad no persistente). La unidad D:\ no persistente también ofrece un mejor rendimiento y latencia de E/S (a excepción de las máquinas virtuales de la serie A). 
+Si no hay espacio libre disponible suficiente, se puede [cambiar el tamaño](../../windows/expand-os-disk.md) del disco a 2048 GB. Los archivos de registro de puesta al día y Oracle Database tienen que almacenarse en discos de datos independientes. Hay una excepción con el espacio de tablas temporales de Oracle. Los archivos temporales se pueden crear en la unidad D:/ (unidad no persistente). La unidad D:\ no persistente también ofrece un mejor rendimiento y latencia de E/S (a excepción de las máquinas virtuales de la serie A). 
 
 Para determinar la cantidad de espacio correcta para los archivos temporales, puede revisar el tamaño de los archivos temporales de los sistemas existentes.
 
 ### <a name="storage-configuration"></a>Configuración de almacenamiento
-Solo se admiten versiones de Oracle de solo una versión que usen discos con formato NTFS. Todos los archivos de la base de datos se deben almacenar en el sistema de archivos NTFS en discos VHD o Managed Disks (recomendado). Estos discos se montan en la máquina virtual de Azure y se basan en [Azure Page BLOB Storage](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) o en [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
+Solo se admiten versiones de Oracle de solo una versión que usen discos con formato NTFS. Todos los archivos de la base de datos se deben almacenar en el sistema de archivos NTFS en discos VHD o Managed Disks (recomendado). Estos discos se montan en la máquina virtual de Azure y se basan en [Azure Page BLOB Storage](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) o en [Azure Managed Disks](../../windows/managed-disks-overview.md). 
 
-Se recomienda [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). También se recomienda encarecidamente usar [discos SSD Premium](../../windows/disks-types.md) para las implementaciones de Oracle Database.
+Se recomienda [Azure Managed Disks](../../windows/managed-disks-overview.md). También se recomienda encarecidamente usar [discos SSD Premium](../../windows/disks-types.md) para las implementaciones de Oracle Database.
 
 Las unidades de red o los recursos compartidos remotos, como los servicios de archivos de Azure, no son compatibles con los archivos de Oracle Database. Para más información, consulte:
 
@@ -404,19 +404,19 @@ Si se necesita más IOPS, se recomienda usar bloques de almacenamiento de Window
 
 
 #### <a name="write-accelerator"></a>Acelerador de escritura
-En las máquinas virtuales de Azure de la serie M, se puede reducir la latencia de escritura en los registros de fase de puesta al día en línea, en comparación con el rendimiento de Azure Premium Storage. Habilite el Acelerador de escritura de Azure para los discos (discos duros virtuales) en función del Azure Premium Storage que se usa para los archivos de registro de puesta al día en línea. Para más información, consulte [Acelerador de escritura](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
+En las máquinas virtuales de Azure de la serie M, se puede reducir la latencia de escritura en los registros de fase de puesta al día en línea, en comparación con el rendimiento de Azure Premium Storage. Habilite el Acelerador de escritura de Azure para los discos (discos duros virtuales) en función del Azure Premium Storage que se usa para los archivos de registro de puesta al día en línea. Para más información, consulte [Acelerador de escritura](../../linux/how-to-enable-write-accelerator.md).
 
 
 ### <a name="backuprestore"></a>Copia de seguridad y restauración
 Para la funcionalidad de copia de seguridad y restauración, las SAP BR*Tools para Oracle se admiten del mismo modo que en los sistemas operativos Windows Server estándar. También se admite Oracle Recovery Manager (RMAN) para las copias de seguridad en disco y las restauraciones desde disco.
 
-También se puede usar el servicio Azure Backup para ejecutar una copia de seguridad de máquina virtual coherente con la aplicación. En el artículo [Planeación de la infraestructura de copia de seguridad de máquinas virtuales en Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction) se explica cómo Azure Backup usa la funcionalidad de Windows VSS para ejecutar copias de seguridad coherentes con la aplicación. Las versiones de Oracle Database que se admiten en Azure y SAP pueden aprovechar la funcionalidad VSS para las copias de seguridad. Para más información, consulte [Basic concepts of database backup and recovery with VSS](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/ntqrf/basic-concepts-of-database-backup-and-recovery-with-vss.html#GUID-C085101B-237F-4773-A2BF-1C8FD040C701) (Conceptos básicos de copia de seguridad y recuperación de bases de datos con VSS) en la documentación de Oracle.
+También se puede usar el servicio Azure Backup para ejecutar una copia de seguridad de máquina virtual coherente con la aplicación. En el artículo [Planeación de la infraestructura de copia de seguridad de máquinas virtuales en Azure](../../../backup/backup-azure-vms-introduction.md) se explica cómo Azure Backup usa la funcionalidad de Windows VSS para ejecutar copias de seguridad coherentes con la aplicación. Las versiones de Oracle Database que se admiten en Azure y SAP pueden aprovechar la funcionalidad VSS para las copias de seguridad. Para más información, consulte [Basic concepts of database backup and recovery with VSS](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/ntqrf/basic-concepts-of-database-backup-and-recovery-with-vss.html#GUID-C085101B-237F-4773-A2BF-1C8FD040C701) (Conceptos básicos de copia de seguridad y recuperación de bases de datos con VSS) en la documentación de Oracle.
 
 
 ### <a name="high-availability"></a>Alta disponibilidad
 Oracle Data Guard se admite con fines de alta disponibilidad y recuperación ante desastres. Para lograr una conmutación por error automática en Data Guard, debe usar Fast-Start Failover (FSFA). La funcionalidad Observador (FSFA) desencadena la conmutación por error. Si no usa FSFA, solo puede usar una configuración de conmutación por error manual.
 
-Para más información sobre la recuperación ante desastres de bases de datos de Oracle en Azure, consulte [Recuperación ante desastres para Oracle Database 12c en el entorno de Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery).
+Para más información sobre la recuperación ante desastres de bases de datos de Oracle en Azure, consulte [Recuperación ante desastres para Oracle Database 12c en el entorno de Azure](../oracle/oracle-disaster-recovery.md).
 
 ### <a name="accelerated-networking"></a>Redes aceleradas
 En el caso de las implementaciones de Oracle en Windows, se recomienda encarecidamente las redes aceleradas tal como se describe en [Redes aceleradas de Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Tenga en cuenta también las recomendaciones realizadas en [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](dbms_guide_general.md). 
@@ -444,7 +444,7 @@ En este caso, se recomienda instalar o buscar Oracle home, stage, saptrace, sapa
 
 Los sistemas de archivos ext4, xfs u Oracle ASM se admiten para los archivos de Oracle Database en Azure. Todos los archivos de la base de datos se deben almacenar en estos sistemas de archivos basados en discos VHD o Managed Disks. Estos discos se montan en la máquina virtual de Azure y se basan en [Azure Page BLOB Storage](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) o en [Azure Managed Disks](../../windows/managed-disks-overview.md).
 
-Para los kernels de Oracle Linux UEK, se requiere como mínimo la versión 4 de UEK para que sea compatible con los [discos SSD Azure Premium](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-caching).
+Para los kernels de Oracle Linux UEK, se requiere como mínimo la versión 4 de UEK para que sea compatible con los [discos SSD Azure Premium](../../windows/premium-storage-performance.md#disk-caching).
 
 Se recomienda encarecidamente el uso de [Azure Managed Disks](../../windows/managed-disks-overview.md). También se recomienda encarecidamente usar [discos SSD Azure Premium](../../windows/disks-types.md) para las implementaciones de Oracle Database.
 
@@ -498,19 +498,19 @@ Si se requieren más IOPS, se recomienda usar LVM (administrador de volúmenes l
 
 
 #### <a name="write-accelerator"></a>Acelerador de escritura
-En las máquinas virtuales de Azure de la serie M, cuando se usa el Acelerador de escritura de Azure se puede reducir la latencia de escritura en los registros de fase de puesta al día en línea, en comparación con el rendimiento de Azure Premium Storage. Habilite el Acelerador de escritura de Azure para los discos (discos duros virtuales) en función del Azure Premium Storage que se usa para los archivos de registro de puesta al día en línea. Para más información, consulte [Acelerador de escritura](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
+En las máquinas virtuales de Azure de la serie M, cuando se usa el Acelerador de escritura de Azure se puede reducir la latencia de escritura en los registros de fase de puesta al día en línea, en comparación con el rendimiento de Azure Premium Storage. Habilite el Acelerador de escritura de Azure para los discos (discos duros virtuales) en función del Azure Premium Storage que se usa para los archivos de registro de puesta al día en línea. Para más información, consulte [Acelerador de escritura](../../linux/how-to-enable-write-accelerator.md).
 
 
 ### <a name="backuprestore"></a>Copia de seguridad y restauración
 Para utilizar la funcionalidad de copia de seguridad y restauración, se admite SAP BR*Tools for Oracle del mismo modo que en un servidor físico e Hyper-V. También se admite Oracle Recovery Manager (RMAN) para las copias de seguridad en disco y las restauraciones desde disco.
 
-Para más información sobre cómo puede usar los servicios Azure Backup y Recovery para crear una copia de seguridad de las bases de datos de Oracle y recuperarlas, consulte el artículo [Copia de seguridad y recuperación de una base de datos de Oracle Database 12c en una máquina virtual Linux de Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-backup-recovery).
+Para más información sobre cómo puede usar los servicios Azure Backup y Recovery para crear una copia de seguridad de las bases de datos de Oracle y recuperarlas, consulte el artículo [Copia de seguridad y recuperación de una base de datos de Oracle Database 12c en una máquina virtual Linux de Azure](../oracle/oracle-backup-recovery.md).
 
 ### <a name="high-availability"></a>Alta disponibilidad
-Oracle Data Guard se admite con fines de alta disponibilidad y recuperación ante desastres. Para lograr una conmutación por error automática en Data Guard, debe usar Fast-Start Failover (FSFA). La funcionalidad Observador (FSFA) desencadena la conmutación por error. Si no usa FSFA, solo puede usar una configuración de conmutación por error manual. Para más información, consulte [Implementación de Oracle Data Guard en una máquina virtual Linux en Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard).
+Oracle Data Guard se admite con fines de alta disponibilidad y recuperación ante desastres. Para lograr una conmutación por error automática en Data Guard, debe usar Fast-Start Failover (FSFA). La funcionalidad Observador (FSFA) desencadena la conmutación por error. Si no usa FSFA, solo puede usar una configuración de conmutación por error manual. Para más información, consulte [Implementación de Oracle Data Guard en una máquina virtual Linux en Azure](../oracle/configure-oracle-dataguard.md).
 
 
-Los aspectos de la recuperación ante desastres para bases de datos de Oracle en Azure se presentan en el artículo [Recuperación ante desastres para Oracle Database 12c en el entorno de Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery).
+Los aspectos de la recuperación ante desastres para bases de datos de Oracle en Azure se presentan en el artículo [Recuperación ante desastres para Oracle Database 12c en el entorno de Azure](../oracle/oracle-disaster-recovery.md).
 
 ### <a name="accelerated-networking"></a>Redes aceleradas
 La compatibilidad con Azure Accelerated Networking en Oracle Linux se ofrece con Oracle Linux 7 Update 5 (Oracle Linux 7.5). Si no puede actualizar a la versión más reciente de Oracle Linux 7.5, es posible que haya una solución alternativa si se usa RedHat Compatible Kernel (RHCK) en lugar del kernel UEK de Oracle. 

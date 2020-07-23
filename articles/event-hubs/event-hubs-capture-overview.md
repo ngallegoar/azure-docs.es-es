@@ -3,12 +3,12 @@ title: 'Captura de eventos de streaming: Azure Event Hubs | Microsoft Docs'
 description: En este artículo se proporciona información general sobre la característica Capture que permite capturar eventos de streaming a través de Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: be5a8bed06f5df0ffcee66c277f8ba5fa1a1bf74
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 201fde24e50fc9403d5e9faf314550520fb7b865
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985265"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522132"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Captura de eventos a través de Azure Event Hubs en Azure Blob Storage o Azure Data Lake Storage
 Azure Event Hubs permite capturar automáticamente los datos de streaming de Event Hubs de la cuenta de [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) o de [Azure Data Lake Storage Gen1 o Gen2](https://azure.microsoft.com/services/data-lake-store/) que prefiera, con la flexibilidad adicional de especificar un intervalo de tiempo o de tamaño. La configuración de Capture es rápida, su ejecución no tiene costes administrativos y se escala automáticamente con las [unidades de procesamiento](event-hubs-scalability.md#throughput-units) de Event Hubs. El uso de Event Hubs Capture constituye la forma más sencilla de cargar datos de streaming en Azure y permite centrarse en el procesamiento de datos, en lugar de en su captura.
@@ -89,7 +89,7 @@ Hay un ejemplo completo disponible en el repositorio de streaming a escala:
 
 - [HDInsight: Archivos adicionales en Azure Storage][HDInsight: Address files in Azure storage]
 - [Azure Databricks: Azure Blob Storage][Azure Databricks: Azure Blob Storage]
-- [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/spark-job) 
+- [Azure Kubernetes Service](../aks/spark-job.md) 
 
 ### <a name="use-avro-tools"></a>Uso de Avro Tools
 
@@ -152,7 +152,7 @@ Aprenda a habilitar esta característica mediante Azure Portal y una plantilla d
 [Avro Tools]: https://downloads.apache.org/avro/stable/java/
 [Java]: https://avro.apache.org/docs/current/gettingstartedjava.html
 [Python]: https://avro.apache.org/docs/current/gettingstartedpython.html
-[Event Hubs overview]: event-hubs-what-is-event-hubs.md
+[Event Hubs overview]: ./event-hubs-about.md
 [HDInsight: Address files in Azure storage]:https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage
 [Azure Databricks: Azure Blob Storage]:https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
 [Apache Drill: Azure Blob Storage Plugin]:https://drill.apache.org/docs/azure-blob-storage-plugin/

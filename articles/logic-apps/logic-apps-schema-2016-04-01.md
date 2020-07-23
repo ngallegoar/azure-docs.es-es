@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 07/25/2016
-ms.openlocfilehash: e2f65f1c52dc7dfb2e4e4bf66f5c7e82f4b802b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ccc7df5bfac327fabf05f210764dbe10658b5015
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74792882"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520722"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Actualizaciones de esquema para Azure Logic Apps, 1 de junio de 2016
 
@@ -29,7 +29,7 @@ Para actualizar las aplicaciones lógicas del esquema de versión preliminar del
 
 ## <a name="scopes"></a>Ámbitos
 
-Este esquema incluye ámbitos, que le permiten agrupar acciones o anidar acciones unas dentro de otras. Por ejemplo, una condición puede contener otra condición. Aprenda más sobre la [sintaxis de los ámbitos](../logic-apps/logic-apps-loops-and-scopes.md), o revise este ejemplo básico de ámbitos:
+Este esquema incluye ámbitos, que le permiten agrupar acciones o anidar acciones unas dentro de otras. Por ejemplo, una condición puede contener otra condición. Aprenda más sobre la [sintaxis de los ámbitos](./logic-apps-control-flow-loops.md), o revise este ejemplo básico de ámbitos:
 
 ```json
 {
@@ -55,7 +55,7 @@ Este esquema incluye ámbitos, que le permiten agrupar acciones o anidar accione
 
 ## <a name="conditions-and-loops-changes"></a>Cambios de condiciones y bucles
 
-En las versiones anteriores del esquema, las condiciones y los bucles eran parámetros asociados a una sola acción. Este esquema elimina esta limitación, por lo que las condiciones y los bucles están ahora disponibles como tipos de acción. Aprenda más sobre [bucles y ámbitos](../logic-apps/logic-apps-loops-and-scopes.md), [condiciones](../logic-apps/logic-apps-control-flow-conditional-statement.md) o revise este ejemplo básico de una acción de condición:
+En las versiones anteriores del esquema, las condiciones y los bucles eran parámetros asociados a una sola acción. Este esquema elimina esta limitación, por lo que las condiciones y los bucles están ahora disponibles como tipos de acción. Aprenda más sobre [bucles y ámbitos](./logic-apps-control-flow-loops.md), [condiciones](../logic-apps/logic-apps-control-flow-conditional-statement.md) o revise este ejemplo básico de una acción de condición:
 
 ```json
 {
@@ -131,7 +131,7 @@ En la definición actualizada, la herramienta hace todo lo posible por agrupar l
 
 #### <a name="foreach-loop-with-condition"></a>Bucle "foreach" con condición
 
-En el nuevo esquema, puede usar la acción de filtro para replicar el patrón que usa un bucle **For each** con una condición por elemento. Sin embargo, el cambio sucede automáticamente cuando actualiza. La condición se convierte en una acción de filtro que aparece antes del bucle **For each**, que devuelve solo una matriz de elementos que cumplen la condición y pasa esa matriz a la acción **For each**. Para ver un ejemplo, consulte [Bucles y ámbitos](../logic-apps/logic-apps-loops-and-scopes.md).
+En el nuevo esquema, puede usar la acción de filtro para replicar el patrón que usa un bucle **For each** con una condición por elemento. Sin embargo, el cambio sucede automáticamente cuando actualiza. La condición se convierte en una acción de filtro que aparece antes del bucle **For each**, que devuelve solo una matriz de elementos que cumplen la condición y pasa esa matriz a la acción **For each**. Para ver un ejemplo, consulte [Bucles y ámbitos](./logic-apps-control-flow-loops.md).
 
 ### <a name="resource-tags"></a>Etiquetas del recurso
 

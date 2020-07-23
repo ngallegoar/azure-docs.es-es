@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 77946694253ff0c1c6953d0b20836d3cb6733801
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: e6fb2f09200e42f7ad7781716bb83ab418134509
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082308"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516148"
 ---
 # <a name="azure-activity-log"></a>Registro de actividad de Azure
 El Registro de actividad es un [registro de plataforma](platform-logs-overview.md) de Azure que proporciona información de los eventos de nivel de suscripción. Esto incluye información como cuándo se modificó un recurso o cuándo se inició una máquina virtual. Puede ver el registro de actividad en Azure Portal o recuperar entradas con PowerShell y la CLI. Para obtener más funciones, debe crear una configuración de diagnóstico para enviar el registro de actividad a los [registros de Azure Monitor](data-platform-logs.md), a Azure Event Hubs para reenviarlo fuera de Azure o a Azure Storage para archivarlo. En este artículo se proporcionan detalles sobre cómo visualizar el registro de actividad y enviarlo a diversos destinos.
@@ -43,9 +43,9 @@ Si hay cambios asociados con el evento, verá una lista de cambios que puede sel
 ### <a name="other-methods-to-retrieve-activity-log-events"></a>Otros métodos para recuperar eventos del registro de actividad
 También puede acceder a los eventos del registro de actividad mediante los métodos siguientes.
 
-- Use el cmdlet [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) para recuperar el registro de actividad de PowerShell. Vea [Ejemplos de PowerShell de Azure Monitor](../samples/powershell-samples.md#retrieve-activity-log).
-- Use [az monitor activity-log](https://docs.microsoft.com/cli/azure/monitor/activity-log) para recuperar el registro de actividad de la CLI.  Consulte los [ejemplos de CLI de Azure Monitor](../samples/cli-samples.md#view-activity-log).
-- Use la [API REST de Azure Monitor](https://docs.microsoft.com/rest/api/monitor/) para recuperar el registro de actividad de un cliente de REST. 
+- Use el cmdlet [Get-AzLog](/powershell/module/az.monitor/get-azlog) para recuperar el registro de actividad de PowerShell. Vea [Ejemplos de PowerShell de Azure Monitor](../samples/powershell-samples.md#retrieve-activity-log).
+- Use [az monitor activity-log](/cli/azure/monitor/activity-log) para recuperar el registro de actividad de la CLI.  Consulte los [ejemplos de CLI de Azure Monitor](../samples/cli-samples.md#view-activity-log).
+- Use la [API REST de Azure Monitor](/rest/api/monitor/) para recuperar el registro de actividad de un cliente de REST. 
 
 
 ## <a name="send-to-log-analytics-workspace"></a>Envío al área de trabajo de Log Analytics
@@ -58,9 +58,9 @@ También puede acceder a los eventos del registro de actividad mediante los mét
 - Almacenar las entradas del registro de actividad durante más de 90 días.
 - No se generan cargos por ingesta ni retención de datos para los datos del registro de actividad almacenados en un área de trabajo de Log Analytics.
 
-[Cree una configuración de diagnóstico](diagnostic-settings.md) para enviar el registro de actividad a un área de trabajo de Log Analytics. Puede enviar el registro de actividad desde cualquier suscripción única hasta un máximo de cinco áreas de trabajo. La recopilación de registros entre inquilinos requiere [Azure Lighthouse](/azure/lighthouse).
+[Cree una configuración de diagnóstico](diagnostic-settings.md) para enviar el registro de actividad a un área de trabajo de Log Analytics. Puede enviar el registro de actividad desde cualquier suscripción única hasta un máximo de cinco áreas de trabajo. La recopilación de registros entre inquilinos requiere [Azure Lighthouse](../../lighthouse/index.yml).
 
-Los datos del registro de actividad de un área de trabajo de Log Analytics se almacenan en una tabla denominada *AzureActivity* que se puede recuperar con una [consulta de registro](../log-query/log-query-overview.md) en [Log Analytics](../log-query/get-started-portal.md). La estructura de esta tabla varía en función de la [categoría de la entrada de registro](activity-log-schema.md). Para obtener una descripción de las propiedades de la tabla, vea la [referencia de datos de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/reference/tables/azureactivity).
+Los datos del registro de actividad de un área de trabajo de Log Analytics se almacenan en una tabla denominada *AzureActivity* que se puede recuperar con una [consulta de registro](../log-query/log-query-overview.md) en [Log Analytics](../log-query/get-started-portal.md). La estructura de esta tabla varía en función de la [categoría de la entrada de registro](activity-log-schema.md). Para obtener una descripción de las propiedades de la tabla, vea la [referencia de datos de Azure Monitor](/azure/azure-monitor/reference/tables/azureactivity).
 
 Por ejemplo, para ver un recuento de las entradas del registro de actividad para cada categoría, use la consulta siguiente.
 
@@ -281,7 +281,7 @@ Las columnas de la tabla siguiente están en desuso en el esquema actualizado. T
 | ResourceProvider  | ResourceProviderValue  |
 
 > [!IMPORTANT]
-> En algunos casos, los valores de estas columnas pueden estar en mayúsculas. Si tiene una consulta que incluye estas columnas, debe usar el [operador =~](https://docs.microsoft.com/azure/kusto/query/datatypes-string-operators) para realizar una comparación sin distinguir entre mayúsculas y minúsculas.
+> En algunos casos, los valores de estas columnas pueden estar en mayúsculas. Si tiene una consulta que incluye estas columnas, debe usar el [operador =~](/azure/kusto/query/datatypes-string-operators) para realizar una comparación sin distinguir entre mayúsculas y minúsculas.
 
 La columna siguiente se ha agregado a *AzureActivity* en el esquema actualizado:
 

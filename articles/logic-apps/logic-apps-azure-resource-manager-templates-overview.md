@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: 7a99038f41043b899886c7161f9b12c77c807c4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a89eb16c8042efc86bb5cc8bd5fba7c821dc341
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81641826"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520976"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Introducción: Automatización de la implementación para Azure Logic Apps mediante plantillas de Azure Resource Manager
 
@@ -39,7 +39,7 @@ Para ver muestras de las plantillas de aplicaciones lógicas, consulte estos eje
 * [Plantilla completa](#full-example-template) que se usa para los ejemplos de este tema
 * [Ejemplo de la plantilla de aplicación lógica de inicio rápido](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create) en GitHub
 
-Para obtener información sobre los recursos de plantilla específicos de Logic Apps, las cuentas de integración y los artefactos de la cuenta de integración, consulte [Tipos de recursos de Microsoft.Logic](https://docs.microsoft.com/azure/templates/microsoft.logic/allversions).
+Para obtener información sobre los recursos de plantilla específicos de Logic Apps, las cuentas de integración y los artefactos de la cuenta de integración, consulte [Tipos de recursos de Microsoft.Logic](/azure/templates/microsoft.logic/allversions).
 
 <a name="template-structure"></a>
 
@@ -328,7 +328,7 @@ Estos son los atributos que son específicos de la definición de recursos de la
 | `accessControl` | No | Object | Se usa para especificar los atributos de seguridad de la aplicación lógica, por ejemplo, para restringir el acceso IP a los desencadenadores de solicitud o ejecutar entradas y salidas del historial. Para obtener más información, consulte [Protección del acceso a las aplicaciones lógicas](../logic-apps/logic-apps-securing-a-logic-app.md). |
 ||||
 
-Para obtener información sobre los recursos de plantilla específicos de Logic Apps, las cuentas de integración y los artefactos de la cuenta de integración, consulte [Tipos de recursos de Microsoft.Logic](https://docs.microsoft.com/azure/templates/microsoft.logic/allversions).
+Para obtener información sobre los recursos de plantilla específicos de Logic Apps, las cuentas de integración y los artefactos de la cuenta de integración, consulte [Tipos de recursos de Microsoft.Logic](/azure/templates/microsoft.logic/allversions).
 
 <a name="workflow-definition-parameters"></a>
 
@@ -910,7 +910,7 @@ En el ejemplo siguiente, se proporciona el nombre de la cuenta y la clave de acc
 
 ### <a name="authenticate-connections"></a>Autenticar conexiones
 
-Después de la implementación, la aplicación lógica funciona por completo con parámetros válidos. Aun así, igualmente debe autorizar las conexiones de OAuth para generar tokens de acceso válidos a fin de [autenticar las credenciales](../active-directory/develop/authentication-scenarios.md). Para obtener más información, consulte el artículo [Autorización de conexiones de OAuth](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections).
+Después de la implementación, la aplicación lógica funciona por completo con parámetros válidos. Aun así, igualmente debe autorizar las conexiones de OAuth para generar tokens de acceso válidos a fin de [autenticar las credenciales](../active-directory/develop/authentication-vs-authorization.md). Para obtener más información, consulte el artículo [Autorización de conexiones de OAuth](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections).
 
 Algunas conexiones admiten el uso de una [entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md) de Azure Active Directory (Azure AD) para autorizar conexiones para una aplicación lógica [registrada en Azure AD](../active-directory/develop/quickstart-register-app.md). Por ejemplo, en esta definición de recursos de conexión de Azure Data Lake se muestra cómo se debe referencia a los parámetros de plantilla que controlan la información de la entidad de servicio y cómo la plantilla declara estos parámetros:
 
@@ -1006,7 +1006,7 @@ El objeto `parameters` de nivel superior de la plantilla declara estos parámetr
 Para obtener más información sobre cómo trabajar con entidades de servicio, consulte estos temas:
 
 * [Create a service principal by using the Azure portal](../active-directory/develop/howto-create-service-principal-portal.md) (Uso de Azure Portal para crear una entidad de servicio)
-* [Creación de una entidad de servicio de Azure con Azure PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)
+* [Creación de una entidad de servicio de Azure con Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps)
 * [Creación de una entidad de servicio con un certificado mediante Azure PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 <a name="parameter-references"></a>

@@ -3,12 +3,12 @@ title: Copia de seguridad de máquinas virtuales de Hyper-V con MABS
 description: Este artículo contiene los procedimientos para realizar copias de seguridad y recuperar máquinas virtuales mediante Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: 71cf446472ef0cf4f50bf64e47d359ea08ccc087
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: bf267285e47f6695f2c6104cbc1817f5e733fa29
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80420415"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514564"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Copia de seguridad de máquinas virtuales de Hyper-V con Azure Backup Server
 
@@ -155,4 +155,4 @@ Cuando se puede recuperar una máquina virtual con copia de seguridad, se usa el
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Recuperación de datos de Azure Backup Server](https://docs.microsoft.com/azure/backup/backup-azure-alternate-dpm-server)
+[Recuperación de datos de Azure Backup Server](./backup-azure-alternate-dpm-server.md)

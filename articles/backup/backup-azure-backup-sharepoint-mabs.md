@@ -3,12 +3,12 @@ title: Realización de una copia de seguridad de una granja de SharePoint en Azu
 description: Uso del Azure Backup Server para hacer copia de seguridad de los datos de SharePoint y restaurarlos. En este artículo se proporciona la información sobre cómo configurar la granja de SharePoint para almacenar los datos deseados en Azure. Puede restaurar los datos protegidos de SharePoint desde disco o desde Azure.
 ms.topic: conceptual
 ms.date: 04/26/2020
-ms.openlocfilehash: 62fcb434ef00df43ce2950a5df569e346a06903a
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 40997ad2153cdec867fb36ba3475829e18519592
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234788"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514244"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Realización de una copia de seguridad de una granja de SharePoint en Azure con MABS
 
@@ -18,7 +18,7 @@ La copia de seguridad de SharePoint en Azure con MABS es un proceso similar al d
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>Las versiones compatibles de SharePoint y relacionadas con escenarios de protección
 
-Para obtener una lista de las versiones de SharePoint compatibles y las versiones de MABS necesarias para realizar una copia de seguridad de estas, consulte [la matriz de protección de MABS](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix).
+Para obtener una lista de las versiones de SharePoint compatibles y las versiones de MABS necesarias para realizar una copia de seguridad de estas, consulte [la matriz de protección de MABS](./backup-mabs-protection-matrix.md).
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
@@ -100,7 +100,7 @@ Para realizar una copia de seguridad de una granja de SharePoint, configure la p
 
 1. En **Especificar la directiva de retención en línea**, puede especificar cómo se retienen en Azure los puntos de recuperación creados a partir de copias de seguridad diarias, semanales, mensuales y anuales.
 
-1. En **Elegir replicación en línea**, especifique cómo se realizará la replicación inicial total de los datos. Puede replicar a través de la red o realizar una copia de seguridad sin conexión (propagación sin conexión). Las copias de seguridad sin conexión usan la característica Azure Import. [Más información](https://azure.microsoft.com/documentation/articles/backup-azure-backup-import-export/).
+1. En **Elegir replicación en línea**, especifique cómo se realizará la replicación inicial total de los datos. Puede replicar a través de la red o realizar una copia de seguridad sin conexión (propagación sin conexión). Las copias de seguridad sin conexión usan la característica Azure Import. [Más información](./backup-azure-backup-import-export.md).
 
 1. En la página **Resumen**, revise la configuración. Después de seleccionar **Crear grupo**, se produce la replicación inicial de los datos. Cuando finalice, el estado del grupo de protección se mostrará como **Correcto** en la página**Estado**. Después se realiza una copia de seguridad según la configuración del grupo de protección.
 

@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a actualizar la configuración del al
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: eadcebdaf4db3dbe6c0a62b8631ff7d76fa50fad
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 1f0fee505443b15ba2ea97710efc220ef05df738
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248233"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513122"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Actualización de la configuración del almacén de Azure Recovery Services mediante la API REST
 
@@ -25,7 +25,7 @@ Por lo tanto, debe elegir cuidadosamente si quiere deshabilitar la eliminación 
 
 ### <a name="fetch-soft-delete-state-using-rest-api"></a>Recuperación del estado de eliminación temporal mediante la API REST
 
-De forma predeterminada, el estado de eliminación temporal se habilitará para los almacenes de Recovery Services recién creados. Para recuperar o actualizar el estado de la eliminación temporal de un almacén, use el [documento de API REST](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs) relacionado con la configuración del almacén de copia de seguridad.
+De forma predeterminada, el estado de eliminación temporal se habilitará para los almacenes de Recovery Services recién creados. Para recuperar o actualizar el estado de la eliminación temporal de un almacén, use el [documento de API REST](/rest/api/backup/backupresourcevaultconfigs) relacionado con la configuración del almacén de copia de seguridad.
 
 Para recuperar el estado actual de la eliminación temporal de un almacén, use la siguiente operación *GET*.
 
@@ -45,7 +45,7 @@ A continuación se muestra la respuesta correcta para la operación "GET":
 
 |Nombre  |Tipo  |Descripción  |
 |---------|---------|---------|
-|200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | Aceptar        |
+|200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | Aceptar        |
 
 ##### <a name="example-response"></a>Respuesta de ejemplo
 
@@ -81,13 +81,13 @@ PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-0000000
 
 Para crear el cuerpo de la solicitud, se usan las siguientes definiciones comunes.
 
-Para obtener más información, consulte la [documentación sobre la API REST](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/update#request-body).
+Para obtener más información, consulte la [documentación sobre la API REST](/rest/api/backup/backupresourcevaultconfigs/update#request-body).
 
 |Nombre  |Obligatorio  |Tipo  |Descripción  |
 |---------|---------|---------|---------|
 |eTag     |         |   String      |  eTag opcional       |
 |ubicación     |  true       |String         |   Ubicación de los recursos      |
-|properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propiedades del almacén       |
+|properties     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propiedades del almacén       |
 |etiquetas     |         | Object        |     Etiquetas del recurso    |
 
 #### <a name="example-request-body"></a>Cuerpo de solicitud de ejemplo
@@ -109,7 +109,7 @@ A continuación se muestra la respuesta correcta para la operación "PATCH":
 
 |Nombre  |Tipo  |Descripción  |
 |---------|---------|---------|
-|200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | Aceptar        |
+|200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | Aceptar        |
 
 ##### <a name="example-response"></a>Respuesta de ejemplo
 

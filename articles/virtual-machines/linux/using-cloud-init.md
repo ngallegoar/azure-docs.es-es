@@ -8,19 +8,19 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/15/2020
 ms.author: danis
-ms.openlocfilehash: bebf4967d96177038aba64be59d43f49458b82be
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: e303b713adf2925af8bc012a5b858c6f5740fccf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920194"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510079"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Compatibilidad con cloud-init para máquinas virtuales en Azure
 En este artículo se explica la compatibilidad que existe para [cloud-init](https://cloudinit.readthedocs.io) para configurar una máquina virtual (VM) o conjuntos de escalado de máquinas virtuales en el momento del aprovisionamiento en Azure. Estas configuraciones de cloud-init se ejecutan durante el primer arranque una vez que Azure ha aprovisionado los recursos.  
 
 El aprovisionamiento de máquinas virtuales es el proceso en el que Azure pasará los valores de los parámetros de creación de la máquina virtual, como nombre de host, nombre de usuario, contraseña, etc., y los pone a disposición de la máquina virtual cuando se inicia. Un "agente de aprovisionamiento" consumirá esos valores, configurará la máquina virtual y devolverá una notificación cuando se complete. 
 
-Azure admite dos agentes de aprovisionamiento [cloud-init](https://cloudinit.readthedocs.io) y el [agente de Linux de Azure (WALA)](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux).
+Azure admite dos agentes de aprovisionamiento [cloud-init](https://cloudinit.readthedocs.io) y el [agente de Linux de Azure (WALA)](../extensions/agent-linux.md).
 
 ## <a name="cloud-init-overview"></a>Introducción a cloud-init
 [cloud-init](https://cloudinit.readthedocs.io) es un enfoque ampliamente usado para personalizar una máquina virtual Linux la primera vez que se arranca. Puede usar cloud-init para instalar paquetes y escribir archivos o para configurar los usuarios y la seguridad. Dado que se llama a cloud-init durante el proceso de arranque inicial, no se necesitan pasos adicionales ni agentes para aplicar la configuración.  Para más información sobre cómo dar formato correctamente a los archivos `#cloud-config` u otras entradas, consulte el [sitio de documentación de cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  Los archivos `#cloud-config` son archivos de texto codificados en base64.
@@ -106,7 +106,7 @@ Estas imágenes de SLES se han actualizado para aprovisionar mediante cloud-init
 Actualmente, Azure Stack admitirá el aprovisionamiento de imágenes habilitadas para cloud-init.
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>¿Cuál es la diferencia entre cloud-init y el agente de Linux (WALA)?
-WALA es un agente específico de la plataforma de Azure que se usa para aprovisionar y configurar máquinas virtuales y controlar las [extensiones de Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/features-linux). 
+WALA es un agente específico de la plataforma de Azure que se usa para aprovisionar y configurar máquinas virtuales y controlar las [extensiones de Azure](../extensions/features-linux.md). 
 
 Estamos mejorando la tarea de configuración de las máquinas virtuales para usar cloud-init en lugar del agente de Linux con objeto de permitir que los clientes existentes de cloud-init usen sus scripts actuales de cloud-init o que los nuevos clientes se aprovechen de la rica funcionalidad de configuración de cloud-init. Si tiene inversiones existentes en scripts de cloud-init para configurar sistemas Linux, **no se necesitan configuraciones adicionales** para permitir que cloud-init las procese. 
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: akjosh
-ms.openlocfilehash: a30a6b3daaf1f334c7e61f93aaab6fc717e18063
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8390f3273c7c8b5ca3b97d5da5184ab784b15c4b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676546"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511048"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extensión del controlador de GPU de NVIDIA para Windows
 
@@ -26,7 +26,7 @@ ms.locfileid: "84676546"
 
 Esta extensión instala los controladores de GPU de NVIDIA en VM de la serie N de Windows. En función de la familia de VM, la extensión instala los controladores CUDA o GRID. Al instalar controladores de NVIDIA mediante esta extensión, acepta y está de acuerdo con los términos del [contrato de licencia de usuario final de NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Durante el proceso de instalación, es posible que la máquina virtual se reinicie para completar la instalación del controlador.
 
-Puede consultar [aquí](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup) instrucciones sobre la instalación manual de los controladores y las versiones que son compatibles actualmente.
+Puede consultar [aquí](../windows/n-series-driver-setup.md) instrucciones sobre la instalación manual de los controladores y las versiones que son compatibles actualmente.
 También hay disponible una extensión para instalar controladores de GPU de NVIDIA en [VM de la serie N para Linux](hpccompute-gpu-linux.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -85,7 +85,7 @@ En el siguiente JSON, se muestra el esquema para la extensión.
 
 Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Resource Manager. Las plantillas resultan ideales al implementar una o varias máquinas virtuales que requieren configurarse tras la implementación.
 
-La configuración JSON de una extensión de máquina virtual puede estar anidada en el recurso de máquina virtual o colocada en la raíz o nivel superior de una plantilla JSON de Resource Manager. La colocación de la configuración JSON afecta al valor del nombre y tipo del recurso. Para obtener más información, consulte el artículo sobre cómo [establecer el nombre y el tipo de recursos secundarios](../../azure-resource-manager/resource-manager-template-child-resource.md). 
+La configuración JSON de una extensión de máquina virtual puede estar anidada en el recurso de máquina virtual o colocada en la raíz o nivel superior de una plantilla JSON de Resource Manager. La colocación de la configuración JSON afecta al valor del nombre y tipo del recurso. Para obtener más información, consulte el artículo sobre cómo [establecer el nombre y el tipo de recursos secundarios](../../azure-resource-manager/templates/child-resource-name-type.md). 
 
 En el siguiente ejemplo se da por supuesto que la extensión está anidada dentro del recurso de máquina virtual. Cuando se anidan los recursos de extensión, la plantilla JSON se coloca en el objeto `"resources": []` de la máquina virtual.
 
@@ -176,4 +176,4 @@ Si necesita más ayuda con cualquier aspecto de este artículo, puede ponerse en
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre las extensiones, consulte el artículo [Características y extensiones de las máquinas virtuales para Windows](features-windows.md).
 
-Para obtener más información acerca de las VM de serie N, consulte el artículo [Tamaños de máquinas virtuales optimizadas para GPU](../windows/sizes-gpu.md).
+Para obtener más información acerca de las VM de serie N, consulte el artículo [Tamaños de máquinas virtuales optimizadas para GPU](../sizes-gpu.md).

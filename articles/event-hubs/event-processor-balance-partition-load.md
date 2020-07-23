@@ -3,12 +3,12 @@ title: 'Equilibrio de carga de particiones entre varias instancias: Azure Event
 description: Describe cómo equilibrar la carga de las particiones entre varias instancias de una aplicación mediante un procesador de eventos y el SDK de Azure Event Hubs.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: d5db1e877c1bfa6fac177e1ff8ed137e0301b709
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff68408be15d8160ea7ecd878a05441d82700f99
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314990"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512323"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Equilibrio de carga de particiones entre varias instancias de una aplicación
 Para escalar la aplicación de procesamiento de eventos, puede ejecutar varias instancias de la aplicación y equilibrar la carga entre ellas. En las versiones anteriores, [EventProcessorHost](event-hubs-event-processor-host.md) permitía equilibrar la carga entre varias instancias del programa y eventos de punto de comprobación en la recepción. En las versiones más recientes (5.0 y posteriores), **EventProcessorClient** (.NET y Java) o **EventHubConsumerClient** (Python y JavaScript) le permiten hacer lo mismo. El modelo de desarrollo se simplifica mediante el uso de eventos. Para suscribirse a los eventos que le interesen, registre un controlador de eventos.
@@ -16,7 +16,7 @@ Para escalar la aplicación de procesamiento de eventos, puede ejecutar varias i
 En este artículo se describe un escenario de ejemplo para el uso de varias instancias para leer eventos desde un centro de eventos y, a continuación, se proporcionan detalles sobre las características del cliente del procesador de eventos, que permite recibir eventos de varias particiones a la vez y equilibrar la carga con otros consumidores que usan el mismo centro de eventos y el mismo grupo de consumidores.
 
 > [!NOTE]
-> La clave del escalado de Event Hubs es el concepto de consumidores con particiones. En contraposición al patrón de [consumidores de la competencia](https://msdn.microsoft.com/library/dn568101.aspx), el patrón de consumidores con particiones permite una alta escalabilidad mediante la eliminación de cuellos de botella de contención y la facilitación del paralelismo de principio a fin.
+> La clave del escalado de Event Hubs es el concepto de consumidores con particiones. En contraposición al patrón de [consumidores de la competencia](/previous-versions/msp-n-p/dn568101(v=pandp.10)), el patrón de consumidores con particiones permite una alta escalabilidad mediante la eliminación de cuellos de botella de contención y la facilitación del paralelismo de principio a fin.
 
 ## <a name="example-scenario"></a>Escenario de ejemplo
 
@@ -75,7 +75,7 @@ Si un procesador de eventos se desconecta de una partición, otra instancia pued
 Cuando se realiza el punto de control para marcar un evento como procesado, se agrega o se actualiza una entrada en el almacén de puntos de control con el desplazamiento del evento y el número de secuencia. Los usuarios deben decidir la frecuencia de actualización del punto de control. La actualización después de cada evento procesado correctamente puede tener implicaciones en el rendimiento y el costo cuando desencadena una operación de escritura en el almacén de puntos de control subyacente. Además, el punto de control de cada evento único es indicativo de un patrón de mensajería en cola para el que una cola de Service Bus podría ser una opción mejor que un centro de eventos. La ventaja de Event Hubs es que obtiene al menos una entrega a gran escala. Al hacer los sistemas de nivel final idempotentes, es fácil recuperarse de errores o reinicios que hacen que los eventos se reciban múltiples veces.
 
 > [!NOTE]
-> Si usa Azure Blob Storage como el almacén de puntos de comprobación en un entorno que admite una versión diferente del SDK de blobs de almacenamiento que las que normalmente están disponibles en Azure, tendrá que utilizar código para cambiar la versión de la API del servicio Storage a la versión que admita ese entorno. Por ejemplo, si ejecuta [Event Hubs en una instancia de Azure Stack Hub versión 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), la versión más alta disponible para el servicio Storage es 2017-11-09. En este caso, tendrá que usar código para establecer como destino la versión de la API del servicio Storage en 2017-11-09. Para obtener un ejemplo de cómo establecer como destino una versión específica de la API de Storage, vea estos ejemplos en GitHub: 
+> Si usa Azure Blob Storage como el almacén de puntos de comprobación en un entorno que admite una versión diferente del SDK de blobs de almacenamiento que las que normalmente están disponibles en Azure, tendrá que utilizar código para cambiar la versión de la API del servicio Storage a la versión que admita ese entorno. Por ejemplo, si ejecuta [Event Hubs en una instancia de Azure Stack Hub versión 2002](/azure-stack/user/event-hubs-overview), la versión más alta disponible para el servicio Storage es 2017-11-09. En este caso, tendrá que usar código para establecer como destino la versión de la API del servicio Storage en 2017-11-09. Para obtener un ejemplo de cómo establecer como destino una versión específica de la API de Storage, vea estos ejemplos en GitHub: 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs) 
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
 > - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) o [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)

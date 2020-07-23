@@ -3,16 +3,16 @@ title: Restauración de máquinas virtuales de VMware con Azure Backup Server
 description: Use Azure Backup Server (MABS) para restaurar máquinas virtuales de VMware que se ejecutan en un servidor de VMWare vCenter y ESXi.
 ms.topic: conceptual
 ms.date: 08/18/2019
-ms.openlocfilehash: ab2fb4f8f79fa5a664f5cb0ba1bb537c1df658c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d11b9259a44c32891f5fefa6f175681838927586
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77212346"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524529"
 ---
 # <a name="restore-vmware-virtual-machines"></a>Restauración de máquinas virtuales de VMware
 
-En este artículo se explica cómo usar Microsoft Azure Backup Server (MABS) para restaurar puntos de recuperación de máquinas virtuales de VMware. Para obtener información general sobre el uso de MABS para recuperar datos, vea [Recuperación de datos protegidos](https://docs.microsoft.com/azure/backup/backup-azure-alternate-dpm-server). En la Consola de administrador de MABS se pueden hallar datos recuperables de dos formas: buscando o examinando. Al recuperar datos, puede que quiera (o no) restaurar los datos o una máquina virtual en la misma ubicación. Por este motivo, MABS admite tres opciones de recuperación en las copias de seguridad de máquinas virtuales de VMware:
+En este artículo se explica cómo usar Microsoft Azure Backup Server (MABS) para restaurar puntos de recuperación de máquinas virtuales de VMware. Para obtener información general sobre el uso de MABS para recuperar datos, vea [Recuperación de datos protegidos](./backup-azure-alternate-dpm-server.md). En la Consola de administrador de MABS se pueden hallar datos recuperables de dos formas: buscando o examinando. Al recuperar datos, puede que quiera (o no) restaurar los datos o una máquina virtual en la misma ubicación. Por este motivo, MABS admite tres opciones de recuperación en las copias de seguridad de máquinas virtuales de VMware:
 
 * **Recuperación de ubicación original (OLR)** : use OLR para restaurar una máquina virtual protegida en la ubicación original correspondiente. Una máquina virtual se puede restaurar en su ubicación original únicamente si no se han agregado o eliminado discos desde que se hizo la copia de seguridad. Si se han agregado o eliminado discos, deberá usar otra forma de recuperación de ubicación.
 

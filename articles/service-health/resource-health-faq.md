@@ -3,12 +3,12 @@ title: P+F sobre Azure Resource Health
 description: Introducción a Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 7459a29dca01dc186d75b4545f89068569975607
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 345724a28441e5a6b20863da8d2fd47be0a8d6f9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985038"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518952"
 ---
 # <a name="azure-resource-health-faq"></a>P+F sobre Azure Resource Health
 Aprenda las respuestas a las preguntas más frecuentes sobre Azure Resource Health.
@@ -46,7 +46,7 @@ Sí, cuando un recurso no está disponible, Resource Health incluye la causa pri
 En el portal, las acciones iniciadas por el usuario aparecen con un icono de notificación azul, mientras que los eventos planeados y no planeados se muestran con un icono de advertencia de color rojo. Se proporcionan más detalles en [Información general sobre Resource Health](Resource-health-overview.md).  
 
 ## <a name="can-i-integrate-resource-health-with-my-monitoring-tools"></a>¿Puedo integrar Resource Health con mis herramientas de supervisión?
-Resource Health tiene [compatibilidad con versión preliminar](resource-health-alert-arm-template-guide.md) para las alertas basadas en el registro de actividad. Las alertas del registro de actividad usan [grupos de acciones](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) para notificar a los usuarios que se ha desencadenado una alerta. Los grupos de acciones son compatibles con una variedad de canales de notificación, como correo electrónico, SMS, webhook y acciones de ITSM.
+Resource Health tiene [compatibilidad con versión preliminar](resource-health-alert-arm-template-guide.md) para las alertas basadas en el registro de actividad. Las alertas del registro de actividad usan [grupos de acciones](../azure-monitor/platform/action-groups.md) para notificar a los usuarios que se ha desencadenado una alerta. Los grupos de acciones son compatibles con una variedad de canales de notificación, como correo electrónico, SMS, webhook y acciones de ITSM.
 
 ## <a name="where-do-i-find-resource-health"></a>¿Dónde se encuentra Resource Health?
 Después de iniciar sesión en Azure Portal, puede acceder a Resource Health de varias maneras:

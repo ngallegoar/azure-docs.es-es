@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: genli
-ms.openlocfilehash: 1ab2861f73d66987230c9e3398227c8e80665e96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c56ee4b9e541aa4b374acbb59cf64da34046a06c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84769615"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509076"
 ---
 # <a name="troubleshoot-azure-virtual-machines-boot-errors"></a>Solución de errores de arranque en máquinas virtuales de Azure
 
@@ -36,5 +36,5 @@ En este artículo se enumeran los errores de arranque que puede recibir cuando i
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Diagnósticos de arranque](boot-diagnostics.md)
-- [Consola serie de máquinas virtuales](../windows/serial-console.md)
-- [Solución de problemas de una máquina virtual de Windows mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación](../windows/troubleshoot-recovery-disks.md)
+- [Consola serie de máquinas virtuales](./serial-console-windows.md)
+- [Solución de problemas de una máquina virtual de Windows mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación](./troubleshoot-recovery-disks-windows.md)

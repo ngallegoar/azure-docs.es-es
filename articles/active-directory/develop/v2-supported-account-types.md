@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: d19381094e027bd567ffc503d32f9212ef56a948
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 50a0859b58e2db0d3f644db01cfcde8c533b6871
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583106"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518137"
 ---
 # <a name="supported-account-types"></a>Tipos de cuenta admitidos
 
@@ -45,7 +45,6 @@ No es posible usar algunos tipos de cuenta con determinados flujos de autenticac
 - Las aplicaciones de demonio solo se pueden usar con organizaciones de Azure AD. No tiene sentido intentar usar aplicaciones de demonio para manipular cuentas personales de Microsoft. Nunca se concederá el consentimiento del administrador.
 - Solo puede usar el flujo de Autenticación integrada de Windows con cuentas profesionales o educativas (en su organización o en cualquier otra). La Autenticación integrada de Windows funciona con cuentas de dominio y requiere que las máquinas estén unidas a un dominio o a Azure AD. Este flujo no tiene sentido para cuentas personales de Microsoft.
 - La [concesión de credenciales de contraseña de propietario del recurso](./v2-oauth-ropc.md) (nombre de usuario/contraseña) no puede utilizarse con cuentas personales de Microsoft. Las cuentas personales de Microsoft requieren que el usuario consienta para obtener acceso a los recursos personales en cada inicio de sesión. Por este motivo, este comportamiento no es compatible con los flujos no interactivos.
-- El flujo de código de dispositivo no funciona con cuentas personales de Microsoft.
 
 ## <a name="account-types-in-national-clouds"></a>Tipos de cuenta en nubes nacionales
 

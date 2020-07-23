@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
-ms.openlocfilehash: dae6b40e7ec8a2bb6f635a6ffca4886ed09c1364
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: a76ed65ebc1c56232d4fa42c6df20f619fe14ca3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229540"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517066"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Solución de problemas de errores de carga del SDK para aplicaciones web de JavaScript
 
@@ -63,7 +63,7 @@ Lo mismo se aplica también cuando se usa el SDK mediante la solución de paquet
 
 También puede intentar usar [paquetes npm](#use-npm-packages-to-embed-the-application-insight-sdk) para insertar el SDK de Application Insights.
 
-Para minimizar los errores intermitentes de conectividad de red, hemos implementado encabezados de control de la memoria caché en todos los archivos de la red CDN, de modo que, una vez que el explorador del usuario final haya descargado la versión actual del SDK, no tendrá que volver a descargarlo y el explorador volverá a usar la copia obtenida anteriormente (consulte [cómo funciona el almacenamiento en caché](https://docs.microsoft.com/azure/cdn/cdn-how-caching-works)). Si se produce un error en la comprobación del almacenamiento en caché o si se ha publicado una nueva versión, el explorador del usuario final tendrá que descargar la versión actualizada. Por lo tanto, es posible que observe un nivel de _"ruido"_ de fondo en el escenario de comprobación de errores o un pico temporal cuando se publica una nueva versión y está disponible con carácter general (se implementa en la red CDN).
+Para minimizar los errores intermitentes de conectividad de red, hemos implementado encabezados de control de la memoria caché en todos los archivos de la red CDN, de modo que, una vez que el explorador del usuario final haya descargado la versión actual del SDK, no tendrá que volver a descargarlo y el explorador volverá a usar la copia obtenida anteriormente (consulte [cómo funciona el almacenamiento en caché](../../cdn/cdn-how-caching-works.md)). Si se produce un error en la comprobación del almacenamiento en caché o si se ha publicado una nueva versión, el explorador del usuario final tendrá que descargar la versión actualizada. Por lo tanto, es posible que observe un nivel de _"ruido"_ de fondo en el escenario de comprobación de errores o un pico temporal cuando se publica una nueva versión y está disponible con carácter general (se implementa en la red CDN).
  
 ## <a name="application-insights-cdn-outage"></a>Interrupción en la red CDN de Application Insights
 

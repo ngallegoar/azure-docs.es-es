@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/09/2020
-ms.openlocfilehash: 58724656dd407f09687b57d0ab034f3a1f808b76
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: b4882ec9eb8b81ae27a1e8eed2e5b4349fbeac3f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196287"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516199"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Estructura de registros de Azure Monitor
 La capacidad de obtener rápidamente información sobre sus datos mediante una [consulta de registro](log-query-overview.md) es una versátil característica de Azure Monitor. Para crear consultas eficaces y útiles, debe comprender algunos conceptos básicos, como dónde se encuentran los datos que desea y cómo se estructuran. En este artículo se proporcionan los conceptos básicos que necesita para empezar a trabajar.
@@ -29,7 +29,7 @@ En la siguiente imagen se muestran ejemplos de orígenes de datos que escriben e
 ![Tablas](media/logs-structure/queries-tables.png)
 
 ## <a name="log-analytics-workspace"></a>Área de trabajo de Log Analytics
-Todos los datos que los registros de Azure Monitor recopilan, excepto Application Insights, se almacenan en un [área de trabajo de Log Analytics](../platform/manage-access.md). Puede crear una o varias áreas de trabajo según sus requisitos particulares. Los [orígenes de datos](../platform/data-sources.md), como los registros de actividad y los registros de recursos de los recursos de Azure, los agentes de máquinas virtuales y los datos de información y soluciones de supervisión escribirán datos en una o varias áreas de trabajo que se configuran como parte de su incorporación. Otros servicios, como [Azure Security Center](/azure/security-center/) y [Azure Sentinel](/azure/sentinel/), también usan un área de trabajo de Log Analytics para almacenar sus datos, por lo que se pueden analizar mediante consultas de registro junto con datos de supervisión de otros orígenes.
+Todos los datos que los registros de Azure Monitor recopilan, excepto Application Insights, se almacenan en un [área de trabajo de Log Analytics](../platform/manage-access.md). Puede crear una o varias áreas de trabajo según sus requisitos particulares. Los [orígenes de datos](../platform/data-sources.md), como los registros de actividad y los registros de recursos de los recursos de Azure, los agentes de máquinas virtuales y los datos de información y soluciones de supervisión escribirán datos en una o varias áreas de trabajo que se configuran como parte de su incorporación. Otros servicios, como [Azure Security Center](../../security-center/index.yml) y [Azure Sentinel](../../sentinel/index.yml), también usan un área de trabajo de Log Analytics para almacenar sus datos, por lo que se pueden analizar mediante consultas de registro junto con datos de supervisión de otros orígenes.
 
 Los distintos tipos de datos se almacenan en tablas diferentes en el área de trabajo y cada tabla tiene un único conjunto de propiedades. Un conjunto estándar de tablas se agrega a un área de trabajo cuando se crea y se agregan nuevas tablas para diferentes orígenes de datos, soluciones y servicios a medida que se incorporan. También puede crear tablas personalizadas mediante [Data Collector API](../platform/data-collector-api.md).
 
@@ -45,7 +45,7 @@ union withsource = table *
 | summarize count() by table
 | sort by table asc
 ```
-Consulte la documentación de cada origen de datos para conocer los detalles de las tablas que crean. Algunos ejemplos son artículos para los [orígenes de datos del agente](../platform/agent-data-sources.md), [los registros de recursos](../platform/diagnostic-logs-schema.md) y las [soluciones de supervisión](../insights/solutions-inventory.md).
+Consulte la documentación de cada origen de datos para conocer los detalles de las tablas que crean. Algunos ejemplos son artículos para los [orígenes de datos del agente](../platform/agent-data-sources.md), [los registros de recursos](../platform/resource-logs-schema.md) y las [soluciones de supervisión](../monitor-reference.md).
 
 ### <a name="workspace-permissions"></a>Permisos de área de trabajo
 Consulte [Diseño de la implementación de registros de Azure Monitor](../platform/design-logs-deployment.md) para comprender la estrategia de control de acceso y las recomendaciones para proporcionar acceso a los datos de un área de trabajo. Además de conceder acceso a la propia área de trabajo, puede limitar el acceso a tablas individuales mediante [RBAC de nivel de tabla](../platform/manage-access.md#table-level-rbac).
@@ -88,5 +88,5 @@ Aunque cada tabla de los registros de Azure Monitor tiene su propio esquema, hay
 | _BilledSize   |            | Especifica el tamaño en bytes de los datos que se facturarán. |
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Aprenda a usar [Log Analytics para crear y editar búsquedas de registros](../log-query/portals.md).
+- Aprenda a usar [Log Analytics para crear y editar búsquedas de registros](./log-query-overview.md).
 - Consulte un [tutorial sobre cómo escribir consultas](../log-query/get-started-queries.md) mediante el nuevo lenguaje de consulta.

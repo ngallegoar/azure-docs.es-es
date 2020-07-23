@@ -6,12 +6,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 03/13/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: f73e5bbdd8585b3367e529a8fa00630042e56cac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41298be1b0288f429647d8b38a1cc75dd2c40b0a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671790"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516760"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>Cambio de las notificaciones por correo electrónico de detección inteligente
 
@@ -19,7 +19,7 @@ Según los comentarios de los clientes, el 1 de abril de 2019 vamos a cambiar lo
 
 ## <a name="what-is-changing"></a>¿Qué está cambiando?
 
-Actualmente, las notificaciones por correo electrónico de detección inteligente se envían de forma predeterminada a los roles de _propietario de la suscripción_, _colaborador de la suscripción_ y _lector de la suscripción_. Estos roles suelen incluir usuarios que no participan activamente en la supervisión, lo que hace que muchos de estos usuarios reciban notificaciones innecesariamente. Para mejorar esta experiencia, estamos haciendo un cambio para que las notificaciones por correo electrónico solo vayan, de manera predeterminada, a los roles de [lector de supervisión ](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) y [colaborador de supervisión](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor).
+Actualmente, las notificaciones por correo electrónico de detección inteligente se envían de forma predeterminada a los roles de _propietario de la suscripción_, _colaborador de la suscripción_ y _lector de la suscripción_. Estos roles suelen incluir usuarios que no participan activamente en la supervisión, lo que hace que muchos de estos usuarios reciban notificaciones innecesariamente. Para mejorar esta experiencia, estamos haciendo un cambio para que las notificaciones por correo electrónico solo vayan, de manera predeterminada, a los roles de [lector de supervisión ](../../role-based-access-control/built-in-roles.md#monitoring-reader) y [colaborador de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-contributor).
 
 ## <a name="scope-of-this-change"></a>Ámbito de este cambio
 
@@ -27,13 +27,13 @@ Este cambio afectará a todas las reglas de detección inteligente, excepto los 
 
 * Las reglas de detección inteligente marcadas como versión preliminar. Estas reglas de detección inteligente no admiten notificaciones por correo electrónico en este momento.
 
-* Reglas de anomalías de error. Esta regla comenzará a dirigir a los nuevos roles predeterminados una vez que se migre de una alerta clásica a la plataforma de alertas unificada (hay más información disponible [aquí](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement)).
+* Reglas de anomalías de error. Esta regla comenzará a dirigir a los nuevos roles predeterminados una vez que se migre de una alerta clásica a la plataforma de alertas unificada (hay más información disponible [aquí](../platform/monitoring-classic-retirement.md)).
 
 ## <a name="how-to-prepare-for-this-change"></a>¿Cómo prepararse para este cambio?
 
-Para garantizar que las notificaciones por correo electrónico de detección inteligente se envíen a los usuarios pertinentes, estos usuarios deben tener asignados los roles de [lector de supervisión](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) y [colaborador de supervisión](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) de la suscripción.
+Para garantizar que las notificaciones por correo electrónico de detección inteligente se envíen a los usuarios pertinentes, estos usuarios deben tener asignados los roles de [lector de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-reader) y [colaborador de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-contributor) de la suscripción.
 
-Para asignar usuarios a los roles de lector de supervisión o de colaborador de supervisión mediante Azure Portal, siga los pasos descritos en el artículo [Adición de una asignación de roles](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment). Asegúrese de seleccionar _lector de supervisión_ o _colaborador de supervisión_ como el rol al que se asignan los usuarios.
+Para asignar usuarios a los roles de lector de supervisión o de colaborador de supervisión mediante Azure Portal, siga los pasos descritos en el artículo [Adición de una asignación de roles](../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). Asegúrese de seleccionar _lector de supervisión_ o _colaborador de supervisión_ como el rol al que se asignan los usuarios.
 
 > [!NOTE]
 > Los destinatarios específicos de las notificaciones de detección inteligente, configurados mediante la opción _Destinatarios de correo electrónico adicionales_ en la configuración de la regla, no se verán afectados por este cambio. Estos destinatarios seguirá recibiendo las notificaciones por correo electrónico.

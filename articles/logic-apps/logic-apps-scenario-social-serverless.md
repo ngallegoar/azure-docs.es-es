@@ -8,12 +8,12 @@ ms.author: jehollan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: e300bf9c9aa0acf0bed6426eb73f690f9a38bd74
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2fae7d2526e6c95efe83ca8fa742a6d92457b897
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75980421"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520756"
 ---
 # <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Creación de un panel de streaming de Customer Insights con Azure Logic Apps y Azure Functions
 
@@ -22,7 +22,7 @@ Azure ofrece herramientas [sin servidor](https://azure.microsoft.com/solutions/s
 Para esta solución, use estos componentes principales de Azure para las aplicaciones sin servidor: [Azure Functions](https://azure.microsoft.com/services/functions/) y [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/).
 Azure Logic Apps ofrece un motor de flujo de trabajo sin servidor en la nube para poder crear orquestaciones de todos los componentes sin servidor y conectarse a más de doscientos servicios y API. Azure Functions proporciona informática sin servidor en la nube. Esta solución usa Azure Functions para marcar tweets de clientes en función de palabras clave predefinidas.
 
-En este escenario, creará una aplicación lógica que permite encontrar comentarios de los clientes. Algunos de los conectores que pueden ayudar a responder a los comentarios de los clientes son: Outlook.com, Office 365, Survey Monkey, Twitter y [una solicitud HTTP desde un formulario web](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/). El flujo de trabajo creado supervisa un hashtag en Twitter.
+En este escenario, creará una aplicación lógica que permite encontrar comentarios de los clientes. Algunos de los conectores que pueden ayudar a responder a los comentarios de los clientes son: Outlook.com, Office 365, Survey Monkey, Twitter y [una solicitud HTTP desde un formulario web](/archive/blogs/logicapps/calling-a-logic-app-from-an-html-form). El flujo de trabajo creado supervisa un hashtag en Twitter.
 
 Puede [compilar la solución completa en Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) e [implementarla con la plantilla de Azure Resource Manager](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md). Para ver un tutorial en el que se explique cómo crear esta solución, [vea este vídeo de Channel 9](https://aka.ms/logicappsdemo). 
 
@@ -67,7 +67,7 @@ También puede crear una función de Azure para poder realizar procesamientos pe
 
 ## <a name="process-data-with-azure-functions"></a>Procesamiento de datos con Azure Functions
 
-Antes de crear una función, cree una aplicación de función en la suscripción de Azure. Además, para que la aplicación lógica llame directamente a una función, esta última debe tener un enlace de desencadenador HTTP; por ejemplo, use la plantilla **HttpTrigger**. Obtenga información sobre [cómo crear su primera aplicación de función y función en Azure Portal](../azure-functions/functions-create-first-azure-function-azure-portal.md).
+Antes de crear una función, cree una aplicación de función en la suscripción de Azure. Además, para que la aplicación lógica llame directamente a una función, esta última debe tener un enlace de desencadenador HTTP; por ejemplo, use la plantilla **HttpTrigger**. Obtenga información sobre [cómo crear su primera aplicación de función y función en Azure Portal](../azure-functions/functions-create-first-azure-function.md).
 
 En este escenario, use el texto del tweet como el cuerpo de la solicitud de la función de Azure. En el código de la función, defina la lógica que determina si el texto del tweet contiene una palabra clave o frase. Mantenga la función tan sencilla o compleja como sea necesario para el escenario.
 Al final de la función, devuelva una respuesta a la aplicación lógica con algunos datos; por ejemplo, un valor booleano sencillo, como `containsKeyword` o un objeto complejo.

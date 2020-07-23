@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: bde0db179216426c4279e5b03b416a04176430bb
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 48c05bf7b4cbecb09ef3bb113832974bee4bc6b2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056793"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518782"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Rutas en la versión preliminar de Azure Static Web Apps
 
@@ -295,7 +295,7 @@ En los siguientes ejemplos se describe lo que ocurre cuando una solicitud coinci
 | _/unknown-folder_ | Se proporciona el archivo _/custom-404.html_. |
 | Archivos con la extensión `.custom` | Se sirven con el tipo MIME `text/html`. |
 
-- Todas las respuestas incluyen los encabezados `content-security-policy` con un valor de `default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'`.
+Todas las respuestas incluyen los encabezados `content-security-policy` con un valor de `default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'`.
 
 <sup>1</sup> Las reglas de enrutamiento para las funciones de API solo admiten [redirecciones](#redirects) y la [protección de rutas con roles](#securing-routes-with-roles).
 

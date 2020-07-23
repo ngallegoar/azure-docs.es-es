@@ -3,12 +3,12 @@ title: Preparación del servidor DPM para realizar copias de seguridad de las ca
 description: En este artículo, aprenderá a preparar las copias de seguridad de System Center Data Protection Manager (DPM) en Azure con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 7c2b811685ec9ea5f8fe752a5a1c73611a624b62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9891be5eded94c64a6cc256b99510a9c0c673daf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84718332"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514176"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparación para realizar copias de seguridad de las cargas de trabajo en Azure con System Center DPM
 
@@ -24,7 +24,7 @@ El artículo ofrece:
 
 ## <a name="why-back-up-dpm-to-azure"></a>¿Por qué realizar copias de seguridad de DPM en Azure?
 
-Datos de aplicación y archivo de copia de seguridad de [System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview). DPM interactúa con Azure Backup de la manera siguiente:
+Datos de aplicación y archivo de copia de seguridad de [System Center DPM](/system-center/dpm/dpm-overview). DPM interactúa con Azure Backup de la manera siguiente:
 
 - **Si DPM se ejecuta en un servidor físico o en una máquina virtual local**: puede realizar una copia de seguridad de los datos en un almacén de Backup en Azure, además de una copia de seguridad en disco y en cinta.
 - **Si DPM se ejecuta en una máquina virtual de Azure**: desde System Center 2012 R2 con Update 3 o posterior, puede implementar DPM en una máquina virtual de Azure. Puede realizar una copia de seguridad de los datos en discos de Azure conectados a la máquina virtual, o bien usar Azure Backup para realizar una copia de seguridad de los datos en un almacén de Backup.
@@ -43,12 +43,12 @@ DPM en un servidor físico | System Center 2012 SP1 o posterior; System Center 2
 DPM en una máquina virtual Hyper-V | System Center 2012 SP1 o posterior; System Center 2012 R2.
 DPM en una máquina virtual de VMware | System Center 2012 R2 con el paquete acumulativo de actualizaciones 5 o posterior.
 Componentes | El servidor DPM debe tener instalado Windows PowerShell y .NET Framework 4.5.
-Aplicaciones admitidas | [Obtenga información](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) sobre los elementos de los que DPM puede realizar una copia de seguridad.
+Aplicaciones admitidas | [Obtenga información](/system-center/dpm/dpm-protection-matrix) sobre los elementos de los que DPM puede realizar una copia de seguridad.
 Tipos de archivo admitidos | La copia de seguridad de estos tipos de archivos se puede realizar con Azure Backup: cifrada (solo copias de seguridad completas); comprimida (copias de seguridad incrementales admitidas); dispersa (copias de seguridad incrementales admitidas); comprimida y dispersa (tratada como dispersa).
 Tipo de archivo no admitidos | Servidores en sistemas de archivos que distinguen mayúsculas y minúsculas; vínculos físicos (omitidos); puntos de reanálisis (omitidos); cifrados y comprimidos (omitidos); cifrados y dispersos (omitidos); flujo comprimido; secuencia de análisis.
 Almacenamiento local | Cada máquina de la que quiera realizar una copia de seguridad debe tener espacio de almacenamiento local de al menos el 5 % del tamaño de los datos de los que se va a realizar la copia de seguridad. Por ejemplo, realizar una copia de seguridad de 100 GB de datos requiere un mínimo de 5 GB de espacio libre en la ubicación temporal.
 Almacenamiento de almacén | No hay ningún límite en la cantidad de datos de los que puede realizar una copia de seguridad en el almacén de Azure Backup; sin embargo, el tamaño de un origen de datos (por ejemplo, una máquina virtual o una base de datos) no debe superar los 54 400 GB.
-Azure ExpressRoute | Puede realizar una copia de seguridad de los datos mediante Azure ExpressRoute con emparejamiento público (disponible para circuitos antiguos) y emparejamiento de Microsoft. La copia de seguridad por emparejamiento privado no se admite.<br/><br/> **Con el emparejamiento público**: asegúrese de tener acceso a los siguientes dominios y direcciones:<br/><br/>- `http://www.msftncsi.com/ncsi.txt` <br/><br/>- `microsoft.com` <br/><br/>-`.WindowsAzure.com`<br/><br/>-`.microsoftonline.com`<br/><br/>-`.windows.net`<br/><br/> **Con el emparejamiento de Microsoft**, seleccione los siguientes servicios o regiones y los valores de comunidad correspondientes:<br/><br/>- Azure Active Directory (12076:5060)<br/><br/>- Región de Microsoft Azure (según la ubicación del almacén de Recovery Services)<br/><br/>- Azure Storage (según la ubicación del almacén de Recovery Services)<br/><br/>Para más información, consulte los [requisitos de enrutamiento de ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).<br/><br/>**Nota**: El emparejamiento público está en desuso para circuitos nuevos.
+Azure ExpressRoute | Puede realizar una copia de seguridad de los datos mediante Azure ExpressRoute con emparejamiento público (disponible para circuitos antiguos) y emparejamiento de Microsoft. La copia de seguridad por emparejamiento privado no se admite.<br/><br/> **Con el emparejamiento público**: asegúrese de tener acceso a los siguientes dominios y direcciones:<br/><br/>- `http://www.msftncsi.com/ncsi.txt` <br/><br/>- `microsoft.com` <br/><br/>-`.WindowsAzure.com`<br/><br/>-`.microsoftonline.com`<br/><br/>-`.windows.net`<br/><br/> **Con el emparejamiento de Microsoft**, seleccione los siguientes servicios o regiones y los valores de comunidad correspondientes:<br/><br/>- Azure Active Directory (12076:5060)<br/><br/>- Región de Microsoft Azure (según la ubicación del almacén de Recovery Services)<br/><br/>- Azure Storage (según la ubicación del almacén de Recovery Services)<br/><br/>Para más información, consulte los [requisitos de enrutamiento de ExpressRoute](../expressroute/expressroute-routing.md).<br/><br/>**Nota**: El emparejamiento público está en desuso para circuitos nuevos.
 Agente de Azure Backup | Si DPM se ejecuta en System Center 2012 SP1, instale el paquete acumulativo de actualizaciones 2 o posterior para DPM SP1. Esto es necesario para la instalación del agente.<br/><br/> En este artículo se describe cómo implementar la última versión del agente de Azure Backup, también conocido como el agente de Microsoft Azure Recovery Service (MARS). Si tiene una versión anterior implementada, actualice a la última versión para asegurarse de que la copia de seguridad funciona según lo previsto.
 
 Antes de empezar, necesitará una cuenta de Azure con la característica Azure Backup habilitada. En caso de no tener cuenta, puede crear una de evaluación gratuita en tan solo unos minutos. Lea acerca de los [Precios de Backup](https://azure.microsoft.com/pricing/details/backup/).
@@ -61,7 +61,7 @@ Puede elegir entre almacenamiento con redundancia geográfica y almacenamiento c
 
 - De forma predeterminada, el almacén tiene almacenamiento con redundancia geográfica.
 - Si el almacén es su copia de seguridad principal, deje la opción establecida como almacenamiento con redundancia geográfica. Si desea una opción más económica que no sea tan duradera, use el siguiente procedimiento para configurar el almacenamiento con redundancia local.
-- Obtenga información sobre [Azure Storage](../storage/common/storage-redundancy.md), y las opciones de almacenamiento con [redundancia geográfica](../storage/common/storage-redundancy-grs.md) y [redundancia local](../storage/common/storage-redundancy-lrs.md).
+- Obtenga información sobre [Azure Storage](../storage/common/storage-redundancy.md), y las opciones de almacenamiento con [redundancia geográfica](../storage/common/storage-redundancy.md) y [redundancia local](../storage/common/storage-redundancy.md).
 - Modifique la configuración de almacenamiento antes de la copia de seguridad inicial. Si ya ha realizado la copia de seguridad de un elemento, detenga la copia de seguridad en el almacén antes de modificar la configuración de almacenamiento.
 
 Para editar la configuración de replicación de almacenamiento:
@@ -165,7 +165,7 @@ Todas las máquinas cuya copia de seguridad se realiza con Azure Backup deben te
 
 7. Haga clic en **Registrar** para registrar el servidor DPM en el almacén.
 
-Una vez que el servidor se ha registrado correctamente en el almacén, ya está listo para iniciar la copia de seguridad en Microsoft Azure. Deberá configurar el grupo de protección en la consola de DPM para realizar copias de seguridad de las cargas de trabajo en Azure. [Obtenga información](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) sobre cómo implementar grupos de protección.
+Una vez que el servidor se ha registrado correctamente en el almacén, ya está listo para iniciar la copia de seguridad en Microsoft Azure. Deberá configurar el grupo de protección en la consola de DPM para realizar copias de seguridad de las cargas de trabajo en Azure. [Obtenga información](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) sobre cómo implementar grupos de protección.
 
 ## <a name="troubleshoot-vault-credentials"></a>Solución de problemas de las credenciales del almacén
 

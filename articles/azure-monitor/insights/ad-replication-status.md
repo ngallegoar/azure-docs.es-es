@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
-ms.openlocfilehash: 30b0c7c87f6d55586b931be1445b175ce58565d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65ced5021305dce15236ded59cf79a6578e7372a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80055897"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516794"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Supervisión de Active Directory Replication Status con Azure Monitor
 
@@ -61,7 +62,7 @@ En la tabla siguiente se muestran los métodos de recolección de datos y otros 
 
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
-El icono de AD Replication Status muestra cuántos errores de replicación tiene actualmente. Los **errores críticos de replicación** son aquellos que están al 75 % de la [vigencia del marcador de exclusión](https://technet.microsoft.com/library/cc784932%28v=ws.10%29.aspx) o por encima para el bosque de Active Directory.
+El icono de AD Replication Status muestra cuántos errores de replicación tiene actualmente. Los **errores críticos de replicación** son aquellos que están al 75 % de la [vigencia del marcador de exclusión](/previous-versions/windows/it-pro/windows-server-2003/cc784932(v=ws.10)) o por encima para el bosque de Active Directory.
 
 ![Icono del Estado de replicación de AD](./media/ad-replication-status/oms-ad-replication-tile.png)
 

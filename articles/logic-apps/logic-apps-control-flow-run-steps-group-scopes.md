@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: 08c7fa6abac7ed369347f1f496c70174b06edf02
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 65f9ee8f67ac4efb6ab26fa0912d11d7be7c571d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83831592"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520908"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Ejecución de acciones basadas en el estado del grupo mediante ámbitos en Azure Logic Apps
 
@@ -71,13 +71,13 @@ Puede guardar la aplicación lógica en cualquier momento, así que guarde su tr
 
       ![Configurar acción "Bing Maps - Get route" (Mapas de Bing: Obtener ruta)](./media/logic-apps-control-flow-run-steps-group-scopes/get-route.png) 
 
-      Para más información acerca de estos parámetros, consulte [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Cálculo de una ruta).
+      Para más información acerca de estos parámetros, consulte [Calculate a route](/bingmaps/rest-services/routes/calculate-a-route) (Cálculo de una ruta).
 
       | Configuración | Value | Descripción |
       | ------- | ----- | ----------- |
       | **Waypoint 1** (Punto de referencia 1) | <*inicio*> | Escriba el origen de la ruta. | 
       | **Waypoint 2** (Punto de referencia 2) | <*fin*> | Escriba el destino de la ruta. | 
-      | **Avoid** (Evitar) | None | Escriba los elemento a evitar en la ruta, como autopistas, peajes, etc. Para los valores posibles, consulte [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Calcular una ruta). | 
+      | **Avoid** (Evitar) | None | Escriba los elemento a evitar en la ruta, como autopistas, peajes, etc. Para los valores posibles, consulte [Calculate a route](/bingmaps/rest-services/routes/calculate-a-route) (Calcular una ruta). | 
       | **Optimize** (Optimizar) | timeWithTraffic | Seleccione un parámetro para optimizar la ruta, como distancia, información sobre el tiempo de trayecto con el tráfico actual, etc. Este ejemplo utiliza este valor: "timeWithTraffic" | 
       | **Distance unit** (Unidad de distancia) | <*su preferencia*> | Especifique la unidad de distancia para calcular la ruta. Este ejemplo utiliza este valor: "Mile" (Milla) | 
       | **Travel mode** (Modo de desplazamiento) | Conducción | Escriba el modo de desplazamiento para la ruta. Este ejemplo utiliza este valor: "Driving" (Conducción) | 
@@ -388,7 +388,7 @@ Si está trabajando en la vista de código, puede definir la estructura de un á
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 
-* Si tiene alguna duda, visite la [página de preguntas y respuestas de Microsoft sobre Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* Si tiene alguna duda, visite la [página de preguntas y respuestas de Microsoft sobre Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 * Para enviar características y sugerencias o votar las que ya se han enviado, visite el [sitio web de comentarios de los usuarios de Azure Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Pasos siguientes

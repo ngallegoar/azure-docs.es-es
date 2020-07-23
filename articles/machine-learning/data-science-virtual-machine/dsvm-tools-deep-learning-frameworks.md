@@ -11,19 +11,19 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 25ce99d3dced3caf1ec4bcce13b062b28774642d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c56c7a0d6f0400811d085f60fd71fe72b88bf9ee
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84557483"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520568"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Marcos de aprendizaje profundo e inteligencia artificial para Azure Data Science VM
 La lista a continuación enumera los marcos de aprendizaje profundo en DSVM.
 
 ## <a name="caffe"></a>[Caffe](https://github.com/BVLC/caffe)
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Versiones compatibles | |
 | Ediciones de DSVM admitidas      | Linux (Ubuntu)     |
@@ -32,7 +32,7 @@ La lista a continuación enumera los marcos de aprendizaje profundo en DSVM.
 
 ## <a name="caffe2"></a>[Caffe2](https://github.com/caffe2/caffe2)
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Versiones compatibles | |
 | Ediciones de DSVM admitidas      | Linux (Ubuntu)     |
@@ -41,7 +41,7 @@ La lista a continuación enumera los marcos de aprendizaje profundo en DSVM.
 
 ## <a name="chainer"></a>[Chainer](https://chainer.org/)
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Versiones compatibles | 5.2 |
 | Ediciones de DSVM admitidas      | Linux (Ubuntu)     |
@@ -50,7 +50,7 @@ La lista a continuación enumera los marcos de aprendizaje profundo en DSVM.
 
 ## <a name="cuda-cudnn-nvidia-driver"></a>[CUDA, cuDNN, NVIDIA Driver](https://developer.nvidia.com/cuda-toolkit)
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Versiones compatibles | 10.0.130|
 | Ediciones de DSVM admitidas      | Windows y Linux   |
@@ -60,7 +60,7 @@ La lista a continuación enumera los marcos de aprendizaje profundo en DSVM.
 
 ## <a name="horovod"></a>[Horovod](https://github.com/uber/horovod)
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Versiones compatibles | 0.16.1|
 | Ediciones de DSVM admitidas      | Linux (Ubuntu)   |
@@ -69,7 +69,7 @@ La lista a continuación enumera los marcos de aprendizaje profundo en DSVM.
 
 ## <a name="keras"></a>[Keras](https://keras.io/)
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Versiones compatibles | 2.2.4 |
 | Ediciones de DSVM admitidas      | Windows y Linux   |
@@ -78,7 +78,7 @@ La lista a continuación enumera los marcos de aprendizaje profundo en DSVM.
 
 ## <a name="microsoft-cognitive-toolkit-cntk"></a>[Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/)
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Versiones compatibles | 2.5.1 |
 | Ediciones de DSVM admitidas      | Windows y Linux   |
@@ -86,7 +86,7 @@ La lista a continuación enumera los marcos de aprendizaje profundo en DSVM.
 | Cómo ejecutarlo      | Terminal: active el entorno correcto y ejecute Python. <br/>Jupyter: conéctese a [Jupyter](provision-vm.md) o [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine) y abra el directorio CNTK para acceder a los ejemplos. |
 
 ## <a name="mxnet"></a>[MXNet](https://mxnet.apache.org/)
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Versiones compatibles | 1.3.0 |
 | Ediciones de DSVM admitidas      | Windows y Linux   |
@@ -95,7 +95,7 @@ La lista a continuación enumera los marcos de aprendizaje profundo en DSVM.
 
 ## <a name="mxnet-model-server"></a>[Servidor de modelo de MXNet](https://github.com/awslabs/mxnet-model-server#quick-start)
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Versiones compatibles | 1.0.1 |
 | Ediciones de DSVM admitidas      | Windows y Linux   |
@@ -104,7 +104,7 @@ La lista a continuación enumera los marcos de aprendizaje profundo en DSVM.
 
 ## <a name="nvidia-system-management-interface-nvidia-smi"></a>[NVidia System Management Interface (nvidia-smi)](https://developer.nvidia.com/nvidia-system-management-interface)
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Versiones compatibles |  |
 | Ediciones de DSVM admitidas      | Windows y Linux   |
@@ -114,7 +114,7 @@ La lista a continuación enumera los marcos de aprendizaje profundo en DSVM.
 
 ## <a name="pytorch"></a>[PyTorch](https://pytorch.org/)
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Versiones compatibles | 1.2.0 (Ubuntu 16.04, Windows 2016), 1.4.0 (Ubuntu 18.04, (Windows 2019). |
 | Ediciones de DSVM admitidas      | Linux |
@@ -123,7 +123,7 @@ La lista a continuación enumera los marcos de aprendizaje profundo en DSVM.
 
 ## <a name="tensorflow"></a>[TensorFlow](https://www.tensorflow.org/)
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Versiones compatibles | 1.13 |
 | Ediciones de DSVM admitidas      | Windows, Linux |
@@ -132,7 +132,7 @@ La lista a continuación enumera los marcos de aprendizaje profundo en DSVM.
 
 ## <a name="tensorflow-serving"></a>[TensorFlow Serving](https://www.tensorflow.org/serving/)
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Versiones compatibles | 1.12 |
 | Ediciones de DSVM admitidas      | Linux |
@@ -142,7 +142,7 @@ La lista a continuación enumera los marcos de aprendizaje profundo en DSVM.
 
 ## <a name="theano"></a>[Theano](https://github.com/Theano/Theano)
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | Versiones compatibles | 1.0.3 |
 | Ediciones de DSVM admitidas      | Linux |

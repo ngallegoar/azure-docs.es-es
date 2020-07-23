@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 8fae863c03ccbc17e9ec6621e73ddf475f759569
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: fb907e0b9c923a77c6956723f6df397fabd84da8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996217"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523985"
 ---
 # <a name="translator-v2-to-v3-migration"></a>Migración de Translator V2 a V3
 
@@ -116,10 +116,10 @@ Microsoft Translator V3 usa la traducción automática neuronal por defecto. Por
 
 La traducción neuronal con Text API V3 no admite el uso de categorías estándar (SMT, voz, tech, generalnn).
 
-| |Punto de conexión|    Compatible con el procesador GDPR|    Utiliza Translator Hub|    Utiliza Traductor personalizado (versión preliminar)|
-|:-----|:-----|:-----|:-----|:-----|
+| Versión | Punto de conexión | Compatible con el procesador GDPR | Utiliza Translator Hub | Utiliza Traductor personalizado (versión preliminar) |
+| :------ | :------- | :------------------------ | :----------------- | :------------------------------ |
 |Translator versión 2|    api.microsofttranslator.com|    No    |Sí    |No|
-|Translator versión 3|    api.cognitive.microsofttranslator.com|    Sí|    No|    Sí|
+|Translator versión 3|    api.cognitive.microsofttranslator.com|    Sí|    Sin|    Sí|
 
 **Translator versión 3**
 * Está disponible con carácter general y es totalmente compatible.

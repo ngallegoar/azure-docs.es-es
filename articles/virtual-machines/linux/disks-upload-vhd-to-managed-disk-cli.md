@@ -8,12 +8,12 @@ ms.date: 06/15/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 259b46d21cee4c1106e1d307eeb325a4c430613f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8656f0396aff7f20c867a5fae3d929236a3aa0d5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945637"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510453"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Carga de un VHD en Azure o copia de un disco administrado en otra región: CLI de Azure
 
@@ -34,7 +34,7 @@ Para cargar un disco duro virtual en Azure, deberá crear un disco administrado 
 
 Este tipo de disco administrado tiene dos estados únicos:
 
-- ReadToUpload, que significa que el disco está listo para recibir una carga pero no se ha generado ninguna [firma de acceso seguro](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1).
+- ReadToUpload, que significa que el disco está listo para recibir una carga pero no se ha generado ninguna [firma de acceso seguro](../../storage/common/storage-sas-overview.md).
 - ActiveUpload, que significa que el disco está listo para recibir una carga y se ha generado la SAS.
 
 > [!NOTE]
@@ -132,4 +132,3 @@ az disk revoke-access -n $targetDiskName -g $targetRG
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que ha cargado correctamente un disco duro virtual en un disco administrado, puede conectar el disco como [disco de datos a una máquina virtual ya existente](add-disk.md) o [conectarlo como disco del sistema operativo](upload-vhd.md#create-the-vm) para crear una nueva máquina virtual. 
-

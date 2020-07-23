@@ -3,12 +3,12 @@ title: Habilitación automática de la copia de seguridad al crear máquinas vir
 description: Un artículo en el que se describe cómo usar Azure Policy para habilitar automáticamente la copia de seguridad de todas las máquinas virtuales creadas en un ámbito determinado
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 1d423371788f87155328e8f5c9334e47349a68e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2b4ce7825b714eed1b025a6a807a62759177b81f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77584275"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514227"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Habilitación automática de la copia de seguridad al crear máquinas virtuales mediante Azure Policy
 
@@ -18,7 +18,7 @@ Actualmente, Azure Backup proporciona una directiva integrada (mediante Azure Po
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
-* La directiva integrada solo se admite actualmente para máquinas virtuales de Azure. Los usuarios deben tener cuidado para asegurarse de que la directiva de retención especificada durante la asignación sea una directiva de retención de máquinas virtuales. Consulte [este documento](https://docs.microsoft.com/azure/backup/backup-azure-policy-supported-skus) para ver todas las SKU de máquina virtual que admite esta directiva.
+* La directiva integrada solo se admite actualmente para máquinas virtuales de Azure. Los usuarios deben tener cuidado para asegurarse de que la directiva de retención especificada durante la asignación sea una directiva de retención de máquinas virtuales. Consulte [este documento](./backup-azure-policy-supported-skus.md) para ver todas las SKU de máquina virtual que admite esta directiva.
 
 * La directiva se puede asignar a una única ubicación y suscripción a la vez. Para habilitar la copia de seguridad de máquinas virtuales entre ubicaciones y suscripciones, es necesario crear varias instancias de la asignación de directiva, una para cada combinación de ubicación y suscripción.
 
@@ -48,7 +48,7 @@ Para asignar la directiva al ámbito necesario, siga estos pasos:
 
 > [!NOTE]
 >
-> También se puede usar Azure Policy en máquinas virtuales existentes, mediante la [corrección](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources).
+> También se puede usar Azure Policy en máquinas virtuales existentes, mediante la [corrección](../governance/policy/how-to/remediate-resources.md).
 
 > [!NOTE]
 >
@@ -56,4 +56,4 @@ Para asignar la directiva al ámbito necesario, siga estos pasos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Más información acerca de Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview)
+[Más información acerca de Azure Policy](../governance/policy/overview.md)

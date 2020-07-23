@@ -4,12 +4,12 @@ description: Realización de correcciones masivas con la corrección rápida en 
 ms.topic: article
 ms.date: 03/13/2020
 ms.author: sagupt
-ms.openlocfilehash: 3c3ac27f04aa516fbef1bfff30e3392659b58919
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ebd993733c1aca9cd4f7d92f0a75e22d68a87ffe
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79503928"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518069"
 ---
 # <a name="quick-fix-remediation-for-advisor"></a>Corrección rápida para Advisor
 **Corrección rápida** es una forma más rápida y sencilla de corregir las recomendaciones en varios recursos. Proporciona funcionalidades para realizar correcciones masivas de recursos y ayuda a optimizar las suscripciones más rápido gracias a la corrección a escala para los recursos.
@@ -50,4 +50,4 @@ Para más información acerca de las recomendaciones de Advisor, consulte:
 * [Recomendaciones sobre rendimiento de Advisor](advisor-performance-recommendations.md)
 * [Recomendaciones sobre seguridad de Advisor](advisor-security-recommendations.md)
 * [Recomendaciones de excelencia operativa de Advisor](advisor-operational-excellence-recommendations.md)
-* [API REST de Advisor](https://docs.microsoft.com/rest/api/advisor/)
+* [API REST de Advisor](/rest/api/advisor/)

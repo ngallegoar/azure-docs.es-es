@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: f1ffd26a243d15f7ee6e06d6c52406a16327b4a0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d424cccc0a50198f3ca8c6c040afb87f44282d47
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086779"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508906"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>No se puede usar RDP en una máquina virtual porque esta se inicia en modo seguro
 
@@ -79,7 +79,7 @@ Para resolver este problema, use el control de serie para configurar la máquina
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Conecte el disco del sistema operativo a una máquina virtual de recuperación.
 
-1. [Conecte el disco del sistema operativo a una máquina virtual de recuperación](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Conecte el disco del sistema operativo a una máquina virtual de recuperación](./troubleshoot-recovery-disks-portal-windows.md).
 2. Inicie una conexión mediante el Escritorio remoto a la máquina virtual de recuperación.
 3. Asegúrese de que el disco aparece marcado como **En línea** en la consola de Administración de discos. Anote la letra de unidad que se asigna al disco del sistema operativo conectado.
 
@@ -143,4 +143,4 @@ Para habilitar el registro de volcado de memoria y Serial Console, ejecute el si
     bcdedit /store F:\boot\bcd /enum
     ```
 
-5. [Desconecte el disco del sistema operativo y vuelva a crear la máquina virtual](../windows/troubleshoot-recovery-disks-portal.md). A continuación, compruebe si se ha resuelto el problema.
+5. [Desconecte el disco del sistema operativo y vuelva a crear la máquina virtual](./troubleshoot-recovery-disks-portal-windows.md). A continuación, compruebe si se ha resuelto el problema.

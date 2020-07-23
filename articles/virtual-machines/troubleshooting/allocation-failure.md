@@ -12,12 +12,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: daberry
-ms.openlocfilehash: fdbf07fa51adf8151e80d230734ebe53d36b5390
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3766c31add02799c62bca7e9063e723e0a5b498e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124795"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509365"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Solución de problemas de errores de asignación al crear, reiniciar o cambiar el tamaño de una VM en Azure
 
@@ -79,7 +79,7 @@ Si usa zonas de disponibilidad, pruebe otra zona de la región que pueda tener c
 
 Si su solicitud de asignación es grande (más de 500 núcleos), consulta las instrucciones en las siguientes secciones para dividir la solicitud en implementaciones más pequeñas.
 
-[Vuelva a implementar la máquina virtual](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/redeploy-to-new-node-windows). Al volver a implementar la máquina virtual, esta se asigna a un nuevo clúster dentro de la región.
+[Vuelva a implementar la máquina virtual](./redeploy-to-new-node-windows.md). Al volver a implementar la máquina virtual, esta se asigna a un nuevo clúster dentro de la región.
 
 ## <a name="allocation-failures-for-older-vm-sizes-av1-dv1-dsv1-d15v2-ds15v2-etc"></a>Errores de asignación para tamaños de VM anteriores (Av1, Dv1, DSv1, D15v2, DS15v2, etc.).
 
@@ -94,7 +94,7 @@ A medida que ampliamos la infraestructura de Azure, implementamos hardware de nu
 
 ## <a name="allocation-failures-for-large-deployments-more-than-500-cores"></a>Errores de asignación para grandes implementaciones (más de 500 núcleos)
 
-Reduzca el número de instancias del tamaño de VM solicitado y, a continuación, vuelva a intentar la operación de implementación. Además, para implementaciones más grandes, es posible que desee evaluar [conjuntos de escalado de máquinas virtuales de Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/). El número de instancias de máquina virtual puede aumentar o disminuir de forma automática en respuesta a la demanda o una programación definida y cuenta con una posibilidad de éxito de asignación mayor porque las implementaciones se pueden distribuir en varios clústeres. 
+Reduzca el número de instancias del tamaño de VM solicitado y, a continuación, vuelva a intentar la operación de implementación. Además, para implementaciones más grandes, es posible que desee evaluar [conjuntos de escalado de máquinas virtuales de Azure](../../virtual-machine-scale-sets/index.yml). El número de instancias de máquina virtual puede aumentar o disminuir de forma automática en respuesta a la demanda o una programación definida y cuenta con una posibilidad de éxito de asignación mayor porque las implementaciones se pueden distribuir en varios clústeres. 
 
 ## <a name="background-information"></a>Información de contexto
 ### <a name="how-allocation-works"></a>Cómo funciona la asignación
@@ -105,5 +105,3 @@ Los servidores de los centros de datos de Azure están particionados en clúster
 Cuando una solicitud de asignación está anclada a un clúster, existe una posibilidad menor de encontrar recursos libres dado que el grupo de recursos disponible es más pequeño. Además, si la solicitud de asignación está anclada a un clúster pero el tipo de recurso que solicita no se admite en ese clúster, la solicitud dará error aunque el clúster tenga recursos libres. En el diagrama 3 siguiente se ilustra el caso en el que una asignación anclada da error porque el único clúster candidato no tiene recursos libres. En el diagrama 4 se ilustra el caso en el que una asignación anclada da error porque el único clúster candidato no admite el tamaño de VM solicitado, a pesar de que el clúster tiene recursos libres.
 
 ![Error de asignaciones ancladas](./media/virtual-machines-common-allocation-failure/Allocation2.png)
-
-

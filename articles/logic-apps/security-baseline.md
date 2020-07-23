@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: a37f57bc12e5756b493bb009268beb067e7faaab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d27abfda789a9bb1bd5479b059355703388333f8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833985"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520653"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Base de referencia de seguridad de Azure para Logic Apps
 
 La base de referencia de seguridad de Azure para Logic Apps contiene recomendaciones que le ayudarán a mejorar la posición de seguridad de la implementación.
 
-La base de referencia de este servicio se extrae de la [versión 1.0 de Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview), que proporciona recomendaciones sobre cómo puede proteger las soluciones en la nube en Azure con nuestra guía de procedimientos recomendados.
+La base de referencia de este servicio se extrae de la [versión 1.0 de Azure Security Benchmark](../security/benchmarks/overview.md), que proporciona recomendaciones sobre cómo puede proteger las soluciones en la nube en Azure con nuestra guía de procedimientos recomendados.
 
-Para más información, consulte [Introducción a la línea de base de seguridad de Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Para más información, consulte [Introducción a la línea de base de seguridad de Azure](../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Seguridad de las redes
 
-*Para más información, consulte [Control de seguridad: Seguridad de redes](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Para más información, consulte [Control de seguridad: Seguridad de redes](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1: Protección de los recursos de Azure dentro de las redes virtuales
 
@@ -36,25 +36,25 @@ Al crear el ISE, puede optar por usar puntos de conexión de acceso internos o e
 
 Asegúrese de que todas las implementaciones de subred de la red virtual que estén relacionadas con el ISE tengan un grupo de seguridad de red aplicado, con controles de acceso a la red específicos para los puertos y orígenes de confianza de su aplicación. Cuando implemente las aplicaciones lógicas en un ISE, use Private Link. Azure Private Link le permite acceder a los servicios PaaS de Azure y a los servicios hospedados en Azure que son propiedad de los clientes, o a los servicios de asociados, a través de un punto de conexión privado de la red virtual. Como alternativa, si tiene un caso de uso específico, puede cumplir el requisito con la implementación de Azure Firewall. Para ayudar a reducir la complejidad que conlleva la configuración de reglas de seguridad, use etiquetas de servicio que representen grupos de prefijos de direcciones IP de un servicio de Azure concreto.
 
-* [Información sobre los conectores para Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list)
+* [Información sobre los conectores para Logic Apps](../connectors/apis-list.md)
 
-* [Información sobre las etiquetas de servicio en Azure](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+* [Información sobre las etiquetas de servicio en Azure](../virtual-network/service-tags-overview.md)
 
-* [Información sobre el acceso a recursos de Azure Virtual Network desde Azure Logic Apps mediante entornos de servicio de integración (ISE)](https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview)
+* [Información sobre el acceso a recursos de Azure Virtual Network desde Azure Logic Apps mediante entornos de servicio de integración (ISE)](./connect-virtual-network-vnet-isolated-environment-overview.md)
 
-* [Introducción a los puntos de conexión de servicio de red virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
+* [Introducción a los puntos de conexión de servicio de red virtual](../virtual-network/virtual-network-service-endpoints-overview.md)
 
-* [¿Qué es Azure Private Link?](https://docs.microsoft.com/azure/private-link/private-link-overview)
+* [¿Qué es Azure Private Link?](../private-link/private-link-overview.md)
 
-* [Información sobre el acceso al punto de conexión del ISE](https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview#ise-endpoint-access)
+* [Información sobre el acceso al punto de conexión del ISE](./connect-virtual-network-vnet-isolated-environment-overview.md#ise-endpoint-access)
 
-* [Creación de una red virtual](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Creación de una red virtual](../virtual-network/quick-create-portal.md)
 
-* [Creación de un NSG con una configuración de seguridad](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [Creación de un NSG con una configuración de seguridad](../virtual-network/tutorial-filter-network-traffic.md)
 
-* [Implementación y configuración de Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+* [Implementación y configuración de Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Habilitación del acceso para el ISE](https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment#enable-access-for-ise)
+* [Habilitación del acceso para el ISE](./connect-virtual-network-vnet-isolated-environment.md#enable-access-for-ise)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -64,11 +64,11 @@ Asegúrese de que todas las implementaciones de subred de la red virtual que est
 
 **Instrucciones**: Si ejecuta Logic Apps en un entorno de servicio de integración (ISE) que usa un punto de acceso externo, puede utilizar un grupo de seguridad de red (NSG) para reducir el riesgo de filtración de datos. Habilite los registros de flujo del grupo de seguridad de red y envíe registros a una cuenta de Azure Storage para auditar el tráfico. También puede enviar registros de flujo del grupo de seguridad de red a un área de trabajo de Log Analytics y usar Análisis de tráfico para proporcionar información detallada sobre el flujo de tráfico en la nube de Azure. Algunas de las ventajas del Análisis de tráfico son la capacidad de visualizar la actividad de la red e identificar las zonas activas, identificar las amenazas de seguridad, comprender los patrones de flujo de tráfico y detectar configuraciones de red incorrectas.
 
-* [Información sobre el acceso al punto de conexión del ISE](https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview#ise-endpoint-access)
+* [Información sobre el acceso al punto de conexión del ISE](./connect-virtual-network-vnet-isolated-environment-overview.md#ise-endpoint-access)
 
-* [Habilitación de los registros de flujo de NSG](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+* [Habilitación de los registros de flujo de NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [Habilitación y uso del Análisis de tráfico](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+* [Habilitación y uso del Análisis de tráfico](../network-watcher/traffic-analytics.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -94,19 +94,19 @@ Use el acceso de red Just-in-Time de Azure Security Center para configurar los N
 
 Use la protección de redes adaptativa de Azure Security Center para recomendar configuraciones de NSG que limiten los puertos y las direcciones IP de origen según el tráfico real y la inteligencia sobre amenazas.
 
-* [Protección de las llamadas entrantes a Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#access-to-request-based-triggers)
+* [Protección de las llamadas entrantes a Logic Apps](./logic-apps-securing-a-logic-app.md#access-to-request-based-triggers)
 
-* [Restricción de direcciones IP entrantes](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#restrict-inbound-ip-addresses)
+* [Restricción de direcciones IP entrantes](./logic-apps-securing-a-logic-app.md#restrict-inbound-ip-addresses)
 
-* [Configuración de la protección contra DDoS](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+* [Configuración de la protección contra DDoS](../virtual-network/manage-ddos-protection.md)
 
-* [Implementación de Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+* [Implementación de Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Descripción de la inteligencia sobre amenazas integrada de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer)
+* [Descripción de la inteligencia sobre amenazas integrada de Azure Security Center](../security-center/threat-protection.md)
 
-* [Descripción de la protección de red adaptable de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)
+* [Descripción de la protección de red adaptable de Azure Security Center](../security-center/security-center-adaptive-network-hardening.md)
 
-* [Descripción del control de acceso de red Just-in-Time de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+* [Descripción del control de acceso de red Just-in-Time de Azure Security Center](../security-center/security-center-just-in-time.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -120,15 +120,15 @@ Para proporcionar más protección e información sobre el tráfico de red, pued
 
 De lo contrario, puede aprovechar una solución de terceros de Marketplace para satisfacer este requisito.
 
-* [Información sobre el acceso al punto de conexión del ISE](https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview#ise-endpoint-access)
+* [Información sobre el acceso al punto de conexión del ISE](./connect-virtual-network-vnet-isolated-environment-overview.md#ise-endpoint-access)
 
-* [Habilitación de los registros de flujo de NSG](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+* [Habilitación de los registros de flujo de NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [Habilitación y uso del Análisis de tráfico](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+* [Habilitación y uso del Análisis de tráfico](../network-watcher/traffic-analytics.md)
 
-* [Integración de API Management en una red virtual interna con Application Gateway](https://docs.microsoft.com/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway)
+* [Integración de API Management en una red virtual interna con Application Gateway](../api-management/api-management-howto-integrate-internal-vnet-appgateway.md)
 
-* [Descripción de los registros de acceso de WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/web-application-firewall-logs#access-log)
+* [Descripción de los registros de acceso de WAF](../web-application-firewall/ag/web-application-firewall-logs.md#access-log)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -142,9 +142,9 @@ Implemente la solución de firewall que prefiera en cada uno de los límites de 
 
 * [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
 
-* [Implementación de Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+* [Implementación de Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Configuración de alertas con Azure Firewall](https://docs.microsoft.com/azure/firewall/threat-intel)
+* [Configuración de alertas con Azure Firewall](../firewall/threat-intel.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -154,11 +154,11 @@ Implemente la solución de firewall que prefiera en cada uno de los límites de 
 
 **Guía**: Si está ejecutando Logic Apps en un entorno de servicio de integración (ISE), implemente Azure Application Gateway.
 
-* [Integración de API Management en una red virtual interna con Application Gateway](https://docs.microsoft.com/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway)
+* [Integración de API Management en una red virtual interna con Application Gateway](../api-management/api-management-howto-integrate-internal-vnet-appgateway.md)
 
-* [Configuración de Application Gateway para usar HTTPS](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal)
+* [Configuración de Application Gateway para usar HTTPS](../application-gateway/create-ssl-portal.md)
 
-* [Descripción del equilibrio de carga de capa 7 con las puertas de enlace de aplicaciones web de Azure](https://docs.microsoft.com/azure/application-gateway/overview)
+* [Descripción del equilibrio de carga de capa 7 con las puertas de enlace de aplicaciones web de Azure](../application-gateway/overview.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -168,7 +168,7 @@ Implemente la solución de firewall que prefiera en cada uno de los límites de 
 
 **Guía**: En el caso de los recursos que necesitan acceso a las instancias de Azure Logic Apps, use las etiquetas de servicio de red virtual con el fin de definir controles de acceso a la red en grupos de seguridad de red o Azure Firewall. Puede utilizar etiquetas de servicio en lugar de direcciones IP específicas al crear reglas de seguridad. Al especificar el nombre de la etiqueta de servicio (por ejemplo, LogicApps, LogicAppsManagement) en el campo de origen o destino apropiado de una regla, puede permitir o denegar el tráfico para el servicio correspondiente. Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian.
 
-* [Más información sobre el uso de etiquetas de servicio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+* [Más información sobre el uso de etiquetas de servicio](../virtual-network/service-tags-overview.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -184,9 +184,9 @@ Se debe habilitar DDoS Protection estándar
 
 También puede utilizar Azure Blueprints para simplificar las implementaciones de Azure a gran escala mediante el empaquetado de artefactos de entorno clave, como plantillas de Azure Resource Manager, control de acceso basado en rol (RBAC) y directivas, en una única definición de un plano técnico. Aplique fácilmente el plano técnico a nuevas suscripciones y entornos, y ajuste el control y la administración mediante el control de versiones.
 
-* [Configuración y administración de Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Creación de un plano técnico de Azure](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+* [Creación de un plano técnico de Azure](../governance/blueprints/create-blueprint-portal.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -200,13 +200,13 @@ Use cualquiera de las definiciones de Azure Policy integradas relacionadas con e
 
 Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones en los recursos en función de sus etiquetas.
 
-* [Creación y uso de etiquetas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
-* [Creación de una red virtual](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Creación de una red virtual](../virtual-network/quick-create-portal.md)
 
-* [Creación de un grupo de seguridad de red con una configuración de seguridad](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [Creación de un grupo de seguridad de red con una configuración de seguridad](../virtual-network/tutorial-filter-network-traffic.md)
 
-* [Lista de definiciones de Azure Policy para Logic Apps](https://docs.microsoft.com/azure/logic-apps/policy-samples)
+* [Lista de definiciones de Azure Policy para Logic Apps](./policy-samples.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -216,9 +216,9 @@ Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones en
 
 **Guía**: Use el registro de actividad de Azure para supervisar las configuraciones de los recursos de red y detectar cambios en los recursos de red relacionados con las instancias de Azure Logic Apps. Cree alertas en Azure Monitor que se desencadenarán cuando se produzcan cambios en los recursos de red críticos.
 
-* [Visualización y recuperación de eventos del registro de actividad de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+* [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-* [Creación de alertas en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Creación de alertas en Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -226,7 +226,7 @@ Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones en
 
 ## <a name="logging-and-monitoring"></a>Registro y supervisión
 
-*Para más información, consulte [Control de seguridad: registro y supervisión](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Para más información, consulte [Control de seguridad: registro y supervisión](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: Uso de orígenes de sincronización de hora aprobados
 
@@ -242,11 +242,11 @@ Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones en
 
 Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una herramienta SIEM de terceros.
 
-* [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+* [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](../azure-monitor/platform/activity-log.md)
 
-* [Configuración de registros de Azure Monitor y recopilación de datos de diagnóstico para Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/monitor-logic-apps-log-analytics)
+* [Configuración de registros de Azure Monitor y recopilación de datos de diagnóstico para Azure Logic Apps](./monitor-logic-apps-log-analytics.md)
 
-* [Incorporación de Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -258,11 +258,11 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una herramienta SIEM de terceros.
 
-* [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+* [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](../azure-monitor/platform/activity-log.md)
 
-* [Configuración de registros de Azure Monitor y recopilación de datos de diagnóstico para Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/monitor-logic-apps-log-analytics)
+* [Configuración de registros de Azure Monitor y recopilación de datos de diagnóstico para Azure Logic Apps](./monitor-logic-apps-log-analytics.md)
 
-* [Incorporación de Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -282,9 +282,9 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 En Azure Monitor, establezca el período de retención de los registros asociados a las instancias de Azure Logic Apps, de acuerdo con las normativas de cumplimiento de su organización.
 
-* [Supervisión del estado de ejecución, revisión del historial de los desencadenadores y configuración de alertas en Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/monitor-logic-apps)
+* [Supervisión del estado de ejecución, revisión del historial de los desencadenadores y configuración de alertas en Azure Logic Apps](./monitor-logic-apps.md)
 
-* [Establecimiento de parámetros de retención de registros](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+* [Establecimiento de parámetros de retención de registros](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -298,13 +298,13 @@ También puede habilitar la configuración de diagnóstico en el registro de act
 
 Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una herramienta SIEM de terceros.
 
-* [Configuración de registros de Azure Monitor y recopilación de datos de diagnóstico para Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/monitor-logic-apps-log-analytics)
+* [Configuración de registros de Azure Monitor y recopilación de datos de diagnóstico para Azure Logic Apps](./monitor-logic-apps-log-analytics.md)
 
-* [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+* [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](../azure-monitor/platform/activity-log.md)
 
-* [Recopilación y análisis de registros de actividad de Azure en un área de trabajo de Log Analytics en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-collect)
+* [Recopilación y análisis de registros de actividad de Azure en un área de trabajo de Log Analytics en Azure Monitor](../azure-monitor/platform/activity-log.md)
 
-* [Incorporación de Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -316,11 +316,11 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 Como alternativa, puede habilitar e incorporar datos en Azure Sentinel.
 
-* [Incoporación de Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Incoporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Administración de alertas de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
+* [Administración de alertas de seguridad en Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-* [Alertas sobre datos de registro de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+* [Alertas sobre datos de registro de Log Analytics](../azure-monitor/learn/tutorial-response.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -352,23 +352,23 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel.
 
 ## <a name="identity-and-access-control"></a>Control de identidades y acceso
 
-*Para más información, consulte [Control de seguridad: Identidad y control de acceso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Para más información, consulte [Control de seguridad: Identidad y control de acceso](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Mantenga un inventario de cuentas administrativas
 
-**Guía**: Azure Active Directory (AD) tiene roles integrados que se deben asignar explícitamente y son consultables. Use el módulo de PowerShell de Azure AD para realizar consultas ad hoc para detectar cuentas que son miembros de grupos administrativos.
+**Instrucciones**: Azure Active Directory (AD) tiene roles integrados que se deben asignar explícitamente y son consultables. Use el módulo de PowerShell de Azure AD para realizar consultas ad hoc para detectar cuentas que son miembros de grupos administrativos.
 
 Para acceder fácilmente a otros recursos protegidos por Azure Active Directory (Azure AD) y autenticar la identidad sin iniciar sesión, la aplicación lógica puede usar una identidad administrada (anteriormente conocida como Managed Service Identity o MSI), en lugar de credenciales o secretos. Azure administra esta identidad y le ayuda a proteger las credenciales porque, de esta forma, no tiene que proporcionar secretos o cambiarlos.
 
 Cada de punto de conexión de solicitud de una aplicación lógica incluye una Firma de acceso compartido (SAS) en la dirección URL del punto de conexión. Si comparte la dirección URL del punto de conexión de un desencadenador basado en solicitudes con otras partes, puede generar direcciones URL de devolución de llamada con claves específicas y fechas de expiración. De esta forma puede acumular claves fácilmente o restringir el acceso para desencadenar la aplicación lógica en función de un determinado intervalo de tiempo.
 
-* [Obtención de un rol de directorio en Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [Obtención de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-* [Autenticación del acceso a los recursos de Azure mediante identidades administradas en Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/create-managed-service-identity)
+* [Autenticación del acceso a los recursos de Azure mediante identidades administradas en Azure Logic Apps](./create-managed-service-identity.md)
 
-* [Obtención de los miembros de un rol de directorio en Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [Obtención de los miembros de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-* [Protección del acceso y los datos en Azure Logic Apps mediante SAS](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#access-to-request-based-triggers)
+* [Protección del acceso y los datos en Azure Logic Apps mediante SAS](./logic-apps-securing-a-logic-app.md#access-to-request-based-triggers)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -382,9 +382,9 @@ Si se utiliza la autenticación básica, tendrá que especificar un nombre de us
 
 Si usa la infraestructura como código, evite almacenar las contraseñas en el código y, en su lugar, use Azure Key Vault para almacenar y recuperar las credenciales.
 
-* [Protección del acceso y los datos en Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app)
+* [Protección del acceso y los datos en Logic Apps](./logic-apps-securing-a-logic-app.md)
 
-* [Establecimiento y recuperación de un secreto desde Azure Key Vault](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal)
+* [Establecimiento y recuperación de un secreto desde Azure Key Vault](../key-vault/secrets/quick-create-portal.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -399,9 +399,9 @@ Además, para ayudarle a realizar un seguimiento de las cuentas administrativas 
 - Las cuentas en desuso con permisos de propietario deben quitarse de la suscripción
 - Las cuentas externas con permisos de propietario deben quitarse de la suscripción
 
-* [Uso de Azure Security Center para supervisar la identidad y el acceso (versión preliminar)](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Uso de Azure Security Center para supervisar la identidad y el acceso (versión preliminar)](../security-center/security-center-identity-access.md)
 
-* [Uso de Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Uso de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -415,13 +415,13 @@ Muchos conectores también requieren que primero se cree una conexión al servic
 
 En el caso de los conectores que usan la autenticación OAuth de Azure Active Directory (Azure AD), crear una conexión significa iniciar sesión en el servicio (por ejemplo, Office 365, Salesforce o GitHub), donde el token de acceso se cifra y se almacena de forma segura en un almacén de secretos de Azure. Otros conectores (como FTP y SQL) requieren una conexión con detalles de configuración como la dirección del servidor, el nombre de usuario y la contraseña. Estos detalles sobre la configuración de la conexión también se cifran y se almacenan de forma segura.
 
-* [Llamada a las API REST de Azure](https://docs.microsoft.com/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
+* [Llamada a las API REST de Azure](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
 
-* [Registro de la aplicación cliente (entidad de servicio) con Azure AD](https://docs.microsoft.com/rest/api/azure/#register-your-client-application-with-azure-ad)
+* [Registro de la aplicación cliente (entidad de servicio) con Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad)
 
-* [Información de API de desencadenadores de flujo de trabajo](https://docs.microsoft.com/rest/api/logic/workflowtriggers)
+* [Información de API de desencadenadores de flujo de trabajo](/rest/api/logic/workflowtriggers)
 
-* [Información sobre la configuración del conector](https://docs.microsoft.com/azure/connectors/apis-list])
+* [Información sobre la configuración del conector](../connectors/apis-list.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -431,9 +431,9 @@ En el caso de los conectores que usan la autenticación OAuth de Azure Active 
 
 **Guía**: Habilite Multi-Factor Authentication (MFA) de Azure Active Directory (AD) y siga las recomendaciones de administración de identidades y acceso de Azure Security Center.
 
-* [Procedimiento para habilitar la MFA en Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Procedimiento para habilitar la MFA en Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-* [Supervisión de la identidad y el acceso en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Supervisión de la identidad y el acceso en Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -441,11 +441,11 @@ En el caso de los conectores que usan la autenticación OAuth de Azure Active 
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: Use máquinas dedicadas (estaciones de trabajo de acceso con privilegios) para todas las tareas administrativas
 
-**Guía**: Utilice estaciones de trabajo de acceso con privilegios (PAW), con Multi-Factor Authentication (MFA) configurado para iniciar sesión en recursos de Azure y configurarlos.
+**Instrucciones**: Utilice estaciones de trabajo de acceso con privilegios (PAW), con Multi-Factor Authentication (MFA) configurado para iniciar sesión en recursos de Azure y configurarlos.
 
-* [Más información sobre las estaciones de trabajo con privilegios de acceso](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Más información sobre las estaciones de trabajo con privilegios de acceso](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [Procedimiento para habilitar la MFA en Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Procedimiento para habilitar la MFA en Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -457,9 +457,9 @@ En el caso de los conectores que usan la autenticación OAuth de Azure Active 
 
 Además, use las detecciones de riesgo de Azure AD para ver alertas e informes sobre el comportamiento de los usuarios de riesgo.
 
-* [Cómo implementar Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+* [Cómo implementar Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-* [Información sobre las detecciones de riesgo de Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+* [Información sobre las detecciones de riesgo de Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -471,9 +471,9 @@ Además, use las detecciones de riesgo de Azure AD para ver alertas e informes 
 
 Además, cada punto de conexión de solicitud de una aplicación lógica incluye una Firma de acceso compartido (SAS) en la dirección URL del punto de conexión. Puede restringir la aplicación lógica para que acepte solo solicitudes de ciertas direcciones IP.
 
-* [Configuración de ubicaciones con nombre en Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+* [Configuración de ubicaciones con nombre en Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-* [Información para restringir las direcciones IP entrantes en Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#restrict-inbound-ip-addresses)
+* [Información para restringir las direcciones IP entrantes en Logic Apps](./logic-apps-securing-a-logic-app.md#restrict-inbound-ip-addresses)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -491,9 +491,9 @@ Azure Logic Apps admite identidades administradas tanto asignadas por el sistema
 - Azure API Management
 - Azure App Services
 
-* [Procedimiento para crear y configurar una instancia de Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+* [Procedimiento para crear y configurar una instancia de Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-* [Autenticación del acceso a los recursos de Azure mediante identidades administradas en Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/create-managed-service-identity)
+* [Autenticación del acceso a los recursos de Azure mediante identidades administradas en Azure Logic Apps](./create-managed-service-identity.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -503,9 +503,9 @@ Azure Logic Apps admite identidades administradas tanto asignadas por el sistema
 
 **Guía**: Azure Active Directory (AD) proporciona registros para ayudar a descubrir cuentas obsoletas. Además, use las revisiones de acceso de identidad de Azure para administrar de forma eficiente las pertenencias a grupos, el acceso a las aplicaciones empresariales y las asignaciones de roles. El acceso de los usuarios se puede revisar de forma periódica para asegurarse de que solo las personas adecuadas tengan acceso continuado.
 
-* [Descripción de los informes de Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+* [Descripción de los informes de Azure AD](../active-directory/reports-monitoring/index.yml)
 
-* [Procedimiento para usar las revisiones de acceso de identidad de Azure](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [Procedimiento para usar las revisiones de acceso de identidad de Azure](../active-directory/governance/access-reviews-overview.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -519,9 +519,9 @@ Tiene acceso a los orígenes de registro de eventos de actividad de inicio de se
 
 Para simplificar este proceso, cree una configuración de diagnóstico para las cuentas de usuario de Azure AD y envíe los registros de auditoría y los registros de inicio de sesión a un área de trabajo de Log Analytics. Puede configurar las alertas de registro deseadas en Log Analytics.
 
-* [Integración de los registros de actividad de Azure en Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+* [Integración de los registros de actividad de Azure en Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [Incorporación de Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -531,11 +531,11 @@ Para simplificar este proceso, cree una configuración de diagnóstico para las 
 
 **Instrucciones**: Use las características de protección de riesgos e identidad de Azure AD para configurar las respuestas automatizadas a las acciones sospechosas detectadas relacionadas con las identidades de los usuarios. También puede hacer que Azure Sentinel ingiera los datos para investigarlos más.
 
-* [Visualización de los inicios de sesión de riesgo de Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+* [Visualización de los inicios de sesión de riesgo de Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [Configuración y habilitación de las directivas de riesgo de protección de identidad](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+* [Configuración y habilitación de las directivas de riesgo de protección de identidad](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-* [Incorporación de Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -545,7 +545,7 @@ Para simplificar este proceso, cree una configuración de diagnóstico para las 
 
 **Guía**: Actualmente no disponible; la Caja de seguridad del cliente todavía no se admite en Azure Logic Apps.
 
-* [Lista de servicios admitidos por la Caja de seguridad del cliente](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+* [Lista de servicios admitidos por la Caja de seguridad del cliente](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -553,13 +553,13 @@ Para simplificar este proceso, cree una configuración de diagnóstico para las 
 
 ## <a name="data-protection"></a>Protección de los datos
 
-*Para más información, consulte [Control de seguridad: Protección de datos](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Para más información, consulte [Control de seguridad: Protección de datos](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Mantenimiento de un inventario de información confidencial
 
 **Instrucciones**: use etiquetas para ayudar a realizar el seguimiento de los recursos de Azure que almacenan o procesan información confidencial.
 
-* [Creación y uso de etiquetas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -575,15 +575,15 @@ Al crear el ISE, puede optar por usar puntos de conexión de acceso internos o e
 
 Implemente también el aislamiento mediante suscripciones independientes y grupos de administración para dominios de seguridad individuales, como el tipo de entorno y el nivel de confidencialidad de los datos. Puede restringir el nivel de acceso a los recursos de Azure que necesitan sus aplicaciones y entornos empresariales. Puede controlar el acceso a los recursos de Azure a través del control de acceso basado en rol (Azure RBAC).
 
-* [Información sobre los conectores para Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list)
+* [Información sobre los conectores para Logic Apps](../connectors/apis-list.md)
 
-* [Acceso a recursos de Azure Virtual Network desde Azure Logic Apps mediante entornos de servicio de integración (ISE)](https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview)
+* [Acceso a recursos de Azure Virtual Network desde Azure Logic Apps mediante entornos de servicio de integración (ISE)](./connect-virtual-network-vnet-isolated-environment-overview.md)
 
-* [Creación de suscripciones adicionales de Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [Creación de suscripciones adicionales de Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Creación de grupos de administración](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [Creación de grupos de administración](../governance/management-groups/create.md)
 
-* [Creación y uso de etiquetas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -597,7 +597,7 @@ Use una solución de terceros de Azure Marketplace en los perímetros de red que
 
 Microsoft administra la infraestructura subyacente de Azure Logic Apps y ha implementado controles estrictos para evitar la pérdida o exposición de los datos de los clientes.
 
-* [Descripción de la protección de datos de los clientes en Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Descripción de la protección de datos de los clientes en Azure](../security/fundamentals/protection-customer-data.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -611,17 +611,17 @@ El desencadenador de solicitud admite solo la seguridad de la capa de transporte
 
 Siga las recomendaciones de Azure Security Center para el cifrado en reposo y el cifrado en tránsito, si procede.
 
-* [Proteger el acceso y los datos en Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app)
+* [Proteger el acceso y los datos en Azure Logic Apps](./logic-apps-securing-a-logic-app.md)
 
-* [Recepción y respuesta de solicitudes HTTPS entrantes en Azure Logic Apps](https://docs.microsoft.com/azure/connectors/connectors-native-reqres#tls-support)
+* [Recepción y respuesta de solicitudes HTTPS entrantes en Azure Logic Apps](../connectors/connectors-native-reqres.md#tls-support)
 
-* [Llamada a puntos de conexión de servicio mediante HTTP o HTTPS desde Azure Logic Apps](https://docs.microsoft.com/azure/connectors/connectors-native-http#tls-support)
+* [Llamada a puntos de conexión de servicio mediante HTTP o HTTPS desde Azure Logic Apps](../connectors/connectors-native-http.md#tls-support)
 
-* [Descripción del cifrado en tránsito con Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+* [Descripción del cifrado en tránsito con Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
-* [Información sobre el cifrado de datos en reposo con Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
+* [Información sobre el cifrado de datos en reposo con Azure](../security/fundamentals/encryption-atrest.md)
 
-* [Configuración de las claves administradas por el cliente para cifrar los datos en reposo para los entornos de servicio de integración (ISE) en Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/customer-managed-keys-integration-service-environment)
+* [Configuración de las claves administradas por el cliente para cifrar los datos en reposo para los entornos de servicio de integración (ISE) en Azure Logic Apps](./customer-managed-keys-integration-service-environment.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -633,9 +633,9 @@ Siga las recomendaciones de Azure Security Center para el cifrado en reposo y el
 
 Microsoft administra la infraestructura subyacente de Azure Logic Apps y ha implementado controles estrictos para evitar la pérdida o exposición de los datos de los clientes.
 
-* [Protección del acceso a los datos del historial de ejecución](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#access-to-run-history-data)
+* [Protección del acceso a los datos del historial de ejecución](./logic-apps-securing-a-logic-app.md#access-to-run-history-data)
 
-* [Descripción de la protección de datos de los clientes en Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Descripción de la protección de datos de los clientes en Azure](../security/fundamentals/protection-customer-data.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -649,7 +649,7 @@ Microsoft administra la infraestructura subyacente de Azure Logic Apps y ha impl
 
 Para evitar que otros usuarios cambien o eliminen la aplicación lógica, puede usar el bloqueo de recursos de Azure. Esta funcionalidad evita que otros usuarios cambien o eliminen los recursos de producción.
 
-* [Protección del acceso a las operaciones de Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#access-to-logic-app-operations)
+* [Protección del acceso a las operaciones de Azure Logic Apps](./logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -659,7 +659,7 @@ Para evitar que otros usuarios cambien o eliminen la aplicación lógica, puede 
 
 **Guía**: No aplicable; esta recomendación está pensada para los recursos de proceso. Microsoft administra la infraestructura subyacente de Azure Logic Apps y ha implementado controles estrictos para evitar la pérdida o exposición de los datos de los clientes.
 
-* [Protección de datos de cliente de Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Protección de datos de cliente de Azure](../security/fundamentals/protection-customer-data.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -671,7 +671,7 @@ Para evitar que otros usuarios cambien o eliminen la aplicación lógica, puede 
 
 Cuando crea un entorno de servicio de integración (ISE) para hospedar las aplicaciones lógicas y desea tener un mayor control sobre las claves de cifrado que usa Azure Storage, puede configurar, usar y administrar su propia clave mediante Azure Key Vault. Esta funcionalidad también se conoce como "Bring Your Own Key" (BYOK) y la clave se denomina "clave administrada por el cliente".
 
-* [Cifrado de los datos en reposo para los entornos de servicio de integración en Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/customer-managed-keys-integration-service-environment)
+* [Cifrado de los datos en reposo para los entornos de servicio de integración en Azure Logic Apps](./customer-managed-keys-integration-service-environment.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -681,7 +681,7 @@ Cuando crea un entorno de servicio de integración (ISE) para hospedar las aplic
 
 **Guía**: Use Azure Monitor con el registro de actividad de Azure para crear alertas cuando se produzcan cambios en Azure Logic Apps y en otros recursos críticos o relacionados.
 
-* [Creación de alertas para los eventos del registro de actividad de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/platform/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -689,7 +689,7 @@ Cuando crea un entorno de servicio de integración (ISE) para hospedar las aplic
 
 ## <a name="vulnerability-management"></a>Administración de vulnerabilidades
 
-*Para más información, consulte [Control de seguridad: Administración de vulnerabilidades](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Para más información, consulte [Control de seguridad: Administración de vulnerabilidades](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: Ejecute herramientas de análisis de vulnerabilidades automatizado
 
@@ -709,7 +709,7 @@ Cuando crea un entorno de servicio de integración (ISE) para hospedar las aplic
 
 ### <a name="53-deploy-automated-patch-management-solution-for-third-party-software-titles"></a>5.3: Implementación de una solución de administración de revisiones automatizada de títulos de software de terceros
 
-**Guía**: No aplicable; esta recomendación está pensada para los recursos de proceso.
+**Instrucciones**: No aplicable; esta recomendación está pensada para los recursos de proceso.
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -733,19 +733,19 @@ Cuando crea un entorno de servicio de integración (ISE) para hospedar las aplic
 
 ## <a name="inventory-and-asset-management"></a>Inventario y administración de recursos
 
-*Para más información, consulte [Control de seguridad: Administración de recursos y del inventario](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Para más información, consulte [Control de seguridad: Administración de recursos y del inventario](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6.1: Uso de la solución de detección de recursos automatizada
 
-**Instrucciones**: Use Azure Resource Graph para consultar o detectar todos los recursos (por ejemplo, proceso, almacenamiento, red, puertos y protocolos, etc.) dentro de las suscripciones. Asegúrese de que tiene los permisos adecuados (lectura) en el inquilino y enumere todas las suscripciones de Azure, así como los recursos de las suscripciones.
+**Guía**: Use Azure Resource Graph para consultar o detectar todos los recursos (por ejemplo, proceso, almacenamiento, red, puertos y protocolos, etc.) dentro de las suscripciones. Asegúrese de que tiene los permisos adecuados (lectura) en el inquilino y enumere todas las suscripciones de Azure, así como los recursos de las suscripciones.
 
 Aunque los recursos clásicos de Azure se pueden detectar a través de Resource Graph, a partir de ahora es muy recomendable crear y usar los recursos con Azure Resource Manager.
 
-* [Creación de consultas con Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Creación de consultas con Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [Visualización de las suscripciones de Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Visualización de las suscripciones de Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-* [Descripción de Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Descripción de Azure RBAC](../role-based-access-control/overview.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -755,7 +755,7 @@ Aunque los recursos clásicos de Azure se pueden detectar a través de Resource 
 
 **Instrucciones**: Aplique etiquetas a los recursos de Azure que proporcionan metadatos para organizarlos de forma lógica en una taxonomía.
 
-* [Creación y uso de etiquetas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -763,17 +763,17 @@ Aunque los recursos clásicos de Azure se pueden detectar a través de Resource 
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3: Eliminación de recursos de Azure no autorizados
 
-**Instrucciones**: use el etiquetado, los grupos de administración y las suscripciones independientes, si procede, para organizar y realizar un seguimiento de los recursos de Azure. Concilie el inventario periódicamente y asegúrese de que los recursos no autorizados se eliminan de la suscripción de manera oportuna.
+**Guía**: use el etiquetado, los grupos de administración y las suscripciones independientes, si procede, para organizar y realizar un seguimiento de los recursos de Azure. Concilie el inventario periódicamente y asegúrese de que los recursos no autorizados se eliminan de la suscripción de manera oportuna.
 
 Además, use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 - Tipos de recursos no permitidos
 - Tipos de recursos permitidos
 
-* [Creación de suscripciones adicionales de Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [Creación de suscripciones adicionales de Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Creación de grupos de administración](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [Creación de grupos de administración](../governance/management-groups/create.md)
 
-* [Creación y uso de etiquetas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -785,11 +785,11 @@ Además, use Azure Policy para establecer restricciones sobre el tipo de recurso
 
 Nota: Debido a las directivas de privacidad y datos de Google, puede usar el conector de Gmail solo con los servicios aprobados de Google. Esta situación está en evolución y puede afectar a otros conectores de Google en el futuro.
 
-* [Lista de todos los conectores de Logic Apps](https://docs.microsoft.com/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Lista de todos los conectores de Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
 
-* [Información sobre los problemas y las limitaciones de los conectores de Gmail](https://docs.microsoft.com/connectors/gmail/#known-issues-and-limitations)
+* [Información sobre los problemas y las limitaciones de los conectores de Gmail](/connectors/gmail/#known-issues-and-limitations)
 
-* [Más información sobre la Directiva de privacidad de Google](https://docs.microsoft.com/azure/connectors/connectors-google-data-security-privacy-policy)
+* [Más información sobre la Directiva de privacidad de Google](../connectors/connectors-google-data-security-privacy-policy.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -801,9 +801,9 @@ Nota: Debido a las directivas de privacidad y datos de Google, puede usar el con
 
 Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscripciones. Asegúrese de que todos los recursos de Azure presentes en el entorno estén aprobados.
 
-* [Configuración y administración de Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Creación de consultas con Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Creación de consultas con Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -835,13 +835,13 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: Uso exclusivo de servicios de Azure aprobados
 
-**Guía**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
+**Instrucciones**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 - Tipos de recursos no permitidos
 - Tipos de recursos permitidos
 
-* [Configuración y administración de Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Denegación de un tipo de recurso específico con Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+* [Denegación de un tipo de recurso específico con Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -849,7 +849,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="610-maintain-an-inventory-of-approved-software-titles"></a>6.10: Mantenimiento de un inventario de títulos de software aprobados
 
-**Guía**: No aplicable; esta recomendación está pensada para los recursos de proceso.
+**Instrucciones**: No aplicable; esta recomendación está pensada para los recursos de proceso.
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -857,9 +857,9 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6.11: Limitación de la capacidad de los usuarios para interactuar con Azure Resource Manager
 
-**Guía**: Configure el acceso condicional de Azure para limitar la capacidad de los usuarios de interactuar con Azure Resource Manager configurando "Bloquear acceso" en la aplicación Microsoft Azure Management.
+**Instrucciones**: Configure el acceso condicional de Azure para limitar la capacidad de los usuarios de interactuar con Azure Resource Manager configurando "Bloquear acceso" en la aplicación Microsoft Azure Management.
 
-* [Configuración del acceso condicional para bloquear el acceso a Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+* [Configuración del acceso condicional para bloquear el acceso a Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -879,13 +879,13 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 Las instancias de Logic Apps que son necesarias para las operaciones empresariales, pero pueden suponer un riesgo mayor para la organización, deben aislarse siempre que sea posible en grupos de recursos independientes con permisos específicos y límites de RBAC.
 
-* [Creación de una red virtual](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Creación de una red virtual](../virtual-network/quick-create-portal.md)
 
-* [Creación de un grupo de seguridad de red con una configuración de seguridad](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [Creación de un grupo de seguridad de red con una configuración de seguridad](../virtual-network/tutorial-filter-network-traffic.md)
 
-* [Creación de grupos de administración](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [Creación de grupos de administración](../governance/management-groups/create.md)
 
-* [Protección del acceso a Logic Apps mediante RBAC](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#access-to-logic-app-operations)
+* [Protección del acceso a Logic Apps mediante RBAC](./logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -893,7 +893,7 @@ Las instancias de Logic Apps que son necesarias para las operaciones empresarial
 
 ## <a name="secure-configuration"></a>Configuración segura
 
-*Para más información, consulte [Control de seguridad: Configuración segura](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Para más información, consulte [Control de seguridad: Configuración segura](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Establezca configuraciones seguras para todos los recursos de Azure
 
@@ -903,19 +903,19 @@ Además, Azure Resource Manager tiene la capacidad de exportar la plantilla en n
 
 Use también parámetros seguros para proteger datos confidenciales y secretos.
 
-* [Visualización de los alias de Azure Policy disponibles](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [Visualización de los alias de Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-* [Configuración y administración de Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Bloqueo de conexiones creadas por conectores en Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/block-connections-connectors)
+* [Bloqueo de conexiones creadas por conectores en Azure Logic Apps](./block-connections-connectors.md)
 
-* [Exportación de uno y varios recursos a una plantilla en Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
+* [Exportación de uno y varios recursos a una plantilla en Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
 
-* [Implementación de plantillas de Azure Resource Manager para Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-deploy-azure-resource-manager-templates)
+* [Implementación de plantillas de Azure Resource Manager para Azure Logic Apps](./logic-apps-deploy-azure-resource-manager-templates.md)
 
-* [Información sobre los parámetros de acción segura](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-action-parameters)
+* [Información sobre los parámetros de acción segura](./logic-apps-securing-a-logic-app.md#secure-action-parameters)
 
-* [Recomendaciones de seguridad para parámetros](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-best-practices#security-recommendations-for-parameters)
+* [Recomendaciones de seguridad para parámetros](../azure-resource-manager/templates/template-best-practices.md#security-recommendations-for-parameters)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -923,7 +923,7 @@ Use también parámetros seguros para proteger datos confidenciales y secretos.
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2: Establezca configuraciones del sistema operativo seguras
 
-**Instrucciones**: No aplicable; esta guía está pensada para recursos de proceso.
+**Guía**: No aplicable; esta guía está pensada para recursos de proceso.
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -939,21 +939,21 @@ Además, Azure Resource Manager tiene la capacidad de exportar la plantilla en n
 
 Además, asegúrese de proteger los datos del historial de ejecución mediante ofuscación.
 
-* [Configuración y administración de Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Descripción de los efectos de Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+* [Descripción de los efectos de Azure Policy](../governance/policy/concepts/effects.md)
 
-* [Bloqueo de conexiones creadas por conectores en Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/block-connections-connectors)
+* [Bloqueo de conexiones creadas por conectores en Azure Logic Apps](./block-connections-connectors.md)
 
-* [Exportación de uno y varios recursos a una plantilla en Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
+* [Exportación de uno y varios recursos a una plantilla en Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
 
-* [Implementación de plantillas de Azure Resource Manager para Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-deploy-azure-resource-manager-templates)
+* [Implementación de plantillas de Azure Resource Manager para Azure Logic Apps](./logic-apps-deploy-azure-resource-manager-templates.md)
 
-* [Protección del acceso a las entradas y salidas del historial de ejecución](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#obfuscate)
+* [Protección del acceso a las entradas y salidas del historial de ejecución](./logic-apps-securing-a-logic-app.md#obfuscate)
 
-* [Protección del acceso a las entradas de parámetros](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-action-parameters)
+* [Protección del acceso a las entradas de parámetros](./logic-apps-securing-a-logic-app.md#secure-action-parameters)
 
-* [Recomendaciones de seguridad para parámetros](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-best-practices#security-recommendations-for-parameters)
+* [Recomendaciones de seguridad para parámetros](../azure-resource-manager/templates/template-best-practices.md#security-recommendations-for-parameters)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -973,11 +973,11 @@ Además, asegúrese de proteger los datos del historial de ejecución mediante o
 
 Además, Azure Resource Manager tiene la capacidad de exportar la plantilla en notación de objetos JavaScript (JSON), que se debe revisar para asegurarse de que las configuraciones cumplan o superen los requisitos de seguridad de la organización.
 
-* [Almacenamiento de código en Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Almacenamiento de código en Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-* [Documentación de Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+* [Documentación de Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
-* [Exportación de uno y varios recursos a una plantilla en Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
+* [Exportación de uno y varios recursos a una plantilla en Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -985,7 +985,7 @@ Además, Azure Resource Manager tiene la capacidad de exportar la plantilla en n
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: Almacene imágenes de sistema operativo personalizadas de forma segura
 
-**Guía**: No aplicable; esta guía está pensada para recursos de proceso.
+**Instrucciones**: No aplicable; esta guía está pensada para recursos de proceso.
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -995,7 +995,7 @@ Además, Azure Resource Manager tiene la capacidad de exportar la plantilla en n
 
 **Guía**: Use las definiciones integradas en Azure Policy junto con los alias de esta misma aplicación en el espacio de nombres "Microsoft.Logic" para crear directivas personalizadas que permitan auditar y aplicar las configuraciones, así como enviar alertas sobre ellas. Use alias de Azure Policy para crear directivas personalizadas con el fin de auditar o aplicar la configuración de red de los recursos de Azure. Además, desarrolle un proceso y una canalización para administrar las excepciones de las directivas.
 
-* [Configuración y administración de Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -1013,7 +1013,7 @@ Además, Azure Resource Manager tiene la capacidad de exportar la plantilla en n
 
 **Guía**: Use las definiciones integradas en Azure Policy junto con los alias de esta misma aplicación en el espacio de nombres "Microsoft.Logic" para crear directivas personalizadas que permitan auditar y aplicar las configuraciones, así como enviar alertas sobre ellas. Use la directiva de Azure Policy [audit], [deny] y [deploy if not exist] para aplicar automáticamente las configuraciones en los recursos de Azure.
 
-* [Configuración y administración de Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -1033,15 +1033,15 @@ Además, Azure Resource Manager tiene la capacidad de exportar la plantilla en n
 
 Cuando crea un entorno de servicio de integración (ISE) para hospedar las aplicaciones lógicas y desea tener un mayor control sobre las claves de cifrado que usa Azure Storage, puede configurar, usar y administrar su propia clave mediante Azure Key Vault. Esta funcionalidad también se conoce como "Bring Your Own Key" (BYOK) y la clave se denomina "clave administrada por el cliente".
 
-* [Protección de entradas y salidas en el historial de ejecución en Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#obfuscate)
+* [Protección de entradas y salidas en el historial de ejecución en Azure Logic Apps](./logic-apps-securing-a-logic-app.md#obfuscate)
 
-* [Recomendaciones de seguridad para parámetros](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-best-practices#security-recommendations-for-parameters)
+* [Recomendaciones de seguridad para parámetros](../azure-resource-manager/templates/template-best-practices.md#security-recommendations-for-parameters)
 
-* [Protección del acceso a las entradas de parámetros en Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#access-to-parameter-inputs)
+* [Protección del acceso a las entradas de parámetros en Azure Logic Apps](./logic-apps-securing-a-logic-app.md#access-to-parameter-inputs)
 
-* [Paso de los valores de parámetro seguros durante la implementación mediante Azure Key Vault](https://docs.microsoft.com/azure/azure-resource-manager/templates/key-vault-parameter)
+* [Paso de los valores de parámetro seguros durante la implementación mediante Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
-* [Configuración de las claves administradas por el cliente para cifrar los datos en reposo para los entornos de servicio de integración (ISE) en Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/customer-managed-keys-integration-service-environment)
+* [Configuración de las claves administradas por el cliente para cifrar los datos en reposo para los entornos de servicio de integración (ISE) en Azure Logic Apps](./customer-managed-keys-integration-service-environment.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -1057,7 +1057,7 @@ Actualmente, solo determinadas acciones y desencadenadores integrados admiten id
 - Azure API Management
 - Azure App Services
 
-* [Autenticación del acceso a los recursos de Azure mediante identidades administradas en Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/create-managed-service-identity)
+* [Autenticación del acceso a los recursos de Azure mediante identidades administradas en Azure Logic Apps](./create-managed-service-identity.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -1069,13 +1069,13 @@ Actualmente, solo determinadas acciones y desencadenadores integrados admiten id
 
 También puede implementar el escáner de credenciales para identificar las credenciales en el código. El escáner de credenciales también fomenta el traslado de credenciales detectadas a ubicaciones más seguras, como Azure Key Vault.
 
-* [Protección de entradas y salidas en el historial de ejecución en Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#obfuscate)
+* [Protección de entradas y salidas en el historial de ejecución en Azure Logic Apps](./logic-apps-securing-a-logic-app.md#obfuscate)
 
-* [Recomendaciones de seguridad para parámetros](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-best-practices#security-recommendations-for-parameters)
+* [Recomendaciones de seguridad para parámetros](../azure-resource-manager/templates/template-best-practices.md#security-recommendations-for-parameters)
 
-* [Protección del acceso a las entradas de parámetros en Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#access-to-parameter-inputs)
+* [Protección del acceso a las entradas de parámetros en Azure Logic Apps](./logic-apps-securing-a-logic-app.md#access-to-parameter-inputs)
 
-* [Paso de los valores de parámetro seguros durante la implementación mediante Azure Key Vault](https://docs.microsoft.com/azure/azure-resource-manager/templates/key-vault-parameter)
+* [Paso de los valores de parámetro seguros durante la implementación mediante Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
 * [Configuración del escáner de credenciales](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
@@ -1085,7 +1085,7 @@ También puede implementar el escáner de credenciales para identificar las cred
 
 ## <a name="malware-defense"></a>Defensa contra malware
 
-*Para más información, consulte [Control de seguridad: defensa contra malware](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Para más información, consulte [Control de seguridad: defensa contra malware](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: Use software antimalware administrado centralmente
 
@@ -1103,9 +1103,9 @@ Examine previamente los archivos que se cargan en recursos de Azure que no son d
 
 Use la detección de amenazas de Azure Security Center para los servicios de datos para detectar malware cargado en cuentas de almacenamiento.
 
-* [Información sobre Microsoft Antimalware para Azure Cloud Services y Virtual Machines](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+* [Información sobre Microsoft Antimalware para Azure Cloud Services y Virtual Machines](../security/fundamentals/antimalware.md)
 
-* [Descripción de la detección de amenazas de Azure Security Center para servicios de datos](https://docs.microsoft.com/azure/security-center/security-center-alerts-data-services)
+* [Descripción de la detección de amenazas de Azure Security Center para servicios de datos](../security-center/threat-protection.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -1121,7 +1121,7 @@ Use la detección de amenazas de Azure Security Center para los servicios de dat
 
 ## <a name="data-recovery"></a>Recuperación de datos
 
-*Para más información, consulte [Control de seguridad: recuperación de datos](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Para más información, consulte [Control de seguridad: recuperación de datos](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: Garantía de copias de seguridad automáticas periódicas
 
@@ -1131,9 +1131,9 @@ El objetivo de esta estrategia de recuperación ante desastres es configurar la 
 
 Además, debe expandir la definición del flujo de trabajo subyacente de la aplicación lógica en una plantilla de Azure Resource Manager. Esta plantilla define la infraestructura, los recursos, los parámetros y otra información para aprovisionar e implementar la aplicación lógica.
 
-* [Más información sobre continuidad empresarial y recuperación ante desastres para Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/business-continuity-disaster-recovery-guidance)
+* [Más información sobre continuidad empresarial y recuperación ante desastres para Azure Logic Apps](./business-continuity-disaster-recovery-guidance.md)
 
-* [Automatización de la implementación para Azure Logic Apps mediante plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview)
+* [Automatización de la implementación para Azure Logic Apps mediante plantillas de Azure Resource Manager](./logic-apps-azure-resource-manager-templates-overview.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -1149,13 +1149,13 @@ Además, debe expandir la definición del flujo de trabajo subyacente de la apli
 
 Cada de punto de conexión de solicitud de una aplicación lógica incluye una Firma de acceso compartido (SAS) en la dirección URL del punto de conexión. Si usa Azure Key Vault para almacenar los secretos, asegúrese de que se realizan con regularidad copias de seguridad automatizadas de las claves y las direcciones URL.
 
-* [Más información sobre continuidad empresarial y recuperación ante desastres para Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/business-continuity-disaster-recovery-guidance)
+* [Más información sobre continuidad empresarial y recuperación ante desastres para Azure Logic Apps](./business-continuity-disaster-recovery-guidance.md)
 
-* [Automatización de la implementación para Azure Logic Apps mediante plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview)
+* [Automatización de la implementación para Azure Logic Apps mediante plantillas de Azure Resource Manager](./logic-apps-azure-resource-manager-templates-overview.md)
 
-* [Protección del acceso y los datos en Azure Logic Apps mediante SAS](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#access-to-request-based-triggers)
+* [Protección del acceso y los datos en Azure Logic Apps mediante SAS](./logic-apps-securing-a-logic-app.md#access-to-request-based-triggers)
 
-* [Copia de seguridad de claves de Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
+* [Copia de seguridad de claves de Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -1167,11 +1167,11 @@ Cada de punto de conexión de solicitud de una aplicación lógica incluye una F
 
 Pruebe la restauración de la copia de seguridad de las claves administradas por el cliente. Tenga en cuenta que esto solo se aplica a las instancias de Logic Apps que se ejecutan en entornos de servicio de integración (ISE).
 
-* [Más información sobre continuidad empresarial y recuperación ante desastres para Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/business-continuity-disaster-recovery-guidance)
+* [Más información sobre continuidad empresarial y recuperación ante desastres para Azure Logic Apps](./business-continuity-disaster-recovery-guidance.md)
 
-* [Configuración de las claves administradas por el cliente para cifrar los datos en reposo para los entornos de servicio de integración (ISE) en Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/customer-managed-keys-integration-service-environment)
+* [Configuración de las claves administradas por el cliente para cifrar los datos en reposo para los entornos de servicio de integración (ISE) en Azure Logic Apps](./customer-managed-keys-integration-service-environment.md)
 
-* [Restauración de las claves del almacén de claves en Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Restauración de las claves del almacén de claves en Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -1185,11 +1185,11 @@ Proteja las claves administradas por el cliente. Tenga en cuenta que esto solo s
 
 Habilite la eliminación temporal y la protección de purga en Key Vault para proteger las claves contra la eliminación accidental o malintencionada.
 
-* [Más información sobre continuidad empresarial y recuperación ante desastres para Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/business-continuity-disaster-recovery-guidance)
+* [Más información sobre continuidad empresarial y recuperación ante desastres para Azure Logic Apps](./business-continuity-disaster-recovery-guidance.md)
 
-* [Configuración de las claves administradas por el cliente para cifrar los datos en reposo para los entornos de servicio de integración (ISE) en Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/customer-managed-keys-integration-service-environment)
+* [Configuración de las claves administradas por el cliente para cifrar los datos en reposo para los entornos de servicio de integración (ISE) en Azure Logic Apps](./customer-managed-keys-integration-service-environment.md)
 
-* [Procedimiento para habilitar la eliminación temporal y la protección de purga en Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+* [Procedimiento para habilitar la eliminación temporal y la protección de purga en Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -1197,7 +1197,7 @@ Habilite la eliminación temporal y la protección de purga en Key Vault para pr
 
 ## <a name="incident-response"></a>Respuesta a los incidentes
 
-*Para más información, consulte [Control de seguridad: Respuesta a los incidentes](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Para más información, consulte [Control de seguridad: Respuesta a los incidentes](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Creación de una guía de respuesta ante incidentes
 
@@ -1219,9 +1219,9 @@ Habilite la eliminación temporal y la protección de purga en Key Vault para pr
 
 Además, marque claramente las suscripciones (por ejemplo, producción, no producción) con etiquetas y cree un sistema de nomenclatura para identificar y clasificar claramente los recursos de Azure, especialmente los que procesan datos confidenciales. Es su responsabilidad asignar prioridades a la corrección de las alertas en función de la importancia de los recursos y el entorno de Azure donde se produjo el incidente.
 
-* [Alertas de seguridad en el Centro de seguridad de Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+* [Alertas de seguridad en el Centro de seguridad de Azure](../security-center/security-center-alerts-overview.md)
 
-* [Uso de etiquetas para organizar los recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Uso de etiquetas para organizar los recursos de Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -1229,7 +1229,7 @@ Además, marque claramente las suscripciones (por ejemplo, producción, no produ
 
 ### <a name="103-test-security-response-procedures"></a>10.3: Prueba de los procedimientos de respuesta de seguridad
 
-**Guía**: Realice ejercicios para probar las funcionalidades de respuesta a los incidentes de los sistemas periódicamente para ayudar a proteger los recursos de Azure. Identifique puntos débiles y brechas y revise el plan según sea necesario.
+**Instrucciones**: Realice ejercicios para probar las funcionalidades de respuesta a los incidentes de los sistemas periódicamente; así, ayudará a proteger los recursos de Azure. Identifique puntos débiles y brechas y revise el plan según sea necesario.
 
 * [Publicación de NIST: Guía para probar, entrenar y ejecutar programas para planes y funcionalidades de TI](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 
@@ -1241,7 +1241,7 @@ Además, marque claramente las suscripciones (por ejemplo, producción, no produ
 
 **Instrucciones**: La información de contacto del incidente de seguridad la utilizará Microsoft para ponerse en contacto con usted si Microsoft Security Response Center (MSRC) detecta que un tercero no autorizado o ilegal ha accedido a los datos. Revise los incidentes después del hecho para asegurarse de que se resuelven los problemas.
 
-* [Establecimiento del contacto de seguridad de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+* [Establecimiento del contacto de seguridad de Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -1251,9 +1251,9 @@ Además, marque claramente las suscripciones (por ejemplo, producción, no produ
 
 **Guía**: Exporte las alertas y recomendaciones de Azure Security Center y mediante la característica de exportación continua para ayudar a identificar los riesgos para los recursos de Azure. La exportación continua le permite exportar alertas y recomendaciones de forma manual o continua. Puede usar el conector de datos de Azure Security Center para transmitir las alertas a Azure Sentinel.
 
-* [Configuración de la exportación continua](https://docs.microsoft.com/azure/security-center/continuous-export)
+* [Configuración de la exportación continua](../security-center/continuous-export.md)
 
-* [Transmisión de alertas a Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+* [Transmisión de alertas a Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -1261,9 +1261,9 @@ Además, marque claramente las suscripciones (por ejemplo, producción, no produ
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6: Automatización de la respuesta a las alertas de seguridad
 
-**Instrucciones**: Use la característica Automatización de flujo de trabajo de Azure Security Center para desencadenar automáticamente las respuestas a través de Logic Apps en las alertas y recomendaciones de seguridad para proteger los recursos de Azure.
+**Guía**: Use la característica Automatización de flujo de trabajo de Azure Security Center para desencadenar automáticamente las respuestas a través de Logic Apps en las alertas y recomendaciones de seguridad para proteger los recursos de Azure.
 
-* [Configuración de la automatización de flujo de trabajo y Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
+* [Configuración de la automatización de flujo de trabajo y Logic Apps](../security-center/workflow-automation.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -1271,11 +1271,11 @@ Además, marque claramente las suscripciones (por ejemplo, producción, no produ
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Pruebas de penetración y ejercicios del equipo rojo
 
-*Para más información, consulte [Control de seguridad: Pruebas de penetración y ejercicios del equipo rojo](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Para más información, consulte [Control de seguridad: Pruebas de penetración y ejercicios del equipo rojo](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Realice pruebas de penetración periódicas de los recursos de Azure y asegúrese de corregir todos los resultados de seguridad críticos
 
-**Guía**: Siga las reglas de compromiso de Microsoft para asegurarse de que las pruebas de penetración no infrinjan las directivas de Microsoft. Use la estrategia de Microsoft y la ejecución de pruebas de penetración de sitios activos y ataques simulados en la infraestructura en la nube, los servicios y las aplicaciones administrados por Microsoft.
+**Guía**: Siga las reglas de compromiso de Microsoft para asegurarse de que las pruebas de penetración no infrinjan las directivas de Microsoft. Use la estrategia de Microsoft y la ejecución de las pruebas de penetración del equipo rojo y sitios activos en la infraestructura de nube, los servicios y las aplicaciones administradas por Microsoft.
 
 * [Reglas de interacción de las pruebas de penetración](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
@@ -1287,5 +1287,5 @@ Además, marque claramente las suscripciones (por ejemplo, producción, no produ
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte la [prueba comparativa de seguridad de Azure](https://docs.microsoft.com/azure/security/benchmarks/overview).
-- Obtenga más información sobre las [líneas de base de seguridad de Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+- Consulte la [prueba comparativa de seguridad de Azure](../security/benchmarks/overview.md).
+- Obtenga más información sobre las [líneas de base de seguridad de Azure](../security/benchmarks/security-baselines-overview.md).

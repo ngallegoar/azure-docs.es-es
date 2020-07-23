@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: cynthn
-ms.openlocfilehash: 0c77864acd53976b9108a77198f645c419763b21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28c688526bccc411bce6f4118dc55160083deba0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85414460"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510929"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Procedimiento para crear una máquina virtual Linux con plantillas de Azure Resource Manager
 
@@ -56,7 +56,7 @@ En el ejemplo anterior, especificó una plantilla almacenada en GitHub. También
 
 Estos son algunos recursos adicionales:
 
-- Para aprender a desarrollar plantillas de Resource Manager, consulte la [documentación de Azure Resource Manager](/azure/azure-resource-manager/).
+- Para aprender a desarrollar plantillas de Resource Manager, consulte la [documentación de Azure Resource Manager](../../azure-resource-manager/index.yml).
 - Para ver los esquemas de la máquina virtual de Azure, consulte [Referencia sobre las plantillas de Azure](/azure/templates/microsoft.compute/allversions).
 - Para ver más ejemplos de plantilla de máquina virtual, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
 

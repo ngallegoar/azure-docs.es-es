@@ -4,12 +4,12 @@ description: Envíe notificaciones personalizadas de eventos de Service Health a
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 3/27/2018
-ms.openlocfilehash: 2609a267bd151354f83482ab16c4b9345aa88cc4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 05b0572c89a29fddc881f9977ee437d1319e6254
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062853"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518935"
 ---
 # <a name="use-a-webhook-to-configure-health-notifications-for-problem-management-systems"></a>Uso de un webhook para configurar las notificaciones relativas al estado en sistemas de administración de problemas
 
@@ -115,5 +115,5 @@ Siga estos pasos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Revise el [Esquema de webhook de alertas del registro de actividad](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Más información acerca de las [Notificaciones del estado del servicio](../azure-monitor/platform/service-notifications.md).
+- Más información acerca de las [Notificaciones del estado del servicio](./service-notifications.md).
 - Más información sobre los [grupos de acciones](../azure-monitor/platform/action-groups.md).

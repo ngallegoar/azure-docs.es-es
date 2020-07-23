@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo realizar una copia de seguridad de
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 1d7d28d813df82a5e1ea0fe424bba2ef5a9a2684
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 2e3e89d93ab35724a09138d48863badad6a41b71
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421350"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514125"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Realización de una copia de seguridad de un servidor Exchange en Azure con Azure Backup Server
 
@@ -23,8 +23,8 @@ Antes de continuar, asegúrese de que Azure Backup Server esté [instalado y pre
 
 Para instalar al agente de protección MABS en el servidor Exchange, siga estos pasos:
 
-1. Asegúrese de que los firewalls estén configurados correctamente. Consulte [Configuración de excepciones de firewall para el agente](https://docs.microsoft.com/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
-2. Instale el agente en el servidor Exchange; para ello, haga clic en **Administración > Agentes > Instalar** en la consola de administrador de MABS. Consulte [Instalación del agente de protección MABS](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) para ver pasos detallados.
+1. Asegúrese de que los firewalls estén configurados correctamente. Consulte [Configuración de excepciones de firewall para el agente](/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
+2. Instale el agente en el servidor Exchange; para ello, haga clic en **Administración > Agentes > Instalar** en la consola de administrador de MABS. Consulte [Instalación del agente de protección MABS](/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) para ver pasos detallados.
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Creación de un grupo de protección para el servidor Exchange
 
@@ -34,7 +34,7 @@ Para instalar al agente de protección MABS en el servidor Exchange, siga estos 
 4. Seleccione la base de datos del servidor Exchange que desea proteger y haga clic en **Siguiente**.
 
    > [!NOTE]
-   > Si va a proteger Exchange 2013, compruebe en [Requisitos previos de Exchange 2013](https://docs.microsoft.com/system-center/dpm/back-up-exchange?view=sc-dpm-2016).
+   > Si va a proteger Exchange 2013, compruebe en [Requisitos previos de Exchange 2013](/system-center/dpm/back-up-exchange).
    >
    >
 

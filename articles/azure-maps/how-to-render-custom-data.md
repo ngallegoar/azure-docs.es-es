@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: b8d47b69b4aba14c86fb09176b662aee7d5482d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f386cbf09bb2b62e0c54826affc50a050c095fa6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335514"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524597"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Representación de datos personalizados en un mapa de trama
 
@@ -29,7 +29,7 @@ Para representar marcadores, etiquetas y superposiciones geométricas personaliz
 
 ### <a name="create-an-azure-maps-account"></a>Crear una cuenta de Azure Maps
 
-Para completar los procedimientos descritos en este artículo, primero debe crear una cuenta de Azure Maps y obtener la clave de cuenta de los mapas. Siga las instrucciones que se indican en [Creación de una cuenta](quick-demo-map-app.md#create-an-account-with-azure-maps) para crear una suscripción a una cuenta de Azure Maps y siga los pasos para [obtener la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) de la cuenta. Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](./how-to-manage-authentication.md).
+Para completar los procedimientos descritos en este artículo, primero debe crear una cuenta de Azure Maps y obtener la clave de cuenta de los mapas. Siga las instrucciones que se indican en [Creación de una cuenta](quick-demo-map-app.md#create-an-azure-maps-account) para crear una suscripción a una cuenta de Azure Maps y siga los pasos para [obtener la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) de la cuenta. Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](./how-to-manage-authentication.md).
 
 
 ## <a name="render-pushpins-with-labels-and-a-custom-image"></a>Representación de marcadores con etiquetas e imágenes personalizadas

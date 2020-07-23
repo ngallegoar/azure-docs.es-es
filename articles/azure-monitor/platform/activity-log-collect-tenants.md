@@ -6,22 +6,22 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2019
-ms.openlocfilehash: d2f794365e15768dbf47647f2d9a8d08d5e8ba3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 07c38cbd2d77a3cca594acd974705af35d8189b9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80055740"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516352"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Recopilación de registros de actividad de Azure en Azure Monitor en inquilinos de Azure Active Directory (heredado)
 
 > [!NOTE]
-> En este artículo se describe el método heredado para configurar el registro de actividad de Azure en los inquilinos de Azure para que se recopilen en un área de trabajo de Log Analytics.  Ahora puede recopilar el Registro de actividad en un área de trabajo Log Analytics mediante una configuración de diagnóstico similar a la de la recopilación de registros de recursos. Consulte [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](activity-log-collect.md) (Recopilación y análisis de registros de actividad en un área de trabajo de Log Analytics en Azure Monitor).
+> En este artículo se describe el método heredado para configurar el registro de actividad de Azure en los inquilinos de Azure para que se recopilen en un área de trabajo de Log Analytics.  Ahora puede recopilar el Registro de actividad en un área de trabajo Log Analytics mediante una configuración de diagnóstico similar a la de la recopilación de registros de recursos. Consulte [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](./activity-log.md) (Recopilación y análisis de registros de actividad en un área de trabajo de Log Analytics en Azure Monitor).
 
 
 En este artículo se explica un método para recopilar registros de actividad de Azure en un área de trabajo de Log Analytics en Azure Monitor mediante el conector del recopilador de datos de Azure Log Analytics para Logic Apps. Siga el proceso de este artículo si necesita enviar registros a un área de trabajo en un inquilino distinto de Azure Active Directory. Por ejemplo, si es un proveedor de servicios administrados, puede que desee recopilar registros de actividad de la suscripción de un cliente y almacenarlos en un área de trabajo de Log Analytics en su propia suscripción.
 
-Si el área de trabajo de Log Analytics está en la misma suscripción de Azure, o bien en una suscripción diferente, pero en la misma instancia de Azure Active Directory, siga los pasos de [Recopilar y analizar los registros de actividad de Azure en el área de trabajo de Log Analytics en Azure Monitor](activity-log-collect.md) para recopilar registros de actividad de Azure.
+Si el área de trabajo de Log Analytics está en la misma suscripción de Azure, o bien en una suscripción diferente, pero en la misma instancia de Azure Active Directory, siga los pasos de [Recopilar y analizar los registros de actividad de Azure en el área de trabajo de Log Analytics en Azure Monitor](./activity-log.md) para recopilar registros de actividad de Azure.
 
 ## <a name="overview"></a>Información general
 
@@ -90,17 +90,17 @@ Puede usar un espacio de nombres del centro de eventos que no esté en la misma 
 
 11. Haga clic en **Aceptar** y en **Guardar** para guardar la configuración. La configuración se aplica inmediatamente a la suscripción.
 
-<!-- Follow the steps in [stream the Azure Activity Log to Event Hubs](../../azure-monitor/platform/activity-logs-stream-event-hubs.md) to configure a log profile that writes activity logs to an event hub. -->
+<!-- Follow the steps in [stream the Azure Activity Log to Event Hubs](./activity-log.md#legacy-collection-methods) to configure a log profile that writes activity logs to an event hub. -->
 
 ## <a name="step-3---create-logic-app"></a>Paso 3: Cree una aplicación lógica
 
 Una vez que los registros de actividad escriban en el centro de eventos, cree una aplicación lógica para que recopile los registros del centro de eventos y los escriba en el área de trabajo de Log Analytics.
 
 La aplicación lógica incluye lo siguiente:
-- Un desencadenador del [conector del centro de eventos](https://docs.microsoft.com/connectors/eventhubs/) para leer en el centro de eventos.
+- Un desencadenador del [conector del centro de eventos](/connectors/eventhubs/) para leer en el centro de eventos.
 - Una [acción de análisis JSON](../../logic-apps/logic-apps-content-type.md) para extraer los eventos JSON.
 - Una [acción de redacción](../../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action) para convertir el evento JSON en un objeto.
-- Un [conector de envío de datos a Log Analytics](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) para publicar los datos en el área de trabajo de Log Analytics.
+- Un [conector de envío de datos a Log Analytics](/connectors/azureloganalyticsdatacollector/) para publicar los datos en el área de trabajo de Log Analytics.
 
    ![imagen de la adición del desencadenador del centro de eventos a Logic Apps](media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
@@ -284,7 +284,7 @@ La acción [Redactar](../../logic-apps/logic-apps-workflow-actions-triggers.md#c
 
 
 ### <a name="add-log-analytics-send-data-action"></a>Adición de la acción de envío de datos a Log Analytics
-El [recopilador de datos de Azure Log Analytics](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) usa el objeto de la acción de redacción y lo envía al área de trabajo de Log Analytics.
+El [recopilador de datos de Azure Log Analytics](/connectors/azureloganalyticsdatacollector/) usa el objeto de la acción de redacción y lo envía al área de trabajo de Log Analytics.
 
 1. Haga clic en **Nuevo paso** > **Agregar una acción**.
 2. Escriba *log analytics* como filtro y después seleccione la acción **Recopilador de datos de Azure Log Analytics: Enviar datos**.
@@ -330,7 +330,7 @@ El último paso consiste en comprobar el área de trabajo de Log Analytics para 
 > La primera vez que se envía un registro personalizado nuevo al área de trabajo de Log Analytics, puede transcurrir hasta una hora para poder buscar dicho registro.
 
 >[!NOTE]
-> Los registros de actividad se escriben en una tabla personalizada y no aparecen en la [solución de registro de actividad](./activity-log-collect.md).
+> Los registros de actividad se escriben en una tabla personalizada y no aparecen en la [solución de registro de actividad](./activity-log.md).
 
 
 ![Prueba de la aplicación lógica](media/collect-activity-logs-subscriptions/log-analytics-results.png)

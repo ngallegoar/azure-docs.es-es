@@ -3,12 +3,12 @@ title: Envío de alertas de estado del servicio con ServiceNow
 description: Obtenga notificaciones personalizadas sobre los eventos del estado de servicio en la instancia de ServiceNow.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 5cd17af080714fdf2e9e5b168e72f975c8d3a3f6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 96c181991fc962b08e777a55d891b881fc1bdba3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260198"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519085"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Envío de alertas de Azure Service Health con ServiceNow mediante webhooks
 
@@ -147,7 +147,7 @@ Este artículo muestra cómo integrar las alertas de estado del servicio de Azur
 
 ## <a name="create-an-alert-using-servicenow-in-the-azure-portal"></a>Creación de una alerta con ServiceNow en Azure Portal
 ### <a name="for-a-new-action-group"></a>Para un nuevo grupo de acciones:
-1. Siga los pasos del 1 al 8 en [este artículo](../azure-monitor/platform/alerts-activity-log-service-notifications.md) para crear una alerta con un nuevo grupo de acciones.
+1. Siga los pasos del 1 al 8 en [este artículo](./alerts-activity-log-service-notifications-portal.md) para crear una alerta con un nuevo grupo de acciones.
 
 1. Defina la lista de **acciones**:
 
@@ -195,5 +195,5 @@ Este artículo muestra cómo integrar las alertas de estado del servicio de Azur
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga información acerca de cómo [configurar notificaciones de webhook para los sistemas de administración de problemas existentes](service-health-alert-webhook-guide.md).
 - Revise el [Esquema de webhook de alertas del registro de actividad](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Más información acerca de las [Notificaciones del estado del servicio](../azure-monitor/platform/service-notifications.md).
+- Más información acerca de las [Notificaciones del estado del servicio](./service-notifications.md).
 - Más información sobre los [grupos de acciones](../azure-monitor/platform/action-groups.md).

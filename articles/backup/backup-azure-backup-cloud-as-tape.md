@@ -3,12 +3,12 @@ title: Cómo reemplazar la infraestructura de cintas
 description: Aprenda la forma en que Azure Backup proporciona una semántica similar a la cinta que le permite hacer copias de seguridad y restaurar datos en Azure
 ms.topic: conceptual
 ms.date: 04/30/2017
-ms.openlocfilehash: aeda1cefc84d425855c40b793f8334936541e63f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71bfa86611b3a63fa6a28f60f80608b394cab5a3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77425109"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514193"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Traslado del almacenamiento a largo plazo de la cinta a la nube de Azure
 
@@ -70,5 +70,5 @@ Al hacer clic en **Modificar** en la pantalla anterior, los clientes tienen más
 
 Para obtener más información sobre Azure Backup, vea
 
-* [Introducción a Azure Backup](backup-introduction-to-azure-backup.md)
-* [Probar Azure Backup](backup-try-azure-backup-in-10-mins.md)
+* [Introducción a Azure Backup](./backup-overview.md)
+* [Probar Azure Backup](./backup-windows-with-mars-agent.md)

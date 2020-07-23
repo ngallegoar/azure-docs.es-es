@@ -15,15 +15,16 @@ ms.workload: infrastructure
 ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 25d911869c95baba6ac9db3b893292e702e9c0e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 26179dd2491a8b8cbc2ef3eb0ad66fa61722d413
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81273212"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525269"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementación de DBMS de Azure Virtual Machines de SAP ASE para la carga de trabajo de SAP
 
-En este documento se describen las diferentes áreas que se deben tener en cuenta al implementar SAP ASE en IaaS de Azure. Como condición previa a este documento, debe haber leído el documento [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](dbms_guide_general.md) y otras guías de la [documentación de carga de trabajo de SAP en Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). En este documento se describe SAP ASE que se ejecuta en Linux y en sistemas operativos Windows. La versión mínima admitida en Azure es SAP ASE 16.0.02 (versión 16, paquete de soporte 2). Se recomienda implementar la versión más reciente de SAP y el nivel de revisión (PL) más reciente.  Como mínimo, se recomienda SAP ASE 16.0.03.07 (versión 16, paquete de soporte 3, nivel de revisión 7).  La versión más reciente de SAP puede encontrarse en [Targeted ASE 16.0 Release Schedule and CR list Information](https://wiki.scn.sap.com/wiki/display/SYBASE/Targeted+ASE+16.0+Release+Schedule+and+CR+list+Information).
+En este documento se describen las diferentes áreas que se deben tener en cuenta al implementar SAP ASE en IaaS de Azure. Como condición previa a este documento, debe haber leído el documento [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](dbms_guide_general.md) y otras guías de la [documentación de carga de trabajo de SAP en Azure](./get-started.md). En este documento se describe SAP ASE que se ejecuta en Linux y en sistemas operativos Windows. La versión mínima admitida en Azure es SAP ASE 16.0.02 (versión 16, paquete de soporte 2). Se recomienda implementar la versión más reciente de SAP y el nivel de revisión (PL) más reciente.  Como mínimo, se recomienda SAP ASE 16.0.03.07 (versión 16, paquete de soporte 3, nivel de revisión 7).  La versión más reciente de SAP puede encontrarse en [Targeted ASE 16.0 Release Schedule and CR list Information](https://wiki.scn.sap.com/wiki/display/SYBASE/Targeted+ASE+16.0+Release+Schedule+and+CR+list+Information).
 
 Además, encontrará información adicional sobre la compatibilidad de versiones con las aplicaciones de SAP o la ubicación de los medios de instalación en la matriz de disponibilidad de productos de SAP en estas ubicaciones:
 
@@ -58,7 +59,7 @@ Normalmente, el tamaño de página es de 2048 KB. Para obtener más informació
 
 ## <a name="recommendations-on-vm-and-disk-structure-for-sap-ase-deployments"></a>Recomendaciones sobre la estructura de discos y VM para implementaciones de SAP ASE
 
-SAP ASE para SAP NetWeaver Applications es compatible con cualquier tipo de VM que se enumere en la [nota de soporte técnico de SAP 1928533](https://launchpad.support.sap.com/#/notes/1928533). Los tipos de VM habituales que se usan para los servidores de bases de datos de SAP ASE de tamaño medio incluyen Esv3.  Las grandes bases de datos de varios terabytes pueden aprovechar los tipos de VM de la serie M. El rendimiento de escritura en disco del registro de transacciones de SAP ASE se puede mejorar si se habilita el Acelerador de escritura de la serie M. El Acelerador de escritura debe probarse atentamente con SAP ASE debido a la manera en que SAP ASE realiza escrituras en el registro.  Revise la [nota de soporte técnico de SAP 2816580](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) y tenga en cuenta la posibilidad de ejecutar una prueba de rendimiento.  
+SAP ASE para SAP NetWeaver Applications es compatible con cualquier tipo de VM que se enumere en la [nota de soporte técnico de SAP 1928533](https://launchpad.support.sap.com/#/notes/1928533). Los tipos de VM habituales que se usan para los servidores de bases de datos de SAP ASE de tamaño medio incluyen Esv3.  Las grandes bases de datos de varios terabytes pueden aprovechar los tipos de VM de la serie M. El rendimiento de escritura en disco del registro de transacciones de SAP ASE se puede mejorar si se habilita el Acelerador de escritura de la serie M. El Acelerador de escritura debe probarse atentamente con SAP ASE debido a la manera en que SAP ASE realiza escrituras en el registro.  Revise la [nota de soporte técnico de SAP 2816580](../../windows/how-to-enable-write-accelerator.md) y tenga en cuenta la posibilidad de ejecutar una prueba de rendimiento.  
 El Acelerador de escritura está diseñado únicamente para el disco del registro de transacciones. La memoria caché de nivel de disco debe establecerse en NONE. No se sorprenda si el Acelerador de escritura de Azure no muestra mejoras similares como con otro DBMS. En función de la forma en que SAP ASE escribe en el registro de transacciones, podría deberse a que el Acelerador de escritura de Azure muestre poca o ninguna aceleración.
 Se recomiendan discos independientes para dispositivos de datos y dispositivos de registro.  Las bases de datos del sistema sybsecurity y `saptools` no requieren discos dedicados y se pueden colocar en los discos que contienen los dispositivos de datos y de registro de la base de datos de SAP. 
 
@@ -70,7 +71,7 @@ SAP ASE escribe los datos secuencialmente en los dispositivos de almacenamiento 
 Se recomienda configurar la expansión automática de base de datos como se describe en el artículo [Configuring Automatic Database Space Expansion in SAP Adaptive Server Enterprise](https://blogs.sap.com/2014/07/09/configuring-automatic-database-space-expansion-in-sap-adaptive-server-enterprise/) y en la [nota de soporte técnico de SAP 1815695](https://launchpad.support.sap.com/#/notes/1815695). 
 
 ### <a name="sample-sap-ase-on-azure-virtual-machine-disk-and-file-system-configurations"></a>Ejemplo de SAP ASE en máquinas virtuales de Azure, configuraciones de disco y sistema de archivos 
-Las plantillas siguientes muestran configuraciones de ejemplo para Linux y Windows. Antes de confirmar la configuración de máquina virtual y disco, asegúrese de que las cuotas de ancho de banda de red y almacenamiento de la VM individual sean suficientes para satisfacer los requisitos empresariales. Tenga en cuenta también que diferentes tipos de VM de Azure tienen un número máximo de discos que se pueden conectar a la VM. Por ejemplo, una VM E4s_v3 tiene un rendimiento límite de E/S de almacenamiento de 48 MB/s. Si el rendimiento de almacenamiento requerido por la actividad de copia de seguridad de base de datos requiere más de 48 MB/s, es inevitable usar un tipo de VM mayor con más rendimiento de ancho de banda de almacenamiento. Al configurar Azure Storage, también debe tener en cuenta que, especialmente con [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance), cambian el rendimiento y las IOPS por GB de capacidad. Consulte más información sobre este tema en el artículo [¿Qué tipos de disco están disponibles en Azure?](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types) Las cuotas para tipos específicos de VM de Azure se documentan en el artículo [Tamaños de máquina virtual optimizada para memoria](https://docs.microsoft.com/azure/virtual-machines/sizes-memory) y en otros artículos vinculados a este. 
+Las plantillas siguientes muestran configuraciones de ejemplo para Linux y Windows. Antes de confirmar la configuración de máquina virtual y disco, asegúrese de que las cuotas de ancho de banda de red y almacenamiento de la VM individual sean suficientes para satisfacer los requisitos empresariales. Tenga en cuenta también que diferentes tipos de VM de Azure tienen un número máximo de discos que se pueden conectar a la VM. Por ejemplo, una VM E4s_v3 tiene un rendimiento límite de E/S de almacenamiento de 48 MB/s. Si el rendimiento de almacenamiento requerido por la actividad de copia de seguridad de base de datos requiere más de 48 MB/s, es inevitable usar un tipo de VM mayor con más rendimiento de ancho de banda de almacenamiento. Al configurar Azure Storage, también debe tener en cuenta que, especialmente con [Azure Premium Storage](../../windows/premium-storage-performance.md), cambian el rendimiento y las IOPS por GB de capacidad. Consulte más información sobre este tema en el artículo [¿Qué tipos de disco están disponibles en Azure?](../../windows/disks-types.md) Las cuotas para tipos específicos de VM de Azure se documentan en el artículo [Tamaños de máquina virtual optimizada para memoria](../../sizes-memory.md) y en otros artículos vinculados a este. 
 
 > [!NOTE]
 >  Si va a mover un sistema DBMS de un entorno local a Azure, se recomienda realizar la supervisión en la VM y evaluar la CPU, la memoria, las IOPS y el rendimiento de almacenamiento. Compare los valores máximos observados con los límites de cuota de VM documentados en los artículos mencionados anteriormente.
@@ -212,7 +213,7 @@ SAP Software Provisioning Manager (SWPM) proporciona una opción para cifrar la 
 - Considere la posibilidad de usar discos Ultra para sistemas muy grandes. 
 - Ejecute `saptune` SAP-ASE en el sistema operativo Linux. 
 - Proteja la base de datos con cifrado de base de datos: almacene las claves manualmente en Azure Key Vault. 
-- Complete la [lista de comprobación de SAP en Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist). 
+- Complete la [lista de comprobación de SAP en Azure](./sap-deployment-checklist.md). 
 - Configure la copia de seguridad de registros y la copia de seguridad completa. 
 - Pruebe la alta disponibilidad y recuperación ante desastres, la copia de seguridad y restauración, y realice pruebas de carga y volumen. 
 - Confirme que la extensión de base de datos automática funcione. 
@@ -309,5 +310,4 @@ Un boletín mensual se publica a través de la [nota de soporte técnico de SAP 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte el artículo [Lista de comprobación de planeamiento e implementación de cargas de trabajo de SAP en Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist).
-
+Consulte el artículo [Lista de comprobación de planeamiento e implementación de cargas de trabajo de SAP en Azure](./sap-deployment-checklist.md).

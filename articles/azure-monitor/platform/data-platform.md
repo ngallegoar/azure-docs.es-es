@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 58f542238c952088777ed9809b57dae3cdb9cf12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 68e88ec90625f34e5bc8ae1b70c75e3cfe9a53ad
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457270"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515536"
 ---
 # <a name="azure-monitor-data-platform"></a>Plataforma de datos de Azure Monitor
 
@@ -49,7 +49,7 @@ Los registros de Azure Monitor se almacenan en un área de trabajo de Log Analyt
 > Es importante distinguir entre registros de Azure Monitor y orígenes de datos de registro de Azure. Por ejemplo, los eventos de nivel de suscripción de Azure se escriben en un [registro de actividad](platform-logs-overview.md) que puede verse en el menú de Azure Monitor. La mayoría de los recursos escriben información operativa en un [registro de recursos](platform-logs-overview.md) que se puede reenviar a distintas ubicaciones. Los registros de Azure Monitor son una plataforma de datos de registro que recopila los registros de actividad y los registros de recursos, junto con otros datos de supervisión, para proporcionar un análisis profundo de todo el conjunto de recursos.
 
 
- Puede trabajar con [consultas de registro](../log-query/log-query-overview.md) de manera interactiva con [Log Analytics](../log-query/portals.md) en Azure Portal o agregar los resultados a un [panel de Azure](../learn/tutorial-app-dashboards.md) para su visualización en combinación con otros datos. También puede crear [alertas de registro](alerts-log.md), que desencadenarán una alerta según los resultados de una consulta de programación.
+ Puede trabajar con [consultas de registro](../log-query/log-query-overview.md) de manera interactiva con [Log Analytics](../log-query/log-query-overview.md) en Azure Portal o agregar los resultados a un [panel de Azure](../learn/tutorial-app-dashboards.md) para su visualización en combinación con otros datos. También puede crear [alertas de registro](alerts-log.md), que desencadenarán una alerta según los resultados de una consulta de programación.
 
 Aprenda más sobre los registros de Azure Monitor, como sus orígenes de datos en [Registros en Azure Monitor](data-platform-logs.md).
 
@@ -81,7 +81,7 @@ Consulte [Métricas en Azure Monitor](data-platform-metrics.md) y [Registros en 
 
 
 ## <a name="stream-data-to-external-systems"></a>Hacer streaming de datos a sistemas externos
-Además de usar las herramientas de Azure para analizar datos de supervisión, es posible que necesite reenviarlos a una herramienta externa, como un producto de administración de eventos e información de seguridad (SIEM). Este reenvío normalmente se realiza directamente desde los recursos supervisados a través de [Azure Event Hubs](/azure/event-hubs/). Algunos orígenes pueden configurarse para enviar datos directamente a un centro de eventos, aunque se puede usar otro proceso, como una aplicación lógica, para recuperar los datos necesarios. Consulte [Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa](stream-monitoring-data-event-hubs.md) para más información.
+Además de usar las herramientas de Azure para analizar datos de supervisión, es posible que necesite reenviarlos a una herramienta externa, como un producto de administración de eventos e información de seguridad (SIEM). Este reenvío normalmente se realiza directamente desde los recursos supervisados a través de [Azure Event Hubs](../../event-hubs/index.yml). Algunos orígenes pueden configurarse para enviar datos directamente a un centro de eventos, aunque se puede usar otro proceso, como una aplicación lógica, para recuperar los datos necesarios. Consulte [Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa](stream-monitoring-data-event-hubs.md) para más información.
 
 
 

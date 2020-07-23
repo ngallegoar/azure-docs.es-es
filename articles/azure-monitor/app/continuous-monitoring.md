@@ -3,12 +3,12 @@ title: Supervisión continua de la canalización de versión de DevOps con Azure
 description: Proporciona instrucciones para configurar rápidamente la supervisión continua con Application Insights
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 0d47fb1eccdfcfc7b2719825575f06dc85e62452
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: fd7cd6a107ed45adb60167a57661b60be5dc8212
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82652767"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517134"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Incorporación de supervisión continua a la canalización de versión
 
@@ -101,4 +101,4 @@ En los registros de versión se puede ver el comportamiento de la puerta de impl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre Azure pipelines, consulte la [documentación de Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines).
+Para más información sobre Azure pipelines, consulte la [documentación de Azure Pipelines](/azure/devops/pipelines).

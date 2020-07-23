@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 32347f6d943565eeca7c37a9cdd2cf511e39ddb3
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 507253fcddddf7331ff51c71904c2cdd8e7e5dfd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985316"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514735"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Cifrado de datos transparente de Azure SQL con una clave administrada por el cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -62,7 +62,7 @@ Para que el servidor pueda usar el protector de TDE almacenado en AKV para cifra
 
 - **unwrapKey**: para poder desproteger (descifrar) la DEK
 
-El administrador de Key Vault también puede [habilitar el registro de eventos de auditoría del almacén de claves](../../azure-monitor/insights/azure-key-vault.md), por lo que se pueden auditar más adelante.
+El administrador de Key Vault también puede [habilitar el registro de eventos de auditoría del almacén de claves](../../azure-monitor/insights/key-vault-insights-overview.md), por lo que se pueden auditar más adelante.
 
 Cuando se configura el servidor para usar un protector de TDE de AKV, el servidor envía la DEK de cada base de datos habilitada para TDE al almacén de claves para su cifrado. Key Vault devuelve la DEK cifrada, la cual se almacena en la base de datos del usuario.
 

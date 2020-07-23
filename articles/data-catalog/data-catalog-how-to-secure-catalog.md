@@ -4,14 +4,14 @@ description: En este artículo se explica cómo proteger un catálogo de datos y
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: b0972be2b8a6e05d3d90cde7354b4890ea95cbe4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6a429c09b6f8082c95e29bcea62d27ec4fb46fd3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68976763"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523390"
 ---
 # <a name="how-to-secure-access-to-data-catalog-and-data-assets"></a>Acceso seguro al catálogo de datos y a los activos de datos
 

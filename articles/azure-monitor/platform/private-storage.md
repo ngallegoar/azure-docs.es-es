@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2020
-ms.openlocfilehash: 05eb92e2fb887b5c64e2c73576fe85a4543ac1b7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: da9ec0fc421f0cb2f2a1e6fa65d8c936cfd5a3c7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184504"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515434"
 ---
 # <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Cuentas de almacenamiento de propiedad del cliente para la ingesta de registros en Azure Monitor
 
-Azure Monitor usa cuentas de almacenamiento en el proceso de ingesta de algunos tipos de datos tales como [registros personalizados](data-sources-custom-logs.md) y algunos [registros de Azure](azure-storage-iis-table.md). Durante el proceso de ingesta, los registros se envían primero a una cuenta de almacenamiento y, posteriormente, se ingieren en Log Analytics o Application Insights. Si quiere controlar los datos durante la ingesta, puede usar sus propias cuentas de almacenamiento en lugar del almacenamiento administrado por el servicio. El uso de su propia cuenta de almacenamiento le proporciona control sobre el acceso, el contenido, el cifrado y la retención de los registros durante la ingesta. Llamamos a esto Traiga su propio almacenamiento (BYOS). 
+Azure Monitor usa cuentas de almacenamiento en el proceso de ingesta de algunos tipos de datos tales como [registros personalizados](data-sources-custom-logs.md) y algunos [registros de Azure](./diagnostics-extension-logs.md). Durante el proceso de ingesta, los registros se envían primero a una cuenta de almacenamiento y, posteriormente, se ingieren en Log Analytics o Application Insights. Si quiere controlar los datos durante la ingesta, puede usar sus propias cuentas de almacenamiento en lugar del almacenamiento administrado por el servicio. El uso de su propia cuenta de almacenamiento le proporciona control sobre el acceso, el contenido, el cifrado y la retención de los registros durante la ingesta. Llamamos a esto Traiga su propio almacenamiento (BYOS). 
 
 Un escenario que requiere BYOS es el aislamiento de red a través de vínculos privados. Cuando se usa una red virtual, el aislamiento de red suele ser un requisito y el acceso a Internet público es limitado. En tales casos, el acceso al almacenamiento de servicio de Azure Monitor para la ingesta de registros está completamente bloqueado o se considera como procedimiento incorrecto. En su lugar, los registros se deben ingerir a través de una cuenta de almacenamiento propiedad del cliente dentro de la red virtual o fácilmente accesible desde ella.
 
@@ -23,7 +23,7 @@ Otro escenario es el cifrado de los registros con claves administradas por el cl
 
 ## <a name="data-types-supported"></a>Tipos de datos compatibles
 
-Entre los tipos de datos que se ingieren desde una cuenta de almacenamiento se incluyen los siguientes. Consulte [Recopilación de datos de Azure Diagnostics Extension en los registros de Azure Monitor](azure-storage-iis-table.md) para más información sobre la ingesta de estos tipos.
+Entre los tipos de datos que se ingieren desde una cuenta de almacenamiento se incluyen los siguientes. Consulte [Recopilación de datos de Azure Diagnostics Extension en los registros de Azure Monitor](./diagnostics-extension-logs.md) para más información sobre la ingesta de estos tipos.
 
 | Tipo | Información de tabla |
 |:-----|:------------------|
@@ -54,7 +54,7 @@ El único método disponible para crear y quitar vínculos es a través de la AP
 ## <a name="command-line-and-rest-api"></a>Línea de comandos y API de REST
 
 ### <a name="command-line"></a>Línea de comandos
-Para crear y administrar cuentas de almacenamiento vinculadas, use [az monitor log-analytics workspace linked-storage](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage). Este comando puede vincular y desvincular cuentas de almacenamiento de un área de trabajo y enumerar las cuentas de almacenamiento vinculadas.
+Para crear y administrar cuentas de almacenamiento vinculadas, use [az monitor log-analytics workspace linked-storage](/cli/azure/monitor/log-analytics/workspace/linked-storage). Este comando puede vincular y desvincular cuentas de almacenamiento de un área de trabajo y enumerar las cuentas de almacenamiento vinculadas.
 
 ### <a name="request-and-cli-values"></a>Valores de la solicitud y la CLI
 

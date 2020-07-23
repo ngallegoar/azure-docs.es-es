@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: bwren
 ms.subservice: metrics
-ms.openlocfilehash: 14079f42fd857495396a0c44fd3bdeaf4371ea5f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 208515b7541948ca6913e6fda092c6a424de85f9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650546"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515791"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine"></a>Enviar métricas de SO invitado al almacén de métricas de Azure Monitor con una plantilla de Azure Resource Manager para una máquina virtual Windows
 Los datos de rendimiento del sistema operativo invitado de las máquinas virtuales de Azure no se recopilan automáticamente como otras [métricas de la plataforma](../insights/monitor-azure-resource.md#monitoring-data). Instale la [extensión de diagnósticos](diagnostics-extension-overview.md) de Azure Monitor para recopilar métricas del sistema operativo invitado en la base de datos de métricas, de modo que se pueda usar con todas las características de métricas de Azure Monitor, incluidos alertas, gráficos, enrutamiento y acceso casi en tiempo real de una API REST. En este artículo se describe el proceso de envío de métricas de rendimiento del SO invitado para una máquina virtual Windows a la base de datos de métricas mediante una plantilla de Resource Manager. 
@@ -25,9 +25,9 @@ Si no está familiarizado con las plantillas de Resource Manager, obtenga inform
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- La suscripción debe estar registrada en [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
+- La suscripción debe estar registrada en [Microsoft.Insights](../../azure-resource-manager/management/resource-providers-and-types.md).
 
-- Debe tener instalado [Azure PowerShell](/powershell/azure) o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+- Debe tener instalado [Azure PowerShell](/powershell/azure) o [Azure Cloud Shell](../../cloud-shell/overview.md).
 
 - El recurso de máquina virtual debe estar en una [región que admita métricas personalizadas](metrics-custom-overview.md#supported-regions). 
 
@@ -286,4 +286,3 @@ Para implementar la plantilla de Resource Manager, se usa Azure PowerShell.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información acerca de las [métricas personalizadas](metrics-custom-overview.md).
-

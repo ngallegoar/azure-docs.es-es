@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/25/2020
-ms.openlocfilehash: 350c542e1b183c79707c99989b2544fd8faa43ac
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4235e948dba76c0b2926d9965ccd2fcb072cad62
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248482"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520790"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
-En este artículo, se describen los límites y los detalles de configuración para crear y ejecutar flujos de trabajo automatizados con Azure Logic Apps. Para Power Automate, consulte [Límites y configuración en Power Automate](https://docs.microsoft.com/flow/limits-and-config).
+En este artículo, se describen los límites y los detalles de configuración para crear y ejecutar flujos de trabajo automatizados con Azure Logic Apps. Para Power Automate, consulte [Límites y configuración en Power Automate](/flow/limits-and-config).
 
 <a name="definition-limits"></a>
 
@@ -129,7 +129,7 @@ Si quiere superar estos límites en el procesamiento normal, o ejecutar pruebas 
 
 ## <a name="gateway-limits"></a>Límites de puerta de enlace
 
-Azure Logic Apps admite operaciones de escritura, inserciones y actualizaciones incluidas, mediante la puerta de enlace. Sin embargo, estas operaciones tienen [límites en su tamaño de carga](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
+Azure Logic Apps admite operaciones de escritura, inserciones y actualizaciones incluidas, mediante la puerta de enlace. Sin embargo, estas operaciones tienen [límites en su tamaño de carga](/data-integration/gateway/service-gateway-onprem#considerations).
 
 <a name="request-limits"></a>
 
@@ -154,7 +154,7 @@ Algunas operaciones de conector realizan llamadas asincrónicas o escuchan las s
 | Nombre | Límite de multiinquilino | Límite del entorno del servicio de integración | Notas |
 |------|--------------------|---------------------------------------|-------|
 | Tamaño del mensaje | 100 MB | 200 MB | Para evitar este límite, consulte [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md) (Controlar mensajes grandes con fragmentación). En cambio, puede que algunos conectores y API no admitan la fragmentación ni el límite predeterminado. <p><p>- Los conectores como AS2, X12 y EDIFACT tienen sus propios [límites de mensajes B2B](#b2b-protocol-limits). <br>- Los conectores ISE usan el límite de ISE, no los límites de aquellos que no son ISE. |
-| Tamaño del mensaje con fragmentación | 1 GB | 5 GB | Este límite se aplica a las acciones que admiten la fragmentación de forma nativa o que le permiten habilitar la opción de fragmentación en la configuración del entorno de ejecución. <p><p>Si utiliza ISE, el motor de Logic Apps admite este límite, pero los conectores tienen sus propios límites de fragmentación hasta el límite del motor; por ejemplo, consulte la [referencia de API del conector de Azure Blob Storage](https://docs.microsoft.com/connectors/azureblob/). Para más información sobre la fragmentación, consulte [Control de mensajes grandes con la fragmentación](../logic-apps/logic-apps-handle-large-messages.md). |
+| Tamaño del mensaje con fragmentación | 1 GB | 5 GB | Este límite se aplica a las acciones que admiten la fragmentación de forma nativa o que le permiten habilitar la opción de fragmentación en la configuración del entorno de ejecución. <p><p>Si utiliza ISE, el motor de Logic Apps admite este límite, pero los conectores tienen sus propios límites de fragmentación hasta el límite del motor; por ejemplo, consulte la [referencia de API del conector de Azure Blob Storage](/connectors/azureblob/). Para más información sobre la fragmentación, consulte [Control de mensajes grandes con la fragmentación](../logic-apps/logic-apps-handle-large-messages.md). |
 |||||
 
 #### <a name="character-limits"></a>Límites de caracteres
@@ -180,7 +180,7 @@ Algunas operaciones de conector realizan llamadas asincrónicas o escuchan las s
 
 ### <a name="authentication-limits"></a>Límites de autenticación
 
-Estos son los límites para una aplicación lógica que se inicia con un desencadenador de solicitud y habilita [Azure Active Directory Open Authentication](/azure/active-directory/develop/) (Azure AD OAuth) para autorizar las llamadas entrantes al desencadenador de solicitud:
+Estos son los límites para una aplicación lógica que se inicia con un desencadenador de solicitud y habilita [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth) para autorizar las llamadas entrantes al desencadenador de solicitud:
 
 | Nombre | Límite | Notas |
 | ---- | ----- | ----- |
@@ -216,7 +216,7 @@ Estos son los límites para los conectores personalizados que puede crear a part
 
 Cada suscripción de Azure tiene estos límites de cuenta de integración:
 
-* una cuenta de integración de [nivel Gratis](../logic-apps/logic-apps-pricing.md#integration-accounts) por cada región de Azure. Este nivel solo está disponible para las regiones públicas en Azure, por ejemplo, Oeste de EE. UU. o Sudeste Asiático, pero no para [Azure China 21Vianet](https://docs.microsoft.com/azure/china/overview-operations) o [Azure Government](../azure-government/documentation-government-welcome.md).
+* una cuenta de integración de [nivel Gratis](../logic-apps/logic-apps-pricing.md#integration-accounts) por cada región de Azure. Este nivel solo está disponible para las regiones públicas en Azure, por ejemplo, Oeste de EE. UU. o Sudeste Asiático, pero no para [Azure China 21Vianet](/azure/china/overview-operations) o [Azure Government](../azure-government/documentation-government-welcome.md).
 
 * 1000 cuentas de integración en total, incluidas las cuentas de integración de todos los [entornos de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) en las SKU de [desarrollador y Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
 
@@ -258,7 +258,7 @@ Para ver las tarifas de precios, consulte los [precios de Logic Apps](https://az
 | Artefacto | Límite | Notas |
 | -------- | ----- | ----- |
 | Assembly | 8 MB | Para cargar archivos de más de 2 MB, use una [cuenta de almacenamiento y un contenedor de blobs de Azure](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
-| Asignación (archivo XSLT) | 8 MB | Para cargar archivos de más de 2 MB, use las [asignaciones de la API REST de Azure Logic Apps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate). <p><p>**Nota**: La cantidad de datos o registros que una asignación puede procesar correctamente se basa en el tamaño del mensaje y en los límites de tiempo de espera de la acción en Azure Logic Apps. Por ejemplo, si usa una acción HTTP, en función de los [límites de tamaño y tiempo de espera del mensaje HTTP](#request-limits), una asignación puede procesar los datos hasta el límite de tamaño del mensaje HTTP si la operación se completa dentro del límite de tiempo de espera de HTTP. |
+| Asignación (archivo XSLT) | 8 MB | Para cargar archivos de más de 2 MB, use las [asignaciones de la API REST de Azure Logic Apps](/rest/api/logic/maps/createorupdate). <p><p>**Nota**: La cantidad de datos o registros que una asignación puede procesar correctamente se basa en el tamaño del mensaje y en los límites de tiempo de espera de la acción en Azure Logic Apps. Por ejemplo, si usa una acción HTTP, en función de los [límites de tamaño y tiempo de espera del mensaje HTTP](#request-limits), una asignación puede procesar los datos hasta el límite de tamaño del mensaje HTTP si la operación se completa dentro del límite de tiempo de espera de HTTP. |
 | Schema | 8 MB | Para cargar archivos de más de 2 MB, use una [cuenta de almacenamiento y un contenedor de blobs de Azure](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
 ||||
 
@@ -299,7 +299,7 @@ Cuando se elimina una aplicación lógica, no se crean instancias de nuevas ejec
 
 ## <a name="firewall-configuration-ip-addresses-and-service-tags"></a>Configuración del firewall: Direcciones IP y etiquetas de servicio
 
-Las direcciones IP que usa Azure Logic Apps para las llamadas entrantes y salientes dependen de la región en la que se encuentra la aplicación lógica. *Todas* las aplicaciones lógicas de una misma región usan los mismos intervalos de direcciones IP. Algunas llamadas de [Power Automate](https://docs.microsoft.com/power-automate/getting-started), como las solicitudes **HTTP** y **HTTP + OpenAPI**, van directamente por el servicio Azure Logic Apps y proceden de las direcciones IP que se indican aquí. Para más información sobre las direcciones IP que utiliza Power Automate, consulte [Límites y configuración en Power Automate.](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration)
+Las direcciones IP que usa Azure Logic Apps para las llamadas entrantes y salientes dependen de la región en la que se encuentra la aplicación lógica. *Todas* las aplicaciones lógicas de una misma región usan los mismos intervalos de direcciones IP. Algunas llamadas de [Power Automate](/power-automate/getting-started), como las solicitudes **HTTP** y **HTTP + OpenAPI**, van directamente por el servicio Azure Logic Apps y proceden de las direcciones IP que se indican aquí. Para más información sobre las direcciones IP que utiliza Power Automate, consulte [Límites y configuración en Power Automate.](/flow/limits-and-config#ip-address-configuration)
 
 > [!TIP]
 > Para ayudar a reducir la complejidad al crear reglas de seguridad, tiene la opción de usar [etiquetas de servicio](../virtual-network/service-tags-overview.md), en lugar de especificar las direcciones IP de Logic Apps para cada región (se describe más adelante en esta sección).
@@ -308,7 +308,7 @@ Las direcciones IP que usa Azure Logic Apps para las llamadas entrantes y sali
 > * **LogicAppsManagement**: representa los prefijos de la dirección IP entrante para el servicio Logic Apps.
 > * **LogicApps**: representa los prefijos de la dirección IP saliente para el servicio Logic Apps.
 
-* En el caso de [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), las direcciones IP fijas o reservadas no están disponibles para [conectores personalizados](../logic-apps/custom-connector-overview.md) y [conectores administrados](../connectors/apis-list.md#managed-api-connectors), por ejemplo, Azure Storage, SQL Server, Office 365 Outlook, etc.
+* En el caso de [Azure China 21Vianet](/azure/china/), las direcciones IP fijas o reservadas no están disponibles para [conectores personalizados](../logic-apps/custom-connector-overview.md) y [conectores administrados](../connectors/apis-list.md#managed-api-connectors), por ejemplo, Azure Storage, SQL Server, Office 365 Outlook, etc.
 
 * Para admitir las llamadas que las aplicaciones lógicas realizan directamente con solicitudes [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) y HTTP de otro tipo, configure el firewall con todas las direcciones IP [entrantes](#inbound) *y* [salientes](#outbound) que usa el servicio Logic Apps en función de la región en la que estén las aplicaciones lógicas. Estas direcciones aparecen bajo los encabezados **Entrante** y **Saliente** de esta sección y están ordenadas por región.
 

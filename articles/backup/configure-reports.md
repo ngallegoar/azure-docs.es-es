@@ -3,12 +3,12 @@ title: Configuración de informes de Azure Backup
 description: Configure y vea informes para Azure Backup mediante Log Analytics y libros de Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 20dcf7f3f9bbc5626c4a05ef064203b3ae5020cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d1c7d628a61e550aa9dc4a5265ae16c5ed5336a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484977"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513632"
 ---
 # <a name="configure-azure-backup-reports"></a>Configuración de informes de Azure Backup
 
@@ -18,7 +18,7 @@ Un requisito común para los administradores de copias de seguridad es obtener c
 - Auditoría de copias de seguridad y restauraciones.
 - Identificación de las tendencias clave con diferentes niveles de granularidad.
 
-En la actualidad, Azure Backup proporciona una solución de informes que usa [registros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) y [libros de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). Estos recursos le ayudan a obtener mejores conclusiones sobre las copias de seguridad en todo el conjunto de copias de seguridad. En este artículo se explica cómo configurar y ver informes de Azure Backup.
+En la actualidad, Azure Backup proporciona una solución de informes que usa [registros de Azure Monitor](../azure-monitor/log-query/get-started-portal.md) y [libros de Azure](../azure-monitor/platform/workbooks-overview.md). Estos recursos le ayudan a obtener mejores conclusiones sobre las copias de seguridad en todo el conjunto de copias de seguridad. En este artículo se explica cómo configurar y ver informes de Azure Backup.
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
@@ -26,7 +26,7 @@ En la actualidad, Azure Backup proporciona una solución de informes que usa [re
 - En las cargas de trabajo de DPM, se admiten los informes de Backup para la versión 5.1.363.0 de DPM y posteriores, y la versión 2.0.9127.0 del agente y posteriores.
 - En las cargas de trabajo de MABS, se admiten los informes de Backup para la versión 13.0.415.0 de MABS y posteriores, y la versión 2.0.9170.0 del agente y posteriores.
 - Los informes de Backup se pueden ver en todos los elementos de copia de seguridad, almacenes, suscripciones y regiones, siempre y cuando sus datos se envíen a un área de trabajo de Log Analytics a la que el usuario tenga acceso. Para ver los informes de un conjunto de almacenes, solo necesita tener acceso de lectura al área de trabajo de Log Analytics a la que los almacenes envían sus datos. No es necesario que tenga acceso a los almacenes individuales.
-- Si es usuario de [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) con acceso delegado a las suscripciones de los clientes, puede usar estos informes con Azure Lighthouse para ver los informes de todos los inquilinos.
+- Si es usuario de [Azure Lighthouse](../lighthouse/index.yml) con acceso delegado a las suscripciones de los clientes, puede usar estos informes con Azure Lighthouse para ver los informes de todos los inquilinos.
 - Actualmente, los datos se pueden ver en Informes de Backup en un máximo de 100 áreas de trabajo de Log Analytics (entre inquilinos).
 - Los datos de los trabajos de copia de seguridad de registros no se muestran actualmente en los informes.
 
@@ -38,22 +38,22 @@ Siga estos pasos para empezar a usar los informes.
 
 Configure una o varias áreas de trabajo de Log Analytics para almacenar los datos de los informes de Backup. La ubicación y la suscripción donde se puede crear esta área de trabajo de Log Analytics es independiente de la ubicación y la suscripción donde existen los almacenes.
 
-Para configurar un área de trabajo de Log Analytics, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+Para configurar un área de trabajo de Log Analytics, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../azure-monitor/learn/quick-create-workspace.md).
 
-De forma predeterminada, los datos de un área de trabajo de Log Analytics se conservan durante 30 días. Para ver los datos de un horizonte temporal más largo, cambie el período de retención del área de trabajo de Log Analytics. Para cambiar el período de retención, consulte [Administración del uso y los costos con los registros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage).
+De forma predeterminada, los datos de un área de trabajo de Log Analytics se conservan durante 30 días. Para ver los datos de un horizonte temporal más largo, cambie el período de retención del área de trabajo de Log Analytics. Para cambiar el período de retención, consulte [Administración del uso y los costos con los registros de Azure Monitor](../azure-monitor/platform/manage-cost-storage.md).
 
 ### <a name="2-configure-diagnostics-settings-for-your-vaults"></a>2. Configuración de los valores de diagnóstico para los almacenes
 
 Los recursos de Azure Resource Manager como, por ejemplo, el almacén de Recovery Services, registran información acerca de las operaciones programadas y las operaciones desencadenadas por el usuario como datos de diagnóstico.
 
-En la sección de supervisión del almacén de Recovery Services, seleccione **Configuración de diagnóstico** y especifique el destino de los datos de diagnóstico del almacén de Recovery Services. Para obtener más información sobre el uso de eventos de diagnóstico, consulte [Uso de la configuración de diagnósticos para almacenes de Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events).
+En la sección de supervisión del almacén de Recovery Services, seleccione **Configuración de diagnóstico** y especifique el destino de los datos de diagnóstico del almacén de Recovery Services. Para obtener más información sobre el uso de eventos de diagnóstico, consulte [Uso de la configuración de diagnósticos para almacenes de Recovery Services](./backup-azure-diagnostic-events.md).
 
 ![Panel Configuración de diagnóstico](./media/backup-azure-configure-backup-reports/resource-specific-blade.png)
 
-Azure Backup también proporciona una definición de Azure Policy integrada que automatiza la configuración de diagnóstico para todos los almacenes de un ámbito determinado. Para obtener información sobre cómo usar esta directiva, consulte [Configuración de los valores de diagnóstico del almacén a gran escala](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics).
+Azure Backup también proporciona una definición de Azure Policy integrada que automatiza la configuración de diagnóstico para todos los almacenes de un ámbito determinado. Para obtener información sobre cómo usar esta directiva, consulte [Configuración de los valores de diagnóstico del almacén a gran escala](./azure-policy-configure-diagnostics.md).
 
 > [!NOTE]
-> Después de haber configurado el diagnóstico, las inserciones de datos iniciales pueden tardar hasta 24 horas en completarse. Después de que los datos comiencen a fluir al área de trabajo de Log Analytics, es posible que no pueda ver los datos en los informes inmediatamente, ya que los datos para el día parcial actual no se muestran en los informes. Para obtener más información, consulte [Convenciones usadas en los informes de copia de seguridad](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports). Se recomienda empezar a ver los informes dos días después de configurar los almacenes para enviar datos a Log Analytics.
+> Después de haber configurado el diagnóstico, las inserciones de datos iniciales pueden tardar hasta 24 horas en completarse. Después de que los datos comiencen a fluir al área de trabajo de Log Analytics, es posible que no pueda ver los datos en los informes inmediatamente, ya que los datos para el día parcial actual no se muestran en los informes. Para obtener más información, consulte [Convenciones usadas en los informes de copia de seguridad](#conventions-used-in-backup-reports). Se recomienda empezar a ver los informes dos días después de configurar los almacenes para enviar datos a Log Analytics.
 
 #### <a name="3-view-reports-in-the-azure-portal"></a>3. Visualización de los informes en Azure Portal
 
@@ -103,7 +103,7 @@ Haga clic en el botón de anclaje en la parte superior de cada widget para ancla
 
 ## <a name="cross-tenant-reports"></a>Informes entre inquilinos
 
-Si usa [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) con acceso delegado a las suscripciones en varios entornos de inquilinos, puede usar el filtro de suscripción predeterminado. Seleccione el botón de filtro situado en la esquina superior derecha de Azure Portal para elegir todas las suscripciones para las que desea ver datos. Esto le permite seleccionar áreas de trabajo de Log Analytics de los inquilinos para ver informes multiinquilino.
+Si usa [Azure Lighthouse](../lighthouse/index.yml) con acceso delegado a las suscripciones en varios entornos de inquilinos, puede usar el filtro de suscripción predeterminado. Seleccione el botón de filtro situado en la esquina superior derecha de Azure Portal para elegir todas las suscripciones para las que desea ver datos. Esto le permite seleccionar áreas de trabajo de Log Analytics de los inquilinos para ver informes multiinquilino.
 
 ## <a name="conventions-used-in-backup-reports"></a>Convenciones usadas en los informes de Backup
 
@@ -131,8 +131,8 @@ Los widgets del informe de Backup se basan en consultas de Kusto, que se ejecuta
 
 - La versión anterior de la plantilla de Power BI para la creación de informes, que tiene como origen de los datos una cuenta de Azure Storage, está en una ruta de desuso. Se recomienda comenzar a enviar los datos de diagnóstico del almacén a Log Analytics para ver los informes.
 
-- Además, el [esquema V1](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#v1-schema-vs-v2-schema) de envío de datos de diagnóstico a una cuenta de almacenamiento o a un área de trabajo de LA también se encuentra en una ruta de degradación. Esto significa que, si ha escrito consultas personalizadas o automatizaciones basadas en el esquema v1, se recomienda actualizar estas consultas para usar el esquema V2 actualmente admitido.
+- Además, el [esquema V1](./backup-azure-diagnostics-mode-data-model.md#v1-schema-vs-v2-schema) de envío de datos de diagnóstico a una cuenta de almacenamiento o a un área de trabajo de LA también se encuentra en una ruta de degradación. Esto significa que, si ha escrito consultas personalizadas o automatizaciones basadas en el esquema v1, se recomienda actualizar estas consultas para usar el esquema V2 actualmente admitido.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Más información sobre la supervisión y la generación de informes con Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-monitor-alert-faq)
+[Más información sobre la supervisión y la generación de informes con Azure Backup](./backup-azure-monitor-alert-faq.md)

@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a solucionar problemas relacionados c
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: 28647b72334d592692c5fe1b031735330d1a0509
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e588ce4e3458634be32a7129b40906c98fc02ac0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78969574"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513859"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Solución de problemas en la copia de seguridad del estado del sistema
 
@@ -20,11 +20,11 @@ En este artículo se describen soluciones para problemas que puede encontrar al 
 Antes de empezar a solucionar problemas de copia de seguridad del estado del sistema, se recomienda realizar la validación siguiente:
 
 - [Asegúrese de que el agente de Microsoft Azure Recovery Services (MARS) esté actualizado](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409).
-- [Asegúrese de que haya conectividad de red entre el agente de MARS y Azure](https://docs.microsoft.com/azure/backup/backup-azure-mars-troubleshoot#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
+- [Asegúrese de que haya conectividad de red entre el agente de MARS y Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
 - Asegúrese de que se ejecuta Microsoft Azure Recovery Services (en la consola del servicio). Si es necesario, reinicie y vuelva a intentar la operación.
-- [Asegúrese de que haya disponible entre un 5 % y un 10 % en la ubicación de la carpeta temporal](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#whats-the-minimum-size-requirement-for-the-cache-folder)
-- [Compruebe si otro proceso o software antivirus interfiere con Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup)
-- [Se produce un error en las copias de seguridad programadas pero no en las copias de seguridad manuales](https://docs.microsoft.com/azure/backup/backup-azure-mars-troubleshoot#backups-dont-run-according-to-schedule)
+- [Asegúrese de que haya disponible entre un 5 % y un 10 % en la ubicación de la carpeta temporal](./backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
+- [Compruebe si otro proceso o software antivirus interfiere con Azure Backup](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)
+- [Se produce un error en las copias de seguridad programadas pero no en las copias de seguridad manuales](./backup-azure-mars-troubleshoot.md#backups-dont-run-according-to-schedule)
 - Asegúrese de que su sistema operativo tiene las actualizaciones más recientes.
 - [Asegúrese de excluir de la copia de seguridad las unidades no compatibles y los archivos con atributos no compatibles](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
 - Asegúrese de que el **reloj del sistema** del sistema protegido está configurado con la zona horaria correcta <br>
@@ -33,7 +33,7 @@ Antes de empezar a solucionar problemas de copia de seguridad del estado del sis
   - Asegúrese de que el agente no está instalado en el servidor y de que se ha eliminado del portal. <br>
   - Utilice la misma frase de contraseña que se usó inicialmente para registrar el servidor. <br>
 - Si es una copia de seguridad sin conexión, asegúrese de que la versión 3.7.0 de Azure PowerShell esté instalada en el equipo de origen y de copia antes de comenzar la operación de copia de seguridad sin conexión.
-- [Consideración cuando el agente de copia de seguridad se ejecuta en una máquina virtual de Azure](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-backup-agent-running-on-an-azure-virtual-machine)
+- [Consideración cuando el agente de copia de seguridad se ejecuta en una máquina virtual de Azure](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-backup-agent-running-on-an-azure-virtual-machine)
 
 ### <a name="limitation"></a>Limitación
 
@@ -137,7 +137,7 @@ Si se produce un error en el trabajo, indica un problema de WSB, lo que daría l
 
 | Síntoma | Solución
 | -- | --
-| - Se produce un error en el agente de MARS con el mensaje de error: Error al realizar la copia de seguridad debido a que el volumen de instantáneas no pudo crecer por la falta de espacio en disco en los volúmenes que contienen los archivos del sistema <br/><br/> - El registro de advertencia o error siguiente aparece en los registros de eventos del sistema de volsnap: "No hay espacio en disco suficiente en el volumen C: para aumentar el almacenamiento de instantáneas para las instantáneas de C: debido a este error, todas las instantáneas del volumen C: corren el riesgo de ser eliminadas" | - Libere espacio en el volumen resaltado en el registro de eventos con el fin de que haya suficiente espacio para que las instantáneas crezcan mientras la copia de seguridad está en curso <br/><br/> - Al configurar el espacio de instantáneas se puede restringir la cantidad de espacio que se usa para las instantáneas. Para más información, consulte este [artículo](https://docs.microsoft.com/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage).
+| - Se produce un error en el agente de MARS con el mensaje de error: Error al realizar la copia de seguridad debido a que el volumen de instantáneas no pudo crecer por la falta de espacio en disco en los volúmenes que contienen los archivos del sistema <br/><br/> - El registro de advertencia o error siguiente aparece en los registros de eventos del sistema de volsnap: "No hay espacio en disco suficiente en el volumen C: para aumentar el almacenamiento de instantáneas para las instantáneas de C: debido a este error, todas las instantáneas del volumen C: corren el riesgo de ser eliminadas" | - Libere espacio en el volumen resaltado en el registro de eventos con el fin de que haya suficiente espacio para que las instantáneas crezcan mientras la copia de seguridad está en curso <br/><br/> - Al configurar el espacio de instantáneas se puede restringir la cantidad de espacio que se usa para las instantáneas. Para más información, consulte este [artículo](/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage).
 
 ### <a name="efi-partition-locked"></a>Partición EFI bloqueada
 

@@ -4,12 +4,12 @@ description: Obtenga un resumen periódico de las recomendaciones activas
 ms.topic: article
 ms.date: 03/16/2020
 ms.author: sagupt
-ms.openlocfilehash: 98f1bfd42a486e005cd1e777a83f5b615a7c8304
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e446fca11e029e28e44ada884efd071f3142514c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79503920"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518086"
 ---
 # <a name="configure-periodic-summary-for-recommendations"></a>Configuración del resumen periódico de recomendaciones
 
@@ -21,7 +21,7 @@ Los **resúmenes de recomendaciones** de Advisor ofrecen una manera fácil y pro
 La experiencia de creación del **resumen de recomendaciones** ayuda a configurar el resumen. Puede seleccionar los siguientes parámetros para las configuraciones:
 1. Categoría: Tenemos categorías de recomendaciones tales como costo, alta disponibilidad, rendimiento y excelencia operativa. La funcionalidad todavía no está disponible para las recomendaciones de seguridad.
 2. Frecuencia de resúmenes: La frecuencia de las notificaciones de resumen puede ser semanal, quincenal y mensual.
-3. Grupo de acciones: Puede seleccionar un grupo de acciones existente o crear uno nuevo. Para más información sobre los grupos de acciones, consulte el artículo [Creación y administración de grupos de acciones](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
+3. Grupo de acciones: Puede seleccionar un grupo de acciones existente o crear uno nuevo. Para más información sobre los grupos de acciones, consulte el artículo [Creación y administración de grupos de acciones](../azure-monitor/platform/action-groups.md).
 4. Idioma del resumen
 5. Nombre del resumen de recomendaciones: Puede usar una cadena descriptiva para supervisar y realizar un seguimiento de los resúmenes con mayor facilidad.
 
@@ -44,7 +44,7 @@ Estos son los pasos para crear un **resumen de recomendaciones:**
 
    ![Proporcionar las condiciones del resumen de recomendaciones](./media/digest-2.png)
 
-* **Paso 5:** En la sección **grupo de acciones**, seleccione el **grupo de acciones** del resumen. Puede obtener más información aquí: [Creación y administración de grupos de acciones](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+* **Paso 5:** En la sección **grupo de acciones**, seleccione el **grupo de acciones** del resumen. Puede obtener más información aquí: [Creación y administración de grupos de acciones](../azure-monitor/platform/action-groups.md)
 
    ![Proporcionar el grupo de acciones del resumen de recomendaciones](./media/digest-3.png)
 
@@ -60,4 +60,4 @@ Para más información acerca de las recomendaciones de Advisor, consulte:
 * [Recomendaciones sobre rendimiento de Advisor](advisor-performance-recommendations.md)
 * [Recomendaciones sobre seguridad de Advisor](advisor-security-recommendations.md)
 * [Recomendaciones de excelencia operativa de Advisor](advisor-operational-excellence-recommendations.md)
-* [API REST de Advisor](https://docs.microsoft.com/rest/api/advisor/)
+* [API REST de Advisor](/rest/api/advisor/)

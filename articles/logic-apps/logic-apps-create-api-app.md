@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/26/2017
-ms.openlocfilehash: 45b53b0e692a1272ba59719655c8d60c90fd6c96
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 01ddef37702cb4dedaefb3e94e488ef478f292c3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834499"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520807"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Creación de API personalizadas que se pueden llamar desde Azure Logic Apps
 
@@ -54,8 +54,8 @@ También puede designar conectores registrados para la certificación de Microso
 Para obtener más información sobre los conectores personalizados, vea 
 
 * [Introducción a los conectores personalizados](../logic-apps/custom-connector-overview.md)
-* [Create custom connectors from Web APIs](../logic-apps/custom-connector-build-web-api-app-tutorial.md) (Creación de conectores personalizados desde API web)
-* [Register custom connectors in Azure Logic Apps](../logic-apps/logic-apps-custom-connector-register.md) (Registro de conectores personalizados en Azure Logic Apps)
+* [Create custom connectors from Web APIs](/connectors/custom-connectors/create-web-api-connector) (Creación de conectores personalizados desde API web)
+* [Register custom connectors in Azure Logic Apps](/connectors/custom-connectors/) (Registro de conectores personalizados en Azure Logic Apps)
 
 ## <a name="helpful-tools"></a>Herramientas útiles
 
@@ -228,7 +228,7 @@ Para que las API personalizadas estén disponibles para todos los usuarios de Lo
 
 * Para obtener ayuda específica sobre las API personalizadas, póngase en contacto con [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com).
 
-* Si tiene alguna duda, visite la [página de preguntas y respuestas de Microsoft sobre Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* Si tiene alguna duda, visite la [página de preguntas y respuestas de Microsoft sobre Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 
 * Para ayudar a mejorar Logic Apps, vote o envíe ideas en el [sitio de comentarios de usuario de Logic Apps](https://aka.ms/logicapps-wish). 
 

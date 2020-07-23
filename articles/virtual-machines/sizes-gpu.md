@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: bbd81730ea822381f1d0f0e15011fb4ed0c29e64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efb26260d0e1f59e78c8328de298c3d4d92c19d3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735921"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509326"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Tamaños de máquinas virtuales optimizadas para GPU
 
@@ -31,11 +31,11 @@ Los tamaños de máquina virtual optimizada para GPU son máquinas virtuales esp
 
 Para aprovechar las funcionalidades de GPU de las máquinas virtuales de la serie N de Azure, deben instalarse controladores de GPU de AMD o NVIDIA.
 
-- Para las máquinas virtuales en las que las GPU de NVIDIA realizan la copia de seguridad, la [extensión de controlador de GPU de NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) instala los controladores CUDA de NVIDIA o GRID adecuados. Instale o administre la extensión mediante Azure Portal o con herramientas como las plantillas de Azure PowerShell o Azure Resource Manager. Consulte la [documentación de la extensión de controlador de GPU de NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) para los sistemas operativos compatibles y los pasos de implementación. Para una información general sobre las extensiones de máquina virtual, consulte [Características y extensiones de las máquinas virtuales de Azure](/azure/virtual-machines/extensions/overview).
+- Para las máquinas virtuales en las que las GPU de NVIDIA realizan la copia de seguridad, la [extensión de controlador de GPU de NVIDIA](./extensions/hpccompute-gpu-windows.md) instala los controladores CUDA de NVIDIA o GRID adecuados. Instale o administre la extensión mediante Azure Portal o con herramientas como las plantillas de Azure PowerShell o Azure Resource Manager. Consulte la [documentación de la extensión de controlador de GPU de NVIDIA](./extensions/hpccompute-gpu-windows.md) para los sistemas operativos compatibles y los pasos de implementación. Para una información general sobre las extensiones de máquina virtual, consulte [Características y extensiones de las máquinas virtuales de Azure](./extensions/overview.md).
 
-   Como alternativa, puede instalar controladores de GPU de NVIDIA manualmente. Consulte [Instalación de controladores de GPU de NVIDIA en VM de la serie N con Windows](/azure/virtual-machines/windows/n-series-driver-setup) o [Instalación de controladores de GPU de NVIDIA en máquinas virtuales de la serie N con Linux](/azure/virtual-machines/linux/n-series-driver-setup) para obtener información sobre los sistemas operativos compatibles, los controladores, la instalación y los pasos de comprobación.
+   Como alternativa, puede instalar controladores de GPU de NVIDIA manualmente. Consulte [Instalación de controladores de GPU de NVIDIA en VM de la serie N con Windows](./windows/n-series-driver-setup.md) o [Instalación de controladores de GPU de NVIDIA en máquinas virtuales de la serie N con Linux](./linux/n-series-driver-setup.md) para obtener información sobre los sistemas operativos compatibles, los controladores, la instalación y los pasos de comprobación.
 
-- Para las máquinas virtuales en las que las GPU de AMD realizan la copia de seguridad, consulte [Instalación de controladores de GPU de AMD en máquinas virtuales de la serie N con Windows](/azure/virtual-machines/windows/n-series-amd-driver-setup) para obtener información sobre los sistemas operativos compatibles, los controladores, la instalación y los pasos de comprobación.
+- Para las máquinas virtuales en las que las GPU de AMD realizan la copia de seguridad, consulte [Instalación de controladores de GPU de AMD en máquinas virtuales de la serie N con Windows](./windows/n-series-amd-driver-setup.md) para obtener información sobre los sistemas operativos compatibles, los controladores, la instalación y los pasos de comprobación.
 
 ## <a name="deployment-considerations"></a>Consideraciones de la implementación
 

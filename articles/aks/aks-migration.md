@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: c864a9cc5dd5658bcb3205ce2cbe4f6142cf45a1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 70ffe0bb98e89babe2f5998ee66666dd5368f7f2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255496"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518052"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrar a Azure Kubernetes Service (AKS)
 
@@ -51,7 +51,7 @@ AKS es un servicio administrado que ofrece funcionalidades únicas con una sobre
 
 Se recomienda usar clústeres de AKS respaldados por [Virtual Machine Scale Sets](../virtual-machine-scale-sets/index.yml) y [Azure Standard Load Balancer](./load-balancer-standard.md) para asegurarse de que se obtengan características como, por ejemplo, [varios grupos de nodos](./use-multiple-node-pools.md), [zona de disponibilidad](../availability-zones/az-overview.md), [intervalos de IP autorizados](./api-server-authorized-ip-ranges.md), [escalador automático de clúster](./cluster-autoscaler.md), [Azure Policy para AKS](../governance/policy/concepts/policy-for-kubernetes.md) y otras características nuevas a medida que se lancen.
 
-Los clústeres de AKS respaldados por [Virtual Machine Availability Sets](../virtual-machine-scale-sets/availability.md#availability-sets) no tienen compatibilidad con muchas de estas características.
+Los clústeres de AKS respaldados por [Virtual Machine Availability Sets](../virtual-machines/availability.md#availability-sets) no tienen compatibilidad con muchas de estas características.
 
 En el ejemplo siguiente se crea un clúster de AKS con un único grupo de nodos respaldado por un conjunto de escalado de máquinas virtuales. Usa una instancia de Standard Load Balancer. También habilita la escalabilidad automática del clúster en el grupo de nodos para el clúster y establece un mínimo de *1* y un máximo de *3* nodos:
 

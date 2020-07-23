@@ -3,12 +3,12 @@ title: 'Preguntas frecuentes: copia de seguridad de bases de datos de SAP HANA e
 description: En este artículo, descubra las respuestas a preguntas comunes sobre la copia de seguridad de bases de datos de SAP HANA con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 512075a24cf9400415f2367ead16b57f8b31c038
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: dcbf1bf6b39b2afa3fb5aaf2a7f18c5d0e8e4afb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170333"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513513"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Preguntas frecuentes: copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
 
@@ -22,11 +22,11 @@ Solo se admite una copia de seguridad completa al día. No se puede desencadenar
 
 ### <a name="do-successful-backup-jobs-create-alerts"></a>¿Generan alertas los trabajos de copia de seguridad que se han realizado correctamente?
 
-No. Los trabajos de copia de seguridad correctos no generan alertas. Las alertas se envían únicamente para los trabajos de copia de seguridad con errores. El comportamiento detallado para alertas del portal está documentado [aquí](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-built-in-monitor). Sin embargo, si está interesado en recibir alertas incluso para trabajos realizados correctamente, puede usar [Azure Monitor](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor).
+No. Los trabajos de copia de seguridad correctos no generan alertas. Las alertas se envían únicamente para los trabajos de copia de seguridad con errores. El comportamiento detallado para alertas del portal está documentado [aquí](./backup-azure-monitoring-built-in-monitor.md). Sin embargo, si está interesado en recibir alertas incluso para trabajos realizados correctamente, puede usar [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
 
 ### <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>¿Se pueden ver los trabajos de copia de seguridad programados en el menú de Trabajos de copia de seguridad?
 
-El menú Trabajo de copia de seguridad solo muestra los trabajos de copia de seguridad ad hoc. Para los trabajos programados, use [Azure Monitor](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor).
+El menú Trabajo de copia de seguridad solo muestra los trabajos de copia de seguridad ad hoc. Para los trabajos programados, use [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
 
 ### <a name="are-future-databases-automatically-added-for-backup"></a>¿Las bases de datos futuras se agregan automáticamente para copia de seguridad?
 
@@ -51,7 +51,7 @@ Al ejecutar el script de registro previo, se establecen los permisos necesarios 
 
 ### <a name="will-backups-work-after-migrating-sap-hana-from-sdc-to-mdc"></a>¿Funcionarán las copias de seguridad después de migrar SAP HANA de SDC a MDC?
 
-Consulte [esta sección](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#sdc-to-mdc-upgrade-with-a-change-in-sid) de la guía de solución de problemas.
+Consulte [esta sección](./backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-a-change-in-sid) de la guía de solución de problemas.
 
 ### <a name="can-azure-hana-backup-be-set-up-against-a-virtual-ip-load-balancer-and-not-a-virtual-machine"></a>¿Se puede configurar la copia de seguridad de Azure HANA en una IP virtual (equilibrador de carga) y no en una máquina virtual?
 
@@ -111,7 +111,7 @@ A continuación, se desencadenará de nuevo una copia de seguridad completa en e
 
 ### <a name="why-cant-i-see-the-hana-system-i-want-my-database-to-be-restored-to"></a>¿Por qué no puedo ver el sistema HANA en el que deseo que se restaure la base de datos?
 
-Compruebe si se cumplen todos los requisitos previos para la restauración en la instancia de SAP HANA de destino. Para más información, consulte [Requisitos previos: restauración de bases de datos de SAP HANA en máquinas virtuales de Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-restore#prerequisites).
+Compruebe si se cumplen todos los requisitos previos para la restauración en la instancia de SAP HANA de destino. Para más información, consulte [Requisitos previos: restauración de bases de datos de SAP HANA en máquinas virtuales de Azure](./sap-hana-db-restore.md#prerequisites).
 
 ### <a name="why-is-the-overwrite-db-restore-failing-for-my-database"></a>¿Por qué se produce un error en la restauración de la base de datos con sobrescritura para la base de datos?
 
@@ -127,4 +127,4 @@ Sí, puede usar las copias de seguridad de streaming desencadenadas en una base 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre cómo [hacer copias de seguridad de bases de datos de SAP HANA](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database) que se ejecutan en máquinas virtuales de Azure.
+Obtenga información sobre cómo [hacer copias de seguridad de bases de datos de SAP HANA](./backup-azure-sap-hana-database.md) que se ejecutan en máquinas virtuales de Azure.

@@ -4,12 +4,12 @@ description: Reciba notificaciones por SMS, webhook y correo electrónico, entre
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 1a932aba55ec9bd5d92c60338a3c1fc4bb481c1b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ed73678e0df1e068782c2a094846132be58cfe2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137712"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516131"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas de registro de actividad
 
@@ -25,11 +25,11 @@ Por lo general, se crean alertas del registro de actividad para recibir notifica
 * Se produzcan operaciones específicas en los recursos de la suscripción de Azure, que abarcan normalmente grupos de recursos o recursos en particular. Por ejemplo, si quiere que le notifiquen cuando se elimine alguna máquina virtual de myProductionResourceGroup. O, podría querer recibir una notificación si se asigna algún rol nuevo a un usuario de la suscripción.
 * Se produce un evento de mantenimiento del servicio. Los eventos de mantenimiento del servicio incluyen la notificación de incidentes y eventos de mantenimiento que se aplican a recursos de la suscripción.
 
-Una simple analogía para comprender las condiciones en las que se pueden crear reglas de alertas en el registro de actividad es explorar o filtrar eventos a través del [Registro de actividad en Azure Portal](activity-log-view.md#azure-portal). En "Azure Monitor: registro de actividad" se puede filtrar o buscar un evento necesario y crear una alerta mediante el botón **Agregar alerta de registro de actividad**.
+Una simple analogía para comprender las condiciones en las que se pueden crear reglas de alertas en el registro de actividad es explorar o filtrar eventos a través del [Registro de actividad en Azure Portal](./activity-log.md#view-the-activity-log). En "Azure Monitor: registro de actividad" se puede filtrar o buscar un evento necesario y crear una alerta mediante el botón **Agregar alerta de registro de actividad**.
 
 En cualquier caso, una alerta del registro de actividad solo supervisa eventos de la suscripción en la que se ha creado la alerta.
 
-Puede configurar una alerta del registro de actividad según las propiedades de nivel superior del objeto JSON de un evento del registro de actividad. Para obtener más información, consulte [Categorías del Registro de actividad](activity-log-view.md#categories-in-the-activity-log). Para más información acerca de los eventos de mantenimiento del servicio, consulte [Recibir alertas del registro de actividad con las notificaciones del servicio](alerts-activity-log-service-notifications.md). 
+Puede configurar una alerta del registro de actividad según las propiedades de nivel superior del objeto JSON de un evento del registro de actividad. Para obtener más información, consulte [Categorías del Registro de actividad](./activity-log.md#view-the-activity-log). Para más información acerca de los eventos de mantenimiento del servicio, consulte [Recibir alertas del registro de actividad con las notificaciones del servicio](../../service-health/alerts-activity-log-service-notifications-portal.md). 
 
 Las alertas del registro de actividad tienen algunas opciones en común:
 
@@ -61,4 +61,4 @@ Para más información sobre los grupos de acciones, consulte [Creación y admin
 - Obtener una [Introducción a las alertas](alerts-overview.md).
 - Obtenga información sobre la [creación y modificación de las alertas del registro de actividad](alerts-activity-log.md).
 - Revise el [Esquema de webhook de alertas del registro de actividad](activity-log-alerts-webhook.md).
-- Más información acerca de las [Notificaciones del estado del servicio](service-notifications.md).
+- Más información acerca de las [Notificaciones del estado del servicio](../../service-health/service-notifications.md).

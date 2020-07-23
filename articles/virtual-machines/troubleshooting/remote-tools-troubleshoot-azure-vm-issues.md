@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
-ms.openlocfilehash: d29b2b7c2b9194f20afe4c74d117847f0e343b12
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5abb509f1753c65554bd74ababe9acca4103c15a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80422600"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509093"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Uso de herramientas remotas para solucionar problemas con la VM de Azure
 
@@ -31,7 +31,7 @@ Use una [consola serie para Azure Virtual Machines](serial-console-windows.md) p
 
 ## <a name="remote-cmd"></a>CMD remoto
 
-Descargue [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec). Conéctese a la máquina virtual ejecutando el comando siguiente:
+Descargue [PsExec](/sysinternals/downloads/psexec). Conéctese a la máquina virtual ejecutando el comando siguiente:
 
 ```cmd
 psexec \\<computer>-u user -s cmd
@@ -251,9 +251,7 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información sobre el cmdlet Enter-PSSession, consulte [Enter-PSSession](https://technet.microsoft.com/library/hh849707.aspx).
-- Para más información sobre la extensión de script personalizado para Windows con el modelo de implementación clásica, consulte [Extensión del script personalizado para Windows](../extensions/custom-script-classic.md).
+- Para más información sobre el cmdlet Enter-PSSession, consulte [Enter-PSSession](/powershell/module/microsoft.powershell.core/enter-pssession?view=powershell-5.1).
+- Para más información sobre la extensión de script personalizado para Windows con el modelo de implementación clásica, consulte [Extensión del script personalizado para Windows](../extensions/custom-script-windows.md).
 - PsExec forma parte de [PSTools Suite](https://download.sysinternals.com/files/PSTools.zip).
-- Para más información sobre PSTools Suite, consulte [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
-
-
+- Para más información sobre PSTools Suite, consulte [PSTools](/sysinternals/downloads/pstools).

@@ -4,14 +4,14 @@ description: Artículo de procedimientos que resalta los patrones necesarios par
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 88dc85003fa2a3e41d8a31055ff8ba9b0fcc7492
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c6f7355b4505324c562ae39b05155a2902da2790
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71300585"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523458"
 ---
 # <a name="how-to-catalog-big-data-in-azure-data-catalog"></a>Catalogación de macrodatos en Azure Data Catalog
 

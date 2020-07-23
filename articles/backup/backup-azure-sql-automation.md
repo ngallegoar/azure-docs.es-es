@@ -4,12 +4,12 @@ description: Copia de seguridad y restauración de bases de datos SQL en Azure V
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 862455175497fe5496c7eea459c32772074671ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5b62b05c36afac078ccc7aeb7ed0e7259072fc1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255150"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513802"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Copia de seguridad y restauración de bases de datos SQL en máquinas virtuales de Azure con PowerShell
 
@@ -88,13 +88,13 @@ Siga estos pasos para crear un almacén de Recovery Services.
 
 El almacén de Recovery Services es un recurso de Resource Manager, por lo que deberá colocarlo dentro de un grupo de recursos. Puede usar un grupo de recursos existente o crear uno con el cmdlet **New-AzResourceGroup**. Al crear un grupo de recursos, especifique el nombre y la ubicación.
 
-1. Un almacén se coloca en un grupo de recursos. Si no tiene un grupo de recursos, cree uno con [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-1.4.0). En el ejemplo, se crea un grupo de recursos en la región Oeste de EE. UU.
+1. Un almacén se coloca en un grupo de recursos. Si no tiene un grupo de recursos, cree uno con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). En el ejemplo, se crea un grupo de recursos en la región Oeste de EE. UU.
 
     ```powershell
     New-AzResourceGroup -Name "test-rg" -Location "West US"
     ```
 
-2. Use el cmdlet [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) para crear el almacén. Especifique para el almacén la misma ubicación del grupo de recursos.
+2. Use el cmdlet [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) para crear el almacén. Especifique para el almacén la misma ubicación del grupo de recursos.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
@@ -102,8 +102,8 @@ El almacén de Recovery Services es un recurso de Resource Manager, por lo que d
 
 3. Especifique el tipo de redundancia para el almacenamiento.
 
-    * Puede usar [almacenamiento con redundancia local](../storage/common/storage-redundancy-lrs.md) o [almacenamiento con redundancia geográfica](../storage/common/storage-redundancy-grs.md).
-    * En el siguiente ejemplo se establece la opción **-BackupStorageRedundancy** para el cmdlet [Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) para **testvault** se establece en **GeoRedundant**.
+    * Puede usar [almacenamiento con redundancia local](../storage/common/storage-redundancy.md) o [almacenamiento con redundancia geográfica](../storage/common/storage-redundancy.md).
+    * En el siguiente ejemplo se establece la opción **-BackupStorageRedundancy** para el cmdlet [Set-AzRecoveryServicesBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) para **testvault** se establece en **GeoRedundant**.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -112,7 +112,7 @@ El almacén de Recovery Services es un recurso de Resource Manager, por lo que d
 
 ### <a name="view-the-vaults-in-a-subscription"></a>Visualización de los almacenes de una suscripción
 
-Para ver todos los almacenes de la suscripción, use [Get-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesvault?view=azps-1.4.0).
+Para ver todos los almacenes de la suscripción, use [Get-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/get-azrecoveryservicesvault).
 
 ```powershell
 Get-AzRecoveryServicesVault
@@ -135,7 +135,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 Almacene el objeto de almacén en una variable y establezca el contexto de almacén.
 
 * Muchos de los cmdlets de Azure Backup requieren el objeto de almacén de Recovery Services como una entrada, por lo que es conveniente almacenar el objeto de almacén en una variable.
-* El contexto de almacén es el tipo de los datos protegidos en el almacén. Establézcalo con [Set-AzRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext?view=azps-1.4.0). Una vez que se haya establecido el contexto, se aplica a todos los cmdlets posteriores.
+* El contexto de almacén es el tipo de los datos protegidos en el almacén. Establézcalo con [Set-AzRecoveryServicesVaultContext](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext). Una vez que se haya establecido el contexto, se aplica a todos los cmdlets posteriores.
 
 En el ejemplo siguiente se establece el contexto del almacén de **testvault**.
 
@@ -156,9 +156,9 @@ $vaultID = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -Nam
 Una directiva de copia de seguridad especifica la programación para las copias de seguridad y cuánto tiempo se deben mantener los puntos de recuperación de copia de seguridad:
 
 * Una directiva de copia de seguridad está asociada con al menos una directiva de retención. Una directiva de retención define el tiempo que se conserva un punto de recuperación antes de que se elimine.
-* Vea la retención de la directiva de copia de seguridad predeterminada con [Get-AzRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject?view=azps-1.4.0).
-* Vea la programación de la directiva de copia de seguridad predeterminada con [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject?view=azps-1.4.0).
-* El cmdlet [New AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0) se usa para crear una directiva de copia de seguridad. Introduzca los objetos de directiva de retención y programación.
+* Vea la retención de la directiva de copia de seguridad predeterminada con [Get-AzRecoveryServicesBackupRetentionPolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject).
+* Vea la programación de la directiva de copia de seguridad predeterminada con [Get-AzRecoveryServicesBackupSchedulePolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject).
+* El cmdlet [New AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy) se usa para crear una directiva de copia de seguridad. Introduzca los objetos de directiva de retención y programación.
 
 De forma predeterminada, se define una hora de inicio en el objeto de directiva de programación. Use el siguiente ejemplo para cambiar la hora de inicio a la hora de inicio deseada. La hora de inicio deseada debe estar también en formato UTC. En el ejemplo siguiente se supone que la hora de inicio deseada es la 1:00 UTC para las copias de seguridad diarias.
 
@@ -193,7 +193,7 @@ NewSQLPolicy         MSSQL              AzureWorkload        3/15/2019 01:30:00 
 
 ### <a name="registering-the-sql-vm"></a>Registro de la máquina virtual SQL
 
-Para las copias de seguridad de máquinas virtuales de Azure y los recursos compartidos de Azure File, el servicio Backup puede conectarse a estos recursos de Azure Resource Manager y capturar los detalles pertinentes. Puesto que SQL es una aplicación dentro de una máquina virtual de Azure, el servicio Backup necesita permiso para acceder a la aplicación y capturar los detalles necesarios. Para ello, debe *registrar* la máquina virtual de Azure que contiene la aplicación de SQL con un almacén de Recovery Services. Una vez que registra una máquina virtual de SQL con un almacén, puede proteger las bases de datos SQL solo en dicho almacén. Use el cmdlet PS [Register-AzRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/az.recoveryservices/Register-AzRecoveryServicesBackupContainer?view=azps-1.5.0) para registrar la máquina virtual.
+Para las copias de seguridad de máquinas virtuales de Azure y los recursos compartidos de Azure File, el servicio Backup puede conectarse a estos recursos de Azure Resource Manager y capturar los detalles pertinentes. Puesto que SQL es una aplicación dentro de una máquina virtual de Azure, el servicio Backup necesita permiso para acceder a la aplicación y capturar los detalles necesarios. Para ello, debe *registrar* la máquina virtual de Azure que contiene la aplicación de SQL con un almacén de Recovery Services. Una vez que registra una máquina virtual de SQL con un almacén, puede proteger las bases de datos SQL solo en dicho almacén. Use el cmdlet PS [Register-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer) para registrar la máquina virtual.
 
 ```powershell
  $myVM = Get-AzVM -ResourceGroupName <VMRG Name> -Name <VMName>
@@ -207,7 +207,7 @@ El comando devolverá un contenedor de copia de seguridad de este recurso y el e
 
 ### <a name="fetching-sql-dbs"></a>Obtención de bases de datos SQL
 
-Una vez que se realiza el registro, el servicio Backup podrá mostrar todos los componentes SQL disponibles en la máquina virtual. Para ver todos los componentes SQL que aún tienen que incluirse en la copia de seguridad para este almacén, use el cmdlet [Get-AzRecoveryServicesBackupProtectableItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupProtectableItem?view=azps-1.5.0) de PS.
+Una vez que se realiza el registro, el servicio Backup podrá mostrar todos los componentes SQL disponibles en la máquina virtual. Para ver todos los componentes SQL que aún tienen que incluirse en la copia de seguridad para este almacén, use el cmdlet [Get-AzRecoveryServicesBackupProtectableItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectableitem) de PS.
 
 ```powershell
 Get-AzRecoveryServicesBackupProtectableItem -WorkloadType MSSQL -VaultId $targetVault.ID
@@ -221,7 +221,7 @@ $SQLDB = Get-AzRecoveryServicesBackupProtectableItem -workloadType MSSQL -ItemTy
 
 ### <a name="configuring-backup"></a>Configuración de la copia de seguridad
 
-Ahora que tenemos la base de datos SQL y la directiva necesarias con la que necesita incluirse en la copia de seguridad, podemos utilizar el cmdlet [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) para configurar la copia de seguridad para esta base de datos de SQL.
+Ahora que tenemos la base de datos SQL y la directiva necesarias con la que necesita incluirse en la copia de seguridad, podemos utilizar el cmdlet [Enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) para configurar la copia de seguridad para esta base de datos de SQL.
 
 ```output
 Enable-AzRecoveryServicesBackupProtection -ProtectableItem $SQLDB -Policy $NewSQLPolicy
@@ -237,7 +237,7 @@ master           ConfigureBackup      Completed            3/18/2019 6:00:21 PM 
 
 ### <a name="fetching-new-sql-dbs"></a>Obtención de nuevas bases de datos SQL
 
-Una vez registrada la máquina, el servicio Backup capturará los detalles de las bases de datos disponibles entonces. Si el usuario agrega las instancias SQL o las bases de datos SQL a la máquina registrada más adelante, es necesario desencadenar manualmente el servicio Backup para llevar a cabo una nueva consulta y obtener todas las bases de datos no protegidas (incluidas las recién agregadas). Use el cmdlet [Initialize-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/Initialize-AzRecoveryServicesBackupProtectableItem?view=azps-1.5.0) de PS en la máquina virtual SQL para realizar una consulta nueva. El comando espera hasta que se completa la operación. Use más adelante el cmdlet [Get AzRecoveryServicesBackupProtectableItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupProtectableItem?view=azps-1.5.0) de PS para obtener la lista de componentes SQL más recientes sin protección.
+Una vez registrada la máquina, el servicio Backup capturará los detalles de las bases de datos disponibles entonces. Si el usuario agrega las instancias SQL o las bases de datos SQL a la máquina registrada más adelante, es necesario desencadenar manualmente el servicio Backup para llevar a cabo una nueva consulta y obtener todas las bases de datos no protegidas (incluidas las recién agregadas). Use el cmdlet [Initialize-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/initialize-azrecoveryservicesbackupprotectableitem) de PS en la máquina virtual SQL para realizar una consulta nueva. El comando espera hasta que se completa la operación. Use más adelante el cmdlet [Get AzRecoveryServicesBackupProtectableItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectableitem) de PS para obtener la lista de componentes SQL más recientes sin protección.
 
 ```powershell
 $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppContainer -FriendlyName <VM name> -VaultId $targetvault.ID
@@ -250,7 +250,7 @@ Si no se desea detectar manualmente las bases de datos nuevas, puede optar por l
 
 ## <a name="enable-autoprotection"></a>Habilitar la protección automática
 
-Un usuario puede configurar la copia de seguridad de modo que todas las bases de datos que se agreguen en el futuro se protejan automáticamente con una directiva determinada. Para habilitar la protección automática, use el cmdlet [Enable AzRecoveryServicesBackupAutoProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupAutoProtection?view=azps-1.5.0) de PS.
+Un usuario puede configurar la copia de seguridad de modo que todas las bases de datos que se agreguen en el futuro se protejan automáticamente con una directiva determinada. Para habilitar la protección automática, use el cmdlet [Enable AzRecoveryServicesBackupAutoProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupautoprotection) de PS.
 
 Puesto que la indicación es realizar la copia de seguridad de todas las bases de datos posteriores, la operación se realiza en un nivel de SQLInstance.
 
@@ -270,7 +270,7 @@ Azure Backup puede restaurar las bases de datos SQL Server que se ejecutan en la
 
 Compruebe los requisitos previos mencionados [aquí](restore-sql-database-azure-vm.md#prerequisites) antes de restaurar las bases de datos SQL.
 
-Capture primero la copia de seguridad correspondiente de SQL DB mediante el cmdlet [Get AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem?view=azps-1.5.0) de PS.
+Capture primero la copia de seguridad correspondiente de SQL DB mediante el cmdlet [Get AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) de PS.
 
 ```powershell
 $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType MSSQL -Name "<backup item name>" -VaultId $targetVault.ID
@@ -282,7 +282,7 @@ Tal como se describió anteriormente, el usuario puede restaurar la base de dato
 
 #### <a name="fetch-distinct-recovery-points"></a>Captura de los diferentes puntos de recuperación
 
-Use [Get AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupRecoveryPoint?view=azps-1.5.0) para capturar distintos puntos de recuperación (completa o diferencial) de una base de datos de SQL de copia de seguridad.
+Use [Get AzRecoveryServicesBackupRecoveryPoint](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) para capturar distintos puntos de recuperación (completa o diferencial) de una base de datos de SQL de copia de seguridad.
 
 ```powershell
 $startDate = (Get-Date).AddDays(-7).ToUniversalTime()
@@ -307,7 +307,7 @@ $FullRP = Get-AzRecoveryServicesBackupRecoveryPoint -Item $bkpItem -VaultId $tar
 
 #### <a name="fetch-point-in-time-recovery-point"></a>Recuperación a un momento dado
 
-Si el usuario desea restaurar la base de datos a un momento dado, use el cmdlet [Get AzRecoveryServicesBackupRecoveryLogChain](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupRecoveryLogChain?view=azps-1.5.0) de PS. El cmdlet devuelve una lista de fechas que representan las horas de inicio y finalización de una cadena continua, ininterrumpida de registro para ese elemento de copia de seguridad de SQL. El momento deseado debería estar dentro de este intervalo.
+Si el usuario desea restaurar la base de datos a un momento dado, use el cmdlet [Get AzRecoveryServicesBackupRecoveryLogChain](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverylogchain) de PS. El cmdlet devuelve una lista de fechas que representan las horas de inicio y finalización de una cadena continua, ininterrumpida de registro para ese elemento de copia de seguridad de SQL. El momento deseado debería estar dentro de este intervalo.
 
 ```powershell
 Get-AzRecoveryServicesBackupRecoveryLogChain -Item $bkpItem -Item -VaultId $targetVault.ID
@@ -335,7 +335,7 @@ En el caso de la restauración de una base de datos SQL, se admiten los siguient
 * Restauración de la base de datos SQL como una base de datos nueva en la otra instancia SQL de otra máquina virtual SQL: AlternateWorkloadRestore
 * Restaurar la base de datos de SQL como archivos bak.: RestoreAsFiles
 
-Después de capturar el punto de recuperación correspondiente (distinto o registro (punto en el tiempo)), use el cmdlet [Get-AzRecoveryServicesBackupWorkloadRecoveryConfig](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupWorkloadRecoveryConfig?view=azps-1.5.0) de PS para capturar el objeto de configuración de recuperación según el plan de recuperación deseado.
+Después de capturar el punto de recuperación correspondiente (distinto o registro (punto en el tiempo)), use el cmdlet [Get-AzRecoveryServicesBackupWorkloadRecoveryConfig](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupworkloadrecoveryconfig) de PS para capturar el objeto de configuración de recuperación según el plan de recuperación deseado.
 
 #### <a name="original-workload-restore"></a>Restauración de carga de trabajo original
 
@@ -406,7 +406,7 @@ Si desea proporcionar un completo específico que se debe usar para la restaurac
 $FileRestoreWithLogAndSpecificFullConfig = Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -PointInTime $PointInTime -FromFull $FullRP -TargetContainer $TargetContainer -RestoreAsFiles -FilePath "<>" -VaultId $targetVault.ID
 ```
 
-El objeto de configuración del punto de recuperación final obtenido con el cmdlet [Get-AzRecoveryServicesBackupWorkloadRecoveryConfig](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupWorkloadRecoveryConfig?view=azps-1.5.0) de PS tiene toda la información pertinente para la restauración y es como se muestra a continuación.
+El objeto de configuración del punto de recuperación final obtenido con el cmdlet [Get-AzRecoveryServicesBackupWorkloadRecoveryConfig](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupworkloadrecoveryconfig) de PS tiene toda la información pertinente para la restauración y es como se muestra a continuación.
 
 ```output
 TargetServer         : <SQL server name>
@@ -461,7 +461,7 @@ PointInTime          : 1/1/0001 12:00:00 AM
 
 ### <a name="restore-with-relevant-configuration"></a>Restauración con la configuración pertinente
 
-Una vez se obtenga y se compruebe el objeto de configuración de recuperación correspondiente, utilice el cmdlet [restauración AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/Restore-AzRecoveryServicesBackupItem?view=azps-1.5.0) de PS para iniciar el proceso de restauración.
+Una vez se obtenga y se compruebe el objeto de configuración de recuperación correspondiente, utilice el cmdlet [restauración AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) de PS para iniciar el proceso de restauración.
 
 ```powershell
 Restore-AzRecoveryServicesBackupItem -WLRecoveryConfig $AnotherInstanceWithLogConfig -VaultId $targetVault.ID
@@ -479,7 +479,7 @@ MSSQLSERVER/m... Restore              InProgress           3/17/2019 10:02:45 AM
 
 ### <a name="on-demand-backup"></a>Copia de seguridad a petición
 
-Una vez que se ha habilitado la copia de seguridad para una base de datos, el usuario también puede desencadenar una copia de seguridad a petición para la base de datos con el cmdlet [Backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/Backup-AzRecoveryServicesBackupItem?view=azps-1.5.0) de PS. El siguiente ejemplo desencadena una copia de seguridad completa en una base de datos SQL con la compresión habilitada y la copia de seguridad completa debe conservarse durante 60 días.
+Una vez que se ha habilitado la copia de seguridad para una base de datos, el usuario también puede desencadenar una copia de seguridad a petición para la base de datos con el cmdlet [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) de PS. El siguiente ejemplo desencadena una copia de seguridad completa en una base de datos SQL con la compresión habilitada y la copia de seguridad completa debe conservarse durante 60 días.
 
 ```powershell
 $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType MSSQL -Name "<backup item name>" -VaultId $targetVault.ID
@@ -499,7 +499,7 @@ Si el resultado se pierde o si desea obtener el identificador de trabajo corresp
 
 ### <a name="change-policy-for-backup-items"></a>Cambio de la directiva para los elementos de copia de seguridad
 
-El usuario puede cambiar la directiva del elemento de copia de seguridad de Policy1 a Policy2. Para cambiar las directivas para un elemento de copia de seguridad, capture la directiva correspondiente y haga una copia de seguridad del elemento, y use el comando [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) con el elemento de copia de seguridad como parámetro.
+El usuario puede cambiar la directiva del elemento de copia de seguridad de Policy1 a Policy2. Para cambiar las directivas para un elemento de copia de seguridad, capture la directiva correspondiente y haga una copia de seguridad del elemento, y use el comando [Enable-AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) con el elemento de copia de seguridad como parámetro.
 
 ```powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>
@@ -517,7 +517,7 @@ master           ConfigureBackup      Completed            3/18/2019 8:00:21 PM 
 
 ### <a name="edit-an-existing-backup-policy"></a>Edición de una directiva de copia de seguridad existente
 
-Para editar una directiva existente, use el comando [Set-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-3.8.0).
+Para editar una directiva existente, use el comando [Set-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy).
 
 ```powershell
 Set-AzRecoveryServicesBackupProtectionPolicy -Policy $Pol -SchedulePolicy $SchPol -RetentionPolicy $RetPol
@@ -544,7 +544,7 @@ Register-AzRecoveryServicesBackupContainer -Container $SQLContainer -BackupManag
 
 #### <a name="retain-data"></a>Conservación de los datos
 
-Si el usuario desea detener la protección, puede usar el cmdlet [Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) de PS. De esta forma, se detendrán las copias de seguridad programadas, pero los datos que se hayan incluido en ellas hasta el momento se conservarán.
+Si el usuario desea detener la protección, puede usar el cmdlet [Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) de PS. De esta forma, se detendrán las copias de seguridad programadas, pero los datos que se hayan incluido en ellas hasta el momento se conservarán.
 
 ```powershell
 $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType MSSQL -Name "<backup item name>" -VaultId $targetVault.ID
@@ -561,7 +561,7 @@ Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.
 
 #### <a name="disable-auto-protection"></a>Deshabilitación de la protección automática
 
-Si la protección automática se configuró en una instancia de SQLInstance, el usuario puede deshabilitarla con el cmdlet [Disable-AzRecoveryServicesBackupAutoProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupAutoProtection?view=azps-1.5.0) de PS.
+Si la protección automática se configuró en una instancia de SQLInstance, el usuario puede deshabilitarla con el cmdlet [Disable-AzRecoveryServicesBackupAutoProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection) de PS.
 
 ```powershell
 $SQLInstance = Get-AzRecoveryServicesBackupProtectableItem -workloadType MSSQL -ItemType SQLInstance -VaultId $targetVault.ID -Name "<Protectable Item name>" -ServerName "<Server Name>"
@@ -570,7 +570,7 @@ Disable-AzRecoveryServicesBackupAutoProtection -InputItem $SQLInstance -BackupMa
 
 #### <a name="unregister-sql-vm"></a>Anulación del registro de la máquina virtual SQL
 
-Si todas las bases de datos de un servidor SQL [ya no están protegidas y no hay ninguna copia de seguridad](#delete-backup-data), el usuario puede anular el registro de la máquina virtual SQL desde este almacén. Solo entonces, el usuario podrá proteger las bases de datos en otro almacén. Use el cmdlet [Unregister-AzRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/az.recoveryservices/Unregister-AzRecoveryServicesBackupContainer?view=azps-1.5.0) de PS para registrar la máquina virtual SQL.
+Si todas las bases de datos de un servidor SQL [ya no están protegidas y no hay ninguna copia de seguridad](#delete-backup-data), el usuario puede anular el registro de la máquina virtual SQL desde este almacén. Solo entonces, el usuario podrá proteger las bases de datos en otro almacén. Use el cmdlet [Unregister-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer) de PS para registrar la máquina virtual SQL.
 
 ```powershell
 $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppContainer -FriendlyName <VM name> -VaultId $targetvault.ID
@@ -581,19 +581,19 @@ $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppC
 
 Es importante tener en cuenta que Azure Backup solo realiza el seguimiento de los trabajos de usuario que se desencadenan en la copia de seguridad SQL. Las copias de seguridad programadas (incluidas las del registro) no están visibles en el portal ni en Powershell. Sin embargo, si alguno de los trabajos programados produce un error, se genera una [alerta de copia de seguridad](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault) y se muestra en el portal. [Use Azure Monitor](backup-azure-monitoring-use-azuremonitor.md) para realizar un seguimiento de todos los trabajos programados y otra información pertinente.
 
-Los usuarios pueden seguir las operaciones desencadenadas a petición o de usuario con el identificador JobID devuelto en la [salida](#on-demand-backup) de los trabajos asincrónicos, como la copia de seguridad. Use el cmdlet [Get-AzRecoveryServicesBackupJobDetail](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetail) de PS para realizar un seguimiento del trabajo y sus detalles.
+Los usuarios pueden seguir las operaciones desencadenadas a petición o de usuario con el identificador JobID devuelto en la [salida](#on-demand-backup) de los trabajos asincrónicos, como la copia de seguridad. Use el cmdlet [Get-AzRecoveryServicesBackupJobDetail](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjobdetail) de PS para realizar un seguimiento del trabajo y sus detalles.
 
 ```powershell
  Get-AzRecoveryServicesBackupJobDetails -JobId 2516bb1a-d3ef-4841-97a3-9ba455fb0637 -VaultId $targetVault.ID
 ```
 
-Para obtener la lista de los trabajos a petición y sus estados del servicio Azure Backup, use el cmdlet [Get- AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJob?view=azps-1.5.0) de PS. El ejemplo siguiente devuelve todos los trabajos SQL en curso.
+Para obtener la lista de los trabajos a petición y sus estados del servicio Azure Backup, use el cmdlet [Get- AzRecoveryServicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) de PS. El ejemplo siguiente devuelve todos los trabajos SQL en curso.
 
 ```powershell
 Get-AzRecoveryServicesBackupJob -Status InProgress -BackupManagementType AzureWorkload
 ```
 
-Para cancelar un trabajo en curso, utilice el cmdlet [Stop-AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/Stop-AzRecoveryServicesBackupJob?view=azps-1.5.0) de PS.
+Para cancelar un trabajo en curso, utilice el cmdlet [Stop-AzRecoveryServicesBackupJob](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob) de PS.
 
 ## <a name="managing-sql-always-on-availability-groups"></a>Administración de los grupos de disponibilidad AlwaysOn de SQL
 
@@ -608,6 +608,6 @@ Por ejemplo, supongamos que un grupo de disponibilidad SQL tiene dos nodos: "sql
 * Cualquier valor predeterminado de base de datos SQL (master, model, msdb) en sql-server-0: tipo de elemento que se puede proteger como SQLDatabase
 * Cualquier valor predeterminado de base de datos SQL (master, model, msdb) en sql-server-0: tipo de elemento que se puede proteger como SQLDatabase
 
-sql-server-0, sql-server-1 también se mostrará como "AzureVMAppContainer" cuando [se enumeren los contenedores de copia de seguridad](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupContainer?view=azps-1.5.0).
+sql-server-0, sql-server-1 también se mostrará como "AzureVMAppContainer" cuando [se enumeren los contenedores de copia de seguridad](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer).
 
 Obtenga tan solo la base de datos pertinente para [habilitar la copia de seguridad](#configuring-backup) y la [copia de seguridad a petición](#on-demand-backup) y los [cmdlets de PS de restauración](#restore-sql-dbs) son idénticos.

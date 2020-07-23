@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.openlocfilehash: a7e44046de3eccab83e8315e6adea150a146e660
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 267d600270e834cf4f1f077452fda7459fac3029
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964199"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525456"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>Proveedores de Azure Monitor para soluciones de SAP (versión preliminar)
 
@@ -82,4 +82,4 @@ Para configurar el proveedor de Microsoft SQL Server, se necesitan el identific
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Cree su primer recurso de Azure Monitor para soluciones de SAP.
-- ¿Tiene alguna pregunta sobre Azure Monitor para soluciones de SAP? Consulte la sección de [preguntas más frecuentes](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/azure-monitor-faq).
+- ¿Tiene alguna pregunta sobre Azure Monitor para soluciones de SAP? Consulte la sección de [preguntas más frecuentes](./azure-monitor-faq.md).

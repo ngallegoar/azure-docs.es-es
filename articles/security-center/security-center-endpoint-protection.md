@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/29/2019
 ms.author: memildin
-ms.openlocfilehash: dcf7df501665ea3885d00b9f7668a95cbbf02428
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a9541eb3b7c662b43de0d3a609ecec4fe2621ca
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78208549"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519412"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Valoración y recomendaciones de Endpoint Protection en Azure Security Center
 
@@ -59,25 +59,19 @@ Azure Security Center proporciona evaluaciones de estado de las versiones [admit
 
 * Security Center recomienda **"Resolver problemas de mantenimiento de Endpoint Protection en las máquinas"** cuando se ejecuta **Get-MprotComputerStatus** y ocurre algo de lo siguiente:
 
-    * Al menos una de las propiedades siguientes es false:
+  * Al menos una de las propiedades siguientes es false:
 
-            **AMServiceEnabled**
+    * **AMServiceEnabled**
+    * **AntispywareEnabled**
+    * **RealTimeProtectionEnabled**
+    * **BehaviorMonitorEnabled**
+    * **IoavProtectionEnabled**
+    * **OnAccessProtectionEnabled**
 
-            **AntispywareEnabled**
-    
-            **RealTimeProtectionEnabled**
-    
-            **BehaviorMonitorEnabled**
-    
-            **IoavProtectionEnabled**
-    
-            **OnAccessProtectionEnabled**
-          
-    * Si una de las siguientes actualizaciones de firma, o las dos, es mayor o igual que 7. 
+  * Si una de las siguientes actualizaciones de firma, o las dos, es mayor o igual que 7. 
 
-            **AntispywareSignatureAge**
-    
-            **AntivirusSignatureAge**
+    * **AntispywareSignatureAge**
+    * **AntivirusSignatureAge**
 
 ## <a name="trend-micro"></a>Trend Micro
 

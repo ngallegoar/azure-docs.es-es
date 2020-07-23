@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/22/2019
-ms.openlocfilehash: cce74358a206c7103d537ba80c62d6561606b818
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 983091ac0d1f9fdcb33e64d2af521ec3442a040b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242039"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515519"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Orígenes de datos de Syslog en Azure Monitor
 Syslog es un protocolo de registro de eventos que es común a Linux. Las aplicaciones envían mensajes que pueden almacenarse en la máquina local o entregarse a un recopilador de Syslog. Al instalar el agente de Log Analytics para Linux, este configura el demonio Syslog local para que reenvíe mensajes al agente. En ese momento, el agente envía el mensaje a Azure Monitor, donde se crea un registro correspondiente.  
@@ -90,7 +90,6 @@ Para quitar un recurso, elimine su sección del archivo de configuración. Puede
 user.error    @127.0.0.1:25224
 ```
 
-
 #### <a name="syslog-ng"></a>syslog-ng
 El archivo de configuración de syslog-ng se encuentra en **/etc/syslog-ng/syslog-ng.conf**.  A continuación se muestra su contenido predeterminado. Recopila mensajes de Syslog enviados desde el agente local para todos los recursos y todos los niveles de gravedad.   
 
@@ -163,17 +162,16 @@ Puede cambiar el número de puerto si crea dos archivos de configuración: un ar
 
 * El archivo de configuración de FluentD debe ser un nuevo archivo ubicado en: `/etc/opt/microsoft/omsagent/conf/omsagent.d`; reemplace el valor de la entrada **port** por el número de puerto personalizado.
 
-    ```config
+    ```xml
     <source>
-      type syslog
-      port %SYSLOG_PORT%
-      bind 127.0.0.1
-      protocol_type udp
-      tag oms.syslog
+        type syslog
+        port %SYSLOG_PORT%
+        bind 127.0.0.1
+        protocol_type udp
+        tag oms.syslog
     </source>
     <filter oms.syslog.**>
-      type filter_syslog
-    </filter>
+        type filter_syslog
     ```
 
 * Para rsyslog, debe crear un archivo de configuración ubicado en: `/etc/rsyslog.d/`; reemplace el valor %SYSLOG_PORT% por el número de puerto personalizado.  
