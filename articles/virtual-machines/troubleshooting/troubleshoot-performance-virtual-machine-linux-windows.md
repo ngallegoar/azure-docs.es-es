@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 176b0634fe2c7ee2f47162e439c4ea16bde77a8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 53fd2332224d903c5a4b33563470cf3569f82b13
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75772625"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526663"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Solución de problemas de rendimiento de máquinas virtuales de Azure en Linux o Windows
 
-En este artículo se describe la solución de problemas genéricos de rendimiento de máquinas virtuales (VM) mediante la supervisión y la observación de los cuellos de botella, y se proporcionan posibles correcciones para las incidencias que se pueden producir. Además de la supervisión, también puede usar Perfinsights, que puede proporcionar un informe con recomendaciones sobre los procedimientos recomendados y cuellos de botella clave en torno a E/S, CPU o memoria. Perfinsights está disponible tanto para VM de [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) y [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) en Azure.
+En este artículo se describe la solución de problemas genéricos de rendimiento de máquinas virtuales (VM) mediante la supervisión y la observación de los cuellos de botella, y se proporcionan posibles correcciones para las incidencias que se pueden producir. Además de la supervisión, también puede usar Perfinsights, que puede proporcionar un informe con recomendaciones sobre los procedimientos recomendados y cuellos de botella clave en torno a E/S, CPU o memoria. Perfinsights está disponible tanto para VM de [Windows](./how-to-use-perfinsights.md) y [Linux](./how-to-use-perfinsights-linux.md) en Azure.
 
 En este artículo se explica el uso de la supervisión para diagnosticar cuellos de botella de rendimiento.
 
@@ -30,7 +30,7 @@ En este artículo se explica el uso de la supervisión para diagnosticar cuellos
 
 ### <a name="azure-iaas-virtual-machine-monitoring"></a>Supervisión de máquinas virtuales IaaS de Azure
 
-Para supervisar la máquina virtual invitada, use la supervisión de máquinas virtuales de Azure, que le avisará sobre ciertas condiciones de recursos de alto nivel. Para comprobar si tiene habilitados los diagnósticos de máquina virtual, consulte [Información general sobre los registros de recursos de Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs). Si ve lo siguiente, lo más probable es que no tenga habilitados los diagnósticos:
+Para supervisar la máquina virtual invitada, use la supervisión de máquinas virtuales de Azure, que le avisará sobre ciertas condiciones de recursos de alto nivel. Para comprobar si tiene habilitados los diagnósticos de máquina virtual, consulte [Información general sobre los registros de recursos de Azure](../../azure-monitor/learn/tutorial-resource-logs.md). Si ve lo siguiente, lo más probable es que no tenga habilitados los diagnósticos:
 
 ![La supervisión no está habilitada](media/troubleshoot-performance-virtual-machine-linux-windows/1-virtual-machines-monitoring-not-enabled.png)
  
@@ -101,7 +101,7 @@ Para identificar si hay cuellos de botella en los recursos, revise los datos. Si
 
 ### <a name="cpu-observe-trends"></a>Tendencias de observación de la CPU
 
-Al examinar los problemas de rendimiento, debe tener en cuenta las tendencias y comprender si le afectan. En las secciones siguientes, usaremos los gráficos de supervisión del portal para mostrar las tendencias. También pueden ser útiles para crear referencias cruzadas de las diferencias entre los comportamientos de los recursos en el mismo período de tiempo. Para personalizar los gráficos, haga clic en [Plataforma de datos de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform).
+Al examinar los problemas de rendimiento, debe tener en cuenta las tendencias y comprender si le afectan. En las secciones siguientes, usaremos los gráficos de supervisión del portal para mostrar las tendencias. También pueden ser útiles para crear referencias cruzadas de las diferencias entre los comportamientos de los recursos en el mismo período de tiempo. Para personalizar los gráficos, haga clic en [Plataforma de datos de Azure Monitor](../../azure-monitor/platform/data-platform.md).
 
 Subiendo: los picos podrían estar relacionados con una tarea programada o un evento conocido. Si puede identificar la tarea, determine si esta se ejecuta con el nivel de rendimiento necesario. Si el rendimiento es aceptable, puede que no necesite aumentar los recursos.
 
@@ -120,7 +120,7 @@ Si la aplicación o el proceso no se ejecutan con el nivel de rendimiento correc
 
 Si ha aumentado la máquina virtual y la CPU se sigue ejecutando al 95 %, determine si esta configuración ofrece un mejor rendimiento o una capacidad de proceso de aplicación más elevada hasta un nivel aceptable. Si no es así, solucione los problemas de la aplicación o el proceso.
 
-Puede usar Perfinsights para [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) o [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) para analizar qué proceso está llevando a cabo el consumo de la CPU. 
+Puede usar Perfinsights para [Windows](./how-to-use-perfinsights.md) o [Linux](./how-to-use-perfinsights-linux.md) para analizar qué proceso está llevando a cabo el consumo de la CPU. 
 
 ## <a name="check-for-memory-bottleneck"></a>Comprobación de los cuellos de botella en la memoria
 
@@ -151,13 +151,13 @@ Para resolver los problemas de un uso elevado de memoria, realice cualquiera de 
 
 Si después de actualizar a una máquina virtual más grande, descubre que todavía tiene un aumento estable constante de hasta el 100 %, identifique la aplicación o el proceso y solucione los problemas.
 
-Puede usar Perfinsights para [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) o [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) para analizar qué proceso está llevando a cabo el consumo de la memoria. 
+Puede usar Perfinsights para [Windows](./how-to-use-perfinsights.md) o [Linux](./how-to-use-perfinsights-linux.md) para analizar qué proceso está llevando a cabo el consumo de la memoria. 
 
 ## <a name="check-for-disk-bottleneck"></a>Comprobación de los cuellos de botella en el disco
 
 Para comprobar el subsistema de almacenamiento de la máquina virtual, consulte los diagnósticos en el nivel de máquina virtual de Azure mediante el uso de los contadores de diagnósticos de máquina virtual y también los diagnósticos de la cuenta de almacenamiento.
 
-En la solución de problemas específicos de la VM, puede usar Perfinsights para [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) o [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux), lo que podría ayudar a analizar qué proceso impulsa la E/S. 
+En la solución de problemas específicos de la VM, puede usar Perfinsights para [Windows](./how-to-use-perfinsights.md) o [Linux](./how-to-use-perfinsights-linux.md), lo que podría ayudar a analizar qué proceso impulsa la E/S. 
 
 Tenga en cuenta que no existen contadores para cuentas de Premium Storage y con redundancia de zona. En el caso de problemas relacionados con estos contadores, genere una incidencia de soporte técnico.
 
@@ -208,7 +208,7 @@ Para identificar si va a alcanzar el límite de IOPS, vaya a los diagnósticos d
 
 Con las nuevas ofertas de disco en Standard Storage, los límites de IOPS y rendimiento pueden diferir, pero el límite acumulativo de la cuenta de Standard Storage es de 20 000 IOPS (Premium Storage tiene límites distintos en el nivel de cuenta o de disco). Obtenga más información sobre las distintas ofertas de disco de almacenamiento estándar y los límites por disco:
 
-* [Objetivos de escalabilidad y rendimiento para discos de máquinas virtuales con Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets).
+* [Objetivos de escalabilidad y rendimiento para discos de máquinas virtuales con Windows](../windows/disk-scalability-targets.md).
 
 #### <a name="references"></a>Referencias
 
@@ -224,19 +224,19 @@ Compruebe los límites de rendimiento de los discos duros virtuales asociados a 
 
 Las nuevas ofertas de disco en Standard Storage tienen distintos límites de IOPS y rendimiento (las IOPS no se exponen por VHD). Examine los datos para ver si va a alcanzar los límites de MB de rendimiento combinado de los discos duros virtuales en el nivel de máquina virtual mediante Lectura y escritura de disco y, luego, optimice la configuración del almacenamiento de máquina virtual para escalar los límites anteriores de un único disco duro virtual. Obtenga más información sobre las distintas ofertas de disco de almacenamiento estándar y los límites por disco:
 
-* [Objetivos de escalabilidad y rendimiento para discos de máquinas virtuales con Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets).
+* [Objetivos de escalabilidad y rendimiento para discos de máquinas virtuales con Windows](../windows/disk-scalability-targets.md).
 
 ### <a name="high-disk-utilizationlatency-remediation"></a>Uso elevado del disco y corrección de la latencia
 
 Reduzca la latencia del cliente y optimice la E/S de máquina virtual para escalar los límites anteriores del disco duro virtual.
 
-* [Optimización de la E/S para Windows en Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-performance-best-practices/)
+* [Optimización de la E/S para Windows en Azure](../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md?toc=/azure/virtual-machines/windows/toc.json)
 
-* [Optimización de la E/S para Linux en Azure](https://blogs.msdn.microsoft.com/igorpag/2014/10/23/azure-storage-secrets-and-linux-io-optimizations/)
+* [Optimización de la E/S para Linux en Azure](/archive/blogs/igorpag/azure-storage-secrets-and-linux-io-optimizations)
 
 #### <a name="reduce-throttling"></a>Reducción de la limitación
 
-Si se alcanzan los límites superiores de las cuentas de almacenamiento, vuelva a equilibrar los discos duros virtuales entre ellas. Consulte [Objetivos de escalabilidad y rendimiento de Azure Storage](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/).
+Si se alcanzan los límites superiores de las cuentas de almacenamiento, vuelva a equilibrar los discos duros virtuales entre ellas. Consulte [Objetivos de escalabilidad y rendimiento de Azure Storage](../../storage/common/scalability-targets-standard-account.md).
 
 ### <a name="increase-throughput-and-reduce-latency"></a>Aumento del rendimiento y reducción de la latencia
 
@@ -244,9 +244,9 @@ Si tiene una aplicación que tiende a la latencia y requiere un alto rendimiento
 
 En estos artículos se describen los escenarios específicos:
 
-* [Migrar a Azure Premium Storage](https://azure.microsoft.com/documentation/articles/storage-migration-to-premium-storage/)
+* [Migrar a Azure Premium Storage](../windows/migrate-to-managed-disks.md)
 
-* [Uso de Azure Premium Storage con SQL Server](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-use-premium-storage/)
+* [Uso de Azure Premium Storage con SQL Server](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-premium-storage)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

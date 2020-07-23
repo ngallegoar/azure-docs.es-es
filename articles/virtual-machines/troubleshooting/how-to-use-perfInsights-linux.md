@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
-ms.openlocfilehash: 19b2fcaed2c80d4ca52ada9f9f0898479e73bcf2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 13e4c7a981124aba22dcb324d60e075d1d552bf8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231936"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526807"
 ---
 # <a name="how-to-use-perfinsights"></a>Cómo usar PerfInsights
 
@@ -44,7 +44,7 @@ En este escenario se recopila información básica, como la configuración de al
 
 - Información de almacenamiento
 
-- Configuración de la máquina virtual de Azure [(recopilada con Azure Instance Metadata Service)](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+- Configuración de la máquina virtual de Azure [(recopilada con Azure Instance Metadata Service)](../windows/instance-metadata-service.md)
 
 - Lista de procesos en ejecución, disco, memoria y uso de CPU
 
@@ -109,7 +109,7 @@ Se recopila información sobre la máquina virtual Linux, el sistema operativo, 
   - /etc/waagent.config
   - Salida de journalctl de los últimos cinco días
 
-- [Metadatos de la instancia de máquina virtual de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+- [Metadatos de la instancia de máquina virtual de Azure](../windows/instance-metadata-service.md)
 
 >[!Note]
 >[`*`] La información de PCI todavía no se recopila en las distribuciones Debian y SLES.

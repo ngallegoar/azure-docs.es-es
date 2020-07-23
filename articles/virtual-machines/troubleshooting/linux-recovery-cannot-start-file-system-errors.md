@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: 455cb1e0067217be6edcf665e8c07e8fcd684ab5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e26d4070bc9fabeb3467e7bdc805faad4e6646c3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76842408"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526510"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Solución de problemas de inicio de máquinas virtuales Linux debido a errores del sistema de archivos
 
@@ -75,7 +75,7 @@ Linux cuenta con varios comprobadores de sistemas de archivos. Las más comunes 
 
 ## <a name="resolution"></a>Solución
 
-Para resolver este problema, arranque la máquina virtual en modo de emergencia mediante la [consola serie](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux) y use esa herramienta para reparar el sistema de archivos. Si la consola serie no está habilitada en la máquina virtual o no funciona, consulte la sección [Reparación de la máquina virtual sin conexión](#repair-the-vm-offline) de este artículo.
+Para resolver este problema, arranque la máquina virtual en modo de emergencia mediante la [consola serie](./serial-console-linux.md) y use esa herramienta para reparar el sistema de archivos. Si la consola serie no está habilitada en la máquina virtual o no funciona, consulte la sección [Reparación de la máquina virtual sin conexión](#repair-the-vm-offline) de este artículo.
 
 ## <a name="use-the-serial-console"></a>Uso de la consola serie
 
@@ -83,8 +83,8 @@ Para resolver este problema, arranque la máquina virtual en modo de emergencia 
 
    > [!Note]
    > Para más información sobre el uso de la consola serie para Linux, consulte:
-   > * [Uso de la consola serie para acceder a GRUB y al modo de usuario único](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode)
-   > * [Uso de la consola serie para llamadas SysRq y NMI](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-nmi-sysrq)
+   > * [Uso de la consola serie para acceder a GRUB y al modo de usuario único](../linux/serial-console-grub-single-user-mode.md)
+   > * [Uso de la consola serie para llamadas SysRq y NMI](./serial-console-nmi-sysrq.md)
 
 2. Seleccione el botón del icono de encendido y, luego, seleccione Reiniciar máquina virtual. (Si la consola serie no está habilitada o no está conectada correctamente, no verá el botón).
 
@@ -134,7 +134,7 @@ Para resolver este problema, arranque la máquina virtual en modo de emergencia 
 
 ## <a name="repair-the-vm-offline"></a>Reparación de la máquina virtual sin conexión
 
-1. Asocie el disco del sistema de la máquina virtual como un disco de datos a una máquina virtual de recuperación (cualquier máquina virtual Linux en funcionamiento). Para ello, puede usar [comandos de la CLI](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux) o puede automatizar la configuración de la máquina de recuperación mediante los [comandos de reparación de la máquina virtual](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
+1. Asocie el disco del sistema de la máquina virtual como un disco de datos a una máquina virtual de recuperación (cualquier máquina virtual Linux en funcionamiento). Para ello, puede usar [comandos de la CLI](./troubleshoot-recovery-disks-linux.md) o puede automatizar la configuración de la máquina de recuperación mediante los [comandos de reparación de la máquina virtual](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
 
 2. Busque la etiqueta de unidad del disco del sistema que ha asociado. En este caso, se supone que la etiqueta del disco del sistema que ha asociado es/dev/sdc1. Reemplácela por el valor adecuado en su máquina virtual.
 
@@ -178,6 +178,5 @@ Para resolver este problema, arranque la máquina virtual en modo de emergencia 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Solución de problemas de una máquina virtual Linux mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación con la CLI de Azure 2.0](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
-* [Uso del portal para conectar un disco de datos a una máquina virtual Linux](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal)
-
+* [Solución de problemas de una máquina virtual Linux mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación con la CLI de Azure 2.0](./troubleshoot-recovery-disks-linux.md)
+* [Uso del portal para conectar un disco de datos a una máquina virtual Linux](../linux/attach-disk-portal.md)

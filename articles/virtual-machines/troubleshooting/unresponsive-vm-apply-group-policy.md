@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 187098f557cb691e023abb282a265b11e975c544
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cbf2fe491e1fe0b553eab04ca7190da0413a3ba6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84629259"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526017"
 ---
 # <a name="vm-is-unresponsive-when-applying-group-policy-local-users-and-groups-policy"></a>La máquina virtual no responde al aplicar la directiva de usuarios y grupos locales de directiva de grupo
 
@@ -27,7 +27,7 @@ En este artículo se proporcionan los pasos para resolver los problemas en los q
 
 ## <a name="symptoms"></a>Síntomas
 
-Al usar [diagnósticos de arranque](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para ver una captura de pantalla de la máquina virtual, la pantalla queda bloqueada durante la carga y se muestra el mensaje: "Applying Group Policy Local Users and Groups policy" (Aplicando la directiva de usuarios y grupos locales de directiva de grupo).
+Al usar [diagnósticos de arranque](./boot-diagnostics.md) para ver una captura de pantalla de la máquina virtual, la pantalla queda bloqueada durante la carga y se muestra el mensaje: "Applying Group Policy Local Users and Groups policy" (Aplicando la directiva de usuarios y grupos locales de directiva de grupo).
 
 :::image type="content" source="media//unresponsive-vm-apply-group-policy/applying-group-policy-1.png" alt-text="Captura de pantalla que muestra Applying Group Policy Local Users and Groups policy (Aplicando la directiva de usuarios y grupos locales de la directiva de grupo) cargándose (Windows Server 2012 R2).":::
 
@@ -58,7 +58,7 @@ Esta es la directiva problemática:
 
 ### <a name="step-1-create-and-access-a-repair-vm"></a>Paso 1: Creación de una máquina virtual de reparación y acceso a ella
 
-1. Siga los [pasos 1a 3 de los comandos de reparación de la máquina virtual](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para preparar una máquina virtual de reparación.
+1. Siga los [pasos 1a 3 de los comandos de reparación de la máquina virtual](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para preparar una máquina virtual de reparación.
 2. Use Conexión a Escritorio remoto para conectarse a la máquina virtual de reparación.
 
 ### <a name="step-2-disable-the-policy"></a>Paso 2: Deshabilite la directiva.
@@ -140,7 +140,7 @@ Para habilitar la consola serie y la recopilación del volcado de memoria, ejecu
 
 ### <a name="step-4-rebuild-the-vm"></a>Paso 4: Recompilación de la máquina virtual
 
-Siga el [paso 5 de los comandos de reparación de máquinas virtuales](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para volver a ensamblar la máquina virtual.
+Siga el [paso 5 de los comandos de reparación de máquinas virtuales](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para volver a ensamblar la máquina virtual.
 
 Si el problema se resuelve, la directiva se ha deshabilitado ahora localmente. Si lo que quiere es una solución permanente, no use la directiva CleanupProfiles en las máquinas virtuales. Use un método diferente para realizar limpiezas de perfiles.
 
@@ -150,4 +150,4 @@ No use esta directiva:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si tiene problemas al aplicar Windows Update, consulte [La máquina virtual no responde y aparece el error C01A001D al aplicar Windows Update](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/unresponsive-vm-apply-windows-update).
+Si tiene problemas al aplicar Windows Update, consulte [La máquina virtual no responde y aparece el error C01A001D al aplicar Windows Update](./unresponsive-vm-apply-windows-update.md).

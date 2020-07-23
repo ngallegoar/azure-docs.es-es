@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
-ms.openlocfilehash: 085647c392bb6cec51fba8b6e42cb8f03707223c
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 1c2050969e95b521554bba100b688add3a987a80
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134578"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526748"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>Error de activación de Windows en el escenario de tunelización forzada
 
@@ -53,9 +53,9 @@ Para agregar la ruta personalizada, siga estos pasos:
  
 
 > [!NOTE] 
-> La activación utiliza direcciones IP públicas y se verá afectada por una configuración de Load Balancer SKU estándar. Revise cuidadosamente las [conexiones salientes en Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) para obtener información sobre los requisitos.
+> La activación utiliza direcciones IP públicas y se verá afectada por una configuración de Load Balancer SKU estándar. Revise cuidadosamente las [conexiones salientes en Azure](../../load-balancer/load-balancer-outbound-connections.md) para obtener información sobre los requisitos.
 
-1. Abra Azure PowerShell y después [inicie sesión en la suscripción de Azure](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+1. Abra Azure PowerShell y después [inicie sesión en la suscripción de Azure](/powershell/azure/authenticate-azureps).
 2. Ejecute los comandos siguientes:
 
     ```powershell
@@ -77,7 +77,7 @@ Para agregar la ruta personalizada, siga estos pasos:
 
     Set-AzVirtualNetwork -VirtualNetwork $vnet
     ```
-3. Vaya a la máquina virtual que tiene problemas de activación. Use [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) para probar si puede alcanzar el servidor de KMS:
+3. Vaya a la máquina virtual que tiene problemas de activación. Use [PsPing](/sysinternals/downloads/psping) para probar si puede alcanzar el servidor de KMS:
 
     ```console
     psping kms.core.windows.net:1688
@@ -89,7 +89,7 @@ Para agregar la ruta personalizada, siga estos pasos:
 
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
-1. Abra Azure PowerShell y después [inicie sesión en la suscripción de Azure](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+1. Abra Azure PowerShell y después [inicie sesión en la suscripción de Azure](/powershell/azure/authenticate-azureps).
 2. Ejecute los comandos siguientes:
 
     ```powershell
@@ -107,7 +107,7 @@ Para agregar la ruta personalizada, siga estos pasos:
     -RouteTableName "VNet-DM-KmsRouteTable"
     ```
 
-3. Vaya a la máquina virtual que tiene problemas de activación. Use [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) para probar si puede alcanzar el servidor de KMS:
+3. Vaya a la máquina virtual que tiene problemas de activación. Use [PsPing](/sysinternals/downloads/psping) para probar si puede alcanzar el servidor de KMS:
 
     ```console
     psping kms.core.windows.net:1688
@@ -117,7 +117,5 @@ Para agregar la ruta personalizada, siga estos pasos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Claves de configuración de cliente KMS](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys
-)
-- [Review and Select Activation Methods](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134256(v=ws.11)
-) (Revisión y selección de métodos de activación)
+- [Claves de configuración de cliente KMS](/windows-server/get-started/kmsclientkeys)
+- [Review and Select Activation Methods](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134256(v=ws.11)) (Revisión y selección de métodos de activación)

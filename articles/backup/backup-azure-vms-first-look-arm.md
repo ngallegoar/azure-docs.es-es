@@ -3,12 +3,12 @@ title: Copia de seguridad de una máquina virtual de Azure desde la configuraci�
 description: En este artículo, aprenderá a realizar copias de seguridad de una sola máquina virtual o de varias máquinas virtuales de Azure con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 72d6e5657add3e815bb0d77fadbdbc716712bee5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 580cb1ad5f611991212bc8cdb48c66339f14d8e8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76705452"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538894"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Copia de seguridad de una máquina virtual de Azure desde la configuración de esta
 
@@ -26,7 +26,7 @@ En este artículo se explica cómo realizar copias de seguridad de máquinas vir
 
 Para realizar una copia de seguridad de máquinas virtuales de Azure, Azure Backup instala una extensión en el agente de máquina virtual que se ejecuta en la máquina. Si la máquina virtual se creó a partir de una imagen de Azure Marketplace, el agente se ejecutará. En algunos casos, por ejemplo, si crea una máquina virtual personalizada o si migra una máquina desde un entorno local. Puede que necesite instalar el agente manualmente.
 
-- Si necesita instalar el agente de máquina virtual manualmente, siga las instrucciones para máquinas virtuales [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) o [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux).
+- Si necesita instalar el agente de máquina virtual manualmente, siga las instrucciones para máquinas virtuales [Windows](../virtual-machines/extensions/agent-windows.md) o [Linux](../virtual-machines/extensions/agent-linux.md).
 - Después de instalar el agente, al habilitar la copia de seguridad, Azure Backup instala la extensión de copia de seguridad en el agente. Actualiza la extensión y le aplica parches sin la intervención del usuario.
 
 ## <a name="back-up-from-azure-vm-settings"></a>Copia de seguridad a partir de la configuración de la máquina virtual de Azure

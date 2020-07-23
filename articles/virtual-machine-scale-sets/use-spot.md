@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer
-ms.openlocfilehash: 756e0d62927b67d26ae75af90c64facfe9c92d31
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 70d7eb000ed2d50bc22bb005621ee7515e5a2a61
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310570"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527462"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>Máquinas virtuales de Azure Spot para los conjuntos de escalado 
 
@@ -115,12 +115,12 @@ Para eliminar la instancia después de que se haya expulsado, cambie el parámet
 
 **P:** ¿Cómo se administra la cuota para Spot?
 
-**R:** Las instancias de Spot y las estándar tendrán grupos de cuotas independientes. La cuota de Spot se compartirá entre las máquinas virtuales y los conjuntos de escalado. Para más información, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+**R:** Las instancias de Spot y las estándar tendrán grupos de cuotas independientes. La cuota de Spot se compartirá entre las máquinas virtuales y los conjuntos de escalado. Para más información, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 
 **P:** ¿Puedo solicitar una cuota adicional para Spot?
 
-**R:** Sí, podrá enviar la solicitud para aumentar su cuota para las máquinas virtuales de Spot mediante el [proceso de solicitud de cuota estándar](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
+**R:** Sí, podrá enviar la solicitud para aumentar su cuota para las máquinas virtuales de Spot mediante el [proceso de solicitud de cuota estándar](../azure-portal/supportability/per-vm-quota-requests.md).
 
 
 **P:** ¿Puedo convertir los conjuntos de escalado existentes en conjuntos de escalado de Spot?
@@ -158,7 +158,7 @@ Para eliminar la instancia después de que se haya expulsado, cambie el parámet
 |------------------------------|-----------------------------------|
 | Contrato Enterprise         | Sí                               |
 | Pago por uso                | Sí                               |
-| Proveedor de servicios en la nube (CSP) | [Póngase en contacto con su asociado](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
+| Proveedor de servicios en la nube (CSP) | [Póngase en contacto con su asociado](/partner-center/azure-plan-get-started) |
 | Ventajas                     | No disponible                     |
 | Patrocinados                    | Sí                               |
 | Versión de prueba gratuita                   | No disponible                     |
@@ -166,7 +166,7 @@ Para eliminar la instancia después de que se haya expulsado, cambie el parámet
 
 **P:** ¿Dónde puedo publicar preguntas?
 
-**R:** Puede publicar y etiquetar la pregunta con `azure-spot` en [Q&A](https://docs.microsoft.com/answers/topics/azure-spot.html) (Preguntas y respuestas). 
+**R:** Puede publicar y etiquetar la pregunta con `azure-spot` en [Q&A](/answers/topics/azure-spot.html) (Preguntas y respuestas). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

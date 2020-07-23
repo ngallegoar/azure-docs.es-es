@@ -3,12 +3,12 @@ title: Configuración de su propia clave para cifrar datos en reposo de Azure Ev
 description: En este artículo se proporciona información sobre cómo configurar su propia clave para cifrar datos en reposo de Azure Event Hubs.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 2d82fc8c962496246196331c7d191c0fc057694f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18a59b74897b074fea9ee56947c78635f2a3509d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479834"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537265"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configuración de claves administradas por el cliente para cifrar datos en reposo de Azure Event Hubs mediante Azure Portal
 Azure Event Hubs proporciona cifrado de datos en reposo con Azure Storage Service Encryption (Azure SSE). Event Hubs se basa en Azure Storage para almacenar los datos y, de forma predeterminada, todos los datos que se almacenan con Azure Storage se cifran mediante claves administradas por Microsoft. 
@@ -41,7 +41,7 @@ Para habilitar claves administradas del cliente en Azure Portal, siga estos paso
 ## <a name="set-up-a-key-vault-with-keys"></a>Configuración de un almacén de claves con claves
 Después de habilitar las claves administradas por el cliente, debe asociar la clave administrada por el cliente con su espacio de nombres de Azure Event Hubs. Event Hubs solo admite Azure Key Vault. Si habilita la opción **Encryption with customer-managed key** (Cifrado con clave administrada por el cliente) en la sección anterior, debe importar la clave en Azure Key Vault. Recuerde que las claves deben tener habilitadas las opciones **Eliminación temporal** y **No purgar**. Estas opciones se pueden configurar mediante [PowerShell](../key-vault/general/soft-delete-powershell.md) o la [CLI](../key-vault/general/soft-delete-cli.md#enabling-purge-protection).
 
-1. Para crear un nuevo almacén de claves, siga el [inicio rápido](../key-vault/general/overview.md) de Azure Key Vault. Para más información sobre cómo importar claves existentes, consulte [Información acerca de claves, secretos y certificados](../key-vault/about-keys-secrets-and-certificates.md).
+1. Para crear un nuevo almacén de claves, siga el [inicio rápido](../key-vault/general/overview.md) de Azure Key Vault. Para más información sobre cómo importar claves existentes, consulte [Información acerca de claves, secretos y certificados](../key-vault/general/about-keys-secrets-certificates.md).
 1. Para activar la eliminación temporal y la protección de purgas al crear un almacén, use el comando [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create).
 
     ```azurecli-interactive
@@ -419,7 +419,3 @@ A continuación se muestran los códigos de error comunes que buscar cuando est�
 Vea los artículos siguientes:
 - [Información general de Event Hubs](event-hubs-about.md)
 - [Introducción a Azure Key Vault](../key-vault/general/overview.md)
-
-
-
-

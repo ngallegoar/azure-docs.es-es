@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 261e5f17e787fd96697b06a9b338e74ea0409454
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 072f8fd44fa45648afd15cb40cba26bb427c7b56
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85507082"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539625"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Información general sobre la habilitación de Azure Monitor para VM
 
@@ -68,7 +68,7 @@ Azure Monitor para VM admite un área de trabajo de Log Analytics en las siguien
 
 Si no tiene un área de trabajo de Log Analytics, puede crear una usando alguno de estos recursos:
 * [CLI de Azure](../../azure-monitor/learn/quick-create-workspace-cli.md)
-* [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)
+* [PowerShell](../platform/powershell-workspace-configuration.md)
 * [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md)
 * [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
 

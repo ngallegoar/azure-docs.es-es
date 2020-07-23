@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 664e61697c1fb0c339a4c2caf8d0125a73e608c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28bbf9749375a4523237e840c217977853cd4ddd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85319641"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539829"
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
@@ -21,7 +21,7 @@ Cuando los recuentos de métrica se presentan en el portal, se vuelven a normali
 ## <a name="brief-summary"></a>Resumen breve
 
 * Hay tres tipos diferentes de muestreo: muestreo adaptable, muestreo de frecuencia fija y muestreo de ingesta.
-* El muestreo adaptable está habilitado de manera predeterminada en todas las versiones más recientes de los kits de desarrollo de software (SDK) de Application Insights para ASP.NET y ASP.NET Core. También lo usa [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview).
+* El muestreo adaptable está habilitado de manera predeterminada en todas las versiones más recientes de los kits de desarrollo de software (SDK) de Application Insights para ASP.NET y ASP.NET Core. También lo usa [Azure Functions](../../azure-functions/functions-overview.md).
 * El muestreo de frecuencia fija está disponible en las versiones recientes de los SDK de Application Insights para ASP.NET, ASP.NET Core, Java (tanto el agente como el SDK) y Python.
 * El muestreo de ingesta funciona en el punto de conexión de servicio de Application Insights. Solo se aplica cuando no hay ningún otro muestreo en vigor. Si el SDK muestrea los datos de telemetría, el muestreo de ingesta está deshabilitado.
 * Para aplicaciones web, si registra eventos personalizados y necesita asegurarse de que un conjunto de eventos se conserva o descarta en conjunto, los eventos deben tener el mismo valor de `OperationId`.
@@ -36,6 +36,7 @@ En la tabla siguiente se resumen los tipos de muestreo disponibles para cada SDK
 | ASP.NET Core | [Sí (activado de forma predeterminada)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Sí](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Solo si no hay otro muestreo en vigor |
 | Azure Functions | [Sí (activado de forma predeterminada)](#configuring-adaptive-sampling-for-azure-functions) | No | Solo si no hay otro muestreo en vigor |
 | Java | No | [Sí](#configuring-fixed-rate-sampling-for-java-applications) | Solo si no hay otro muestreo en vigor |
+| Node.JS | No | [Sí](./nodejs.md#sampling) | Solo si no hay otro muestreo en vigor
 | Python | No | [Sí](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Solo si no hay otro muestreo en vigor |
 | Todos los demás | No | No | [Sí](#ingestion-sampling) |
 
@@ -209,7 +210,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 ### <a name="configuring-adaptive-sampling-for-azure-functions"></a>Configuración del muestreo adaptable para Azure Functions
 
-Siga las instrucciones de [esta página](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling) para configurar el muestreo adaptable para las aplicaciones que se ejecutan en Azure Functions.
+Siga las instrucciones de [esta página](../../azure-functions/functions-monitoring.md#configure-sampling) para configurar el muestreo adaptable para las aplicaciones que se ejecutan en Azure Functions.
 
 ## <a name="fixed-rate-sampling"></a>Muestreo de frecuencia fija
 
@@ -481,7 +482,7 @@ Si no se cumplen las condiciones para usar las otras formas de muestreo, le reco
 
 ## <a name="knowing-whether-sampling-is-in-operation"></a>¿Cómo se puede saber si el muestreo está en funcionamiento?
 
-Para conocer la frecuencia de muestreo real independientemente de dónde se ha aplicado, use una [consulta de Analytics](../../azure-monitor/app/analytics.md) como esta:
+Para conocer la frecuencia de muestreo real independientemente de dónde se ha aplicado, use una [consulta de Analytics](../log-query/log-query-overview.md) como esta:
 
 ```kusto
 union requests,dependencies,pageViews,browserTimings,exceptions,traces
@@ -586,4 +587,4 @@ Antes de la versión v2.5.0-beta2 del SDK de ASP.NET y de la versión v2.2.0-bet
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [filtro](../../azure-monitor/app/api-filtering-sampling.md) puede proporcionar un control más estricto de los SDK que envía.
-* Lea el artículo de Developer Network [Optimize Telemetry with Application Insights](https://msdn.microsoft.com/magazine/mt808502.aspx) (Optimización de la telemetría con Application Insights).
+* Lea el artículo de Developer Network [Optimize Telemetry with Application Insights](/archive/msdn-magazine/2017/may/devops-optimize-telemetry-with-application-insights) (Optimización de la telemetría con Application Insights).

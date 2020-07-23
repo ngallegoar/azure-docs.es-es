@@ -1,18 +1,18 @@
 ---
 title: 'Introducción al resumen de pagos: Azure Marketplace'
 description: En el resumen de pagos se muestran los detalles sobre el dinero que ha ganado con su oferta. También le permite saber cuándo recibirá los pagos y cuánto le pagarán.
-ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.service: marketplace
+ms.topic: article
 author: mingshen
 ms.author: mingshen
-ms.date: 04/24/2020
-ms.openlocfilehash: 29a8eb72814d865cb02bd632e084cec0cc06a1ff
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/14/2020
+ms.openlocfilehash: 087f7df8f8e3cc5e6e01ff023a88306d5fc4102d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118484"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86535967"
 ---
 # <a name="payout-summary-overview"></a>Introducción al resumen de pagos
 
@@ -42,19 +42,6 @@ Estos son los roles y permisos necesarios para acceder al informe de pago:
 | Perfil fiscal | Puede actualizar | Sin acceso | Sin acceso | Sin acceso | Puede actualizar | Sin acceso |
 | Resumen de pagos | Puede ver | Sin acceso | Sin acceso | Sin acceso | Puede ver | Sin acceso  |
 | | | | | | | |
-
-## <a name="payout-report-differences"></a>Diferencias en el informe de pago
-
-A continuación se señalan las diferencias entre el informe de pago de Cloud Partner Portal (antiguo) y del Centro de partners (nuevo):
-
-| Cloud Partner Portal | Centro de partners |
-| --- | --- |
-| **Vínculo**: https://cloudpartner.azure.com/ | **Vínculo**: https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory y https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
-| **Navegación**: Informes de pago proporcionados en Insights Payout | **Navegación**: Informes de pago proporcionados en el Centro de Partners: icono de pago |
-| **Ámbito**:<ul><li>Transacción por artículo de línea visible, para cobros en curso, realizados y pagados.</li><li>Informes: se muestran todos los artículos de línea una vez creado el pedido de compra, incluidos los cobros y la facturación en curso; también se muestran el estado de cobro y los artículos de línea que aún no son válidos para su pago.</li></ul> | **Ámbito**:<ul><li>Muestra los artículos de línea después de que se consideran ganancias válidas.</li><li>Los clientes pagan primero a Microsoft y entonces los ISV pueden ver que se inicia el informe de pago.</li><li>El informe de pago no muestra ni el cobro ni la facturación en curso.</li></ul> |
-| **La transacción no está lista para el pago**: Facturación en curso | **La transacción no está lista para el pago**: Siguiente pago estimado: El estado del pago es sin procesar. |
-| **Estado del pago**: n/d | **Estado del pago**:<ul><li>Sin procesar: La ganancia es válida para el pago.</li><li>Próximamente: La ganancia se enviará al editor en el siguiente pago mensual.</li><li>Enviado: El pago se ha enviado al banco.</li></ul> |
-| | |
 
 ## <a name="payment-schedules"></a>Programaciones de pago
 

@@ -6,21 +6,21 @@ ms.topic: conceptual
 author: agummadi
 ms.author: agummadi
 ms.date: 04/02/2018
-ms.openlocfilehash: c5a80c7ff6d08ce601a6c2bbb0db0ef866d3b425
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f44afd84c58c94c6a8d3e6145e8a4f66e0e2e782
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77654399"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539659"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Cambios de precios de Azure Network Performance Monitor
 
-Hemos escuchado sus comentarios y recientemente hemos introducido una [nueva experiencia de precios](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) para diversos servicios de supervisión en Azure. En este artículo se incluyen los cambios de precios relacionados con Azure [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM), en un formato de preguntas y respuestas fácil de leer.
+Hemos escuchado sus comentarios y recientemente hemos introducido una [nueva experiencia de precios](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) para diversos servicios de supervisión en Azure. En este artículo se incluyen los cambios de precios relacionados con Azure [Network Performance Monitor](../../networking/network-monitoring-overview.md) (NPM), en un formato de preguntas y respuestas fácil de leer.
 
 Network Performance Monitor consta de tres componentes:
-* [Supervisión del rendimiento](https://docs.microsoft.com/azure/networking/network-monitoring-overview#performance-monitor)
-* [Monitor de puntos de conexión de servicio](https://docs.microsoft.com/azure/networking/network-monitoring-overview)
-* [Supervisión de ExpressRoute](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
+* [Supervisión del rendimiento](../../networking/network-monitoring-overview.md#performance-monitor)
+* [Monitor de puntos de conexión de servicio](../../networking/network-monitoring-overview.md)
+* [Supervisión de ExpressRoute](../../networking/network-monitoring-overview.md#expressroute-monitor)
 
 En las secciones siguientes se explican los cambios de precios de los componentes NPM.
 
@@ -112,4 +112,3 @@ Para conocer el costo de supervisión de un punto de conexión durante todo el m
 ## <a name="references"></a>Referencias
 
 [Preguntas frecuentes sobre los precios de Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/): la sección de preguntas frecuentes contiene información sobre el nivel gratuito, los precios por nodo y otros detalles de los precios.
-

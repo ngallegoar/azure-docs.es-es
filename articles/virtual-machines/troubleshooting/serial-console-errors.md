@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
-ms.openlocfilehash: 61ae0ef92fe522a2a038a6076a5e0c0a10ee47b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cad12a55332a6c7898f9709776c58d7dba8dd81a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80060701"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526442"
 ---
 # <a name="common-errors-within-the-azure-serial-console"></a>Errores comunes en la consola serie de Azure
 Existe un conjunto de errores conocidos en la consola serie de Azure. A continuación encontrará una lista de dichos errores y los pasos de mitigación.
@@ -40,7 +40,7 @@ No se puede determinar el grupo de recursos para la cuenta de almacenamiento de 
 El aprovisionamiento de esta máquina virtual aún no se ha realizado correctamente. Asegúrese de que la máquina virtual está totalmente implementada y vuelva a intentar la conexión de la consola serie. | Es posible que la máquina virtual o el conjunto de escalado de máquinas virtuales todavía se estén aprovisionando. Espere un poco y vuelva a intentarlo.
 Socket web está cerrado o no se pudo abrir. | Es posible que tenga que agregar acceso de firewall a `*.console.azure.com`. Un enfoque más detallado, pero más largo, consiste en permitir el acceso de firewall a los [intervalos IP del centro de datos de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653), que cambian con bastante frecuencia.
 La consola serie no funciona con una cuenta de almacenamiento que use Azure Data Lake Storage Gen2 con espacios de nombres jerárquicos. | Se trata de un problema conocido con los espacios de nombres jerárquicos. Para mitigar el problema, asegúrese de que la cuenta de almacenamiento con diagnóstico de arranque de la máquina virtual no se crea mediante Azure Data Lake Storage Gen2. Esta opción solo puede establecerse durante la creación de la cuenta de almacenamiento. Es posible que deba crear cuenta de almacenamiento con diagnóstico de arranque independiente sin Azure Data Lake Storage Gen2 habilitado para mitigar este problema.
-Se encontró un error al conectar la consola serie a la máquina virtual: "Prohibido" (SubscriptionNotEnabled): nombre de suscripción sin definir, el identificador \<subscription id> está en estado no habilitado sin definir. | Esta incidencia puede producirse si se ha deshabilitado la suscripción que ha creado un usuario para la cuenta de almacenamiento de Cloud Shell. Para mitigarla, inicie Cloud Shell y [realice los pasos necesarios](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage#unmount-clouddrive-1) a fin de volver a aprovisionar una cuenta de almacenamiento de respaldo para Cloud Shell en la suscripción actual.
+Se encontró un error al conectar la consola serie a la máquina virtual: "Prohibido" (SubscriptionNotEnabled): nombre de suscripción sin definir, el identificador \<subscription id> está en estado no habilitado sin definir. | Esta incidencia puede producirse si se ha deshabilitado la suscripción que ha creado un usuario para la cuenta de almacenamiento de Cloud Shell. Para mitigarla, inicie Cloud Shell y [realice los pasos necesarios](../../cloud-shell/persisting-shell-storage.md#unmount-clouddrive-1) a fin de volver a aprovisionar una cuenta de almacenamiento de respaldo para Cloud Shell en la suscripción actual.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Más información sobre la [consola serie de Azure para máquinas virtuales Linux](./serial-console-linux.md)

@@ -3,18 +3,18 @@ title: Detección de fugas de memoria - Detección inteligente de Azure Applicat
 description: Supervise las aplicaciones con Azure Application Insights para detectar posibles fugas de memoria.
 ms.topic: conceptual
 ms.date: 12/12/2017
-ms.openlocfilehash: 85d138518dfb1313a810657016e9fe3143887b6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3fe58cd7d61246c5565cd89fa782c8a977f09499
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671705"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539897"
 ---
 # <a name="memory-leak-detection-preview"></a>Detección de fugas de memoria (versión preliminar)
 
 Application Insights analiza automáticamente el consumo de memoria de cada uno de los procesos de la aplicación y le avisará sobre posibles fugas de memoria o de un aumento en el consumo de memoria.
 
-Esta característica no requiere ninguna configuración especial, excepto la [configuración de los contadores de rendimiento](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) de la aplicación. Se activa cuando la aplicación genera suficiente telemetría en los contadores de rendimiento de memoria (por ejemplo, bytes privados).
+Esta característica no requiere ninguna configuración especial, excepto la [configuración de los contadores de rendimiento](./performance-counters.md) de la aplicación. Se activa cuando la aplicación genera suficiente telemetría en los contadores de rendimiento de memoria (por ejemplo, bytes privados).
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>¿Cuándo recibiré este tipo de notificación de detección inteligente?
 Una notificación típica suele generarse por un aumento uniforme del consumo de memoria durante un largo período de tiempo, en uno o más procesos y/o en uno o varios equipos, que forman parte de la aplicación. Los algoritmos de aprendizaje automático se utilizan para detectar un consumo de memoria aumentado que coincida con un patrón de fuga de memoria.

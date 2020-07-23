@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: c60c1d33954b5e12038fd66787225f4d0aeba62d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e49a6b8000def0fe175930629b33203adec1b0f5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82184714"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537061"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Línea de base de seguridad de Azure para Event Hubs
 
 La línea de base de seguridad de Azure para Event Hubs contiene recomendaciones que lo ayudarán a mejorar la posición de seguridad de la implementación.
 
-La línea de base para este servicio se extrae de la [Prueba comparativa de seguridad de Azure versión 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), que proporciona recomendaciones sobre cómo puede proteger las soluciones en la nube en Azure con nuestra guía de procedimientos recomendados.
+La base de referencia de este servicio se extrae de la [versión 1.0 de Azure Security Benchmark](../security/benchmarks/overview.md), que proporciona recomendaciones sobre cómo puede proteger las soluciones en la nube en Azure con nuestra guía de procedimientos recomendados.
 
-Para obtener más información, consulte [Introducción a las líneas de base de seguridad de Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Para obtener más información, consulte [Introducción a las líneas de base de seguridad de Azure](../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Seguridad de redes
 
-*Para obtener más información, consulte [Control de seguridad: seguridad de red](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Para obtener más información, consulte [Control de seguridad: seguridad de red](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: Proteja los recursos mediante grupos de seguridad de red o Azure Firewall en su red virtual
 
@@ -72,7 +72,7 @@ Descripción de la seguridad de red proporcionada por Azure Security Center: htt
 
 **Instrucciones**: Habilite el estándar de DDoS Protection en las redes virtuales asociadas a los centros de eventos para protegerse de los ataques por denegación de servicio distribuidos (DDoS). Use la inteligencia sobre amenazas integrada de Azure Security Center para denegar las comunicaciones con direcciones IP malintencionadas conocidas o no utilizadas.
 
-Cómo configurar la protección contra DDoS: [https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](/azure/virtual-network/manage-ddos-protection)
+Cómo configurar la protección contra DDoS: [https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](../virtual-network/manage-ddos-protection.md)
 
 Para obtener más información sobre la inteligencia sobre amenazas integrada de Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
@@ -174,7 +174,7 @@ Creación de alertas en Azure Monitor: https://docs.microsoft.com/azure/azure-mo
 
 ## <a name="logging-and-monitoring"></a>Registro y supervisión
 
-*Para obtener más información, consulte [Control de seguridad: registro y supervisión](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Para obtener más información, consulte [Control de seguridad: registro y supervisión](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: Uso de orígenes de sincronización de hora aprobados
 
@@ -287,11 +287,11 @@ Incorporación de Azure Sentinel: https://docs.microsoft.com/azure/sentinel/qui
 
 ## <a name="identity-and-access-control"></a>Identidad y Access Control
 
-*Para obtener más información, consulte [Control de seguridad: identidad y control de acceso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Para obtener más información, consulte [Control de seguridad: identidad y control de acceso](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Mantenga un inventario de cuentas administrativas
 
-**Guía**: Azure Active Directory (AD) tiene roles integrados que se deben asignar explícitamente y son consultables. Use el módulo de PowerShell de Azure AD para realizar consultas ad hoc para detectar cuentas que son miembros de grupos administrativos. 
+**Instrucciones**: Azure Active Directory (AD) tiene roles integrados que se deben asignar explícitamente y son consultables. Use el módulo de PowerShell de Azure AD para realizar consultas ad hoc para detectar cuentas que son miembros de grupos administrativos. 
 
 Obtención de un rol de directorio en Azure AD con PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
 
@@ -409,7 +409,7 @@ Para obtener información sobre la manera en que Azure Event Hubs se integra en 
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: Revise y concilie regularmente el acceso de los usuarios
 
-**Instrucciones**: Azure Active Directory (AD) proporciona registros para ayudar a descubrir cuentas obsoletas. Además, use las revisiones de acceso de identidad de Azure para administrar de forma eficiente las pertenencias a grupos, el acceso a las aplicaciones empresariales y las asignaciones de roles. El acceso de los usuarios se puede revisar de forma periódica para asegurarse de que solo las personas adecuadas tengan acceso continuado.
+**Guía**: Azure Active Directory (AD) proporciona registros para ayudar a descubrir cuentas obsoletas. Además, use las revisiones de acceso de identidad de Azure para administrar de forma eficiente las pertenencias a grupos, el acceso a las aplicaciones empresariales y las asignaciones de roles. El acceso de los usuarios se puede revisar de forma periódica para asegurarse de que solo las personas adecuadas tengan acceso continuado.
 
 Además, rote periódicamente las firmas de acceso compartido de Event Hubs.
 
@@ -463,7 +463,7 @@ Lista de servicios admitidos por la Caja de seguridad del cliente: https://docs.
 
 ## <a name="data-protection"></a>Protección de datos
 
-*Para obtener más información, consulte [Control de seguridad: protección de datos](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Para obtener más información, consulte [Control de seguridad: protección de datos](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Mantenimiento de un inventario de información confidencial
 
@@ -581,11 +581,11 @@ Procedimiento para crear alertas para eventos de registro de actividad de Azure:
 
 ## <a name="vulnerability-management"></a>Administración de vulnerabilidades
 
-*Para obtener más información, consulte [Control de seguridad: administración de vulnerabilidades](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Para obtener más información, consulte [Control de seguridad: administración de vulnerabilidades](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: Ejecute herramientas de análisis de vulnerabilidades automatizado
 
-**Guía**: No aplicable; Microsoft realiza la administración de vulnerabilidades en los sistemas subyacentes que admiten Event Hubs.
+**Instrucciones**: No aplicable; Microsoft realiza la administración de vulnerabilidades en los sistemas subyacentes que admiten Event Hubs.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -601,7 +601,7 @@ Procedimiento para crear alertas para eventos de registro de actividad de Azure:
 
 ### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3: Implemente una solución automatizada de administración de revisiones de software de terceros
 
-**Instrucciones**: No aplicable; la prueba comparativa está pensada para recursos de proceso.
+**Guía**: No aplicable; la prueba comparativa está pensada para recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -609,7 +609,7 @@ Procedimiento para crear alertas para eventos de registro de actividad de Azure:
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4: Compare los exámenes de vulnerabilidades opuestos
 
-**Guía**: No aplicable; Microsoft realiza la administración de vulnerabilidades en los sistemas subyacentes que admiten Event Hubs.
+**Instrucciones**: No aplicable; Microsoft realiza la administración de vulnerabilidades en los sistemas subyacentes que admiten Event Hubs.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -625,7 +625,7 @@ Procedimiento para crear alertas para eventos de registro de actividad de Azure:
 
 ## <a name="inventory-and-asset-management"></a>Administración de recursos y del inventario
 
-*Para obtener más información, consulte [Control de seguridad: inventario y administración de recursos](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Para obtener más información, consulte [Control de seguridad: inventario y administración de recursos](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1: Uso de la detección de recursos de Azure
 
@@ -667,7 +667,7 @@ Creación y uso de etiquetas: https://docs.microsoft.com/azure/azure-resource-ma
 
 ### <a name="64-maintain-an-inventory-of-approved-azure-resources-and-software-titles"></a>6.4: Mantenimiento de un inventario de los recursos de Azure aprobados y títulos de software
 
-**Instrucciones**: No aplicable; esta recomendación está destinada a los recursos de proceso y a Azure en su conjunto.
+**Guía**: No aplicable; esta recomendación está destinada a los recursos de proceso y a Azure en su conjunto.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -717,7 +717,7 @@ Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governa
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: Uso exclusivo de servicios de Azure aprobados
 
-**Guía**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
+**Instrucciones**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 
 - Tipos de recursos no permitidos
 
@@ -767,7 +767,7 @@ Configuración del acceso condicional para bloquear el acceso a Azure Resource M
 
 ## <a name="secure-configuration"></a>Configuración segura
 
-*Para obtener más información, consulte [Control de seguridad: configuración segura](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Para obtener más información, consulte [Control de seguridad: configuración segura](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Establezca configuraciones seguras para todos los recursos de Azure
 
@@ -920,7 +920,7 @@ Cómo configurar el escáner de credenciales: https://secdevtools.azurewebsites.
 
 ## <a name="malware-defense"></a>Defensa contra malware
 
-*Para obtener más información, consulte [Control de seguridad: defensa contra malware](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Para obtener más información, consulte [Control de seguridad: defensa contra malware](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: Use software antimalware administrado centralmente
 
@@ -952,7 +952,7 @@ Microsoft Antimalware está habilitado en el host subyacente que admite los serv
 
 ## <a name="data-recovery"></a>Recuperación de datos
 
-*Para obtener más información, consulte [Control de seguridad: recuperación de datos](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Para obtener más información, consulte [Control de seguridad: recuperación de datos](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: Garantía de copias de seguridad automáticas periódicas
 
@@ -1008,7 +1008,7 @@ Eliminación temporal de blobs de Azure Storage: https://docs.microsoft.com//azu
 
 ## <a name="incident-response"></a>Respuesta a los incidentes
 
-*Para obtener más información, consulte [Control de seguridad: respuesta ante incidentes](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Para obtener más información, consulte [Control de seguridad: respuesta ante incidentes](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Creación de una guía de respuesta ante incidentes
 
@@ -1074,7 +1074,7 @@ Configuración de la automatización de flujo de trabajo y Logic Apps: https://d
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Pruebas de penetración y ejercicios del equipo rojo
 
-*Para obtener más información, consulte [Control de seguridad: Pruebas de penetración y ejercicios del equipo rojo](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Para obtener más información, consulte [Control de seguridad: Pruebas de penetración y ejercicios del equipo rojo](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1: Realice pruebas de penetración periódicas de los recursos de Azure y asegúrese de corregir todos los resultados de seguridad críticos en un plazo de 60 días
 
@@ -1087,5 +1087,5 @@ Puede encontrar más información sobre la estrategia de Microsoft y la ejecuci�
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte la [prueba comparativa de seguridad de Azure](https://docs.microsoft.com/azure/security/benchmarks/overview).
-- Obtenga más información sobre las [líneas de base de seguridad de Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+- Consulte la [prueba comparativa de seguridad de Azure](../security/benchmarks/overview.md).
+- Obtenga más información sobre las [líneas de base de seguridad de Azure](../security/benchmarks/security-baselines-overview.md).

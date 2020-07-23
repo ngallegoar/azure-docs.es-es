@@ -4,15 +4,15 @@ description: Patrones de escalado automático en Azure para Web Apps, conjunto d
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: a05cf87e660cc6c388ea2055bb174c47b99da4a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47da813498ef2cd4d16aeaa5ab31eff24b1db267
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846933"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539540"
 ---
 # <a name="best-practices-for-autoscale"></a>Procedimientos recomendados de escalado automático
-La escalabilidad automática de Azure Monitor solo se aplica a [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) y los [servicios de API Management](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
+La escalabilidad automática de Azure Monitor solo se aplica a [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) y los [servicios de API Management](../../api-management/api-management-key-concepts.md).
 
 ## <a name="autoscale-concepts"></a>Conceptos de escalado automático
 
@@ -151,4 +151,3 @@ Además de utilizar alertas de registro de actividad, puede configurar notificac
 ## <a name="next-steps"></a>Pasos siguientes
 - [Cree una alerta de registro de actividades para supervisar todas las operaciones del motor de escalado automático en su suscripción.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Cree una alerta de registro de actividades para supervisar todas las operaciones con errores de escalado automático y reducción horizontal en su suscripción.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
-

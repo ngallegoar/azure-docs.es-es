@@ -6,17 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
-ms.openlocfilehash: 6cd2a28ddbe970385ff44deec2158c257937982e
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 7e8e2015e7d0798542ff0c80d8eb39461918ad67
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82591659"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539608"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Introducción a las consultas de registro en Azure Monitor
 Las consultas de registro ayudan a aprovechar al máximo el valor de los datos recopilados en [registros de Azure Monitor](../platform/data-platform-logs.md). Un lenguaje de consulta eficaz permite combinar datos de varias tablas, agregar grandes conjuntos de datos y realizar operaciones complejas con una mínima cantidad de código. Se puede responder casi cualquier pregunta y realizar cualquier análisis, siempre y cuando se hayan recopilado los datos de respaldo y comprenda cómo construir la consulta adecuada.
 
-Algunas características de Azure Monitor, como [conclusiones](../insights/insights-overview.md) y [soluciones](../insights/solutions-inventory.md) procesan datos de registro sin exponer las consultas subyacentes. Para aprovechar completamente las otras características de Azure Monitor, debe comprender cómo se construyen las consultas y cómo puede usar estas para analizar de forma interactiva los datos en registros de Azure Monitor.
+Algunas características de Azure Monitor, como [conclusiones](../insights/insights-overview.md) y [soluciones](../monitor-reference.md) procesan datos de registro sin exponer las consultas subyacentes. Para aprovechar completamente las otras características de Azure Monitor, debe comprender cómo se construyen las consultas y cómo puede usar estas para analizar de forma interactiva los datos en registros de Azure Monitor.
 
 Use este artículo como punto de partida para obtener más información sobre consultas de registros en Azure Monitor. Proporciona respuestas a preguntas comunes y vínculos a otra documentación que ofrece más detalles y lecciones.
 

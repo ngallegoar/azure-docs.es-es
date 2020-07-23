@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 45b611144d5a62171061febfd4efa98db69bacb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbca8798af83108ca5e8bdfe5918a25423fd934d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84436139"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544207"
 ---
 Actualmente, Azure Managed Disks ofrece cuatro tipos de discos. Cada uno estos tipos está pensado para escenarios de clientes específicos.
 
@@ -21,8 +21,8 @@ Actualmente, Azure Managed Disks ofrece cuatro tipos de discos. Cada uno estos t
 
 En la tabla siguiente se proporciona una comparación entre los discos Ultra, las unidades de estado sólido (SSD) prémium, los discos SSD estándar y las unidades de disco duro (HDD) estándar para Managed Disks, a fin de ayudarle a decidir qué opción debe usar.
 
-|   | Disco Ultra   | SSD Premium   | SSD estándar   | HDD estándar   |
-|---------|---------|---------|---------|---------|
+| Detail | Disco Ultra | SSD Premium | SSD estándar | HDD estándar |
+| ------ | ---------- | ----------- | ------------ | ------------ |
 |Tipo de disco   |SSD   |SSD   |SSD   |HDD   |
 |Escenario   |Cargas de trabajo de uso intensivo de E/S, como [SAP HANA](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md), bases de datos de nivel superior (por ejemplo, SQL y Oracle) y otras cargas de trabajo con muchas transacciones.   |Cargas de trabajo confidenciales de producción y rendimiento   |Servidores web, aplicaciones empresariales poco utilizadas y desarrollo y pruebas   |Copia de seguridad, no crítico, acceso poco frecuente   |
 |Tamaño máximo del disco   |65 536 gibibyte (GiB)    |32 767 GiB    |32 767 GiB   |32 767 GiB   |
@@ -51,9 +51,9 @@ Estas son algunas funcionalidades clave de los discos Ultra:
 |4     |1,200         |300         |
 |8     |2,400         |600         |
 |16     |4,800         |1,200         |
-|32     |9600         |2\.000         |
+|32     |9 600         |2\.000         |
 |64     |19 200         |2\.000         |
-|128     |38 400         |2\.000         |
+|128     |38 400         |2 000         |
 |256     |76 800         |2\.000         |
 |512     |80 000         |2\.000         |
 |1024 - 65 536 (los tamaños de este intervalo aumentan en incrementos de 1 TiB)     |160 000         |2\.000         |

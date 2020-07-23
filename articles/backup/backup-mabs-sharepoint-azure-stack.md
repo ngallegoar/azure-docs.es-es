@@ -3,12 +3,12 @@ title: Copia de seguridad de una granja de SharePoint en Azure Stack
 description: Use Azure Backup Server para crear una copia de seguridad de los datos de SharePoint y restaurarlos en Azure Stack. En este artículo se proporciona la información sobre cómo configurar la granja de SharePoint para almacenar los datos deseados en Azure. Puede restaurar los datos protegidos de SharePoint desde disco o desde Azure.
 ms.topic: conceptual
 ms.date: 06/07/2020
-ms.openlocfilehash: 8b9257c1d175c350df06f9421b31a9e7b8e2bb80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd94b24479631f9fbbe4070529d76fe6442faae2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84657928"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538792"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Copia de seguridad de una granja de SharePoint en Azure Stack
 
@@ -102,7 +102,7 @@ Para realizar una copia de seguridad de una granja de SharePoint, configure la p
 
 1. En **Especificar la directiva de retención en línea**, puede especificar cómo se retienen en Azure los puntos de recuperación creados a partir de copias de seguridad diarias, semanales, mensuales y anuales.
 
-1. En **Elegir replicación en línea**, especifique cómo se realizará la replicación inicial total de los datos. Puede replicar a través de la red o realizar una copia de seguridad sin conexión (propagación sin conexión). Las copias de seguridad sin conexión usan la característica Azure Import. [Más información](https://azure.microsoft.com/documentation/articles/backup-azure-backup-import-export/).
+1. En **Elegir replicación en línea**, especifique cómo se realizará la replicación inicial total de los datos. Puede replicar a través de la red o realizar una copia de seguridad sin conexión (propagación sin conexión). Las copias de seguridad sin conexión usan la característica Azure Import. [Más información](./backup-azure-backup-import-export.md).
 
 1. En la página **Resumen**, revise la configuración. Después de seleccionar **Crear grupo**, se produce la replicación inicial de los datos. Cuando finalice, el estado del grupo de protección se mostrará como **Correcto** en la página**Estado**. Después se realiza una copia de seguridad según la configuración del grupo de protección.
 

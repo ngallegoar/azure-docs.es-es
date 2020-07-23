@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 5d2fb62870e2c41af635627f5d692f08c67f8394
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2457952051f575306de46e3e8145cc26678a1ef8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80373287"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526547"
 ---
 # <a name="windows-vm-cannot-boot-due-to-windows-boot-manager"></a>La VM Windows no puede arrancar debido a Administración de arranque de Windows
 
@@ -29,7 +29,7 @@ En este artículo se proporcionan los pasos para resolver problemas en los que A
 
 La VM está detenida en espera de un mensaje de usuario y no arranca a menos que se le indique de forma manual.
 
-Cuando use [Diagnósticos de arranque](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para ver la captura de pantalla de la VM, verá que en la captura de pantalla se muestra Administración de arranque de Windows con el mensaje *Elija un sistema operativo que desee iniciar o presione la tecla Tabulador para seleccionar una herramienta:* .
+Cuando use [Diagnósticos de arranque](./boot-diagnostics.md) para ver la captura de pantalla de la VM, verá que en la captura de pantalla se muestra Administración de arranque de Windows con el mensaje *Elija un sistema operativo que desee iniciar o presione la tecla Tabulador para seleccionar una herramienta:* .
 
 En la Ilustración 1
  
@@ -53,7 +53,7 @@ Información general del proceso:
 
 Si tiene acceso a Serial Console, hay dos formas de lograr tiempos de arranque más rápidos. Puede reducir el tiempo de espera de *displaybootmenu*, o bien quitar la marca por completo.
 
-1. Siga las instrucciones para acceder a la [Consola serie de Azure para Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) para obtener acceso a la consola basada en texto.
+1. Siga las instrucciones para acceder a la [Consola serie de Azure para Windows](./serial-console-windows.md) para obtener acceso a la consola basada en texto.
 
    > [!NOTE]
    > Si no puede acceder a Serial Console, vaya a [Creación y acceso a una VM de reparación](#create-and-access-a-repair-vm).
@@ -77,7 +77,7 @@ Si tiene acceso a Serial Console, hay dos formas de lograr tiempos de arranque m
 
 ### <a name="create-and-access-a-repair-vm"></a>Creación y acceso a una VM de reparación
 
-1. Siga los [pasos 1 a 3 de los comandos de reparación de VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar una VM de reparación.
+1. Siga los [pasos 1 a 3 de los comandos de reparación de VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar una VM de reparación.
 2. Use Conexión a Escritorio remoto para conectarse a la VM de reparación.
 
 ### <a name="configure-for-faster-boot-time-on-a-repair-vm"></a>Configuración para acelerar el tiempo de arranque en una VM de reparación
@@ -154,4 +154,4 @@ Para habilitar la recopilación de volcado de memoria y Serial Console, ejecute 
 
 ### <a name="rebuild-the-original-vm"></a>Recompilación de la VM original
 
-Siga el [paso 5 de los comandos de reparación de la VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para volver a ensamblar la VM.
+Siga el [paso 5 de los comandos de reparación de la VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para volver a ensamblar la VM.

@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo crear una aplicación lógica que 
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/27/2019
-ms.openlocfilehash: 9042ed8ddbb698192e638fa7538f74561574c262
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 05349554f4c5e076562a75d48d58e0849986d6cc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77668237"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539506"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Integración del esquema común de alertas con Logic Apps
 
@@ -23,13 +23,13 @@ El [esquema común de alerta](https://aka.ms/commonAlertSchemaDocs) proporciona 
 ## <a name="prerequisites"></a>Prerequisites 
 
 En este artículo se supone que el lector está familiarizado con los conceptos siguientes: 
-* Configuración de reglas de alerta ([métrica](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric), [registro](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log), [registro de actividad](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log))
-* Configuración de [grupos de acciones](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
-* Habilitación del [esquema común de alerta](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema#how-do-i-enable-the-common-alert-schema) desde dentro de grupos de acciones
+* Configuración de reglas de alerta ([métrica](./alerts-metric.md), [registro](./alerts-log.md), [registro de actividad](./alerts-activity-log.md))
+* Configuración de [grupos de acciones](./action-groups.md)
+* Habilitación del [esquema común de alerta](./alerts-common-schema.md#how-do-i-enable-the-common-alert-schema) desde dentro de grupos de acciones
 
 ## <a name="create-a-logic-app-leveraging-the-common-alert-schema"></a>Creación de una aplicación lógica, aprovechando el esquema común de alerta
 
-1. Siga los [pasos para crear la aplicación lógica](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups-logic-app). 
+1. Siga los [pasos para crear la aplicación lógica](./action-groups-logic-app.md). 
 
 1.  Seleccione el desencadenador **Cuando se recibe una solicitud HTTP**.
 
@@ -130,7 +130,7 @@ En este artículo se supone que el lector está familiarizado con los conceptos 
       if(equals(triggerBody()?['data']?['essentials']?['monitoringService'],'Application Insights'),triggerBody()?['data']?['alertContext']?['SearchResults'],'NA')
     ```
     
-     Obtenga más información sobre cómo [escribir expresiones de la lógica de aplicación](https://docs.microsoft.com/azure/logic-apps/workflow-definition-language-functions-reference#logical-comparison-functions).
+     Obtenga más información sobre cómo [escribir expresiones de la lógica de aplicación](../../logic-apps/workflow-definition-language-functions-reference.md#logical-comparison-functions).
 
     
 
@@ -139,4 +139,3 @@ En este artículo se supone que el lector está familiarizado con los conceptos 
 
 * [Más información sobre los grupos de acciones](../../azure-monitor/platform/action-groups.md)
 * [Más información sobre el esquema de alertas comunes](https://aka.ms/commonAlertSchemaDocs).
-

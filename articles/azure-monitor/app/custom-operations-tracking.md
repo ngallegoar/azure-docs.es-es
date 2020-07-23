@@ -4,12 +4,12 @@ description: Seguimiento de las operaciones personalizadas con el SDK de .NET de
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 316c1b7ea32f661b009bfee7a89cb7e5ed082f3b
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 49c2ad44dab5e4f57db2f11c17c269289e56d2d5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690862"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540050"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Seguimiento de las operaciones personalizadas con el SDK de .NET para Application Insights
 
@@ -346,7 +346,7 @@ Al instrumentar la eliminación de mensajes, asegúrese de establecer los identi
 
 ### <a name="dependency-types"></a>Tipos de dependencia
 
-Application Insights usa el tipo de dependencia para personalizar las experiencias de la interfaz de usuario. En el caso de las colas, reconoce los siguientes tipos de `DependencyTelemetry` que mejoran la [experiencia de diagnósticos de transacción](/azure/azure-monitor/app/transaction-diagnostics):
+Application Insights usa el tipo de dependencia para personalizar las experiencias de la interfaz de usuario. En el caso de las colas, reconoce los siguientes tipos de `DependencyTelemetry` que mejoran la [experiencia de diagnósticos de transacción](./transaction-diagnostics.md):
 - `Azure queue` para colas de Azure Storage
 - `Azure Event Hubs` para Azure Event Hubs
 - `Azure Service Bus` para Azure Service Bus
@@ -425,7 +425,7 @@ public async Task RunMyTaskAsync()
 
 Desechar la operación provoca que la operación se detenga, por lo que puede hacerlo en lugar de llamar a `StopOperation`.
 
-*Advertencia*: en algunos casos, una excepción no controlada puede [impedir](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) la llamada a `finally`, por lo que puede que no se realice un seguimiento de las operaciones.
+*Advertencia*: en algunos casos, una excepción no controlada puede [impedir](/dotnet/csharp/language-reference/keywords/try-finally) la llamada a `finally`, por lo que puede que no se realice un seguimiento de las operaciones.
 
 ### <a name="parallel-operations-processing-and-tracking"></a>Seguimiento y procesamiento de operaciones paralelas
 

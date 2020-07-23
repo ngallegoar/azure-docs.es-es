@@ -11,12 +11,12 @@ ms.date: 01/29/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: b5682334bd3fb23fbbebed5fc8ece6d55e9c5652
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1aab92bd192119f72bb057347f5a3ea2d980336
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733239"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536857"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Guía de comunicación de nube a dispositivo
 
@@ -32,8 +32,8 @@ IoT Hub proporciona tres opciones para aplicaciones de dispositivo que exponen f
 
 Esta es una comparación detallada de las distintas opciones de comunicación de nube a dispositivo.
 
-|  | Métodos directos | Propiedades deseadas del dispositivo gemelo | Mensajes de nube a dispositivo |
-| ---- | ------- | ---------- | ---- |
+| Categorías | Métodos directos | Propiedades deseadas del dispositivo gemelo | Mensajes de nube a dispositivo |
+| ---------- | -------------- | ------------------------- | ------------------------ |
 | Escenario | Comandos que necesitan confirmación inmediata, por ejemplo, encender un ventilador. | Comandos de ejecución prolongada destinados a poner el dispositivo en un determinado estado deseado. Por ejemplo, establecer el intervalo de envío de telemetría en 30 minutos. | Notificaciones unidireccionales a la aplicación de dispositivo. |
 | flujo de datos | Bidireccional. La aplicación de dispositivo puede responder al método inmediatamente. El back-end de solución recibe el resultado contextualmente a la solicitud. | Unidireccional. La aplicación de dispositivo recibe una notificación con el cambio de propiedad. | Unidireccional. La aplicación de dispositivo recibe el mensaje.
 | Durabilidad. | No se establece contacto con los dispositivos desconectados. Se notifica al back-end de la solución que el dispositivo no está conectado. | Se conservan los valores de propiedad en el dispositivo gemelo. El dispositivo los leerá en la siguiente reconexión. Los valores de propiedad son recuperables con el [lenguaje de consulta de IoT Hub](iot-hub-devguide-query-language.md). | IoT Hub puede conservar los mensajes durante 48 horas como máximo. |

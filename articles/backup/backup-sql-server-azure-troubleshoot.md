@@ -3,12 +3,12 @@ title: Solución de problemas de copia de seguridad de bases de datos de SQL Se
 description: Información para solución de problemas para realizar copias de seguridad de bases de datos de SQL Server que se ejecutan en máquinas virtuales de Azure con Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: a4397f0bfa50990a7ad8080579261ed4587c4958
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 879a7edab77bad9671bea51e0e496f3eca96ee81
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84247961"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538724"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Solución de problemas de la copia de seguridad de base de datos de SQL Server con Azure Backup
 
@@ -30,11 +30,11 @@ Durante la configuración de copia de seguridad, si la máquina virtual de SQL y
 
 ### <a name="step-1-discovery-dbs-in-vms"></a>Paso 1: Detección de bases de datos en máquinas virtuales
 
-- Si la máquina virtual no aparece en la lista de máquinas virtuales detectadas ni tampoco está registrada como copia de seguridad de SQL en otro almacén, siga los pasos de [detección de copia de seguridad de SQL Server](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#discover-sql-server-databases).
+- Si la máquina virtual no aparece en la lista de máquinas virtuales detectadas ni tampoco está registrada como copia de seguridad de SQL en otro almacén, siga los pasos de [detección de copia de seguridad de SQL Server](./backup-sql-server-database-azure-vms.md#discover-sql-server-databases).
 
 ### <a name="step-2-configure-backup"></a>Paso 2: Configurar la copia de seguridad
 
-- Si el almacén en el que se registra la máquina virtual de SQL en el mismo almacén que se usa para proteger las bases de datos, siga los pasos de [Configuración de la copia de seguridad](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#configure-backup).
+- Si el almacén en el que se registra la máquina virtual de SQL en el mismo almacén que se usa para proteger las bases de datos, siga los pasos de [Configuración de la copia de seguridad](./backup-sql-server-database-azure-vms.md#configure-backup).
 
 Si hay que registrar la máquina virtual de SQL en el nuevo almacén, se debe anular el registro del almacén anterior.  La anulación del registro de una máquina virtual de SQL del almacén requiere que se detenga la protección de todos los orígenes de datos protegidos y, después, se pueden eliminar los datos cuya copia de seguridad se ha realizado. La eliminación de datos de copia de seguridad es una operación destructiva.  Una vez que haya revisado y tomado todas las precauciones para anular el registro de la máquina virtual de SQL, registre la misma máquina virtual en un nuevo almacén y vuelva a intentar la operación de copia de seguridad.
 
@@ -68,7 +68,7 @@ En ocasiones, es posible que se produzcan errores aleatorios en las operaciones 
 
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
-| Esta base de datos SQL no admite el tipo de copia de seguridad solicitado. | Se produce cuando el modelo de recuperación de base de datos no admite el tipo de copia de seguridad solicitado. El error puede ocurrir en las siguientes situaciones: <br/><ul><li>Una base de datos que usa un modelo de recuperación simple no permite la copia de seguridad de registros.</li><li>No se permiten copias de seguridad diferenciales ni de registros de bases de datos maestras.</li></ul>Para más información, consulte el documento [Modelos de recuperación (SQL Server)](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server). | Si se produce un error en la copia de seguridad de registros de la base de datos en el modelo de recuperación simple, pruebe una de estas opciones:<ul><li>Si la base de datos está en modo de recuperación simple, deshabilite las copias de seguridad de registros.</li><li>Use la [documentación de SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) para cambiar el modelo de recuperación de base de datos a completo o registro masivo. </li><li> Si no desea cambiar el modelo de recuperación y tiene una directiva estándar para realizar copias de seguridad de varias bases de datos que no se puede cambiar, ignore el error. Las copias de seguridad completas y diferenciales funcionarán en función de la programación. Se omitirán las copias de seguridad del registro, que es lo esperable en este caso.</li></ul>Si es una base de datos maestra y ha configurado una base de datos diferencial o de registros, siga cualquiera de estos pasos:<ul><li>Use el portal para cambiar la programación de la directiva de copia de seguridad para la base de datos maestra a completa.</li><li>Si tiene una directiva estándar para realizar copias de seguridad de varias bases de datos que no se puede cambiar, ignore el error. La copia de seguridad completa funcionará según la programación. No se realizarán copias de seguridad diferenciales o de registro, que es lo que se espera en este caso.</li></ul> |
+| Esta base de datos SQL no admite el tipo de copia de seguridad solicitado. | Se produce cuando el modelo de recuperación de base de datos no admite el tipo de copia de seguridad solicitado. El error puede ocurrir en las siguientes situaciones: <br/><ul><li>Una base de datos que usa un modelo de recuperación simple no permite la copia de seguridad de registros.</li><li>No se permiten copias de seguridad diferenciales ni de registros de bases de datos maestras.</li></ul>Para más información, consulte el documento [Modelos de recuperación (SQL Server)](/sql/relational-databases/backup-restore/recovery-models-sql-server). | Si se produce un error en la copia de seguridad de registros de la base de datos en el modelo de recuperación simple, pruebe una de estas opciones:<ul><li>Si la base de datos está en modo de recuperación simple, deshabilite las copias de seguridad de registros.</li><li>Use la [documentación de SQL Server](/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) para cambiar el modelo de recuperación de base de datos a completo o registro masivo. </li><li> Si no desea cambiar el modelo de recuperación y tiene una directiva estándar para realizar copias de seguridad de varias bases de datos que no se puede cambiar, ignore el error. Las copias de seguridad completas y diferenciales funcionarán en función de la programación. Se omitirán las copias de seguridad del registro, que es lo esperable en este caso.</li></ul>Si es una base de datos maestra y ha configurado una base de datos diferencial o de registros, siga cualquiera de estos pasos:<ul><li>Use el portal para cambiar la programación de la directiva de copia de seguridad para la base de datos maestra a completa.</li><li>Si tiene una directiva estándar para realizar copias de seguridad de varias bases de datos que no se puede cambiar, ignore el error. La copia de seguridad completa funcionará según la programación. No se realizarán copias de seguridad diferenciales o de registro, que es lo que se espera en este caso.</li></ul> |
 | La operación se canceló, porque ya se estaba ejecutando una operación en conflicto en la misma base de datos. | Consulte la [entrada del blog acerca de las limitaciones en las operaciones de copia de seguridad y restauración](https://deep.data.blog/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database/) que se ejecutan de forma concurrente.| [Utilice SQL Server Management Studio (SSMS) para supervisar los trabajos de la base de datos](manage-monitor-sql-database-backup.md). Una vez que se produzca un error en la operación en conflicto, reinicie la operación.|
 
 ### <a name="usererrorsqlpodoesnotexist"></a>UserErrorSQLPODoesNotExist
@@ -87,7 +87,7 @@ En ocasiones, es posible que se produzcan errores aleatorios en las operaciones 
 
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
-| Azure Backup no puede conectarse a la instancia de SQL. | Azure Backup no puede conectarse a la instancia de SQL Server. | Utilice los detalles adicionales del menú del error de Azure Portal para reducir las causas principales. Para solucionar el error, consulte [Solución de problemas de copia de seguridad de SQL](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine).<br/><ul><li>Si la configuración predeterminada de SQL no permite conexiones remotas, cámbiela. Consulte los siguientes artículos para más información sobre cómo cambiar la configuración:<ul><li>[MSSQLSERVER_-1](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-1-database-engine-error?view=sql-server-ver15)</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>Si hay problemas de inicio de sesión, use estos vínculos para corregirlos:<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
+| Azure Backup no puede conectarse a la instancia de SQL. | Azure Backup no puede conectarse a la instancia de SQL Server. | Utilice los detalles adicionales del menú del error de Azure Portal para reducir las causas principales. Para solucionar el error, consulte [Solución de problemas de copia de seguridad de SQL](/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine).<br/><ul><li>Si la configuración predeterminada de SQL no permite conexiones remotas, cámbiela. Consulte los siguientes artículos para más información sobre cómo cambiar la configuración:<ul><li>[MSSQLSERVER_-1](/sql/relational-databases/errors-events/mssqlserver-1-database-engine-error)</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>Si hay problemas de inicio de sesión, use estos vínculos para corregirlos:<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
 
 ### <a name="usererrorparentfullbackupmissing"></a>UserErrorParentFullBackupMissing
 
@@ -99,7 +99,7 @@ En ocasiones, es posible que se produzcan errores aleatorios en las operaciones 
 
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
-| No se puede realizar una copia de seguridad porque el registro de transacciones del origen de datos está lleno. | El espacio del registro de transacciones de la base de datos está lleno. | Para corregir este problema, consulte la [documentación de SQL Server](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
+| No se puede realizar una copia de seguridad porque el registro de transacciones del origen de datos está lleno. | El espacio del registro de transacciones de la base de datos está lleno. | Para corregir este problema, consulte la [documentación de SQL Server](/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
 
 ### <a name="usererrorcannotrestoreexistingdbwithoutforceoverwrite"></a>UserErrorCannotRestoreExistingDBWithoutForceOverwrite
 
@@ -111,7 +111,7 @@ En ocasiones, es posible que se produzcan errores aleatorios en las operaciones 
 
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
-| Se produjo un error en la restauración, ya que no se pudo desconectar. | Al realizar una restauración, la base de datos de destino debe desconectarse. Azure Backup no puede ofrecer estos datos sin conexión. | Utilice los detalles adicionales del menú del error de Azure Portal para reducir las causas principales. Para más información, consulte la [documentación de SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
+| Se produjo un error en la restauración, ya que no se pudo desconectar. | Al realizar una restauración, la base de datos de destino debe desconectarse. Azure Backup no puede ofrecer estos datos sin conexión. | Utilice los detalles adicionales del menú del error de Azure Portal para reducir las causas principales. Para más información, consulte la [documentación de SQL Server](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
 ### <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
@@ -123,7 +123,7 @@ En ocasiones, es posible que se produzcan errores aleatorios en las operaciones 
 
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
-| La copia de seguridad de registros usada para la recuperación contiene cambios registrados de forma masiva. No se puede usar para detenerse en un punto arbitrario en el tiempo según las instrucciones de SQL. | Cuando una base de datos está en modo de recuperación de registro masivo, no se pueden recuperar los datos entre una transacción registrada de forma masiva y la siguiente transacción del registro. | Elija un punto diferente en el tiempo para la recuperación. [Más información](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15).
+| La copia de seguridad de registros usada para la recuperación contiene cambios registrados de forma masiva. No se puede usar para detenerse en un punto arbitrario en el tiempo según las instrucciones de SQL. | Cuando una base de datos está en modo de recuperación de registro masivo, no se pueden recuperar los datos entre una transacción registrada de forma masiva y la siguiente transacción del registro. | Elija un punto diferente en el tiempo para la recuperación. [Más información](/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15).
 
 ### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
@@ -165,7 +165,7 @@ La operación está bloqueada porque el almacén ha alcanzado su límite máximo
 
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
-La máquina virtual no es capaz de ponerse en contacto con el servicio Azure Backup debido a problemas de conectividad de Internet. | La máquina virtual necesita conectividad de salida con el servicio Azure Backup y los servicios Azure Storage o Azure Active Directory.| - Si usa NSG para restringir la conectividad, debe usar la etiqueta de servicio AzureBackup para permitir el acceso saliente de Azure Backup al servicio Azure Backup o los servicios Azure Storage y Azure Active Directory. Siga estos [pasos](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#allow-access-using-nsg-tags) para conceder acceso.<br>- Asegúrese de que DNS está resolviendo los puntos de conexión de Azure.<br>- Compruebe si la máquina virtual está detrás de un equilibrador de carga que bloquea el acceso a Internet. Mediante la asignación de una dirección IP pública a las máquinas virtuales, la detección funcionará.<br>- Compruebe que no hay ningún firewall/antivirus/proxy que esté bloqueando las llamadas a los tres servicios de destino anteriores.
+La máquina virtual no es capaz de ponerse en contacto con el servicio Azure Backup debido a problemas de conectividad de Internet. | La máquina virtual necesita conectividad de salida con el servicio Azure Backup y los servicios Azure Storage o Azure Active Directory.| - Si usa NSG para restringir la conectividad, debe usar la etiqueta de servicio AzureBackup para permitir el acceso saliente de Azure Backup al servicio Azure Backup o los servicios Azure Storage y Azure Active Directory. Siga estos [pasos](./backup-sql-server-database-azure-vms.md#nsg-tags) para conceder acceso.<br>- Asegúrese de que DNS está resolviendo los puntos de conexión de Azure.<br>- Compruebe si la máquina virtual está detrás de un equilibrador de carga que bloquea el acceso a Internet. Mediante la asignación de una dirección IP pública a las máquinas virtuales, la detección funcionará.<br>- Compruebe que no hay ningún firewall/antivirus/proxy que esté bloqueando las llamadas a los tres servicios de destino anteriores.
 
 ## <a name="re-registration-failures"></a>Errores de repetición del registro
 
@@ -191,7 +191,7 @@ Estos síntomas pueden surgir por uno o varios de los siguientes motivos:
 - Se ha eliminado la máquina virtual, y se ha creado otra con el mismo nombre y en el mismo grupo de recursos que la máquina virtual eliminada.
 - Uno de los nodos del grupo de disponibilidad no recibió la configuración de copia de seguridad completa. Esto puede ocurrir cuando el grupo de disponibilidad se registra en el almacén o cuando se agrega un nuevo nodo.
 
-En los escenarios anteriores, se recomienda desencadenar una operación de nuevo registro en la máquina virtual. [Aquí](https://docs.microsoft.com/azure/backup/backup-azure-sql-automation#enable-backup) se ofrecen instrucciones sobre cómo realizar esta tarea en PowerShell.
+En los escenarios anteriores, se recomienda desencadenar una operación de nuevo registro en la máquina virtual. [Aquí](./backup-azure-sql-automation.md#enable-backup) se ofrecen instrucciones sobre cómo realizar esta tarea en PowerShell.
 
 ## <a name="size-limit-for-files"></a>Límite de tamaño para los archivos
 

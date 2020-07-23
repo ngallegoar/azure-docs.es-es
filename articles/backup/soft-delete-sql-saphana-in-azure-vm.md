@@ -3,12 +3,12 @@ title: Eliminación temporal de servidores SQL Server en máquinas virtuales de
 description: Obtenga información sobre cómo la eliminación temporal de servidores SQL Server en máquinas virtuales de Azure y de instancias de SAP HANA en cargas de trabajo de máquinas virtuales de Azure consigue que las copias de seguridad sean más seguras.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: f1e3ecae5d643b8e32f8f4f07808d56cdc421163
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: c0eaedea2d5428376befaade42f87348cf84e7bc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791381"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538197"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Eliminación temporal de servidores SQL Server en máquinas virtuales de Azure y de instancias de SAP HANA en cargas de trabajo de máquinas virtuales de Azure
 
@@ -99,7 +99,7 @@ La secuencia de pasos para utilizar Azure PowerShell es la misma que en Azure 
 
 ### <a name="delete-the-backup-item-using-azure-powershell"></a>Eliminación del elemento de copia de seguridad con Azure PowerShell
 
-Puede eliminar el elemento de copia de seguridad mediante el cmdlet de PS [Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0).
+Puede eliminar el elemento de copia de seguridad mediante el cmdlet de PS [Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection).
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
@@ -117,7 +117,7 @@ Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadTy
 $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType SQLDataBase -VaultId $myVaultID -Name AppVM1
 ```
 
-A continuación, realice la operación para deshacer la eliminación con el cmdlet de PS [Undo-AzRecoveryServicesBackupItemDeletion](https://docs.microsoft.com/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion?view=azps-3.8.0).
+A continuación, realice la operación para deshacer la eliminación con el cmdlet de PS [Undo-AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion).
 
 ```powershell
 Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force

@@ -3,17 +3,17 @@ title: Supervisión de aplicaciones de Docker en Azure Application Insights | Mi
 description: En Application Insights, se pueden mostrar los contadores de rendimiento, los eventos y las excepciones de Docker, además de la telemetría de las aplicaciones en contenedor.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 5ff3d6a2b31425a3fb6857c8c6aed45f7ef18d64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6af39db68c2020e578fe6fbd39870b2e00a16e07
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77669614"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539931"
 ---
 # <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Supervisar aplicaciones de Docker en Application Insights (en desuso)
 
 > [!NOTE]
-> Esta solución está en desuso. Para más información sobre nuestras inversiones actuales en la supervisión de contenedores, se recomienda comprobar [Azure Monitor para contenedores](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
+> Esta solución está en desuso. Para más información sobre nuestras inversiones actuales en la supervisión de contenedores, se recomienda comprobar [Azure Monitor para contenedores](../insights/container-insights-overview.md).
 
 Los eventos de ciclo de vida y los contadores de rendimiento de los contenedores [Docker](https://www.docker.com/) pueden mostrarse en gráficos en Application Insights. Instale la imagen de [Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) en un contenedor del host y se mostrarán los contadores de rendimiento del host, así como de las demás imágenes.
 

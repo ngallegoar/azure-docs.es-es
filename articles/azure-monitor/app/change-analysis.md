@@ -5,18 +5,18 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: c287a2315f2b2319a6873ce84ee0e4e48bec8444
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: d53097c7884b9908cd3a2c7f21dc059ed9d00c39
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836820"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540169"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Uso de Application Change Analysis (versión preliminar) en Azure Monitor
 
 Cuando se produce una interrupción o un problema en un sitio activo, determinar rápidamente la causa raíz es fundamental. Las soluciones de supervisión estándares pueden alertarlo sobre un problema. Incluso pueden indicarle qué componente está presentando el error. Sin embargo, esta alerta no siempre explica inmediatamente la causa del error. Sabrá que su sitio funcionaba hace cinco minutos y que ahora no funciona. ¿Qué cambió en los últimos cinco minutos? Esta es la pregunta que Application Change Analysis está diseñado para responder en Azure Monitor.
 
-A partir de la eficacia de [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), Change Analysis proporciona conclusiones sobre los cambios de la aplicación de Azure para aumentar la observación y reducir el tiempo medio para reparación.
+A partir de la eficacia de [Azure Resource Graph](../../governance/resource-graph/overview.md), Change Analysis proporciona conclusiones sobre los cambios de la aplicación de Azure para aumentar la observación y reducir el tiempo medio para reparación.
 
 > [!IMPORTANT]
 > Change Analysis se encuentra actualmente en versión preliminar. Esta versión preliminar se proporciona sin un contrato de nivel de servicio. Esta versión no se recomienda para usarse en cargas de trabajo. Es posible que algunas características no sean compatibles o que sus funcionalidades estén limitadas. Para obtener más información, consulte [Términos de uso complementarios de las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -35,7 +35,7 @@ Consultas de Application Change Analysis para propiedades controladas de Azure R
 
 ### <a name="azure-resource-manager-tracked-properties-changes"></a>Cambios en la propiedades controladas de Azure Resource Manager
 
-Mediante [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), Change Analysis proporciona un registro histórico de la forma en que los recursos de Azure que hospedan a la aplicación han cambiado con el tiempo. Es posible detectar la configuración controlada, como las identidades administradas, la actualización del sistema operativo de la plataforma y los nombres de host.
+Mediante [Azure Resource Graph](../../governance/resource-graph/overview.md), Change Analysis proporciona un registro histórico de la forma en que los recursos de Azure que hospedan a la aplicación han cambiado con el tiempo. Es posible detectar la configuración controlada, como las identidades administradas, la actualización del sistema operativo de la plataforma y los nombres de host.
 
 ### <a name="azure-resource-manager-proxied-setting-changes"></a>Cambios en la configuración con Proxy de Azure Resource Manager
 
@@ -59,7 +59,7 @@ Actualmente se admiten las siguientes dependencias:
 
 El servicio Application Change Analysis calcula y agrega los datos modificados de los orígenes de datos mencionados anteriormente. Proporciona un conjunto de análisis para que los usuarios naveguen fácilmente por todos los cambios de los recursos y para identificar qué cambio es pertinente en el contexto de solución de problemas o de supervisión.
 Es necesario registrar el proveedor de recursos "Microsoft. ChangeAnalysis" con una suscripción para que esté disponible la configuración de propiedades controladas y datos de cambio de configuración con Proxy de Azure Resource Manager. Al entrar en la herramienta Diagnosticar y solucionar problemas de Web Apps o abrir la hoja independiente de Change Analysis, este proveedor de recursos se registra automáticamente. No tiene ningún costo de implementación ni rendimiento para la suscripción. Al habilitar Change Analysis para aplicaciones web (o habilitar la herramienta Diagnosticar y resolver problemas), tendrá un impacto insignificante en el rendimiento de la aplicación web y ningún costo de facturación.
-En el caso de cambios en el invitado de la aplicación web, se requiere una habilitación independiente para examinar los archivos de código dentro de una aplicación web. Para más información, consulte la sección [Change Analysis en la herramienta Diagnosticar y solucionar problemas](https://docs.microsoft.com/azure/azure-monitor/app/change-analysis#application-change-analysis-in-the-diagnose-and-solve-problems-tool) que aparece más adelante en este artículo para obtener más detalles.
+En el caso de cambios en el invitado de la aplicación web, se requiere una habilitación independiente para examinar los archivos de código dentro de una aplicación web. Para más información, consulte la sección [Change Analysis en la herramienta Diagnosticar y solucionar problemas](#application-change-analysis-in-the-diagnose-and-solve-problems-tool) que aparece más adelante en este artículo para obtener más detalles.
 
 ## <a name="visualizations-for-application-change-analysis"></a>Visualizaciones para Application Change Analysis
 
@@ -119,7 +119,7 @@ Si la suscripción incluye varias aplicaciones web, podría resultar ineficaz ha
 
 Requisitos previos:
 
-- Módulo Az de PowerShell. Siga las instrucciones de [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.6.0).
+- Módulo Az de PowerShell. Siga las instrucciones de [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.6.0).
 
 Ejecute el siguiente script:
 
@@ -159,4 +159,4 @@ Vaya a la herramienta Diagnosticar y solucionar problemas para una máquina virt
 
 - Habilitar Application Insights para [aplicaciones de Azure App Services](azure-web-apps.md).
 - Habilitar Application Insights para [aplicaciones hospedadas en IIS en máquina virtual de Azure y conjunto de escalado de máquinas virtuales de Azure](azure-vm-vmss-apps.md).
-- Obtenga más información sobre [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), que ayuda a la eficacia de Change Analysis.
+- Obtenga más información sobre [Azure Resource Graph](../../governance/resource-graph/overview.md), que ayuda a la eficacia de Change Analysis.

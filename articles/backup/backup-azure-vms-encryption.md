@@ -3,12 +3,12 @@ title: Copia de seguridad y restauración de VM de Azure cifradas
 description: Se describe cómo realizar una copia de seguridad de máquinas virtuales de Azure cifradas, y cómo restaurarlas, con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 0800a15b215b37ceb75abc0d6480331d642dc746
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1689ff89f15248f6771ccdce525cc136221e5577
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124510"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538911"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Copia de seguridad y restauración de máquinas virtuales de Azure cifradas
 
@@ -30,8 +30,8 @@ Azure Backup puede realizar copias de seguridad de máquinas virtuales de Azure,
 **No administrado** | Sí | Sí
 **Administrado**  | Sí | Sí
 
-- Aprenda más sobre [ADE](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/general/overview.md) y [KEK](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-key-vault#set-up-a-key-encryption-key-kek).
-- Lea las [preguntas más frecuentes](../security/azure-security-disk-encryption-faq.md) sobre el cifrado de discos de máquina virtual de Azure.
+- Aprenda más sobre [ADE](../security/fundamentals/azure-disk-encryption-vms-vmss.md), [Key Vault](../key-vault/general/overview.md) y [KEK](../virtual-machine-scale-sets/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek).
+- Lea las [preguntas más frecuentes](../security/fundamentals/azure-disk-encryption-vms-vmss.md) sobre el cifrado de discos de máquina virtual de Azure.
 
 ### <a name="limitations"></a>Limitaciones
 
@@ -45,7 +45,7 @@ Azure Backup puede realizar copias de seguridad de máquinas virtuales de Azure,
 
 Antes de empezar, haga lo siguiente:
 
-1. Asegúrese de que tiene una o varias máquinas virtuales [Windows](../security/azure-security-disk-encryption-windows.md) o [Linux](../virtual-machines/linux/disk-encryption-overview.md) con ADE habilitado.
+1. Asegúrese de que tiene una o varias máquinas virtuales [Windows](../virtual-machines/linux/disk-encryption-overview.md) o [Linux](../virtual-machines/linux/disk-encryption-overview.md) con ADE habilitado.
 2. [Revise la matriz de compatibilidad](backup-support-matrix-iaas.md) para la copia de seguridad de máquinas virtuales de Azure.
 3. [Cree](backup-azure-arm-vms-prepare.md#create-a-vault) un almacén de Backup de Recovery Services si aún no tiene uno.
 4. Si habilita el cifrado para máquinas virtuales que ya están habilitadas para la copia de seguridad, solo debe proporcionar al servicio Backup permisos para acceder al almacén de claves para que las copias de seguridad puedan continuar sin interrupciones. [Más información](#provide-permissions) sobre la asignación de estos permisos.

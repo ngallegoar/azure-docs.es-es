@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 6d8088f537c4148f780c5f250eda3dcd5198f67f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 1ecdbaa28cad633817497f4af2091b9e38ba7db2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683907"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538061"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Los patrones mejoran la precisión de las predicciones
 Los patrones están diseñados para mejorar la precisión cuando varias expresiones son muy parecidas.  Un patrón permite lograr más precisión en una intención sin proporcionar muchas más expresiones.
@@ -41,7 +41,7 @@ Los patrones solucionan las situaciones siguientes:
 ## <a name="patterns-are-not-a-guarantee-of-intent"></a>Los patrones no son una garantía de intención
 Los patrones emplean una combinación de tecnologías de predicción. Establecer una intención para una expresión de plantilla en un patrón no es una garantía de la predicción de la intención, pero es un buen indicio.
 
-<a name="patterns-do-not-improve-entity-detection"/></a>
+<a name="patterns-do-not-improve-entity-detection"></a>
 
 ## <a name="patterns-do-not-improve-machine-learning-entity-detection"></a>Los patrones no mejoran la detección de entidades de aprendizaje automático.
 

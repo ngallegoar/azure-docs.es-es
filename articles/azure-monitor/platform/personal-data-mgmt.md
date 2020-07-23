@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 569731faffd97e816567af3f6ed1cf8cdf49f240
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d8998b450613e097230d7692a8ad1990830993b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83740457"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539336"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Guía sobre datos personales almacenados en Log Analytics y Application Insights
 
@@ -67,8 +67,8 @@ Log Analytics es un almacén completamente flexible que, además de recomendar u
     | where timestamp > ago(1d)
     | project $table, timestamp, name, customDimensions 
     ```
-* *Datos en memoria y en tránsito*: Application Insights hará un seguimiento de las excepciones, las solicitudes, las llamadas de dependencia y los seguimientos. A menudo se pueden recopilar los datos privados en el código y en las llamadas HTTP. Revise las excepciones, las solicitudes, las dependencias y las tablas de seguimiento para identificar estos datos. Use [inicializadores de telemetría](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling) siempre que sea posible para ofuscar estos datos.
-* *Capturas de Snapshot Debugger*: la característica [Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) de Application Insights permite recopilar las instantáneas de depuración cuando se detecta una excepción en la instancia de producción de la aplicación. Las instantáneas expondrán el seguimiento de la pila completo que provoca las excepciones, así como los valores para las variables locales en cada etapa de la pila. Por desgracia, esta característica no permite eliminar de forma selectiva los puntos de ajuste ni acceder mediante programación a los datos dentro de la instantánea. Por lo tanto, si la velocidad de retención de instantáneas predeterminada no satisface sus requisitos de cumplimiento, recomendamos desactivar la característica.
+* *Datos en memoria y en tránsito*: Application Insights hará un seguimiento de las excepciones, las solicitudes, las llamadas de dependencia y los seguimientos. A menudo se pueden recopilar los datos privados en el código y en las llamadas HTTP. Revise las excepciones, las solicitudes, las dependencias y las tablas de seguimiento para identificar estos datos. Use [inicializadores de telemetría](../app/api-filtering-sampling.md) siempre que sea posible para ofuscar estos datos.
+* *Capturas de Snapshot Debugger*: la característica [Snapshot Debugger](../app/snapshot-debugger.md) de Application Insights permite recopilar las instantáneas de depuración cuando se detecta una excepción en la instancia de producción de la aplicación. Las instantáneas expondrán el seguimiento de la pila completo que provoca las excepciones, así como los valores para las variables locales en cada etapa de la pila. Por desgracia, esta característica no permite eliminar de forma selectiva los puntos de ajuste ni acceder mediante programación a los datos dentro de la instantánea. Por lo tanto, si la velocidad de retención de instantáneas predeterminada no satisface sus requisitos de cumplimiento, recomendamos desactivar la característica.
 
 ## <a name="how-to-export-and-delete-private-data"></a>Cómo exportar y eliminar datos privados
 
@@ -101,7 +101,7 @@ Una vez que se ha asignado el rol de Azure Resource Manager, habrá disponibles 
 
 #### <a name="log-data"></a>Datos de registro
 
-* [Purga POST](https://docs.microsoft.com/rest/api/loganalytics/workspacepurge/purge): toma un objeto que especifica los parámetros de datos que se van a eliminar y devuelve un GUID de referencia. 
+* [Purga POST](/rest/api/loganalytics/workspacepurge/purge): toma un objeto que especifica los parámetros de datos que se van a eliminar y devuelve un GUID de referencia. 
 * GET purge status: la llamada POST purge devolverá un encabezado "x-ms-status-location" que incluye una dirección URL a la que se puede llamar para determinar el estado de la API de purga. Por ejemplo:
 
     ```
@@ -113,7 +113,7 @@ Una vez que se ha asignado el rol de Azure Resource Manager, habrá disponibles 
 
 #### <a name="application-data"></a>Datos de aplicación
 
-* [Purga POST](https://docs.microsoft.com/rest/api/application-insights/components/purge): toma un objeto que especifica los parámetros de datos que se van a eliminar y devuelve un GUID de referencia.
+* [Purga POST](/rest/api/application-insights/components/purge): toma un objeto que especifica los parámetros de datos que se van a eliminar y devuelve un GUID de referencia.
 * GET purge status: la llamada POST purge devolverá un encabezado "x-ms-status-location" que incluye una dirección URL a la que se puede llamar para determinar el estado de la API de purga. Por ejemplo:
 
    ```

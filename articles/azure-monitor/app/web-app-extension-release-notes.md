@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
 ms.date: 06/26/2020
-ms.openlocfilehash: 978cb7ece1f8b3e16815c1dc49e4983dc393cbfc
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: b9da3b0647d5abe60dd8f6cb21163ff21f07205b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85937478"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539727"
 ---
 # <a name="release-notes-for-azure-web-app-extension-for-application-insights"></a>Notas de la versión para la extensión de Azure Web Apps para Application Insights
 
@@ -21,7 +21,7 @@ Este artículo contiene las notas de la versión para la extensión de Azure Web
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 - ¿Cómo puedo encontrar la versión de la extensión en la que estoy actualmente?
-    - Ir a `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`. Visite la [guía paso a paso de solución de problemas para la supervisión basada en agente o extensión](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=net#troubleshooting) para obtener más información.
+    - Ir a `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`. Visite la [guía paso a paso de solución de problemas para la supervisión basada en agente o extensión](./azure-web-apps.md?tabs=net#troubleshooting) para obtener más información.
 
 - ¿Qué ocurre si uso extensiones privadas?
     - Desinstale las extensiones de sitio privado, puesto que ya no se admiten.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/28/2019
 ms.author: tiag
-ms.openlocfilehash: c24a840716841d04537ac5b77bcaf26fca4b78cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7774ea5138e6d77547e386531e573457cd6d2862
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77561956"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525949"
 ---
 # <a name="linux-vm-boots-to-grub-rescue"></a>Arranque de máquinas virtuales Linux en Rescate de GRUB
 
@@ -34,8 +34,8 @@ Siga los pasos de mitigación que se indican a continuación en función del err
 
 * Si recibe un error similar a **sistema de archivos desconocido**, puede deberse a que el sistema de archivos está dañado en la partición de arranque o a una configuración incorrecta del kernel.
 
-   * Si los problemas provienen del sistema de archivos, siga los pasos que se indican en el artículo [Recuperación de Linux: no se puede utilizar SSH en una máquina virtual Linux debido a errores en el sistema de archivos (fsck, inodes)](https://blogs.msdn.microsoft.com/linuxonazure/2016/09/13/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes/).
-   * Si los problemas provienen del kernel, siga los pasos que se indican en el artículo [Recuperación de Linux: corrección manual de problemas relacionados con el kernel que no afectan al arranque](https://blogs.msdn.microsoft.com/linuxonazure/2016/10/09/linux-recovery-manually-fixing-non-boot-issues-related-to-kernel-problems/) o [Recuperación de Linux: corrección de problemas relacionados con el kernel que no afectan al arranque mediante chroot](https://blogs.msdn.microsoft.com/linuxonazure/2016/10/09/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/).
+   * Si los problemas provienen del sistema de archivos, siga los pasos que se indican en el artículo [Recuperación de Linux: no se puede utilizar SSH en una máquina virtual Linux debido a errores en el sistema de archivos (fsck, inodes)](/archive/blogs/linuxonazure/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes).
+   * Si los problemas provienen del kernel, siga los pasos que se indican en el artículo [Recuperación de Linux: corrección manual de problemas relacionados con el kernel que no afectan al arranque](/archive/blogs/linuxonazure/linux-recovery-manually-fixing-non-boot-issues-related-to-kernel-problems) o [Recuperación de Linux: corrección de problemas relacionados con el kernel que no afectan al arranque mediante chroot](/archive/blogs/linuxonazure/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot).
    
 ### <a name="error---file-not-found"></a>Error: archivo no encontrado
 
@@ -51,7 +51,7 @@ Siga los pasos de mitigación que se indican a continuación en función del err
 
 ### <a name="error---no-such-partition"></a>Error: no se trata de una partición
 
-* Si aparece un error similar a **No se trata de una partición**, consulte [Caso práctico: aparece el error "no se trata de una partición" al iniciar la máquina virtual después de intentar ampliar la unidad del sistema operativo](https://blogs.technet.microsoft.com/shwetanayak/2017/03/12/case-scenario-no-such-partition-error-while-trying-to-start-the-vm-after-attempting-to-extend-the-os-drive/).
+* Si aparece un error similar a **No se trata de una partición**, consulte [Caso práctico: aparece el error "no se trata de una partición" al iniciar la máquina virtual después de intentar ampliar la unidad del sistema operativo](/archive/blogs/shwetanayak/case-scenario-no-such-partition-error-while-trying-to-start-the-vm-after-attempting-to-extend-the-os-drive).
 
 ### <a name="error---grubcfg-file-not-found"></a>Error: no se encontró el archivo grub.cfg
 
@@ -69,4 +69,3 @@ Siga los pasos de mitigación que se indican a continuación en función del err
 
 * [Información general del agente de máquina virtual de Azure](../extensions/agent-windows.md)
 * [Características y extensiones de las máquinas virtuales para Windows](../extensions/features-windows.md)
-

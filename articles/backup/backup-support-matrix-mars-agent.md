@@ -3,12 +3,12 @@ title: Matriz de compatibilidad para el agente de MARS
 description: En este artículo se resume la compatibilidad con Azure Backup al realizar copias de seguridad de máquinas que ejecutan el agente de Microsoft Azure Recovery Services (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6085bc647c06b5907282460a2d8706b8549e1bc2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ff9510dfa31bb947d50b1a91fb7f73c2d767471
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84709885"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538656"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de compatibilidad para la copia de seguridad con el agente de Microsoft Azure Recovery Services (MARS)
 
@@ -30,7 +30,7 @@ Las opciones de copia de seguridad dependen de la ubicación en que está instal
 **Instalación** | **Detalles**
 --- | ---
 Descarga de la última versión del agente de MARS | Puede descargar la última versión del agente desde el almacén o [directamente](https://aka.ms/azurebackup_agent).
-Instalación directa en una máquina | Puede instalar el agente de MARS directamente en un servidor Windows local o en una máquina virtual con Windows que ejecute cualquiera de los [sistemas operativos compatibles](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
+Instalación directa en una máquina | Puede instalar el agente de MARS directamente en un servidor Windows local o en una máquina virtual con Windows que ejecute cualquiera de los [sistemas operativos compatibles](./backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
 Instalación en un servidor de copia de seguridad | Al configurar DPM o MABS para realizar una copia de seguridad en Azure, descargue e instale al agente de MARS en el servidor. Puede instalar el agente en los [sistemas operativos compatibles](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) de la matriz de compatibilidad del servidor de copia de seguridad.
 
 > [!NOTE]
@@ -85,7 +85,7 @@ Con el emparejamiento de Microsoft, seleccione los siguientes servicios o region
 - Región de Microsoft Azure (según la ubicación del almacén de Recovery Services)
 - Azure Storage (según la ubicación del almacén de Recovery Services)
 
-Para más información, consulte los [requisitos de enrutamiento de ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Para más información, consulte los [requisitos de enrutamiento de ExpressRoute](../expressroute/expressroute-routing.md).
 
 >[!NOTE]
 >El emparejamiento público está en desuso para circuitos nuevos.
@@ -128,7 +128,7 @@ Los siguientes sistemas operativos se encuentran al final del soporte técnico y
 
 Si debido a una serie de compromisos existentes no es posible actualizar el sistema operativo, considere la posibilidad de migrar los servidores Windows a máquinas virtuales de Azure y utilice las copias de seguridad de las máquinas virtuales de Azure para seguir estando protegido. Visite la [página de migración](https://azure.microsoft.com/migration/windows-server/) para obtener más información acerca de la migración de servidores Windows.
 
-En el caso de entornos locales u hospedados, donde no puede actualizar el sistema operativo ni migrar a Azure, active las Actualizaciones de seguridad ampliada para que las máquinas sigan estando protegidas. Tenga en cuenta que las Actualizaciones de seguridad ampliada solo son aplicables para algunas ediciones concretas. Visite la [página de preguntas frecuentes](https://www.microsoft.com/cloud-platform/extended-security-updates) para más información.
+En el caso de entornos locales u hospedados, donde no puede actualizar el sistema operativo ni migrar a Azure, active las Actualizaciones de seguridad ampliada para que las máquinas sigan estando protegidas. Tenga en cuenta que las Actualizaciones de seguridad ampliada solo son aplicables para algunas ediciones concretas. Visite la [página de preguntas frecuentes](https://www.microsoft.com/windows-server/extended-security-updates) para más información.
 
 | **Sistema operativo**                                       | **Archivos/carpetas** | **Estado del sistema** | **Requisitos de software o módulo**                           |
 | ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |

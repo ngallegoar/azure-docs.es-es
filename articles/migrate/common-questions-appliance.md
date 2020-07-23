@@ -3,12 +3,12 @@ title: Preguntas más frecuentes sobre el dispositivo de Azure Migrate
 description: Respuestas a preguntas comunes sobre el dispositivo de Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: afdede99fa4485ba7e5494e844d795c2d5d3deee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c3547667ed91331d3cb4d319279c9494eb7a3d2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078976"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530124"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Dispositivo de Azure Migrate: Preguntas frecuentes
 
@@ -61,7 +61,7 @@ El dispositivo necesita acceso a las direcciones URL de Azure. [Examine](migrate
 
 Consulte los artículos siguientes para obtener información sobre los datos que el dispositivo Azure Migrate recopila en las máquinas virtuales:
 
-- **Máquina virtual de VMware**: [Revisión](migrate-appliance.md#collected-data---vmware) de los datos recopilados. [
+- **Máquina virtual de VMware**: [Revisión](migrate-appliance.md#collected-data---vmware) de los datos recopilados.
 - **Máquina virtual de Hyper-V**: [Revisión](migrate-appliance.md#collected-data---hyper-v) de los datos recopilados.
 
 ## <a name="how-is-data-stored"></a>¿Cómo se almacenan los datos?

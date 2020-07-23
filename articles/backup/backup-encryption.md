@@ -3,12 +3,13 @@ title: Cifrado en Azure Backup
 description: Conozca las características de cifrado de Azure Backup que le ayudan a proteger los datos de copia de seguridad y a satisfacer las necesidades de seguridad de su negocio.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: aafb9868dfb6a63ec9b6a3ae654b88b202a1a145
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.custom: references_regions
+ms.openlocfilehash: 099e736bfb321f0f92bd3a57f9c24e88293b42bb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171829"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538758"
 ---
 # <a name="encryption-in-azure-backup"></a>Cifrado en Azure Backup
 
@@ -16,7 +17,7 @@ Todos los datos de copia de seguridad se cifran automáticamente cuando se almac
 
 Además del cifrado en reposo, todos los datos de copia de seguridad en tránsito se transfieren a través de HTTPS y permanecen siempre en la red troncal de Azure.
 
-Para más información, consulte [Cifrado de Azure Storage para datos en reposo](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). Consulte las [preguntas más frecuentes sobre Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#encryption) para obtener respuesta a las dudas que pueda tener sobre el cifrado.
+Para más información, consulte [Cifrado de Azure Storage para datos en reposo](../storage/common/storage-service-encryption.md). Consulte las [preguntas más frecuentes sobre Azure Backup](./backup-azure-backup-faq.md#encryption) para obtener respuesta a las dudas que pueda tener sobre el cifrado.
 
 ## <a name="encryption-of-backup-data-using-platform-managed-keys"></a>Cifrado de datos de copia de seguridad mediante claves administradas por la plataforma
 
@@ -30,7 +31,7 @@ Obtenga más información acerca de cómo cifrar los datos de copia de seguridad
 
 ## <a name="backup-of-managed-disk-vms-encrypted-using-customer-managed-keys"></a>Copia de seguridad de las máquinas virtuales de disco administrado cifradas con claves administradas por el cliente
 
-Azure Backup también le permite realizar copias de seguridad de las máquinas virtuales de Azure que usan la clave para el [cifrado del servicio de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). La clave que se usa para cifrar los discos se almacena en Azure Key Vault y la administra el usuario. Storage Service Encryption (SSE) mediante claves administradas por el cliente difiere de Azure Disk Encryption, ya que ADE aprovecha BitLocker (para Windows) y DM-Crypt (para Linux) a fin de realizar el cifrado en invitado, y SSE cifra los datos en el servicio de almacenamiento, lo que permite usar cualquier sistema operativo o imagen para las máquinas virtuales. Para obtener más información, consulte el artículo sobre [cifrado de discos administrados con claves administradas por el cliente](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys).
+Azure Backup también le permite realizar copias de seguridad de las máquinas virtuales de Azure que usan la clave para el [cifrado del servicio de almacenamiento](../storage/common/storage-service-encryption.md). La clave que se usa para cifrar los discos se almacena en Azure Key Vault y la administra el usuario. Storage Service Encryption (SSE) mediante claves administradas por el cliente difiere de Azure Disk Encryption, ya que ADE aprovecha BitLocker (para Windows) y DM-Crypt (para Linux) a fin de realizar el cifrado en invitado, y SSE cifra los datos en el servicio de almacenamiento, lo que permite usar cualquier sistema operativo o imagen para las máquinas virtuales. Para obtener más información, consulte el artículo sobre [cifrado de discos administrados con claves administradas por el cliente](../virtual-machines/windows/disk-encryption.md#customer-managed-keys).
 
 ## <a name="infrastructure-level-encryption-for-backup-data"></a>Cifrado de nivel de infraestructura para datos de copia de seguridad
 
@@ -41,7 +42,7 @@ Además de cifrar los datos en el almacén de Recovery Services mediante claves 
 
 ## <a name="backup-of-vms-encrypted-using-ade"></a>Copia de seguridad de máquinas virtuales cifradas mediante ADE
 
-Con Azure Backup, también puede hacer una copia de seguridad de las máquinas virtuales de Azure que tienen el sistema operativo o los discos de datos cifrados mediante Azure Disk Encryption. ADE usa BitLocker para las VM Windows y DM-Crypt para las VM Linux a fin de realizar el cifrado de invitado. Para obtener instrucciones, consulte [Copia de seguridad y restauración de máquinas virtuales cifradas con Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
+Con Azure Backup, también puede hacer una copia de seguridad de las máquinas virtuales de Azure que tienen el sistema operativo o los discos de datos cifrados mediante Azure Disk Encryption. ADE usa BitLocker para las VM Windows y DM-Crypt para las VM Linux a fin de realizar el cifrado de invitado. Para obtener instrucciones, consulte [Copia de seguridad y restauración de máquinas virtuales cifradas con Azure Backup](./backup-azure-vms-encryption.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

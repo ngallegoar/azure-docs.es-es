@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 89d69547d793599fc669927b1a500716a858cc89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd620e253e661f986f67a440272937026cb4ff7f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84433592"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528409"
 ---
 # <a name="blob-versioning-preview"></a>Control de versiones de blobs (versión preliminar)
 
@@ -194,6 +195,10 @@ En la tabla siguiente se muestra el permiso necesario en un SAS para eliminar un
 
 El control de versiones de blobs está disponible en versión preliminar en las siguientes regiones:
 
+- Este de EE. UU. 2
+- Centro de EE. UU.
+- Norte de Europa
+- Oeste de Europa
 - Centro de Francia
 - Este de Canadá
 - Centro de Canadá

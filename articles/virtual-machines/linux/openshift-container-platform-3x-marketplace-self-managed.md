@@ -10,16 +10,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 1cf6c7417aa86d47e59e08786e7807e32c175a25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08d32e4b7806ec53f48389b127ab34371271cf07
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759580"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527241"
 ---
 # <a name="configure-prerequisites"></a>Configuración de los requisitos previos
 
-Antes de usar la oferta de Marketplace para implementar un clúster autoadministrado de OpenShift Container Platform 3.11 en Azure, se deben configurar algunos requisitos previos.  Lea el artículo de [requisitos previos de OpenShift](https://docs.microsoft.com/azure/virtual-machines/linux/openshift-container-platform-3x-prerequisites) para obtener instrucciones para crear una clave ssh (sin una frase de contraseña), una instancia de Azure Key Vault, el secreto de Key Vault y una entidad de servicio.
+Antes de usar la oferta de Marketplace para implementar un clúster autoadministrado de OpenShift Container Platform 3.11 en Azure, se deben configurar algunos requisitos previos.  Lea el artículo de [requisitos previos de OpenShift](./openshift-container-platform-3x-prerequisites.md) para obtener instrucciones para crear una clave ssh (sin una frase de contraseña), una instancia de Azure Key Vault, el secreto de Key Vault y una entidad de servicio.
 
  
 ## <a name="deploy-using-the-marketplace-offer"></a>Implementar mediante la oferta de Marketplace

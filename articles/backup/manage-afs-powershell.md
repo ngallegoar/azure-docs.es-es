@@ -3,12 +3,12 @@ title: Administración de copias de seguridad de recursos compartidos de archivo
 description: Obtenga información sobre cómo usar PowerShell para administrar y supervisar los recursos compartidos de archivos de Azure de los que el servicio Azure Backup ha realizado una copia de seguridad.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 6ee5fb92e4a66a9d6db66514f966c3650d3a4f13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 889c9bb3ef087c700bbfc3a68959f2c5924bffda
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83201971"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538600"
 ---
 # <a name="manage-azure-file-share-backups-with-powershell"></a>Administración de copias de seguridad de recursos compartidos de archivos de Azure con PowerShell
 
@@ -19,7 +19,7 @@ En este artículo se describe el uso de Azure PowerShell para administrar y supe
 
 ## <a name="modify-the-protection-policy"></a>Modificación de la directiva de protección
 
-Para cambiar la directiva empleada para la realizar la copia de seguridad del recurso compartido de archivos de Azure, use [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection?view=azps-1.4.0). Especifique el elemento de copia de seguridad pertinente y la nueva directiva de copia de seguridad.
+Para cambiar la directiva empleada para la realizar la copia de seguridad del recurso compartido de archivos de Azure, use [Enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection). Especifique el elemento de copia de seguridad pertinente y la nueva directiva de copia de seguridad.
 
 En el siguiente ejemplo se cambia la directiva de protección de **testAzureFS** de **dailyafs** a **monthlyafs**.
 
@@ -32,7 +32,7 @@ Enable-AzRecoveryServicesBackupProtection -Item $afsBkpItem -Policy $monthlyafsP
 
 ## <a name="track-backup-and-restore-jobs"></a>Seguimiento de trabajos de copia de seguridad y restauración
 
-Las operaciones de copia de seguridad y restauración a petición devuelven un trabajo con un identificador, como se indica al [ejecutar una copia de seguridad a petición](backup-azure-afs-automation.md#trigger-an-on-demand-backup). Use el cmdlet [Get-AzRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob?view=azps-1.4.0) para hacer un seguimiento del progreso del trabajo y de los detalles.
+Las operaciones de copia de seguridad y restauración a petición devuelven un trabajo con un identificador, como se indica al [ejecutar una copia de seguridad a petición](backup-azure-afs-automation.md#trigger-an-on-demand-backup). Use el cmdlet [Get-AzRecoveryServicesBackupJobDetails](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) para hacer un seguimiento del progreso del trabajo y de los detalles.
 
 ```powershell
 $job = Get-AzRecoveryServicesBackupJob -JobId 00000000-6c46-496e-980a-3740ccb2ad75 -VaultId $vaultID
@@ -71,7 +71,7 @@ Puede que dejar los puntos de recuperación en el almacenamiento conlleve un cos
 
 ## <a name="stop-protection-and-retain-recovery-points"></a>Detención de la protección y conservación de los puntos de recuperación
 
-Para detener la protección y retener los datos a la vez, puede usar el cmdlet [Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-3.3.0).
+Para detener la protección y retener los datos a la vez, puede usar el cmdlet [Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection).
 
 En el ejemplo siguiente se detiene la protección del recurso compartido de archivos *afsfileshare*, pero se conservan todos los puntos de recuperación:
 
@@ -87,11 +87,11 @@ WorkloadName     Operation         Status         StartTime                 EndT
 afsfileshare     DisableBackup     Completed      1/26/2020 2:43:59 PM      1/26/2020 2:44:21 PM      98d9f8a1-54f2-4d85-8433-c32eafbd793f
 ```
 
-El atributo Job ID de la salida se corresponde con el id. del trabajo creado por el servicio de copia de seguridad para la operación de "detención de la protección". Para supervisar el estado de un trabajo, use el cmdlet [Get-AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob?view=azps-3.3.0).
+El atributo Job ID de la salida se corresponde con el id. del trabajo creado por el servicio de copia de seguridad para la operación de "detención de la protección". Para supervisar el estado de un trabajo, use el cmdlet [Get-AzRecoveryServicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob).
 
 ## <a name="stop-protection-without-retaining-recovery-points"></a>Detención de la protección sin conservar los puntos de recuperación
 
-Para detener la protección sin conservar los puntos de recuperación, use el cmdlet [Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-3.3.0) y agregue el parámetro **-RemoveRecoveryPoints**.
+Para detener la protección sin conservar los puntos de recuperación, use el cmdlet [Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) y agregue el parámetro **-RemoveRecoveryPoints**.
 
 En el ejemplo siguiente se detiene la protección del recurso compartido de archivos *afsfileshare* sin conservar puntos de recuperación:
 

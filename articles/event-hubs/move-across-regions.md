@@ -3,12 +3,12 @@ title: Traslado de un espacio de nombres de Azure Event Hubs a otra región | Mi
 description: En este artículo se muestra cómo trasladar un espacio de nombres de Azure Event Hubs desde la región actual a otra región.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: a70397772d22a65046f87877deab6263d4b2104f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51b02c34b0c28420a7e27da56b107ed3925a761b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85312971"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537078"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Traslado de un espacio de nombres de Azure Event Hubs a otra región
 Existen varios escenarios en los que puede que deba mover su espacio de nombres de Event Hubs existente de una región a otra. Por ejemplo, si desea crear un espacio de nombres con la misma configuración para realizar pruebas. También es posible que desee mover un espacio de nombres secundario a otra región como parte del [planeamiento de recuperación ante desastres](event-hubs-geo-dr.md#setup-and-failover-flow).
@@ -108,5 +108,5 @@ Para eliminar un espacio de nombres de Event Hubs (de origen o destino) mediante
 En este tutorial, ha trasladado un espacio de nombres de Azure Event Hubs de una región a otra y ha limpiado los recursos de origen.  Para obtener más información sobre cómo trasladar recursos entre regiones y la recuperación ante desastres en Azure, consulte:
 
 
-- [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Traslado de máquinas virtuales de Azure a otra región](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Traslado de máquinas virtuales de Azure a otra región](../site-recovery/azure-to-azure-tutorial-migrate.md)

@@ -3,12 +3,12 @@ title: Copia de seguridad de máquinas Windows con el agente de MARS
 description: Use el agente de Microsoft Azure Recovery Services (MARS) para realizar copias de seguridad de máquinas Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 4f0e605185be6db8629144e05f5f39309a3831ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34fa0906ec63eb51d37c192f9dadddc57dbf1cdf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604852"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538639"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Copia de seguridad de carpetas y archivos de Windows Server en Azure
 
@@ -104,7 +104,7 @@ Para realizar una transferencia sin conexión:
 1. Escriba los datos de copia de seguridad en una ubicación de almacenamiento provisional.
 1. Use la herramienta AzureOfflineBackupDiskPrep para copiar los datos de la ubicación de almacenamiento provisional en uno o más discos SATA.
 
-    La herramienta crea un trabajo de importación de Azure. Para más información, consulte [¿Qué es el servicio Azure Import/Export?](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
+    La herramienta crea un trabajo de importación de Azure. Para más información, consulte [¿Qué es el servicio Azure Import/Export?](../storage/common/storage-import-export-service.md).
 1. Envíe los discos SATA a un centro de datos de Azure.
 
     En el centro de datos, los datos de los discos se copian en una cuenta de almacenamiento de Azure. Azure Backup copia los datos de la cuenta de almacenamiento en el almacén y se programan copias de seguridad incrementales.
@@ -115,7 +115,7 @@ Para más información sobre la propagación sin conexión, consulte [Copia de s
 
 Puede controlar el modo en que el agente de MARS usa el ancho de banda de red si habilita un límite de ancho de banda. El límite es útil si tiene que realizar una copia de seguridad de los datos durante las horas de trabajo, pero desea controlar la cantidad de ancho de banda que se usa para la actividad de copia de seguridad y restauración.
 
-El límite de ancho de banda de red de Azure Backup utiliza [Calidad de servicio (QoS)](https://docs.microsoft.com/windows-server/networking/technologies/qos/qos-policy-top) en el sistema operativo local.
+El límite de ancho de banda de red de Azure Backup utiliza [Calidad de servicio (QoS)](/windows-server/networking/technologies/qos/qos-policy-top) en el sistema operativo local.
 
 El límite de ancho de banda de red para las copias de seguridad está disponible en Windows Server 2012 y versiones posteriores, y en Windows 8 y versiones posteriores. Los sistemas operativos deben ejecutar los Service Pack más recientes.
 

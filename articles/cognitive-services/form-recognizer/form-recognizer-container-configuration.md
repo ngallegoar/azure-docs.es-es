@@ -7,23 +7,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 07/14/2020
 ms.author: aahi
-ms.openlocfilehash: bc48c0ba23e73adec312adfeeb1fcd57dba6ceec
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 324b70fc810acc4faba4f488f821049f7eb0875e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80879163"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538010"
 ---
 # <a name="configure-form-recognizer-containers"></a>Configuración de contenedores de Form Recognizer
+
+[!INCLUDE [Form Recognizer containers limit](includes/container-limit.md)]
 
 Con los contenedores de Azure Form Recognizer, puede crear una arquitectura de aplicación optimizada para aprovechar las sólidas funcionalidades de la nube y la localidad del perímetro.
 
 El entorno de ejecución de los contenedores de Form Recognizer se configura mediante los argumentos del comando `docker run`. Este contenedor tiene varias opciones de configuración necesarias, así como otras opcionales. Para ver algunos ejemplos, consulte la sección ["Comandos de ejemplo de docker run"](#example-docker-run-commands). La configuración específica del contenedor es la configuración de facturación.
-
-> [!IMPORTANT]
-> Los contenedores de Form Recognizer usan actualmente la versión 1.0 de la API de Form Recognizer. En su lugar, puede acceder a la versión más reciente de la API mediante el servicio administrado.
 
 ## <a name="configuration-settings"></a>Parámetros de configuración
 
@@ -79,7 +78,7 @@ La sintaxis exacta de la ubicación de montaje del host varía según el sistema
 
 |Opcional| Nombre | Tipo de datos | Descripción |
 |-------|------|-----------|-------------|
-|Obligatorio| `Input` | String | Destino del montaje de entrada. El valor predeterminado es `/input`.    <br><br>Ejemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
+|Requerido| `Input` | String | Destino del montaje de entrada. El valor predeterminado es `/input`.    <br><br>Ejemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
 |Obligatorio| `Output` | String | Destino del montaje de salida. El valor predeterminado es `/output`.  <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandos de ejemplo de docker run

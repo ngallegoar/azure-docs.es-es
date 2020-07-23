@@ -3,12 +3,12 @@ title: Envío de alertas de Azure Service Health con OpsGenie mediante webhooks
 description: Obtenga notificaciones personalizadas sobre los eventos del estado de servicio en la instancia de OpsGenie.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: def12d5e7b1b93b8370cd7be61538fca53531ae1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 112774cb1f9e16b08225471e8dbc1bb79b1bd37d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77654144"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529104"
 ---
 # <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>Envío de alertas de Azure Service Health con OpsGenie mediante webhooks
 
@@ -37,7 +37,7 @@ Este artículo muestra cómo configurar las alertas de estado del servicio de Az
 
 ## <a name="create-an-alert-using-opsgenie-in-the-azure-portal"></a>Creación de una alerta con OpsGenie en Azure Portal
 ### <a name="for-a-new-action-group"></a>Para un nuevo grupo de acciones:
-1. Siga los pasos del 1 al 8 en [Creación de una alerta basada en una notificación de mantenimiento del servicio para un nuevo grupo de acciones con Azure Portal](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+1. Siga los pasos del 1 al 8 en [Creación de una alerta basada en una notificación de mantenimiento del servicio para un nuevo grupo de acciones con Azure Portal](./alerts-activity-log-service-notifications-portal.md).
 
 1. Defina la lista de **acciones**:
 
@@ -85,5 +85,5 @@ Este artículo muestra cómo configurar las alertas de estado del servicio de Az
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga información acerca de cómo [configurar notificaciones de webhook para los sistemas de administración de problemas existentes](service-health-alert-webhook-guide.md).
 - Revise el [Esquema de webhook de alertas del registro de actividad](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Más información acerca de las [Notificaciones del estado del servicio](../azure-monitor/platform/service-notifications.md).
+- Más información acerca de las [Notificaciones del estado del servicio](./service-notifications.md).
 - Más información sobre los [grupos de acciones](../azure-monitor/platform/action-groups.md).

@@ -4,12 +4,12 @@ description: Un análisis detallado de la configuración de escalado automático
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 9a2b94208de7ce490a0e7acfbb71175b4a7c846e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 03019b35a85d8d511e3ada131eff890a60fd57f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75364312"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539387"
 ---
 # <a name="understand-autoscale-settings"></a>Información acerca de la configuración de escalado automático
 La configuración de escalado automático le ayuda a asegurarse de que tiene la cantidad adecuada de recursos en ejecución para administrar las fluctuaciones de carga de la aplicación. Puede configurar los valores de escalado automático para que se desencadene en función de métricas que indican carga o rendimiento, o para que se desencadene en una fecha y hora programadas. En este artículo se proporciona una visión detallada de la estructura de una configuración de escalado automático. El artículo comienza con el esquema y las propiedades de una configuración y luego le guía por los diferentes tipos de perfil que se pueden configurar. Por último, en el artículo se describe cómo la característica de escalado automático de Azure evalúa qué perfil ejecutar en un momento dado.
@@ -305,5 +305,4 @@ Para más información sobre el escalado automático, consulte los siguientes re
 * [Métricas comunes de escalado automático de Azure Monitor](../../azure-monitor/platform/autoscale-common-metrics.md)
 * [Procedimientos recomendados de escalado automático en Azure Monitor](../../azure-monitor/platform/autoscale-best-practices.md)
 * [Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Insights](../../azure-monitor/platform/autoscale-webhook-email.md)
-* [API de REST de escalado automático](https://msdn.microsoft.com/library/dn931953.aspx)
-
+* [API de REST de escalado automático](/rest/api/monitor/autoscalesettings)

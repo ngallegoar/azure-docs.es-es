@@ -3,16 +3,16 @@ title: Restauración de recursos compartidos de archivos de Azure con la API RES
 description: Aprenda a usar la API REST para restaurar recursos compartidos de archivos de Azure a partir de un punto de restauración creado con Azure Backup.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 1c3160491ef92c62745af1468556e7d5c30437fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a1f2999fa1b50507fd3d1b6f21f508ec9f82841
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710582"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538163"
 ---
 # <a name="restore-azure-file-shares-using-rest-api"></a>Restauración de recursos compartidos de archivos de Azure con la API REST
 
-En este artículo se explica cómo restaurar un recurso compartido de archivos completo o archivos específicos desde un punto de restauración creado por [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) mediante API REST.
+En este artículo se explica cómo restaurar un recurso compartido de archivos completo o archivos específicos desde un punto de restauración creado por [Azure Backup](./backup-overview.md) mediante API REST.
 
 Al acabar este tutorial, habrá aprendido cómo realizar las siguientes operaciones con API REST:
 
@@ -33,7 +33,7 @@ En este artículo, usaremos los siguientes recursos:
 
 ## <a name="fetch-containername-and-protecteditemname"></a>Captura de ContainerName y ProtectedItemName
 
-Para la mayoría de las llamadas API relacionadas con la restauración, debe pasar valores para los parámetros de URI {containerName} y {protectedItemName}. Use el atributo ID en el cuerpo de respuesta de la operación [GET backupprotectableitems](https://docs.microsoft.com/rest/api/backup/protecteditems/get) para recuperar los valores de estos parámetros. En nuestro ejemplo, el identificador del recurso compartido de archivos que queremos proteger es el siguiente:
+Para la mayoría de las llamadas API relacionadas con la restauración, debe pasar valores para los parámetros de URI {containerName} y {protectedItemName}. Use el atributo ID en el cuerpo de respuesta de la operación [GET backupprotectableitems](/rest/api/backup/protecteditems/get) para recuperar los valores de estos parámetros. En nuestro ejemplo, el identificador del recurso compartido de archivos que queremos proteger es el siguiente:
 
 `"/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/storagecontainer;storage;azurefiles;afsaccount/protectableItems/azurefileshare;azurefiles`
 
@@ -44,7 +44,7 @@ Por lo tanto, los valores se convierten de la siguiente manera:
 
 ## <a name="fetch-recovery-points-for-backed-up-azure-file-share"></a>Captura de puntos de recuperación para el recurso compartido de archivos de Azure con copia de seguridad
 
-Para restaurar los archivos o recursos compartidos de archivos con copia de seguridad, seleccione primero un punto de recuperación para realizar la operación de restauración. Se pueden enumerar los puntos de recuperación disponibles de un elemento con copia de seguridad mediante la llamada API REST [para obtener la lista e puntos de recuperación](https://docs.microsoft.com/rest/api/site-recovery/recoverypoints/listbyreplicationprotecteditems). Es una operación GET con todos los valores pertinentes.
+Para restaurar los archivos o recursos compartidos de archivos con copia de seguridad, seleccione primero un punto de recuperación para realizar la operación de restauración. Se pueden enumerar los puntos de recuperación disponibles de un elemento con copia de seguridad mediante la llamada API REST [para obtener la lista e puntos de recuperación](/rest/api/site-recovery/recoverypoints/listbyreplicationprotecteditems). Es una operación GET con todos los valores pertinentes.
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2019-05-13&$filter={$filter}
@@ -144,7 +144,7 @@ El punto de recuperación se identifica con el campo {name} en la respuesta ante
 ## <a name="full-share-recovery-using-rest-api"></a>Recuperación de recursos compartidos completos mediante API REST
 
 Use esta opción de restauración para restaurar el recurso compartido de archivos completo en la ubicación original o en otra alternativa.
-Desencadenar la restauración es una solicitud POST y puede realizar esta operación mediante API REST [para desencadenar la restauración](https://docs.microsoft.com/rest/api/backup/restores/trigger).
+Desencadenar la restauración es una solicitud POST y puede realizar esta operación mediante API REST [para desencadenar la restauración](/rest/api/backup/restores/trigger).
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2019-05-13
@@ -164,7 +164,7 @@ Nombre |  Tipo   |   Descripción
 --- | ---- | ----
 Propiedades | AzureFileShareRestoreRequest | Propiedades de RestoreRequestResource
 
-Para obtener una lista completa de las definiciones del cuerpo de la solicitud y otros detalles, consulte el [documento de API REST para desencadenar la restauración](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body).
+Para obtener una lista completa de las definiciones del cuerpo de la solicitud y otros detalles, consulte el [documento de API REST para desencadenar la restauración](/rest/api/backup/restores/trigger#request-body).
 
 ### <a name="restore-to-original-location"></a>Restauración en una ubicación original
 
@@ -219,7 +219,7 @@ El siguiente cuerpo de la solicitud restaura el recurso compartido de archivos *
 
 ### <a name="response"></a>Response
 
-La activación de una operación de restauración es una [operación asincrónica](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Esta operación crea otra operación de la que se debe hacer un seguimiento por separado.
+La activación de una operación de restauración es una [operación asincrónica](../azure-resource-manager/management/async-operations.md). Esta operación crea otra operación de la que se debe hacer un seguimiento por separado.
 Devuelve las dos respuestas: 202 (Aceptado) cuando se crea otra operación y 200 (Correcto) cuando se completa dicha operación.
 
 #### <a name="response-example"></a>Ejemplo de respuesta
@@ -350,7 +350,7 @@ En la recuperación de ubicación alternativa, el cuerpo de la respuesta será s
 }
 ```
 
-Puesto que el trabajo de copia de seguridad es una operación de larga duración, se debe seguir como se explica en el [documento sobre la supervisión de trabajos con API REST](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-managejobs#tracking-the-job).
+Puesto que el trabajo de copia de seguridad es una operación de larga duración, se debe seguir como se explica en el [documento sobre la supervisión de trabajos con API REST](./backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
 ## <a name="item-level-recovery-using-rest-api"></a>Recuperación de nivel de elemento mediante API REST
 
@@ -374,7 +374,7 @@ Nombre |  Tipo   |   Descripción
 --- | ---- | ----
 Propiedades | AzureFileShareRestoreRequest | Propiedades de RestoreRequestResource
 
-Para obtener una lista completa de las definiciones del cuerpo de la solicitud y otros detalles, consulte el [documento de API REST para desencadenar la restauración](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body).
+Para obtener una lista completa de las definiciones del cuerpo de la solicitud y otros detalles, consulte el [documento de API REST para desencadenar la restauración](/rest/api/backup/restores/trigger#request-body).
 
 ### <a name="restore-to-original-location"></a>Restauración en una ubicación original
 

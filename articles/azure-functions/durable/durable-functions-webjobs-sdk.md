@@ -4,12 +4,12 @@ description: Aprenda a programar y configurar Durable Functions para ejecutarlas
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ad498bdbc4e6dc9745c6ef45b3dc601ad36c0a62
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 826e475eb71563b52d687903aeac4ec936e267f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82733420"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540305"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Procedimiento para ejecutar Durable Functions como WebJobs
 
@@ -31,7 +31,7 @@ En este artículo se supone que está familiarizado con los conceptos básicos d
 
 Para completar los pasos de este artículo:
 
-* [Instale Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/) con la carga de trabajo de **desarrollo de Azure**.
+* [Instale Visual Studio 2019](/visualstudio/install/) con la carga de trabajo de **desarrollo de Azure**.
 
   Si ya tiene Visual Studio pero no tiene esa carga de trabajo, agréguela mediante la selección de **Herramientas** > **Obtener herramientas y características**.
 

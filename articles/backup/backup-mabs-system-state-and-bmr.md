@@ -3,12 +3,12 @@ title: Protección del estado del sistema y reconstrucción completa
 description: Use Azure Backup Server para realizar una copia de seguridad del estado del sistema y proporcionar protección de reconstrucción completa (BMR).
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: bab55ca607e0641ea0cc597de686f3abbb387598
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5096158ca0e76ca03577347d8dd3e1419a33ca0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82192372"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538707"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Realizar una copia de seguridad del estado del sistema y restaurar a una reconstrucción completa con Azure Backup Server
 
@@ -98,12 +98,12 @@ Cuando finaliza la copia de seguridad, el archivo se transfiere al equipo con Ba
 ## <a name="before-you-begin"></a>Antes de empezar
 
 1. **Implemente Azure Backup Server**. Compruebe que Backup Server está implementado correctamente. Para más información, consulte:
-    * [Requisitos del sistema para Azure Backup Server](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)
+    * [Requisitos del sistema para Azure Backup Server](/system-center/dpm/install-dpm#setup-prerequisites)
     * [Matriz de protección de Backup Server](backup-mabs-protection-matrix.md)
 
-1. **Configure el almacenamiento**. Puede almacenar los datos de la copia de seguridad en disco, en cinta y en la nube con Azure. Para obtener más información, vea [Prepare data storage](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage) (Preparar el almacenamiento de datos).
+1. **Configure el almacenamiento**. Puede almacenar los datos de la copia de seguridad en disco, en cinta y en la nube con Azure. Para obtener más información, vea [Prepare data storage](/system-center/dpm/plan-long-and-short-term-data-storage) (Preparar el almacenamiento de datos).
 
-1. **Configure el agente de protección**. Instale el agente de protección en el equipo del que quiere hacer una copia de seguridad. Para obtener más información, vea [Deploy the DPM protection agent](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent) (Implementar el agente de protección DPM).
+1. **Configure el agente de protección**. Instale el agente de protección en el equipo del que quiere hacer una copia de seguridad. Para obtener más información, vea [Deploy the DPM protection agent](/system-center/dpm/deploy-dpm-protection-agent) (Implementar el agente de protección DPM).
 
 ## <a name="back-up-system-state-and-bare-metal"></a>Copia de seguridad del estado del sistema y reconstrucción completa
 
@@ -115,7 +115,7 @@ Para realizar la copia de seguridad del estado del sistema y la reconstrucción 
 
 1. En la página **Seleccionar miembros del grupo**, expanda el equipo y seleccione **BMR** o **Estado del sistema**.
 
-    Recuerde en cuenta que no se puede proteger BMR y el estado del sistema para el mismo equipo en grupos diferentes. Además, cuando se selecciona BMR, el estado del sistema se habilita automáticamente. Para obtener más información, vea [Deploy protection groups](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups) (Implementar grupos de protección).
+    Recuerde en cuenta que no se puede proteger BMR y el estado del sistema para el mismo equipo en grupos diferentes. Además, cuando se selecciona BMR, el estado del sistema se habilita automáticamente. Para obtener más información, vea [Deploy protection groups](/system-center/dpm/create-dpm-protection-groups) (Implementar grupos de protección).
 
 1. En la página **Seleccionar método de protección de datos**, elija cómo quiere controlar la copia de seguridad a corto y largo plazo.
 

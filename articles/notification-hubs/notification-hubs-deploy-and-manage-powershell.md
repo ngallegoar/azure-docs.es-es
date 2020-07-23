@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: e6334659d41ba201cfdde190ccc9bfa0d58009e3
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: d45b98f291a7524dac2927fc74c5dc52400209f5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891195"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529988"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Implementación y administración de Notification Hubs mediante PowerShell
 
@@ -32,7 +32,7 @@ Este artículo muestra cómo crear y administrar Azure Notification Hubs mediant
 - Creación de un centro de notificaciones
 - Definición de credenciales
 
-Si también necesita crear un nuevo espacio de nombres de Service Bus para sus centros de notificaciones, consulte [Administración de Service Bus con PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md).
+Si también necesita crear un nuevo espacio de nombres de Service Bus para sus centros de notificaciones, consulte [Administración de Service Bus con PowerShell](../service-bus-messaging/service-bus-manage-with-ps.md).
 
 No se admite la administración de Centros de notificaciones directamente mediante los cmdlets incluidos con Azure PowerShell. El mejor enfoque en PowerShell es hacer referencia al ensamblado Microsoft.Azure.NotificationHubs.dll. El ensamblado se distribuye con el [paquete NuGet de Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
@@ -148,9 +148,9 @@ else
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Administración de Service Bus con PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md)
-- [Cómo crear colas, temas y suscripciones de Service Bus con un script de PowerShell](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
-- [Cómo crear un espacio de nombres de Service Bus y un centro de eventos mediante un script de PowerShell](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
+- [Administración de Service Bus con PowerShell](../service-bus-messaging/service-bus-manage-with-ps.md)
+- [Cómo crear colas, temas y suscripciones de Service Bus con un script de PowerShell](/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
+- [Cómo crear un espacio de nombres de Service Bus y un centro de eventos mediante un script de PowerShell](/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
 
 Además, puede descargar algunos scripts listos para usar:
 
@@ -160,7 +160,7 @@ Además, puede descargar algunos scripts listos para usar:
 [Ofertas para miembros]: https://azure.microsoft.com/pricing/member-offers/
 [Evaluación gratuita]: https://azure.microsoft.com/pricing/free-trial/
 [Instalación y configuración de Azure PowerShell]: /powershell/azureps-cmdlets-docs
-[API de .NET para Notification Hubs]: https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
-[Get-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbnamespace
-[New-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azuresbnamespace
-[Get-AzureSBAuthorizationRule]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbauthorizationrule
+[API de .NET para Notification Hubs]: /dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
+[Get-AzureSBNamespace]: /powershell/module/servicemanagement/azure/get-azuresbnamespace
+[New-AzureSBNamespace]: /powershell/module/servicemanagement/azure/new-azuresbnamespace
+[Get-AzureSBAuthorizationRule]: /powershell/module/servicemanagement/azure/get-azuresbauthorizationrule

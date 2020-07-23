@@ -4,30 +4,24 @@ description: Explica cómo usar el catálogo de copias de seguridad del servicio
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 05/23/2017
+ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 0f0be9609dfd00e8e5dc9919b20fc42ec91ce9eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8783d5ce5596cdb4678c09b79c09797ef62cc9c9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514562"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527836"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Restaurar un volumen de StorSimple de un conjunto de copia de seguridad
 
 ## <a name="overview"></a>Información general
 
 Este tutorial describe la operación de restauración realizada en un dispositivo de la serie StorSimple 8000 mediante un conjunto de copias de seguridad existente. Use la hoja **Catálogo de copias de seguridad** para restaurar un volumen de una copia de seguridad local o en la nube. La hoja **Catálogo de copias de seguridad** muestra todos los conjuntos de copia de seguridad que se crean cuando se realizan copias de seguridad manuales o automatizadas. La operación de restauración a partir de un conjunto de copias de seguridad pone el volumen en línea inmediatamente mientras los datos se descargan en segundo plano.
-
-Un método alternativo para iniciar la restauración consiste en ir a **Dispositivos > [su dispositivo] > Volúmenes**. En la hoja **Volúmenes**, seleccione un volumen, haga clic con el botón derecho para abrir el menú contextual y, después, seleccione **Restaurar**.
 
 ## <a name="before-you-restore"></a>Antes de restaurar
 

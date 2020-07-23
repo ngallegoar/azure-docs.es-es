@@ -6,12 +6,12 @@ author: renatosalas
 ms.author: regutier
 ms.date: 04/14/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: d84010fd62d753fafd7edffab833b203657f74c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50dcd3f438645c99e0ed3cfdded7a101ee5f1852
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361945"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539863"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Configuración de Traiga su propio almacenamiento (BYOS) para Application Insights Profiler y Snapshot Debugger
 
@@ -21,9 +21,9 @@ Cuando se usa Application Insights Profiler o Snapshot Debugger, los artefactos 
 Con Traiga su propio almacenamiento, estos artefactos se cargan en una cuenta de almacenamiento que usted controla. Esto significa que controla la directiva de cifrado en reposo, la directiva de administración de la vigencia y el acceso a la red. Sin embargo, será responsable de los costos asociados a esa cuenta de almacenamiento.
 
 > [!NOTE]
-> Si está habilitando Private Link, Traiga su propio almacenamiento es obligatorio. Para obtener más información acerca de Private Link para Application Insights, [consulte la documentación](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security).
+> Si está habilitando Private Link, Traiga su propio almacenamiento es obligatorio. Para obtener más información acerca de Private Link para Application Insights, [consulte la documentación](../platform/private-link-security.md).
 >
-> Si está habilitando las claves administradas de cliente, Traiga su propio almacenamiento es obligatorio. Para obtener más información acerca de las claves administradas de cliente, [consulte la documentación](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys).
+> Si está habilitando las claves administradas de cliente, Traiga su propio almacenamiento es obligatorio. Para obtener más información acerca de las claves administradas de cliente, [consulte la documentación](../platform/customer-managed-keys.md).
 
 ## <a name="how-will-my-storage-account-be-accessed"></a>¿Cómo se tiene acceso a la cuenta de almacenamiento?
 1. Los agentes que se ejecutan en Virtual Machines o App Service cargarán artefactos (perfiles, instantáneas y símbolos) en los contenedores de blobs de su cuenta. Este proceso implica ponerse en contacto con el servicio Application Insights Profiler o Snapshot Debugger para obtener un token de SAS (firma de acceso compartido) para un nuevo blob en la cuenta de almacenamiento.
@@ -60,7 +60,7 @@ Después de agregar el rol, aparecerá en la sección "Asignaciones de roles", c
 _![Figura 1.1](media/profiler-bring-your-own-storage/figure-11.png)_
 _Figura 1.1_ 
 
-Si está usando también Private Link, se necesita una configuración adicional para permitir la conexión a nuestro servicio de confianza de Microsoft desde Virtual Network. Consulte la [documentación de Seguridad de red de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services).
+Si está usando también Private Link, se necesita una configuración adicional para permitir la conexión a nuestro servicio de confianza de Microsoft desde Virtual Network. Consulte la [documentación de Seguridad de red de almacenamiento](../../storage/common/storage-network-security.md#trusted-microsoft-services).
 
 ### <a name="link-your-storage-account-with-your-application-insights-resource"></a>Vinculación de la cuenta de almacenamiento con el recurso de Application Insights
 Para configurar BYOS para el diagnóstico en el nivel de código (Profiler/Debugger), hay dos opciones:
@@ -73,7 +73,7 @@ Para configurar BYOS para el diagnóstico en el nivel de código (Profiler/Debug
 
 1. Asegúrese de que ha instalado Az PowerShell 4.2.0 o posterior.
 
-    Para instalar Azure PowerShell, consulte la [documentación oficial de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+    Para instalar Azure PowerShell, consulte la [documentación oficial de Azure PowerShell](/powershell/azure/install-az-ps).
 
 1. Instale la extensión de PowerShell para Application Insights.
     ```powershell
@@ -85,7 +85,7 @@ Para configurar BYOS para el diagnóstico en el nivel de código (Profiler/Debug
     Connect-AzAccount -Subscription "{subscription_id}"
     ```
 
-    Para obtener más información sobre cómo iniciar sesión, consulte la [documentación de Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+    Para obtener más información sobre cómo iniciar sesión, consulte la [documentación de Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 1. Quite la cuenta de almacenamiento anterior vinculada al recurso de Application Insights.
 
@@ -121,7 +121,7 @@ Para configurar BYOS para el diagnóstico en el nivel de código (Profiler/Debug
 
 1. Asegúrese de que ha instalado la CLI de Azure.
 
-    Para instalar la CLI de Azure, consulte la [documentación oficial de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+    Para instalar la CLI de Azure, consulte la [documentación oficial de la CLI de Azure](/cli/azure/install-azure-cli).
 
 1. Instale la extensión de la CLI de Application Insights.
     ```powershell
@@ -152,7 +152,7 @@ Para configurar BYOS para el diagnóstico en el nivel de código (Profiler/Debug
     ```
 
     > [!NOTE]
-    > Para realizar actualizaciones en las cuentas de almacenamiento vinculadas al recurso de Application Insights, consulte la [documentación de la CLI de Application Insights](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component/linked-storage).
+    > Para realizar actualizaciones en las cuentas de almacenamiento vinculadas al recurso de Application Insights, consulte la [documentación de la CLI de Application Insights](/cli/azure/ext/application-insights/monitor/app-insights/component/linked-storage).
 
 #### <a name="configure-using-azure-resource-manager-template"></a>Configuración de la plantilla de Azure Resource Manager
 

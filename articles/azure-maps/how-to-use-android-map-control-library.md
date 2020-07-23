@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: accd0df2913abc4d82b6f14aaafd03f0f042ca91
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 241f107f0bb2163951104067cb82d6e6a967ad3e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83648224"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540135"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Introducción a Android SDK para Azure Maps
 
@@ -24,7 +24,7 @@ Android SDK para Azure Maps es una biblioteca de mapas vectoriales para Android.
 
 ### <a name="create-an-azure-maps-account"></a>Crear una cuenta de Azure Maps
 
-Para completar los procedimientos descritos en este artículo, primero ha de [crear una cuenta de Azure Maps](quick-demo-map-app.md#create-an-account-with-azure-maps) en el plan de tarifa S1 y [obtener la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para la cuenta.
+Para completar los procedimientos descritos en este artículo, primero ha de [crear una cuenta de Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account) en el plan de tarifa S1 y [obtener la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para la cuenta.
 
 Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](./how-to-manage-authentication.md).
 

@@ -3,17 +3,16 @@ title: Transformación Anular dinamización del flujo de datos de asignación
 description: Transformación Anular dinamización de flujo de datos de asignación de Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/30/2019
-ms.openlocfilehash: c3e769334beb6a5739eebb8d7e8dc370533c2dc6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/14/2020
+ms.openlocfilehash: b7a05f33c199ab46508fa2b9bc0ef576f888ef27
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81606245"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537721"
 ---
 # <a name="azure-data-factory-unpivot-transformation"></a>Transformación Anular dinamización de Azure Data Factory
 
@@ -22,6 +21,8 @@ ms.locfileid: "81606245"
 Use Anular dinamización en un flujo de datos de asignación de ADF como una forma de convertir un conjunto de datos sin normalizar en una versión más normalizada, ampliando los valores de varias columnas en un único registro a varios registros con los mismos valores en una sola columna.
 
 ![Transformación Anular dinamización](media/data-flow/unpivot1.png "Opciones de anulación de dinamización 1")
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4B1RR]
 
 ## <a name="ungroup-by"></a>Ungroup By
 

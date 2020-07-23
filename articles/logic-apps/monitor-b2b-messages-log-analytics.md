@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: e9ba5a516293eb72a715dc9d0df7db4d5a4ea3c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5baa4d4d968adb25b5520ca91149970f5c5578e9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76907287"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536280"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-b2b-messages-in-azure-logic-apps"></a>Configuración de registros de Azure Monitor y recopilación de datos de diagnóstico para mensajes B2B en Azure Logic Apps
 
-Después de configurar la comunicación B2B entre entidades en la cuenta de integración, los asociados pueden intercambiar mensajes mediante protocolos como AS2, X12 y EDIFACT. Para comprobar que esta comunicación funciona según lo previsto, puede configurar los [registros de Azure Monitor](../azure-monitor/platform/data-platform-logs.md) para la cuenta de integración. [Azure Monitor](../azure-monitor/overview.md) le ayuda a supervisar los entornos locales y en la nube para que pueda mantener más fácilmente su disponibilidad y rendimiento. Con registros de Azure Monitor puede registrar y almacenar datos sobre eventos y tiempo de ejecución, como los de desencadenamiento, ejecución y acción en un [área de trabajo de Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md). Para los mensajes, el registro también recopila la información siguiente:
+Después de configurar la comunicación B2B entre entidades en la cuenta de integración, los asociados pueden intercambiar mensajes mediante protocolos como AS2, X12 y EDIFACT. Para comprobar que esta comunicación funciona según lo previsto, puede configurar los [registros de Azure Monitor](../azure-monitor/platform/data-platform-logs.md) para la cuenta de integración. [Azure Monitor](../azure-monitor/overview.md) le ayuda a supervisar los entornos locales y en la nube para que pueda mantener más fácilmente su disponibilidad y rendimiento. Con registros de Azure Monitor puede registrar y almacenar datos sobre eventos y tiempo de ejecución, como los de desencadenamiento, ejecución y acción en un [área de trabajo de Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). Para los mensajes, el registro también recopila la información siguiente:
 
 * Número y estado de los mensajes
 * Del estado de las confirmaciones
@@ -163,7 +163,7 @@ Una vez ejecutada la aplicación lógica, puede ver los datos y el estado de eso
 
    * To search results with prebuilt queries, select **Favorites**.
 
-   * Learn [how to build queries by adding filters](../logic-apps/create-monitoring-tracking-queries.md). Or learn more about [how to find data with log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md).
+   * Learn [how to build queries by adding filters](../logic-apps/create-monitoring-tracking-queries.md). Or learn more about [how to find data with log searches in Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md).
 
    * To change query in the search box, update the query with the columns and values that you want to use as filters.
 -->

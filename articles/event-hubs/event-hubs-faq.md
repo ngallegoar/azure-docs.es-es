@@ -3,12 +3,12 @@ title: Preguntas más frecuentes sobre Azure Event Hubs | Microsoft Docs
 description: En este artículo se proporciona una lista de las preguntas más frecuentes (P+F) acerca de Azure Event Hubs y sus respuestas.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 0094be0eef4595662477ef1c7914ae9f118b8e25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bec50da97bc826eb1bd26452e8f69f5c11f2d65d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320590"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537187"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Preguntas frecuentes sobre Event Hubs
 
@@ -261,7 +261,7 @@ Event Hubs admite dos tipos de [registros de diagnóstico](event-hubs-diagnostic
 
 ### <a name="support-and-sla"></a>SLA y soporte técnico
 
-El soporte técnico para Event Hubs está disponible a través de la [página de preguntas y respuestas de Microsoft sobre Azure Service Bus](https://docs.microsoft.com/answers/topics/azure-service-bus.html). Se ofrece de forma gratuita soporte técnico para la administración de suscripciones y la facturación.
+El soporte técnico para Event Hubs está disponible a través de la [página de preguntas y respuestas de Microsoft sobre Azure Service Bus](/answers/topics/azure-service-bus.html). Se ofrece de forma gratuita soporte técnico para la administración de suscripciones y la facturación.
 
 Para más información sobre nuestro SLA, consulte la página [Acuerdos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/) .
 
@@ -269,6 +269,6 @@ Para más información sobre nuestro SLA, consulte la página [Acuerdos de nivel
 
 Para más información acerca de Event Hubs, visite los vínculos siguientes:
 
-* [Información general de Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Información general de Event Hubs](./event-hubs-about.md)
 * [Creación de un Centro de eventos](event-hubs-create.md)
 * [Inflado automático de Event Hubs](event-hubs-auto-inflate.md)

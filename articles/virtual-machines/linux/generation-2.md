@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 3336869a5f91613849cdccb67f9d804205148608
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e84d4d147490cd3b9d136f25a3707f5a74999f3f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652519"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527343"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Compatibilidad para máquinas virtuales de generación 2 en Azure
 
@@ -20,28 +20,28 @@ La compatibilidad para las máquinas virtuales (VM) de generación 2 ahora está
 
 Las máquinas virtuales de generación 2 admiten características clave que no se admiten en las VM de generación 1. Estas características incluyen una memoria mayor, Intel Software Guard Extensions (SGX Intel) y memoria persistente virtualizada (vPMEM). Las VM de generación 2 que se ejecutan en el entorno local también tienen algunas características que aún no se admiten en Azure. Para obtener más información, consulte la sección [Características y funcionalidades](#features-and-capabilities).
 
-Las VM de generación 2 usan la nueva arquitectura de arranque basado en UEFI en lugar de la arquitectura basada en BIOS que utilizan las VM de generación 1. En comparación con las VM de generación 1, es posible las de generación 2 tengan tiempos de arranque e instalación mejorados. Para obtener una visión general de las VM de generación 2 y algunas de las diferencias entre la generación 1 y la generación 2, consulte [¿Debo crear una máquina virtual de generación 1 o 2 en Hyper-V?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
+Las VM de generación 2 usan la nueva arquitectura de arranque basado en UEFI en lugar de la arquitectura basada en BIOS que utilizan las VM de generación 1. En comparación con las VM de generación 1, es posible las de generación 2 tengan tiempos de arranque e instalación mejorados. Para obtener una visión general de las VM de generación 2 y algunas de las diferencias entre la generación 1 y la generación 2, consulte [¿Debo crear una máquina virtual de generación 1 o 2 en Hyper-V?](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
 
 ## <a name="generation-2-vm-sizes"></a>Tamaños de VM de generación 2
 
 Las máquinas virtuales de primera generación son compatibles con todos los tamaños de máquina virtual de Azure (salvo con las de la serie Mv2). Azure ahora ofrece compatibilidad de generación 2 para las siguientes series de VM seleccionadas:
 
-* [Serie B](https://docs.microsoft.com/azure/virtual-machines/linux/b-series-burstable)
+* [Serie B](../sizes-b-series-burstable.md)
 * [Serie DCsv2](../dcv2-series.md)
 * [Serie Dsv2](../dv2-dsv2-series.md) y [serie Dsv3](../dv3-dsv3-series.md)
 * [Serie Esv3](../ev3-esv3-series.md)
 * [Serie Fsv2](../fsv2-series.md)
-* [Serie GS](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#gs-series)
+* [Serie GS](../sizes-previous-gen.md#gs-series)
 * [Serie HB](../hb-series.md)
 * [Serie HC](../hc-series.md)
-* [Serie Ls](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#ls-series) y [serie Lsv2](../lsv2-series.md)
+* [Serie Ls](../sizes-previous-gen.md#ls-series) y [serie Lsv2](../lsv2-series.md)
 * [Serie M](../m-series.md)
 * [Serie Mv2](../mv2-series.md)<sup>1</sup>
 * [Serie NCv2](../ncv2-series.md) y [serie NCv3](../ncv3-series.md)
 * [Serie ND](../nd-series.md)
 * [Serie NVv3](../nvv3-series.md)
 
-<sup>1</sup> La serie MV2 no admite imágenes de máquina virtual de generación 1 y solo admite un subconjunto de imágenes de generación 2. Consulte la [documentación de la serie MV2](https://docs.microsoft.com/azure/virtual-machines/mv2-series) para obtener más información.
+<sup>1</sup> La serie MV2 no admite imágenes de máquina virtual de generación 1 y solo admite un subconjunto de imágenes de generación 2. Consulte la [documentación de la serie MV2](../mv2-series.md) para obtener más información.
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Imágenes de VM de generación 2 en Azure Marketplace
 
@@ -96,7 +96,7 @@ Actualmente Azure no admite algunas de las características que admite Hyper-V e
 
 En Azure Portal o la CLI de Azure, puede crear VM de generación 2 a partir de una imagen de Marketplace que admita el arranque UEFI.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure portal
 
 A continuación se indican los pasos para crear una máquina virtual de segunda generación (Gen2) en Azure Portal.
 
@@ -204,4 +204,4 @@ También puede crear VM de generación 2 usando conjuntos de escalado de VM. En 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información sobre [las VM de generación 2 en Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+* Obtenga información sobre [las VM de generación 2 en Hyper-V](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).

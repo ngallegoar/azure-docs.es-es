@@ -3,12 +3,12 @@ title: Matriz de protección de MABS (Azure Backup Server) V3 UR1
 description: En este artículo se incluye una matriz de compatibilidad en la que se indican todas las cargas de trabajo, los tipos de datos y las instalaciones que protege Azure Backup Server.
 ms.date: 03/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: f950c7be28a4ff0dd0caa12d1327c2a0e2ac4fc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cfcb8fbf9f793cfbe11d2c25b3d2caa7018d0fd4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84677328"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538741"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-protection-matrix"></a>Matriz de protección de MABS (Azure Backup Server) V3 UR1
 
@@ -54,7 +54,7 @@ En las secciones siguientes se detalla la matriz de compatibilidad de protecció
 
 | **Carga de trabajo** | **Versión**                               | **Instalación de Azure Backup Server**                      | **Compatibilidad con Azure Backup Server** | **Protección y recuperación**                                 |
 | ------------ | ----------------------------------------- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
-| Linux        | Linux ejecutado como invitado de Hyper-V o VMware | Servidor físico, máquina virtual de Hyper-V local, máquina virtual Windows en VMWare | V3 UR1                             | Hyper-V debe ejecutarse en Windows Server 2012 R2 o Windows Server 2016. Protección:  máquina virtual completa   <br><br>   Recuperación: máquina virtual completa   <br><br>    Solo se admiten instantáneas coherentes con archivos.    <br><br>   Para obtener una lista completa de las distribuciones y las versiones de Linux compatibles, vea el artículo [Linux en distribuciones aprobadas por Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros). |
+| Linux        | Linux ejecutado como invitado de Hyper-V o VMware | Servidor físico, máquina virtual de Hyper-V local, máquina virtual Windows en VMWare | V3 UR1                             | Hyper-V debe ejecutarse en Windows Server 2012 R2 o Windows Server 2016. Protección:  máquina virtual completa   <br><br>   Recuperación: máquina virtual completa   <br><br>    Solo se admiten instantáneas coherentes con archivos.    <br><br>   Para obtener una lista completa de las distribuciones y las versiones de Linux compatibles, vea el artículo [Linux en distribuciones aprobadas por Azure](../virtual-machines/linux/endorsed-distros.md). |
 
 ## <a name="azure-expressroute-support"></a>Compatibilidad con Azure ExpressRoute
 
@@ -74,7 +74,7 @@ Con el emparejamiento de Microsoft, seleccione los siguientes servicios o region
 * Región de Microsoft Azure (según la ubicación del almacén de Recovery Services)
 * Azure Storage (según la ubicación del almacén de Recovery Services)
 
-Para más información, consulte los [requisitos de enrutamiento de ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Para más información, consulte los [requisitos de enrutamiento de ExpressRoute](../expressroute/expressroute-routing.md).
 
 >[!NOTE]
 >El emparejamiento público está en desuso para circuitos nuevos.

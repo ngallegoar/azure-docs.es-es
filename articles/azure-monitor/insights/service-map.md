@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 637db3a0749b5a0738b0ccc5136d26e435a03c7b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: bfd25c2572e91c2984f2845e08941614fff65570
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203121"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539778"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso de la solución Service Map en Azure
 
@@ -241,7 +241,7 @@ Mapa de servicio se integra con Búsqueda de registros para mostrar un recuento 
 
 ## <a name="service-desk-integration"></a>Integración de Service Desk
 
-La integración de Service Map con Conector de Administración de servicios de TI es automática cuando ambas soluciones están habilitadas y configuradas en el área de trabajo de Log Analytics. La integración en Service Map se denomina "Departamento de servicios". Para más información, vea [Administración centralizada de los elementos de trabajo ITSM con IT Service Management Connector (versión preliminar)](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
+La integración de Service Map con Conector de Administración de servicios de TI es automática cuando ambas soluciones están habilitadas y configuradas en el área de trabajo de Log Analytics. La integración en Service Map se denomina "Departamento de servicios". Para más información, vea [Administración centralizada de los elementos de trabajo ITSM con IT Service Management Connector (versión preliminar)](../platform/itsmc-overview.md).
 
 El panel de **departamento de servicios del equipo** muestra todos los eventos de IT Service Management del servidor seleccionado en el intervalo de tiempo seleccionado. El servidor muestra un icono si hay elementos actuales y el panel de departamento de servicios del equipo los enumera.
 
@@ -270,7 +270,7 @@ En el panel **Rendimiento de la máquina** se muestran las métricas de rendimie
 
 ![Panel Rendimiento de la máquina](media/service-map/machine-performance.png)
 
-Para ver los datos de rendimiento, puede que necesite [habilitar los contadores de rendimiento adecuados de Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  Los contadores que probablemente le interese habilitar son los siguientes:
+Para ver los datos de rendimiento, puede que necesite [habilitar los contadores de rendimiento adecuados de Log Analytics](../platform/data-sources-performance-counters.md).  Los contadores que probablemente le interese habilitar son los siguientes:
 
 Windows:
 - Procesador(*)\\% de tiempo de procesador
@@ -540,7 +540,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 
 ## <a name="rest-api"></a>API DE REST
 
-Todos los datos de servidores, procesos y dependencias de Service Map están disponibles a través de la [API de REST de Service Map](https://docs.microsoft.com/rest/api/servicemap/).
+Todos los datos de servidores, procesos y dependencias de Service Map están disponibles a través de la [API de REST de Service Map](/rest/api/servicemap/).
 
 ## <a name="diagnostic-and-usage-data"></a>Datos de diagnóstico y uso
 

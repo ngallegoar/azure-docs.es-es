@@ -3,12 +3,12 @@ title: ¿Se pueden hacer copias de seguridad Azure Backup Server V3 RTM?
 description: En este artículo se incluye una matriz de protección en la que se indican todas las cargas de trabajo, los tipos de datos y las instalaciones que Azure Backup Server V3 RTM protege.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 742b43d748fbd4c1235d0555ac3bd4419880db5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aebd1d1f90a2c0b84d7a6e1cb77d0e50915b091e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84631681"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538573"
 ---
 # <a name="azure-backup-server-v3-rtm-protection-matrix"></a>Matriz de protección de Azure Backup Server V3 RTM
 
@@ -98,7 +98,7 @@ Con el emparejamiento de Microsoft, seleccione los siguientes servicios o region
 * Región de Microsoft Azure (según la ubicación del almacén de Recovery Services)
 * Azure Storage (según la ubicación del almacén de Recovery Services)
 
-Para obtener más información, consulte los [requisitos de enrutamiento de ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Para obtener más información, consulte los [requisitos de enrutamiento de ExpressRoute](../expressroute/expressroute-routing.md).
 
 >[!NOTE]
 >El emparejamiento público está en desuso para circuitos nuevos.

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 80c789f955b279e7771fe39c20087baa465b3293
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 88f1e40101b807e82eaf69be6c167cd4aa2e2831
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84027656"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539200"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Aprovisionamiento y catalogación de nuevos inquilinos en una aplicación SaaS con una instancia de Azure SQL Database multiinquilino con particiones
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -30,7 +30,7 @@ Este artículo se divide en dos partes principales:
 - [Tutorial](#goto_1_tutorial) que destaca el código de script de PowerShell que lleva a cabo el aprovisionamiento y la catalogación.
   - En el tutorial se usa la aplicación SaaS Wingtip Tickets, adaptada al patrón de base de datos multiinquilino con particiones.
 
-<a name="goto_2_conceptual"/>
+<a name="goto_2_conceptual"></a>
 
 ## <a name="database-pattern"></a>Patrón de base de datos
 
@@ -111,7 +111,7 @@ Los scripts de aprovisionamiento de inquilinos de este tutorial admiten los sigu
 
 Luego, los datos de inquilino se inicializan y registran en el mapa de particiones del catálogo. En la aplicación de ejemplo, las bases de datos que contienen varios inquilinos reciben un nombre genérico, como *tenants1* o *tenants2*. Las bases de datos que contienen un único inquilino reciben el nombre del inquilino. Las convenciones de nomenclatura específicas que se usan en el ejemplo no son una parte fundamental del patrón, porque el uso de un catálogo permite asignar cualquier nombre a la base de datos.
 
-<a name="goto_1_tutorial"/>
+<a name="goto_1_tutorial"></a>
 
 ## <a name="tutorial-begins"></a>Comienzo del tutorial
 

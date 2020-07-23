@@ -3,18 +3,18 @@ title: Información general de las características de Azure Event Hubs | Micros
 description: En este artículo se proporcionan detalles acerca de las características y la terminología de Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 5b646c1a0730b046dd3e66a5d5324b659999f83a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 034983074ddc6faf324d70a18a9a49b8df659649
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320713"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537316"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Características y terminología de Azure Event Hubs
 
-Azure Event Hubs es un servicio escalable de procesamiento de eventos que recopila y procesa grandes volúmenes de eventos y datos, con una baja latencia y una alta fiabilidad. Consulte [¿Qué es Event Hubs?](event-hubs-what-is-event-hubs.md) para obtener una introducción detallada.
+Azure Event Hubs es un servicio escalable de procesamiento de eventos que recopila y procesa grandes volúmenes de eventos y datos, con una baja latencia y una alta fiabilidad. Consulte [¿Qué es Event Hubs?](./event-hubs-about.md) para obtener una introducción detallada.
 
-Este artículo se basa en el contenido del [artículo de información general](event-hubs-what-is-event-hubs.md) e incluye detalles técnicos y de implementación de las características y los componentes de Event Hubs.
+Este artículo se basa en el contenido del [artículo de información general](./event-hubs-about.md) e incluye detalles técnicos y de implementación de las características y los componentes de Event Hubs.
 
 ## <a name="namespace"></a>Espacio de nombres
 Un espacio de nombres de Event Hubs proporciona un contenedor con un único ámbito, al que hace referencia su [nombre de dominio completo](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), en el que puede crear uno o varios centros de eventos o temas de Kafka. 
@@ -33,7 +33,7 @@ Cualquier entidad que envíe datos a un centro de eventos es un productor de eve
 
 ### <a name="publishing-an-event"></a>Publicación de un evento
 
-Puede publicar un evento a través de AMQP 1.0, Kafka 1.0 y versiones posteriores o HTTPS. Event Hubs ofrece [bibliotecas cliente y clases](event-hubs-dotnet-framework-api-overview.md) para publicar eventos en un centro de eventos de clientes .NET. Para otras plataformas y tiempos de ejecución, puede usar cualquier cliente de AMQP 1.0, como [Apache Qpid](https://qpid.apache.org/). Puede publicar eventos individualmente o por lotes. Una sola publicación (instancia de datos de eventos) tiene un límite de 1 MB, independientemente de si es un evento único o un lote. La publicación de eventos que superen este umbral producirá un error. Es una práctica recomendada para los publicadores desconocer las particiones en el centro de eventos y solo especificar una *clave de partición* (que se presenta en la sección siguiente), o su identidad mediante su token de SAS.
+Puede publicar un evento a través de AMQP 1.0, Kafka 1.0 y versiones posteriores o HTTPS. Event Hubs ofrece [bibliotecas cliente y clases](./event-hubs-dotnet-framework-getstarted-send.md) para publicar eventos en un centro de eventos de clientes .NET. Para otras plataformas y tiempos de ejecución, puede usar cualquier cliente de AMQP 1.0, como [Apache Qpid](https://qpid.apache.org/). Puede publicar eventos individualmente o por lotes. Una sola publicación (instancia de datos de eventos) tiene un límite de 1 MB, independientemente de si es un evento único o un lote. La publicación de eventos que superen este umbral producirá un error. Es una práctica recomendada para los publicadores desconocer las particiones en el centro de eventos y solo especificar una *clave de partición* (que se presenta en la sección siguiente), o su identidad mediante su token de SAS.
 
 La opción de usar AMQP o HTTPS es específica para el escenario de uso. AMQP requiere el establecimiento de un socket bidireccional persistente, además de la seguridad de nivel de transporte (TLS) o SSL/TLS. AMQP tiene un mayor costo de red al inicializar la sesión, sin embargo, HTTPS requiere una sobrecarga de TLS adicional para cada solicitud. AMQP tiene un mayor rendimiento para los publicadores frecuentes.
 
@@ -101,7 +101,7 @@ Un *desplazamiento* es la posición de un evento dentro de una partición. Puede
 Si se desconecta un lector de una partición, cuando se vuelve a conectar comienza a leer en el punto de comprobación que envió previamente el último lector de esa partición en ese grupo de consumidores. Cuando se conecta el lector, pasa este desplazamiento al centro de eventos para especificar la ubicación en la que se va a empezar a leer. De este modo, puede usar puntos de comprobación para marcar eventos como "completados" por las aplicaciones de bajada y para ofrecer resistencia en caso de que se produzca una conmutación por error entre lectores que se ejecutan en máquinas distintas. Es posible volver a los datos más antiguos especificando un desplazamiento inferior desde este proceso de puntos de comprobación. Mediante este mecanismo, los puntos de comprobación permiten una resistencia a la conmutación por error y una reproducción del flujo de eventos.
 
 > [!NOTE]
-> Si usa Azure Blob Storage como el almacén de puntos de comprobación en un entorno que admite una versión diferente del SDK de blobs de almacenamiento que las que normalmente están disponibles en Azure, tendrá que utilizar código para cambiar la versión de la API del servicio de almacenamiento a la versión admitida por ese entorno. Por ejemplo, si ejecuta [Event Hubs en una instancia de Azure Stack Hub versión 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), la versión más alta disponible para el servicio Storage es 2017-11-09. En este caso, tendrá que usar código para establecer como destino la versión de la API del servicio Storage en 2017-11-09. Para obtener un ejemplo de cómo establecer como destino una versión específica de la API de Storage, vea estos ejemplos en GitHub: 
+> Si usa Azure Blob Storage como el almacén de puntos de comprobación en un entorno que admite una versión diferente del SDK de blobs de almacenamiento que las que normalmente están disponibles en Azure, tendrá que utilizar código para cambiar la versión de la API del servicio de almacenamiento a la versión admitida por ese entorno. Por ejemplo, si ejecuta [Event Hubs en una instancia de Azure Stack Hub versión 2002](/azure-stack/user/event-hubs-overview), la versión más alta disponible para el servicio Storage es 2017-11-09. En este caso, tendrá que usar código para establecer como destino la versión de la API del servicio Storage en 2017-11-09. Para obtener un ejemplo de cómo establecer como destino una versión específica de la API de Storage, vea estos ejemplos en GitHub: 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs) 
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
 > - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) o [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)

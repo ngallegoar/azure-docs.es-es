@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/10/2017
-ms.openlocfilehash: 09b77862ad3379efeb8b3063a9d6c60b062ca2d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3b618513965298889fb656750419dedd79729f7f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76905129"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536477"
 ---
 # <a name="set-up-cross-region-disaster-recovery-for-integration-accounts-in-azure-logic-apps"></a>Configuración de recuperación ante desastres entre regiones para cuentas de integración: Azure Logic Apps
 
@@ -60,7 +60,7 @@ La continuidad empresarial en una cuenta de integración de Logic Apps proporcio
 
 Durante un desastre, si la región primaria no está disponible para la continuidad empresarial, el tráfico se dirige a la región secundaria. Una región secundaria ayuda a que una empresa recupere rápidamente sus funciones para cumplir con el RPO y RTO acordado con sus asociados. También minimiza los esfuerzos de conmutación por error de una región a otra. 
 
-Hay una latencia prevista mientras se copian números de control de una región primaria a una secundaria. Para evitar el envío de números de control generados duplicados a los asociados durante un desastre, se recomienda aumentar los números de control en los contratos de región secundaria con [cmdlets de PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).
+Hay una latencia prevista mientras se copian números de control de una región primaria a una secundaria. Para evitar el envío de números de control generados duplicados a los asociados durante un desastre, se recomienda aumentar los números de control en los contratos de región secundaria con [cmdlets de PowerShell](/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).
 
 ## <a name="fall-back-to-a-primary-region-post-disaster-event"></a>Reversión al evento posterior al desastre de la región primaria
 
@@ -68,7 +68,7 @@ Para revertir a una región primaria si está disponible, siga estos pasos:
 
 1. Deje de aceptar mensajes de socios en la región secundaria.  
 
-2. Aumente los números de control generados para todos los contratos de región primaria con [cmdlets de PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).  
+2. Aumente los números de control generados para todos los contratos de región primaria con [cmdlets de PowerShell](/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).  
 
 3. Dirigir el tráfico desde la región secundaria a la región primaria.
 
@@ -241,4 +241,3 @@ Según el intervalo de tiempo, el estado en tiempo de ejecución incremental se 
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Supervisión de mensajes B2B con los registros de Azure Monitor](../logic-apps/monitor-b2b-messages-log-analytics.md)
-

@@ -6,12 +6,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 83575aa7f9b63615f453e00bd06b00a5540b9a9e
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: 9eb753981821a6b53d81b1d03e65abf68e0064dc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80892264"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539999"
 ---
 # <a name="what-is-distributed-tracing"></a>¿Qué es el seguimiento distribuido?
 
@@ -21,9 +21,9 @@ En las arquitecturas monolíticas, nos hemos acostumbrado a depurar con pilas de
 
 Aquí entra en juego el seguimiento distribuido.  
 
-El seguimiento distribuido es el equivalente de las pilas de llamadas para arquitecturas de microservicios y en la nube modernas, junto con un generador de perfiles de rendimiento simple. En Azure Monitor, se proporcionan dos experiencias para consumir datos de seguimiento distribuido. La primera es la vista de [diagnósticos de transacción](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics), que es como una pila de llamadas con una dimensión de tiempo adicional. La vista de diagnósticos de transacción proporciona visibilidad sobre una sola transacción o solicitud y resulta útil para encontrar la causa raíz de problemas de confiabilidad y cuellos de botella de rendimiento por cada solicitud.
+El seguimiento distribuido es el equivalente de las pilas de llamadas para arquitecturas de microservicios y en la nube modernas, junto con un generador de perfiles de rendimiento simple. En Azure Monitor, se proporcionan dos experiencias para consumir datos de seguimiento distribuido. La primera es la vista de [diagnósticos de transacción](./transaction-diagnostics.md), que es como una pila de llamadas con una dimensión de tiempo adicional. La vista de diagnósticos de transacción proporciona visibilidad sobre una sola transacción o solicitud y resulta útil para encontrar la causa raíz de problemas de confiabilidad y cuellos de botella de rendimiento por cada solicitud.
 
-Azure Monitor ofrece también una vista de [mapa de aplicación](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) que agrega muchas transacciones para mostrar una vista topológica de cómo interactúan los sistemas y cuáles son las tasas promedio de rendimiento y de errores. 
+Azure Monitor ofrece también una vista de [mapa de aplicación](./app-map.md) que agrega muchas transacciones para mostrar una vista topológica de cómo interactúan los sistemas y cuáles son las tasas promedio de rendimiento y de errores. 
 
 ## <a name="how-to-enable-distributed-tracing"></a>Cómo habilitar el seguimiento distribuido
 
@@ -33,16 +33,16 @@ Habilitar el seguimiento distribuido de los servicios de una aplicación es tan 
 
 Los SDK o agentes de Application Insights para .NET, .NET Core, Java, Node.js y JavaScript admiten el seguimiento distribuido de forma nativa. Las instrucciones para instalar y configurar cada SDK de Application Insights están disponibles a continuación:
 
-* [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
-* [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)
-* [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
-* [Node.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
-* [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
+* [.NET](../learn/quick-monitor-portal.md)
+* [.NET Core](../learn/dotnetcore-quick-start.md)
+* [Java](./java-in-process-agent.md)
+* [Node.js](../learn/nodejs-quick-start.md)
+* [JavaScript](./javascript.md)
 * [Python](opencensus-python.md)
 
-Con el SDK de Application Insights adecuado instalado y configurado, la información de seguimiento se recopila automáticamente para los marcos de trabajo, bibliotecas y tecnologías más populares mediante los auto-recopiladores de dependencias del SDK. La lista completa de las tecnologías compatibles está disponible en [la documentación de la recopilación automática de dependencias](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies).
+Con el SDK de Application Insights adecuado instalado y configurado, la información de seguimiento se recopila automáticamente para los marcos de trabajo, bibliotecas y tecnologías más populares mediante los auto-recopiladores de dependencias del SDK. La lista completa de las tecnologías compatibles está disponible en [la documentación de la recopilación automática de dependencias](./auto-collect-dependencies.md).
 
- Además, se puede realizar el seguimiento manual de cualquier tecnología con una llamada a [TrackDependency](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics) en [TelemetryClient](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics).
+ Además, se puede realizar el seguimiento manual de cualquier tecnología con una llamada a [TrackDependency](./api-custom-events-metrics.md) en [TelemetryClient](./api-custom-events-metrics.md).
 
 ## <a name="enable-via-opencensus"></a>Habilitación mediante OpenCensus
 

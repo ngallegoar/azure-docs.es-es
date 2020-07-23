@@ -4,12 +4,12 @@ description: Información general de las alertas de Azure Alertas, alertas clás
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: e02c23623062f5cb3e4c597b0bb257b30aa9f44a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c4432300319c02cd7b1e31dec566f6e65ea9580
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81769764"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539574"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Información general sobre las alertas en Microsoft Azure 
 
@@ -68,7 +68,7 @@ Anteriormente, las métricas de Azure Monitor, Application Insights, Log Analyti
 
 | **Origen de supervisión** | **Tipo de señal**  | **Descripción** |
 |-------------|----------------|-------------|
-| Estado del servicio | Registro de actividades  | No compatible. Consulte [Creación de alertas del registro de actividad en notificaciones del servicio](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
+| Estado del servicio | Registro de actividades  | No compatible. Consulte [Creación de alertas del registro de actividad en notificaciones del servicio](../../service-health/alerts-activity-log-service-notifications-portal.md).  |
 | Application Insights | Pruebas de disponibilidad web | No compatible. Consulte [Alertas de pruebas web](../../azure-monitor/app/monitor-web-app-availability.md). Disponible para cualquier sitio web instrumentado para enviar datos a Application Insights. Reciba una notificación cuando la disponibilidad o la capacidad de respuesta de un sitio web está por debajo de las expectativas. |
 
 ## <a name="manage-alerts"></a>Administrar alertas
@@ -178,7 +178,7 @@ La página de detalles de alertas incluye las secciones siguientes:
 
 ## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>Control de acceso basado en rol (RBAC) para las instancias de alertas
 
-El consumo y la administración de instancias de alertas requiere que el usuario tenga los roles RBAC integrados de [colaborador de supervisión](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) o [lector de supervisión](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader). Estos roles se admiten en cualquier ámbito de Azure Resource Manager, desde el nivel de la suscripción hasta las asignaciones pormenorizadas en el nivel de un recurso. Por ejemplo, si un usuario solo tiene acceso de "colaborador de supervisión" para la máquina virtual `ContosoVM1`, puede consumir y administrar solo las alertas generadas en `ContosoVM1`.
+El consumo y la administración de instancias de alertas requiere que el usuario tenga los roles RBAC integrados de [colaborador de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-contributor) o [lector de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-reader). Estos roles se admiten en cualquier ámbito de Azure Resource Manager, desde el nivel de la suscripción hasta las asignaciones pormenorizadas en el nivel de un recurso. Por ejemplo, si un usuario solo tiene acceso de "colaborador de supervisión" para la máquina virtual `ContosoVM1`, puede consumir y administrar solo las alertas generadas en `ContosoVM1`.
 
 ## <a name="manage-your-alert-instances-programmatically"></a>Administrar las instancias de alertas mediante programación
 
@@ -212,9 +212,3 @@ Puede usar la [API de REST de Alert Management](https://aka.ms/alert-management-
 - [Administración de instancias de alertas en Azure](https://aka.ms/managing-alert-instances)
 - [Administración de grupos inteligentes](https://aka.ms/managing-smart-groups)
 - [Más información acerca de los precios de alertas de Azure](https://azure.microsoft.com/pricing/details/monitor/)
-
-
-
-
-
-

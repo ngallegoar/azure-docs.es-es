@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
-ms.openlocfilehash: 7dc4164cac1998a02ae62d7682f9630aa4faa619
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e674bf157d55c9b5f7cf49e8df5e17acb99ee3a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77658564"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539404"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guía de referencia de los elementos de visualización del Diseñador de vistas en Azure Monitor
 Con el uso del Diseñador de vistas en Azure Monitor, puede crear una variedad de vistas personalizadas en Azure Portal que pueden ayudarle a visualizar datos en el área de trabajo de Log Analytics. Este artículo es una guía de referencia para la configuración de los elementos de visualización que están disponibles en las vistas personalizadas.
@@ -318,7 +318,7 @@ El separador de nombre y valor es el delimitador de carácter único para analiz
 Por ejemplo, una propiedad llamada *Location* que incluya valores como *Redmond-Building 41* y *Bellevue-Building 12*. Puede especificar un guión (-) para el separador de nombre y valor, y *City-Building* para el nombre. Este enfoque analiza cada valor en dos propiedades denominadas *City* y *Building*.
 
 ### <a name="click-through-navigation"></a><a name="click-through-navigation"></a>Navegación a través de un clic
-La navegación a través de un clic define la acción que se realizará al hacer clic en un encabezado o elemento de lista en una vista.  Así se abrirá una consulta en [Log Analytics](../../azure-monitor/log-query/portals.md) o se iniciará otra vista.
+La navegación a través de un clic define la acción que se realizará al hacer clic en un encabezado o elemento de lista en una vista.  Así se abrirá una consulta en [Log Analytics](../log-query/log-query-overview.md) o se iniciará otra vista.
 
 En la tabla siguiente se describe la configuración de la navegación a través de un clic.
 

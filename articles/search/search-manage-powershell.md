@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/11/2020
-ms.openlocfilehash: 711071e08a52a0075512bc8b3ffe14707238cdfe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a08b59464855b805173fa76d696107f8a7673d39
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77209303"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529579"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>Administre el servicio Azure Cognitive Search con PowerShell
 > [!div class="op_single_selector"]
@@ -252,7 +252,7 @@ Id                : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resource
 
 Cree un [índice](search-what-is-an-index.md) y [consulte un índice](search-query-overview.md) mediante el portal, API REST o el SDK de .NET.
 
-* [Creación de un índice de Azure Cognitive Search en Azure Portal](search-create-index-portal.md)
+* [Creación de un índice de Azure Cognitive Search en Azure Portal](search-get-started-portal.md)
 * [Configuración de un indexador para cargar datos desde otros servicios](search-indexer-overview.md)
 * [Consulta de un índice de Azure Cognitive Search mediante el Explorador de búsqueda de Azure Portal](search-explorer.md)
 * [Uso de Azure Cognitive Search en .NET](search-howto-dotnet-sdk.md)

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: a5b7dea30cff70d5c45460eb8ded2fa370afa2c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c298ee691b476fb58c567490ab2e62e45aba3e7c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84726597"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526952"
 ---
 # <a name="updated-ndv2-series"></a>Serie NDv2 actualizada
 
@@ -24,9 +24,9 @@ Las instancias de NDv2 proporcionan un rendimiento excelente para las cargas de 
 
 Fundamentalmente, NDv2 se ha creado para cargas de trabajo de escalado vertical (con 8 GPU por máquina virtual) y escalado horizontal (con varias máquinas virtuales que funcionan de forma conjunta) que usan muchos cálculos. La serie NDv2 ahora admite redes de back-end InfiniBand EDR de 100 Gigabits, similares a las que están disponibles en la serie HB de máquinas virtuales HPC, para permitir la agrupación en clústeres de alto rendimiento en escenarios paralelos, incluido el entrenamiento distribuido para IA y ML. Esta red de back-end es compatible con todos los protocolos de InfiniBand principales, incluidos los empleados por las bibliotecas NCCL2 de NVIDIA, lo que permite la agrupación en clústeres de las GPU sin problemas.
 
-> Al [habilitar InfiniBand](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband) en la máquina virtual ND40rs_v2, use el controlador OFED de Mellanox 4.7-1.0.0.1.
+> Al [habilitar InfiniBand](./workloads/hpc/enable-infiniband.md) en la máquina virtual ND40rs_v2, use el controlador OFED de Mellanox 4.7-1.0.0.1.
 >
-> Debido a la mayor cantidad de memoria de GPU, la nueva máquina virtual ND40rs_v2 necesita el uso de [máquinas virtuales de generación 2](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) y de imágenes de Marketplace. 
+> Debido a la mayor cantidad de memoria de GPU, la nueva máquina virtual ND40rs_v2 necesita el uso de [máquinas virtuales de generación 2](./windows/generation-2.md) y de imágenes de Marketplace. 
 >
 > Tenga en cuenta lo siguiente: ND40s_v2 con 16 GB de memoria por GPU ya no está disponible para la versión preliminar y se ha reemplazado por la versión actualizada de ND40rs_v2.
 

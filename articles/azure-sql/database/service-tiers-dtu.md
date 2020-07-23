@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
-ms.openlocfilehash: 1922e92f9314e48ae4e3106a53cf750da5daf5e1
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 7ca106e076bc789e8435b9e67d6bffa20af8a635
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84037956"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539183"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveles de servicio en el modelo de compra basado en DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -59,7 +59,7 @@ La selección de un nivel de servicio depende sobre todo de los requisitos de co
 
 Los tamaños de proceso se expresan como unidades de transacción de base de datos (DTU) para las bases de datos únicas y como unidades de transacción de base de datos elásticas (eDTU) para los grupos elásticos. Para obtener más información sobre DTU y eDTU, consulte [Modelo de compra basado en DTU](purchasing-models.md#dtu-based-purchasing-model).
 
-||Básico|Estándar|Premium|
+|Básico|Estándar|Premium|
 | :-- | --: | --: | --: |
 | Tamaño máximo de almacenamiento | 2 GB | 1 TB | 4 TB  |
 | Cantidad máxima de DTU | 5 | 3000 | 4000 | 
@@ -70,7 +70,7 @@ Los tamaños de proceso se expresan como unidades de transacción de base de dat
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>Límites de eDTU de grupo elástico, almacenamiento y base de datos agrupada
 
-| | **Basic** | **Estándar** | **Premium** |
+| **Basic** | **Estándar** | **Premium** |
 | :-- | --: | --: | --: |
 | Tamaño máximo de almacenamiento por base de datos  | 2 GB | 1 TB | 1 TB |
 | Tamaño máximo de almacenamiento por grupo | 156 GB | 4 TB | 4 TB |

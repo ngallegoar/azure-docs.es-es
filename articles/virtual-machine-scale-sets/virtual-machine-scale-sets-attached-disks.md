@@ -9,15 +9,15 @@ ms.subservice: disks
 ms.date: 4/25/2017
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: e5bdb30929b4d93b05d850a56c9a6baf32f9856b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e4bdf868d3f8ddf3a049509ead30a4b1ba341b7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83125016"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527445"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Conjuntos de escalado de máquinas virtuales de Azure y discos de datos conectados
-Para expandir el almacenamiento disponible, los [conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets/) de Azure admiten instancias de máquina virtual con discos de datos asociados. Puede asociar discos de datos cuando se crea el conjunto de escalado, o a un conjunto de escalado existente.
+Para expandir el almacenamiento disponible, los [conjuntos de escalado de máquinas virtuales](./index.yml) de Azure admiten instancias de máquina virtual con discos de datos asociados. Puede asociar discos de datos cuando se crea el conjunto de escalado, o a un conjunto de escalado existente.
 
 > [!NOTE]
 > Cuando se crea un conjunto de escalado con discos de datos asociados, debe montar y dar formato a los discos desde una máquina virtual para usarlos (al igual que sucede con las máquinas virtuales de Azure independientes). Una manera práctica de llevar cabo este proceso es usar una extensión de script personalizado que llama a un script para crear una partición y dar formato a todos los discos de datos en una máquina virtual. Para ver ejemplos, consulte la [CLI de Azure](tutorial-use-disks-cli.md#prepare-the-data-disks) y [Azure PowerShell](tutorial-use-disks-powershell.md#prepare-the-data-disks).
@@ -33,7 +33,7 @@ En el resto de este artículo se describen casos de uso específicos, como clús
 
 
 ## <a name="create-a-service-fabric-cluster-with-attached-data-disks"></a>Creación de un clúster de Service Fabric con discos de datos conectados
-Cada [tipo de nodo](../service-fabric/service-fabric-cluster-nodetypes.md) de un clúster de [Service Fabric](/azure/service-fabric) en ejecución en Azure se encuentra respaldado por un conjunto de escalado de máquinas virtuales. Mediante una plantilla de Azure Resource Manager, puede asociar discos de datos a los conjuntos de escalado que componen el clúster de Service Fabric. Puede usar una [plantilla existente](https://github.com/Azure-Samples/service-fabric-cluster-templates) como punto de partida. En la plantilla, incluya una sección _dataDisks_ en el atributo _storageProfile_ de los recursos _Microsoft.Compute/virtualMachineScaleSets_ e implemente la plantilla. En el ejemplo siguiente se conecta un disco de datos de 128 GB:
+Cada [tipo de nodo](../service-fabric/service-fabric-cluster-nodetypes.md) de un clúster de [Service Fabric](../service-fabric/index.yml) en ejecución en Azure se encuentra respaldado por un conjunto de escalado de máquinas virtuales. Mediante una plantilla de Azure Resource Manager, puede asociar discos de datos a los conjuntos de escalado que componen el clúster de Service Fabric. Puede usar una [plantilla existente](https://github.com/Azure-Samples/service-fabric-cluster-templates) como punto de partida. En la plantilla, incluya una sección _dataDisks_ en el atributo _storageProfile_ de los recursos _Microsoft.Compute/virtualMachineScaleSets_ e implemente la plantilla. En el ejemplo siguiente se conecta un disco de datos de 128 GB:
 
 ```json
 "dataDisks": [
@@ -94,5 +94,3 @@ Los discos de datos especificados en el modelo de conjunto de escalado siempre e
 Hay compatibilidad disponible con Azure Managed Disks y con discos de datos asociados al conjunto de escalado en la versión de API [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/compute/resource-manager/Microsoft.Compute/preview/2016-04-30-preview/compute.json) o posterior de Microsoft.Compute API.
 
 La compatibilidad de Azure Portal con discos de datos conectados en los conjuntos de escalado es limitada. Dependiendo de los requisitos, puede usar plantillas de Azure, CLI, PowerShell, SDK y API de REST para administrar los discos conectados.
-
-

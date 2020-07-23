@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: c2a609266a77293a0e3a5cb9c973a6eb3f7f72a9
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 69d018db26a42c331ff41d242eae54d6fcc43990
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732009"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536258"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Supervisión del estado de ejecución, revisión del historial de los desencadenadores y configuración de alertas en Azure Logic Apps
 
@@ -71,7 +71,7 @@ Cada vez que el desencadenador se activa por un elemento o un evento, el motor d
 
    ![Revisión de los detalles de cada paso de la ejecución](./media/monitor-logic-apps/review-logic-app-run-details.png)
 
-   Por ejemplo, puede obtener la propiedad **Correlation ID** de la ejecución, que podría necesitar al usar la [API REST de Logic Apps](https://docs.microsoft.com/rest/api/logic).
+   Por ejemplo, puede obtener la propiedad **Correlation ID** de la ejecución, que podría necesitar al usar la [API REST de Logic Apps](/rest/api/logic).
 
 1. Para más información sobre un paso específico, seleccione cualquiera de las dos opciones:
 
@@ -138,7 +138,7 @@ Cada ejecución de aplicación lógica se inicia con un desencadenador. En este 
 
 ## <a name="set-up-monitoring-alerts"></a>Configuración de alertas de supervisión
 
-Para obtener alertas de métricas o umbrales superados concretos de la aplicación lógica, configure las [alertas en Azure Monitor](../azure-monitor/platform/alerts-overview.md). Más información sobre [métricas de Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). Para configurar alertas sin [Azure Monitor](../log-analytics/log-analytics-overview.md), siga estos pasos.
+Para obtener alertas de métricas o umbrales superados concretos de la aplicación lógica, configure las [alertas en Azure Monitor](../azure-monitor/platform/alerts-overview.md). Más información sobre [métricas de Azure](../azure-monitor/platform/data-platform.md). Para configurar alertas sin [Azure Monitor](../azure-monitor/log-query/log-query-overview.md), siga estos pasos.
 
 1. En el menú de la aplicación lógica, en **Supervisión**, seleccione **Alertas** > **Nueva regla de alertas**.
 

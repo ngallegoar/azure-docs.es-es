@@ -3,12 +3,12 @@ title: Realización de una copia de seguridad de una granja de SharePoint en Azu
 description: En este artículo se incluye información general sobre la protección del Servidor de Azure Backup y el servidor de DPM de una granja de SharePoint en Azure.
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 0199495e3b0eb002e58c096ed9abf05d46f43f97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 447776af7cb021fd0c3381334bf3acf258ff22ab
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80054110"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539115"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Realización de una copia de seguridad de una granja de SharePoint en Azure con DPM
 
@@ -18,7 +18,7 @@ La copia de seguridad de SharePoint en Azure con DPM es un proceso muy similar a
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>Las versiones compatibles de SharePoint y relacionadas con escenarios de protección
 
-Para obtener una lista de las versiones de SharePoint compatibles y las versiones de DPM necesarias para realizar una copia de seguridad de estas, consulte [¿De qué elementos puede hacer una copia de seguridad DPM?](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019#applications-backup)
+Para obtener una lista de las versiones de SharePoint compatibles y las versiones de DPM necesarias para realizar una copia de seguridad de estas, consulte [¿De qué elementos puede hacer una copia de seguridad DPM?](/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019#applications-backup)
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
@@ -28,19 +28,19 @@ Antes de realizar una copia de seguridad de una granja de SharePoint en Azure, h
 
 Antes de continuar, asegúrese de que se cumplen todos los [requisitos previos para usar Microsoft Azure Backup](backup-azure-dpm-introduction.md#prerequisites-and-limitations) para proteger las cargas de trabajo. Algunas de las tareas que son requisito previo incluyen: crear un almacén de copia de seguridad, descargar las credenciales de almacén, instalar el agente de copia de seguridad de Azure y registrar Azure Backup Server y el servidor DPM con el almacén.
 
-Puede encontrar más requisitos previos y limitaciones en el artículo [Hacer copias de seguridad de SharePoint con DPM](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#prerequisites-and-limitations).
+Puede encontrar más requisitos previos y limitaciones en el artículo [Hacer copias de seguridad de SharePoint con DPM](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#prerequisites-and-limitations).
 
 ## <a name="configure-backup"></a>Configuración de la copia de seguridad
 
-Para realizar una copia de seguridad de una granja de SharePoint, configure la protección de SharePoint mediante ConfigureSharePoint.exe y, a continuación, cree un grupo de protección en DPM. Para obtener instrucciones, consulte [Configurar la copia de seguridad](https://docs.microsoft.com//system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#configure-backup) en la documentación de DPM.
+Para realizar una copia de seguridad de una granja de SharePoint, configure la protección de SharePoint mediante ConfigureSharePoint.exe y, a continuación, cree un grupo de protección en DPM. Para obtener instrucciones, consulte [Configurar la copia de seguridad](//system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#configure-backup) en la documentación de DPM.
 
 ## <a name="monitoring"></a>Supervisión
 
-Para supervisar el trabajo de copia de seguridad, siga las instrucciones de [Supervisión de la copia de seguridad de DPM](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#monitoring).
+Para supervisar el trabajo de copia de seguridad, siga las instrucciones de [Supervisión de la copia de seguridad de DPM](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#monitoring).
 
 ## <a name="restore-sharepoint-data"></a>Restauración de datos de SharePoint
 
-Para obtener información sobre cómo restaurar un elemento de SharePoint desde un disco con DPM, consulte [Restaurar datos de SharePoint](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#restore-sharepoint-data).
+Para obtener información sobre cómo restaurar un elemento de SharePoint desde un disco con DPM, consulte [Restaurar datos de SharePoint](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#restore-sharepoint-data).
 
 ## <a name="restore-a-sharepoint-database-from-azure-by-using-dpm"></a>Restauración de una base de datos de SharePoint de Azure con DPM
 
@@ -71,7 +71,7 @@ Para obtener información sobre cómo restaurar un elemento de SharePoint desde 
 
 ## <a name="switching-the-front-end-web-server"></a>Cambio del servidor front-end web
 
-Si tiene más de un servidor front-end web y desea cambiar el servidor que DPM usa para proteger la granja, siga las instrucciones de [Cambio del servidor front-end web](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#switching-the-front-end-web-server).
+Si tiene más de un servidor front-end web y desea cambiar el servidor que DPM usa para proteger la granja, siga las instrucciones de [Cambio del servidor front-end web](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#switching-the-front-end-web-server).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

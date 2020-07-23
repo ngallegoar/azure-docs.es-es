@@ -3,12 +3,12 @@ title: Introducción a los almacenes de Recovery Services
 description: Información general y comparación entre los almacenes de Recovery Services y los de Azure Backup.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 798f49629ad1012e8cc9ac3ed43f5beddd6eefeb
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 11a218badfab141c41430c3f48a5e930bfa1af8b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248913"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539047"
 ---
 # <a name="recovery-services-vaults-overview"></a>Introducción a los almacenes de Recovery Services
 
@@ -36,9 +36,9 @@ Los almacenes de Recovery Services se basan en el modelo de Azure Resource Manag
 
 Un almacén de Recovery Services es una entidad que almacena las copias de seguridad y los puntos de recuperación creados a lo largo del tiempo. También contiene las directivas de copia de seguridad asociadas con las máquinas virtuales protegidas.
 
-Azure Backup administra automáticamente el almacenamiento para el almacén. Consulte cómo [cambiar la configuración de almacenamiento](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy).
+Azure Backup administra automáticamente el almacenamiento para el almacén. Consulte cómo [cambiar la configuración de almacenamiento](./backup-create-rs-vault.md#set-storage-redundancy).
 
-Para obtener más información acerca de la redundancia de almacenamiento, consulte estos artículos sobre redundancia [geográfica](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs) y [local](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
+Para obtener más información acerca de la redundancia de almacenamiento, consulte estos artículos sobre redundancia [geográfica](../storage/common/storage-redundancy.md) y [local](../storage/common/storage-redundancy.md).
 
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>Administración de almacenes de Recovery Services en el portal
 
@@ -62,7 +62,7 @@ Las secciones siguientes contienen vínculos a artículos que explican cómo usa
 ### <a name="back-up-data"></a>Copia de seguridad de datos
 
 - [Copia de seguridad de máquinas virtuales de Azure](backup-azure-vms-first-look-arm.md)
-- [Copia de seguridad de Windows Server o Windows Workstation](backup-try-azure-backup-in-10-mins.md)
+- [Copia de seguridad de Windows Server o Windows Workstation](./backup-windows-with-mars-agent.md)
 - [Preparación para la copia de seguridad de cargas de trabajo de DPM en Azure](backup-azure-dpm-introduction.md)
 - [Preparación para la copia de seguridad de cargas de trabajo mediante Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 
@@ -82,9 +82,9 @@ Las secciones siguientes contienen vínculos a artículos que explican cómo usa
 
 ## <a name="azure-advisor"></a>Azure Advisor
 
-[Azure Advisor](https://docs.microsoft.com/azure/advisor/) es un consultor de nube personalizado que ayuda a optimizar el uso de Azure. Analiza el uso de Azure y proporciona recomendaciones oportunas para ayudar a optimizar y proteger las implementaciones. Proporciona recomendaciones en cuatro categorías: Alta disponibilidad, Seguridad, Rendimiento y Costo.
+[Azure Advisor](../advisor/index.yml) es un consultor de nube personalizado que ayuda a optimizar el uso de Azure. Analiza el uso de Azure y proporciona recomendaciones oportunas para ayudar a optimizar y proteger las implementaciones. Proporciona recomendaciones en cuatro categorías: Alta disponibilidad, Seguridad, Rendimiento y Costo.
 
-Azure Advisor proporciona [recomendaciones](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations#protect-your-virtual-machine-data-from-accidental-deletion) por hora para las máquinas virtuales de las que no se ha realizado una copia de seguridad, por lo que nunca se pierde la copia de seguridad de máquinas virtuales importantes. También puede controlar las recomendaciones al posponerlas.  Puede hacer clic en la recomendación y habilitar la copia de seguridad en las máquinas virtuales en línea especificando el almacén (en el que se almacenarán las copias de seguridad) y la directiva de copia de seguridad (programación de copias de seguridad y retención de copias de seguridad).
+Azure Advisor proporciona [recomendaciones](../advisor/advisor-high-availability-recommendations.md#protect-your-virtual-machine-data-from-accidental-deletion) por hora para las máquinas virtuales de las que no se ha realizado una copia de seguridad, por lo que nunca se pierde la copia de seguridad de máquinas virtuales importantes. También puede controlar las recomendaciones al posponerlas.  Puede hacer clic en la recomendación y habilitar la copia de seguridad en las máquinas virtuales en línea especificando el almacén (en el que se almacenarán las copias de seguridad) y la directiva de copia de seguridad (programación de copias de seguridad y retención de copias de seguridad).
 
 ![Azure Advisor](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
 

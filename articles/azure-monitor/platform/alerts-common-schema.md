@@ -4,12 +4,12 @@ description: Descripción del esquema de alertas comunes, por qué debería usar
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 1445e8cf38b2694146fc8749ba5e77f2297de969
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: faf9975e2795623305583d061d1af7f5eb0cfbe0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710939"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539489"
 ---
 # <a name="common-alert-schema"></a>Esquema de alertas comunes
 
@@ -52,8 +52,8 @@ Puede participar o dejar de participar en el esquema de alertas comunes a travé
 > 1. Los siguientes tipos de alerta admiten el esquema común de forma predeterminada (no es necesario expresar la participación):
 >     * Alertas de detección inteligente
 > 1. Los siguientes tipos de alerta no admiten actualmente el esquema común:
->     * Las alertas generadas por [Azure Monitor para VM](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)
->     * Las alertas generadas por [Azure Cost Management](https://docs.microsoft.com/azure/billing/billing-cost-management-budget-scenario)
+>     * Las alertas generadas por [Azure Monitor para VM](../insights/vminsights-overview.md)
+>     * Las alertas generadas por [Azure Cost Management](../../cost-management-billing/manage/cost-management-budget-scenario.md)
 
 ### <a name="through-the-azure-portal"></a>Mediante Azure Portal
 
@@ -64,9 +64,9 @@ Puede participar o dejar de participar en el esquema de alertas comunes a travé
 
 ### <a name="through-the-action-groups-rest-api"></a>Mediante la API REST de grupos de acciones
 
-También puede usar la [API de grupos de acciones](https://docs.microsoft.com/rest/api/monitor/actiongroups) para participar en el esquema de alertas comunes. Al realizar la llamada de [creación o actualización](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) de la API REST, puede establecer la marca "useCommonAlertSchema" en "true" (para participar) o "false" (para dejar de participar) para cualquiera de las siguientes acciones: correo electrónico/webhook/Logic Apps/función de Azure Functions/runbook de Automation.
+También puede usar la [API de grupos de acciones](/rest/api/monitor/actiongroups) para participar en el esquema de alertas comunes. Al realizar la llamada de [creación o actualización](/rest/api/monitor/actiongroups/createorupdate) de la API REST, puede establecer la marca "useCommonAlertSchema" en "true" (para participar) o "false" (para dejar de participar) para cualquiera de las siguientes acciones: correo electrónico/webhook/Logic Apps/función de Azure Functions/runbook de Automation.
 
-Por ejemplo, el siguiente cuerpo de la solicitud realizado en la API REST de [creación o actualización](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) hará lo siguiente:
+Por ejemplo, el siguiente cuerpo de la solicitud realizado en la API REST de [creación o actualización](/rest/api/monitor/actiongroups/createorupdate) hará lo siguiente:
 
 * Habilitar el esquema de alertas comunes para la acción de correo electrónico "John Doe's email"
 * Deshabilitar el esquema de alertas comunes para la acción de correo electrónico "Jane Smith's email"
@@ -121,7 +121,4 @@ Por ejemplo, el siguiente cuerpo de la solicitud realizado en la API REST de [c
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Definiciones del esquema de alertas comunes para webhooks/Logic Apps/Azure Functions/runbook de Automation.](https://aka.ms/commonAlertSchemaDefinitions)
-- [Obtenga información sobre cómo crear una aplicación lógica que aproveche el esquema común de alertas para controlar todas las alertas.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
-
-
-
+- [Obtenga información sobre cómo crear una aplicación lógica que aproveche el esquema común de alertas para controlar todas las alertas.](./alerts-common-schema-integrations.md) 

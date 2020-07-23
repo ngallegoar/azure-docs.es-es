@@ -5,12 +5,12 @@ author: chenyl
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: chenyl
-ms.openlocfilehash: c2ad9b6c4410a62d5652050406e05be4cde5fab0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec2952a3093661f0f6ef32908307a8a82c6367ed
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830713"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540237"
 ---
 # <a name="signalr-service-trigger-binding-for-azure-functions"></a>Enlace del desencadenador de SignalR Service para Azure Functions
 
@@ -43,7 +43,7 @@ public class SignalRTestHub : ServerlessHub
 
 ### <a name="with-traditional-model"></a>Modelo tradicional
 
-El modelo tradicional obedece la convención de Azure Functions desarrollada por C#. Si no está familiarizado con ella, puede consultar diversos [documentos](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library).
+El modelo tradicional obedece la convención de Azure Functions desarrollada por C#. Si no está familiarizado con ella, puede consultar diversos [documentos](./functions-dotnet-class-library.md).
 
 ```cs
 [FunctionName("SignalRTest")]

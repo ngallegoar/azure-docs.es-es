@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 02e6d776dbb47ee8e30409f6b8adc5a61fc5fe52
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 5334168081ea18650bd6afd2411e076952e08749
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958929"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537993"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migración del área de trabajo y los proyectos de Microsoft Translator Hub a Custom Translator
 
@@ -130,9 +130,9 @@ Si desea obtener un informe de migración más detallado sobre los proyectos, ap
 
 En la siguiente tabla se comparan las características de Microsoft Translator Hub y Custom Translator.
 
-|   | Hub | Custom Translator |
-|:-----|:----:|:----:|
-|Estado de la característica de personalización    | Disponibilidad general    | Disponibilidad general |
+| Característica | Hub | Custom Translator |
+| ------- | :-: | :---------------: |
+| Estado de la característica de personalización    | Disponibilidad general    | Disponibilidad general |
 | Versión de Text API    | V2     | V3  |
 | Personalización de SMT    | Sí    | No |
 | Personalización de NMT    | No    | Sí |

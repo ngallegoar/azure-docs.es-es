@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 3ee84c0c868f47dca1aee0401865563a326df3db
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 55af4bddb5a963a831c1438400a7a243cca20573
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864409"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538826"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de problemas de Azure Backup: Problemas con el agente o la extensión
 
@@ -28,7 +28,7 @@ El agente de máquina virtual de Azure podría estar detenido, obsoleto, en un e
 - **Abra Azure Portal > VM > Configuración > panel Propiedades** > asegúrese de que el valor de **Estado** sea **En ejecución** y que **Estado del agente** sea **Listo**. Si el agente de máquina virtual está detenido o se encuentra en un estado incoherente, reinicie el agente.<br>
   - Para máquinas virtuales Windows, siga estos [pasos](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) para reiniciar el agente invitado.<br>
   - En el caso de las máquinas virtuales Linux, siga estos [pasos](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) para reiniciar el agente invitado.
-- Abra **Azure Portal > Máquina virtual > Configuración > Extensiones** y asegúrese de que el estado de todas las extensiones sea **Aprovisionamiento realizado correctamente**. Si no se resuelve la incidencia, siga estos [pasos](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state).
+- Abra **Azure Portal > Máquina virtual > Configuración > Extensiones** y asegúrese de que el estado de todas las extensiones sea **Aprovisionamiento realizado correctamente**. Si no se resuelve la incidencia, siga estos [pasos](#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state).
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError: No se pudo comunicar con el agente de máquina virtual para el estado de la instantánea
 
@@ -52,7 +52,7 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 **Código de error**: UserErrorVmProvisioningStateFailed<br>
 **Mensaje de error**: la máquina virtual está en un estado de aprovisionamiento con errores<br>
 
-Este error se produce cuando uno de los errores de extensión deja a la máquina virtual en un estado de aprovisionamiento con errores.<br>Abra **Azure Portal > VM > Configuración > Extensiones > Estado de las extensiones** y compruebe que el estado de todas las extensiones es **Aprovisionamiento realizado correctamente**. Para más información, consulte [Estados de aprovisionamiento](https://docs.microsoft.com/azure/virtual-machines/windows/states-lifecycle#provisioning-states).
+Este error se produce cuando uno de los errores de extensión deja a la máquina virtual en un estado de aprovisionamiento con errores.<br>Abra **Azure Portal > VM > Configuración > Extensiones > Estado de las extensiones** y compruebe que el estado de todas las extensiones es **Aprovisionamiento realizado correctamente**. Para más información, consulte [Estados de aprovisionamiento](../virtual-machines/windows/states-lifecycle.md#provisioning-states).
 
 - Si la extensión VMSnapshot está en un estado con errores, haga clic con el botón derecho en la extensión con errores y elimínela. Desencadene una copia de seguridad a petición. Esta acción volverá a instalar las extensiones y ejecutará el trabajo de copia de seguridad.  <br>
 - Si cualquier otra extensión está en un estado con errores, puede interferir con la copia de seguridad. Asegúrese que se resuelven esos problemas de extensiones y vuelva a intentar la operación de copia de seguridad.
@@ -80,7 +80,7 @@ Para resolver este problema, elimine el bloqueo en el grupo de recursos de la m�
 **Código de error**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Mensaje de error**: Backup no tiene suficientes permisos para el almacén de claves y no se puede realizar la copia de seguridad de las máquinas virtuales cifradas. <br>
 
-Para que una operación de copia de seguridad se complete correctamente en las VM cifradas, debe tener permisos para acceder al almacén de claves. Los permisos se pueden establecer a través de [Azure Portal](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) o a través de [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection).
+Para que una operación de copia de seguridad se complete correctamente en las VM cifradas, debe tener permisos para acceder al almacén de claves. Los permisos se pueden establecer a través de [Azure Portal](./backup-azure-vms-encryption.md) o a través de [PowerShell](./backup-azure-vms-automation.md#enable-protection).
 
 ## <a name="extensionsnapshotfailednonetwork---snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a><a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork: Error de la operación de instantánea debido a que no hay conectividad de red en la máquina virtual
 
@@ -130,9 +130,9 @@ El trabajo de copia de seguridad reciente no se pudo completar porque hay un tra
 2. En la lista de almacenes de Recovery Services, seleccione un almacén donde esté configurada la copia de seguridad.
 3. En el menú del panel del almacén, haga clic en **Trabajos de copia de seguridad** para mostrar todos los trabajos de copia de seguridad.
    - Si un trabajo de copia de seguridad está en curso, espere a que se complete o cancele el trabajo de copia de seguridad.
-     - Para cancelar el trabajo de copia de seguridad, haga clic con el botón derecho en el trabajo de copia de seguridad y haga clic en **Cancelar** o use [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
+     - Para cancelar el trabajo de copia de seguridad, haga clic con el botón derecho en el trabajo de copia de seguridad y haga clic en **Cancelar** o use [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob).
    - Si ha reconfigurado la copia de seguridad en otro almacén, asegúrese de no haya ningún trabajo de copia de seguridad en ejecución en el almacén antiguo. Si existe, cancele el trabajo de copia de seguridad.
-     - Para cancelar el ratón de trabajo de copia de seguridad, haga clic con el botón derecho en el trabajo de copia de seguridad y haga clic en **Cancelar** o use [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
+     - Para cancelar el ratón de trabajo de copia de seguridad, haga clic con el botón derecho en el trabajo de copia de seguridad y haga clic en **Cancelar** o use [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob).
 4. Reintente la operación de copia de seguridad.
 
 Si la operación de copia de seguridad programada tarda más, generando un conflicto con la siguiente configuración de copia de seguridad, consulte [Procedimientos recomendados](backup-azure-vms-introduction.md#best-practices), [Rendimiento de Backup](backup-azure-vms-introduction.md#backup-performance) y [Consideraciones de la restauración](backup-azure-vms-introduction.md#backup-and-restore-considerations).
@@ -167,7 +167,7 @@ Es posible que el agente de máquina virtual se haya dañado o que el servicio s
 6. Ejecute un trabajo de copia de seguridad a petición:
    - En el portal, seleccione **Crear copia de seguridad ahora**.
 
-Además, compruebe que [Microsoft .NET 4.5](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) está instalado en la máquina virtual, ya que se requiere para que el agente de máquina virtual se comunique con el servicio.
+Además, compruebe que [Microsoft .NET 4.5](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) está instalado en la máquina virtual, ya que se requiere para que el agente de máquina virtual se comunique con el servicio.
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>El agente instalado en la máquina virtual está obsoleto (en el caso de máquinas virtuales Linux)
 
@@ -175,7 +175,7 @@ Además, compruebe que [Microsoft .NET 4.5](https://docs.microsoft.com/dotnet/fr
 
 La mayoría de los errores relacionados con el agente o la extensión de máquinas virtuales de Linux están provocados por problemas que afectan a un agente VM obsoleto. Para solucionar este problema, siga estas directrices generales:
 
-1. Siga las instrucciones para [actualizar el agente de máquina virtual Linux ](../virtual-machines/linux/update-agent.md).
+1. Siga las instrucciones para [actualizar el agente de máquina virtual Linux ](../virtual-machines/extensions/update-linux-agent.md).
 
    > [!NOTE]
    > Se *recomienda encarecidamente* actualizar el agente solo a través de un repositorio de distribución. No recomendamos descargar el código de agente desde GitHub directamente y actualizarlo. Si el último agente no está disponible para su distribución, póngase en contacto con el soporte técnico de distribución para obtener instrucciones sobre cómo instalarlo. Para buscar el agente más reciente, vaya a la página del [agente Linux de Microsoft Azure](https://github.com/Azure/WALinuxAgent/releases) en el repositorio de GitHub.
@@ -207,7 +207,7 @@ Para obtener una lista completa de las opciones del archivo de configuración de
 
 ### <a name="application-control-solution-is-blocking-iaasbcdrextensionexe"></a>La solución de control de aplicaciones está bloqueando IaaSBcdrExtension.exe
 
-Si ejecuta [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) (u otra solución de control de aplicaciones) y las reglas se basan en el publicador o en la ruta de acceso, pueden bloquear la ejecución de **IaaSBcdrExtension.exe**.
+Si ejecuta [AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) (u otra solución de control de aplicaciones) y las reglas se basan en el publicador o en la ruta de acceso, pueden bloquear la ejecución de **IaaSBcdrExtension.exe**.
 
 #### <a name="solution"></a>Solución
 

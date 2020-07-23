@@ -5,12 +5,12 @@ author: apwestgarth
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 7ad748aa9a5b45af10121648a668344548484cf7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73b9533fa00c783e1cfb85270198f5c00c66afd5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74226736"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540390"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Instalación de la versión preliminar 2 del Sistema en tiempo de ejecución de Azure Functions
 
@@ -71,7 +71,7 @@ Para completar la instalación del Sistema en tiempo de ejecución de Azure Func
 
     ![Herramienta de configuración de la versión preliminar del Sistema en tiempo de ejecución de Azure Functions][7]
 
-1. Haga clic en la pestaña **Base de datos**, especifique los detalles de conexión de la instancia de SQL Server, además de una [clave maestra de base de datos](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-and-database-encryption-keys-database-engine), y haga clic en **Aplicar**.  Se requiere conectividad a una instancia de SQL Server para que el Sistema en tiempo de ejecución de Azure Functions cree una base de datos que admita el Sistema en ejecución.
+1. Haga clic en la pestaña **Base de datos**, especifique los detalles de conexión de la instancia de SQL Server, además de una [clave maestra de base de datos](/sql/relational-databases/security/encryption/sql-server-and-database-encryption-keys-database-engine), y haga clic en **Aplicar**.  Se requiere conectividad a una instancia de SQL Server para que el Sistema en tiempo de ejecución de Azure Functions cree una base de datos que admita el Sistema en ejecución.
 
     ![Configuración de la base de datos en la versión preliminar del Sistema en tiempo de ejecución de Azure Functions][8]
 

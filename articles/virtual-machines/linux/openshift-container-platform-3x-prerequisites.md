@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 26b190515819378309c2b0705efdbc349ecccbe2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 244bea1aaf5457601ced9bac05c8dae43e5b9199
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759510"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527139"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Requisitos previos para implementar OpenShift Container Platform 3.11 en Azure
 
@@ -84,7 +84,7 @@ ssh-keygen -f ~/.ssh/openshift_rsa -t rsa -N ''
 > [!NOTE]
 > El par de claves SSH no puede tener una contraseña ni frase de contraseña.
 
-Para obtener más información sobre las claves SSH en Windows, consulte el artículo sobre la [creación de claves SSH en Windows](/azure/virtual-machines/linux/ssh-from-windows). Asegúrese de exportar la clave privada en formato OpenSSH.
+Para obtener más información sobre las claves SSH en Windows, consulte el artículo sobre la [creación de claves SSH en Windows](./ssh-from-windows.md). Asegúrese de exportar la clave privada en formato OpenSSH.
 
 ## <a name="store-the-ssh-private-key-in-azure-key-vault"></a>Almacenamiento de la clave privada SSH en Azure Key Vault
 La implementación de OpenShift utiliza la clave SSH que creó para proteger el acceso al maestro de OpenShift. Para permitir que la implementación recupere de forma segura la clave SSH, almacénela en Key Vault con el comando siguiente:
@@ -134,7 +134,7 @@ Tome nota de la propiedad appId y la contraseña que devuelve el comando:
  > [!WARNING] 
  > Asegúrese de anotar la contraseña segura, ya que no se podrá volver a recuperar.
 
-Para más información sobre las entidades de servicio, consulte [Creación de una entidad de servicio de Azure con la CLI de Azure](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
+Para más información sobre las entidades de servicio, consulte [Creación de una entidad de servicio de Azure con la CLI de Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
 
 ## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>Requisitos previos aplicables únicamente a la plantilla de Resource Manager
 

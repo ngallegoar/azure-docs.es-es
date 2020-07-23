@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 430b1c044ac5fc22dbf3a4f4df33ff9017e21d6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 727653314104ee1b2a27a1342de9824d8f303e23
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361962"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539744"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Supervisión de recursos de Azure con Azure Monitor
 Si tiene aplicaciones y procesos empresariales críticos que dependen de recursos de Azure, querrá supervisar esos recursos para su disponibilidad, rendimiento y funcionamiento. En este artículo se describen los datos de supervisión generados por los recursos de Azure y cómo puede usar las características de Azure Monitor para analizar y alertar sobre estos datos.
@@ -79,9 +79,9 @@ La recopilación de datos en los registros de Azure Monitor requiere un área de
 ## <a name="diagnostic-settings"></a>Configuración de diagnóstico
 La configuración de diagnóstico define dónde se deben enviar los registros de recurso y las métricas para un recurso determinado. Los posibles destinos son:
 
-- [Área de trabajo de Log Analytics](../platform/resource-logs-collect-workspace.md), que permite analizar datos con otros datos de supervisión recopilados por Azure Monitor mediante unas consultas de registro eficaces y también aprovechar otras características de Azure Monitor, como alertas de registros y visualizaciones. 
-- [Event Hubs](../platform/resource-logs-stream-event-hubs.md), para transmitir datos a sistemas externos, como SIEM de terceros y otras soluciones de análisis de registros. 
-- [Cuenta de almacenamiento de Azure](../platform/resource-logs-collect-storage.md), que resulta útil para la auditoría, el análisis estático o la copia de seguridad.
+- [Área de trabajo de Log Analytics](../platform/resource-logs.md#send-to-log-analytics-workspace), que permite analizar datos con otros datos de supervisión recopilados por Azure Monitor mediante unas consultas de registro eficaces y también aprovechar otras características de Azure Monitor, como alertas de registros y visualizaciones. 
+- [Event Hubs](../platform/resource-logs.md#send-to-azure-event-hubs), para transmitir datos a sistemas externos, como SIEM de terceros y otras soluciones de análisis de registros. 
+- [Cuenta de almacenamiento de Azure](../platform/resource-logs.md#send-to-azure-storage), que resulta útil para la auditoría, el análisis estático o la copia de seguridad.
 
 Siga el procedimiento de [Creación de una configuración de diagnóstico para recopilar registros de plataforma y métricas en Azure](../platform/diagnostic-settings.md) para crear y administrar la configuración de diagnóstico mediante Azure Portal. Consulte [Creación de la configuración de diagnóstico en Azure con una plantilla de Resource Manager](../platform/diagnostic-settings-template.md) para definirla en una plantilla y habilitar la supervisión completa para un recurso cuando se crea.
 
@@ -114,7 +114,7 @@ Analice las métricas en Azure Portal mediante el [explorador de métricas](../p
 ### <a name="activity-log"></a>Registro de actividades 
 Vea las entradas del registro de actividad en Azure Portal con el filtro inicial establecido en el recurso actual. Copie el registro de actividad en un área de trabajo de Log Analytics para acceder a él, y usarlo en consultas y libros de registro. 
 
-- Consulte [Visualización y recuperación de eventos del registro de actividad de Azure](../platform/activity-log-view.md) para más información sobre la visualización del registro de actividad y la recuperación de entradas mediante varios métodos.
+- Consulte [Visualización y recuperación de eventos del registro de actividad de Azure](../platform/activity-log.md#view-the-activity-log) para más información sobre la visualización del registro de actividad y la recuperación de entradas mediante varios métodos.
 - Consulte la documentación del servicio de Azure para conocer los eventos específicos que se registran.
 
 ![Registro de actividad](media/monitor-azure-resource/activity-log.png)
@@ -125,8 +125,8 @@ Los registros de Azure Monitor consolidan los registros y las métricas de vario
 [Log Analytics](../log-query/get-started-portal.md) le permite trabajar con las [consultas de registros](../log-query/log-query-overview.md), que es una característica eficaz de Azure Monitor que ayuda a realizar un análisis avanzado de los datos de registro mediante un lenguaje de consulta muy completo. Abra Log Analytics en **Registros** en el menú **Supervisión** para que un recurso de Azure funcione con las consultas de registro que usan el recurso como [ámbito de consulta](../log-query/scope.md#query-scope). Esto le permite analizar datos en varias tablas solo para ese recurso. Use **Registros** en el menú de Azure Monitor para acceder a los registros de todos los recursos. 
 
 - Consulte [Introducción a las consultas de registro en Azure Monitor](../log-query/get-started-queries.md) para ver un tutorial sobre el uso del lenguaje de consulta que se utiliza para escribir consultas de registro.
-- Consulte [Recopilación de registros de recurso de Azure en el área de trabajo de Log Analytics en Azure Monitor](../platform/resource-logs-collect-workspace.md) para información sobre cómo se recopilan los registros de recurso en los registros de Azure Monitor y detalles sobre cómo obtener acceso a ellos en una consulta.
-- Consulte [Modo de recopilación](../platform/resource-logs-collect-workspace.md#resource-log-collection-mode) para ver una explicación de cómo se estructuran los datos del registro de recursos en los registros de Azure Monitor.
+- Consulte [Recopilación de registros de recurso de Azure en el área de trabajo de Log Analytics en Azure Monitor](../platform/resource-logs.md#send-to-log-analytics-workspace) para información sobre cómo se recopilan los registros de recurso en los registros de Azure Monitor y detalles sobre cómo obtener acceso a ellos en una consulta.
+- Consulte [Modo de recopilación](../platform/resource-logs.md#send-to-log-analytics-workspace) para ver una explicación de cómo se estructuran los datos del registro de recursos en los registros de Azure Monitor.
 - Consulte la documentación de cada servicio de Azure para más información sobre su tabla en los registros de Azure Monitor.
 
 ![Registros](media/monitor-azure-resource/logs.png)
@@ -163,4 +163,4 @@ Use **Alertas** en el menú de un recurso para ver alertas y administrar las reg
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte [Servicios, esquemas y categorías admitidos en los registros de recursos de Azure](../platform/diagnostic-logs-schema.md) para más información sobre los registros de recursos para los distintos servicios de Azure.  
+* Consulte [Servicios, esquemas y categorías admitidos en los registros de recursos de Azure](../platform/resource-logs-schema.md) para más información sobre los registros de recursos para los distintos servicios de Azure.  
