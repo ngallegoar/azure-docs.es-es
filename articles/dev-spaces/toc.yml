@@ -73,8 +73,6 @@
               href: how-dev-spaces-works-routing.md
             - name: Depuración remota
               href: how-dev-spaces-works-remote-debugging.md
-            - name: Proceso local con Kubernetes
-              href: how-dev-spaces-works-local-process-kubernetes.md
         - name: Funcionamiento de VS Code con Dev Spaces
           href: how-vs-code-works-with-dev-spaces.md
         - name: Configuración de red en las distintas topologías de red
@@ -111,10 +109,6 @@
           href: how-to/ingress-https-traefik.md
         - name: Uso de NGINX para la entrada personalizada y HTTPS
           href: how-to/ingress-https-nginx.md
-        - name: "Uso de Proceso local con Kubernetes con Visual\_Studio Code (versión preliminar)"
-          href: how-to/local-process-kubernetes-vs-code.md
-        - name: "Uso de Proceso local con Kubernetes con Visual\_Studio (versión preliminar)"
-          href: how-to/local-process-kubernetes-visual-studio.md
     - name: Solución de problemas
       href: troubleshooting.md
     - name: Preguntas más frecuentes
