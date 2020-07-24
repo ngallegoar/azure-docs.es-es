@@ -56,7 +56,7 @@
       items: null
     - name: Redes
       href: concepts-network.md
-    - name: Storage
+    - name: Almacenamiento
       href: concepts-storage.md
     - name: Escala
       href: concepts-scale.md
@@ -66,6 +66,9 @@
       items:
         - name: Información general
           href: best-practices.md
+        - name: Arquitectura de línea de base para un clúster de AKS
+          href: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks/
+          maintainContext: true
         - name: Para los operadores del clúster
           items:
             - name: Aislamiento multiempresa y de clúster
