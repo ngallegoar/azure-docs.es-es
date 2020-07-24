@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: include
-ms.date: 06/23/2020
+ms.date: 07/08/2020
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: c8c51d671cd98a606c11a39b6cf489aa288d71b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60012f79c3c04a4ff14c4a7f0609b6940d3402c4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85292065"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544102"
 ---
 **Requisitos del servidor de procesos y configuración**
 
@@ -60,6 +60,9 @@ time.windows.com | Se usan para comprobar la sincronización de la hora entre el
 | <ul> <li> https:\//management.azure.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> *.services.visualstudio.com (opcional) </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | El programa de instalación de OVF necesita acceso a estas direcciones URL adicionales. Azure Active Directory las usa para la administración de identidades y control de acceso.
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | Para completar la descarga de MySQL. </br> En algunas regiones, la descarga podría redirigirse a la dirección URL de la red CDN. Asegúrese de que la dirección URL de la red CDN también esté en la lista blanca, si es necesario.
 |
+
+> [!NOTE]
+> Si tiene [conexión mediante vínculos privados](../articles/site-recovery/hybrid-how-to-enable-replication-private-endpoints.md) al almacén de Site Recovery, no necesita ningún acceso a Internet adicional para el servidor de configuración. Una excepción a este hecho se produce durante la configuración de la máquina de CS mediante la plantilla OVA ya que necesitará acceder a las siguientes direcciones URL por encima de los accesos de vínculo privado https://management.azure.com, https://www.live.com y https://www.microsoft.com. Si no desea permitir el acceso a estas direcciones URL, configure el CS con un instalador unificado.
 
 ## <a name="required-software"></a>Requisitos de software
 
