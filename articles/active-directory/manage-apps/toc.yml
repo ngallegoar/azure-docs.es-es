@@ -38,48 +38,44 @@
       href: application-management-fundamentals.md
     - name: Escenarios comunes de administración de aplicaciones
       href: common-scenarios.md
-    - name: Aplicaciones en la nube e inicio de sesión único
+    - name: Planeamiento de una integración de aplicación en la nube
       items:
-        - name: Planeamiento de una integración de aplicación en la nube
-          items:
-            - name: Introducción a la integración de aplicaciones
-              href: plan-an-application-integration.md
-            - name: Planeación de una implementación del panel de acceso
-              href: access-panel-deployment-plan.md
-            - name: Instrucciones para desarrolladores
-              href: developer-guidance-for-integrating-applications.md
-        - name: Inicio de sesión único
-          items:
-            - name: Habilitar el inicio de sesión único para la aplicación multiinquilino
-              href: isv-sso-content.md
-            - name: Creación de un inquilino de Azure para la aplicación multiinquilino
-              href: isv-tenant-multi-tenant-app.md
-            - name: Elección de la federación multiinquilino
-              href: isv-choose-multi-tenant-federation.md
-            - name: Creación de documentación para la aplicación multiinquilino
-              href: isv-create-sso-documentation.md
-            - name: Planeación de una implementación de inicio de sesión único
-              href: plan-sso-deployment.md
-        - name: Inicio de sesión único de One Click
-          items:
-            - name: ¿Qué es el inicio de sesión único de One Click?
-              href: one-click-sso-tutorial.md
-        - name: Seguridad de la aplicación
-          items:
-            - name: Opciones de acceso a aplicaciones
-              href: what-is-access-management.md
-            - name: Opciones de firma de certificado
-              href: certificate-signing-options.md
-            - name: Administración de certificados
-              href: manage-certificates-for-federated-single-sign-on.md
-            - name: Restricciones de inquilino
-              href: tenant-restrictions.md
-            - name: Configuración del cifrado de tokens SAML
-              href: howto-saml-token-encryption.md
-            - name: Portales de usuario final
-              href: end-user-experiences.md
-    - name: Control y visibilidad de aplicaciones en la nube
-      href: cloud-app-security.md
+        - name: Introducción a la integración de aplicaciones
+          href: plan-an-application-integration.md
+        - name: Planeación de una implementación del panel de acceso
+          href: access-panel-deployment-plan.md
+        - name: Instrucciones para desarrolladores
+          href: developer-guidance-for-integrating-applications.md
+    - name: Inicio de sesión único
+      items:
+        - name: Habilitar el inicio de sesión único para la aplicación multiinquilino
+          href: isv-sso-content.md
+        - name: Creación de un inquilino de Azure para la aplicación multiinquilino
+          href: isv-tenant-multi-tenant-app.md
+        - name: Elección de la federación multiinquilino
+          href: isv-choose-multi-tenant-federation.md
+        - name: Creación de documentación para la aplicación multiinquilino
+          href: isv-create-sso-documentation.md
+        - name: Planeación de una implementación de inicio de sesión único
+          href: plan-sso-deployment.md
+        - name: Inicio de sesión único con un solo clic
+          href: one-click-sso-tutorial.md
+    - name: Seguridad de la aplicación
+      items:
+        - name: Opciones de acceso a aplicaciones
+          href: what-is-access-management.md
+        - name: Opciones de firma de certificado
+          href: certificate-signing-options.md
+        - name: Administración de certificados
+          href: manage-certificates-for-federated-single-sign-on.md
+        - name: Restricciones de inquilino
+          href: tenant-restrictions.md
+        - name: Configuración del cifrado de tokens SAML
+          href: howto-saml-token-encryption.md
+        - name: Portales de usuario final
+          href: end-user-experiences.md
+        - name: Control y visibilidad de aplicaciones en la nube
+          href: cloud-app-security.md
     - name: Application Proxy para aplicaciones locales
       items:
         - name: Proxy de aplicación

@@ -1,29 +1,29 @@
 - name: Documentación de Virtual Machines
   href: index.yml
 - name: Linux Virtual Machines en Azure
-  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/'
+  href: ./linux/index.yml
 - name: Windows Virtual Machines en Azure
-  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/'
+  href: ./windows/index.yml
 - name: Documentación sobre las extensiones de máquina virtual
   href: ./extensions/overview.md
 - name: Cargas de trabajo
   items:
     - name: Red Hat
-      href: ./workloads/redhat/redhat-overview.md
+      href: ./workloads/redhat/overview.md
     - name: Informática de alto rendimiento
       href: ./workloads/hpc/overview.md
     - name: SAP
       href: ./workloads/sap/get-started.md
     - name: Oracle
-      href: ./workloads/oracle/oracle-considerations.md
+      href: ./workloads/oracle/oracle-overview.md
     - name: Rehospedaje del sistema central
       href: ./workloads/mainframe-rehosting/overview.md
 - name: Implementaciones clásicas
   items:
     - name: Máquinas virtuales con Linux mediante la implementación clásica
-      href: 'https://docs.microsoft.com/previous-versions/azure/virtual-machines/linux/classic/'
+      href: /previous-versions/azure/virtual-machines/linux/classic/
     - name: Máquinas virtuales con Windows mediante la implementación clásica
-      href: 'https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/'
+      href: /previous-versions/azure/virtual-machines/windows/classic/
 - name: Recursos
   items:
     - name: Desarrollo de aptitudes con Microsoft Learn

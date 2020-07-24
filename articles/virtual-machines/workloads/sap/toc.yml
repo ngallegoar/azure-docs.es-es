@@ -1,4 +1,4 @@
-- name: Información general
+- name: Introducción
   items:
     - name: Introducción
       href: get-started.md
@@ -254,11 +254,11 @@
 - name: Integración de servicios de Azure en SAP
   items:
     - name: Uso de SAP HANA en Power BI Desktop
-      href: 'https://docs.microsoft.com/power-bi/desktop-sap-hana'
+      href: /power-bi/desktop-sap-hana
     - name: DirectQuery y SAP HANA
-      href: 'https://docs.microsoft.com/power-bi/desktop-directquery-sap-hana'
+      href: /power-bi/desktop-directquery-sap-hana
     - name: Uso del conector SAP BW en Power BI Desktop
-      href: 'https://docs.microsoft.com/power-bi/desktop-sap-bw-connector'
+      href: /power-bi/desktop-sap-bw-connector
     - name: Azure Data Factory ofrece integración de datos de SAP HANA y Business Warehouse
       href: 'https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration'
 - name: Azure Monitor para soluciones de SAP
