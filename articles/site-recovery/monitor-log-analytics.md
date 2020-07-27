@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 0cf0ed943dd2135a3e8d545b76eda35285dae24d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 047b689b10d03cf92e5cc744aa707b3f70fe77bd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300797"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529037"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Supervisión de Site Recovery con registros de Azure Monitor
 
@@ -68,8 +68,8 @@ Puede capturar la información sobre la tasa de renovación de datos y la inform
 7. Una vez completada la instalación, vaya al área de trabajo de Log Analytics y haga clic en **Configuración avanzada**. Vaya a la página **Datos** y haga clic en **Contadores de rendimiento de Windows**. 
 8. Haga clic en **' + '** para agregar los dos contadores siguientes con un intervalo de muestra de 300 segundos:
 
-        ASRAnalytics(*)\SourceVmChurnRate 
-        ASRAnalytics(*)\SourceVmThrpRate 
+    - ASRAnalytics(*)\SourceVmChurnRate
+    - ASRAnalytics(*)\SourceVmThrpRate
 
 Los datos de la tasa de renovación y carga comenzarán a alimentarse en el área de trabajo.
 
