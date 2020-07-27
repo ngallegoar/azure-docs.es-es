@@ -154,7 +154,7 @@
         - name: Plantillas de Resource Manager
           href: template-description.md
     - name: Regions
-      href: regions.md
+      href: ../regions.md
       items:
         - name: Acerca de las extensiones de Azure
           href: ../extensions/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -165,7 +165,7 @@
     - name: Disponibilidad y rendimiento
       items:
         - name: Disponibilidad
-          href: availability.md
+          href: ../availability.md
         - name: Colocalización
           href: co-location.md
         - name: Rendimiento de la red
@@ -234,7 +234,7 @@
         - name: 'GPU: Proceso acelerado'
           items:
             - name: Información general
-              href: sizes-gpu.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+              href: ../sizes-gpu.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
             - name: Serie NC
               href: ../nc-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Serie NCv2
@@ -275,7 +275,7 @@
             - name: Pago por adelantado de Dedicated Host
               href: ../prepay-dedicated-hosts-reserved-instances.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: ¿Qué son las reservas de Azure?
-              href: ../../billing/billing-save-compute-costs-reservations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+              href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md?toc=/azure/virtual-machines/windows/toc.json
             - name: Flexibilidad de tamaño de instancia de máquina virtual
               href: reserved-vm-instance-size-flexibility.md
         - name: Máquinas virtuales de Spot
@@ -283,11 +283,13 @@
           displayName: 'pre-empt, preempt'
         - name: Máquinas virtuales de Azure sin disco temporal
           href: ../azure-vms-no-temp-disk.md
+        - name: Convenciones de nomenclatura de tamaños de máquina virtual de Azure
+          href: ../vm-naming-conventions.md
         - name: Generaciones anteriores
           href: ../sizes-previous-gen.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
           displayName: D-series Ds-series A-series Basic
         - name: Tamaños aislados
-          href: isolation.md
+          href: ../isolation.md
         - name: Unidades de proceso de Azure (ACU)
           href: ../acu.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Puntuaciones de pruebas comparativas
@@ -299,7 +301,7 @@
             - name: Pago de máquinas virtuales por adelantado
               href: prepay-reserved-vm-instances.md
             - name: ¿Qué son las reservas de Azure?
-              href: ../../billing/billing-save-compute-costs-reservations.md
+              href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md
             - name: Flexibilidad de tamaño de instancia de máquina virtual
               href: reserved-vm-instance-size-flexibility.md
     - name: Hosts dedicados
@@ -329,17 +331,22 @@
         - name: Discos de sistema operativo efímero
           href: ephemeral-os-disks.md
     - name: Redes
-      href: network-overview.md
+      href: ../network-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Conjuntos de escalado
       href: ../../virtual-machine-scale-sets/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Automatización de la infraestructura
-      href: infrastructure-automation.md
+      href: ../infrastructure-automation.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Seguridad
       items:
         - name: Seguridad y directivas
           href: security-policy.md
         - name: Azure Disk Encryption
           href: disk-encryption-overview.md
+        - name: Controles de seguridad de Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ../security-controls-policy.md
+        - name: Línea de base de seguridad para Azure Security Benchmark
+          href: security-baseline.md
         - name: Controles de seguridad integrados
           href: virtual-machines-windows-security-controls.md
         - name: Bastion
@@ -351,9 +358,9 @@
     - name: Copia de seguridad y recuperación
       href: backup-recovery.md
     - name: Cloud Adoption Framework
-      href: 'https://docs.microsoft.com/azure/cloud-adoption-framework/get-started/?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json'
+      href: /azure/cloud-adoption-framework/get-started/?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Centro de arquitectura
-      href: 'https://docs.microsoft.com/azure/architecture/'
+      href: /azure/architecture/
     - name: Ejemplo de infraestructura
       href: infrastructure-example.md
 - name: Guías paso a paso
@@ -385,9 +392,6 @@
               href: create-vm-specialized-portal.md
             - name: PowerShell
               href: create-vm-specialized.md
-        - name: Uso de una plantilla de Resource Manager con C#
-          href: csharp-template.md
-          displayName: Azure Resource Manager
         - name: Creación de una máquina virtual con Chef
           href: ../../chef/chef-automation.md
         - name: Uso de Java
@@ -451,7 +455,7 @@
             - name: CLI
               items:
                 - name: Creación de una galería
-                  href: ../linux/shared-images.md
+                  href: ../shared-images-cli.md
                 - name: Crear una imagen
                   items:
                     - name: Desde una máquina virtual
@@ -587,7 +591,7 @@
         - name: Recuperación ante desastres
           href: ../virtual-machines-disaster-recovery-guidance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Copia de seguridad de máquinas virtuales
-          href: ../../backup/backup-introduction-to-azure-backup.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          href: ../../backup/backup-overview.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
           items:
             - name: Copia de seguridad de una sola máquina virtual
               href: ../../backup/quick-backup-vm-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -670,8 +674,6 @@
           href: scheduled-event-service.md
     - name: Supervisión de máquinas virtuales
       items:
-        - name: Supervisión de máquinas virtuales de Azure
-          href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Agentes
           items:
             - name: Información general de los agentes
@@ -698,7 +700,7 @@
                     - name: Historial de versiones
                       href: ../../azure-monitor/platform/diagnostics-extension-versions.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
                     - name: Formato de registros de recursos de líneas JSON
-                      href: ../../azure-monitor/platform/diagnostic-logs-append-blobs.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+                      href: ../../azure-monitor/platform/resource-logs-append-blobs.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
                     - name: Solución de problemas
                       href: ../../azure-monitor/platform/diagnostics-extension-troubleshooting.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Agente de Log Analytics
@@ -708,7 +710,7 @@
                 - name: Agentes de Windows
                   href: ../../azure-monitor/platform/agent-windows.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
                 - name: Extensión de VM para Windows
-                  href: ../../azure-monitor/../virtual-machines/windows/extensions-oms.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json?toc=/azure/azure-monitor/toc.json
+                  href: ../extensions/oms-windows.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json?toc=/azure/azure-monitor/toc.json&toc=/azure/virtual-machines/windows/toc.json
                 - name: Puerta de enlace de Log Analytics
                   href: ../../azure-monitor/platform/gateway.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
                 - name: Administración de agentes
@@ -780,7 +782,7 @@
     - name: Disponibilidad y escala
       items:
         - name: Virtual Machine Scale Sets
-          href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          href: ../../virtual-machine-scale-sets/overview.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
         - name: Alta disponibilidad
           href: manage-availability.md
         - name: Creación de un grupo de selección de ubicación por proximidad
@@ -806,7 +808,7 @@
     - name: Ejecución de aplicaciones
       items:
         - name: SQL Server
-          href: sql/virtual-machines-windows-sql-server-iaas-overview.md
+          href: ../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
         - name: MongoDB
           href: install-mongodb.md
         - name: SAP en Azure
@@ -816,18 +818,18 @@
         - name: Visual Studio
           href: using-visual-studio-vm.md
         - name: Informática de alto rendimiento (HPC)
-          href: hpcpack-cluster-options.md
+          href: /powershell/high-performance-computing/overview
           items:
             - name: Clúster de HPC Pack 2016
-              href: hpcpack-2016-cluster.md
+              href: /powershell/high-performance-computing/overview
             - name: Integración de HPC Pack 2016 Azure Active Directory
-              href: hpcpack-cluster-active-directory.md
+              href: /powershell/high-performance-computing/hpcpack-cluster-active-directory
             - name: Nodo principal de HPC Pack 2012 R2
-              href: hpcpack-cluster-headnode.md
+              href: /powershell/high-performance-computing/deploy-an-hpc-pack-2016-cluster-in-azure
             - name: Envío de trabajos locales a HPC Pack 2012 R2
-              href: hpcpack-cluster-submit-jobs.md
+              href: /powershell/high-performance-computing/hpcpack-cluster-submit-jobs-in-azure
             - name: Excel en HPC Pack
-              href: excel-cluster-hpcpack.md
+              href: /powershell/high-performance-computing/excel-2016-offloading-to-azure-cluster
     - name: Administración del almacenamiento
       items:
         - name: Agregar un disco
@@ -845,6 +847,8 @@
           href: disks-shared-enable.md
         - name: 'Cargar un disco duro virtual en un disco: PowerShell'
           href: disks-upload-vhd-to-managed-disk-powershell.md
+        - name: 'Importación y exportación de discos de forma segura: Azure Portal'
+          href: ../disks-enable-private-links-for-import-export-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Cambio del tamaño de un disco
           href: expand-os-disk.md
         - name: Uso del Explorador de Storage para administrar discos
@@ -861,14 +865,18 @@
           href: incremental-snapshots.md
         - name: Cifrado
           items:
-            - name: 'Habilitación del cifrado basado en host: PowerShell'
+            - name: 'Habilitación del cifrado en el host: PowerShell'
               href: disks-enable-host-based-encryption-powershell.md
+            - name: 'Habilitación del cifrado en el host: Azure Portal'
+              href: disks-enable-host-based-encryption-portal.md
             - name: 'Habilitación de claves administradas por el cliente: PowerShell'
               href: disks-enable-customer-managed-keys-powershell.md
             - name: 'Habilitación de claves administradas por el cliente: Portal'
               href: disks-enable-customer-managed-keys-portal.md
             - name: Habilitación del cifrado en reposo doble
               href: disks-enable-double-encryption-at-rest-powershell.md
+            - name: 'Habilitación del cifrado doble en reposo: Azure Portal'
+              href: disks-enable-double-encryption-at-rest-portal.md
         - name: Migración y conversión
           items:
             - name: Conversión de disco entre Estándar y Premium
@@ -897,7 +905,7 @@
       href: ps-common-network-ref.md
       items:
         - name: Creación de una red virtual
-          href: ../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          href: ../../virtual-network/quick-create-portal.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
         - name: Apertura de puertos a una máquina virtual
           items:
             - name: Azure portal
@@ -917,18 +925,18 @@
     - name: Configuración de identidades administradas
       items:
         - name: Portal
-          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: CLI
-          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: PowerShell
-          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Plantilla de Azure Resource Manager
           displayName: ARM
-          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: REST
-          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-rest-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: SDK de Azure
-          href: /azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          href: ../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Uso de extensiones
       items:
         - name: Restricción de la instalación de extensiones
@@ -1002,7 +1010,7 @@
             - name: De Amazon Web Services (AWS)
               href: aws-to-azure.md
             - name: Uso de Azure Site Recovery
-              href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+              href: ../../site-recovery/migrate-overview.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
 - name: Solución de problemas
   href: ../troubleshooting/index.yml
 - name: Referencia
@@ -1010,7 +1018,7 @@
     - name: Azure CLI
       href: /cli/azure/vm
     - name: Azure PowerShell
-      href: /powershell/azureps-cmdlets-docs
+      href: /powershell/azure/
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.compute
     - name: Java
@@ -1029,7 +1037,7 @@
 - name: Recursos
   items:
     - name: Preguntas y respuestas
-      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-machines.html'
+      href: /answers/topics/azure-virtual-machines.html
     - name: Creación de plantillas de Resource Manager
       displayName: Azure Resource Manager
       href: ../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json

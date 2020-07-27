@@ -83,10 +83,10 @@
       href: application-provisioning-config-problem-scim-compatibility.md
     - name: Escenarios de SCIM y de Graph
       href: scim-graph-scenarios.md
-    - name: Elija un método de aprovisionamiento
-      href: isv-automatic-provisioning-multi-tenant-apps.md
     - name: "Aprovisionamiento de RR.\_HH. en la nube"
       items:
+        - name: Integración de SuccessFactors
+          href: sap-successfactors-integration-reference.md
         - name: Referencia de atributos de SuccessFactors
           href: sap-successfactors-attribute-reference.md
         - name: Referencia de atributos de Workday

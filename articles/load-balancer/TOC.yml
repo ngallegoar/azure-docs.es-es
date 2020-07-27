@@ -18,17 +18,19 @@
       href: quickstart-create-standard-load-balancer-powershell.md
     - name: 'Creación de un equilibrador de carga: plantilla de Resource Manager'
       href: quickstart-load-balancer-standard-public-template.md
-    - name: 'Creación de un equilibrador de carga interno: Azure Portal'
-      href: tutorial-load-balancer-standard-internal-portal.md
-    - name: 'Creación de un equilibrador de carga interno: CLI de Azure'
-      href: load-balancer-get-started-ilb-arm-cli.md
-    - name: 'Creación de un equilibrador de carga interno: Azure PowerShell'
-      href: load-balancer-get-started-ilb-arm-ps.md
-    - name: 'Creación de un equilibrador de carga interno: plantilla de Resource Manager'
-      href: load-balancer-get-started-ilb-arm-template.md
   expanded: true
 - name: Tutoriales
   items:
+    - name: Equilibrador de carga interno
+      items:
+        - name: 'Creación de un equilibrador de carga interno: Azure Portal'
+          href: tutorial-load-balancer-standard-internal-portal.md
+        - name: 'Creación de un equilibrador de carga interno: CLI de Azure'
+          href: load-balancer-get-started-ilb-arm-cli.md
+        - name: 'Creación de un equilibrador de carga interno: Azure PowerShell'
+          href: load-balancer-get-started-ilb-arm-ps.md
+        - name: 'Creación de un equilibrador de carga interno: plantilla de Resource Manager'
+          href: load-balancer-get-started-ilb-arm-template.md
     - name: Equilibrio de carga de máquinas virtuales entre zonas de disponibilidad
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Equilibrio de carga de máquinas virtuales en una zona de disponibilidad específica
@@ -37,7 +39,7 @@
       href: tutorial-load-balancer-port-forwarding-portal.md
 - name: Ejemplos
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
@@ -73,6 +75,8 @@
       href: load-balancer-security-controls.md
     - name: Administración de grupos de back-end
       href: backend-pool-management.md
+    - name: Standard Load Balancer y Virtual Machine Scale Sets
+      href: load-balancer-standard-virtual-machine-scale-sets.md
 - name: Procedimientos
   items:
     - name: Conjuntos de escalado de máquinas virtuales
@@ -101,7 +105,7 @@
           href: configure-load-balancer-outbound-powershell.md
     - name: Creación de Load Balancer público con IPv6
       items:
-        - name: Azure CLI
+        - name: CLI de Azure
           href: 'https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli'
         - name: Azure PowerShell
           href: 'https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell'

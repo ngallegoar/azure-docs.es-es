@@ -46,6 +46,8 @@
           href: expand-existing-host-pool.md
         - name: Administración de grupos de aplicaciones con PowerShell
           href: manage-app-groups-powershell.md
+    - name: Eliminación de un grupo de hosts
+      href: delete-host-pool.md
     - name: Creación de un contenedor de perfiles
       items:
         - name: Uso de un recurso compartido de archivos basado en máquina virtual
@@ -72,6 +74,8 @@
           href: set-up-customize-master-image.md
         - name: Instalación de Office en la imagen de un disco duro virtual principal
           href: install-office-on-wvd-master-image.md
+    - name: Escalado automático de hosts de sesiones
+      href: set-up-scaling-script.md
     - name: Personalización de fuente
       href: customize-feed-for-virtual-desktop-users.md
     - name: Uso de diagnósticos de servicios
@@ -108,6 +112,8 @@
       href: store-fslogix-profile.md
     - name: Integraciones de asociados
       href: partners.md
+    - name: Preguntas frecuentes acerca de Windows Virtual Desktop
+      href: faq.md
     - name: "Preguntas frecuentes sobre la sesión múltiple de Windows\_10\_Enterprise"
       href: windows-10-multisession-faq.md
     - name: Ubicaciones de datos

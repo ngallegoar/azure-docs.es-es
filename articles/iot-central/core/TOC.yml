@@ -67,6 +67,8 @@
       href: concepts-app-templates.md
     - name: ¿Qué son las plantillas de dispositivo?
       href: concepts-device-templates.md
+    - name: Cargas útiles de mensajes
+      href: concepts-telemetry-properties-commands.md
     - name: Conectividad de dispositivos
       href: concepts-get-connected.md
     - name: Conexión de dispositivos de IoT Edge

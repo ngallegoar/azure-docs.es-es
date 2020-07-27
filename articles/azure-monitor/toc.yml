@@ -145,7 +145,7 @@
           href: app/data-retention-privacy.md
     - name: Alertas
       items:
-        - name: Información general
+        - name: Introducción
           href: platform/alerts-overview.md
         - name: Alertas de métricas
           href: platform/alerts-metric-overview.md
@@ -157,6 +157,11 @@
       href: visualizations.md
     - name: Integraciones de asociados
       href: platform/partners.md
+    - name: Seguridad
+      items:
+        - name: Controles de seguridad de Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./platform/security-controls-policy.md
 - name: Guías paso a paso
   items:
     - name: Escenarios
@@ -213,7 +218,7 @@
               href: faq.md#agents
             - name: Extensión de Diagnósticos de Azure
               items:
-                - name: Información general
+                - name: Introducción
                   href: platform/diagnostics-extension-overview.md
                 - name: Windows
                   displayname: diagnostics extension
@@ -244,8 +249,6 @@
                       href: platform/diagnostics-extension-to-application-insights.md
                     - name: Historial de versiones
                       href: platform/diagnostics-extension-versions.md
-                    - name: Formato de registros de recursos de líneas JSON
-                      href: platform/resource-logs-append-blobs.md
                     - name: Solución de problemas
                       href: platform/diagnostics-extension-troubleshooting.md
                 - name: Linux
@@ -264,9 +267,9 @@
                 - name: Agentes de Linux
                   href: platform/agent-linux.md
                 - name: Extensión de VM para Windows
-                  href: ../virtual-machines/windows/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+                  href: ../virtual-machines/extensions/oms-windows.md?toc=/azure/azure-monitor/toc.json
                 - name: Extensión de VM para Linux
-                  href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+                  href: ../virtual-machines/extensions/oms-linux.md?toc=/azure/azure-monitor/toc.json
                 - name: Puerta de enlace de Log Analytics
                   href: platform/gateway.md
                 - name: Administración de agentes
@@ -430,7 +433,7 @@
         - name: Escalado con métricas personalizadas
           href: platform/autoscale-custom-metric.md
         - name: Escalado de conjuntos de escalado de máquinas virtuales
-          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
+          href: ../virtual-machine-scale-sets/tutorial-autoscale-powershell.md?toc=/azure/azure-monitor/toc.json
         - name: Escalado de conjuntos de escalado de máquinas virtuales con plantillas de Resource Manager
           href: platform/autoscale-virtual-machine-scale-sets.md
         - name: Uso de notificaciones por correo electrónico y webhooks
@@ -446,7 +449,7 @@
             - name: Disponibilidad
               href: app/monitor-web-app-availability.md
             - name: Alertas de métricas
-              href: app/alerts.md
+              href: ./platform/alerts-log.md
         - name: Reglas de alertas de métricas
           items:
             - name: Administración de alertas de métricas
@@ -474,19 +477,20 @@
             - name: Alerta de un evento del registro de actividades
               href: platform/alerts-activity-log.md
             - name: Migración de eventos de administración a alertas del registro de actividad
-              href: platform/migrate-management-alerts.md
+              href: ./platform/activity-log-alerts.md
             - name: Esquema de Webhook
               href: platform/activity-log-alerts-webhook.md
         - name: Alertas del estado del servicio
           items:
             - name: Ver notificaciones
-              href: platform/service-notifications.md
+              href: ../service-health/service-notifications.md
             - name: Configuración de alertas en eventos de notificación
               href: platform/alerts-activity-log-service-notifications.md
         - name: Notificaciones y acciones
           items:
             - name: Reglas de acción (versión preliminar)
               href: platform/alerts-action-rules.md
+              displayName: 'Azure CLI, az monitor action rule'
             - name: Creación de un grupo de acciones
               href: platform/action-groups.md
             - name: Esquema de alertas comunes
@@ -556,7 +560,7 @@
         - name: Introducción sobre Application Insights
           href: app/app-insights-overview.md
         - name: Preguntas más frecuentes
-          href: app/troubleshoot-faq.md
+          href: ./faq.md
         - name: Supervisión basada en código
           items:
             - name: ASP.NET Core
@@ -970,7 +974,11 @@
         - name: Análisis de datos con consultas de registros
           href: insights/container-insights-log-search.md
         - name: Alertas
-          href: insights/container-insights-alerts.md
+          items:
+            - name: Creación de reglas de alertas del registro
+              href: insights/container-insights-log-alerts.md
+            - name: Creación de reglas de alertas de métricas
+              href: insights/container-insights-metric-alerts.md
         - name: Administración de agentes
           href: insights/container-insights-manage-agent.md
         - name: Configuración del recopilación de métricas de Prometheus
@@ -1016,6 +1024,7 @@
       items:
         - name: Información general
           href: insights/solutions.md
+          displayName: 'Azure CLI, az monitor log-analytics'
         - name: Soluciones de destino
           href: insights/solution-targeting.md
         - name: Soluciones disponibles
@@ -1028,8 +1037,6 @@
               href: insights/capacity-performance.md
             - name: Supervisión de contenedores de Docker y Windows
               href: insights/containers.md
-            - name: Análisis de Key Vault
-              href: insights/azure-key-vault.md
             - name: Redes
               items:
                 - name: Análisis de redes
@@ -1173,7 +1180,7 @@
     - name: Cambios de terminología
       href: terminology.md
     - name: Referencia de datos
-      href: 'https://docs.microsoft.com/azure/azure-monitor/reference/'
+      href: /azure/azure-monitor/reference/
     - name: Métricas compatibles
       items:
         - name: Métricas de la plataforma
@@ -1288,6 +1295,8 @@
         - name: Cambio al formato de almacenamiento de blobs
           displayname: Diagnostic settings
           href: platform/resource-logs-blob-format.md
+        - name: Key Vault Analytics (en desuso)
+          href: insights/azure-key-vault-deprecated.md
 - name: Recursos
   items:
     - name: Azure Roadmap

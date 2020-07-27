@@ -46,9 +46,9 @@
       items:
         - name: 1 - Diseño de una base de datos
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: tutorial-design-database-using-azure-portal.md
-            - name: Azure CLI
+            - name: CLI de Azure
               href: tutorial-design-database-using-azure-cli.md
             - name: Azure PowerShell
               href: tutorial-design-database-using-powershell.md
@@ -233,13 +233,13 @@
           items:
             - name: Azure portal
               href: howto-manage-firewall-using-portal.md
-            - name: Azure CLI
+            - name: CLI de Azure
               href: howto-manage-firewall-using-cli.md
         - name: Restauración de un servidor
           items:
             - name: Azure portal
               href: howto-restore-server-portal.md
-            - name: Azure CLI
+            - name: CLI de Azure
               href: howto-restore-server-cli.md
             - name: Azure PowerShell
               href: howto-restore-server-powershell.md
@@ -259,7 +259,7 @@
           items:
             - name: Azure portal
               href: howto-configure-server-parameters-using-portal.md
-            - name: Azure CLI
+            - name: CLI de Azure
               href: howto-configure-server-parameters-using-cli.md
             - name: Azure PowerShell
               href: howto-configure-server-parameters-using-powershell.md
@@ -267,15 +267,15 @@
           items:
             - name: Azure portal
               href: howto-auto-grow-storage-portal.md
-            - name: Azure CLI
+            - name: CLI de Azure
               href: howto-auto-grow-storage-cli.md
             - name: Azure PowerShell
               href: howto-auto-grow-storage-powershell.md
         - name: Registros de acceso
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-configure-server-logs-in-portal.md
-            - name: Azure CLI
+            - name: CLI de Azure
               href: howto-configure-server-logs-using-cli.md
         - name: Supervisión
           items:
@@ -295,17 +295,17 @@
           items:
             - name: Azure portal
               href: howto-manage-vnet-using-portal.md
-            - name: Azure CLI
+            - name: CLI de Azure
               href: howto-manage-vnet-using-cli.md
         - name: Private Link
           items:
             - name: Azure portal
               href: howto-configure-privatelink-portal.md
-            - name: Azure CLI
+            - name: CLI de Azure
               href: howto-configure-privatelink-cli.md
         - name: Cifrado de datos
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: howto-data-encryption-portal.md
             - name: Azure CLI
               href: howto-data-encryption-cli.md
@@ -319,7 +319,7 @@
           items:
             - name: Azure portal
               href: howto-restart-server-portal.md
-            - name: Azure CLI
+            - name: CLI de Azure
               href: howto-restart-server-cli.md
             - name: Azure PowerShell
               href: howto-restart-server-powershell.md
@@ -351,6 +351,8 @@
           items:
             - name: Creación de alertas basadas en métricas
               href: howto-hyperscale-alert-on-metric.md
+            - name: Acceso a registros de bases de datos
+              href: howto-hyperscale-logging.md
         - name: Solución de problemas
           items:
             - name: Solución de problemas de conexión

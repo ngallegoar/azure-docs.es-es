@@ -93,9 +93,14 @@
     - name: Diseño de flujos de trabajo de directiva como código
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./concepts/policy-as-code.md
-    - name: Azure Policy para Kubernetes (versión preliminar)
-      displayName: 'aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc'
-      href: ./concepts/policy-for-kubernetes.md
+    - name: Integración de Kubernetes
+      items:
+        - name: Azure Policy para Kubernetes (versión preliminar)
+          displayName: 'aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc'
+          href: ./concepts/policy-for-kubernetes.md
+        - name: Protección de pods con Azure Policy (versión preliminar)
+          displayName: 'aks, psp, rego, opa'
+          href: ../../aks/use-pod-security-on-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
     - name: Auditoría de máquinas virtuales con la configuración de invitado
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md

@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentación de Azure Machine Learning
-summary: Aprenda a entrenar, implementar y administrar modelos de Machine Learning, experimentos de Machine Learning automatizado y canalizaciones a escala con Azure Machine Learning. Tutoriales, ejemplos de código, referencias de API y otros elementos que muestran cómo hacerlo.
+summary: Aprenda a entrenar, implementar y administrar modelos de Machine Learning, a usar AutoML y a ejecutar canalizaciones a escala con Azure Machine Learning.  Tutoriales, ejemplos de código, referencias de API y otros elementos que muestran cómo hacerlo.
 metadata:
   title: Documentación de Azure Machine Learning
-  description: Aprenda a entrenar, implementar y administrar modelos de Machine Learning, experimentos de Machine Learning automatizado y canalizaciones a escala con Azure Machine Learning. Tutoriales, ejemplos de código, referencias de API y otros elementos que muestran cómo hacerlo.
+  description: Aprenda a entrenar, implementar y administrar modelos de Machine Learning, a usar AutoML y a ejecutar canalizaciones a escala with Azure Machine Learning. Tutoriales, ejemplos de código, referencias de API y otros elementos que muestran cómo hacerlo.
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 04/30/2020
-  ms.openlocfilehash: 57a16ca35699f11c55e12c494a4cbb93bac8a334
-  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+  ms.date: 07/30/2020
+  ms.openlocfilehash: 1006874272fa4798d9e56cbc76d7b039e697c413
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83593008"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87047798"
 landingContent:
 - title: Introducción al aprendizaje automático
   linkLists:
@@ -31,14 +31,14 @@ landingContent:
       url: tutorial-first-experiment-automated-ml.md
     - text: RStudio
       url: tutorial-1st-r-experiment.md
-- title: Uso de la experiencia web de Studio
+- title: Uso del diseñador y de AutoML en Studio
   linkLists:
   - linkListType: overview
     links:
+    - text: ¿Qué es el aprendizaje automático automatizado (AutoML)?
+      url: concept-automated-ml.md
     - text: ¿Qué es el diseñador (arrastrar y colocar)?
       url: concept-designer.md
-    - text: Descripción del aprendizaje automático
-      url: concept-automated-ml.md
     - text: Elección de un algoritmo
       url: how-to-select-algorithms.md
   - linkListType: tutorial
@@ -51,7 +51,7 @@ landingContent:
       url: tutorial-designer-automobile-price-train-score.md
     - text: Creación de un proyecto de etiquetado de imágenes
       url: tutorial-labeling.md
-- title: Uso del SDK de Python
+- title: Entrenamiento con el SDK de Python
   linkLists:
   - linkListType: tutorial
     links:
@@ -71,19 +71,19 @@ landingContent:
       url: how-to-machine-learning-interpretability.md
     - text: Aprendizaje profundo frente a Machine Learning
       url: concept-deep-learning-vs-machine-learning.md
-    - text: Entrenamiento con Scikit-Learn
+    - text: Entrenamiento y registro de modelos de Scikit-learn
       url: how-to-train-scikit-learn.md
-    - text: Entrenamiento con TensorFlow
+    - text: Entrenamiento y registro de modelos de TensorFlow
       url: how-to-train-tensorflow.md
-    - text: Entrenamiento con PyTorch
+    - text: Entrenamiento y registro de modelos de PyTorch
       url: how-to-train-pytorch.md
-    - text: Entrenamiento con Keras
+    - text: Entrenamiento y registro de modelos de Keras
       url: how-to-train-keras.md
     - text: Aprendizaje de refuerzo
       url: how-to-use-reinforcement-learning.md
     - text: ¿Qué son las canalizaciones de Machine Learning?
       url: concept-ml-pipelines.md
-- title: Implementación y administración de modelos (MLOps)
+- title: 'MLOps: Implementación y administración de modelos'
   linkLists:
   - linkListType: how-to-guide
     links:

@@ -5,6 +5,8 @@
   items:
     - name: Arquitectura de la solución
       href: architecture.md
+    - name: Solución de seguridad para Azure RTOS
+      href: iot-security-azure-rtos.md
     - name: Agentes de seguridad
       href: security-agent-architecture.md
     - name: Módulo de seguridad de Edge
@@ -53,9 +55,9 @@
       items:
         - name: Selección de un agente para su implementación
           href: how-to-deploy-agent.md
-        - name: 'Implementación de un agente de seguridad basado en C# en un dispositivo Windows'
+        - name: Implementación de un agente de seguridad basado en C# en un dispositivo Windows
           href: how-to-deploy-windows-cs.md
-        - name: 'Implementación de un agente de seguridad basado en C# en un dispositivo Linux'
+        - name: Implementación de un agente de seguridad basado en C# en un dispositivo Linux
           href: how-to-deploy-linux-cs.md
         - name: Implementación de un agente de seguridad basado en C en un dispositivo Linux
           href: how-to-deploy-linux-c.md
@@ -65,7 +67,7 @@
           href: troubleshoot-agent.md
         - name: Configuración local en C
           href: azure-iot-security-local-configuration-c.md
-        - name: 'Configuración local en C#'
+        - name: Configuración local en C#
           href: azure-iot-security-local-configuration-csharp.md
     - name: Implementación del módulo de seguridad de Edge
       href: how-to-deploy-edge.md

@@ -634,7 +634,7 @@
                   href: ./hdinsight-apache-spark-with-kafka.md
                 - name: Uso de Apache Kafka con Azure Container Service
                   href: ./kafka/apache-kafka-azure-container-services.md
-        - name: Administrar
+        - name: Administración
           items:
             - name: Uso de Apache Kafka en una red virtual
               href: ./kafka/apache-kafka-connect-vpn-gateway.md
@@ -683,7 +683,7 @@
               href: ./hbase/apache-hbase-using-phoenix-query-server-rest-sdk.md
             - name: Carga masiva de datos en Apache Phoenix mediante psql
               href: ./hbase/apache-hbase-phoenix-psql.md
-        - name: Administrar
+        - name: Administración
           items:
             - name: Escrituras aceleradas
               href: ./hbase/apache-hbase-accelerated-writes.md
@@ -851,7 +851,7 @@
               href: ./r-server/r-server-compute-contexts.md
             - name: ScaleR y SparkR
               href: ./hdinsight-hadoop-r-scaler-sparkr.md
-        - name: Administrar
+        - name: Administración
           items:
             - name: Administración de clústeres de Machine Learning Services
               href: ./r-server/r-server-hdinsight-manage.md
@@ -939,8 +939,6 @@
           href: ./control-network-traffic.md
         - name: Direcciones IP necesarias para grupos de seguridad de red y rutas definidas por el usuario
           href: ./hdinsight-management-ip-addresses.md
-        - name: Etiquetas de servicio de Azure Firewall
-          href: ./hdinsight-service-tags.md
         - name: Cifrado de disco mediante claves administradas por el cliente
           href: ./disk-encryption.md
         - name: Sincronización de LDAP en Ranger y Apache Ambari
@@ -967,8 +965,12 @@
           href: ./hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
         - name: Uso del firewall para restringir el tráfico de salida
           href: ./hdinsight-restrict-outbound-traffic.md
+        - name: Creación de directivas de punto de conexión de servicio
+          href: ./service-endpoint-policies.md
         - name: Configuración de una aplicación virtual de red
           href: ./network-virtual-appliance.md
+        - name: Etiquetas de servicio de Azure Firewall
+          href: ./hdinsight-service-tags.md
         - name: Solución de problemas
           items:
             - name: Problemas de autenticación de ESP
