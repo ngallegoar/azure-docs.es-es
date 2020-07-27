@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a5829057aed913ea824cbd2fd6b52369b5e70d88
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: fada393dcab61cf00a0a3befcf4af3660bf625dc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85801856"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536528"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Inicio rápido: Implementación del primer módulo de IoT Edge en un dispositivo virtual Linux
 
@@ -63,7 +63,7 @@ Para empezar el inicio rápido, cree un centro de IoT con la CLI de Azure.
 
 El nivel gratuito de IoT Hub funciona para esta guía de inicio rápido. Si ha usado IoT Hub en el pasado y ya tiene un centro creado, puede usarlo.
 
-El código siguiente crea un centro **F1** gratis en el grupo de recursos **IoTEdgeResources**. Reemplace `{hub_name}` por un nombre único para su centro de IoT.
+El código siguiente crea un centro **F1** gratis en el grupo de recursos **IoTEdgeResources**. Reemplace `{hub_name}` por un nombre único para su centro de IoT. El centro de IoT puede tardar algunos minutos en crearse.
 
    ```azurecli-interactive
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 --partition-count 2
@@ -81,7 +81,7 @@ Cree una identidad para el dispositivo de IoT Edge, con el fin de que pueda comu
 
 Dado que los dispositivos de IoT Edge se comportan y se pueden administrar de manera diferente a los dispositivos de IoT típicos, declare que esta identidad es para un dispositivo de IoT Edge con la marca `--edge-enabled`.
 
-1. En Azure Cloud Shell, escriba el comando siguiente para crear un dispositivo denominado **myEdgeDevice** en el centro.
+1. En Azure Cloud Shell, escriba el comando siguiente para crear un dispositivo llamado **myEdgeDevice** en el centro.
 
    ```azurecli-interactive
    az iot hub device-identity create --device-id myEdgeDevice --edge-enabled --hub-name {hub_name}
@@ -233,10 +233,19 @@ Si desea continuar con los tutoriales de IoT Edge, puede usar el dispositivo que
 
 Si ha creado una máquina virtual y un centro de IoT en un nuevo grupo de recursos, puede eliminar dicho grupo y todos los recursos asociados. Vuelva a comprobar el contenido del grupo de recursos para asegurarse de que no haya nada que desee conservar. Si no desea eliminar todo el grupo, puede eliminar recursos individuales en su lugar.
 
-Quite el grupo **IoTEdgeResources**.
+> [!IMPORTANT]
+> La eliminación de un grupo de recursos es irreversible.
+
+Quite el grupo **IoTEdgeResources**. La eliminación de un grupo de recursos puede tardar unos minutos.
 
 ```azurecli-interactive
 az group delete --name IoTEdgeResources
+```
+
+Puede confirmar que se ha eliminado el grupo de recursos mediante la visualización de la lista de grupos de recursos.
+
+```azurecli-interactive
+az group list
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

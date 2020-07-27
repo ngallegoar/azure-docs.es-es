@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Obtención de intención con las API REST (LUIS)'
+title: 'Inicio rápido: Cambio de modelos con las API REST: LUIS'
 titleSuffix: Azure Cognitive Services
 description: En este inicio rápido de API REST, usará una aplicación de LUIS disponible públicamente para determinar la intención de un usuario a partir de texto conversacional.
 services: cognitive-services
@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 06/03/2020
 ms.author: diberry
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: a4d84aa6dc24bc7d293200e20d60c5fe349a769d
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: cc3e0c66a018c46fcae76dea9b74735082e077aa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608577"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538112"
 ---
 # <a name="quickstart-change-model-with-rest-apis"></a>Inicio rápido: Cambio de modelos con la API REST
 

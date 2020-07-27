@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: En este inicio rápido se muestra cómo usar Azure Dev Spaces y Visual Studio Code para depurar e iterar rápidamente una aplicación .NET Core en Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: b38562879fa67d7ee82e3251ea2fcaa57a2075d6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b8ddf2e484b3d1525825f8df3b738091564b0a78
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80240206"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512459"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio-code-and-net-core---azure-dev-spaces"></a>Inicio rápido: Depuración e iteración en Kubernetes: Visual Studio Code y .NET Core: Azure Dev Spaces
 
@@ -102,7 +102,7 @@ Este comando prepara el proyecto para que se ejecute en Azure Dev Spaces mediant
 
 Haga clic en el icono *Depurar* situado a la izquierda y haga clic en *.NET Core Launch (AZDS)* [Inicio de .NET Core (AZDS)] en la parte superior.
 
-![](media/get-started-netcore/debug-configuration.png)
+![La captura de pantalla corresponde a la esquina superior izquierda de la ventana de Visual Studio Code. Se resalta el icono de depuración, el panel izquierdo se titula "Depurar" y hay una lista desplegable a la derecha del título que muestra "dot NET Core Launch (A Z D S)".](media/get-started-netcore/debug-configuration.png)
 
 Este comando compila y ejecuta el servicio en Azure Dev Spaces en modo de depuración. La ventana *Terminal* situada en la parte inferior muestra la salida y las direcciones URL de la compilación para el servicio que ejecuta Azure Dev Spaces. La *consola de depuración* muestra la salida del registro.
 
@@ -155,7 +155,7 @@ ViewData["Message"] = "Your application description page in Azure while debuggin
 
 Guarde el archivo. Haga clic en *Depurar* y en *Reiniciar depuración* o en la *barra de herramientas de depuración*, haga clic en el botón *Reiniciar depuración*.
 
-![](media/common/debug-action-refresh.png)
+![La barra de herramientas de depuración es un panel pequeño situado en la parte superior central de la página (justo debajo del título de la página). El botón de reinicio muestra una flecha circular y está resaltado. La imagen alternativa del botón es "Reiniciar (Ctrl+Mayús+F5)".](media/common/debug-action-refresh.png)
 
 Abra el servicio en un explorador y observe que se muestra el mensaje actualizado.
 

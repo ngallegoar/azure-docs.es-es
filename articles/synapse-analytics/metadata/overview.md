@@ -1,5 +1,5 @@
 ---
-title: Modelo de metadatos compartidos de Azure Synapse Analytics
+title: Modelo de metadatos compartidos
 description: Azure Synapse Analytics permite que los diferentes motores de cálculo de áreas de trabajo compartan bases de datos y tablas entre los grupos de Spark (versión preliminar), el motor de SQL a petición (versión preliminar) y los grupos de SQL.
 services: synapse-analytics
 author: MikeRys
@@ -9,12 +9,12 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 26a65aef0d7524bf73c6dc2981bd71539e59ed76
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: c41c3346d04dd1fc00a7ddb9e7fea66f619995e6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080153"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496067"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Metadatos compartidos de Azure Synapse Analytics
 

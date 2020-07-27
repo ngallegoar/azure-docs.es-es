@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplo de script de Azure PowerShell: creación de una máquina virtual Windows'
+title: 'Ejemplo de script de Azure PowerShell: creación de una máquina virtual Windows sencilla'
 description: 'Ejemplo de script de Azure PowerShell: creación de una máquina virtual Windows'
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 71cd1fb1e29783b4601c0a43746148b7fb9ebe47
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e76b0912a2862ecf49fb4b06e15285db50a0442a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460824"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509450"
 ---
 # <a name="create-a-virtual-machine-with-powershell"></a>Creación de una máquina virtual con PowerShell
 
@@ -47,9 +47,9 @@ Este script usa los siguientes comandos para crear la implementación. Cada elem
 
 | Get-Help | Notas |
 |---|---|
-| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Crea la máquina virtual y la conecta con la tarjeta de red, la red virtual, la subred y el grupo de seguridad de red. Este comando también abre el puerto 80 y establece las credenciales administrativas. |
-|[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Quita un grupo de recursos y todos los recursos incluidos en él. |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [New-AzVM](/powershell/module/az.compute/new-azvm) | Crea la máquina virtual y la conecta con la tarjeta de red, la red virtual, la subred y el grupo de seguridad de red. Este comando también abre el puerto 80 y establece las credenciales administrativas. |
+|[Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Quita un grupo de recursos y todos los recursos incluidos en él. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

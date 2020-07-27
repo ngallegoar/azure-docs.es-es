@@ -1,6 +1,6 @@
 ---
-title: 'Actualizaciones de servicio para los grupos de host de Windows Virtual Desktop: Azure'
-description: Cómo crear un grupo host de validación para supervisar actualizaciones de servicio antes de implementar las actualizaciones en producción.
+title: 'Actualizaciones de servicio para los grupos de host de Windows Virtual Desktop (otoño de 2019): Azure'
+description: Obtenga información sobre cómo crear un grupo host de validación para supervisar las actualizaciones de servicio antes de implementar las actualizaciones en producción.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fe6b047d10b8aef8faf81365cae940b05b3d798c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 806c3396d9188ea6abc5f779a26d99247d802ebe
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117735"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527597"
 ---
-# <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutorial: Creación de un grupo host para validar las actualizaciones del servicio
+# <a name="tutorial-create-a-host-pool-to-validate-service-updates-fall-2019-release"></a>Tutorial: Creación de un grupo de hosts para validar las actualizaciones de servicio (versión de otoño de 2019)
 
 >[!IMPORTANT]
 >Este contenido se aplica a la versión Fall 2019 que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager incorporados en la actualización Spring 2020, consulte [este artículo](../create-validation-host-pool.md).

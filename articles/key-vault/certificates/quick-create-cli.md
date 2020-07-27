@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Establecimiento y recuperación de un certificado de Azure Key Vault'
+title: 'Inicio rápido: Establecimiento y visualización de los certificados de Azure Key Vault: CLI de Azure'
 description: Inicio rápido en el que se muestra cómo establecer y recuperar un certificado de Azure Key Vault mediante la CLI de Azure
 services: key-vault
 author: msmbaldwin
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d8107d26405423da6bb5d85ab79b83edce95d179
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: e845ce859994aaac7d225ce3411c280582300408
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419619"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536494"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-cli"></a>Inicio rápido: Establecimiento y recuperación de un certificado de Azure Key Vault mediante la CLI de Azure
 

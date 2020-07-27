@@ -10,14 +10,14 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 5f3a73ed6c7843c13d35a91a75189fe9dd8d4dbd
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 1665bc42578c189ed27208eb31cc4bdb2e27bbb9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84628385"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536171"
 ---
-# <a name="tutorial-create-a-labeling-project-preview-for-multi-class-image-classification"></a>Tutorial: Creación de un proyecto de etiquetado (versión preliminar) para la clasificación de imágenes con varias clases 
+# <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Tutorial: Creación de un proyecto de etiquetado para la clasificación de imágenes con varias clases 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En este tutorial se muestra cómo administrar el proceso de creación de etiquetas (también conocido como etiquetado) de imágenes que se usarán como datos para crear modelos de aprendizaje automático. El etiquetado de datos en Azure Machine Learning está en versión preliminar pública.
@@ -130,7 +130,7 @@ Seleccione **Next** (Siguiente) para continuar.
 
 1. Seleccione **Next** (Siguiente).
 
-1. En el formulario **Etiquetado con asistencia de ML**, deje la casilla desactivada. El etiquetado con asistencia de ML requiere más datos de los que va a usar en este tutorial.
+1. Si usa un área de trabajo Enterprise, verá la sección **Etiquetado con asistencia de ML**.  Deje desactivada la casilla. El etiquetado con asistencia de ML requiere más datos de los que va a usar en este tutorial.
 
 1. Seleccione **Create project** (Crear proyecto).
 

@@ -1,5 +1,5 @@
 ---
-title: 'Creación de una máquina virtual conectando un disco administrado como disco del SO: Ejemplo de PowerShell'
+title: 'Creación de una máquina virtual mediante la conexión de un disco administrado como disco del sistema operativo (Windows): PowerShell'
 description: 'Script de Azure PowerShell de Azure de ejemplo: creación de una máquina virtual conectando un disco administrado como disco del SO'
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 4514940918f33ee28fc4195b821018df54252e13
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8001990d4ade9986bea81f63b60832ed69024265
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75368495"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509570"
 ---
-# <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-powershell"></a>Creación de una máquina virtual con un disco del SO administrado mediante PowerShell
+# <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-powershell-windows"></a>Creación de una máquina virtual con un disco administrado existente del sistema operativo mediante PowerShell (Windows)
 
 Este script crea una máquina virtual conectando un disco administrado como disco del SO. Use este script en los anteriores escenarios:
 * Creación de una máquina virtual desde un disco del SO administrado que se copió desde un disco administrado de otra suscripción
@@ -51,15 +51,15 @@ Este script usa los siguientes comandos para obtener las propiedades del disco a
 
 | Get-Help | Notas |
 |---|---|
-| [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/Get-AzDisk) | Obtiene el objeto de disco basado en el nombre y el grupo de recursos de un disco. La propiedad de identificador del objeto de disco devuelto se utiliza para conectar el disco a una nueva máquina virtual. |
-| [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) | Crea una configuración de máquina virtual. Esta configuración incluye diversa información, como el nombre de la máquina virtual, sistema el operativo y las credenciales administrativas. La configuración se utiliza durante la creación de las máquinas virtuales. |
-| [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk) | Conecta un disco administrado mediante la propiedad de identificador del disco como disco del SO a una nueva máquina virtual. |
-| [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) | Crea una dirección IP pública. |
-| [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) | Crea una interfaz de red. |
-| [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Cree una máquina virtual. |
-|[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Quita un grupo de recursos y todos los recursos incluidos en él. |
+| [Get-AzDisk](/powershell/module/az.compute/get-azdisk) | Obtiene el objeto de disco basado en el nombre y el grupo de recursos de un disco. La propiedad de identificador del objeto de disco devuelto se utiliza para conectar el disco a una nueva máquina virtual. |
+| [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) | Crea una configuración de máquina virtual. Esta configuración incluye diversa información, como el nombre de la máquina virtual, sistema el operativo y las credenciales administrativas. La configuración se utiliza durante la creación de las máquinas virtuales. |
+| [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) | Conecta un disco administrado mediante la propiedad de identificador del disco como disco del SO a una nueva máquina virtual. |
+| [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Crea una dirección IP pública. |
+| [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) | Crea una interfaz de red. |
+| [New-AzVM](/powershell/module/az.compute/new-azvm) | Cree una máquina virtual. |
+|[Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Quita un grupo de recursos y todos los recursos incluidos en él. |
 
-Para las imágenes de Marketplace, utilice [Set-AzVMPlan](https://docs.microsoft.com/powershell/module/az.compute/set-azvmplan) para establecer la información del plan.
+Para las imágenes de Marketplace, utilice [Set-AzVMPlan](/powershell/module/az.compute/set-azvmplan) para establecer la información del plan.
 
 ```powershell
 Set-AzVMPlan -VM $VirtualMachine -Publisher $Publisher -Product $Product -Name $Bame

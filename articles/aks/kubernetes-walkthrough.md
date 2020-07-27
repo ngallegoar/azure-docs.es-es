@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Implementación de un clúster de Azure Kubernetes Service'
+title: 'Inicio rápido: Implementación de un clúster de AKS mediante la CLI de Azure'
 description: Aprenda a crear rápidamente un clúster de Kubernetes, implementar una aplicación y supervisar el rendimiento en Azure Kubernetes Service (AKS) mediante la CLI de Azure.
 services: container-service
 ms.topic: quickstart
@@ -11,12 +11,12 @@ ms.custom:
 - seo-javascript-september2019
 - seo-javascript-october2019
 - seo-python-october2019
-ms.openlocfilehash: c55e93e4fe8baf04504f1cff6e762dfcb5c46c18
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 2e6feb7c1d406a26c5a668d36d60ea0dbbae160c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251486"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507121"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service mediante la CLI de Azure
 
@@ -109,7 +109,7 @@ Un archivo de manifiesto de Kubernetes define un estado deseado del clúster, po
 > [!TIP]
 > En esta guía de inicio rápido, se crean e implementan manualmente los manifiestos de aplicación en el clúster de AKS. En escenarios más reales, puede usar [Azure Dev Spaces][azure-dev-spaces] para iterar rápidamente y depurar el código directamente en el clúster de AKS. Puede usar Dev Spaces entre plataformas de sistemas operativos y entornos de desarrollo, y trabajar junto con otras personas de su equipo.
 
-Cree un archivo denominado `azure-vote.yaml` y cópielo en la siguiente definición de código YAML. Si usa Azure Cloud Shell, este archivo se puede crear mediante `vi` o `nano` como si funcionara en un sistema físico o virtual:
+Cree un archivo denominado `azure-vote.yaml` y cópielo en la siguiente definición de código YAML. Si usa Azure Cloud Shell, este archivo se puede crear mediante `code`, `vi` o `nano` como si trabajara en un sistema físico o virtual:
 
 ```yaml
 apiVersion: apps/v1

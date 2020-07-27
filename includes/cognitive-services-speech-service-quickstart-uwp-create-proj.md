@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: a24c0a3129a851eb94c43158424f786b1df5a532
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 8f7723ecaf6587eb61474304b0b5784413ac6f86
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85414372"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544792"
 ---
 Para crear un proyecto de Visual Studio C++ para el desarrollo de la Plataforma universal de Windows (UPW), debe configurar las opciones de desarrollo de Visual Studio, crear el proyecto, seleccionar la arquitectura de destino, configurar la captura de audio e instalar el SDK de voz.
 
@@ -66,7 +66,7 @@ Después, cree el proyecto.
 Ahora seleccione la arquitectura de la plataforma de destino. En la barra de herramientas de Visual Studio, busque el cuadro desplegable **Plataformas de solución**. (Si no lo ve, elija **Ver** > **Barra de herramientas** > **Estándar** para mostrar la barra de herramientas que contiene **Plataformas de solución**). Si está ejecutando Windows de 64 bits, elija **x64** en el cuadro desplegable. Windows de 64 bits puede ejecutar también aplicaciones de 32 bits, por lo que puede elegir **x86**, si lo prefiere.
 
 > [!NOTE]
-> El SDK de Voz solo admite los procesadores compatibles con Intel. Actualmente no se admiten los procesadores ARM.
+> El SDK de Voz es compatible con todos los procesadores compatibles con Intel, pero **solo con las versiones x64** de los procesadores ARM.
 
 ### <a name="set-up-audio-capture"></a>Configuración de la captura de audio
 

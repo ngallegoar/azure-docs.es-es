@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: ad3e005f65b1660bd843bf2819f41eddbed44e9c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: b6829f52cb8aaac6f243d3a4a1fa7f6bc1b150d7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86035462"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544325"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -25,7 +25,7 @@ Cree una nueva carpeta vacía. En caso de que desee hospedar el ejemplo en un se
 
 ## <a name="unpack-the-speech-sdk-for-javascript-into-that-folder"></a>Desempaquete el SDK de Voz para JavaScript en esa carpeta
 
-Descargue el SDK de Voz en forma de [paquete .zip](https://aka.ms/csspeech/jsbrowserpackage) y desempaquételo en la carpeta recién creada. Como resultado se desempaquetan dos archivos, `microsoft.cognitiveservices.speech.sdk.bundle.js` y `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
+Descargue el SDK de Voz en forma de [paquete .zip](https://aka.ms/csspeech/jsbrowserpackage) y desempaquételo en la carpeta recién creada. Como resultado se desempaquetan cinco archivos, incluidos `microsoft.cognitiveservices.speech.sdk.bundle.js` y `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
 El último archivo es opcional y es útil para la depuración en el código del SDK.
 
 ## <a name="create-an-indexhtml-page"></a>Creación de una página index.html

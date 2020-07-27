@@ -3,24 +3,27 @@ title: Análisis de los costos de Azure con la aplicación para Power BI
 description: En este artículo se explica cómo instalar y usar la aplicación Azure Cost Management para Power BI.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/16/2020
+ms.date: 07/13/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
-ms.openlocfilehash: 53340c72a6456b24b52cff6d7eda9d4a34db6564
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: bd5e2c999df180c80c58711a6428678b2bb4fefa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888202"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537925"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Análisis del costo con la aplicación Azure Cost Management para Power BI para Contrato Enterprise (EA)
 
 En este artículo se explica cómo instalar y usar la aplicación Azure Cost Management para Power BI. La aplicación le ayuda a analizar y administrar los costos de Azure en Power BI. Puede usar la aplicación para supervisar costos, tendencias de uso e identificar opciones de optimización de costos para reducir los gastos.
 
-La aplicación se descarga en Power BI Desktop. Puede usar la aplicación tal cual, o bien modificarla para ampliar los filtros, vistas y visualizaciones predeterminados para personalizarlos según sus necesidades. A continuación, úselo para combinar datos adicionales y crear informes personalizados para obtener vistas holísticas del costo total de la empresa.
+Puede usar la aplicación tal cual, o bien modificarla para ampliar los filtros, vistas y visualizaciones predeterminados para personalizarlos según sus necesidades. A continuación, úselo para combinar datos adicionales y crear informes personalizados para obtener vistas holísticas del costo total de la empresa.
 
 Actualmente, la aplicación Azure Cost Management para Power BI solo admite clientes con un [Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
+
+> [!NOTE]
+> Las aplicaciones de plantilla de Power BI no admiten la descarga del archivo PBIX.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

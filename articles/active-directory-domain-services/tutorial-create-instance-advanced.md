@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Creación de un dominio administrado de Azure Active Directory Domain Services | Microsoft Docs'
+title: 'Tutorial: Creación de un dominio administrado de Azure AD DS con configuración avanzada'
 description: En este tutorial aprenderá a crear y configurar un dominio administrado de Azure Active Directory Domain Services y a especificar opciones de configuración avanzada mediante Azure Portal.
 author: iainfoulds
 manager: daveba
@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 78eef9c84bb7610b067855b22a3fa0f51bf08253
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: b8eece33e13fca9fdef6b860513368f6c47a4628
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024798"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518528"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain-with-advanced-configuration-options"></a>Tutorial: Creación y configuración de un dominio administrado de Azure Active Directory Domain Services con opciones de configuración avanzada
 

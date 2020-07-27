@@ -1,18 +1,18 @@
 ---
-title: Creación de una alerta de métrica con una plantilla de Resource Manager
-description: Obtenga información sobre cómo usar una plantilla de Resource Manager para crear una alerta de métrica.
+title: Ejemplos de plantillas de Resource Manager para alertas de métricas
+description: Este artículo proporciona ejemplos de plantillas de Resource Manager usadas para crear alertas de métricas en Azure Monitor.
 author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: 27d592a2702f9e2e8fda9094796cf2e37400621b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 793a4b3e8ea0dde2e4ad755cbff5a07a36c44cb9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83853308"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515383"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Ejemplos de plantillas de Azure Resource Manager para reglas de alertas de métrica en Azure Monitor
 
@@ -20,7 +20,7 @@ En este artículo se proporcionan ejemplos de uso de las [plantillas de Azure Re
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
-Consulte [Recursos compatibles para las alertas de métricas de Azure Monitor](../platform/alerts-metric-near-real-time.md) para obtener una lista de los recursos que se pueden usar con las reglas de alertas de métricas. La explicación del esquema y de las propiedades de una regla de alertas está disponible en [Alertas de métricas: creación o actualización](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
+Consulte [Recursos compatibles para las alertas de métricas de Azure Monitor](../platform/alerts-metric-near-real-time.md) para obtener una lista de los recursos que se pueden usar con las reglas de alertas de métricas. La explicación del esquema y de las propiedades de una regla de alertas está disponible en [Alertas de métricas: creación o actualización](/rest/api/monitor/metricalerts/createorupdate).
 
 > [!NOTE]
 > Plantilla de recursos para la creación de alertas de métricas para el tipo de recurso: El área de trabajo de Azure Log Analytics (es decir, `Microsoft.OperationalInsights/workspaces`) requiere pasos adicionales. Para más información, consulte [Alerta de métrica para registros: plantilla de recursos](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
@@ -1094,7 +1094,7 @@ Por ejemplo, algunas de las series temporales que se pueden supervisar con esta 
 
 Puede usar la siguiente plantilla para crear una regla de alertas de métrica de umbral estático más avanzada sobre una métrica personalizada.
 
-Para más información sobre las métricas personalizadas en Azure Monitor, consulte [Métricas personalizadas en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview).
+Para más información sobre las métricas personalizadas en Azure Monitor, consulte [Métricas personalizadas en Azure Monitor](../platform/metrics-custom-overview.md).
 
 Al crear una regla de alertas sobre una métrica personalizada, debe especificar tanto el nombre de la métrica como el espacio de nombres de la métrica. También debe asegurarse de que ya se está notificando la métrica personalizada, ya que no se puede crear una regla de alertas en una métrica personalizada que todavía no existe.
 
@@ -1325,7 +1325,7 @@ Para este tutorial, guarde el archivo JSON siguiente como customstaticmetricaler
 
 >[!NOTE]
 >
-> Para buscar el espacio de nombres de la métrica de una métrica personalizada específica, [vaya a las métricas personalizadas en Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#browse-your-custom-metrics-via-the-azure-portal).
+> Para buscar el espacio de nombres de la métrica de una métrica personalizada específica, [vaya a las métricas personalizadas en Azure Portal](../platform/metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal).
 
 
 ## <a name="multiple-resources"></a>Varios recursos

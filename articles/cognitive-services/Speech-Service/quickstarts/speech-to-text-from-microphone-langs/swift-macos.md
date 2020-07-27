@@ -1,7 +1,7 @@
 ---
-title: 'Inicio rápido: Reconocimiento de la voz a través de un micrófono en Swift: servicio de voz'
+title: 'Inicio rápido: Reconocimiento de voz con Swift: servicio de Voz (macOS)'
 titleSuffix: Azure Cognitive Services
-description: Aprenda a reconocer la voz en Swift para macOS mediante el SDK de voz.
+description: Obtenga información sobre cómo crear una aplicación para reconocer la voz en Swift para un equipo macOS mediante el SDK de Voz de Cognitive Services.
 services: cognitive-services
 author: cbasoglu
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: cbasoglu
-ms.openlocfilehash: 440addd017e7a819d9d3d02a8b77b9432b68b9af
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 68947446d18ce1632b63ac3ba27311f648f3deea
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391424"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524121"
 ---
 # <a name="quickstart-recognize-speech-in-swift-on-macos-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en Swift para macOS mediante el SDK de voz
 
@@ -23,7 +23,7 @@ También hay inicios rápidos disponibles para la [síntesis de voz](~/articles/
 
 En este artículo, aprenderá a crear una aplicación macOS en Swift mediante el SDK de voz de Cognitive Services para transcribir a texto la voz grabada con un micrófono.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar, presentamos una lista de requisitos previos:
 
