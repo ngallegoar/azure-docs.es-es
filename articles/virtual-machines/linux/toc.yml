@@ -345,7 +345,7 @@
         - name: Discos compartidos
           href: disks-shared.md
         - name: Discos de sistema operativo efímero
-          href: ephemeral-os-disks.md
+          href: ../ephemeral-os-disks.md
     - name: Redes
       href: ../network-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Conjuntos de escalado
@@ -744,7 +744,7 @@
               href: ../../azure-monitor/faq.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#agents
             - name: Extensión de Diagnósticos de Azure
               items:
-                - name: Información general
+                - name: Introducción
                   href: ../../azure-monitor/platform/diagnostics-extension-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
                 - name: Extensión de Diagnósticos de Linux
                   displayname: diagnostics extension

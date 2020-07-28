@@ -329,7 +329,7 @@
         - name: Discos compartidos
           href: disks-shared.md
         - name: Discos de sistema operativo efímero
-          href: ephemeral-os-disks.md
+          href: ../ephemeral-os-disks.md
     - name: Redes
       href: ../network-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Conjuntos de escalado
