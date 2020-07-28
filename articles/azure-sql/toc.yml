@@ -78,6 +78,8 @@
                   href: database/authentication-mfa-ssms-configure.md
                 - name: Acceso condicional
                   href: database/conditional-access-configure.md
+                - name: Entidades de servicio (aplicaciones)
+                  href: database/authentication-aad-service-principal.md
             - name: Cifrado de datos transparente (TDE)
               items:
                 - name: Información general
@@ -141,6 +143,8 @@
               href: database/long-term-backup-retention-configure.md
         - name: Seguridad
           items:
+            - name: "Crear usuarios invitados de Azure\_AD y establecerlos como administradores de Azure\_AD"
+              href: database/authentication-aad-guest-users.md
             - name: Configuración de TDE con BYOK
               href: database/transparent-data-encryption-byok-configure.md
             - name: Almacenamiento de exámenes de vulnerabilidades
@@ -277,6 +281,8 @@
               href: database/transparent-data-encryption-byok-key-rotation.md
             - name: Eliminación del protector de TDE
               href: database/transparent-data-encryption-byok-remove-tde-protector.md
+            - name: Creación de usuarios mediante entidades de servicio
+              href: database/authentication-aad-service-principal-tutorial.md
         - name: Mover datos
           items:
             - name: Migración mediante DMS
@@ -849,7 +855,7 @@
           href: managed-instance/alerts-create.md
     - name: Ejemplos
       items:
-        - name: CLI de Azure
+        - name: Azure CLI
           href: database/az-cli-script-samples-content-guide.md?tabs=managed-instance
         - name: Azure PowerShell
           href: database/powershell-script-content-guide.md?tabs=managed-instance

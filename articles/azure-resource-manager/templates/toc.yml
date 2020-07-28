@@ -302,6 +302,8 @@
         - name: Script de implementación
           displayName: custom script
           href: deployment-script-template.md
+        - name: Creación de un entorno de desarrollo de scripts de implementación
+          href: deployment-script-template-configure-dev.md
         - name: Modularización de plantillas
           displayName: 'linked templates, nested templates'
           href: linked-templates.md

@@ -10,19 +10,19 @@
       items:
         - name: Introducción
           href: get-started.md
-        - name: 'Paso 1: creación de un área de trabajo de Synapse'
+        - name: 1 Creación de un área de trabajo de Synapse
           href: get-started-create-workspace.md
-        - name: 'Paso 2: análisis mediante un grupo de SQL'
+        - name: 2 Análisis mediante un grupo de SQL
           href: get-started-analyze-sql-pool.md
-        - name: 'Paso 3: análisis mediante Spark'
+        - name: 3 Análisis mediante Spark
           href: get-started-analyze-spark.md
-        - name: 'Paso 4: análisis mediante SQL a petición'
+        - name: 4 Análisis mediante SQL a petición
           href: get-started-analyze-sql-on-demand.md
-        - name: 'Paso 5: análisis de datos en una cuenta de almacenamiento'
+        - name: 5 Análisis de los datos de una cuenta de almacenamiento
           href: get-started-analyze-storage.md
-        - name: 'Paso 6: orquestación con canalizaciones'
+        - name: 6 Orquestación con canalizaciones
           href: get-started-pipelines.md
-        - name: "Paso 7: visualización con Power\_BI"
+        - name: 7 Visualización con Power BI
           href: get-started-visualize-power-bi.md
     - name: Hoja de referencia rápida
       href: overview-cheat-sheet.md
@@ -264,6 +264,8 @@
                   href: /sql/t-sql/statements/alter-materialized-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Reglas de almacenamiento en caché
               href: /sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Predicciones de Machine Learning
+              href: ./sql-data-warehouse/sql-data-warehouse-predict.md
             - name: Tablas
               items:
                 - name: Información general
@@ -554,7 +556,7 @@
               href: ../data-factory/connector-azure-database-for-postgresql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Azure File Storage
               href: ../data-factory/connector-azure-file-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Azure SQL Database
+            - name: "Azure\_SQL\_Database"
               href: ../data-factory/connector-azure-sql-database.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Instancia administrada de Azure SQL
               href: ../data-factory/connector-azure-sql-database-managed-instance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json

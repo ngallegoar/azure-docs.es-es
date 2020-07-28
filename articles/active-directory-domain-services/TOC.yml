@@ -31,6 +31,8 @@
       href: powershell-create-instance.md
     - name: Creación de un dominio administrado mediante una plantilla
       href: template-create-instance.md
+    - name: "Configuración de la sincronización con ámbito mediante Azure\_AD PowerShell"
+      href: powershell-scoped-synchronization.md
 - name: Conceptos
   items:
     - name: Conceptos básicos de administración

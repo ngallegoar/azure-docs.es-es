@@ -574,6 +574,9 @@
           href: role-based-access-control.md
         - href: cosmos-db-advanced-threat-protection.md
           name: Protección contra amenazas avanzada
+        - name: Controles de seguridad de Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Línea de base de seguridad
           href: security-baseline.md
     - name: Adecuado para empresas
@@ -988,7 +991,7 @@
           href: how-to-manage-indexing-policy.md
         - name: Definición de claves únicas
           href: how-to-define-unique-keys.md
-    - name: Rendimiento y solución de problemas
+    - name: Rendimiento
       items:
         - name: Consultar
           items:
@@ -996,28 +999,20 @@
               href: profile-sql-api-query.md
             - name: Ajustar rendimiento de consulta
               href: sql-api-query-metrics.md
-            - name: Solución de problemas del rendimiento de las consultas
-              href: troubleshoot-query-performance.md
         - name: .NET
           items:
             - name: "Sugerencias para mejorar el rendimiento del SDK de .NET, versión\_3"
               href: performance-tips-dotnet-sdk-v3-sql.md
             - name: "Sugerencias para mejorar el rendimiento del SDK de .NET, versión\_2"
               href: performance-tips.md
-            - name: Solución de problemas del SDK de .NET
-              href: troubleshoot-dot-net-sdk.md
         - name: Java
           items:
             - name: "Sugerencias de rendimiento para SDK de Java, versión\_4"
               href: performance-tips-java-sdk-v4-sql.md
-            - name: "Solución de problemas de la versión 4\_ del SDK de Java"
-              href: troubleshoot-java-sdk-v4-sql.md
             - name: "Versión\_2 del SDK de Java asincrónico"
               href: performance-tips-async-java.md
             - name: "Versión\_2 del SDK de Java sincrónico"
               href: performance-tips-java.md
-            - name: 'Solución de problemas: versión 2 del SDK de Java sincrónico'
-              href: troubleshoot-java-async-sdk.md
         - name: Prueba de rendimiento - aplicación de ejemplo
           href: performance-testing.md
         - name: Escrituras y lecturas rentables
@@ -1026,6 +1021,36 @@
       items:
         - name: Migración al SDK de Java V4
           href: migrate-java-v4-sdk.md
+    - name: Solución de problemas
+      items:
+        - name: Errores comunes
+          items:
+            - name: Solución de problemas del rendimiento de las consultas
+              href: troubleshoot-query-performance.md
+            - name: Solución del problema de tiempo de expiración de solicitud de servicio
+              href: troubleshoot-request-timeout.md
+            - name: Solución del problema de que la frecuencia de solicitudes es demasiado grande
+              href: troubleshoot-request-rate-too-large.md
+            - name: Solución del problema de no encontrado
+              href: troubleshoot-not-found.md
+            - name: Solucionar del problema de no autorizado
+              href: troubleshoot-unauthorized.md
+        - name: .NET
+          items:
+            - name: Solución general de problemas del SDK de .NET
+              href: troubleshoot-dot-net-sdk.md
+            - name: Solución del problema de que el encabezado de la solicitud es demasiado grande
+              href: troubleshoot-dot-net-sdk-request-header-too-large.md
+            - name: Solución del problema de tiempo de expiración de solicitud
+              href: troubleshoot-dot-net-sdk-request-timeout.md
+            - name: Solución del problema de que el servicio no está disponible
+              href: troubleshoot-service-unavailable.md
+        - name: .Java
+          items:
+            - name: "Solución de problemas de la versión 4\_ del SDK de Java"
+              href: troubleshoot-java-sdk-v4-sql.md
+            - name: 'Solución de problemas: versión 2 del SDK de Java sincrónico'
+              href: troubleshoot-java-async-sdk.md
     - name: Fuente de cambios
       items:
         - name: "Registros de desencadenador de Azure\_Cosmos\_DB"
