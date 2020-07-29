@@ -4,16 +4,16 @@ description: Proporciona un resumen de opciones y limitaciones de compatibilidad
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 5670f4702a8e8d199b9762d87793a053cf6e53b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0172ecab682b69f255eedb9270a6208b52dac45
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85806878"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514565"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matriz de compatibilidad de copia de seguridad de recursos compartidos de archivos de Azure
 
-Puede usar el [servicio Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) para realizar copias de seguridad de recursos compartidos de archivos de Azure. En este artículo se resumen las opciones de compatibilidad a la hora de realizar copias de seguridad de recursos compartidos de archivos de Azure con Azure Backup.
+Puede usar el [servicio Azure Backup](./backup-overview.md) para realizar copias de seguridad de recursos compartidos de archivos de Azure. En este artículo se resumen las opciones de compatibilidad a la hora de realizar copias de seguridad de recursos compartidos de archivos de Azure con Azure Backup.
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
@@ -23,7 +23,7 @@ La copia de seguridad de recursos compartidos de archivos de Azure está disponi
 
 ### <a name="supported-regions-for-accidental-delete-protection"></a>Regiones admitidas para la protección contra eliminación accidental
 
-Centro-oeste de EE. UU., Sudeste de Australia, Centro de Canadá
+Centro-oeste de EE. UU., Sudeste de Australia, Centro de Canadá, Centro-oeste de EE. UU. 2, Sur de la India, Centro-norte de EE. UU., Este de Japón, Sur de Brasil, Centro-sur de EE. UU., Este de Australia, Este de EE. UU., Este de EE. UU. 2
 
 ## <a name="supported-storage-accounts"></a>Cuentas de almacenamiento admitidas
 

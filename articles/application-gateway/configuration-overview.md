@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 07/20/2020
 ms.author: absha
-ms.openlocfilehash: 1e3ef1133628f0470ee92237abf20d3bb0a9e21a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0245a23e46770840295904685c913826950c0642
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254674"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517865"
 ---
 # <a name="application-gateway-configuration-overview"></a>Introducción a la configuración de Application Gateway
 
@@ -146,7 +146,7 @@ Cuando crea un nuevo cliente de escucha, puede elegir entre [*básico* y *multis
 
 - Si desea que se acepten todas las solicitudes (para cualquier dominio) y se reenvíen a los grupos de servidores back-end, elija básico. Aprenda a [crear una puerta de enlace de aplicaciones con un cliente de escucha básico](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 
-- Si desea reenviar las solicitudes a diferentes grupos de servidores back-end en función del encabezado *host* o el nombre de host, elija un cliente de escucha multisitio; en este caso, también debe especificar un nombre de host que coincida con la solicitud entrante. Esto se debe a que Application Gateway se basa en los encabezados de host HTTP 1.1 para hospedar más de un sitio web en la misma dirección IP pública y en el mismo puerto.
+- Si quiere reenviar las solicitudes a diferentes grupos de servidores back-end en función del encabezado *host* o del nombre de host, elija un cliente de escucha multisitio; en este caso, también debe especificar un nombre de host que coincida con la solicitud entrante. Esto se debe a que Application Gateway se basa en los encabezados de host HTTP 1.1 para hospedar más de un sitio web en la misma dirección IP pública y en el mismo puerto. Para obtener más información, consulte [Hospedaje de varios sitios mediante Application Gateway](multiple-site-overview.md).
 
 #### <a name="order-of-processing-listeners"></a>Orden de procesamiento de los clientes de escucha
 
@@ -279,12 +279,16 @@ Para más información sobre el redireccionamiento, consulte:
 - [Redirect traffic to an external site by using PowerShell](redirect-external-site-powershell.md) (Redireccionamiento del tráfico a un sitio externo mediante PowerShell)
 - [Redirect traffic to an external site by using the CLI](redirect-external-site-cli.md) (Redireccionamiento del tráfico a un sitio externo mediante la CLI)
 
-#### <a name="rewrite-the-http-header-setting"></a>Reescritura del valor del encabezado HTTP
+### <a name="rewrite-http-headers-and-url"></a>Reescritura de encabezados HTTP y URL
 
-Este valor permite agregar, quitar o actualizar los encabezados de respuesta y de solicitudes HTTP, mientras los paquetes de solicitudes y respuestas se mueven entre el cliente y los grupos de servidores back-end. Para más información, consulte:
+Mediante las reglas de reescritura, puede agregar, quitar o actualizar encabezados de solicitud y respuesta HTTP(S), así como parámetros de ruta de acceso URL y cadena de consulta, dado que los paquetes de solicitud y respuesta se mueven entre el cliente y los grupos back-end a través de la puerta de enlace de aplicaciones.
 
- - [Introducción a la reescritura de encabezados HTTP](rewrite-http-headers.md)
+Los parámetros de URL y encabezado se pueden establecer en valores estáticos o en otros encabezados y variables de servidor. Como consecuencia, sirve de ayuda en casos de uso importantes, como la extracción de direcciones IP de cliente, la eliminación de información confidencial sobre el back-end, la adición de más seguridad, etc.
+Para más información, consulte:
+
+ - [Introducción a la reescritura de encabezados HTTP](rewrite-http-headers-url.md)
  - [Configuración de la reescritura de encabezados HTTP](rewrite-http-headers-portal.md)
+ - [Configuración de la reescritura de URL](rewrite-url-portal.md)
 
 ## <a name="http-settings"></a>Configuración de HTTP
 
@@ -357,7 +361,7 @@ Esta opción asocia un [sondeo personalizado](application-gateway-probe-overview
 > [!NOTE]
 > El sondeo personalizado no supervisa el estado del grupo de servidores back-end a menos que la configuración de HTTP correspondiente esté explícitamente asociada a un cliente de escucha.
 
-### <a name="pick-host-name-from-back-end-address"></a><a id="pick"/></a>Seleccionar nombre de host de la dirección de back-end
+### <a name="pick-host-name-from-back-end-address"></a><a name="pick"></a>Seleccionar nombre de host de la dirección de back-end
 
 Esta funcionalidad establece dinámicamente el encabezado *host* de la solicitud en el nombre de host del grupo de servidores back-end. Usa una dirección IP o FQDN.
 

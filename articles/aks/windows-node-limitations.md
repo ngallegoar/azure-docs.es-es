@@ -5,12 +5,12 @@ description: Obtenga información sobre las limitaciones conocidas al ejecutar c
 services: container-service
 ms.topic: article
 ms.date: 05/28/2020
-ms.openlocfilehash: c420eb850313900d3726b93dd97f911a428d3560
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a86d6f0fe942a72a96c504a61d5030624f161cd5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339875"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507019"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitaciones actuales para las cargas de trabajo de aplicaciones y los grupos de nodos de Windows Server en Azure Kubernetes Service (AKS)
 
@@ -44,7 +44,11 @@ AKS hospeda los nodos maestros (esto es, el plano de control) de un clúster de 
 
 ## <a name="what-network-plug-ins-are-supported"></a>¿Qué complementos de red se admiten?
 
-Los clústeres de AKS con grupos de nodos de Windows deben usar el modelo de redes (avanzado) de Azure CNI. No se admiten las redes Kubenet (básico). Para obtener más información sobre las diferencias en los modelos de redes, consulte [Conceptos de redes para las aplicaciones en AKS][azure-network-models]. - El modelo de redes de Azure CNI requiere un plan y consideraciones adicionales para la administración de direcciones IP. Para obtener más información sobre cómo planear e implementar Azure CNI, consulte [Configuración de redes de Azure CNI en AKS][configure-azure-cni].
+Los clústeres de AKS con grupos de nodos de Windows deben usar el modelo de redes (avanzado) de Azure CNI. No se admiten las redes Kubenet (básico). Para obtener más información sobre las diferencias en los modelos de redes, consulte [Conceptos de redes para las aplicaciones en AKS][azure-network-models]. El modelo de redes de Azure CNI requiere una planeación y consideraciones adicionales para la administración de direcciones IP. Para obtener más información sobre cómo planear e implementar Azure CNI, consulte [Configuración de redes de Azure CNI en AKS][configure-azure-cni].
+
+## <a name="is-preserving-the-client-source-ip-supported"></a>¿Se admite la conservación de la IP de origen del cliente?
+
+En este momento, la [conservación de la IP de origen del cliente][client-source-ip] no es compatible con los nodos de Windows.
 
 ## <a name="can-i-change-the-max--of-pods-per-node"></a>¿Puedo cambiar el número máximo de pods por nodo?
 
@@ -103,6 +107,14 @@ La compatibilidad con las cuentas de servicio administradas de grupo (gMSA) no e
 
 Sí puede; no obstante, Azure Monitor se encuentra en versión preliminar pública para la recopilación de registros (stdout, stderr) y métricas de los contenedores de Windows. También puede conectarse al streaming en vivo de registros de stdout desde un contenedor de Windows.
 
+## <a name="are-there-any-limitations-on-the-number-of-services-on-a-cluster-with-windows-nodes"></a>¿Existe alguna limitación en el número de servicios que puede haber en un clúster con nodos de Windows?
+
+Un clúster con nodos de Windows puede tener aproximadamente 500 servicios antes de que se agote el puerto.
+
+## <a name="can-i-use-the-kubernetes-web-dashboard-with-windows-containers"></a>¿Puedo usar el panel web de Kubernetes con los contenedores de Windows?
+
+Sí, puede usar el [panel web de Kubernetes][kubernetes-dashboard] para acceder a la información sobre los contenedores de Windows, pero en este momento no puede ejecutar *kubectl exec* en un contenedor de Windows en ejecución directamente desde el panel web de Kubernetes. Para más información sobre cómo conectarse a su contenedor de Windows en ejecución, consulte [Conexión con RDP a los nodos de Windows Server de un clúster de Azure Kubernetes Service (AKS) para el mantenimiento o la solución de problemas][windows-rdp].
+
 ## <a name="what-if-i-need-a-feature-which-is-not-supported"></a>¿Qué ocurre si necesito una característica que no se admite?
 
 Estamos trabajando día y noche para poner a su disposición todas las características que necesite para Windows en AKS, pero si encuentra errores, el proyecto ascendente de código abierto [aks-engine][aks-engine], proporciona una manera fácil y totalmente personalizable de ejecutar Kubernetes en Azure e incluye el soporte técnico de Windows. Asegúrese de consultar nuestro plan de desarrollo de las características que se incluyen en el [plan de desarrollo de AKS][aks-roadmap].
@@ -132,3 +144,6 @@ Para comenzar con los contenedores de Windows Server en AKS, [cree un grupo de n
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
 [maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node
 [azure-monitor]: ../azure-monitor/insights/container-insights-overview.md#what-does-azure-monitor-for-containers-provide
+[client-source-ip]: concepts-network.md#ingress-controllers
+[kubernetes-dashboard]: kubernetes-dashboard.md
+[windows-rdp]: rdp.md
