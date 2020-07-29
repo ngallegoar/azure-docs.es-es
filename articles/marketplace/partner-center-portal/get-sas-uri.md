@@ -3,22 +3,22 @@ title: URI de Firma de acceso compartido para imágenes de máquina virtual | Az
 description: Genere un URI de Firma de acceso compartido (SAS) para los discos duros virtuales (VHD) en Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: anbene
 ms.author: mingshen
-ms.date: 04/09/2020
-ms.openlocfilehash: 0fbd7aa42bf65ee0e553282b9961f1a9302b7903
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/14/2020
+ms.openlocfilehash: 569d9ce04422230c1d6b9ebb0957f01c320c5ba0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121731"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536154"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Obtención del URI de firma de acceso compartido para la imagen de máquina virtual
 
 En este artículo se describe cómo generar un identificador uniforme de recursos (URI) de firma de acceso compartido (SAS) para cada disco duro virtual (VHD).
 
-Durante el proceso de publicación, debe proporcionar un identificador URI para cada VHD asociado a sus planes. Estos planes se llamaban previamente SKU o referencias de almacén. Microsoft necesita tener acceso a estos VHD durante el proceso de certificación. Escriba este identificador URI en la pestaña **Planes** del Centro de partners.
+Durante el proceso de publicación, debe proporcionar un identificador URI para cada VHD asociado a sus planes (anteriormente, denominados SKU). Microsoft necesita tener acceso a estos VHD durante el proceso de certificación. Escriba este identificador URI en la pestaña **Planes** del Centro de partners.
 
 Al generar los identificadores URI de SAS para los discos duros virtuales, debe cumplir los requisitos siguientes:
 
@@ -110,7 +110,7 @@ Hay dos herramientas comunes que se usan para crear una dirección de SAS (URL):
 
     `https://catech123.blob.core.windows.net/vhds/TestRGVM2.vhd?st=2018-05-06T07%3A00%3A00Z&se=2019-08-02T07%3A00%3A00Z&sp=rl&sv=2017-04-17&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
-Repita estos pasos con todos los discos duros virtuales de las SKU que quiera publicar.
+Repita estos pasos con todos los discos duros virtuales de los planes que va a publicar.
 
 ## <a name="verify-the-sas-uri"></a>Comprobación del URI de SAS
 
