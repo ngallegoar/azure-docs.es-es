@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 6c621219bc424b7e0df6de286a066fd5b94af4a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a836f4ce40f4d2e0871f99122d25bb6c6f346d05
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514965"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527887"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferencia de datos con AzCopy y File Storage 
 
@@ -189,7 +189,7 @@ Puede especificar nombres de archivo completos o usar nombres parciales con cara
 
 #### <a name="specify-multiple-complete-file-names"></a>Especificación de varios nombres de archivo completos
 
-Use el comando [azcopy copy](storage-ref-azcopy-copy.md) con la opción `--include-path`. Separe los nombres de archivo individuales mediante un punto y coma (`;`).
+Use el comando [azcopy copy](storage-ref-azcopy-copy.md) con la opción `--include-path`. Separe los nombres de archivo individuales mediante punto y coma (`;`).
 
 |    |     |
 |--------|-----------|
