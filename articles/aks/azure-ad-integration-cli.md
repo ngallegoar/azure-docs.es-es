@@ -1,25 +1,28 @@
 ---
-title: Integración de Azure Active Directory con Azure Kubernetes Service
-description: Obtenga información sobre cómo usar la CLI de Azure para crear un clúster de Azure Kubernetes Service (AKS) habilitado para Azure Active Directory.
+title: Integración de Azure Active Directory con Azure Kubernetes Service (heredado)
+description: Obtenga información sobre cómo usar la CLI de Azure para crear un clúster de Azure Kubernetes Service (AKS) habilitado para Azure Active Directory (heredado)
 services: container-service
 author: TomGeske
 ms.topic: article
-ms.date: 07/08/2020
+ms.date: 07/20/2020
 ms.author: thomasge
-ms.openlocfilehash: 0bbaca733eb9c1fffbc5c6781b51429edd73fb46
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: dfc3a546f4845d5eb2e4e144b66b5d97e4a68829
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252086"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518035"
 ---
-# <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integración de Azure Active Directory con Azure Kubernetes Service mediante la CLI de Azure
+# <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli-legacy"></a>Integración de Azure Active Directory con Azure Kubernetes Service mediante la CLI de Azure (heredado)
 
 Es posible configurar Azure Kubernetes Service (AKS) para que utilice Azure Active Directory (AD) para la autenticación de usuarios. En esta configuración, puede iniciar sesión en un clúster de AKS mediante un token de autenticación de Azure AD. Los operadores del clúster también pueden configurar el control de acceso basado en roles (RBAC) de Kubernetes en función de la identidad de los usuarios o su pertenencia a un grupo del directorio.
 
 En este artículo se muestra cómo crear los requisitos necesarios para Azure AD y, luego, implementar un clúster habilitado para Azure AD y crear un rol de RBAC simple en el clúster de AKS.
 
 Para obtener el script de ejemplo completo que se usa en este artículo, consulte [Ejemplos de la CLI de Azure: integración de AKS con Azure AD][complete-script].
+
+> [!Important]
+> AKS tiene una nueva experiencia mejorada de [Azure AD administrado por AKS][managed-aad] que no requiere que administre la aplicación cliente o de servidor. Si desea migrar, siga las instrucciones [aquí][managed-aad-migrate].
 
 ## <a name="the-following-limitations-apply"></a>Se aplican las siguientes limitaciones:
 
@@ -280,3 +283,5 @@ Para ver procedimientos recomendados sobre el control de recursos e identidades,
 [rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
+[managed-aad]: managed-aad.md
+[managed-aad-migrate]: managed-aad.md#upgrading-to-aks-managed-azure-ad-integration
