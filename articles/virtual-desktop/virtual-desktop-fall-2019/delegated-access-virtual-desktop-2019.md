@@ -1,5 +1,5 @@
 ---
-title: 'Acceso delegado en Windows Virtual Desktop: Azure'
+title: 'Acceso delegado en Windows Virtual Desktop, versión de otoño de 2019: Azure'
 description: Se describe cómo delegar funcionalidades administrativas en una implementación de Windows Virtual Desktop y se incluyen ejemplos.
 services: virtual-desktop
 author: Heidilohr
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 899e42e3b592ce1bc92d7d47578e10355b1c6de7
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 91be20de49f549f3530e6c817906f1abf8f106b6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82613965"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527564"
 ---
-# <a name="delegated-access-in-windows-virtual-desktop"></a>Acceso delegado en Windows Virtual Desktop
+# <a name="delegated-access-in-windows-virtual-desktop-fall-2019"></a>Acceso delegado en Windows Virtual Desktop, versión de otoño de 2019
 
 >[!IMPORTANT]
 >Este contenido se aplica a la versión de otoño de 2019 que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager incorporados en la actualización de primavera de 2020, consulte [este artículo](../delegated-access-virtual-desktop.md).

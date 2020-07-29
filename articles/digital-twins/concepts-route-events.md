@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7c1f0c18fc8b867e16ce539a24839637e1d14379
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7d62777f73a92768b1ede3fb9b7e0cb97951823
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390795"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537527"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Enrutar eventos dentro y fuera de Azure Digital Twins
 
@@ -46,7 +46,7 @@ Como alternativa, el mensaje de evento también contiene el id. de gemelo de ori
 
 El recurso de proceso también debe establecer los permisos de acceso y seguridad de forma independiente.
 
-Para recorrer el proceso de configuración de una función de Azure para procesar eventos de gemelos digitales, consulte [Procedimiento: Configuración de una función de Azure para procesar datos](how-to-create-azure-function.md).
+Para recorrer el proceso de configuración de una función de Azure para procesar eventos de gemelos digitales, consulte [*Procedimiento: Configuración de una función de Azure para procesar datos*](how-to-create-azure-function.md).
 
 ## <a name="create-an-endpoint"></a>Crear un punto de conexión
 
@@ -90,7 +90,7 @@ Los distintos tipos de eventos de IoT Hub y Azure Digital Twins generan distinto
 ## <a name="next-steps"></a>Pasos siguientes
 
 Vea cómo configurar y administrar una ruta de eventos:
-* [Procedimiento: Administración de puntos de conexión y rutas](how-to-manage-routes.md)
+* [*Procedimiento: Administración de puntos de conexión y rutas*](how-to-manage-routes.md)
 
 O bien, consulte cómo usar Azure Functions para enrutar eventos en Azure Digital Twins:
-* [Procedimiento: Configuración de una función de Azure para procesar datos](how-to-create-azure-function.md)
+* [*Procedimiento: Configuración de una función de Azure para procesar datos*](how-to-create-azure-function.md)

@@ -1,5 +1,5 @@
 ---
-title: Adición de una barra de herramientas de dibujo a un mapa | Microsoft Azure Maps
+title: Adición de la barra de herramientas de dibujo a un mapa | Microsoft Azure Maps
 description: Cómo agregar una barra de herramientas de dibujo a un mapa mediante Azure Maps SDK Web
 author: philmea
 ms.author: philmea
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: bebf1ddfbca3aec5a551193609381cf3510bc3ac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01ed3b82ea37b691b67e6d1bd33461bfc2338dd9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334493"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505914"
 ---
 # <a name="add-a-drawing-tools-toolbar-to-a-map"></a>Agregar una barra de herramientas de dibujo a un mapa
 

@@ -1,14 +1,14 @@
 ---
 title: Procedimientos recomendados
 description: Obtenga información sobre los procedimientos recomendados y sugerencias útiles para desarrollar su solución de Azure Batch.
-ms.date: 06/22/2020
+ms.date: 07/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7a66fb383195a7de347b5e6ce83ad89fa3706e96
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 32610f54cc41bd5d7feb965b9a82903acc23c33c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954156"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497784"
 ---
 # <a name="azure-batch-best-practices"></a>Procedimientos recomendados de Azure Batch
 
@@ -146,6 +146,10 @@ Las uniones de directorios, que a veces se denominan vínculos físicos, son dif
 ### <a name="collect-the-batch-agent-logs"></a>Recopilación de registros de agente de Batch
 
 Si observa un problema relacionado con el comportamiento de un nodo o tareas en ejecución en un nodo, recopile los registros del agente de Batch antes de desasignar los nodos en cuestión. Puede recopilar los registros del agente de Batch mediante la API de registros del servicio de Batch de carga. Estos registros se pueden proporcionar como parte de una incidencia de soporte técnico a Microsoft y ayudarán a solucionar los problemas.
+
+### <a name="manage-os-upgrades"></a>Administración de las actualizaciones del sistema operativo
+
+En el caso de las cuentas de Batch del modo de suscripción de usuario, las actualizaciones automáticas del sistema operativo pueden interrumpir el progreso de las tareas, especialmente si estas son de larga duración. La [creación de tareas idempotentes](#build-durable-tasks) puede ayudar a reducir los errores causados por estas interrupciones. También se recomienda [programar actualizaciones de imágenes de sistema operativo para las horas en las que no se espera que las tareas se ejecuten](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#manually-trigger-os-image-upgrades).
 
 ## <a name="isolation-security"></a>Seguridad de aislamiento
 
