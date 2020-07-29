@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/01/2017
-ms.openlocfilehash: 9d8b05a2268a122289c529050c75fd27dd73245b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 15c388336efc92381ac5ebd84df9145c1890cfcc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75438966"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007221"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Tutorial: Compilación de la primera instancia de Azure Data Factory con la API de REST de Data Factory
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ La canalización de este tutorial tiene una actividad: **actividad de HDInsight 
   2. Obtenga el **Id. de cliente** y la **Clave secreta**.
   3. Obtenga el **Identificador de inquilino**.
   4. Asigne la aplicación **ADFGetStartedApp** al rol **Colaborador de Data Factory**.
-* Instale [Azure PowerShell](/powershell/azure/overview).
+* Instale [Azure PowerShell](/powershell/azure/).
 * Inicie **PowerShell** y ejecute el comando siguiente. Mantenga Azure PowerShell abierto hasta el final de este tutorial. Si lo cierra y vuelve a abrirlo, deberá ejecutar los comandos de nuevo.
   1. Ejecute **Connect-AzAccount** y escriba el mismo nombre de usuario y contraseña que utiliza para iniciar sesión en Azure Portal.
   2. Ejecute **Get-AzSubscriptionn** para ver todas las suscripciones para esta cuenta.
