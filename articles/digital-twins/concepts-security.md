@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0f1f9e17646c4432d9c1103b3c579fc6bb0d2f13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a1447e64b606170601e6df6a443f53e3132294d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833171"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522268"
 ---
 # <a name="secure-azure-digital-twins-with-role-based-access-control"></a>Protección de Azure Digital Twins con el control de acceso basado en roles
 
@@ -58,7 +58,7 @@ Puede asignar roles de dos maneras:
 * mediante el panel de control de acceso (IAM) de Azure Digital Twins en Azure Portal (consulte [Incorporación o eliminación de asignaciones de roles mediante RBAC de Azure y Azure Portal](../role-based-access-control/role-assignments-portal.md))
 * mediante comandos de la CLI para agregar o quitar un rol
 
-Para obtener pasos más detallados sobre cómo hacerlo, pruébelo en el [Tutorial de Azure Digital Twins: Conexión de una solución de un extremo a otro](tutorial-end-to-end.md).
+Para obtener pasos más detallados sobre cómo hacerlo, pruébelo en el [Tutorial de Azure Digital Twins: *Conexión de una solución de un extremo a otro*](tutorial-end-to-end.md).
 
 ## <a name="permission-scopes"></a>Ámbitos de permiso
 
@@ -73,6 +73,6 @@ En la lista siguiente se describen los niveles en los que puede definir el ámbi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte cómo recorrer estos pasos con una aplicación cliente de ejemplo en [Procedimiento: Autenticación de una aplicación cliente](how-to-authenticate-client.md).
+* Vea cómo recorrer estos pasos con una aplicación cliente de ejemplo en [*Procedimiento: Autenticación de una aplicación cliente*](how-to-authenticate-client.md).
 
 * Obtenga más información sobre [RBAC para Azure](../role-based-access-control/overview.md).
