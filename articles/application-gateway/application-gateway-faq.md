@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 578d674a197936c6222d4520893fdb1afa00161e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8db47cd94f508803964398f19353e79f3d93d92a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982006"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506577"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -336,6 +336,58 @@ Para el enrutamiento (basado en host) basado en varios dominios, puede crear age
 ### <a name="can-i-use-special-characters-in-my-pfx-file-password"></a>¿Se pueden usar caracteres especiales en la contraseña del archivo .pfx?
 
 No, use solo caracteres alfanuméricos en la contraseña del archivo .pfx.
+
+### <a name="my-ev-certificate-is-issued-by-digicert-and-my-intermediate-certificate-has-been-revoked-how-do-i-renew-my-certificate-on-application-gateway"></a>DigiCert emitió mi certificado EV y el certificado intermedio se ha revocado. ¿Cómo renuevo mi certificado en Application Gateway?
+
+Los miembros del explorador de entidades de certificación (CA) han publicado recientemente informes con detalles sobre varios certificados que han emitido los proveedores de CA que usan nuestros clientes, Microsoft y la comunidad tecnológica al completo que no cumplen con los estándares del sector para las entidades de certificación de confianza pública. Los informes relacionados con las entidades de certificación no compatibles se pueden encontrar aquí:  
+
+* [Error 1649951](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951)
+* [Error 1650910](https://bugzilla.mozilla.org/show_bug.cgi?id=1650910)
+
+Según los requisitos de cumplimiento de la industria, los proveedores de entidades de certificación comenzaron a revocar las CA que no eran compatibles y a emitir CA compatibles, por lo que los clientes deben emitir de nuevo sus certificados. Microsoft colabora estrechamente con estos proveedores para minimizar el potencial impacto en los servicios de Azure; **no obstante, los certificados autoemitidos o los certificados que se usan en los escenarios de "Bring Your Own Certificate" (BYOC) siguen en riesgo de revocarse inesperadamente**.
+
+Para comprobar si los certificados usados por la aplicación se han revocado, consulte el [Anuncio de DigiCert](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) y el [seguimiento de revocación de certificados](https://misissued.com/#revoked). Si los certificados se han revocado o se van a revocar, deberá solicitar nuevos certificados del proveedor de CA que usan sus aplicaciones. Para evitar que se interrumpa la disponibilidad de la aplicación debido a la revocación inesperada de certificados o a la actualización de un certificado que se ha revocado, consulte la publicación sobre actualizaciones de Azure para obtener vínculos de corrección para varios servicios de Azure que admiten BYOC: https://azure.microsoft.com/updates/certificateauthorityrevocation/
+
+Para obtener información específica de Application Gateway, consulte lo siguiente:
+
+Si usa un certificado emitido por uno de los ICA revocados, la disponibilidad de la aplicación podría interrumpirse y, en función de la aplicación, puede recibir distintos mensajes de error, entre los que se incluyen los siguientes: 
+
+1.  Certificado no válido o certificado revocado
+2.  Se agotó el tiempo de espera de la conexión
+3.  HTTP 502
+
+Para evitar cualquier interrupción de la aplicación debido a este problema, o para volver a emitir una CA que se ha revocado, debe realizar las siguientes acciones: 
+
+1.  Póngase en contacto con su proveedor de certificados para volver a emitir los certificados.
+2.  Una vez que se haya vuelto a emitir, actualice los certificados en la instancia de Azure Application Gateway o WAF con la [cadena de confianza](https://docs.microsoft.com/windows/win32/seccrypto/certificate-chains) completa (certificado de hoja, intermedio o raíz). Ya sea que use el certificado en el cliente de escucha o en la configuración HTTP de Application Gateway, siga los pasos que se indican a continuación para actualizar los certificados y consulte los vínculos de la documentación mencionados para obtener más información.
+3.  Actualice los servidores de aplicaciones back-end para que usen el certificado que se volvió a emitir. Según el servidor back-end que use, los pasos de actualización del certificado podrían variar. Consulte la documentación de su proveedor.
+
+Para actualizar el certificado en el cliente de escucha:
+
+1.  En [Azure Portal](https://portal.azure.com/), abra el recurso de Application Gateway.
+2.  Abra la configuración del cliente de escucha que está asociado con el certificado.
+3.  Haga clic en "Renovar o editar el certificado seleccionado".
+4.  Cargue el nuevo certificado PFX con la contraseña y haga clic en Guardar.
+5.  Acceda al sitio web y compruebe si el sitio funciona según lo previsto. Para obtener más información, consulte la documentación [aquí](https://docs.microsoft.com/azure/application-gateway/renew-certificates).
+
+Si hace referencia a los certificados de Azure Key Vault en el cliente de escucha de Application Gateway, se recomienda seguir los siguientes pasos para realizar un cambio rápido:
+
+1.  En [Azure Portal](https://portal.azure.com/), vaya a la configuración de Azure Key Vault que se ha asociado con la instancia de Application Gateway
+2.  Agregue o importe el certificado reemitido en el almacén. Consulte [esta](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) documentación para obtener más información sobre el procedimiento.
+3.  Una vez que se haya importado el certificado, vaya a la configuración del cliente de escucha de Application Gateway y, en "Elegir un certificado de Key Vault", haga clic en la lista desplegable "Certificado" y elija el certificado agregado recientemente.
+4.  Haga clic en Guardar. Para obtener más información sobre la terminación TLS en Application Gateway con certificados de Key Vault, consulte la documentación [aquí](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+
+
+Para actualizar el certificado en la configuración HTTP:
+
+Si usa la SKU v1 del servicio Application Gateway o WAF, tendrá que cargar el certificado nuevo como certificado de autenticación del servidor back-end.
+1.  En [Azure Portal](https://portal.azure.com/), abra el recurso de Application Gateway.
+2.  Abra la configuración HTTP que está asociada con el certificado.
+3.  Haga clic en "Agregar certificado", cargue el certificado reemitido y haga clic en Guardar.
+4.  Puede quitar el certificado antiguo más adelante al hacer clic en el botón de opciones "..." situado junto al certificado anterior, seleccione Eliminar y haga clic en Guardar.
+Para más información, consulte la documentación [aquí](https://docs.microsoft.com/azure/application-gateway/end-to-end-ssl-portal#add-authenticationtrusted-root-certificates-of-back-end-servers).
+
+Si usa la SKU v2 del servicio Application Gateway o WAF, no tiene que cargar el certificado nuevo en la configuración HTTP, ya que la SKU v2 usa los "certificados raíz de confianza" y no es necesario realizar ninguna acción en este caso.
 
 ## <a name="configuration---ingress-controller-for-aks"></a>Configuración: controlador de entrada para AKS
 

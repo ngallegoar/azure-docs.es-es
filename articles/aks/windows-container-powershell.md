@@ -1,15 +1,15 @@
 ---
-title: Creación de un contenedor de Windows Server en un clúster de Azure Kubernetes Service (AKS)
+title: Creación de un contenedor de Windows Server en un clúster de AKS mediante PowerShell
 description: Aprenda a crear rápidamente un clúster de Kubernetes y a implementar una aplicación en un contenedor de Windows Server en Azure Kubernetes Service (AKS) mediante PowerShell.
 services: container-service
 ms.topic: article
 ms.date: 05/26/2020
-ms.openlocfilehash: 036c97d406e37e038474287daf39182ddce194a1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: cf195c439a1a53d8a720505edae3c9b6d379d157
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250896"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507053"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-powershell"></a>Creación de un contenedor de Windows Server en un clúster de Azure Kubernetes Service (AKS) mediante PowerShell
 
