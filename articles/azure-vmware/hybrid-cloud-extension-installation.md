@@ -2,19 +2,19 @@
 title: Instalación de Hybrid Cloud Extension (HCX)
 description: Configuración de la solución VMware Hybrid Cloud Extension (HCX) para la nube privada de Azure VMware Solution (AVS)
 ms.topic: how-to
-ms.date: 05/19/2020
-ms.openlocfilehash: 3037d12ebbb036098cfc00a42521513bc2df6170
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: b897a44fb6811c4e3564c59a8ab2c064506f0a4f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367553"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539166"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Instalación de HCX para Azure VMware Solution
 
 En este artículo, se recorren los procedimientos para configurar la solución VMware Hybrid Cloud Extension (HCX) para la nube privada de Azure VMware Solution (AVS). HCX permite la migración de las cargas de trabajo de VMware a la nube y a otros sitios conectados mediante diversos tipos de migración integrados compatibles con HCX.
 
-HCX Advanced, la instalación predeterminada, admite hasta tres sitios externos. Si se necesitan más de tres sitios, los clientes tienen la opción de habilitar el complemento HCX Enterprise mediante el soporte técnico. La instalación de HCX Enterprise conlleva cargos adicionales para los clientes después de la disponibilidad general (GA), pero proporciona [características adicionales](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
+HCX Advanced, la instalación predeterminada, admite hasta tres instancias de vCenter. Si se necesitan más de tres, los clientes tienen la opción de habilitar el complemento HCX Enterprise mediante el soporte técnico. La instalación de HCX Enterprise conlleva cargos adicionales para los clientes después de la disponibilidad general (GA), pero proporciona [características adicionales](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
 
 
 Revise primero detenidamente las secciones [Antes de comenzar](#before-you-begin), [Requisitos de versión de software](#software-version-requirements) y [Requisitos previos](#prerequisites). 
