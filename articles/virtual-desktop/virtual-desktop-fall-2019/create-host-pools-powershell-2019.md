@@ -1,5 +1,5 @@
 ---
-title: 'Creación de un grupo de hosts de Windows Virtual Desktop con PowerShell: Azure'
+title: 'Creación de un grupo de hosts de Windows Virtual Desktop, actualización Fall 2019, con PowerShell: Azure'
 description: Cómo crear un grupo de hosts en Windows Virtual Desktop con cmdlets de PowerShell.
 services: virtual-desktop
 author: Heidilohr
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 79bd13deb66998c8a1acde28774b47fd567d368c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 552a3fdd20d67d81fe0c6a81a965fd3231da643d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204717"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527649"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Creación de un grupo host con PowerShell
 

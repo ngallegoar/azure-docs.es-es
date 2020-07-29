@@ -1,5 +1,5 @@
 ---
-title: Creación de una configuración de varios SID de SAP en Azure | Microsoft Docs
+title: Creación de una configuración de varios SID de alta disponibilidad de SAP en Azure
 description: Guía de alta disponibilidad para la configuración de varios SID de SAP NetWeaver en máquinas virtuales Windows
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2016
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 553abc0a221950d81f3ee8591875507d0b6a2f0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e2055d194e1836ebc0b2e1181ca49794bc4a3b6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84020785"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508015"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Creación de una configuración de varios SID de SAP NetWeaver
 

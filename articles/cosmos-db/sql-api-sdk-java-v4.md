@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
-ms.openlocfilehash: aa5e741d8578253b8b3e8e5c692873c39cec8f79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccc872b24c78fbdf6e55673f9d1f78efc0647895
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85412641"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537891"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Versión 4 del SDK de Java para la API SQL de Azure Cosmos DB: notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -61,6 +61,17 @@ La versión 4 del SDK de Java de Azure Cosmos DB para Core (SQL) combina una A
 | **Talleres y laboratorios de Azure Cosmos DB** |[Página principal de talleres de Cosmos DB](https://aka.ms/cosmosworkshop)
 
 ## <a name="release-history"></a>Historial de versiones
+
+### <a name="420-2020-07-14"></a>4.2.0 (2020-07-14)
+* Se ha agregado la API habilitada para el registro de scripts a `CosmosStoredProcedureRequestOptions`.
+* Se actualizó `idleEndpointTimeout` predeterminada de `DirectConnectionConfig` a 1 h y `connectTimeout` predeterminado a 5 s.
+#### <a name="key-bug-fixes"></a>Correcciones de errores clave
+* Se ha corregido un problema por el que `GatewayConnectionConfig` `idleConnectionTimeout` invalidaba `DirectConnectionConfig` `idleConnectionTimeout`.
+* Se han corregido las API de obtención y establecimiento `responseContinuationTokenLimitInKb` en `CosmosQueryRequestOptions`.
+* Se ha corregido un problema en la consulta y fuente de cambios al volver a crear la colección con el mismo nombre.
+* Se ha corregido el problema con la consulta superior lanzando ClassCastException.
+* Se ha corregido el problema con el orden mediante la consulta lanzando NullPointerException.
+* Se ha corregido un problema en el control de las solicitudes canceladas en el modo directo que causaba la llamada del reactor `onErrorDropped`. 
 
 ### <a name="410-2020-06-25"></a>4.1.0 (25-06-2020)
 #### <a name="new-features"></a>Nuevas características

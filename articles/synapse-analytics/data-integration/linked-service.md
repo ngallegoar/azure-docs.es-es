@@ -1,5 +1,5 @@
 ---
-title: Aprovisionamiento y protección de un servicio vinculado en Azure Synapse Analytics
+title: Protección de servicios vinculados
 description: Aprenda a aprovisionar y proteger un servicio vinculado con una red virtual administrada
 services: synapse-analytics
 author: acomet
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 435c3fd6b1e6444fa3a31c68b4d74c2553d2e634
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7c7cf8ec7297b3c0ef855936becc3c06a5120a38
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427240"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496084"
 ---
 # <a name="securing-a-linked-service-with-private-links"></a>Protección de un servicio vinculado con vínculos privados 
 
@@ -56,7 +56,7 @@ En caso de no haber hecho clic en el hipervínculo al probar la conexión anteri
 1. Seleccione el punto de conexión privado que creó anteriormente. Puede ver un hipervínculo que le permitirá aprobar el punto de conexión privado a nivel de la cuenta de almacenamiento. *Una alternativa es ir directamente a la cuenta de almacenamiento en Azure Portal e ir a la hoja **Conexiones de punto de conexión privado**.*
 1. Marque el punto de conexión privado que creó en Studio y seleccione **Aprobar**.
 1. Agregue una descripción y haga clic en **Sí**.
-1. Vuelva a Synapse Studio en la sección **Managed Virtual Networks** (redes virtuales administradas) de la pestaña **Administrar**.
+1. Vuelva a Synapse Studio en la sección **Managed Virtual Networks** (Redes virtuales administradas) de la pestaña **Manage** (Administrar).
 1. La aprobación tardará aproximadamente 1 minuto en verse reflejada para el punto de conexión privado.
 
 ## <a name="check-the-connection-works"></a>Comprobación de que la conexión funciona

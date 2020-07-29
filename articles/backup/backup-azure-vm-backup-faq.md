@@ -4,16 +4,16 @@ description: En este artículo, descubra las respuestas a preguntas comunes sobr
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 5705b70dd210c336fc2baa4da07f96f2ad249f64
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 68f85b3d5da811f78ba398093db5a65ee5c49ab1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82800658"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538775"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Preguntas más frecuentes sobre la copia de seguridad de máquinas virtuales de Azure
 
-En este artículo se responde a preguntas comunes sobre la copia de seguridad de máquinas virtuales de Azure con el servicio [Azure Backup](backup-introduction-to-azure-backup.md).
+En este artículo se responde a preguntas comunes sobre la copia de seguridad de máquinas virtuales de Azure con el servicio [Azure Backup](./backup-overview.md).
 
 ## <a name="backup"></a>Copia de seguridad
 
@@ -83,7 +83,7 @@ No se pueden tomar instantáneas en un disco habilitado para el Acelerador de es
 
 Azure Backup no puede realizar la copia de seguridad de un disco habilitado para el Acelerador de escritura pero puede excluirlo de la copia. Sin embargo, la copia de seguridad no proporcionará coherencia de base de datos ya que no se ha realizado la copia de seguridad de la información contenida en este disco. Puede realizar copias de seguridad de discos con esta configuración si desea realizar la copia de seguridad de un disco de sistema operativo y la copia de seguridad de aquellos discos que no estén habilitados para el Acelerador de escritura.
 
-Azure Backup proporciona una solución de copia de seguridad de streaming para las bases de datos de SAP HANA con un RPO de 15 minutos. Tiene la certificación Backint de SAP, para proporcionar compatibilidad con copias de seguridad nativas aprovechando las API nativas de SAP HANA. Obtenga más información [sobre la copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-about).
+Azure Backup proporciona una solución de copia de seguridad de streaming para las bases de datos de SAP HANA con un RPO de 15 minutos. Tiene la certificación Backint de SAP, para proporcionar compatibilidad con copias de seguridad nativas aprovechando las API nativas de SAP HANA. Obtenga más información [sobre la copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure](./sap-hana-db-about.md).
 
 ### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>¿Cuál es el retraso máximo que puedo esperar en la hora de inicio de la copia de seguridad desde la hora de copia de seguridad programada que he configurado en mi directiva de copia de seguridad de máquina virtual?
 
@@ -129,7 +129,11 @@ El proceso de restauración sigue siendo el mismo. Si el punto de recuperación 
 
 [Más información](backup-azure-vms-automation.md#restore-an-azure-vm) sobre cómo hacer esto en PowerShell.
 
-### <a name="can-i-restore-the-vm-thats-been-deleted"></a>¿Puedo restaurar la máquina virtual que se ha eliminado?
+### <a name="if-the-restore-fails-to-create-the-vm-what-happens-to-the-disks-included-in-the-restore"></a>Si se produce un error en la restauración al crear la máquina virtual, ¿qué ocurre con los discos incluidos en la restauración?
+
+En el caso de una restauración de máquina virtual administrada, incluso si se produce un error en la creación de la máquina virtual, se seguirán restaurando los discos.
+
+### <a name="can-i-restore-a-vm-thats-been-deleted"></a>¿Se puede restaurar una máquina virtual que se haya eliminado?
 
 Sí. Incluso si elimina la máquina virtual, puede ir al elemento de la copia de seguridad correspondiente en el almacén y realizar la restauración desde un punto de recuperación.
 
@@ -143,13 +147,13 @@ La capacidad [Restauración instantánea](backup-instant-restore-capability.md) 
 
 ### <a name="what-happens-when-we-change-the-key-vault-settings-for-the-encrypted-vm"></a>¿Qué ocurre cuando se cambia la configuración de Key Vault para la máquina virtual cifrada?
 
-Después de cambiar la configuración de KeyVault para la máquina virtual cifrada, las copias de seguridad seguirán funcionando con el nuevo conjunto de detalles. Sin embargo, después de la restauración desde un punto de recuperación antes del cambio, tendrá que restaurar los secretos en un almacén de claves antes de poder crear la máquina virtual a partir de él. Para más información, consulte este [artículo](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret).
+Después de cambiar la configuración de KeyVault para la máquina virtual cifrada, las copias de seguridad seguirán funcionando con el nuevo conjunto de detalles. Sin embargo, después de la restauración desde un punto de recuperación antes del cambio, tendrá que restaurar los secretos en un almacén de claves antes de poder crear la máquina virtual a partir de él. Para más información, consulte este [artículo](./backup-azure-restore-key-secret.md).
 
-Las operaciones como la sustitución de claves o secretos no requieren este paso y se puede usar la misma instancia de Key Vault después de la restauración.
+Las operaciones como la sustitución de claves o secretos no requieren este paso y se puede usar el mismo almacén de claves después de la restauración.
 
 ### <a name="can-i-access-the-vm-once-restored-due-to-a-vm-having-broken-relationship-with-domain-controller"></a>¿Puedo acceder a la máquina virtual una vez que se ha restaurado porque una máquina virtual tiene una relación rota con el controlador de dominio?
 
-Si, puede acceder a la máquina virtual una vez que se haya restaurado porque una máquina virtual tiene una relación rota con el controlador de dominio. Para más información, consulte este [artículo](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#post-restore-steps).
+Si, puede acceder a la máquina virtual una vez que se haya restaurado porque una máquina virtual tiene una relación rota con el controlador de dominio. Para más información, consulte este [artículo](./backup-azure-arm-restore-vms.md#post-restore-steps).
 
 ## <a name="manage-vm-backups"></a>Administrar copias de seguridad de máquina virtual
 
