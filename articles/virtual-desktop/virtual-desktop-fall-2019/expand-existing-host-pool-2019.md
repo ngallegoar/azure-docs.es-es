@@ -1,5 +1,5 @@
 ---
-title: 'Expansión del grupo de hosts existente con nuevos hosts de sesión: Azure'
+title: 'Expansión del grupo de hosts existente con nuevos hosts de sesión (otoño 2019): Azure'
 description: Expansión de un grupo de hosts existente con nuevos hosts de sesión en Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 956934bd536d8eb5e692ed193cad1424929db24b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 291dc32453001dd1e188bacae8be372bb3645ece
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260764"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527547"
 ---
-# <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expansión de un grupo de hosts existente con nuevos hosts de sesión
+# <a name="expand-an-existing-host-pool-with-new-session-hosts-fall-2019"></a>Expansión de un grupo de hosts existente con nuevos hosts de sesión (otoño 2019)
 
 >[!IMPORTANT]
 >Este contenido se aplica a la versión Fall 2019 que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager introducidos en la actualización de Spring 2020, consulte [este artículo](../expand-existing-host-pool.md).

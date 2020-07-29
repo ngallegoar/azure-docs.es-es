@@ -1,5 +1,5 @@
 ---
-title: Mejora en el rendimiento del índice de almacén de columnas
+title: Mejora del rendimiento del índice del almacén de columnas (versión preliminar de las áreas de trabajo)
 description: Reduzca los requisitos de memoria o aumente la memoria disponible para maximizar el número de filas que un índice de almacén de columnas comprime en cada grupo de filas.
 services: synapse-analytics
 author: kevinvngo
@@ -11,14 +11,14 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: f1f3667c088c5f7300317ea02ca19a72e4e62905
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: c885bce5ca17d5919ec134d179f6009e91a969cc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427388"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495489"
 ---
-# <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximización de la calidad del grupo de filas del almacén de columnas
+# <a name="maximizing-rowgroup-quality-for-columnstore-index-performance"></a>Maximización de la calidad del grupo de filas para el rendimiento del índice del almacén de columnas
 
 El número de filas de un grupo de filas determina la calidad del grupo de filas. Aumentar la memoria disponible puede maximizar el número de filas que un índice de almacén de columnas comprime en cada grupo de filas.  Emplee estos métodos para mejorar las tasas de compresión y el rendimiento de las consultas de los índices de almacén de columnas.
 

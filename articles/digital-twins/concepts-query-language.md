@@ -7,22 +7,25 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 6da539ccd8ad293aed402a4a6d130b6701e7b9c2
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: b3ed5d6605097b31dfaa58a2d37e71d3a6702bee
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187122"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537506"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Acerca del lenguaje de consulta para Azure Digital Twins
 
 Recuerde que el centro de Azure Digital Twins es el [**grafo de gemelos**](concepts-twins-graph.md), que se crea partir de **gemelos digitales** y **relaciones**. Este grafo se puede consultar para obtener información sobre los gemelos digitales y las relaciones que contiene. Estas consultas se escriben en un lenguaje de consulta personalizado similar a SQL llamado **lenguaje de almacén de consultas Azure Digital Twins**.
 
-Para enviar una consulta al servicio desde una aplicación cliente, usará la **API Query** de Azure Digital Twins. Esto permite a los desarrolladores escribir consultas y aplicar filtros para buscar conjuntos de gemelos digitales en el grafo de gemelos y otra información sobre el escenario de Azure Digital Twins.
+Para enviar una consulta al servicio desde una aplicación cliente, usará la [**API de consulta**](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.digitaltwinsclient.query?view=azure-dotnet-preview) de Azure Digital Twins. Esto permite a los desarrolladores escribir consultas y aplicar filtros para buscar conjuntos de gemelos digitales en el grafo de gemelos y otra información sobre el escenario de Azure Digital Twins.
 
 ## <a name="query-language-features"></a>Características del lenguaje de consulta
 
 Azure Digital Twins proporciona completas funciones de consulta en el grafo de gemelos. Las consultas se describen mediante una sintaxis de tipo SQL, en un lenguaje de consulta similar al [lenguaje de consulta de IoT Hub](../iot-hub/iot-hub-devguide-query-language.md) con muchas características parecidas.
+
+> [!NOTE]
+> Todas las operaciones de consulta de Azure Digital Twins distinguen mayúsculas de minúsculas.
 
 Estas son las operaciones disponibles en el lenguaje de consulta de Azure Digital Twins:
 * Obtención de gemelos mediante las propiedades de los gemelos digitales.
@@ -37,4 +40,4 @@ Estas son las operaciones disponibles en el lenguaje de consulta de Azure Digita
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre cómo escribir consultas y ver ejemplos de código de cliente en [Procedimientos para consultar el grafo de gemelos](how-to-query-graph.md).
+Aprenda a escribir consultas y ver ejemplos de código de cliente en [*Procedimientos: Consulta del grafo gemelo*](how-to-query-graph.md).

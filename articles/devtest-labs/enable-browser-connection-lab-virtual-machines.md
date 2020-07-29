@@ -1,16 +1,16 @@
 ---
-title: Habilitar una conexión de explorador en máquinas virtuales de Azure DevTest Labs | Microsoft Docs
+title: Habilitación de una conexión de explorador en máquinas virtuales de Azure DevTest Labs
 description: Ahora, DevTest Labs se integra con Azure Bastion, lo que le permite, como propietario del laboratorio, habilitar el acceso a todas las máquinas virtuales de laboratorio a través de un explorador.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 23fb43fa7295006d8d3784d1dbb5d80c48411431
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ff55aa033ee9a024c8bc89cc9d39bc8d3ad25da
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85484135"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537536"
 ---
-# <a name="enable-browser-connection-on-lab-virtual-machines"></a>Habilitar una conexión del explorador en máquinas virtuales de laboratorio 
+# <a name="enable-browser-connection-on-azure-devtest-labs-virtual-machines"></a>Habilitación de una conexión de explorador en máquinas virtuales de Azure DevTest Labs 
 DevTest Labs se integra con [Azure Bastion](https://docs.microsoft.com/azure/bastion/), lo que le permite conectarse a sus máquinas virtuales a través de un explorador. En primer lugar, hay que habilitar una conexión del explorador en las máquinas virtuales de laboratorio en cuestión.
 
 Como propietario de un laboratorio, puede habilitar el acceso a todas las máquinas virtuales de laboratorio a través de un explorador. No es necesario un cliente, agente o componente de software adicional. Azure Bastion proporciona una conexión RDP/SSH segura e ininterrumpida a las máquinas virtuales directamente en Azure Portal a través de TLS. Cuando se conecta a través de Azure Bastion, las máquinas virtuales no necesitan una dirección IP pública. Para más información, vea [¿Qué es Azure Bastion?](../bastion/bastion-overview.md)

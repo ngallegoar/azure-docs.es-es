@@ -3,12 +3,12 @@ title: 'Implementación de Live Video Analytics en un dispositivo IoT Edge: Azur
 description: En este artículo se enumeran los pasos que ayudarán a implementar Live Video Analytics en el dispositivo IoT Edge. Hará esto, por ejemplo, si tiene acceso a una máquina Linux local o ha creado previamente una cuenta de Azure Media Services.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: eaaa793bb5b84ac4ae352f242215b8d3e7d56cf1
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 415d22a47e6563e10a1880429537ab182d1ff7a5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026974"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519905"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implementación de Live Video Analytics en un dispositivo IoT Edge
 
@@ -24,7 +24,7 @@ En este artículo se enumeran los pasos que ayudarán a implementar Live Video A
 * [Instalación del entorno de ejecución de Azure IoT Edge en sistemas Linux basados en Debian](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)
 * [Creación de una cuenta de Azure Media Services](../latest/create-account-howto.md)
     * Use una de estas regiones: Este de EE. UU. 2, Centro de EE. UU., Centro-norte de EE. UU., Japón Oriental, Oeste de EE. UU. 2, Centro-oeste de EE. UU., Este de Canadá, Sur de Reino Unido, Centro de Francia, Sur de Francia, Norte de Suiza, Oeste de Suiza y Japón Occidental.
-    * Se recomienda usar cuentas de almacenamiento V2 de uso general (GPv2).
+    * Se recomienda usar cuentas de almacenamiento v2 de uso general (GPv2).
 
 ## <a name="configuring-azure-resources-for-using-live-video-analytics"></a>Configuración de recursos de Azure para usar Live Video Analytics
 
@@ -34,7 +34,7 @@ Vea [Creación de un rol personalizado de Azure Resource Manager](create-custom-
 
 ### <a name="set-up-a-premium-streaming-endpoint"></a>Configuración de un punto de conexión de streaming premium
 
-Si tiene previsto usar Live Video Analytics para grabar vídeo en la nube y, posteriormente, reproducirlo, debe actualizar el Servicio multimedia para que use un [punto de conexión de streaming premium](../latest/streaming-endpoint-concept.md#types).  
+Si tiene previsto usar Live Video Analytics para grabar vídeo continuamente en la nube y, posteriormente, usar las [API de consulta](playback-recordings-how-to.md#query-api) antes de reproducirlo, se recomienda actualizar el servicio multimedia para que use un [punto de conexión de streaming premium](../latest/streaming-endpoint-concept.md#types).  
 
 Se trata de un paso opcional. Se puede usar este comando de la CLI de Azure para ello:
 
