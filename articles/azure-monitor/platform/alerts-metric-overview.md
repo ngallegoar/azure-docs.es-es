@@ -1,15 +1,15 @@
 ---
 title: Comprender cómo funcionan las alertas de métricas en Azure Monitor.
 description: Obtenga información general acerca de lo que puede hacer con las alertas de métricas y cómo funcionan en Azure Monitor.
-ms.date: 07/09/2020
+ms.date: 07/16/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: cd8c28b2c26e8859eda1634d2441982336cdd460
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 05e25a67279786ef4679552503e577b1b1a382ea
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187530"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539438"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprender cómo funcionan las alertas de métricas en Azure Monitor
 
@@ -119,6 +119,15 @@ Supongamos que tiene una aplicación web con muchas instancias y no sabe cuál e
 Esta regla supervisa si el uso medio de la CPU durante los últimos cinco minutos supera el comportamiento esperado para cada instancia. La misma regla que puede supervisar las instancias a medida que aparecen sin necesidad de volver a modificar la regla de alerta de métrica. Cada instancia obtendrá un umbral que se ajuste al patrón de comportamiento de las series de métricas y cambiará continuamente en función de los nuevos datos para hacer que el umbral sea más preciso. Igual que antes, cada instancia se supervisará individualmente y, por consiguiente, recibirá notificaciones de forma individual.
 
 El aumento de los períodos de retroceso y del número de infracciones también puede permitir que las alertas de filtrado solo alerten sobre la definición de una desviación significativa. [Más información sobre las opciones avanzadas de umbrales dinámicos](alerts-dynamic-thresholds.md#what-do-the-advanced-settings-in-dynamic-thresholds-mean).
+
+> [!NOTE]
+>
+> Se recomienda elegir una *Granularidad de agregación (período)* mayor que la *Frecuencia de evaluación*, con el fin de reducir la probabilidad de que falte la primera evaluación de las series temporales agregadas en los casos siguientes:
+> - Regla de alertas de métricas que supervisa varias dimensiones: Cuando se agrega una nueva combinación de valores de dimensión.
+> - Regla de alertas de métricas que supervisa varios recursos: Cuando se agrega un nuevo recurso al ámbito.
+> - Regla de alertas de métricas que supervisa una métrica que no se emite de manera continua (métrica dispersa): Cuando la métrica se emite después de un período de más de 24 horas en el que no se emitió.
+
+
 
 ## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Supervisión a escala mediante alertas de métricas en Azure Monitor
 
