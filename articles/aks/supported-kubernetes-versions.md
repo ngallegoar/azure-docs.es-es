@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 886e6cf237df94c056ec7c592e0b535327339871
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 019ae80020dafb54f2c06dd504797f21069914ae
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243803"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507070"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS)
 
@@ -131,7 +131,7 @@ Para ver el historial de versiones anteriores, consulte [aquí](https://en.wikip
 | 1.17  | 9 de diciembre de 2019  | Enero de 2019   | Julio de 2020  | 1.20 disponibilidad general | 
 | 1.18  | 23 de marzo de 2020  | Mayo de 2020   | Agosto de 2020  | 1.21 disponibilidad general | 
 | 1.19  | 4 de agosto de 2020  | Agosto de 2020   | Noviembre de 2020  | 1.22 disponibilidad general | 
-| 1.20  | *Noviembre 2020    | *Diciembre de 2021   | *Enero de 2021  | 1.23 Disponibilidad general | 
+| 1.20  | *Noviembre 2020    | *Diciembre de 2020   | *Enero de 2021  | 1.23 Disponibilidad general | 
 
 \* Confirmación de fecha de versión anterior pendiente.
 
@@ -181,4 +181,4 @@ Para obtener información sobre cómo actualizar el clúster, vea [Actualizació
 <!-- LINKS - Internal -->
 [aks-upgrade]: upgrade-cluster.md
 [az-aks-get-versions]: /cli/azure/aks#az-aks-get-versions
-[preview-terms]: /support/legal/preview-supplemental-terms
+[preview-terms]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

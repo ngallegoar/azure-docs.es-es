@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 75e469b30632bb7e7e8f6445db78acda784ac5da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8e4843ad71455f8e478ef74ee71975c1dbf2925
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601282"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510572"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption para VM Linux 
 
@@ -26,7 +26,7 @@ Si utiliza [Azure Security Center](../../security-center/index.yml), se le alert
 > [!WARNING]
 > - Si ya ha usado Azure Disk Encryption con Azure AD para cifrar una VM, debe seguir usando esta opción para cifrar la VM. Para más información, consulte [Azure Disk Encryption con Azure AD (versión anterior)](disk-encryption-overview-aad.md). 
 > - Algunas de las recomendaciones pueden provocar un aumento del uso de datos, de la red o de recursos de proceso, lo que incrementará los costes de las licencias o suscripciones. Para crear recursos en Azure en las regiones admitidas, debe tener una suscripción válida de Azure activa.
-> - Actualmente, las máquinas virtuales de generación 2 no admiten Azure Disk Encryption. Vea [Compatibilidad para máquinas virtuales de generación 2 en Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) para obtener más información.
+> - Actualmente, las máquinas virtuales de generación 2 no admiten Azure Disk Encryption. Vea [Compatibilidad para máquinas virtuales de generación 2 en Azure](../windows/generation-2.md) para obtener más información.
 
 Para obtener información sobre los aspectos básicos de Azure Disk Encryption para Linux en unos minutos, consulte [Inicio rápido: Creación y cifrado de una VM Linux con la CLI de Azure](disk-encryption-cli-quickstart.md) o [Inicio rápido: Creación y cifrado de una VM Linux con Azure PowerShell](disk-encryption-powershell-quickstart.md).
 
@@ -63,6 +63,7 @@ Las distribuciones de servidores Linux que no están aprobadas por Azure no admi
 | Canonical | Ubuntu 16.04 | 16.04-DAILY-LTS | Canonical:UbuntuServer:16.04-DAILY-LTS:latest | Sistema operativo y disco de datos |
 | Canonical | Ubuntu 14.04.5</br>[con kernel optimizado para Azure 4.15 o posterior](disk-encryption-troubleshooting.md) | 14.04.5-LTS | Canonical:UbuntuServer:14.04.5-LTS:latest | Sistema operativo y disco de datos |
 | Canonical | Ubuntu 14.04.5</br>[con kernel optimizado para Azure 4.15 o posterior](disk-encryption-troubleshooting.md) | 14.04.5-DAILY-LTS | Canonical:UbuntuServer:14.04.5-DAILY-LTS:latest | Sistema operativo y disco de datos |
+| RedHat | RHEL 7.8 | 7.8 | RedHat:RHEL:7.8:latest | Sistema operativo y disco de datos (véase la nota siguiente) |
 | RedHat | RHEL 7.7 | 7,7 | RedHat:RHEL:7.7:latest | Sistema operativo y disco de datos (véase la nota siguiente) |
 | RedHat | RHEL 7.7 | 7-LVM | RedHat:RHEL:7-LVM:latest | Sistema operativo y disco de datos (véase la nota siguiente) |
 | RedHat | RHEL 7.6 | 7.6 | RedHat:RHEL:7.6:latest | Sistema operativo y disco de datos (véase la nota siguiente) |
@@ -95,7 +96,7 @@ Las distribuciones de servidores Linux que no están aprobadas por Azure no admi
 
 Azure Disk Encryption requiere que los módulos dm-crypt y vfat estén presentes en el sistema. Quitar o deshabilitar vfat desde la imagen predeterminada impedirá que el sistema lea el volumen clave y obtenga la clave necesaria para desbloquear los discos en los reinicios posteriores. Los pasos de protección del sistema que quitan el módulo vfat del sistema o aplican la expansión de las carpetas montaje del sistema operativo en las unidades de datos no son compatibles con Azure Disk Encryption. 
 
-Antes de habilitar el cifrado, los discos de datos que se van a cifrar deben aparecer correctamente en /etc/fstab. Use la opción "nofail" al crear entradas y elija un nombre de dispositivo de bloque persistente (dado que los nombres de dispositivo en el formato "/dev/sdX" podrían no asociarse al mismo disco en los diferentes reinicios, especialmente después del cifrado; para obtener más información sobre este comportamiento, vea: [Solución de problemas de cambio de nombre de dispositivo de las máquinas virtuales Linux](troubleshoot-device-names-problems.md)).
+Antes de habilitar el cifrado, los discos de datos que se van a cifrar deben aparecer correctamente en /etc/fstab. Use la opción "nofail" al crear entradas y elija un nombre de dispositivo de bloque persistente (dado que los nombres de dispositivo en el formato "/dev/sdX" podrían no asociarse al mismo disco en los diferentes reinicios, especialmente después del cifrado; para obtener más información sobre este comportamiento, vea: [Solución de problemas de cambio de nombre de dispositivo de las máquinas virtuales Linux](../troubleshooting/troubleshoot-device-names-problems.md)).
 
 Asegúrese de que el valor /etc/fstab está configurado correctamente para el montaje. Para configurar estos valores, ejecute el comando mount -a o reinicie la máquina virtual y desencadene el nuevo montaje de ese modo. Cuando haya finalizado, revise la salida del comando lsblk para comprobar que la unidad sigue montada. 
 
@@ -149,5 +150,3 @@ En la siguiente tabla se definen algunos de los términos comunes que se usan en
 - [Script de la CLI de requisitos previos de Azure Disk Encryption](https://github.com/ejarvi/ade-cli-getting-started)
 - [Script de PowerShell de requisitos previos de Azure Disk Encryption](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)
 - [Creación y configuración de un almacén de claves para Azure Disk Encryption](disk-encryption-key-vault.md)
-
-

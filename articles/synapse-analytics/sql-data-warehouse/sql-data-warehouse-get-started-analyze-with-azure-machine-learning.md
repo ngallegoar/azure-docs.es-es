@@ -21,7 +21,7 @@ ms.locfileid: "86495745"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Análisis de datos con Azure Machine Learning
 
-En este tutorial se usa [Azure Machine Learning Designer](https://docs.microsoft.com/azure/machine-learning/concept-designer) para crear un modelo de aprendizaje automático predictivo. El modelo se basa en los datos almacenados en Azure Synapse. El escenario del tutorial es predecir la probabilidad de que un cliente compre una bicicleta, el fin es que Adventure Works, la tienda de bicicletas, pueda crear una campaña de marketing dirigida.
+En este tutorial se usa [Azure Machine Learning Designer](https://docs.microsoft.com/azure/machine-learning/concept-designer) para crear un modelo de aprendizaje automático predictivo. El modelo se basa en los datos almacenados en Azure Synapse. El escenario del tutorial es predecir la probabilidad de que un cliente compre una bicicleta y su finalidad es que Adventure Works, la tienda de bicicletas, pueda crear una campaña de marketing dirigida.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -74,7 +74,7 @@ Una vez que los datos están disponibles en Azure Data Lake Storage, los almacen
 
 ## <a name="configure-designer-experiment"></a>Configuración del experimento del diseñador
 
-Después siga los pasos a continuación para configurar el diseñador:
+Después, siga los pasos que aparecen a continuación para configurar el diseñador:
 
 1. Haga clic en la pestaña **Designer** en el panel izquierdo en la sección **Autor**.
 
@@ -86,7 +86,7 @@ Después siga los pasos a continuación para configurar el diseñador:
 
 ## <a name="import-the-data"></a>Importación de los datos
 
-1. Seleccione la subficha **Conjuntos de datos** en el panel izquierdo, debajo del cuadro de búsqueda.
+1. Seleccione la subpestaña **Conjuntos de datos** en el panel izquierdo, debajo del cuadro de búsqueda.
 
 1. Arrastre el conjunto de datos que creó anteriormente al lienzo.
 
@@ -96,7 +96,7 @@ Después siga los pasos a continuación para configurar el diseñador:
 
 Para limpiar los datos, anule las columnas que no sean pertinentes para el modelo. Para hacerlo, siga estos pasos:
 
-1. Seleccione la subficha **Módulos** en el panel izquierdo.
+1. Seleccione la subpestaña **Módulos** en el panel izquierdo.
 
 1. Arrastre el módulo **Seleccionar columnas en el conjunto de datos** bajo la opción **Transformación de datos < Manipulación** en el lienzo. Conecte este módulo con el módulo del **Conjunto datos**.
 
@@ -120,7 +120,7 @@ Los datos se dividen en 80-20: 80 % para entrenar un modelo de aprendizaje autom
 
 1. Arrastre el módulo **Árbol de decisión aumentado de dos clases** al lienzo.
 
-1. Arrastre el módulo **Train Model** (Entrenar modelo) hasta el lienzo. Especifique las entradas conectándolo a los módulos **Two-Class Boosted Decision Tree** (Árbol de decisión promovido por dos clases), que es un algoritmo ML, y **Split Data** (Dividir datos), que son los datos para entrenar el algoritmo.
+1. Arrastre el módulo **Train Model** (Entrenar modelo) hasta el lienzo. Especifique las entradas conectándolo a los módulos **Two-Class Boosted Decision Tree** (Árbol de decisión promovido por dos clases), que es un algoritmo de Machine Learning, y **Split Data** (Dividir datos), que son los datos para entrenar el algoritmo.
 
 1. Para el módulo Train Model (Entrenar modelo) en la opción **Label column** (Columna de etiqueta) del panel Propiedades, seleccione Editar columna. Seleccione la columna **BikeBuyer** como columna de predicción y haga clic en **Guardar**.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: yinhew
-ms.openlocfilehash: c4eb1419859d4a87e53371a266dcef52e632b6c8
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: e7bbedf253d6a64609179a8710fc9accd1f03818
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636094"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537976"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-text REST API
 
@@ -223,10 +223,10 @@ El objeto de la lista `NBest` puede incluir:
 | `ITN` | El formato de normalización inversa de texto ("canónica") del texto reconocido, con números de teléfono, números, abreviaturas ("doctor smith" a "dr smith") y otras transformaciones aplicadas. |
 | `MaskedITN` | Formato ITN con enmascaramiento de palabras soeces aplicado, si se solicita. |
 | `Display` | Formato de presentación del texto reconocido, con adición de signos de puntuación y mayúsculas. Este parámetro es el mismo que `DisplayText` que se proporcionó cuando el formato se estableció en `simple`. |
-| `AccuracyScore` | Puntuación que indica la precisión de la pronunciación del fragmento hablado en cuestión. |
-| `FluencyScore` | Puntuación que indica la fluidez del fragmento hablado en cuestión. |
-| `CompletenessScore` | Puntuación que indica la integridad del fragmento hablado en cuestión mediante el cálculo de la proporción de palabras pronunciadas con respecto a la entrada completa. |
-| `PronScore` | Puntuación global que indica la calidad de la pronunciación del fragmento hablado en cuestión. Se calcula a partir de `AccuracyScore`, `FluencyScore` y `CompletenessScore` con ponderación. |
+| `AccuracyScore` | Precisión de pronunciación de la voz. La precisión indica el grado de coincidencia de los fonemas con la pronunciación de un hablante nativo. La puntuación de precisión del nivel de texto completo y de las palabras individuales se agrega a partir de la puntuación de precisión del nivel de fonema. |
+| `FluencyScore` | Fluidez del fragmento hablado en cuestión. La fluidez indica el grado de coincidencia de la voz con el uso que hace un hablante nativo de los silencios entre palabras. |
+| `CompletenessScore` | Integridad de la voz, se determina mediante el cálculo de la proporción de palabras pronunciadas para hacer referencia a la entrada de texto. |
+| `PronScore` | Puntuación global que indica la calidad de la pronunciación del fragmento hablado en cuestión. Se agrega a partir de `AccuracyScore`, `FluencyScore` y `CompletenessScore` con ponderación. |
 | `ErrorType` | Este valor indica si se ha omitido, se ha insertado o se ha pronunciado incorrectamente una palabra en comparación con `ReferenceText`. Los valores posibles son `None` (que significa que no hay ningún error en esta palabra), `Omission`, `Insertion` y `Mispronunciation`. |
 
 ## <a name="sample-responses"></a>Respuestas de ejemplo

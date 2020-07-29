@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: d2a14a501ebcf0913804ce39019a3fa4018ca141
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 9363f400754a38d4cc6efd29ac48d7a0476de66f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362380"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524308"
 ---
 # <a name="add-parameters-to-commands"></a>Adición de parámetros a comandos
 
@@ -62,8 +62,11 @@ Edite el comando **TurnOn** existente para encender y apagar varios dispositivos
        
         
    1. Para agregar valores de entrada predefinidos, seleccione **Agregar una entrada predefinida** y, en la ventana **Nuevo elemento**, escriba **Nombre** como se indica en la tabla anterior. En este caso, no usamos alias, por lo que puede dejarlo en blanco. 
+
     > [!div class="mx-imgBorder"]
-        > ![Crear parámetro](media/custom-commands/create-on-off-parameter.png)
+
+    > ![Creación de un parámetro](media/custom-commands/create-on-off-parameter.png)
+
    1. Seleccione **Guardar** para guardar todas las configuraciones del parámetro.
  
  ### <a name="add-subjectdevice-parameter"></a>Adición del parámetro SubjectDevice 

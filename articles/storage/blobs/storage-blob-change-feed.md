@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 0c9ee65a50b9fff13fca7a1989e7bb8801e5f621
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d464897c031522b2227c682f9581f0d34c8db64b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465191"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518748"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Compatibilidad con la fuente de cambios en Azure Blob Storage (versión preliminar)
 
@@ -71,7 +71,7 @@ Habilite la fuente de cambios en la cuenta de almacenamiento mediante Azure Port
 
 4. Elija el botón **Guardar** para confirmar la configuración de **Protección de datos**.
 
-    ![](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
+    ![Captura de pantalla que muestra la configuración de protección de datos.](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

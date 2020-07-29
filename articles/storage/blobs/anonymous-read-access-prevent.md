@@ -1,34 +1,34 @@
 ---
 title: Impedir el acceso de lectura público anónimo a contenedores y blobs
 titleSuffix: Azure Storage
-description: ''
+description: Obtenga información sobre cómo analizar las solicitudes anónimas a una cuenta de almacenamiento y cómo evitar el acceso anónimo a toda la cuenta de almacenamiento o a alguno de sus contenedores.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 90d7cd65bbc07524391f34fe0efce2b044664cef
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 24d726f7600c3ba80833640be8036bf0daa2c014
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209159"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518731"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Impedir el acceso de lectura público anónimo a contenedores y blobs
 
-El acceso de lectura público anónimo a contenedores y blobs en Azure Storage es una manera cómoda de compartir datos, pero también puede suponer un riesgo para la seguridad. Es importante obrar con prudencia al permitir el acceso anónimo y entender cómo evaluar el acceso anónimo a los datos. La complejidad operativa, el error humano o el ataque malintencionado contra los datos a los que se puede tener acceso público pueden dar lugar a costosas vulnerabilidades de los datos. Microsoft recomienda permitir el acceso anónimo solo cuando sea necesario para el escenario de la aplicación.
+El acceso de lectura público anónimo a contenedores y blobs en Azure Storage es una manera cómoda de compartir datos, pero también puede suponer un riesgo para la seguridad. Es importante obrar con prudencia al administrar el acceso anónimo y entender cómo evaluar el acceso anónimo a los datos. La complejidad operativa, el error humano o el ataque malintencionado contra los datos a los que se puede tener acceso público pueden dar lugar a costosas vulnerabilidades de los datos. Microsoft recomienda permitir el acceso anónimo solo cuando sea necesario para el escenario de la aplicación.
 
-De forma predeterminada, una cuenta de almacenamiento permite a los usuarios con los permisos adecuados configurar el acceso público a contenedores y blobs. Puede deshabilitar esta funcionalidad en el nivel de la cuenta de almacenamiento, de modo que los contenedores y blobs de la cuenta no se puedan configurar para el acceso público.
+De forma predeterminada, un usuario con los permisos adecuados puede configurar el acceso público a contenedores y blobs. Puede evitar todo acceso público en el nivel de la cuenta de almacenamiento. Cuando no permite el acceso público a blobs a la cuenta de almacenamiento, los contenedores de la cuenta no se pueden configurar para el acceso público. Los contenedores ya configurados para el acceso público ya no aceptarán solicitudes anónimas. Para más información, consulte [Configuración del acceso de lectura público anónimo a contenedores y blobs](anonymous-read-access-configure.md).
 
 En este artículo se describe cómo analizar las solicitudes anónimas a una cuenta de almacenamiento y cómo evitar el acceso anónimo a la cuenta de almacenamiento o a alguno de sus contenedores.
 
 ## <a name="detect-anonymous-requests-from-client-applications"></a>Detección de solicitudes anónimas desde aplicaciones cliente
 
-Al deshabilitar el acceso de lectura público a una cuenta de almacenamiento, se arriesga a rechazar las solicitudes a contenedores y blobs que están configurados actualmente para el acceso público. Cuando se deshabilita el acceso público a una cuenta de almacenamiento, se invalida la configuración de acceso público de todos los contenedores de esta. Además, todas las solicitudes anónimas futuras a esa cuenta generarán un error.
+Al no permitir el acceso de lectura público a una cuenta de almacenamiento, se arriesga a rechazar las solicitudes a contenedores y blobs que están configurados actualmente para el acceso público. Cuando no se permite el acceso público a una cuenta de almacenamiento, se invalida la configuración de acceso público de todos los contenedores de esta. Además, todas las solicitudes anónimas futuras a esa cuenta generarán un error.
 
-Para comprender de qué forma la deshabilitación del acceso público puede afectar a las aplicaciones cliente, Microsoft recomienda habilitar el registro y las métricas de esa cuenta y analizar los patrones de solicitudes anónimas a lo largo de un intervalo de tiempo. Use métricas para determinar el número de solicitudes anónimas a la cuenta de almacenamiento y utilice registros para determinar a qué contenedores se tiene acceso anónimo.
+Para comprender de qué forma el impedimento del acceso público puede afectar a las aplicaciones cliente, Microsoft recomienda habilitar el registro y las métricas de esa cuenta y analizar los patrones de solicitudes anónimas a lo largo de un intervalo de tiempo. Use métricas para determinar el número de solicitudes anónimas a la cuenta de almacenamiento y utilice registros para determinar a qué contenedores se tiene acceso anónimo.
 
 ### <a name="monitor-anonymous-requests-with-metrics-explorer"></a>Supervisión de las solicitudes anónimas con el Explorador de métricas
 
@@ -92,7 +92,7 @@ Puede encontrar una referencia de los campos disponibles en los registros de Azu
 
 Los registros de Azure Storage en Azure Monitor incluyen el tipo de autorización que se usó para hacer una solicitud a una cuenta de almacenamiento. En la consulta de registro, filtre por la propiedad **AuthenticationType** para ver las solicitudes anónimas.
 
-Para recuperar los registros de los últimos siete días de solicitudes anónimas al almacenamiento de blobs, abra el área de trabajo de Log Analytics. Luego, pegue la siguiente consulta en una nueva consulta de registro y ejecútela. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores:
+Para recuperar los registros de los últimos siete días de solicitudes anónimas al almacenamiento de blobs, abra el área de trabajo de Log Analytics. Luego, pegue la siguiente consulta en una nueva consulta de registro y ejecútela:
 
 ```kusto
 StorageBlobLogs
@@ -106,13 +106,13 @@ También puede configurar una regla de alerta basada en esta consulta para que l
 
 Después de haber evaluado las solicitudes anónimas a los contenedores y blobs de la cuenta de almacenamiento, puede tomar medidas para limitar o evitar el acceso público. Si algunos contenedores de la cuenta de almacenamiento deben estar disponibles para el acceso público, puede configurar el valor de acceso público para cada contenedor de la cuenta de almacenamiento. Esta opción proporciona el control más pormenorizado sobre el acceso público. Para más información, consulte [Configuración del nivel de acceso público a un contenedor](anonymous-read-access-configure.md#set-the-public-access-level-for-a-container).
 
-Para mejorar la seguridad, puede deshabilitar el acceso público a una cuenta de almacenamiento entera. La configuración de acceso público de una cuenta de almacenamiento invalida la configuración individual de los contenedores de esa cuenta. Al deshabilitar el acceso público a una cuenta de almacenamiento, los contenedores que estén configurados para permitirlo ya no estarán accesibles de forma anónima. Para más información, consulte [Habilitación o deshabilitación del acceso de lectura público a una cuenta de almacenamiento](anonymous-read-access-configure.md#enable-or-disable-public-read-access-for-a-storage-account).
+Para mejorar la seguridad, puede impedir el acceso público a toda la cuenta de almacenamiento. La configuración de acceso público de una cuenta de almacenamiento invalida la configuración individual de los contenedores de esa cuenta. Al no permitir el acceso público a una cuenta de almacenamiento, los contenedores que estén configurados para permitirlo ya no estarán accesibles de forma anónima. Para más información, consulte la sección sobre [permitir o no permitir el acceso de lectura público a una cuenta de almacenamiento](anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
 
-Si en su escenario es preciso que determinados contenedores estén disponibles para el acceso público, puede ser aconsejable mover esos contenedores y sus blobs a cuentas de almacenamiento reservadas para el acceso público. Luego, puede deshabilitar el acceso público a cualquier otra cuenta de almacenamiento.
+Si en su escenario es preciso que determinados contenedores estén disponibles para el acceso público, puede ser aconsejable mover esos contenedores y sus blobs a cuentas de almacenamiento reservadas para el acceso público. Luego, puede impedir el acceso público a cualquier otra cuenta de almacenamiento.
 
 ### <a name="verify-that-public-access-to-a-blob-is-not-permitted"></a>Comprobación de que no se permite el acceso público a un blob
 
-Para comprobar que se deniega el acceso público a un blob específico, puede intentar descargar el blob a través de su dirección URL. Si la descarga se realiza correctamente, el blob sigue estando disponible públicamente. Si el blob no está accesible públicamente porque se ha deshabilitado el acceso público a la cuenta de almacenamiento, verá un mensaje de error que indica que no se permite el acceso público en esta cuenta de almacenamiento.
+Para comprobar que se impide el acceso público a un blob específico, puede intentar descargar el blob a través de su dirección URL. Si la descarga se realiza correctamente, el blob sigue estando disponible públicamente. Si el blob no está accesible públicamente porque se ha impedido el acceso público a la cuenta de almacenamiento, verá un mensaje de error que indica que no se permite el acceso público en esta cuenta de almacenamiento.
 
 En el ejemplo siguiente se muestra cómo usar PowerShell para intentar descargar un blob a través de su dirección URL. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores:
 
@@ -124,7 +124,7 @@ Invoke-WebRequest -Uri $url -OutFile $downloadTo -ErrorAction Stop
 
 ### <a name="verify-that-modifying-the-containers-public-access-setting-is-not-permitted"></a>Comprobación de que no se permite modificar la configuración de acceso público del contenedor
 
-Para comprobar que la configuración de acceso público de un contenedor no se puede modificar una vez deshabilitado el acceso público a la cuenta de almacenamiento, puede intentar modificar la configuración. El cambio de la configuración de acceso público del contenedor producirá un error si el acceso público está deshabilitado en la cuenta de almacenamiento.
+Para comprobar que la configuración de acceso público de un contenedor no se puede modificar una vez impedido el acceso público a la cuenta de almacenamiento, puede intentar modificar la configuración. El cambio de la configuración de acceso público del contenedor producirá un error si el acceso público no se permite en la cuenta de almacenamiento.
 
 En el ejemplo siguiente se muestra cómo usar PowerShell para intentar cambiar la configuración de acceso público de un contenedor. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores:
 
@@ -141,10 +141,10 @@ Set-AzStorageContainerAcl -Context $ctx -Container $containerName -Permission Bl
 
 ### <a name="verify-that-creating-a-container-with-public-access-enabled-is-not-permitted"></a>Comprobación de que no se permite la creación de un contenedor con acceso público habilitado
 
-Si el acceso público está deshabilitado en la cuenta de almacenamiento, no podrá crear un contenedor con acceso público habilitado. Para comprobarlo, puede intentar crear un contenedor con acceso público habilitado.
+Si el acceso público no se permite en la cuenta de almacenamiento, no podrá crear un contenedor con acceso público habilitado. Para comprobarlo, puede intentar crear un contenedor con acceso público habilitado.
 
 En el ejemplo siguiente se muestra cómo usar PowerShell para intentar crear un contenedor con acceso público habilitado. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores:
- 
+
 ```powershell
 $rgName = "<resource-group>"
 $accountName = "<storage-account>"

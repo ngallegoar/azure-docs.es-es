@@ -17,11 +17,11 @@ ms.locfileid: "86496542"
 ---
 # <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Creación de un índice básico en Azure Cognitive Search
 
-Un *índice de búsqueda* en Azure Cognitive Search almacena contenido que permite búsquedas, y que se usa para las consultas filtradas y de texto completo. Un índice se define mediante un esquema y se guarda en el servicio, con la importación de datos siguiente como segundo paso. 
+Un *índice de búsqueda* en Azure Cognitive Search almacena contenido que permite búsquedas y se usa para las consultas filtradas y de texto completo. Un índice se define mediante un esquema y se guarda en el servicio y, a continuación, se realiza la importación como segundo paso. 
 
-Los índices contienen *documentos*. Desde un punto de vista conceptual, un documento es una sola unidad de datos habilitada para búsquedas en el índice. Un minorista podría tener un documento para cada objeto que vende, una organización de noticias podría tener un documento para cada artículo, etc. Estos conceptos se pueden asignar a equivalentes de elementos de base de datos más conocidos: un *índice de búsqueda* equivale a una *tabla*, y los *documentos* son más o menos equivalentes a las *filas* de una tabla.
+Los índices contienen *documentos*. Desde un punto de vista conceptual, un documento es una sola unidad de datos habilitada para búsquedas en el índice. Un minorista podría tener un documento para cada objeto que vende, una organización de noticias podría tener un documento para cada artículo, etc. Estos conceptos se pueden asignar a conceptos equivalentes de bases de datos más conocidos: un *índice de búsqueda* equivale a una *tabla* y los *documentos* son más o menos equivalentes a las *filas* de una tabla.
 
-El esquema determina la estructura física de un índice, los campos marcados como "buscable" dan como resultado un índice invertido creado para ese campo. 
+El esquema determina la estructura física de un índice, los campos marcados como "buscables" dan como resultado un índice invertido creado para ese campo. 
 
 Puede crear un índice con las siguientes herramientas y API:
 
@@ -41,11 +41,11 @@ Llegar a un diseño de índice final es un proceso iterativo. Es habitual comenz
 
    ![Incorporación de un comando de índice](media/search-what-is-an-index/add-index.png "Incorporación de un comando de índice")
 
-1. Proporcione el nombre y la clave que se usan para identificar de forma exclusiva cada documento de búsqueda en el índice. La clave es obligatoria y tiene que ser de tipo Edm.String. Durante la importación, debe planear la asignación de un campo único en los datos de origen a este campo. 
+1. Proporcione el nombre y la clave que se usan para identificar de forma exclusiva cada documento de búsqueda en el índice. La clave es obligatoria y tiene que ser de tipo Edm.String. Durante la importación, debe planear la asignación de un campo único de los datos de origen a este campo. 
 
    El portal proporciona un campo de `id` para la clave. Para invalidar el `id` predeterminado, cree un nuevo campo (por ejemplo, una nueva definición de campo denominada `HotelId`) y, a continuación, selecciónelo en **Clave**.
 
-   ![Relleno de las propiedades necesarias](media/search-what-is-an-index//field-attributes.png "Relleno de las propiedades necesarias")
+   ![Rellenar las propiedades necesarias](media/search-what-is-an-index//field-attributes.png "Rellenar las propiedades necesarias")
 
 1. Agregue más campos. El portal muestra los [atributos de campo](#index-attributes) que están disponibles para los diferentes tipos de datos. Si no está familiarizado con el diseño de índices, esta información resulta útil.
 
@@ -188,14 +188,14 @@ Para más información, consulte los [tipos de datos admitidos](https://docs.mic
 
 Los atributos de campo determinan cómo se usa un campo, por ejemplo, si se usa en la búsqueda de texto completo, la navegación por facetas, las operaciones de ordenación, etc. 
 
-Los campos de cadena se suelen marcar como "buscable" y "recuperable". Los campos que se usan para restringir los resultados de búsqueda incluyen "ordenable", "filtrable" y "clasificable".
+Los campos de cadena se suelen marcar como "buscables" y "recuperables". Los campos que se usan para restringir los resultados de búsqueda incluyen "ordenable", "filtrable" y "clasificable".
 
 |Atributo|Descripción|  
 |---------------|-----------------|  
 |"buscable" |Permite realizar búsquedas de texto completo, sujetas a análisis léxico, como la separación de palabras durante la indexación. Si establece un campo buscable en un valor como "día soleado", internamente se dividirá en los tokens individuales "soleado" y "día". Para obtener detalles, vea [Búsqueda de texto completo](search-lucene-query-architecture.md).|  
 |"filtrable" |Se hace referencia en consultas $filter. Los campos filtrables de tipo `Edm.String` o `Collection(Edm.String)` no sufren separación de palabras, por lo que las comparaciones son solo de coincidencias exactas. Por ejemplo, si establece un campo de este tipo en "día soleado", `$filter=f eq 'sunny'` no encontrará ninguna coincidencia, pero `$filter=f eq 'sunny day'` sí. |  
 |"ordenable" |De forma predeterminada, el sistema ordena los resultados por puntuación, pero puede configurar la ordenación en función de los campos de los documentos. Los campos de tipo `Collection(Edm.String)` no pueden ser "ordenables". |  
-|"clasificable" |Normalmente se usa en una presentación de resultados de búsqueda que incluye un recuento de visitas por categoría (por ejemplo, hoteles de una ciudad concreta). Esta opción no puede utilizarse con campos de tipo `Edm.GeographyPoint`. Los campos de tipo `Edm.String` que son "filtrables", "ordenables" o "clasificables" pueden tener como máximo 32 kilobytes de longitud. Para obtener detalles, vea [Creación de un índice de Búsqueda de Azure con la API de REST](https://docs.microsoft.com/rest/api/searchservice/create-index).|  
+|"clasificable" |Normalmente se usa en una presentación de resultados de búsqueda que incluye un recuento de visitas por categoría (por ejemplo, hoteles de una ciudad concreta). Esta opción no puede utilizarse con campos de tipo `Edm.GeographyPoint`. Los campos de tipo `Edm.String` que son "filtrables", "ordenables" o "clasificables" pueden tener como máximo 32 kilobytes de longitud. Para obtener detalles, vea [Creación de un índice de Búsqueda de Azure con la API de REST](https://docs.microsoft.com/rest/api/searchservice/create-index).|  
 |"clave" |Identificador único de los documentos del índice. Es necesario elegir exactamente un campo como campo de clave, y debe ser de tipo `Edm.String`.|  
 |"recuperable" |Determina si el campo se puede devolver en un resultado de búsqueda. Esto resulta útil cuando se quiere usar un campo (por ejemplo, *margen de beneficio*) como mecanismo de filtrado, ordenación o puntuación, pero no se quiere que sea visible para el usuario final. Este atributo debe ser `true` for `key` .|  
 
@@ -238,7 +238,7 @@ El perfil de puntuación predeterminada funciona en segundo plano para calcular 
 
 El tamaño de un índice viene determinado por el tamaño de los documentos que se cargan, además de la configuración del índice, por ejemplo, si incluye los proveedores de sugerencias y cómo establece los atributos en los campos individuales. 
 
-La siguiente captura de pantalla ilustra los patrones de almacenamiento de índices resultantes de diversas combinaciones de atributos. El índice se basa en el **índice de ejemplo realestate**, que puede crear fácilmente mediante el Asistente para la importación de datos. Aunque no se muestran los esquemas de índice, puede deducir los atributos según el nombre del índice. Por ejemplo, el índice *realestate-searchable* tiene seleccionado el atributo "buscable" y nada más, el índice *realestate-retrievable* tiene seleccionado el atributo "recuperable" y nada más y así sucesivamente.
+La siguiente captura de pantalla ilustra los patrones de almacenamiento de índices resultantes de diversas combinaciones de atributos. El índice se basa en el **índice de ejemplo de bienes inmuebles**, que puede crear fácilmente mediante el Asistente para la importación de datos. Aunque no se muestran los esquemas de índice, puede deducir los atributos según el nombre del índice. Por ejemplo, el índice *realestate-searchable* tiene seleccionado el atributo "buscable" y nada más, el índice *realestate-retrievable* tiene seleccionado el atributo "recuperable" y nada más y así sucesivamente.
 
 ![Tamaño del índice basado en la selección de atributos](./media/search-what-is-an-index/realestate-index-size.png "Tamaño del índice basado en la selección de atributos")
 

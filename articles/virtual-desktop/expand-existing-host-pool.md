@@ -1,5 +1,5 @@
 ---
-title: 'Expansión del grupo de hosts existente con nuevos hosts de sesión: Azure'
+title: 'Expansión del grupo de hosts existente con nuevos hosts de sesión, actualización Spring 2020: Azure'
 description: Expansión de un grupo de hosts existente con nuevos hosts de sesión en Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5eee6f34124f8b286deff278c6c3d1038b595357
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b23cee72af7f8262fdd552c2d4c26c608b68a1e4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259881"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527615"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expansión de un grupo de hosts existente con nuevos hosts de sesión
 

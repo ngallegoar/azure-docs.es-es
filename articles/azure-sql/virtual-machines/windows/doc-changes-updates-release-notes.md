@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/06/2020
-ms.openlocfilehash: 9f41cb11960dbe9487231f14b005376261075a83
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 8474b49e3e6b12a613de19df055cbf6e43fb0aa2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231512"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503817"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Cambios en la documentación de SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,12 +29,10 @@ Azure permite implementar una máquina virtual (VM) con una imagen de SQL Serve
 | Cambios | Detalles |
 | --- | --- |
 | **Migración del registro a un disco Ultra** | Obtenga información acerca de cómo puede [migrar el archivo de registro a un disco Ultra](storage-migrate-to-ultradisk.md) para aprovechar el alto rendimiento y la baja latencia. | 
-
-
+| **Creación de AG mediante PowerShell** | Ahora es posible simplificar la creación de un grupo de disponibilidad mediante [PowerShell](availability-group-az-commandline-configure.md), así como la CLI de Azure. | 
 
 
 ## <a name="june-2020"></a>Junio de 2020
-
 
 | Cambios | Detalles |
 | --- | --- |

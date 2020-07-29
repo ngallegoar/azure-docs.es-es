@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/16/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: ffdfeacad2fcfa7f77f3bcb55e8b1edaea865202
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: e8bae2062051156d6de378e54bc354b3f785e403
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145169"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515468"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 
@@ -21,7 +21,7 @@ ms.locfileid: "86145169"
 
 Azure Monitor proporciona varias maneras de interactuar con las métricas, como la representación en gráficos en el portal, el acceso a ellas a través de la API de REST o consultarlas con PowerShell o la CLI. 
 
-Este artículo es una lista completa de todas las métricas de la plataforma (recopiladas automáticamente) que actualmente están disponibles con la canalización de métricas consolidada de Azure Monitor. La lista se actualizó por última vez el 27 de marzo de 2020. Es posible que las métricas cambiadas o agregadas después de esta fecha no aparezcan a continuación. Para consultar y obtener acceso a la lista de métricas mediante programación, use [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions). Otras métricas que no aparecen en esta lista pueden estar disponibles en el portal o mediante las API heredadas.
+Este artículo es una lista completa de todas las métricas de la plataforma (recopiladas automáticamente) que actualmente están disponibles con la canalización de métricas consolidada de Azure Monitor. La lista se actualizó por última vez el 27 de marzo de 2020. Es posible que las métricas cambiadas o agregadas después de esta fecha no aparezcan a continuación. Para consultar y obtener acceso a la lista de métricas mediante programación, use [2018-01-01 api-version](/rest/api/monitor/metricdefinitions). Otras métricas que no aparecen en esta lista pueden estar disponibles en el portal o mediante las API heredadas.
 
 Las métricas están organizadas en función de los proveedores de recursos y el tipo de recurso. Para obtener una lista de los servicios y los proveedores de recursos que pertenecen a las métricas, consulte [Proveedores de recursos para servicios de Azure](../../azure-resource-manager/management/azure-services-resource-providers.md). 
 
@@ -516,7 +516,7 @@ Existen algunas limitaciones en cuanto al contenido que se puede enrutar y al fo
 |FileShareCount|Recuento de recursos compartidos de archivos|Count|Average|Número de recursos compartidos de archivos en el servicio File de la cuenta de almacenamiento.|None|
 |FileShareSnapshotCount|File Share Snapshot Count (Recuento de instantáneas del recurso compartido de archivos)|Count|Average|Número de instantáneas presentes en el recurso compartido en el servicio Files de la cuenta de almacenamiento.|FileShare|
 |FileShareSnapshotSize|File Share Snapshot Size (Tamaño de instantánea del recurso compartido de archivos)|Bytes|Average|Cantidad de almacenamiento que usan las instantáneas del servicio Files de la cuenta de almacenamiento en bytes.|FileShare|
-|FileShareQuota|File share quota size (Tamaño de cuota del recurso compartido de archivos)|Bytes|Average|Límite superior de la cantidad de almacenamiento que puede usar el servicio Azure Files en bytes.|FileShare|
+|FileShareCapacityQuota|File share quota size (Tamaño de cuota del recurso compartido de archivos)|Bytes|Average|Límite superior de la cantidad de almacenamiento que puede usar el servicio Azure Files en bytes.|FileShare|
 |Transacciones|Transacciones|Count|Total|El número de solicitudes realizadas a un servicio de almacenamiento o la operación de API especificada. Este número incluye solicitudes correctas y con errores, así como las solicitudes que generaron errores. Use la dimensión ResponseType para el número de diferentes tipos de respuesta.|ResponseType,GeoType,ApiName,Authentication,FileShare|
 |Entrada|Entrada|Bytes|Total|La cantidad de datos de entrada, en bytes. Este número incluye la entradas desde un cliente externo en Azure Storage, así como la entrada dentro de Azure.|GeoType,ApiName,Authentication,FileShare|
 |Salida|Salida|Bytes|Total|La cantidad de datos de salida, en bytes. Este número incluye la salida de un cliente externo en Azure Storage, así como la salida dentro de Azure. En consecuencia, este número no refleja las salidas facturables.|GeoType,ApiName,Authentication,FileShare|
@@ -748,21 +748,6 @@ Existen algunas limitaciones en cuanto al contenido que se puede enrutar y al fo
 |BytesUploadedToCloud|Bytes cargados en la nube (dispositivo)|Bytes|Average|El número total de bytes que se carga en Azure desde un dispositivo durante el período de informe.|None|
 |HyperVVirtualProcessorUtilization|Proceso perimetral: porcentaje de CPU|Percent|Average|Porcentaje de uso de CPU|InstanceName|
 |HyperVMemoryUtilization|Proceso perimetral: uso de memoria|Percent|Average|Cantidad de RAM en uso|InstanceName|
-
-
-## <a name="microsoftdatacatalogdatacatalogs"></a>Microsoft.DataCatalog/datacatalogs
-
-|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
-|---|---|---|---|---|---|
-|AssetDistributionByClassification|Distribución de los recursos por clasificación|Count|Total|Indica el número de activos con una clasificación determinada asignada, es decir, están clasificados con esa etiqueta.|Classification,Source|
-|AssetDistributionByStorageType|Distribución de recursos por tipo de almacenamiento|Count|Total|Indica el número de recursos con un tipo de almacenamiento determinado.|StorageType|
-|NumberOfAssetsWithClassifications|Número de recursos con al menos una clasificación|Count|Average|Indica el número de recursos con al menos una clasificación de etiqueta.|None|
-|ScanCancelled|Examen cancelado|Count|Total|Indica el número de exámenes cancelados.|None|
-|ScanCompleted|Examen completado|Count|Total|Indica el número de exámenes completados correctamente.|None|
-|ScanFailed|Examen con errores|Count|Total|Indica el número de exámenes con errores.|None|
-|ScanTimeTaken|Tiempo invertido en el examen|Segundos|Total|Indica el tiempo de examen total en segundos.|None|
-|CatalogActiveUsers|Usuarios activos cada día|Count|Total|Número de usuarios activos cada día|None|
-|CatalogUsage|Distribución de uso por operación|Count|Total|Indica el número de operación que realiza el usuario en el catálogo, es decir, acceso, búsqueda, glosario.|Operación|
 
 
 ## <a name="microsoftdatafactorydatafactories"></a>Microsoft.DataFactory/datafactories
@@ -2145,7 +2130,7 @@ Existen algunas limitaciones en cuanto al contenido que se puede enrutar y al fo
 |FileShareCount|Recuento de recursos compartidos de archivos|Count|Average|Número de recursos compartidos de archivos en el servicio File de la cuenta de almacenamiento.|None|
 |FileShareSnapshotCount|File share snapshot count (Recuento de instantáneas del recurso compartido de archivos)|Count|Average|Número de instantáneas presentes en el recurso compartido en el servicio Files de la cuenta de almacenamiento.|FileShare|
 |FileShareSnapshotSize|File share snapshot size (Tamaño de instantánea del recurso compartido de archivos)|Bytes|Average|Cantidad de almacenamiento que usan las instantáneas del servicio Files de la cuenta de almacenamiento en bytes.|FileShare|
-|FileShareQuota|File share quota size (Tamaño de cuota del recurso compartido de archivos)|Bytes|Average|Límite superior de la cantidad de almacenamiento que puede usar el servicio Azure Files en bytes.|FileShare|
+|FileShareCapacityQuota|File share quota size (Tamaño de cuota del recurso compartido de archivos)|Bytes|Average|Límite superior de la cantidad de almacenamiento que puede usar el servicio Azure Files en bytes.|FileShare|
 |Transacciones|Transacciones|Count|Total|El número de solicitudes realizadas a un servicio de almacenamiento o la operación de API especificada. Este número incluye solicitudes correctas y con errores, así como las solicitudes que generaron errores. Use la dimensión ResponseType para el número de diferentes tipos de respuesta.|ResponseType,GeoType,ApiName,Authentication,FileShare|
 |Entrada|Entrada|Bytes|Total|La cantidad de datos de entrada, en bytes. Este número incluye la entradas desde un cliente externo en Azure Storage, así como la entrada dentro de Azure.|GeoType,ApiName,Authentication,FileShare|
 |Salida|Salida|Bytes|Total|La cantidad de datos de salida, en bytes. Este número incluye la salida de un cliente externo en Azure Storage, así como la salida dentro de Azure. En consecuencia, este número no refleja las salidas facturables.|GeoType,ApiName,Authentication,FileShare|
@@ -2534,4 +2519,3 @@ Existen algunas limitaciones en cuanto al contenido que se puede enrutar y al fo
 * [Lea información sobre las métricas en Azure Monitor](data-platform.md)
 * [Creación de alertas basadas en métricas](alerts-overview.md)
 * [Exportación de métricas a cuentas de almacenamiento, Event Hubs o Log Analytics](platform-logs-overview.md)
-

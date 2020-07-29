@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 07/13/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a30ea70c623c8456ae97c8ca9475e4989784edf
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: d973cf47ed691914b22d62e1a99315c6ea9183d8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995849"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511609"
 ---
 # <a name="azure-custom-roles"></a>Roles personalizados de Azure
 
@@ -126,6 +126,30 @@ En la tabla siguiente se describe el significado de las propiedades de roles per
 | `DataActions`</br>`dataActions` | No | String[] | Matriz de cadenas que especifica las operaciones de datos que el rol permite realizar en los datos dentro de ese objeto. Si crea un rol personalizado con `DataActions`, ese rol no se puede asignar en el ámbito del grupo de administración. Para más información, vea [DataActions](role-definitions.md#dataactions). |
 | `NotDataActions`</br>`notDataActions` | No | String[] | Matriz de cadenas que especifica las operaciones de datos que se excluyen de las `DataActions` permitidas. Para más información, vea [NotDataActions](role-definitions.md#notdataactions). |
 | `AssignableScopes`</br>`assignableScopes` | Sí | String[] | Matriz de cadenas que especifica los ámbitos en los que el rol personalizado está disponible para la asignación. Solo se puede definir un grupo de administración en `AssignableScopes` de un rol personalizado. La adición de un grupo de administración a `AssignableScopes` está actualmente en versión preliminar. Para obtener más información, consulte [assignableScopes](role-definitions.md#assignablescopes). |
+
+## <a name="wildcard-permissions"></a>Permisos con caracteres comodín
+
+`Actions`, `NotActions`, `DataActions`y `NotDataActions` admiten caracteres comodín (`*`) para definir los permisos. Los caracteres comodín (`*`) amplían los permisos a todo aquello que coincida con la cadena de acción que se especifique. Por ejemplo, supongamos que desea agregar todos los permisos relacionados con Azure Cost Management y las exportaciones. Puede agregar todas estas cadenas de acción:
+
+```
+Microsoft.CostManagement/exports/action
+Microsoft.CostManagement/exports/read
+Microsoft.CostManagement/exports/write
+Microsoft.CostManagement/exports/delete
+Microsoft.CostManagement/exports/run/action
+```
+
+En lugar de agregar todas estas cadenas, podría agregar únicamente una cadena comodín. Por ejemplo, la siguiente cadena comodín es equivalente a las cinco cadenas anteriores. De esta forma también se incluirían los futuros permisos de exportación que se pudieran agregar.
+
+```
+Microsoft.CostManagement/exports/*
+```
+
+Una sola cadena puede tener varios caracteres comodín. Por ejemplo, la siguiente cadena representa todos los permisos de consulta de Cost Management.
+
+```
+Microsoft.CostManagement/*/query/*
+```
 
 ## <a name="steps-to-create-a-custom-role"></a>Pasos para crear un rol personalizado
 

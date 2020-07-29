@@ -3,15 +3,15 @@ title: Creación y administración de grupos de acciones en Azure Portal
 description: Obtenga información acerca de cómo crear y administrar grupos de acciones en Azure Portal.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 6/5/2020
+ms.date: 07/15/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: dbc810ad7227d9d47099fe85e89a92c8fa750302
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e88d51e014244892fc3ac9e2cca242dacdfd9997
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465259"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516182"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 Un grupo de acciones es una colección de las preferencias de notificación que el propietario de una suscripción de Azure define. Las alertas de Azure Monitor y Service Health usan grupos de acciones para notificar a los usuarios que se ha desencadenado una alerta. Varias alertas pueden usar el mismo grupo de acciones o distintos grupos de acciones en función de los requisitos del usuario. Puede configurar un máximo de 2000 grupos de acciones en una suscripción.
@@ -70,7 +70,7 @@ Después de crear un grupo de acciones, puede ver los **grupos de acciones** sel
 ## <a name="action-specific-information"></a>Información específica de la acción
 
 > [!NOTE]
-> Consulte los [límites de servicio de suscripción para la supervisión](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-monitor-limits) para los límites numéricos de cada uno de los siguientes elementos.  
+> Consulte los [límites de servicio de suscripción para la supervisión](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-monitor-limits) para los límites numéricos de cada uno de los siguientes elementos.  
 
 ### <a name="automation-runbook"></a>Runbook de automatización
 Consulte los [límites de servicio de suscripción de Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md) para los límites relacionados con las cargas de runbook.
@@ -107,21 +107,21 @@ En un grupo de acciones puede tener un número limitado de acciones de ITSM.
 En un grupo de acciones puede tener un número limitado de acciones de aplicación lógica.
 
 ### <a name="secure-webhook"></a>Webhook seguro
-La acción de webhook de Grupos de acciones le permite aprovechar Azure Active Directory para proteger la conexión entre el grupo de acciones y la API web protegida (punto de conexión de webhook). A continuación se describe el flujo de trabajo general para aprovechar esta funcionalidad. Para una introducción a las entidades de servicio y aplicaciones de Azure AD, consulte [Introducción a la Plataforma de identidad de Microsoft (versión 2.0)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
+La acción de webhook de Grupos de acciones le permite aprovechar Azure Active Directory para proteger la conexión entre el grupo de acciones y la API web protegida (punto de conexión de webhook). A continuación se describe el flujo de trabajo general para aprovechar esta funcionalidad. Para una introducción a las entidades de servicio y aplicaciones de Azure AD, consulte [Introducción a la Plataforma de identidad de Microsoft (versión 2.0)](../../active-directory/develop/v2-overview.md).
 
-1. Cree una aplicación Azure AD para la API web. Vea https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
-    - Configure la API protegida para que la llame una aplicación de demonio.
+1. Cree una aplicación Azure AD para la API web. Consulte [API web protegida: registro de aplicación](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration).
+    - Configure la API protegida para que [la llame una aplicación de demonio](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#if-your-web-api-is-called-by-a-daemon-app).
     
-1. Habilite Grupos de acciones para usar la aplicación de Azure AD.
+2. Habilite Grupos de acciones para usar la aplicación de Azure AD.
 
     > [!NOTE]
-    > Debe ser miembro del [rol Administrador de aplicaciones de Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) para ejecutar este script.
+    > Debe ser miembro del [rol Administrador de aplicaciones de Azure AD](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles) para ejecutar este script.
     
     - Modifique la llamada Connect-AzureAD del script de PowerShell para usar el identificador de inquilino de Azure AD.
     - Modifique la variable del script de PowerShell $myAzureADApplicationObjectId para usar el identificador de objeto de la aplicación de Azure AD.
     - Ejecute el script modificado.
     
-1. Configure la acción de webhook seguro del grupo de acciones.
+3. Configure la acción de webhook seguro del grupo de acciones.
     - Copie el valor $myApp.ObjectId del script e introdúzcalo en el campo Id. de objeto de aplicación en la definición de acción de webhook.
     
     ![Acción de webhook seguro](./media/action-groups/action-groups-secure-webhook.png)
@@ -253,4 +253,4 @@ En un grupo de acciones puede tener un número limitado de acciones de webhook.
 * Obtenga más información sobre el [conector de ITSM](../../azure-monitor/platform/itsmc-overview.md).
 * Más información sobre la [limitación de velocidad](../../azure-monitor/platform/alerts-rate-limiting.md) en las alertas.
 * Consulte la [introducción a las alertas del registro de actividad](../../azure-monitor/platform/alerts-overview.md) y aprenda cómo puede recibir alertas.  
-* Aprenda a [configurar alertas siempre que se publique una notificación de mantenimiento de un servicio](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+* Aprenda a [configurar alertas siempre que se publique una notificación de mantenimiento de un servicio](../../service-health/alerts-activity-log-service-notifications-portal.md).
