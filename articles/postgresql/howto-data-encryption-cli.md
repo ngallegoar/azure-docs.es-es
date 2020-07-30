@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 03/30/2020
-ms.openlocfilehash: 731827fb63f8b23d21ea2eddaef3fa9b796d14bc
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 64cf2568b448c74748be63901cafb51305eab713
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119589"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386374"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-cli"></a>Cifrado de datos para Azure Database for PostgreSQL: servidor único mediante la CLI de Azure
 
@@ -33,13 +33,13 @@ Aprenda a usar la CLI de Azure para configurar y administrar el cifrado de datos
    ```
 
 * Para usar un almacén de claves existente, este debe tener las siguientes propiedades para usarse como una clave administrada por el cliente:
-  * [Eliminación temporal](../key-vault/general/overview-soft-delete.md)
+  * [Eliminación temporal](../key-vault/general/soft-delete-overview.md)
 
       ```azurecli-interactive
       az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
       ```
 
-  * [Protegido contra purgas](../key-vault/general/overview-soft-delete.md#purge-protection)
+  * [Protegido contra purgas](../key-vault/general/soft-delete-overview.md#purge-protection)
 
       ```azurecli-interactive
       az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
@@ -82,7 +82,7 @@ Aprenda a usar la CLI de Azure para configurar y administrar el cifrado de datos
 
     URL de clave: `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
-## <a name="using-data-encryption-for-restore-or-replica-servers"></a>Uso del cifrado de datos con servidores de restauración o réplica
+## <a name="using-data-encryption-for-restore-or-replica-servers"></a>Uso del cifrado de datos para servidores de restauración o réplica
 
 Después de cifrar un servidor único de Azure Database for PostgreSQL con la clave administrada de un cliente almacenada en Key Vault, también se cifra cualquier copia recién creada del servidor. Puede crear esta nueva copia mediante una operación de restauración local o geográfica, o por medio de una operación de réplica (local o entre regiones). De modo que, con un servidor único de PostgreSQL cifrado, puede usar los siguientes pasos para crear un servidor restaurado cifrado.
 
@@ -132,7 +132,7 @@ Esta plantilla de Azure Resource Manager crea una instancia de Azure Database fo
 ### <a name="for-an-existing-server"></a>Para un servidor existente
 Además, puede usar plantillas de Azure Resource Manager para habilitar el cifrado de datos en los servidores únicos existentes de Azure Database for PostgreSQL.
 
-* Pase el URI del recurso de la clave de Azure Key Vault que copió anteriormente en la propiedad `Uri` en el objeto properties.
+* Pase el id. de recurso de la clave de Azure Key Vault que copió anteriormente en la propiedad `Uri` en el objeto properties.
 
 * Use *2020-01-01-preview* como la versión de API.
 

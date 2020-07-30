@@ -13,12 +13,12 @@ ms.date: 05/27/2020
 ms.author: dbradish
 ms.reviewer: sethm
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 3014a66c633a4293de8cd6eb325e962366c103b9
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: d32bae48348e482e0e175760a416097ffbc17a1c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85208270"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080954"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Inicio rápido: Creación de un centro de notificaciones de Azure con la CLI de Azure
 
@@ -95,7 +95,7 @@ Notification Hubs requiere la versión 2.0.67 o posterior de la CLI de Azure. Ej
    az notification-hub namespace create --resource-group spnhubrg --name spnhubns  --location eastus --sku Free
    ```
 
-   Si el `--name` que proporcionó al comando `az notification-hub namespace create` no está disponible o no cumple las [reglas y restricciones de nomenclatura para los recursos de Azure](/azure/azure-resource-manager/management/resource-name-rules), la CLI de Azure responderá con la siguiente salida de la consola:
+   Si el `--name` que proporcionó al comando `az notification-hub namespace create` no está disponible o no cumple las [reglas y restricciones de nomenclatura para los recursos de Azure](../azure-resource-manager/management/resource-name-rules.md), la CLI de Azure responderá con la siguiente salida de la consola:
 
    ```output
    #the name is not available
@@ -148,7 +148,7 @@ Notification Hubs requiere la versión 2.0.67 o posterior de la CLI de Azure. Ej
 
 1. Enumere las directivas de acceso para un centro de notificaciones.
 
-   Azure Notification Hubs utiliza [seguridad de firma de acceso compartido](/azure/notification-hubs/notification-hubs-push-notification-security) mediante el uso de directivas de acceso.  Cuando se crea un centro de notificaciones, se crean dos directivas automáticamente.  Las cadenas de conexión de estas directivas son necesarias para configurar las notificaciones de envío.  El comando [az notification-hub authorization-rule list](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list) proporciona una lista de nombres de directivas y sus grupos de recursos respectivos.
+   Azure Notification Hubs utiliza [seguridad de firma de acceso compartido](./notification-hubs-push-notification-security.md) mediante el uso de directivas de acceso.  Cuando se crea un centro de notificaciones, se crean dos directivas automáticamente.  Las cadenas de conexión de estas directivas son necesarias para configurar las notificaciones de envío.  El comando [az notification-hub authorization-rule list](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list) proporciona una lista de nombres de directivas y sus grupos de recursos respectivos.
 
    ```azurecli
    az notification-hub authorization-rule list --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --output table
@@ -167,7 +167,7 @@ Notification Hubs requiere la versión 2.0.67 o posterior de la CLI de Azure. Ej
 
 3. Enumere las claves y las cadenas de conexión para una directiva de acceso al centro de notificaciones
 
-   Hay dos conjuntos de claves y cadenas de conexión para cada directiva de acceso.  Las necesitará más adelante para [configurar un centro de notificaciones](/azure/notification-hubs/configure-notification-hub-portal-pns-settings).  Para enumerar las claves y las cadenas de conexión para una directiva de acceso al centro de notificaciones, use el comando [az notification-hub authorization-rule list-keys](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys).
+   Hay dos conjuntos de claves y cadenas de conexión para cada directiva de acceso.  Las necesitará más adelante para [configurar un centro de notificaciones](./configure-notification-hub-portal-pns-settings.md).  Para enumerar las claves y las cadenas de conexión para una directiva de acceso al centro de notificaciones, use el comando [az notification-hub authorization-rule list-keys](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys).
 
    ```azurecli
    #query the keys and connection strings for DefaultListenSharedAccessSignature
