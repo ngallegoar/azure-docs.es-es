@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 09/23/2019
-ms.openlocfilehash: 723690c29cd6ce77d7615fc613e50740ef2a45c7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fbf76f846395d6bf0b02828ab1d6ad8b70c97784
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520160"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289340"
 ---
 # <a name="how-to-migrate-your-account-from-cloud-partner-portal-to-partner-center"></a>Cómo migrar su cuenta del Cloud Partner Portal al Centro de partners
 
@@ -59,7 +59,7 @@ Las empresas que deseen asociarse a Microsoft deben unirse a Microsoft Partner N
 
 Si no es miembro de Microsoft Partner Network, puede [unirse aquí](https://signup.microsoft.com/signup?sku=StoreForBusinessIW&origin=partnerdashboard&culture=en-us&ru=https://partner.microsoft.com/dashboard/account/v3/xpu/onboard?ru=/dashboard/account/v3/enrollment/companyprofile/basicpartnernetwork/new) para obtener un identificador de MPN. Anote el identificador de MPN, ya que debe escribirlo durante el proceso de activación de la cuenta.
 
-Para obtener más información sobre Microsoft Partner Network, consulte [Únase a Microsoft Partner Network](https://partner.microsoft.com/en-US/membership) en el sitio web del asociado. Para obtener más información sobre las ventajas de ISV en Microsoft Partner Network, consulte el [centro de recursos de ISV](https://partner.microsoft.com/isv-resource-hub).  
+Para obtener más información sobre Microsoft Partner Network, consulte [Únase a Microsoft Partner Network](https://partner.microsoft.com/membership) en el sitio web del asociado. Para obtener más información sobre las ventajas de ISV en Microsoft Partner Network, consulte el [centro de recursos de ISV](https://partner.microsoft.com/isv-resource-hub).  
 
 ## <a name="move-dynamics-365-and-powerapps-offers-to-partner-center"></a>Traslado de ofertas de Dynamics 365 y PowerApps al Centro de partners
 
