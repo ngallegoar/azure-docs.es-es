@@ -91,7 +91,7 @@ El flujo es el siguiente:
 
 Ultra Disks ofrece una limitación adicional, para un total de dos limitaciones. Debido a esto, el flujo de reserva de Ultra Disks puede funcionar tal y como se describe en la sección anterior, o puede limitar y distribuir el rendimiento de manera más pormenorizada.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="Imagen de una tabla que muestra el acceso "ReadOnly" (de solo lectura) o "Read/Write" (de lectura y escritura) para el Reservation Holder (titular de reserva), el Registered (registrado) y Others (otros).":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="Imagen de una tabla que muestra el acceso `ReadOnly` (de solo lectura) o `Read/Write` (de lectura y escritura) para el Reservation Holder (titular de reserva), el Registered (registrado) y Others (otros).":::
 
 ## <a name="performance-throttles"></a>Limitaciones de rendimiento
 

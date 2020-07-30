@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Enrutamiento de vehículos eléctricos mediante Azure Notebooks (Python) | Microsoft Azure Maps'
 description: Enrutamiento de vehículos eléctricos mediante las API de enrutamiento de Microsoft Azure Maps y Azure Notebooks.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: 8c78913486610b171b7577d0bc239e0e7060038e
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: f341179d121af2fa4e5b198aeee2ea65bc6c378c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560392"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133323"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutorial: Enrutamiento de vehículos eléctricos mediante Azure Notebooks (Python)
 
@@ -39,7 +39,7 @@ En este tutorial, aprenderá lo siguiente:
 
 Para realizar este tutorial, primero debe crear una cuenta de Azure Maps y obtener la clave principal (clave de suscripción). 
 
-Para crear una suscripción a una cuenta de Azure Maps, siga las instrucciones de [Crear una cuenta](quick-demo-map-app.md#create-an-account-with-azure-maps). Necesita una suscripción a una cuenta de Azure Maps con el nivel de precios S1. 
+Para crear una suscripción a una cuenta de Azure Maps, siga las instrucciones de [Crear una cuenta](quick-demo-map-app.md#create-an-azure-maps-account). Necesita una suscripción a una cuenta de Azure Maps con el nivel de precios S1. 
 
 Para obtener la clave de suscripción principal de la cuenta, siga las instrucciones de [Obtención de la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 

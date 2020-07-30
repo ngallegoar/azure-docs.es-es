@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: juliako
-ms.openlocfilehash: 619d40ab56715b4444d8e5649c7fb3401b3f57ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 276cb3e6078fec915f266c5eb9aa557f92973dd7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71937279"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001169"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>Crear y supervisar eventos de Media Services con Event Grid mediante la CLI de Azure
 
@@ -31,7 +31,7 @@ En este artículo se usa la CLI de Azure para suscribirse a eventos para su cuen
 
     Actualmente no todos los comandos de la [CLI de Media Services v3](https://aka.ms/ams-v3-cli-ref) funcionan en Azure Cloud Shell. Se recomienda usar la CLI localmente.
 
-- [Cree una cuenta de Media Services](create-account-cli-how-to.md).
+- [Cree una cuenta de Media Services](./create-account-howto.md).
 
     Asegúrese de recordar los valores que usó para el nombre de la cuenta de Media Services y el nombre del grupo de recursos.
 
@@ -109,4 +109,3 @@ Vuelva a la aplicación web y observe que se ha enviado un evento de validación
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Carga, codificación y streaming](stream-files-tutorial-with-api.md)
-

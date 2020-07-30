@@ -21,8 +21,6 @@
       href: delete-application-portal.md
 - name: Tutoriales
   items:
-    - name: Incorporación de una aplicación que no aparece en la galería
-      href: add-non-gallery-app.md
     - name: 'Aplicaciones de la galería integradas (por ejemplo, ServiceNow, Salesforce o Dropbox)'
       href: /azure/active-directory/saas-apps/
     - name: Incorporación de una aplicación local con Application Proxy
@@ -42,6 +40,8 @@
       items:
         - name: Introducción a la integración de aplicaciones
           href: plan-an-application-integration.md
+        - name: Planeamiento de las aplicaciones que no se encuentran en la galería
+          href: non-gallery-apps.md
         - name: Planeación de una implementación del panel de acceso
           href: access-panel-deployment-plan.md
         - name: Instrucciones para desarrolladores
@@ -106,7 +106,7 @@
             - name: Configuración del inicio de sesión único basado en SAML
               items:
                 - name: Configuración del inicio de sesión único basado en SAML
-                  href: configure-single-sign-on-non-gallery-applications.md
+                  href: configure-saml-single-sign-on.md
                 - name: Personalización de atributos y notificaciones de usuario
                   items:
                     - name: Configuración de notificaciones de grupos

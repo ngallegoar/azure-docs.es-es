@@ -24,6 +24,8 @@
           href: get-started-pipelines.md
         - name: 7 Visualización con Power BI
           href: get-started-visualize-power-bi.md
+        - name: 8 Supervisión
+          href: get-started-monitor.md
     - name: Hoja de referencia rápida
       href: overview-cheat-sheet.md
     - name: Preguntas más frecuentes
@@ -556,7 +558,7 @@
               href: ../data-factory/connector-azure-database-for-postgresql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Azure File Storage
               href: ../data-factory/connector-azure-file-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: "Azure\_SQL\_Database"
+            - name: Azure SQL Database
               href: ../data-factory/connector-azure-sql-database.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Instancia administrada de Azure SQL
               href: ../data-factory/connector-azure-sql-database-managed-instance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -847,6 +849,10 @@
               href: ../data-factory/data-factory-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Solución de problemas del conector
               href: ../data-factory/connector-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Solución de problemas de la herramienta Copiar datos
+              href: ../data-factory/copy-data-tool-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Solución de problemas de los entornos de ejecución de integración autohospedados
+              href: ../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Conexión de herramientas a Synapse Analytics
       items:
         - name: SQL de Synapse
