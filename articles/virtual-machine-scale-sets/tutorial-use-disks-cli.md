@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: e50f025ebd22cbe231dcd01e277a76b0f8e9b56d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 1aa87d72bf2b73b1fa616d7ff7535dac4da9b7fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198253"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029637"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Creación y uso de discos con conjuntos de escalado de máquinas virtuales con la CLI de Azure
 Los conjuntos de escalado de máquinas virtuales usan discos para almacenar el sistema operativo, las aplicaciones y los datos de las máquinas virtuales. Al crear y administrar un conjunto de escalado, es importante elegir un tamaño de disco y la configuración adecuada para la carga de trabajo esperada. Este tutorial explica cómo crear y administrar discos de máquina virtual. En este tutorial, aprenderá a:
@@ -43,12 +43,12 @@ Cuando se crea o se escala un conjunto de escalado, se conectan automáticamente
 ### <a name="temporary-disk-sizes"></a>Tamaños de disco temporal
 | Tipo | Tamaños comunes | Tamaño máximo de disco temporal (GiB) |
 |----|----|----|
-| [Uso general](../virtual-machines/linux/sizes-general.md) | Series A, B y D | 1600 |
-| [Proceso optimizado](../virtual-machines/linux/sizes-compute.md) | Serie F | 576 |
-| [Memoria optimizada](../virtual-machines/linux/sizes-memory.md) | Series D, E, G y M | 6144 |
-| [Almacenamiento optimizado](../virtual-machines/linux/sizes-storage.md) | Serie L | 5630 |
-| [GPU](../virtual-machines/linux/sizes-gpu.md) | Serie N | 1440 |
-| [Alto rendimiento](../virtual-machines/linux/sizes-hpc.md) | Series A y H | 2000 |
+| [Uso general](../virtual-machines/sizes-general.md) | Series A, B y D | 1600 |
+| [Proceso optimizado](../virtual-machines/sizes-compute.md) | Serie F | 576 |
+| [Memoria optimizada](../virtual-machines/sizes-memory.md) | Series D, E, G y M | 6144 |
+| [Almacenamiento optimizado](../virtual-machines/sizes-storage.md) | Serie L | 5630 |
+| [GPU](../virtual-machines/sizes-gpu.md) | Serie N | 1440 |
+| [Alto rendimiento](../virtual-machines/sizes-hpc.md) | Series A y H | 2000 |
 
 
 ## <a name="azure-data-disks"></a>Discos de datos de Azure
@@ -112,7 +112,7 @@ az vmss disk attach \
 ## <a name="prepare-the-data-disks"></a>Preparación de los discos de datos
 Los discos que se crean y conectan a las instancias de máquina virtual del conjunto de escalado son discos sin formato. Para poder usarlos con sus aplicaciones y datos, los discos deben prepararse. Para preparar los discos, cree una partición, cree un sistema de archivos y móntelos.
 
-Para automatizar el proceso en varias instancias de máquina virtual en un conjunto de escalado, puede usar la extensión de script personalizado de Azure. Esta extensión puede ejecutar scripts localmente en cada instancia de máquina virtual, por ejemplo, para preparar los discos de datos conectados. Para obtener más información, consulte [Información general de la extensión de script personalizado](../virtual-machines/linux/extensions-customscript.md).
+Para automatizar el proceso en varias instancias de máquina virtual en un conjunto de escalado, puede usar la extensión de script personalizado de Azure. Esta extensión puede ejecutar scripts localmente en cada instancia de máquina virtual, por ejemplo, para preparar los discos de datos conectados. Para obtener más información, consulte [Información general de la extensión de script personalizado](../virtual-machines/extensions/custom-script-linux.md).
 
 En el ejemplo siguiente, se ejecuta un script desde un repositorio de ejemplo de GitHub en cada instancia de máquina virtual con [az vmss extension set](/cli/azure/vmss/extension), que prepara todos los discos de datos conectados sin formato:
 

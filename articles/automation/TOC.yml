@@ -46,6 +46,9 @@
       href: /powershell/scripting/dsc/overview/overview
     - name: Seguridad
       items:
+        - name: Controles de seguridad de Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Línea de base de seguridad
           href: security-baseline.md
     - name: Seguridad de los datos

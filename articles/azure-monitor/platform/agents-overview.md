@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 75394768cc41d3ca73398c2691b9ec0feb8c17f8
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a9786c1f596a9f59e63886fa503bddac58ee7a8e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202561"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325345"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Información general sobre los agentes de Azure Monitor
 
@@ -76,7 +76,7 @@ La [extensión Azure Diagnostics](diagnostics-extension-overview.md) recopila da
 Use la extensión Azure Diagnostics si necesita:
 
 - Enviar datos a Azure Storage para archivarlos o analizarlos con herramientas como [Explorador de Azure Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
-- Enviar datos a [métricas de Azure Monitor](data-platform-metrics.md) para analizarlos con el [explorador de métricas](metrics-getting-started.md) y para aprovechar las característica, como las [alertas de métricas](../../azure-monitor/platform/alerts-metric-overview.md) casi en tiempo real y la [escalabilidad automática](autoscale-overview.md) (solo Windows).
+- Enviar datos a [métricas de Azure Monitor](data-platform-metrics.md) para analizarlos con el [explorador de métricas](metrics-getting-started.md) y para aprovechar las característica, como las [alertas de métricas](./alerts-metric-overview.md) casi en tiempo real y la [escalabilidad automática](autoscale-overview.md) (solo Windows).
 - Enviar datos a herramientas de terceros mediante [Azure Event Hubs](diagnostics-extension-stream-event-hubs.md).
 - Recopilar [diagnósticos de arranque](../../virtual-machines/troubleshooting/boot-diagnostics.md) para investigar los problemas de arranque de VM.
 
@@ -91,7 +91,7 @@ El [agente de InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md) se 
 
 Use el agente Telegraf si necesita:
 
-* Enviar datos a [métricas de Azure Monitor](data-platform-metrics.md) para analizarlos con el [explorador de métricas](metrics-getting-started.md) y para aprovechar las característica, como las [alertas de métricas](../../azure-monitor/platform/alerts-metric-overview.md) casi en tiempo real y la [escalabilidad automática](autoscale-overview.md) (solo Linux). 
+* Enviar datos a [métricas de Azure Monitor](data-platform-metrics.md) para analizarlos con el [explorador de métricas](metrics-getting-started.md) y para aprovechar las característica, como las [alertas de métricas](./alerts-metric-overview.md) casi en tiempo real y la [escalabilidad automática](autoscale-overview.md) (solo Linux). 
 
 
 
@@ -120,3 +120,4 @@ Obtenga más información sobre cada uno de los agentes en los siguientes artíc
 - [Introducción al agente de Log Analytics](log-analytics-agent.md)
 - [Introducción a la extensión Azure Diagnostics](diagnostics-extension-overview.md)
 - [Recopilación de métricas personalizadas para una máquina virtual Linux con el agente de InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md)
+

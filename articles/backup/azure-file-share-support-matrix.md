@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones y limitaciones de compatibilidad
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: d0172ecab682b69f255eedb9270a6208b52dac45
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7d01f0f64fd183204fb7617040325e7d1b6e553e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514565"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289506"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matriz de compatibilidad de copia de seguridad de recursos compartidos de archivos de Azure
 
@@ -20,10 +20,6 @@ Puede usar el [servicio Azure Backup](./backup-overview.md) para realizar copias
 ### <a name="ga-regions-for-azure-file-shares-backup"></a>Regiones con disponibilidad general para las copias de seguridad de recursos compartidos de archivos de Azure
 
 La copia de seguridad de recursos compartidos de archivos de Azure está disponible en todas las regiones **salvo** las siguientes: Centro de Alemania (soberana), Nordeste de Alemania (soberana), Este de China, Este de China 2, Norte de China, Norte de China 2, US Gov Iowa
-
-### <a name="supported-regions-for-accidental-delete-protection"></a>Regiones admitidas para la protección contra eliminación accidental
-
-Centro-oeste de EE. UU., Sudeste de Australia, Centro de Canadá, Centro-oeste de EE. UU. 2, Sur de la India, Centro-norte de EE. UU., Este de Japón, Sur de Brasil, Centro-sur de EE. UU., Este de Australia, Este de EE. UU., Este de EE. UU. 2
 
 ## <a name="supported-storage-accounts"></a>Cuentas de almacenamiento admitidas
 

@@ -7,21 +7,21 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 7/9/2020
 ms.subservice: alerts
-ms.openlocfilehash: 043ecc07c521f9c1c79835bcd67ff1d81cacfa34
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3b0215ea2f02441f93e6eb9b672744638ae93b11
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539472"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321146"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creación de una alerta de métrica con una plantilla de Resource Manager
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-En este artículo se explica cómo usar una [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para configurar [nuevas alertas de métrica](../../azure-monitor/platform/alerts-metric-near-real-time.md) en Azure Monitor. Las plantillas de Resource Manager permiten configurar alertas mediante programación de una forma coherente y reproducible en todos los entornos. Las alertas de métrica más recientes están disponibles en [este conjunto de tipos de recursos](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+En este artículo se explica cómo usar una [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para configurar [nuevas alertas de métrica](./alerts-metric-near-real-time.md) en Azure Monitor. Las plantillas de Resource Manager permiten configurar alertas mediante programación de una forma coherente y reproducible en todos los entornos. Las alertas de métrica más recientes están disponibles en [este conjunto de tipos de recursos](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
-> Plantilla de recursos para la creación de alertas de métricas para el tipo de recurso: El área de trabajo de Azure Log Analytics (es decir, `Microsoft.OperationalInsights/workspaces`) requiere pasos adicionales. Para obtener más información, consulte el artículo sobre [Plantilla de recursos para las alertas de métricas de registros](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+> Plantilla de recursos para la creación de alertas de métricas para el tipo de recurso: El área de trabajo de Azure Log Analytics (es decir, `Microsoft.OperationalInsights/workspaces`) requiere pasos adicionales. Para obtener más información, consulte el artículo sobre [Plantilla de recursos para las alertas de métricas de registros](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 Los pasos básicos son los siguientes:
 
@@ -3464,7 +3464,7 @@ az group deployment create \
 
 ## <a name="template-for-an-availability-test-along-with-a-metric-alert"></a>Plantilla para una prueba de disponibilidad junto con una alerta de métricas
 
-Las [pruebas de disponibilidad de Application Insights](../../azure-monitor/app/monitor-web-app-availability.md) le ayudan a supervisar la disponibilidad del sitio web o la aplicación desde varias ubicaciones de todo el mundo. Las alertas de la prueba de disponibilidad le avisan cuando se producen errores en las pruebas desde un determinado número de ubicaciones.
+Las [pruebas de disponibilidad de Application Insights](../app/monitor-web-app-availability.md) le ayudan a supervisar la disponibilidad del sitio web o la aplicación desde varias ubicaciones de todo el mundo. Las alertas de la prueba de disponibilidad le avisan cuando se producen errores en las pruebas desde un determinado número de ubicaciones.
 Estas alertas corresponden al mismo tipo de recurso que las alertas de métricas (Microsoft.Insights/metricAlerts). La siguiente plantilla de Azure Resource Manager de ejemplo se puede usar para configurar una sencilla prueba de disponibilidad y una alerta asociada.
 
 Para este tutorial, guarde el archivo json siguiente como availabilityalert.json.
@@ -3628,3 +3628,4 @@ az group deployment create \
 - Obtenga más información sobre [alertas en Azure](alerts-overview.md)
 - Obtenga más información para [crear un grupo de acciones con plantillas de Resource Manager](action-groups-create-resource-manager-template.md)
 - Para conocer las propiedades y la sintaxis de JSON, consulte la referencia de la plantilla [Microsoft.Insights/metricAlerts](/azure/templates/microsoft.insights/metricalerts).
+
