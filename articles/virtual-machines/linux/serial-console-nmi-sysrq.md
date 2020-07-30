@@ -3,16 +3,16 @@ title: Consola serie de Azure para llamadas SysRq y NMI
 description: Uso de la consola serie para llamadas SysRq y NMI en máquinas virtuales de Azure.
 author: asinn826
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 0a9ced48295fa4c396ed6c72fe021ed1e1be484b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d54d4266e4d1078676601a58ca9ac78ec3d4821b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86501898"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292219"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Uso de la consola serie para llamadas SysRq y NMI
 

@@ -7,19 +7,18 @@ ms.service: application-gateway
 ms.topic: sample
 ms.date: 11/16/2019
 ms.author: victorh
-ms.openlocfilehash: 57df87f6cc101f4cc097b464d93238d3b868c93b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0df0ace18e39a3920354e6c713843adc55bf1394
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74129778"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086904"
 ---
 # <a name="azure-cli-examples-for-azure-application-gateway"></a>Ejemplos de la CLI de Azure con Azure Application Gateway
 
 En la tabla siguiente se incluyen vínculos a ejemplos de script de la CLI de Azure para Azure App Gateway.
 
-| | |
-|---|---|
+| Ejemplo | Descripción |
+|-------- | ----------- |
 | [Administración del tráfico web](./scripts/create-vmss-cli.md) | Crea una puerta de enlace de aplicaciones y todos los recursos relacionados. |
 | [Restricción del tráfico web](./scripts/create-vmss-waf-cli.md) | Crea una puerta de enlace de aplicaciones que restringe el tráfico con reglas OWASP.|
-| | |
