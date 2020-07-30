@@ -3,14 +3,14 @@ title: 'Centrales de tareas en Durable Functions: Azure'
 description: Aprenda qué son las centrales de tareas en la extensión Durable Functions para Azure Functions. Aprenda a configurar centrales de tareas.
 author: cgillum
 ms.topic: conceptual
-ms.date: 11/03/2019
+ms.date: 07/14/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 427ab6c4e0e769ab881af0af3023d514c1b092c6
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: afee79aecaad97ec4b441df0758166073b2413cf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604609"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083113"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Centrales de tareas en Durable Functions (Azure Functions)
 
@@ -128,6 +128,19 @@ public static async Task<HttpResponseMessage> Run(
 > El ejemplo de C# anterior corresponde a Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar `DurableOrchestrationContext` en lugar de `IDurableOrchestrationContext`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+La propiedad de la central de tareas del archivo `function.json` se establece mediante la configuración de aplicación:
+
+```json
+{
+    "name": "input",
+    "taskHub": "%MyTaskHub%",
+    "type": "orchestrationClient",
+    "direction": "in"
+}
+```
+
+# <a name="python"></a>[Python](#tab/python)
 
 La propiedad de la central de tareas del archivo `function.json` se establece mediante la configuración de aplicación:
 

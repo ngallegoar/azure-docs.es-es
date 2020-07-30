@@ -9,12 +9,13 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: tagore
-ms.openlocfilehash: 774d2bb58fd7dd75825be8f433f078d70c13fe8c
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 33006463ed826d1efe32f8beee361eb211e9d709
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919993"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386561"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Compilación e implementación de una aplicación Node.js en un Servicio en la nube de Azure
 
@@ -178,9 +179,9 @@ Para más información, vea el [Centro para desarrolladores de Node.js].
 
 [Comparación entre Azure Websites, Cloud Services y Virtual Machines]: /azure/architecture/guide/technology-choices/compute-decision-tree
 [utilizar una aplicación web ligera]: ../app-service/app-service-web-get-started-nodejs.md
-[Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[Azure PowerShell]: /powershell/azure/
 [SDK de Azure para .NET 2.7]: https://www.microsoft.com/en-us/download/details.aspx?id=48178
-[Conecte PowerShell]: /powershell/azureps-cmdlets-docs
+[Conecte PowerShell]: /powershell/azure/
 [nodejs.org]: https://nodejs.org/
 [Información general de la creación de un servicio hospedado para Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Centro para desarrolladores de Node.js]: https://azure.microsoft.com/develop/nodejs/

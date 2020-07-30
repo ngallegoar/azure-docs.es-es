@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: fd094e35ceaa718ec1b258d74106b39744cbd16f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 091a5d33e49e2abe811bf3cc250d04d69506165d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79087819"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011641"
 ---
 # <a name="media-services-v2-vs-v3"></a>Versiones 2 y 3 de Media Services
 
@@ -28,7 +28,7 @@ En este artículo se describen los cambios realizados en Azure Media Services v3
 
 ## <a name="general-changes-from-v2"></a>Cambios generales en relación con la versión 2
 
-* En el caso de los recursos creados con la versión 3, Media Services solo admite el [cifrado de almacenamiento del lado servidor de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+* En el caso de los recursos creados con la versión 3, Media Services solo admite el [cifrado de almacenamiento del lado servidor de Azure Storage](../../storage/common/storage-service-encryption.md).
     * Puede usar las API v3 con recursos creados con las API v2 que tenían [cifrado de almacenamiento](../previous/media-services-rest-storage-encryption.md) (AES 256) proporcionado por Media Services.
     * No se pueden crear recursos con el [cifrado de almacenamiento](../previous/media-services-rest-storage-encryption.md) AES 256 heredado mediante las API v3.
 * Las propiedades del [recurso](assets-concept.md) de la versión 3 difieren de las de la versión 2. Consulte [cómo se asignan las propiedades](#map-v3-asset-properties-to-v2).
@@ -88,11 +88,11 @@ La API v3 tiene las siguientes carencias de características con respecto a la A
 
 ### <a name="map-v3-asset-properties-to-v2"></a>Asignación de las propiedades de los recursos de v3 a v2
 
-En la tabla siguiente se muestra cómo las propiedades de los [recursos](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset) de v3 se asignan a las propiedades de los recursos de v2.
+En la tabla siguiente se muestra cómo las propiedades de los [recursos](/rest/api/media/assets/createorupdate#asset) de v3 se asignan a las propiedades de los recursos de v2.
 
 |Propiedades de v3|Propiedades de v2|
 |---|---|
-|`id`: (único), la ruta de acceso completa de Azure Resource Manager; consulte ejemplos en el artículo sobre [recursos](https://docs.microsoft.com/rest/api/media/assets/createorupdate).||
+|`id`: (único), la ruta de acceso completa de Azure Resource Manager; consulte ejemplos en el artículo sobre [recursos](/rest/api/media/assets/createorupdate).||
 |`name`: (único), consulte [Convenciones de nomenclatura](media-services-apis-overview.md#naming-conventions). ||
 |`alternateId`|`AlternateId`|
 |`assetId`|`nb:cid:UUID:`: (único), valor que empieza por el prefijo `Id`.|
@@ -110,8 +110,8 @@ Para proteger los recursos en reposo, estos se deben cifrar mediante el cifrado 
 |Opción de cifrado|Descripción|Media Services v2|Media Services v3|
 |---|---|---|---|
 |Cifrado de almacenamiento en Media Services|Cifrado AES-256, clave administrada por Media Services|Admitido<sup>(1)</sup>|No admitido<sup>(2)</sup>|
-|[Storage Service Encryption para datos en reposo](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Cifrado en el lado servidor que ofrece Azure Storage, clave administrada por Azure o por el cliente.|Compatible|Compatible|
-|[Cifrado en el lado de cliente de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Cifrado en el lado cliente que ofrece Azure Storage, clave administrada por el cliente en Key Vault.|No compatible|No compatible|
+|[Storage Service Encryption para datos en reposo](../../storage/common/storage-service-encryption.md)|Cifrado en el lado servidor que ofrece Azure Storage, clave administrada por Azure o por el cliente.|Compatible|Compatible|
+|[Cifrado en el lado de cliente de almacenamiento](../../storage/common/storage-client-side-encryption.md)|Cifrado en el lado cliente que ofrece Azure Storage, clave administrada por el cliente en Key Vault.|No compatible|No compatible|
 
 <sup>1</sup> Aunque Media Services admite el control del contenido sin cifrado, no se recomienda.
 
