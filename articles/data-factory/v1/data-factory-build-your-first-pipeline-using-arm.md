@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: e6a14cbb758426203a46ac508fe8e4bfdf3090cf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4bbcd107459b860b08cdcbb53e2f09a9cd35bb5e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82203903"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007476"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Compilación de la primera Data Factory de Azure con la plantilla de Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ La canalización de este tutorial tiene solo una actividad: **Actividad de Hive 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * Lea el artículo [Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md) y complete los pasos de los **requisitos previos** .
-* Siga las instrucciones del artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) para instalar la última versión de Azure PowerShell en su equipo.
+* Siga las instrucciones del artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azure/) para instalar la última versión de Azure PowerShell en su equipo.
 * Para más información sobre las plantillas de Azure Resource Manager (ARM), consulte [Creación de plantillas del Administrador de recursos de Azure](../../azure-resource-manager/templates/template-syntax.md) . 
 
 ## <a name="in-this-tutorial"></a>Apartados de este tutorial
