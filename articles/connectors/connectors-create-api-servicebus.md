@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/19/2019
 tags: connectors
-ms.openlocfilehash: 50f43283d1113a5beb05b5898514623be37e5de9
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 870ec6997b0abf5afc1c1bfa788bbca18c08ead7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142000"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284003"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Intercambio de mensajes en la nube con Azure Logic Apps y Azure Service Bus
 
@@ -156,7 +156,7 @@ Confirme que la aplicación lógica tiene permiso para acceder al espacio de nom
 
 ## <a name="send-correlated-messages-in-order"></a>Envío de mensajes correlacionados en orden
 
-Cuando necesite enviar mensajes relacionados en un orden específico, puede usar el patrón [*convoy secuencial*](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy) mediante el [conector de Azure Service Bus](../connectors/connectors-create-api-servicebus.md). Los mensajes correlacionados tienen una propiedad que define la relación entre esos mensajes, como el identificador de la [sesión](../service-bus-messaging/message-sessions.md) en Service Bus.
+Cuando necesite enviar mensajes relacionados en un orden específico, puede usar el patrón [*convoy secuencial*](/azure/architecture/patterns/sequential-convoy) mediante el [conector de Azure Service Bus](../connectors/connectors-create-api-servicebus.md). Los mensajes correlacionados tienen una propiedad que define la relación entre esos mensajes, como el identificador de la [sesión](../service-bus-messaging/message-sessions.md) en Service Bus.
 
 Al crear una aplicación lógica, puede seleccionar la plantilla **Entrega por orden correlacionada mediante sesiones de Service Bus**, que implementa el patrón de convoy secuencial. Para más información, vea [Enviar mensajes relacionados en orden](../logic-apps/send-related-messages-sequential-convoy.md).
 
@@ -171,3 +171,4 @@ Para conocer otros detalles técnicos sobre los desencadenadores, las acciones y
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga más información sobre otros [conectores de Logic Apps](../connectors/apis-list.md)
+

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 05/13/2020
-ms.openlocfilehash: e4096b00ca1bbe1ad7d88c37a846d3f56b2860b1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: e523d468ae53e220cbda1c9748965110e82d48a0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085334"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081090"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Uso de los registros de Azure Monitor para supervisar clústeres de HDInsight
 
@@ -40,7 +40,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
   Para instrucciones sobre cómo crear un clúster en HDInsight, consulte el artículo de [introducción a Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).  
 
-* Si usa PowerShell, necesitará el [Módulo Az](https://docs.microsoft.com/powershell/azure/overview). Asegúrese de disponer de la versión más reciente. Si es necesario, ejecute `Update-Module -Name Az`.
+* Si usa PowerShell, necesitará el [Módulo Az](https://docs.microsoft.com/powershell/azure/). Asegúrese de disponer de la versión más reciente. Si es necesario, ejecute `Update-Module -Name Az`.
 
 * Si quiere usar la CLI de Azure y todavía no la ha instalado, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 

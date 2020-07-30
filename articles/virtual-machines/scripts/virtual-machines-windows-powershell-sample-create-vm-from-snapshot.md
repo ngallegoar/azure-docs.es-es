@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 7f8e7f5e758c916cf7e6b96ab38607ee722152b1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8ec7b8655a499057e91f138411529a5f271ea511
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509564"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082365"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-powershell-windows"></a>Creación de una máquina virtual a partir de una instantánea con PowerShell (Windows)
 
@@ -60,6 +60,6 @@ Este script usa los siguientes comandos para obtener las propiedades de las inst
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre el módulo de Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/azure/overview).
+Para obtener más información sobre el módulo de Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/azure/).
 
 Encontrará más ejemplos de scripts de Azure PowerShell de máquina virtual en la [documentación sobre máquinas virtuales Windows de Azure](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

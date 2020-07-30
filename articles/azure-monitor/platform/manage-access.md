@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 2fcf3b4c91e87453e2cf605eb717b75ed7d64d95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9ca2dc9d907e65b2679c08d8d2b6482f02ba53d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85105932"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327895"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Administración del acceso a los datos de registro y las áreas de trabajo en Azure Monitor
 
@@ -310,6 +310,7 @@ A veces, los registros personalizados proceden de orígenes que no están direct
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte la [información general sobre el agente de Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para recopilar datos de los equipos de su centro de datos u otro entorno de nube.
+* Consulte la [información general sobre el agente de Log Analytics](./log-analytics-agent.md) para recopilar datos de los equipos de su centro de datos u otro entorno de nube.
 
-* Consulte [Recopilación de datos de máquinas virtuales de Azure](../../azure-monitor/learn/quick-collect-azurevm.md) para configurar la recopilación de datos de máquinas virtuales de Azure.
+* Consulte [Recopilación de datos de máquinas virtuales de Azure](../learn/quick-collect-azurevm.md) para configurar la recopilación de datos de máquinas virtuales de Azure.
+

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: service-bus
 ms.date: 07/02/2020
 ms.author: alvidela
-ms.openlocfilehash: df0541802dfc331ffc94e95be112ea7e005960b5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: cf21030fbf1aaa9f36e4d34aac918c4604066ec2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86049410"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071631"
 ---
 # <a name="how-to-integrate-rabbitmq-with-azure-service-bus"></a>Cómo integrar RabbitMQ con Azure Service Bus
 
@@ -90,7 +90,7 @@ Antes de poder utilizar esa cadena de conexión, tendrá que convertirla al form
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/converter.png" alt-text="Convertir cadena de conexión":::
 
-Ahora, abra el complemento de administración de RabbitMQ en nuestros exploradores [http://localhost:15672/#/dynamic-shovels](http://localhost:15672/#/dynamic-shovels) y vaya a `Admin -> Shovel Management`, donde puede agregar el nuevo Shovel que se encargará de enviar mensajes desde una cola de RabbitMQ hasta la cola de Azure Service Bus.
+Ahora, abra el complemento de administración de RabbitMQ en nuestros exploradores `http://localhost:15672/#/dynamic-shovels` y vaya a `Admin -> Shovel Management`, donde puede agregar el nuevo Shovel que se encargará de enviar mensajes desde una cola de RabbitMQ hasta la cola de Azure Service Bus.
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/add-shovel.png" alt-text="Agregar RabbitMQ Shovel":::
 

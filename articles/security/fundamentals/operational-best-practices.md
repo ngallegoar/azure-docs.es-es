@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 56132eae03a52af425e00bec93a63a697a2a55e6
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: ec4d91d90a952805781d6d38a0fc8a8fcef84f39
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204742"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283476"
 ---
 # <a name="azure-operational-security-best-practices"></a>Procedimientos recomendados de seguridad operativa de Azure
 En este artículo se proporciona un conjunto de procedimientos recomendados operativos para proteger los datos, aplicaciones y otros recursos en Azure.
@@ -182,7 +182,7 @@ Es de vital importancia garantizar que una aplicación sea lo suficientemente re
 
 Para Azure Cloud Services, configure cada uno de los roles para utilizar [varias instancias](../../cloud-services/cloud-services-choose-me.md).
 
-En el caso de [Azure Virtual Machines](/azure/virtual-machines/windows/overview), asegúrese de que la arquitectura de las máquinas virtuales incluya más de una máquina virtual y de que cada una de ellas se incluya en un [conjunto de disponibilidad](/azure/virtual-machines/virtual-machines-windows-manage-availability). Se recomienda usar conjuntos de escalado de máquinas virtuales para contar con funcionalidades de escalado automático.
+En el caso de [Azure Virtual Machines](../../virtual-machines/windows/overview.md), asegúrese de que la arquitectura de las máquinas virtuales incluya más de una máquina virtual y de que cada una de ellas se incluya en un [conjunto de disponibilidad](../../virtual-machines/windows/tutorial-availability-sets.md). Se recomienda usar conjuntos de escalado de máquinas virtuales para contar con funcionalidades de escalado automático.
 
 **Procedimiento recomendado**: Disponer en niveles la defensa de la seguridad en una aplicación reduce las probabilidades de éxito de un ataque. Implemente diseños seguros para las aplicaciones con las funcionalidades integradas de la plataforma Azure.  
 **Detalles**: el riesgo de ataque aumenta con el tamaño (área expuesta) de la aplicación. Puede reducir el área expuesta mediante la creación de listas blancas para cerrar el espacio de direcciones IP expuesto y los puertos de escucha que no sean necesarios en los equilibradores de carga ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) y [Azure Application Gateway](/azure/application-gateway/application-gateway-create-probe-portal)).

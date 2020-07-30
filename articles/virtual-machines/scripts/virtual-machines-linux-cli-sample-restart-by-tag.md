@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: cac918f369a10a8084cdc7d0c66d5c0c4c400cc2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1f098b866eee6fd8555cafcec0f64a0a5f261f9e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81458546"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079985"
 ---
 # <a name="restart-vms"></a>Reinicio de máquinas virtuales
 
@@ -86,15 +86,15 @@ Este script usa los siguientes comandos para crear un grupo de recursos, una má
 
 | Get-Help | Notas |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Crea las máquinas virtuales.  |
-| [az vm list](https://docs.microsoft.com/cli/azure/vm) | Se usa con `--query` para asegurarse de que se aprovisionan las máquinas virtuales antes de reiniciar y, luego, para obtener los identificadores de las máquinas virtuales para reiniciarlas. |
-| [az resource list](https://docs.microsoft.com/cli/azure/vm) | Se usa con `--query` para obtener los identificadores de las máquinas virtuales con la etiqueta. |
-| [az vm restart](https://docs.microsoft.com/cli/azure/vm) | Reinicia las máquinas virtuales. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
+| [az group create](/cli/azure/group) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [az vm create](/cli/azure/vm/availability-set) | Crea las máquinas virtuales.  |
+| [az vm list](/cli/azure/vm) | Se usa con `--query` para asegurarse de que se aprovisionan las máquinas virtuales antes de reiniciar y, luego, para obtener los identificadores de las máquinas virtuales para reiniciarlas. |
+| [az resource list](/cli/azure/vm) | Se usa con `--query` para obtener los identificadores de las máquinas virtuales con la etiqueta. |
+| [az vm restart](/cli/azure/vm) | Reinicia las máquinas virtuales. |
+| [az group delete](/cli/azure/vm/extension) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure).
+Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](/cli/azure).
 
 Encontrará más ejemplos de scripts de la CLI de máquina virtual en la [documentación sobre máquinas virtuales Linux de Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

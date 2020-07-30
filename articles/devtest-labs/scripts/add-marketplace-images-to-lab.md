@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: spelluru
-ms.openlocfilehash: d2f5d6b6b9500ccd90630e8920c09340658fb76f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c221f86d721a14f82f75d1cd9c81e37bba32a60
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84893083"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282626"
 ---
 # <a name="use-powershell-to-add-a-marketplace-image-to-a-lab-in-azure-devtest-labs"></a>Usar PowerShell para agregar una imagen de Marketplace a un laboratorio de Azure DevTest Labs
 
@@ -47,6 +47,6 @@ Este script usa los siguientes comandos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre Azure PowerShell, consulte la [documentación de Azure PowerShell](https://docs.microsoft.com/powershell/).
+Para más información sobre Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/).
 
 Encontrará más ejemplos de script de PowerShell de Azure Lab Services en los [ejemplos de PowerShell de Azure Lab Services](../samples-powershell.md).
