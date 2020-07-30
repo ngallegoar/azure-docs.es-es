@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7372f3f54e1b4d728ea065c2ada5a5b42c5f748b
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: c5cb2f7acb3f1432c2eadd769021c27ba41e9887
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84987904"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031939"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-curl"></a>Inicio rápido: Análisis de imágenes remotas mediante la API REST Computer Vision y cURL
 
@@ -39,13 +39,12 @@ Para crear y ejecutar el ejemplo, siga estos pasos:
     1. Reemplace el valor de `<subscriptionKey>` por la clave de suscripción.
     1. Reemplace la primera parte de la dirección URL de la solicitud (`westcentralus`) por el texto de la dirección URL de su punto de conexión.
         [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
-    1. Si lo desea, cambie el parámetro de idioma de la dirección URL de solicitud (`language=en`) para usar otro idioma admitido.
     1. Si lo desea, cambie la dirección URL de la imagen del cuerpo de la solicitud (`http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\`) por la dirección URL de una imagen diferente que desee analizar.
 1. Abra una ventana de símbolo del sistema.
 1. Pegue el comando del editor de texto en la ventana del símbolo del sistema y después ejecute el comando.
 
 ```bash
-curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v3.0/analyze?visualFeatures=Categories,Description&details=Landmarks&language=en" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
+curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v3.0/analyze?visualFeatures=Categories,Description&details=Landmarks" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
 ```
 
 ## <a name="examine-the-response"></a>Examen de la respuesta

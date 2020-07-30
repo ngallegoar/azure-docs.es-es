@@ -7,12 +7,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/3/2019
 ms.custom: mvc
-ms.openlocfilehash: caf8b1899cad95ade6297e78e8f2cf35939ef189
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a08e00b2debce970bdbd385b785806c8636e5946
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77661641"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318426"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Creación de paneles de indicadores clave de rendimiento (KPI) personalizados con Azure Application Insights
 
@@ -31,7 +31,7 @@ Puede crear varios paneles en Azure Portal de manera que cada uno incluya iconos
 
 Para completar este tutorial:
 
-- Implemente una aplicación de .NET en Azure y [habilite el SDK de Application Insights](../../azure-monitor/app/asp-net.md).
+- Implemente una aplicación de .NET en Azure y [habilite el SDK de Application Insights](../app/asp-net.md).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
@@ -127,4 +127,5 @@ Dado que Logs (Analytics) de Azure Applications Insights es un servicio independ
 Ahora que ha aprendido a crear paneles personalizados, eche un vistazo al resto de la documentación de Application Insights, que incluye un caso práctico.
 
 > [!div class="nextstepaction"]
-> [Diagnósticos detallados](../../azure-monitor/app/devops.md)
+> [Diagnósticos detallados](../app/devops.md)
+

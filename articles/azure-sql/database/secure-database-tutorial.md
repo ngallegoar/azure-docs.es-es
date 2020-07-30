@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: c658283ed610dcd14fca82b14217cba979388fc2
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 73ffe7fe6336d9547ebbbf4c894bd1b9398e0900
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85252923"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092939"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Tutorial: Protección de una base de datos en Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -146,7 +146,7 @@ Para más información acerca de la configuración de Azure AD, consulte:
 - [Incorporación del nombre de dominio personalizado mediante el portal de Azure Active Directory](../../active-directory/fundamentals/add-custom-domain.md)
 - [Microsoft Azure now supports federation with Windows Server AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/) (Microsoft Azure ahora admite la federación con Windows Server AD)
 - [Administración del directorio de Azure AD](../../active-directory/fundamentals/active-directory-whatis.md)
-- [Administración de Azure AD con PowerShell](/powershell/azure/overview?view=azureadps-2.0)
+- [Administración de Azure AD con PowerShell](/powershell/azure/?view=azureadps-2.0)
 - [La identidad híbrida requería puertos y protocolos](../../active-directory/hybrid/reference-connect-ports.md)
 
 ## <a name="manage-database-access"></a>Administración del acceso a las bases de datos

@@ -8,12 +8,13 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 06/03/2020
 ms.author: anfeldma
-ms.openlocfilehash: 520f64cbe768f2fcbd4603d1fb038bc349cd01db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: 70a4d6f01271c5026463ac0dc946fb1b2991de09
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391985"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323832"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Java de Azure Cosmos DB para API de SQL: Notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -115,7 +116,7 @@ Este es el SDK sincrónico original de Azure Cosmos DB para Java v2 para SQL AP
 ### <a name="1164"></a><a name="1.16.4"></a>1.16.4
 * Se ha corregido un error en los intervalos de claves de la partición de lectura en una consulta.
 
-### <a name="1163"></a><a name="1.16.3"/>1.16.3
+### <a name="1163"></a><a name="1.16.3"></a>1.16.3
 * Se ha corregido un error en la configuración del tamaño de encabezado del token de continuación en modo DirectHttps.
 
 ### <a name="1162"></a><a name="1.16.2"></a>1.16.2

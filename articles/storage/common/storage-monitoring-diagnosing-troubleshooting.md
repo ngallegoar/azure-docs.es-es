@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 94d952bcb0693941624199370de092a581d7479b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7af711ebe21c46663ecd8e803b0f636c34c362ee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518596"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076056"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -23,10 +23,6 @@ ms.locfileid: "86518596"
 Diagnosticar y solucionar problemas en una aplicación distribuida que está hospedada en un entorno de nube puede ser más complicado que en los entornos tradicionales. Las aplicaciones se pueden implementar en una infraestructura de PaaS o IaaS, en una ubicación local, en un dispositivo móvil o en varios de estos entornos combinados. Normalmente, el tráfico de red de la aplicación puede atravesar redes públicas y privadas, y la aplicación puede usar varias tecnologías de almacenamiento, como tablas, blobs, colas o archivos de Microsoft Azure Storage, además de otros almacenes de datos como, por ejemplo, bases de datos relacionales y de documentos.
 
 Para administrar correctamente esas aplicaciones, debe supervisarlas de forma proactiva y comprender cómo diagnosticar y solucionar problemas relacionados con todos sus aspectos y con las tecnologías de las que dependen. Como usuario de los servicios de Azure Storage, debe supervisar continuamente los servicios de Almacenamiento que utiliza la aplicación para observar si se produce algún cambio inesperado en el comportamiento (por ejemplo, tiempos de respuesta más lentos de lo habitual), y usar el registro para recopilar datos más detallados y poder analizar los problemas en profundidad. Con la información de diagnóstico que obtenga de la supervisión y el registro, le será más fácil averiguar la causa raíz del problema que apareció en la aplicación. Entonces, podrá solucionar el problema y determinar los pasos más adecuados que puede tomar para remediarlo. Azure Storage es uno de los servicios principales de Azure y constituye una parte importante de la mayoría de las soluciones que implementan los clientes en la infraestructura de Azure. Azure Storage incluye funcionalidades que permiten simplificar la supervisión, el diagnóstico y la solución de problemas de almacenamiento de las aplicaciones basadas en la nube.
-
-> [!NOTE]
-> Azure Files no admite el registro en este momento.
->
 
 Para obtener una guía práctica para la solución de problemas integral en aplicaciones de almacenamiento de Azure, consulte [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](../storage-e2e-troubleshooting.md)(Solución de problemas integral con el analizador de mensajes, AzCopy y las métricas y el registro del almacenamiento de Azure).
 

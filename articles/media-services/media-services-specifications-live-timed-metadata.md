@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: 551fb0cb9f3745a62d5d84f2c4878bbbbe5ad9a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37b3e5eff0baee736fc05760e19c31fdc513e23d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79137329"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060382"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Señalización de metadatos con tiempo en streaming en vivo 
 
@@ -80,8 +80,8 @@ Los siguientes documentos contienen disposiciones, que, mediante la referencia d
 | [MPEGDASH]        | Tecnologías de la información; streaming adaptable dinámico a través de HTTP (DASH); parte 1: descripción de presentación de elementos multimedia y formatos de segmento. Mayo de 2014. Publicado. Dirección URL: https://www.iso.org/standard/65274.html         |
 | [MPEGCMAF]        | Tecnologías de la información; formato de la aplicación multimedia (MPEG-A); parte 19: Formato de aplicación multimedia común (CMAF) para los elementos multimedia segmentados. Enero de 2018. Publicado. Dirección URL: https://www.iso.org/standard/71975.html |
 | [MPEGCENC]        | Tecnologías de la información; tecnologías de sistemas MPEG; parte 7: cifrado común en archivos del formato de archivo multimedia base ISO. Febrero de 2016. Publicado. Dirección URL: https://www.iso.org/standard/68042.html                   |
-| [MS-SSTR]         | ["Protocolo Microsoft Smooth Streaming", 15 de mayo de 2014](https://docs.microsoft.com/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)                                                     |
-| [MS-SSTR-Ingest]  | [Especificación de la introducción en directo de MP4 fragmentado de Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview)                                                      |
+| [MS-SSTR]         | ["Protocolo Microsoft Smooth Streaming", 15 de mayo de 2014](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)                                                     |
+| [MS-SSTR-Ingest]  | [Especificación de la introducción en directo de MP4 fragmentado de Azure Media Services](./media-services-fmp4-live-ingest-overview.md)                                                      |
 | [RFC8216]         | R. Pantos, Ed.; W. May. HTTP Live Streaming. Agosto de 2017. Informativo. [https://tools.ietf.org/html/rfc8216](https://tools.ietf.org/html/rfc8216)                                                            |
 | [RFC4648]         | Codificaciones de datos Base 16, base 32 y Base 64: [https://tools.ietf.org/html/rfc4648](https://tools.ietf.org/html/rfc4648)                                                                                     |
 | [RTMP]            | ["Protocolo de mensajería en tiempo real de Adobe", 21 de diciembre de 2012](https://www.adobe.com/devnet/rtmp.html)                                                                                                            |
