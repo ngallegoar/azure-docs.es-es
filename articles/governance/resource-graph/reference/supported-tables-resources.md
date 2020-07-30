@@ -1,15 +1,15 @@
 ---
 title: Tipos de recurso de Azure Resource Manager admitidos
 description: Proporcione una lista de los tipos de recurso de Azure Resource Manager admitidos en Azure Resource Graph y el Historial de cambios.
-ms.date: 06/04/2020
+ms.date: 07/16/2020
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 7a1890c8decb6f918ecacee99764e45817e3d38a
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 8ea8dff157437dd37ad178b1580eddb9d218559d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970576"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087533"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Referencia de tipo de recurso y tabla de Azure Resource Graph
 
@@ -19,6 +19,7 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 
 - microsoft.advisor/configurations
 - microsoft.advisor/recommendations
+- microsoft.advisor/recommendations/suppressions
 - microsoft.advisor/suppressions
 
 ## <a name="alertsmanagementresources"></a>alertsmanagementresources
