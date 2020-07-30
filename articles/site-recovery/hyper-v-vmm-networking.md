@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: a61f7ff69e648262eb721eb61a98b09dbbee924c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c0426872c29fa126514f22a5f4fb57f19903c967
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73961423"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021671"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Configuración del direccionamiento IP para conectarse a un sitio secundario local tras la conmutación por error
 
@@ -79,12 +79,12 @@ Después de la conmutación por error, Site Recovery asigna una dirección IP pa
 
 Después de habilitar la protección para una máquina virtual, puede usar el siguiente script de ejemplo para comprobar la dirección asignada a la máquina virtual. Esta dirección IP se establece como dirección IP de conmutación por error y se asigna a la máquina virtual en el momento de la conmutación por error:
 
-    ```
-    $vm = Get-SCVirtualMachine -Name <VM_NAME>
-    $na = $vm[0].VirtualNetworkAdapters>
-    $ip = Get-SCIPAddress -GrantToObjectID $na[0].id
-    $ip.address 
-    ```
+```powershell
+$vm = Get-SCVirtualMachine -Name <VM_NAME>
+$na = $vm[0].VirtualNetworkAdapters>
+$ip = Get-SCIPAddress -GrantToObjectID $na[0].id
+$ip.address
+```
 
 ## <a name="use-a-different-ip-address"></a>Uso de una dirección IP distinta
 
@@ -93,7 +93,7 @@ En este escenario, se cambian las direcciones IP de las máquinas virtuales que 
 - Utilice valores de TTL bajos para las aplicaciones de intranet.
 - Utilice el siguiente script en un plan de recuperación de Site Recovery para una actualización puntual del servidor DNS. No necesita el script si usa un registro de DNS dinámico.
 
-    ```
+    ```powershell
     param(
     string]$Zone,
     [string]$name,

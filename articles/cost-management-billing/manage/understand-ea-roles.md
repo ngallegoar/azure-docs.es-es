@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 07/13/2020
 ms.author: banders
-ms.openlocfilehash: b8693ea09ccbb6f0a3f8dfe0846a9b1b256872b6
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2cd786304180369fee39c7b362f27a44728f3ad8
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045151"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124347"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Administración de roles de Azure Enterprise
 
@@ -32,7 +32,7 @@ El primer administrador de inscripciones que se configure durante el aprovisiona
 
 Por ejemplo, si el tipo de autenticación inicial se establece en Mixto, EA se agregará como un cuenta Microsoft y el contacto de facturación tendrá privilegios de administrador de EA de solo lectura. Si el administrador de EA no aprueba la autorización de un cuenta Microsoft para un contacto de facturación existente, puede eliminar el usuario en cuestión y pedir al cliente que vuelva a agregarlo como administrador de solo lectura con una cuenta profesional o educativa establecida únicamente en el nivel de inscripción en el portal de EA.
 
-Estos roles son específicos de la administración de Contratos Enterprise de Azure y son adicionales a los roles integrados que tiene Azure para controlar el acceso a los recursos. Para más información, consulte [Roles integrados en los recursos de Azure](../../role-based-access-control/built-in-roles.md).
+Estos roles son específicos de la administración de Contratos Enterprise de Azure y son adicionales a los roles integrados que tiene Azure para controlar el acceso a los recursos. Para más información, consulte [Roles integrados en Azure](../../role-based-access-control/built-in-roles.md).
 
 En las secciones siguientes se describen las limitaciones y funcionalidades de cada rol.
 

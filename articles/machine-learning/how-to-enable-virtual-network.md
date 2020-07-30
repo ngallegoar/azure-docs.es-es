@@ -5,18 +5,18 @@ description: Use una instancia aislada de Azure Virtual Network con Azure Machin
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 07/07/2020
-ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 2193584996ed9f2c4cf5e858b8855c6878159a84
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.topic: conceptual
+ms.custom: how-to, contperfq4, tracking-python
+ms.openlocfilehash: 79db00216ffb54b8c71ef78cc745ec37c353f1cc
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520705"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320177"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Aislamiento de red durante el entrenamiento e inferencia con redes virtuales privadas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -304,8 +304,8 @@ Si no quiere usar las reglas de salida predeterminadas y quiere limitar el acces
 - Deniegue la conexión saliente a Internet mediante las reglas de NSG.
 
 - En el caso de una __instancia de proceso__ o un __clúster de proceso__, limite el tráfico saliente a los siguientes elementos:
-   - Azure Storage, mediante la __etiqueta de servicio__ de __Storage__.
-   - Azure Container Registry, mediante la __etiqueta de servicio__ de __AzureContainerRegistry__.
+   - Azure Storage, mediante la __etiqueta de servicio__ de __Storage.RegionName__, donde `{RegionName}` es el nombre de una región de Azure.
+   - Azure Container Registry, mediante la __etiqueta de servicio__ de __AzureContainerRegistry.RegionName__ donde `{RegionName}` es el nombre de una región de Azure.
    - Azure Machine Learning, mediante la __etiqueta de servicio__ de __AzureMachineLearning__
    - Azure Resource Manager, mediante la __etiqueta de servicio__ de __AzureResourceManager__
    - Azure Active Directory, mediante la __etiqueta de servicio__ de __AzureActiveDirectory__
@@ -429,6 +429,8 @@ except ComputeTargetException:
 ```
 
 Cuando finaliza el proceso de creación, el modelo se entrena mediante el clúster en un experimento. Para más información, consulte [Selección y uso de un destino de proceso para entrenamiento](how-to-set-up-training-targets.md).
+
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
 ### <a name="access-data-in-a-compute-instance-notebook"></a>Acceso a los datos en un cuaderno de instancia de Compute
 
