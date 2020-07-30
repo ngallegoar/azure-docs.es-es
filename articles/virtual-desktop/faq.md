@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 07/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b7ab9e63bfe92967eca22b60dceec0de882768a6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 721f9c623255b964e38da1c0f4b7bbf72d0c721d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540610"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075620"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Preguntas frecuentes acerca de Windows Virtual Desktop
 
@@ -121,7 +121,7 @@ En la tabla siguiente se muestra un ejemplo de los recursos que necesita un perf
 | Resource | Requisito |
 |---|---|
 | IOPS de estado estable | 10 |
-| IOPS de inicio de sesión y cierre de sesión | 5 |
+| IOPS de inicio de sesión y cierre de sesión | 50 |
 
 El ejemplo de esta tabla corresponde a un solo usuario, pero se puede usar para calcular los requisitos del número total de usuarios en su entorno. Por ejemplo, necesitaría aproximadamente 1000 IOPS para 100 usuarios, y alrededor de 5000 IOPS durante el inicio y cierre de sesión.
 
