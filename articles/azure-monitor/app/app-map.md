@@ -3,13 +3,14 @@ title: Mapa de aplicación en Azure Application Insights | Microsoft Docs
 description: Supervisión de topologías de aplicaciones complejas con el mapa de aplicación
 ms.topic: conceptual
 ms.date: 03/15/2019
+ms.custom: devx-track-javascript
 ms.reviewer: sdash
-ms.openlocfilehash: 7c5c9173704535b1e34ffde5867bd512e3e02ed8
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 7e4035e382aaa3f8b5d2327054a50a5360c60bfa
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80989534"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87367017"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa de aplicación: Evaluación de prioridades de las aplicaciones distribuidas
 
@@ -157,7 +158,7 @@ Para aplicaciones de [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers
 
 **Agente de Java**
 
-Para [Agente de Java 3.0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) el nombre del rol en la nube se establece de la manera siguiente:
+Para [Agente de Java 3.0](./java-in-process-agent.md) el nombre del rol en la nube se establece de la manera siguiente:
 
 ```json
 {
@@ -259,15 +260,15 @@ Si tiene dificultades para conseguir que el mapa de aplicación funcione según 
 
 1. Asegúrese de que usa un SDK oficialmente compatible. Es posible que los SDK no compatibles o de la comunidad no admitan la correlación.
 
-    Consulte este [artículo](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) para obtener una lista de los SDK compatibles.
+    Consulte este [artículo](./platforms.md) para obtener una lista de los SDK compatibles.
 
 2. Actualice todos los componentes a la versión más reciente del SDK.
 
-3. Si usa Azure Functions con C#, actualice a [Functions V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
+3. Si usa Azure Functions con C#, actualice a [Functions V2](../../azure-functions/functions-versions.md).
 
 4. Confirme que el [nombre de rol en la nube](#set-cloud-role-name) está configurado correctamente.
 
-5. Si falta una dependencia, asegúrese de que se encuentra en la lista de [dependencias recopiladas automáticamente](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). De lo contrario, todavía puede realizar su seguimiento de forma manual con una [llamada de seguimiento de dependencia](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+5. Si falta una dependencia, asegúrese de que se encuentra en la lista de [dependencias recopiladas automáticamente](./auto-collect-dependencies.md). De lo contrario, todavía puede realizar su seguimiento de forma manual con una [llamada de seguimiento de dependencia](./api-custom-events-metrics.md#trackdependency).
 
 ### <a name="too-many-nodes-on-the-map"></a>Hay demasiados nodos en el mapa
 
@@ -281,7 +282,7 @@ Para solucionar este problema, deberá cambiar la instrumentación para establec
 
 * El tipo de dependencia debe representar el tipo lógico de una dependencia. Por ejemplo, HTTP, SQL o Azure Blob son tipos de dependencia típicos. No debe contener id. exclusivos.
 
-* El propósito de nombre de rol en la nube se describe en la [sección anterior](https://docs.microsoft.com/azure/azure-monitor/app/app-map#set-cloud-role-name).
+* El propósito de nombre de rol en la nube se describe en la [sección anterior](#set-cloud-role-name).
 
 ## <a name="portal-feedback"></a>Comentarios del portal
 
