@@ -10,13 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8418a45c9eba596339999c2bddf937a516d3e2d9
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: eb4a150a1680dd4101249458894ded652cde15a0
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223353"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87338051"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Inicio rápido: Configuración de las propiedades de una aplicación en el inquilino de Azure Active Directory (Azure AD)
 
@@ -41,15 +40,15 @@ Cuando termine de agregar una aplicación al inquilino de Azure AD, aparecerá 
 Para editar las propiedades de la aplicación:
 
 1. En el portal de Azure AD, seleccione **Aplicaciones empresariales**. Después, busque y seleccione la aplicación que desea configurar.
-1. En la sección **Administrar**, seleccione **Propiedades** para abrir el panel **Propiedades** para editarlo.
+2. En la sección **Administrar**, seleccione **Propiedades** para abrir el panel **Propiedades** para editarlo.
 
     ![Captura de la pantalla Propiedades que muestra las propiedades de la aplicación editables.](media/add-application-portal/edit-properties.png)
 
-1. Dedique un momento a comprender las opciones disponibles para su configuración:
+3. Dedique un momento a comprender las opciones disponibles para su configuración:
     - La opción **¿Habilitado para que los usuarios inicien sesión?** determina si los usuarios asignados a la aplicación pueden iniciar sesión.
     - La opción **¿Asignación de usuarios?** determina si los usuarios que no están asignados a la aplicación pueden iniciar sesión.
     - La opción **¿Es visible para los usuarios?** determina si los usuarios asignados a una aplicación pueden verla en el [panel de acceso](https://myapps.microsoft.com) y en el iniciador de Office 365. (Vea el menú de gofres en la esquina superior izquierda de un sitio web de Office 365 o Microsoft 365).
-1. Use las siguientes tablas para ayudarle a elegir las opciones que más se ajusten a sus necesidades.
+4. Use las siguientes tablas para ayudarle a elegir las opciones que más se ajusten a sus necesidades.
 
    - Comportamiento para los usuarios *asignados*:
 
@@ -86,10 +85,10 @@ Para editar las propiedades de la aplicación:
 Para usar un logotipo personalizado:
 
 1. Cree un logotipo de 215 por 215 píxeles y guárdelo en formato .png.
-1. En el portal de Azure AD, seleccione **Aplicaciones empresariales**. Después, busque y seleccione la aplicación que desea configurar.
-1. En la sección **Administrar**, seleccione **Propiedades** para abrir el panel **Propiedades** para editarlo. 
-1. Seleccione el icono para cargar el logotipo.
-1. Cuando haya terminado, seleccione **Guardar**.
+2. En el portal de Azure AD, seleccione **Aplicaciones empresariales**. Después, busque y seleccione la aplicación que desea configurar.
+3. En la sección **Administrar**, seleccione **Propiedades** para abrir el panel **Propiedades** para editarlo. 
+4. Seleccione el icono para cargar el logotipo.
+5. Cuando haya terminado, seleccione **Guardar**.
 
     ![Captura de la pantalla Propiedades que muestra cómo cambiar el logotipo.](media/add-application-portal/change-logo.png)
 

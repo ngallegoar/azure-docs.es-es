@@ -43,8 +43,6 @@
           href: tutorial-connect-device-nodejs.md
         - name: Conexión de un dispositivo (Python)
           href: tutorial-connect-device-python.md
-        - name: Conexión de un dispositivo Plug and Play (versión preliminar)
-          href: tutorial-connect-pnp-device.md
         - name: Creación de una plantilla de dispositivo de puerta de enlace
           href: tutorial-define-gateway-device-type.md
         - name: "Conexión de un dispositivo IoT\_Edge"
@@ -79,8 +77,6 @@
       items:
         - name: Configuración de una plantilla de dispositivo
           href: howto-set-up-template.md
-        - name: Preparación y conexión de una instancia de MXChip IoT DevKit
-          href: howto-connect-devkit.md
         - name: Preparación y conexión de un kit de desarrollo de Azure Sphere
           href: howto-connect-sphere.md
         - name: Preparación y conexión de un dispositivo RuuviTag
