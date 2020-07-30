@@ -5,18 +5,18 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 0af0848f057b5c225471e9ac13f14db2468d838c
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 96ba60508cf57a10d717c948daba13b1dd35a142
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186102"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372610"
 ---
 # <a name="enable-update-management-from-the-azure-portal"></a>Habilitación de Update Management desde Azure Portal
 
 En este artículo se describe cómo se puede habilitar la característica [Update Management](automation-update-management.md) en máquinas virtuales examinando Azure Portal. Para habilitar máquinas virtuales de Azure a escala, debe habilitar una máquina virtual existente con Update Management. 
 
-El número de grupos de recursos que puede usar para administrar las máquinas virtuales incorporar está limitado por los [límites de implementación de Resource Manager](../azure-resource-manager/templates/cross-resource-group-deployment.md). Las implementaciones de Resource Manager, que no se deben confundir con las implementaciones de actualización, están limitadas a cinco grupos de recursos por implementación. Dos de esos grupos de recursos están reservados para configurar el área de trabajo de Log Analytics, la cuenta de Automation y los recursos relacionados. Esto le deja con tres grupos de recursos que seleccionar para su administración mediante Update Management. Este límite solo se aplica a la instalación simultánea, no al número de grupos de recursos que una característica de Automation puede administrar.
+El número de grupos de recursos que puede usar para administrar las máquinas virtuales incorporar está limitado por los [límites de implementación de Resource Manager](../azure-resource-manager/templates/cross-scope-deployment.md). Las implementaciones de Resource Manager, que no se deben confundir con las implementaciones de actualización, están limitadas a cinco grupos de recursos por implementación. Dos de esos grupos de recursos están reservados para configurar el área de trabajo de Log Analytics, la cuenta de Automation y los recursos relacionados. Esto le deja con tres grupos de recursos que seleccionar para su administración mediante Update Management. Este límite solo se aplica a la instalación simultánea, no al número de grupos de recursos que una característica de Automation puede administrar.
 
 > [!NOTE]
 > Al habilitar Update Management, solo se admiten determinadas regiones para vincular un área de trabajo de Log Analytics y una cuenta de Automation. Para obtener una lista de los pares de asignación que se admiten, consulte [Asignación de región para la cuenta de Automation y el área de trabajo de Log Analytics](how-to/region-mappings.md).

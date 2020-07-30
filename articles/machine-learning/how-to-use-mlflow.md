@@ -8,15 +8,15 @@ ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
-ms.topic: how-to
 ms.date: 06/04/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 6dd3efb3e8bbe902d3c8267aff714a8e7f77acc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: ea26e1861d1e3916302563a27389763ebc4c450c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738845"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326705"
 ---
 # <a name="track-model-metrics-and-deploy-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>Seguimiento de métricas del modelo e implementación de modelos de aprendizaje automático con MLflow y Azure Machine Learning (versión preliminar)
 
@@ -47,7 +47,7 @@ En el siguiente diagrama se ilustra que con Seguimiento de MLflow, se realiza un
  El Seguimiento de MLflow ofrece funciones de registro de métricas y almacenamiento de artefactos que de otra manera solo están disponibles a través del [SDK de Python de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 
-| | Implementación y seguimiento de&nbsp;MLflow | SDK de Python de Azure Machine Learning |  CLI de Azure Machine Learning | Azure Machine Learning Studio|
+| Capacidad | Implementación y seguimiento de&nbsp;MLflow | SDK de Python de Azure Machine Learning |  CLI de Azure Machine Learning | Azure Machine Learning Studio|
 |---|---|---|---|---|
 | Administración del área de trabajo |   | ✓ | ✓ | ✓ |
 | Uso de almacenes de datos  |   | ✓ | ✓ | |
