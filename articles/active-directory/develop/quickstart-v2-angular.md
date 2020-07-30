@@ -7,17 +7,17 @@ author: jasonnutter
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-javascript
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: f457e876cb9484fce29cba35c7570572b2771aed
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: a7553eea8941b93e589f38f8229ef35b70361f8e
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860059"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129192"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Inicio rápido: Inicio de sesión de usuarios y obtención de un token de acceso en un aplicación de página única de Angular
 
@@ -107,7 +107,7 @@ En este inicio rápido se usa un código de ejemplo que muestra cómo una aplica
 > > [!TIP]
 > > Para buscar los valores de **Identificador de aplicación (cliente)** , **Identificador de directorio (inquilino)** y **Tipos de cuenta admitidos**, vaya a la página **Información general** en Azure Portal.
 
-Para más información acerca de las opciones configurables disponibles, consulte [Inicializar aplicaciones cliente](msal-js-initializing-client-applications.md). 
+Para más información acerca de las opciones configurables disponibles, consulte [Inicializar aplicaciones cliente](msal-js-initializing-client-applications.md).
 
 Puede encontrar el código fuente de la biblioteca MSAL.js en el repositorio [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) de GitHub.
 
@@ -134,7 +134,7 @@ Cuando el explorador haya cargado la aplicación, seleccione **Iniciar sesión**
 
 ## <a name="how-the-sample-works"></a>Funcionamiento del ejemplo
 
-![Diagrama del funcionamiento de la aplicación de ejemplo en este inicio rápido](media/quickstart-v2-javascript/javascriptspa-intro.svg)
+![Diagrama del funcionamiento de la aplicación de ejemplo en este inicio rápido](./media/quickstart-v2-angular/diagram-auth-flow-spa-angular.svg)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

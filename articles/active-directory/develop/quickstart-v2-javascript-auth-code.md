@@ -9,24 +9,23 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 05/19/2020
+ms.date: 07/17/2020
 ms.author: hahamil
-ms.custom: aaddev, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: 0eaa4a828716f1a52161726e768acc817d1fde17
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-javascript
+ms.openlocfilehash: 02652243b3c25c0a02e325c8b7b1d7e7c226abcd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134173"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87311949"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Inicio rápido: Inicio de sesión de los usuarios y obtención de un token de acceso en una SPA de JavaScript mediante el flujo de código de autorización
-
-> [!IMPORTANT]
-> Esta funcionalidad actualmente está en su versión preliminar. Las versiones preliminares están a su disposición con la condición de que acepte los [términos de uso adicionales](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general (GA).
 
 En este inicio rápido aprenderá a ejecutar un código de ejemplo que muestra cómo una aplicación de página única (SPA) de JavaScript puede iniciar la sesión de los usuarios de cuentas personales, profesionales y educativas mediante el flujo de código de autorización. En el ejemplo de código también se muestra cómo obtener un token de acceso para llamar a una API web, en este caso, Microsoft Graph API. Para ilustrar este tema, consulte el apartado en el que se explica el [funcionamiento del ejemplo](#how-the-sample-works).
 
 En este inicio rápido se usa MSAL.js 2.0 con el flujo de código de autorización. Puede encontrar un inicio rápido similar que usa MSAL.js 1.0 con el flujo implícito en [Inicio rápido: Inicio de sesión de usuarios en aplicaciones de página única de JavaScript](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-javascript).
+
+[!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 

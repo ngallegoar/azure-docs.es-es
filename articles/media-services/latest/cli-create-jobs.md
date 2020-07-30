@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 08caf4b78b1042d5753dba2bc73e93fa3a250a17
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b9d9f66b638eba2503f1650ba64fcd6b4652dc24
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "71122392"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023423"
 ---
 # <a name="cli-example-create-and-submit-a-job"></a>Ejemplo de CLI: creación y envío de un trabajo
 
@@ -27,7 +27,7 @@ En Media Services v3, cuando se envían trabajos para procesar los vídeos, es n
 
 ## <a name="prerequisites"></a>Prerequisites 
 
-[Cree una cuenta de Media Services](create-account-cli-how-to.md).
+[Cree una cuenta de Media Services](./create-account-howto.md).
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
@@ -87,4 +87,4 @@ Recibe una respuesta similar a esta:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[az ams job (CLI)](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
+[az ams job (CLI)](/cli/azure/ams/job?view=azure-cli-latest)

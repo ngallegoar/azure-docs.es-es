@@ -3,15 +3,15 @@ title: Creación de una máquina virtual Linux con zonas con la CLI de Azure
 description: Creación de una máquina virtual Linux en una zona de disponibilidad con la CLI de Azure
 author: cynthn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 568bac3c6c80173e38d7b15de17e90cb4fbdab80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e68dbbf86c5bda1758a6331f4c6fc0797df4557
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82208965"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87368360"
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Creación de una máquina virtual Linux en una zona de disponibilidad con la CLI de Azure
 
@@ -188,7 +188,7 @@ El resultado muestra que la dirección IP está en la misma zona de disponibilid
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido a crear una máquina virtual en una zona de disponibilidad. Aprenda más sobre la [disponibilidad](availability.md) de las máquinas virtuales de Azure.
+En este artículo, ha aprendido a crear una máquina virtual en una zona de disponibilidad. Aprenda más sobre la [disponibilidad](../availability.md) de las máquinas virtuales de Azure.
 
 
 

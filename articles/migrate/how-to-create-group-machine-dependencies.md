@@ -3,12 +3,12 @@ title: Configuración del análisis de dependencias basado en agente en Azure Mi
 description: En este artículo se describe cómo configurar un análisis de dependencias basado en agente en Azure Migrate Server Assessment.
 ms.topic: how-to
 ms.date: 6/09/2020
-ms.openlocfilehash: 1a656ec734ff098dd5835f653010c7f298c13b38
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 50061bead9b00ade0defba45691ea8a7c84625dd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110001"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321214"
 ---
 # <a name="set-up-dependency-visualization"></a>Configuración de la visualización de dependencias
 
@@ -31,7 +31,7 @@ En este artículo se describe cómo configurar el análisis de dependencias sin 
     - Solo puede asociar un área de trabajo después de configurar el dispositivo de Azure Migrate y de detectar máquinas en el proyecto de Azure Migrate.
     - Asegúrese de que tiene un área de trabajo en la suscripción que contiene el proyecto de Azure Migrate.
     - El área de trabajo debe residir en las regiones Este de EE. UU., Sudeste Asiático u Oeste de Europa. Las áreas de trabajo de otras regiones no se pueden asociar a un proyecto.
-    - El área de trabajo debe estar en una región en la que [se admita Service Map](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites).
+    - El área de trabajo debe estar en una región en la que [se admita Service Map](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions).
     - Puede asociar un área de trabajo de Log Analytics nueva o existente con un proyecto de Azure Migrate.
     - La primera vez que configure la visualización de dependencias para una máquina, deberá asociar el área de trabajo. El área de trabajo de un proyecto de Azure Migrate no se puede modificar una vez que se ha agregado.
     - En Log Analytics, el área de trabajo asociada con Azure Migrate se etiqueta con la clave del proyecto de migración y el nombre del proyecto.

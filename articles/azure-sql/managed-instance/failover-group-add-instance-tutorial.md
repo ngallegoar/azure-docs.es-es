@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sashan, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: f1bf8eff4a6f518fc24c87c5fbd24984ef8f8b29
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad0079a0a48178f1e662e2fdf1daa685ae768857
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84718893"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024200"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Tutorial: Adición de SQL Managed Instance a un grupo de conmutación por error
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -47,7 +47,7 @@ Para completar este tutorial, asegúrese de disponer de los siguientes elementos
 Para completar el tutorial, asegúrese de que cuenta con los elementos siguientes:
 
 - Suscripción a Azure. [Cree una cuenta gratuita](https://azure.microsoft.com/free/) si aún no tiene una.
-- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+- [Azure PowerShell](/powershell/azure/)
 
 ---
 

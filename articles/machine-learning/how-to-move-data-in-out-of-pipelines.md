@@ -5,17 +5,17 @@ description: Obtenga información sobre la entrada y salida de datos en las cana
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: laobri
 author: lobrien
-ms.date: 04/01/2020
-ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 54b8161634d15853719d98a52d0d17e2e55a6bb3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/20/2020
+ms.topic: conceptual
+ms.custom: how-to, contperfq4, tracking-python
+ms.openlocfilehash: 3fe49215055b5b090c9d8e4e25a832544c5c88ce
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559351"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319650"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Movimiento de datos a los pasos de canalización de Machine Learning (Python) y entre ellos
 
