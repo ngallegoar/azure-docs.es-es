@@ -42,8 +42,10 @@
           href: how-to-use-cli.md
         - name: Configuración de una instancia y autenticación (con scripts)
           href: how-to-set-up-instance-scripted.md
-        - name: Configuración de una instancia y autenticación (manual)
-          href: how-to-set-up-instance-manual.md
+        - name: Configuración de una instancia y de la autenticación (CLI)
+          href: how-to-set-up-instance-cli.md
+        - name: Configuración de una instancia y autenticación (Azure Portal)
+          href: how-to-set-up-instance-portal.md
         - name: Escritura de código de autenticación de aplicación
           href: how-to-authenticate-client.md
     - name: Diseño de modelos

@@ -7,8 +7,6 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Monitor de conexión (versión preliminar)
-      href: connection-monitor-preview.md
     - name: 'Diagnóstico de problemas de filtro de tráfico de máquinas virtuales: Azure Portal'
       href: diagnose-vm-network-traffic-filtering-problem.md
     - name: 'Diagnóstico de problemas de filtro de tráfico de máquinas virtuales: PowerShell'
@@ -27,6 +25,8 @@
       href: network-watcher-nsg-flow-logging-portal.md
 - name: Conceptos
   items:
+    - name: Monitor de conexión (versión preliminar)
+      href: connection-monitor-preview.md
     - name: Diagnóstico de problemas de filtro de tráfico de red de máquinas virtuales
       href: network-watcher-ip-flow-verify-overview.md
     - name: Diagnóstico de problemas de enrutamiento de máquina virtual
@@ -162,9 +162,13 @@
       href: view-relative-latencies.md
     - name: Supervisión del rendimiento de la red
       href: ../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+    - name: Traslado de recursos
+      items:
+        - name: Traslado de recursos de Network Watcher
+          href: resource-move.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/network/watcher
     - name: Azure PowerShell
       href: /powershell/module/az.network/#network_watcher

@@ -512,6 +512,8 @@
           href: active-directory-claims-mapping.md
         - name: Configuración de notificaciones opcionales
           href: active-directory-optional-claims.md
+        - name: Uso de atributos de extensión de esquema de directorio en notificaciones
+          href: active-directory-schema-extensions.md
         - name: Configuración de la vigencia de los tokens
           href: active-directory-configurable-token-lifetimes.md
         - name: Control de los cambios de cookies de SameSite en el explorador Chrome

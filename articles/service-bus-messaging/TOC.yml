@@ -220,11 +220,11 @@
               href: service-bus-resource-manager-namespace-topic-with-rule.md
     - name: Seguridad
       items:
-        - name: Configuración de firewalls
+        - name: Permitir el acceso desde determinadas direcciones IP
           href: service-bus-ip-filtering.md
-        - name: Configuración de puntos de conexión de servicio de red virtual
+        - name: Permitir el acceso desde determinadas redes virtuales
           href: service-bus-service-endpoints.md
-        - name: Configuración de puntos de conexión privados
+        - name: Permitir el acceso a través de puntos de conexión privados
           href: private-link-service.md
         - name: Configuración de claves administradas por el cliente
           href: configure-customer-managed-key.md

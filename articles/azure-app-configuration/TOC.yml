@@ -4,6 +4,8 @@
   items:
     - name: Acerca de Azure App Configuration
       href: overview.md
+    - name: Procedimientos recomendados
+      href: howto-best-practices.md
     - name: Preguntas más frecuentes
       href: faq.md
 - name: Guías de inicio rápido
@@ -34,26 +36,32 @@
           href: quickstart-feature-flag-spring-boot.md
 - name: Tutoriales
   items:
-    - name: Habilitar la configuración dinámica en ASP.NET Core
-      href: enable-dynamic-configuration-aspnet-core.md
-    - name: Habilitar la configuración dinámica en una aplicación de .NET Core
-      href: enable-dynamic-configuration-dotnet-core.md
-    - name: Habilitación de la configuración dinámica en .NET Framework
-      href: enable-dynamic-configuration-dotnet.md
-    - name: Habilitación de la configuración dinámica en Azure Functions
-      href: enable-dynamic-configuration-azure-functions-csharp.md
-    - name: Habilitación de la configuración dinámica en Spring Boot
-      href: enable-dynamic-configuration-java-spring-app.md
-    - name: Uso de marcas de características en una aplicación de .NET Core
-      href: use-feature-flags-dotnet-core.md
-    - name: Uso de marcas de características en una aplicación de Spring Boot
-      href: use-feature-flags-spring-boot.md
+    - name: Habilitación de la configuración dinámica
+      items:
+        - name: ASP.NET Core
+          href: enable-dynamic-configuration-aspnet-core.md
+        - name: .NET Core
+          href: enable-dynamic-configuration-dotnet-core.md
+        - name: .NET Framework
+          href: enable-dynamic-configuration-dotnet.md
+        - name: Azure Functions
+          href: enable-dynamic-configuration-azure-functions-csharp.md
+        - name: Spring Boot
+          href: enable-dynamic-configuration-java-spring-app.md
+    - name: Uso de marcas de características
+      items:
+        - name: .NET Core
+          href: use-feature-flags-dotnet-core.md
+        - name: Spring Boot
+          href: use-feature-flags-spring-boot.md
     - name: Administración de marcas de características
       href: manage-feature-flags.md
-    - name: "Uso de referencias de Key Vault en ASP.NET\_Core"
-      href: use-key-vault-references-dotnet-core.md
-    - name: Uso de referencias de Key Vault en Spring Boot
-      href: use-key-vault-references-spring-boot.md
+    - name: Uso de referencias de Key Vault
+      items:
+        - name: ASP.NET Core
+          href: use-key-vault-references-dotnet-core.md
+        - name: Spring Boot
+          href: use-key-vault-references-spring-boot.md
     - name: Integración con una canalización de CI/CD
       href: integrate-ci-cd-pipeline.md
     - name: Integración con la implementación de Kubernetes mediante Helm
@@ -105,8 +113,6 @@
       href: howto-app-configuration-event.md
     - name: Copia de seguridad automática del almacén de configuración
       href: howto-backup-config-store.md
-    - name: Procedimientos recomendados
-      href: howto-best-practices.md
 - name: Referencia
   items:
     - name: Configuración
