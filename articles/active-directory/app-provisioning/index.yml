@@ -3,7 +3,7 @@ title: Documentación para el aprovisionamiento de aplicaciones y de RR. HH
 summary: El aprovisionamiento de aplicaciones de Azure Active Directory permite crear y administrar automáticamente identidades de usuario en las aplicaciones en la nube (SaaS). Azure AD también ofrece aprovisionamiento con aplicaciones de recursos humanos (RR. HH) en la nube. Aprenda a administrar e implementar el aprovisionamiento de aplicaciones y de RR.HH. en la nube con nuestros inicios rápidos, tutoriales e instrucciones.
 metadata:
   title: Documentación para el aprovisionamiento de aplicaciones
-  description: El aprovisionamiento de aplicaciones de Azure Active Directory permite crear y administrar automáticamente identidades de usuario en las aplicaciones en la nube (SaaS). Azure AD también ofrece aprovisionamiento con aplicaciones de recursos humanos (RR. HH) en la nube. Aprenda a administrar e implementar el aprovisionamiento de aplicaciones y de RR.HH. en la nube con nuestros inicios rápidos, tutoriales e instrucciones.
+  description: El aprovisionamiento de aplicaciones de Azure Active Directory permite crear y administrar automáticamente identidades de usuario en las aplicaciones en la nube (SaaS). Azure AD también ofrece aprovisionamiento con aplicaciones de recursos humanos (RR. HH) en la nube. Aprenda a administrar e implementar el aprovisionamiento de aplicaciones y de RR. HH en la nube con nuestros inicios rápidos, tutoriales e instrucciones.
   ms.service: active-directory
   ms.subservice: app-provisioning
   ms.workload: identity

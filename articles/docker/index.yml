@@ -23,7 +23,7 @@ landingContent:
     links:
     - text: Implementación de Docker en la plantilla de inicio rápido de Ubuntu
       url: https://azure.microsoft.com/resources/templates/docker-simple-on-ubuntu/
-- title: Introducción
+- title: Primeros pasos
   linkLists:
   - linkListType: tutorial
     links:

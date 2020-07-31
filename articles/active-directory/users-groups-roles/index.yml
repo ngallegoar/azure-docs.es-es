@@ -33,7 +33,7 @@ landingContent:
       url: roles-concept-delegation.md
     - text: Comparación entre los roles de RBAC de Azure y los roles Administrador de Azure AD
       url: https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles?context=azure/active-directory/users-groups-roles/context/ugr-context
-- title: Introducción
+- title: Primeros pasos
   linkLists:
   - linkListType: quickstart
     links:

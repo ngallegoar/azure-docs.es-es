@@ -129,9 +129,9 @@
     - name: CLI
       href: /cli/azure/identity
     - name: PowerShell
-      href: '/powershell/module/az.managedserviceidentity#managed_service_identity'
+      href: /powershell/module/az.managedserviceidentity#managed_service_identity
     - name: .NET
-      href: '/dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication#azure-dotnet'
+      href: /dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication#azure-dotnet
     - name: Java
       href: 'https://github.com/Azure/azure-libraries-for-java#ready-to-run-code-samples-for-virtual-machines'
     - name: Python

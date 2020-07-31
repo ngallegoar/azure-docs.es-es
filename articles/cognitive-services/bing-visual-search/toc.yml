@@ -12,7 +12,7 @@
     - name: API DE REST
       expanded: true
       items:
-        - name: 'Con C#'
+        - name: Con C#
           href: quickstarts/csharp.md
         - name: Usar Java
           href: quickstarts/java.md

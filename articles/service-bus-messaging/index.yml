@@ -41,7 +41,7 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Azure portal
+    - text: Azure Portal
       url: service-bus-quickstart-portal.md
     - text: Azure CLI
       url: service-bus-quickstart-cli.md

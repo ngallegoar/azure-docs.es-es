@@ -141,7 +141,7 @@ conceptualContent:
     - itemType: overview
       text: Acerca de Speech Studio (personalizaciones)
       url: https://speech.microsoft.com
-  - title: Hosting
+  - title: Hospedaje
     links:
     - itemType: how-to-guide
       text: Contenedores del servicio de voz

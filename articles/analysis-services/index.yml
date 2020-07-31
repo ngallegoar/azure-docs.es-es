@@ -24,7 +24,7 @@ landingContent:
     links:
     - text: ¿Qué es Azure Analysis Services?
       url: analysis-services-overview.md
-- title: Introducción
+- title: Primeros pasos
   linkLists:
   - linkListType: quickstart
     links:

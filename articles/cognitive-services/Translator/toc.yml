@@ -50,7 +50,7 @@
           href: firewalls.md
     - name: Ejemplos
       items:
-        - name: 'C#'
+        - name: C#
           href: 'https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp'
         - name: Java
           href: 'https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Java'
@@ -174,5 +174,5 @@
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
         - name: Cifrado
           href: translator-encryption-of-data-at-rest.md
-        - name: Stack Overflow
+        - name: Desbordamiento de pila
           href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'

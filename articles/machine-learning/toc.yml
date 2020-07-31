@@ -16,6 +16,7 @@
   expanded: true
   items:
     - name: Estudio
+      expanded: true
       items:
         - name: Designer (arrastrar y colocar)
           items:
@@ -37,6 +38,7 @@
           displayName: 'tag, tagging, images'
           href: tutorial-labeling.md
     - name: SDK de Python
+      expanded: true
       items:
         - name: Creación del primer experimento de Machine Learning
           items:

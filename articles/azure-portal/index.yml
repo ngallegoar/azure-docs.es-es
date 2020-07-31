@@ -51,7 +51,7 @@ landingContent:
       url: /learn/paths/manage-resources-in-azure/
     - text: Protección de los recursos de Azure con el control de acceso basado en rol (RBAC)
       url: /learn//modules/secure-azure-resources-with-rbac/
-- title: Introducción
+- title: Primeros pasos
   linkLists:
   - linkListType: quickstart
     links:

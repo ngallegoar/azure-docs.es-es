@@ -17,7 +17,7 @@
       items:
         - name: API DE REST
           items:
-            - name: 'Con C#'
+            - name: Con C#
               href: call-endpoint-csharp.md
             - name: Usar Java
               href: call-endpoint-java.md

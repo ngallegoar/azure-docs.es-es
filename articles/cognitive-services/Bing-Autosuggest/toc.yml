@@ -12,7 +12,7 @@
   items:
     - name: API DE REST
       items:
-        - name: 'C#'
+        - name: C#
           href: quickstarts/csharp.md
         - name: Java
           href: quickstarts/java.md

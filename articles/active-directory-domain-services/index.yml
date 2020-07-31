@@ -34,7 +34,7 @@ landingContent:
       url: synchronization.md
     - text: Preguntas más frecuentes
       url: faqs.md
-- title: Introducción
+- title: Primeros pasos
   linkLists:
   - linkListType: deploy
     links:
@@ -62,7 +62,7 @@ landingContent:
       url: deploy-kcd.md
     - text: Protección de un dominio administrado
       url: secure-your-domain.md
-- title: Administrar
+- title: Administración
   linkLists:
   - linkListType: how-to-guide
     links:

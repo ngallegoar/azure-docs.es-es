@@ -60,7 +60,7 @@
           href: how-tos/create-locate-anchors-cpp-winrt.md
     - name: Uso de la relocalización general para detectar delimitadores cercanos
       items:
-        - name: 'En C#/Unity'
+        - name: En C#/Unity
           href: how-tos/set-up-coarse-reloc-unity.md
         - name: En Objective-C
           href: how-tos/set-up-coarse-reloc-objc.md

@@ -41,7 +41,7 @@ landingContent:
     links:
     - text: Planes de tarifa
       url: concepts-pricing-tiers.md
-    - text: límites
+    - text: Límites
       url: concepts-limits.md
     - text: Versiones de PostgreSQL
       url: concepts-supported-versions.md

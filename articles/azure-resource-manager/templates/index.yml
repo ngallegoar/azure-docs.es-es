@@ -113,7 +113,7 @@ landingContent:
       url: /rest/api/resources/
     - text: Azure PowerShell
       url: /powershell/module/az.resources
-    - text: Azure CLI
+    - text: CLI de Azure
       url: /cli/azure/resource
     - text: .NET
       url: /dotnet/api/microsoft.azure.management.resourcemanager

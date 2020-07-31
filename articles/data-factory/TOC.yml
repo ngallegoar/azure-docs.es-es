@@ -167,8 +167,6 @@
       href: concepts-pipeline-execution-triggers.md
     - name: Tiempo de ejecución de integración
       href: concepts-integration-runtime.md
-    - name: Red virtual administrada
-      href: managed-virtual-network-private-endpoint.md
     - name: Seguridad
       items:
         - name: Línea de base de seguridad
@@ -588,6 +586,8 @@
           href: data-factory-service-identity.md
         - name: Cifrado de claves administrado por el cliente
           href: enable-customer-managed-key.md
+        - name: Red virtual administrada
+          href: managed-virtual-network-private-endpoint.md
     - name: Supervisión y administración
       items:
         - name: Supervisión visual
@@ -732,6 +732,8 @@
           href: connector-troubleshoot-guide.md
         - name: Flujos de datos
           href: data-flow-troubleshoot-guide.md
+        - name: Herramienta Copiar datos
+          href: copy-data-tool-troubleshoot-guide.md
         - name: Entornos de ejecución de integración autohospedados
           href: self-hosted-integration-runtime-troubleshoot-guide.md
         - name: Integration Runtime de SSIS de Azure

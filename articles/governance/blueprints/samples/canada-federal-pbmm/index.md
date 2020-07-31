@@ -3,16 +3,16 @@ title: Ejemplo de plano técnico de Canada Federal PBMM, introducción
 description: Introducción al ejemplo de plano técnico de Canada Federal PBMM. Este ejemplo de plano técnico ayuda a los clientes a evaluar determinados controles concretos de la norma Canada Federal PBMM.
 ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: fcaf4a844db10f4a87b205d08cfe3a86a6182957
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: a33cba28459b1d01e816babbfc65c1b662bd2718
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005678"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419689"
 ---
 # <a name="overview-of-the-canada-federal-pbmm-blueprint-sample"></a>Introducción al ejemplo de plano técnico de Canada Federal PBMM
 
-El ejemplo de plano técnico para la norma Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM) proporciona un conjunto de directivas de gobernanza mediante [Azure Policy](../../../policy/overview.md) que ayuda para lograr la atestación de conformidad con la norma [Canada Federal PBMM](https://www.canada.ca/en/government/system/digital-government/modern-emerging-technologies/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html#toc4). 
+El ejemplo de plano técnico para la norma Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM) proporciona un conjunto de directivas de gobernanza mediante [Azure Policy](../../../policy/overview.md) que ayuda para lograr la atestación de conformidad con la norma [Canada Federal PBMM](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html). 
 
 ## <a name="blueprint-sample"></a>Ejemplo de plano técnico
 

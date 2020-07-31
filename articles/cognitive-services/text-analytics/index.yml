@@ -78,7 +78,7 @@ landingContent:
     links:
     - text: Detección de idiomas
       url: how-tos/text-analytics-how-to-language-detection.md
-- title: Extracción de la frase clave
+- title: Extracción de frases clave
   linkLists:
   - linkListType: quickstart
     links:
