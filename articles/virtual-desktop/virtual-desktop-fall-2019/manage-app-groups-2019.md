@@ -1,6 +1,6 @@
 ---
-title: 'Administración de grupos de aplicaciones de Windows Virtual Desktop: Azure'
-description: Se describe cómo configurar los inquilinos de Windows Virtual Desktop en Azure Active Directory.
+title: 'Administración de grupos de aplicaciones para Windows Virtual Desktop (clásico): Azure'
+description: Se describe cómo configurar los inquilinos de Windows Virtual Desktop (clásico) en Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 55c2ed5f9066d85643588f77806bbd41e92dd16b
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: fcf946c4bde89f3c14e78744305bc274ea67962f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82613951"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284989"
 ---
-# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop"></a>Tutorial: Administración de grupos de aplicaciones de Windows Virtual Desktop
+# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-classic"></a>Tutorial: Administración de grupos de aplicaciones para Windows Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a la versión Fall 2019 que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager incorporados en la actualización Spring 2020, consulte [este artículo](../manage-app-groups.md).
+>Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../manage-app-groups.md).
 
 El grupo de aplicaciones predeterminado creado para un nuevo grupo host de Windows Virtual Desktop también publica el escritorio completo. Además, puede crear uno o varios grupos de aplicaciones de RemoteApp para el grupo host. Siga este tutorial para crear un grupo de aplicaciones de RemoteApp y publicar aplicaciones individualesl de menú **Inicio**.
 

@@ -31,14 +31,6 @@
           href: storage-files-active-directory-overview.md
         - name: Consideraciones de red para el acceso directo
           href: storage-files-networking-overview.md
-        - name: Prevención de eliminaciones accidentales
-          href: storage-files-prevent-file-share-deletion.md
-        - name: Copia de seguridad de recursos compartidos de archivos
-          href: ../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Cifrado en reposo
-          href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Cifrado en reposo con claves administradas por el cliente
-          href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Recuperación ante desastres y conmutación por error
           href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Instantáneas de recursos compartidos de archivos de Azure
@@ -69,6 +61,14 @@
           href: storage-sync-files-networking-overview.md
         - name: Acerca de la nube por niveles
           href: storage-sync-cloud-tiering.md
+    - name: Prevención de eliminaciones accidentales
+      href: storage-files-prevent-file-share-deletion.md
+    - name: Copia de seguridad de recursos compartidos de archivos
+      href: ../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Cifrado en reposo
+      href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Cifrado en reposo con claves administradas por el cliente
+      href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Objetivos de escalabilidad y rendimiento
       href: storage-files-scale-targets.md
     - name: Ofertas de cumplimiento
@@ -85,6 +85,70 @@
           href: storage-files-how-to-create-large-file-share.md
         - name: Creación de un recurso compartido de archivos premium
           href: storage-how-to-create-premium-fileshare.md
+    - name: Implementación
+      items:
+        - name: Implementación de Azure Files
+          href: storage-files-deployment-guide.md
+        - name: Implementación de Azure File Sync
+          href: storage-sync-files-deployment-guide.md
+        - name: "FCI\_de SQL\_Server con recursos compartidos de archivos Premium"
+          href: ../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Montaje
+      items:
+        - name: Uso de Azure Files con Windows
+          href: storage-how-to-use-files-windows.md
+        - name: Uso de Azure Files con Linux
+          href: storage-how-to-use-files-linux.md
+        - name: Uso de Azure Files con macOS
+          href: storage-how-to-use-files-mac.md
+    - name: Red
+      items:
+        - name: Azure Files
+          items:
+            - name: Configuración de puntos de conexión de red de Azure Files
+              href: storage-files-networking-endpoints.md
+            - name: Configuración del reenvío de DNS para Azure Files
+              href: storage-files-networking-dns.md
+        - name: Azure File Sync
+          items:
+            - name: Configuración de puntos de conexión de red de Azure File Sync
+              href: storage-sync-files-networking-endpoints.md
+            - name: Configuración de los ajustes del proxy y el firewall de File Sync
+              href: storage-sync-files-firewall-and-proxy.md
+        - name: Configuración de una VPN de sitio a sitio
+          href: storage-files-configure-s2s-vpn.md
+        - name: Configuración de una VPN de punto a sitio en Windows
+          href: storage-files-configure-p2s-vpn-windows.md
+        - name: Configuración de una VPN de punto a sitio en Linux
+          href: storage-files-configure-p2s-vpn-linux.md
+    - name: Authenticate
+      items:
+        - name: "Habilitación de autenticación y autorización de AD\_DS locales"
+          items:
+            - name: Introducción a Active Directory Domain Services
+              href: storage-files-identity-auth-active-directory-enable.md
+            - name: Habilitación de la autenticación de Active Directory Domain Services
+              href: storage-files-identity-ad-ds-enable.md
+            - name: Asignación de permisos de nivel de recurso compartido
+              href: storage-files-identity-ad-ds-assign-permissions.md
+            - name: Asignación de permisos de nivel de archivo o directorio
+              href: storage-files-identity-ad-ds-configure-permissions.md
+            - name: Montar el recurso compartido de archivos
+              href: storage-files-identity-ad-ds-mount-file-share.md
+            - name: Actualización de contraseña
+              href: storage-files-identity-ad-ds-update-password.md
+        - name: "Habilitación de autenticación y autorización en Azure\_AD\_DS"
+          href: storage-files-identity-auth-active-directory-domain-service-enable.md
+    - name: Administrar
+      items:
+        - name: Registro de un servidor en Azure Files Sync
+          href: storage-sync-files-server-registration.md
+        - name: Adición de un punto de conexión de servidor de Azure Files Sync
+          href: storage-sync-files-server-endpoint.md
+        - name: Administración del almacenamiento en nubes independientes de Azure
+          href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Iniciación de una conmutación por error de la cuenta
+          href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Protección de los datos
       items:
         - name: Habilitación de la eliminación temporal
@@ -133,70 +197,6 @@
               href: ../../backup/manage-afs-powershell.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
             - name: API DE REST
               href: ../../backup/manage-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Implementación
-      items:
-        - name: Implementación de Azure Files
-          href: storage-files-deployment-guide.md
-        - name: Implementación de Azure File Sync
-          href: storage-sync-files-deployment-guide.md
-        - name: "FCI\_de SQL\_Server con recursos compartidos de archivos Premium"
-          href: ../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Montaje
-      items:
-        - name: Uso de Azure Files con Windows
-          href: storage-how-to-use-files-windows.md
-        - name: Uso de Azure Files con Linux
-          href: storage-how-to-use-files-linux.md
-        - name: Uso de Azure Files con macOS
-          href: storage-how-to-use-files-mac.md
-    - name: Red
-      items:
-        - name: Azure Files
-          items:
-            - name: Configuración de puntos de conexión de red de Azure Files
-              href: storage-files-networking-endpoints.md
-            - name: Configuración del reenvío de DNS para Azure Files
-              href: storage-files-networking-dns.md
-        - name: Azure File Sync
-          items:
-            - name: Configuración de puntos de conexión de red de Azure File Sync
-              href: storage-sync-files-networking-endpoints.md
-            - name: Configuración de los ajustes del proxy y el firewall de File Sync
-              href: storage-sync-files-firewall-and-proxy.md
-        - name: Configuración de una VPN de sitio a sitio
-          href: storage-files-configure-s2s-vpn.md
-        - name: Configuración de una VPN de punto a sitio en Windows
-          href: storage-files-configure-p2s-vpn-windows.md
-        - name: Configuración de una VPN de punto a sitio en Linux
-          href: storage-files-configure-p2s-vpn-linux.md
-    - name: Administrar
-      items:
-        - name: Registro de un servidor en Azure Files Sync
-          href: storage-sync-files-server-registration.md
-        - name: Adición de un punto de conexión de servidor de Azure Files Sync
-          href: storage-sync-files-server-endpoint.md
-        - name: Administración del almacenamiento en nubes independientes de Azure
-          href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Iniciación de una conmutación por error de la cuenta
-          href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Authenticate
-      items:
-        - name: "Habilitación de autenticación y autorización de AD\_DS locales"
-          items:
-            - name: Introducción a Active Directory Domain Services
-              href: storage-files-identity-auth-active-directory-enable.md
-            - name: Habilitación de la autenticación de Active Directory Domain Services
-              href: storage-files-identity-ad-ds-enable.md
-            - name: Asignación de permisos de nivel de recurso compartido
-              href: storage-files-identity-ad-ds-assign-permissions.md
-            - name: Asignación de permisos de nivel de archivo o directorio
-              href: storage-files-identity-ad-ds-configure-permissions.md
-            - name: Montar el recurso compartido de archivos
-              href: storage-files-identity-ad-ds-mount-file-share.md
-            - name: Actualización de contraseña
-              href: storage-files-identity-ad-ds-update-password.md
-        - name: "Habilitación de autenticación y autorización en Azure\_AD\_DS"
-          href: storage-files-identity-auth-active-directory-domain-service-enable.md
     - name: Supervisión
       items:
         - name: Supervisión de Azure File Sync
@@ -247,6 +247,8 @@
                   href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Habilitación del cifrado de infraestructura en una cuenta de almacenamiento
           href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json
+        - name: Protección contra amenazas avanzada
+          href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Configuración de firewalls y redes virtuales
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Requerir transferencia segura

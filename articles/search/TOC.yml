@@ -110,6 +110,11 @@
           href: knowledge-store-projection-overview.md
         - name: Enriquecimiento incremental
           href: cognitive-search-incremental-indexing-conceptual.md
+    - name: Seguridad
+      items:
+        - name: Controles de seguridad de Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
 - name: Guías paso a paso
   items:
     - name: Creación de índices y construcciones
@@ -192,7 +197,7 @@
               href: search-howto-managed-identities-data-sources.md
             - name: Azure Storage
               href: search-howto-managed-identities-storage.md
-            - name: "Azure Cosmos\_DB"
+            - name: Azure Cosmos DB
               href: search-howto-managed-identities-cosmos-db.md
             - name: SQL Database
               href: search-howto-managed-identities-sql.md

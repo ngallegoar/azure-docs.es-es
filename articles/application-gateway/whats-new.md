@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: overview
 ms.date: 06/10/2020
 ms.author: victorh
-ms.openlocfilehash: a98a06dedf1d0ed9b92cc2028dfc208ff26df056
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6ea0b28f5e0f23e0f8bb30e8fe2b0f792bce0709
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517627"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287450"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Novedades de Azure Application Gateway
 
@@ -27,7 +27,7 @@ Azure Application Gateway se actualiza de forma continuada. Para mantenerse al d
 
 |Característica  |Descripción  |Fecha de adición  |
 |---------|---------|---------|
-| Nombres de host con el carácter comodín en los clientes de escucha (versión preliminar) | Ahora puede definir nombres de host con el carácter comodín en un cliente de escucha de varios sitios y hasta 5 nombres de host por cliente de escucha. Para más información, consulte [Nombres de host con el carácter comodín en el cliente de escucha (versión preliminar)](multiple-site-overview.md#wildcard-host-names-in-listener-preview) y [Hospedaje de varios sitios en una instancia de Application Gateway con Azure Portal](create-multiple-sites-portal.md) para una guía paso a paso. | Julio de 2020 |
+| Nombres de host con el carácter comodín en los clientes de escucha (versión preliminar) | Ahora puede definir nombres de host con el carácter comodín en un cliente de escucha de varios sitios y hasta 5 nombres de host por cliente de escucha. Para obtener más información, consulte los [nombres de host comodín en el cliente de escucha (versión preliminar)](multiple-site-overview.md#wildcard-host-names-in-listener-preview). | Julio de 2020 |
 | Reescritura de direcciones URL (versión preliminar) | Ahora puede volver a escribir la ruta de la dirección URL y los parámetros de la cadena de consulta mediante la reescritura de direcciones URL. Consulte [Reescritura de encabezados HTTP y de direcciones URL](rewrite-http-headers-url.md) para más información y consulte [Reescritura de direcciones URL en Application Gateway con Azure Portal](rewrite-url-portal.md) para una guía paso a paso. | Julio de 2020 |
 | Puerto personalizado para sondeos de estado | El SKU de Application Gateway v2 ofrece ahora la posibilidad de proporcionar un puerto personalizado en la configuración de sondeo de estado. Para más información, consulte la [introducción a los sondeos de estado](application-gateway-probe-overview.md). | Julio de 2020 |
 | Complemento de AKS del controlador de entrada de Application Gateway (AGIC) (versión preliminar) |El controlador de entrada de Application Gateway ahora se puede implementar como un complemento de AKS nativo en una línea mediante la CLI de Azure. El hecho de ser un complemento de AKS permite que AGIC se convierta en un servicio totalmente administrado, aunque se siga ejecutando en el clúster de AKS del cliente. Para más información, consulte [Diferencias del complemento de AGIC](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on). |Junio de 2020 |

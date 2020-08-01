@@ -848,7 +848,7 @@
         - name: 'Cargar un disco duro virtual en un disco: PowerShell'
           href: disks-upload-vhd-to-managed-disk-powershell.md
         - name: 'Importación y exportación de discos de forma segura: Azure Portal'
-          href: ../disks-enable-private-links-for-import-export-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../disks-enable-private-links-for-import-export-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Cambio del tamaño de un disco
           href: expand-os-disk.md
         - name: Uso del Explorador de Storage para administrar discos

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 878c3aa766559e455ee4456d84b86dc486e43fa5
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 317cc5222b3444ae2ed242df694d317503c72a87
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610690"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290656"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar la recuperación ante desastres para máquinas virtuales de VMware locales en Azure
 
@@ -84,7 +84,7 @@ Todos estos componentes se instalan conjuntamente en la máquina local individua
 ## <a name="import-the-template-in-vmware"></a>Importación de la plantilla en VMware
 
 
-1. Inicie sesión en el servidor VMware vCenter o el host vSphere ESXi con el cliente de VMWare vSphere.
+1. Inicie sesión en el servidor VMware vCenter o el host vSphere ESXi con el cliente de VMware vSphere.
 2. En el menú **File** (Archivo), seleccione **Deploy OVF Template** (Implementar plantilla OVF) para iniciar el **Asistente para implementar plantillas OVF**.
 
      ![Plantilla de OVF](./media/vmware-azure-tutorial/vcenter-wizard.png)
@@ -113,7 +113,7 @@ Si desea agregar una NIC adicional al servidor de configuración, hágalo antes 
 
 Una vez configurado dicho servidor, se registra en el almacén.
 
-1. Desde la consola de cliente de VMWare vSphere, encienda la máquina virtual.
+1. Desde la consola de cliente de VMware vSphere, encienda la VM.
 2. La máquina virtual se inicia en una experiencia de instalación de Windows Server 2016. Acepte el contrato de licencia y especifique una contraseña de administrador.
 3. Una vez finalizada la instalación, inicie sesión en la máquina virtual como administrador.
 4. La primera vez que inicie sesión, se inicia la herramienta de configuración de Azure Site Recovery en unos segundos.
@@ -169,6 +169,8 @@ Seleccione y compruebe los recursos de destino.
 
 - La directiva se asocia automáticamente al servidor de configuración.
 - De forma predeterminada, se crea automáticamente una directiva correspondiente para la conmutación por recuperación. Por ejemplo, si la directiva de replicación es **rep-policy**, la directiva de conmutación por recuperación será **rep-policy-failback**. Esta directiva no se usa hasta que se inicie una conmutación por recuperación desde Azure.
+
+Nota: En el escenario de VMware a Azure, la instantánea coherente con el bloqueo se toma a un intervalo de 5 minutos.
 
 ## <a name="enable-replication"></a>Habilitar replicación
 

@@ -4,19 +4,19 @@ description: Aprenda a ver las reservas de Azure Reservations en Azure Portal.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 03/31/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 0635c21ee30a40344281f31c8f9aedf9d74a1284
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: fd5d4248e9b1e645628ac8b87df3b4b0a16e2049
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633851"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288963"
 ---
 # <a name="view-azure-reservations"></a>Visualización de reservas de Azure
 
-Puede ver y administrar la reserva comprada en Azure Portal.   
+Puede ver y administrar la reserva comprada en Azure Portal.
 
 ## <a name="permissions-to-view-a-reservation"></a>Permisos para ver una reserva
 
@@ -24,7 +24,7 @@ Para ver o administrar una reserva, debe tener permiso de lectura o de propietar
 
 Para más información, consulte [Agregar o cambiar los usuarios que pueden administrar una reserva](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 
-## <a name="view-reservation-and-utilization-in-azure-portal"></a>Visualización de la reserva y el uso en Azure Portal
+## <a name="view-reservation-and-utilization-in-the-azure-portal"></a>Visualización de la reserva y el uso en Azure Portal
 
 Para ver una reserva como propietario o lector
 

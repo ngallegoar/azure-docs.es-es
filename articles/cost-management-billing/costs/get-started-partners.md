@@ -3,17 +3,17 @@ title: Introducción a Azure Cost Management para los asociados
 description: En este artículo se explica cómo los asociados usan las características de Azure Cost Management y cómo permiten a sus clientes el acceso a Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/01/2020
+ms.date: 07/28/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 0b0b5eb8ec41eccf99c23b671cef42a9c1bc8859
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 25a64dd4d06c24b0f7e1f8433a1abf5f67fa6eba
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849849"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372151"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introducción a Azure Cost Management para los asociados
 
@@ -123,9 +123,9 @@ Independientemente de la directiva, los administradores globales y los agentes d
 
 ### <a name="enable-the-policy-to-view-azure-usage-charges"></a>Habilitación de la directiva para ver los cargos de uso de Azure
 
-Los asociados usan la siguiente información para habilitar la directiva con el fin de ver los cargos de uso de Azure de sus clientes.
+Debe ser miembro del grupo **agentes administradores** para ver y actualizar la directiva. Utilice la siguiente información para habilitar la directiva y permitir a los clientes ver los cargos de uso de Azure.
 
-En Azure Portal, inicie sesión en el inquilino del asociado y seleccione **Administración de costos + facturación**. Seleccione la cuenta de facturación correspondiente de Microsoft Partner Agreement y seleccione **Clientes**. La lista de clientes está asociada a la cuenta de facturación.
+En Azure Portal, inicie sesión en el inquilino del asociado y seleccione **Administración de costos + facturación**. Seleccione el ámbito de facturación pertinente en el área Ámbito de facturación y, a continuación, seleccione **Clientes**. La lista de clientes está asociada a la cuenta de facturación.
 
 En la lista de clientes, seleccione el que quiere que vea los costos.
 
