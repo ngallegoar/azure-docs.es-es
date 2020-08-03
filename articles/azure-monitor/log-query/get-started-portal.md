@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: bfed93a4ed13878448d21b95d265e49bf0260742
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 522a13c6de87dd8074b76f95670baf79fc96d419
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85798262"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075332"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>Tutorial: Introducción a las consultas de Log Analytics
 
@@ -189,7 +189,7 @@ Para guardar una consulta:
    
    Para guardar una consulta como una función, proporcione un **Alias de función**, que es un nombre corto que otras consultas usan para llamar a esta consulta.
    
-1. Proporcione una **Categoría** para que la use el **Explorador de consultas** para esta consulta.
+1. Si está en un área de trabajo de Log Analytics, proporcione una **categoría** para el **Explorador de consultas** que se usará para la consulta. (Las categorías no están disponibles para las consultas de Applications Insights)
    
 1. Seleccione **Guardar**.
    
@@ -202,6 +202,10 @@ Para cargar una consulta guardada, seleccione **Explorador de consultas** en la 
 
 ### <a name="export-and-share-queries"></a>Exportar y compartir consultas
 Para exportar una consulta, seleccione **Exportar** en la barra superior y, después, seleccione **Exportar a CSV: todas las columnas**, **Exportar a CSV: columnas mostradas** o **Exportar a Power BI (M Query)** en la lista desplegable.
+
+En el vídeo siguiente se muestra cómo integrar Log Analytics con Excel.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Asme]
 
 Para compartir un vínculo a una consulta, seleccione **Copiar vínculo** en la barra superior y, a continuación, seleccione **Copiar vínculo a la consulta**, **Copiar texto de la consulta** o **Copiar resultados de la consulta** para copiarlos en el portapapeles. Puede enviar el vínculo de la consulta a otros usuarios que tengan acceso a la misma área de trabajo.
 

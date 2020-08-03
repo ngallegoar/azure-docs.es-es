@@ -5,12 +5,12 @@ ms.date: 11/21/2018
 ms.topic: tutorial
 description: En este tutorial se muestra cómo usar Azure Dev Spaces y Visual Studio Code para depurar una aplicación Node.js multiservicio en Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
-ms.openlocfilehash: a5fa0aae3a966dd96ee95e6bcafc3b2eec4e6837
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2c87dedda1db97a033526c809de735fe036120ef
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75438288"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006989"
 ---
 # <a name="running-multiple-dependent-services-nodejs-and-visual-studio-code-with-azure-dev-spaces"></a>Ejecución de varios servicios dependientes: Node.js y Visual Studio Code con Azure Dev Spaces
 
@@ -20,7 +20,7 @@ En este tutorial, aprenderá cómo puede desarrollar aplicaciones de varios serv
 
 En esta sección va a crear un segundo servicio `mywebapi` y a hacer que `webfrontend` lo llame. Cada servicio se ejecutará en contenedores diferentes. A continuación, realizará la depuración entre los dos contenedores.
 
-![](media/common/multi-container.png)
+![El diagrama muestra el servicio de webfrontend que llama (como se indica mediante una flecha) al servicio mywebapi.](media/common/multi-container.png)
 
 ### <a name="open-sample-code-for-mywebapi"></a>Abra el código de ejemplo de *mywebapi*.
 Ya debería tener el código de ejemplo de `mywebapi` necesario en esta guía, en una carpeta llamada `samples` (si no es así, vaya a https://github.com/Azure/dev-spaces y seleccione **Clone or Download** (Clonar o descargar) para descargar el repositorio de GitHub). El código de esta sección se encuentra en `samples/nodejs/getting-started/mywebapi`.

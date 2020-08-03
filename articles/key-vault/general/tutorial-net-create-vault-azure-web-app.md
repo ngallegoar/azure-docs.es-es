@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.openlocfilehash: f6e70caaedf906142b19ba45f0eb4d818e2955e7
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 4e236be298f92506e40a7f5197b2abeb065e7eed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85051898"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013273"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Tutorial: Uso de una identidad administrada para conectar Key Vault a una aplicación web de Azure con .NET
 
@@ -28,7 +28,7 @@ Para completar esta guía de inicio rápido:
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [SDK de .NET Core 3.1 o posterior](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-* [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) o [Azure PowerShell](/powershell/azure/overview)
+* [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) o [Azure PowerShell](/powershell/azure/)
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -51,7 +51,7 @@ Para crear su propio almacén de claves, utilice el comando [az keyvault create]
 az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
 ```
 
-Tome nota del valor `vaultUri`devuelto, que tendrá el formato "https://<your-keyvault-name>.vault.azure.net/". Se usará en el paso para [actualizar el código](#update-the-code).
+Tome nota del valor `vaultUri` devuelto, que tendrá el formato "https://&lt;your-keyvault-name&gt;.vault.azure.net/". Se usará en el paso para [actualizar el código](#update-the-code).
 
 Ahora puede agregar un secreto a su almacén de claves mediante el comando [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set). Utilice "MySecret" como nombre del secreto y establezca el valor en "Success!".
 

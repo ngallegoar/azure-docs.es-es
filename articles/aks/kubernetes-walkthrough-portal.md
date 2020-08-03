@@ -6,12 +6,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 01/21/2020
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 4ed4f69ea3c994d9d1cc71e26e35b8d2b6021982
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 0ce291a068a9dbb8f24a5e0a26fbae39cfc3a161
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251426"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056913"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service (AKS) mediante Azure Portal
 
@@ -95,7 +95,7 @@ Un archivo de manifiesto de Kubernetes define un estado deseado del clúster, po
 > [!TIP]
 > En esta guía de inicio rápido, se crean e implementan manualmente los manifiestos de aplicación en el clúster de AKS. En escenarios más reales, puede usar [Azure Dev Spaces][azure-dev-spaces] para iterar rápidamente y depurar el código directamente en el clúster de AKS. Puede usar Dev Spaces entre plataformas de sistemas operativos y entornos de desarrollo, y trabajar junto con otras personas de su equipo.
 
-En Cloud Shell, use el comando `nano azure-vote.yaml` o `vi azure-vote.yaml` para crear un archivo denominado `azure-vote.yaml`. Después, copie la siguiente definición de código YAML:
+En Cloud Shell, use un editor para crear un archivo llamado `azure-vote.yaml`, por ejemplo, `code azure-vote.yaml`, `nano azure-vote.yaml` o `vi azure-vote.yaml`. Después, copie la siguiente definición de código YAML:
 
 ```yaml
 apiVersion: apps/v1

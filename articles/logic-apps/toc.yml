@@ -28,6 +28,8 @@
       href: tutorial-process-email-attachments-workflow.md
 - name: Ejemplos
   items:
+    - name: 'Creación de una aplicación lógica: script de ejemplo'
+      href: sample-logic-apps-cli-script.md
     - name: Ejemplos de código de Azure
       href: /samples/browse/?products=azure-logic-apps
     - name: Plantillas de inicio rápido de Resource Manager
@@ -208,7 +210,7 @@
           href: logic-apps-http-endpoint.md
         - name: Azure Service Bus
           href: ../connectors/connectors-create-api-servicebus.md
-        - name: "Azure\_SQL\_Database"
+        - name: Azure SQL Database
           href: ../connectors/connectors-create-api-sqlazure.md
         - name: Bing Search
           href: ../connectors/connectors-create-api-bingsearch.md

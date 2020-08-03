@@ -9,12 +9,12 @@ ms.date: 12/09/2018
 ms.topic: tutorial
 description: En este tutorial se muestra cómo usar Azure Dev Spaces y Visual Studio para el desarrollo en equipo en una aplicación .NET Core en Azure Kubernetes Service
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s '
-ms.openlocfilehash: c84c77fe7a425318700903427ff1c4aaa4e73a11
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5d917dc71ef02b5197ed8d20ec31c538a1af4c14
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82166043"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072973"
 ---
 # <a name="team-development-using-net-core-and-visual-studio-with-azure-dev-spaces"></a>Desarrollo en equipo mediante .NET Core y Visual Studio con Azure Dev Spaces
 
@@ -36,7 +36,7 @@ Por el momento, la aplicación de ejemplo no es compleja. Pero en el trabajo de 
 * Algunos desarrolladores lo que hacen es simular o realizar bocetos de muchas de sus dependencias de servicios. Este enfoque puede ayudar, pero administrar dichas simulaciones pronto puede afectar al costo del desarrollo. Además, puede ocurrir que el entorno de desarrollo acabe no pareciéndose al de producción, lo que puede llevar a que se produzcan errores imperceptibles.
 * De todo ello se desprende que es difícil realizar cualquier prueba de integración. Las pruebas de integración solo pueden suceder de forma realista tras una confirmación, lo que significa que verá problemas más adelante en el ciclo de desarrollo.
 
-    ![](media/common/microservices-challenges.png)
+    ![Imagen que muestra la complejidad de las pruebas de integración al ilustrar las relaciones entre un servicio de aplicaciones y sus dependencias.](media/common/microservices-challenges.png)
 
 ### <a name="work-in-a-shared-dev-space"></a>Trabajo en un espacio de desarrollo compartido
 Con Azure Dev Spaces se puede configurar un espacio de desarrollo *compartido* en Azure. Cada desarrollador puede centrarse en su parte de la aplicación y desarrollar de forma iterativa *código de confirmación previa* en un espacio de desarrollo que ya contiene los restantes servicios y recursos en la nube de los que dependen sus escenarios. Las dependencias siempre están actualizadas y los desarrolladores trabajan de una manera que refleja el entorno de producción.
@@ -63,8 +63,8 @@ En primer lugar, tenemos que implementar una base de referencia de nuestros serv
 1. Haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y seleccione **Propiedades**.
 1. Seleccione la pestaña **Depurar** a la izquierda para mostrar la configuración de Azure Dev Spaces.
 1. Seleccione **Cambiar** para crear el espacio que se usarán al presionar F5 o Ctrl+F5 para su servicio.
-1. En la lista desplegable de espacios, seleccione **\<Crear nuevo espacio...\>** .
-1. Asegúrese de que el espacio principal se establece en **\<ninguno\>** y escriba el nombre de espacio **dev**. Haga clic en Aceptar.
+1. En el cuadro desplegable Espacio, seleccione **\<Create New Space…\>** .
+1. Asegúrese de que el espacio primario se establece en **\<none\>** , y escriba el nombre de espacio **dev**. Haga clic en Aceptar.
 1. Presione Ctrl + F5 para ejecutar _mywebapi_ sin el depurador asociado.
 1. Cambie a la ventana de Visual Studio con el proyecto _webfrontend_ y presione Ctrl+F5 para ejecutarlo también.
 
@@ -88,17 +88,17 @@ Siga estos pasos para crear un nuevo espacio:
 2. Haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y seleccione **Propiedades**.
 3. Seleccione la pestaña **Depurar** a la izquierda para mostrar la configuración de Azure Dev Spaces.
 4. Desde aquí, puede cambiar o crear el clúster o el espacio que se usará al presionar F5 o Ctrl+F5. *Asegúrese de que el espacio de Azure Dev Spaces que creó anteriormente está seleccionado*.
-5. En la lista desplegable de espacios, seleccione **\<Crear nuevo espacio...\>** .
+5. En el cuadro desplegable Espacio, seleccione **\<Create New Space…\>** .
 
-    ![](media/get-started-netcore-visualstudio/Settings.png)
+    ![Captura de pantalla que muestra la selección de "Crear un espacio" en el cuadro desplegable Espacio en la página de propiedades del proyecto de depuración del Explorador de soluciones de Visual Studio.](media/get-started-netcore-visualstudio/Settings.png)
 
 6. En el cuadro de diálogo **Agregar espacio**, configure el espacio principal como **dev** y escriba el nombre del nuevo espacio. Puede usar su nombre (por ejemplo, "scott") para el nuevo espacio de forma que sus compañeros puedan identificar fácilmente el espacio en el que está trabajando. Haga clic en **OK**.
 
-    ![](media/get-started-netcore-visualstudio/AddSpace.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo Agregar espacio para añadir un nuevo espacio de desarrollo para el desarrollo en equipo.](media/get-started-netcore-visualstudio/AddSpace.png)
 
 7. Ahora verá el clúster de AKS y el nuevo espacio seleccionados en la página de propiedades del proyecto.
 
-    ![](media/get-started-netcore-visualstudio/Settings2.png)
+    ![Captura de pantalla que muestra el clúster de AKS "MyAKS" y el espacio "scott" seleccionado en la página de propiedades del proyecto de depuración del Explorador de soluciones de Visual Studio.](media/get-started-netcore-visualstudio/Settings2.png)
 
 ### <a name="update-code-for-mywebapi"></a>Actualización del código de *mywebapi*
 
@@ -117,7 +117,7 @@ Siga estos pasos para crear un nuevo espacio:
 
 Este es un diagrama que le ayudará a comprender cómo funcionan los distintos espacios. La ruta de acceso morada muestra una solicitud a través del espacio _dev_, que es la ruta de acceso predeterminada que se usa si no hay ningún espacio antepuesto a la dirección URL. La ruta de acceso rosa muestra una solicitud a través del espacio _dev/scott_.
 
-![](media/common/Space-Routing.png)
+![Diagrama que muestra las diferencias en los nombres de ruta de acceso y el enrutamiento de solicitudes mediante el espacio "dev/scott" recién creado y el espacio "dev" predeterminado.](media/common/Space-Routing.png)
 
 Esta funcionalidad integrada de Azure Dev Spaces le permite probar el código de un extremo a otro de un entorno compartido sin necesidad de que cada desarrollador vuelva a crear la pila completa de servicios en su espacio. Este enrutamiento requiere el reenvío de encabezados de propagación en el código de aplicación, como se ilustra en el paso anterior de esta guía.
 

@@ -452,6 +452,8 @@
       displayName: security
     - name: Versiones del flujo de usuario
       href: user-flow-versions.md
+    - name: Versiones del flujo de usuario heredadas
+      href: user-flow-versions-legacy.md
 - name: Recursos
   items:
     - name: Azure Roadmap

@@ -45,7 +45,7 @@
           href: pim-resource-roles-activate-your-roles.md
     - name: Administración de roles de Azure AD
       items:
-        - name: Actualización de características
+        - name: Introducción a las características
           href: azure-ad-roles-features.md
         - name: "PowerShell para roles de Azure\_AD"
           href: powershell-for-azure-ad-roles.md
@@ -87,6 +87,22 @@
           href: azure-pim-resource-rbac.md
         - name: Uso de roles personalizados
           href: pim-resource-roles-custom-role-policy.md
+    - name: Administración de grupos de acceso con privilegios (versión preliminar)
+      items:
+        - name: Introducción al acceso con privilegios
+          href: groups-features.md
+        - name: Detección de grupos
+          href: groups-discover-groups.md
+        - name: Asignación de un miembro o un propietario
+          href: groups-assign-member-owner.md
+        - name: Aprobar solicitudes
+          href: groups-approval-workflow.md
+        - name: Ampliación o renovación de asignaciones
+          href: groups-renew-extend.md
+        - name: Configuración de los roles
+          href: groups-role-settings.md
+        - name: Visualización del historial de auditoría
+          href: groups-audit.md
     - name: Solución de problemas de Privileged Identity Management
       href: pim-troubleshoot.md
     - name: Revisiones de acceso

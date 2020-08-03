@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: eb23f1e703c2e447c484ccb366914cb4b23c5bf7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f9d736098e42bf5ca07eca0cb952275c5e39c2a9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536560"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125197"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Inicio rápido: Creación de una instancia de Load Balancer para equilibrar la carga de las máquinas virtuales mediante Azure Portal
 
@@ -111,7 +111,7 @@ Cree un sondeo de mantenimiento llamado **myHealthProbe** para supervisar el man
     | Umbral incorrecto | Seleccione **2** como número de **Umbral incorrecto** o errores de sondeo consecutivos que deben producirse para que una máquina virtual se considere que no funciona de manera correcta.|
     | | |
 
-3. Seleccione **Aceptar**.
+3. Deje el resto de valores predeterminados y seleccione **Aceptar**.
 
 ### <a name="create-a-load-balancer-rule"></a>Creación de una regla de equilibrador de carga
 
@@ -140,7 +140,7 @@ En esta sección va a crear una regla de equilibrador de carga:
     | Puerto back-end | Escriba **80**. |
     | Grupo back-end | Seleccione **MyBackendPool**.|
     | Sondeo de mantenimiento | Seleccione **myHealthProbe**. |
-    | Creación de reglas de salida implícitas | Seleccione **Sí**. </br> Para más información sobre la configuración avanzada de las reglas de salida, consulte: </br> [Conexiones salientes en Azure](load-balancer-outbound-connections.md) </br> [Configuración del equilibrio de carga y las reglas de salida en Standard Load Balancer mediante Azure Portal](configure-load-balancer-outbound-portal.md)
+    | Creación de reglas de salida implícitas | así que seleccione **No**.
 
 4. Deje el resto de valores predeterminados y después seleccione **Aceptar**.
 
@@ -156,7 +156,7 @@ En esta sección:
 
 En esta sección, reemplazará los parámetros de los pasos con la siguiente información:
 
-| Parámetro                   | Valor                |
+| Parámetro                   | Value                |
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroupLB |
 | **\<virtual-network-name>** | myVNet          |
@@ -179,7 +179,7 @@ Estas máquinas virtuales se agregan al grupo de back-end del equilibrador de ca
    
 2. En **Crear una máquina virtual**, escriba o seleccione los valores en la pestaña **Básico**:
 
-    | Configuración | Value                                          |
+    | Parámetro | Value                                          |
     |-----------------------|----------------------------------|
     | **Detalles del proyecto** |  |
     | Suscripción | Selección de su suscripción a Azure |
@@ -201,7 +201,7 @@ Estas máquinas virtuales se agregan al grupo de back-end del equilibrador de ca
   
 4. En la pestaña Redes, seleccione o escriba:
 
-    | Configuración | Value |
+    | Parámetro | Value |
     |-|-|
     | **Interfaz de red** |  |
     | Virtual network | **myVNet** |
@@ -220,7 +220,7 @@ Estas máquinas virtuales se agregan al grupo de back-end del equilibrador de ca
 
 6. En la pestaña **Administración**, seleccione o escriba:
     
-    | Configuración | Value |
+    | Opción | Value |
     |-|-|
     | **Supervisión** |  |
     | Diagnósticos de arranque | Seleccione **Desactivado**. |
@@ -237,6 +237,49 @@ Estas máquinas virtuales se agregan al grupo de back-end del equilibrador de ca
     | Zona de disponibilidad | **2** |**3**|
     | Grupo de seguridad de red | Seleccione el grupo **myNSG** existente.| Seleccione el grupo **myNSG** existente.|
 
+## <a name="create-outbound-rule-configuration"></a>Creación de la configuración de regla de salida
+Las reglas de salida del equilibrador de carga configuran SNAT saliente para las máquinas virtuales del grupo de back-end. 
+
+Para más información sobre las conexiones salientes, consulte [Conexiones salientes en Azure](load-balancer-outbound-connections.md).
+
+### <a name="create-outbound-rule"></a>Creación de una regla de salida
+
+1. Seleccione **Todos los servicios** en el menú de la izquierda, **Todos los recursos** y, después, en la lista de recursos, **myLoadBalancer**.
+
+2. En **Configuración**, seleccione **Reglas de salida** y, a continuación, seleccione **Agregar**.
+
+3. Use estos valores para configurar las reglas de salida:
+
+    | Configuración | Value |
+    | ------- | ----- |
+    | Nombre | Escriba **myOutboundRule**. |
+    | Dirección IP del front-end | Seleccione **Crear nuevo**. </br> En **Nombre**, escriba **LoadBalancerFrontEndOutbound**. </br> Seleccione **Dirección IP** o **Prefijo IP**. </br> Seleccione **Crear nuevo** en **Dirección IP pública** o **Prefijo de dirección IP pública**. </br> En Nombre, escriba **myPublicIPOutbound** o **myPublicIPPrefixOutbound**. </br> Seleccione **Aceptar**. </br> Seleccione **Agregar**.|
+    | Tiempo de espera de inactividad (minutos) | Mueva el control deslizante a **15 minutos**.|
+    | Restablecimiento de TCP | Seleccione **Habilitado**.|
+    | Grupo back-end | Seleccione **Crear nuevo**. </br> Escriba **myBackendPoolOutbound** en **Name**. </br> Seleccione **Agregar**. |
+    | Asignación de puertos: > Asignación de puertos | Seleccione **Elegir manualmente el número de puertos de salida**. |
+    | Puertos de salida: > Elegir por | Seleccione **Puertos por instancia**. |
+    | Puertos de salida -> Puertos por instancia | Escriba **10000**. |
+
+4. Seleccione **Agregar**.
+
+### <a name="add-virtual-machines-to-outbound-pool"></a>Adición de máquinas virtuales al grupo de salida
+
+1. Seleccione **Todos los servicios** en el menú de la izquierda, **Todos los recursos** y, después, en la lista de recursos, **myLoadBalancer**.
+
+2. En **Configuración**, seleccione **Grupos de back-end**.
+
+3. Seleccione **myBackendPoolOutbound**.
+
+4. En **Red virtual**, seleccione **myVNet**.
+
+5. En **Máquinas virtuales**, seleccione **+ Agregar**.
+
+6. Active las casillas situadas junto a **myVM1**, **myVM2** y **myVM3**. 
+
+7. Seleccione **Agregar**.
+
+8. Seleccione **Guardar**.
 
 # <a name="option-2-create-a-load-balancer-basic-sku"></a>[Opción 2: crear un equilibrador de carga (SKU básica)](#tab/option-1-create-load-balancer-basic)
 
@@ -253,7 +296,7 @@ Cuando se crea una instancia pública de Load Balancer, también se debe crear u
 
 2. En la pestaña **Conceptos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información: 
 
-    | Configuración                 | Valor                                              |
+    | Configuración                 | Value                                              |
     | ---                     | ---                                                |
     | Suscripción               | Seleccione su suscripción.    |    
     | Resource group         | Seleccione **Crear nuevo** y escriba **myResourceGroupLB** en el cuadro de texto.|
@@ -308,7 +351,7 @@ Cree el grupo de direcciones de back-end **myBackendPool** para incluir máquina
 
 3. En la página **Agregar un grupo de back-end**, escriba o seleccione:
     
-    | Opción | Value |
+    | Configuración | Value |
     | ------- | ----- |
     | Nombre | Escriba **myBackendPool**. |
     | Virtual network | Seleccione **myVNet**. |
@@ -354,7 +397,7 @@ En esta sección va a crear una regla de equilibrador de carga:
 
 3. Use estos valores para configurar la regla de equilibrio de carga:
     
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | Nombre | Escriba **myHTTPRule**. |
     | Versión de la dirección IP | Seleccione **IPv4**. |
@@ -389,7 +432,7 @@ Estas máquinas virtuales se agregan al grupo de back-end del equilibrador de ca
    
 2. En **Crear una máquina virtual**, escriba o seleccione los valores en la pestaña **Básico**:
 
-    | Configuración | Valor                                          |
+    | Configuración | Value                                          |
     |-----------------------|----------------------------------|
     | **Detalles del proyecto** |  |
     | Suscripción | Selección de su suscripción a Azure |
@@ -411,7 +454,7 @@ Estas máquinas virtuales se agregan al grupo de back-end del equilibrador de ca
   
 4. En la pestaña Redes, seleccione o escriba:
 
-    | Configuración | Valor |
+    | Parámetro | Value |
     |-|-|
     | **Interfaz de red** |  |
     | Virtual network | Seleccione **myVNet**. |
@@ -425,7 +468,7 @@ Estas máquinas virtuales se agregan al grupo de back-end del equilibrador de ca
 5. Seleccione la pestaña **Administración** o seleccione **Siguiente** > **Administración**.
 
 6. En la pestaña **Administración**, seleccione o escriba:
-    | Opción | Valor |
+    | Opción | Value |
     |-|-|
     | **Supervisión** | |
     | Diagnósticos de arranque | Seleccione **Desactivado**. |
@@ -441,9 +484,10 @@ Estas máquinas virtuales se agregan al grupo de back-end del equilibrador de ca
     | Nombre |  **myVM2** |**myVM3**|
     | Conjunto de disponibilidad| Seleccione **myAvailabilitySet**. | Seleccione **myAvailabilitySet**.|
     | Grupo de seguridad de red | Seleccione el grupo **myNSG** existente.| Seleccione el grupo **myNSG** existente.|
+
 ---
 
-### <a name="install-iis"></a>Instalación de IIS
+## <a name="install-iis"></a>Instalación de IIS
 
 1. Seleccione **Todos los servicios** en el menú de la izquierda, seleccione **Todos los recursos** y, después, en la lista de recursos, seleccione **myVM1**, que se encuentra en el grupo de recursos **myResourceGroupLB**.
 

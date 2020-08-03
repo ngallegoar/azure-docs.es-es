@@ -1,5 +1,5 @@
 ---
-title: Consumo de recursos de Synapse Analytics SQL
+title: Consumo de recursos de Synapse SQL
 description: Más información sobre los modelos de consumo de Synapse SQL en Azure Synapse Analytics.
 services: synapse analytics
 author: vvasic-msft
@@ -8,14 +8,14 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: b81f1e49b2209d0a236f1fb453bb7fe679bb3608
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: a358052d5f3959a236f29461890c989e77edb4dc
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112751"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369023"
 ---
-# <a name="azure-synapse-analytics-sql-resource-consumption"></a>Consumo de recursos de SQL de Azure Synapse Analytics
+# <a name="synapse-sql-resource-consumption"></a>Consumo de recursos de Synapse SQL
 
 En este artículo se describen los modelos de consumo de recursos de Synapse SQL (versión preliminar).
 
@@ -99,7 +99,7 @@ Un grupo de SQL es un sistema de escalado horizontal que puede aprovisionar gran
 
 Para cambiar las unidades de almacenamiento de datos es necesario disponer de los permisos descritos en [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-Los roles integrados para los recursos de Azure, tales como Colaborador de base de datos SQL y Colaborador de SQL Server, pueden cambiar la configuración de DWU.
+Los roles integrados de Azure, como Colaborador de SQL DB y Colaborador de SQL Server, pueden cambiar la configuración de DWU.
 
 #### <a name="view-current-dwu-settings"></a>Ver la configuración de DWU actual
 

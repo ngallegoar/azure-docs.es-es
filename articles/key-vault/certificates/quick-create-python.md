@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: biblioteca cliente de Azure Key Vault para Python'
+title: 'Inicio rápido: administración de certificados con la biblioteca cliente de Azure Key Vault para Python'
 description: Aprenda a crear, recuperar y eliminar certificados desde una instancia de Azure Key Vault mediante la biblioteca cliente de Python
 author: msmbaldwin
 ms.author: mbaldwin
@@ -8,14 +8,14 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: tracking-python
-ms.openlocfilehash: 7c67bc77984af8a25c3514931ed0983df1751d5e
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: abbe07d96daf5848d01cd1f4943d4969fe1e59d9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85126134"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043709"
 ---
-# <a name="quickstart-azure-key-vault-client-library-for-python"></a>Inicio rápido: biblioteca cliente de Azure Key Vault para Python
+# <a name="quickstart-azure-key-vault-certificates-client-library-for-python"></a>Inicio rápido: Biblioteca cliente de certificados de Azure Key Vault para Python
 
 Introducción a la biblioteca cliente de Azure Key Vault para Python. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas.
 
@@ -33,7 +33,7 @@ Azure Key Vault ayuda a proteger claves criptográficas y secretos usados por se
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Python 2.7, 3.5.3 o versiones posteriores
-- [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) o [Azure PowerShell](/powershell/azure/overview)
+- [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) o [Azure PowerShell](/powershell/azure/)
 
 En esta guía de inicio rápido se supone que está ejecutando la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) en una ventana de terminal de Linux.
 

@@ -5,21 +5,26 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 05/11/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 718a38f4744b6a1f9b4ebd0112be07b2556f1c39
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 18b2fb520ecab8b233be3c93ef614a2bce01a75e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116083"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035003"
 ---
 # <a name="tutorial-use-risk-detections-for-user-sign-ins-to-trigger-azure-multi-factor-authentication-or-password-changes"></a>Tutorial: Uso de las detecciones de riesgos en los inicios de sesión de usuario para desencadenar la autenticación multifactor de Azure y cambios de contraseña
 
-Para proteger a los usuarios, puede configurar directivas basadas en el riesgo en Azure Active Directory (Azure AD) que respondan automáticamente a comportamientos de riesgo. Las directivas de Azure AD Identity Protection pueden bloquear automáticamente un intento de inicio de sesión o requerir una acción adicional, como requerir un cambio de contraseña o solicitar la autenticación multifactor de Azure. Estas directivas funcionan con las directivas de acceso condicional de Azure AD existentes como una capa de protección adicional para una organización. Los usuarios podrían no desencadenar nunca un comportamiento de riesgo en una de estas directivas, pero la organización está protegida si se produce un intento de poner en peligro la seguridad.
+Para proteger a los usuarios, puede configurar directivas basadas en el riesgo en Azure Active Directory (Azure AD) que respondan automáticamente a comportamientos de riesgo. Las directivas de Azure AD Identity Protection pueden bloquear automáticamente un intento de inicio de sesión o requerir una acción adicional, como requerir un cambio de contraseña o solicitar la autenticación multifactor de Azure. Estas directivas funcionan con las directivas existentes de acceso condicional de Azure AD como una capa de protección adicional para la organización. Los usuarios podrían no desencadenar nunca un comportamiento de riesgo en una de estas directivas, pero la organización está protegida si se produce un intento de poner en peligro la seguridad.
+
+> [!IMPORTANT]
+> Este tutorial muestra al administrador cómo habilitar Azure Multi-Factor Authentication basada en riesgos.
+>
+> Si el equipo de TI no ha habilitado la función para usar Azure Multi-Factor Authentication o si tiene problemas para iniciar sesión, póngase en contacto con el departamento de soporte técnico para obtener ayuda adicional.
 
 En este tutorial, aprenderá a:
 

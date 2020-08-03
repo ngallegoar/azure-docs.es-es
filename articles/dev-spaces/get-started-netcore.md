@@ -5,12 +5,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: En este tutorial se muestra cómo usar Azure Dev Spaces y Visual Studio Code para depurar e iterar rápidamente una aplicación .NET Core en Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
-ms.openlocfilehash: d4078113f93159ef981a78a9917ed65bd03a304b
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 9c73c191054c9eee183a762d0a029d6c8dc431ee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80240550"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013647"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-net-core-with-azure-dev-spaces"></a>Creación de un espacio de desarrollo de Kubernetes: Visual Studio Code y .NET Core con Azure Dev Spaces
 
@@ -20,7 +20,7 @@ En esta guía, aprenderá a:
 - Desarrollar código de forma iterativa en contenedores con VS Code y la línea de comandos.
 - Desarrollar y probar de forma productiva el código en un entorno de equipo.
 
-> [!Note]
+> [!NOTE]
 > **Si se queda bloqueado** en cualquier momento, consulte la sección [Solución de problemas](troubleshooting.md).
 
 ## <a name="install-the-azure-cli"></a>Instalación de la CLI de Azure
@@ -33,7 +33,7 @@ Inicie sesión en Azure. Escriba el siguiente comando en una ventana de terminal
 az login
 ```
 
-> [!Note]
+> [!NOTE]
 > Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita](https://azure.microsoft.com/free).
 
 #### <a name="if-you-have-multiple-azure-subscriptions"></a>Si tiene varias suscripciones a Azure...
@@ -126,7 +126,7 @@ Esté atento en la salida del comando, ya que observará varios aspectos a medid
 - Se muestra información acerca de los puntos de conexión del contenedor. En nuestro caso, se espera una dirección URL HTTP pública.
 - Suponiendo que las fases anteriores se completen correctamente, debería empezar a ver la salida `stdout` (y `stderr`) a medida que se inicia el contenedor.
 
-> [!Note]
+> [!NOTE]
 > Estos pasos tardarán más tiempo la primera vez que se ejecute el comando `up`, pero las ejecuciones posteriores deberían ser más rápidas.
 
 ### <a name="test-the-web-app"></a>Prueba de la aplicación web
@@ -155,10 +155,9 @@ Identifique la dirección URL pública para el servicio en la salida desde el co
 
 Para ver la aplicación web, abra la dirección URL pública en un explorador. Además, tenga en cuenta que la salida `stdout` y `stderr` se transmite a la ventana del terminal *azds-trace* a medida que interactúa con su aplicación web. También verá la información de seguimiento de las solicitudes HTTP a medida que pasan por el sistema. Esto le facilita el seguimiento de llamadas complejas de múltiples servicios durante el desarrollo. La instrumentación agregada por Dev Spaces proporciona este seguimiento de las solicitudes.
 
-![ventana de terminal de seguimiento de azds](media/get-started-netcore/azds-trace.png)
+![Ventana de terminal de seguimiento de azds](media/get-started-netcore/azds-trace.png)
 
-
-> [!Note]
+> [!NOTE]
 > Además de la dirección URL pública, puede usar la dirección URL alternativa `http://localhost:<portnumber>` que se muestra en la salida de la consola. Si utiliza la dirección URL del host local, puede parecer que el contenedor se ejecuta localmente, pero en realidad se ejecuta en AKS. Azure Dev Spaces usa la funcionalidad de *reenvío de puerto* de Kubernetes para asignar el puerto localhost al contenedor que se ejecuta en AKS. Esto facilita la interacción con el servicio desde la máquina local.
 
 ### <a name="update-a-content-file"></a>Actualización de un archivo de contenido
@@ -191,9 +190,9 @@ Pero hay un método *más rápido* para desarrollar código, que se verá en la 
 
 En esta sección, usará VS Code para depurar directamente el contenedor que se ejecuta en Azure. También aprenderá a obtener un bucle de edición-ejecución-prueba más rápido.
 
-![](media/common/edit-refresh-see.png)
+![En el diagrama se muestra un bucle de desarrollo con tres fases: Editar código, Actualizar contenedor y Ver actualización.](media/common/edit-refresh-see.png)
 
-> [!Note]
+> [!NOTE]
 > **Si se queda bloqueado** en cualquier momento, consulte la sección [Solución de problemas](troubleshooting.md) o publique un comentario en esta página.
 
 ### <a name="initialize-debug-assets-with-the-vs-code-extension"></a>Inicialización de activos de depuración con la extensión de VS Code
@@ -203,16 +202,16 @@ Abra la **Paleta de comandos** (mediante el menú **Vista | Paleta de comandos**
 
 Esto agrega la configuración de depuración para los espacios de Azure Dev Spaces en la carpeta `.vscode`. Este comando no se debe confundir con el comando `azds prep`, que configura el proyecto para la implementación.
 
-![](media/common/command-palette.png)
+![En esta captura de pantalla se muestra la selección del comando "Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces" (Preparar los archivos de configuración para Azure Dev Spaces) en la ventana de la paleta de comandos.](media/common/command-palette.png)
 
 
 ### <a name="select-the-azds-debug-configuration"></a>Selección de la configuración de depuración de AZDS
 1. Para abrir la vista de depuración, haga clic en el icono de depuración en la **barra de actividad** en el lateral de VS Code.
 1. Seleccione **.NET Core Launch (AZDS)** [Inicio de .NET Core (AZDS)] como la configuración de depuración activa.
 
-![](media/get-started-netcore/debug-configuration.png)
+![La captura de pantalla corresponde a la esquina superior izquierda de la ventana de Visual Studio Code. Se resalta el icono de depuración, el panel izquierdo se titula "Depurar" y hay una lista desplegable a la derecha del título que muestra "dot NET Core Launch (A Z D S)".](media/get-started-netcore/debug-configuration.png)
 
-> [!Note]
+> [!NOTE]
 > Si no ve ningún comando de Azure Dev Spaces en la paleta de comandos, asegúrese de haber instalado la extensión de Visual Studio Code para Azure Dev Spaces. Asegúrese de que el área de trabajo que abre en VS Code es la carpeta que contiene azds.yaml.
 
 
@@ -221,10 +220,10 @@ Presione **F5**  para depurar el código en Kubernetes.
 
 De forma similar al comando `up`, el código se sincroniza con el espacio de desarrollo y se crea un contenedor que se implementa en Kubernetes. En esta ocasión, por supuesto, el depurador se asocia al contenedor remoto.
 
-> [!Tip]
+> [!TIP]
 > La barra de estado de VS Code se volverá de color naranja, lo que indica que el depurador se ha asociado. También mostrará una dirección URL interactiva, que puede usar para abrir el sitio web.
 
-![](media/common/vscode-status-bar-url.png)
+![La captura de pantalla muestra la parte inferior de la ventana de Visual Studio Code. La barra de estado naranja es la última línea. Contiene una dirección URL para abrir el sitio web.](media/common/vscode-status-bar-url.png)
 
 Establezca un punto de interrupción en un archivo de código del lado servidor, por ejemplo en la función `About()` del archivo de origen `Controllers/HomeController.cs`. Al actualizar la página del navegador, el punto de interrupción se activa.
 
@@ -243,7 +242,7 @@ public IActionResult About()
 
 Guarde el archivo y, en el **panel de acciones de depuración**, haga clic en el botón **Reiniciar**. 
 
-![](media/common/debug-action-refresh.png)
+![El panel Acciones de Depuración es un panel pequeño situado en la parte superior central de la página (justo debajo del título de la página). El botón Reiniciar, una flecha circular, está resaltado. La imagen activable del botón es "Reiniciar (Control + Mayús + F5)".](media/common/debug-action-refresh.png)
 
 En lugar de volver a crear e implementar una nueva imagen de contenedor cada vez que se realizan modificaciones en el código, lo que a menudo lleva un tiempo considerable, Azure Dev Spaces volverá a compilar el código de manera incremental dentro del contenedor existente para proporcionar un bucle de modificación/depuración más rápido.
 

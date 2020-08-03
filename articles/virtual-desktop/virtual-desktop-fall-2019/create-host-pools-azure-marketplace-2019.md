@@ -1,6 +1,6 @@
 ---
-title: 'Grupo host de Windows Virtual Desktop en Azure Marketplace: Azure'
-description: Creación de un grupo host de Windows Virtual Desktop con Azure Marketplace.
+title: 'Grupo de hosts de Windows Virtual Desktop (clásico) en Azure Marketplace: Azure'
+description: Procedimientos para la creación de un grupo de hosts de Windows Virtual Desktop (clásico) mediante Azure Marketplace.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b4472baa51bb0b8806c7ad617c0fc1001c800ff0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3f0db05459b8e81764915c5dffb373e7f19edbc4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256856"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291301"
 ---
-# <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Tutorial: Creación de un grupo host con Azure Marketplace
+# <a name="tutorial-create-a-host-pool-in-windows-virtual-desktop-classic"></a>Tutorial: Creación de un grupo de hosts en Windows Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a la versión Fall 2019 que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager incorporados en la actualización Spring 2020, consulte [este artículo](../create-host-pools-azure-marketplace.md).
+>Este contenido hace referencia a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../create-host-pools-azure-marketplace.md).
 
 En este tutorial, aprenderá cómo crear un grupo de hosts dentro de un inquilino de Windows Virtual Desktop con una oferta de Microsoft Azure Marketplace.
 

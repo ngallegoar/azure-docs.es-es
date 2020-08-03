@@ -3,12 +3,12 @@ title: 'Organización de los recursos con grupos de administración: Servicios d
 description: Más información sobre los grupos de administración, el funcionamiento de sus permisos y cómo utilizarlos.
 ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: b3d031b68ee7dba9c80ee0c7e97898bb8b439a47
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 1856b2d6f8fafb18757d547d0117f584fb2abb24
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963689"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132932"
 ---
 # <a name="what-are-azure-management-groups"></a>¿Qué son los grupos de administración de Azure?
 
@@ -100,9 +100,9 @@ El gráfico siguiente muestra la lista de roles y las acciones admitidas en los 
 \*: Colaborador MG y Lector MG solo permiten a los usuarios realizar esas acciones en el ámbito del grupo de administración.  
 \*\*: Las asignaciones de roles en el grupo de administración raíz no son necesarias para mover una suscripción o grupo de administración a este grupo y desde este. Consulte [Administración de los recursos con grupos de administración](manage.md) para más información acerca de cómo mover elementos dentro de la jerarquía.
 
-## <a name="custom-rbac-role-definition-and-assignment"></a>Asignación y definición de roles de RBAC personalizados
+## <a name="azure-custom-role-definition-and-assignment"></a>Asignación y definición de roles personalizados de Azure
 
-La compatibilidad de los roles de RBAC personalizados con los grupos de administración está actualmente en versión preliminar con algunas [limitaciones ](#limitations). El ámbito de los grupos de administración se puede definir en el ámbito asignable de Definición de roles. Dicho rol personalizado de RBAC estará disponible para su asignación no solo en ese grupo de administración, sino también en todos los grupos de administración, suscripciones, grupos de recursos o recursos que haya debajo de él. Este rol personalizado heredará la jerarquía, como cualquier rol integrado.  
+La compatibilidad de los roles personalizados de Azure con los grupos de administración está actualmente en versión preliminar con algunas [limitaciones](#limitations). El ámbito de los grupos de administración se puede definir en el ámbito asignable de Definición de roles. Ese rol personalizado de Azure estará disponible para su asignación no solo en ese grupo de administración, sino también en todos los grupos de administración, suscripciones, grupos de recursos o recursos que haya debajo de él. Este rol personalizado heredará la jerarquía, como cualquier rol integrado.  
 
 ### <a name="example-definition"></a>Definición de ejemplo
 

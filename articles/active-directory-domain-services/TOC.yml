@@ -9,7 +9,7 @@
 - name: Tutoriales
   expanded: true
   items:
-    - name: Creación de un dominio administrado básico
+    - name: Creación de un dominio administrado
       href: tutorial-create-instance.md
     - name: Configuración de la red virtual para aplicaciones
       href: tutorial-configure-networking.md
@@ -21,9 +21,11 @@
       href: tutorial-configure-ldaps.md
     - name: Configuración de la sincronización de hash de contraseñas
       href: tutorial-configure-password-hash-sync.md
-    - name: Creación de un dominio administrado avanzado
+    - name: Creación de un conjunto de réplicas (versión preliminar)
+      href: tutorial-create-replica-set.md
+    - name: Creación de un dominio administrado personalizado
       href: tutorial-create-instance-advanced.md
-    - name: Creación de una confianza de bosque (versión preliminar)
+    - name: Creación de una confianza de bosque
       href: tutorial-create-forest-trust.md
 - name: Ejemplos
   items:
@@ -33,12 +35,16 @@
       href: template-create-instance.md
     - name: "Configuración de la sincronización con ámbito mediante Azure\_AD PowerShell"
       href: powershell-scoped-synchronization.md
+    - name: Creación de un bosque de recursos y de confianza mediante Azure PowerShell
+      href: create-resource-forest-powershell.md
 - name: Conceptos
   items:
     - name: Conceptos básicos de administración
       href: administration-concepts.md
     - name: Escenarios habituales de implementación
       href: scenarios.md
+    - name: Conjuntos de réplicas (versión preliminar)
+      href: concepts-replica-sets.md
     - name: Bosques y confianzas
       items:
         - name: Bosques de recursos

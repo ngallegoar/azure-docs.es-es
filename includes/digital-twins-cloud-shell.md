@@ -3,30 +3,24 @@ author: baanders
 description: 'Inclusión de archivos en Azure Digital Twins: Configuración de Cloud Shell y la extensión de IoT'
 ms.service: digital-twins
 ms.topic: include
-ms.date: 5/25/2020
+ms.date: 7/17/2020
 ms.author: baanders
-ms.openlocfilehash: 6f472865c131b873f1ae0a21fa9ec55865fb2b29
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b7c91d648c06970d53799c6ff505919dea17b3c0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86277889"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032242"
 ---
-[!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]
-
-### <a name="set-up-cloud-shell-session"></a>Configuración de una sesión de Cloud Shell
-
-Después de abrir una ventana de Cloud Shell, lo primero que hay que hacer es iniciar sesión y establecer el contexto de Shell en la suscripción para esta sesión. En Cloud Shell, ejecute estos comandos:
+Para empezar a trabajar con Azure Digital Twins en una ventana abierta de [Azure Cloud Shell](https://shell.azure.com), primero es necesario iniciar sesión y establecer el contexto de Shell en su suscripción para esta sesión. En Cloud Shell, ejecute estos comandos:
 
 ```azurecli
 az login
-az account set --subscription <your-Azure-subscription-ID>
+az account set --subscription "<your-Azure-subscription-ID>"
 ```
 > [!TIP]
-> También puede establecer la suscripción con su nombre de suscripción. Use este comando: 
-> ```azurecli
-> az account set --subscription "your-Azure-subscription-name"
-> 
+> En el comando anterior, también puede utilizar el nombre de la suscripción en lugar del identificador. 
+
 Si esta es la primera vez que usa esta suscripción con Azure Digital Twins, ejecute este comando para registrarse con el espacio de nombres de Azure Digital Twins. (Si no está seguro, es correcto volver a ejecutarlo aunque lo haya hecho en algún momento del pasado).
 
 ```azurecli
@@ -41,10 +35,10 @@ En primer lugar, ejecute este comando para ver una lista de todas las extensione
 az extension list
 ```
 
-En la salida, busque el campo `"name"` de cada entrada de la lista para ver los nombres de las extensiones.
+La salida es una matriz de todas las extensiones que tiene actualmente. Busque el campo `"name"` para cada entrada de la lista con el fin de ver los nombres de las extensiones.
 
 Use la salida para determinar cuál de los siguientes comandos se ejecutará para la instalación de la extensión (puede ejecutar más de uno).
-* Si la lista contiene `azure-iot`: Ya tiene la extensión. Ejecute este comando para asegurarse de que tiene la actualización más reciente:
+* Si la lista contiene `azure-iot`: Ya tiene la extensión. Ejecute este comando para asegurarse de que tiene la actualización más reciente y de que no hay otras actualizaciones disponibles:
 
    ```azurecli-interactive
    az extension update --name azure-iot

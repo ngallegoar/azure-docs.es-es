@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/04/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5842d21f9fb35cd8fddc5521d630d597aedcc2ba
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 0ac13dc669ed20df58f05c672926b7bee55dbc90
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983156"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035033"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Habilitación del autoservicio de restablecimiento de contraseña de Azure Active Directory para que los usuarios puedan desbloquear su cuenta o restablecer contraseñas
 
 El autoservicio de restablecimiento de contraseña (SSPR) de Azure Active Directory (Azure AD) ofrece a los usuarios la posibilidad de cambiar o restablecer su contraseña sin necesidad de que intervenga el administrador o el departamento de soporte técnico. Si la cuenta de un usuario está bloqueada o se ha olvidado su contraseña, puede seguir las indicaciones para desbloquearse y volver al trabajo. Esta capacidad reduce las llamadas al departamento de soporte técnico y la pérdida de productividad cuando un usuario no puede iniciar sesión en su dispositivo o en una aplicación.
 
 > [!IMPORTANT]
-> Este inicio rápido muestra a los administradores cómo habilitar el autoservicio de restablecimiento de contraseña. Los usuarios finales registrados para el restablecimiento de contraseña de autoservicio que necesiten volver a su cuenta deben ir a https://aka.ms/sspr.
+> Este tutorial muestra al administrador cómo habilitar SSPR. Los usuarios finales registrados para el restablecimiento de contraseña de autoservicio que necesiten volver a su cuenta deben ir a https://aka.ms/sspr.
 >
 > Si el equipo de TI no ha habilitado la capacidad para restablecer su propia contraseña, póngase en contacto con el departamento de soporte técnico para obtener ayuda adicional.
 
@@ -41,9 +41,9 @@ Para completar este tutorial, necesitará los siguientes recursos y privilegios:
     * Si es preciso, [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Una cuenta con privilegios de *Administrador global*.
 * Un usuario que no sea administrador con una contraseña que conozca, como *usuarioDePrueba*. Utilizará esta cuenta para probar la experiencia de SSPR por parte del usuario final en este tutorial.
-    * Si necesita crear un usuario, consulte [Inicio rápido: Incorporación de nuevos usuarios a Azure Active Directory](../add-users-azure-active-directory.md).
+    * Si necesita crear un usuario, consulte [Inicio rápido: Incorporación de nuevos usuarios a Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 * Un grupo del que sea miembro el usuario que no es administrador, como *Grupo-Prueba-SSPR*. En este tutorial, habilitará el autoservicio de restablecimiento de contraseña para este grupo.
-    * Si necesita crear un grupo, consulte [Creación de un grupo y adición de miembros en Azure Active Directory](../active-directory-groups-create-azure-portal.md).
+    * Si necesita crear un grupo, consulte [Creación de un grupo y adición de miembros en Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="enable-self-service-password-reset"></a>Habilitar el autoservicio de restablecimiento de contraseña
 
@@ -78,8 +78,8 @@ Cuando los usuarios necesitan desbloquear su cuenta o restablecer su contraseña
     * *Código de aplicación móvil*
     * *Correo electrónico*
     * *Teléfono móvil*
-    * *Teléfono del trabajo*
-    * *Preguntas de seguridad*
+
+    Es posible habilitar métodos de autenticación adicionales, como el *teléfono del trabajo* o *preguntas de seguridad* de acuerdo con las necesidades de su empresa.
 
 1. Para aplicar los métodos de autenticación, seleccione **Guardar**.
 
@@ -95,7 +95,7 @@ Un administrador puede proporcionar manualmente esta información de contacto, o
 
 ## <a name="configure-notifications-and-customizations"></a>Configuración de notificaciones y personalizaciones
 
-Para mantener informados a los usuarios sobre la actividad de la cuenta, puede configurar el envío de notificaciones por correo electrónico cuando se produzca un evento SSPR. Estas notificaciones pueden abarcar tanto las cuentas de usuario normales como las cuentas de administrador. En el caso de las cuentas de administrador, esta notificación proporciona un nivel adicional de reconocimiento cuando se restablece la contraseña de una cuenta de administrador con privilegios mediante SSPR.
+Para mantener informados a los usuarios sobre la actividad de la cuenta, puede configurar el envío de notificaciones por correo electrónico cuando se produzca un evento SSPR. Estas notificaciones pueden abarcar tanto las cuentas de usuario normales como las cuentas de administrador. En el caso de las cuentas de administrador, esta notificación proporciona un nivel adicional de reconocimiento cuando se restablece la contraseña de una cuenta de administrador con privilegios mediante SSPR. Todos los administradores globales recibirán una notificación cuando se utilice SSPR en una cuenta de administrador.
 
 1. En la página **Notificaciones** del menú del lado izquierdo, configure las siguientes opciones:
 
