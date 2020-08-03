@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 909f120275c58b04d8674f0610c40e13b96804b6
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 9e4c3615d16834a0517b46f1be7221eef28c602c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143928"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058748"
 ---
 # <a name="about-azure-virtual-wan"></a>Acerca de Azure Virtual WAN
 
@@ -110,7 +110,7 @@ Virtual WAN proporciona mejoras de enrutamiento avanzadas. La capacidad para con
 
 ### <a name="global-vnet-peering"></a><a name="global"></a>Emparejamiento de red virtual global
 
-El emparejamiento de red virtual global proporciona un mecanismo para conectar dos redes virtuales de diferentes regiones. En Virtual WAN, las conexiones de red virtual conectan redes virtuales a centros virtuales. El usuario no necesita configurar el emparejamiento global de redes virtuales de forma explícita. Las redes virtuales conectadas a un centro virtual de la misma región incurren en cargos de emparejamiento de red virtual. Las redes virtuales conectadas a un centro virtual de otra región incurren en cargos de emparejamiento de red virtual global.
+El emparejamiento de red virtual global proporciona un mecanismo para conectar dos redes virtuales de diferentes regiones. En Virtual WAN, las conexiones de red virtual conectan redes virtuales a centros virtuales. El usuario no necesita configurar el emparejamiento global de redes virtuales de forma explícita. Las redes virtuales conectadas a un centro virtual en la misma región incurren en cargos de emparejamiento de red virtual. Las redes virtuales conectadas a un centro virtual de otra región incurren en cargos de emparejamiento de red virtual global.
 
 ### <a name="expressroute-traffic-encryption"></a><a name="encryption"></a>Cifrado del tráfico de ExpressRoute
 

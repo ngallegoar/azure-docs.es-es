@@ -1,5 +1,5 @@
 ---
-title: Configuración de reglas de firewall de IP en Azure Synapse Analytics
+title: Configuración de las reglas de firewall de IP
 description: En este artículo se muestra cómo configurar reglas de firewall de IP en Azure Synapse Analytics.
 author: RonyMSFT
 ms.service: synapse-analytics
@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 255714fcf69a8ed72cf1f306e5aafabd49a199ca
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: a06b4e6ced437cc83fadfad000fa682264264874
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194406"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052416"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules-preview"></a>Reglas de firewall de IP de Azure Synapse Analytics (versión preliminar)
 

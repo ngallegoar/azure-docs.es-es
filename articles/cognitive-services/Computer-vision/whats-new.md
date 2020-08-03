@@ -10,16 +10,28 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: 75d191c9d65cc639522c3fbba5b8c438b8b83448
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: ceb9e731b1052d47131dfbc6754e1cb921a8f585
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560130"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280841"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novedades de Computer Vision
 
 Conozca las novedades del servicio. Estos elementos pueden ser notas de la versión, vídeos, entradas de blogs y otros tipos de información. Agregue esta página a sus marcadores para mantenerse actualizado con el servicio.
+
+## <a name="july-2020"></a>Julio de 2020
+
+### <a name="read-api-v31-preview1-adds-support-for-simplified-chinese"></a>Read API v3.1-preview.1 agrega compatibilidad con el chino simplificado
+Read API v3.1-preview.1 de Computer Vision agrega compatibilidad con el chino simplificado.
+
+* Esta versión preliminar de Read API admite los idiomas inglés, holandés, francés, alemán, italiano, portugués, chino simplificado y español.
+
+Consulte [Introducción a Read API](concept-recognizing-text.md) para obtener más información.
+
+> [!div class="nextstepaction"]
+> [Más información sobre Read API v3.1-preview.1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
 
 ## <a name="may-2020"></a>Mayo de 2020
 Computer Vision API v3.0 entró en disponibilidad general, con actualizaciones para [Read API](concept-recognizing-text.md):
@@ -35,7 +47,7 @@ Computer Vision API v3.0 entró en disponibilidad general, con actualizaciones p
 
 ## <a name="january-2020"></a>Enero de 2020
 
-### <a name="read-api-30-preview"></a>Read API 3.0 (versión preliminar)
+### <a name="read-api-30-public-preview"></a>Read API 3.0 versión preliminar pública
 
 Ahora tiene la opción de usar la versión 3.0 de Read API para extraer texto impreso o manuscrito de imágenes. En comparación con las versiones anteriores, la versión 3.0 proporciona lo siguiente:
 * Precisión mejorada

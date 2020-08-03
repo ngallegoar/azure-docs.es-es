@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 4b9dac92f0cff213622f0087b281814251f06ffd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c0d8d2b009194b58c76dbd0a171f701f90df4086
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181620"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058279"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Adición del inicio de sesión en Microsoft a una aplicación web ASP.NET
 
@@ -407,7 +407,7 @@ Para más información, consulte [Permisos y consentimiento en el punto de conex
 
 ### <a name="view-application-results"></a>Visualización de los resultados de la aplicación
 
-Después de iniciar sesión, se redirige al usuario a la página principal del sitio web. Esta página principal es la dirección URL HTTPS especificada en la información de registro de la aplicación en el Portal de registro de aplicaciones de Microsoft. La página principal incluye un mensaje de bienvenida, *"Hola, \<usuario>"* , un vínculo para cerrar la sesión y otro para ver las notificaciones del usuario. El vínculo de las notificaciones del usuario se conecta al controlador de notificaciones que creó anteriormente.
+Después de iniciar sesión, se redirige al usuario a la página principal del sitio web. Esta página principal es la dirección URL HTTPS especificada en la información de registro de la aplicación en el Portal de registro de aplicaciones de Microsoft. La página principal incluye un mensaje de bienvenida, *"Hola, \<user>"* , un vínculo para cerrar la sesión y otro para ver las notificaciones del usuario. El vínculo de las notificaciones del usuario se conecta al controlador de notificaciones que creó anteriormente.
 
 ### <a name="view-the-users-claims"></a>Ver las notificaciones del usuario
 
@@ -468,13 +468,13 @@ Puede restringir el acceso al proceso de inicio de sesión solo a aquellas cuent
 
 #### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>Opción 3: Usar un método personalizado para validar emisores
 
-Puede implementar un método personalizado para validar los emisores con el parámetro **IssuerValidator**. Para más información acerca de cómo usar este parámetro, consulte [clase TokenValidationParameters](/previous-versions/visualstudio/dn464192(v=vs.114)).
+Puede implementar un método personalizado para validar los emisores con el parámetro **IssuerValidator**. Para más información acerca de cómo usar este parámetro, consulte clase [TokenValidationParameters](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información acerca de la forma en que las aplicaciones web pueden llamar a las API web.
 
-### <a name="learn-how-to-create-the-application-used-in-this-quickstart-guide"></a>Aprenda a crear la aplicación que se ha usado en esta guía de inicio rápido
+### <a name="learn-how-to-create-the-application-used-in-this-quickstart"></a>Aprenda a crear la aplicación que se ha usado en este inicio rápido.
 
 Más información acerca de las aplicaciones web que llaman a API web con la plataforma de identidad de Microsoft:
 

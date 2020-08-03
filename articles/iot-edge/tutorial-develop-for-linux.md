@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 478d9c0485125870f8d5ffb4132f46476b4bb4ef
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 924654dace53b326e3a29bb834f773122b0476ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80384371"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081124"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Tutorial: Desarrollo de módulos IoT Edge para dispositivos Linux
 
@@ -134,7 +134,7 @@ En la paleta de comandos de Visual Studio Code, busque y seleccione **Azure I
    | Proporcionar un nombre de la solución | Escriba un nombre descriptivo para la solución o acepte el valor predeterminado **EdgeSolution**. |
    | Seleccionar plantilla del módulo | Elija **Módulo C#** . |
    | Proporcionar un nombre de módulo | Acepte el valor predeterminado, **SampleModule**. |
-   | Proporcionar repositorio de imágenes de Docker del módulo | Un repositorio de imágenes incluye el nombre del registro de contenedor y el nombre de la imagen de contenedor. La imagen de contenedor se rellena previamente con el nombre que proporcionó en el último paso. Reemplace **localhost:5000** por el valor del servidor de inicio de sesión del registro de contenedor de Azure. Puede recuperar el servidor de inicio de sesión de la página de información general del registro de contenedor en Azure Portal. <br><br> El repositorio de imágenes final será similar a \<nombre del registro\>.azurecr.io/samplemodule. |
+   | Proporcionar repositorio de imágenes de Docker del módulo | Un repositorio de imágenes incluye el nombre del registro de contenedor y el nombre de la imagen de contenedor. La imagen de contenedor se rellena previamente con el nombre que proporcionó en el último paso. Reemplace **localhost:5000** por el valor del servidor de inicio de sesión del registro de contenedor de Azure. Puede recuperar el servidor de inicio de sesión de la página de información general del registro de contenedor en Azure Portal. <br><br> El repositorio de imágenes final es similar a \<registry name\>.azurecr.io/samplemodule. |
 
    ![Especificación del repositorio de imágenes de Docker](./media/tutorial-develop-for-linux/image-repository.png)
 
@@ -219,6 +219,12 @@ Especifique las credenciales del registro de contenedor a Docker para que puede 
    ```
 
    Puede recibir una advertencia de seguridad en la que se recomiende el uso de `--password-stdin`. Aunque ese procedimiento se recomienda para escenarios de producción, está fuera del ámbito de este tutorial. Para más información, consulte la referencia de [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin).
+   
+3. Inicio de sesión en Azure Container Registry
+
+   ```cmd/sh
+   az acr login -n <ACR registry name>
+   ```
 
 ### <a name="build-and-push"></a>Compilación e inserción
 
@@ -262,7 +268,7 @@ Visual Studio Code ahora tiene acceso a su registro de contenedor, por lo que es
 Si encuentra errores al compilar e insertar la imagen del módulo, a menudo tiene que ver con la configuración de Docker en la máquina de desarrollo. Utilice las siguientes comprobaciones para revisar la configuración:
 
 * ¿Ha ejecutado el comando `docker login` mediante las credenciales que copió del registro de contenedor? Estas credenciales son diferentes a las que se utilizan para iniciar sesión en Azure.
-* ¿Es el repositorio de contenedor correcto? ¿Tiene el nombre correcto del registro de contenedor y el nombre correcto del módulo? Abra el archivo **module.json** de la carpeta SampleModule para comprobarlo. El valor del repositorio debería ser similar a **\<nombre del registro\>.azurecr.io/samplemodule**.
+* ¿Es el repositorio de contenedor correcto? ¿Tiene el nombre correcto del registro de contenedor y el nombre correcto del módulo? Abra el archivo **module.json** de la carpeta SampleModule para comprobarlo. El valor del repositorio debería ser similar a **\<registry name\>.azurecr.io/samplemodule**.
 * Si utilizó un nombre diferente a **SampleModule** para el módulo, ¿es coherente ese nombre en toda la solución?
 * ¿La máquina funciona con el mismo tipo de contenedores que está creando? Este tutorial es para dispositivos IoT Edge de Linux, por lo que Visual Studio Code debería indicar **amd64** o **arm32v7** en la barra lateral y Docker Desktop debe ejecutar contenedores Linux.  
 
