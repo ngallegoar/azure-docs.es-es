@@ -262,7 +262,7 @@
           items:
             - name: Supervisión de una cuenta de almacenamiento
               href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Migración desde métricas clásicas
+            - name: Transición desde la métrica clásica
               href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Supervisión (clásica)
               items:
@@ -685,7 +685,7 @@
           items:
             - name: Supervisión de una cuenta de almacenamiento
               href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Migración desde métricas clásicas
+            - name: Transición desde la métrica clásica
               href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Supervisión (clásica)
               items:
