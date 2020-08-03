@@ -246,7 +246,7 @@
                 - name: Azure CLI
                   href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Habilitación del cifrado de infraestructura en una cuenta de almacenamiento
-          href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json
+          href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Protección contra amenazas avanzada
           href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Configuración de firewalls y redes virtuales

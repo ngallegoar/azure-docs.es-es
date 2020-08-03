@@ -112,6 +112,8 @@
           href: cognitive-search-incremental-indexing-conceptual.md
     - name: Seguridad
       items:
+        - name: Introducción a la seguridad
+          href: search-security-overview.md
         - name: Controles de seguridad de Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
@@ -197,7 +199,7 @@
               href: search-howto-managed-identities-data-sources.md
             - name: Azure Storage
               href: search-howto-managed-identities-storage.md
-            - name: Azure Cosmos DB
+            - name: "Azure Cosmos\_DB"
               href: search-howto-managed-identities-cosmos-db.md
             - name: SQL Database
               href: search-howto-managed-identities-sql.md
@@ -329,8 +331,6 @@
           href: search-api-migration.md
     - name: Seguridad
       items:
-        - name: Información general
-          href: search-security-overview.md
         - name: Cifrado de datos
           items:
             - name: Claves administradas por el cliente
