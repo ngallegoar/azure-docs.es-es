@@ -232,10 +232,12 @@
           href: devtest-lab-mandatory-artifacts.md
         - name: Solución de problemas relacionados con la aplicación de artefactos
           href: devtest-lab-troubleshoot-apply-artifacts.md
-    - name: Cifrado del almacenamiento y de los discos de sistema operativo que se usan en laboratorios
+    - name: Cifrado de recursos de laboratorio
       items:
         - name: Cifrado del almacenamiento que se usa en un laboratorio
           href: encrypt-storage.md
+        - name: Cifrado de discos de sistema operativo mediante claves administradas por el cliente
+          href: encrypt-disks-customer-managed-keys.md
     - name: Integración con CI/CD
       items:
         - name: Integración de laboratorios en la canalización de integración y entrega continuas de Azure Pipelines

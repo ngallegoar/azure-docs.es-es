@@ -10,14 +10,16 @@
       href: load-balancer-faqs.md
 - name: Guía de inicio rápido
   items:
-    - name: 'Creación de un equilibrador de carga: Azure Portal'
+    - name: 'Creación de un equilibrador de carga público: Azure Portal'
       href: quickstart-load-balancer-standard-public-portal.md
-    - name: 'Creación de un equilibrador de carga: CLI de Azure'
+    - name: 'Creación de un equilibrador de carga público: CLI de Azure'
       href: quickstart-load-balancer-standard-public-cli.md
-    - name: 'Creación de un equilibrador de carga: Azure PowerShell'
+    - name: 'Creación de equilibrador de carga público: Azure PowerShell'
       href: quickstart-create-standard-load-balancer-powershell.md
-    - name: 'Creación de un equilibrador de carga: plantilla de Resource Manager'
+    - name: 'Creación de un equilibrador de carga público: plantilla de Resource Manager'
       href: quickstart-load-balancer-standard-public-template.md
+    - name: 'Creación de un equilibrador de carga interno: Azure Portal'
+      href: quickstart-load-balancer-standard-internal-portal.md
   expanded: true
 - name: Tutoriales
   items:

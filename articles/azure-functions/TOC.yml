@@ -129,6 +129,10 @@
           href: functions-reference-python.md
         - name: TypeScript
           href: functions-reference-node.md#typescript
+    - name: Marcos de trabajo
+      items:
+        - name: Express.js
+          href: shift-expressjs.md
     - name: Seguridad
       items:
         - name: Introducción a la seguridad
@@ -375,7 +379,7 @@
             - name: Salida
               displayName: Blob storage
               href: functions-bindings-storage-blob-output.md
-        - name: "Azure Cosmos\_DB"
+        - name: Azure Cosmos DB
           items:
             - name: Functions 1.x
               href: functions-bindings-cosmosdb.md
