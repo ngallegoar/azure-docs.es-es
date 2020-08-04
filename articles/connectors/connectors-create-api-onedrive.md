@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/18/2016
 tags: connectors
-ms.openlocfilehash: 8dd54fec963b8f4775a8ade6277b071d62ca3850
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9fe4988b5499943f4b11ec5d640209ceb68e84ec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524220"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040235"
 ---
 # <a name="access-and-manage-files-in-onedrive-connector-by-using-azure-logic-apps"></a>Acceda a archivos y adminístrelos en el conector de OneDrive mediante Azure Logic Apps
 
@@ -40,7 +40,7 @@ Un desencadenador es un evento que se puede utilizar para iniciar el flujo de tr
 
 1. En el Diseñador de aplicación lógica, escriba `onedrive` para obtener una lista de los desencadenadores:  
 
-   ![El cuadro de diálogo titulado "Mostrar las API administradas por Microsoft" tiene un cuadro que contiene "onedrive". A continuación se muestra una lista de los cuatro desencadenadores. El primero de ellos es "OneDrive: Cuando se crea un archivo". El segundo, "OneDrive: Cuando se modifica un archivo", se ha seleccionado.](./media/connectors-create-api-onedrive/onedrive-1.png)
+   ![Un cuadro de diálogo titulado "Mostrar las API administradas por Microsoft" tiene un cuadro que contiene "onedrive". A continuación se muestra una lista de los cuatro desencadenadores. El primero de ellos es "OneDrive: Cuando se crea un archivo". El segundo, "OneDrive: Cuando se modifica un archivo", se ha seleccionado.](./media/connectors-create-api-onedrive/onedrive-1.png)
 
 2. Seleccione **Cuando se modifica un archivo**. Si ya existe una conexión, seleccione el botón Mostrar Selector para seleccionar una carpeta.
 
@@ -68,7 +68,7 @@ Una acción es una operación que se lleva a cabo mediante el flujo de trabajo d
 
 3. En el cuadro de búsqueda, escriba `onedrive` para obtener una lista de todas las acciones disponibles.
 
-   ![El cuadro de diálogo titulado "Mostrar las API administradas por Microsoft" tiene un cuadro que contiene "onedrive". A continuación se muestra una lista de ocho acciones. El primero es "OneDrive: Crear archivo" y está seleccionado.](./media/connectors-create-api-onedrive/onedrive-actions.png) 
+   ![Un cuadro de diálogo titulado "Mostrar las API administradas por Microsoft" tiene un cuadro que contiene "onedrive". A continuación se muestra una lista de ocho acciones. El primero es "OneDrive: Crear archivo" y está seleccionado.](./media/connectors-create-api-onedrive/onedrive-actions.png) 
 
 4. En nuestro ejemplo, elija **OneDrive - Crear archivo**. Si ya existe una conexión, seleccione la **Ruta de la carpeta** en la que se incluirá el archivo, escriba el **Nombre de archivo** y elija el **Contenido de archivo** que desee:  
 

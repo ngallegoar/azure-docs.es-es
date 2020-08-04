@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 07/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a0853266e4fda4393ba49fb740755e6b8bd03cf5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: d78de3d8e7fadc4b6760fef85fb4b850cc25111e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86038062"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075767"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integraciones de partners de Windows Virtual Desktop
 
@@ -48,7 +48,22 @@ La tecnología 10ZiG, con el hardware y software de vanguardia Thin y Zero Clien
 
 El mejor ejemplo del liderazgo mundial en el mercado de 10ZiG tanto en dispositivos de punto de conexión Thin y Zero Client como en software de administración es la forma en que funcionan en sus clientes. Su hardware Thin Client incorpora características y opciones de ventajas creadas cuidadosamente que están diseñadas para garantizar que los clientes reciban los dispositivos cliente adecuados según sus necesidades. 10ZiG personaliza sus dispositivos para adaptarlos a los entornos de los clientes con clientes basados en Windows y Linux que proporcionan el mejor rendimiento posible en los escritorios virtuales, tanto dentro como fuera de la nube.
 
-- [Ir al sitio web del asociado](https://www.10zig.com/).
+- [Ir al sitio web del asociado](https://www.10zig.com/about/microsoft-wvd).
+
+## <a name="automai"></a>Automai
+
+![Logotipo de Automai](./media/partners/automai.png)
+
+Puede usar la plataforma de automatización robótica de Automai para probar procesos empresariales clave en un entorno de Windows Virtual Desktop antes de la activación de la implementación.
+
+Con la herramienta ScenarioBuilder de Automai y el motor de flujo de trabajo basado en GUI, los equipos de TI pueden grabar flujos de trabajo de usuario final reales y traducirlos automáticamente a scripts. Luego Automai usa bots que ejecutan procesos desde escritorios individuales para emular la actividad del usuario final en una simulación y comunicar los resultados. Esto simplifica enormemente los procesos de pruebas, de modo que los administradores de TI pueden realizar pruebas de esfuerzo incluso en los escenarios más complejos.
+
+Una vez que esté listo para el lanzamiento, puede usar todos los scripts de flujo de trabajo creados para las pruebas de carga a fin de supervisar continuamente el rendimiento en producción. Los bots de Automai pueden hacer algo más que la mera supervisión de la disponibilidad. También pueden probar flujos de trabajo de usuario final desde ubicaciones clave, realizar capturas de pantalla y recopilar informes de errores en tiempo real. Esto se traduce en un enfoque más proactivo que reactivo de las correcciones de errores de las aplicaciones de Windows Virtual Desktop.
+
+Automai permite usar los mismos scripts para las pruebas de rendimiento, las pruebas funcionales, la supervisión de rendimiento e incluso la automatización de procesos robóticos, todo en una plataforma.
+
+- [Consultar el resumen de la solución conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B76N).
+- [Ir al sitio web del asociado](https://www.automai.com/wvd-testing-monitoring?hs_preview=EyZXkOWu-30742040580).
 
 ## <a name="cloudhouse"></a>Cloudhouse
 
@@ -112,6 +127,17 @@ La licencia de punto de conexión flotante única de los clientes de Ekran Syste
 
 - [Consultar el resumen de la solución conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yqY8).
 - [Ir a la página del asociado](https://www.ekransystem.com/product/supported-platforms/windows-virtual-desktop-monitoring)
+
+## <a name="fabulatech"></a>FabulaTech
+
+![Logotipo de FabulaTech](./media/partners/fabulatech.png)
+
+FabulaTech se integra perfectamente con los clientes de Windows Virtual Desktop. Una vez instalado, el software de FabulaTech empieza a trabajar automáticamente en cuanto se establece una conexión con un escritorio remoto.
+
+Cuando un usuario inicia sesión en su escritorio virtual, el software de FabulaTech crea un dispositivo virtual. Por ejemplo, puede crear una cámara web, un escáner o un lector de huellas digitales virtuales. Cualquier aplicación que se ejecute en una sesión remota puede acceder al dispositivo virtual como si fuera uno físico. Puede configurar el dispositivo virtual en Windows Virtual Desktop con el menú de iconos de la bandeja del sistema, lo que significa que también puede usar esta solución en clientes ligeros. Además, todas las comunicaciones se producen a través de la conexión a escritorio remoto existente, lo que significa que el firewall se configura automáticamente. Todo funciona de serie.
+
+- [Consultar el resumen de la solución conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B4zO).
+- [Ir al sitio web del asociado](https://www.fabulatech.com/partners/microsoft-windows-virtual-desktop/).
 
 ## <a name="flexxible-it"></a>Flexxible IT
 
@@ -274,7 +300,7 @@ Rimo3 ofrece una plataforma de pruebas de aplicaciones automatizada, escalable y
 
 ![Logotipo de sepago](./media/partners/sepago.png)
 
-sepago fue fundada en 2002 por cuatro amigos de Colonia. Hoy en día, sepago es una consultoría de administración de TI con un número cada vez mayor de clientes, con ubicaciones por toda Alemania (en Colonia, Munich y Hamburgo). sepago son expertos en aprovisionamiento automatizado de aplicaciones, virtualización, soluciones de nube y seguridad de TI. sepago ayuda a compañías de tamaño medio y grande en su camino hacia la transformación digital y garantiza que los usuarios puedan trabajar de forma segura y eficaz.
+sepago fue fundada en 2002 por cuatro amigos de Colonia. Hoy en día, sepago es una consultoría de administración de TI con un número cada vez mayor de clientes, con ubicaciones por toda Alemania (en Colonia, Munich y Hamburgo). sepago son expertos en aprovisionamiento automatizado de aplicaciones, virtualización, soluciones de nube y seguridad de TI. sepago ayuda a empresas de tamaño medio y grande en su camino hacia la transformación digital y garantiza que los usuarios puedan trabajar de forma segura y eficaz.
 
 El laboratorio de innovación y desarrollo de sepago crea soluciones inteligentes mediante tecnologías de macrodatos e IA. Estas soluciones se centran en la mejora del negocio, la experiencia de usuario y las administraciones de productos de asociados como Windows Virtual Desktop.
 

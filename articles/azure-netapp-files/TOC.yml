@@ -55,22 +55,30 @@
       href: azure-netapp-files-set-up-capacity-pool.md
     - name: Delegación de una subred en Azure NetApp Files
       href: azure-netapp-files-delegate-subnet.md
-    - name: Creación de un volumen de SMB para Azure NetApp Files
+    - name: Creación y administración de un volumen NFS
+      items:
+        - name: Creación de un volumen NFS
+          href: azure-netapp-files-create-volumes.md
+        - name: "Configuración del dominio predeterminado de NFS, versión\_4.1"
+          href: azure-netapp-files-configure-nfsv41-domain.md
+        - name: "Configuración del cifrado Kerberos de NFS, versión\_4.1"
+          href: configure-kerberos-encryption.md
+        - name: Configuración de un cliente NFS para Azure NetApp Files
+          href: configure-nfs-clients.md
+        - name: Configuración de la directiva de exportación para un volumen NFS
+          href: azure-netapp-files-configure-export-policy.md
+    - name: Creación de un volumen SMB
       href: azure-netapp-files-create-volumes-smb.md
-    - name: Creación de un volumen de NFS para Azure NetApp Files
-      href: azure-netapp-files-create-volumes.md
-    - name: "Configuración del dominio predeterminado de NFS, versión\_4.1, para Azure NetApp Files"
-      href: azure-netapp-files-configure-nfsv41-domain.md
-    - name: Configuración de la directiva de exportación para un volumen NFS
-      href: azure-netapp-files-configure-export-policy.md
-    - name: Administración de volúmenes
-      href: azure-netapp-files-manage-volumes.md
+    - name: Creación de un volumen de protocolo dual
+      href: create-volumes-dual-protocol.md
     - name: Montaje o desmontaje de un volumen para máquinas virtuales Linux
       href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
     - name: Administración de instantáneas
       href: azure-netapp-files-manage-snapshots.md
     - name: Cambiar el tamaño de un grupo de capacidad o de un volumen
       href: azure-netapp-files-resize-capacity-pools-or-volumes.md
+    - name: Cambio dinámico del nivel de servicio de un volumen
+      href: dynamic-change-volume-service-level.md
     - name: Desarrollar
       items:
         - name: API DE REST

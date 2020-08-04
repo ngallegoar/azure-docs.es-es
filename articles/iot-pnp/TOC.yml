@@ -37,6 +37,8 @@
       href: tutorial-multiple-components-node.md
     - name: Conexión de un dispositivo de conexión múltiple (Python)
       href: tutorial-multiple-components-python.md
+    - name: Uso de MQTT para conectar un dispositivo
+      href: tutorial-use-mqtt.md
 - name: Conceptos
   items:
     - name: Architecture
