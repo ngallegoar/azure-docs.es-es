@@ -45,7 +45,7 @@ Para completar este tutorial, se requiere una nube privada AVS con acceso a las 
 
 1. Asigne un nombre al segmento; en **Connected Gateway** (Puerta de enlace conectada), elija la puerta de enlace Tier1 preconfigurada (TNTxx-T1); deje **Type** (Tipo) como Flexible; en **Transport Zone** (zona de transporte), elija la superposición preconfigurada (TNTxx-OVERLAY-TZ); y, por último, seleccione Set Subnets (Establecer subredes). El resto de la configuración de esta sección así como **PORTS**  (PUERTOS) y **SEGMENT PROFILES** (PERFILES DE SEGMENTO) pueden permanecer en el valor predeterminado, al igual que la configuración.
 
-   :::image type="content" source="media/nsxt/nsxt-create-segment-specs.png" alt-text="Establezca el nombre del segmento, la puerta de enlace conectada y el tipo y la zona de transporte; a continuación, seleccione "Set Subnets" (Establecer subredes).":::
+   :::image type="content" source="media/nsxt/nsxt-create-segment-specs.png" alt-text="Establezca el nombre del segmento, la puerta de enlace conectada y el tipo y la zona de transporte; a continuación, seleccione Set Subnets (Establecer subredes).":::
 
 1. Establezca la dirección IP de la puerta de enlace para el nuevo segmento y, a continuación, seleccione **ADD** (AGREGAR). La dirección IP que use debe estar en un bloque de direcciones RFC1918 que no se superponga, lo que garantiza que pueda conectarse a las máquinas virtuales en el nuevo segmento.
 
