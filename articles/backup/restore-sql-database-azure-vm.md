@@ -3,12 +3,12 @@ title: Restauración de bases de datos de SQL Server en una máquina virtual de
 description: En este artículo se describe cómo restaurar bases de datos SQL Server que se ejecutan en una máquina virtual de Azure y cuyas copias de seguridad se realizan con Azure Backup.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 5d7fc52aaaca0bf99955919c954cc22ab0d9d3d8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2c3b81c4d0bc4c7548fec8ec131fea66684a7aa8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538456"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054587"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restauración de bases de datos SQL Server en máquinas virtuales de Azure
 
@@ -127,7 +127,7 @@ Para restaurar datos de copia de seguridad como archivos .bak en lugar de una ba
     >   - Ejecute `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
     >   - Comprobar el acceso con `dir \\<storageacct>.file.core.windows.net\<filesharename>`
     >- Iniciar una restauración como archivos desde el almacén de copia de seguridad en `\\<storageacct>.file.core.windows.net\<filesharename>` como ruta de acceso.<BR>
-    Puede descargar Psexec mediante <https://docs.microsoft.com/sysinternals/downloads/psexec>.
+    Puede descargar PsExec de la página [Sysinternals](/sysinternals/downloads/psexec).
 
 1. Seleccione **Aceptar**.
 

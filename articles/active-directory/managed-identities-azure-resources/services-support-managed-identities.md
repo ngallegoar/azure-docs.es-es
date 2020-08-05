@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 5bf397cac26d3cc46e11f8ac60110629a528cd62
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 49692c08787103b09e6e1502f7a9a58736239fdf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229829"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019002"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servicios que admiten identidades administradas para recursos de Azure
 
@@ -138,7 +138,7 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 
 Tipo de identidad administrada |Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Asignado por el sistema | Versión preliminar | No disponible | No disponible | No disponible |
+| Asignado por el sistema | Versión preliminar | Vista previa | No disponible | Versión preliminar |
 | Asignado por el usuario | No disponible | No disponible  | No disponible  | No disponible |
 
 
@@ -224,7 +224,7 @@ Consulte la lista siguiente para configurar la identidad administrada para Azure
 
 ### <a name="azure-service-fabric"></a>Azure Service Fabric
 
-La [identidad administrada para aplicaciones de Service Fabric](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) está en versión preliminar y disponible en todas las regiones.
+La [identidad administrada para aplicaciones de Service Fabric](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) está disponible en todas las regiones.
 
 Tipo de identidad administrada | Regiones globales de Azure<br>con disponibilidad general | Azure Government | Azure Alemania | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |

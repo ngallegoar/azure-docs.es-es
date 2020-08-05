@@ -1,5 +1,5 @@
 ---
-title: Puntuación del modelo de imagen
+title: Uso del módulo Train Wide & Deep Recommender
 titleSuffix: Azure Machine Learning
 description: Aprenda a usar el módulo Train Wide & Deep Recommender.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: 2ac5e5874ebb34b68cbfe8be1986852c67b97c21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 234217b6571307db04941cc0b9989d3438cde1b7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84739796"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090185"
 ---
 # <a name="train-wide--deep-recommender"></a>Train Wide & Deep Recommender
 En este artículo se describe cómo usar el módulo **Aprenda a usar el módulo Train Wide & Deep Recommender.** de Azure Machine Learning Designer (versión preliminar) para entrenar un modelo de recomendación. Este módulo se basa en el aprendizaje ancho y profundo que ofrece Google.

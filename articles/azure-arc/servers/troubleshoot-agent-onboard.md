@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/10/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 37f99ade366a73cb96caf55a562a92476223eb6b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 46096e1f3f4266e9c070bd1d67f328241163126b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261559"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004552"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>Solución de problemas de conexión del agente de Connected Machine
 
@@ -48,6 +48,9 @@ El siguiente es un ejemplo del comando para habilitar el registro detallado con 
 
 A continuación encontrará un ejemplo del comando para habilitar el registro detallado con el agente de Connected Machine para Linux al realizar una instalación interactiva.
 
+>[!NOTE]
+>Debe tener permisos de acceso *raíz* en máquinas Linux para ejecutar **azcmagent**.
+
 ```
 azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
 ```
@@ -73,12 +76,15 @@ En la tabla siguiente se enumeran algunos de los errores conocidos y las sugeren
 |--------|------|---------------|---------|
 |No se puede adquirir el flujo de dispositivo del token de autorización. |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is unreachable.` |No se puede comunicar con el punto de conexión `login.windows.net`. | Verifique la conectividad al punto de conexión. |
 |No se puede adquirir el flujo de dispositivo del token de autorización. |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is Forbidden`. |Un proxy o firewall bloquean el acceso al punto de conexión `login.windows.net`. | Verifique la conectividad al punto de conexión y que no esté bloqueada por un firewall o un servidor proxy. |
+|No se puede adquirir el flujo de dispositivo del token de autorización.  |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp lookup login.windows.net: no such host`. | El objeto de directiva de grupo *Computer Configuration\ Administrative Templates\ System\ User Profiles\ Eliminar perfiles de usuario con una antigüedad superior al número de días especificado al reiniciar el sistema* está habilitado. | Compruebe que el GPO está habilitado y que tiene como destino la máquina afectada. Consulte la nota al pie <sup>[1](#footnote1)</sup> para más información. |
 |No se puede adquirir el token de autorización del SPN. |`Failed to execute the refresh request. Error = 'Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/token?api-version=1.0: Forbidden'` |Un proxy o firewall bloquean el acceso al punto de conexión `login.windows.net`. |Verifique la conectividad al punto de conexión y que no esté bloqueada por un firewall o un servidor proxy. |
 |No se puede adquirir el token de autorización del SPN. |`Invalid client secret is provided` |Secreto incorrecto o no válido de la entidad de servicio. |Verifique el secreto de la entidad de servicio. |
 | No se puede adquirir el token de autorización del SPN. |`Application with identifier 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' was not found in the directory 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant` |Entidad de servicio o identificador de inquilino incorrectos. |Verifique la entidad de servicio o el identificador del inquilino.|
 |Obtener respuesta a recursos de ARM |`The client 'username@domain.com' with object id 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' does not have authorization to perform action 'Microsoft.HybridCompute/machines/read' over scope '/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.HybridCompute/machines/MSJC01' or the scope is invalid. If access was recently granted, please refresh your credentials."}}" Status Code=403` |Credenciales o permisos incorrectos. |Verifique que usted o la entidad de servicio sean miembros del rol **Incorporación de Azure Connected Machine**. |
 |No se puede aplicar AzcmagentConnectr al recurso de ARM. |`The subscription is not registered to use namespace 'Microsoft.HybridCompute'` |Los proveedores de recursos de Azure no están registrados. |Registre los [proveedores de recursos](./agent-overview.md#register-azure-resource-providers). |
 |No se puede aplicar AzcmagentConnectr al recurso de ARM. |`Get https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.HybridCompute/machines/MSJC01?api-version=2019-03-18-preview:  Forbidden` |El servidor proxy o firewall bloquean el acceso al punto de conexión `management.azure.com`. |Verifique la conectividad al punto de conexión y que no esté bloqueada por un firewall o un servidor proxy. |
+
+<a name="footnote1"></a><sup>1</sup>Si este GPO está habilitado y se aplica a máquinas con el agente de Connected Machine, se elimina el perfil de usuario asociado a la cuenta integrada especificada para el servicio *himds*. Como resultado, también elimina el certificado de autenticación usado para comunicarse con el servicio almacenado en caché en el almacén local de certificados durante 30 días. Antes del límite de 30 días, se realiza un intento de renovar el certificado. Para resolver este problema, siga los pasos para [anular el registro de la máquina](manage-agent.md#unregister-machine) y, luego, vuelva a registrarlo en el servicio mediante `azcmagent connect`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

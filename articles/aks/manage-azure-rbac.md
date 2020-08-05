@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: fc0464c226b8edc2dae01f8ea54c3e5b2e11f2d6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: bb4c689da38606561c657a3e4d85fd9e391267bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244267"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056735"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Uso de Azure RBAC para la autorización de Kubernetes (versión preliminar)
 
@@ -35,14 +35,14 @@ La capacidad de administrar RBAC para los recursos de Kubernetes de Azure le ofr
 - Suscríbase a la versión preliminar <https://aka.ms/aad-rbac-sign-up-form>.
 - Asegúrese de que tiene habilitada la `EnableAzureRBACPreview` marca de características.
 - Asegúrese de que tiene habilitada la `AAD-V2` marca de características.
-- Asegúrese de que tiene instalada la `aks-preview` extensión de la CLI v 0.4.55 o superior.
+- Asegúrese de que tiene instalada la [extensión de la CLI][az-extension-add] `aks-preview` v 0.4.55 o superior.
 - Asegúrese de que ha instalado [kubectl v 1.18.3 +][az-aks-install-cli].
 
 #### <a name="register-enableazurerbacpreview-and-aad-v2-preview-features"></a>Registro de `EnableAzureRBACPreview` y `AAD-V2` características en vista previa (GB)
 
 A fin de crear un clúster de AKS que use Azure RBAC para la autorización de Kubernetes, debe habilitar las marcas de características `EnableAzureRBACPreview` y `AAD-V2` en su suscripción.
 
-Registro de `EnableAzureRBACPreview` la marca de característica con el comando de [característica de registro az][az-feature-register], tal como se muestra en el siguiente ejemplo:
+Registre las marcas de características `EnableAzureRBACPreview` y `AAD-V2` con el comando [az feature register][az-feature-register], como se muestra en el siguiente ejemplo:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureRBACPreview"
@@ -66,7 +66,7 @@ az provider register --namespace Microsoft.ContainerService
 
 #### <a name="install-aks-preview-cli-extension"></a>Instalación de la extensión aks-preview de la CLI
 
-Para crear un clúster de AKS que use un Azure RBAC, necesita la versión 0.4.55 o superior de la extensión de la CLI *aks-preview*. Instale la extensión de la CLI de Azure *aks-preview* con el comando [az extension add][az-extension-add] y, a continuación, busque las actualizaciones disponibles con el comando [az extension update][az-extension-update]:
+Para crear un clúster de AKS que use un Azure RBAC, necesita la versión 0.4.55 o superior de la extensión de la CLI *aks-preview*. Instale la extensión de la CLI de Azure *aks-preview* con el comando [az extension add][az-extension-add] o instale las actualizaciones disponibles con el comando [az extension update][az-extension-update]:
 
 ```azurecli-interactive
 # Install the aks-preview extension

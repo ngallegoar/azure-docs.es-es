@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: b6244b3ab72f7fa8ea375ff67a08e8d1d241df4a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 002eeaedf4ae479408cd1ba0c7a373d8a2661cdc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527904"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089403"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Cifrado de Azure Storage para datos en reposo
 
@@ -39,7 +39,7 @@ Para más información sobre el cifrado y la administración de claves para Azur
 Los datos de una cuenta de almacenamiento nueva se cifran con claves administradas por Microsoft. Puede confiar en las claves administradas por Microsoft para el cifrado de los datos, o puede administrar el cifrado con sus propias claves. Si opta por administrar el cifrado con sus propias claves, tiene dos opciones:
 
 - Puede especificar una *clave administrada por el cliente* con Azure Key Vault que se usará para cifrar y descifrar datos en el almacenamiento de blobs y en Azure Files.<sup>1,2</sup> Para más información sobre las claves administradas por el cliente, consulte [Uso de claves administradas por el cliente con Azure Key Vault para administrar el cifrado de Azure Storage](encryption-customer-managed-keys.md).
-- En las operaciones de almacenamiento de blobs, puede especificar una *clave proporcionada por el cliente*. Un cliente que realiza una solicitud de lectura o escritura en el almacenamiento de blobs puede incluir una clave de cifrado en la solicitud para tener un control detallado sobre el cifrado y el descifrado de los datos de blob. Para más información sobre las claves proporcionadas por el cliente, consulte [Proporcionar una clave de cifrado en una solicitud de Blob Storage (versión preliminar)](encryption-customer-provided-keys.md).
+- En las operaciones de almacenamiento de blobs, puede especificar una *clave proporcionada por el cliente*. Un cliente que realiza una solicitud de lectura o escritura en el almacenamiento de blobs puede incluir una clave de cifrado en la solicitud para tener un control detallado sobre el cifrado y el descifrado de los datos de blob. Para más información sobre las claves proporcionadas por el cliente, consulte [Especificación de una clave de cifrado en una solicitud a Blob Storage](encryption-customer-provided-keys.md).
 
 En la tabla siguiente se comparan las opciones de administración de claves para el cifrado de Azure Storage.
 

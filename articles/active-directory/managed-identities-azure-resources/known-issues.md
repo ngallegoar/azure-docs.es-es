@@ -17,12 +17,12 @@ ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 6f18c9fe43b0b714e5709b014c051520b3722138
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: d8aa6cc7894b13789fe196e32c401128572346bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855133"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019070"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Preguntas frecuentes y problemas conocidos con identidades administradas para recursos de Azure
 
@@ -55,9 +55,12 @@ Las identidades administradas no tienen un objeto de aplicación en el directori
 
 No, no hay planes que admitan las identidades administradas para recursos de Azure en Azure Cloud Services.
 
-### <a name="does-managed-identities-for-azure-resources-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>¿Funcionan las identidades administradas para recursos de Azure con la Biblioteca de autenticación de Active Directory (ADAL) o la Biblioteca de autenticación de Microsoft (MSAL)?
+### <a name="what-is-the-credential-associated-with-a-managed-identity-how-long-is-it-valid-and-how-often-is-it-rotated"></a>¿Cuál es la credencial asociada a una identidad administrada? ¿Qué validez tiene y con qué frecuencia se rota?
 
-No, las identidades administradas para recursos de Azure aún no están integradas con ADAL o MSAL. Para obtener más información sobre la adquisición de un token para las identidades administradas para recursos de Azure mediante el punto de conexión de REST, vea [Cómo usar identidades administradas de recursos de Azure en una máquina virtual de Azure para adquirir un token de acceso](how-to-use-vm-token.md).
+> [!NOTE]
+> La forma de autenticarse las identidades administradas es un dato de implementación interno que está sujeto a cambios sin previo aviso.
+
+Las identidades administradas usan la autenticación basada en certificados. Cada credencial de identidad administrada expira al cabo de 90 días y se revierte después de 45 días.
 
 ### <a name="what-is-the-security-boundary-of-managed-identities-for-azure-resources"></a>¿Cuál es el límite de seguridad de las identidades administradas para recursos de Azure?
 
