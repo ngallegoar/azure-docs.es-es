@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: jlian
-ms.openlocfilehash: 32ff08c62e53384b64981e1c40a3485b17a8ce11
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: f15f0c3f6b442419d3d2e3a253d15465e130eae2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85918756"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090610"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Compatibilidad de IoT Hub con redes virtuales mediante Private Link e identidad administrada
 
@@ -47,6 +47,8 @@ Antes de continuar, asegúrese de que se cumplen los requisitos previos siguient
 * En el caso de los dispositivos que operan en redes locales, configure la [red privada virtual (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) o el emparejamiento privado de [ExpressRoute](https://azure.microsoft.com/services/expressroute/) en su red virtual de Azure.
 
 ### <a name="set-up-a-private-endpoint-for-iot-hub-ingress"></a>Configuración de un punto de conexión privado para la entrada de IoT Hub
+
+El punto de conexión privado funciona para API de dispositivo de IoT Hub (como los mensajes de dispositivo a nube), así como para API de servicio (como la creación y la actualización de dispositivos).
 
 1. En Azure Portal, seleccione **Redes**, **Conexiones de punto de conexión privado** y haga clic en **+ Punto de conexión privado**.
 

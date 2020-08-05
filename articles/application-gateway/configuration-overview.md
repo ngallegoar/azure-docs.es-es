@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: absha
-ms.openlocfilehash: 0245a23e46770840295904685c913826950c0642
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8a9373893b1381e9a2f54bb83717e6001efac295
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517865"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386340"
 ---
 # <a name="application-gateway-configuration-overview"></a>Introducción a la configuración de Application Gateway
 
@@ -74,7 +74,7 @@ En este escenario, puede usar grupos de seguridad de red en la subred de Applica
 
 - **v1**
 
-   Para la SKU v1, las rutas definidas por el usuario (UDR) se admiten en la subred de la puerta de enlace de aplicaciones, siempre que no alteren la comunicación de solicitud y respuesta de un extremo a otro. Por ejemplo, puede configurar una ruta definida por el usuario en la subred de Application Gateway para que apunte a un dispositivo de firewall para la inspección de paquetes. Debe asegurarse de que el paquete puede llegar a su destino previsto después de la inspección. El no hacerlo podría resultar en un sondeo del estado o en un comportamiento de enrutamiento de tráfico incorrectos. Esto incluye las rutas aprendidas o las rutas 0.0.0.0/0 predeterminadas que se propagan por las puertas de enlace de VPN o de Azure ExpressRoute en la red virtual.
+   Para la SKU v1, las rutas definidas por el usuario (UDR) se admiten en la subred de la puerta de enlace de aplicaciones, siempre que no alteren la comunicación de solicitud y respuesta de un extremo a otro. Por ejemplo, puede configurar una ruta definida por el usuario en la subred de Application Gateway para que apunte a un dispositivo de firewall para la inspección de paquetes. Debe asegurarse de que el paquete puede llegar a su destino previsto después de la inspección. El no hacerlo podría resultar en un sondeo del estado o en un comportamiento de enrutamiento de tráfico incorrectos. Esto incluye las rutas aprendidas o las rutas 0.0.0.0/0 predeterminadas que se propagan por las puertas de enlace de VPN o de Azure ExpressRoute en la red virtual. La versión 1 no admite los escenarios en los que se debe redirigir 0.0.0.0/0 en el entorno local (tunelización forzada).
 
 - **v2**
 
@@ -286,7 +286,7 @@ Mediante las reglas de reescritura, puede agregar, quitar o actualizar encabezad
 Los parámetros de URL y encabezado se pueden establecer en valores estáticos o en otros encabezados y variables de servidor. Como consecuencia, sirve de ayuda en casos de uso importantes, como la extracción de direcciones IP de cliente, la eliminación de información confidencial sobre el back-end, la adición de más seguridad, etc.
 Para más información, consulte:
 
- - [Introducción a la reescritura de encabezados HTTP](rewrite-http-headers-url.md)
+ - [Información general sobre la reescritura de encabezados HTTP y URL](rewrite-http-headers-url.md)
  - [Configuración de la reescritura de encabezados HTTP](rewrite-http-headers-portal.md)
  - [Configuración de la reescritura de URL](rewrite-url-portal.md)
 

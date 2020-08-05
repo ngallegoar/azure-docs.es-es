@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 07/28/2020
 ms.author: cherylmc
-ms.openlocfilehash: ca5880f76ffd3a85d4b3cec8e01f58ae5c024a58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e26b00a78d2ce533aa4d16e88649e7e73e3af91
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749692"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387207"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Conexión de una VPN Gateway (puerta de enlace de red virtual) a una Virtual WAN
 
@@ -33,9 +33,9 @@ Azure Virtual Network
 
 * Cree una red virtual sin ninguna puerta de enlace de red virtual. Compruebe que ninguna de las subredes de sus redes locales se superpone a las redes virtuales a las que quiere conectarse. Para crear una red virtual en Azure Portal consulte este [Inicio rápido](../virtual-network/quick-create-portal.md).
 
-## <a name="1-create-an-azure-virtual-network-gateway"></a><a name="vnetgw"></a>1. Creación de una puerta de enlace de red virtual de Azure
+## <a name="1-create-a-vpn-gateway-virtual-network-gateway"></a><a name="vnetgw"></a>1. Creación de una puerta de enlace de red virtual de VPN Gateway
 
-Cree una puerta de enlace de red virtual VPN Gateway para la red virtual en modo activo-activo para la red virtual. Al crear la puerta de enlace, puede usar las direcciones IP públicas existentes para las dos instancias de la puerta de enlace o puede crear nuevas direcciones IP públicas. Estas direcciones IP públicas se usan al configurar los sitios de Virtual WAN. Para más información sobre el modo activo-activo, consulte [Configurar conexiones activas-activas](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md#aagateway).
+Cree una puerta de enlace de red virtual de **VPN Gateway** en modo activo-activo para la red virtual. Al crear la puerta de enlace, puede usar las direcciones IP públicas existentes para las dos instancias de la puerta de enlace o puede crear nuevas direcciones IP públicas. Estas direcciones IP públicas se usarán al configurar los sitios de Virtual WAN. Para más información sobre los pasos de configuración y las puertas de enlace VPN activo-activo, consulte [Configuración de puertas de enlace VPN activo-activo](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md#aagateway).
 
 ### <a name="active-active-mode-setting"></a><a name="active-active"></a>Configuración del modo activo/activo
 

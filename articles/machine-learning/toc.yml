@@ -15,28 +15,6 @@
 - name: Tutoriales
   expanded: true
   items:
-    - name: Estudio
-      expanded: true
-      items:
-        - name: Designer (arrastrar y colocar)
-          items:
-            - name: 1. Entrenamiento de un modelo de regresión
-              displayName: studio
-              href: tutorial-designer-automobile-price-train-score.md
-            - name: 2. Implementación de ese modelo
-              displayName: studio
-              href: tutorial-designer-automobile-price-deploy.md
-        - name: ML automatizado (interfaz de usuario)
-          items:
-            - name: Creación de experimentos de ML automatizados
-              displayName: 'automl, automated, auto ml, portal, ui'
-              href: tutorial-first-experiment-automated-ml.md
-            - name: Previsión de demanda (datos de uso compartido de bicicletas)
-              displayName: 'automl, automated, auto ml, portal, ui'
-              href: tutorial-automated-ml-forecast.md
-        - name: Datos de imagen de etiqueta
-          displayName: 'tag, tagging, images'
-          href: tutorial-labeling.md
     - name: SDK de Python
       expanded: true
       items:
@@ -64,11 +42,33 @@
         - name: Preparación del código para producción
           displayName: 'mlops, mlopspython, production'
           href: tutorial-convert-ml-experiment-to-production.md
+    - name: Estudio
+      expanded: true
+      items:
+        - name: ML automatizado (interfaz de usuario)
+          items:
+            - name: Creación de experimentos de ML automatizados
+              displayName: 'automl, automated, auto ml, portal, ui'
+              href: tutorial-first-experiment-automated-ml.md
+            - name: Previsión de demanda (datos de uso compartido de bicicletas)
+              displayName: 'automl, automated, auto ml, portal, ui'
+              href: tutorial-automated-ml-forecast.md
+        - name: Designer (arrastrar y colocar)
+          items:
+            - name: 1. Entrenamiento de un modelo de regresión
+              displayName: studio
+              href: tutorial-designer-automobile-price-train-score.md
+            - name: 2. Implementación de ese modelo
+              displayName: studio
+              href: tutorial-designer-automobile-price-deploy.md
+        - name: Datos de imagen de etiqueta
+          displayName: 'tag, tagging, images'
+          href: tutorial-labeling.md
     - name: SDK de R
       items:
         - name: Creación del primer experimento de Machine Learning (R)
           href: tutorial-1st-r-experiment.md
-    - name: CLI de Machine Learning
+    - name: CLI
       items:
         - name: Entrenamiento e implementación con la CLI
           href: tutorial-train-deploy-model-cli.md
@@ -226,9 +226,6 @@
         - name: Uso de paquetes privados de Python
           displayName: 'pip, Conda, anaconda'
           href: how-to-use-private-python-packages.md
-        - name: Habilitar registro
-          displayName: 'troubleshoot, log, files, tracing'
-          href: how-to-enable-logging.md
         - name: Establecimiento de directorios de entrada y salida
           displayName: 'large data, write, experiment files, size limit'
           href: how-to-save-write-experiment-files.md
@@ -309,8 +306,12 @@
             - name: 'Inicio, supervisión o cancelación de ejecuciones'
               displayName: 'cancel, fail, status, child run'
               href: how-to-manage-runs.md
-            - name: Métricas de registro de las ejecuciones de entrenamientos
+            - name: Habilitamiento de registros
+              displayName: 'troubleshoot, log, files, tracing'
               href: how-to-track-experiments.md
+            - name: Ver registros
+              displayName: 'troubleshoot, log, files, tracing'
+              href: how-to-monitor-view-training-logs.md
             - name: Seguimiento de experimentos con MLflow
               displayName: 'log, monitor, metrics, Databricks'
               href: how-to-use-mlflow.md
@@ -363,7 +364,7 @@
         - name: Dónde y cómo implementar
           displayName: 'publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker'
           href: how-to-deploy-and-where.md
-        - name: Escenarios de implementación
+        - name: Destinos de implementación
           items:
             - name: Uso de los modelos existentes
               displayName: publish existing model
@@ -394,19 +395,37 @@
               href: how-to-deploy-fpga-web-service.md
         - name: Solución de problemas y depuración
           href: how-to-troubleshoot-deployment.md
-        - name: Creación de clientes
+        - name: Consumo de un servicio web
           displayName: create client consume request response synchronous
           href: how-to-consume-web-service.md
-        - name: Supervisión de modelos
+        - name: Actualización de servicio web
+          displayName: update hot reload model mounting
+          href: how-to-deploy-update-web-service.md
+        - name: Creación avanzada de scripts de entrada
+          displayName: swagger inference schema binary cors
+          href: how-to-deploy-advanced-entry-script.md
+        - name: Supervisión de servicios web
           items:
             - name: Recopilación y evaluación de datos del modelo
               displayName: track production
               href: how-to-enable-data-collection.md
             - name: Supervisión con Application Insights
               href: how-to-enable-app-insights.md
+        - name: Implementación de modelos de forma continuada
+          displayName: ci cd azure devops models
+          href: how-to-deploy-continuously-deploy.md
         - name: Implementación de un servicio de inferencia cifrada
           displayName: 'homomorhic,encryption,deployment'
           href: how-to-homomorphic-encryption-seal.md
+        - name: Modelos de perfil
+          displayName: profile resource requirement
+          href: how-to-deploy-profile-model.md
+        - name: (Versión preliminar) Implementación sin código
+          displayName: no code
+          href: how-to-deploy-no-code-deployment.md
+        - name: Modelos de paquetes
+          displayName: docker file download
+          href: how-to-deploy-package-models.md
     - name: Compilación y uso de canalizaciones de Machine Learning
       displayName: pipelines
       items:
@@ -423,6 +442,9 @@
           href: how-to-debug-pipelines.md
         - name: Depuración de canalizaciones en Application Insights
           href: how-to-debug-pipelines-application-insights.md
+        - name: Métricas de registro del diseñador
+          displayName: 'designer, logging'
+          href: how-to-track-designer-experiments.md
         - name: Transformación de datos en Designer
           displayName: pipeline
           href: how-to-designer-transform-data.md

@@ -1,6 +1,6 @@
 ---
-title: 'Expansión del grupo de hosts existente con nuevos hosts de sesión (otoño 2019): Azure'
-description: Expansión de un grupo de hosts existente con nuevos hosts de sesión en Windows Virtual Desktop.
+title: Expansión de un grupo de hosts existente de Windows Virtual Desktop (clásico) con nuevos hosts de sesión - Azure
+description: Expansión de un grupo de hosts existente con nuevos hosts de sesión en Windows Virtual Desktop (clásico)
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 291dc32453001dd1e188bacae8be372bb3645ece
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ecdd63b054fda7f973898b0b3a42a29fc94c03bb
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527547"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285040"
 ---
-# <a name="expand-an-existing-host-pool-with-new-session-hosts-fall-2019"></a>Expansión de un grupo de hosts existente con nuevos hosts de sesión (otoño 2019)
+# <a name="expand-an-existing-host-pool-with-new-session-hosts-in-windows-virtual-desktop-classic"></a>Expansión de un grupo de hosts existente con nuevos hosts de sesión en Windows Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a la versión Fall 2019 que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager introducidos en la actualización de Spring 2020, consulte [este artículo](../expand-existing-host-pool.md).
+>Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../expand-existing-host-pool.md).
 
 A medida que aumenta el uso en el grupo de hosts, puede que necesite expandir el grupo de hosts existente con nuevos hosts de sesión para controlar la nueva carga.
 

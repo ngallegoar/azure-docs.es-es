@@ -91,7 +91,7 @@
       items:
         - name: Introducción al acceso con privilegios
           href: groups-features.md
-        - name: Detección de grupos
+        - name: Administración de grupos
           href: groups-discover-groups.md
         - name: Asignación de un miembro o un propietario
           href: groups-assign-member-owner.md

@@ -1,6 +1,6 @@
 ---
 title: 'Implementación de una herramienta de administración con una plantilla de Azure Resource Manager: Azure'
-description: Cómo instalar una herramienta de interfaz de usuario con una plantilla de Azure Resource Manager para administrar los recursos de Windows Virtual Desktop.
+description: Cómo instalar una herramienta de interfaz de usuario con una plantilla de Azure Resource Manager para administrar los recursos de Windows Virtual Desktop (clásico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3c3e93cf711d4dadfdc2354a297b0588fb637c80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf9fff614f638aec9519c11b2bb558cc77b94814
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514227"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284955"
 ---
-# <a name="deploy-a-management-tool-with-an-azure-resource-manager-template"></a>Implementación de una herramienta de administración con una plantilla de Azure Resource Manager
+# <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Implementación de una herramienta de administración de Windows Virtual Desktop (clásico) con una plantilla de Azure Resource Manager
 
 >[!IMPORTANT]
->Este contenido se aplica a la versión de otoño de 2019 que no admite objetos de Windows Virtual Desktop para Azure Resource Manager.
+>Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager.
 
 Las instrucciones de este artículo le indicarán cómo implementar la interfaz de usuario mediante una plantilla de Azure Resource Manager.
 

@@ -4,15 +4,15 @@ description: Obtenga información sobre cómo crear y configurar recursos técni
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: dannyevers
-ms.author: mingshen
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 04/13/2020
-ms.openlocfilehash: aee2016b422dcf447dbae047c8a77ae93bf79ab7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 532a2ce429899d3674a8f6d8308188e9b1f737b1
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107162"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407955"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Creación de recursos técnicos para máquinas virtuales de Azure
 
@@ -43,7 +43,7 @@ El diseño, la compilación y las pruebas de estos recursos lleva tiempo y requi
 
 Considere la posibilidad de usar uno de los siguientes entornos de scripting para ayudar a administrar los discos duros virtuales y las máquinas virtuales:
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
 * [CLI de Azure](https://code.visualstudio.com/)
 
 Además, considere la posibilidad de agregar las herramientas siguientes al entorno de desarrollo:
@@ -282,4 +282,4 @@ Si tiene dificultades para crear el disco duro virtual basado en Azure, vea [Com
 
 De lo contrario:
 
-* [Certifique su imagen de máquina virtual](get-sas-uri.md): se explica cómo probar y enviar una imagen de máquina virtual para la certificación de Azure Marketplace, incluido dónde obtener la *herramienta de prueba de certificación para la herramienta Azure Certified* y cómo usarla para certificar la imagen de máquina virtual.
+* La [Prueba de máquina virtual implementada desde un disco duro virtual](azure-vm-image-certification.md) explica cómo probar y enviar una imagen de máquina virtual para la certificación de Azure Marketplace, incluido dónde obtener la *herramienta de prueba de certificación para la herramienta Azure Certified* y cómo usarla para certificar la imagen de máquina virtual.

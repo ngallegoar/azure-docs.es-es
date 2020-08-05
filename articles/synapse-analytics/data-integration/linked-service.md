@@ -1,6 +1,6 @@
 ---
 title: Protección de servicios vinculados
-description: Aprenda a aprovisionar y proteger un servicio vinculado con una red virtual administrada
+description: Aprenda a aprovisionar y proteger un servicio vinculado con una VNET administrada.
 services: synapse-analytics
 author: acomet
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7c7cf8ec7297b3c0ef855936becc3c06a5120a38
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1ce127dbfd9984b3fb18e518701cbbd3a87f5988
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496084"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387255"
 ---
-# <a name="securing-a-linked-service-with-private-links"></a>Protección de un servicio vinculado con vínculos privados 
+# <a name="secure-a-linked-service-with-private-links"></a>Protección de un servicio vinculado con vínculos privados 
 
 En este artículo, obtendrá información sobre cómo proteger un servicio vinculado en Synapse con un punto de conexión privado.
 
@@ -52,7 +52,7 @@ En caso de no haber hecho clic en el hipervínculo al probar la conexión anteri
 1. Seleccione **Crear**
 1. Después de esperar algunos segundos, debería ver que el vínculo privado creado necesita una aprobación.
 
-## <a name="approval-of-a-private-link"></a>Aprobación de un vínculo privado
+## <a name="private-link-approval"></a>Aprobación del vínculo privado
 1. Seleccione el punto de conexión privado que creó anteriormente. Puede ver un hipervínculo que le permitirá aprobar el punto de conexión privado a nivel de la cuenta de almacenamiento. *Una alternativa es ir directamente a la cuenta de almacenamiento en Azure Portal e ir a la hoja **Conexiones de punto de conexión privado**.*
 1. Marque el punto de conexión privado que creó en Studio y seleccione **Aprobar**.
 1. Agregue una descripción y haga clic en **Sí**.

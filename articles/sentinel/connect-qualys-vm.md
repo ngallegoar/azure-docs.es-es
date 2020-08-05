@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 44002a8f4ab3b644e3530ee2d2fc06a7af271fbe
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 34f2cfa06cbdbb75b8fd610cd1f76fb33dde4cde
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528191"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059843"
 ---
 # <a name="connect-your-qualys-vm-to-azure-sentinel-with-azure-function"></a>Conexión de Qualys Vulnerability Management a Azure Sentinel con Azure Functions
+
+> [!IMPORTANT]
+> El conector de datos de Qualys VM en Azure Sentinel se encuentra actualmente en versión preliminar pública.
+> Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 El conector de Qualys Vulnerability Management (VM) permite conectar fácilmente todos los registros de la solución de seguridad [Qualys VM](https://www.qualys.com/apps/vulnerability-management/) con Azure Sentinel para ver los paneles, crear alertas personalizadas y mejorar la investigación. La integración entre Qualys VM y Azure Sentinel utiliza Azure Functions para extraer datos de registro mediante la API REST.
 

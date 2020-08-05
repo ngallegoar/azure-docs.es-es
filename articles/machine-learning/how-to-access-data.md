@@ -5,25 +5,25 @@ description: Aprenda a usar los almacenes de datos para conectarse de forma segu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 07/08/2020
-ms.custom: seodec18, tracking-python
-ms.openlocfilehash: d6b1d5c66c1dd15fa12638dd451d1ce2fa8fa79f
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.custom: how-to, seodec18, tracking-python
+ms.openlocfilehash: 45fb9ef25bdfa43db9c167d58011fc6196020b65
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146730"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321639"
 ---
 # <a name="connect-to-azure-storage-services"></a>Conexión con los servicios de Azure Storage
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En este artículo, aprenderá a **conectarse a los servicios de Azure Storage a través de almacenes de datos de Azure Machine Learning**. Los almacenes de datos almacenan información de conexión, como el identificador de suscripción y la autorización de token de su instancia de [Key Vault](https://azure.microsoft.com/services/key-vault/) asociada con el área de trabajo, para que pueda acceder al almacenamiento sin tener que codificarlos de forma rígida en los scripts. 
 
-**En el caso de las soluciones de almacenamiento no compatibles** y para ahorrar el costo de salida durante los experimentos de ML, [mueva los datos](#move) a soluciones de Azure Storage compatibles.  Puede crear almacenes de datos a partir de [estas soluciones de Azure Storage](#matrix). 
+**En el caso de las soluciones de almacenamiento no compatibles** y para ahorrar el costo de salida durante los experimentos de ML, [mueva los datos](#move) a una solución de almacenamiento de Azure compatible.  Puede crear almacenes de datos a partir de [estas soluciones de Azure Storage](#matrix). 
 
 Para comprender el lugar de los almacenes de datos en el flujo de trabajo global de acceso a datos de Azure Machine Learning, consulte el artículo [Acceso seguro a los datos](concept-data.md#data-workflow).
 
@@ -92,8 +92,9 @@ Una vez creado el almacén de datos, esta validación solo se realiza para los m
 ### <a name="python-sdk"></a>SDK de Python
 
 Todos los métodos de registro están en la clase [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) y tienen la forma `register_azure_*`.
+
 > [!IMPORTANT]
-> Si tiene previsto crear un almacén de datos para las cuentas de almacenamiento que se encuentran en una red virtual, consulte la sección Acceso a los datos de una red virtual.
+> Si tiene previsto crear un almacén de datos para las cuentas de almacenamiento que se encuentran en una red virtual, consulte la sección [Acceso a los datos de una red virtual](#access-data-in-a-virtual-network).
 
 Puede encontrar la información necesaria para rellenar el método `register_azure_*()` en [Azure Portal](https://portal.azure.com).
 
@@ -185,7 +186,7 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
 Cree un nuevo almacén de datos en unos cuantos pasos en Azure Machine Learning Studio:
 
 > [!IMPORTANT]
-> Si la cuenta de almacenamiento de datos se encuentra en una red virtual, se necesitan pasos de configuración adicionales para garantizar que Studio tenga acceso a los datos. Consulte [Aislamiento de red y privacidad] (how-to-enable-virtual-network.md#machine-learning-studio) para garantizar que se aplican los pasos de configuración adecuados. 
+> Si la cuenta de almacenamiento de datos se encuentra en una red virtual, se necesitan pasos de configuración adicionales para garantizar que Studio tenga acceso a los datos. Vea [Aislamiento de red y privacidad](how-to-enable-virtual-network.md#machine-learning-studio) para asegurarse de que se aplican los pasos de configuración adecuados. 
 
 1. Inicie sesión en [Azure Machine Learning Studio](https://ml.azure.com/).
 1. Seleccione **Almacenes de datos** en el panel izquierdo en **Administrar**.

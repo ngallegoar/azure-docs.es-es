@@ -345,8 +345,8 @@
       items:
         - name: Solución de problemas de almacenamiento
           href: functions-recover-storage-account.md
-        - name: Solución de problemas de dependencias de Python
-          href: recover-module-not-found.md
+        - name: Solución de problemas de funciones de Python
+          href: recover-python-functions.md
 - name: Referencia
   items:
     - name: Referencias de API
@@ -379,7 +379,7 @@
             - name: Salida
               displayName: Blob storage
               href: functions-bindings-storage-blob-output.md
-        - name: Azure Cosmos DB
+        - name: "Azure Cosmos\_DB"
           items:
             - name: Functions 1.x
               href: functions-bindings-cosmosdb.md

@@ -1,6 +1,6 @@
 ---
-title: 'Implementación de la herramienta de diagnósticos para Windows Virtual Desktop: Azure'
-description: Procedimiento para implementar la herramienta de diagnósticos de experiencia de usuario para Windows Virtual Desktop
+title: Implementación de la herramienta de diagnósticos para Windows Virtual Desktop (clásico) - Azure
+description: Procedimiento para implementar la herramienta de diagnósticos de experiencia de usuario para Windows Virtual Desktop (clásico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 544610f4011f7ad12d5b311aab3afd4bc1373ac5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf05d495442a39b42fddf5f373fb2616bf0c6fbe
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362346"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285108"
 ---
-# <a name="deploy-the-diagnostics-tool"></a>Implementación de la herramienta de diagnósticos
+# <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Implementación de la herramienta de diagnósticos para Windows Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a la versión de otoño de 2019 que no admite objetos de Windows Virtual Desktop para Azure Resource Manager.
+>Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager.
 
 >[!IMPORTANT]
 >A partir del 16 de marzo de 2020, se deshabilitaron temporalmente las consultas de diagnóstico que afectan a la experiencia del usuario debido al aumento de demanda en el servicio. Por este motivo, la herramienta dejará de funcionar, ya que depende de dichas consultas. Este artículo se actualizará cuando las consultas de diagnóstico vuelvan a estar disponibles.

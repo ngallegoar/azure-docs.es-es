@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e1ba623a00c84a7b83afe778c808251e49c7008e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3933e9165160c16a9e533bf8bf95f1533dff1cc
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515350"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386697"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementación de Azure File Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -30,7 +30,7 @@ Se recomienda encarecidamente leer [Planeamiento de una implementación de Azure
     $PSVersionTable.PSVersion
     ```
 
-    Si el valor de PSVersion es menor que 5.1.\*, como sucede con la mayoría de las instalaciones nuevas de Windows Server 2012 R2, puede realizar la actualización fácilmente si descarga e instala [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). El paquete adecuado que hay que descargar e instalar para Windows Server 2012 R2 es **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**. 
+    Si el valor de **PSVersion** es menor que 5.1.\*, como sucede con la mayoría de las instalaciones nuevas de Windows Server 2012 R2, puede realizar la actualización fácilmente si descarga e instala [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). El paquete adecuado que hay que descargar e instalar para Windows Server 2012 R2 es **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**. 
 
     PowerShell 6 + se puede usar con cualquier sistema compatible y puede descargarse mediante su [página de GitHub](https://github.com/PowerShell/PowerShell#get-powershell). 
 
@@ -216,6 +216,15 @@ El registro del servidor Windows Server con un servicio de sincronización de al
 > [!Note]
 > El registro del servidor usa sus credenciales de Azure para crear una relación de confianza entre el servicio de sincronización de almacenamiento y su instancia de Windows Server; sin embargo, posteriormente, el servidor crea y usa su propia identidad, que es válida mientras el servidor permanezca registrado y el token de la firma de acceso compartido (SAS de almacenamiento) actual sea válido. No se puede emitir un nuevo token de SAS para el servidor una vez que se anula el registro del servidor, lo que elimina la capacidad del servidor de acceder a los recursos compartidos de archivos de Azure, deteniendo cualquier sincronización.
 
+El administrador que registra el servidor debe ser miembro de los roles de administración **Propietario** o **Colaborador** para el servicio de sincronización de almacenamiento determinado. Esto se puede configurar en **Access Control (IAM)** en Azure Portal para el servicio de sincronización de almacenamiento.
+
+También es posible diferenciar a los administradores que pueden registrar servidores de los que pueden configurar también la sincronización en un servicio de sincronización de almacenamiento. Para ello, debe crear un rol personalizado en el que se muestren los administradores que solo tienen permiso para registrar servidores y conceder a su rol personalizado los permisos siguientes:
+
+* "Microsoft.StorageSync/storageSyncServices/registeredServers/write"
+* "Microsoft.StorageSync/storageSyncServices/read"
+* "Microsoft.StorageSync/storageSyncServices/workflows/read"
+* "Microsoft.StorageSync/storageSyncServices/workflows/operations/read"
+
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Al término de la instalación del agente de Azure File Sync, la interfaz de usuario Registro del servidor debería abrirse automáticamente. Si no es así, puede abrirla manualmente desde su ubicación de archivo: C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe. Cuando la interfaz de usuario Registro del servidor se abra, seleccione **Iniciar sesión** para comenzar.
 
@@ -243,6 +252,8 @@ Un punto de conexión en la nube es un puntero a un recurso compartido de archiv
 
 > [!Important]  
 > Puede realizar cambios en cualquier punto de conexión en la nube o punto de conexión de servidor en el grupo de sincronización y sincronizar los archivos con los demás puntos de conexión del grupo de sincronización. Si realiza algún cambio directamente en el punto de conexión en la nube (recurso compartido de archivos de Azure), tenga en cuenta que un trabajo de detección de cambios de Azure File Sync deberá detectar primero esos cambios. Se inicia un trabajo de detección de cambios para un punto de conexión en la nube solo una vez cada 24 horas. Para obtener más información, consulte [Preguntas más frecuentes de Azure Files](storage-files-faq.md#afs-change-detection).
+
+El administrador que crea el punto de conexión de nube debe ser miembro del rol de administración **Propietario** para la cuenta de almacenamiento que contiene el recurso compartido de archivos de Azure al que apunta el punto de conexión de nube. Esto se puede configurar en **Access Control (IAM)** en Azure Portal para la cuenta de almacenamiento.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Para crear un grupo de sincronización, en [Azure Portal](https://portal.azure.com/), vaya al servicio de sincronización de almacenamiento y haga clic en **+ Grupo de sincronización**:

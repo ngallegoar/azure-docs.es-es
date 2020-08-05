@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 10/29/2019
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 152f7ab6ccb9f01c7fe70553501c8cf8afa1c650
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 588e63e630caa4746b493d4530e301f72e5ccb5f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554887"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282949"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicio de sesión en una máquina virtual Windows en Azure mediante la autenticación de Azure Active Directory (versión preliminar)
 
-Las organizaciones ahora pueden utilizar la autenticación de Azure Active Directory (AD) en sus máquinas virtuales (VM) de Azure que ejecutan **Windows Server 2019 Datacenter Edition** o **Windows 10 1809** y versiones posteriores. El uso de Azure AD para autenticarse en VM le proporciona una manera de controlar y aplicar directivas de forma centralizada. Herramientas como, por ejemplo, control de acceso basado en rol (RBAC) de Azure y el acceso condicional Azure AD, permiten controlar quién puede tener acceso a una VM. En este artículo se muestra cómo crear y configurar una VM Windows Server 2019 para usar la autenticación de Azure AD.
+Las organizaciones ahora pueden utilizar la autenticación de Azure Active Directory (AD) en sus máquinas virtuales (VM) de Azure que ejecutan **Windows Server 2019 Datacenter Edition** o **Windows 10 1809** y versiones posteriores. El uso de Azure AD para autenticarse en VM le proporciona una manera de controlar y aplicar directivas de forma centralizada. Herramientas como, por ejemplo, el control de acceso basado en rol de Azure (Azure RBAC) y el acceso condicional de Azure AD, permiten controlar quién puede acceder a una VM. En este artículo se muestra cómo crear y configurar una VM Windows Server 2019 para usar la autenticación de Azure AD.
 
 > [!NOTE]
 > El inicio de sesión de Azure AD para VM Windows de Azure es una Característica en vista previa (GB) pública de Azure Active Directory. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -202,12 +202,15 @@ Puede aplicar directivas de acceso condicional, como la autenticación multifact
 > [!NOTE]
 > Si usa "Requerir autenticación multifactor" como control de acceso de concesión para solicitar acceso a la aplicación de inicio de sesión de máquinas virtuales Windows de Azure, debe proporcionar una notificación de autenticación multifactor como parte del cliente que inicia la sesión RDP en la máquina virtual Windows de destino en Azure. La única manera de hacer esto en un cliente de Windows 10 es usar el PIN de Windows Hello para empresas o la autenticación biométrica con el cliente RDP. En la versión 1809 de Windows 10 se agregó compatibilidad con la autenticación biométrica al cliente RDP. El escritorio remoto que usa la autenticación de Windows Hello para empresas solo está disponible para implementaciones que emplean el modelo de confianza de certificados. Actualmente no está disponible para el modelo de confianza de claves.
 
+> [!WARNING]
+> Azure Multi-Factor Authentication habilitado o forzado por el usuario no es compatible con el inicio de sesión de la máquina virtual.
+
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Inicio de sesión mediante las credenciales de Azure AD en una VM Windows
 
 > [!IMPORTANT]
-> La conexión remota a las VM unidas a Azure AD solo se permite desde equipos con Windows 10 que están unidos a Azure AD o a Azure AD en entornos híbridos al **mismo** directorio que la VM. Además, a través de RDP con credenciales de Azure AD, el usuario debe pertenecer a uno de los dos roles de RBAC, Inicio de sesión de administrador de máquina virtual o Inicio de sesión de usuario de máquina virtual. En este momento, no se puede usar Azure Bastion para iniciar sesión mediante la autenticación de Azure Active Directory con la extensión AADLoginForWindows. Solo se admite RDP directo.
+> La conexión remota a las VM unidas a Azure AD solo se permite desde equipos con Windows 10 que están registrados en Azure AD (la compilación mínima requerida es 20H1), unidos a Azure AD o unidos a Azure AD híbrido en el **mismo** directorio que la máquina virtual. Además, a través de RDP con credenciales de Azure AD, el usuario debe pertenecer a uno de los dos roles de RBAC, Inicio de sesión de administrador de máquina virtual o Inicio de sesión de usuario de máquina virtual. Si usa un equipo con Windows 10 registrado en Azure AD, debe escribir las credenciales con el formato AzureAD\UPN (por ejemplo, AzureAD\john@contoso.com). En este momento, no se puede usar Azure Bastion para iniciar sesión mediante la autenticación de Azure Active Directory con la extensión AADLoginForWindows; solo se admite RDP directo.
 
-Para iniciar sesión en la máquina virtual de Windows Server 2019 mediante Azure AD: 
+Para iniciar sesión en la máquina virtual Windows Server 2019 mediante Azure AD: 
 
 1. Vaya a la página de información general de la máquina virtual que se ha habilitado con inicio de sesión de Azure AD.
 1. Seleccione **Conectar** para abrir la hoja Conectarse a una máquina virtual.
@@ -339,7 +342,7 @@ Si ve el siguiente mensaje de error al iniciar una conexión de Escritorio remot
 Compruebe que el equipo con Windows 10 que usa para iniciar la conexión de Escritorio remoto es uno de los unidos a Azure AD o unidos al entorno híbrido de Azure AD al mismo directorio de Azure AD al que se una la VM. Para más información sobre la identidad del dispositivo, consulte el artículo [¿Qué es una identidad de dispositivo?](/azure/active-directory/devices/overview)
 
 > [!NOTE]
-> Windows 10 20H1, agregará compatibilidad para un equipo registrado en Azure AD para iniciar una conexión de Escritorio remoto en la VM. Únase al programa Windows Insider para probar y explorar las nuevas características de Windows 10.
+> La compilación 20H1 de Windows 10 agregó compatibilidad con un equipo registrado en Azure AD para iniciar la conexión RDP a la máquina virtual. Al usar un equipo registrado en Azure AD (no unido a Azure AD ni unido a Azure AD híbrido) como el cliente RDP para iniciar conexiones a la máquina virtual, debe escribir las credenciales con el formato AzureAD\UPn (por ejemplo, AzureAD\john@contoso.com).
 
 Además, compruebe que la extensión AADLoginForWindows no se ha desinstalado una vez que completada la unión a Azure AD.
  

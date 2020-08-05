@@ -1,5 +1,5 @@
 ---
-title: Operaciones de proveedores de recursos de Azure
+title: Operaciones del proveedor de recursos de Azure
 description: Enumera las operaciones de los proveedores de recursos de Azure.
 services: active-directory
 ms.service: role-based-access-control
@@ -8,14 +8,14 @@ ms.workload: identity
 author: rolyon
 ms.author: rolyon
 ms.date: 07/16/2020
-ms.openlocfilehash: 0fc2039805b155535eeac1d653fc9ecb9e576d5d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d28f852ad4159472b7fcb3289a322db54be8af1e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496951"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387394"
 ---
-# <a name="azure-resource-providers-operations"></a>Operaciones de proveedores de recursos de Azure
+# <a name="azure-resource-provider-operations"></a>Operaciones del proveedor de recursos de Azure
 
 En esta sección se enumeran las operaciones de los proveedores de recursos de Azure, que se usan en roles integrados. Puede usar estas operaciones en [roles personalizados de Azure](custom-roles.md) para proporcionar un control de acceso pormenorizado a los recursos en Azure. Las operaciones del proveedor de recursos están en constante evolución. Para obtener las operaciones más recientes, use [Get AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) o [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
 

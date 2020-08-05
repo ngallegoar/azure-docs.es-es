@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: e4185de879fa6136531e6d4c64908befa1d3bc45
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: df4292a40335e58c64b8ebc50ffb6ac1ceee8836
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528193"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059904"
 ---
 # <a name="connect-your-proofpoint-tap-to-azure-sentinel-with-azure-function"></a>Conexión de Proofpoint TAP a Azure Sentinel con Azure Functions
+
+> [!IMPORTANT]
+> El conector de datos de Proofpoint TAP en Azure Sentinel se encuentra actualmente en versión preliminar pública.
+> Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 El conector de Proofpoint Targeted Attack Protection (TAP) permite conectar fácilmente todos los registros de la solución de seguridad de [Proofpoint TAP](https://www.proofpoint.com/us/products/advanced-threat-protection/targeted-attack-protection) con Azure Sentinel para ver los paneles, crear alertas personalizadas y mejorar la investigación. La integración entre Proofpoint TAP y Azure Sentinel usa Azure Functions para extraer datos de registro mediante la API REST.
 

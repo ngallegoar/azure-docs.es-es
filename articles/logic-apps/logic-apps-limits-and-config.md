@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 06/25/2020
-ms.openlocfilehash: 4235e948dba76c0b2926d9965ccd2fcb072cad62
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/28/2020
+ms.openlocfilehash: 2aa267f3c04225699d3ce65b5f8ee3b573ac0c78
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520790"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323764"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -389,8 +389,7 @@ En esta sección se enumeran las direcciones IP salientes para el servicio Azure
 
 > [!TIP]
 > Para ayudar a reducir la complejidad al crear reglas de seguridad, tiene la opción de usar la [etiqueta de servicio](../virtual-network/service-tags-overview.md) **LogicApps**, en lugar de especificar prefijos de dirección IP salientes de Logic Apps para cada región.
-> Esta etiqueta funciona en las regiones en las que está disponible el servicio Logic Apps.
-> En el caso de los conectores administrados, debe seguir utilizando las direcciones IP.
+> En el caso de los conectores administrados, puede usar opcionalmente la etiqueta de servicio **AzureConnectors**, en lugar de especificar prefijos de direcciones IP de conectores administrados salientes para cada región. Estas etiquetas funcionan en las regiones en las que está disponible el servicio Logic Apps. 
 
 <a name="multi-tenant-outbound"></a>
 

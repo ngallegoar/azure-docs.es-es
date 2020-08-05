@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0498a2015b75221763ab5fdd4f6e94428922bd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6238e89b3941668f831f3128bb0e723a4097e48
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386749"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027519"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Adición de un conector de API a un flujo de usuario
 
@@ -35,7 +35,7 @@ Para usar un [conector de API](api-connectors-overview.md), primero debe crear e
 6. Proporcione el valor de **Dirección URL del punto de conexión** de la llamada API.
 7. Indique la información de autenticación de la API.
 
-   - Actualmente solo se admite la autenticación básica. Si desea usar una API sin autenticación básica con fines de desarrollo, solo tiene que escribir un **Nombre de usuario** y una **Contraseña** ficticios que la API pueda omitir. Si se va a usar con una función de Azure con una clave de API, puede incluir el código como un parámetro de consulta en **Dirección URL del punto de conexión** (por ejemplo, https[]()://contoso.azurewebsites.net/api/endpoint<b>?code=0123456789</b>).
+   - Actualmente solo se admite la autenticación básica. Si desea usar una API sin autenticación básica con fines de desarrollo, solo tiene que escribir un **Nombre de usuario** y una **Contraseña** ficticios que la API pueda omitir. Si se utiliza con una función de Azure y una clave de API, puede incluir el código como un parámetro de consulta en **Dirección URL del punto de conexión** (por ejemplo, https[]()://contoso.azurewebsites.net/api/endpoint<b>?code=0123456789</b>).
 
    ![Adición de un conector de API nuevo](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
 
@@ -76,7 +76,7 @@ POST <API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@fabrikam.onmicrosoft.com",
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
  "identities": [ //Sent for Google and Facebook identity providers
      {
      "signInType":"federated",
@@ -99,7 +99,7 @@ Si una notificación para enviar no tiene un valor en el momento en que se llama
 Se pueden crear atributos personalizados para el usuario con el formato **extensión_\<extensions-app-id>_nombreAtributo**. La API esperará recibir las notificaciones con este mismo formato serializado. La API puede devolver notificaciones con o sin `<extensions-app-id>`. Para más información acerca de los atributos personalizados, consulte cómo [definir atributos personalizados para flujos de autoservicio de registro](user-flow-add-custom-attributes.md).
 
 > [!TIP] 
-> Las notificaciones de [**identidades ("identities")** ](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) y **dirección de correo electrónico ("email_address")** se pueden usar para identificar a un usuario antes de que tenga una cuenta en el inquilino. La notificación "identities" se envía cuando un usuario se autentica con Google o Facebook, y "email_address" se envía siempre.
+> Las notificaciones de [**identidades ("identities")** ](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) y **dirección de correo electrónico ('email')** se pueden usar para identificar a un usuario antes de que tenga una cuenta en el inquilino. La notificación 'identities' se envía cuando un usuario se autentica con Google o Facebook, mientra que 'email' se envía siempre.
 
 ## <a name="expected-response-types-from-the-web-api"></a>Tipos de respuesta esperados de la API web
 
@@ -138,13 +138,13 @@ Content-type: application/json
 | version                                            | String            | Sí      | La versión de la API.                                                                                                                                                                                                                                                                |
 | action                                             | String            | Sí      | El valor debe ser `Continue`.                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | No       | Los valores se pueden almacenar en el directorio si están seleccionados como **Claim to receive** (Notificación para recibir) en la configuración del conector de API y **User attribute** (Atributo de usuario) de un flujo de usuario. Los valores se pueden devolver en el token si están seleccionados como **Application claim** (Notificación de aplicación).                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | Opcionalmente, la notificación devuelta puede no contener `_<extensions-app-id>_`. Los valores se almacenan almacenar en el directorio si están seleccionados como **Claim to receive** (Notificación para recibir) en la configuración del conector de API y **User attribute** (Atributo de usuario) de un flujo de usuario. Los atributos personalizados no se pueden devolver en el token. |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | No es necesario que la notificación devuelta contenga `_<extensions-app-id>_`. Los valores se almacenan almacenar en el directorio si están seleccionados como **Claim to receive** (Notificación para recibir) en la configuración del conector de API y **User attribute** (Atributo de usuario) de un flujo de usuario. Los atributos personalizados no se pueden devolver en el token. |
 
 ### <a name="blocking-response"></a>Respuesta de bloqueo
 
 Una respuesta de bloqueo termina el flujo de usuario. La API puede emitirla intencionadamente para detener el flujo de usuario y mostrar una página de bloqueo al usuario. La página de bloqueo muestra el mensaje `userMessage` proporcionado por la API.
 
-El siguiente es un ejemplo de la respuesta de bloqueo:
+Ejemplo de la respuesta de bloqueo:
 
 ```http
 HTTP/1.1 200 OK
@@ -166,7 +166,7 @@ Content-type: application/json
 | userMessage | String | Sí      | Mensaje que se va a mostrar al usuario.                                            |
 | código        | String | No       | Código de error. Se puede usar con fines de depuración. No se muestra al usuario. |
 
-#### <a name="end-user-experience-with-a-blocking-response"></a>Finaliza la experiencia del usuario con una respuesta de bloqueo
+#### <a name="end-user-experience-with-a-blocking-response"></a>Experiencia del usuario final con una respuesta de bloqueo
 
 ![Página de bloqueo de ejemplo](./media/api-connectors-overview/blocking-page-response.png)
 
@@ -197,7 +197,7 @@ Content-type: application/json
 | userMessage | String  | Sí      | Mensaje que se va a mostrar al usuario.                                            |
 | código        | String  | No       | Código de error. Se puede usar con fines de depuración. No se muestra al usuario. |
 
-#### <a name="end-user-experience-with-a-validation-error-response"></a>Finaliza la experiencia del usuario con una respuesta de error de validación
+#### <a name="end-user-experience-with-a-validation-error-response"></a>Experiencia del usuario final con una respuesta de error de validación
 
 ![Página de validación de ejemplo](./media/api-connectors-overview/validation-error-postal-code.png)
 

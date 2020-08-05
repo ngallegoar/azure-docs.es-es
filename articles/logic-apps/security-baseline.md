@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d27abfda789a9bb1bd5479b059355703388333f8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1e547cf3f08e49ce707cd079778588fb6be5acb5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520653"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048425"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Base de referencia de seguridad de Azure para Logic Apps
 
@@ -643,7 +643,7 @@ Microsoft administra la infraestructura subyacente de Azure Logic Apps y ha impl
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Uso del control de acceso basado en rol para controlar el acceso a los recursos
 
-**Guía**: Puede permitir que solo determinados usuarios o grupos ejecuten tareas específicas, como administrar, editar y ver aplicaciones lógicas. Para controlar sus permisos, use el Control de acceso basado en rol (RBAC) de Azure para que pueda asignar roles personalizados o integrados a los miembros de la suscripción a Azure:
+**Guía**: Puede permitir que solo determinados usuarios o grupos ejecuten tareas específicas, como administrar, editar y ver aplicaciones lógicas. Para controlar sus permisos, use el control de acceso basado en rol (RBAC) de Azure de forma que se puedan asignar roles personalizados o integrados a los miembros de la suscripción a Azure:
 - Colaborador de aplicaciones lógicas: Le permite administrar aplicaciones lógicas, pero no puede cambiar el acceso a ellas.
 - Operador de aplicaciones lógicas: Le permite leer, habilitar y deshabilitar aplicaciones lógicas, pero no puede editarlas ni actualizarlas.
 
@@ -867,7 +867,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12: Limitación de capacidad de los usuarios para ejecutar scripts en recursos de proceso
 
-**Instrucciones**: No aplicable; esta recomendación está pensada para los recursos de proceso.
+**Guía**: No aplicable; esta recomendación está pensada para los recursos de proceso.
 
 **Supervisión de Azure Security Center**: N/D
 

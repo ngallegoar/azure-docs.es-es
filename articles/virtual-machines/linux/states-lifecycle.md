@@ -4,16 +4,16 @@ description: Información general del ciclo de vida de una máquina virtual en A
 services: virtual-machines
 author: shandilvarun
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: c1452252e6cbd7b741c14c2ea52728ba144c65a1
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: a12f4156947eb55696ffe2ba067250bd1282989d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81757857"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292181"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>Estados y ciclo de vida de las máquinas virtuales
 
@@ -21,4 +21,4 @@ ms.locfileid: "81757857"
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre la supervisión de la máquina virtual, consulte [Supervisión de máquinas virtuales en Azure](monitor.md).
+Para obtener más información sobre la supervisión de la máquina virtual, consulte [Supervisión de máquinas virtuales en Azure](../../azure-monitor/insights/monitor-vm-azure.md).

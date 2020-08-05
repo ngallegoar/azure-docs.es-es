@@ -3,12 +3,12 @@ title: Copia de seguridad sin conexión con Azure Data Box
 description: Aprenda a usar Azure Data Box para propagar los datos de grandes copias de seguridad iniciales sin conexión desde el agente de MARS hasta un almacén de Recovery Services.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: a60d749f270c9efab0649b49b5c0c41945faddf5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e377ccde714c1486ff731d24d5a0cd64364bca37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513700"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091035"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Copia de seguridad sin conexión de Azure Backup con Azure Data Box
 
@@ -153,7 +153,7 @@ El agente de MARS funciona en el contexto del sistema local y, por tanto, requie
 Para asegurarse de que puede montar el dispositivo Data Box como un sistema local mediante el protocolo NFS:
 
 1. Habilite el cliente para la característica NFS en el servidor de Windows donde está instalado el agente de MARS. Especifique el origen alternativo *WIM:D:\Sources\Install.wim:4*.
-1. Descargue PSExec desde <https://download.sysinternals.com/files/PSTools.zip> en el servidor con el agente de MARS instalado.
+1. Descargue PsExec desde la página [Sysinternals](/sysinternals/downloads/psexec) del servidor con el agente de MARS instalado.
 1. Abra un símbolo del sistema con privilegios elevados y ejecute el comando siguiente con el directorio que contiene *PSExec.exe* como directorio actual.
 
     ```cmd

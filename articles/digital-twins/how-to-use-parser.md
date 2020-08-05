@@ -7,41 +7,24 @@ ms.author: cschorm
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b6d6e16b079f1423fd1ea812e384546ae5d84067
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5245e3740773c2be7973b26a4785982e0daa56c9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392206"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291627"
 ---
-# <a name="dtdl-client-side-parser-library"></a>Biblioteca del analizador del lado cliente de DTDL
+# <a name="parse-and-validate-models-with-the-dtdl-parser-library"></a>Análisis y validación de modelos con la biblioteca del analizador de DTDL
 
-Los [modelos](concepts-models.md) de Azure Digital Twins se definen con el lenguaje de definición de gemelos digitales (DTDL) basado en JSON-LD. En los casos en los que resulta útil analizar los modelos, se proporciona una biblioteca de análisis DTDL en NuGet.org como una biblioteca del lado cliente: [Microsoft.Azure.DigitalTwins.Parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/).
+Los [modelos](concepts-models.md) de Azure Digital Twins se definen con el lenguaje de definición de gemelos digitales (DTDL) basado en JSON-LD. **Se recomienda validar los modelos sin conexión antes de cargarlos en la instancia de Azure Digital Twins**.
 
-Esta biblioteca proporciona al modelo el acceso a las definiciones en DTDL, actuando esencialmente como el equivalente de reflexión en C# para DTDL. Esta biblioteca se puede usar independientemente de cualquier [SDK de Azure Digital Twins](how-to-use-apis-sdks.md), en especial para la validación de DTDL en un editor de texto o visual. Es útil para asegurarse de que los archivos de definición del modelo sean válidos antes de intentar cargarlos en el servicio.
-
-Para usar la biblioteca del analizador, se le proporciona un conjunto de documentos DTDL. Normalmente, estos documentos de modelo se recuperan del servicio, pero también pueden estar disponibles localmente, si el cliente fue responsable de cargarlos en el servicio en primer lugar. 
-
-Este es el flujo de trabajo general para usar el analizador:
-1. Recupere algunos o todos los documentos DTDL del servicio.
-2. Pase los documentos DTDL en memoria devueltos al analizador.
-3. El analizador validará el conjunto de documentos que se le pasa y devolverá información detallada sobre el error. Esta capacidad es útil en escenarios de editor.
-4. Use las API del analizador para seguir analizando los modelos incluidos en el conjunto de documentos. 
-
-Entre las capacidades del analizador se incluyen:
-* Obtener todas las interfaces del modelo implementadas (el contenido de la sección `extends` de la interfaz).
-* Obtener todas las propiedades, la telemetría, los comandos, los componentes y las relaciones declaradas en el modelo. Este comando también obtiene todos los metadatos incluidos en estas definiciones y tiene en cuenta la herencia (secciones `extends`).
-* Obtener todas las definiciones de modelos complejos.
-* Determinar si un modelo es asignable desde otro modelo.
-
-> [!NOTE]
-> Los dispositivos[IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) usan una pequeña variante de la sintaxis para describir su funcionalidad. Esta variante de sintaxis es un subconjunto compatible semánticamente del DTDL que se usa en Azure Digital Twins. Cuando se usa la biblioteca del analizador, no es necesario saber qué variante de sintaxis se ha usado para crear el DTDL para el gemelo digital. El analizador siempre devolverá, de forma predeterminada, el mismo modelo para la sintaxis de PnP y de Azure Digital Twins.
+Para facilitar esta tarea, se proporciona una biblioteca de análisis de DTDL del lado cliente de .NET en NuGet: [**Microsoft.Azure.DigitalTwins.Parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). Puede usar la biblioteca del analizador directamente en el código de C#, o bien usar el proyecto de ejemplo de código independiente del lenguaje que se basa en la biblioteca del analizador: [**Ejemplo de validador de DTDL**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
 
 ## <a name="use-the-dtdl-validator-sample"></a>Uso del ejemplo de validador de DTDL
 
-Hay un código de ejemplo disponible que puede validar los documentos del modelo para garantizar que el DTDL sea válido. Se basa en la biblioteca del analizador de DTDL y es independiente del lenguaje. Se puede encontrar aquí: [Ejemplo de validador de DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
+El [**validador de DTDL**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) es un proyecto de ejemplo que puede validar los documentos del modelo para garantizar que el DTDL sea válido. Se basa en la biblioteca del analizador de .NET y es independiente del lenguaje. Puede obtenerlo con el botón *Descargar archivo ZIP* en el vínculo de ejemplo.
 
-El ejemplo de validador se puede usar como una utilidad de línea de comandos para validar un árbol de directorios de archivos DTDL. También proporciona un modo interactivo. El código fuente muestra ejemplos de cómo usar la biblioteca del analizador.
+El código fuente muestra ejemplos de cómo usar la biblioteca del analizador. Puede usar el ejemplo de validador como una utilidad de línea de comandos para validar un árbol de directorios de archivos DTDL. También proporciona un modo interactivo.
 
 En la carpeta del ejemplo de validador de DTDL, vea el archivo *readme.md* para obtener instrucciones sobre cómo empaquetar el ejemplo en un ejecutable independiente.
 
@@ -65,9 +48,30 @@ DTDLValidator -i
 
 Para obtener más información sobre este ejemplo, vea el código fuente o ejecute `DTDLValidator --help`.
 
-## <a name="use-the-parser-library-in-code"></a>Uso de la biblioteca del analizador en el código
+## <a name="use-the-net-parser-library"></a>Uso de la biblioteca del analizador de .NET 
 
-También puede usar la biblioteca del analizador directamente para, por ejemplo, la validación de modelos en su propia aplicación o la generación de interfaces de usuario, paneles e informes dinámicos controlados por modelos.
+La biblioteca [**Microsoft.Azure.DigitalTwins.Parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) proporciona al modelo el acceso a las definiciones en DTDL, actuando esencialmente como el equivalente de reflexión en C# para DTDL. Esta biblioteca se puede usar independientemente de cualquier [SDK de Azure Digital Twins](how-to-use-apis-sdks.md), en especial para la validación de DTDL en un editor de texto o visual. Es útil para asegurarse de que los archivos de definición del modelo sean válidos antes de intentar cargarlos en el servicio.
+
+Para usar la biblioteca del analizador, se le proporciona un conjunto de documentos DTDL. Normalmente, estos documentos de modelo se recuperan del servicio, pero también pueden estar disponibles localmente, si el cliente fue responsable de cargarlos en el servicio en primer lugar. 
+
+Este es el flujo de trabajo general para usar el analizador:
+1. Recupere algunos o todos los documentos DTDL del servicio.
+2. Pase los documentos DTDL en memoria devueltos al analizador.
+3. El analizador validará el conjunto de documentos que se le pasa y devolverá información detallada sobre el error. Esta capacidad es útil en escenarios de editor.
+4. Use las API del analizador para seguir analizando los modelos incluidos en el conjunto de documentos. 
+
+Entre las capacidades del analizador se incluyen:
+* Obtener todas las interfaces del modelo implementadas (el contenido de la sección `extends` de la interfaz).
+* Obtener todas las propiedades, la telemetría, los comandos, los componentes y las relaciones declaradas en el modelo. Este comando también obtiene todos los metadatos incluidos en estas definiciones y tiene en cuenta la herencia (secciones `extends`).
+* Obtener todas las definiciones de modelos complejos.
+* Determinar si un modelo es asignable desde otro modelo.
+
+> [!NOTE]
+> Los dispositivos[IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) usan una pequeña variante de la sintaxis para describir su funcionalidad. Esta variante de sintaxis es un subconjunto compatible semánticamente del DTDL que se usa en Azure Digital Twins. Cuando se usa la biblioteca del analizador, no es necesario saber qué variante de sintaxis se ha usado para crear el DTDL para el gemelo digital. El analizador siempre devolverá, de forma predeterminada, el mismo modelo para la sintaxis de PnP y de Azure Digital Twins.
+
+### <a name="code-with-the-parser-library"></a>Código con la biblioteca del analizador
+
+Puede usar la biblioteca del analizador directamente para, por ejemplo, la validación de modelos en su propia aplicación o la generación de interfaces de usuario, paneles e informes dinámicos controlados por modelos.
 
 Para admitir el ejemplo de código del analizador siguiente, examine varios modelos definidos en una instancia de Azure Digital Twins:
 
@@ -169,4 +173,4 @@ void PrintInterfaceContent(DTInterfaceInfo dtif, IReadOnlyDictionary<Dtmi, DTEnt
 ## <a name="next-steps"></a>Pasos siguientes
 
 Una vez que haya terminado de escribir los modelos, consulte cómo cargarlos (y realizar otras operaciones de administración) con las API de DigitalTwinsModels:
-* [Procedimiento: Administración de modelos personalizados](how-to-manage-model.md)
+* [*Procedimiento: Administración de modelos personalizados*](how-to-manage-model.md)
