@@ -5,18 +5,18 @@ description: Cree y ejecute una canalización de aprendizaje automático con el 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: sgilley
 ms.author: nilsp
 author: NilsPohlmann
 ms.date: 12/05/2019
-ms.custom: seodec18, tracking-python
-ms.openlocfilehash: f5c4bfbe955c2989f420d7a6f325f8101556dddd
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: dff86176bac56063c9b588fb27e3549069ed380e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201301"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326365"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creación y ejecución de canalizaciones de Machine Learning con el SDK de Azure Machine Learning
 
@@ -38,7 +38,7 @@ Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar
 
 * Cree un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md) que contendrá todos los recursos de la canalización.
 
-* [Configure el entorno de desarrollo](how-to-configure-environment.md) para instalar el SDK de Azure Machine Learning, o use una [instancia de proceso de Azure Machine Learning (versión preliminar)](concept-compute-instance.md) con el SDK ya instalado.
+* [Configure un entorno de desarrollo](how-to-configure-environment.md) para instalar el SDK de Azure Machine Learning o use una [instancia de proceso de Azure Machine Learning](concept-compute-instance.md) con el SDK ya instalado.
 
 Empiece asociando el área de trabajo:
 
@@ -129,6 +129,8 @@ A continuación se muestran ejemplos de creación y asociación de los destinos 
 * Proceso de Azure Machine Learning
 * Azure Databricks 
 * Análisis con Azure Data Lake
+
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
 ### <a name="azure-machine-learning-compute"></a>Proceso de Azure Machine Learning
 

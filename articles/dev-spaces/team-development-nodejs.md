@@ -5,12 +5,13 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: En este tutorial se muestra cómo usar Azure Dev Spaces y Visual Studio Code para el desarrollo en equipo en una aplicación Node.js en Azure Kubernetes Service
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s '
-ms.openlocfilehash: aa168921f212f96f6e40ed062d2665e49202e86c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 851ba1aa6fa6a90fb4f659f1173818946a3e82d3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87013599"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420369"
 ---
 # <a name="team-development-using-nodejs-and-visual-studio-code-with-azure-dev-spaces"></a>Desarrollo en equipo mediante Node.js y Visual Studio Code con Azure Dev Spaces
 

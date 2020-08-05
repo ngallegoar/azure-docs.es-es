@@ -1,18 +1,18 @@
 ---
 title: Inicio de sesión en una máquina virtual Linux con credenciales de Azure Active Directory
 description: Aprenda a crear y configurar una máquina virtual Linux para iniciar sesión con la autenticación de Azure Active Directory.
-author: iainfoulds
+author: SanDeo-MSFT
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/29/2019
-ms.author: iainfou
-ms.openlocfilehash: c5275a979cbffe7fb6600978487454ac11cd2002
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: sandeo
+ms.openlocfilehash: fe9d4e5a981f9d626bb6086659593e1c3ce06469
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510436"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291132"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Vista previa: Inicio de sesión en una máquina virtual Linux en Azure mediante la autenticación de Azure Active Directory
 
@@ -113,7 +113,7 @@ El estado *provisioningState* con valor *Succeeded* aparece una vez que la exten
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Configuración de asignaciones de roles para la máquina virtual
 
-La directiva de control de acceso basado en rol (RBAC) de Azure determina quién puede iniciar sesión en la máquina virtual. Se usan dos roles de RBAC para autorizar el inicio de sesión de la máquina virtual:
+La directiva de control de acceso basado en rol (Azure RBAC) de Azure determina quién puede iniciar sesión en la VM. Se usan dos roles de RBAC para autorizar el inicio de sesión de la máquina virtual:
 
 - **Inicio de sesión de administrador de Virtual Machine**: los usuarios que tienen asignado este rol pueden iniciar sesión en una máquina virtual de Azure con privilegios de usuario raíz de Linux o de administrador de Windows.
 - **Inicio de sesión de usuario de Virtual Machine**: los usuarios que tienen asignado este rol pueden iniciar sesión en una máquina virtual de Azure con privilegios de usuario habitual.

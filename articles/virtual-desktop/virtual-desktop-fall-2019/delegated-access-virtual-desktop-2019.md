@@ -1,6 +1,6 @@
 ---
-title: 'Acceso delegado en Windows Virtual Desktop, versión de otoño de 2019: Azure'
-description: Se describe cómo delegar funcionalidades administrativas en una implementación de Windows Virtual Desktop y se incluyen ejemplos.
+title: 'Acceso delegado en Windows Virtual Desktop (clásico): Azure'
+description: Se describe cómo delegar funcionalidades administrativas en una implementación de Windows Virtual Desktop (clásico) y se incluyen ejemplos.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 91be20de49f549f3530e6c817906f1abf8f106b6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fbb8c6e100a9f72c20bcfaba7049b6724ee458b2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527564"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292525"
 ---
-# <a name="delegated-access-in-windows-virtual-desktop-fall-2019"></a>Acceso delegado en Windows Virtual Desktop, versión de otoño de 2019
+# <a name="delegated-access-in-windows-virtual-desktop-classic"></a>Acceso delegado en Windows Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a la versión de otoño de 2019 que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager incorporados en la actualización de primavera de 2020, consulte [este artículo](../delegated-access-virtual-desktop.md).
+>Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../delegated-access-virtual-desktop.md).
 
 Windows Virtual Desktop presenta un modelo de acceso delegado que permite definir la cantidad de acceso que puede tener un usuario determinado mediante la asignación de un rol. Una asignación de roles consta de tres componentes: entidad de seguridad, definición de rol y ámbito. El modelo de acceso delegado de Windows Virtual Desktop se basa en el modelo de Azure RBAC. Para más información sobre asignaciones de roles específicas y sus componentes, consulte la [información general sobre el control de acceso basado en roles de Azure](../../role-based-access-control/built-in-roles.md).
 

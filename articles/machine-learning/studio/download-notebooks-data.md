@@ -1,6 +1,5 @@
 ---
-title: Cómo descargar datos de cuadernos (versión preliminar)
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clásico): Cómo descargar datos de cuadernos (versión preliminar): Azure'
 description: Cómo descargar datos de cuadernos (versión preliminar) en ML Studio (clásico).
 ms.service: machine-learning
 ms.subservice: studio
@@ -8,14 +7,16 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 04/15/2020
-ms.openlocfilehash: 8a1de4ceb42ac86d8f945ec973eaa52d6ddec736
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc12204c5eabf857fd1143e71df9b2b505d88a23
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82208472"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318664"
 ---
 # <a name="download-notebookspreview-data"></a>Descargar datos de cuadernos (versión preliminar)
+
+**SE APLICA A:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![yes](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clásico) 
 
 La característica Cuadernos (versión preliminar) se quitó el *13 de abril de 2020*. La eliminación de la pestaña Cuadernos (versión preliminar) y los archivos de cuaderno de usuario se está implementando actualmente en regiones de Azure de todo el mundo.
 

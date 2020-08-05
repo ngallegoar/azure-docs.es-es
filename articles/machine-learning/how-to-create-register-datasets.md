@@ -5,18 +5,19 @@ description: Aprenda a crear conjuntos de datos de Azure Machine Learning para a
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 06/29/2020
-ms.openlocfilehash: baa238f36c41b5f494e8748cd5cd563bd212f483
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a220a7279cbb5ba75c8aa803cb4bd709442a52fe
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610717"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326399"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Creación de conjuntos de datos de Azure Machine Learning
 
@@ -33,7 +34,8 @@ Con los conjuntos de datos de Azure Machine Learning, puede:
 * Compartir datos y colaborar con otros usuarios.
 
 ## <a name="prerequisites"></a>Requisitos previos
-Para crear y trabajar con conjuntos de datos, necesita lo siguiente:
+
+Para crear y trabajar con conjuntos de datos, necesita:
 
 * Suscripción a Azure. Si no tiene una, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -42,7 +44,7 @@ Para crear y trabajar con conjuntos de datos, necesita lo siguiente:
 * El [SDK de Azure Machine Learning para Python instalado](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), que incluye el paquete azureml-datasets.
 
 > [!NOTE]
-> Algunas clases de conjunto de tipos tienen dependencias en el paquete [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py), que solo es compatible con Python de 64 bits. Para los usuarios de Linux, estas clases solo se admiten en las siguientes distribuciones:  Red Hat Enterprise Linux, Ubuntu, Fedora y CentOS.
+> Algunas clases de conjunto de tipos tienen dependencias en el paquete [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py), que solo es compatible con Python de 64 bits. Para los usuarios de Linux, estas clases solo se admiten en las siguientes distribuciones:  Red Hat Enterprise Linux (7, 8), Ubuntu (14.04, 16.04, 18.04), Fedora (27, 28), Debian (8, 9) y CentOS (7).
 
 ## <a name="compute-size-guidance"></a>Orientación sobre el tamaño de proceso
 
@@ -52,7 +54,7 @@ El factor principal es el tamaño del conjunto de datos en la memoria; es decir,
  
 Si usa Pandas, no es necesario que tenga más de una CPU virtual, ya que solo usará esa cifra. Puede paralelizar fácilmente a muchas CPU virtuales en una única instancia o nodo de proceso de Azure Machine Learning a través de Modin y Dask/Ray, así como escalar horizontalmente a un clúster grande (si es necesario) con solo cambiar `import pandas as pd` por `import modin.pandas as pd`. 
  
-Si no obtiene un espacio virtual lo suficientemente grande para los datos, tiene dos opciones: usar un marco como Spark o Dask para realizar el procesamiento en los datos "fuera de la memoria"; es decir, la trama de datos se carga a la memoria RAM partición por partición y se procesa y el resultado final se recopila al final. Si este procedimiento es demasiado lento, Spark o Dask le permiten escalar horizontalmente a un clúster que aún se podría usar de forma interactiva. 
+Si no obtiene una máquina virtual lo suficientemente grande para los datos, tiene dos opciones: usar un marco como Spark o Dask para realizar el procesamiento en los datos "fuera de la memoria"; es decir, la trama de datos se carga a la memoria RAM partición por partición y se procesa y el resultado final se recopila al final. Si este procedimiento es demasiado lento, Spark o Dask le permiten escalar horizontalmente a un clúster que aún se podría usar de forma interactiva. 
 
 ## <a name="dataset-types"></a>Tipos de conjuntos de datos
 
@@ -81,7 +83,7 @@ Para crear conjuntos de datos desde un [almacén de datos de Azure](how-to-acces
 
 #### <a name="create-a-tabulardataset"></a>Creación de un objeto TabularDataset
 
-Use el método [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-) en la clase `TabularDatasetFactory` para leer archivos en los formatos .csv o .tsv, y crear una clase TabularDataset sin registrar. Si se lee de varios archivos, los resultados se agregarán en una representación tabular. 
+Use el método [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) en la clase `TabularDatasetFactory` para leer archivos en los formatos .csv o .tsv, y crear una clase TabularDataset sin registrar. Si se lee de varios archivos, los resultados se agregarán en una representación tabular. 
 
 En el código siguiente se obtiene el área de trabajo existente y el almacén de datos deseado por nombre. A continuación, pasa las ubicaciones del almacén de datos y los archivos al parámetro `path` para crear un nuevo objeto TabularDataset, `weather_ds`.
 
@@ -121,7 +123,7 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_type
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-| |PassengerId|Survived|Pclass|Nombre|Sex|Age|SibSp|Parch|Vale|Fare|Cabin|Embarked
+|(Índice)|PassengerId|Survived|Pclass|Nombre|Sex|Age|SibSp|Parch|Vale|Fare|Cabin|Embarked
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|False|3|Braund, Mr. Owen Harris|hombre|22,0|1|0|A/5 21171|7,2500||S
 1|2|True|1|Cumings, Mrs. John Bradley (Florence Briggs Th...|mujer|38,0|1|0|PC 17599|71,2833|C85|C
@@ -158,7 +160,7 @@ Use el método [`from_sql_query()`](https://docs.microsoft.com/python/api/azurem
 
 from azureml.core import Dataset, Datastore
 
-# create tabular dataset from a SQL database in datastore
+# create tabular dataset from a SQL database in datastore. Take note of double parenthesis.
 sql_datastore = Datastore.get(workspace, 'mssql')
 sql_ds = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'))
 ```
@@ -186,7 +188,7 @@ data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 
 #### <a name="create-a-filedataset"></a>Creación de un objeto FileDataset
 
-Use el método [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) en la clase `FileDatasetFactory` para cargar archivos en cualquier formato y crear un objeto FileDataset sin registrar. Si el almacenamiento está detrás de un firewall o una red virtual, establezca el parámetro `validate =False` en el método `from_files()`. Esto omite el paso de validación inicial y garantiza que se pueda crear el conjunto de datos a partir de estos archivos seguros.
+Use el método [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) en la clase `FileDatasetFactory` para cargar archivos en cualquier formato y crear un objeto FileDataset sin registrar. Si el almacenamiento está detrás de un firewall o una red virtual, establezca el parámetro `validate=False` en el método `from_files()`. Esto omite el paso de validación inicial y garantiza que se pueda crear el conjunto de datos a partir de estos archivos seguros.
 
 ```Python
 # create a FileDataset pointing to files in 'animals' folder and its subfolders recursively
@@ -210,6 +212,7 @@ Para crear un conjunto de datos en el estudio:
 1. Seleccione **Crear conjunto de datos** para elegir el origen del conjunto de datos. Este origen puede ser archivos locales, un almacén de datos o direcciones URL públicas.
 1. Seleccione **Tabular** o **Archivo** para el tipo de conjunto de datos.
 1. Seleccione **Siguiente** para abrir el formulario **Datastore and file selection** (Almacén de datos y selección de archivos). En este formulario, seleccione dónde desea mantener el conjunto de datos después de su creación, así como los archivos de datos que se usarán para el conjunto de datos. 
+    1. Habilite la omisión de la validación si los datos están en una red virtual. Obtenga más información acerca del [aislamiento de red virtual y la privacidad](how-to-enable-virtual-network.md#machine-learning-studio).
 1. Seleccione **Siguiente** para rellenar los formularios **Settings and preview** (Configuración y versión preliminar) y **Esquema**; se rellenan de forma inteligente en función del tipo de archivo y se puede configurar el conjunto de archivos antes de la creación en estos formularios. 
 1. Seleccione **Siguiente** para revisar el formulario **Confirmar detalles**. Compruebe sus selecciones y cree un perfil de datos opcional para el conjunto de datos. Más información acerca de la [generación de perfiles de datos](how-to-use-automated-ml-for-ml-models.md#profile). 
 1. Seleccione **Crear** para completar la creación del conjunto de datos.

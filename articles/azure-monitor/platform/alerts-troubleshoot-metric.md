@@ -4,14 +4,14 @@ description: Problemas comunes con las alertas de métricas de Azure Monitor y p
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 07/15/2020
+ms.date: 07/21/2020
 ms.subservice: alerts
-ms.openlocfilehash: 0d569facb6c2b58222980cfa1488de3b1f5fb60f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b4a2329640387ab1c3cda93d18c6cb22c7d511cd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515774"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327487"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solución de problemas en las alertas de métricas de Azure Monitor 
 
@@ -67,7 +67,7 @@ Si cree que no se debería haber desencadenado una alerta de métricas y lo hizo
 
 ## <a name="cant-find-the-metric-to-alert-on---virtual-machines-guest-metrics"></a>No se puede encontrar la métrica de la que se deben generar alertas (métricas de máquinas virtuales invitadas)
 
-Para generar alertar sobre las métricas del sistema operativo invitado de las máquinas virtuales (por ejemplo, de la memoria, el espacio en disco), asegúrese de que ha instalado el agente necesario para recopilar estos datos en las métricas de Azure Monitor:
+Para generar alertar sobre las métricas del sistema operativo invitado de las máquinas virtuales (por ejemplo: la memoria o el espacio en disco), asegúrese de que haya instalado el agente necesario para recopilar estos datos en las métricas de Azure Monitor:
 - [Para las máquinas virtuales Windows](./collect-custom-metrics-guestos-resource-manager-vm.md)
 - [Para las máquinas virtuales Linux](./collect-custom-metrics-linux-telegraf.md)
 
@@ -106,6 +106,29 @@ Las alertas de métricas tienen estado de forma predeterminada y, por lo tanto, 
 > [!NOTE] 
 > La creación de una regla de alerta de métricas sin estado evita que se resuelvan las alertas desencadenadas, por lo que, aunque después no se cumpla más la condición, las alertas desencadenadas permanecerán en un estado desencadenado hasta el período de retención de 30 días.
 
+## <a name="define-an-alert-rule-on-a-custom-metric-that-isnt-emitted-yet"></a>Definición de una regla de alerta en una métrica personalizada que todavía no se ha emitido
+
+Al crear una regla de alerta de métrica, el nombre de la métrica se valida con la [API de definiciones de métricas](/rest/api/monitor/metricdefinitions/list) para asegurarse de que existe. En algunos casos, le gustaría crear una regla de alerta en una métrica personalizada incluso antes de que se emita. Por ejemplo, al crear (mediante una plantilla de ARM) un recurso de Application Insights que emitirá una métrica personalizada, junto con una regla de alerta que supervise esa métrica.
+
+Para evitar que se produzca un error en la implementación al intentar validar las definiciones de la métrica personalizada, puede usar el parámetro *skipMetricValidation* en la sección de criterios de la regla de alerta, lo que hará que se omita la validación de la métrica. Vea el ejemplo siguiente para obtener información sobre cómo usar este parámetro en una plantilla de ARM (para ver ejemplos completos de plantillas de ARM para crear reglas de alertas de métricas, consulte [este artículo]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)).
+
+```json
+"criteria": {
+    "odata.type": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
+        "allOf": [
+            {
+                    "name" : "condition1",
+                        "metricName": "myCustomMetric",
+                "metricNamespace": "myCustomMetricNamespace",
+                        "dimensions":[],
+                        "operator": "GreaterThan",
+                        "threshold" : 10,
+                        "timeAggregation": "Average",
+                    "skipMetricValidation": true
+        }
+              ]
+        }
+```
 
 ## <a name="metric-alert-rules-quota-too-small"></a>La cuota de las reglas de alertas de métricas es demasiado baja
 
@@ -133,7 +156,7 @@ Para comprobar el uso actual de las reglas de alertas de métricas, siga los pas
 3. Asegúrese de NO filtrar por un grupo de recursos, tipo de recurso o recurso específico.
 4. En el control desplegable **Tipo de señal**, seleccione **Métricas**.
 5. Verifique que el control desplegable **Estado** esté establecido en **Habilitado**.
-6. El número total de reglas de alertas de métricas se mostrará encima de la lista de reglas.
+6. El número total de reglas de alertas de métricas se mostrará encima de la lista de reglas de alerta.
 
 ### <a name="from-api"></a>Desde la API
 
@@ -152,7 +175,7 @@ Si tiene problemas para crear, actualizar, recuperar o eliminar las alertas de m
 
 ### <a name="rest-api"></a>API DE REST
 
-Repase la [guía de la API REST](/rest/api/monitor/metricalerts/) para asegurarse de que todos los parámetros se pasan correctamente
+Repase la [guía de la API REST](/rest/api/monitor/metricalerts/) para asegurarse de que todos los parámetros se pasan correctamente.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -171,7 +194,7 @@ Asegúrese de usar los comandos de la CLI adecuados para las alertas de métrica
 
 ### <a name="general"></a>General
 
-- Si recibe un error de `Metric not found`:
+- Si recibe un error `Metric not found`:
 
    - Para una métrica de plataforma: asegúrese de usar el nombre de la **métrica** de [la página de métricas admitidas de Azure Monitor](./metrics-supported.md) y no el **nombre para mostrar de la métrica**.
 
@@ -210,9 +233,9 @@ Tenga en cuenta las siguientes restricciones para los nombres de las reglas de a
 Las alertas de métricas admiten las alertas relacionadas con métricas de varias dimensiones además de admitir la definición de varias condiciones (hasta 5 por regla de alertas).
 
 Tenga en cuenta las restricciones siguientes cuando use dimensiones en una regla de alertas que contenga varias condiciones:
-1. Solo puede seleccionar un valor por dimensión dentro de cada condición.
-2. No puede usar la opción "Seleccionar todos los valores actuales y futuros" (Select \*).
-3. Cuando métricas que están configuradas en distintas condiciones admiten la misma dimensión, se debe establecer de forma explícita un valor de dimensión configurado de la misma manera para todas esas métricas (en las condiciones pertinentes).
+- Solo puede seleccionar un valor por dimensión dentro de cada condición.
+- No puede usar la opción "Seleccionar todos los valores actuales y futuros" (Select \*).
+- Cuando métricas que están configuradas en distintas condiciones admiten la misma dimensión, se debe establecer de forma explícita un valor de dimensión configurado de la misma manera para todas esas métricas (en las condiciones pertinentes).
 Por ejemplo:
     - Considere una regla de alertas de métricas que se define en una cuenta de almacenamiento y supervisa dos condiciones:
         * Suma total del valor de **Transactions** > 5
@@ -224,3 +247,4 @@ Por ejemplo:
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información general sobre la solución de problemas de alertas y notificaciones, consulte [Solución de problemas en las alertas de Azure Monitor](alerts-troubleshoot.md).
+

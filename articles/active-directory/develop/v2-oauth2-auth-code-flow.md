@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 198ab9505c550ad5bf8dc75211864a562b45979f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 42356ec4277c8441b4833560f431740e9e2f56c8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553659"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87311354"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plataforma de identidad y flujo de código de autorización de OAuth 2.0
 
@@ -34,9 +34,11 @@ A nivel general, el flujo de autenticación completo de una aplicación tiene un
 
 ![Flujo de código de autenticación de OAuth](./media/v2-oauth2-auth-code-flow/convergence-scenarios-native.svg)
 
-## <a name="setup-required-for-single-page-apps"></a>Configuración requerida para aplicaciones de página única
+## <a name="redirect-uri-setup-required-for-single-page-apps"></a>Configuración del URI de redireccionamiento requerida para aplicaciones de página única
 
-El flujo de código de autorización para aplicaciones de página única requiere configuración adicional.  Mientras [crea la aplicación](howto-create-service-principal-portal.md), debe marcar el URI de redirección de la aplicación como un URI de redirección `spa`. Esto hace que el servidor de inicio de sesión permita CORS (uso compartido de recursos entre orígenes) para la aplicación.  Esto es necesario para canjear el código mediante XHR.
+El flujo de código de autorización para aplicaciones de página única requiere configuración adicional.  Siga las instrucciones para [crear la aplicación de una sola página](scenario-spa-app-registration.md#redirect-uri-msaljs-20-with-auth-code-flow) para marcar correctamente el URI de redireccionamiento como habilitado para CORS. Para actualizar un URI de redireccionamiento existente para habilitar CORS, abra el editor de manifiestos y establezca el campo `type` del URI de redireccionamiento en `spa` en la sección `replyUrlsWithType`. También puede hacer clic en el URI de redireccionamiento en la sección "Web" de la pestaña Autenticación y seleccionar los URI a los que quiera migrar mediante el flujo de código de autorización.
+
+El tipo de redireccionamiento `spa` es compatible con las versiones anteriores del flujo implícito. Las aplicaciones que usan actualmente el flujo implícito para obtener tokens pueden moverse al tipo de URI de redireccionamiento `spa` sin problemas y seguir usando el flujo implícito.
 
 Si intenta usar el flujo de código de autorización y ve este error:
 
@@ -69,7 +71,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `tenant`    | requerido    | El valor `{tenant}` de la ruta de acceso de la solicitud se puede usar para controlar quién puede iniciar sesión en la aplicación. Los valores permitidos son `common`, `organizations`, `consumers` y los identificadores de inquilinos. Para obtener más información, consulte los [conceptos básicos sobre el protocolo](active-directory-v2-protocols.md#endpoints).  |
 | `client_id`   | requerido    | El **identificador de aplicación (cliente)** que la experiencia [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) asignó a la aplicación.  |
 | `response_type` | requerido    | Debe incluir `code` para el flujo de código de autorización.       |
-| `redirect_uri`  | requerido | El redirect_uri de su aplicación, a donde su aplicación puede enviar y recibir las respuestas de autenticación. Debe coincidir exactamente con uno de los redirect_uris que registró en el portal, con la excepción de que debe estar codificado como URL. En el caso de las aplicaciones nativas y móviles, es preciso usar el valor predeterminado, `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
+| `redirect_uri`  | necesarias | El redirect_uri de su aplicación, a donde su aplicación puede enviar y recibir las respuestas de autenticación. Debe coincidir exactamente con uno de los redirect_uris que registró en el portal, con la excepción de que debe estar codificado como URL. En el caso de las aplicaciones nativas y móviles, es preciso usar el valor predeterminado, `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
 | `scope`  | requerido    | Una lista separada por espacios de [ámbitos](v2-permissions-and-consent.md) que desea que el usuario consienta.  El tramo `/authorize` de la solicitud puede abarcar varios recursos, lo que permite que la aplicación obtenga el consentimiento para las diversas API web a las que quiere llamar. |
 | `response_mode`   | recomendado | Especifica el método que debe usarse para enviar el token resultante de nuevo a la aplicación. Puede ser uno de los siguientes:<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query` proporciona el código como un parámetro de cadena de consulta en el URI de redirección. Si solicita un token de identificador con el flujo implícito, no puede usar `query` según lo indicado en la [especificación de OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Si solicita solo el código, puede usar `query`, `fragment` o `form_post`. `form_post` ejecuta una prueba POST que contiene el código para el URI de redirección. Para más información, consulte [Protocolo OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).  |
 | `state`                 | recomendado | Un valor incluido en la solicitud que se devolverá también en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. Normalmente se usa un valor único generado de forma aleatoria para [evitar los ataques de falsificación de solicitudes entre sitios](https://tools.ietf.org/html/rfc6749#section-10.12). El valor también puede codificar información sobre el estado del usuario en la aplicación antes de que se produzca la solicitud de autenticación, por ejemplo, la página o vista en la que estaba. |
@@ -159,7 +161,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `tenant`   | requerido   | El valor `{tenant}` de la ruta de acceso de la solicitud se puede usar para controlar quién puede iniciar sesión en la aplicación. Los valores permitidos son `common`, `organizations`, `consumers` y los identificadores de inquilinos. Para obtener más información, consulte los [conceptos básicos sobre el protocolo](active-directory-v2-protocols.md#endpoints).  |
 | `client_id` | requerido  | El identificador de aplicación (cliente) que la página [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) asignó a la aplicación. |
 | `grant_type` | requerido   | Debe ser `authorization_code` para el flujo de código de autorización.   |
-| `scope`      | requerido   | Una lista de ámbitos separada por espacios. Los ámbitos solicitados en esta fase deben ser un subconjunto de los ámbitos solicitados en el primer segmento o un equivalente de este. Todos los ámbitos deben provenir de un recurso único, junto con los ámbitos de OIDC (`profile`, `openid`, `email`). Para obtener una explicación más detallada de los ámbitos, consulte [permisos, consentimiento y ámbitos](v2-permissions-and-consent.md). |
+| `scope`      | opcional   | Lista de ámbitos separados por espacios. Todos los ámbitos deben provenir de un recurso único, junto con los ámbitos de OIDC (`profile`, `openid`, `email`). Para obtener una explicación más detallada de los ámbitos, consulte [permisos, consentimiento y ámbitos](v2-permissions-and-consent.md). Se trata de una extensión de Microsoft para el flujo de código de autorización, diseñada para permitir que las aplicaciones declaren el recurso para el que quieren el token durante el canje de tokens.|
 | `code`          | requerido  | El authorization_code que adquirió en el primer segmento del flujo. |
 | `redirect_uri`  | requerido  | El mismo valor redirect_uri usado para adquirir el código de autorización. |
 | `client_secret` | requerido para las aplicaciones web confidenciales | El secreto de la aplicación que creó en el portal de registro de aplicaciones para su aplicación. No debe usar el secreto de aplicación en una aplicación nativa ni en una aplicación de página única, porque no es posible almacenar los client_secrets de manera segura en los dispositivos ni páginas web. Es necesario para aplicaciones web y las API web, que tienen la capacidad de almacenar el client_secret de manera segura en el lado del servidor.  El secreto de cliente debe codificarse como dirección URL antes de enviarse. Para obtener más información sobre la codificación de URI, consulte la [especificación sobre la sintaxis genérica de URI](https://tools.ietf.org/html/rfc3986#page-12). |
@@ -229,7 +231,7 @@ Las respuestas de error tendrán un aspecto similar al siguiente:
 | `temporarily_unavailable` | De manera temporal, el servidor está demasiado ocupado para atender la solicitud. | Vuelva a intentarlo. La aplicación podría explicar al usuario que su respuesta se retrasó debido a una condición temporal. |
 
 > [!NOTE]
-> Es posible que las aplicaciones de página única reciban un error `invalid_request` que indica que solo se permite el canje de tokens entre orígenes para el tipo de cliente "Aplicación de página única".  Esto indica que el URI de redirección usado para solicitar el token no se ha marcado como un URI de redirección `spa`.  Revise los [pasos de registro de aplicaciones](#setup-required-for-single-page-apps) sobre cómo habilitar este flujo.
+> Es posible que las aplicaciones de página única reciban un error `invalid_request` que indica que solo se permite el canje de tokens entre orígenes para el tipo de cliente "Aplicación de página única".  Esto indica que el URI de redirección usado para solicitar el token no se ha marcado como un URI de redirección `spa`.  Revise los [pasos de registro de aplicaciones](#redirect-uri-setup-required-for-single-page-apps) sobre cómo habilitar este flujo.
 
 ## <a name="use-the-access-token"></a>Uso del token de acceso
 

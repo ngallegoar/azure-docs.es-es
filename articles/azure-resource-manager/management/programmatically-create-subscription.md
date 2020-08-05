@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.reviewer: andalmia
 ms.author: banders
-ms.openlocfilehash: 7fac201de2fd623058eb5771e194ae697f879ee8
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 20175e252d009620585e20cf76cdb634549b4f1d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224169"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323917"
 ---
 # <a name="programmatically-create-azure-subscriptions-preview"></a>Creación de suscripciones de Azure mediante programación (versión preliminar)
 
@@ -160,7 +160,7 @@ En la respuesta, como parte del encabezado `Location`, obtiene una dirección UR
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-En primer lugar, instale este módulo de versión preliminar al ejecutar `Install-Module Az.Subscription -AllowPrerelease`. Para asegurarse de que `-AllowPrerelease` funciona, instale una versión reciente de PowerShellGet desde [Obtención del módulo PowerShellGet](/powershell/scripting/gallery/installing-psget).
+Para instalar la versión más reciente del módulo que contiene el cmdlet `New-AzSubscription`, ejecute `Install-Module Az.Subscription`. Para instalar una versión reciente de PowerShellGet, consulte [Obtención del módulo PowerShellGet](/powershell/scripting/gallery/installing-psget).
 
 Ejecute el comando [New-AzSubscription](/powershell/module/az.subscription) siguiente y reemplace `<enrollmentAccountObjectId>` por el elemento `ObjectId` recopilado en el primer paso (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Si quiere especificar propietarios, obtenga información sobre [cómo obtener identificadores de objeto de usuario](grant-access-to-create-subscription.md#userObjectId).
 
@@ -177,7 +177,8 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 | `OwnerSignInName`    | No       | String | Dirección de correo electrónico de cualquier usuario que quiera agregarse como propietario de RBAC en la suscripción al crearla. Puede utilizar este parámetro en lugar de `OwnerObjectId`.|
 | `OwnerApplicationId` | No       | String | Identificador de aplicación de cualquier entidad de servicio que quiera agregarse como propietario de RBAC en la suscripción al crearla. Puede utilizar este parámetro en lugar de `OwnerObjectId`. Al usar este parámetro, la entidad de servicio debe tener [acceso de lectura al directorio](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
 
-Para obtener una lista completa de todos los parámetros, consulte [New-AzSubscription](/powershell/module/az.subscription).
+Para obtener una lista completa de todos los parámetros, consulte [New-AzSubscription](/powershell/module/az.subscription/New-AzSubscription).
+
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 

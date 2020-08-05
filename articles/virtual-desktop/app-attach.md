@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 76edc88f127d7e52514ab72539f7212ac982b5e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f8e20f97ae19a33674631e4dee18901d54462b3
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204480"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291510"
 ---
 # <a name="set-up-msix-app-attach"></a>Configuración de la asociación de aplicaciones en formato .MSIX
 
@@ -29,7 +29,7 @@ Este tema lo guiará a través de la configuración de la asociación de aplicac
 Antes de empezar, esto es lo que necesita para configurar la asociación de aplicaciones en formato MSIX:
 
 - Acceso al portal de Windows Insider para obtener la versión de Windows 10 con compatibilidad con las API de asociación de aplicaciones con formato MSIX.
-- Una implementación de Windows Virtual Desktop en funcionamiento. Para información sobre cómo implementar la versión Fall 2019 de Windows Virtual Desktop, consulte [Creación de un inquilino en Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Para obtener información sobre cómo implementar la versión Spring 2020 de Windows Virtual Desktop, consulte [Creación de un grupo de hosts con Azure Portal](./create-host-pools-azure-marketplace.md).
+- Una implementación de Windows Virtual Desktop en funcionamiento. Para obtener información sobre cómo implementar Windows Virtual Desktop (clásico), consulte [Creación de un inquilino en Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Para obtener información sobre cómo implementar Windows Virtual Desktop con la integración de Azure Resource Manager, consulte [Creación de un grupo de hosts con Azure Portal](./create-host-pools-azure-marketplace.md).
 - La herramienta de empaquetado MSIX.
 - Un recurso compartido de red en la implementación de Windows Virtual Desktop donde se almacenará el paquete MSIX.
 

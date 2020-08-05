@@ -1,6 +1,5 @@
 ---
-title: Códigos de error de API REST
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clásico): Códigos de error de API REST: Azure'
 description: Estos códigos de error podrían ser devueltos por una operación en un servicio web Azure Machine Learning.
 keywords: ''
 services: machine-learning
@@ -12,14 +11,17 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 8030e44e85958495714f441303461722b6b96bf4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6dd736428e6a3a24de382be34904d78af0168081
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84115452"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326280"
 ---
 # <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Códigos de error de API REST de Azure Machine Learning Studio (clásico)
+
+**SE APLICA A:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![yes](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clásico) 
+
 
 Una operación en un servicio web de Azure Machine Learning Studio (clásico) podría devolver los siguientes códigos de error.
  
