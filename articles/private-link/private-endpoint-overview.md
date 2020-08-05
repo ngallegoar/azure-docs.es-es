@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: c739c6483832c08a91f2a5318853bf48e5d41854
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d61527a7a57c82c0e1485ef249306618def9a57c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496968"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077947"
 ---
 # <a name="what-is-azure-private-endpoint"></a>¿Qué es un punto de conexión privado de Azure?
 
@@ -78,6 +78,13 @@ Un recurso de vínculo privado es el destino de un punto de conexión privado de
 |**Azure Event Grid** | Microsoft.EventGrid/domains    | dominio |
 |**Azure WebApps** | Microsoft.Web/sites    | sites |
 |**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces    | área de trabajo |
+|**SignalR** | Microsoft.SignalRService/SignalR    | signalR |
+|**Azure Monitor** | Microsoft.Insights/privateLinkScopes    | azuremonitor |
+|**Cognitive Services** | (Microsoft.CognitiveServices/accounts    | account |
+|**Azure File Sync** | Microsoft.StorageSync/storageSyncServices    | Afs |
+    
+  
+
   
  
 ## <a name="network-security-of-private-endpoints"></a>Seguridad de red de los puntos de conexión privados 

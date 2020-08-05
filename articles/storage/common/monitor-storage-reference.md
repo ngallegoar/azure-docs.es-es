@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 12df9566dd3ddfedd1f4553ad8877258d840858c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: fa8838dd5eca03d9dd85e424f0163eb9ca8ed5e2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960221"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077861"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Referencia de datos de supervisión de Azure Storage
 
@@ -46,6 +46,7 @@ En esta tabla se muestran [métricas de Blob Storage](https://docs.microsoft.com
 | ------------------- | ----------------- |
 | BlobCapacity | El total de almacenamiento de blobs que se utiliza en la cuenta de almacenamiento. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Average <br/> Ejemplo de valor: 1024 <br/> Dimensiones: **BlobType** y **BlobTier** ([Definition](#metrics-dimensions)) |
 | BlobCount    | El número de objetos BLOB almacenados en la cuenta de almacenamiento. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average <br/> Ejemplo de valor: 1024 <br/> Dimensiones: **BlobType** y **BlobTier** ([Definition](#metrics-dimensions)) |
+| BlobProvisionedSize | Cantidad de almacenamiento aprovisionado en la cuenta de Storage. Esta métrica solo se puede aplicar a las cuentas de Storage Premium. <br/><br/> Unidad: bytes <br/> Tipo de agregación: Average |
 | ContainerCount    | El número de contenedores que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average <br/> Ejemplo de valor: 1024 |
 | IndexCapacity     | Cantidad de almacenamiento que usa el índice jerárquico de ADLS Gen2. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Average <br/> Ejemplo de valor: 1024 |
 
@@ -78,6 +79,7 @@ En esta tabla se muestran [métricas de File Storage](https://docs.microsoft.com
 | FileCapacity | La cantidad de almacenamiento de archivos que utiliza la cuenta de almacenamiento. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Average <br/> Ejemplo de valor: 1024 |
 | FileCount   | El número de archivos que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average <br/> Ejemplo de valor: 1024 |
 | FileShareCount | El número de recursos compartidos de archivo que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average <br/> Ejemplo de valor: 1024 |
+| FileShareProvisionedIOPS | El número de IOPS aprovisionadas en un recurso compartido de archivos. Esta métrica solo se puede aplicar a un almacenamiento de archivos Premium. <br/><br/> Unidad: bytes <br/> Tipo de agregación: Average |
 
 ### <a name="transaction-metrics"></a>Métricas de transacciones
 

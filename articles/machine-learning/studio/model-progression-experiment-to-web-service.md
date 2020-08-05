@@ -1,6 +1,5 @@
 ---
-title: Conversión de un modelo a un servicio web
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clásico): conversión de un modelo a un servicio web (Azure)'
 description: Información general de cómo progresa el modelo de Machine Learning Studio (clásico) de un experimento de desarrollo a un servicio web.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: 4d7ab5cada77ccebc214e09b43fbb70b3ad8bb59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a02ac6db7e560fcb90a87b7bc96284c279c1654
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84117202"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325005"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>Progreso de un modelo de Machine Learning Studio (clásico) de un experimento a un servicio web
+
+**SE APLICA A:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![sí](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico) 
+
 
 Azure Machine Learning Studio (clásico) ofrece un lienzo interactivo que permite desarrollar, ejecutar, probar e iterar un ***experimento*** que representa un modelo de análisis predictivo. Hay una gran variedad de módulos que le permiten realizar las acciones siguientes:
 

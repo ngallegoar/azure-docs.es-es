@@ -10,12 +10,12 @@ ms.date: 06/22/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: has-adal-ref
-ms.openlocfilehash: ddb079051414168b125ce2e42e8badd55580f0c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 949347d07fe120c6900f49499e78595b540718a7
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212637"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369006"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Adquisición de un token de Azure AD para la autorización de solicitudes desde una aplicación cliente
 
@@ -27,7 +27,7 @@ Para información general sobre el flujo de concesión de código OAuth 2.0, con
 
 ## <a name="assign-a-role-to-an-azure-ad-security-principal"></a>Asignación de un rol a una entidad de seguridad de Azure AD
 
-Para autenticar a una entidad de seguridad de la aplicación de Azure Storage, primero configure los valores del control de acceso basado en roles (RBAC) para esa entidad de seguridad. Azure Storage define los roles RBAC integrados que abarcan los permisos para los contenedores y las colas. Cuando el rol RBAC se asigna a una entidad de seguridad, esta recibe acceso a ese recurso. Para obtener más información, consulte el artículo sobre cómo [administrar los derechos de acceso a los datos de Azure Blob y Queue con RBAC](storage-auth-aad-rbac.md).
+Para autenticar a una entidad de seguridad de la aplicación de Azure Storage, primero configure los valores del control de acceso basado en roles (RBAC) para esa entidad de seguridad. Azure Storage define los roles integrados de Azure que abarcan los permisos para los contenedores y las colas. Cuando el rol RBAC se asigna a una entidad de seguridad, esta recibe acceso a ese recurso. Para obtener más información, consulte el artículo sobre cómo [administrar los derechos de acceso a los datos de Azure Blob y Queue con RBAC](storage-auth-aad-rbac.md).
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Registro de la aplicación con un inquilino de Azure AD
 

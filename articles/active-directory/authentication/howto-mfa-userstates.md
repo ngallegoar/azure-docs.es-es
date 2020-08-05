@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/13/2020
+ms.date: 07/20/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8ef25df8fdb11715ebba954e31a97939d6ac0e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 860616cbea598e40494155e250254b3c607c1173
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476842"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027502"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Habilitación de Azure Multi-Factor Authentication por usuario para proteger los eventos de inicio de sesión
 
@@ -78,7 +78,7 @@ Después de habilitar los usuarios, notifíquelos por correo electrónico. Indiq
 
 ## <a name="change-state-using-powershell"></a>Cambio del estado mediante PowerShell
 
-Para cambiar el estado del usuario mediante [PowerShell de Azure AD](/powershell/azure/overview), cambie el parámetro `$st.State` de una cuenta de usuario. Hay tres estados posibles para una cuenta de usuario:
+Para cambiar el estado del usuario mediante [PowerShell de Azure AD](/powershell/azure/), cambie el parámetro `$st.State` de una cuenta de usuario. Hay tres estados posibles para una cuenta de usuario:
 
 * *Enabled*
 * *Aplicado*
@@ -177,12 +177,12 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 ```
 
 > [!NOTE]
-> Hemos cambiado recientemente el comportamiento y este script de PowerShell. Anteriormente, el script se guardaba fuera de los métodos de MFA, se deshabilitó MFA y restauraba los métodos. Ahora, ya no es necesario que el comportamiento predeterminado para deshabilitar no borre los métodos.
->
 > Si se vuelve a habilitar MFA en un objeto de usuario que ya tiene detalles de registro, como el teléfono o el correo electrónico, los administradores deben hacer que el usuario se vuelva a registrar en MFA a través de Azure Portal o PowerShell. Si el usuario no se vuelve a registrar, su estado de MFA no pasa de *Habilitado* a *Aplicado* en la interfaz de usuario de administración de MFA.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para configurar opciones de Azure Multi-Factor Authentication como las direcciones IP de confianza, los mensajes de voz personalizados y las alertas de fraude, consulte [Configuración de Azure Multi-Factor Authentication](howto-mfa-mfasettings.md). Para administrar la configuración del usuario de Azure Multi-factor Authentication, consulte [Administración de la configuración del usuario con Azure Multi-Factor Authentication](howto-mfa-userdevicesettings.md).
+Para configurar las opciones de Azure Multi-Factor Authentication, consulte [Configuración de Azure Multi-Factor Authentication](howto-mfa-mfasettings.md).
+
+Para administrar la configuración del usuario de Azure Multi-factor Authentication, consulte [Administración de la configuración del usuario con Azure Multi-Factor Authentication](howto-mfa-userdevicesettings.md).
 
 Para saber por qué se ha solicitado o no a un usuario que realice MFA, consulte [Informes de Azure Multi-Factor Authentication](howto-mfa-reporting.md).

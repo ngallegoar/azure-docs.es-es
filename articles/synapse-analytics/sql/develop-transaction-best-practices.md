@@ -1,5 +1,5 @@
 ---
-title: Optimización de transacciones para el grupo de SQL
+title: Optimización de transacciones para un grupo de SQL
 description: Aprenda a optimizar el rendimiento del código transaccional en el grupo de SQL (almacenamiento de datos) al tiempo que minimiza el riesgo de que se produzcan reversiones extensas.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 0c55cc6e0fc15b663667a5131e2dd333106418cd
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ef87d5da2c2d56a4fdc3873410bb5a6e5c711d01
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957069"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075705"
 ---
 # <a name="optimizing-transactions-in-sql-pool"></a>Optimización de transacciones en el grupo de SQL
 

@@ -1,5 +1,5 @@
 ---
-title: Compilación de una aplicación de aprendizaje automático con MLlib de Apache Spark y Azure Synapse Analytics
+title: Compilación de una aplicación de aprendizaje automático con Apache Spark MLlib
 description: Aprenda a usar MLlib de Apache Spark para crear una aplicación de aprendizaje automático que analice un conjunto de datos usando la clasificación mediante una regresión logística.
 services: synapse-analytics
 author: euangMS
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: fd3637eed35fa4b9f40623612be9fc99703051e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7ae2e3045b8f6e56b756ac1b2a4233ac8af9688
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368182"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373460"
 ---
 # <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Compilación de una aplicación de aprendizaje automático con MLlib de Apache Spark y Azure Synapse Analytics
 
@@ -225,7 +225,7 @@ train_data_df, test_data_df = encoded_final_df.randomSplit([trainingFraction, te
 Ahora que hay dos DataFrames, la siguiente tarea consiste en crear la fórmula del modelo y ejecutarla en el DataFrame de entrenamiento y, a continuación, validar frente al DataFrame de prueba. Debería experimentar con versiones diferentes de la fórmula del modelo para ver el impacto de las distintas combinaciones.
 
 > [!Note]
-> Para guardar el modelo, necesitará el rol RBAC de colaborador de datos de Azure Storage Blob. En la cuenta de almacenamiento, vaya a Access Control (IAM) y seleccione Agregar asignación de roles. Asigne el rol RBAC de colaborador de datos de Storage Blob al servidor de SQL Database. Solo los miembros con el privilegio Propietario pueden realizar este paso. Para obtener los distintos roles integrados para los recursos de Azure, consulte esta [guía](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+> Para guardar el modelo, necesitará el rol RBAC de colaborador de datos de Azure Storage Blob. En la cuenta de almacenamiento, vaya a Access Control (IAM) y seleccione Agregar asignación de roles. Asigne el rol RBAC de colaborador de datos de Storage Blob al servidor de SQL Database. Solo los miembros con el privilegio Propietario pueden realizar este paso. Para varios roles integrados de Azure, consulte esta [guía](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```python
 ## Create a new LR object for the model

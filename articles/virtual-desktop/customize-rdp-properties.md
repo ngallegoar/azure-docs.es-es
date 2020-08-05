@@ -1,27 +1,24 @@
 ---
-title: 'Personalización de las propiedades de RDP con PowerShell, actualización Spring 2020: Azure'
+title: 'Personalización de las propiedades de RDP con PowerShell: Azure'
 description: Cómo personalizar las propiedades de EDP para Windows Virtual Desktop con cmdlets de PowerShell.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 06/19/2020
+ms.date: 07/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c666a11f8d5e13d022309eddab16edb6aab76381
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 630f2a7fe2e95992cb7724a7906a0949ffcea784
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527768"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87271117"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>Personalización de las propiedades de Protocolo de escritorio remoto (RDP) para un grupo de hosts
 
 >[!IMPORTANT]
->Este contenido se aplica a la actualización Spring 2020 con objetos de Windows Virtual Desktop para Azure Resource Manager. Si usa la versión de otoño de 2019 de Windows Virtual Desktop sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/customize-rdp-properties-2019.md).
->
-> La actualización de primavera de 2020 de Windows Virtual Desktop se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Este contenido se aplica a Windows Virtual Desktop con objetos de Windows Virtual Desktop de Azure Resource Manager. Si usa Windows Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/customize-rdp-properties-2019.md).
 
 La personalización de las propiedades de Protocolo de escritorio remoto (RDP) de un grupo de hosts, como el uso de varios monitores y la redirección de audio, permite ofrecer una experiencia óptima a los usuarios en función de sus necesidades. Las propiedades de RDP se pueden personalizar en Windows Virtual Desktop desde Azure Portal o mediante el parámetro *-CustomRdpProperty* del cmdlet **Update-AzWvdHostPool**.
 
@@ -30,18 +27,6 @@ En [Configuración admitida del archivo RDP](https://docs.microsoft.com/windows-
 ## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar, siga las instrucciones que se indican en [Configuración del módulo de PowerShell para Windows Virtual Desktop](powershell-module.md) para configurar el módulo de PowerShell e iniciar sesión en Azure.
-
-## <a name="default-rdp-properties"></a>Propiedades predeterminadas de RDP
-
-De forma predeterminada, los archivos RDP publicados contienen las siguientes propiedades:
-
-|Propiedades de RDP | Escritorios | RemoteApps |
-|---|---| --- |
-| Modo multimonitor | habilitado | N/D |
-| Redireccionamiento de unidad habilitado | Unidades, portapapeles, impresoras, puertos COM, dispositivos USB y tarjetas inteligentes| Unidades, Portapapeles e impresoras |
-| Modo de audio remoto | Reproducción local | Reproducción local |
-
-Las propiedades personalizadas que defina para el grupo host invalidarán estos valores predeterminados.
 
 ## <a name="configure-rdp-properties-in-the-azure-portal"></a>Configuración de propiedades de RDP en Azure Portal
 

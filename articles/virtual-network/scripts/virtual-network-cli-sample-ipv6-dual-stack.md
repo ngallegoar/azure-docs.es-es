@@ -1,7 +1,7 @@
 ---
 title: Ejemplo de script de configuración del front-end IPv6 con la CLI de Azure
 titlesuffix: Azure Virtual Network
-description: Habilitar puntos de conexión IPv6 mediante la CLI de Azure en Azure Virtual Network
+description: Use un script de ejemplo de la CLI de Azure para configurar los puntos de conexión de IPv6 e implementar una aplicación de pila dual (IPv4 + IPv6) en Azure.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/23/2019
 ms.author: kumud
-ms.openlocfilehash: 1ef8742bc4f8de2d08d9bb4fc98b3df6f9420737
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f5e741e972015820af2e0e33372eb41c9e78210
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80235024"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281606"
 ---
 # <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Ejemplo de script de configuración de puntos de conexión IPv6 en la red virtual (versión preliminar)
 

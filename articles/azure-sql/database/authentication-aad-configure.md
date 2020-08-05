@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 03/27/2020
-ms.openlocfilehash: f5ef4c701cab8b9e94f89607bf643699e95ccad0
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 07/27/2020
+ms.openlocfilehash: 00efa3ea6fcd299dcdc51b3002d6b0459edf2ec4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984907"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281164"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configuración y administración de la autenticación de Azure AD con Azure SQL
 
@@ -48,7 +48,7 @@ Para obtener más información sobre las identidades híbridas de Azure AD, la 
 
 Cree una instancia de Azure AD y rellénela con usuarios y grupos. Azure AD puede ser el dominio administrado de Azure AD inicial. Azure AD también puede ser una instancia local de Active Directory Domain Services que se federa con Azure AD.
 
-Para obtener más información, consulte [Integrating your on-premises identities with Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md) (Integración de sus identidades locales con Azure Active Directory), [Incorporación de su nombre de dominio personalizado a Azure Active Directory](../../active-directory/fundamentals/add-custom-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/) (Microsoft Azure admite ahora Windows Server Active Directory), [Administración de su directorio de Azure AD](../../active-directory/fundamentals/active-directory-whatis.md), [Administrar Azure AD mediante Windows PowerShell](/powershell/azure/overview) y [Hybrid Identity Required Ports and Protocols](../../active-directory/hybrid/reference-connect-ports.md) (Puertos y protocolos requeridos para la identidad híbrida).
+Para obtener más información, consulte [Integrating your on-premises identities with Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md) (Integración de sus identidades locales con Azure Active Directory), [Incorporación de su nombre de dominio personalizado a Azure Active Directory](../../active-directory/fundamentals/add-custom-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/) (Microsoft Azure admite ahora Windows Server Active Directory), [Administración de su directorio de Azure AD](../../active-directory/fundamentals/active-directory-whatis.md), [Administrar Azure AD mediante Windows PowerShell](/powershell/azure/) y [Hybrid Identity Required Ports and Protocols](../../active-directory/hybrid/reference-connect-ports.md) (Puertos y protocolos requeridos para la identidad híbrida).
 
 ## <a name="associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Asociación o adición de una suscripción de Azure a Azure Active Directory
 
@@ -176,7 +176,7 @@ else {
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para ejecutar los cmdlets de PowerShell, necesitará tener Azure PowerShell instalado y en marcha. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
+Para ejecutar los cmdlets de PowerShell, necesitará tener Azure PowerShell instalado y en marcha. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](/powershell/azure/).
 
 > [!IMPORTANT]
 > El módulo de Azure Resource Manager (RM) de PowerShell todavía es compatible con la Instancia administrada de Azure SQL, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. El módulo de AzureRM continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo.  Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos. Para obtener más información sobre la compatibilidad, vea [Presentación del nuevo módulo Az de Azure PowerShell](/powershell/azure/new-azureps-module-az).
@@ -238,8 +238,6 @@ Los dos procedimientos siguientes muestran cómo aprovisionar un administrador d
 
 1. En [Azure Portal](https://portal.azure.com/), en la esquina superior derecha, seleccione la conexión para desplegar una lista de posibles instancias de Active Directory. Elija el Active Directory correcto como el valor predeterminado de Azure AD. En este paso se vincula la instancia de Active Directory asociada a la suscripción con el servidor, de modo que se asegura de que la misma suscripción se use tanto para Azure AD como para el servidor.
 
-    ![choose-ad][8]
-
 2. Busque y seleccione **SQL Server**.
 
     ![Buscar y seleccionar servidores SQL](./media/authentication-aad-configure/search-for-and-select-sql-servers.png)
@@ -272,7 +270,7 @@ Si más adelante desea quitar un administrador, en la parte superior de la pági
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para ejecutar los cmdlets de PowerShell, necesitará tener Azure PowerShell instalado y en marcha. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](/powershell/azure/overview). Para aprovisionar un administrador de Azure AD, debe ejecutar los siguientes comandos de Azure PowerShell:
+Para ejecutar los cmdlets de PowerShell, necesitará tener Azure PowerShell instalado y en marcha. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](/powershell/azure/). Para aprovisionar un administrador de Azure AD, debe ejecutar los siguientes comandos de Azure PowerShell:
 
 - Connect-AzAccount
 - Select-AzSubscription
@@ -538,8 +536,11 @@ Puede encontrar instrucciones para la solución de problemas con la autenticaci�
 - Para más información acerca de las entidades de seguridad de bases de datos, consulte [Entidades de seguridad](https://msdn.microsoft.com/library/ms181127.aspx).
 - Para más información acerca de los roles de base de datos, consulte [Roles de nivel de base de datos](https://msdn.microsoft.com/library/ms189121.aspx).
 - Para más información general acerca de las reglas de firewall de SQL Database, consulte [Introducción a las reglas de firewall de Azure SQL Database](firewall-configure.md).
+- Para más información acerca de cómo configurar un usuario invitado de Azure AD como administrador de Azure AD, consulte [Crear usuarios invitados de Azure AD y establecerlos como administradores de Azure AD](authentication-aad-guest-users.md).
+- Para más información sobre el uso de entidades de servicio con Azure SQL, consulte [Creación de usuarios de Azure AD mediante aplicaciones de Azure AD](authentication-aad-service-principal-tutorial.md).
 
 <!--Image references-->
+
 [11]: ./media/authentication-aad-configure/active-directory-integrated.png
 [12]: ./media/authentication-aad-configure/12connect-using-pw-auth2.png
 [13]: ./media/authentication-aad-configure/13connect-to-db2.png

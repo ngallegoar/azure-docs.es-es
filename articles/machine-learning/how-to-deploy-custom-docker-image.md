@@ -5,18 +5,18 @@ description: Aprenda a usar una imagen base de Docker personalizada al implement
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/17/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 8ad3ec9f257289abab1c2d881a798a43a2c1d8ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: 47bf14a8da8357e0114ef3c5d6cf96185306dd16
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976768"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325872"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Implementación de un modelo con una imagen base de Docker personalizada
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -76,7 +76,7 @@ Para la información de esta sección, se da por supuesto que usa Azure Containe
 
     * Ubuntu 16.04 o posterior.
     * Conda 4.5.# o posterior.
-    * Python 3.5.# o 3.6.#.
+    * Python 3.5.#, 3.6.# o 3.7.#.
 
 <a id="getname"></a>
 

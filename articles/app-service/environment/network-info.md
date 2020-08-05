@@ -4,15 +4,15 @@ description: Obtenga información sobre el tráfico de red de App Service Enviro
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 06/29/2020
+ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 10cb1149880c70d991dd5ab49acceab3283372a7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6fde04be99eaa61287b486eaefdcb92d66d88bc7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517861"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280926"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Consideraciones de red para una instancia de App Service Environment #
 
@@ -158,13 +158,14 @@ Las entradas necesarias de un NSG para que un ASE funcione son permitir el tráf
 * Desde la subred de ASE a la subred de ASE en todos los puertos.
 
 **Outbound**
+* UDP a todas las direcciones IP en el puerto 53.
 * UDP a todas las direcciones IP en el puerto 123.
 * TCP a todas las direcciones IP en los puertos 80 y 443.
 * TCP a la etiqueta de servicio IP AzureSQL en el puerto 1433.
 * TCP a todas las direcciones IP en el puerto 12000.
 * A la subred de ASE en todos los puertos.
 
-Estos puertos no incluyen los puertos que las aplicaciones requieren para usarse correctamente. Por ejemplo, es posible que su aplicación tenga que llamar a un servidor MySQL en el puerto 3306. El puerto de DNS, el puerto 53, no necesita agregarse, ya que las reglas del grupo de seguridad de red no afectan al DNS. El protocolo de tiempo de redes (NTP) del puerto 123 es el protocolo de sincronización de hora que usa el sistema operativo. Los puntos de conexión del protocolo de tiempo de redes no son específicos de App Services, pueden variar con el sistema operativo y no se encuentran en una lista bien definida de direcciones. Para evitar problemas de sincronización de hora, debe permitir el tráfico UDP a todas las direcciones en el puerto 123. El tráfico saliente del TCP al puerto 12000 es para el análisis y el soporte del sistema. Los puntos de conexión son dinámicos y no están en un conjunto bien definido de direcciones.
+Estos puertos no incluyen los puertos que las aplicaciones requieren para usarse correctamente. Por ejemplo, es posible que la aplicación tenga que llamar a un servidor MySQL en el puerto 3306. El protocolo de tiempo de redes (NTP) del puerto 123 es el protocolo de sincronización de hora que usa el sistema operativo. Los puntos de conexión del protocolo de tiempo de redes no son específicos de App Services, pueden variar con el sistema operativo y no se encuentran en una lista bien definida de direcciones. Para evitar problemas de sincronización de hora, debe permitir el tráfico UDP a todas las direcciones en el puerto 123. El tráfico saliente del TCP al puerto 12000 es para el análisis y el soporte del sistema. Los puntos de conexión son dinámicos y no están en un conjunto bien definido de direcciones.
 
 Los puertos de acceso de aplicación normales son:
 

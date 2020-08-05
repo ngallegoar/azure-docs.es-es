@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 3a7d12a2be7f2e3d3556d6c8c3303b2ddb8b8738
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 999c443a63ceb2ebb59fc0de72ecb09d1ccc3905
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503496"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062615"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Línea de base de seguridad de Azure para Backup
 
@@ -62,7 +62,7 @@ Para obtener más información, consulte [Introducción a las líneas de base de
 
 ### <a name="15-record-network-packets-and-flow-logs"></a>1.5: Registre los paquetes de red y registros de flujo
 
-**Instrucciones**: No aplicable; no se puede asociar una red virtual, una subred o un grupo de seguridad de red a un almacén de Recovery Services. Al realizar una copia de seguridad de una máquina virtual de Azure, los datos se transfieren a través de la red troncal de Azure. Cuando se realiza una copia de seguridad desde un equipo local, se crea un túnel cifrado con un punto de conexión específico en Azure y se usan las credenciales para cifrar previamente los datos y enviarlos luego a través del túnel cifrado.
+**Guía**: No aplicable; no se puede asociar una red virtual, una subred o un grupo de seguridad de red a un almacén de Recovery Services. Al realizar una copia de seguridad de una máquina virtual de Azure, los datos se transfieren a través de la red troncal de Azure. Cuando se realiza una copia de seguridad desde un equipo local, se crea un túnel cifrado con un punto de conexión específico en Azure y se usan las credenciales para cifrar previamente los datos y enviarlos luego a través del túnel cifrado.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -186,7 +186,7 @@ Además, Azure Backup envía eventos de diagnóstico que se pueden recopilar y u
 
 ### <a name="26-monitor-and-review-logs"></a>2.6: Supervisión y registros de revisión
 
-**Instrucciones**: Azure Backup proporciona funcionalidades de supervisión y alerta integradas en un almacén de Recovery Services. Estas funcionalidades están disponibles sin ninguna infraestructura de administración adicional. También puede aumentar la escala de la supervisión y los informes mediante Azure Monitor.
+**Guía**: Azure Backup proporciona funcionalidades de supervisión y alerta integradas en un almacén de Recovery Services. Estas funcionalidades están disponibles sin ninguna infraestructura de administración adicional. También puede aumentar la escala de la supervisión y los informes mediante Azure Monitor.
 
 Habilite la configuración de diagnóstico en el registro de actividad de Azure y envíe los registros a un área de trabajo de Log Analytics. Realice consultas en Log Analytics para buscar términos, identificar tendencias, analizar patrones y proporcionar muchas otras conclusiones basadas en los datos del registro de actividad que se pueden recopilar para almacenes de Recovery Services.
 
@@ -480,7 +480,7 @@ Microsoft administra la infraestructura subyacente para Azure Backup y ha implem
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Uso de RBAC de Azure para controlar el acceso a los recursos
 
-**Guía**: El control de acceso basado en roles (RBAC) de Azure permite realizar una administración detallada del acceso para Azure. También podrá repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
+**Guía**: el control de acceso basado en rol de Azure (Azure RBAC) permite una administración del acceso pormenorizada para Azure. También podrá repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
 
 Azure Backup proporciona tres roles integrados para controlar las operaciones de administración de copia de seguridad: Colaborador de copias de seguridad, operador de copias de seguridad y lector de copias de seguridad. Puede asignar roles integrados de Backup a las diferentes acciones de administración de copia de seguridad.
 
@@ -698,7 +698,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12: Limitación de capacidad de los usuarios para ejecutar scripts en recursos de proceso
 
-**Instrucciones**: No aplicable; esta recomendación está pensada para los recursos de proceso.
+**Guía**: No aplicable; esta recomendación está pensada para los recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 

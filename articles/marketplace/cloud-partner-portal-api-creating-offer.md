@@ -4,19 +4,21 @@ description: API para crear una oferta o actualizar una existente.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 06/19/2020
-ms.openlocfilehash: 5104d11c1eaf9641f1d631db97dcca036308cd45
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.date: 07/14/2020
+ms.openlocfilehash: 68416fa91f6b75fb3ef2b91c1297f13d84f2bdab
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115730"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292950"
 ---
 <a name="create-or-modify-an-offer"></a>Creación o modificación de una oferta
 =========================
 
 > [!NOTE]
-> Las API de Cloud Partner Portal se integran con el Centro de partners y seguirán funcionando después de migrar a él las ofertas. La integración presenta pequeños cambios. Revise los cambios que se muestran en [Referencia de API de Cloud Partner Portal](./cloud-partner-portal-api-overview.md) para asegurarse de que el código sigue funcionando después de la migración al Centro de partners.
+> Las API de Cloud Partner Portal se integran con el Centro de partners y seguirán funcionando en este. La transición presenta pequeños cambios. Revise los cambios que se muestran en [Referencia de API de Cloud Partner Portal](./cloud-partner-portal-api-overview.md) para asegurarse de que el código sigue funcionando después de la transición al Centro de partners. Las API de CPP solo deben usarse para los productos existentes que ya estaban integrados antes de la transición al Centro de partners. Los nuevos productos deben usar las API de envío del Centro de partners.
 
 Esta llamada actualiza una oferta específica dentro del espacio de nombres del editor o crea una oferta.
 
@@ -283,4 +285,4 @@ En el ejemplo siguiente se crea una oferta con offerID de `contosovirtualmachine
 <a name="uploading-artifacts"></a>Carga de los artefactos
 -------------------
 
-Para compartir los artefactos, como imágenes y logotipos, debe cargarlos en una ubicación accesible en la Web y luego debe incluir cada uno de ellos como un URI en la solicitud PUT, como se muestra en el ejemplo anterior. El sistema detectará que estos archivos no se encuentran en el almacenamiento de Azure Marketplace y los descargará en el almacenamiento.  Como resultado, encontrará que futuras solicitudes GET devolverán una dirección URL de servicio de Azure Marketplace para estos archivos.
+Para compartir los artefactos, como imágenes y logotipos, debe cargarlos en una ubicación accesible en la Web y luego debe incluir cada uno de ellos como un URI en la solicitud PUT, como se muestra en el ejemplo anterior. El sistema detectará que estos archivos no se encuentran en el almacenamiento de Azure Marketplace y los descargará en el almacenamiento.  Como resultado, verá que futuras solicitudes GET devolverán una dirección URL de servicio de Azure Marketplace para estos archivos.

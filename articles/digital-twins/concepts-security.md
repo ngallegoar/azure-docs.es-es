@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0a1447e64b606170601e6df6a443f53e3132294d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bc6b3911ed6d04561d25ef166625f9e73023726d
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522268"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373290"
 ---
 # <a name="secure-azure-digital-twins-with-role-based-access-control"></a>Protección de Azure Digital Twins con el control de acceso basado en roles
 
@@ -35,7 +35,7 @@ El paso de autenticación exige que cualquier solicitud de aplicación contenga 
 
 El paso de autorización requiere que se asigne un rol RBAC a la entidad de seguridad. Los roles que se asignan a una entidad de seguridad determinan los permisos que tiene esa entidad de seguridad. Azure Digital Twins proporciona roles RBAC que abarcan conjuntos de permisos para recursos de Azure Digital Twins. Estos roles se describen más adelante en este artículo.
 
-Para más información sobre los roles y las asignaciones de roles que se admiten en Azure, consulte la [Descripción de los distintos roles](../role-based-access-control/rbac-and-directory-admin-roles.md) en la documentación de RBAC de Azure.
+Para más información sobre los roles y las asignaciones de roles que se admiten en Azure, consulte la [*Descripción de los distintos roles*](../role-based-access-control/rbac-and-directory-admin-roles.md) en la documentación de RBAC de Azure.
 
 ### <a name="authentication-with-managed-identities"></a>Autenticación con identidades administradas
 
@@ -45,20 +45,20 @@ Con las identidades administradas, la plataforma Azure administra esta identidad
 
 ### <a name="authorization-rbac-roles-for-azure-digital-twins"></a>Autorización: Roles de RBAC para Azure Digital Twins
 
-Azure proporciona los siguientes roles RBAC integrados para autorizar el acceso a un recurso de Azure Digital Twins:
-* Propietario de Azure Digital Twins (versión preliminar): use este rol para proporcionar acceso completo a los recursos de Azure Digital Twins.
-* Lector de Azure Digital Twins (versión preliminar): use este rol para proporcionar acceso de solo lectura a los recursos de Azure Digital Twins.
+Azure proporciona los siguientes roles de Azure integrados para autorizar el acceso a un recurso de Azure Digital Twins:
+* *Propietario de Azure Digital Twins (versión preliminar)* : use este rol para proporcionar acceso completo a los recursos de Azure Digital Twins.
+* *Lector de Azure Digital Twins (versión preliminar)* : use este rol para proporcionar acceso de solo lectura a los recursos de Azure Digital Twins.
 
 > [!TIP]
-> Ahora, el rol de lector de Azure Digital Twins (versión preliminar) también admite la exploración de relaciones.
+> Ahora, el rol de *lector de Azure Digital Twins (versión preliminar)* también admite la exploración de relaciones.
 
-Para más información sobre cómo se definen los roles integrados, consulte [Descripción de definiciones de roles](../role-based-access-control/role-definitions.md) en la documentación de RBAC de Azure. Para obtener información acerca de la creación de roles de RBAC personalizados, consulte [Roles personalizados en los recursos de Azure](../role-based-access-control/custom-roles.md).
+Para más información sobre cómo se definen los roles integrados, consulte [*Descripción de definiciones de roles*](../role-based-access-control/role-definitions.md) en la documentación de RBAC de Azure. Para más información acerca de la creación de roles personalizados de Azure, consulte [*Roles personalizados en los recursos de Azure*](../role-based-access-control/custom-roles.md).
 
 Puede asignar roles de dos maneras:
-* mediante el panel de control de acceso (IAM) de Azure Digital Twins en Azure Portal (consulte [Incorporación o eliminación de asignaciones de roles mediante RBAC de Azure y Azure Portal](../role-based-access-control/role-assignments-portal.md))
+* mediante el panel de control de acceso (IAM) de Azure Digital Twins en Azure Portal (consulte [*Incorporación o eliminación de asignaciones de roles mediante RBAC de Azure y Azure Portal*](../role-based-access-control/role-assignments-portal.md))
 * mediante comandos de la CLI para agregar o quitar un rol
 
-Para obtener pasos más detallados sobre cómo hacerlo, pruébelo en el [Tutorial de Azure Digital Twins: *Conexión de una solución de un extremo a otro*](tutorial-end-to-end.md).
+Para obtener pasos más detallados sobre cómo hacerlo, pruébelo en el [*Tutorial de Azure Digital Twins: Conexión de una solución de un extremo a otro*](tutorial-end-to-end.md).
 
 ## <a name="permission-scopes"></a>Ámbitos de permiso
 
@@ -71,8 +71,14 @@ En la lista siguiente se describen los niveles en los que puede definir el ámbi
 * Relación de los gemelos digitales: Las acciones de este recurso definen el control sobre las operaciones de CRUD en las [relaciones](concepts-twins-graph.md) entre gemelos digitales en el grafo gemelo.
 * Ruta del evento: Las acciones de este recurso determinan los permisos para [redirigir eventos](concepts-route-events.md) de Azure Digital Twins a un servicio de punto de conexión como [Event Hub](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md) o [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md).
 
+## <a name="troubleshooting"></a>Solución de problemas
+
+Si un usuario intenta realizar una acción no permitida por su rol, es posible que reciba el siguiente error de la solicitud de servicio: `403 (Forbidden)`. Para obtener más información y pasos para solucionar problemas, vea [*Solución de problemas: Error en la solicitud de Azure Digital Twins con el estado: 403 (Prohibido)* ](troubleshoot-error-403.md).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Vea cómo recorrer estos pasos con una aplicación cliente de ejemplo en [*Procedimiento: Autenticación de una aplicación cliente*](how-to-authenticate-client.md).
+* Vea estos conceptos en acción en [*Procedimiento: Configuración de una instancia y autenticación*](how-to-set-up-instance-scripted.md).
+
+* Vea cómo interactuar con estos conceptos del código de la aplicación cliente en [*Procedimiento: Escritura de código de autenticación de aplicación*](how-to-authenticate-client.md).
 
 * Obtenga más información sobre [RBAC para Azure](../role-based-access-control/overview.md).

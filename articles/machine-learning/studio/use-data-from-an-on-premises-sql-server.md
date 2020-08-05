@@ -1,6 +1,5 @@
 ---
-title: SQL Server local
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clásico): SQL Server local (Azure)'
 description: Use datos de una base de datos de SQL Server para realizar análisis avanzados con Azure Machine Learning Studio (clásico).
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 49ec8916e03323bdf4263fe9ea6cfca323339dce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e654950360b7891e59f4f273efb7139a5223854a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706059"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324852"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-a-sql-server-database"></a>Análisis mediante Azure Machine Learning Studio (clásico) con una base de datos de SQL Server
+
+**SE APLICA A:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![sí](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico) 
+
 
 Con frecuencia, a las compañías que trabajan con datos locales les gustaría aprovechar la escala y la agilidad de la nube para su cargas de trabajo de aprendizaje de automático. Sin embargo, no desean interrumpir los flujos de trabajo y los procesos de negocio actuales por mover sus datos locales a la nube. Ahora, Azure Machine Learning Studio (clásico) admite la lectura de los datos de una base de datos de SQL Server, seguida del entrenamiento y la puntuación de un modelo con estos datos. Ya no tendrá que copiar y sincronizar de forma manual los datos entre la nube y el servidor local. En su lugar, el módulo de **importación de datos** de Azure Machine Learning Studio (clásico) ahora puede leer directamente los trabajos de entrenamiento y puntuación en la base de datos de SQL Server.
 

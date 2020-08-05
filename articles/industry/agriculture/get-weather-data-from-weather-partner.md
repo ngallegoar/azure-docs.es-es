@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
-ms.openlocfilehash: 51a25b66968f43facddb9187a6793b2e39e0fdbd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e6678eb2e738c206bbe67151361b594679d97b35
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536630"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281028"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>Obtener datos meteorológicos de asociados meteorológicos
 
@@ -26,7 +26,7 @@ Para obtener datos meteorológicos, asegúrese de que ha [instalado FarmBeats](h
 
 Para empezar a obtener datos meteorológicos en el centro de datos de FarmBeats:
 
-1. Vaya a [Swagger](https://farmbeatswebsite-api.azurewebsites.net/swagger) en el centro de datos de FarmBeats.
+1. Vaya a Swagger en el centro de datos de FarmBeats `https://farmbeatswebsite-api.azurewebsites.net/swagger`.
 
 2. Vaya a /Partner API y, después, realice una solicitud POST. Use la siguiente carga de entrada:
 

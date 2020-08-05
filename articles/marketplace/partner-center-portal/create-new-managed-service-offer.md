@@ -4,15 +4,15 @@ description: Cómo crear una oferta de servicio administrado para la lista de Az
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: JnHs
-ms.author: jenhayes
+author: Microsoft-BradleyWright
+ms.author: brwrigh
 ms.date: 07/07/2020
-ms.openlocfilehash: 70f0dbff2530b11e92bd0b0cc55ad92a8679ebe9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8546e5fde51ddc8a29a852a2c5dbcd25fffad287
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121799"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405252"
 ---
 # <a name="create-a-managed-service-offer"></a>Creación de una oferta de servicio administrado
 
@@ -177,7 +177,7 @@ Seleccione **Guardar borrador** antes de continuar.
 
 ## <a name="plan-overview"></a>Información general del plan
 
-Cada oferta debe tener uno o varios planes (a veces denominados SKU). Puede agregar varios planes para admitir diferentes conjuntos de características a precios diferentes o para personalizar un plan específico para un público limitado de clientes específicos. Los clientes pueden ver los planes disponibles para ellos en la oferta principal.
+Cada oferta tiene que tener uno o más planes (anteriormente denominados SKU). Puede agregar varios planes para admitir diferentes conjuntos de características a precios diferentes o para personalizar un plan específico para un público limitado de clientes específicos. Los clientes pueden ver los planes disponibles para ellos en la oferta principal.
 
 En la página **Información general del plan**, seleccione **+ Crear nuevo plan**. A continuación, escriba un **Id. de plan** y un **nombre de plan**. Ambos valores solo puede contener caracteres alfanuméricos en minúsculas, guiones y guiones bajos, con un máximo de 50 caracteres. Estos valores pueden ser visibles para los clientes y no se pueden cambiar después de publicar la oferta.
 
@@ -194,6 +194,9 @@ A continuación, escriba una **descripción** que proporcione una explicación m
 Actualmente, solo hay un modelo de precios que se puede usar para la oferta de servicio administrado: **Traiga su propia licencia (BYOL)** . Esto significa que facturará a sus clientes directamente por los costos relacionados con esta oferta y Microsoft no le aplicará ningún cargo.
 
 La sección **Visibilidad del plan** le permite indicar si este plan debe ser [privado](../../marketplace/private-offers.md). Si deja el cuadro **Este plan es privado** desactivado, el plan no se restringirá a clientes específicos (o a un número determinado de clientes).
+
+> [!NOTE]
+> Los planes privados no son compatibles con las suscripciones que se establecen a través de un revendedor del programa Proveedor de soluciones en la nube (CSP).
 
 Para que este plan esté disponible solo para clientes específicos, seleccione **Sí**. Al hacerlo, tendrá que identificar a los clientes proporcionando sus identificadores de suscripción. Se pueden especificar de uno en uno (hasta 10 suscripciones) o mediante la carga de un archivo. csv (hasta 10.000 suscripciones en todos los planes). Asegúrese de incluir sus propias suscripciones aquí para poder probar y validar la oferta.
 

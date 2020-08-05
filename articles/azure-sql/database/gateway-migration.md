@@ -10,15 +10,15 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: e9bf1f06b1ec1f99da1ce653b4bc72f4638ba451
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 22bfab5b9f00a392054fa1aef6a93195180fd968
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084960"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373494"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migración de tráfico de Azure SQL Database a puertas de enlace más recientes
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 A media que la infraestructura de Azure mejora, Microsoft actualizará periódicamente el hardware para asegurarse de que ofrecemos la mejor experiencia de cliente posible. En los próximos meses, tenemos previsto agregar puertas de enlace basadas en generaciones de hardware más recientes, migrar el tráfico a ellas y retirar puertas de enlace basadas en hardware más antiguo en algunas regiones.  
 
@@ -27,6 +27,19 @@ Se enviará un aviso a los clientes por correo electrónico y en Azure Portal co
 ## <a name="status-updates"></a>Actualizaciones de estado
 
 # <a name="in-progress"></a>[En curso](#tab/in-progress-ip)
+### <a name="september-2020"></a>Septiembre de 2020
+
+Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones:
+
+- Norte de Europa: 13.74.104.113 
+- Oeste de EE. UU. 2: 40.78.248.10 
+- Oeste de Europa: 52.236.184.163 
+- Centro y Sur de EE. UU.: 20.45.121.1, 20.49.88.1 
+
+Las puertas de enlace de SQL existentes comenzarán a aceptar tráfico en las siguientes regiones:
+- Este de Japón: 40.79.184.8, 40.79.192.5
+
+Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente a partir del 1 de septiembre de 2020. 
 
 ### <a name="august-2020"></a>Agosto de 2020
 

@@ -8,15 +8,15 @@ ms.author: jmartens
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
-ms.custom: contperfq4
+ms.topic: conceptual
+ms.custom: troubleshooting, contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: 56acddda2cf5ae2ef2a94353ec11c3ddf6990e1c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8f58fcef1a35494053803d98b43ce97fed7205e0
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536120"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373698"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemas conocidos y solución de problemas en Azure Machine Learning
 
@@ -368,6 +368,12 @@ Si realiza una operación de administración en un destino de proceso desde un t
 ```
 
 Por ejemplo, si intenta crear o asociar un destino de proceso desde una canalización de aprendizaje automático que se envía para ejecución remota, recibirá un error.
+
+## <a name="missing-user-interface-items-in-studio"></a>Faltan elementos de la interfaz de usuario en Studio
+
+El control de acceso basado en rol de Azure se puede usar para restringir las acciones que se pueden realizar con Azure Machine Learning. Estas restricciones pueden impedir que se muestren elementos de la interfaz de usuario en Azure Machine Learning Studio. Por ejemplo, si se le asigna un rol que no puede crear una instancia de proceso, la opción para esta tarea no aparecerá en Studio.
+
+Para más información, consulte [Administración de usuarios y roles](how-to-assign-roles.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,16 +3,16 @@ title: 'Procedimiento para proteger la jerarquía de recursos: Gobernanza en Azu
 description: Obtenga información sobre cómo proteger la jerarquía de recursos con configuraciones de jerarquía que incluyen la configuración del grupo de administración predeterminado.
 ms.date: 05/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 60c184d176ae62c1af525db656c56a83422cb94a
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 2f8d3d7ff85552fe18a49137450aefe91d0d02c9
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837354"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87366779"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Procedimiento para proteger la jerarquía de recursos
 
-Los recursos, grupos de recursos, suscripciones, grupos de administración y el inquilino forman la jerarquía de recursos. Los valores en el grupo de administración raíz, como roles de RBAC personalizados o asignaciones de directivas de Azure Policy, pueden afectar a todos los recursos de la jerarquía. Es importante proteger la jerarquía de recursos de los cambios que podrían afectar negativamente a todos los recursos.
+Los recursos, grupos de recursos, suscripciones, grupos de administración y el inquilino forman la jerarquía de recursos. Los valores en el grupo de administración raíz, como roles de Azure personalizados o asignaciones de directivas de Azure Policy, pueden afectar a todos los recursos de la jerarquía. Es importante proteger la jerarquía de recursos de los cambios que podrían afectar negativamente a todos los recursos.
 
 Ahora los grupos de administración tienen una configuración de jerarquía que permite al administrador de inquilinos controlar estos comportamientos. En este artículo se describe cada una de las configuraciones de jerarquía disponibles y cómo establecerlas.
 
@@ -23,7 +23,7 @@ La configuración de cualquiera de las opciones de jerarquía requiere las dos o
 - `Microsoft.Management/managementgroups/settings/write`
 - `Microsoft.Management/managementgroups/settings/read`
 
-Estas operaciones solo permiten que un usuario lea y actualice la configuración de la jerarquía. Las operaciones no proporcionan ningún otro acceso a la jerarquía de grupos de administración ni a los recursos de la jerarquía. Las dos operaciones están disponibles en el rol de RBAC integrado **Administrador de configuración de jerarquía**.
+Estas operaciones solo permiten que un usuario lea y actualice la configuración de la jerarquía. Las operaciones no proporcionan ningún otro acceso a la jerarquía de grupos de administración ni a los recursos de la jerarquía. Las dos operaciones están disponibles en el rol de Azure integrado **Hierarchy Settings Administrator** (Administrador de configuración de jerarquía).
 
 ## <a name="setting---default-management-group"></a>Configuración: Grupo de administración predeterminado
 

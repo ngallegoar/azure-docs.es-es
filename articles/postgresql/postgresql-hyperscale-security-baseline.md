@@ -1,20 +1,20 @@
 ---
-title: Base de referencia de seguridad de Azure Database for PostgreSQL Hiperescala para Azure Security Benchmark
+title: 'Base de referencia de seguridad de Azure para Azure Database for PostgreSQL: Hiperescala'
 description: La base de referencia de seguridad de Azure Database for PostgreSQL Hiperescala es una guía de procedimientos y recursos para implementar las recomendaciones de seguridad especificadas en Azure Security Benchmark.
 author: msmbaldwin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ca08ac30c5d8e925197a0df1d327bf9a0923b046
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dd6d3ef6f610dcbdc511297e459cc5856bebe033
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528222"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030052"
 ---
-# <a name="azure-database-for-postgresql---hyperscale-security-baseline-for-azure-security-benchmark"></a>Base de referencia de seguridad de Azure Database for PostgreSQL Hiperescala para Azure Security Benchmark
+# <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale"></a>Base de referencia de seguridad de Azure para Azure Database for PostgreSQL: Hiperescala
 
 La base de referencia de seguridad de Azure Database for PostgreSQL Hiperescala contiene recomendaciones que le ayudarán a mejorar la posición de seguridad de la implementación.
 

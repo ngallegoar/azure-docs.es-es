@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4b40c284c8d034d92f29eb25d754d9294ac2e3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d1a4495b1d637b1cf8592f8c17e63ad456ea3c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386783"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027468"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Adición de un flujo de trabajo de aprobaciones personalizado al registro de autoservicio
 
@@ -61,11 +61,11 @@ Debe registrar el sistema de aprobación como una aplicación en el inquilino de
 
 A continuación, [creará los conectores de API](self-service-sign-up-add-api-connector.md#create-an-api-connector) para el flujo de usuario de registro de autoservicio. La API del sistema de aprobación necesita dos conectores y los puntos de conexión correspondientes, como los ejemplos que se muestran a continuación. Estos conectores de API hacen lo siguiente:
 
-- **Comprobar el estado de aprobación**. Enviar una llamada al sistema de aprobación inmediatamente después de que un usuario inicie sesión con un proveedor de identidades, para comprobar si el usuario tiene una solicitud de aprobación existente o si ya se ha denegado. Si el sistema de aprobación solo toma decisiones de aprobación automáticas, es posible que este conector de API no sea necesario. A continuación, se muestra un ejemplo de un conector de API "Check approval status".
+- **Comprobar el estado de aprobación**. Enviar una llamada al sistema de aprobación inmediatamente después de que un usuario inicie sesión con un proveedor de identidades, para comprobar si el usuario tiene una solicitud de aprobación existente o si ya se ha denegado. Si el sistema de aprobación solo toma decisiones de aprobación automáticas, es posible que este conector de API no sea necesario. Ejemplo de un conector de API "Check approval status".
 
   ![Configuración del conector de API Check approval status](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
 
-- **Solicitar aprobación**. Enviar una llamada al sistema de aprobación después de que un usuario complete la página de la colección de atributos, pero antes de que se cree la cuenta de usuario, para solicitar la aprobación. La solicitud de aprobación se puede conceder automáticamente o revisar de forma manual. A continuación, se muestra un ejemplo de un conector de API "Request approval". Seleccione cualquier **notificación para enviar** que el sistema de aprobación necesita para tomar una decisión de aprobación.
+- **Solicitar aprobación**. Enviar una llamada al sistema de aprobación después de que un usuario complete la página de la colección de atributos, pero antes de que se cree la cuenta de usuario, para solicitar la aprobación. La solicitud de aprobación se puede conceder automáticamente o revisar de forma manual. Ejemplo de un conector de API "Request approval". Seleccione cualquier **notificación para enviar** que el sistema de aprobación necesita para tomar una decisión de aprobación.
 
   ![Configuración del conector de API Request approval](./media/self-service-sign-up-add-approvals/create-approval-request-api-connector-config-alt.png)
 
@@ -94,14 +94,14 @@ El sistema de aprobación puede usar los [tipos de respuesta de API](self-servic
 
 ### <a name="request-and-responses-for-the-check-approval-status-api-connector"></a>Solicitud y respuestas del conector de API "Check approval status"
 
-A continuación, se muestra un ejemplo de la solicitud recibida por la API desde el conector de API "Check approval status":
+Ejemplo de la solicitud recibida por la API desde el conector de API "Check approval status":
 
 ```http
 POST <Approvals-API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@outlook.com",
+ "email": "johnsmith@outlook.com",
  "identities": [
      {
      "signInType":"federated",
@@ -119,7 +119,7 @@ El punto de conexión de la API **Check approval status** debe devolver una resp
 
 - El usuario no ha solicitado previamente una aprobación.
 
-El siguiente es un ejemplo de la respuesta de continuación:
+Ejemplo de la respuesta de continuación:
 
 ```http
 HTTP/1.1 200 OK
@@ -166,14 +166,14 @@ Content-type: application/json
 
 ### <a name="request-and-responses-for-the-request-approval-api-connector"></a>Solicitud y respuestas del conector de API "Request approval"
 
-A continuación, se muestra un ejemplo de la solicitud HTTP recibida por la API desde el conector de API "Request approval":
+Ejemplo de una solicitud HTTP recibida por la API desde el conector de API "Request approval":
 
 ```http
 POST <Approvals-API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@outlook.com",
+ "email": "johnsmith@outlook.com",
  "identities": [
      {
      "signInType":"federated",
@@ -194,7 +194,7 @@ El punto de conexión de la API **Request approval** debe devolver una respuesta
 
 - El usuario se puede **_aprobar automáticamente_**.
 
-El siguiente es un ejemplo de la respuesta de continuación:
+Ejemplo de la respuesta de continuación:
 
 ```http
 HTTP/1.1 200 OK
@@ -264,7 +264,7 @@ POST <Approvals-API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@outlook.com",
+ "email": "johnsmith@outlook.com",
  "identities": [
      {
      "signInType":"federated",
@@ -305,9 +305,9 @@ Content-type: application/json
 
 | Parámetro                                           | Obligatorio | Descripción                                                                                                                                                            |
 | --------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userPrincipalName                                   | Sí      | Se puede generar con la utilización de la notificación `email_address` enviada a la API, la sustitución del carácter `@` por `_` y anteponiéndolo a `#EXT@<tenant-name>.onmicrosoft.com`. |
+| userPrincipalName                                   | Sí      | Se puede generar con la utilización de la notificación `email` enviada a la API, la sustitución del carácter `@` por `_` y anteponiéndolo a `#EXT@<tenant-name>.onmicrosoft.com`. |
 | accountEnabled                                      | Sí      | Se debe establecer en `true`.                                                                                                                                                 |
-| mail                                                | Sí      | Equivalente a la notificación `email_address` enviada a la API.                                                                                                               |
+| mail                                                | Sí      | Equivalente a la notificación `email` enviada a la API.                                                                                                               |
 | userType                                            | Sí      | Debe ser `Guest`. Designa a este usuario como un usuario invitado.                                                                                                                 |
 | Identidades                                          | Sí      | Información de la identidad federada.                                                                                                                                    |
 | \<otherBuiltInAttribute>                            | No       | Otros atributos integrados, como `displayName`, `city` y otros. Los nombres de los parámetros son los mismos que los que envía el conector de API.                            |
@@ -324,7 +324,7 @@ POST <Approvals-API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@fabrikam.onmicrosoft.com",
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
  "displayName": "John Smith",
  "city": "Redmond",
  "extension_<extensions-app-id>_CustomAttribute": "custom attribute value",
@@ -332,7 +332,7 @@ Content-type: application/json
 }
 ```
 
-2. El sistema de aprobación crea la invitación mediante el atributo `email_address` proporcionado por el conector de API.
+2. El sistema de aprobación crea la invitación mediante el atributo `email` proporcionado por el conector de API.
 
 ```http
 POST https://graph.microsoft.com/v1.0/invitations
@@ -344,7 +344,7 @@ Content-type: application/json
 }
 ```
 
-El siguiente es un ejemplo de la respuesta:
+Ejemplo de la respuesta:
 
 ```http
 HTTP/1.1 201 OK

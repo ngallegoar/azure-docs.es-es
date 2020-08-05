@@ -3,12 +3,12 @@ title: Copia de seguridad de una máquina virtual de Azure desde la configuraci�
 description: En este artículo, aprenderá a realizar copias de seguridad de una sola máquina virtual o de varias máquinas virtuales de Azure con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 580cb1ad5f611991212bc8cdb48c66339f14d8e8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 722c24ce87edc692156a86338521aa3b2f9c7562
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538894"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286752"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Copia de seguridad de una máquina virtual de Azure desde la configuración de esta
 
@@ -39,15 +39,15 @@ Para realizar una copia de seguridad de máquinas virtuales de Azure, Azure Back
    - Si ya tiene un almacén, haga clic en **Seleccionar existente** y seleccione un almacén.
    - Si no tiene un almacén, haga clic en **Crear nuevo**. Especifique un nombre para el almacén. Se crea en la misma región y en el mismo grupo de recursos que la máquina virtual. No puede modificar esta configuración si habilita la copia de seguridad directamente desde la configuración de la máquina virtual.
 
-   ![Habilitar el Asistente para copia de seguridad](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
+        ![Habilitar el Asistente para copia de seguridad](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
 
-6. En **Elegir directiva de copia de seguridad**, realice lo siguiente:
+6. En **Elegir directiva de copia de seguridad**, realice una de las acciones siguientes:
 
    - Deje la directiva predeterminada. Esta realiza una copia de seguridad de la máquina virtual una vez al día a la hora especificada y conserva las copias de seguridad en el almacén durante 30 días.
    - Seleccione una directiva de copia de seguridad existente si tiene alguna.
    - Cree una directiva y defina su configuración.  
 
-   ![Seleccionar directiva de copia de seguridad](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
+       ![Seleccionar directiva de copia de seguridad](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
 7. Haga clic en **Habilitar copia de seguridad**. Esto asocia la directiva de copia de seguridad con la máquina virtual.
 
