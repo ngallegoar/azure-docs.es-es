@@ -301,7 +301,7 @@
     - name: Desarrollo y ejecución de aplicaciones
       items:
         - name: "Uso de Proceso local con Kubernetes con Visual\_Studio Code (versión preliminar)"
-          href: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
+          href: 'https://code.visualstudio.com/docs/containers/local-process-kubernetes'
         - name: Instalación de aplicaciones existentes con Helm
           href: kubernetes-helm.md
         - name: Uso de OpenFaaS
