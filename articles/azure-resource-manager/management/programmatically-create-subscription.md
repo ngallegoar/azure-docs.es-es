@@ -6,12 +6,13 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.reviewer: andalmia
 ms.author: banders
-ms.openlocfilehash: 20175e252d009620585e20cf76cdb634549b4f1d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 1b4c16dd276f9f564963fdefe8d16dbc92c1303d
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323917"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810452"
 ---
 # <a name="programmatically-create-azure-subscriptions-preview"></a>Creación de suscripciones de Azure mediante programación (versión preliminar)
 
@@ -156,7 +157,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 | `offerType`   | Sí      | String | Oferta de la suscripción. Las dos opciones para EA son [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso en producción) y [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (desarrollo y pruebas, tiene que [activarse mediante el portal de EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
 | `owners`      | No       | String | Identificador de objeto de cualquier usuario que quiera agregarse como propietario de RBAC en la suscripción al crearla.  |
 
-En la respuesta, como parte del encabezado `Location`, obtiene una dirección URL en la que puede consultar el estado de la operación de creación de la suscripción. Cuando haya finalizado la creación de la suscripción, una solicitud GET en la URL `Location` devolvería un objeto `subscriptionLink`, que tiene el identificador de suscripción. Para obtener más información, consulte la [documentación de la API de suscripción](https://docs.microsoft.com/rest/api/subscription/).
+En la respuesta, como parte del encabezado `Location`, obtiene una dirección URL en la que puede consultar el estado de la operación de creación de la suscripción. Cuando haya finalizado la creación de la suscripción, una solicitud GET en la URL `Location` devolvería un objeto `subscriptionLink`, que tiene el identificador de suscripción. Para obtener más información, consulte la [documentación de la API de suscripción](/rest/api/subscription/).
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

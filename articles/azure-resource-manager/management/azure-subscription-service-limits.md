@@ -4,12 +4,12 @@ description: Se proporciona una lista de límites, cuotas y restricciones de sus
 ms.topic: conceptual
 author: davidsmatlak
 ms.date: 06/04/2020
-ms.openlocfilehash: ffe0703fbbea75b221dfc6fd16f334dcf58e8ab3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 79aaa594a708fe775a2cdcc6e15b7c7f880f9f50
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515894"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810486"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 
@@ -375,11 +375,11 @@ Para más información sobre los límites de Azure Files, consulte [Objetivos de
 
 [!INCLUDE [azure-storage-limits-vm-disks](../../../includes/azure-storage-limits-vm-disks.md)]
 
-Para más información, consulte [Tamaños de máquina virtual](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para más información, consulte [Tamaños de máquina virtual](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 #### <a name="disk-encryption-sets"></a>Conjuntos de cifrado de disco
 
-Hay una limitación de 50 conjuntos de cifrado de disco por región y por suscripción. Para obtener más información, vea la documentación de cifrado para máquinas virtuales [Linux](/azure/virtual-machines/linux/disk-encryption#restrictions) o [Windows](/azure/virtual-machines/windows/disk-encryption#restrictions). Si necesita aumentar la cuota, póngase en contacto con el soporte técnico de Azure.
+Hay una limitación de 50 conjuntos de cifrado de disco por región y por suscripción. Para obtener más información, vea la documentación de cifrado para máquinas virtuales [Linux](../../virtual-machines/linux/disk-encryption.md#restrictions) o [Windows](../../virtual-machines/windows/disk-encryption.md#restrictions). Si necesita aumentar la cuota, póngase en contacto con el soporte técnico de Azure.
 
 ### <a name="managed-virtual-machine-disks"></a>Discos de máquinas virtuales administrados
 
@@ -426,6 +426,6 @@ Hay límites por suscripción, para implementar los recursos con las galerías d
 ## <a name="see-also"></a>Consulte también
 
 * [Understand Azure limits and increases](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) (Descripción de los límites de Azure y cómo aumentarlos)
-* [Tamaños de máquina virtual y servicio en la nube de Azure](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Tamaños de máquina virtual y servicio en la nube de Azure](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Tamaños para Azure Cloud Services](../../cloud-services/cloud-services-sizes-specs.md)
 * [Reglas y restricciones de nomenclatura para los recursos de Azure](resource-name-rules.md)
