@@ -12,12 +12,13 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
-ms.openlocfilehash: 6832cf08abd179b6108f971227b5c054c5617337
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 86d33ba411c4a0294454a8e1421c35b694feb65d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281640"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87492996"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic-using-an-azure-cli-script-sample"></a>Filtrado del tráfico de red de VM entrante y saliente mediante un ejemplo de script de la CLI de Azure
 

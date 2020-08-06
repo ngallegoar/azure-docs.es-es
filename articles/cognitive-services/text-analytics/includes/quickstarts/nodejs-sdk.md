@@ -9,12 +9,13 @@ ms.topic: include
 ms.date: 07/27/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
-ms.openlocfilehash: cc5db825771369d35b447232b58a9e42b14efb4f
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-javascript
+ms.openlocfilehash: b1a0425fba7dc8c6fb87f03305062f61fc431ca9
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87375112"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87451053"
 ---
 <a name="HOLTop"></a>
 
@@ -265,7 +266,7 @@ Document ID: 3 , Language: Chinese_Simplified
 #### <a name="version-30"></a>[Versión 3.0](#tab/version-3)
 
 > [!NOTE]
-> En la versión `3.0-preview`:
+> En la versión `3.0`:
 > * La vinculación de entidad es una solicitud independiente distinta a la de NER.
 
 Cree una matriz de cadenas que contenga el documento que quiere analizar. Llame al método `recognizeEntities()` del cliente y obtenga el objeto `RecognizeEntitiesResult`. Recorra en iteración la lista de resultados e imprima el nombre, el tipo, el subtipo, el desplazamiento, la longitud y la puntuación de la entidad.
