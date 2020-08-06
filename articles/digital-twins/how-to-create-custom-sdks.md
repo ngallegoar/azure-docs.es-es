@@ -7,12 +7,13 @@ ms.author: baanders
 ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e7533b87e28fa2bb95aaaddd31f7871e8ccdb600
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-javascript
+ms.openlocfilehash: a93e0b6d29bb10e5e71f48134916cac9cd563fb2
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285618"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420046"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Creación de SDK personalizados para Azure Digital Twins con AutoRest
 

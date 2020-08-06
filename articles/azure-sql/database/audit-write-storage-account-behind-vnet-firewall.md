@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 7b8c6e09616f261c371b010b38d2c0f81376a6f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f6a64cf30ecc684e05675d366ff5c9fc6642126
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84944785"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372168"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Escritura de auditorías en una cuenta de almacenamiento detrás de una red virtual y un firewall
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -120,7 +120,7 @@ Para configurar una auditoría de SQL para que escriba eventos en una cuenta de 
 2. Abra [Azure Portal](https://portal.azure.com). Vaya a la cuenta de almacenamiento. Busque **Control de acceso (IAM)** y haga clic en **Agregar asignación de roles**. Asigne el rol de RBAC **Colaborador de datos de blobs de almacenamiento** al servidor que hospeda la base de datos que ha registrado con Azure Active Directory (Azure AD) en el paso anterior.
 
    > [!NOTE]
-   > Solo los miembros con el privilegio Propietario pueden realizar este paso. Para obtener los distintos roles integrados para los recursos de Azure, consulte el artículo [Roles integrados en los recursos de Azure](../../role-based-access-control/built-in-roles.md).
+   > Solo los miembros con el privilegio Propietario pueden realizar este paso. Para conocer los distintos roles integrados de Azure, consulte [Roles integrados de Azure](../../role-based-access-control/built-in-roles.md).
 
 3. Configure la [directiva de auditoría de blobs del servidor](/rest/api/sql/server%20auditing%20settings/createorupdate) sin especificar un elemento *storageAccountAccessKey*:
 

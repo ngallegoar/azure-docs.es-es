@@ -1,14 +1,14 @@
 ---
 title: Experiencias de administración entre inquilinos
 description: La administración de recursos delegados de Azure habilita una experiencia de administración entre inquilinos.
-ms.date: 07/17/2020
+ms.date: 07/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1b3aa15dd968b4cded831934103a02420d020b9a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 979891a3ebea8070c6882fff62ed4a7954041d3e
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521044"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371046"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiencias de administración entre inquilinos
 
@@ -53,7 +53,7 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
   - Administre las máquinas conectadas mediante construcciones de Azure, como Azure Policy y etiquetado
   - Asegúrese de que se aplica el mismo conjunto de directivas a los entornos híbridos de los clientes
   - Use Azure Security Center para supervisar el cumplimiento en todos los entornos híbridos de los clientes
-- Administración de clústeres híbridos de Kubernetes a gran escala: [Azure Arc para Kubernetes (versión preliminar)](../../azure-arc/kubernetes/overview.md):
+- Administración de clústeres híbridos de Kubernetes a gran escala: [Azure Arc habilitado para Kubernetes (versión preliminar)](../../azure-arc/kubernetes/overview.md):
   - [Conecte un clúster de Kubernetes a Azure Arc](../../azure-arc/kubernetes/connect-cluster.md) a suscripciones o grupos de recursos delegados en Azure
   - [Use GitOps](../../azure-arc/kubernetes/use-gitops-connected-cluster.md) para los clústeres conectados
   - Aplique directivas en los clústeres conectados
@@ -82,6 +82,7 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 - Ver los detalles del registro de actividad para las suscripciones delegadas
 - Log analytics: consulte datos de áreas de trabajo de clientes remotos en varios inquilinos
 - Cree alertas en inquilinos de cliente que desencadenen la automatización, como los runbooks de Azure Automation o Azure Functions, en el inquilino de proveedor de servicios a través de webhooks
+- Para las cargas de trabajo de SAP, [supervise las métricas de soluciones de SAP con una vista agregada a través de los inquilinos del cliente](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293).
 
 [Redes de Azure](../../networking/networking-overview.md):
 

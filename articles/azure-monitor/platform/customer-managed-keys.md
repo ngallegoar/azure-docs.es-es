@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/05/2020
-ms.openlocfilehash: ad2e6a05fa8459d8e5a53d9bb8b8e08790a7d8ec
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: eec056cbe246f129fb78e15faa0027846c271181
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539421"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382957"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Clave administrada por el cliente de Azure Monitor 
 
@@ -187,14 +187,14 @@ Cree un recurso de Azure Key Vault, o use uno que ya tenga, para generar o impor
 
 Esta configuración puede actualizarse a través de la CLI y PowerShell:
 
-- [eliminación temporal](../../key-vault/general/overview-soft-delete.md)
-- La [Protección de purga](../../key-vault/general/overview-soft-delete.md#purge-protection) protege contra la eliminación forzada del secreto o almacén incluso después de la eliminación temporal.
+- [eliminación temporal](../../key-vault/general/soft-delete-overview.md)
+- La [Protección de purga](../../key-vault/general/soft-delete-overview.md#purge-protection) protege contra la eliminación forzada del secreto o almacén incluso después de la eliminación temporal.
 
 ### <a name="create-cluster-resource"></a>Creación de un recurso de *clúster*
 
 Este recurso se usa como conexión de identidad intermedia entre su instancia de Key Vault y sus áreas de trabajo de Log Analytics. Después de recibir la confirmación de que las suscripciones se han incluido en la lista de permitidos, cree un recurso de *clúster* de Log Analytics en la región en la que se encuentran las áreas de trabajo.
 
-Debe especificar el nivel (sku) de *capacidad de reserva* al crear un recurso de *Clúster*. El nivel de *capacidad de reserva* puede estar en el rango de 1000 a 2000 GB por día y se puede actualizar más adelante en etapas de 100. Si necesita un nivel de reserva de capacidad superior a 2000 GB por día, comuníquese con nosotros en LAIngestionRate@microsoft.com. [Más información](./manage-cost-storage.md#log-analytics-dedicated-clusters)
+Debe especificar el nivel (sku) de *capacidad de reserva* al crear un recurso de *Clúster*. El nivel de *capacidad de reserva* puede estar en el rango de 1000 a 3000 GB por día y se puede actualizar más adelante en etapas de 100. Si necesita un nivel de reserva de capacidad superior a 3000 GB por día, comuníquese con nosotros en LAIngestionRate@microsoft.com. [Más información](./manage-cost-storage.md#log-analytics-dedicated-clusters)
 
 La propiedad *billingType* determina la atribución de facturación para el recurso de *Clúster*y sus datos:
 - *Clúster* (valor predeterminado): los costos de Reserva de capacidad para el clúster se atribuyen al recurso de *clúster*.
@@ -467,9 +467,9 @@ Se puede acceder a todos los datos después de la operación de rotación de cla
 El lenguaje de consulta utilizado en Log Analytics es expresivo y puede contener información confidencial en los comentarios que se agregan a las consultas o en la sintaxis de la consulta. Algunas organizaciones requieren que dicha información se mantenga protegida como parte de la directiva de CMK y debe guardar las consultas cifradas con su clave. Azure Monitor le permite almacenar consultas de *búsquedas guardadas* y de *alertas del registro* cifradas con su clave en su propia cuenta de almacenamiento cuando se conecta al área de trabajo. 
 
 > [!NOTE]
-> No se admite CMK para las consultas que se usan en los libros y paneles de Azure. Estas consultas permanecen cifradas con la clave de Microsoft.  
+> Las consultas de Log Analytics se pueden guardar en varios almacenes según el escenario usado. Las consultas permanecen cifradas con la clave de Microsoft (MMK) en los escenarios siguientes, independientemente de la configuración de CMK: Libros en Azure Monitor, paneles de Azure, Azure Logic Apps, Azure Notebooks y runbooks de automatización.
 
-Cuando [traiga su propio almacenamiento](./private-storage.md) (BYOS) y lo asocie a su área de trabajo, el servicio carga consultas de *búsquedas guardadas* y de *alertas del registro* a la cuenta de almacenamiento. Esto significa que puede controlar la cuenta de almacenamiento y la [directiva de cifrado en reposo](../../storage/common/encryption-customer-managed-keys.md) con la misma clave que se usa para cifrar los datos en el clúster de Log Analytics o con una clave diferente. Sin embargo, será responsable de los costos asociados a esa cuenta de almacenamiento. 
+Cuando traiga su propio almacenamiento (BYOS) y lo asocie a su área de trabajo, el servicio carga consultas de *búsquedas guardadas* y de *alertas del registro* a la cuenta de almacenamiento. Esto significa que puede controlar la cuenta de almacenamiento y la [directiva de cifrado en reposo](../../storage/common/encryption-customer-managed-keys.md) con la misma clave que se usa para cifrar los datos en el clúster de Log Analytics o con una clave diferente. Sin embargo, será responsable de los costos asociados a esa cuenta de almacenamiento. 
 
 **Consideraciones antes de establecer CMK para las consultas**
 * Debe tener permisos de "escritura" en el área de trabajo y la cuenta de almacenamiento.
@@ -599,7 +599,7 @@ Después de la configuración, se guardará en el almacenamiento cualquier nueva
 
 - **Actualización de la *reserva de capacidad* en el *recurso* de clúster**
 
-  Cuando cambie el volumen de datos en las áreas de trabajo asociadas con el tiempo y desee actualizar el nivel de reserva de capacidad adecuadamente. Siga la [actualización *del recurso* de clúster](#update-cluster-resource-with-key-identifier-details) y proporcione el valor de la nueva capacidad. Puede estar en el rango de 1000 a 2000 GB por día y en pasos de 100. Para un nivel superior a 2000 GB por día, comuníquese con su contacto de Microsoft para habilitarlo. Tenga en cuenta que no tiene que proporcionar el cuerpo completo de la solicitud de REST y debe incluir la SKU:
+  Cuando cambie el volumen de datos en las áreas de trabajo asociadas con el tiempo y desee actualizar el nivel de reserva de capacidad adecuadamente. Siga la [actualización *del recurso* de clúster](#update-cluster-resource-with-key-identifier-details) y proporcione el valor de la nueva capacidad. Puede estar en el rango de 1000 a 3000 GB por día y en pasos de 100. Para un nivel superior a 3000 GB por día, comuníquese con su contacto de Microsoft para habilitarlo. Tenga en cuenta que no tiene que proporcionar el cuerpo completo de la solicitud de REST, pero debe incluir la SKU:
 
   ```powershell
   Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity "daily-ingestion-gigabyte"
@@ -706,8 +706,8 @@ Después de la configuración, se guardará en el almacenamiento cualquier nueva
 - El cifrado de CMK se aplica a los datos ingeridos después de la configuración de CMK. Los datos que se ingieren antes de la configuración de CMK permanecen cifrados con la clave de Microsoft. Puede consultar fácilmente los datos ingeridos antes y después de la configuración de CMK.
 
 - La instancia de Azure Key Vault debe configurarse como recuperable. Las siguientes propiedades no están habilitadas de forma predeterminada y deben configurarse mediante la CLI o PowerShell:<br>
-  - [eliminación temporal](../../key-vault/general/overview-soft-delete.md)
-  - La [protección de purgas](../../key-vault/general/overview-soft-delete.md#purge-protection) debe estar activada si quiere tener protección frente a posibles eliminaciones forzadas de secretos o del almacén, incluso después de su eliminación temporal.
+  - [eliminación temporal](../../key-vault/general/soft-delete-overview.md)
+  - La [protección de purgas](../../key-vault/general/soft-delete-overview.md#purge-protection) debe estar activada si quiere tener protección frente a posibles eliminaciones forzadas de secretos o del almacén, incluso después de su eliminación temporal.
 
 - Actualmente no se admite el traslado de un recurso de *clúster* a otro grupo de recursos o a otra suscripción.
 
@@ -763,7 +763,7 @@ Después de la configuración, se guardará en el almacenamiento cualquier nueva
   -  400: El clúster está en estado de eliminación. La operación asincrónica está en curso. El clúster debe completar su operación antes de realizar cualquier operación de actualización.
   -  400: KeyVaultProperties no está vacío, pero tiene un formato incorrecto. Consulte [actualización de identificador de clave](#update-cluster-resource-with-key-identifier-details).
   -  400: No se pudo validar la clave en Key Vault. Podría deberse a la falta de permisos o a que la clave no existe. Verifique que [estableció la clave y la directiva de acceso](#grant-key-vault-permissions) en Key Vault.
-  -  400: No se puede recuperar la clave. Key Vault debe establecerse para la eliminación temporal y protección de purga. Consulte la [documentación de Key Vault](../../key-vault/general/overview-soft-delete.md).
+  -  400: No se puede recuperar la clave. Key Vault debe establecerse para la eliminación temporal y protección de purga. Consulte la [documentación de Key Vault](../../key-vault/general/soft-delete-overview.md).
   -  400: No se puede ejecutar la operación ahora. Espere a que se complete la operación asincrónica e inténtelo de nuevo.
   -  400: El clúster está en estado de eliminación. Espere a que se complete la operación asincrónica e inténtelo de nuevo.
 

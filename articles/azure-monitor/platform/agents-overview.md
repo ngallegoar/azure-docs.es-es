@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: a9786c1f596a9f59e63886fa503bddac58ee7a8e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c6aea3be5782c967c5816a1e40dc5443306671b3
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325345"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445299"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Información general sobre los agentes de Azure Monitor
 
@@ -62,7 +62,7 @@ Use el agente de Log Analytics si necesita:
 * Enviar datos a un área de trabajo de Log Analytics para aprovechar las características compatibles con los [registros de Azure Monitor](data-platform-logs.md#what-can-you-do-with-azure-monitor-logs), como las [consultas de registro](../log-query/log-query-overview.md).
 * Use [Azure Monitor para VM](../insights/vminsights-overview.md), que le permite supervisar las máquinas virtuales a escala y supervisa sus procesos y dependencias en otros recursos y procesos externos.  
 * Administrar la seguridad de las máquinas virtuales mediante [Azure Security Center](../../security-center/security-center-intro.md) o [Azure Sentinel](../../sentinel/overview.md).
-* Usar [Update Management de Azure Automation](../../automation/automation-update-management.md), [State Configuration de Azure Automation](../../automation/automation-dsc-overview.md) o [Change Tracking e Inventario de Azure Automation](../../automation/change-tracking.md) para ofrecer una administración completa de las VM de Azure.
+* Usar [Update Management de Azure Automation](../../automation/update-management/update-mgmt-overview.md), [State Configuration de Azure Automation](../../automation/automation-dsc-overview.md) o [Change Tracking e Inventario de Azure Automation](../../automation/change-tracking.md) para ofrecer una administración completa de las VM de Azure.
 * Usar diferentes [soluciones](../monitor-reference.md#insights-and-core-solutions) para supervisar un servicio o una aplicación determinados.
 
 Las limitaciones del agente de Log Analytics incluyen:

@@ -3,12 +3,12 @@ title: Azure Blob Storage como origen de Event Grid
 description: Describe las propiedades que se proporcionan para los eventos de Blob Storage con Azure Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: a226a46dcc85e2bb4940364d2802397edb2c2397
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 792e4b24df5eb374d1e3589629fa8628d6680cf8
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113758"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371284"
 ---
 # <a name="azure-blob-storage-as-an-event-grid-source"></a>Azure Blob Storage como origen de Event Grid
 
@@ -23,6 +23,9 @@ En este artículo se proporcionan las propiedades y los esquemas de los eventos 
 ### <a name="list-of-events-for-blob-rest-apis"></a>Lista de eventos para las API REST de Blob
 
 Estos eventos se desencadenan cuando un cliente crea, reemplaza o elimina un blob mediante una llamada a las API REST de Blob.
+
+> [!NOTE]
+> El uso del punto de conexión de DFS *`(abfss://URI) `* para las cuentas habilitadas para el espacio de nombres no jerárquico no generará eventos. Para estas cuentas, solo el punto de conexión de blob *`(wasb:// URI)`* generará eventos.
 
  |Nombre del evento |Descripción|
  |----------|-----------|
@@ -288,7 +291,7 @@ Si la cuenta de almacenamiento de blobs tiene un espacio de nombres jerárquico,
 
 Un evento tiene los siguientes datos de nivel superior:
 
-| Propiedad | Tipo | Descripción |
+| Propiedad | Tipo | Description |
 | -------- | ---- | ----------- |
 | topic | string | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
 | subject | string | Ruta al asunto del evento definida por el anunciante. |

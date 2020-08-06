@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: a0a17f28f2a87ae42b552bfa07732b8b8232ef5e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 76e49393b1d26e6db85146a204911ba164d3ffc0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528187"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289915"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Planeamiento del entorno de Azure Time Series Insights Gen2
 
@@ -78,7 +78,7 @@ Si se deja en blanco, la hora de puesta en cola del evento se usa como marca de 
 
 Ahora puede configurar el modelo de serie temporal del entorno de Azure Time Series Insights. El nuevo modelo facilita la búsqueda y el análisis de los datos de IoT. Además, permite la protección, el mantenimiento y el enriquecimiento de datos de serie temporal y ayuda a preparar los conjuntos de datos listos para el consumidor. El modelo usa identificadores de Time Series, que se asignan a una instancia que asocia el recurso único con variables, conocidas como tipos, y jerarquías. Lea la información general sobre el [modelo de serie temporal](./concepts-model-overview.md) para más detalles.
 
-El modelo es dinámico, por lo que se puede compilar en cualquier momento. Para empezar a trabajar rápidamente, compílelo y cárguelo antes de insertar datos en Azure Time Series Insights. Para compilar el modelo, lea [Modelado de datos en la versión preliminar de Azure Time Series Insights](./time-series-insights-update-how-to-tsm.md).
+El modelo es dinámico, por lo que se puede compilar en cualquier momento. Para empezar a trabajar rápidamente, compílelo y cárguelo antes de insertar datos en Azure Time Series Insights. Para compilar el modelo, lea [Modelado de datos en la versión preliminar de Azure Time Series Insights](/azure/time-series-insights/concepts-model-overview).
 
 Para muchos clientes, el modelo de serie temporal se asigna a un modelo de recursos existente o a un sistema ERP ya implantado. Si no tiene un modelo existente, se [proporciona](https://github.com/Microsoft/tsiclient) una experiencia de usuario ya creada para ponerse en marcha rápidamente. Para saber cómo puede ayudarle un modelo, vea el [entorno de demostración de ejemplo](https://insights.timeseries.azure.com/preview/demo).
 

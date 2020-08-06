@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: 0da3a0bec79ab6f60b1e69c490124e95a4b7c365
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e8e900e410f1a41c8c98f5cec00631cfb5f275de
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497652"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407700"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime en Azure Data Factory 
 
@@ -45,13 +45,10 @@ En la tabla siguiente se describen las funcionalidades y la compatibilidad de re
 
 Tipo de IR | Red pública | Red privada
 ------- | -------------- | ---------------
-Azure | Data Flow<br/>Movimiento de datos<br/>Distribución de actividades | &nbsp;
+Azure | Data Flow<br/>Movimiento de datos<br/>Distribución de actividades | Data Flow<br/>Movimiento de datos<br/>Distribución de actividades
 Autohospedado | Movimiento de datos<br/>Distribución de actividades | Movimiento de datos<br/>Distribución de actividades
 SSIS de Azure | Ejecución de paquetes SSIS | Ejecución de paquetes SSIS
 
-En el diagrama siguiente se muestra cómo pueden utilizarse los distintos tipos de instancias de Integration Runtime en combinación para ofrecer funcionalidades de integración de datos enriquecidas y compatibilidad con redes:
-
-![Diferentes tipos de instancias de Integration Runtime](media/concepts-integration-runtime/different-integration-runtimes.png)
 
 ## <a name="azure-integration-runtime"></a>Tiempo de ejecución de integración de Azure
 
@@ -63,7 +60,7 @@ Una instancia de Azure Integration Runtime puede:
 
 ### <a name="azure-ir-network-environment"></a>Entorno de red de Azure Integration Runtime
 
-Azure Integration Runtime admite la conexión con almacenes de datos y servicios de proceso con puntos de conexión de acceso público. Use Integration Runtime autohospedado para el entorno de Azure Virtual Network.
+Azure Integration Runtime admite la conexión con almacenes de datos y servicios de proceso con puntos de conexión de acceso público. Al habilitar Virtual Network administrado y Azure Integration Runtime se admite la conexión a almacenes de datos mediante el servicio de Private Link en el entorno de red privada.
 
 ### <a name="azure-ir-compute-resource-and-scaling"></a>Recursos de proceso y escalado de Azure Integration Runtime
 Integration Runtime de Azure proporciona un proceso completamente administrado y sin servidor en Azure.  No tiene que preocuparse del aprovisionamiento de la infraestructura, la instalación de software, la aplicación de revisiones ni el escalado de la capacidad.  Además, solo se paga por la duración de la utilización real.
@@ -136,7 +133,7 @@ La ubicación de Integration Runtime define la ubicación de su proceso de back-
 
 Puede establecer una ubicación determinada para una instancia de Azure Integration Runtime, en cuyo caso la ejecución o la distribución de la actividad se producirá en esa región específica.
 
-Si opta por usar la resolución automática de Azure Integration Runtime, que es la opción predeterminada.
+Si opta por usar la resolución automática de Azure IR en redes públicas, que es la opción predeterminada,
 
 - En la actividad de copia, ADF intentará detectar automáticamente la ubicación del almacén de datos del receptor y luego usará IR en la misma región si está disponible, o la más cercana en la misma ubicación geográfica; si la región del almacén de datos del receptor no se puede detectar, se usa IR en la región de la factoría de datos como alternativa.
 
@@ -154,6 +151,8 @@ Si opta por usar la resolución automática de Azure Integration Runtime, que es
 
   > [!TIP] 
   > Una buena práctica sería asegurarse de que Data Flow se ejecuta en la misma región que los almacenes de datos correspondiente (si es posible). Puede conseguirlo mediante la resolución automática de Azure IR (si la ubicación del almacén de datos coincide con la ubicación de Data Factory), o mediante la creación de una nueva instancia de Azure IR en la misma región que los almacenes de datos y la posterior ejecución del flujo de datos en ella. 
+
+Si habilita Virtual Network administrado para la resolución automática de Azure IR, ADF usa IR en la región de la factoría de datos. 
 
 Puede supervisar qué ubicación de IR se usa durante la ejecución de la actividad en la vista de supervisión de actividades de la canalización en la interfaz de usuario, o en la carga de supervisión de actividades.
 

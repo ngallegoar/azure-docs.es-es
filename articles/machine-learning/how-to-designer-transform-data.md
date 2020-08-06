@@ -10,12 +10,12 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 3858a5a3b39c7ecaaad17a6bb6c313caf7bbc0ae
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 05a21ce10db2822c963f1b375842e9a7233e0816
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326994"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87457828"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer-preview"></a>Transformación de datos en el diseñador de Azure Machine Learning (versión preliminar)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -112,7 +112,7 @@ Ahora que la canalización está configurada para dividir los datos, debe especi
     **Formato de archivo**: csv
 
     > [!NOTE]
-    > En este artículo se da por supuesto que tiene acceso a un almacén de datos registrado en el área de trabajo de Azure Machine Learning actual. Para instrucciones sobre cómo configurar un almacén de datos, consulte [Conexión con los servicios de Azure Storage](how-to-access-data.md#azure-machine-learning-studio).
+    > En este artículo se da por supuesto que tiene acceso a un almacén de datos registrado en el área de trabajo de Azure Machine Learning actual. Para instrucciones sobre cómo configurar un almacén de datos, consulte [Conexión con los servicios de Azure Storage](how-to-access-data.md#studio).
 
     Si no tiene un almacén de datos, puede crear uno ahora. Para fines de ejemplo, en este artículo se guardarán los conjuntos de datos en la cuenta de almacenamiento de blobs predeterminada asociada con el área de trabajo. Guardará los conjuntos de datos en el contenedor `azureml` en una carpeta nueva llamada `data`.
 

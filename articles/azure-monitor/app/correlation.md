@@ -7,26 +7,26 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: tracking-python
-ms.openlocfilehash: b4facaee44a0bc5c7d64376ca80e5aaf8d0768d0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fa68f1ea8c0dd0d4367d3dcf39f059d0bd8a77ea
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323169"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421933"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlación de Telemetría en Application Insights
 
-En el mundo de los microservicios, todas las operaciones lógicas requieren que el trabajo se realice en diversos componentes del servicio. Puede supervisar cada uno de estos componentes por separado mediante [Application Insights](./app-insights-overview.md). Application Insights admite la correlación de telemetría distribuida, que se usa para detectar el componente que es responsable de los errores o de una degradación del rendimiento.
+En el mundo de los microservicios, todas las operaciones lógicas requieren que el trabajo se realice en diversos componentes del servicio. Puede supervisar cada uno de estos componentes por separado mediante [Application Insights](../../azure-monitor/app/app-insights-overview.md). Application Insights admite la correlación de telemetría distribuida, que se usa para detectar el componente que es responsable de los errores o de una degradación del rendimiento.
 
 Este artículo explica el modelo de datos utilizado por Application Insights para poner en correlación la telemetría enviada por varios componentes. También se explican los protocolos y las técnicas de propagación contextual, así como la implementación de tácticas de correlación en distintos lenguajes y plataformas.
 
 ## <a name="data-model-for-telemetry-correlation"></a>Modelo de datos de correlación de telemetría
 
-Application Insights define el [modelo de datos](./data-model.md) para la correlación de telemetría distribuida. Para asociar la telemetría con una operación lógica, todos los elementos de telemetría tienen el campo de contexto denominado `operation_Id`. Todos los elementos de telemetría comparten este identificador en el seguimiento distribuido. De este modo, aun si pierde telemetría desde una sola capa, se pueden seguir asociando los datos telemétricos notificados por otros componentes.
+Application Insights define el [modelo de datos](../../azure-monitor/app/data-model.md) para la correlación de telemetría distribuida. Para asociar la telemetría con una operación lógica, todos los elementos de telemetría tienen el campo de contexto denominado `operation_Id`. Todos los elementos de telemetría comparten este identificador en el seguimiento distribuido. De este modo, aun si pierde telemetría desde una sola capa, se pueden seguir asociando los datos telemétricos notificados por otros componentes.
 
-Habitualmente, una operación lógica distribuida consta de un conjunto de operaciones más pequeñas, que son solicitudes que se procesan en uno de los componentes. Estas operaciones se definen mediante [telemetría de solicitudes](./data-model-request-telemetry.md). Cada elemento de telemetría de solicitudes cuenta con su propio `id`, que lo identifica de manera global e inequívoca. Además, todos los elementos de telemetría (como los seguimientos y las excepciones) que están asociados a la solicitud deben establecer `operation_parentId` en el valor de la solicitud `id`.
+Habitualmente, una operación lógica distribuida consta de un conjunto de operaciones más pequeñas, que son solicitudes que se procesan en uno de los componentes. Estas operaciones se definen mediante [telemetría de solicitudes](../../azure-monitor/app/data-model-request-telemetry.md). Cada elemento de telemetría de solicitudes cuenta con su propio `id`, que lo identifica de manera global e inequívoca. Además, todos los elementos de telemetría (como los seguimientos y las excepciones) que están asociados a la solicitud deben establecer `operation_parentId` en el valor de la solicitud `id`.
 
-La [telemetría de dependencias](./data-model-dependency-telemetry.md) representa a todas las operaciones salientes, como una llamada HTTP a otro componente. La telemetría de dependencia también define su propio `id`, que es globalmente único. La telemetría de solicitudes, que se inicia mediante esta llamada de dependencia, utiliza este `id` como su `operation_parentId`.
+La [telemetría de dependencias](../../azure-monitor/app/data-model-dependency-telemetry.md) representa a todas las operaciones salientes, como una llamada HTTP a otro componente. La telemetría de dependencia también define su propio `id`, que es globalmente único. La telemetría de solicitudes, que se inicia mediante esta llamada de dependencia, utiliza este `id` como su `operation_parentId`.
 
 Puede crear una vista de la operación lógica distribuida usando `operation_Id`, `operation_parentId` y `request.id` con `dependency.id`. Estos campos también definen el orden de causalidad de las llamadas de telemetría.
 
@@ -216,7 +216,7 @@ La [especificación del modelo de datos de OpenTracing](https://opentracing.io/)
 | `Operation_Id`                         | `TraceId`                                           |
 | `Operation_ParentId`                   | `Reference` de tipo `ChildOf` (el intervalo primario)     |
 
-Para más información, consulte [Modelo de datos de telemetría de Application Insights](./data-model.md).
+Para más información, consulte [Modelo de datos de telemetría de Application Insights](../../azure-monitor/app/data-model.md).
 
 Para ver definiciones de los conceptos de OpenTracing, consulte [specification](https://github.com/opentracing/specification/blob/master/specification.md) y [semantic conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) de OpenTracing.
 
@@ -372,11 +372,10 @@ Es posible que quiera personalizar el modo en que los nombres de los componentes
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Escriba una [telemetría personalizada](./api-custom-events-metrics.md).
+- Escriba una [telemetría personalizada](../../azure-monitor/app/api-custom-events-metrics.md).
 - En el caso de escenarios avanzados de correlación en ASP.NET Core y ASP.NET, consulte el artículo sobre el [seguimiento de operaciones personalizadas](custom-operations-tracking.md).
-- Obtenga más información sobre la [opción cloud_RoleName](./app-map.md#set-cloud-role-name) en otros SDK.
+- Obtenga más información sobre la [opción cloud_RoleName](./app-map.md#set-or-override-cloud-role-name) en otros SDK.
 - Incorpore todos los componentes de un microservicio en Application Insights. Consulte las [plataformas compatibles](./platforms.md).
 - Consulte en el [modelo de datos](./data-model.md) los tipos de Application Insights.
 - Obtenga información sobre cómo [ampliar y filtrar la telemetría](./api-filtering-sampling.md).
 - Consulte la [referencia de configuración de Application Insights](configuration-with-applicationinsights-config.md).
-

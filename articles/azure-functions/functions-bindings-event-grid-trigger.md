@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit, tracking-python
-ms.openlocfilehash: c86a58c384c7356ecdaf668644f08c011a4c0a40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8876677a9ab4470875e6a311a62ce32598465fcd
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833008"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421270"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Desencadenador de Azure Event Grid para Azure Functions
 
@@ -413,7 +413,7 @@ Para obtener más información sobre cómo crear suscripciones mediante el Azure
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Para crear una suscripción mediante el uso de la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), utilice el comando [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create).
+Para crear una suscripción mediante el uso de la [CLI de Azure](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), utilice el comando [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create).
 
 El comando requiere la dirección URL del punto de conexión que invoca la función. En el siguiente ejemplo se muestra el patrón de la dirección URL específico de la versión:
 
@@ -508,7 +508,7 @@ Para probar localmente un desencadenador de Event Grid, debe enviar las solicitu
 1. [Genere una solicitud](#generate-a-request) y copie el cuerpo de la solicitud desde la aplicación de visor.
 1. [Envíe manualmente la solicitud](#manually-post-the-request) a la dirección URL de localhost de la función del desencadenador de Event Grid.
 
-Cuando haya finalizado las pruebas, puede utilizar la misma suscripción para producción actualizando el punto de conexión. Utilice el comando [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) de la CLI de Azure.
+Cuando haya finalizado las pruebas, puede utilizar la misma suscripción para producción actualizando el punto de conexión. Utilice el comando [az eventgrid event-subscription update](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) de la CLI de Azure.
 
 ### <a name="create-a-viewer-web-app"></a>Creación de una aplicación web de visor
 
@@ -516,7 +516,7 @@ Para simplificar la captura de mensajes de evento, puede implementar una [aplica
 
 Seleccione **Deploy to Azure** (Implementar en Azure) para implementar la solución en su suscripción. En Azure Portal, proporcione valores para los parámetros.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png" alt="Button to Deploy to Azure." /></a>
 
 La implementación puede tardar unos minutos en completarse. Después de que la implementación se haya realizado correctamente, puede ver la aplicación web para asegurarse de que se está ejecutando. En un explorador web, vaya a: `https://<your-site-name>.azurewebsites.net`
 

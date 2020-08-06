@@ -5,17 +5,18 @@ description: Obtenga información sobre cómo implementar modelos de Azure Machi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 16465ff823fab1b13f43aec33cb41f9b26b5c054
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad34195e003e0ca2d73000d3482cc79c3dbe3ee0
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392563"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372117"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implementación de un modelo en un clúster de Azure Kubernetes Service
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,8 +35,15 @@ En Azure Kubernetes Service, la implementación se realiza en un clúster de AKS
 * Cree el clúster de AKS mediante el SDK de Azure Machine Learning, la CLI de Machine Learning o [Azure Machine Learning Studio](https://ml.azure.com). Este proceso conecta automáticamente el clúster al área de trabajo.
 * Conecte el clúster de AKS existente a un área de trabajo de Azure Machine Learning. Un clúster se puede conectar mediante el SDK de Azure Machine Learning, la CLI de Machine Learning o Azure Machine Learning Studio.
 
+El clúster de AKS y el área de trabajo de AML pueden estar en distintos grupos de recursos.
+
 > [!IMPORTANT]
 > El proceso de creación o de conexión es una tarea que se realiza una sola vez. Una vez que un clúster de AKS está conectado al área de trabajo, puede usarlo para las implementaciones. Cuando deje de necesitar el clúster de AKS puede desasociarlo o eliminarlo. Una vez que lo haga, ya no podrá realizar ninguna implementación en el clúster.
+
+> [!IMPORTANT]
+> Se recomienda realizar una depuración local antes de la implementación en el servicio web. Para obtener más información, vea [Depuración local](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally).
+>
+> También puede consultar Azure Machine Learning: [Implementación en el cuaderno local](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -55,11 +63,28 @@ En Azure Kubernetes Service, la implementación se realiza en un clúster de AKS
 
 - En los fragmentos de código de la __CLI__ de este artículo se supone que ha creado un documento `inferenceconfig.json`. Para más información acerca cómo crear este documento, consulte el artículo en el que se explica [cómo y dónde se implementan los modelos](how-to-deploy-and-where.md).
 
+- Si adjunta un clúster de AKS, que tiene un [intervalo IP autorizado habilitado para tener acceso al servidor de API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), habilite los intervalos IP del plano de control de AML del clúster de AKS. El plano de control de AML se implementa entre regiones emparejadas e implementa pods de inferencia en el clúster de AKS. Sin acceso al servidor de la API, no se pueden implementar los pods de inferencia. Use el [intervalo IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) para las [regiones emparejadas]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) al habilitar los intervalos IP en un clúster de AKS.
+ 
+ - El nombre del proceso DEBE ser único dentro de un área de trabajo.
+   - El nombre es obligatorio y debe tener una longitud de entre 3 y 24 caracteres.
+   - Los caracteres válidos son mayúsculas y minúsculas, dígitos y el carácter -.
+   - El nombre debe empezar con una letra
+   - El nombre debe ser único en todos los procesos existentes dentro de una región de Azure. Verá una alerta si el nombre elegido no es único
+   
+ - Si quiere implementar modelos en nodos de GPU o en nodos de FPGA (o en cualquier SKU específica), debe crear un clúster con la SKU específica. No se admite la creación de un grupo de nodos secundarios en un clúster existente ni la implementación de modelos en el grupo de nodos secundarios.
+ 
+ - Si necesita implementar un Standard Load Balancer (SLB) en el clúster en lugar de un Basic Load Balancer (BLB), cree un clúster en el portal de AKS, la CLI o el SDK y, a continuación, asócielo al área de trabajo de AML. 
+
+
+
 ## <a name="create-a-new-aks-cluster"></a>Creación de un clúster de AKS
 
-**Tiempo estimado**: aproximadamente 20 minutos.
+**Tiempo estimado**: Aproximadamente 10 minutos.
 
 Crear o asociar un clúster de AKS es un proceso único en el área de trabajo. Puede volver a usar este clúster con diferentes implementaciones. Si elimina el clúster o el grupo de recursos que lo contiene, tendrá que crear un nuevo clúster la próxima vez que tenga que realizar una implementación. Puede tener varios clústeres de AKS asociados al área de trabajo.
+ 
+Azure Machine Learning ya admite el uso de un servicio Azure Kubernetes Service que tenga habilitado Private Link.
+Para crear un clúster de AKS privado, siga los documentos que se muestran [aquí](https://docs.microsoft.com/azure/aks/private-clusters).
 
 > [!TIP]
 > Si quiere proteger el clúster de AKS mediante una instancia de Azure Virtual Network, primero debe crear la red virtual. Para más información, consulte [Protección de los trabajos de experimentación e inferencia con Azure Virtual Network](how-to-enable-virtual-network.md#aksvnet).

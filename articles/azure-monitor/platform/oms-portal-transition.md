@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
-ms.openlocfilehash: b33bd5ba20e21d757e412e9dac7c474308c4561d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9c4e9676208a5d2cfa8c0c04a97675a3c634e3d5
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077150"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446786"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Traslado del portal de OMS a Azure
 
@@ -32,7 +32,7 @@ Se anuncian los siguientes cambios al quedar en desuso el portal de OMS. Cada un
 - Se va a dejar de utilizar la [aplicación móvil de OMS](#oms-mobile-app). 
 - La [solución NSG se reemplaza](#azure-network-security-group-analytics) por las funcionalidades mejoradas disponibles a través de la solución Análisis de tráfico.
 - Las nuevas conexiones de System Center Operations Manager con Log Analytics requieren [módulos de administración actualizados](#system-center-operations-manager).
-- Consulte [Migración de las implementaciones de actualizaciones de OMS a Azure](../../automation/migrate-oms-update-deployments.md) para más información sobre los cambios de [Update Management](../../automation/automation-update-management.md).
+- Consulte [Migración de las implementaciones de actualizaciones de OMS a Azure](../../automation/migrate-oms-update-deployments.md) para más información sobre los cambios de [Update Management](../../automation/update-management/update-mgmt-overview.md).
 
 
 ## <a name="what-should-i-do-now"></a>¿Qué debo hacer a continuación?

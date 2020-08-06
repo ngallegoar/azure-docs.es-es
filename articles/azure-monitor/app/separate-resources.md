@@ -3,18 +3,18 @@ title: 'Diseño de la implementación de Application Insights: uno frente a much
 description: Este artículo trata sobre el envío directo de la telemetría a los diferentes recursos para los sellos de desarrollo, prueba y producción.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 159a1c5554c0ac017bc9eeb2e9df65fddba334ba
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4f539862432fcdc67632e91caadf71d6584fbc3e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326552"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420573"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>¿Cuántos recursos de Application Insights se deben implementar?
 
-Cuando esté desarrollando la próxima versión de una aplicación web, no querrá mezclar la telemetría de [Application Insights](./app-insights-overview.md) de la nueva versión con la que ya se ha publicado. Para evitar confusiones, envíe la telemetría de las distintas fases de desarrollo para separar los recursos de Application Insights con claves de instrumentación independientes (iKey). Para que sea más fácil cambiar la clave de instrumentación cuando pase una versión de una fase a otro, puede ser útil establecer la clave iKey en el código en lugar de en el archivo de configuración.
+Cuando esté desarrollando la próxima versión de una aplicación web, no querrá mezclar la telemetría de [Application Insights](../../azure-monitor/app/app-insights-overview.md) de la nueva versión con la que ya se ha publicado. Para evitar confusiones, envíe la telemetría de las distintas fases de desarrollo para separar los recursos de Application Insights con claves de instrumentación independientes (iKey). Para que sea más fácil cambiar la clave de instrumentación cuando pase una versión de una fase a otro, puede ser útil establecer la clave iKey en el código en lugar de en el archivo de configuración.
 
-(Si el sistema es un servicio en la nube de Azure, hay [otra forma de configurar claves separadas](./cloudservices.md)).
+(Si el sistema es un servicio en la nube de Azure, hay [otra forma de configurar claves separadas](../../azure-monitor/app/cloudservices.md)).
 
 ## <a name="about-resources-and-instrumentation-keys"></a>Acerca de los recursos y las claves de instrumentación
 
@@ -35,7 +35,7 @@ Cada recurso de Application Insights incluye métricas disponibles de serie. En 
 
 ### <a name="other-things-to-keep-in-mind"></a>Otros aspectos que se deben tener en cuenta
 
--   Es posible que tenga que agregar código personalizado para asegurarse de que se establezcan valores significativos en el atributo [Cloud_RoleName](./app-map.md?tabs=net#set-cloud-role-name). Sin valores significativos establecidos para este atributo, *NINGUNA* de las experiencias del portal va a funcionar.
+-   Es posible que tenga que agregar código personalizado para asegurarse de que se establezcan valores significativos en el atributo [Cloud_RoleName](./app-map.md?tabs=net#set-or-override-cloud-role-name). Sin valores significativos establecidos para este atributo, *NINGUNA* de las experiencias del portal va a funcionar.
 - En el caso de las aplicaciones de Service Fabric y los servicios en la nube clásicos, el SDK lee automáticamente del entorno de roles de Azure y los establece. En todos los demás tipos de aplicaciones, es probable que tenga que establecer esto de forma explícita.
 -   La experiencia de Live Metrics no admite la división por nombre de rol.
 
@@ -58,7 +58,7 @@ protected void Application_Start()
 En este ejemplo, las ikeys para los distintos recursos se colocan en diferentes versiones del archivo de configuración web. Si cambia el archivo de configuración web (algo que se puede hacer como parte del script de lanzamiento), se intercambiará el recurso de destino.
 
 ### <a name="web-pages"></a>Páginas web
-La clave de instrumentación también se usa en las páginas web de la aplicación, en el [script obtenido del panel de inicio rápido](./javascript.md). En vez de codificarla literalmente en el script, genérela desde el estado del servidor. Por ejemplo, en una aplicación ASP.NET:
+La clave de instrumentación también se usa en las páginas web de la aplicación, en el [script obtenido del panel de inicio rápido](../../azure-monitor/app/javascript.md). En vez de codificarla literalmente en el script, genérela desde el estado del servidor. Por ejemplo, en una aplicación ASP.NET:
 
 ```javascript
 <script type="text/javascript">
@@ -86,14 +86,14 @@ Necesita las claves de instrumentación de todos los recursos a los que la aplic
 ## <a name="filter-on-build-number"></a>Filtrado por número de compilación
 Cuando se publica una nueva versión de la aplicación, querrá poder separar la telemetría en las diferentes versiones.
 
-Puede establecer la propiedad de versión de la aplicación para filtrar los resultados de la [búsqueda](./diagnostic-search.md) y del [explorador de métricas](../platform/metrics-charts.md).
+Puede establecer la propiedad de versión de la aplicación para filtrar los resultados de la [búsqueda](../../azure-monitor/app/diagnostic-search.md) y del [explorador de métricas](../../azure-monitor/platform/metrics-charts.md).
 
 Hay diferentes métodos de establecer la propiedad de versión de la aplicación.
 
 * Establezca directamente:
 
     `telemetryClient.Context.Component.Version = typeof(MyProject.MyClass).Assembly.GetName().Version;`
-* Ajuste esa línea en un [inicializador de telemetría](./api-custom-events-metrics.md#defaults) para asegurarse de que todas las instancias de TelemetryClient se establecen de forma coherente.
+* Ajuste esa línea en un [inicializador de telemetría](../../azure-monitor/app/api-custom-events-metrics.md#defaults) para asegurarse de que todas las instancias de TelemetryClient se establecen de forma coherente.
 * [ASP.NET] Establezca la versión en `BuildInfo.config`. El módulo web recogerá la versión del nodo BuildLabel. Incluya este archivo en el proyecto y recuerde que establecer la propiedad Copiar siempre en el Explorador de soluciones.
 
     ```XML
@@ -132,15 +132,14 @@ Para realizar el seguimiento de la versión de la aplicación, asegúrese de que
 </PropertyGroup>
 ```
 
-Cuando tenga la información de la compilación, el módulo web de Application Insights agregará automáticamente la **versión de la aplicación** como una propiedad a cada elemento de telemetría. Esto le permite filtrar por versión al realizar [búsquedas de diagnósticos](./diagnostic-search.md) o al [explorar métricas](../platform/metrics-charts.md).
+Cuando tenga la información de la compilación, el módulo web de Application Insights agregará automáticamente la **versión de la aplicación** como una propiedad a cada elemento de telemetría. Esto le permite filtrar por versión al realizar [búsquedas de diagnósticos](../../azure-monitor/app/diagnostic-search.md) o al [explorar métricas](../../azure-monitor/platform/metrics-charts.md).
 
 Tenga en cuenta, sin embargo, que el número de versión de la compilación solo lo genera Microsoft Build Engine, no la compilación de desarrollador de Visual Studio.
 
 ### <a name="release-annotations"></a>Anotaciones de la versión
-Si usa Azure DevOps, puede [obtener un marcador de anotación](./annotations.md) agregado a los gráficos, siempre que publique una nueva versión. 
+Si usa Azure DevOps, puede [obtener un marcador de anotación](../../azure-monitor/app/annotations.md) agregado a los gráficos, siempre que publique una nueva versión. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Recursos compartidos para varios roles](./app-map.md)
-* [Creación de un inicializador de telemetría para distinguir variantes A/B](./api-filtering-sampling.md#add-properties)
-
+* [Recursos compartidos para varios roles](../../azure-monitor/app/app-map.md)
+* [Creación de un inicializador de telemetría para distinguir variantes A/B](../../azure-monitor/app/api-filtering-sampling.md#add-properties)

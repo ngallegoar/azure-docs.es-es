@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 8cd9c1ba85666a6556e24e4966e1e6cb9b7ef124
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3dea4c0f63b6c4e76c2289e6c3d930ea32cf2880
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449318"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373222"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Administración de claves de cuenta de almacenamiento con Key Vault y Azure PowerShell
 
@@ -99,7 +99,7 @@ $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -St
 
 ### <a name="give-key-vault-access-to-your-storage-account"></a>Proporcionar a Key Vault acceso a la cuenta de almacenamiento
 
-Para que Key Vault tenga acceso y pueda administrar las claves de cuenta de almacenamiento, debe autorizar su acceso a la cuenta de almacenamiento. La aplicación Key Vault necesita permisos para *mostrar* y *regenerar* las claves de la cuenta de almacenamiento. Estos permisos se habilitan a través del rol RBAC integrado [Rol de servicio de operador de claves de cuentas de almacenamiento](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role). 
+Para que Key Vault tenga acceso y pueda administrar las claves de cuenta de almacenamiento, debe autorizar su acceso a la cuenta de almacenamiento. La aplicación Key Vault necesita permisos para *mostrar* y *regenerar* las claves de la cuenta de almacenamiento. Estos permisos se habilitan a través del rol integrado de Azure [Rol de servicio de operador de claves de cuentas de almacenamiento](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role). 
 
 Para asignar este rol a la entidad de servicio de Key Vault, que limita el ámbito a la cuenta de almacenamiento, use el cmdlet [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment?view=azps-2.6.0) de Azure PowerShell.
 
@@ -164,7 +164,7 @@ Tags                :
 
 ### <a name="enable-key-regeneration"></a>Habilitación de la regeneración de clave
 
-Si desea que Key Vault regenere las claves de cuenta de almacenamiento periódicamente, puede usar el cmdlet [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) de Azure PowerShell para establecer un período de regeneración. En el ejemplo siguiente se establece un período de regeneración de tres días. Después de tres días, Key Vault volverá a generar "key2" y cambiará la clave activa de "key2" a "key1" (reemplace por "primary" y "secondary" para las cuentas de almacenamiento clásicas).
+Si desea que Key Vault regenere las claves de cuenta de almacenamiento periódicamente, puede usar el cmdlet [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) de Azure PowerShell para establecer un período de regeneración. En el ejemplo siguiente se establece un período de regeneración de tres días. Cuando es el momento de girar, Key Vault regenera la clave que no está activa y, a continuación, establece la clave recién creada como activa. Solo se usa una de las claves para emitir tokens de SAS en cualquier momento. Esta es la clave activa.
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)

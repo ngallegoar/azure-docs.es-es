@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: 409a119804354b85e3af380d33a4801549ef8133
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 36b94f53d3a9113c3980c94c3b8eff0713f11814
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325294"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446536"
 ---
 # <a name="log-analytics-agent-overview"></a>Introducción al agente de Log Analytics
 El agente de Log Analytics se desarrolló para administrar de forma integral máquinas virtuales de cualquier nube, máquinas del entorno local y máquinas supervisadas por [System Center Operations Manager](/system-center/scom/). Los agentes de Windows y Linux envían los datos recopilados de diferentes orígenes al área de trabajo de Log Analytics de Azure Monitor, así como cualquier registro o métrica únicos que se hayan definido en una solución de supervisión. El agente de Log Analytics también permite utilizar información detallada y otros servicios de Azure Monitor, como [Azure Monitor para VM](../insights/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml) y [Azure Automation](../../automation/automation-intro.md).
@@ -51,7 +51,7 @@ En la tabla siguiente, se muestran los tipos de datos que puede configurar en un
 El agente de Log Analytics envía datos al área de trabajo de Log Analytics de Azure Monitor. El agente de Windows puede hospedarse en diferentes sitios para enviar datos a varias áreas de trabajo y grupos de administración de System Center Operations Manager. El agente de Linux solo puede enviar datos a un único destino.
 
 ## <a name="other-services"></a>Otros servicios
-El agente para Windows y Linux no es solo para conectarse a Azure Monitor, sino que también admite Azure Automation para hospedar el rol de trabajo Hybrid Runbook Worker y otros servicios como [Change Tracking](../../automation/change-tracking.md), [Update Management](../../automation/automation-update-management.md) y [Azure Security Center](../../security-center/security-center-intro.md). Para obtener más información acerca de la función Hybrid Runbook Worker, consulte [Hybrid Runbook Worker de Azure Automation](../../automation/automation-hybrid-runbook-worker.md).  
+El agente para Windows y Linux no es solo para conectarse a Azure Monitor, sino que también admite Azure Automation para hospedar el rol de trabajo Hybrid Runbook Worker y otros servicios como [Change Tracking](../../automation/change-tracking.md), [Update Management](../../automation/update-management/update-mgmt-overview.md) y [Azure Security Center](../../security-center/security-center-intro.md). Para obtener más información acerca de la función Hybrid Runbook Worker, consulte [Hybrid Runbook Worker de Azure Automation](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## <a name="installation-and-configuration"></a>Instalación y configuración
 

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b510326b6683ae48b6521483118367f36e0dc58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 159a14b30113a251c6ac61c4c04a2a3c4d69d3e5
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85387021"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385218"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Conceder a los usuarios B2B de Azure AD acceso a las aplicaciones locales
 
@@ -28,7 +28,7 @@ Si la aplicación local usa la autenticación basada en SAML, estas aplicaciones
 
 Deberá realizar las dos acciones siguientes:
 
-- Integre la aplicación SAML mediante la plantilla de aplicación que no pertenece a la galería, como se describe en [Configuración del inicio de sesión único en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory](../manage-apps/configure-single-sign-on-non-gallery-applications.md). Asegúrese de anotar el valor que usa para la **dirección URL de inicio de sesión**.
+- Integre la aplicación mediante SAML tal y como se describe en [Configuración del inicio de sesión único basado en SAML](../manage-apps/configure-saml-single-sign-on.md). Asegúrese de anotar el valor que usa para la **dirección URL de inicio de sesión**.
 -  Use Azure AD Application Proxy para publicar la aplicación local y tenga configurado **Azure Active Directory** como origen de autenticación. Para instrucciones, consulte [Publicación de aplicaciones mediante Azure AD Application Proxy](../manage-apps/application-proxy-publish-azure-portal.md). 
 
    Al configurar la **dirección URL interna**, use la dirección URL de inicio de sesión que especificó en la plantilla de aplicación que no es de la galería. De esta manera, los usuarios pueden acceder a la aplicación desde fuera de los límites de la organización. Application Proxy realiza el inicio de sesión único de SAML de la aplicación local.

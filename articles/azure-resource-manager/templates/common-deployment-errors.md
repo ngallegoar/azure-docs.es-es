@@ -4,12 +4,12 @@ description: Describe cómo solucionar errores comunes al implementar recursos e
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 06/25/2020
-ms.openlocfilehash: 9914cf8267624cd05db860e7dd8eb8d8c5831f7e
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 652e4ec3c7f0de982b973733d75d736949b97bcc
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055671"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374004"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solución de errores comunes de implementación de Azure con Azure Resource Manager
 
@@ -78,7 +78,7 @@ Si busca información sobre un código de error y esa información no se proporc
 | SubnetsNotInSameVnet | Una máquina virtual solo puede tener una red virtual. Al implementar varias NIC, asegúrese de que pertenecen a la misma red virtual. | [Varias NIC](../../virtual-machines/windows/multiple-nics.md) |
 | SubscriptionNotRegistered | Al implementar recursos de red, el proveedor de recursos Microsoft.Network se registra automáticamente en la suscripción. A veces, el registro automático no se completa a tiempo. Para evitar este error intermitente, registre el proveedor de recursos Microsoft.Network antes de la implementación. | [Resolución de registros](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Quite las dependencias innecesarias. | [Resolver dependencias circulares](error-invalid-template.md#circular-dependency) |
-| TooManyTargetResourceGroups | Reduzca el número de grupos de recursos de una sola implementación. | [Implementación en varios grupos de recursos](cross-resource-group-deployment.md) |
+| TooManyTargetResourceGroups | Reduzca el número de grupos de recursos de una sola implementación. | [Implementaciones entre ámbitos](cross-scope-deployment.md) |
 
 ## <a name="find-error-code"></a>Búsqueda de códigos de error
 

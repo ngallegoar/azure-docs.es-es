@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 79db00216ffb54b8c71ef78cc745ec37c353f1cc
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: df819f5ff641af014750d6501c8b168e54917318
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320177"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420539"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Aislamiento de red durante el entrenamiento e inferencia con redes virtuales privadas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -57,9 +57,6 @@ También puede [habilitar Azure Private Link](how-to-configure-private-link.md) 
 > [!WARNING]
 > 
 > No se admite la vista previa de instancias de proceso de Azure Machine Learning en un área de trabajo en la que Private Link está habilitado.
->
-> Azure Machine Learning no admite el uso de un servicio Azure Kubernetes Service que tenga habilitado Private Link. En su lugar, puede usar Azure Kubernetes Service en una red virtual. Para obtener más información, consulte [Protección de los trabajos de experimentación e inferencia de ML en una instancia de Azure Virtual Network](how-to-enable-virtual-network.md).
-
 
 <a id="amlcompute"></a>
 
@@ -448,9 +445,6 @@ Para agregar Azure Kubernetes Service (AKS) de una red virtual al área de traba
 > Antes de comenzar el siguiente procedimiento, debe cumplir los requisitos previos indicados en el procedimiento de [configuración de redes avanzadas en Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-azure-cni#prerequisites) y planear el direccionamiento IP para el clúster.
 >
 > La instancia de AKS y la instancia de Azure Virtual Network deben estar en la misma región. Si protege las cuentas de Azure Storage usadas por el área de trabajo de una red virtual, deben estar en la misma red virtual que la instancia de AKS.
-
-> [!WARNING]
-> Azure Machine Learning no admite el uso de un servicio Azure Kubernetes Service que tenga habilitado Private Link.
 
 1. Inicie sesión en [Azure Machine Learning Studio](https://ml.azure.com/) y, después, seleccione la suscripción y el área de trabajo.
 

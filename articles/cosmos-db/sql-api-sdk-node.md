@@ -8,12 +8,13 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 53745baa3883108295a76ec299e8347d68419336
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: devx-track-javascript
+ms.openlocfilehash: ddbbb9f39dd17daf5c500bf582c100b4e1754a15
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386102"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461364"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Azure Cosmos DB para .NET para SQL API: Notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -409,17 +410,8 @@ No son siempre los cambios más visibles, pero ayudan a nuestro equipo a distrib
 * SDK de GA.
 
 ## <a name="release--retirement-dates"></a>Fechas de lanzamiento y de retirada
-Microsoft notifica la retirada de un SDK con al menos **12 meses** de antelación para facilitar la transición a una versión compatible o más reciente.
 
-Solo se agregan nuevas características, funcionalidad y optimizaciones al SDK actual, por lo que se recomienda actualizar siempre a la última versión del SDK tan pronto como sea posible.
-
-El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK retirado.
-
-> [!WARNING]
-> Todas las versiones **1.x** del SDK de cliente de Node para la API de SQL se retirarán el **30 de agosto de 2020**. Esto afecta solo al SDK de Node del lado cliente y no a los scripts de servidor (procedimientos almacenados, desencadenadores y UDF).
-> 
->
-<br/>
+Microsoft notifica la retirada de un SDK con al menos **12 meses** de antelación para facilitar la transición a una versión compatible o más reciente. Solo se agregan nuevas características, funcionalidad y optimizaciones al SDK actual, por lo que se recomienda actualizar siempre a la última versión del SDK tan pronto como sea posible.
 
 | Versión | Fecha de la versión | Fecha de retirada |
 | --- | --- | --- |

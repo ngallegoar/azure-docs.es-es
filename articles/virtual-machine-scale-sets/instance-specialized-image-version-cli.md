@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: e47ed9b5505966973644bee0578d5b13d1659766
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: e58cef5ae1fc727235539a91e80e424e6ed3be34
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080563"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496379"
 ---
 # <a name="create-a-scale-set-using-a-specialized-image-version-with-the-azure-cli"></a>Creación de un conjunto de escalado mediante una versión de imagen especializada con la CLI de Azure
 

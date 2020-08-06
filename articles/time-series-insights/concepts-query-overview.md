@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: a4b969ecbc92df45021b4a9ec711960171d77d4e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: abc1f1de45fe846f9f50a6a7aa3dae2ed837b52b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495302"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486801"
 ---
 # <a name="querying-data-from-azure-time-series-insights-gen2"></a>Consulta de datos de Azure Time Series Insights Gen2
 
@@ -37,7 +37,7 @@ Se admiten los siguientes tipos de API principal.
 
 ## <a name="environment-apis"></a>API de entorno
 
-* [Get Environments API](https://docs.microsoft.com/rest/api/time-series-insights/management/environments/get): Devuelve la lista de entornos a los que el autor de la llamada puede obtener acceso.
+* [Get Environments API](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/listbyenvironment): Devuelve la lista de entornos a los que el autor de la llamada puede obtener acceso.
 * [Get Environments Availability API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/getavailability): Devuelve la distribución del recuento de eventos a través de la marca de tiempo `$ts` del evento. Esta API ayuda a determinar si hay eventos en el entorno, devolviendo para ello el recuento de eventos (si los hay) desglosado en intervalos.
 * [Get Event Schema API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/geteventschema): Devuelve los metadatos de esquema de eventos para un intervalo de búsqueda determinado. Esta API le ayuda a recuperar todos los metadatos y propiedades disponibles en el esquema para el intervalo de búsqueda determinado.
 

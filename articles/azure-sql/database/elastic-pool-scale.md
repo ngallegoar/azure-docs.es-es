@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
-ms.date: 3/14/2019
-ms.openlocfilehash: 4cc5ad575b0fbe371d9432668e8ccf43b45ae717
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 7/28/2020
+ms.openlocfilehash: 8cd8dda807b27bc1a83176c6a46596eccfd19073
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84032076"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372100"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Escalar recursos de grupos elásticos en Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -56,7 +56,17 @@ La latencia estimada de cambiar el nivel de servicio o la escala del tamaño de 
 >
 > - En caso de cambiar el nivel de servicio o la escala de proceso para un grupo elástico, para calcular la estimación se debe usar la suma del espacio usado en todas las bases de datos en el grupo.
 > - En caso de mover una base de datos a un grupo elástico o desde este, solo el espacio que usa la base de datos, y no el del grupo elástico, afecta a la latencia.
->
+> - En el caso de los grupos elásticos Estándar y De uso general, la latencia para mover una base de datos dentro o fuera de un grupo elástico o entre grupos elásticos será proporcional al tamaño de la base de datos si el grupo elástico usa almacenamiento de recursos compartidos de archivos Premium ([PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)). Para determinar si un grupo usa el almacenamiento PFS, ejecute la siguiente consulta en el contexto de cualquier base de datos del grupo. Si el valor de la columna AccountType es `PremiumFileStorage`, el grupo utiliza el almacenamiento PFS.
+
+```sql
+SELECT s.file_id,
+       s.type_desc,
+       s.name,
+       FILEPROPERTYEX(s.name, 'AccountType') AS AccountType
+FROM sys.database_files AS s
+WHERE s.type_desc IN ('ROWS', 'LOG');
+```
+
 > [!TIP]
 > Para supervisar las operaciones en curso, consulte: [Administración de operaciones mediante la API REST de SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [Administración de operaciones mediante la CLI](/cli/azure/sql/db/op), [Supervisión de operaciones mediante T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) y estos dos comandos de PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) y [Stop AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 

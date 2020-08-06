@@ -5,18 +5,18 @@ description: Obtenga información sobre cómo abordar, solucionar y resolver los
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
 author: clauren42
 ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
-ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 13ce9204ad09d2ecb4b149cf50696aa73d927314
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: troubleshooting, contperfq4, tracking-python
+ms.openlocfilehash: dcb2a50a91bec70dfe5d9adda7518f3510a8c973
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214373"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373205"
 ---
 # <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Solución de problemas con la implementación de Docker de modelos con Azure Kubernetes Service y Azure Container Instances 
 
@@ -101,6 +101,8 @@ Una vez que haya dividido el proceso de implementación en tareas individuales, 
 
 Si tiene problemas al implementar un modelo en ACI o AKS, intente implementarlo como un servicio web local. El uso de un servicio web local facilita la solución de problemas. Se descarga la imagen de Docker que contiene el modelo y se inicia en el sistema local.
 
+Puede encontrar un ejemplo de [cuaderno de implementación local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb) en el repositorio de [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) para explorar un ejemplo ejecutable.
+
 > [!WARNING]
 > No se admiten las implementaciones de servicios web locales en escenarios de producción.
 
@@ -182,6 +184,9 @@ print(service.get_logs())
 # if you only know the name of the service (note there might be multiple services with the same name but different version number)
 print(ws.webservices['mysvc'].get_logs())
 ```
+Si ve que la línea `Booting worker with pid: <pid>` se produce varias veces en los registros, significa que no hay suficiente memoria para iniciar el trabajo.
+Puede solucionar el error aumentando el valor de `memory_gb` en `deployment_config`.
+ 
 ## <a name="container-cannot-be-scheduled"></a>No se puede programar el contenedor
 
 Al implementar un servicio en un destino de proceso de Azure Kubernetes Service, Azure Machine Learning intentará programar el servicio con la cantidad de recursos solicitada. Si pasados 5 minutos no hay ningún nodo disponible en el clúster con la cantidad adecuada de recursos disponibles, se producirá un error en la implementación con el mensaje `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00`. Para solucionar este error, se pueden agregar más nodos, cambiar la SKU de los nodos o cambiar los requisitos de recursos de su servicio. 

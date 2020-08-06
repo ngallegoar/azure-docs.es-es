@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: f7aca2820e599c4f3dad364f1ea14eadc634a548
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c6a779deef3ed1dc0a4d5e83c38f483776adf6fe
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519721"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387377"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolección de datos en Azure Security Center
 Security Center recopila datos de las máquinas virtuales de Azure, los conjuntos de escalado de máquinas virtuales, los contenedores de IaaS y de los equipos que no son de Azure (incluidos los equipos locales) para supervisar las amenazas y vulnerabilidades de seguridad. Los datos se recopilan con el agente de Log Analytics, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos. Estos son algunos ejemplos de dichos datos: tipo y versión del sistema operativo, registros del sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP y usuario conectado.
@@ -211,15 +211,17 @@ Security Center instalará la extensión del agente de Log Analytics en paralelo
     - Si tiene un entorno donde esté instalado el agente de Log Analytics en estaciones de trabajo de cliente y esté informando a un área de trabajo de Log Analytics existente, revise la lista de [sistemas operativos compatibles con Azure Security Center](security-center-os-coverage.md) para asegurarse de que el sistema operativo es compatible. Para más información, consulte [Clientes existentes de análisis de registros](./faq-azure-monitor-logs.md).
  
 ### <a name="turn-off-automatic-provisioning"></a>Desactivación del aprovisionamiento automático <a name="offprovisioning"></a>
-Puede desactivar en cualquier momento el aprovisionamiento automático de los recursos desactivando esta opción en la directiva de seguridad. 
+Para desactivar el aprovisionamiento automático del agente de Log Analytics:
 
+1. En el menú de Security Center del portal, seleccione **Precios y configuración**.
+2. Seleccione la suscripción correspondiente.
 
-1. Vuelva al menú principal de Security Center y seleccione la directiva de seguridad.
-2. Haga clic en **Editar configuración** en la fila de la suscripción en la que quiera deshabilitar el aprovisionamiento automático.
-3. En la página **Directiva de seguridad: recopilación de datos**, en **Aprovisionamiento automático**, seleccione **Desactivado**.
-4. Seleccione **Guardar**.
+   ![Seleccionar suscripción][7]
 
-   ![Deshabilitación del aprovisionamiento automático][6]
+3. Seleccione **Recopilación de datos**.
+4. En **Aprovisionamiento automático**, seleccione **Desactivado** para deshabilitarlo.
+5. Seleccione **Guardar**. 
+
 
 Cuando el aprovisionamiento automático está deshabilitado (desactivado), no se muestra la sección de configuración del área de trabajo predeterminada.
 

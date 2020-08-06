@@ -10,12 +10,12 @@ ms.author: peterlu
 ms.date: 01/16/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 92568ceb9c7f0a428189647f259a3f84278eb612
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d977c8e13ce75eb276c8fdb11e9dd40e40a923ad
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327011"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495378"
 ---
 # <a name="import-data-into-azure-machine-learning-designer-preview"></a>Importación de datos en el diseñador de Azure Machine Learning (versión preliminar)
 
@@ -32,7 +32,7 @@ Se recomienda usar [conjuntos de datos](concept-data.md#datasets) para importar 
 
 ### <a name="register-a-dataset"></a>Registro de un conjunto de datos
 
-Puede registrar los conjuntos de datos existentes [mediante programación con el SDK](how-to-create-register-datasets.md#use-the-sdk) o [visualmente en Azure Machine Learning Studio](how-to-create-register-datasets.md#use-the-ui).
+Puede registrar los conjuntos de datos existentes [mediante programación con el SDK](how-to-create-register-datasets.md#datasets-sdk) o [visualmente en Azure Machine Learning Studio](how-to-create-register-datasets.md#datasets-ui).
 
 También puede registrar la salida de cualquier módulo del diseñador como un conjunto de datos.
 
@@ -59,7 +59,7 @@ Aunque es aconsejable usar conjuntos de datos para importar datos, también se p
 Para más información acerca de cómo usar el módulo Import Data (Importar datos), consulte la [página de referencia Importar datos](algorithm-module-reference/import-data.md).
 
 > [!NOTE]
-> Si el conjunto de datos tiene demasiadas columnas, puede encontrar el siguiente error: "Validation failed due to size limitation" (Error de validación debido a un límite de tamaño). Para evitar esto, [registre el conjunto de datos en la interfaz de conjuntos de datos](how-to-create-register-datasets.md#use-the-ui).
+> Si el conjunto de datos tiene demasiadas columnas, puede encontrar el siguiente error: "Validation failed due to size limitation" (Error de validación debido a un límite de tamaño). Para evitar esto, [registre el conjunto de datos en la interfaz de conjuntos de datos](how-to-create-register-datasets.md#datasets-ui).
 
 ## <a name="supported-sources"></a>Orígenes compatibles
 

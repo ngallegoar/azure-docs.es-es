@@ -1,5 +1,5 @@
 ---
-title: Línea de base de seguridad de Linux Virtual Machines para Azure Security Benchmark
+title: Base de referencia de seguridad de Azure para Linux Virtual Machines
 description: La línea de base de seguridad de Linux Virtual Machines proporciona instrucciones de procedimientos y recursos para implementar las recomendaciones de seguridad especificadas en Azure Security Benchmark.
 author: msmbaldwin
 ms.service: virtual-machines-linux
@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2d8c4d67ed9b268bae55711fae8c4def33b967fc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0231070e73c5b38562e8d110d80a2fba3c28724d
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528201"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385490"
 ---
-# <a name="linux-virtual-machines-security-baseline-for-azure-security-benchmark"></a>Línea de base de seguridad de Linux Virtual Machines para Azure Security Benchmark
+# <a name="azure-security-baseline-for-linux-virtual-machines"></a>Base de referencia de seguridad de Azure para Linux Virtual Machines
 
 La línea base de seguridad de Azure para Linux Virtual Machines contiene recomendaciones que le ayudarán a mejorar la posición de seguridad de su implementación.
 
@@ -1096,7 +1096,7 @@ Si usa Azure Disk Encryption, puede restaurar la máquina virtual de Azure con l
 
 * [Eliminación temporal para máquinas virtuales](../../backup/soft-delete-virtual-machines.md)
 
-* [Información general sobre la eliminación temporal de Azure Key Vault](../../key-vault/general/overview-soft-delete.md)
+* [Información general sobre la eliminación temporal de Azure Key Vault](../../key-vault/general/soft-delete-overview.md)
 
 **Supervisión de Azure Security Center**: Sí
 

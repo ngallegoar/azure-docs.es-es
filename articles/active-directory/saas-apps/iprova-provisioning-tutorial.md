@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: b914292e03078021c02d777505543a537b50260f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16cba1896a9e9e4038091769fb78ca0c0469710e
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367621"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448837"
 ---
 # <a name="tutorial-configure-iprova-for-automatic-user-provisioning"></a>Tutorial: Configuración de iProva para el aprovisionamiento automático de usuarios
 
@@ -150,7 +150,6 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referencia|
 
 
 10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to iProva** (Sincronizar grupos de Azure Active Directory con iProva).

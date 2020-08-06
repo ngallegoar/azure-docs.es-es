@@ -4,21 +4,21 @@ description: Utilice el control de acceso basado en roles para administrar el ac
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: e2e32ac6981635e3b9885119fdf397783ac32cc9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89e5cf7c6b46d63b10bd358fc078f8f87db689c8
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233848"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371709"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Uso del control de acceso basado en roles para administrar puntos de recuperación de Azure Backup
 
-El control de acceso basado en roles (RBAC) de Azure permite realizar una administración detallada del acceso para Azure. También podrá repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
+El control de acceso basado en rol de Azure (Azure RBAC) permite realizar una administración detallada del acceso para Azure. También podrá repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
 
 > [!IMPORTANT]
 > Los roles proporcionados por Azure Backup están limitados a las acciones que se pueden realizar en Azure Portal o a través de la API de REST o los cmdlets de PowerShell o la CLI para el almacén de Recovery Services. Las acciones realizadas en la IU del cliente del agente de Azure Backup, en la IU de System Center Data Protection Manager o en la IU del Azure Backup Server están fuera del control de estos roles.
 
-Azure Backup proporciona tres roles integrados para controlar las operaciones de administración de copia de seguridad. Más información sobre [roles integrados del control de acceso basado en rol de Azure](../role-based-access-control/built-in-roles.md)
+Azure Backup proporciona tres roles integrados para controlar las operaciones de administración de copia de seguridad. Más información sobre los [roles integrados de Azure](../role-based-access-control/built-in-roles.md)
 
 * [Colaborador de copia de seguridad](../role-based-access-control/built-in-roles.md#backup-contributor): este rol tiene todos los permisos para crear y administrar copias de seguridad, excepto para eliminar el almacén de Recovery Services y facilitar acceso a otros usuarios. Imagine este rol como administrador de copias de seguridad que puede realizar todas las operaciones de administración de copia de seguridad.
 * [Operador de copia de seguridad](../role-based-access-control/built-in-roles.md#backup-operator): Este rol tiene permisos para todo lo que puede hacer un colaborador, excepto quitar copias de seguridad y administrar directivas de copia de seguridad. Este rol es equivalente al de colaborador, salvo que no puede realizar operaciones destructivas, como detener copias de seguridad con la eliminación de datos o quitar el registro de recursos locales.
