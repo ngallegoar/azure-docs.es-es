@@ -1,6 +1,6 @@
 ---
-title: 'Problemas de diagnóstico de Windows Virtual Desktop: Azure'
-description: Procedimientos para usar la característica de diagnóstico de Windows Virtual Desktop para diagnosticar problemas.
+title: 'Problemas de diagnóstico de Windows Virtual Desktop (clásico): Azure'
+description: Procedimientos para usar la característica de diagnóstico de Windows Virtual Desktop (clásico) para diagnosticar problemas.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b1822f6a5bf0d3ac4217a43978dfcc739044e812
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 257ad5aa11bfaece70f676b452119d7800e2d1e2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235561"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285057"
 ---
-# <a name="identify-and-diagnose-issues"></a>Identificación y diagnóstico de problemas
+# <a name="identify-and-diagnose-issues-in-windows-virtual-desktop-classic"></a>Identificación y diagnóstico de problemas de Windows Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a la versión de otoño de 2019 que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager incorporados en la actualización de primavera de 2020, consulte [este artículo](../diagnostics-role-service.md).
+>Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../diagnostics-role-service.md).
 
 Windows Virtual Desktop ofrece una característica de diagnóstico que permite al administrador detectar problemas a través de una única interfaz. Los roles de Windows Virtual Desktop registran una actividad de diagnóstico cada vez que un usuario interactúa con el sistema. Cada registro contiene información relevante, como los roles de Windows Virtual Desktop que han participado en la transacción, los mensajes de error, la información del inquilino y la información del usuario. Las actividades de diagnóstico se crean mediante acciones tanto del administrador como del usuario final, y se pueden clasificar en tres categorías principales:
 

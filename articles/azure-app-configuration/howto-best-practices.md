@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: df56f53b64a35737700529b80c004efeb31eaabc
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 4da024eb4eb3747b8e0d6b291ca5b00df12aaeab
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348675"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87367527"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Procedimientos recomendados para Azure App Configuration
 
@@ -81,7 +81,7 @@ Una cantidad excesiva de solicitudes a App Configuration puede dar lugar a cargo
 
 * Vea una sola *clave de Sentinel*, en lugar de ver claves individuales. Actualice toda la configuración solo si cambia la clave de Sentinel. Consulte [Uso de la configuración dinámica en una aplicación de ASP.NET Core](enable-dynamic-configuration-aspnet-core.md) para obtener un ejemplo.
 
-* Use Azure Event Grid para recibir notificaciones cuando cambie la configuración, en lugar de realizar un sondeo constante de los cambios. Consulte [Enrutamiento de eventos de Azure App Configuration a un punto de conexión web con la CLI de Azure](./howto-app-configuration-event.md) para más información.
+* Use Azure Event Grid para recibir notificaciones cuando cambie la configuración, en lugar de realizar un sondeo constante de los cambios. Para más información, consulte [Enrutamiento de eventos de Azure App Configuration a un punto de conexión web con la CLI de Azure](./howto-app-configuration-event.md).
 
 ## <a name="importing-configuration-data-into-app-configuration"></a>Importación de datos de configuración en App Configuration
 

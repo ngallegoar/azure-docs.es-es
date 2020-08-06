@@ -5,20 +5,46 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 06/24/2020
+ms.date: 07/19/2020
 ms.author: abnarain
-ms.openlocfilehash: e77d621d5699c434e691de0a523e58e49166d8d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 521756081db938e749849e6f3630dbd60700d24f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315144"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023893"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solución de problemas del entorno de ejecución de integración autohospedado
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En este artículo se exploran los métodos comunes de solución de problemas del entorno de ejecución de integración autohospedado en Azure Data Factory.
+
+## <a name="gather-self-hosted-integration-runtime-logs-from-azure-data-factory"></a>Recopilación de registros del entorno de ejecución de integración autohospedado en Azure Data Factory
+
+En el caso de las actividades con error que se ejecutan en IR autohospedado o IR compartido, Azure Data Factory admite la visualización y carga de registros de errores. Puede seguir los pasos a continuación para obtener el identificador del informe de errores y, a continuación, escribir el identificador del informe para buscar problemas conocidos relacionados.
+
+1. Vaya a la página **Ejecuciones de actividad**.
+
+1. En la columna **ERROR**, haga clic en el botón siguiente.
+
+    ![Página Ejecuciones de actividad](media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png)
+
+1. Verá registros relacionados para la ejecución de actividad con errores. Haga clic en el botón **Enviar registros** para obtener más ayuda.
+
+    ![Enviar registros](media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png)
+
+1. Puede elegir los registros que desea enviar. Par *IR autohospedado*, puede cargar los registros relacionados con la actividad con errores o todos los registros del nodo de IR autohospedado. Para *IR compartido*, solo puede cargar los registros relacionados con la actividad con errores.
+
+    ![Elección de registros](media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png)
+
+1. Cuando se carguen los registros, conserve un registro del identificador del informe si necesita ayuda adicional para resolver el problema.
+
+    ![Carga de registros](media/self-hosted-integration-runtime-troubleshoot-guide/upload-logs.png)
+
+> [!NOTE]
+> Las solicitudes de visualización y carga de registros se ejecutarán en todas las instancias de IR autohospedado en línea. Asegúrese de que todas las instancias de IR autohospedado estén en línea en caso de que falten registros. 
+
 
 ## <a name="common-errors-and-resolutions"></a>Errores comunes y soluciones
 

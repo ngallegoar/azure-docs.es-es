@@ -10,12 +10,12 @@ ms.date: 04/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 9b2de4f320801b20de5bcc9687a723dadb182ef8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: db65ba904cdce7bec83b851c6b50316c89fcedfd
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807717"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128733"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Usar Azure Portal para tener acceso a datos de blob o de cola
 
@@ -25,7 +25,7 @@ También puede especificar cómo autorizar una operación de carga de blobs indi
 
 ## <a name="permissions-needed-to-access-blob-or-queue-data"></a>Permisos necesarios para acceder a datos de blob o de cola
 
-Necesitará permisos específicos según cómo quiera autorizar el acceso a los datos de blob o de cola en Azure Portal. En la mayoría de los casos, estos permisos se proporcionan a través del control de acceso basado en roles (RBAC). Para obtener más información sobre RBAC, vea [¿Qué es el control de acceso basado en rol (RBAC)?](../../role-based-access-control/overview.md)
+Necesitará permisos específicos según cómo quiera autorizar el acceso a los datos de blob o de cola en Azure Portal. En la mayoría de los casos, estos permisos se proporcionan a través del control de acceso basado en roles (RBAC). Para más información acerca de RBAC, consulte [¿Qué es el control de acceso basado en rol (RBAC) de Azure?](../../role-based-access-control/overview.md)
 
 ### <a name="use-the-account-access-key"></a>Uso de la clave de acceso de la cuenta
 
@@ -57,7 +57,7 @@ Estos son los roles integrados que admiten el acceso a los datos de blob o de co
 - [Colaborador de datos de la cola de Storage](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor): permisos de lectura, escritura y eliminación de colas.
 - [Lector de datos de la cola de Storage](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader): permisos de solo lectura de colas.
 
-Los roles personalizados pueden admitir diferentes combinaciones de los mismos permisos que proporcionan los roles integrados. Para obtener más información sobre cómo crear roles RBAC personalizados, vea [Roles personalizados de recursos de Azure](../../role-based-access-control/custom-roles.md) y [Descripción de las definiciones de roles de recursos de Azure](../../role-based-access-control/role-definitions.md).
+Los roles personalizados pueden admitir diferentes combinaciones de los mismos permisos que proporcionan los roles integrados. Para obtener más información sobre cómo crear roles RBAC de Azure personalizados, consulte el artículo sobre [roles personalizados de Azure](../../role-based-access-control/custom-roles.md) y la [descripción de las definiciones de roles de recursos de Azure](../../role-based-access-control/role-definitions.md).
 
 No se pueden obtener listas de colas con un rol de administrador de suscripciones clásico. Para obtener una lista de colas, el usuario debe tener asignado los roles **Lector**, **Lector de datos de la cola de Storage Blob** o **Colaborador de datos de la cola de Storage Blob** de Azure Resource Manager.
 

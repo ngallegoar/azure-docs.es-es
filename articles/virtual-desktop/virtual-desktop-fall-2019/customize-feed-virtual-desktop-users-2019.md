@@ -1,6 +1,6 @@
 ---
-title: Personalización de fuente para usuarios de Windows Virtual Desktop - Azure
-description: Personalización de la fuente para los usuarios de Windows Virtual Desktop con cmdlets de PowerShell.
+title: Personalización de fuente para usuarios de Windows Virtual Desktop (clásico) - Azure
+description: Personalización de la fuente para los usuarios de Windows Virtual Desktop (clásico) con cmdlets de PowerShell.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 248156c403e7e74665ec1c856588d8a2ca76e208
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ab1206a8963d9ba3b556a48b2e973eea663c9cb8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244572"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288650"
 ---
-# <a name="customize-feed-for-windows-virtual-desktop-users"></a>Personalización de fuente para usuarios de Windows Virtual Desktop
+# <a name="customize-feed-for-windows-virtual-desktop-classic-users"></a>Personalización de fuente para usuarios de Windows Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a la versión de otoño de 2019 que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager incorporados en la actualización de primavera de 2020, consulte [este artículo](../customize-feed-for-virtual-desktop-users.md).
+>Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../customize-feed-for-virtual-desktop-users.md).
 
 Puede personalizar la fuente para que RemoteApp y los recursos de escritorio remoto se muestren de manera reconocible para los usuarios.
 

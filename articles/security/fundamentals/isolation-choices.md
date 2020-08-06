@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 9cb516b6d13b4b57a89bb276683857c62a758618
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 0bcc67e80861df2827237298444175c3abdb6602
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021881"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084062"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Aislamiento en la nube pública de Azure
 
@@ -64,9 +64,9 @@ El concepto de contenedores de inquilino está profundamente relacionado con el 
 
 Aunque se almacenan metadatos de varios inquilinos de Azure Active Directory en el mismo disco físico, no hay relación entre los contenedores salvo la que se define en el servicio de directorio, que a su vez viene determinada por el administrador del inquilino.
 
-### <a name="azure-role-based-access-control-rbac"></a>Control de acceso basado en rol (RBAC) de Azure
+### <a name="azure-role-based-access-control-azure-rbac"></a>Control de acceso basado en roles de Azure (RBAC de Azure)
 
-El [control de acceso basado en rol (RBAC) de Azure](../../role-based-access-control/overview.md) ayuda a compartir varios componentes disponibles dentro de una suscripción de Azure, y proporciona una administración de acceso detallada en Azure. RBAC de Azure le permite separar las tareas dentro de su organización y conceder acceso en función de lo que los usuarios necesitan para realizar sus tareas. En lugar de proporcionar a todos los empleados permisos no restringidos en los recursos o la suscripción de Azure, puede permitir solo determinadas acciones.
+El [control de acceso basado en roles de Azure (RBAC de Azure)](../../role-based-access-control/overview.md) ayuda a compartir varios componentes disponibles dentro de una suscripción de Azure, y proporciona una administración de acceso detallada en Azure. RBAC de Azure le permite separar las tareas dentro de su organización y conceder acceso en función de lo que los usuarios necesitan para realizar sus tareas. En lugar de proporcionar a todos los empleados permisos no restringidos en los recursos o la suscripción de Azure, puede permitir solo determinadas acciones.
 
 RBAC de Azure cuenta con tres roles básicos que se aplican a todos los tipos de recurso:
 
@@ -145,7 +145,7 @@ El controlador de tejido de Azure es responsable de asignar recursos de infraest
 
 El hipervisor de Azure fuerza la separación de la memoria y el proceso entre las máquinas virtuales y enruta de forma segura el tráfico de red a los inquilinos del sistema operativo invitado. Esto elimina la posibilidad de cualquier ataque de canal lateral en el nivel de máquina virtual.
 
-En Azure, la máquina virtual raíz es especial: ejecuta un sistema operativo reforzado llamado sistema operativo raíz que hospeda un agente de tejido. Los agentes de tejido sirven a su vez para administrar agentes de invitado en los sistemas operativos de invitado en las máquinas virtuales de los clientes. Los agentes de tejido también administran los nodos de almacenamiento.
+En Azure, la máquina virtual raíz es especial: ejecuta un sistema operativo reforzado llamado sistema operativo raíz que hospeda un agente de tejido. Los agentes de tejido sirven a su vez para administrar agentes de invitado (GA) en los sistemas operativos de invitado en las VM de los clientes. Los agentes de tejido también administran los nodos de almacenamiento.
 
 El conjunto del hipervisor de Azure, el sistema operativo raíz y los agentes de tejido, y las máquinas virtuales y los agentes de invitado componen un nodo de proceso. Los agentes de tejido son administrados por un controlador de tejido que se encuentra fuera de los nodos de proceso y almacenamiento (los clústeres de proceso y almacenamiento se administran mediante controladores de tejido diferentes). Si un cliente actualiza el archivo de configuración de la aplicación mientras se está ejecutando, el controlador de tejido se comunica con el agente de tejido que, a continuación, se pone en contacto con los agentes de invitado, los cuales notifican a la aplicación del cambio de configuración. Si se produce un error de hardware, el controlador de tejido encontrará automáticamente hardware disponible y reiniciará la máquina virtual en este.
 
@@ -319,4 +319,4 @@ La implementación de Azure tiene varios niveles de aislamiento de red. El sigui
 
 - Más información sobre [opciones de aislamiento de red para máquinas Windows en redes virtuales de Azure](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/). Esto incluye el escenario de front-end y back-end clásico en el que las máquinas de una determinada red o subred back-end pueden permitir conectarse solo a determinados clientes o equipos a un punto de conexión en particular, en función de una lista de direcciones IP autorizadas.
 
-- Más información sobre [aislamiento de máquinas virtuales de Azure](../../virtual-machines/windows/isolation.md). Azure Compute ofrece tamaños de máquinas virtuales que están aislados para un tipo concreto de hardware y dedicados a un solo cliente.
+- Más información sobre [aislamiento de máquinas virtuales de Azure](../../virtual-machines/isolation.md). Azure Compute ofrece tamaños de máquinas virtuales que están aislados para un tipo concreto de hardware y dedicados a un solo cliente.

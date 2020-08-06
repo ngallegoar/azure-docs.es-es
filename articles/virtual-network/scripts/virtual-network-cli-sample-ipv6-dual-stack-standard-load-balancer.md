@@ -1,7 +1,7 @@
 ---
 title: 'Ejemplo de script de configuración del front-end IPv6 con la CLI de Azure: Standard Load Balancer'
 titlesuffix: Azure Virtual Network
-description: Habilitar puntos de conexión IPv6 mediante la CLI de Azure en Azure Virtual Network
+description: Obtenga información sobre cómo configurar puntos de conexión IPv6 en un ejemplo de script de red virtual con Standard Load Balancer.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 5f5856a89a04b58b138ee23a5f289ceff0915acf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2509034abb37c7dc90b65569d14f228eadb746c8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80235049"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281623"
 ---
 # <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-using-standard-load-balancerpreview"></a>Configuración de puntos de conexión IPv6 en el de script de red virtual de ejemplo con Standard Load Balancer (versión preliminar)
 
