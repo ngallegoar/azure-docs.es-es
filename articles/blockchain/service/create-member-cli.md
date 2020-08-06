@@ -4,13 +4,13 @@ description: Cree un miembro de Azure Blockchain Service para un consorcio de la
 ms.date: 07/23/2020
 ms.topic: quickstart
 ms.reviewer: ravastra
-ms.custom: references_regions
-ms.openlocfilehash: 2514447eaceb83da0bee81c1475a3137f0d1af07
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: f97aab59d38e9b15838a78d0227bc2848615cd92
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170658"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504371"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>Inicio rápido: Creación de un miembro de cadena de bloques de Azure Blockchain Service mediante la CLI de Azure
 
