@@ -7,16 +7,19 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 7/16/2020
 ms.author: surmb
-ms.openlocfilehash: 2e2925723ee07ee2215bdd82bb730e31cdcdadc9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 160d056447bd53ea01437acd372b5efeb15b4773
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528281"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083164"
 ---
 # <a name="rewrite-url-with-azure-application-gateway---azure-portal-preview"></a>Reescritura de la dirección URL con Azure Application Gateway: Azure Portal (versión preliminar)
 
 En este artículo se describe cómo usar Azure Portal para configurar una instancia de [Application Gateway SKU v2](application-gateway-autoscaling-zone-redundant.md) para reescribir la dirección URL.
+
+>[!NOTE]
+> La característica de reescritura de direcciones URL está en versión preliminar y solo está disponible para las SKU Standard_v2 y WAF_v2 de Application Gateway. No es aconsejable en entornos de producción. Para obtener más información sobre las versiones preliminares, consulte los [términos de uso aquí](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

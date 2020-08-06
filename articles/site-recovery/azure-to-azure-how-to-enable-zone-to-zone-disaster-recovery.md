@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 723329022d748ee18a07fcaeaecc2aff0e5f707b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a1952f6dccf12de4cb1571dacabecf78c65cd01b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528985"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021654"
 ---
 # <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Habilitación de la recuperación ante desastres de zona a zona para máquinas virtuales de Azure
 
@@ -20,7 +20,6 @@ En este artículo se describe cómo replicar, conmutar por error y conmutar por 
 
 >[!NOTE]
 >
->- Actualmente, Site Recovery no admite planes de recuperación para la recuperación ante desastres de zona a zona a través del portal. Use PowerShell o la API de REST para aprovechar los planes de recuperación para la recuperación ante desastres de zona a zona. 
 >- La compatibilidad para la recuperación ante desastres de zona a zona está limitada actualmente a dos regiones: Sudeste de Asia y Sur de Reino Unido.  
 >- Site Recovery no mueve ni almacena los datos de los clientes fuera de la región en la que se ha implementado cuando el cliente usa la recuperación ante desastres de zona a zona. Los clientes pueden seleccionar un almacén de Recovery Services de otra región si así lo deciden. El almacén de Recovery Services contiene metadatos, pero ningún dato real de los clientes.
 

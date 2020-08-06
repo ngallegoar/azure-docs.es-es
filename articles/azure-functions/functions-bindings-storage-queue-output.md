@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47, tracking-python
-ms.openlocfilehash: eb61cad5f505e6895b550adca3e9f156222d6d30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1141186a262676fc47b0727c47e682dfe95ba6fb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559971"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055915"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Enlaces de salida de Azure Queue Storage para Azure Functions
 
@@ -369,15 +369,15 @@ Hay dos opciones para la generación de un mensaje del centro de eventos desde u
 
 - **Valor devuelto**: Establezca la propiedad `name` de *function.json* en `$return`. Con esta configuración, el valor devuelto de la función se conserva como un mensaje de Queue Storage.
 
-- **Imperativa**: Pase un valor al método [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) del parámetro declarado como tipo [Out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python). El valor pasado a `set` se conserva como un mensaje de Queue Storage.
+- **Imperativa**: Pase un valor al método [set](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) del parámetro declarado como tipo [Out](/python/api/azure-functions/azure.functions.out?view=azure-python). El valor pasado a `set` se conserva como un mensaje de Queue Storage.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Hay dos opciones para la generación de un mensaje del centro de eventos desde una función mediante la anotación [QueueOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.queueoutput):
+Hay dos opciones para la generación de un mensaje del centro de eventos desde una función mediante la anotación [QueueOutput](/java/api/com.microsoft.azure.functions.annotation.queueoutput):
 
 - **Valor devuelto**: Al aplicar la anotación a la propia función, el valor devuelto de la función se conserva como un mensaje del centro de eventos.
 
-- **Imperativa**: Para establecer explícitamente el valor del mensaje, aplique la anotación a un parámetro específico del tipo [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding), donde `T` es un POJO o cualquier tipo de Java nativo. Con esta configuración, pasar un valor al método `setValue` conserva el valor como un mensaje del centro de eventos.
+- **Imperativa**: Para establecer explícitamente el valor del mensaje, aplique la anotación a un parámetro específico del tipo [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding), donde `T` es un POJO o cualquier tipo de Java nativo. Con esta configuración, pasar un valor al método `setValue` conserva el valor como un mensaje del centro de eventos.
 
 ---
 
@@ -385,9 +385,9 @@ Hay dos opciones para la generación de un mensaje del centro de eventos desde u
 
 | Enlace |  Referencia |
 |---|---|
-| Cola | [Códigos de error de cola](https://docs.microsoft.com/rest/api/storageservices/queue-service-error-codes) |
-| Blob, tabla, cola | [Códigos de error de almacenamiento](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
-| Blob, tabla, cola |  [Solución de problemas](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
+| Cola | [Códigos de error de cola](/rest/api/storageservices/queue-service-error-codes) |
+| Blob, tabla, cola | [Códigos de error de almacenamiento](/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| Blob, tabla, cola |  [Solución de problemas](/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 <a name="host-json"></a>  
 

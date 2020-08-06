@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: ca17ffdc2a54b25bbfd855834a366ed381a54678
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f42361df438a434548b3bc9394c007ef8d4c6eb0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530395"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038977"
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>Comparación de codificadores multimedia a petición de Azure  
 
@@ -62,7 +62,7 @@ En la tabla siguiente se compara la funcionalidad entre Media Encoder Standard (
 | AVI (sin comprimir de 8 bits/10 bits) |Sí |Sí |
 | 3GPP/3GPP2 |Sí |No |
 | Formato de archivo de streaming con velocidad de transmisión adaptable (PIFF 1.3) |Sí |No |
-| [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) |Sí |No |
+| [Microsoft Digital Video Recording(DVR-MS)](/previous-versions/windows/desktop/mstv/about-the-dvr-ms-file-format) |Sí |No |
 | Matroska/WebM |Sí |No |
 | QuickTime (.mov) |Sí |No |
 

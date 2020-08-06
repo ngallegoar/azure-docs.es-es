@@ -15,12 +15,12 @@ ms.date: 07/13/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d973cf47ed691914b22d62e1a99315c6ea9183d8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fd737a22a37d6edc47c2769a470af00537d720eb
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511609"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124160"
 ---
 # <a name="azure-custom-roles"></a>Roles personalizados de Azure
 
@@ -192,7 +192,7 @@ En la siguiente lista se describen los límites de los roles personalizados.
 - No se pueden asignar roles personalizados con `DataActions` en el ámbito del grupo de administración.
 - Azure Resource Manager no valida la existencia del grupo de administración en el ámbito asignable de la definición de roles.
 
-Para más información sobre los roles personalizados y los grupos de administración, vea [Organización de los recursos con grupos de administración de Azure](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment).
+Para más información sobre los roles personalizados y los grupos de administración, vea [Organización de los recursos con grupos de administración de Azure](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment).
 
 ## <a name="input-and-output-formats"></a>Formatos de entrada y salida
 
