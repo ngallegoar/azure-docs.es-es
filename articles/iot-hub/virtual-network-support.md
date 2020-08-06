@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: jlian
-ms.openlocfilehash: f15f0c3f6b442419d3d2e3a253d15465e130eae2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7776345ee4e02baa2d2a6ae7bc08389aa94bd09b
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090610"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534488"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Compatibilidad de IoT Hub con redes virtuales mediante Private Link e identidad administrada
 
@@ -174,7 +174,7 @@ IoT Hub puede enrutar mensajes a una cuenta de almacenamiento propiedad del clie
 
 1. En Azure Portal, vaya a la pestaña **Control de acceso (IAM)** de la cuenta de almacenamiento y haga clic en **Agregar** en la sección **Agregar una asignación de roles**.
 
-2. Seleccione **Colaborador de datos de Storage Blob** ([*no* Colaborador ni Colaborador de la cuenta de almacenamiento](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues)) como **rol**, el **usuario, grupo o entidad de servicio de Azure AD** en **Asignando acceso a** y seleccione el nombre del recurso de IoT Hub en la lista desplegable. Haga clic en el botón **Save** (Guardar).
+2. Seleccione **Colaborador de datos de Storage Blob** ([*no* Colaborador ni Colaborador de la cuenta de almacenamiento](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) como **rol**, el **usuario, grupo o entidad de servicio de Azure AD** en **Asignando acceso a** y seleccione el nombre del recurso de IoT Hub en la lista desplegable. Haga clic en el botón **Save** (Guardar).
 
 3. Vaya a la pestaña **Firewalls y redes virtuales** de la cuenta de almacenamiento y habilite la opción **Allow access from selected networks** (Permitir acceso desde redes seleccionadas). En la lista **Excepciones**, active la casilla situada junto a **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento**. Haga clic en el botón **Save** (Guardar).
 
@@ -228,7 +228,7 @@ La característica de carga de archivos de IoT Hub permite a los dispositivos ca
 
 1. En Azure Portal, vaya a la pestaña **Control de acceso (IAM)** de la cuenta de almacenamiento y haga clic en **Agregar** en la sección **Agregar una asignación de roles**.
 
-2. Seleccione **Colaborador de datos de Storage Blob** ([*no* Colaborador ni Colaborador de la cuenta de almacenamiento](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues)) como **rol**, el **usuario, grupo o entidad de servicio de Azure AD** en **Asignando acceso a** y seleccione el nombre del recurso de IoT Hub en la lista desplegable. Haga clic en el botón **Save** (Guardar).
+2. Seleccione **Colaborador de datos de Storage Blob** ([*no* Colaborador ni Colaborador de la cuenta de almacenamiento](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) como **rol**, el **usuario, grupo o entidad de servicio de Azure AD** en **Asignando acceso a** y seleccione el nombre del recurso de IoT Hub en la lista desplegable. Haga clic en el botón **Save** (Guardar).
 
 3. Vaya a la pestaña **Firewalls y redes virtuales** de la cuenta de almacenamiento y habilite la opción **Allow access from selected networks** (Permitir acceso desde redes seleccionadas). En la lista **Excepciones**, active la casilla situada junto a **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento**. Haga clic en el botón **Save** (Guardar).
 
@@ -246,7 +246,7 @@ Esta funcionalidad requiere conectividad de IoT Hub a la cuenta de almacenamient
 
 1. En Azure Portal, vaya a la pestaña **Control de acceso (IAM)** de la cuenta de almacenamiento y haga clic en **Agregar** en la sección **Agregar una asignación de roles**.
 
-2. Seleccione **Colaborador de datos de Storage Blob** ([*no* Colaborador ni Colaborador de la cuenta de almacenamiento](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues)) como **rol**, el **usuario, grupo o entidad de servicio de Azure AD** en **Asignando acceso a** y seleccione el nombre del recurso de IoT Hub en la lista desplegable. Haga clic en el botón **Save** (Guardar).
+2. Seleccione **Colaborador de datos de Storage Blob** ([*no* Colaborador ni Colaborador de la cuenta de almacenamiento](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) como **rol**, el **usuario, grupo o entidad de servicio de Azure AD** en **Asignando acceso a** y seleccione el nombre del recurso de IoT Hub en la lista desplegable. Haga clic en el botón **Save** (Guardar).
 
 3. Vaya a la pestaña **Firewalls y redes virtuales** de la cuenta de almacenamiento y habilite la opción **Allow access from selected networks** (Permitir acceso desde redes seleccionadas). En la lista **Excepciones**, active la casilla situada junto a **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento**. Haga clic en el botón **Save** (Guardar).
 

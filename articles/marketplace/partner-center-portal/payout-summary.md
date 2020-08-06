@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 04/24/2020
-ms.openlocfilehash: dc690e29129f5be68456e6a9dc075ba72f11b121
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a013dd875fc5a97e5e2e619553cdeb8c6d729298
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318239"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502637"
 ---
 # <a name="payout-summaries"></a>Resúmenes de pagos
 
 El resumen de pagos muestra detalles sobre el dinero que ha ganado con Microsoft. También le permite saber cuándo recibirá los pagos y cuánto le pagarán.
 
-Si vende productos en Azure Marketplace, también verá información sobre los pagos realizados correctamente en el resumen de pagos. Para obtener detalles, consulte [Directivas de participación de Microsoft Azure Marketplace](https://docs.microsoft.com/legal/marketplace/participation-policy) y [Acuerdo del anunciante de Microsoft Azure Marketplace](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt).
+Si vende productos en Azure Marketplace, también verá información sobre los pagos realizados correctamente en el resumen de pagos. Para obtener detalles, consulte [Directivas de participación de Microsoft Azure Marketplace](https://docs.microsoft.com/legal/marketplace/participation-policy) y [Acuerdo del anunciante de Microsoft Azure Marketplace](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 > [!NOTE]
 > Para poder acceder a esta opción, sus ganancias deben alcanzar el [umbral de pago](payment-thresholds-methods-timeframes.md) de 50 USD. Para más información sobre el umbral de pago, consulte esta página y revise el acuerdo para desarrolladores de aplicaciones.
