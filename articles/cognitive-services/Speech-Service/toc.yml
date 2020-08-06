@@ -494,10 +494,8 @@
       items:
         - name: Introducción a las palabras clave personalizadas
           href: custom-keyword-overview.md
-        - name: Directrices de nomenclatura de palabras clave personalizadas
-          href: speech-devices-sdk-kws-guidelines.md
-        - name: Reconocimiento de palabras clave personalizadas
-          href: speech-devices-sdk-create-kws.md
+        - name: Conceptos básicos de las palabras clave personalizadas
+          href: custom-keyword-basics.md
 - name: Speaker Recognition
   items:
     - name: Información general
