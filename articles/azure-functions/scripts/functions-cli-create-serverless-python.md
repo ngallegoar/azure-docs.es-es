@@ -4,13 +4,13 @@ description: Creación de una aplicación de funciones de Python sin servidor co
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
 ms.date: 11/23/2019
-ms.custom: tracking-python
-ms.openlocfilehash: 3bcefe59bfec5f3d76ecbc04a5b46a9285fc381b
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.custom: tracking-python, devx-track-azurecli
+ms.openlocfilehash: c0c94c8682cdd3c5509bca1e223e28b3bef94a28
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561213"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498266"
 ---
 # <a name="create-a-serverless-python-function-app-using-azure-cli"></a>Creación de una aplicación de funciones de Python sin servidor con la CLI de Azure
 
