@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: dbe236cc4a407cca78f7f7ab64f3809797c02614
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f4c2039db19d9d10150b7529e4f61b6928e4f64e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100607"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077505"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>Estados y ciclo de vida de las máquinas virtuales
 
@@ -21,4 +21,4 @@ ms.locfileid: "82100607"
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre la supervisión de la máquina virtual, consulte [Supervisión de máquinas virtuales en Azure](monitor.md).
+Para obtener más información sobre la supervisión de la máquina virtual, consulte [Supervisión de máquinas virtuales en Azure](../../azure-monitor/insights/monitor-vm-azure.md).

@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 12/05/2019
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: dff86176bac56063c9b588fb27e3549069ed380e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 3c247e5aebde7bd10be092c358320348645e2172
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326365"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564084"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creación y ejecución de canalizaciones de Machine Learning con el SDK de Azure Machine Learning
 
@@ -471,7 +471,7 @@ Puede crear un punto de conexión de canalización con varias canalizaciones pub
 ```python
 from azureml.pipeline.core import PipelineEndpoint
 
-published_pipeline = PublishedPipeline.get(workspace="ws", name="My_Published_Pipeline")
+published_pipeline = PipelineEndpoint.get(workspace=ws, name="My_Published_Pipeline")
 pipeline_endpoint = PipelineEndpoint.publish(workspace=ws, name="PipelineEndpointTest",
                                             pipeline=published_pipeline, description="Test description Notebook")
 ```
