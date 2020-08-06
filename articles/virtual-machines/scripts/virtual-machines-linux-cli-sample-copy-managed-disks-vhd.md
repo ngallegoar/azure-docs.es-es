@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/09/2019
 ms.author: ramankum
-ms.custom: mvc,seodec18
-ms.openlocfilehash: e0939e452627cc9f624f7d96da1059b539fa5546
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: mvc,seodec18, devx-track-azurecli
+ms.openlocfilehash: 8edde588b6329385398f32300ee019ca092509b0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509875"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489901"
 ---
 # <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>Exportar o copiar un disco administrado en una cuenta de almacenamiento mediante la CLI de Azure
 

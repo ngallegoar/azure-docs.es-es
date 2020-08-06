@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 628631fb7fddbc07dcb865e3d3badbfb608ad097
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d033a904087bf8ff32721372209820a64090502
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214458"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87383892"
 ---
 # <a name="query-csv-files"></a>Consulta de archivo CSV
 
@@ -26,6 +26,72 @@ En este artículo, aprenderá a consultar un único archivo CSV con SQL a petici
 - Valores entre comillas y sin comillas, y caracteres de escape
 
 A continuación se abordan todas las variaciones anteriores.
+
+## <a name="quickstart-example"></a>Ejemplo de inicio rápido
+
+La función `OPENROWSET` permite leer el contenido del archivo CSV al proporcionar la dirección URL al archivo.
+
+### <a name="reading-csv-file"></a>Lectura de un archivo CSV
+
+La forma más fácil de ver el contenido del archivo `CSV` es proporcionar la dirección URL del archivo a la función `OPENROWSET` y especificar `FORMAT` del archivo CSV y 2.0 `PARSER_VERSION`. Si el archivo está disponible públicamente o si la identidad de Azure AD puede tener acceso a este archivo, debería poder ver el contenido del archivo mediante la consulta como la que se muestra en el ejemplo siguiente:
+
+```sql
+select top 10 *
+from openrowset(
+    bulk 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
+    format = 'csv',
+    parser_version = '2.0',
+    firstrow = 2 ) as rows
+```
+
+La opción `firstrow` se utiliza para omitir la primera fila del archivo CSV, que representa el encabezado en este caso. Asegúrese de que puede tener acceso a este archivo. Si el archivo está protegido con una clave SAS o una identidad personalizada, necesitaría configurar una [credencial de nivel de servidor para el inicio de sesión de SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+
+### <a name="using-data-source"></a>Uso del origen de datos
+
+En el ejemplo anterior se usa la ruta de acceso completa al archivo. Como alternativa, puede crear un origen de datos externo con la ubicación que apunta a la carpeta raíz del almacenamiento:
+
+```sql
+create external data source covid
+with ( location = 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases' );
+```
+
+Una vez creado el origen de datos, puede usar ese origen de datos y la ruta de acceso relativa al archivo en la función `OPENROWSET`:
+
+```sql
+select top 10 *
+from openrowset(
+        bulk 'latest/ecdc_cases.csv',
+        data_source = 'covid',
+        format = 'csv',
+        parser_version ='2.0',
+        firstrow = 2
+    ) as rows
+```
+
+Si un origen de datos está protegido con una clave SAS o una identidad personalizada, puede configurar el [origen de datos con una credencial de ámbito de base de datos](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential).
+
+### <a name="explicitly-specify-schema"></a>Especificación explícita del esquema
+
+`OPENROWSET` permite especificar explícitamente qué columnas desea leer del archivo con la cláusula `WITH`:
+
+```sql
+select top 10 *
+from openrowset(
+        bulk 'latest/ecdc_cases.csv',
+        data_source = 'covid',
+        format = 'csv',
+        parser_version ='2.0',
+        firstrow = 2
+    ) with (
+        date_rep date 1,
+        cases int 5,
+        geo_id varchar(6) 8
+    ) as rows
+```
+
+Los números posteriores a un tipo de datos de la cláusula `WITH` representan el índice de la columna en el archivo CSV.
+
+En las secciones siguientes, puede ver cómo consultar varios tipos de archivos CSV.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

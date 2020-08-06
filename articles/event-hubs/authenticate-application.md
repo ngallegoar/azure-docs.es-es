@@ -3,12 +3,12 @@ title: Autenticación de una aplicación para acceder a los recursos de Azure Ev
 description: En este artículo se proporciona información sobre cómo autenticar una aplicación con Azure Active Directory para acceder a recursos de Azure Event Hubs.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 8cf51daef7298ff0ad487d5a072b6126557578c1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1def026b1f188eba85ad5a86bf963ba1964b768a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537299"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371539"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticación de una aplicación con Azure Active Directory para acceder a recursos de Event Hubs
 Microsoft Azure proporciona una administración integrada del control de acceso para recursos y aplicaciones basados en Azure Active Directory (Azure AD). Una ventaja clave de usar Azure AD con Azure Event Hubs es que ya no es necesario almacenar las credenciales en el código. En su lugar, puede solicitar un token de acceso de OAuth 2.0 desde la Plataforma de identidad de Microsoft. El nombre del recurso para solicitar un token es `https://eventhubs.azure.net/` (para los clientes de Kafka, el recurso para solicitar un token es `https://<namespace>.servicebus.windows.net`). Azure AD autentica la entidad de seguridad (un usuario, grupo o entidad de servicio) ejecutando la aplicación. Si la autenticación se realiza correctamente, Azure AD devuelve un token de acceso a la aplicación y la aplicación puede entonces usar el token de acceso para autorizar una solicitud de los recursos de Azure Event Hubs.
@@ -19,7 +19,7 @@ Cuando un rol se asigna a una entidad de seguridad de Azure AD, Azure concede a
 > Una definición de roles es una colección de permisos. El control de acceso basado en rol (RBAC) controla cómo se aplican estos permisos a través de la asignación de roles. Una asignación de roles consta de tres elementos: entidad de seguridad, definición de rol y ámbito. Para más información, consulte [Descripción de los distintos roles](../role-based-access-control/overview.md).
 
 ## <a name="built-in-roles-for-azure-event-hubs"></a>Roles integrados de Azure Event Hubs
-Azure proporciona los siguientes roles RBAC integrados para autorizar el acceso a datos de Event Hubs con Azure AD y OAuth:
+Azure proporciona los siguientes roles integrados de Azure para autorizar el acceso a datos de Event Hubs con Azure AD y OAuth:
 
 - [Propietario de los datos de Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner): use este rol para proporcionar acceso completo a los recursos de Event Hubs.
 - [Emisor de datos de Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): use este rol para proporcionar acceso de envío a los recursos de Event Hubs.
@@ -107,7 +107,7 @@ Para ver una lista de escenarios en los que se admite la adquisición de tokens,
     Este ejemplo se ha actualizado para usar la biblioteca **Azure.Messaging.EventHubs** más reciente.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Para más información sobre RBAC, consulte el artículo [¿Qué es el control de acceso basado en rol (RBAC) para los recursos de Azure?](../role-based-access-control/overview.md)
+- Para más información acerca de RBAC, consulte [¿Qué es el control de acceso basado en rol (RBAC) de Azure?](../role-based-access-control/overview.md).
 - Para información sobre cómo asignar y administrar las asignaciones de roles RBAC con Azure PowerShell, la CLI de Azure, o la API de REST, consulte estos artículos:
     - [Administración del control de acceso basado en rol (RBAC) con Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
     - [Administración del control de acceso basado en rol (RBAC) con la CLI de Azure](../role-based-access-control/role-assignments-cli.md)
