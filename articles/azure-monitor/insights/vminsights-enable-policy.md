@@ -6,20 +6,20 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 2c292ee601114a58e38b9e509efa53be2d3c93d6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9bc323e0fafc576c5e75f46b3c38fdf140b1b0f4
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328036"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799809"
 ---
 # <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Habilitación de Azure Monitor para VM mediante Azure Policy
 En este artículo se explica cómo habilitar Azure Monitor para VM para máquinas virtuales de Azure o máquinas virtuales híbridas conectadas con Azure Arc (versión preliminar) mediante Azure Policy. Azure Policy permite asignar definiciones de directivas que instalan los agentes necesarios para Azure Monitor para VM en el entorno de Azure y habilitan automáticamente la supervisión de las máquinas virtuales cuando se crea cada máquina virtual. Azure Monitor para VM ofrece una característica que permite detectar y corregir VM no compatibles en el entorno. Use esta característica en lugar de trabajar directamente con Azure Policy.
 
-Si no está familiarizado con Azure Policy, obtenga una breve introducción en [Implementación de Azure Monitor a escala mediante Azure Policy](../platform/deploy-scale.md).
+Si no está familiarizado con Azure Policy, obtenga una breve introducción en [Implementación de Azure Monitor a escala mediante Azure Policy](../deploy-scale.md).
 
 > [!NOTE]
-> Para usar Azure Policy con conjuntos de escalado de máquinas virtuales de Azure o para trabajar con Azure Policy directamente para habilitar las máquinas virtuales de Azure, vea [Implementación de Azure Monitor a escala mediante Azure Policy](../platform/deploy-scale.md#azure-monitor-for-vms-and-virtual-machine-agents).
+> Para usar Azure Policy con conjuntos de escalado de máquinas virtuales de Azure o para trabajar con Azure Policy directamente para habilitar las máquinas virtuales de Azure, vea [Implementación de Azure Monitor a escala mediante Azure Policy](../deploy-scale.md#azure-monitor-for-vms).
 
 ## <a name="prerequisites"></a>Requisitos previos
 - [Cree y configure un área de trabajo de Log Analytics](vminsights-configure-workspace.md).

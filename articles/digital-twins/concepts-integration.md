@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 9c7c1000ed5229886d4a964161042eca6517c230
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: d0bca2ad14216873836c751dc002ea915baa3a66
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367443"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800490"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Integre Azure Digital Twins con otros servicios
 
@@ -33,7 +33,7 @@ Azure Digital Twins puede enviar datos a los **puntos de conexión** conectados.
 * [Event Grid](../event-grid/overview.md)
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
-Los puntos de conexión se asocian a Azure Digital Twins mediante las API de administración o Azure Portal. Más información sobre cómo adjuntar un punto de conexión a Azure Digital Twins en [*Procedimiento: Administración de puntos de conexión y rutas*](how-to-manage-routes.md).
+Los puntos de conexión se asocian a Azure Digital Twins mediante las API de administración o Azure Portal. Más información sobre cómo adjuntar un punto de conexión a Azure Digital Twins en [*Procedimiento: Administración de puntos de conexión y rutas*](how-to-manage-routes-apis-cli.md).
 
 Hay muchos otros servicios en los que es posible que desee dirigir los datos en última instancia, como [Azure Storage](../storage/common/storage-introduction.md) o [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md). Para enviar los datos a servicios como estos, asocie el servicio de destino a un punto de conexión.
 

@@ -16,9 +16,9 @@
     - name: Crear función
       expanded: true
       items:
-        - name: "Visual\_Studio Code"
+        - name: Visual Studio Code
           href: ./functions-create-first-function-vs-code.md
-        - name: "Visual\_Studio"
+        - name: Visual Studio
           href: functions-create-your-first-function-visual-studio.md
         - name: Línea de comandos
           href: functions-create-first-azure-function-azure-cli.md
@@ -27,9 +27,9 @@
           href: functions-create-first-function-resource-manager.md
     - name: Conexión al almacenamiento
       items:
-        - name: "Visual\_Studio Code"
+        - name: Visual Studio Code
           href: functions-add-output-binding-storage-queue-vs-code.md
-        - name: "Visual\_Studio"
+        - name: Visual Studio
           href: functions-add-output-binding-storage-queue-vs.md
         - name: Línea de comandos
           href: functions-add-output-binding-storage-queue-cli.md
@@ -263,7 +263,7 @@
         - name: Funciones locales
           href: functions-runtime-install.md
         - name: Implementación mediante el complemento de Jenkins
-          href: /azure/jenkins/jenkins-azure-functions-deploy
+          href: /azure/developer/jenkins/deploy-to-azure-functions
           maintainContext: true
     - name: Configuración
       items:
@@ -376,7 +376,7 @@
             - name: Entrada
               displayName: Blob storage
               href: functions-bindings-storage-blob-input.md
-            - name: Salida
+            - name: Output
               displayName: Blob storage
               href: functions-bindings-storage-blob-output.md
         - name: "Azure Cosmos\_DB"
@@ -396,7 +396,7 @@
                 - name: Entrada
                   href: functions-bindings-cosmosdb-v2-input.md
                   displayName: Azure Cosmos DB
-                - name: Salida
+                - name: Output
                   href: functions-bindings-cosmosdb-v2-output.md
                   displayName: Azure Cosmos DB
         - name: Event Grid

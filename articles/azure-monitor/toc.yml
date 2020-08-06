@@ -171,10 +171,14 @@
         - name: Supervisión de máquinas virtuales de Azure
           href: insights/monitor-vm-azure.md
           displayname: VM
+    - name: Implementación
+      items:
+        - name: Implementación de Azure Monitor
+          href: deploy.md
+        - name: Implementación a escala
+          href: deploy-scale.md
     - name: Administración y configuración
       items:
-        - name: Implementación a escala
-          href: platform/deploy-scale.md
         - name: Permisos de roles y seguridad
           href: platform/roles-permissions-security.md
         - name: Direcciones IP
@@ -1011,7 +1015,7 @@
       items:
         - name: Azure Cache for Redis (versión preliminar)
           href: insights/redis-cache-insights-overview.md
-        - name: "Azure Cosmos\_DB"
+        - name: Azure Cosmos DB
           href: insights/cosmosdb-insights-overview.md
         - name: Redes
           href: insights/network-insights-overview.md

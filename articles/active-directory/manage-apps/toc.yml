@@ -108,8 +108,6 @@
           href: configure-password-single-sign-on-non-gallery-applications.md
         - name: Configuración del inicio de sesión vinculado
           href: configure-linked-sign-on.md
-        - name: Automatización del inicio de sesión único basado en SAML mediante las API de MS Graph
-          href: application-saml-sso-configure-api.md
     - name: Asignación de usuarios y administración del acceso a las aplicaciones
       items:
         - name: Configuración del consentimiento del usuario

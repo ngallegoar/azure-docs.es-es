@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 8db47cd94f508803964398f19353e79f3d93d92a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d76506141b2563b3ae8d5779e774ad564022494d
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506577"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810010"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -466,30 +466,6 @@ Sí. Si la configuración coincide con el siguiente escenario, no verá el tráf
 - Ha implementado Application Gateway V2.
 - Tiene un NSG en la subred de Application Gateway.
 - Ha habilitado los registros de flujo de NSG en ese NSG.
-
-### <a name="how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address"></a>¿Cómo usar Application Gateway V2 solo con una dirección IP de front-end privada?
-
-Actualmente, Application Gateway v2 no admite exclusivamente el modo de IP privada. Admite las siguientes combinaciones
-* IP privada e IP pública
-* Solo IP pública
-
-Pero si desea usar Application Gateway V2 con solo IP privada, puede seguir el siguiente proceso:
-1. Cree una Application Gateway con la dirección IP de front-end pública y privada
-2. No cree ningún cliente de escucha para la dirección IP pública de front-end. Application Gateway no escuchará ningún tráfico en la dirección IP pública si no se crea ningún cliente de escucha para él.
-3. Cree y adjunte un [Grupo de seguridad de red](https://docs.microsoft.com/azure/virtual-network/security-overview) para la subred de Application Gateway con la siguiente configuración en orden de prioridad:
-    
-    a. Permita el tráfico desde el origen como **etiqueta de servicio de GatewayManager** y el destino como **cualquier** y puerto de destino como **65200-65535**. Este intervalo de puertos es necesario para la comunicación de la infraestructura de Azure. Estos puertos están protegidos (bloqueados) por la autenticación de certificados. Las entidades externas, incluidos los administradores de usuarios de la puerta de enlace, no pueden iniciar cambios en esos puntos de conexión sin los certificados adecuados en su lugar
-    
-    b. Permita el tráfico desde el origen como la etiqueta de servicio **AzureLoadBalancer** y el puerto de destino como **cualquiera**.
-    
-    c. Deniegue todo el tráfico entrante desde el origen como la etiqueta del servicio **Internet** y el puerto de destino como **cualquiera**. Asigne a esta regla la *mínima prioridad* en las reglas de entrada
-    
-    d. Mantenga las reglas predeterminadas y permita la entrada de VirtualNetwork para que el acceso en la dirección IP privada no esté bloqueado.
-    
-    e. No puede bloquearse la conectividad saliente de Internet. De lo contrario, se producirán problemas con el registro, las métricas, etc.
-
-Ejemplo de configuración de NSG para acceso de IP privada solamente: ![Configuración de Application Gateway V2 NSG solo para acceso IP privado](./media/application-gateway-faq/appgw-privip-nsg.png)
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 
