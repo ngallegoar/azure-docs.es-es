@@ -635,7 +635,7 @@
             - name: Configuración de integración continua con Azure Pipelines
               href: ./service-fabric-tutorial-deploy-app-with-cicd-vsts.md
             - name: Implementación de aplicaciones Linux con Jenkins
-              href: service-fabric-cicd-your-linux-applications-with-jenkins.md
+              href: /azure/developer/jenkins/deploy-to-service-fabric-cluster
     - name: Instalación y configuración de proxy inverso
       items:
         - name: Instalación y configuración de proxy inverso
