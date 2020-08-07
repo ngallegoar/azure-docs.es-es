@@ -229,7 +229,7 @@
         - name: Establecimiento de directorios de entrada y salida
           displayName: 'large data, write, experiment files, size limit'
           href: how-to-save-write-experiment-files.md
-        - name: Depuración interactiva
+        - name: Visual Studio Code
           displayName: 'Visual Studio Code, VSCode, debug, bugs, remote, compute, instance'
           href: how-to-set-up-vs-code-remote.md
         - name: Integración de Git
@@ -437,26 +437,28 @@
           href: how-to-schedule-pipelines.md
         - name: Desencadenar una canalización
           href: how-to-trigger-published-pipeline.md
+        - name: Designer (arrastrar y colocar)
+          items:
+            - name: Métricas de registro
+              displayName: 'designer, logging'
+              href: how-to-track-designer-experiments.md
+            - name: Transformación de datos
+              displayName: pipeline
+              href: how-to-designer-transform-data.md
+            - name: Reentrenamiento mediante canalizaciones publicadas
+              displayName: 'retrain, designer, published pipeline'
+              href: how-to-retrain-designer.md
+            - name: Predicciones por lotes
+              displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+              href: how-to-run-batch-predictions-designer.md
+            - name: Ejecución de código de Python
+              displayName: 'feature extraction, feature engineering'
+              href: how-to-designer-python.md
         - name: Depuración y solución de problemas de canalizaciones
           displayName: designer
           href: how-to-debug-pipelines.md
         - name: Depuración de canalizaciones en Application Insights
           href: how-to-debug-pipelines-application-insights.md
-        - name: Métricas de registro del diseñador
-          displayName: 'designer, logging'
-          href: how-to-track-designer-experiments.md
-        - name: Transformación de datos en Designer
-          displayName: pipeline
-          href: how-to-designer-transform-data.md
-        - name: Reentrenamiento del diseñador mediante canalizaciones publicadas
-          displayName: 'retrain, designer, published pipeline'
-          href: how-to-retrain-designer.md
-        - name: Predicciones por lotes del diseñador
-          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
-          href: how-to-run-batch-predictions-designer.md
-        - name: Ejecución de código Python en el diseñador
-          displayName: 'feature extraction, feature engineering'
-          href: how-to-designer-python.md
         - name: Uso de paso de ejecución en paralelo
           displayName: score scoring batch consume pipeline parallelrunstep inference
           href: how-to-use-parallel-run-step.md
@@ -475,6 +477,9 @@
     - name: "Administración de VS\_Code para los recursos"
       displayName: 'vscode,resources'
       href: how-to-manage-resources-vscode.md
+    - name: "Depuración interactiva de VS\_Code"
+      displayName: 'vscode,remote,debug,pipelines,deployments,ssh'
+      href: how-to-debug-visual-studio-code.md
     - name: Exportación y eliminación de datos
       displayName: GDPR
       href: how-to-export-delete-data.md

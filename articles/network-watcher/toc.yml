@@ -7,6 +7,8 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
+    - name: Configuración de los registros de NSG mediante la plantilla de Azure Resource Manager
+      href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
     - name: 'Diagnóstico de problemas de filtro de tráfico de máquinas virtuales: Azure Portal'
       href: diagnose-vm-network-traffic-filtering-problem.md
     - name: 'Diagnóstico de problemas de filtro de tráfico de máquinas virtuales: PowerShell'
@@ -174,7 +176,7 @@
           href: resource-move.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/network/watcher
     - name: Azure PowerShell
       href: /powershell/module/az.network/#network_watcher

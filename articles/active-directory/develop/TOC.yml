@@ -13,10 +13,10 @@
       items:
         - name: Registrar una aplicación
           href: quickstart-register-app.md
-        - name: Configuración de una aplicación para acceder a las API web
-          href: quickstart-configure-app-access-web-apis.md
-        - name: Configuración de una aplicación para exponer las API web
+        - name: Configuración de una aplicación para exponer una API web
           href: quickstart-configure-app-expose-web-apis.md
+        - name: Configuración de una aplicación para acceder a una API web
+          href: quickstart-configure-app-access-web-apis.md
         - name: Modificación de las cuentas compatibles con una aplicación
           href: quickstart-modify-supported-accounts.md
         - name: Eliminación de una aplicación
@@ -460,7 +460,7 @@
       items:
         - name: Información general
           href: authentication-national-cloud.md
-        - name: Autenticación
+        - name: Authentication
           href: msal-national-cloud.md
     - name: Aprovisionamiento automático de usuarios (SCIM)
       items:

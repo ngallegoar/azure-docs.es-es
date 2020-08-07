@@ -7,6 +7,8 @@
     - name: Comparación de los servicios de mensajería
       href: ../event-grid/compare-messaging-services.md
       maintainContext: true
+    - name: "Uso de Service Bus con Java Message Service (JMS)\_2.0 (versión preliminar)"
+      href: how-to-use-java-message-service-20.md
 - name: Guías de inicio rápido
   items:
     - name: Colas de Service Bus
@@ -127,6 +129,8 @@
           items:
             - name: 'Colas, temas y suscripciones'
               href: service-bus-queues-topics-subscriptions.md
+            - name: "Entidades de Java Message Service (JMS)\_2.0 (versión preliminar)"
+              href: java-message-service-20-entities.md
             - name: 'Mensajes, cargas y serialización'
               href: service-bus-messages-payloads.md
             - name: 'Transferencias, bloqueos y liquidación de mensajes'

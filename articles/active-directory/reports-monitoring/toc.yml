@@ -23,6 +23,8 @@
       href: tutorial-access-api-with-certificates.md
     - name: Transmisión en secuencias de registros a un centro de eventos
       href: tutorial-azure-monitor-stream-logs-to-event-hub.md
+    - name: Asistente para el análisis de registros
+      href: tutorial-log-analytics-wizard.md
 - name: Conceptos
   items:
     - name: Planeación de una implementación de informes y supervisión
