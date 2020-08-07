@@ -209,14 +209,14 @@
       items:
         - name: Creación visual de factorías de datos
           href: author-visually.md
+        - name: Desarrollo y depuración iterativos
+          href: iterative-development-debugging.md
         - name: Centro de administración
           href: author-management-hub.md
         - name: Control de código fuente
           href: source-control.md
         - name: Integración y entrega continuas
           href: continuous-integration-deployment.md
-        - name: Desarrollo y depuración iterativos
-          href: iterative-development-debugging.md
     - name: Conectores
       items:
         - name: Introducción a los conectores
@@ -562,6 +562,8 @@
       items:
         - name: Parametrización de servicios vinculados
           href: parameterize-linked-services.md
+        - name: Parámetros globales
+          href: author-global-parameters.md
         - name: Lenguaje de expresiones
           href: control-flow-expression-language-functions.md
         - name: Variables del sistema
