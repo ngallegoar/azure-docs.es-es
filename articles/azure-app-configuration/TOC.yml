@@ -75,7 +75,7 @@
       href: ./policy-samples.md
 - name: Conceptos
   items:
-    - name: almacén de pares clave-valor
+    - name: Claves y valores
       href: concept-key-value.md
     - name: Instantánea en un momento dado
       href: concept-point-time-snapshot.md
