@@ -45,9 +45,9 @@
     - name: 13 - Administración de la seguridad de máquinas virtuales
       href: tutorial-azure-security.md
     - name: 14a - Compilación con Jenkins
-      href: ../../jenkins/tutorial-jenkins-github-docker-cicd.md
+      href: /azure/developer/jenkins/pipeline-with-github-and-docker
     - name: 14b - Integración de Jenkins con Azure DevOps
-      href: ../../jenkins/tutorial-build-deploy-jenkins.md
+      href: /azure/developer/jenkins/deploy-to-linux-vm-using-azure-devops-services
     - name: 15a - Configuración de la estrategia de implementación Rolling (Gradual)
       href: tutorial-devops-azure-pipelines-classic.md
     - name: 15b - Configuración de la estrategia de implementación Canary (Valor controlado)
@@ -190,7 +190,7 @@
     - name: Tamaños y tipos de máquinas virtuales
       items:
         - name: Tamaños de VM
-          href: sizes.md
+          href: ../sizes.md
         - name: Máquinas virtuales de segunda generación
           href: generation-2.md
         - name: Uso general
@@ -746,7 +746,7 @@
               href: ../../azure-monitor/faq.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#agents
             - name: Extensión de Diagnósticos de Azure
               items:
-                - name: Introducción
+                - name: Información general
                   href: ../../azure-monitor/platform/diagnostics-extension-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
                 - name: Extensión de Diagnósticos de Linux
                   displayname: diagnostics extension
@@ -806,13 +806,13 @@
                 - name: Habilitar información general de la supervisión
                   href: ../../azure-monitor/insights/vminsights-enable-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
                 - name: Habilitar para una sola máquina virtual de Azure
-                  href: ../../azure-monitor/insights/vminsights-enable-single-vm.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                  href: ../../azure-monitor/insights/vminsights-enable-portal.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
                 - name: Habilitar el uso de Azure Policy
-                  href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                  href: ../../azure-monitor/insights/vminsights-enable-policy.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
                 - name: Habilitar con Azure PowerShell
-                  href: ../../azure-monitor/insights/vminsights-enable-at-scale-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                  href: ../../azure-monitor/insights/vminsights-enable-powershell.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
                 - name: Habilitar para el entorno híbrido
-                  href: ../../azure-monitor/insights/vminsights-enable-hybrid-cloud.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                  href: ../../azure-monitor/insights/vminsights-enable-hybrid.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Asignación de dependencias
               href: ../../azure-monitor/insights/vminsights-maps.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Supervisión del rendimiento
@@ -850,11 +850,11 @@
         - name: Ansible
           items:
             - name: Instalar y configurar
-              href: ansible-install-configure.md
+              href: /azure/developer/ansible/install-on-linux-vm
             - name: Creación de una máquina virtual Linux
-              href: ansible-create-vm.md
+              href: /azure/developer/ansible/vm-configure
             - name: Administración de una máquina virtual Linux
-              href: ansible-manage-linux-vm.md
+              href: /azure/developer/ansible/vm-manage
         - name: Terraform
           items:
             - name: Instalar y configurar

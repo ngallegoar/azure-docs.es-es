@@ -28,7 +28,7 @@
   items:
     - name: Diseño de una base de datos
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: tutorial-design-database-using-portal.md
         - name: Azure CLI
           href: tutorial-design-database-cli.md
@@ -145,7 +145,11 @@
         - name: Creación de usuarios
           href: howto-create-users.md
         - name: Cadenas de conexión
-          href: howto-connection-string.md
+          items:
+            - name: Conexión de aplicaciones
+              href: howto-connection-string.md
+            - name: Azure PowerShell
+              href: howto-connection-string-powershell.md
         - name: Configuración de SSL
           href: howto-configure-ssl.md
         - name: Configuración de TLS
@@ -170,7 +174,7 @@
           href: howto-auto-grow-storage-powershell.md
     - name: Denegación del acceso a una red pública
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: howto-deny-public-network-access.md
     - name: Acceso a registros de servidor
       items:
@@ -182,9 +186,9 @@
               href: howto-configure-server-logs-cli.md
         - name: Registros de auditoría
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: howto-configure-audit-logs-portal.md
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-configure-audit-logs-cli.md
     - name: Supervisión
       items:
@@ -214,13 +218,13 @@
       items:
         - name: Azure portal
           href: howto-manage-vnet-portal.md
-        - name: CLI de Azure
+        - name: Azure CLI
           href: howto-manage-vnet-cli.md
     - name: Private Link
       items:
         - name: Azure portal
           href: howto-configure-privatelink-portal.md
-        - name: CLI de Azure
+        - name: Azure CLI
           href: howto-configure-privatelink-cli.md
     - name: Reinicio del servidor
       items:
