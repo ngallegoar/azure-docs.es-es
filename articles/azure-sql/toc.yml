@@ -244,7 +244,7 @@
       items:
         - name: Crear base de datos
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: database/single-database-create-quickstart.md
             - name: Plantilla ARM
               displayName: Resource Manager
@@ -998,7 +998,7 @@
                       href: virtual-machines/windows/failover-cluster-instance-prepare-vm.md
                     - name: Creación de FCI con
                       items:
-                        - name: "Discos compartidos de Azure (a partir de SQL\_2019)"
+                        - name: Discos compartidos de Azure
                           href: virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md
                         - name: "Espacios de almacenamiento directo (a partir de Windows\_2016)"
                           href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md

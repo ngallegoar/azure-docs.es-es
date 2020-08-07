@@ -34,8 +34,6 @@
           href: connect-python.md
         - name: Node.js
           href: connect-nodejs.md
-        - name: Azure PowerShell
-          href: connect-powershell.md
         - name: Ruby
           href: connect-ruby.md
         - name: C++
@@ -48,7 +46,7 @@
   items:
     - name: 1 - Diseño de una base de datos
       items:
-        - name: Portal de Azure
+        - name: Azure portal
           href: tutorial-design-database-using-portal.md
         - name: Azure CLI
           href: tutorial-design-database-using-cli.md
@@ -170,7 +168,7 @@
       items:
         - name: Azure portal
           href: howto-manage-firewall-using-portal.md
-        - name: CLI de Azure
+        - name: Azure CLI
           href: howto-manage-firewall-using-cli.md
     - name: Restauración de un servidor
       items:
@@ -193,7 +191,11 @@
         - name: Creación de usuarios
           href: howto-create-users.md
         - name: Cadenas de conexión
-          href: howto-connection-string.md
+          items:
+            - name: Conexión de aplicaciones
+              href: howto-connection-string.md
+            - name: Azure PowerShell
+              href: howto-connection-string-powershell.md
         - name: Configuración de SSL
           href: howto-configure-ssl.md
         - name: Configuración de TLS
@@ -204,7 +206,7 @@
           href: howto-redirection.md
     - name: Configuración de parámetros del servidor
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-using-cli.md
@@ -224,7 +226,7 @@
           items:
             - name: Azure portal
               href: howto-configure-server-logs-in-portal.md
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-configure-server-logs-in-cli.md
         - name: Registros de auditoría
           items:
@@ -274,7 +276,7 @@
           href: howto-configure-privatelink-cli.md
     - name: Cifrado de datos
       items:
-        - name: Portal de Azure
+        - name: Azure portal
           href: howto-data-encryption-portal.md
         - name: Azure CLI
           href: howto-data-encryption-cli.md
@@ -292,11 +294,11 @@
           href: howto-connect-with-managed-identity.md
     - name: Denegación del acceso a una red pública
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: howto-deny-public-network-access.md
     - name: Reinicio del servidor
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: howto-restart-server-portal.md
         - name: Azure CLI
           href: howto-restart-server-cli.md
