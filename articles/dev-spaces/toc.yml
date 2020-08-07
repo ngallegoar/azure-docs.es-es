@@ -100,7 +100,7 @@
         - name: Uso de acciones de GitHub con Azure Dev Spaces (versión preliminar)
           href: how-to/github-actions.md
         - name: Uso del complemento de Azure Dev Spaces para Jenkins
-          href: ../jenkins/tutorial-jenkins-dev-spaces.md
+          href: /azure/developer/jenkins/azure-dev-spaces-and-aks
         - name: Continuidad empresarial y recuperación ante desastres para Azure Dev Spaces
           href: how-to/dev-spaces-business-continuity.md
         - name: Interacción con contenedores de Windows
