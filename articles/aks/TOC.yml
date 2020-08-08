@@ -60,7 +60,7 @@
           href: ./security-controls-policy.md
     - name: Redes
       href: concepts-network.md
-    - name: Almacenamiento
+    - name: Storage
       href: concepts-storage.md
     - name: Escala
       href: concepts-scale.md
@@ -290,8 +290,8 @@
           href: windows-container-powershell.md
         - name: Conexión remota
           href: rdp.md
-        - name: Restricciones conocidas
-          href: windows-node-limitations.md
+        - name: "Preguntas más frecuentes sobre los contenedores de Windows\_Server"
+          href: windows-faq.md
         - name: Uso del panel de Kubernetes
           href: kubernetes-dashboard.md
         - name: Creación de archivos Dockerfile para contenedores de Windows Server

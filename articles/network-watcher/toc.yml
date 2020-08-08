@@ -7,14 +7,14 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Configuración de los registros de NSG mediante la plantilla de Azure Resource Manager
-      href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
     - name: 'Diagnóstico de problemas de filtro de tráfico de máquinas virtuales: Azure Portal'
       href: diagnose-vm-network-traffic-filtering-problem.md
     - name: 'Diagnóstico de problemas de filtro de tráfico de máquinas virtuales: PowerShell'
       href: diagnose-vm-network-traffic-filtering-problem-powershell.md
     - name: 'Diagnóstico de problemas de filtro de tráfico de máquinas virtuales: CLI de Azure'
       href: diagnose-vm-network-traffic-filtering-problem-cli.md
+    - name: Configuración de los registros de NSG mediante la plantilla de Azure Resource Manager
+      href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
 - name: Tutoriales
   items:
     - name: Diagnóstico de problemas de enrutamiento de máquina virtual
