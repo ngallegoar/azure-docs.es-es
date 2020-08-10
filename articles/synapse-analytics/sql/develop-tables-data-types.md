@@ -11,18 +11,18 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 907258dbce9b4f942601935df472e3515ed2d956
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a92d73941aac045534b6708c4b92d741c39ff781
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020641"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494974"
 ---
 # <a name="table-data-types-in-synapse-sql"></a>Tipos de datos de tabla en SQL de Synapse
 
 Recomendaciones para definir los tipos de datos de tabla en SQL de Synapse. 
 
-## <a name="what-are-the-data-types"></a>¿Cuáles son los tipos de datos?
+## <a name="data-types"></a>Tipos de datos
 
 SQL de Synapse admite los tipos de datos más usados habitualmente. Para obtener una lista de los tipos de datos admitidos, consulte [tipos de datos](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) en la instrucción CREATE TABLE. 
 
