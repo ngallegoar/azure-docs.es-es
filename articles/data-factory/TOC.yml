@@ -2,7 +2,7 @@
   href: index.yml
 - name: Cambio a la documentación de la versión 1
   href: v1/data-factory-introduction.md
-- name: Información general
+- name: Introducción
   items:
     - name: Introducción a Data Factory
       href: introduction.md
@@ -620,6 +620,8 @@
           href: create-shared-self-hosted-integration-runtime-powershell.md
         - name: Scripts del entorno de ejecución de integración autohospedado de Automation
           href: self-hosted-integration-runtime-automation-scripts.md
+        - name: Ejecución de un entorno de ejecución de integración autohospedado en un contenedor de Windows
+          href: how-to-run-self-hosted-integration-runtime-in-windows-container.md
     - name: Ejecución de paquetes SSIS en Azure
       items:
         - name: Ejecución de paquetes SSIS en Azure
