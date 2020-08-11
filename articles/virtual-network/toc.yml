@@ -29,7 +29,7 @@
       href: tutorial-create-validate-nat-gateway-portal.md
 - name: Ejemplos
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
@@ -48,7 +48,7 @@
           items:
             - name: Información general
               href: nat-overview.md
-            - name: Resource
+            - name: Recurso
               href: nat-gateway-resource.md
             - name: Métricas y alertas
               href: nat-metrics.md
@@ -136,7 +136,7 @@
       items:
         - name: Enrutado del tráfico de red
           items:
-            - name: Azure Portal
+            - name: Portal de Azure
               href: tutorial-create-route-table-portal.md
             - name: Azure PowerShell
               href: tutorial-create-route-table-powershell.md
@@ -208,7 +208,7 @@
               items:
                 - name: Azure PowerShell
                   href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
-                - name: CLI de Azure
+                - name: Azure CLI
                   href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
                 - name: Plantilla de Resource Manager
                   href: ipv6-configure-standard-load-balancer-template-json.md

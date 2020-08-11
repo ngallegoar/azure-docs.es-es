@@ -103,6 +103,7 @@
           href: functions-bindings-example.md
         - name: Registro de extensiones de enlace
           href: functions-bindings-register.md
+          displayName: 'bundles, extension bundles'
         - name: Patrones de expresión de enlace
           href: functions-bindings-expressions-patterns.md
         - name: Uso de valores devueltos de enlace
@@ -272,8 +273,6 @@
           displayName: 'app setting, application setting'
         - name: Establecimiento de la versión del entorno de ejecución
           href: set-runtime-version.md
-        - name: Registro manual de una extensión
-          href: install-update-binding-extensions-manual.md
         - name: Deshabilitar una función
           href: disable-function.md
         - name: Recuperación ante desastres geográfica
@@ -379,7 +378,7 @@
             - name: Output
               displayName: Blob storage
               href: functions-bindings-storage-blob-output.md
-        - name: "Azure Cosmos\_DB"
+        - name: Azure Cosmos DB
           items:
             - name: Functions 1.x
               href: functions-bindings-cosmosdb.md
