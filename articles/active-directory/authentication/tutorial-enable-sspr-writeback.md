@@ -11,12 +11,12 @@ author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 70a73cb1f855840831f2e1107baa94dfd54868a5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f4687a98bfb58db8ed5e8a853fa0db2207f435e8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518494"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419655"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutorial: Habilitación de la escritura diferida del autoservicio de restablecimiento de contraseña de Azure Active Directory en un entorno local
 
@@ -40,7 +40,7 @@ En este tutorial, aprenderá a:
 
 Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 
-* Un inquilino de Azure AD activo con al menos una licencia de prueba de Azure AD Premium P1 habilitada.
+* Un inquilino de Azure AD activo con al menos una licencia de Azure AD Premium P1 o de prueba habilitada.
     * Si es preciso, [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
     * Para más información, consulte [Requisitos de concesión de licencias del autoservicio de restablecimiento de contraseña de Azure AD](concept-sspr-licensing.md).
 * Una cuenta con privilegios de *administrador global*.
@@ -81,7 +81,7 @@ Para configurar los permisos adecuados para que se realice la escritura diferida
     * **Escribir lockoutTime**
     * **Escribir pwdLastSet**
 
-    [![](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions-cropped.png "Set the appropriate permissions in Active Users and Computers for the account that is used by Azure AD Connect")](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions.png#lightbox)
+    [ ![Establecimiento de los permisos adecuados en usuarios y equipos activos para la cuenta usada por Azure AD Connect](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions-cropped.png) ](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions.png#lightbox)
 
 1. Cuando esté preparado, haga clic en **Aplicar o Aceptar** para aplicar los cambios y salir de los cuadros de diálogo abiertos.
 

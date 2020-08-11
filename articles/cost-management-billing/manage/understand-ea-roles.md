@@ -1,18 +1,18 @@
 ---
 title: Información sobre los roles de administrador para Enterprise en Azure
-description: Conozca los roles de administrador de empresa en Azure.
+description: Conozca los roles de administrador de empresa en Azure. Puede asignar cinco roles administrativos distintos.
 author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: banders
-ms.openlocfilehash: 2cd786304180369fee39c7b362f27a44728f3ad8
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 8a4705a68b0b96a8f95cc2356cda454fdef65054
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124347"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531496"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Administración de roles de Azure Enterprise
 
@@ -103,9 +103,9 @@ Es posible que vea un precio diferente en Azure Portal según su rol administrat
 
 Para saber cómo establecer estas directivas, consulte [Administración del acceso a la información de facturación en Azure](manage-billing-access.md).
 
-En la tabla siguiente se muestra la relación entre los roles de administrador del Contrato Enterprise, la directiva de visualización de cargos, el control de acceso basado en rol (RBAC) en Azure Portal y los precios que ve en Azure Portal. El administrador de empresa siempre ve los detalles de uso según los precios de EA de la organización. Sin embargo, el administrador de departamento y el propietario de la cuenta tienen vistas de precios diferentes según la directiva de visualización de cargos y su rol de RBAC. El rol de administrador de departamento que se muestra en la tabla siguiente hace referencia a los roles de administrador de departamento y administrador de departamento (solo lectura).
+En la tabla siguiente se muestra la relación entre los roles de administrador del Contrato Enterprise, la directiva de visualización de cargos, el rol de Azure en Azure Portal y los precios que ve en Azure Portal. El administrador de empresa siempre ve los detalles de uso según los precios de EA de la organización. Sin embargo, el administrador de departamento y el propietario de la cuenta tienen vistas de precios diferentes según la directiva de visualización de cargos y su rol de Azure. El rol de administrador de departamento que se muestra en la tabla siguiente hace referencia a los roles de administrador de departamento y administrador de departamento (solo lectura).
 
-|Rol de administrador de Contrato Enterprise|Directiva de visualización de cargos por rol|Rol de RBAC|Vista de precios|
+|Rol de administrador de Contrato Enterprise|Directiva de visualización de cargos por rol|Rol de Azure|Vista de precios|
 |---|---|---|---|
 |Propietario de la cuenta o administrador de departamento|✔ Habilitado|Propietario|Precios de EA de la organización|
 |Propietario de la cuenta o administrador de departamento|✘ Deshabilitado|Propietario|Precio de venta|
@@ -113,7 +113,7 @@ En la tabla siguiente se muestra la relación entre los roles de administrador d
 |Propietario de la cuenta o administrador de departamento|✘ Deshabilitado |None|No hay precios|
 |None|No aplicable |Propietario|Precio de venta|
 
-El rol de administrador de Enterprise y las directivas de visualización de cargos se establecen en Enterprise Portal. El rol de RBAC puede actualizarse en Azure Portal. Para saber más, vea [Administración del acceso mediante RBAC y Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+El rol de administrador de Enterprise y las directivas de visualización de cargos se establecen en Enterprise Portal. El rol de Azure puede actualizarse en Azure Portal. Para saber más, vea [Administración del acceso mediante RBAC y Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 
 

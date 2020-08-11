@@ -7,16 +7,18 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/3/2019
 ms.custom: mvc
-ms.openlocfilehash: a08e00b2debce970bdbd385b785806c8636e5946
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 706ae5a6c93468da9a65293c1bb4eefb136b938d
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318426"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553281"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Creación de paneles de indicadores clave de rendimiento (KPI) personalizados con Azure Application Insights
 
-Puede crear varios paneles en Azure Portal de manera que cada uno incluya iconos en los que se visualicen datos procedentes de varios recursos de Azure en diferentes suscripciones y grupos de recursos.  Puede anclar distintos gráficos y vistas de visión de Azure Application Insights para crear paneles personalizados que le proporcionen una descripción completa del estado y el rendimiento de la aplicación. Este tutorial le guía a través de la creación de un panel personalizado que incluye varios tipos de datos y visualizaciones de Azure Application Insights.  Aprenderá a:
+Puede crear varios paneles en Azure Portal de manera que cada uno incluya iconos en los que se visualicen datos procedentes de varios recursos de Azure en diferentes suscripciones y grupos de recursos.  Puede anclar distintos gráficos y vistas de visión de Azure Application Insights para crear paneles personalizados que le proporcionen una descripción completa del estado y el rendimiento de la aplicación. Este tutorial le guía a través de la creación de un panel personalizado que incluye varios tipos de datos y visualizaciones de Azure Application Insights.
+
+ Aprenderá a:
 
 > [!div class="checklist"]
 > * Crear un panel personalizado en Azure
@@ -25,13 +27,14 @@ Puede crear varios paneles en Azure Portal de manera que cada uno incluya iconos
 > * Agregar un gráfico de métricas personalizado de Application Insights al panel
 > * Agregar los resultados de una consulta de Registros (Analytics) al panel
 
-
-
 ## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial:
 
 - Implemente una aplicación de .NET en Azure y [habilite el SDK de Application Insights](../app/asp-net.md).
+
+> [!NOTE]
+> Los permisos necesarios para trabajar con paneles se describen en el artículo [Descripción del control de acceso para los paneles](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboard-share-access#understanding-access-control-for-dashboards).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).

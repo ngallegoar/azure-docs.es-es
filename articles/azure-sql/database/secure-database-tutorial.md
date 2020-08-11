@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 73ffe7fe6336d9547ebbbf4c894bd1b9398e0900
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 12c3a35e12e3f432345ea788893d0d0ae6e6433f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092939"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496923"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Tutorial: Protección de una base de datos en Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -190,7 +190,7 @@ Para agregar un usuario con la autenticación de SQL:
 La autenticación de Azure Active Directory requiere que los usuarios de la base de datos se creen como independientes. Un usuario de base de datos independiente se asigna a una identidad en el directorio de Azure AD asociado a la base de datos y no tiene inicio de sesión en la base de datos *maestra*. La identidad de Azure AD puede ser una cuenta de usuario individual o un grupo. Para más información, consulte [Usuarios de base de datos independiente: hacer que la base de datos sea portátil](/sql/relational-databases/security/contained-database-users-making-your-database-portable) y revise el [Tutorial de Azure AD](authentication-aad-configure.md) acerca de cómo autenticarse con Azure AD.
 
 > [!NOTE]
-> Los usuarios de base de datos (a excepción de los administradores) no se pueden crear mediante Azure Portal. Los roles de Azure RBAC no se propagan a los almacenes de servidores, bases de datos o datos SQL. Se utilizan solo para administrar los recursos de Azure y no se aplican a los permisos de base de datos.
+> Los usuarios de base de datos (a excepción de los administradores) no se pueden crear mediante Azure Portal. Los roles de Azure no se propagan a los almacenes de datos, servidores o bases de datos de SQL. Se utilizan solo para administrar los recursos de Azure y no se aplican a los permisos de base de datos.
 >
 > Por ejemplo, el rol *Colaborador de SQL Server* no concede acceso para conectarse a una base de datos o a un almacenamiento de datos. Este permiso tiene que concederse dentro de la base de datos mediante instrucciones de T-SQL.
 

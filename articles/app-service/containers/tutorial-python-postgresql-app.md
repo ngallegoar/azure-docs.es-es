@@ -10,12 +10,13 @@ ms.custom:
 - seo-python-october2019
 - cli-validate
 - tracking-python
-ms.openlocfilehash: 718c9a62cc867e5d65cc3c79e78ce3282f1037c7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+- devx-track-azurecli
+ms.openlocfilehash: 0ab19e538d2ffb97f9bb80c47f9ce5471bdb87a9
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285856"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799471"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Implementación de una aplicación web de Django de Python con PostgreSQL en Azure App Service
 
@@ -31,13 +32,16 @@ En este tutorial, se usa la CLI de Azure para completar las siguientes tareas:
 > * Visualización de los registros de diagnóstico
 > * Administrar la aplicación web en Azure Portal
 
+También puede usar la [versión de Azure Portal de este tutorial](/azure/developer/python/tutorial-python-postgresql-app-portal).
+
+
 ## <a name="set-up-your-initial-environment"></a>Configuración del entorno inicial
 
 1. Disponga de una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-1. Instale <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 o superior</a>.
+1. Instale <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 o una versión posterior</a>.
 1. Instale la <a href="/cli/azure/install-azure-cli" target="_blank">CLI de Azure</a> 2.0.80 o posterior, con la que se ejecutan comandos en cualquier shell para aprovisionar y configurar los recursos de Azure.
 
-Abra una ventana del terminal y compruebe que la versión de Python sea 3.6 o superior:
+Abra una ventana del terminal y compruebe que la versión de Python es la 3.6 o superior:
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
@@ -59,7 +63,7 @@ py -3 --version
 
 ---
 
-Compruebe que la versión de la CLI de Azure sea 2.0.80 o posterior:
+Compruebe que la versión de la CLI de Azure es la 2.0.80 o posterior:
 
 ```azurecli
 az --version
@@ -71,7 +75,7 @@ Después, inicie sesión en Azure mediante la CLI:
 az login
 ```
 
-Este comando abre un explorador que recopila las credenciales. Cuando el comando finaliza, muestra la salida JSON que contiene información sobre las suscripciones.
+Este comando abre un explorador que recopila las credenciales. Cuando el comando finaliza, muestra una salida JSON que contiene información sobre las suscripciones.
 
 Una vez que haya iniciado sesión, puede ejecutar comandos de Azure con la CLI de Azure para trabajar con los recursos de su suscripción.
 
@@ -106,7 +110,7 @@ El ejemplo djangoapp contiene la aplicación en Django de sondeos controlada por
 
 El ejemplo también se ha modificado para ejecutarse en un entorno de producción, como App Service:
 
-- La configuración para producción está en el archivo *azuresite/production.py*. Los detalles de desarrollo están en *azuresite/settings.py*.
+- La configuración para producción está en el archivo *azuresite/production.py*. Los detalles de desarrollo están en el archivo *azuresite/settings.py*.
 - La aplicación usa la configuración de producción cuando la variable de entorno `DJANGO_ENV` está establecida en "production". Esta variable de entorno se crea más adelante en el tutorial, junto con otras que se usan para la configuración de la base de datos de PostgreSQL.
 
 Estos cambios son específicos de la configuración de Django para ejecutarse en cualquier entorno de producción y no son específicos de App Service. Para obtener más información, consulte la [lista de implementación de Django](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/).

@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ac13dc669ed20df58f05c672926b7bee55dbc90
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6b6fe3238a2ad602b388ff24faaee3a200084ae0
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035033"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419485"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Habilitación del autoservicio de restablecimiento de contraseña de Azure Active Directory para que los usuarios puedan desbloquear su cuenta o restablecer contraseñas
 
@@ -37,7 +37,7 @@ En este tutorial, aprenderá a:
 
 Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 
-* Un inquilino de Azure AD activo con al menos una licencia de prueba habilitada.
+* Un inquilino de Azure AD activo con al menos una licencia de Azure AD Premium P1 o de prueba habilitada.
     * Si es preciso, [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Una cuenta con privilegios de *Administrador global*.
 * Un usuario que no sea administrador con una contraseña que conozca, como *usuarioDePrueba*. Utilizará esta cuenta para probar la experiencia de SSPR por parte del usuario final en este tutorial.
@@ -60,7 +60,7 @@ En este tutorial, configurará SSPR para un conjunto de usuarios de un grupo de 
 1. En la página **Propiedades**, bajo la opción *Se habilitó el restablecimiento de contraseña del autoservicio*, elija **Seleccionar grupo**.
 1. Busque y seleccione el grupo de Azure AD, como *Grupo-Prueba-SSPR* y, a continuación, elija *Seleccionar*.
 
-    [![](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png "Select a group in the Azure portal to enable for self-service password reset")](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
+    [ ![Selección de un grupo en Azure Portal para habilitar el autoservicio de restablecimiento de contraseña](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png) ](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
 
 1. Para habilitar SSPR para los usuarios seleccionados, seleccione **Guardar**.
 

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: ceb9e731b1052d47131dfbc6754e1cb921a8f585
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0b432a224aa32edf762f6610990027451abe9acc
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280841"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759213"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novedades de Computer Vision
 
@@ -23,15 +23,15 @@ Conozca las novedades del servicio. Estos elementos pueden ser notas de la versi
 
 ## <a name="july-2020"></a>Julio de 2020
 
-### <a name="read-api-v31-preview1-adds-support-for-simplified-chinese"></a>Read API v3.1-preview.1 agrega compatibilidad con el chino simplificado
-Read API v3.1-preview.1 de Computer Vision agrega compatibilidad con el chino simplificado.
+### <a name="read-api-v31-public-preview-adds-simplified-chinese-support"></a>La versión preliminar pública de Read API v3.1 agrega compatibilidad con chino simplificado
+La versión preliminar de Read API v3.1 de Computer Vision agrega compatibilidad con chino simplificado.
 
 * Esta versión preliminar de Read API admite los idiomas inglés, holandés, francés, alemán, italiano, portugués, chino simplificado y español.
 
 Consulte [Introducción a Read API](concept-recognizing-text.md) para obtener más información.
 
 > [!div class="nextstepaction"]
-> [Más información sobre Read API v3.1-preview.1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
+> [Más información sobre la versión preliminar pública de Read API v3.1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
 
 ## <a name="may-2020"></a>Mayo de 2020
 Computer Vision API v3.0 entró en disponibilidad general, con actualizaciones para [Read API](concept-recognizing-text.md):

@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/09/2020
-ms.openlocfilehash: aabb42dc8d86e500875819cbfc169bcc86733219
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/30/2020
+ms.openlocfilehash: e492a5f0afdfc2087e5719df65221d08db0a2e77
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101240"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499558"
 ---
 # <a name="quickstart-create-and-manage-logic-apps-using-the-azure-cli"></a>Inicio rápido: Creación y administración de aplicaciones lógicas mediante la CLI de Azure
 
@@ -271,3 +271,11 @@ Puede usar los siguientes parámetros globales opcionales de la CLI de Azure con
 | Depurar | `--debug` | Muestra todos los registros de depuración. |
 | Mensaje de ayuda | `--help -h` | Muestra el cuadro de diálogo de ayuda. |
 | Consultar | `--query` | Establece una cadena de consulta de JMESPath para la salida JSON. |
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](/cli/azure/?view=azure-cli-latest).
+
+Para ver un ejemplo de cómo crear una aplicación lógica básica a través de la CLI, consulte el [script de ejemplo y la definición del flujo de trabajo](sample-logic-apps-cli-script.md).
+
+Puede encontrar más ejemplos de scripts de la CLI de Logic Apps en el [explorador de ejemplos de código de Microsoft](/samples/browse/?products=azure-logic-apps).

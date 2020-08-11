@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: ca3c7d6bc6621c4b82a44431ae313384c1653f79
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0ae304763718f649d7895394d67c2aec307f14af
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324240"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799997"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>Inicio rápido: Creación de una aplicación de Java en Azure App Service en Windows
 
@@ -49,13 +49,19 @@ cd helloworld
 
 ## <a name="configure-the-maven-plugin"></a>Configuración del complemento Maven
 
-El proceso de implementación en Azure App Service puede tomar automáticamente las credenciales de Azure de la CLI de Azure. Si no tiene la CLI de Azure instalada, el complemento Maven iniciará sesión con OAuth o el inicio de sesión del dispositivo. Consulte los detalles sobre la [autenticación con complementos de Maven](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) si fuera necesario.
+El proceso de implementación en Azure App Service puede elegir sus credenciales de Azure desde la CLI de Azure automáticamente. El complemento Maven iniciará sesión con OAuth o el inicio de sesión del dispositivo si la CLI de Azure no está instalada localmente. Consulte los detalles sobre la [autenticación con complementos de Maven](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) si fuera necesario.
 
-Puede ejecutar el siguiente comando maven en el símbolo del sistema para configurar la implementación, elija **"2"** para el sistema operativo **Windows** en el primer paso y acepte las configuraciones predeterminadas presionando **ENTRAR** hasta que aparezca el mensaje **Confirmar (S/N)** y presione la tecla **S"** ya la configuración habrá terminado. 
-
+Puede ejecutar el siguiente comando de Maven para configurar la implementación.
 ```bash
 mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 ```
+
+Se le pedirá que seleccione 
+* **SO (valor predeterminado: `linux`)**
+* **Versión de Java (valor predeterminado: `1.8`)**
+* **Contenedor Web (valor predeterminado: `tomcat 8.5`)** 
+
+No olvide escribir **`2`** para elegir el sistema operativo **Windows** en el primer paso. En las restantes opciones se pueden dejar los valores predeterminados, para lo que se debe presionar **Entrar**. Por último, presione **`Y`** en el aviso **Confirmar (S/N)** para completar la configuración.
 
 Así es un proceso de ejemplo:
 
@@ -153,8 +159,11 @@ Las configuraciones de App Service se pueden modificar directamente en el archiv
 `<runtime>` | true | La configuración del entorno en tiempo de ejecución. Puede ver los detalles [aquí](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
 `<deployment>` | true | La configuración de implementación. Puede ver los detalles [aquí](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
 
+Tenga cuidado con los valores de `<appName>` y `<resourceGroup>`(`helloworld-1590394316693` y `helloworld-1590394316693-rg` en la demostración), ya que se usarán más adelante.
+
 > [!div class="nextstepaction"]
 > [He tenido un problema](https://www.research.net/r/javae2e?tutorial=app-service-web-get-started-java&step=config)
+
 
 ## <a name="deploy-the-app"></a>Implementar la aplicación
 
@@ -169,13 +178,14 @@ Luego, puede implementar la aplicación Java en Azure mediante el siguiente coma
 mvn package azure-webapp:deploy
 ```
 
-Una vez que se haya completado la implementación, vaya a la aplicación implementada mediante la siguiente dirección URL en el explorador web, por ejemplo, `http://<webapp>.azurewebsites.net/`.
+Una vez finalizada la implementación, la aplicación estará lista en `http://<appName>.azurewebsites.net/`(`http://helloworld-1590394316693.azurewebsites.net` en la demostración). Abra la dirección URL con un explorador web local; debería ver
 
 ![Aplicación de ejemplo que se ejecuta en Azure App Service](./media/app-service-web-get-started-java/java-hello-world-in-browser-azure-app-service.png)
 
 **¡Enhorabuena!** Ha implementado su primera aplicación de Java en App Service en Windows.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]

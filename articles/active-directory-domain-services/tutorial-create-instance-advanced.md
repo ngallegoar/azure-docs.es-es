@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: ead20713752b4eb28700541b4314241d86b6cc27
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8b48cfa29555cf0ca15428758208df27a52a84f7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87278561"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87491144"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain-with-advanced-configuration-options"></a>Tutorial: Creación y configuración de un dominio administrado de Azure Active Directory Domain Services con opciones de configuración avanzada
 
@@ -100,7 +100,7 @@ Complete los campos de la ventana *Datos básicos* de Azure Portal para crear un
     Para este tutorial, seleccione la SKU *Estándar*.
 1. Un *bosque* es una construcción lógica que Active Directory Domain Services utiliza para agrupar uno o más dominios. De forma predeterminada, un dominio administrado se crea como un bosque de *usuarios*. Este tipo de bosque sincroniza todos los objetos de Azure AD, incluidas las cuentas de usuario creadas en un entorno de AD DS local.
 
-    Un bosque de *Recursos* solo sincroniza los usuarios y grupos creados directamente en Azure AD. Los bosques de recursos están actualmente en versión preliminar. Para más información sobre los bosques de *Recursos*, incluido el motivo por el que puede usar uno y cómo crear confianzas de bosque con dominios de AD DS locales, consulte [Introducción a los bosques de recursos de Azure AD DS][resource-forests].
+    Un bosque de *Recursos* solo sincroniza los usuarios y grupos creados directamente en Azure AD. Los hashes de contraseña de los usuarios locales nunca se sincronizan en un dominio administrado cuando se crea un bosque de recursos. Para más información sobre los bosques de *Recursos*, incluido el motivo por el que puede usar uno y cómo crear confianzas de bosque con dominios de AD DS locales, consulte [Introducción a los bosques de recursos de Azure AD DS][resource-forests].
 
     En este tutorial, elija crear un bosque de *Usuario*.
 

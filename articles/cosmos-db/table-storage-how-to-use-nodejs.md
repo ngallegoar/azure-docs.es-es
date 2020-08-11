@@ -8,12 +8,13 @@ ms.topic: sample
 ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 2abe23de5fbd2feada6ac8ff0a827b8575bcb28b
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 6a9a3df1d200aae9e5ea401652752656ed9ff423
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172001"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760981"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Uso de Azure Table Storage o Table API de Azure Cosmos DB desde Node.js
 
@@ -122,7 +123,7 @@ function (returnObject, finalCallback, next)
 
 En esta devolución de llamada y después de procesar `returnObject` (la respuesta de la solicitud al servidor), la devolución de llamada tiene que invocar a `next`, si existe, para continuar procesando otros filtros, o bien simplemente invocar a `finalCallback` para finalizar la invocación del servicio.
 
-Se incluyen dos filtros que implementan la lógica de reintento de Azure SDK para Node.js: `ExponentialRetryPolicyFilter** and `LinearRetryPolicyFilter`. The following creates a `TableService` object that uses the `ExponentialRetryPolicyFilter`:
+Con el SDK de Azure, se incluyen dos filtros que implementan la lógica de reintento para Node.js, `ExponentialRetryPolicyFilter` y `LinearRetryPolicyFilter`. El siguiente código crea un objeto `TableService` que usa `ExponentialRetryPolicyFilter`:
 
 ```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();

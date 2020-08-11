@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 07/27/2020
-ms.openlocfilehash: 113249f56c1f5f9c035ec2ff6ccb7309dd355763
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9642f6d1090ef358cf86241640255c647dea52eb
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281351"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432660"
 ---
 # <a name="changelog"></a>Registro de cambios #
 
@@ -57,13 +57,13 @@ ms.locfileid: "87281351"
 
 ### <a name="changes-234"></a>Cambios 2.3.4
 
-- Se ha quitado la etiqueta o pista de subtítulo vacía al reproducir HLS en iOS y MacOS Safari.
+- Se ha quitado la etiqueta o pista de subtítulo vacía al reproducir HLS en iOS y macOS Safari.
 - Se ha reducido el número de respuestas 412 para los subtítulos IMSC1.
 - Advertencia de salida en la consola para 10 respuestas de subtítulo IMSC1 vacíos consecutivas para ayudar a la depuración en directo.
 
 ## <a name="232-official-update-october-9-2019"></a>2.3.2 (actualización oficial del 9 de octubre de 2019)
 
-### <a name="features"></a>Características
+### <a name="features-232"></a>Características de la versión 2.3.2
 
 -Se ha agregado compatibilidad con PlayReady para la reproducción de DASH del explorador Edge basado en Chromium.
 
@@ -101,7 +101,7 @@ ms.locfileid: "87281351"
 
 - Al obtener un elemento segmentDecryptError cuando el reproductor ya está en el perímetro activo, el reproductor ahora actualiza el manifiesto en lugar de probar el siguiente segmento.
 - Se han agregado más registros para diagnóstico.
-- Se ha actualizado la documentación para incluir la compatibilidad con FairPlay para iOS Safari.
+- Se ha actualizado la documentación para incluir la compatibilidad de FairPlay con iOS Safari.
 - Se ha agregado un ejemplo para la opción "srclang" de IMSC1.
 - Se han agregado invalidaciones para los valores de padding, textPadding y boxShadow de las pistas de texto.
 - Se ha agregado un código de error (0x0020025B) para diferenciar un error de descarga de segmento debido a que no hay Internet, en lugar de simplemente devolver 0x00200259.
@@ -228,7 +228,7 @@ ms.locfileid: "87281351"
 
 ### <a name="changes-218"></a>Cambios en la versión 2.1.8 ###
 
-- [Cambio] Se ha actualizado el error 0x0600001 para que se muestre cuando se reproduce contenido AES con Flash 30, ya que no se admite actualmente. Para más información, consulte [Problemas conocidos](azure-media-player-known-issues.md)
+- [Cambio] Se ha actualizado el error 0x0600001 para que se muestre al reproducir contenido AES con Flash 30, ya que no se admite actualmente. Para más información, consulte [Problemas conocidos](azure-media-player-known-issues.md)
 - [Cambio] Se han agregado más reintentos para los escenarios en vivo cuando el manifiesto solicita 404 o devuelve manifiestos vacíos.
 
 ## <a name="217-official-update"></a>2.1.7 (actualización oficial) ##

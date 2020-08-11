@@ -4,12 +4,12 @@ description: Cree y ejecute rápidamente un cuaderno de Jupyter Notebook en Azur
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.custom: tracking-python
-ms.openlocfilehash: 809cb006e1ea40e31d079b40febee6a09714731f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec1a03cb1c05248458a47ec4b22a0243b31bafcd
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85832107"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423293"
 ---
 # <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>Inicio rápido: Creación y uso compartido de un cuaderno en Azure Notebooks (versión preliminar)
 
@@ -43,9 +43,9 @@ Ninguno.
 
 1. Después de unos instantes, Azure Notebooks lo lleva al proyecto nuevo. Para agregar un cuaderno al proyecto, seleccione el menú desplegable **+ Nuevo** (que puede aparecer simplemente como **+** ) y seleccione **Cuaderno**:
 
-    [![](media/quickstarts/empty-project-new-notebook-button.png "A new, empty project and add notebook command")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
+    :::image type="content" source="media/quickstarts/empty-project-new-notebook-button.png" alt-text="Un nuevo proyecto vacío y agregar un comando de cuaderno." lightbox="media/quickstarts/empty-project-new-notebook-button.png":::
 
-1. En la ventaja emergente **Create New Notebook** (Crear nuevo cuaderno) que aparece, escriba un nombre de archivo para el cuaderno, como *HelloWorldInPython.ipynb* ( *.ipynb* se refiere a IronPython (Jupyter) Notebook) y seleccione **Python 3.6** en el lenguaje (que también se denomina como el *kernel*):
+1. En la ventaja emergente **Create New Notebook** (Crear nuevo cuaderno) que aparece, escriba un nombre de archivo para el cuaderno, como *HelloWorldInPython.ipynb* (*.ipynb* se refiere a IronPython (Jupyter) Notebook) y seleccione **Python 3.6** en el lenguaje (que también se denomina como el *kernel*):
 
     ![La ventana emergente para crear un cuaderno](media/quickstarts/new-notebook-popup.png)
 

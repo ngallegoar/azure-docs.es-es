@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: d7f990b059346c4c782ca923e663997317c4df16
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3c33e2152fc120d406886d89adda26603126a8ba
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046880"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87483559"
 ---
-# <a name="accessing-external-storage-in-synapse-sql-on-demand"></a>Acceso al almacenamiento externo en Synapse SQL (a petición)
+# <a name="access-external-storage-in-synapse-sql-on-demand"></a>Acceso al almacenamiento externo en Synapse SQL (a petición)
 
 En este documento se describe la forma en que los usuarios pueden leer datos de los archivos almacenados en Azure Storage en Synapse SQL (a petición). Los usuarios tienen las siguientes opciones para acceder al almacenamiento:
 
@@ -59,7 +59,7 @@ Si no hay ninguna CREDENCIAL en el nivel de servidor que coincida con la direcci
 > [!NOTE]
 > Esta versión de OPENROWSET está diseñada para realizar una exploración de datos rápida y sencilla mediante la autenticación predeterminada. Para sacar provecho de la suplantación o de la identidad administrada, use OPENROWSET con DATASOURCE como se describe en la siguiente sección.
 
-### <a name="querying-data-sources-using-openrowset"></a>Consulta de orígenes de datos mediante OPENROWSET
+### <a name="query-data-sources-using-openrowset"></a>Consulta de orígenes de datos mediante OPENROWSET
 
 OPENROWSET permite al usuario consultar los archivos colocados en algunos orígenes de datos externos:
 
@@ -91,7 +91,7 @@ El autor de la llamada debe tener uno de los siguientes permisos para ejecutar l
   - `ADMINISTER DATABASE BULK OPERATIONS` permite a los usuarios cuyo ámbito sea la base de datos ejecutar la función OPENROWSET.
 - REFERENCES DATABASE SCOPED CREDENTIAL a la credencial a la que se hace referencia en EXTERNAL DATA SOURCE
 
-#### <a name="accessing-anonymous-data-sources"></a>Acceso a orígenes de datos anónimos
+#### <a name="access-anonymous-data-sources"></a>Acceso a orígenes de datos anónimos
 
 El usuario puede crear EXTERNAL DATA SOURCE sin CREDENCIAL que haga referencia al almacenamiento de acceso público, o bien usar la autenticación de paso a través de Azure AD:
 
@@ -132,7 +132,7 @@ CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 
 DATABASE SCOPED CREDENTIAL especifica cómo acceder a los archivos en el origen de datos al que se hace referencia.
 
-### <a name="reading-external-files-with-external-table"></a>Lectura de archivos externos con EXTERNAL TABLE
+### <a name="read-external-files-with-external-table"></a>Lectura de archivos externos con EXTERNAL TABLE
 
 EXTERNAL TABLE permite leer datos de los archivos a los que se hace referencia a través de un origen de datos mediante la instrucción SELECT de SQL estándar:
 

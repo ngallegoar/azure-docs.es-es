@@ -1,6 +1,6 @@
 ---
 title: Visualización y descarga de los datos de uso y los cargos de Azure
-description: En este artículo se describe cómo descargar o ver los datos de uso y los cargos diarios de Azure.
+description: Obtenga información acerca de cómo descargar o ver los cargos y el uso diario de Azure, y vea los recursos adicionales disponibles.
 keywords: billing usage, usage charges, usage download, view usage, azure invoice, azure usage
 author: bandersmsft
 ms.author: banders
@@ -8,12 +8,12 @@ tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: bf9a98d6484e7f78a80a4e3018afdec00df51337
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d09f792e784c89e704691975d44cb3cbfa753cf4
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322044"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460514"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Visualización y descarga de los datos de uso y los cargos de Azure
 

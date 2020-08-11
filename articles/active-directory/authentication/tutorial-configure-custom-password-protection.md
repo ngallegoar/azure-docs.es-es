@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 642082b3fe23e0d007e21409062fe8e777728cc3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a5b2f3a61e2167067bd6e61ee2a36bb1d22950d8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518546"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419672"
 ---
 # <a name="tutorial-configure-custom-banned-passwords-for-azure-active-directory-password-protection"></a>Tutorial: Configuración de contraseñas prohibidas personalizadas para la protección con contraseña de Azure Active Directory
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a:
 
 Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 
-* Un inquilino de Azure AD activo con al menos una licencia de prueba habilitada.
+* Un inquilino de Azure AD activo con al menos una licencia de Azure AD Premium P1 o de prueba habilitada.
     * Si es preciso, [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Una cuenta con privilegios de *administrador global*.
 * Un usuario que no sea administrador con una contraseña que conozca, como *usuarioDePrueba*. Para probar un evento de cambio de contraseña, use esta cuenta en este tutorial.
@@ -77,7 +77,7 @@ Para habilitar la lista personalizada de contraseñas prohibidas y agregar entra
 
     Especifique sus propias contraseñas personalizadas para prohibirlas, tal como se muestra en el ejemplo siguiente.
 
-    [![](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords-cropped.png "Modify the custom banned password list under Authentication Methods in the Azure portal")](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords.png#lightbox)
+    [ ![Modifique la lista personalizada de contraseñas prohibidas en Métodos de autenticación de Azure Portal](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords-cropped.png) ](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords.png#lightbox)
 
 1. En **Habilitar protección con contraseña en Windows Server Active Directory**, establezca la opción en *No*.
 1. Para habilitar las contraseñas prohibidas personalizadas y las entradas, seleccione **Guardar**.

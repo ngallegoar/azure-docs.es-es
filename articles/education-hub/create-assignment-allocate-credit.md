@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
-ms.openlocfilehash: e0d0804ce1f43d246dc4e87e222cbfbaf7db58aa
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a850e5ea851ee539c663b00ecc7f2053eae8dc34
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101248"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534097"
 ---
 # <a name="create-an-assignment-and-allocate-credit"></a>Creación de una asignación y asignación de un crédito
 
@@ -31,7 +31,7 @@ El Centro de Education de Azure acepta cualquier dirección de correo electróni
 > [!IMPORTANT]
 > Las cuentas profesionales y educativas están sujetas a sus propias directivas, incluido si se permite una dirección de correo electrónico de un dominio distinto de la organización (por ejemplo, agregar student2@outlook.com al dominio @school.edu). Asegúrese de comprobar estas directivas antes de agregar nuevos usuarios.
 
-Cuando una cuenta profesional o educativa (por ejemplo, student1@school.edu) se agrega como control de acceso basado en rol (RBAC) en el portal del patrocinador de formador o en [Azure Portal](https://portal.azure.com), Azure envía automáticamente un correo electrónico al destinatario. Este correo electrónico requiere que el usuario acepte la nueva cuenta y rol de RBAC antes de recibir acceso a la suscripción. Si es un profesor o profesor ayudante en un curso, asegúrese de informar a los alumnos sobre este proceso para que su suscripción se muestre en Azure Portal según lo previsto. El correo debe tener un aspecto parecido a este:
+Cuando una cuenta profesional o educativa (por ejemplo, student1@school.edu) se agrega como control de acceso basado en rol (RBAC) en el portal del patrocinador de formador o en [Azure Portal](https://portal.azure.com), Azure envía automáticamente un correo electrónico al destinatario. Este correo electrónico requiere que el usuario acepte la nueva cuenta y el rol de Azure antes de recibir acceso a la suscripción. Si es un profesor o profesor ayudante en un curso, asegúrese de informar a los alumnos sobre este proceso para que su suscripción se muestre en Azure Portal según lo previsto. El correo debe tener un aspecto parecido a este:
 
 :::image type="content" source="media/create-assignment-allocate-credit/azure-active-directory-get-started.png" alt-text="Empezar con Azure Active Directory" border="false":::
 

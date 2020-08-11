@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: quickstart
 ms.date: 05/11/2020
 ms.author: punagpal
-ms.openlocfilehash: bc85765666ba3baeae7ec795118f615f6b4b4368
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 95f5b5f13401c224ccf67c5f013deedf00379de7
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101363"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446812"
 ---
 # <a name="quickstart-deploy-iot-connector-preview-using-azure-portal"></a>Inicio rápido: Implementación del conector de IoT (versión preliminar) con Azure Portal
 
@@ -181,7 +181,7 @@ Una vez que haya implementado la aplicación de IoT Central, los dos dispositivo
 Puede ver los recursos de tipo Observation basados en FHIR que creó el conector de IoT en Azure API for FHIR mediante Postman. Configure [Postman para acceder a Azure API for FHIR](access-fhir-postman-tutorial.md) y realice una solicitud `GET` a `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` para ver los recursos de tipo Observation de FHIR con el valor de la frecuencia cardíaca. 
 
 > [!TIP]
-> Asegúrese de que el usuario tiene acceso adecuado al plano de datos de Azure API for FHIR. Use el [control de acceso basado en roles de Azure](configure-azure-rbac.md) para asignar los roles del plano de datos necesarios.
+> Asegúrese de que el usuario tiene acceso adecuado al plano de datos de Azure API for FHIR. Use el [control de acceso basado en roles de Azure (Azure RBAC)](configure-azure-rbac.md) para asignar los bloques del plano de datos requeridos.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

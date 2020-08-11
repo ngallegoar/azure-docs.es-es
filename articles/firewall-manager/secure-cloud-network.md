@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 07/17/2020
+ms.date: 07/29/2020
 ms.author: victorh
-ms.openlocfilehash: 7634effd5d1ac46955addd723ee7c992eb820a57
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 458ebe14e77c7b190a5c4cdd9b408396589d5d27
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084711"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420828"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Tutorial: Protección de un centro virtual mediante Azure Firewall Manager
 
@@ -108,7 +108,7 @@ Repita el procedimiento para conectar la red virtual **Spoke-02** con el nombre 
 
 ### <a name="configure-the-hub-and-spoke-routing"></a>Configuración del enrutamiento de tipo hub-and-spoke
 
-En Azure Portal, abra una instancia de Cloud Shell y ejecute el siguiente comando de Azure PowerShell para configurar el enrutamiento de tipo hub-and-spoke necesario.
+En Azure Portal, abra una instancia de Cloud Shell y ejecute el siguiente comando de Azure PowerShell para configurar el enrutamiento de tipo hub-and-spoke necesario. En las conexiones de radios/ramas del mismo nivel es preciso establecer la propagación en **NO**. Así se evita la comunicación universal entre los radios y, en su lugar, enruta el tráfico al firewall a través de la ruta predeterminada.
 
 ```azurepowershell
 $noneRouteTable = Get-AzVHubRouteTable -ResourceGroupName fw-manager `

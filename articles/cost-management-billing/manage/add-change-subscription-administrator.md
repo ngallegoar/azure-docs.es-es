@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 6d16e663626a1b19271b7d37b39202a0a9b605b9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: ddb40f470f9b951c786fdab529336af3eff38e54
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126132"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530017"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Agregar o cambiar los administradores de la suscripción de Azure
 
@@ -33,7 +33,7 @@ Para más información, consulte [Implementación mediante Azure Resource Manage
 
 ## <a name="assign-a-subscription-administrator"></a>Asignación de un administrador de suscripción
 
-Para que un usuario sea administrador de una suscripción a Azure, un administrador existente le asigna el rol [Propietario](../../role-based-access-control/built-in-roles.md#owner) (un rol RBAC) en el ámbito de la suscripción. El rol Propietario da al usuario acceso completo a todos los recursos de la suscripción, incluido el derecho a delegar este acceso a otros. Estos pasos son los mismos que para la asignación de cualquier otro rol.
+Para que un usuario sea administrador de una suscripción a Azure, un administrador existente le asigna el rol [Propietario](../../role-based-access-control/built-in-roles.md#owner) (un rol de Azure) en el ámbito de la suscripción. El rol Propietario da al usuario acceso completo a todos los recursos de la suscripción, incluido el derecho a delegar este acceso a otros. Estos pasos son los mismos que para la asignación de cualquier otro rol.
 
 Si no está seguro de quién es el administrador de cuenta de la suscripción, use los pasos siguientes para averiguarlo.
 

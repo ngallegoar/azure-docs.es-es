@@ -158,8 +158,10 @@
           items:
             - name: Control de versiones
               href: versioning-overview.md
-            - name: Eliminación temporal
-              href: soft-delete-overview.md
+            - name: Eliminación temporal para blobs
+              href: soft-delete-blob-overview.md
+            - name: Eliminación temporal para contenedores
+              href: soft-delete-container-overview.md
             - name: Instantáneas
               href: snapshots-overview.md
             - name: Fuente de cambios
@@ -423,8 +425,10 @@
           items:
             - name: Habilitación del control de versiones de blob
               href: versioning-enable.md
-            - name: Habilitación de la eliminación temporal
-              href: soft-delete-enable.md
+            - name: Habilitación de la eliminación temporal para blobs
+              href: soft-delete-blob-enable.md
+            - name: Habilitación de la eliminación temporal para contenedores
+              href: soft-delete-container-enable.md
             - name: Creación de instantáneas (.NET)
               href: snapshots-manage-dotnet.md
             - name: Proceso de registros de fuente de cambios

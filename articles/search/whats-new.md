@@ -6,19 +6,26 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 07/15/2020
-ms.openlocfilehash: 8c6486a3a64dcbe3dd37770844296da73724f3a3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/01/2020
+ms.custom: references_regions
+ms.openlocfilehash: 60efc645b1b5824306c1d4aa3e763eb9d2bc745d
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076344"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553940"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novedades de Azure Cognitive Search
 
 Conozca las novedades del servicio. Marque esta página para mantenerse actualizado con el servicio.
 
 ## <a name="feature-announcements-in-2020"></a>Anuncios de características en 2020
+
+### <a name="august-2020"></a>Agosto de 2020
+
+|Característica&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descripción | Disponibilidad  |
+|---------|------------------|-------------|---------------|
+| [doble cifrado](search-security-overview.md#encryption) | Seguridad | Habilite el cifrado doble en la capa de almacenamiento. Para ello, debe configurar el cifrado de clave administrada por el cliente (CMK) en los nuevos servicios de búsqueda. Cree un servicio, [configure las claves administradas por el cliente y aplíquelas ](search-security-manage-encryption-keys.md) a índices o mapas de sinónimos, y benefíciese del cifrado doble en ese contenido. | Disponible con carácter general en todos los servicios de búsqueda creados después del 1 de agosto de 2020 en estas regiones: Oeste de EE. UU. 2, este de EE. UU., centro-sur de EE. UU., US Gov Virginia y US Gov Arizona. Use el portal, las API REST de administración o los SDK para crear el servicio. |
 
 ### <a name="july-2020"></a>Julio de 2020
 

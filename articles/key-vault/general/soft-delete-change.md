@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.author: sudbalas
-ms.openlocfilehash: 91068bacee0bde9e11cc23816bd8e2a101854fb2
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: c75da4c27eae76df51836143c4fb383a1473159a
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388295"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564136"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>La eliminación temporal se habilitará en todos los almacenes de claves
 
@@ -48,7 +48,7 @@ A las entidades de seguridad que necesitan acceso para eliminar secretos de form
 
 Si tiene una instancia de Azure Policy en los almacenes de claves que exige que la eliminación temporal esté desactivada, esta directiva deberá deshabilitarse.  Es posible que necesite escalar este problema a un administrador que controle las directivas de Azure que se aplican a su entorno. Si no se deshabilita esta directiva, puede perder la capacidad de crear nuevos almacenes de claves en el ámbito de la directiva aplicada.
 
-Si su organización está sujeta a requisitos legales de cumplimiento normativo y no puede permitir que los almacenes de claves y secretos eliminados permanezcan en un estado recuperable, durante un período de tiempo prolongado, tendrá que ajustar el período de retención de la eliminación temporal, que se puede configurar entre 7 y 90 días, para cumplir con los estándares de su organización.
+Si su organización está sujeta a requisitos legales de cumplimiento normativo y no puede permitir que los almacenes de claves y secretos eliminados permanezcan en un estado recuperable durante un período de tiempo prolongado, tendrá que ajustar el período de retención de la eliminación temporal, que se puede configurar entre 7 y 90 días, para cumplir los estándares de su organización.
 
 ## <a name="procedures"></a>Procedimientos
 
@@ -66,14 +66,14 @@ Si su organización está sujeta a requisitos legales de cumplimiento normativo 
 10. En la hoja Azure Policy, haga clic en "Cumplimiento".
 11. Seleccione la directiva que ha aplicado.
 
-Ahora debería poder filtrar y ver cuáles de sus almacenes de claves tienen habilitada la eliminación temporal (recursos compatibles) y cuáles no (recursos no compatibles).
+Ya debería poder filtrar y ver cuáles de sus almacenes de claves tienen habilitada la eliminación temporal (recursos compatibles) y cuáles no (recursos no compatibles).
 
 ### <a name="turn-on-soft-delete-for-an-existing-key-vault"></a>Activación de la eliminación temporal para un almacén de claves existente
 
 1. Inicie sesión en el Portal de Azure.
 2. Busque su instancia de Key Vault.
 3. En Configuración, seleccione "Propiedades".
-4. En Eliminación temporal, seleccione el botón de opción correspondiente a "Enable recovery of this vault and its objects" (Habilitar recuperación de este almacén y sus objetos).
+4. En Eliminación temporal, seleccione el botón de radio correspondiente a "Enable recovery of this vault and its objects" (Habilitar la recuperación de este almacén y de sus objetos).
 5. Establezca el período de retención para la eliminación temporal.
 6. Seleccione "Guardar".
 

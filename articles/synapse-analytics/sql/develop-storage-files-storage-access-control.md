@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: d60eeb279f9faa469c98d3d0578d0e4c1cdf0bd2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b7005954b14a9263ec074c836180853a99812dd5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283459"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534777"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Control del acceso a la cuenta de almacenamiento para SQL a petición (versión preliminar)
 
@@ -89,7 +89,7 @@ Puede usar las siguientes combinaciones de tipos de autorización y almacenamien
 
 
 > [!IMPORTANT]
-> Al acceder al almacenamiento protegido con el firewall, solo se puede usar la identidad administrada. Debe establecer [Permitir servicios de Microsoft de confianza…](../../storage/common/storage-network-security.md#trusted-microsoft-services) y [asignar un rol de RBAC](../../storage/common/storage-auth-aad.md#assign-rbac-roles-for-access-rights) de manera explícita a la [identidad administrada asignada por el sistema](../../active-directory/managed-identities-azure-resources/overview.md) para esa instancia de recurso. En ese caso, el ámbito de acceso de la instancia corresponde al rol de RBAC que se asigna a la identidad administrada.
+> Al acceder al almacenamiento protegido con el firewall, solo se puede usar la identidad administrada. Debe establecer [Permitir servicios de Microsoft de confianza…](../../storage/common/storage-network-security.md#trusted-microsoft-services) y [asignar un rol de Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) de manera explícita a la [identidad administrada asignada por el sistema](../../active-directory/managed-identities-azure-resources/overview.md) para esa instancia del recurso. En ese caso, el ámbito de acceso de la instancia corresponde al rol de Azure que se asigna a la identidad administrada.
 >
 
 ## <a name="credentials"></a>Credenciales
@@ -219,7 +219,7 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 
 ## <a name="examples"></a>Ejemplos
 
-**Acceso a un origen de datos disponible públicamente**
+### <a name="access-a-publicly-available-data-source"></a>**Acceso a un origen de datos disponible públicamente**
 
 Use el siguiente script para crear una tabla que tenga acceso al origen de datos disponible públicamente.
 
@@ -248,7 +248,7 @@ SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet',
 GO
 ```
 
-**Acceso al origen de datos mediante la credencial**
+### <a name="access-a-data-source-using-credentials"></a>**Acceso a un origen de datos mediante credenciales**
 
 Modifique el script siguiente para crear una tabla externa que tenga acceso a Azure Storage mediante el token de SAS, la identidad de Azure AD del usuario o la identidad administrada del área de trabajo.
 

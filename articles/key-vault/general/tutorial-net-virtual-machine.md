@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: e77701e17ef1b47aa6b8e3b8f2d10e93bf5e054e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ead0c13a1fce0b5d56c9dd875c594a2269e2c78c
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093643"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513118"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-net"></a>Tutorial: Uso de Azure Key Vault con una máquina virtual en .NET
 
@@ -56,21 +56,15 @@ Para iniciar sesión en Azure mediante la CLI de Azure, escriba:
 az login
 ```
 
-### <a name="create-a-resource-group-and-key-vault"></a>Creación de un grupo de recursos y de un almacén de claves
+## <a name="create-a-resource-group-and-key-vault"></a>Creación de un grupo de recursos y de un almacén de claves
 
 [!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
 
-### <a name="populate-your-key-vault-with-a-secret"></a>Rellenado del almacén de claves con un secreto
+## <a name="populate-your-key-vault-with-a-secret"></a>Rellenado del almacén de claves con un secreto
 
-Ahora agregue un secreto al almacén de claves con el comando [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set). Para crear un secreto en el almacén de claves denominado **mySecret**, escriba el siguiente comando:
+[!INCLUDE [Create a secret](../../../includes/key-vault-create-secret.md)]
 
-```azurecli
-az keyvault secret set --vault-name "<your-unique-key-vault-name>" --name "mySecret" --value "MySecret"
-```
-
-Este secreto almacena el valor **MySecret**.
-
-### <a name="create-a-virtual-machine"></a>Creación de una máquina virtual
+## <a name="create-a-virtual-machine"></a>Creación de una máquina virtual
 Cree una máquina virtual Windows o Linux con uno de los métodos siguientes:
 
 | Windows | Linux |
@@ -79,7 +73,7 @@ Cree una máquina virtual Windows o Linux con uno de los métodos siguientes:
 | [PowerShell](../../virtual-machines/windows/quick-create-powershell.md) | [PowerShell](../../virtual-machines/linux/quick-create-powershell.md) |
 | [Azure Portal](../../virtual-machines/windows/quick-create-portal.md) | [Azure Portal](../../virtual-machines/linux/quick-create-portal.md) |
 
-### <a name="assign-an-identity-to-the-vm"></a>Asignación de una identidad a la máquina virtual
+## <a name="assign-an-identity-to-the-vm"></a>Asignación de una identidad a la máquina virtual
 Cree una identidad asignada por el sistema para la máquina virtual con el comando [az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign):
 
 ```azurecli
@@ -95,16 +89,16 @@ Tenga en cuenta la identidad asignada por el sistema que se muestra en el códig
 }
 ```
 
-### <a name="assign-permissions-to-the-vm-identity"></a>Asignación de permisos a la identidad de máquina virtual
+## <a name="assign-permissions-to-the-vm-identity"></a>Asignación de permisos a la identidad de máquina virtual
 Asigne los permisos de la identidad creada anteriormente al almacén de claves con el comando[az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy):
 
 ```azurecli
 az keyvault set-policy --name '<your-unique-key-vault-name>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-### <a name="sign-in-to-the-virtual-machine"></a>Inicio de sesión en la máquina virtual
+## <a name="sign-in-to-the-virtual-machine"></a>Inicio de sesión en la máquina virtual
 
-Para iniciar sesión en la máquina virtual, siga las instrucciones de [Conexión e inicio de sesión en una máquina virtual Windows en Azure](../../virtual-machines/windows/connect-logon.md) o [Conexión e inicio de sesión en una máquina virtual Linux en Azure](../../virtual-machines/linux/login-using-aad.md).
+Para iniciar sesión en la máquina virtual, siga las instrucciones que encontrará en [Conexión a una máquina virtual de Azure donde se ejecuta Windows e inicio de sesión en ella](../../virtual-machines/windows/connect-logon.md) o [Conexión a una máquina virtual Linux en Azure e inicio de sesión en ella](../../virtual-machines/linux/login-using-aad.md).
 
 ## <a name="set-up-the-console-app"></a>Configuración de la aplicación de consola
 

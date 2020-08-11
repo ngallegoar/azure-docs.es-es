@@ -7,16 +7,16 @@ author: rolyon
 ms.author: rolyon
 ms.service: role-based-access-control
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 3ac67d6222e6b7df1d7989c234c3ef0a5fa137f9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a40244fb958993cbed9e8585190939eb43e5acc2
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327963"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461789"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-rbac"></a>Controles de cumplimiento normativo de Azure Policy para Azure RBAC
 
-[Azure Policy](../governance/policy/index.yml) puede aplicar reglas para los recursos de Azure de modo que la infraestructura cumpla con los estándares de negocio.
+[Azure Policy](../governance/policy/index.yml) puede aplicar reglas para los recursos de Azure, con el fin de que la infraestructura cumpla con los estándares empresariales.
 [Cumplimiento normativo de Azure Policy](../governance/policy/concepts/regulatory-compliance.md) proporciona definiciones de iniciativas creadas y administradas por Microsoft, conocidas como _integraciones_, para los **dominios de cumplimiento** y los **controles de seguridad** relativos a distintos estándares de cumplimiento. En esta página se enumeran los **dominios de cumplimiento** y los **controles de seguridad** para el control de acceso basado en roles de Azure (Azure RBAC). Para que los recursos de Azure cumplan con el estándar específico, puede asignar las integraciones a un **control de seguridad** de manera individual.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
@@ -25,5 +25,5 @@ ms.locfileid: "87327963"
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre [Cumplimiento normativo de Azure Policy](../governance/policy/concepts/regulatory-compliance.md).
+- Obtenga más información sobre el [cumplimiento normativo de Azure Policy](../governance/policy/concepts/regulatory-compliance.md).
 - Los elementos integrados se pueden encontrar en el [repositorio de GitHub de Azure Policy](https://github.com/Azure/azure-policy).

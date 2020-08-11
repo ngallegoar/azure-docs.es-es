@@ -6,15 +6,15 @@ ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/03/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 449f1e50bda2991db8eec15464a32d295a054c6f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: cb7978dfa2c3ded2ae8e8c621bcb679f19620a2c
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286604"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553485"
 ---
 # <a name="change-the-contact-information-for-your-azure-account"></a>Cambio de la información de contacto de la cuenta de Azure
 
@@ -24,7 +24,7 @@ Este artículo le ayuda a actualizar la información de contacto de su cuenta en
 
 *Dirección de facturación*: la dirección del comprador es la dirección e información de contacto de la organización o individuo responsables de las facturas generadas para una cuenta de facturación. En el caso de una cuenta de facturación de un programa Microsoft Online Service Program (MOSP), hay una dirección de facturación, que se muestra en todas las facturas generadas para la cuenta. En el caso de una cuenta de facturación para un Contrato de cliente de Microsoft (MCA), hay una dirección de facturación para cada perfil de facturación y se muestra en la factura generada para el perfil de facturación.
 
-*Dirección de correo electrónico de contacto para los correos electrónicos de servicio y marketing*: puede especificar una dirección de correo electrónico que sea distinta de la que usa para iniciar sesión para recibir notificaciones importantes relacionadas con la facturación y el servicio, así como recomendaciones sobre su cuenta de Azure.  
+*Dirección de correo electrónico de contacto para los correos electrónicos de servicio y marketing*: puede especificar una dirección de correo electrónico que sea distinta de la que usa para iniciar sesión para recibir notificaciones importantes relacionadas con la facturación y el servicio, así como recomendaciones sobre su cuenta de Azure. Las notificaciones del servicio por correo electrónico (como los problemas de seguridad urgentes, los cambios de precio o los cambios importantes en los servicios que usa su cuenta) siempre se envían a la dirección de inicio de sesión.
 
 ## <a name="update-an-mosp-billing-account-address"></a>Actualización de la dirección de la cuenta de facturación de MOSP
 

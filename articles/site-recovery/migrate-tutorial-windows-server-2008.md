@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/27/2020
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: c62cb9b64c42446c1f4ba8f6eb496fc792ff59a1
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8d672c1113f265f9fbbabc7caed8df071f548f2a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281283"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503827"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migración de servidores que ejecutan Windows Server 2008 a Azure
 
@@ -104,7 +104,7 @@ Realice las siguientes tareas para preparar el entorno de VMware y físico local
 5. Especifique una región de Azure. Para comprobar las regiones admitidas, consulte la disponibilidad geográfica en [Detalles de precios de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 6. Para acceder rápidamente al almacén desde el panel, haga clic en **Anclar al panel** y, después, en **Crear**.
 
-   ![Almacén nuevo](media/migrate-tutorial-windows-server-2008/migrate-windows-server-2008-vault.png)
+   ![Captura de pantalla que muestra las opciones de creación de almacenes.](media/migrate-tutorial-windows-server-2008/migrate-windows-server-2008-vault.png)
 
 El nuevo almacén se agrega al **Panel**, en **Todos los recursos**, y en la página principal **Almacenes de Recovery Services**.
 
@@ -136,15 +136,15 @@ La directiva se asocia automáticamente al servidor de configuración.
 > [!WARNING]
 > Asegúrese de especificar **DESACTIVADO** en la configuración Frecuencia de las instantáneas coherentes con la aplicación de la directiva de replicación. Solo se admiten los puntos de recuperación coherentes con el bloqueo al replicar los servidores que ejecutan Windows Server 2008. Especificar cualquier otro valor para la Frecuencia de instantánea coherente con la aplicación generará alertas falsas volviendo el estado de replicación del servidor crítico debido a la falta de puntos de recuperación coherentes con la aplicación.
 
-   ![Creación de la directiva de replicación](media/migrate-tutorial-windows-server-2008/create-policy.png)
+   ![Captura de pantalla que muestra las opciones de creación de directivas de replicación.](media/migrate-tutorial-windows-server-2008/create-policy.png)
 
 ### <a name="enable-replication"></a>Habilitar replicación
 
 [Habilite la replicación](physical-azure-disaster-recovery.md#enable-replication) para el servidor de Windows Server 2008 SP2 o Windows Server 2008 R2 SP1 que se va a migrar.
    
-   ![Agregue un servidor físico](media/migrate-tutorial-windows-server-2008/Add-physical-server.png)
+   ![Captura de pantalla que muestra las opciones para agregar máquinas físicas.](media/migrate-tutorial-windows-server-2008/Add-physical-server.png)
 
-   ![Habilitar replicación](media/migrate-tutorial-windows-server-2008/Enable-replication.png)
+   ![Captura de pantalla que muestra las opciones para habilitar la replicación.](media/migrate-tutorial-windows-server-2008/Enable-replication.png)
 
 ### <a name="run-a-test-migration"></a>Ejecutar una migración de prueba
 
@@ -152,7 +152,7 @@ Puede realizar una prueba de conmutación por error de replicación de servidore
 
 Ejecute una [conmutación por error de prueba](tutorial-dr-drill-azure.md) en Azure para asegurarse de que todo funciona de la forma esperada.
 
-   ![Conmutación por error de prueba](media/migrate-tutorial-windows-server-2008/testfailover.png)
+   ![Captura de pantalla que muestra el comando Probar conmutación por error.](media/migrate-tutorial-windows-server-2008/testfailover.png)
 
 
 ### <a name="migrate-to-azure"></a>Migración a Azure
@@ -168,7 +168,7 @@ Ejecute una conmutación por error para las máquinas que desea migrar.
     - Finaliza el proceso de migración, detiene la replicación del servidor y detiene la facturación de Site Recovery para el servidor.
     - Este paso limpia los datos de replicación. No elimina las máquinas virtuales migradas.
 
-   ![Completar migración](media/migrate-tutorial-windows-server-2008/complete-migration.png)
+   ![Captura de pantalla que muestra el comando Completar la migración.](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 
 
 > [!WARNING]

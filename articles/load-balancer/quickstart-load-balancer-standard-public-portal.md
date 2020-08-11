@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: f9d736098e42bf5ca07eca0cb952275c5e39c2a9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 1864ce5a3c1b5b0b2e0cfe757e66fca2074b764c
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125197"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475813"
 ---
-# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Inicio rápido: Creación de una instancia de Load Balancer para equilibrar la carga de las máquinas virtuales mediante Azure Portal
+# <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Inicio rápido: Uso de Azure Portal para crear un equilibrador de carga público para equilibrar la carga de máquinas virtuales
 
 Comience a usar Azure Load Balancer mediante Azure Portal para crear un equilibrador de carga público y tres máquinas virtuales.
 
@@ -36,7 +36,7 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
 ---
 
-# <a name="option-1-default-create-a-load-balancer-standard-sku"></a>[Opción 1 (valor predeterminado): crear un equilibrador de carga (SKU Estándar)](#tab/option-1-create-load-balancer-standard)
+# <a name="option-1-default-create-a-public-load-balancer-standard-sku"></a>[Opción 1 (valor predeterminado): crear un equilibrador de carga público (SKU Estándar)](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
 >Se recomienda usar la SKU Estándar de Load Balancer para las cargas de trabajo de producción.  Para más información sobre las SKU, consulte **[SKU de Azure Load Balancer](skus.md)** .
@@ -76,7 +76,7 @@ En esta sección, va a configurar:
 
 * Las opciones del equilibrador de carga para un grupo de direcciones de back-end.
 * Un sondeo de estado.
-* Una regla de equilibrador de carga y una regla de salida automática.
+* Una regla de equilibrador de carga.
 
 ### <a name="create-a-backend-pool"></a>Creación de un grupo de back-end
 
@@ -281,7 +281,7 @@ Para más información sobre las conexiones salientes, consulte [Conexiones sali
 
 8. Seleccione **Guardar**.
 
-# <a name="option-2-create-a-load-balancer-basic-sku"></a>[Opción 2: crear un equilibrador de carga (SKU básica)](#tab/option-1-create-load-balancer-basic)
+# <a name="option-2-create-a-public-load-balancer-basic-sku"></a>[Opción 2: crear un equilibrador de carga público (SKU Básico)](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
 >Se recomienda usar la SKU Estándar de Load Balancer para las cargas de trabajo de producción.  Para más información sobre las SKU, consulte **[SKU de Azure Load Balancer](skus.md)** .
@@ -468,8 +468,9 @@ Estas máquinas virtuales se agregan al grupo de back-end del equilibrador de ca
 5. Seleccione la pestaña **Administración** o seleccione **Siguiente** > **Administración**.
 
 6. En la pestaña **Administración**, seleccione o escriba:
+    
     | Opción | Value |
-    |-|-|
+    |---|---|
     | **Supervisión** | |
     | Diagnósticos de arranque | Seleccione **Desactivado**. |
 
@@ -484,6 +485,24 @@ Estas máquinas virtuales se agregan al grupo de back-end del equilibrador de ca
     | Nombre |  **myVM2** |**myVM3**|
     | Conjunto de disponibilidad| Seleccione **myAvailabilitySet**. | Seleccione **myAvailabilitySet**.|
     | Grupo de seguridad de red | Seleccione el grupo **myNSG** existente.| Seleccione el grupo **myNSG** existente.|
+
+### <a name="add-virtual-machines-to-the-backend-pool"></a>Adición de máquinas virtuales al grupo de back-end
+
+Las máquinas virtuales creadas en los pasos anteriores se deben agregar al grupo de back-end de **myLoadBalancer**.
+
+1. Seleccione **Todos los servicios** en el menú de la izquierda, **Todos los recursos** y, después, en la lista de recursos, **myLoadBalancer**.
+
+2. En **Configuración**, seleccione **Grupos de back-end** y, después, seleccione **myBackendPool**.
+
+3. Seleccione **Máquinas virtuales** en **Asociado a**.
+
+4. En la sección **Máquinas virtuales**, seleccione **+ Agregar**.
+
+5. Active las casillas que se encuentran al lado de **myVM1**, **myVM2** y **myVM3**.
+
+6. Seleccione **Agregar**.
+
+7. Seleccione **Guardar**.
 
 ---
 

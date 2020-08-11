@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: eb4a150a1680dd4101249458894ded652cde15a0
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: a1a99e9f02a25f5e1d57ea485930a4f26149b53f
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87338051"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808412"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Inicio rápido: Configuración de las propiedades de una aplicación en el inquilino de Azure Active Directory (Azure AD)
 
@@ -95,9 +95,17 @@ Para usar un logotipo personalizado:
    > [!NOTE]
    > La miniatura que se muestra en este panel de **Propiedades** no se actualiza inmediatamente. Puede cerrar y volver a abrir el panel **Propiedades** para ver el icono actualizado.
 
+
+> [!TIP]
+> La administración de aplicaciones se puede automatizar mediante Graph API, consulte el artículo sobre la [automatización de la administración de aplicaciones con Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Si no va a continuar con la serie de inicios rápidos, considere la posibilidad de eliminar la aplicación para limpiar el inquilino de prueba. La eliminación de la aplicación se trata en el último inicio rápido de esta serie, consulte [Eliminación de una aplicación](delete-application-portal.md).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha configurado las propiedades de una aplicación puede continuar con la configuración del inicio de sesión único.
-
-- [Configuración del inicio de sesión único](add-application-portal-setup-sso.md)
-- [Eliminación de una aplicación](delete-application-portal.md)
+Pase al siguiente artículo, donde aprenderá a configurar el inicio de sesión único en una aplicación.
+> [!div class="nextstepaction"]
+> [Configuración del inicio de sesión único](add-application-portal-setup-sso.md)

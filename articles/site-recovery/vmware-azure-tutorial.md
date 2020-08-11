@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 317cc5222b3444ae2ed242df694d317503c72a87
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9831305f3889f977a270630b40fa0d78ec1085bd
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290656"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501208"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar la recuperación ante desastres para máquinas virtuales de VMware locales en Azure
 
@@ -87,7 +87,7 @@ Todos estos componentes se instalan conjuntamente en la máquina local individua
 1. Inicie sesión en el servidor VMware vCenter o el host vSphere ESXi con el cliente de VMware vSphere.
 2. En el menú **File** (Archivo), seleccione **Deploy OVF Template** (Implementar plantilla OVF) para iniciar el **Asistente para implementar plantillas OVF**.
 
-     ![Plantilla de OVF](./media/vmware-azure-tutorial/vcenter-wizard.png)
+     ![Captura de pantalla del comando Deploy OVF template (Implementar plantilla de OVF) en el cliente de VMWare vSphere.](./media/vmware-azure-tutorial/vcenter-wizard.png)
 
 3. En **Select source** (Seleccionar origen), especifique la ubicación de la plantilla OVF descargada.
 4. En **Review details** (Revisar detalles), seleccione **Next** (Siguiente).
@@ -153,7 +153,7 @@ Seleccione y compruebe los recursos de destino.
 1. Seleccione **Preparar infraestructura** > **Destino**. Seleccione la suscripción de Azure que quiere usar. Estamos usando un modelo de Resource Manager.
 2. Site Recovery comprueba que tiene una o varias redes virtuales. Debería tenerlos cuando configure los componentes de Azure en el [primer tutorial](tutorial-prepare-azure.md) de esta serie de tutoriales.
 
-   ![Pestaña Destino](./media/vmware-azure-tutorial/storage-network.png)
+   ![Captura de pantalla de las opciones de Preparar infraestructura > Destino.](./media/vmware-azure-tutorial/storage-network.png)
 
 ## <a name="create-a-replication-policy"></a>Creación de una directiva de replicación
 
@@ -165,7 +165,7 @@ Seleccione y compruebe los recursos de destino.
 6. En **Retención de punto de recuperación**, especifique cuánto tiempo se conserva cada punto de recuperación. En este tutorial se selecciona 72 horas. Las máquinas virtuales replicadas se pueden recuperar a cualquier momento de una ventana de retención.
 7. En **Frecuencia de instantánea coherente con la aplicación**, especifique la frecuencia (en minutos) con la que se crearán puntos de recuperación que contengan las instantáneas coherentes con la aplicación. Usamos el valor predeterminado de 60 minutos. Seleccione **Aceptar** para crear la directiva.
 
-   ![Creación de la directiva de replicación](./media/vmware-azure-tutorial/replication-policy.png)
+   ![Captura de pantalla de las opciones de Crear directiva de replicación.](./media/vmware-azure-tutorial/replication-policy.png)
 
 - La directiva se asocia automáticamente al servidor de configuración.
 - De forma predeterminada, se crea automáticamente una directiva correspondiente para la conmutación por recuperación. Por ejemplo, si la directiva de replicación es **rep-policy**, la directiva de conmutación por recuperación será **rep-policy-failback**. Esta directiva no se usa hasta que se inicie una conmutación por recuperación desde Azure.

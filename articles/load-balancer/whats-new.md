@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: overview
 ms.date: 07/07/2020
 ms.author: anavin
-ms.openlocfilehash: 8b44dc230dbee1b29b9889a1b81e35ebe25f6b97
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 24c5133b9c012b628e43e956c56d5112e1ad4649
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078695"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447021"
 ---
 # <a name="whats-new-in-azure-load-balancer"></a>Novedades de Azure Load Balancer
 
@@ -34,6 +34,16 @@ También puede encontrar las últimas actualizaciones de Azure Load Balancer y s
 | Validación | Incorporación de la validación para puertos de alta disponibilidad | Se ha agregado una validación para garantizar que las reglas de puerto de alta disponibilidad y las reglas que no son de este tipo solo se puedan configurar cuando se habilite la IP flotante. Anteriormente, esta configuración se procesaba, pero no funcionaba según lo previsto. No se realizó ningún cambio en la funcionalidad. Puede obtener más información [aquí](load-balancer-ha-ports-overview.md#limitations)| Junio de 2020 |
 | Característica| Compatibilidad de IPv6 con Azure Load Balancer (disponible con carácter general) | Puede tener direcciones IPv6 como front-end para las instancias de Azure Load Balancer. Aprenda a [crear una aplicación de pila doble aquí](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md). |Abril de 2020|
 | Característica| Restablecimientos TCP en tiempo de espera de inactividad (disponible con carácter general)| Use los restablecimientos TCP para crear un comportamiento más predecible de las aplicaciones. [Más información](load-balancer-tcp-reset.md)| Febrero de 2020 |
+
+## <a name="known-issues"></a>Problemas conocidos
+
+El grupo de productos funciona activamente en la resolución de los siguientes problemas conocidos:
+
+|Incidencia |Descripción  |Mitigación  |
+| ---------- |---------|---------|
+| Exportación en Log Analytics | Log Analytics no pueden exportar las métricas de los equilibradores de carga estándar ni los registros de estado de los sondeos de estado de un equilibrador de carga básico  | [Utilice Azure Monitor para métricas multidimensionales para cualquier equilibrador de carga estándar](load-balancer-standard-diagnostics.md). Aunque Log Analytics no se puede usar para la supervisión, Azure Monitor permite ver un amplio conjunto de métricas multidimensionales. Puede aprovechar el panel de métricas preconfiguradas a través de la subhoja Información de su equilibrador de carga. Si usa la [actualización a la versión Estándar](upgrade-basic-standard.md) de un equilibrador de carga básico para la supervisión de métricas de nivel de producción.
+
+  
 
 ## <a name="next-steps"></a>Pasos siguientes
 
