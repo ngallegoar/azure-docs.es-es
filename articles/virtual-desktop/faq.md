@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 721f9c623255b964e38da1c0f4b7bbf72d0c721d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6867d24d84f6dfb51b2ca7b86ec882102b96552b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075620"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504422"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Preguntas frecuentes acerca de Windows Virtual Desktop
 
@@ -46,7 +46,7 @@ Para impedir que un administrador solo administre las sesiones de usuario, como 
 
 ## <a name="does-windows-virtual-desktop-support-split-azure-active-directory-models"></a>¿Admite Windows Virtual Desktop los modelos divididos de Azure Active Directory?
 
-Cuando se asigna un usuario a un grupo de aplicaciones, el servicio realiza una simple asignación de roles de control de acceso basado en roles (RBAC) de Azure. Como consecuencia, la instancia de Azure Active Directory (AD) del usuario y la instancia de Azure AD del grupo de aplicaciones deben estar en la misma ubicación. Todos los objetos de servicio, como los grupos de hosts, los grupos de aplicaciones y las áreas de trabajo, también deben estar en el mismo Azure AD que el usuario.
+Cuando se asigna un usuario a un grupo de aplicaciones, el servicio realiza una simple asignación de roles de Azure. Como consecuencia, la instancia de Azure Active Directory (AD) del usuario y la instancia de Azure AD del grupo de aplicaciones deben estar en la misma ubicación. Todos los objetos de servicio, como los grupos de hosts, los grupos de aplicaciones y las áreas de trabajo, también deben estar en el mismo Azure AD que el usuario.
 
 Puede crear máquinas virtuales (VM) en otra instancia de Azure AD siempre que sincronice la instancia de Active Directory con la instancia de Azure AD del usuario en la misma red virtual (VNET).
 

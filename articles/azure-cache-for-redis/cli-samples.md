@@ -1,20 +1,21 @@
 ---
-title: Ejemplos de la CLI de Azure para Azure Cache for Redis
-description: 'Ejemplos de la CLI de Azure para Azure Cache for Redis: Crear una caché, eliminar una caché, obtener detalles de la caché, nombre de host, puertos y claves, conectar una aplicación web.'
+title: Administración de Azure Cache for Redis con la CLI de Azure
+description: 'Ejemplos de la CLI de Azure para administrar Azure Cache for Redis: Crear una caché, eliminar una caché, obtener detalles de la caché, nombre de host, puertos y claves, conectar una aplicación web.'
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/14/2017
-ms.openlocfilehash: 43a986f884d621f257de2e9c305a0bcc59092d3d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 9bfdd2d03b3ab6edd04a641787475930435a9ffc
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033672"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499609"
 ---
-# <a name="azure-cli-samples-for-azure-cache-for-redis"></a>Ejemplos de la CLI de Azure para Azure Cache for Redis
+# <a name="manage-azure-cache-for-redis-with-azure-cli"></a>Administración de Azure Cache for Redis con la CLI de Azure
 
 En la tabla siguiente se incluyen vínculos a scripts de Bash creados con la CLI de Azure.
 

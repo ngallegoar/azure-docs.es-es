@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 0bcc67e80861df2827237298444175c3abdb6602
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 42582c9474647c4c203bd0cafae0be664398ba41
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084062"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533910"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Aislamiento en la nube pública de Azure
 
@@ -76,9 +76,9 @@ RBAC de Azure cuenta con tres roles básicos que se aplican a todos los tipos de
 
 - **lector** solo puede ver los recursos existentes de Azure.
 
-![Control de acceso basado en rol de Azure](./media/isolation-choices/azure-isolation-fig3.png)
+![Control de acceso basado en roles de Azure (RBAC de Azure)](./media/isolation-choices/azure-isolation-fig3.png)
 
-El resto de los roles RBAC de Azure permiten la administración de recursos específicos de Azure. Por ejemplo, el rol de colaborador de máquina virtual permite al usuario crear y administrar máquinas virtuales. No otorga acceso a la instancia de Azure Virtual Network ni a la subred a la que se conecta la máquina virtual.
+El resto de los roles de Azure permiten la administración de recursos específicos de Azure. Por ejemplo, el rol de colaborador de máquina virtual permite al usuario crear y administrar máquinas virtuales. No otorga acceso a la instancia de Azure Virtual Network ni a la subred a la que se conecta la máquina virtual.
 
 [Roles integrados para el control de acceso basado en rol](../../role-based-access-control/built-in-roles.md) enumera los roles disponibles en Azure. Especifica las operaciones y el ámbito de cada rol integrado que se concede a los usuarios. Si quiere definir sus propios roles para tener un mayor control, consulte [Custom Roles in Azure RBAC](../../role-based-access-control/custom-roles.md)(Roles personalizados en RBAC de Azure).
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 4e10843eab8ac2ccbda3d6876f51c88a598d7139
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a9c3264a9a9d6ae27eee6da4338fa6fd401da461
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371692"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534063"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Línea de referencia de seguridad de Azure para Azure Storage
 
@@ -292,7 +292,7 @@ Además, habilite Advanced Threat Protection en la cuenta de Azure Storage. Adva
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: Cambio de las contraseñas predeterminadas cuando proceda
 
-**Guía**: Ni las cuentas de Azure Storage ni Azure Active Directory tienen el concepto de contraseñas en blanco o predeterminadas. Azure Storage implementa un modelo de control de acceso que admite el control de acceso basado en roles (RBAC) de Azure, así como las claves compartidas y las firmas de acceso compartido (SAS). Una característica de la autenticación con clave compartida y SAS es que no se asocia ninguna identidad con el autor de la llamada y, en consecuencia, no se puede realizar la autorización basada en permisos de la entidad de seguridad. 
+**Guía**: Ni las cuentas de Azure Storage ni Azure Active Directory tienen el concepto de contraseñas en blanco o predeterminadas. Azure Storage implementa un modelo de control de acceso que admite el control de acceso basado en roles de Azure (Azure RBAC), así como la clave compartida y las firmas de acceso compartido (SAS). Una característica de la autenticación con clave compartida y SAS es que no se asocia ninguna identidad con el autor de la llamada y, en consecuencia, no se puede realizar la autorización basada en permisos de la entidad de seguridad. 
 
 - [Autorización del acceso a datos en Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth)
 
@@ -536,7 +536,7 @@ Además, use directivas de punto de conexión de servicio de red virtual para fi
 
 **Guía**: Azure Active Directory (Azure AD) autoriza derechos de acceso para recursos protegidos mediante el control de acceso basado en roles (RBAC). Azure Storage define un conjunto de roles integrados de Azure que abarcan conjuntos comunes de permisos utilizados para acceder a los datos de blob o de cola. 
 
-- [Asignación de roles de RBAC para la cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-rbac-roles-using-the-azure-portal)
+- [Asignación de roles de Azure a una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal)
 
 - [Uso del proveedor de recursos de Azure Storage para acceder a los recursos de administración](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
 
@@ -687,7 +687,7 @@ Además, use Advanced Threat Protection para Azure Storage para detectar recurso
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: Supervisión de recursos de Azure no aprobados
 
-**Instrucciones**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas: 
+**Guía**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas: 
 
  - Tipos de recursos no permitidos 
  - Tipos de recursos permitidos 
@@ -924,7 +924,7 @@ Además, cambie las claves de la cuenta de Storage con frecuencia para limitar e
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: Uso de software antimalware administrado centralmente
 
-**Guía**: No aplicable; esta recomendación está pensada para los recursos de proceso. Microsoft controla el antimalware de la plataforma subyacente.
+**Instrucciones**: No aplicable; esta recomendación está pensada para los recursos de proceso. Microsoft controla el antimalware de la plataforma subyacente.
 
 **Supervisión de Azure Security Center**: No aplicable
 

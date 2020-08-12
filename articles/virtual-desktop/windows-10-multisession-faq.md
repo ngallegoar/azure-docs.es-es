@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 218ec6a5beab32729e106a7397d58ebaa2a30123
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: adc0d63a51535b27b42abbe0115ff25594eb2b4f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086932"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292483"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Preguntas frecuentes sobre la sesión múltiple de Windows 10 Enterprise
 
@@ -102,6 +102,6 @@ Para deshabilitar la aplicación de la tienda:
 
 Para más información sobre Windows Virtual Desktop y la sesión múltiple de Windows 10 Enterprise:
 
-- Lea la [Documentación sobre la versión preliminar de Windows Virtual Desktop](overview.md).
+- Lea la [documentación sobre Windows Virtual Desktop](overview.md).
 - Visite el espacio de [TechCommunity sobre Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 - Configure la implementación de Windows Virtual Desktop con los [tutoriales de Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).

@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
-ms.openlocfilehash: 97168c95893ffdea99180c997265f259176ed07f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8912ef907641367bda89d7c0e98f9da811c6e577
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528213"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534607"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>Compatibilidad de Azure IoT Hub Device Provisioning Service (DPS) con redes virtuales
 
@@ -59,7 +59,7 @@ Tenga en cuenta las siguientes limitaciones actuales de DPS cuando use puntos de
 
 * Los puntos de conexión privados no funcionarán con DPS cuando el recurso de DPS y el concentrador vinculado se encuentran en nubes diferentes. Por ejemplo, [Azure Government y Azure global](../azure-government/documentation-government-welcome.md).
 
-* Actualmente, [las directivas de asignación personalizadas con Azure Functions](how-to-use-custom-allocation-policies.md) para DPS no funcionarán en una red virtual ni en los puntos de conexión privados. 
+* Actualmente, [las directivas de asignación personalizadas con Azure Functions](how-to-use-custom-allocation-policies.md) para DPS no funcionarán cuando la función de Azure esté bloqueada en una red virtual y en los puntos de conexión privados. 
 
 * La compatibilidad actual de la red virtual de DPS es solo para la entrada de datos en DPS. La salida de datos, que es el tráfico desde DPS hasta IoT Hub, usa un mecanismo de servicio a servicio interno en lugar de una red virtual dedicada. La compatibilidad con el bloqueo de salida basado en red virtual completo entre DPS y IoT Hub no está disponible actualmente.
 

@@ -7,19 +7,60 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 01/08/2019
-ms.openlocfilehash: b5e26ef72d4be38c021cbedbcaf1fa919d7276d1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/31/2020
+ms.openlocfilehash: eb533ef93f012e99d135c49725ef8add77b6f7ec
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511983"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87484205"
 ---
 # <a name="archived-release-notes"></a>Archivado de notas de la versión
 
 ## <a name="summary"></a>Resumen
 
 Azure HDInsight es uno de los servicios más populares entre los clientes de empresa para el análisis de código abierto de Apache Hadoop y Apache Spark en Azure.
+
+## <a name="release-date-07132020"></a>Fecha de lanzamiento: 13/07/2020
+
+Esta versión se aplica a HDInsight 3.6 y 4.0. La versión de HDInsight se pone a disposición de todas las regiones durante varios días. Esta fecha de lanzamiento indica la fecha de lanzamiento de la primera región. Si no ve los cambios siguientes, espere unos días a que la versión se active en su región.
+
+### <a name="new-features"></a>Nuevas características
+#### <a name="support-for-customer-lockbox-for-microsoft-azure"></a>Compatibilidad con Caja de seguridad del cliente para Microsoft Azure
+Azure HDInsight ahora es compatible con Caja de seguridad del cliente de Azure. Proporciona una interfaz para que los clientes puedan revisar y aprobar, o rechazar, las solicitudes de acceso a datos de los clientes. Se utiliza cuando un ingeniero de Microsoft necesita acceder a los datos del cliente durante una solicitud de soporte técnico. Para más información, consulte [Caja de seguridad del cliente de Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-preview).
+
+#### <a name="service-endpoint-policies-for-storage"></a>Directivas de punto de conexión de servicio para el almacenamiento
+Los clientes ahora pueden usar directivas de puntos de conexión de servicio (SEP) en la subred del clúster de HDInsight. Más información sobre la [directiva de punto de conexión de servicio de Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview).
+
+### <a name="deprecation"></a>Desuso
+#### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>Desuso de Spark 2.1 y 2.2 para el clúster de Spark de HDInsight 3.6
+A partir del 1 de julio de 2020, los clientes no podrán crear nuevos clústeres de Spark con Spark 2.1 y 2.2 en HDInsight 3.6. Los clústeres existentes se ejecutarán tal cual sin la compatibilidad de Microsoft. Considere la posibilidad de pasar a Spark 2.3 en HDInight 3.6 a partir del 30 de junio de 2020 para evitar la posible interrupción del sistema o del soporte técnico.
+ 
+#### <a name="deprecation-of-spark-23-in-hdinsight-40-spark-cluster"></a>Desuso de Spark 2.3 y 4.0 para el clúster de Spark de HDInsight 4.0
+A partir del 1 de julio de 2020, los clientes no podrán crear nuevos clústeres de Spark con Spark 2.3 en HDInsight 4.0. Los clústeres existentes se ejecutarán tal cual sin la compatibilidad de Microsoft. Considere la posibilidad de pasar a Spark 2.4 en HDInight 4.0 a partir del 30 de junio de 2020 para evitar la posible interrupción del sistema o del soporte técnico.
+ 
+#### <a name="deprecation-of-kafka-11-in-hdinsight-40-kafka-cluster"></a>Desuso de Kafka 1.1 en el clúster de Kafka de HDInsight 4.0
+A partir del 1 de julio de 2020, los clientes no podrán crear nuevos clústeres de Kafka con Kafka 1.1 en HDInsight 4.0. Los clústeres existentes se ejecutarán tal cual sin la compatibilidad de Microsoft. Considere la posibilidad de pasar a Kafka 2.1 en HDInight 4.0 a partir del 30 de junio de 2020 para evitar la posible interrupción del sistema o del soporte técnico.
+
+### <a name="behavior-changes"></a>Cambios de comportamiento
+No hay ningún comportamiento al que haya que prestar atención.
+
+### <a name="upcoming-changes"></a>Próximos cambios
+En las próximas versiones, se realizarán los siguientes cambios. 
+
+#### <a name="ability-to-select-different-zookeeper-sku-for-spark-hadoop-and-ml-services"></a>Posibilidad de seleccionar diferentes SKU de Zookeeper para Spark, Hadoop y Machine Learning Services
+Actualmente, HDInsight no admite el cambio del SKU de Zookeeper para los tipos de clúster de Spark, Hadoop y Machine Learning Services. Usa el SKU A2_v2/A2 para los nodos de Zookeeper y a los clientes no se les cobra por ellos. En la próxima versión, los clientes podrán cambiar la SKU de Zookeeper SKU para Spark, Hadoop y Machine Learning Services cuando sea necesario. Se cobrarán los nodos Zookeeper con una SKU que no sea A2_v2/A2. La SKU predeterminada seguirá siendo A2_V2/A2 y no tendrá cargo alguno.
+
+### <a name="bug-fixes"></a>Corrección de errores
+HDInsight continúa realizando mejoras en la confiabilidad y el rendimiento del clúster. 
+#### <a name="fixed-hive-warehouse-connector-issue"></a>Problema de Hive Warehouse Connector corregido
+En la versión anterior había un problema con la facilidad de uso de Hive Warehouse Connector, pero ya se ha corregido. 
+
+#### <a name="fixed-zeppelin-notebook-truncates-leading-zeros-issue"></a>Se ha reparado el problema de que Zeppelin Notebook trunca los ceros a la izquierda
+Zeppelin truncaba de forma incorrecta los ceros a la izquierda en la salida de la tabla en formato de cadena. En esta versión se ha corregido ese problema.
+
+### <a name="component-version-change"></a>Cambio de versión de componentes
+No hay cambio de versión de componentes para esta versión. En [este documento](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions) puede encontrar las versiones actuales de los componentes para HDInsight 4.0 y HDInsight 3.6.
 
 ## <a name="release-date-06112020"></a>Fecha de lanzamiento: 11/06/2020
 
@@ -145,7 +186,7 @@ Esta versión se aplica a HDInsight 3.6 y 4.0.
 ### <a name="new-features"></a>Nuevas características
 
 #### <a name="service-tags"></a>Etiquetas de servicio
-Las etiquetas de servicio simplifican la seguridad de las máquinas virtuales y las redes virtuales de Azure, permitiéndole restringir fácilmente el acceso de red a los servicios de Azure. Puede usar etiquetas de servicio en las reglas del grupo de seguridad de red (NSG) para permitir o denegar el tráfico a un servicio específico de Azure, globalmente o por región de Azure. Azure proporciona el mantenimiento de las direcciones IP subyacentes a cada etiqueta. Las etiquetas de servicio de HDInsight de los grupos de seguridad de red (NSG) son grupos de direcciones IP para los servicios de mantenimiento y administración. Estos grupos ayudan a minimizar la complejidad de la creación de reglas de seguridad. Los clientes de HDInsight pueden habilitar la etiqueta de servicio mediante Azure Portal, PowerShell y la API REST. Para más información, consulte [Etiquetas de servicio del grupo de seguridad de red (NSG) para Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags).
+Las etiquetas de servicio simplifican la seguridad de las máquinas virtuales y las redes virtuales de Azure, permitiéndole restringir fácilmente el acceso de red a los servicios de Azure. Puede usar etiquetas de servicio en las reglas del grupo de seguridad de red (NSG) para permitir o denegar el tráfico a un servicio específico de Azure, globalmente o por región de Azure. Azure proporciona el mantenimiento de las direcciones IP subyacentes a cada etiqueta. Las etiquetas de servicio de HDInsight de los grupos de seguridad de red (NSG) son grupos de direcciones IP para los servicios de mantenimiento y administración. Estos grupos ayudan a minimizar la complejidad de la creación de reglas de seguridad. Los clientes de HDInsight pueden habilitar la etiqueta de servicio mediante Azure Portal, PowerShell y la API de REST. Para más información, consulte [Etiquetas de servicio del grupo de seguridad de red (NSG) para Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags).
 
 #### <a name="custom-ambari-db"></a>Base de datos de Ambari personalizada
 HDInsight ahora permite usar su propia base de datos SQL para Apache Ambari. Puede configurar esta base de datos de Ambari personalizada en Azure Portal o mediante una plantilla de Resource Manager.  Esta característica le permite elegir la base de datos SQL adecuada para sus necesidades de procesamiento y capacidad. También se puede actualizar fácilmente para cumplir los requisitos de crecimiento del negocio. Para más información, consulte [Configuración de clústeres de HDInsight con una base de datos de Ambari personalizada](hdinsight-custom-ambari-db.md).
@@ -1160,7 +1201,7 @@ En esta versión se proporciona Zeppelin 0.7.3 sin ninguna revisión de Apache a
 
 En esta versión se proporciona ZooKeeper 3.4.6 y las siguientes revisiones de Apache:
 
--   [ZOOKEEPER 1256](https://issues.apache.org/jira/browse/ZOOKEEPER-1256): ClientPortBindTest no funciona en Mac OS X.
+-   [ZOOKEEPER 1256](https://issues.apache.org/jira/browse/ZOOKEEPER-1256): ClientPortBindTest no funciona en macOS X.
 
 -   [ZOOKEEPER 1901](https://issues.apache.org/jira/browse/ZOOKEEPER-1901): \[JDK8\] ordenar los elementos secundarios para la comparación en pruebas AsyncOps.
 
@@ -1240,7 +1281,7 @@ Esta sección abarca todas las vulnerabilidades y exposiciones (CVE) comunes que
 | **Proveedor:** Hortonworks |
 | **Versiones afectadas:** todas las versiones 2.3/2.4/2.5 de HDP, incluidas las versiones 0.5.x/0.6.0/0.6.1/0.6.2 de Apache Ranger  |
 | **Usuarios afectados:** todos los usuarios de la herramienta de administración de directivas de Ranger. |
-| **Impacto:** Apache Ranger es vulnerable a scripting almacenado entre sitios al escribir condiciones de directivas personalizadas. Los usuarios administradores pueden almacenar parte de código javascript arbitrario que se ejecuta cuando los usuarios habituales inician sesión y las directivas de acceso. |
+| **Impacto:** Apache Ranger es vulnerable a scripting almacenado entre sitios al escribir condiciones de directivas personalizadas. Los usuarios administradores pueden almacenar parte de código JavaScript arbitrario que se ejecuta cuando los usuarios habituales inician sesión y las directivas de acceso. |
 | **Detalle de la corrección:** se ha agregado lógica para sanear la entrada del usuario.  |
 | **Acción recomendada:** los usuarios deben actualizar a HDP 2.5.4 o posterior (con Apache Ranger 0.6.3 o posterior ) o HDP 2.6 o posterior (con Apache Ranger 0.7.0 o posterior )  |
 
@@ -1761,7 +1802,7 @@ Los problemas corregidos representan problemas seleccionados que se registraron 
         curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":["tags"],"isExcludes":false,"isRecursive":false}},"policyItems":[{"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}],"users":[],"groups":["public"],"conditions":[{"type":"ip-range","values":["tags.attributes['type']=abc"]}],"delegateAdmin":false}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"dataMaskPolicyItems":[],"rowFilterPolicyItems":[]}'
       ```
         
-  - **Opción \#2: aplicar cambios de Javascript**
+  - **Opción \#2: aplicar cambios de JavaScript**
         
       Pasos para actualizar el archivo JS:
         

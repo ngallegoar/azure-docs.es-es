@@ -3,12 +3,12 @@ title: Protección de Azure Functions
 description: Obtenga información sobre cómo hacer que el código de función que se ejecuta en Azure sea más seguro frente a ataques comunes.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: bdb012c3f379b1e0314364f79ccc4aa49eba4bd3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e0c5036681aace103ea69d1e9cc73e96dc30821f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079696"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502688"
 ---
 # <a name="securing-azure-functions"></a>Protección de Azure Functions
 
@@ -83,7 +83,7 @@ Como sucede con cualquier aplicación o servicio, el objetivo es ejecutar la apl
 
 #### <a name="user-management-permissions"></a>Permisos de administración de usuarios
 
-Functions admite el [control de acceso basado en roles (RBAC) de Azure](../role-based-access-control/overview.md) integrado. Los roles RBAC que admite Functions son [Colaborador](../role-based-access-control/built-in-roles.md#contributor), [Propietario](../role-based-access-control/built-in-roles.md#owner) y [Lector](../role-based-access-control/built-in-roles.md#owner). 
+Functions admite el [control de acceso basado en rol de Azure (Azure RBAC)](../role-based-access-control/overview.md) integrado. Los roles de Azure que admite Functions son [Colaborador](../role-based-access-control/built-in-roles.md#contributor), [Propietario](../role-based-access-control/built-in-roles.md#owner) y [Lector](../role-based-access-control/built-in-roles.md#owner). 
 
 Los permisos son eficaces en el nivel de la aplicación de funciones. El rol Colaborador es necesario para realizar la mayoría de las tareas de nivel de la aplicación de funciones. Solo el rol Propietario puede eliminar una aplicación de funciones. 
 
@@ -207,4 +207,3 @@ Los servicios de puerta de enlace, como [Azure Application Gateway](../applicati
 
 + [Base de referencia de seguridad de Azure para Azure Functions](security-baseline.md)
 + [Diagnósticos de Azure Functions](functions-diagnostics.md)
-        

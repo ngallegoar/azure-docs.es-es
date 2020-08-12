@@ -3,12 +3,12 @@ title: Copia de seguridad de máquinas virtuales de Azure en un almacén de Reco
 description: Aquí se describe cómo realizar una copia de seguridad de VM de Azure en un almacén de Recovery Services con Azure Backup
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: c4fbafc63ce063159d0524ddf26bb936c53328df
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 91fca2eef21a817c0f78b826e507901d94156dcd
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373945"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533604"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services
 
@@ -51,7 +51,8 @@ Modifique el tipo de replicación de almacenamiento como se indica a continuaci�
 1. En la sección **Configuración** del nuevo almacén, seleccione **Propiedades**.
 2. En **Propiedades**, en **Configuración de copia de seguridad**, seleccione **Actualizar**.
 3. Seleccione el tipo de replicación almacenamiento y seleccione **Guardar**.
-![Establecimiento de la configuración de almacenamiento del nuevo almacén](./media/backup-azure-arm-vms-prepare/full-blade.png)
+
+      ![Establecimiento de la configuración de almacenamiento del nuevo almacén](./media/backup-azure-arm-vms-prepare/full-blade.png)
 
 > [!NOTE]
    > No puede modificar el tipo de replicación de almacenamiento después de configurar el almacén y si este contiene elementos de copia de seguridad. Si quiere hacer esto, debe volver a crear el almacén.
@@ -88,7 +89,7 @@ Configurar una directiva de copia de seguridad para el almacén.
      ![Panel "Seleccionar máquinas virtuales"](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
     >[!NOTE]
-    > Todas las máquinas virtuales de la misma región y suscripción que el almacén están disponibles para configurar la copia de seguridad. Al configurar la copia de seguridad, puede navegar al nombre de la máquina virtual y su grupo de recursos aunque no tenga el permiso necesario en esas máquinas virtuales.  
+    > Todas las máquinas virtuales de la misma región y suscripción que el almacén están disponibles para configurar la copia de seguridad. Al configurar la copia de seguridad, puede navegar al nombre de la máquina virtual y su grupo de recursos aunque no tenga el permiso necesario en esas máquinas virtuales. Si la máquina virtual está en estado de eliminación temporal, no se verá en esta lista. Si necesita volver a proteger la máquina virtual, debe esperar a que el período de eliminación temporal expire o recuperar la máquina virtual de la lista de eliminación temporal. Para más información, consulte el [artículo sobre la eliminación temporal de máquinas virtuales](soft-delete-virtual-machines.md#soft-delete-for-vms-using-azure-portal).
 
 1. En **Copia de seguridad**, seleccione **Habilitar copia de seguridad** . Esto implementa la directiva en el almacén y las máquinas virtuales, e instala la extensión de copia de seguridad en el agente de máquina virtual que se ejecuta en la máquina virtual de Azure.
 
@@ -166,13 +167,6 @@ Azure Backup realiza una copia de seguridad de máquinas virtuales de Azure inst
 --- | ---
 **Windows** | 1. [Descargue e instale](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) el archivo MSI del agente.<br/><br/> 2. Realice la instalación con permisos de administrador en el equipo.<br/><br/> 3. Compruebe la instalación. En *C:\WindowsAzure\Packages* en la VM, haga clic con el botón derecho en **WaAppAgent.exe** > **Propiedades**. En la pestaña **Detalles**, la **versión del producto** debe ser 2.6.1198.718 o superior.<br/><br/> Si va a actualizar el agente, asegúrese de que no se ejecuta ninguna operación de copia de seguridad y [vuelva a instalar el agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
 **Linux** | Realice la instalación con un paquete de RPM o DEB del repositorio de paquetes de su distribución. Este es el método preferido para instalar y actualizar el agente Linux de Azure. Todos los [proveedores de distribución aprobada](../virtual-machines/linux/endorsed-distros.md) integran el paquete de agente Linux de Azure en sus imágenes y repositorios. El agente está disponible en [GitHub](https://github.com/Azure/WALinuxAgent), pero no se recomienda instalarlo desde allí.<br/><br/> Si va a actualizar el agente, asegúrese de que no se ejecuta ninguna operación de copia de seguridad y actualice los archivos binarios.
-
->[!NOTE]
-> **Azure Backup admite ahora la copia de seguridad y restauración de discos selectivos mediante la solución de copia de seguridad de máquinas virtuales de Azure.**
->
->En la actualidad, Azure Backup admite la copia de seguridad de todos los discos (sistema operativo y datos) en una máquina virtual junto con la solución de copia de seguridad de máquinas virtuales. Con la funcionalidad de exclusión de disco, tiene la opción de realizar una copia de seguridad de uno o de varios de los múltiples discos de datos de una máquina virtual. Esto proporciona una solución eficaz y rentable para sus necesidades de copia de seguridad y restauración. Cada punto de recuperación contiene datos de los discos incluidos en la operación de copia de seguridad, lo que permite además tener un subconjunto de discos restaurados desde el punto de recuperación determinado durante la operación de restauración. Esto se aplica a la restauración tanto desde la instantánea como desde el almacén.
->
->Para suscribirse a la versión preliminar, escriba a AskAzureBackupTeam@microsoft.com.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,6 +1,6 @@
 ---
 title: Características de seguridad de Azure que ayudan a la administración de identidades | Microsoft Docs
-description: " Este artículo proporciona una visión general de las principales características de seguridad de Azure que contribuyen a la administración de identidades. Las soluciones de administración de identidades y acceso de Microsoft ayudan al departamento de TI a proteger el acceso a las aplicaciones y los recursos en el centro de datos corporativo y en la nube, para lo que se habilitan más niveles de validación, como Multi-Factor Authentication y las directivas de acceso condicional. "
+description: Más información sobre las características de seguridad de Azure que ayudan a la administración de identidades. Consulte la información sobre temas como el inicio de sesión único y el proxy inverso.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 6abfcaac06dd82be79c9136718878f801ca241cc
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 9de31ba30c4599393d9127c7852cb567cf0258ef
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87384538"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542083"
 ---
 # <a name="azure-identity-management-security-overview"></a>Información general sobre seguridad de administración de identidades de Azure
 

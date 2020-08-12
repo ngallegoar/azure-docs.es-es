@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 07/30/2020
 ms.author: absha
-ms.openlocfilehash: 8a9373893b1381e9a2f54bb83717e6001efac295
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 9315884db30c053d86c889ff3b45aaea17d48b17
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386340"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87438921"
 ---
 # <a name="application-gateway-configuration-overview"></a>Introducción a la configuración de Application Gateway
 
@@ -55,7 +55,7 @@ Los grupos de seguridad se admiten en Application Gateway. Pero hay algunas rest
   - No elimine las reglas de salida predeterminadas.
   - No cree otras reglas de salida que denieguen toda la conectividad saliente.
 
-- Se debe permitir el tráfico de la etiqueta **AzureLoadBalancer**.
+- Se debe permitir el tráfico de la etiqueta **AzureLoadBalancer** con la subred de destino como **Cualquiera**.
 
 #### <a name="allow-application-gateway-access-to-a-few-source-ips"></a>Permitir que Application Gateway acceda a varias direcciones IP de origen
 
@@ -122,11 +122,19 @@ En este escenario, puede usar grupos de seguridad de red en la subred de Applica
 
 ## <a name="front-end-ip"></a>Dirección IP de front-end
 
-Puede configurar la puerta de enlace de aplicaciones para que tenga una dirección IP pública, una dirección IP privada o ambas. Se necesita una dirección IP pública si hospeda un back-end al que los clientes deben acceder desde Internet mediante una IP virtual (VIP) accesible desde Internet. 
+Puede configurar la puerta de enlace de aplicaciones para que tenga una dirección IP pública, una dirección IP privada o ambas. Se necesita una dirección IP pública si hospeda un back-end al que los clientes deben acceder desde Internet mediante una dirección IP virtual (VIP) accesible desde Internet.
+
+> [!NOTE]
+> Actualmente, Application Gateway V2 no admite solo el modo IP privada. Admite las siguientes combinaciones:
+>* IP privada e IP pública
+>* Solo IP pública
+>
+> Para obtener más información, vea las [preguntas más frecuentes sobre Application Gateway](application-gateway-faq.md#how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address).
+
 
 No se necesita ninguna dirección IP pública para un punto de conexión interno que no está expuesto a Internet. Eso se conoce como un punto de conexión de *equilibrador de carga interno* (ILB) o una dirección IP de front-end privada. Un equilibrador de carga interno de puerta de enlace de aplicaciones es útil para aplicaciones de línea de negocio internas no expuestas a Internet. También es útil para los servicios y niveles de una aplicación de varios niveles dentro de un límite de seguridad que no están expuestos a Internet, pero que siguen necesitando distribución de carga round robin, permanencia de sesión o terminación TLS.
 
-Se admite solo 1 dirección IP pública o una dirección IP privada. Puede elegir la dirección IP de front-end cuando cree la puerta de enlace de aplicaciones.
+Se admite solo una dirección IP pública o una dirección IP privada. Puede elegir la dirección IP de front-end cuando cree la puerta de enlace de aplicaciones.
 
 - Para una dirección IP pública, puede crear una nueva dirección IP pública o usar una ya existente en la misma ubicación que la puerta de enlace de aplicaciones. Para más información, consulte esta comparación entre [direcciones IP públicas estáticas y dinámicas](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-versus-dynamic-public-ip-address).
 

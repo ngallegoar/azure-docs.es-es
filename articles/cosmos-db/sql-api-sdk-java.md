@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 06/03/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 70a4d6f01271c5026463ac0dc946fb1b2991de09
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b8cc0d44c654bd7047bac462ce98126fb4a27334
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323832"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541675"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Java de Azure Cosmos DB para API de SQL: Notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -256,23 +256,14 @@ Este es el SDK sincrónico original de Azure Cosmos DB para Java v2 para SQL AP
 * SDK de GA
 
 ## <a name="release-and-retirement-dates"></a>Fechas de lanzamiento y de retirada
-Microsoft notificará la retirada de un SDK con al menos **12 meses** de antelación para facilitar la transición a una versión compatible o más reciente.
 
-Solo se agregan nuevas características, funcionalidad y optimizaciones al SDK actual, por lo que se recomienda actualizar siempre a la última versión del SDK tan pronto como sea posible.
-
-El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK retirado.
+Microsoft notificará la retirada de un SDK con al menos **12 meses** de antelación para facilitar la transición a una versión compatible o más reciente. Solo se agregan nuevas características, funcionalidad y optimizaciones al SDK actual, por lo que se recomienda actualizar siempre a la última versión del SDK tan pronto como sea posible.
 
 > [!WARNING]
-> Todas las versiones **1.x** del SDK de SQL para Java se retirarán el **30 de mayo de 2020**.
-> 
+> Después del 30 de mayo de 2020 Azure Cosmos DB ya no hará correcciones de errores, agregará nuevas características ni proporcionará soporte técnico para las versiones 1.x del SDK de Java para SQL API de Azure Cosmos DB. Si prefiere no actualizar, el servicio Azure Cosmos DB seguirá atendiendo a las solicitudes enviadas desde la versión 1.x del SDK.
 >
+> Después del 29 de febrero de 2016 Azure Cosmos DB ya no hará correcciones de errores, agregará nuevas características ni proporcionará soporte técnico para las versiones 0.x del SDK de Java para SQL API de Azure Cosmos DB. Si prefiere no actualizar, el servicio Azure Cosmos DB seguirá atendiendo a las solicitudes enviadas desde la versión 0.x del SDK.
 
-> [!WARNING]
-> Todas las versiones del SDK de SQL para Java anteriores a la versión **1.0.0** se retiraron el **29 de febrero de 2016**.
-> 
-> 
-
-<br/>
 
 | Versión | Fecha de la versión | Fecha de retirada |
 | --- | --- | --- |

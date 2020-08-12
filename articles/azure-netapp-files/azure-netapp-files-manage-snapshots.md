@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: caa73b5a86c5c245aefd18de9b60ec49616b3b84
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 271c3c9f63ee3f761826e214f3bf32a8df5f1cbe
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281555"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533298"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Administración de instantáneas mediante Azure NetApp Files
 
@@ -47,8 +47,24 @@ Puede crear instantáneas de volumen a petición.
 
 Puede programar la realización automática de instantáneas de volumen mediante el uso de directivas de instantánea. También puede modificar una directiva de instantánea según sea necesario o eliminar una directiva de instantánea que ya no necesite.  
 
-> [!IMPORTANT] 
-> El uso de la funcionalidad de la directiva de instantánea requiere la lista de permitidos. Envíe un correo electrónico a anffeedback@microsoft.com con su identificador de suscripción para solicitar esta característica.
+### <a name="register-the-feature"></a>Registrar la característica
+
+La característica **directiva de instantánea** está actualmente en la versión preliminar. Si usa esta característica por primera vez, debe registrarla primero. 
+
+1. Registre la característica: 
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
+    ```
+
+2. Compruebe el estado del registro de la característica: 
+
+    > [!NOTE]
+    > **RegistrationState** puede estar en el estado `Registering` durante varios minutos antes de cambiar a `Registered`. Espere hasta que el estado sea **Registrado** antes de continuar.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
+    ```
 
 ### <a name="create-a-snapshot-policy"></a>Creación de una directiva de instantánea 
 

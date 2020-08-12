@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: b7f58c13181c9ec966d548096ffc2756d5d333e3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 6f0e688f3d483536e0d82186dd8e498cdadf97da
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124926"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563558"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Alerta y supervisión de Data Factory mediante Azure Monitor
 
@@ -146,11 +146,11 @@ Estas son algunas de las métricas emitidas por Azure Data Factory, versión 2:
 | TriggerCancelledRuns                  | Cancelled trigger runs metrics (Métricas de ejecuciones de desencadenador canceladas)            | Count    | Total                | Número total de ejecuciones de desencadenador canceladas en un período de minutos. |
 | TriggerFailedRuns                    | Métricas de ejecuciones de desencadenador erróneas              | Count    | Total                | El número total de ejecuciones de desencadenador en las que se produjo un error dentro de un período de minutos. |
 | TriggerSucceededRuns                 | Métricas de ejecuciones de desencadenador realizadas correctamente           | Count    | Total                | El número total de ejecuciones de desencadenador realizadas correctamente dentro de un período de minutos. |
-| SSISIntegrationRuntimeStartCancelled  | Métricas de inicios de SSIS IR cancelados           | Count    | Total                | Número total de inicios de SSIS IR cancelados en un período de minutos. |
-| SSISIntegrationRuntimeStartFailed    | Métricas de inicio de SSIS IR con errores             | Count    | Total                | El número total de inicios de SSIS IR con errores en un período de minutos. |
-| SSISIntegrationRuntimeStartSucceeded | Métricas de inicio de SSIS IR correcto          | Count    | Total                | El número total de inicios de SSIS IR correctas en un período de minutos. |
-| SSISIntegrationRuntimeStopStuck      | Métricas de detención de SSIS IR bloqueada               | Count    | Total                | El número total de detenciones de SSIS IR bloqueadas en un período de minutos. |
-| SSISIntegrationRuntimeStopSucceeded  | Métricas de detención de SSIS IR correcta           | Count    | Total                | El número total de detenciones de SSIS IR correctas en un período de minutos. |
+| SSISIntegrationRuntimeStartCancelled  | Métricas de inicio de SSIS Integration Runtime cancelado           | Count    | Total                | Número total de inicios de SSIS Integration Runtime cancelados dentro de un período de un minuto. |
+| SSISIntegrationRuntimeStartFailed    | Métricas de inicio de SSIS Integration Runtime con errores             | Count    | Total                | El número total de inicios de SSIS Integration Runtime con errores dentro de un período de un minuto. |
+| SSISIntegrationRuntimeStartSucceeded | Métricas de inicio de SSIS Integration Runtime correcto          | Count    | Total                | El número total de inicios de SSIS Integration Runtime correctos dentro de un período de un minuto. |
+| SSISIntegrationRuntimeStopStuck      | Métricas de detención de SSIS Integration Runtime bloqueada               | Count    | Total                | El número total de detenciones de SSIS Integration Runtime bloqueadas dentro de un período de un minuto. |
+| SSISIntegrationRuntimeStopSucceeded  | Métricas de detención de SSIS Integration Runtime correcta           | Count    | Total                | El número total de detenciones de SSIS IR correctas dentro de un período de un minuto. |
 | SSISPackageExecutionCancelled         | Métricas de ejecuciones de paquetes SSIS canceladas  | Count    | Total                | Número total de ejecuciones de paquetes SSIS canceladas en un período de minutos. |
 | SSISPackageExecutionFailed           | Métricas de ejecución de paquetes SSIS con errores    | Count    | Total                | El número total de ejecuciones de paquetes SSIS con errores en un período de minutos. |
 | SSISPackageExecutionSucceeded        | Métricas de ejecución de paquetes SSIS correcta | Count    | Total                | El número total de ejecuciones de paquetes SSIS correctas en un período de minutos. |

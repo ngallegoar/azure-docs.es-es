@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6b04a59da78abc81f7749300dfe34ca176c75c4
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 5d3082e3dc45102bc8700c7d1285ef832d09712a
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371182"
+ms.locfileid: "87419825"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Administración del grupo de administradores locales en dispositivos unidos a Azure AD
 
@@ -72,9 +72,9 @@ Los administradores de dispositivos se asignan a todos los dispositivos unidos a
 >[!NOTE]
 > Esta funcionalidad actualmente está en su versión preliminar.
 
-A partir de la actualización de 2004 de Windows 10, se pueden usar grupos de Azure AD para administrar los privilegios de administrador en dispositivos unidos a Azure AD con la directiva de MDM [grupos restringidos] (windows/client-management/mdm/policy-csp-restrictedgroups). Esta directiva permite asignar usuarios individuales o grupos de Azure AD al grupo de administradores locales en un dispositivo unido a Azure AD, lo que le proporciona la granularidad para configurar diferentes administradores para distintos grupos de dispositivos. 
+A partir de la actualización de 2004 de Windows 10, se pueden usar grupos de Azure AD para administrar los privilegios de administrador en dispositivos unidos a Azure AD con la directiva de MDM [Grupos restringidos](/windows/client-management/mdm/policy-csp-restrictedgroups). Esta directiva permite asignar usuarios individuales o grupos de Azure AD al grupo de administradores locales en un dispositivo unido a Azure AD, lo que le proporciona la granularidad para configurar diferentes administradores para distintos grupos de dispositivos. 
 
-Actualmente, no hay ninguna interfaz de usuario en Intune para administrar esta directiva y debe configurarse mediante la [configuración OMA-URI personalizada] (mem/intune/configuration/custom-settings-windows-10). A continuación, se indican algunas consideraciones para esta directiva: 
+Actualmente, no hay ninguna interfaz de usuario en Intune para administrar esta directiva y debe configurarse mediante [Configuración OMA-URI personalizada](/mem/intune/configuration/custom-settings-windows-10). A continuación, se indican algunas consideraciones para esta directiva: 
 
 - La adición de grupos de Azure AD a través de la directiva requiere el SID del grupo, que se puede obtener mediante la ejecución de la API de grupos. El SID se define mediante la propiedad `securityIdentifier` de la API de grupos.
 - Cuando se aplica la directiva de grupos restringidos, se quita cualquier miembro actual del grupo que no esté en la lista de miembros. Por lo tanto, la aplicación de esta directiva con nuevos miembros o grupos quitará a los administradores existentes, es decir, al usuario que se unió al dispositivo, el rol de administrador de dispositivos y el rol de administrador global del dispositivo. Para evitar la eliminación de los miembros existentes, debe configurarlos como parte de la lista de miembros en la Directiva de grupos restringidos. 

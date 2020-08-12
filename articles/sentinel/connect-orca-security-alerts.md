@@ -1,5 +1,5 @@
 ---
-title: Conexión de las alertas de Orca a Azure Sentinel| Microsoft Docs
+title: Conexión de las alertas de Orca Security a Azure Sentinel | Microsoft Docs
 description: Aprenda a conectar los datos de las alertas de Orca Security a Azure Sentinel para ver los paneles, crear alertas personalizadas y mejorar la investigación.
 services: sentinel
 documentationcenter: na
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 1f2f67281079142f0c4fe4985738dc48332a107d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 735f4b447d7258a9b444f3b75a6537dec20b1307
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528298"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076277"
 ---
-# <a name="connect-your-orca-alerts-to-azure-sentinel"></a>Conexión de las alertas de Orca a Azure Sentinel 
+# <a name="connect-your-orca-security-alerts-to-azure-sentinel"></a>Conexión de las alertas de Orca Security a Azure Sentinel 
+
+> [!IMPORTANT]
+> El conector de alertas de Orca Security en Azure Sentinel se encuentra actualmente en versión preliminar pública.
+> Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 El conector de las alertas de seguridad de Orca permite incorporar fácilmente las alertas de la solución de seguridad de [alertas de Orca](https://orca.security/) a Azure Sentinel, de modo que pueda verlas en los libros, usarlas para crear alertas personalizadas e incorporarlas para mejorar la investigación. La integración entre las alertas de Orca Security y Azure Sentinel usa la API REST.
 

@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 07/28/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7e26b00a78d2ce533aa4d16e88649e7e73e3af91
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 9d94904e580cefb53b2c71d21259bebfc07c1ad6
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387207"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431281"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Conexión de una VPN Gateway (puerta de enlace de red virtual) a una Virtual WAN
 
@@ -39,11 +39,13 @@ Cree una puerta de enlace de red virtual de **VPN Gateway** en modo activo-activ
 
 ### <a name="active-active-mode-setting"></a><a name="active-active"></a>Configuración del modo activo/activo
 
+En la página **Configuración** de la puerta de enlace de red virtual, habilite el modo activo/activo.
+
 ![activo-activo](./media/connect-virtual-network-gateway-vwan/active.png "activa-activa")
 
 ### <a name="bgp-setting"></a><a name="BGP"></a>Configuración de BGP
 
-El ASN del protocolo de puerta de enlace de borde (BGP) no puede ser 65515. Azure Virtual WAN usará 66515.
+En la página **Configuración** de la puerta de enlace de red virtual, puede configurar **ASN BGP**. Cambie el ASN BGP. El ASN del protocolo de puerta de enlace de borde (BGP) no puede ser 65515. Azure Virtual WAN usará 66515.
 
 ![BGP](./media/connect-virtual-network-gateway-vwan/bgp.png "bgp")
 
@@ -60,16 +62,16 @@ Para crear sitios VPN de Virtual WAN, vaya a su WAN virtual y, en **Conectividad
 1. Elija **+Crear sitio**.
 2. En la página **Crear sitios VPN**, escriba los valores siguientes:
 
-   * **Región**: (la misma región que la puerta de enlace de red virtual de Azure VPN Gateway)
-   * **Proveedor de dispositivo**: escriba el proveedor del dispositivo (cualquier nombre)
-   * **Espacio de direcciones privadas**: (escriba un valor o déjelo en blanco si el protocolo de puerta de enlace de borde está habilitado)
-   * **Protocolo de puerta de enlace de borde**: (establecido en **Habilitar** si la puerta de enlace de red virtual de Azure VPN Gateway tiene habilitado BGP)
-   * **Conéctese a los centros de conectividad** (seleccione el centro de conectividad que creó en los requisitos previos de la lista desplegable)
+   * **Región**: la misma región que la puerta de enlace de red virtual de Azure VPN Gateway.
+   * **Proveedor del dispositivo**: escriba el proveedor del dispositivo (cualquier nombre).
+   * **Espacio de direcciones privadas**: escriba un valor o déjelo en blanco si el protocolo de puerta de enlace de borde está habilitado.
+   * **Protocolo de puerta de enlace de borde**: seleccione **Habilitar** si la puerta de enlace de red virtual de Azure VPN Gateway tiene este protocolo habilitado.
+   * **Conectar a centros de conectividad**: seleccione en la lista desplegable el centro de conectividad que creó en los requisitos previos. Si no ve ningún centro, compruebe que ha creado una puerta de enlace de VPN de sitio a sitio para el centro.
 3. En **Vínculos**, escriba los siguientes valores:
 
-   * **Nombre del proveedor**: escriba un nombre de vínculo y un nombre de proveedor (cualquier nombre)
-   * **Velocidad**: velocidad (cualquier número)
-   * **Dirección IP**: escriba la dirección IP (igual que la primera dirección IP pública que se muestra en las propiedades de la puerta de enlace de red virtual (VPN Gateway))
+   * **Nombre del proveedor**: escriba un nombre de vínculo y un nombre de proveedor (cualquier nombre).
+   * **Velocidad**: velocidad (cualquier número).
+   * **Dirección IP**: escriba la dirección IP (igual que la primera dirección IP pública que se muestra en las propiedades de la puerta de enlace de red virtual [VPN Gateway]).
    * **Direcciones BGP** y **ASN**: dirección BGP y ASN. Deben ser las mismas que una de las direcciones IP del mismo nivel BGP y ASN de la puerta de enlace de red virtual VPN Gateway que configuró en el [Paso 1](#vnetgw).
 4. Revise y haga clic en **Confirmar** para crear el sitio.
 5. Repita los pasos anteriores para crear el segundo sitio para que coincida con la segunda instancia de la puerta de enlace de red virtual VPN Gateway. Conservará la misma configuración, excepto el uso de la segunda dirección IP pública y la segunda dirección IP del mismo nivel BGP de la configuración de VPN Gateway.
@@ -114,12 +116,12 @@ En esta sección, creará una conexión entre las puertas de enlace de red local
    * **Puerta de enlace de red local:** Esta conexión conectará la puerta de enlace de red virtual y la puerta de enlace de red local. Elija una de las puertas de enlace de red local que creó anteriormente.
    * **Clave compartida**: Ingrese una clave compartida.
    * **Protocolo TLS:** Elija el protocolo IKE.
-   * **BGP:** Elija **Habilitar BGP** si la conexión es a través de BGP.
 3. Haga clic en **Aceptar** para crear la conexión.
 4. La conexión se puede ver en la página **Conexiones** de la puerta de enlace de red virtual.
 
    ![Connection](./media/connect-virtual-network-gateway-vwan/connect.png "conexión")
 5. Repita los pasos anteriores para crear otra red virtual. Para la segunda conexión, elija la otra puerta de enlace de red local que creó.
+6. Si las conexiones han usado el protocolo de puerta de enlace de borde, después de crearlas vaya a una conexión y seleccione **Configuración**. En la página **Configuración**, en **BGP**, seleccione **Habilitado**. A continuación, haga clic en **Guardar**. Repita la operación en la segunda conexión.
 
 ## <a name="6-test-connections"></a><a name="test"></a>6. Prueba de conexiones
 

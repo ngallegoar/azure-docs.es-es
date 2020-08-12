@@ -1,6 +1,6 @@
 ---
-title: 'Creación de un grupo de hosts de Windows Virtual Desktop, actualización Fall 2019, con PowerShell: Azure'
-description: Cómo crear un grupo de hosts en Windows Virtual Desktop con cmdlets de PowerShell.
+title: 'Creación de un grupo de hosts de Windows Virtual Desktop (clásico) con PowerShell: Azure'
+description: Creación de un grupo de hosts en Windows Virtual Desktop (clásico) con cmdlets de PowerShell.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 552a3fdd20d67d81fe0c6a81a965fd3231da643d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7bc1e229711ef24b07641c5767f5f60c17a3b97c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527649"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291286"
 ---
-# <a name="create-a-host-pool-with-powershell"></a>Creación de un grupo host con PowerShell
+# <a name="create-a-host-pool-in-windows-virtual-desktop-classic-with-powershell"></a>Creación de un grupo de hosts en Windows Virtual Desktop (clásico) con PowerShell
 
 >[!IMPORTANT]
->Este contenido se aplica a la versión Fall 2019 que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager introducidos en la actualización de Spring 2020, consulte [este artículo](../create-host-pools-powershell.md).
+>Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../create-host-pools-powershell.md).
 
 Los grupos hosts son una colección de una o más máquinas virtuales idénticas en entornos de inquilino de Windows Virtual Desktop. Cada grupo de hosts puede contener un grupo de aplicaciones con las que los usuarios pueden interactuar igual que harían en un equipo de escritorio físico.
 

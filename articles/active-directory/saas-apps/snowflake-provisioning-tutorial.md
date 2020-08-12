@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 99565c8dc8b5cbaea9f449a9f6262a37ae5b66d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46ebb122b0165d469b1c40871d5939e50a8595c9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367196"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016347"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Tutorial: Configuración de Snowflake para el aprovisionamiento automático de usuarios
 
@@ -163,6 +163,10 @@ Una vez configurado el aprovisionamiento, use los recursos siguientes para super
 ## <a name="connector-limitations"></a>Limitaciones del conector
 
 * Los tokens de SCIM que genera Snowflake expiran en 6 meses. Tenga en cuenta que deben actualizarse antes de que expiren para que las sincronizaciones de aprovisionamiento sigan funcionando. 
+
+## <a name="change-log"></a>Registro de cambios
+
+* 21/07/2020: se ha habilitado la eliminación temporal para todos los usuarios (a través del atributo active).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

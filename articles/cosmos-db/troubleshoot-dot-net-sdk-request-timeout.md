@@ -3,19 +3,34 @@ title: Solución de Azure Cosmos DB HTTP 408 o problemas de tiempo de espera de 
 description: Cómo diagnosticar y corregir la excepción de tiempo de espera de solicitud del SDK de .NET
 author: j82w
 ms.service: cosmos-db
-ms.date: 07/13/2020
+ms.date: 07/29/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 29b0c6237ae04ea5da9ec496498fc7c20890b173
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3d6fed539581b2d1add87ade92e34bcf2e1913e8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87293905"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87417614"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout"></a>Diagnóstico y solución de problemas de tiempo de espera de solicitud del SDK de .NET de Azure Cosmos DB
 El error HTTP 408 se produce si el SDK no puede completar la solicitud antes de que se produzca el límite de tiempo de espera.
+
+## <a name="customizing-the-timeout-on-the-azure-cosmos-net-sdk"></a>Personalización del tiempo de espera en el SDK de.NET para Azure Cosmos
+
+El SDK tiene dos alternativas distintas a los tiempos de espera de control, cada una con un ámbito diferente.
+
+### <a name="requesttimeout"></a>RequestTimeout
+
+La configuración de `CosmosClientOptions.RequestTimeout` (o `ConnectionPolicy.RequestTimeout` para SDK V2) le permite establecer un tiempo de espera que afecta a cada solicitud de red individual.  Una operación iniciada por un usuario puede abarcar varias solicitudes de red (por ejemplo, podría haber una limitación) y esta configuración se aplicaría para cada solicitud de red en el reintento. Este no es un tiempo de espera de la solicitud de operación de un extremo a otro.
+
+### <a name="cancellationtoken"></a>CancellationToken
+
+Todas las operaciones asincrónicas del SDK tienen un parámetro CancellationToken opcional. Este parámetro [CancellationToken](https://docs.microsoft.com/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) se utiliza en toda la operación y en todas las solicitudes de red. Entre las solicitudes de red, se puede comprobar el parámetro CancellationToken y se cancela una operación si el token relacionado ha expirado. CancellationToken se debe usar para definir un tiempo de espera aproximado estimado en el ámbito de la operación.
+
+> [!NOTE]
+> CancellationToken es un mecanismo en el que la biblioteca comprobará la cancelación cuando [no cause un estado no válido](https://devblogs.microsoft.com/premier-developer/recommended-patterns-for-cancellationtoken/). Es posible que la operación no se cancele exactamente cuando finalice el tiempo definido en la cancelación, sino que, una vez transcurrido dicho tiempo, se cancelará cuando sea seguro hacerlo.
 
 ## <a name="troubleshooting-steps"></a>Pasos para solucionar problemas
 La lista siguiente contiene las causas y las soluciones conocidas para las excepciones de tiempo de espera de solicitud.

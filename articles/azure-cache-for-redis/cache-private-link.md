@@ -6,25 +6,28 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: d85fe36bb948ae9a0c81fa25f87450c7f5fe93b7
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 5db756b60330cdac4e43e13bfe29d9397f87af50
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337269"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421661"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-preview"></a>Azure Cache for Redis con Azure Private Link (versión preliminar)
 Un punto de conexión privado de Azure es una interfaz de red que le conecta de forma privada y segura a Azure Cache for Redis de Azure Private Link. 
 
 En este artículo, obtendrá información sobre cómo crear una caché de Azure, una red virtual de Azure y un punto de conexión privado mediante Azure Portal.  
 
+> [!IMPORTANT]
+> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Condiciones de uso complementarias de las versiones preliminares de Microsoft Azure.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 
+> 
+
 ## <a name="prerequisites"></a>Requisitos previos
 * Una suscripción a Azure:  [cree una cuenta gratuita](https://azure.microsoft.com/free/).
 
 > [!NOTE]
-  > Esta característica se encuentra actualmente en versión preliminar: [póngase en contacto con nosotros](mailto:azurecache@microsoft.com) si le interesa.
-  >
-
+> Esta característica se encuentra actualmente en versión preliminar: [póngase en contacto con nosotros](mailto:azurecache@microsoft.com) si le interesa.
+>
 
 ## <a name="create-a-cache"></a>Creación de una caché
 1. Para crear una instancia de caché, inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione **Crear un recurso**. 
@@ -80,7 +83,7 @@ En esta sección, creará una red virtual y una subred.
 
 5. En la pestaña **Direcciones IP**, especifique esta información:
 
-    | Parámetro            | Value                      |
+    | Configuración            | Value                      |
     |--------------------|----------------------------|
     | Espacio de direcciones IPv4 | Escriba **\<IPv4-address-space>** |
 
@@ -118,10 +121,10 @@ En esta sección, creará un punto de conexión privado y lo conectará a la cac
 
 4. En la **página Crear un punto de conexión privado**, configure las opciones del punto de conexión privado.
 
-    | Parámetro | Value |
+    | Configuración | Value |
     | ------- | ----- |
     | **DETALLES DEL PROYECTO** | |
-    | Subscription | Desplácese hacia abajo y seleccione su suscripción. |
+    | Suscripción | Desplácese hacia abajo y seleccione su suscripción. |
     | Resource group | Desplácese hacia abajo y seleccione un grupo de recursos. |
     | **DETALLES DE INSTANCIA** |  |
     | Nombre |Escriba un nombre para el punto de conexión privado.  |

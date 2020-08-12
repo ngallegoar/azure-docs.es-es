@@ -6,14 +6,14 @@ author: hansenms
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/07/2019
+ms.date: 08/03/2020
 ms.author: mihansen
-ms.openlocfilehash: af891935fd474e6f1f83ff1c2ce56ef71cd065c6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b3838c46dcd5515cca81f41a4b8ac55bc68ffe69
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536732"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552941"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Preguntas más frecuentes sobre Azure API for FHIR
 
@@ -49,38 +49,37 @@ Desde el punto de vista del desarrollo, cada característica se implementa prime
 SMART (Substitutable Medical Applications and Reusable Technology) on FHIR es un conjunto de especificaciones de código abierto para integrar aplicaciones de asociados con servidores de FHIR y otros sistemas de TI sanitarios, como los registros sanitarios electrónicos y los intercambios de información sanitaria. Al crear una aplicación SMART on FHIR, puede garantizar que una gran cantidad de sistemas diferentes pueden acceder a la aplicación y aprovecharla.
 Autenticación y Azure API for FHIR. Para obtener más información acerca de SMART, visite [SMART Health IT](https://smarthealthit.org/).
 
-
-## <a name="iot-connector-preview"></a>Conector de IoT (versión preliminar)
+## <a name="azure-iot-connector-for-fhir-preview"></a>Conector de Azure IoT para FHIR (versión preliminar)
 
 ### <a name="what-is-iomt"></a>¿Qué es IoMT?
 IoMT significa Internet de las cosas médicas y es una categoría de dispositivos IoT que capturan e intercambian datos de salud y bienestar con otros sistemas informáticos de salud a través de una red. Algunos ejemplos de dispositivos IoMT son: dispositivos ponibles para uso deportivo y clínico, sensores de supervisión, seguimiento de la actividad, quioscos de punto de atención o incluso una píldora inteligente.
 
-### <a name="how-many-iot-connectors-do-i-need"></a>¿Cuántos conectores de IoT necesito?
-Se puede usar un único conector de IoT para ingerir datos de un gran número de tipos diferentes de dispositivos. Puede seguir usando distintos conectores por los siguientes motivos:
-- **Escala**: En el caso de la versión preliminar pública, la capacidad de los recursos del conector de IoT es fija y se espera que proporcione un rendimiento de aproximadamente 200 mensajes por segundo. Puede agregar más conectores de IoT si es necesario un mayor rendimiento.
-- **Tipo de dispositivo** Puede configurar un conector de IoT independiente para cada tipo de dispositivos IoMT que tenga por motivos de administración de dispositivos.
+### <a name="how-many-azure-iot-connector-for-fhir-preview-do-i-need"></a>¿Cuántos conectores de Azure IoT para FHIR (versión preliminar) necesito?
+Se puede usar un único conector de Azure IoT para FHIR* para ingerir datos de un gran número de tipos diferentes de dispositivos. Puede seguir usando distintos conectores por los siguientes motivos:
+- **Escala**: En el caso de la versión preliminar pública, la capacidad de los recursos del conector de Azure IoT para FHIR es fija y se espera que proporcione un rendimiento de aproximadamente 200 mensajes por segundo. Puede agregar más conectores de Azure IoT para FHIR, si necesita un mayor rendimiento.
+- **Tipo de dispositivo** Puede configurar un conector de Azure IoT para FHIR independiente para cada tipo de dispositivos IoMT que tenga por motivos de administración de dispositivos.
 
-### <a name="is-there-a-limit-on-number-of-iot-connectors-during-public-preview"></a>¿Hay un límite en el número de conectores de IoT durante la versión preliminar pública?
-Sí, solo puede crear dos conectores de IoT por suscripción mientras la característica esté en versión preliminar pública. Este límite existe para evitar gastos inesperados, ya que la característica está disponible de forma gratuita durante la versión preliminar. A petición, este límite podría elevarse hasta un máximo de cinco conectores de IoT.
+### <a name="is-there-a-limit-on-number-of-azure-iot-connector-for-fhir-preview-during-public-preview"></a>¿Hay un límite en el número de conectores de Azure IoT para FHIR (versión preliminar) durante la versión preliminar pública?
+Sí, solo puede crear dos conectores de Azure IoT para FHIR por suscripción mientras la característica esté en versión preliminar pública. Este límite existe para evitar gastos inesperados, ya que la característica está disponible de forma gratuita durante la versión preliminar. A petición, este límite puede aumentarse hasta un máximo de cinco conectores de Azure IoT para FHIR.
 
-### <a name="what-azure-regions-iot-connector-feature-is-available-during-public-preview"></a>¿En qué regiones está disponible la característica de conector de IoT durante la versión preliminar pública?
-El conector de IoT está disponible en todas las regiones de Azure donde esté disponible Azure API for FHIR.
+### <a name="what-azure-regions-azure-iot-connector-for-fhir-preview-feature-is-available-during-public-preview"></a>¿En qué regiones de Azure está disponible el conector de Azure IoT para FHIR (versión preliminar) durante la versión preliminar pública?
+El conector de Azure IoT para FHIR está disponible en todas las regiones de Azure donde esté disponible Azure API for FHIR.
 
-### <a name="can-i-configure-scaling-capacity-for-iot-connector"></a>¿Puedo configurar la capacidad de escalado para el conector de IoT?
-Dado que el conector de IoT es gratuito durante la versión preliminar pública, su capacidad de escalado es fija y limitada. Se espera que la configuración del conector de IoT disponible en la versión preliminar pública proporcione un rendimiento de aproximadamente 200 mensajes por segundo. En la versión de disponibilidad general (GA) habrá una manera de configurar la capacidad de los recursos.
+### <a name="can-i-configure-scaling-capacity-for-azure-iot-connector-for-fhir-preview"></a>¿Puedo configurar la capacidad de escalado para el conector de Azure IoT para FHIR (versión preliminar)?
+Dado que el conector de Azure IoT para FHIR es gratuito durante la versión preliminar pública, su capacidad de escalado es fija y limitada. Se espera que la configuración del conector de Azure IoT para FHIR disponible en la versión preliminar pública proporcione un rendimiento de aproximadamente 200 mensajes por segundo. En la versión de disponibilidad general (GA) habrá una manera de configurar la capacidad de los recursos.
 
-### <a name="what-fhir-version-does-iot-connector-support"></a>¿Qué versión de FHIR admite el conector de IoT?
-El conector de IoT actualmente solo admite la versión R4 de FHIR. Por lo tanto, esta característica solo es visible en las instancias R4 de Azure API for FHIR y Microsoft no tiene previsto admitir la versión STU3 en este momento.
+### <a name="what-fhir-version-does-azure-iot-connector-for-fhir-preview-support"></a>¿Qué versión de FHIR es compatible con el conector de Azure IoT para FHIR (versión preliminar)?
+El conector de Azure IoT para FHIR actualmente solo admite la versión R4 de FHIR. Por lo tanto, esta característica solo es visible en las instancias R4 de Azure API for FHIR y Microsoft no tiene previsto admitir la versión STU3 en este momento.
 
-### <a name="why-cant-i-install-iot-connector-when-private-link-is-enabled-on-azure-api-for-fhir"></a>¿Por qué no se puede instalar el conector de IoT cuando está habilitado Private Link en Azure API for FHIR?
-El conector de IoT no admite la funcionalidad Private Link en este momento. Por lo tanto, si tiene Private Link habilitado en Azure API for FHIR, no podrá instalar el conector de IoT y viceversa. Se espera que esta limitación desaparezca cuando el conector de IoT esté en versión de disponibilidad general (GA).
+### <a name="why-cant-i-install-azure-iot-connector-for-fhir-preview-when-private-link-is-enabled-on-azure-api-for-fhir"></a>¿Por qué no se puede instalar el conector de Azure IoT para FHIR (versión preliminar) cuando está habilitado Private Link en Azure API for FHIR?
+El conector de Azure IoT para FHIR no admite la funcionalidad Private Link en este momento. Por lo tanto, si tiene Private Link habilitado en Azure API for FHIR, no podrá instalar el conector de Azure IoT para FHIR y viceversa. Se espera que esta limitación desaparezca cuando el conector de Azure IoT para FHIR esté en versión de disponibilidad general (GA).
 
-### <a name="whats-the-difference-between-the-open-source-iomt-fhir-connector-for-azure-and-iot-connector-feature-of-azure-api-for-fhir-service"></a>¿Cuál es la diferencia entre el conector FHIR de IoMT de código abierto para Azure y la característica del conector de IoT del servicio Azure API for FHIR?
-El conector de IoT es una versión hospedada y administrada del conector FHIR de IoMT de código abierto para Azure. En el servicio administrado, Microsoft proporciona todo el mantenimiento y las actualizaciones.
+### <a name="whats-the-difference-between-the-open-source-iomt-fhir-connector-for-azure-and-azure-iot-connector-for-fhir-preview-feature-of-azure-api-for-fhir-service"></a>¿Cuál es la diferencia entre el conector FHIR de IoMT de código abierto para Azure y la característica de conector de Azure IoT para FHIR (versión preliminar) del servicio Azure API for FHIR?
+El conector de Azure IoT para FHIR es una versión hospedada y administrada del conector FHIR de IoMT de código abierto para Azure. En el servicio administrado, Microsoft proporciona todo el mantenimiento y las actualizaciones.
 
 Cuando ejecute el conector FHIR de IoMT para Azure, tendrá acceso directo a los recursos subyacentes. Pero usted también es el responsable de mantener y actualizar el servidor y el trabajo de cumplimiento necesario si está almacenando los datos de PHI.
 
-Desde el punto de vista del desarrollo, cada característica se implementa primero en el conector FHIR de IoMT de código abierto para Azure. Una vez que se haya validado en el código abierto, se lanzará en la característica de conector de IoT de PaaS del servicio Azure API for FHIR. El tiempo entre el lanzamiento en el código abierto y PaaS depende de la complejidad de la característica y de otras prioridades de la hoja de ruta.
+Desde el punto de vista del desarrollo, cada característica se implementa primero en el conector FHIR de IoMT de código abierto para Azure. Una vez que se haya validado en el código abierto, se lanzará en la característica PaaS de conector de Azure IoT para FHIR del servicio Azure API for FHIR. El tiempo entre el lanzamiento en el código abierto y PaaS depende de la complejidad de la característica y de otras prioridades de la hoja de ruta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -88,3 +87,7 @@ En este artículo, ha leído algunas de las preguntas más frecuentes sobre Azur
  
 >[!div class="nextstepaction"]
 >[Características de FHIR admitidas](fhir-features-supported.md)
+
+*En Azure Portal, el conector de Azure IoT para FHIR se conoce como conector de IoT (versión preliminar).
+
+FHIR es la marca registrada de HL7 y se usa con su permiso.

@@ -2,16 +2,14 @@
 title: Azure Application Insights para aplicaciones web de JavaScript
 description: Obtenga recuentos de sesiones y vistas de página, además de datos de cliente web y Aplicaciones de página única, y realice el seguimiento de los patrones de uso. Detecte problemas de rendimiento y excepciones en páginas web de JavaScript.
 ms.topic: conceptual
-author: Dawgfan
-ms.author: mmcc
 ms.date: 09/20/2019
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 8cd0c7c73ac4f5c531d91d7e458300ab1b0ad1af
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: e0545660cbca68d41bc24b7266496b7912d408bc
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371488"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531326"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas web
 
@@ -41,7 +39,8 @@ Instale a través de NPM.
 npm i --save @microsoft/applicationinsights-web
 ```
 
-> *Nota:* **Con este paquete se incluyen typings**, por lo que **no** necesita instalar un paquete de typings independiente.
+> [!Note]
+> **Con este paquete se incluyen typings**, por lo que **no** necesita instalar un paquete de typings independiente.
     
 ```js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
@@ -342,7 +341,9 @@ Esto NO significa que solamente se admita el conjunto común más bajo de caract
 
 ## <a name="open-source-sdk"></a>SDK de código abierto
 
-El SDK de JavaScript de Application Insights es de código abierto. Para ver el código fuente o para contribuir al proyecto, visite el [repositorio de GitHub oficial](https://github.com/Microsoft/ApplicationInsights-JS).
+El SDK de JavaScript de Application Insights es de código abierto. Para ver el código fuente o para contribuir al proyecto, visite el [repositorio de GitHub oficial](https://github.com/Microsoft/ApplicationInsights-JS). 
+
+Para obtener las actualizaciones y correcciones de errores más recientes, [consulte las notas de la versión](./release-notes.md).
 
 ## <a name="next-steps"></a><a name="next"></a> Pasos siguientes
 * [Seguir el uso](usage-overview.md)

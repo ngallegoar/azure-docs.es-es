@@ -1,6 +1,6 @@
 ---
-title: 'Creación de grupos de inquilinos y de host de Windows Virtual Desktop: Azure'
-description: Cómo solucionar problemas de grupos de inquilinos y de host durante la instalación de un entorno de inquilinos de Windows Virtual Desktop.
+title: 'Creación de grupos de inquilinos y de hosts de Windows Virtual Desktop (clásico): Azure'
+description: Solución de problemas de grupos de inquilinos y de hosts durante la instalación de un entorno de inquilinos de Windows Virtual Desktop (clásico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: aad3bffeba4395ba415fb99a3667d04d18769a47
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: bd9a6dd5d11ab69635d610eee3f92a90e942b576
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026702"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87269604"
 ---
-# <a name="tenant-and-host-pool-creation"></a>Creación de los grupos de inquilinos y de host
+# <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Creación de grupos de inquilinos y de hosts en Windows Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a la versión Fall 2019 que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager introducidos en la actualización de Spring 2020, consulte [este artículo](../troubleshoot-set-up-issues.md).
+>Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../troubleshoot-set-up-issues.md).
 
 En este artículo se tratan problemas que se producen durante la instalación inicial del inquilino de Windows Virtual Desktop y la infraestructura del grupo de host de la sesión relacionada.
 

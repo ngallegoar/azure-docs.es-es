@@ -2,13 +2,13 @@
 title: Control de acceso de Azure Service Bus con Firmas de acceso compartido
 description: Información general sobre el control de acceso de Service Bus con Firmas de acceso compartido, detalles de la autorización con SAS mediante Azure Service Bus.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: e0d8abcd5693ac20c79a1357eb066e3ae8dcdfe8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/30/2020
+ms.openlocfilehash: b75f1ec3a1aac36124287523140c24d468329aaa
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340971"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460701"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Control de acceso de Service Bus con Firmas de acceso compartido
 
@@ -89,6 +89,9 @@ El URI de recurso es el URI completo del recurso de Service Bus al que se solici
 La regla de autorización de acceso compartido usada para firmar debe configurarse en la entidad especificada por este URI, o uno de sus primarios jerárquicos. Por ejemplo, `http://contoso.servicebus.windows.net/contosoTopics/T1` o `http://contoso.servicebus.windows.net` en el ejemplo anterior.
 
 Un token SAS es válido para todos los recursos con el prefijo `<resourceURI>` que se usen en `signature-string`.
+
+> [!NOTE]
+> Para obtener ejemplos de cómo generar un token de SAS con distintos lenguajes de programación, consulte [Generación de un token de SAS](/rest/api/eventhub/generate-sas-token). 
 
 ## <a name="regenerating-keys"></a>Regeneración de claves
 
@@ -254,17 +257,17 @@ La siguiente tabla muestra los derechos de acceso necesarios para realizar diver
 | Operación | Solicitud necesaria | Ámbito de solicitud |
 | --- | --- | --- |
 | **Espacio de nombres** | | |
-| Configurar la regla de autorización en un espacio de nombres |Administrar |Cualquier dirección de espacio de nombres |
+| Configurar la regla de autorización en un espacio de nombres |Administración |Cualquier dirección de espacio de nombres |
 | **Registro del servicio** | | |
-| Enumerar directivas privadas |Administrar |Cualquier dirección de espacio de nombres |
+| Enumerar directivas privadas |Administración |Cualquier dirección de espacio de nombres |
 | Empezar a escuchar en un espacio de nombres |Escuchar |Cualquier dirección de espacio de nombres |
 | Enviar mensajes a un agente de escucha en un espacio de nombres |Envío |Cualquier dirección de espacio de nombres |
 | **Cola** | | |
-| Creación de una cola |Administrar |Cualquier dirección de espacio de nombres |
-| Eliminación de una cola |Administrar |Cualquier dirección de cola válida |
-| Enumerar colas |Administrar |/$Resources/Queues |
-| Obtener la descripción de la cola |Administrar |Cualquier dirección de cola válida |
-| Configurar la regla de autorización para una cola |Administrar |Cualquier dirección de cola válida |
+| Creación de una cola |Administración |Cualquier dirección de espacio de nombres |
+| Eliminación de una cola |Administración |Cualquier dirección de cola válida |
+| Enumerar colas |Administración |/$Resources/Queues |
+| Obtener la descripción de la cola |Administración |Cualquier dirección de cola válida |
+| Configurar la regla de autorización para una cola |Administración |Cualquier dirección de cola válida |
 | Enviar a la cola |Envío |Cualquier dirección de cola válida |
 | mensajes de una cola |Escuchar |Cualquier dirección de cola válida |
 | Abandone o complete los mensajes después de recibir el mensaje en el modo de bloqueo de información |Escuchar |Cualquier dirección de cola válida |
@@ -274,25 +277,25 @@ La siguiente tabla muestra los derechos de acceso necesarios para realizar diver
 | Establecer el estado asociado a una sesión de cola de mensajes |Escuchar |Cualquier dirección de cola válida |
 | Programe un mensaje para entregarlo más tarde; por ejemplo, [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Escuchar | Cualquier dirección de cola válida
 | **Tema.** | | |
-| de un tema |Administrar |Cualquier dirección de espacio de nombres |
-| Eliminación de un tema |Administrar |Cualquier dirección de tema válida |
-| Enumerar temas |Administrar |/$Resources/Topics |
-| Obtener la descripción del tema |Administrar |Cualquier dirección de tema válida |
-| Configurar la regla de autorización para un tema |Administrar |Cualquier dirección de tema válida |
+| de un tema |Administración |Cualquier dirección de espacio de nombres |
+| Eliminación de un tema |Administración |Cualquier dirección de tema válida |
+| Enumerar temas |Administración |/$Resources/Topics |
+| Obtener la descripción del tema |Administración |Cualquier dirección de tema válida |
+| Configurar la regla de autorización para un tema |Administración |Cualquier dirección de tema válida |
 | Enviar al tema |Envío |Cualquier dirección de tema válida |
 | **Suscripción** | | |
-| una suscripción |Administrar |Cualquier dirección de espacio de nombres |
-| Eliminar suscripción |Administrar |../myTopic/Subscriptions/mySubscription |
-| Enumerar suscripciones |Administrar |../myTopic/Subscriptions |
-| Obtener la descripción de la suscripción |Administrar |../myTopic/Subscriptions/mySubscription |
+| una suscripción |Administración |Cualquier dirección de espacio de nombres |
+| Eliminar suscripción |Administración |../myTopic/Subscriptions/mySubscription |
+| Enumerar suscripciones |Administración |../myTopic/Subscriptions |
+| Obtener la descripción de la suscripción |Administración |../myTopic/Subscriptions/mySubscription |
 | Abandone o complete los mensajes después de recibir el mensaje en el modo de bloqueo de información |Escuchar |../myTopic/Subscriptions/mySubscription |
 | Aplazar un mensaje para su recuperación posterior |Escuchar |../myTopic/Subscriptions/mySubscription |
 | Mensaje fallido |Escuchar |../myTopic/Subscriptions/mySubscription |
 | Obtener el estado asociado a una sesión de tema |Escuchar |../myTopic/Subscriptions/mySubscription |
 | Establecer el estado asociado a una sesión de tema |Escuchar |../myTopic/Subscriptions/mySubscription |
 | **Reglas** | | |
-| Crear una regla |Administrar |../myTopic/Subscriptions/mySubscription |
-| Eliminar una regla |Administrar |../myTopic/Subscriptions/mySubscription |
+| Crear una regla |Administración |../myTopic/Subscriptions/mySubscription |
+| Eliminar una regla |Administración |../myTopic/Subscriptions/mySubscription |
 | Enumerar reglas |Administrar o escuchar |../myTopic/Subscriptions/mySubscription/Rules
 
 ## <a name="next-steps"></a>Pasos siguientes

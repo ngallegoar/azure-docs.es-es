@@ -5,16 +5,20 @@ author: sunasing
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
-ms.openlocfilehash: e6678eb2e738c206bbe67151361b594679d97b35
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 35acf4e9bd338a0e67b046a59d8884df0626e516
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281028"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429260"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>Obtener datos meteorológicos de asociados meteorológicos
 
-Azure FarmBeats le ayuda a obtener datos meteorológicos de los proveedores de datos correspondientes mediante un marco de conectores basado en Docker. Mediante este marco, los proveedores de datos meteorológicos implementan una instancia de Docker que se puede integrar en FarmBeats. Actualmente, solo se admite el proveedor de datos meteorológicos [DTN](https://www.dtn.com/dtn-content-integration/).
+Azure FarmBeats le ayuda a obtener datos meteorológicos de los proveedores de datos correspondientes mediante un marco de conectores basado en Docker. Mediante este marco, los proveedores de datos meteorológicos implementan una instancia de Docker que se puede integrar en FarmBeats. Actualmente, se admiten los siguientes proveedores de datos meteorológicos.
+
+  ![Asociados de FarmBeats](./media/get-sensor-data-from-sensor-partner/dtn-logo.png)
+  
+   [DTN](https://www.dtn.com/dtn-content-integration/)
 
 Los datos meteorológicos se pueden usar para generar información procesable y compilar modelos de inteligencia artificial o Machine Learning en FarmBeats.
 

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 07/30/2020
 ms.author: victorh
-ms.openlocfilehash: bd849a413d718ba5a25839c50c63ec2ad39be440
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 3f2b844163abce0946dc5df29c3121691e83035b
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128104"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439220"
 ---
 # <a name="azure-firewall-faq"></a>Preguntas frecuentes sobre Azure Firewall
 
@@ -168,7 +168,9 @@ La capacidad de rendimiento inicial de Azure Firewall es de 2,5 a 3 Gbps, y se 
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>¿Cuánto tiempo tarda Azure Firewall en escalar horizontalmente?
 
-Azure Firewall se escala gradualmente cuando el rendimiento medio o el consumo de CPU es del 60 %. El escalado horizontal tarda entre cinco y siete minutos. Cuando realice pruebas de rendimiento, asegúrese de que lleva a cabo una prueba de 10 a 15 minutos como mínimo e inicie nuevas conexiones para aprovechar los nodos de Firewall recién creados.
+Azure Firewall se escala gradualmente cuando el rendimiento medio o el consumo de CPU es del 60 %. Un rendimiento máximo de implementación predeterminado es aproximadamente 2,5-3 Gbps y comienza a escalar horizontalmente cuando alcanza el 60 % de esa cifra. El escalado horizontal tarda entre cinco y siete minutos. 
+
+Cuando realice pruebas de rendimiento, asegúrese de que lleva a cabo una prueba de 10 a 15 minutos como mínimo e inicie nuevas conexiones para aprovechar los nodos de Firewall recién creados.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>¿Permite Azure Firewall el acceso a Active Directory de forma predeterminada?
 

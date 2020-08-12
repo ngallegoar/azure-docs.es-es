@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/23/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 1872d0dd56a0459988e65852340c36493ee53f9f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: c75b6e67932cfd26a3374eab3f3efa34ceade577
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132252"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504490"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Control de acceso basado en roles (RBAC) para cuentas de Media Services
 
@@ -40,7 +40,7 @@ En el artículo sobre [definiciones de roles integrados](../../role-based-access
 
 Para obtener más información, consulte los siguientes artículos:
 
-- [Roles de administrador de suscripciones clásico de Azure RBAC y roles de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Roles de administrador de suscripciones clásico de Azure y roles de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 - [¿Qué es el control de acceso basado en rol de Azure (RBAC)?](../../role-based-access-control/overview.md)
 - [Uso de RBAC para administrar el acceso](../../role-based-access-control/role-assignments-rest.md)
 - [Operaciones del proveedor de recursos de Media Services](../../role-based-access-control/resource-provider-operations.md#microsoftmedia)

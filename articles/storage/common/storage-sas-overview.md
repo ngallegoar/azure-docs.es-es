@@ -10,12 +10,12 @@ ms.date: 07/17/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 108dd37370290a68d620a61f84b4553ed59792ab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 185992284e353c3e58104bc46296c1741fbca7d9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077868"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502178"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)
 
@@ -58,7 +58,7 @@ Puede firmar una SAS de dos maneras:
 
 - Con una *clave de delegación de usuarios* creada con las credenciales de Azure Active Directory (Azure AD). Una SAS de delegación de usuarios está firmada con la clave de delegación de usuarios.
 
-    Para obtener la clave de delegación de usuarios y crear la SAS, una entidad de seguridad de Azure AD debe tener asignado un rol de control de acceso basado en rol (RBAC) que incluya la acción **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey**. Para obtener información detallada sobre los roles de RBAC con permisos para obtener la clave de delegación de usuarios, consulte [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas) (Creación de una SAS de delegación de usuarios [API REST]).
+    Para obtener la clave de delegación de usuarios y crear la SAS, a una entidad de seguridad de Azure AD se le debe asignar un rol de Azure que incluya la acción **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey**. Para obtener información detallada sobre los roles de Azure con permisos para obtener la clave de delegación de usuarios, consulte [Creación de una SAS de delegación de usuarios (API REST)](/rest/api/storageservices/create-user-delegation-sas).
 
 - Con la clave de la cuenta de almacenamiento. Tanto una SAS de servicio como una SAS de cuenta se firman con la clave de cuenta de almacenamiento. Para crear una SAS firmada con la clave de cuenta, una aplicación debe tener acceso a la clave de cuenta.
 

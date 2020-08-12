@@ -4,12 +4,12 @@ description: Implementación y configuración de una red del consorcio de Hyperl
 ms.date: 07/27/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: fe06af9364ceb1d97588cac88335cb39c45f0e0f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4bc55090234a4ab33125ba43b8416de1eadb702f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286060"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533434"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Consorcio Hyperledger Fabric en Azure Kubernetes Service (AKS)
 
@@ -305,12 +305,12 @@ Desde el cliente de la organización del mismo nivel, emita el comando para esta
   - Establezca `<anchorPeersList>` como "peer1" si quiere establecer solo al nodo peer1 como delimitador del mismo nivel.
   - Establezca `<anchorPeersList>` como "peer1" "peer3" si quiere establecer solo a los nodos peer1 y peer3 como delimitadores del mismo nivel.
 
-### <a name="chaincode-management-commands"></a>Comandos de administración de código de cadena
+## <a name="chaincode-management-commands"></a>Comandos de administración de código de cadena
 
 >[!NOTE]
 > Antes de comenzar con la operación del código de cadena, asegúrese de que se ha realizado la configuración inicial de la aplicación cliente.  
 
-**Establecimiento de las siguientes variables de entorno para código de cadena**
+### <a name="set-the-below-chaincode-specific-environment-variables"></a>Establecimiento de las siguientes variables de entorno para código de cadena
 
 ```bash
 # peer organization name where chaincode operation is to be performed
@@ -329,14 +329,6 @@ CC_PATH=<chaincodePath>
 # Channel on which chaincode is to be instantiated/invoked/queried  
 CHANNEL_NAME=<channelName>  
 ```
-
-Se pueden realizar las siguientes operaciones de código de cadena:  
-
-- [Instalación del código de cadena](#install-chaincode)  
-- [Creación de instancia del código de cadena](#instantiate-chaincode)  
-- [Invocación del código de cadena](#invoke-chaincode)
-- [Consulta del código de cadena](#query-chaincode)
-
 
 ### <a name="install-chaincode"></a>Instalación del código de cadena  
 
@@ -358,13 +350,13 @@ Siga estos pasos:
 Desde la aplicación cliente del mismo nivel, ejecute el comando siguiente para crear una instancia de código de cadena en el canal.  
 
 ```bash
-./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -v $CC_VERSION -l $CC_LANG -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
+./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
 ```
+
 Pase el nombre de la función de creación de instancias y la lista de argumentos separados por espacios en `<instantiateFunc>` y `<instantiateFuncArgs>`, respectivamente. Por ejemplo, en el código de cadena chaincode_example02.go, para crear una instancia, establezca `<instantiateFunc>` en `init` y `<instantiateFuncArgs>` en "a" "2000" "b" "1000".
 
 > [!NOTE]
 > Ejecute el comando para una vez desde una organización del mismo nivel en el canal. Una vez que la transacción se envía correctamente al solicitante, el solicitante distribuye esta transacción a todas las organizaciones del mismo nivel del canal. Por lo tanto, se crea una instancia del código de cadena en todos los nodos del mismo nivel en todas las organizaciones del mismo nivel del canal.  
-
 
 ### <a name="invoke-chaincode"></a>Invocación del código de cadena  
 

@@ -11,21 +11,21 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 8788bd5c5da4d2f5622a633109e2fa8b6d2a5f03
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 82b10525fe4d8b9db88300b61ae2da6630030dfd
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405150"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461194"
 ---
 # <a name="configure-saml-based-single-sign-on"></a>Configuración del inicio de sesión único basado en SAML
 
-En la [serie de guías de inicio rápido](view-applications-portal.md) sobre la administración de aplicaciones, aprendió a usar Azure AD como proveedor de identidades (IdP) para una aplicación. Este artículo explica con más detalle la opción SAML para el inicio de sesión único. 
+En la [serie de guías de inicio rápido](view-applications-portal.md) sobre la administración de aplicaciones, aprendió a usar Azure AD como proveedor de identidades (IdP) para una aplicación. Este artículo explica con más detalle la opción basada en SAML para el inicio de sesión único. 
 
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-El uso de Azure AD como proveedor de identidades y la configuración del inicio de sesión único (SSO) pueden ser algo sencillo o complejo en función de la aplicación utilizada. Algunas aplicaciones se pueden configurar con pocos pasos. Otras exigen una configuración detallada. Para empezar rápidamente, consulte la [serie de guías de inicio rápido](view-applications-portal.md) sobre la administración de aplicaciones. Si la aplicación que va a añadir es sencilla, probablemente no necesite leer este artículo. Si la aplicación que va a añadir requiere una configuración personalizada para SSO basado en SAML, este artículo es para usted.
+El uso de Azure AD como proveedor de identidades (IdP) y la configuración del inicio de sesión único (SSO) pueden ser algo sencillo o complejo en función de la aplicación utilizada. Algunas aplicaciones se pueden configurar con pocos pasos. Otras exigen una configuración detallada. Para empezar rápidamente, consulte la [serie de guías de inicio rápido](view-applications-portal.md) sobre la administración de aplicaciones. Si la aplicación que va a añadir es sencilla, probablemente no necesite leer este artículo. Si la aplicación que va a añadir requiere una configuración personalizada para SSO basado en SAML, este artículo es para usted.
 
 En la [serie de guías de inicio rápido](view-applications-portal.md), hay un artículo sobre la configuración del inicio de sesión único. En el artículo, descubrirá cómo acceder a la página de configuración de SAML para una aplicación. La página de configuración de SAML consta de cinco secciones. Las secciones se abordan en detalle en este artículo.
 
@@ -42,7 +42,7 @@ En la [serie de guías de inicio rápido](view-applications-portal.md), hay un a
 El proveedor de la aplicación le proporcionará estos valores. Puede especificar los valores manualmente o cargar un archivo de metadatos para extraer el valor de los campos.
 
 > [!TIP]
-> Muchas aplicaciones se han configurado previamente para funcionar con Azure AD. Estas aplicaciones se enumeran en la galería de aplicaciones, que puede examinar cuando añada una aplicación al inquilino de Azure AD. La [serie de guías de inicio rápido](view-applications-portal.md) le orientará a lo largo del proceso. En el caso de las aplicaciones de la galería, encontrará instrucciones de configuración detalladas. Para acceder a los pasos, haga clic en el vínculo de la página de configuración de SAML correspondiente a la aplicación, tal y como se escribe en la serie de guías de inicio rápido, o bien examine una lista de todos los tutoriales de configuración de aplicaciones en [Tutoriales para integrar aplicaciones SaaS con Azure Active Directory](../saas-apps/tutorial-list.md).
+> Muchas aplicaciones se han configurado previamente para funcionar con Azure AD. Estas aplicaciones se enumeran en la galería de aplicaciones, que puede examinar cuando añada una aplicación al inquilino de Azure AD. La [serie de guías de inicio rápido](view-applications-portal.md) le orientará a lo largo del proceso. En el caso de las aplicaciones de la galería, encontrará instrucciones de configuración detalladas paso a paso. Para acceder a los pasos, haga clic en el vínculo de la página de configuración de SAML correspondiente a la aplicación, tal y como se escribe en la serie de guías de inicio rápido, o bien examine una lista de todos los tutoriales de configuración de aplicaciones en [Tutoriales para integrar aplicaciones SaaS con Azure Active Directory](../saas-apps/tutorial-list.md).
 
 | Opción de configuración básica de SAML | Iniciado por el proveedor de servicios | Iniciado por IdP | Descripción |
 |:--|:--|:--|:--|

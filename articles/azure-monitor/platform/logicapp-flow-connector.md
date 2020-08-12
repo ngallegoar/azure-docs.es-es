@@ -7,15 +7,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 6048b5f0a3702e95cef9175933041fe36f2f07bb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2ef7095d186902425adb5065c470325be1283023
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081566"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475743"
 ---
-# <a name="azure-monitor-logs-connector-for-logic-apps-and-flow"></a>Conector de Azure Monitor Logs para Logic Apps y Flow
-[Azure Logic Apps](../../logic-apps/index.yml) y [Power Automate](https://ms.flow.microsoft.com) le permite crear flujos de trabajo automatizados, con cientos de acciones para diversos servicios. El conector de Azure Monitor Logs le permite crear flujos de trabajo destinados a recuperar datos de un área de trabajo de Log Analytics o de una aplicación Application Insights en Azure Monitor. En este artículo se describen las acciones que se incluyen con el conector y se proporciona un tutorial para crear un flujo de trabajo con estos datos.
+# <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Conector de Azure Monitor Logs para Logic Apps y Power Automate
+[Azure Logic Apps](../../logic-apps/index.yml) y [Power Automate](https://flow.microsoft.com) le permite crear flujos de trabajo automatizados, con cientos de acciones para diversos servicios. El conector de Azure Monitor Logs le permite crear flujos de trabajo destinados a recuperar datos de un área de trabajo de Log Analytics o de una aplicación Application Insights en Azure Monitor. En este artículo se describen las acciones que se incluyen con el conector y se proporciona un tutorial para crear un flujo de trabajo con estos datos.
 
 Por ejemplo, puede crear una aplicación lógica para usar los datos de registro de Azure Monitor incluidos en una notificación de correo electrónico de Office 365, crear un error en Azure DevOps o publicar un mensaje de Slack.  Puede desencadenar un flujo de trabajo mediante una programación simple o a partir de alguna acción de un servicio conectado, como cuando se recibe un correo electrónico o un tweet. 
 
@@ -126,4 +126,4 @@ Cuando se complete la aplicación lógica, compruebe el correo del destinatario 
 
 - Más información sobre las [consultas de registro en Azure Monitor](../log-query/log-query-overview.md).
 - Más información acerca de [Logic Apps](../../logic-apps/index.yml).
-- Más información sobre [Microsoft Flow](https://ms.flow.microsoft.com).
+- Más información sobre [Power Automate](https://flow.microsoft.com).

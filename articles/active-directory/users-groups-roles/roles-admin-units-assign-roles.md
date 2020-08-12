@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/16/2020
+ms.date: 07/10/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71d0a1f2551338207a71b6c547d9c2cd57fea777
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 918675b111b7b1b85669692b63fed683ea2831f8
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284394"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475641"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Asignación de roles con ámbito a una unidad administrativa
 
@@ -46,7 +46,7 @@ Vaya a **Azure AD > Unidades administrativas** en el portal. Seleccione la unida
 
 ![Seleccione la unidad administrativa a la que cambiará el ámbito de rol.](./media/roles-admin-units-assign-roles/select-role-to-scope.png)
 
-Seleccione el rol que se va a asignar y, a continuación, seleccione **Agregar asignaciones**. Esta diapositiva abrirá un panel a la derecha en el que podrá seleccionar uno o varios usuarios para asignarlos al rol.
+Seleccione el rol que se va a asignar y, a continuación, seleccione **Agregar asignaciones**. Se abrirá un panel a la derecha en el que podrá seleccionar uno o varios usuarios para asignarlos al rol.
 
 ![Seleccione el rol al que se agregará el ámbito y, a continuación, seleccione Agregar asignaciones.](./media/roles-admin-units-assign-roles/select-add-assignment.png)
 
@@ -104,4 +104,5 @@ Request body
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Preguntas frecuentes y solución de problemas de unidades administrativas](roles-admin-units-faq-troubleshoot.md)
+- [Uso de grupos en la nube para administrar asignaciones de roles](roles-groups-concept.md)
+- [Solución de problemas de roles asignados a grupos en la nube](roles-groups-faq-troubleshooting.md)

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 00080322b4fa474e5095d40afb041134e1a85fe7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 93fb65fc7c7551635c49e33d0f626d72c2755a11
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519743"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553978"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Selección de un plan de tarifa de Azure Cognitive Search
 
@@ -61,9 +61,18 @@ Encontrará más información sobre los distintos niveles en la [página de prec
 Una solución basada en Azure Cognitive Search puede incurrir en costos de las siguientes maneras:
 
 + Costo del mismo servicio, que se ejecuta de forma ininterrumpida con una configuración mínima (una partición y una réplica)
+
 + Adición de capacidad (réplicas o particiones)
-+ Cargos de ancho de banda (transferencia de datos salientes) 
-+ Servicios complementarios como el enriquecimiento con IA (anexión de Cognitive Services en conjuntos de aptitudes que definen el procesamiento con IA o el uso de Azure Storage para el almacén de conocimiento) o la implementación de un servicio de búsqueda en una red privada virtual
+
++ Cargos de ancho de banda (transferencia de datos salientes)
+
++ Servicios complementarios necesarios para funcionalidades o características específicas:
+
+  + Enriquecimiento con inteligencia artificial (requiere [Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/))
+  + almacén de conocimiento (requiere [Azure Storage](https://azure.microsoft.com/pricing/details/storage/))
+  + enriquecimiento incremental (requiere [Azure Storage](https://azure.microsoft.com/pricing/details/storage/), se aplica al enriquecimiento con inteligencia artificial)
+  + claves administradas por el cliente y cifrado doble (requiere [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/))
+  + puntos de conexión privados para un modelo de acceso sin Internet (requiere [Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/))
 
 ### <a name="service-costs"></a>Costos de servicio
 

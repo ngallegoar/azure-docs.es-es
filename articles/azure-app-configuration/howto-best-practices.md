@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 4da024eb4eb3747b8e0d6b291ca5b00df12aaeab
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 08a65ff8d276cd27c9f8fa07393600bc24e7b17f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367527"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500307"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Procedimientos recomendados para Azure App Configuration
 
@@ -86,6 +86,10 @@ Una cantidad excesiva de solicitudes a App Configuration puede dar lugar a cargo
 ## <a name="importing-configuration-data-into-app-configuration"></a>Importación de datos de configuración en App Configuration
 
 App Configuration ofrece la opción de [importación](https://aka.ms/azconfig-importexport1) masiva de las opciones de los archivos de configuración actuales mediante Azure Portal o la CLI de Azure. También puede usar las mismas opciones para exportar valores de App Configuration, por ejemplo, entre almacenes relacionados. Si desea configurar una sincronización continua con el repositorio de GitHub, puede usar nuestra [acción de GitHub](https://aka.ms/azconfig-gha2) para poder seguir usando las prácticas de control de código fuente existentes a la vez que obtiene las ventajas de App Configuration.
+
+## <a name="multi-region-deployment-in-app-configuration"></a>Implementación en varias regiones en App Configuration
+
+App Configuration es el servicio regional. En el caso de las aplicaciones con distintas configuraciones por región, el almacenamiento de estas configuraciones en una instancia puede crear un único punto de error. La implementación de una instancia de App Configuration por región en varias regiones puede ser mejor opción. Puede ayudar con la recuperación ante desastres regional, el rendimiento y el silo de seguridad. La configuración por región también mejora la latencia y usa cuotas de limitación independientes, ya que la limitación es por instancia. Para aplicar la mitigación de recuperación ante desastres, puede utilizar [varios almacenes de configuración](./concept-disaster-recovery.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

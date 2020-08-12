@@ -2,28 +2,34 @@
 title: Introducción a las especificaciones de plantilla
 description: Describe cómo crear especificaciones de plantilla y compartirlas con otros usuarios de la organización.
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 07/31/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 47dcf44b35ad5c0b77dd0b88d683071a7f2f4ecb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 829aaa41bc60b3dcbf78ef6083457fff3b794914
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095119"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497807"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Especificaciones de plantilla de Azure Resource Manager (versión preliminar)
 
-Una especificación de plantilla es un nuevo tipo de recurso para almacenar una plantilla de Azure Resource Manager (plantilla de ARM) en Azure para su posterior implementación. Este tipo de recurso permite compartir plantillas de ARM con otros usuarios de la organización. Al igual que cualquier otro recurso de Azure, puede usar el control de acceso basado en rol (RBAC) para compartir la especificación de plantilla. Los usuarios solo necesitan acceso de lectura a la especificación de plantilla para implementar su plantilla, por lo que puede compartir la plantilla sin permitir que otros la modifiquen.
+Una especificación de plantilla es un nuevo tipo de recurso para almacenar una plantilla de Azure Resource Manager (plantilla de ARM) en Azure para su posterior implementación. Este tipo de recurso permite compartir plantillas de ARM con otros usuarios de la organización. Al igual que cualquier otro recurso de Azure, puede usar el control de acceso basado en rol (RBAC) para compartir la especificación de plantilla.
 
 **Microsoft.Resources/templateSpecs** es el nuevo tipo de recurso para las especificaciones de plantilla. Consta de una plantilla principal y un número indefinido de plantillas vinculadas. Azure almacena de forma segura las especificaciones de plantilla en grupos de recursos. Las especificaciones de plantilla son compatibles con el [control de versiones](#versioning).
 
 Para implementar la especificación de plantilla, use herramientas estándar de Azure como PowerShell, la CLI de Azure, Azure Portal, REST, y otros SDK y clientes compatibles. Utilice los mismos comandos y pase los mismos parámetros para la plantilla.
 
-La ventaja de utilizar las especificaciones de plantilla es que los equipos de la organización no tienen que volver a crear ni copiar plantillas para escenarios comunes. Cree plantillas canónicas y compártalas. Los administradores de la organización deben comprobar las plantillas que se incluyen en una especificación de plantilla para seguir los requisitos y las instrucciones de la organización.
-
 > [!NOTE]
 > Las especificaciones de plantilla se encuentran actualmente en versión preliminar. Para usarlas, debe [regístrese para la lista de espera](https://aka.ms/templateSpecOnboarding).
+
+## <a name="why-use-template-specs"></a>¿Por qué usar especificaciones de plantilla?
+
+Si actualmente tiene sus plantillas en un repositorio de GitHub o una cuenta de almacenamiento, se enfrenta a varios desafíos al intentar compartir y usar las plantillas. Para que un usuario la implemente, la plantilla debe ser local o su dirección URL debe ser accesible públicamente. Para superar esta limitación, puede compartir copias de la plantilla con los usuarios que necesiten implementarla o abrir el acceso al repositorio o a la cuenta de almacenamiento. Cuando los usuarios poseen copias locales de una plantilla, estas pueden diferir de la plantilla original. Cuando crea un repositorio o una cuenta de almacenamiento accesible públicamente, puede permitir que usuarios no deseados accedan a la plantilla.
+
+La ventaja de utilizar especificaciones de plantilla es que puede crear plantillas canónicas y compartirlas con los equipos de la organización. Las especificaciones de plantilla son seguras porque están disponibles para Azure Resource Manager para la implementación, pero no para los usuarios sin permiso RBAC. Los usuarios solo necesitan acceso de lectura a la especificación de plantilla para implementar su plantilla, por lo que puede compartir la plantilla sin permitir que otros la modifiquen.
+
+Los administradores de la organización deben comprobar las plantillas que se incluyen en una especificación de plantilla para seguir los requisitos y las instrucciones de la organización.
 
 ## <a name="create-template-spec"></a>Crear una especificación de plantilla
 

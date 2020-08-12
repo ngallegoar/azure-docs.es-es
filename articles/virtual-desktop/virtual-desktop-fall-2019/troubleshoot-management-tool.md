@@ -1,6 +1,6 @@
 ---
-title: 'Herramienta de administración de Windows Virtual Desktop: Azure'
-description: Solución de problemas con la herramienta de administración de Windows Virtual Desktop.
+title: 'Herramienta de administración de Windows Virtual Desktop (clásico): Azure'
+description: Solución de problemas con la herramienta de administración de Windows Virtual Desktop (clásico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bb9206d2c2c15c036b0cf1184b79ed126966eb3b
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 442cdce2ebb6c1a3e38932411dfa2b081a44ef9f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614077"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283374"
 ---
-# <a name="troubleshoot-the-windows-virtual-desktop-management-tool"></a>Solución de problemas de la herramienta Windows Virtual Desktop
+# <a name="troubleshoot-the-windows-virtual-desktop-classic-management-tool"></a>Solución de problemas de la herramienta Windows Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a la versión de otoño de 2019 que no admite objetos de Windows Virtual Desktop para Azure Resource Manager.
+>Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager.
 
 En este artículo se describen los problemas que pueden producirse durante la implementación de la herramienta de Windows Virtual Desktop y cómo corregirlos.
 

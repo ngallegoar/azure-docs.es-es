@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 60f2a1992750950b50995fcf36513e44e377004d
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: fb56c4da77ddeb87ebc3724a3b138994e4da98e7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386612"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489697"
 ---
 # <a name="query-nested-types-in-parquet-and-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Consulta de tipos anidados en Parquet y archivos JSON con SQL a petición (versión preliminar) en Azure Synapse Analytics
 
@@ -203,7 +203,7 @@ FROM
 
 La estructura `MapOfPersons` se devuelve como columna `VARCHAR` y con el formato de cadena JSON.
 
-## <a name="projecting-values-from-repeated-columns"></a>Proyección de valores de columnas repetidas
+## <a name="project-values-from-repeated-columns"></a>Proyección de valores de columnas repetidas
 
 Si tiene una matriz de valores escalares (por ejemplo, `[1,2,3]`) en algunas columnas, puede expandirlos fácilmente y combinarlos con la fila principal con el script siguiente:
 

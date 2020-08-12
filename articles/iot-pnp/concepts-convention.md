@@ -7,12 +7,12 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b06edb83e85ef6d56cf8bf8f91551fe99535eba1
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 126673391b49f884a51521d462060c425a314667
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352046"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475675"
 ---
 # <a name="iot-plug-and-play-conventions"></a>Convenciones de IoT Plug and Play
 
@@ -25,11 +25,11 @@ Se describen la telemetría, las propiedades y los comandos que implementa un di
 
 Para más información, consulte [Componentes de los modelos de IoT Plug and Play](concepts-components.md).
 
-## <a name="model-discovery"></a>Detección de modelo
+## <a name="identify-the-model"></a>Identificación del modelo
 
 Para anunciar el modelo que implementa, un dispositivo IoT Plug and Play incluye el identificador del modelo en el paquete de conexión MQTT agregando `model-id` al campo `USERNAME`.
 
-Para detectar el modelo que implementa un dispositivo, un servicio puede obtener el identificador de modelo de:
+Para identificar el modelo que implementa un dispositivo, un servicio puede obtener el identificador de modelo en:
 
 - El campo `modelId` del dispositivo gemelo.
 - El campo `$metadata.$model` del gemelo digital.

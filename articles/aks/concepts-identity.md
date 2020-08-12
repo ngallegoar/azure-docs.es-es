@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: b7739320fa23bf4469548f61486da1a5ee6110da
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f87e3f4add0cb5949036ec6caca2e361e2e88ea0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507169"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498130"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opciones de acceso e identidad en Azure Kubernetes Service (AKS)
 
@@ -75,8 +75,6 @@ Con los clústeres de AKS integrados en Azure AD, puede conceder a los usuarios 
 
 La autenticación de Azure AD se proporciona a los clústeres de AKS con OpenID Connect. OpenID Connect es una capa de identidad creada basándose en el protocolo OAuth 2.0. Puede encontrar más información sobre OpenID Connect en la [documentación de OpenID Connect][openid-connect]. Dentro del clúster de Kubernetes, se usa [la autenticación de token de webhook][webhook-token-docs] para verificar los tokens de autenticación. La autenticación de token de webhook se configura y administra como parte del clúster de AKS.
 
-Dentro del clúster de Kubernetes, se usa la autenticación de token de webhook para verificar los tokens de autenticación. La autenticación de token de webhook se configura y administra como parte del clúster de AKS.
-
 ### <a name="webhook-and-api-server"></a>Webhook y servidor de API
 
 ![Flujo de autenticación del servidor de API y webhook](media/concepts-identity/auth-flow.png)
@@ -105,7 +103,7 @@ Azure RBAC es un sistema de autorización basado en [Azure Resource Manager](../
 
 Con el control de acceso basado en rol de Azure, puede crear una *definición de rol* que describe los permisos que se aplicarán. A continuación, se asigna esta definición de rol a un usuario o grupo a través de una *asignación de roles* para un *ámbito* determinado que puede ser un recurso individual, un grupo de recursos o en toda la suscripción.
 
-Para más información, consulte [¿Qué es el control de acceso basado en rol de Azure?][azure-rbac]
+Para obtener más información, consulte [¿Qué es el control de acceso basado en roles (RBAC) de Azure?][azure-rbac]
 
 Hay dos niveles de acceso necesarios para operar completamente un clúster de AKS: 
 1. [Acceso al recurso de AKS en la suscripción de Azure](#azure-rbac-to-authorize-access-to-the-aks-resource) Este proceso permite controlar las cosas que escalan o actualizan el clúster mediante las API de AKS, así como la extracción de kubeconfig.
@@ -121,7 +119,7 @@ Vea más información sobre cómo usar Azure RBAC para proteger el acceso al arc
 
 ### <a name="azure-rbac-for-kubernetes-authorization-preview"></a>Azure RBAC para la autorización de Kubernetes (versión preliminar)
 
-Con la integración de Azure RBAC, AKS usará un servidor de autorización de webhook de Kubernetes para que pueda administrar los permisos y las asignaciones de recursos de clúster de K8s integradas en Azure AD con la definición de roles y las asignaciones de roles de Azure RBAC.
+Con la integración de la característica RBAC de Azure, AKS utilizará un servidor de webhooks de autorización de Kubernetes, lo que le permitirá administrar los permisos y asignaciones de los recursos del clúster K8s integrados en Azure AD utilizando la definición y la asignación de roles de Azure AD.
 
 ![Azure RBAC para el flujo de autorización de Kubernetes](media/concepts-identity/azure-rbac-k8s-authz-flow.png)
 

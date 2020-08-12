@@ -8,18 +8,16 @@ ms.topic: how-to
 ms.date: 07/28/2020
 ms.author: yushwang
 ms.reviewer: cherylmc
-ms.openlocfilehash: d6a28922aca7105d90e6c8662986b68c90804481
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 3747be15f7a15d3d47af2d3495eea2315d40a044
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387598"
+ms.locfileid: "87419910"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Configuración de conexiones VPN S2S activo-activo con Azure VPN Gateway
 
-Este artículo le guiará por los pasos para crear conexiones activo-activo entre entornos locales y de red virtual a red virtual mediante el modelo de implementación de Resource Manager y PowerShell.
-
-
+Este artículo le guiará por los pasos para crear conexiones activo-activo entre entornos locales y de red virtual a red virtual mediante el modelo de implementación de Resource Manager y PowerShell. También puede configurar una puerta de enlace activo-activo en Azure Portal.
 
 ## <a name="about-highly-available-cross-premises-connections"></a>Acerca de las conexiones entre entornos locales de alta disponibilidad
 Para lograr una alta disponibilidad en la conectividad de red virtual a red virtual y entre entornos locales, debe implementar varias puertas de enlace VPN y establecer varias conexiones en paralelo entre sus redes y Azure. Consulte [Conectividad de alta disponibilidad entre locales y de red virtual a red virtual](vpn-gateway-highlyavailable.md) para obtener información general de las opciones de conectividad y la topología.
@@ -49,11 +47,19 @@ Las demás propiedades son las mismas que las de las puertas de enlace que no so
 
 ### <a name="before-you-begin"></a>Antes de empezar
 * Compruebe que tiene una suscripción a Azure. Si todavía no la tiene, puede activar sus [ventajas como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Necesitará instalar los cmdlets de PowerShell del Administrador de recursos de Azure. Vea [Información general sobre Azure PowerShell](/powershell/azure/) para obtener más información sobre la instalación de los cmdlets de PowerShell.
+* Tendrá que instalar los cmdlets de PowerShell de Azure Resource Manager si no quiere usar CloudShell en el explorador. Vea [Información general sobre Azure PowerShell](/powershell/azure/) para obtener más información sobre la instalación de los cmdlets de PowerShell.
 
 ### <a name="step-1---create-and-configure-vnet1"></a>Paso 1: Creación y configuración de VNet1
 #### <a name="1-declare-your-variables"></a>1. Declaración de las variables
-Para este ejercicio, comenzaremos declarando las variables. En el ejemplo siguiente, se declaran las variables con los valores para este ejercicio. Asegúrese de reemplazar los valores por los suyos propios cuando realice la configuración para el entorno de producción. Puede usar estas variables si está practicando los pasos para familiarizarse con este tipo de configuración. Modifique las variables y después copie y pegue todo en la consola de PowerShell.
+
+Para este ejercicio, comenzaremos declarando las variables. Si utiliza la opción "Probar" de Cloud Shell, se conectará automáticamente a su cuenta. Si usa PowerShell localmente, utilice el siguiente ejemplo para ayudarle a conectarse:
+
+```powershell
+Connect-AzAccount
+Select-AzSubscription -SubscriptionName $Sub1
+```
+
+En el ejemplo siguiente, se declaran las variables con los valores para este ejercicio. Asegúrese de reemplazar los valores por los suyos propios cuando realice la configuración para el entorno de producción. Puede usar estas variables si está practicando los pasos para familiarizarse con este tipo de configuración. Modifique las variables y después copie y pegue todo en la consola de PowerShell.
 
 ```azurepowershell-interactive
 $Sub1 = "Ross"
@@ -80,14 +86,11 @@ $Connection151 = "VNet1toSite5_1"
 $Connection152 = "VNet1toSite5_2"
 ```
 
-#### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. Conexión a su suscripción y creación de un nuevo grupo de recursos
-Asegúrese de cambiar el modo de PowerShell para que use los cmdlets del Administrador de recursos. Para obtener más información, consulte [Uso de Windows PowerShell con el Administrador de recursos](../powershell-azure-resource-manager.md).
+#### <a name="2-create-a-new-resource-group"></a>2. Creación de un nuevo grupo de recursos
 
-Abre la consola de PowerShell y conéctate a tu cuenta. Use el siguiente ejemplo para ayudarle a conectarse:
+Use el ejemplo siguiente para crear un grupo de recursos:
 
 ```azurepowershell-interactive
-Connect-AzAccount
-Select-AzSubscription -SubscriptionName $Sub1
 New-AzResourceGroup -Name $RG1 -Location $Location1
 ```
 
@@ -368,11 +371,11 @@ Después de completar estos pasos, la conexión se establecerá en unos minutos 
 
 ## <a name="update-an-existing-vpn-gateway"></a><a name ="aaupdate"></a>Actualización de una instancia de VPN Gateway existente
 
-En esta sección, le ayudamos a cambiar una instancia de Azure VPN Gateway existente de activo-en espera a modo activo-activo o viceversa.
+Al cambiar una puerta de enlace de activo-en espera a activo-activo, crea otra dirección IP pública y después agrega una segunda configuración IP de puerta de enlace. En esta sección, le ayudamos a cambiar una instancia de Azure VPN Gateway existente del modo activo-en espera al modo activo-activo o viceversa mediante PowerShell. También puede cambiar una puerta de enlace en Azure Portal en la página **Configuración** de la puerta de enlace de red virtual.
 
 ### <a name="change-an-active-standby-gateway-to-an-active-active-gateway"></a>Cambio de una puerta de enlace de activo-en espera a una puerta de enlace activo-activo
 
-En el ejemplo siguiente se convierte una puerta de enlace de activo-en espera en puerta de enlace activo-activo. Al cambiar una puerta de enlace de activo-en espera a activo-activo, crea otra dirección IP pública y después agrega una segunda configuración IP de puerta de enlace.
+En el ejemplo siguiente se convierte una puerta de enlace de activo-en espera en puerta de enlace activo-activo. 
 
 #### <a name="1-declare-your-variables"></a>1. Declaración de las variables
 

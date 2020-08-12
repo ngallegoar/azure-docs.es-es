@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 05/06/2020
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8b7fa5aea835329be8f65a3bb1775ba5b0d97d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ca536ddacb0f81459625b733eb79282e145afba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389874"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016348"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configuración de Slack para aprovisionar usuarios automáticamente
 
@@ -169,7 +169,7 @@ Una vez configurado el aprovisionamiento, use los recursos siguientes para super
 2. Consulte la [barra de progreso](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) para ver el estado del ciclo de aprovisionamiento y cuánto falta para que finalice.
 3. Si la configuración de aprovisionamiento parece estar en mal estado, la aplicación pasará a estar en cuarentena. Más información sobre los estados de cuarentena [aquí](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
-## <a name="connector-limitations"></a>Limitaciones del conector
+## <a name="troubleshooting-tips"></a>Sugerencias para la solución de problemas
 
 * Cuando configure el atributo  **displayName** de Slack, tenga en cuenta los siguientes comportamientos:
 
@@ -179,11 +179,15 @@ Una vez configurado el aprovisionamiento, use los recursos siguientes para super
   
   * La puntuación permitida incluye puntos, caracteres de subrayado, guiones, apóstrofes, corchetes (por ejemplo, **( [ { } ] )** ) y separadores (por ejemplo, **, / ;** ).
   
+  * la propiedad displayName no puede tener un carácter "@". Si se incluye un carácter "@", es posible que encuentre un evento omitido en los registros de aprovisionamiento con la descripción "AttributeValidationFailed".
+
   * Solo se actualiza si estos dos parámetros están configurados en el área de trabajo y organización de Slack - **La sincronización de perfiles está habilitada** y **Los usuarios no pueden cambiar su nombre para mostrar**.
-  
+
 * El atributo **userName** de Slack debe tener menos de 21 caracteres y tener un valor único.
 
 * Slack solo permite la coincidencia con los atributos **userName** y **email**.  
+  
+* Los códigos de error comunes están documentados en la documentación oficial de Slack: https://api.slack.com/scim#errors
 
 ## <a name="change-log"></a>Registro de cambios
 

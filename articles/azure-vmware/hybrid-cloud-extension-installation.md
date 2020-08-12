@@ -3,12 +3,12 @@ title: Instalación de Hybrid Cloud Extension (HCX)
 description: Configuración de la solución VMware Hybrid Cloud Extension (HCX) para la nube privada de Azure VMware Solution (AVS)
 ms.topic: how-to
 ms.date: 07/15/2020
-ms.openlocfilehash: b897a44fb6811c4e3564c59a8ab2c064506f0a4f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ea968cb21812f7273af342763d307c2faba1eea6
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539166"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475454"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Instalación de HCX para Azure VMware Solution
 
@@ -52,7 +52,7 @@ Los componentes de la infraestructura deben ejecutar la versión mínima necesar
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Se debe configurar la comunicación global entre los circuitos de ER del SDDC de AVS y el entorno local.
+* Se debe configurar Global Reach de ExpressRoute entre los circuitos de ExpressRoute del SDDC de AVS y el entorno local.
 
 * Todos los puertos necesarios deben estar abiertos entre el SDDC de AVS y el entorno local (consulte la [documentación de VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html)).
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 860616cbea598e40494155e250254b3c607c1173
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2bd688a9e488c1206b0c8531698b061f650e2afe
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027502"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87417937"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Habilitación de Azure Multi-Factor Authentication por usuario para proteger los eventos de inicio de sesión
 
@@ -55,7 +55,7 @@ Para acceder a la página de Azure Portal en la que puede ver y administrar los 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador.
 1. Busque y seleccione *Azure Active Directory* y, a continuación, seleccione **Usuarios** > **Todos los usuarios**.
-1. Seleccione **Multi-Factor Authentication**. Es posible que tenga que desplazarse hacia la derecha para ver esta opción de menú. Seleccione la siguiente captura de pantalla de ejemplo para ver la ventana de Azure Portal completa y la ubicación del menú: [![](media/howto-mfa-userstates/selectmfa-cropped.png "Selección de Multi-Factor Authentication desde la ventana Usuarios en Azure AD")](media/howto-mfa-userstates/selectmfa.png#lightbox)
+1. Seleccione **Multi-Factor Authentication**. Es posible que tenga que desplazarse hacia la derecha para ver esta opción de menú. Seleccione la siguiente captura de pantalla de ejemplo para ver la ventana de Azure Portal completa y la ubicación del menú: [![Selección de Multi-Factor Authentication desde la ventana Usuarios en Azure AD.](media/howto-mfa-userstates/selectmfa-cropped.png)](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. Se abre una nueva página que muestra el estado del usuario, tal y como se muestra en el ejemplo siguiente.
    ![Captura de pantalla que muestra información de ejemplo del estado del usuario de Azure Multi-Factor Authentication](./media/howto-mfa-userstates/userstate1.png)
 

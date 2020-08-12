@@ -10,14 +10,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: ef87d5da2c2d56a4fdc3873410bb5a6e5c711d01
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0156cfb0720e78b87abc36f0811db69bc8435894
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075705"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503198"
 ---
-# <a name="optimizing-transactions-in-sql-pool"></a>Optimización de transacciones en el grupo de SQL
+# <a name="optimize-transactions-in-sql-pool"></a>Optimización de transacciones en un grupo de SQL
 
 Aprenda a optimizar el rendimiento del código transaccional en el grupo de SQL al mismo tiempo que se minimiza el riesgo de que se produzcan reversiones extensas.
 
@@ -82,7 +82,7 @@ Conviene tener en cuenta que cualquier escritura para actualizar índices secund
 
 A menudo, la carga de datos en una tabla no vacía con un índice agrupado puede contener una mezcla de filas con registro completo y filas con registro mínimo. Un índice agrupado es un árbol equilibrado (árbol B) de las páginas. Si la página que se escribe ya contiene filas de otra transacción, estas escrituras se registrarán completamente. Sin embargo, si la página está vacía, la escritura en esa página se registrará mínimamente.
 
-## <a name="optimizing-deletes"></a>Optimización de eliminaciones
+## <a name="optimize-deletes"></a>Optimización de eliminaciones
 
 DELETE es una operación con registro completo.  Si necesita eliminar una gran cantidad de datos de una tabla o una partición, suele tener más sentido realizar una instrucción `SELECT` en los datos que desea conservar, que pueden ejecutarse como operación con registro completo.  Para seleccionar los datos, cree una nueva tabla con [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  Cuando lo haya hecho, utilice [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para intercambiar la tabla por la que acaba de crear.
 
@@ -114,7 +114,7 @@ RENAME OBJECT [dbo].[FactInternetSales]   TO [FactInternetSales_old];
 RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
-## <a name="optimizing-updates"></a>Optimización de actualizaciones
+## <a name="optimize-updates"></a>Optimización de actualizaciones
 
 UPDATE es una operación con registro completo.  Si necesita actualizar un gran número de filas de una tabla o una partición, suele ser mucho más eficiente utilizar para ello una operación con registro mínimo, como [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse).
 
@@ -179,7 +179,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 > [!NOTE]
 > El uso de las características de administración de cargas de trabajo del grupo de SQL puede ser una ventaja a la hora de volver a crear tablas de gran tamaño. Para más información, consulte [Clases de recursos para la administración de cargas de trabajo](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-## <a name="optimizing-with-partition-switching"></a>Optimización con modificación de particiones
+## <a name="optimize-with-partition-switching"></a>Optimización con modificación de particiones
 
 Cuando se enfrenta a modificaciones a gran escala dentro de una [partición de tabla](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), un patrón de modificación de particiones constituye un buen enfoque. Si la modificación de datos es importante y abarca varias particiones, basta con iterar en las particiones para obtener el mismo resultado.
 

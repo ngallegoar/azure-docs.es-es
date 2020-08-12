@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.date: 07/20/2020
-ms.author: amsriva
+ms.author: surmb
 ms.topic: conceptual
-ms.openlocfilehash: 23f76f18256ecadcbef59a498292222ea358008f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 53f6f37454de886934a483b40daad24204958baf
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290989"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474332"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hospedaje de varios sitios de Application Gateway
 
@@ -42,6 +42,7 @@ Con un carácter comodín en el nombre del host, puede hacer coincidir varios no
 
 >[!NOTE]
 >Esta característica solo está disponible actualmente a través de [Azure PowerShell](tutorial-multiple-sites-powershell.md) y la [CLI de Azure](tutorial-multiple-sites-cli.md). Próximamente se agregará la compatibilidad con el portal.
+> Tenga en cuenta que, puesto que la compatibilidad con el portal no está totalmente disponible, si usa solo el parámetro HostNames, el cliente de escucha aparecerá como cliente de escucha básico en el portal y la columna Nombre de host de la vista de lista de clientes de escucha no mostrará los nombres de host configurados. Para cualquier cambio en un cliente de escucha comodín, asegúrese de usar Azure PowerShell o la CLI hasta que se admita en el portal.
 
 En [Azure PowerShell](tutorial-multiple-sites-powershell.md), debe usar `-HostNames` en lugar de `-HostName`. Con los nombres de host, puede mencionar un máximo de cinco nombres de host como valores separados por comas y usar caracteres comodín. Por ejemplo: `-HostNames "*.contoso.com,*.fabrikam.com"`
 

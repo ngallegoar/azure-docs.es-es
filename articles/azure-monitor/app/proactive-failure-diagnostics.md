@@ -4,12 +4,12 @@ description: Alerta de cambios no habituales en la frecuencia de solicitudes con
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 30bb95c4c47c02fe6b3d31d6e6763656aa96fdec
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a093d5d6bdb96aa6f0a8a92fea48835971aebe16
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87315944"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420216"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Detección inteligente: anomalías de error
 [Application Insights](./app-insights-overview.md) le avisa automáticamente casi en tiempo real si la aplicación web sufre un aumento anómalo en la frecuencia de solicitudes erróneas. Asimismo, detecta un aumento inusual de la tasa de solicitudes HTTP o llamadas de dependencia notificadas como errores. En el caso de las solicitudes, las solicitudes con error suelen tener códigos de respuesta de 400 o superiores. Para ayudarle a evaluar las prioridades y a diagnosticar el problema, en los detalles de la alerta se proporciona un análisis de las características de los errores, así como datos de la aplicación relacionados. También hay vínculos en el portal de Application Insights para obtener un diagnóstico más amplio. La característica no necesita ninguna instalación o configuración, ya que usa algoritmos de aprendizaje automático para predecir la tasa normal de errores.
@@ -20,7 +20,7 @@ Después de configurar [Application Insights para su proyecto](./app-insights-ov
 
 Esta es una alerta de ejemplo:
 
-[![](./media/proactive-failure-diagnostics/013.png "Sample smart detection alert showing cluster analysis around failure")](./media/proactive-failure-diagnostics/013.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/013.png" alt-text="Alerta de ejemplo de detección inteligente que muestra el análisis del clúster en torno al error." lightbox="./media/proactive-failure-diagnostics/013.png":::
 
 Los detalles de la alerta le indicarán lo siguiente:
 
@@ -72,11 +72,11 @@ Esta regla de alertas está creada con un [grupo de acciones](../platform/action
 
 Abra la página Alertas. Las reglas de alertas de anomalías de error se incluyen junto con las alertas que se han establecido manualmente, y puede ver si están actualmente en el estado de alerta.
 
-[![](./media/proactive-failure-diagnostics/021.png "On the Application Insights resource page, click 'Alerts' tile, then 'Manage alert rules'")](./media/proactive-failure-diagnostics/021.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/021.png" alt-text="En la página del recurso de Application Insights, haga clic en el icono Alertas y luego en Administrar reglas de alerta." lightbox="./media/proactive-failure-diagnostics/021.png":::
 
 Haga clic en la alerta para configurarla.
 
-[![](./media/proactive-failure-diagnostics/032.png "Rule configuration screen")](./media/proactive-failure-diagnostics/032.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/032.png" alt-text="Pantalla de configuración de reglas." lightbox="./media/proactive-failure-diagnostics/032.png":::
 
 Tenga en cuenta que puede deshabilitar o eliminar una regla de alertas de anomalías de error, pero no puede crear otra en el mismo recurso de Application Insights.
 
@@ -298,7 +298,7 @@ También puede abrir [Azure Portal](https://portal.azure.com), navegar hasta el 
 
 Al hacer clic en "Diagnosticar errores", obtendrá más detalles y podrá resolver el problema.
 
-[![](./media/proactive-failure-diagnostics/051.png "Diagnostic search")](./media/proactive-failure-diagnostics/051.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/051.png" alt-text="Búsqueda de diagnóstico." lightbox="./media/proactive-failure-diagnostics/051.png#lightbox":::
 
 Puede determinar la urgencia del problema a partir del porcentaje de solicitudes y del número de usuarios afectados. En el ejemplo anterior, la tasa de error del 78,5 % se compara con una tasa normal del 2,2 %, lo que indica que hay algo que no va bien. Por otro lado, solo 46 usuarios se vieron afectados. Si se tratara de su aplicación, podría evaluar la gravedad del problema.
 
@@ -306,13 +306,13 @@ En muchos casos, podrá diagnosticar el problema rápidamente a partir del nombr
 
 En este ejemplo, se produjo una excepción de SQL Database debido a que se alcanzó el límite de solicitudes.
 
-[![](./media/proactive-failure-diagnostics/052.png "Failed request details")](./media/proactive-failure-diagnostics/052.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/052.png" alt-text="Detalles de las solicitudes con errores." lightbox="./media/proactive-failure-diagnostics/052.png":::
 
 ## <a name="review-recent-alerts"></a>Revisar las alertas recientes
 
 Haga clic en **Alertas** en la página de recursos de Application Insights para ver las alertas desencadenadas más recientes:
 
-[![](./media/proactive-failure-diagnostics/070.png "Alerts summary")](./media/proactive-failure-diagnostics/070.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/070.png" alt-text="Resumen de alertas." lightbox="./media/proactive-failure-diagnostics/070.png":::
 
 ## <a name="whats-the-difference-"></a>¿Cuál es la diferencia ...
 La detección inteligente de anomalías de errores complementa otras características similares pero distintas de Application Insights.
