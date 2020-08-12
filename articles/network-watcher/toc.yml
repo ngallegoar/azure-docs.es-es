@@ -49,6 +49,8 @@
       items:
         - name: Línea de base de seguridad
           href: security-baseline.md
+    - name: Residencia de datos
+      href: data-residency.md
 - name: Guías paso a paso
   items:
     - name: Configuración de Network Watcher

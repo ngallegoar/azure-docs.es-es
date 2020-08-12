@@ -25,38 +25,8 @@
           href: quickstart-existing-helm-chart.md
     - name: Tutoriales
       items:
-        - name: Java (VS Code y CLI)
-          items:
-            - name: 1 - Introducción
-              href: get-started-java.md
-            - name: 2 - Desarrollo de varios servicios
-              href: multi-service-java.md
-            - name: 3 - Desarrollo en equipo
-              href: team-development-java.md
-        - name: .NET Core (VS Code y CLI)
-          items:
-            - name: 1 - Introducción
-              href: get-started-netcore.md
-            - name: 2 - Desarrollo de varios servicios
-              href: multi-service-netcore.md
-            - name: 3 - Desarrollo en equipo
-              href: team-development-netcore.md
-        - name: .NET Core (Visual Studio)
-          items:
-            - name: 1 - Introducción
-              href: get-started-netcore-visualstudio.md
-            - name: 2 - Desarrollo de varios servicios
-              href: multi-service-netcore-visualstudio.md
-            - name: 3 - Desarrollo en equipo
-              href: team-development-netcore-visualstudio.md
-        - name: Node.js (VS Code y CLI)
-          items:
-            - name: 1 - Introducción
-              href: get-started-nodejs.md
-            - name: 2 - Desarrollo de varios servicios
-              href: multi-service-nodejs.md
-            - name: 3 - Desarrollo en equipo
-              href: team-development-nodejs.md
+        - name: Introducción a Visual Studio
+          href: get-started-netcore-visualstudio.md
     - name: Conceptos
       items:
         - name: Funcionamiento de Dev Spaces
@@ -83,8 +53,6 @@
           href: how-to/install-dev-spaces.md
         - name: Creación de un clúster de Kubernetes mediante Azure Cloud Shell
           href: how-to/create-cluster-cloud-shell.md
-        - name: Uso compartido de Azure Dev Spaces
-          href: how-to/share-dev-spaces.md
         - name: Administración de secretos
           href: how-to/manage-secrets.md
         - name: Uso de una fuente NuGet personalizada

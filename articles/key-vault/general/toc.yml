@@ -90,6 +90,8 @@
           href: managed-identity.md
         - name: Uso de una directiva de control de acceso
           href: group-permissions-for-apps.md
+        - name: Solución de problemas de acceso
+          href: troubleshooting-access-issues.md
     - name: Desarrollar
       items:
         - name: Guía del desarrollador de Azure Key Vault
