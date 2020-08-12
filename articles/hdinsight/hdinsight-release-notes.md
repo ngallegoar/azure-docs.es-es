@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 07/14/2020
-ms.openlocfilehash: 0481f92666c8ca547dc427e117f9917afb257629
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/31/2020
+ms.openlocfilehash: 339926fbd3c96f6f6c279d29676950b9915b4256
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511881"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87484166"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notas de la versión de Azure HDInsight
 
@@ -23,16 +23,19 @@ Este artículo proporciona información sobre las **últimas** actualizaciones d
 
 Azure HDInsight es uno de los servicios más populares entre los clientes de empresa para el análisis de código abierto en Azure.
 
-## <a name="release-date-07132020"></a>Fecha de lanzamiento: 13/07/2020
+## <a name="release-date-07302020"></a>Fecha de lanzamiento: 30/07/2020
 
 Esta versión se aplica a HDInsight 3.6 y 4.0. La versión de HDInsight se pone a disposición de todas las regiones durante varios días. Esta fecha de lanzamiento indica la fecha de lanzamiento de la primera región. Si no ve los cambios siguientes, espere unos días a que la versión se active en su región.
 
 ## <a name="new-features"></a>Nuevas características
-### <a name="support-for-customer-lockbox-for-microsoft-azure"></a>Compatibilidad con Caja de seguridad del cliente para Microsoft Azure
-Azure HDInsight ahora es compatible con Caja de seguridad del cliente de Azure. Proporciona una interfaz para que los clientes puedan revisar y aprobar, o rechazar, las solicitudes de acceso a datos de los clientes. Se utiliza cuando un ingeniero de Microsoft necesita acceder a los datos del cliente durante una solicitud de soporte técnico. Para más información, consulte [Caja de seguridad del cliente de Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-preview).
-
-### <a name="service-endpoint-policies-for-storage"></a>Directivas de punto de conexión de servicio para el almacenamiento
-Los clientes ahora pueden usar directivas de puntos de conexión de servicio (SEP) en la subred del clúster de HDInsight. Más información sobre la [directiva de punto de conexión de servicio de Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview).
+### <a name="support-for-sparkcruise"></a>Soporte técnico de SparkCruise
+SparkCruise es un sistema de reutilización automática de cálculos para Spark. Selecciona subexpresiones comunes que se puedan materializar en función de la carga de trabajo de consultas pasadas. SparkCruise materializa estas subexpresiones como parte del procesamiento de consultas, y la reutilización de cálculos se aplica automáticamente en segundo plano. Puede beneficiarse de SparkCruise sin tener que modificar el código de Spark.
+ 
+### <a name="support-hive-view-for-hdinsight-40"></a>Soporte técnico de la vista de Hive para HDInsight 4.0
+La vista de Hive de Apache Ambari está diseñada para ayudarle a crear, optimizar y ejecutar consultas de Hive desde el explorador web. La vista de Hive se admite de forma nativa en los clústeres de HDInsight 4.0 a partir de esta versión. No se aplica a los clústeres ya existentes. Para obtener la vista de Hive integrada, debe quitar y volver a crear el clúster.
+ 
+### <a name="support-tez-view-for-hdinsight-40"></a>Soporte técnico de la vista de Tez para HDInsight 4.0
+La vista Apache Tez se usa para realizar un seguimiento de la ejecución del trabajo de Hive Tez y depurarlo. La vista de Tez se admite de forma nativa para HDInsight 4.0 a partir de esta versión. No se aplica a los clústeres ya existentes. Para obtener la vista de Tez integrada, debe colocar y volver a crear el clúster.
 
 ## <a name="deprecation"></a>Desuso
 ### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>Desuso de Spark 2.1 y 2.2 para el clúster de Spark de HDInsight 3.6
@@ -45,21 +48,22 @@ A partir del 1 de julio de 2020, los clientes no podrán crear nuevos clústere
 A partir del 1 de julio de 2020, los clientes no podrán crear nuevos clústeres de Kafka con Kafka 1.1 en HDInsight 4.0. Los clústeres existentes se ejecutarán tal cual sin la compatibilidad de Microsoft. Considere la posibilidad de pasar a Kafka 2.1 en HDInight 4.0 a partir del 30 de junio de 2020 para evitar la posible interrupción del sistema o del soporte técnico.
 
 ## <a name="behavior-changes"></a>Cambios de comportamiento
-No hay ningún comportamiento al que haya que prestar atención.
+### <a name="ambari-stack-version-change"></a>Cambio de versión de la pila de Ambari
+En esta versión, la versión de Ambari se cambia de 2.x.x.x a 4.1. Puede obtener la versión de Ambari en la opción "Acerca de" de la interfaz de usuario de Ambari.
 
 ## <a name="upcoming-changes"></a>Próximos cambios
-En las próximas versiones, se realizarán los siguientes cambios. 
-
-### <a name="ability-to-select-different-zookeeper-sku-for-spark-hadoop-and-ml-services"></a>Posibilidad de seleccionar diferentes SKU de Zookeeper para Spark, Hadoop y Machine Learning Services
-Actualmente, HDInsight no admite el cambio del SKU de Zookeeper para los tipos de clúster de Spark, Hadoop y Machine Learning Services. Usa el SKU A2_v2/A2 para los nodos de Zookeeper y a los clientes no se les cobra por ellos. En la próxima versión, los clientes podrán cambiar la SKU de Zookeeper SKU para Spark, Hadoop y Machine Learning Services cuando sea necesario. Se cobrarán los nodos Zookeeper con una SKU que no sea A2_v2/A2. La SKU predeterminada seguirá siendo A2_V2/A2 y no tendrá cargo alguno.
+No habrá cambios importantes que requieran su atención.
 
 ## <a name="bug-fixes"></a>Corrección de errores
 HDInsight continúa realizando mejoras en la confiabilidad y el rendimiento del clúster. 
-### <a name="fixed-hive-warehouse-connector-issue"></a>Problema de Hive Warehouse Connector corregido
-En la versión anterior había un problema con la facilidad de uso de Hive Warehouse Connector, pero ya se ha corregido. 
 
-### <a name="fixed-zeppelin-notebook-truncates-leading-zeros-issue"></a>Se ha reparado el problema de que Zeppelin Notebook trunca los ceros a la izquierda
-Zeppelin truncaba de forma incorrecta los ceros a la izquierda en la salida de la tabla en formato de cadena. En esta versión se ha corregido ese problema.
+Las instancias de JIRA siguientes se trasladan a Hive:
+* [HIVE-23619](https://issues.apache.org/jira/browse/HIVE-23619)
+* [HIVE-21223](https://issues.apache.org/jira/browse/HIVE-21223)
+* [HIVE-22599](https://issues.apache.org/jira/browse/HIVE-22599)
+* [HIVE-22121](https://issues.apache.org/jira/browse/HIVE-22121)
+* [HIVE-22136](https://issues.apache.org/jira/browse/HIVE-22136)
+* [HIVE-18786](https://issues.apache.org/jira/browse/HIVE-18786)
 
 ## <a name="component-version-change"></a>Cambio de versión de componentes
 No hay cambio de versión de componentes para esta versión. En [este documento](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions) puede encontrar las versiones actuales de los componentes para HDInsight 4.0 y HDInsight 3.6.

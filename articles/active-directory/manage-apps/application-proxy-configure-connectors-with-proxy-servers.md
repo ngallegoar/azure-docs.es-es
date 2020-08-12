@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48727e377c2b6707e570cad103e4b08bcb44a1cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c785e2b13e7d5c57ff6d5ce9161fea1a80da77e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764934"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019546"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabajo con servidores proxy locales existentes
 
@@ -153,6 +153,9 @@ Para habilitarlo, siga estos pasos:
 4.  Configure los valores de proxy necesarios. 
 
 Esta configuración hace que el conector use el mismo proxy de reenvío para la comunicación a Azure y a la aplicación de back-end. Si el conector para la comunicación de Azure no requiere ningún proxy de reenvío ni un proxy de reenvío distinto, puede configurarlo mediante la modificación del archivo ApplicationProxyConnectorService.exe.config, como se describe en las secciones Omisión de servidores proxy de salida o Uso del servidor proxy saliente.
+
+> [!NOTE]
+> Hay varias maneras de configurar el proxy de Internet en el sistema operativo. La configuración de proxy establecida a través de NETSH WINHTTP (ejecute `NETSH WINHTTP SHOW PROXY` para comprobarlo) invalida la configuración del proxy que estableció en el paso 2. 
 
 El servicio de actualización del conector usará también el proxy del equipo. Este comportamiento se puede cambiar si modifica el archivo ApplicationProxyConnectorUpdaterService.exe.config.
 

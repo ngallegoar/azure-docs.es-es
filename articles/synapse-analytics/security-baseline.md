@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ef8c4754afc921eaeb68a84fbd8147f336a4940c
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 2cd42d8d4ba1ecabc1b87942536e2ef9a9017b22
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370281"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501957"
 ---
 # <a name="azure-security-baseline-for-synapse-analytics"></a>Base de referencia de seguridad de Azure para Synapse Analytics
 
@@ -584,7 +584,7 @@ Además, puede configurar una directiva de enmascaramiento dinámico de datos (D
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Uso del control de acceso basado en rol para controlar el acceso a los recursos
 
-**Instrucciones**: Use el control de acceso basado en rol (RBAC) de Azure para administrar el acceso a las instancias de Azure SQL Database en el grupo de Synapse SQL.
+**Guía**: Use el control de acceso basado en roles (Azure RBAC) de Azure para administrar el acceso a las instancias de Azure SQL Database en el grupo de Synapse SQL.
 
 La autorización se controla por medio de las pertenencias a roles y los permisos de nivel de objeto de la base de datos de la cuenta de usuario. Como procedimiento recomendado, debe conceder a los usuarios los privilegios mínimos necesarios.
 
@@ -1014,7 +1014,7 @@ Examine previamente el contenido que se carga en recursos de Azure que no son de
 
 **Instrucciones**: Las instantáneas del grupo de Synapse SQL se toman a lo largo del día y crean puntos de restauración que están disponibles durante siete días. No se puede cambiar este período de retención. El grupo de SQL admite un objetivo de punto de recuperación (RPO) de ocho horas. Puede restaurar el almacenamiento de datos de la región primaria a partir de cualquiera de las instantáneas capturadas en los últimos siete días. Tenga en cuenta que también puede desencadenar manualmente las instantáneas si es necesario.
 
-* [Copia de seguridad y restauración en el grupo de Azure Synapse SQL](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Copia de seguridad y restauración en el grupo de Azure Synapse SQL](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
 **Supervisión de Azure Security Center**: No aplicable
 

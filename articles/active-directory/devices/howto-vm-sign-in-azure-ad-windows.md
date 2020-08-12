@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 588e63e630caa4746b493d4530e301f72e5ccb5f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2fcd1c3a9fd3e4be22e4057eb2cfc9a71d09d558
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282949"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529116"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicio de sesión en una máquina virtual Windows en Azure mediante la autenticación de Azure Active Directory (versión preliminar)
 
@@ -69,7 +69,7 @@ Para habilitar la autenticación de Azure AD para las VM Windows en Azure, debe 
 
 ## <a name="enabling-azure-ad-login-in-for-windows-vm-in-azure"></a>Habilitar el inicio de sesión de Azure AD en VM Windows en Azure
 
-Para usar el inicio de sesión de Azure AD en VM Windows en Azure, primero debe habilitar la opción de inicio de sesión de Azure AD para la VM Windows y luego configurar las asignaciones de roles de RBAC para los usuarios con autorización para iniciar sesión en la VM.
+Para usar el inicio de sesión de Azure AD en VM de Windows en Azure, primero debe habilitar la opción de inicio de sesión de Azure AD para la VM de Windows y luego configurar las asignaciones de roles de Azure para los usuarios que tengan autorización para iniciar sesión en la VM.
 Hay varias maneras de habilitar el inicio de sesión de Azure AD para la VM Windows:
 
 - Uso de la experiencia de Azure Portal al crear una VM Windows
@@ -144,7 +144,7 @@ Se muestra `provisioningState` de `Succeeded`, una vez que la extensión se inst
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Configuración de asignaciones de roles para la máquina virtual
 
-Ahora que ha creado la VM, debe configurar la directiva RBAC de Azure para determinar quién puede iniciar sesión en la ella. Se usan dos roles de RBAC para autorizar el inicio de sesión de la máquina virtual:
+Ahora que ha creado la VM, debe configurar la directiva RBAC de Azure para determinar quién puede iniciar sesión en la ella. Para autorizar el inicio de sesión de una VM se usan dos roles de Azure:
 
 - **Inicio de sesión de administrador de Virtual Machine**: Los usuarios que tienen asignado este rol pueden iniciar sesión en una máquina virtual de Azure con privilegios de administrador.
 - **Inicio de sesión de usuario de Virtual Machine**: los usuarios que tienen asignado este rol pueden iniciar sesión en una máquina virtual de Azure con privilegios de usuario habitual.
@@ -208,7 +208,7 @@ Puede aplicar directivas de acceso condicional, como la autenticación multifact
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Inicio de sesión mediante las credenciales de Azure AD en una VM Windows
 
 > [!IMPORTANT]
-> La conexión remota a las VM unidas a Azure AD solo se permite desde equipos con Windows 10 que están registrados en Azure AD (la compilación mínima requerida es 20H1), unidos a Azure AD o unidos a Azure AD híbrido en el **mismo** directorio que la máquina virtual. Además, a través de RDP con credenciales de Azure AD, el usuario debe pertenecer a uno de los dos roles de RBAC, Inicio de sesión de administrador de máquina virtual o Inicio de sesión de usuario de máquina virtual. Si usa un equipo con Windows 10 registrado en Azure AD, debe escribir las credenciales con el formato AzureAD\UPN (por ejemplo, AzureAD\john@contoso.com). En este momento, no se puede usar Azure Bastion para iniciar sesión mediante la autenticación de Azure Active Directory con la extensión AADLoginForWindows; solo se admite RDP directo.
+> La conexión remota a las VM unidas a Azure AD solo se permite desde equipos con Windows 10 que están registrados en Azure AD (la compilación mínima requerida es 20H1), unidos a Azure AD o unidos a Azure AD híbrido en el **mismo** directorio que la máquina virtual. Además, para que RDP pueda usar las credenciales de Azure AD, el usuario debe pertenecer a uno de estos dos roles de Azure: Inicio de sesión de administrador de la máquina virtual o Inicio de sesión de usuario de la máquina virtual. Si usa un equipo con Windows 10 registrado en Azure AD, debe escribir las credenciales con el formato AzureAD\UPN (por ejemplo, AzureAD\john@contoso.com). En este momento, no se puede usar Azure Bastion para iniciar sesión mediante la autenticación de Azure Active Directory con la extensión AADLoginForWindows; solo se admite RDP directo.
 
 Para iniciar sesión en la máquina virtual Windows Server 2019 mediante Azure AD: 
 
@@ -315,13 +315,13 @@ En la versión preliminar pública, la extensión AADLoginForWindows solo está 
 
 ### <a name="troubleshoot-sign-in-issues"></a>Solución de problemas con el inicio de sesión
 
-Entre algunos de errores comunes al intentar usar RDP con las credenciales de Azure AD se incluyen la falta de asignación de roles RBAC, clientes no autorizados o método de inicio de sesión de autenticación en dos fases requerido. Use la siguiente información para corregir estos problemas.
+Entre algunos de errores comunes al intentar usar RDP con las credenciales de Azure AD se incluyen la falta de asignación de roles de Azure, que haya clientes no autorizados o que se necesiten métodos de inicio de sesión de autenticación en dos fases. Use la siguiente información para corregir estos problemas.
 
 Para ver el estado del dispositivo y SSO, ejecute `dsregcmd /status`. El objetivo es que el estado del dispositivo se muestre como `AzureAdJoined : YES` y `SSO State` para mostrar `AzureAdPrt : YES`.
 
 Además, el inicio de sesión de RDP mediante cuentas de Azure AD se captura en el visor de eventos, en los registros de eventos AAD\Operational.
 
-#### <a name="rbac-role-not-assigned"></a>no hay ningún rol RBAC asignado
+#### <a name="azure-role-not-assigned"></a>No hay ningún rol de Azure asignado
 
 Si ve el siguiente mensaje de error al iniciar una conexión de Escritorio remoto a la VM: 
 

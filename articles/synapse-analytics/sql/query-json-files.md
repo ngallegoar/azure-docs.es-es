@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 8b95f6b6eca0f1464a7d09d2810aa66836d76f8f
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 04b2d7842222426010b76a1a7ed4c72ee74e3d87
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386646"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489731"
 ---
 # <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Consulta de archivos JSON con SQL a petición (versión preliminar) en Azure Synapse Analytics
 
@@ -22,7 +22,7 @@ En este artículo, aprenderá a escribir una consulta con SQL a petición (versi
 - Archivos JSON estándar en los que se almacenan varios documentos JSON como una matriz JSON.
 - Archivos JSON delimitados por líneas, donde los documentos JSON se separan con un carácter de nueva línea. Las extensiones comunes para estos tipos de archivos son `jsonl`, `ldjson` y `ndjson`.
 
-## <a name="reading-json-documents"></a>Lectura de documentos JSON
+## <a name="read-json-documents"></a>Lectura de documentos JSON
 
 La forma más fácil de ver el contenido del archivo JSON es proporcionar la dirección URL del archivo a la función `OPENROWSET`, especificar el elemento `FORMAT` de csv y establecer los valores `0x0b`para `fieldterminator` y `fieldquote`. Si necesita leer archivos JSON delimitados por líneas, esto es suficiente. Si tiene un archivo JSON clásico, debería establecer valores `0x0b` para `rowterminator`. La función `OPENROWSET` analizarán JSON y devolverá cada documento en el formato siguiente:
 
@@ -60,7 +60,7 @@ from openrowset(
 
 Esta consulta devolverá cada documento JSON como una fila independiente del conjunto de resultados. Asegúrese de que puede tener acceso a este archivo. Si el archivo está protegido con una clave SAS o una identidad personalizada, necesitaría configurar una [credencial de nivel de servidor para el inicio de sesión de SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential). 
 
-### <a name="using-data-source"></a>Uso del origen de datos
+### <a name="data-source-usage"></a>Uso del origen de datos
 
 En el ejemplo anterior se usa la ruta de acceso completa al archivo. Como alternativa, puede crear un origen de datos externo con la ubicación que apunta a la carpeta raíz del almacenamiento y usar ese origen de datos y la ruta de acceso relativa al archivo en la función `OPENROWSET`:
 

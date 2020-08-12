@@ -5,18 +5,18 @@ description: Obtenga información sobre cómo recopilar datos de un modelo de Az
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: sgilley
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 07/14/2020
-ms.custom: seodec18
-ms.openlocfilehash: d7e3aeba14373861d831056678576c52f6b2184f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.topic: conceptual
+ms.custom: how-to
+ms.openlocfilehash: 3ece750ab63c2c8e33fbfb46739eec55de4f5d07
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536338"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320194"
 ---
 # <a name="collect-data-from-models-in-production"></a>Recopilación de datos de modelos en producción
 
@@ -71,7 +71,7 @@ La ruta de acceso a los datos de salida en el blob sigue esta sintaxis:
 
 ## <a name="enable-data-collection"></a>Habilitación de recolección de datos
 
-Puede habilitar la recopilación de datos independientemente del modelo que implemente mediante Azure Machine Learning u otras herramientas.
+Puede habilitar la [recopilación de datos](https://docs.microsoft.com/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?view=azure-ml-py) independientemente del modelo que implemente mediante Azure Machine Learning u otras herramientas.
 
 Para habilitar la recopilación de datos, debe hacer lo siguiente:
 

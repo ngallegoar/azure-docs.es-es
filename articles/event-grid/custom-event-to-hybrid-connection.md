@@ -4,12 +4,12 @@ description: 'Tutorial: Use Azure Event Grid y la CLI de Azure para publicar un 
 ms.date: 07/07/2020
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 679cccf892d7b30964881d9a6146e02f3ee5dc90
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 77633a717478ff143c3b084adc0b69019abb203f
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503181"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832134"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Tutorial: Enrutar eventos personalizados a Conexiones híbridas de Azure Relay con la CLI de Azure y Event Grid
 
@@ -17,7 +17,7 @@ Azure Event Grid es un servicio de eventos para la nube. La solución Conexiones
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-En este artículo, se presupone que ya tiene una conexión híbrida y una aplicación de escucha. Para empezar a trabajar con las conexiones híbridas, consulte [Introducción a Conexiones híbridas de Relay: .NET](/azure/azure-relay/relay-hybrid-connections-dotnet-get-started) o [Introducción a Conexiones híbridas de Relay: nodo](/azure/azure-relay/relay-hybrid-connections-node-get-started).
+En este artículo, se presupone que ya tiene una conexión híbrida y una aplicación de escucha. Para empezar a trabajar con las conexiones híbridas, consulte [Introducción a Conexiones híbridas de Relay: .NET](../azure-relay/relay-hybrid-connections-dotnet-get-started.md) o [Introducción a Conexiones híbridas de Relay: nodo](../azure-relay/relay-hybrid-connections-node-get-started.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

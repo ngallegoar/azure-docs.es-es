@@ -3,14 +3,13 @@ title: Mapa de aplicación en Azure Application Insights | Microsoft Docs
 description: Supervisión de topologías de aplicaciones complejas con el mapa de aplicación
 ms.topic: conceptual
 ms.date: 03/15/2019
-ms.custom: devx-track-javascript
 ms.reviewer: sdash
-ms.openlocfilehash: 7e4035e382aaa3f8b5d2327054a50a5360c60bfa
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b99998a7b1bcb2348a1a73696661de7cf8b44b85
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367017"
+ms.locfileid: "87421304"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa de aplicación: Evaluación de prioridades de las aplicaciones distribuidas
 
@@ -82,9 +81,12 @@ Para ver las alertas activas y las reglas subyacentes que provocan el desencaden
 
 ![Captura de pantalla de la experiencia con Analytics](media/app-map/alerts-view.png)
 
-## <a name="set-cloud-role-name"></a>Establecer nombre de rol en la nube
+## <a name="set-or-override-cloud-role-name"></a>Establecimiento o reemplazo del nombre del rol en la nube
 
-El mapa de aplicación usa la propiedad **nombre de rol en la nube** para identificar los componentes en el mapa. El SDK de Application Insights agrega de forma automática la propiedad de nombre de rol en la nube a la telemetría emitida por los componentes. Por ejemplo, el SDK agregará un nombre de sitio web o un nombre de rol de servicio a la propiedad. Pero hay casos en los que le interesará reemplazar el valor predeterminado. Para reemplazar el nombre de rol en la nube y cambiar lo que se muestra en el mapa de aplicación:
+El mapa de aplicación usa la propiedad **nombre de rol en la nube** para identificar los componentes en el mapa. Para establecer o reemplazar manualmente el nombre de rol en la nube y cambiar lo que se muestra en el mapa de aplicación:
+
+> [!NOTE]
+> El Agente o SDK de Application Insights agregan de forma automática la propiedad de nombre de rol en la nube a la telemetría emitida por los componentes en un entorno de Azure App Service.
 
 # <a name="netnetcore"></a>[.NET/.NetCore](#tab/net)
 
@@ -266,7 +268,7 @@ Si tiene dificultades para conseguir que el mapa de aplicación funcione según 
 
 3. Si usa Azure Functions con C#, actualice a [Functions V2](../../azure-functions/functions-versions.md).
 
-4. Confirme que el [nombre de rol en la nube](#set-cloud-role-name) está configurado correctamente.
+4. Confirme que el [nombre de rol en la nube](#set-or-override-cloud-role-name) está configurado correctamente.
 
 5. Si falta una dependencia, asegúrese de que se encuentra en la lista de [dependencias recopiladas automáticamente](./auto-collect-dependencies.md). De lo contrario, todavía puede realizar su seguimiento de forma manual con una [llamada de seguimiento de dependencia](./api-custom-events-metrics.md#trackdependency).
 
@@ -282,7 +284,7 @@ Para solucionar este problema, deberá cambiar la instrumentación para establec
 
 * El tipo de dependencia debe representar el tipo lógico de una dependencia. Por ejemplo, HTTP, SQL o Azure Blob son tipos de dependencia típicos. No debe contener id. exclusivos.
 
-* El propósito de nombre de rol en la nube se describe en la [sección anterior](#set-cloud-role-name).
+* El propósito de nombre de rol en la nube se describe en la [sección anterior](#set-or-override-cloud-role-name).
 
 ## <a name="portal-feedback"></a>Comentarios del portal
 

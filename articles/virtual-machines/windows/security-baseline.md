@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 10802cd141e0b10e30cb01d3d1dc385aedf7fc1e
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 11b532b5ece10c8a9ac6dad61e4ca64a9f19f901
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387020"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445211"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Base de referencia de seguridad de Azure para Windows Virtual Machines
 
@@ -464,7 +464,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 **Responsabilidad**: Customer
 
-### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3.12: Alerta sobre las desviaciones de comportamiento en los inicios de sesión de las cuentas
+### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3.12: Alerta de las desviaciones de comportamiento en los inicios de sesión de las cuentas
 
 **Guía**: use las características de protección de identidad y detección de riesgo de Azure Active Directory para configurar respuestas automatizadas a las acciones sospechosas que se detecten en relación con los recursos de las cuentas de almacenamiento. Debe habilitar las respuestas automatizadas a través de Azure Sentinel para implementar las respuestas de seguridad de su organización.
 
@@ -608,7 +608,7 @@ Microsoft usa el protocolo Seguridad de la capa de transporte (TLS) para protege
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: Ejecute herramientas de análisis de vulnerabilidades automatizado
 
-**Instrucciones**: siga las recomendaciones de Azure Security Center sobre cómo realizar evaluaciones de vulnerabilidades en Azure Virtual Machines. Use las recomendaciones de Azure Security o una solución de terceros para realizar evaluaciones de vulnerabilidades para las máquinas virtuales.
+**Guía**: siga las recomendaciones de Azure Security Center sobre cómo realizar evaluaciones de vulnerabilidades en Azure Virtual Machines. Use las recomendaciones de Azure Security o una solución de terceros para realizar evaluaciones de vulnerabilidades para las máquinas virtuales.
 
 * [Implementación de las recomendaciones de evaluación de vulnerabilidades de Azure Security Center](../../security-center/security-center-vulnerability-assessment-recommendations.md)
 
@@ -620,9 +620,9 @@ Microsoft usa el protocolo Seguridad de la capa de transporte (TLS) para protege
 
 **Guía**: use la solución Azure Update Management para administrar las actualizaciones y las revisiones de las máquinas virtuales. Update Management se basa en el repositorio de actualización configurado localmente para aplicar revisiones a sistemas de Windows compatibles. Herramientas como System Center Updates Publisher (Updates Publisher) le permiten publicar actualizaciones personalizadas en Windows Server Update Services (WSUS). Este escenario permite que Update Management aplique revisiones a las máquinas que usan Configuration Manager como repositorio de actualizaciones con software de terceros.
 
-* [Solución Update Management de Azure](../../automation/automation-update-management.md)
+* [Solución Update Management de Azure](../../automation/update-management/update-mgmt-overview.md)
 
-* [Administración de actualizaciones y revisiones para las máquinas virtuales de Azure](../../automation/automation-tutorial-update-management.md)
+* [Administración de actualizaciones y revisiones para las VM](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -632,9 +632,9 @@ Microsoft usa el protocolo Seguridad de la capa de transporte (TLS) para protege
 
 **Guía**: puede usar una solución de administración de revisiones de terceros. Puede usar la solución Azure Update Management para administrar las actualizaciones y las revisiones de las máquinas virtuales. Update Management se basa en el repositorio de actualización configurado localmente para aplicar revisiones a sistemas de Windows compatibles. Herramientas como System Center Updates Publisher (Updates Publisher) le permiten publicar actualizaciones personalizadas en Windows Server Update Services (WSUS). Este escenario permite que Update Management aplique revisiones a las máquinas que usan Configuration Manager como repositorio de actualizaciones con software de terceros.
 
-* [Solución Update Management de Azure](../../automation/automation-update-management.md)
+* [Solución Update Management de Azure](../../automation/update-management/update-mgmt-overview.md)
 
-* [Administración de actualizaciones y revisiones para las máquinas virtuales de Azure](../../automation/automation-tutorial-update-management.md)
+* [Administración de actualizaciones y revisiones para las VM](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Supervisión de Azure Security Center**: No disponible
 
@@ -664,7 +664,7 @@ Microsoft usa el protocolo Seguridad de la capa de transporte (TLS) para protege
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6.1: Uso de la solución de detección de recursos automatizada
 
-**Guía**: use Azure Resource Graph para consultar y detectar todos los recursos (incluidas las máquinas virtuales) de las suscripciones. Asegúrese de que tiene los permisos adecuados (lectura) en el inquilino y de que puede enumerar todas las suscripciones de Azure, así como los recursos de las suscripciones.
+**Instrucciones**: use Azure Resource Graph para consultar y detectar todos los recursos (incluidas las máquinas virtuales) de las suscripciones. Asegúrese de que tiene los permisos adecuados (lectura) en el inquilino y de que puede enumerar todas las suscripciones de Azure, así como los recursos de las suscripciones.
 
 * [Creación de consultas con Azure Graph](../../governance/resource-graph/first-query-portal.md)
 

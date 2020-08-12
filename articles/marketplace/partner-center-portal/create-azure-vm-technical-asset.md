@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 04/13/2020
-ms.openlocfilehash: 532a2ce429899d3674a8f6d8308188e9b1f737b1
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: afc012329d0d9e337dfca93a88615ba7c28f1754
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407955"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460378"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Creación de recursos técnicos para máquinas virtuales de Azure
 
@@ -77,6 +77,7 @@ Seleccione el sistema operativo Windows o Linux como base.
 El VHD del sistema operativo para su imagen de máquina virtual basada en Windows debe basarse en una imagen base aprobada para Azure que contenga Windows Server o SQL Server. Para comenzar, cree una máquina virtual a partir de alguna de las imágenes de Azure Portal:
 
 * Windows Server ([2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016), [2012 R2 Datacenter](https://www.microsoft.com/cloud-platform/windows-server-pricing), [2012 Datacenter](https://www.microsoft.com/cloud-platform/windows-server-pricing), [2008 R2 SP1](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview))
+* [Windows 10 IoT Enterprise](/windows/iot-core/windows-iot-enterprise)
 * [SQL Server 2014](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md) (Enterprise, Standard, Web)
 * [SQL Server 2012 SP2](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md) (Enterprise, Standard, Web)
 

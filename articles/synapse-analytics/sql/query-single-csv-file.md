@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 1d033a904087bf8ff32721372209820a64090502
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 63755616bb524226d3c40d32b9695f4b787860d9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87383892"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489714"
 ---
 # <a name="query-csv-files"></a>Consulta de archivo CSV
 
@@ -31,7 +31,7 @@ A continuación se abordan todas las variaciones anteriores.
 
 La función `OPENROWSET` permite leer el contenido del archivo CSV al proporcionar la dirección URL al archivo.
 
-### <a name="reading-csv-file"></a>Lectura de un archivo CSV
+### <a name="read-a-csv-file"></a>Leer un archivo CSV
 
 La forma más fácil de ver el contenido del archivo `CSV` es proporcionar la dirección URL del archivo a la función `OPENROWSET` y especificar `FORMAT` del archivo CSV y 2.0 `PARSER_VERSION`. Si el archivo está disponible públicamente o si la identidad de Azure AD puede tener acceso a este archivo, debería poder ver el contenido del archivo mediante la consulta como la que se muestra en el ejemplo siguiente:
 
@@ -46,7 +46,7 @@ from openrowset(
 
 La opción `firstrow` se utiliza para omitir la primera fila del archivo CSV, que representa el encabezado en este caso. Asegúrese de que puede tener acceso a este archivo. Si el archivo está protegido con una clave SAS o una identidad personalizada, necesitaría configurar una [credencial de nivel de servidor para el inicio de sesión de SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
-### <a name="using-data-source"></a>Uso del origen de datos
+### <a name="data-source-usage"></a>Uso del origen de datos
 
 En el ejemplo anterior se usa la ruta de acceso completa al archivo. Como alternativa, puede crear un origen de datos externo con la ubicación que apunta a la carpeta raíz del almacenamiento:
 
@@ -214,7 +214,7 @@ WHERE
 > [!NOTE]
 > Esta consulta devolvería los mismos resultados si se omitiese el parámetro FIELDQUOTE, ya que el valor predeterminado de FIELDQUOTE es una comilla doble.
 
-## <a name="escaping-characters"></a>Caracteres de escape
+## <a name="escape-characters"></a>Carácter de escape
 
 La consulta siguiente muestra cómo leer un archivo con una fila de encabezado, con una nueva línea al estilo de Unix, columnas delimitadas por comas y un carácter de escape usado para el delimitador de campos (coma) sin valores. Tenga en cuenta la ubicación diferente del archivo en comparación con los demás ejemplos.
 
@@ -246,7 +246,7 @@ WHERE
 > [!NOTE]
 > Esta consulta produciría un error si no se especificara ESCAPECHAR, ya que la coma en "Slov,enia" se trataría como delimitador de campos en lugar de como parte del nombre del país o región. "Slov,enia" se trataría como dos columnas. Por lo tanto, la fila en particular tendría una columna más que las demás filas y una columna más de la definida en la cláusula WITH.
 
-### <a name="escaping-quoting-characters"></a>Escape de caracteres de comilla
+### <a name="escape-quoting-characters"></a>Caracteres de comillas de escape
 
 La consulta siguiente muestra cómo leer un archivo con una fila de encabezado, con una nueva línea al estilo de Unix, columnas delimitadas por comas y un carácter de comillas dobles de escape entre valores. Tenga en cuenta la ubicación diferente del archivo en comparación con los demás ejemplos.
 
@@ -306,7 +306,7 @@ WHERE
     AND year = 2017
 ```
 
-## <a name="returning-subset-of-columns"></a>Devolución del subconjunto de columnas
+## <a name="return-a-subset-of-columns"></a>Devolver un subconjunto de columnas
 
 Hasta ahora, ha especificado el esquema de archivos CSV mediante WITH y enumerando todas las columnas. Solo puede especificar las columnas que realmente necesita en la consulta mediante un número ordinal para cada columna necesaria. También omitirá las columnas que no sean de interés.
 

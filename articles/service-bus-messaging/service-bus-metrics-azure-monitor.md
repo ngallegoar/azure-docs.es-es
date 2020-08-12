@@ -2,13 +2,13 @@
 title: Métricas de Azure Service Bus en Azure Monitor | Microsoft Docs
 description: En este artículo se explica cómo usar Azure Monitor para supervisar las entidades de Service Bus (colas, temas y suscripciones).
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 57b791e67157908447956a14fae99545843f3bc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: c4bf33fc7aa21be150a1ee0d6c65df84a391565e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340290"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089692"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Métricas de Azure Service Bus en Azure Monitor
 
@@ -29,11 +29,11 @@ De forma predeterminada, las métricas están habilitadas y puede acceder a dato
 
 Una vez transcurrido un tiempo, las métricas se pueden supervisar en [Azure Portal](https://portal.azure.com). En el ejemplo siguiente se muestra cómo ver las solicitudes correctas y las solicitudes entrantes en el nivel de cuenta:
 
-![][1]
+![Captura de pantalla de la página Monitor: Métricas (versión preliminar) en Azure Portal.][1]
 
 También puede tener acceso a las métricas directamente a través del espacio de nombres. Para ello, seleccione el espacio de nombres y, después, haga clic en **Métricas**. Para mostrar las métricas filtradas según el ámbito de la entidad, seleccione la entidad y, luego, haga clic en **Métricas**.
 
-![][2]
+![Captura de pantalla de la página Monitor: Métricas (versión preliminar) filtrada para el ámbito de la entidad.][2]
 
 Para ver métricas que admitan las dimensiones, debe filtrar por el valor de la dimensión que desee.
 
@@ -56,11 +56,11 @@ Cuenta el número de solicitudes de operaciones de datos y administración.
 
 | Nombre de la métrica | Descripción |
 | ------------------- | ----------------- |
-| Solicitudes entrantes| Número de solicitudes realizadas al servicio de Service Bus durante un período determinado. <br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|Solicitudes correctas|Número de solicitudes correctas realizadas al servicio de Service Bus durante un período determinado.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|Errores del servidor|Número de solicitudes no procesadas debido a un error en el servicio de Service Bus durante un período determinado.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|Errores de usuario (consulte la subsección siguiente)|Número de solicitudes no procesadas debido a errores de usuario durante un período determinado.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|Solicitudes limitadas|Número de solicitudes que se han limitado porque se superó el uso.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+| Solicitudes entrantes| Número de solicitudes realizadas al servicio de Service Bus durante un período determinado. <br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: Nombre de entidad|
+|Solicitudes correctas|Número de solicitudes correctas realizadas al servicio de Service Bus durante un período determinado.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: Nombre de entidad|
+|Errores del servidor|Número de solicitudes no procesadas debido a un error en el servicio de Service Bus durante un período determinado.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: Nombre de entidad|
+|Errores de usuario (consulte la subsección siguiente)|Número de solicitudes no procesadas debido a errores de usuario durante un período determinado.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: Nombre de entidad|
+|Solicitudes limitadas|Número de solicitudes que se han limitado porque se superó el uso.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: Nombre de entidad|
 
 ### <a name="user-errors"></a>Errores de usuario
 
@@ -74,12 +74,13 @@ Los dos tipos de errores siguientes se clasifican como errores de usuario:
 
 | Nombre de la métrica | Descripción |
 | ------------------- | ----------------- |
-|Mensajes entrantes|Número de eventos o mensajes enviados a Service Bus durante un período determinado.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|Mensajes salientes|Número de eventos o mensajes recibidos de Service Bus durante un período determinado.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-| error de Hadoop| Recuento de mensajes de una cola/tema. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average <br/> Dimensión: EntityName |
-| ActiveMessages| Recuento de mensajes activos de una cola/tema. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average <br/> Dimensión: EntityName |
-| Mensajes fallidos| Recuento de mensajes fallidos de una cola/tema. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average <br/>Dimensión: EntityName |
-| Mensajes programados| Recuento de mensajes programados de una cola/tema. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average  <br/> Dimensión: EntityName |
+|Mensajes entrantes|Número de eventos o mensajes enviados a Service Bus durante un período determinado.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: Nombre de entidad|
+|Mensajes salientes|Número de eventos o mensajes recibidos de Service Bus durante un período determinado.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: Nombre de entidad|
+| error de Hadoop| Recuento de mensajes de una cola/tema. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average <br/> Dimensión: Nombre de entidad |
+| Mensajes activos| Recuento de mensajes activos de una cola/tema. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average <br/> Dimensión: Nombre de entidad |
+| Mensajes fallidos| Recuento de mensajes fallidos de una cola/tema. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average <br/>Dimensión: Nombre de entidad |
+| Mensajes programados| Recuento de mensajes programados de una cola/tema. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average  <br/> Dimensión: Nombre de entidad |
+| Size | Tamaño de una entidad (cola o tema) en bytes. <br/><br/>Unidad: Count <br/>Tipo de agregación: Average <br/>Dimensión: Nombre de entidad | 
 
 > [!NOTE]
 > Los valores de las métricas siguientes son valores de un momento dado. Es posible que los mensajes entrantes que se consumieron inmediatamente después de ese momento dado no se reflejen en estas métricas. 
@@ -92,9 +93,9 @@ Los dos tipos de errores siguientes se clasifican como errores de usuario:
 
 | Nombre de la métrica | Descripción |
 | ------------------- | ----------------- |
-|ActiveConnections|Número de conexiones activas en un espacio de nombres, así como en una entidad.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|Conexiones abiertas |Número de conexiones abiertas.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|Conexiones cerradas |Número de conexiones cerradas.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|Conexiones activas|Número de conexiones activas en un espacio de nombres, así como en una entidad.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: Nombre de entidad|
+|Conexiones abiertas |Número de conexiones abiertas.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: Nombre de entidad|
+|Conexiones cerradas |Número de conexiones cerradas.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: Nombre de entidad|
 
 ## <a name="resource-usage-metrics"></a>Métricas de uso de recursos
 
@@ -107,8 +108,8 @@ Los dos tipos de errores siguientes se clasifican como errores de usuario:
 
 | Nombre de la métrica | Descripción |
 | ------------------- | ----------------- |
-|Uso de CPU por espacio de nombres|Porcentaje de uso de CPU del espacio de nombres.<br/><br/> Unidad: Percent <br/> Tipo de agregación: Máxima <br/> Dimensión: EntityName|
-|Uso de tamaño de memoria por espacio de nombres|Porcentaje de uso de memoria del espacio de nombres.<br/><br/> Unidad: Percent <br/> Tipo de agregación: Máxima <br/> Dimensión: EntityName|
+|Uso de CPU por espacio de nombres|Porcentaje de uso de CPU del espacio de nombres.<br/><br/> Unidad: Percent <br/> Tipo de agregación: Máxima <br/> Dimensión: Nombre de entidad|
+|Uso de tamaño de memoria por espacio de nombres|Porcentaje de uso de memoria del espacio de nombres.<br/><br/> Unidad: Percent <br/> Tipo de agregación: Máxima <br/> Dimensión: Nombre de entidad|
 
 ## <a name="metrics-dimensions"></a>Dimensiones de métricas
 
@@ -116,7 +117,7 @@ Azure Service Bus admite las siguientes dimensiones para las métricas de Azure 
 
 |Nombre de dimensión|Descripción|
 | ------------------- | ----------------- |
-|EntityName| Service Bus admite las entidades de mensajería en el espacio de nombres.|
+|Nombre de entidad| Service Bus admite las entidades de mensajería en el espacio de nombres.|
 
 ## <a name="set-up-alerts-on-metrics"></a>Configuración de alertas en métricas
 

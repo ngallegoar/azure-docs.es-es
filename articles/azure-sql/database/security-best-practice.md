@@ -1,7 +1,7 @@
 ---
 title: Cuaderno de estrategias para abordar requisitos de seguridad comunes
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
-description: En este artículo se proporcionan requisitos de seguridad comunes y procedimientos recomendados de seguridad en Azure SQL Database e Instancia administrada de Azure SQL.
+description: En este artículo se proporcionan requisitos de seguridad comunes y procedimientos recomendados de seguridad en Azure SQL Database y en Azure SQL Managed Instance.
 ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=2
@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 6a3a52c90187920be13628a6d2fa44159e1109d7
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6630b924decacc5ff59611c657e1d7e38b1813a7
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371794"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541726"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Cuaderno de estrategias para abordar requisitos de seguridad comunes con Azure SQL Database y Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -291,7 +291,7 @@ La separación de tareas, que también se denomina "separación de obligaciones"
 - Identifique una jerarquía completa de los usuarios (y procesos automatizados) que tienen acceso al sistema.
 
 - Cree roles según los grupos de usuarios necesarios y asigne permisos a los roles.
-  - En el caso de las tareas en el nivel de administración en Azure Portal o a través de la automatización de PowerShell, use los roles de RBAC. Busque un rol integrado que coincida con el requisito o cree un rol personalizado de Azure con los permisos disponibles.
+  - En el caso de las tareas en el nivel de administración en Azure Portal o a través de la automatización de PowerShell, use los roles de Azure. Busque un rol integrado que coincida con el requisito o cree un rol personalizado de Azure con los permisos disponibles.
   - Cree roles de servidor para las tareas de servidor (crear inicios de sesión y bases de datos) en una instancia administrada.
   - Cree roles de base de datos para las tareas en el nivel de base de datos.
 
@@ -318,7 +318,7 @@ La separación de tareas, que también se denomina "separación de obligaciones"
 
 - Cree y use roles definidos por el usuario cuando los roles integrados concedan demasiados permisos o permisos insuficientes.
 
-- Las asignaciones de roles también se pueden realizar de manera temporal, algo que también se conoce como "separación dinámica de tareas" (DSD), ya sea dentro de los pasos de trabajo del Agente SQL en T-SQL o mediante Azure PIM para los roles de RBAC.
+- Las asignaciones de roles también se pueden realizar de manera temporal, algo que también se conoce como "separación dinámica de tareas" (DSD), ya sea dentro de los pasos de trabajo del Agente SQL en T-SQL o mediante Azure PIM para los roles de Azure.
 
 - Asegúrese de que los administradores de bases de datos no tengan acceso a las claves de cifrado o los almacenes de claves y que los administradores de seguridad con acceso a las claves no tengan, a su vez, acceso a la base de datos. El uso de la [Administración extensible de claves (EKM)](https://docs.microsoft.com/sql/relational-databases/security/encryption/extensible-key-management-ekm) puede facilitar esta separación. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) se puede usar para implementar EKM.
 

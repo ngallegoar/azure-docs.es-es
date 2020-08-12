@@ -4,12 +4,12 @@ description: Utilice el control de acceso basado en roles para administrar el ac
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: 89e5cf7c6b46d63b10bd358fc078f8f87db689c8
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 408e25b865c6d244118e505121492ccf22d19b64
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371709"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533468"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Uso del control de acceso basado en roles para administrar puntos de recuperación de Azure Backup
 
@@ -28,9 +28,9 @@ Si quiere definir sus propios roles para tener un mayor control, consulte cómo 
 
 ## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>Asignación de roles integrados de Backup a las acciones de administración de copia de seguridad
 
-En la tabla siguiente se capturan acciones de administración de Backup y el rol RBAC mínimo correspondiente necesario para realizar esa operación.
+En la tabla siguiente se capturan acciones de administración de Backup y el rol de Azure mínimo correspondiente necesario para realizar esa operación.
 
-| Operación de administración | Rol RBAC mínimo necesario | Ámbito requerido |
+| Operación de administración | Rol de Azure mínimo necesario | Ámbito requerido |
 | --- | --- | --- |
 | Crear almacén de Recovery Services | Colaborador de copias de seguridad | Grupo de recursos que contiene el almacén |
 | Habilitar la copia de seguridad de VM de Azure | Operador de copias de seguridad | Grupo de recursos que contiene el almacén |
@@ -77,7 +77,7 @@ En la tabla siguiente se capturan las acciones de administración de Backup y el
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Control de acceso basado en rol](../role-based-access-control/role-assignments-portal.md): Puede comenzar con RBAC en Azure Portal.
+* [Control de acceso basado en roles de Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md): Puede comenzar con RBAC en Azure Portal.
 * Aprenda a administrar el acceso con:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [CLI de Azure](../role-based-access-control/role-assignments-cli.md)

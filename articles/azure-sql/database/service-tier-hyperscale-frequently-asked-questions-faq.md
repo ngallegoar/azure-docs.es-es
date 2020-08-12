@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: 983bf848b3be2501b70ba1c0396207e514b7b8d6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 359de25d2bdb57ad5c6386586f987942acc120ef
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024034"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500153"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Preguntas más frecuentes sobre Hiperescala de Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -331,7 +331,7 @@ Para la mayoría de los problemas de rendimiento, especialmente los que no tiene
 
 ### <a name="how-long-would-it-take-to-scale-up-and-down-a-compute-replica"></a>¿Cuánto tiempo se tarda en realizar un escalado y reducción vertical de una réplica de proceso?
 
-El proceso de escalado o reducción vertical tardará entre 5 y 10 minutos, independientemente del tamaño de los datos.
+El proceso de escalado o reducción vertical tarda hasta 2 minutos, independientemente del tamaño de los datos.
 
 ### <a name="is-my-database-offline-while-the-scaling-updown-operation-is-in-progress"></a>¿Está mi base de datos sin conexión mientras que la operación de escalado y reducción vertical está en curso?
 

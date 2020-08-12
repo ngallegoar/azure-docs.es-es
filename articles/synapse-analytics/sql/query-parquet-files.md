@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: dd1e387727b0a80781b1103ddfb40afcbce8fce8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 8083edaf647f52a07d55dddf21fe5751340783be
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386629"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496243"
 ---
 # <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Consulta de archivos de Parquet con SQL a petición (versión preliminar) en Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ En este artículo, aprenderá a escribir una consulta con SQL a petición (versi
 
 La función `OPENROWSET` permite leer el contenido del archivo Parquet al proporcionar la dirección URL al archivo.
 
-### <a name="reading-parquet-file"></a>Lectura del archivo Parquet
+### <a name="read-parquet-file"></a>Lectura del archivo de Parquet
 
 La forma más fácil de ver el contenido del archivo `PARQUET` es proporcionar la dirección URL del archivo a la función `OPENROWSET` y especificar el `FORMAT` de Parquet. Si el archivo está disponible públicamente o si la identidad de Azure AD puede tener acceso a este archivo, debería poder ver el contenido del archivo mediante la consulta como la que se muestra en el ejemplo siguiente:
 
@@ -37,7 +37,7 @@ from openrowset(
 
 Asegúrese de que tiene acceso a este archivo. Si el archivo está protegido con una clave SAS o una identidad personalizada de Azure, necesitaría configurar una [credencial de nivel de servidor para el inicio de sesión de SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
-### <a name="using-data-source"></a>Uso del origen de datos
+### <a name="data-source-usage"></a>Uso del origen de datos
 
 En el ejemplo anterior se usa la ruta de acceso completa al archivo. Como alternativa, puede crear un origen de datos externo con la ubicación que apunta a la carpeta raíz del almacenamiento y usar ese origen de datos y la ruta de acceso relativa al archivo en la función `OPENROWSET`:
 

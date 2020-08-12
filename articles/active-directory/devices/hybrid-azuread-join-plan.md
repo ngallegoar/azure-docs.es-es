@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16203ab972f6117cec41e43ee5dd89cda7e95ede
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4c4b9ae0ed682d6b34099c8eff941f1d0b6cabad
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025706"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461772"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrucciones: Planeamiento de la implementación de la unión a Azure Active Directory híbrido
 
@@ -121,6 +121,9 @@ La unión a Azure AD híbrido funciona con entornos administrados y federados, 
 Un entorno administrado se puede implementar mediante [Sincronización de hash de contraseña (PHS)](/azure/active-directory/hybrid/whatis-phs) o [Autenticación de paso a través (PTA)](/azure/active-directory/hybrid/how-to-connect-pta) con [Inicio de sesión único de conexión directa](/azure/active-directory/hybrid/how-to-connect-sso).
 
 Estos escenarios no requieren que se configure un servidor de federación para la autenticación.
+
+> [!NOTE]
+> [La autenticación en la nube mediante el lanzamiento preconfigurado](/hybrid/how-to-connect-staged-rollout) solo se admite a partir de la actualización 1903 de Windows 10
 
 ### <a name="federated-environment"></a>Entorno federado
 

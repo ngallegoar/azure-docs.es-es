@@ -4,12 +4,12 @@ description: 'Tutorial: En este tutorial se muestra cómo capturar datos de una 
 services: event-hubs
 ms.date: 06/23/2020
 ms.topic: tutorial
-ms.openlocfilehash: 8d45681b53aa2dd8df8c2288fecdde1b45fb7bd4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1a7030014a8926b1db11ad99ba031e51194ddfd9
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87039504"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833732"
 ---
 # <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Tutorial: Migración de datos de Event Hubs capturados a SQL Data Warehouse mediante Event Grid y Azure Functions
 
@@ -178,4 +178,4 @@ Transcurridos unos minutos, realice una consulta en la tabla de SQL Data Warehou
 ## <a name="next-steps"></a>Pasos siguientes 
 Puede usar las eficaces herramientas de visualización de datos con Data Warehouse para conseguir detalles accionables.
 
-En este artículo se muestra cómo usar [Power BI con SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-integrate-power-bi)
+En este artículo se muestra cómo usar [Power BI con SQL Data Warehouse](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect)

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
-ms.openlocfilehash: f43db986f70e64e55225465223b7e324450541a8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bec4b771387854c40045f2b57afe7ead6c52f2c7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084344"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836044"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs-version-300-preview1"></a>Tutorial: Envío de notificaciones push a aplicaciones iOS mediante Azure Notification Hubs (versión 3.0.0, versión preliminar 1)
 
@@ -317,7 +317,7 @@ Las notificaciones push se envían normalmente en un servicio back-end como Mobi
 
 A continuación, presentamos una lista de algunos otros tutoriales que podría interesarle revisar para enviar notificaciones:
 
-- Azure Mobile Apps: Para ver un ejemplo de cómo enviar notificaciones desde un back-end de Mobile Apps integrado con Notification Hubs, consulte [Incorporación de notificaciones push a la aplicación iOS](/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
+- Azure Mobile Apps: Para ver un ejemplo de cómo enviar notificaciones desde un back-end de Mobile Apps integrado con Notification Hubs, consulte [Incorporación de notificaciones push a la aplicación iOS](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
 - ASP.NET:  [Uso de Notification Hubs para enviar notificaciones push a los usuarios](notification-hubs-aspnet-backend-ios-apple-apns-notification.md).
 - SDK de Java para Azure Notification Hubs: Consulte [Uso de Notification Hubs desde Java](notification-hubs-java-push-notification-tutorial.md) para enviar notificaciones desde Java. Esto se probó en Eclipse para el desarrollo de Android.
 - PHP: [Uso de Notification Hubs desde PHP](notification-hubs-php-push-notification-tutorial.md).

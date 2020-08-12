@@ -1,6 +1,6 @@
 ---
-title: Adición de compatibilidad para el tipo de datos Long | Microsoft Docs
-description: Adición de compatibilidad para el tipo de datos Long
+title: Soporte técnico para el tipo de datos Long en Azure Time Series Insights Gen2 | Microsoft Docs
+description: Soporte técnico para el tipo de datos Long en Azure Time Series Insights Gen2.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -10,44 +10,65 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: dpalled
-ms.openlocfilehash: c31ca7fd3eca89159d583b8a51b59a7bd6b8ed67
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 34cf770a8ac75c2516480ec3136e61da15f4e4ff
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528184"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446630"
 ---
-# <a name="adding-support-for-long-data-type"></a>Adición de compatibilidad para el tipo de datos Long
+# <a name="adding-support-for-long-data-type-in-azure-time-series-insights-gen2"></a>Adición de soporte técnico para el tipo de datos Long en Azure Time Series Insights Gen2
 
-Estos cambios se aplicarán solo a entornos Gen2. Si tiene un entorno Gen1, puede omitir estos cambios.
+La adición del soporte técnico para el tipo de datos Long afecta al modo en que se almacenan e indexan los datos numéricos solo en entornos de Azure Time Series Insights Gen2. Si tiene un entorno de tipo Gen1, puede omitir estos cambios.
 
-Estamos realizando cambios en la forma de almacenar e indexar los datos numéricos en Azure Time Series Insights Gen2 que podrían afectar al usuario. Si se ve afectado por cualquiera de los casos siguientes, realice los cambios necesarios lo más pronto posible. Los datos empezarán a indexarse con los tipos Long y Double entre el 29 de junio y el 30 de junio de 2020, en función de su región. Si tiene alguna pregunta o duda sobre este cambio, envíe una incidencia de soporte técnico a través de Azure Portal y mencione esta publicación.
+A partir del 29 de junio o del 30 de junio de 2020, en función de su región, los datos se indexarán como **Long** y **Double**.  Si tiene alguna pregunta o duda sobre este cambio, envíe una incidencia de soporte técnico a través de Azure Portal y mencione esta publicación.
 
-Este cambio afecta su entorno en los siguientes casos:
+Si se ve afectado por cualquiera de los siguientes casos, realice los cambios recomendados:
 
-1. Si actualmente usa variables del modelo de Time Series y envía solo tipos de datos enteros en los datos de telemetría.
-1. Si actualmente usa variables del modelo de Time Series y envía tipos de datos enteros y no enteros en los datos de telemetría.
-1. Si usa variables de categorías para asignar valores enteros a las categorías.
-1. Si usa el SDK de JavaScript para crear una aplicación de front-end personalizado.
-1. Si está cerca de llegar al límite de 1000 nombres de propiedades en el almacenamiento intermedio (WS) y envía datos enteros y no enteros, el recuento de propiedades se puede ver como una métrica en [Azure Portal](https://portal.azure.com/).
+- **Caso 1**: actualmente usa variables del modelo de Time Series y envía solo tipos de datos enteros en los datos de telemetría.
+- **Caso 2**: actualmente usa variables del modelo de Time Series y envía tipos de datos enteros y no enteros en los datos de telemetría.
+- **Caso 3**: usa variables de categorías para asignar valores enteros a las categorías.
+- **Caso 4**: usa el SDK de JavaScript para crear una aplicación de front-end personalizada.
+- **Caso 5**: está llegando al límite del nombre de la propiedad 1000 en el almacenamiento intermedio y envía datos enteros y no enteros. El recuento de propiedades se puede ver como una métrica en [Azure Portal](https://portal.azure.com/).
 
-Si alguno de los casos anteriores se aplica a su entorno, deberá realizar cambios en el modelo para dar adaptarse a este cambio. Actualice la expresión de serie temporal en la definición de la variable tanto en el Explorador de Azure Time Series Insights Gen2 como en cualquier cliente personalizado mediante nuestras API con los cambios recomendados. Consulte a continuación para más información.
+Si alguno de estos casos se aplica a su situación, realice cambios en el modelo. Actualice la expresión de Time Series (TSX) en la definición de la variable con los cambios recomendados. Actualice ambos:
 
-En función de las restricciones y la solución de IoT, es posible que no pueda ver los datos que se envían a su entorno de Azure Time Series Insights Gen2. Si no está seguro de si los datos son solo enteros, o enteros y no enteros, tiene algunas opciones. Puede esperar a que se publique la característica y, a continuación, explorar los eventos sin procesar en la interfaz de usuario del explorador para comprender qué propiedades se guardaron en dos columnas independientes. Puede realizar los siguientes cambios de forma preventiva para todas las etiquetas numéricas, o puede enrutar temporalmente un subconjunto de eventos al almacenamiento para explorar y comprender mejor el esquema. Para almacenar los eventos, active la opción de [captura de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) para Event Hubs o [enrútelos](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c#azure-storage) de la instancia de IoT Hub a Azure Blob Storage. Los datos también se pueden observar a través del [explorador del centro de eventos](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer) o mediante el [host del procesador de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send#receive-events). Si usa IoT Hub, consulte la documentación [de este vínculo](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) sobre cómo obtener acceso al punto de conexión integrado.
+- Explorador de Azure Time Series Insights Gen2
+- Cualquier cliente personalizado que use nuestras API
 
-Tenga en cuenta que si se ve afectados por estos cambios y no puede hacerlo en las fechas anteriores, podría producirse una interrupción en la que las variables de la serie temporal afectadas a las que se tiene acceso a través de las API de consulta o el explorador de Time Series Insights devolverán *null* (es decir, no se muestra ningún dato en el explorador).
+En función de las restricciones y la solución de IoT, es posible que no pueda ver los datos que se envían a su entorno de Azure Time Series Insights Gen2. Si no está seguro de si los datos son solo enteros, o enteros y no enteros, tiene algunas opciones:
+
+- Puede esperar a que se libere la característica. A continuación, explore los eventos sin procesar en la interfaz de usuario del explorador para comprender qué propiedades se guardan en dos columnas independientes.
+- Puede realizar de forma preferente los cambios recomendados para todas las etiquetas numéricas.
+- Puede enrutar temporalmente un subconjunto de eventos en el almacenamiento para comprender mejor el esquema y poder explorarlo.
+
+Para almacenar los eventos, active la opción de [captura de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) de Azure Event Hubs o [enrútelos](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c#azure-storage) desde la instancia de IoT Hub a Azure Blob Storage.
+
+Los datos también se pueden observar a través del [explorador del centro de eventos](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer) o mediante el [host del procesador de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send#receive-events).
+
+Si usa IoT Hub, vaya a [Leer los mensajes del dispositivo a la nube desde el punto de conexión integrado](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) para saber cómo obtener acceso al punto de conexión integrado.
+
+> [!NOTE]
+> Es posible que se produzca una interrupción si no realiza los cambios recomendados. Por ejemplo, las variables de Time Series Insights afectadas a las que se tiene acceso a través de las API de consulta o el explorador de Time Series Insights devolverán **NULL** (es decir, no se muestra ningún dato en el explorador).
 
 ## <a name="recommended-changes"></a>Cambios recomendados
 
-Caso 1 y 2: **Uso de variables del modelo de Time Series y envío de tipos de datos enteros o tanto de enteros como no enteros en los datos de telemetría.**
+### <a name="case-1-using-time-series-model-variables-and-sending-only-integral-data-types-in-telemetry-data"></a>Caso 1: usar variables de modelo de Time Series y enviar solo tipos de datos enteros en datos de telemetría
 
-Si actualmente está enviando datos de telemetría de tipo entero, los datos se dividirán en dos columnas: "propertyValue_double" y "propertyValue_long".
+Los cambios recomendados para el caso 1 son los mismos que para el caso 2. Siga las instrucciones de la sección correspondiente al caso 2.
 
-Los datos enteros se escribirán en la columna "propertyValue_long" cuando los cambios se apliquen y los datos numéricos que se ingirieron previamente (y en el futuro) en "propertyValue_double" no se copiarán.
+### <a name="case-2-using-time-series-model-variables-and-sending-both-integral-and-nonintegral-types-in-telemetry-data"></a>Caso 2: usar variables de modelo de Time Series y enviar tipos de datos enteros y no enteros en datos de telemetría
 
-Si quiere consultar los datos de estas dos columnas para la propiedad "propertyValue", tendrá que usar la función escalar *coalesce()* en TSX. La función acepta argumentos del mismo DataType y devuelve el primer valor distinto de NULL en la lista de argumentos (obtenga más información sobre el uso [en este vínculo](https://docs.microsoft.com/rest/api/time-series-insights/preview#other-functions)).
+Si actualmente envía datos de telemetría de enteros, los datos se dividirán en dos columnas:
 
-### <a name="variable-definition-in-time-series-explorer---numeric"></a>Definición de variables en el explorador de Time Series: numéricas
+- **propertyValue_double**
+- **propertyValue_long**
+
+Los datos enteros se escriben en **propertyValue_long**. Los datos numéricos incorporados previamente (y los que se incorporarán en el futuro) en **propertyValue_double** no se copian.
+
+Si quiere consultar los datos de estas dos columnas para la propiedad **propertyValue**, tendrá que usar la función escalar **coalesce()** en TSX. La función acepta argumentos del mismo **DataType** y devuelve el primer valor distinto de NULL en la lista de argumentos. Para obtener más información, consulte [Conceptos de acceso a los datos de Azure Time Series Insights Gen2](https://docs.microsoft.com/rest/api/time-series-insights/preview#other-functions).
+
+#### <a name="variable-definition-in-tsx---numeric"></a>Definición de variable en TSX: numérica
 
 *Definición de variable anterior:*
 
@@ -57,9 +78,9 @@ Si quiere consultar los datos de estas dos columnas para la propiedad "propertyV
 
 [![Nueva definición de variable](media/time-series-insights-long-data-type/var-def.png)](media/time-series-insights-long-data-type/var-def.png#lightbox)
 
-También puede usar *"coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))"* como [expresión de Time Series](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) personalizada.
+También puede usar **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** como [expresión de Time Series](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) personalizada.
 
-### <a name="inline-variable-definition-using-time-series-query-apis---numeric"></a>Definición de variables insertadas mediante la API de consulta de Time Series: numéricas
+#### <a name="inline-variable-definition-using-tsx-query-apis---numeric"></a>Definición de variables insertadas mediante las API de consulta de TSX: numérica
 
 *Definición de variable anterior:*
 
@@ -105,16 +126,16 @@ También puede usar *"coalesce($event.propertyValue.Double, toDouble($event.prop
 }
 ```
 
-También puede usar *"coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))"* como [expresión de Time Series](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) personalizada.
+También puede usar **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** como [expresión de Time Series](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) personalizada.
 
 > [!NOTE]
-> Se recomienda actualizar estas variables en todos los lugares en los que se puedan usar (modelo de Time Series, consultas guardadas, consultas de conector de Power BI).
+> Se recomienda actualizar estas variables en todos los lugares en los que se puedan usar. Estos lugares incluyen el modelo de Time Series, las consultas guardadas y las consultas del conector de Power BI.
 
-Caso 3: **Uso de variables de categorías para asignar valores enteros a las categorías**
+### <a name="case-3-using-categorical-variables-to-map-integer-values-to-categories"></a>Caso 3: uso de variables de categorías para asignar valores enteros a las categorías
 
-Si actualmente usa variables de categorías que asignan valores enteros a las categorías, probablemente está usando la función toLong para convertir los datos de tipol Double al tipo Long. Al igual que en los casos anteriores, deberá fusionar las columnas con DataType Double y Long.
+Si actualmente usa variables de categorías que asignan valores enteros a las categorías, probablemente está usando la función **toLong** para convertir los datos de tipo **Double** al tipo **Long**. Al igual que en los casos 1 y 2, deberá fusionar las columnas **Double**, **Long** y **DataType** .
 
-### <a name="variable-definition-in-time-series-explorer---categorical"></a>Definición de variables en el explorador de Time Series: categoría
+#### <a name="variable-definition-in-time-series-explorer---categorical"></a>Definición de variables en el explorador de Time Series: categorías
 
 *Definición de variable anterior:*
 
@@ -124,11 +145,11 @@ Si actualmente usa variables de categorías que asignan valores enteros a las ca
 
 [![Nueva definición de variable](media/time-series-insights-long-data-type/var-def-cat.png)](media/time-series-insights-long-data-type/var-def-cat.png#lightbox)
 
-También puede usar *"coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))"* como [expresión de Time Series](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) personalizada.
+También puede usar **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** como [expresión de Time Series](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) personalizada.
 
-Las variables de categoría aún requieren que el valor sea de tipo entero. El valor DataType de todos los argumentos en la función coalesce() debe ser de tipo Long en la [expresión de Time Series](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) personalizada.
+Las variables de categoría aún requieren que el valor sea de tipo entero. El valor **DataType** de todos los argumentos en la función **coalesce()** debe ser de tipo **Long** en la [expresión de Time Series](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) personalizada.
 
-### <a name="inline-variable-definition-using-time-series-query-apis---categorical"></a>Definición de variables insertadas mediante la API de consulta de Time Series: categorías
+#### <a name="inline-variable-definition-using-tsx-query-apis---categorical"></a>Definición de variables insertadas mediante las API de consulta de TSX: categorías
 
 *Definición de variable anterior:*
 
@@ -206,19 +227,19 @@ Las variables de categoría aún requieren que el valor sea de tipo entero. El v
 }
 ```
 
-Las variables de categoría aún requieren que el valor sea de tipo entero. El valor DataType de todos los argumentos en la función coalesce() debe ser de tipo Long en la [expresión de Time Series](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) personalizada.
+Las variables de categoría aún requieren que el valor sea de tipo entero. El valor **DataType** de todos los argumentos en la función **coalesce()** debe ser de tipo **Long** en la [expresión de Time Series](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) personalizada.
 
 > [!NOTE]
-> Se recomienda actualizar estas variables en todos los lugares en los que se puedan usar (modelo de Time Series, consultas guardadas, consultas de conector de Power BI).
+> Se recomienda actualizar estas variables en todos los lugares en los que se puedan usar. Estos lugares incluyen el modelo de Time Series, las consultas guardadas y las consultas del conector de Power BI.
 
-Caso 4: **Uso del SDK de JavaScript para crear una aplicación de front-end personalizado**
+### <a name="case-4-using-the-javascript-sdk-to-build-a-custom-front-end-application"></a>Caso 4: uso del SDK de JavaScript para crear una aplicación de front-end personalizada
 
-Si se ve afectado por los casos 1 a 3 anteriores y crea aplicaciones personalizadas, debe actualizar las consultas para usar la función *coalesce()* , como se muestra en los ejemplos anteriores.
+Si se ve afectado por los casos 1 a 3 y crea aplicaciones personalizadas, debe actualizar las consultas para usar la función **coalesce()** , tal como se muestra en los ejemplos anteriores.
 
-Caso 5: **Cercanía al límite de 1000 propiedades en el almacenamiento intermedio**
+### <a name="case-5-nearing-warm-store-1000-property-limit"></a>Caso 5: cercanía al límite de 1000 propiedades en el almacenamiento intermedio
 
 Si es un usuario del almacenamiento intermedio, tiene un gran número de propiedades y cree que este cambio hará que su entorno supere el límite de 1000 nombres de propiedad del almacenamiento intermedio, envíe una incidencia de soporte técnico a través de Azure Portal y mencione esta publicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte los [tipos de datos admitidos](concepts-supported-data-types.md) para ver la lista completa.
+- Ver la lista completa de los [tipos de datos admitidos](concepts-supported-data-types.md).

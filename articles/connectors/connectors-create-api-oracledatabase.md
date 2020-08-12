@@ -7,12 +7,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/20/2020
 tags: connectors
-ms.openlocfilehash: e7055964f9515189450fac5c993f6acda946bfd4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 988d1efd348fe8e85dd33fbe35cc8dc9362c081b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524172"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290605"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introducción al conector de una base de datos de Oracle
 
@@ -77,7 +77,7 @@ Este artículo le muestra cómo usar el conector de una base de datos de Oracle 
 
     En el ejemplo siguiente, se devuelven los datos de trabajo de una base de datos de recursos humanos: 
 
-    ![El cuadro de diálogo titulado "Obtener fila (vista previa)" tiene dos cuadros de texto: "Nombre de tabla", que contiene "HRJOBS" y tiene una lista desplegable e "Id. de fila", que contiene "SA_REP".](./media/connectors-create-api-oracledatabase/table-rowid.png)
+    ![El cuadro de diálogo titulado "Obtener fila (vista previa)" tiene dos cuadros de texto: "Nombre de tabla", que contiene "HR.JOBS" y tiene una lista desplegable e "Id. de fila", que contiene "SA_REP".](./media/connectors-create-api-oracledatabase/table-rowid.png)
 
 7. En este paso, puede usar cualquiera de los demás conectores para crear el flujo de trabajo. Si desea probar la obtención de datos de Oracle, envíese un correo con los datos de Oracle mediante uno de los conectores de envío de correo electrónico, como Office 365 Outlook. Use los tokens dinámicos de la tabla de Oracle para generar el `Subject` y `Body` de su correo electrónico:
 
@@ -122,10 +122,11 @@ Vea los desencadenadores y las acciones definidos en Swagger y vea también todo
 
 ## <a name="get-some-help"></a>Obtener ayuda
 
-La [página de preguntas y respuestas de Microsoft sobre Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html) es un excelente lugar para formular preguntas, o responderlas, y ver lo que hacen otros usuarios de Logic Apps. 
+La [página de preguntas y respuestas de Microsoft sobre Azure Logic Apps](/answers/topics/azure-logic-apps.html) es un excelente lugar para formular preguntas, o responderlas, y ver lo que hacen otros usuarios de Logic Apps. 
 
 Puede ayudar a mejorar Logic Apps y conectores al votar y enviar sus ideas en [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish). 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Cree una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md) y explore los conectores disponibles en Logic Apps en la [lista de API](apis-list.md).
+

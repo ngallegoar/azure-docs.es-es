@@ -6,12 +6,12 @@ author: lachie83
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: laevenso
-ms.openlocfilehash: 7349504b5a1ed5a67f3b34be2c4ff5dda29afbf3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 08835bda959fb4fe261e86e4d519ab85bd2a4625
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025309"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495155"
 ---
 # <a name="http-application-routing"></a>Enrutamiento de aplicación HTTP
 
@@ -20,7 +20,7 @@ La solución de enrutamiento de aplicación HTTP facilita el acceso a las aplica
 Cuando se habilita el complemento, crea una zona DNS en su suscripción. Para más información sobre el costo de DNS, consulte los [precios de DNS][dns-pricing].
 
 > [!CAUTION]
-> El complemento de enrutamiento de aplicaciones HTTP está diseñado para permitirle crear rápidamente un controlador de entrada y acceder a sus aplicaciones. Este complemento no se recomienda para su uso en producción. Para información sobre las implementaciones de entrada listas para producción, consulte [Creación de un controlador de entrada HTTPS](./ingress-tls.md).
+> El complemento de enrutamiento de aplicaciones HTTP está diseñado para permitirle crear rápidamente un controlador de entrada y acceder a sus aplicaciones. Este complemento no está diseñado actualmente para su uso en un entorno de producción y no se recomienda usarlo en el mismo. Para información sobre las implementaciones de entrada listas para producción, consulte [Creación de un controlador de entrada HTTPS](./ingress-tls.md).
 
 ## <a name="http-routing-solution-overview"></a>Introducción a la solución de enrutamiento HTTP
 

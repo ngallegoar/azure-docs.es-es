@@ -6,27 +6,29 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/13/2020
+ms.date: 08/02/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 24d726f7600c3ba80833640be8036bf0daa2c014
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f46a7927c149009eaf5baddbad2758732d4da758
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518731"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534295"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Impedir el acceso de lectura público anónimo a contenedores y blobs
 
 El acceso de lectura público anónimo a contenedores y blobs en Azure Storage es una manera cómoda de compartir datos, pero también puede suponer un riesgo para la seguridad. Es importante obrar con prudencia al administrar el acceso anónimo y entender cómo evaluar el acceso anónimo a los datos. La complejidad operativa, el error humano o el ataque malintencionado contra los datos a los que se puede tener acceso público pueden dar lugar a costosas vulnerabilidades de los datos. Microsoft recomienda permitir el acceso anónimo solo cuando sea necesario para el escenario de la aplicación.
 
-De forma predeterminada, un usuario con los permisos adecuados puede configurar el acceso público a contenedores y blobs. Puede evitar todo acceso público en el nivel de la cuenta de almacenamiento. Cuando no permite el acceso público a blobs a la cuenta de almacenamiento, los contenedores de la cuenta no se pueden configurar para el acceso público. Los contenedores ya configurados para el acceso público ya no aceptarán solicitudes anónimas. Para más información, consulte [Configuración del acceso de lectura público anónimo a contenedores y blobs](anonymous-read-access-configure.md).
+De forma predeterminada, siempre se prohíbe el acceso público a los datos del blob. Sin embargo, la configuración predeterminada de una cuenta de almacenamiento permite a un usuario con los permisos adecuados configurar el acceso público a los contenedores y blobs en una cuenta de almacenamiento. Para mejorar la seguridad, puede deshabilitar todo el acceso público a la cuenta de almacenamiento, independientemente de la configuración de acceso público que haya establecido en un contenedor individual. No permitir el acceso público a la cuenta de almacenamiento impide que un usuario habilite el acceso público a un contenedor de la cuenta. Microsoft recomienda que no permita el acceso público a una cuenta de almacenamiento a menos que su escenario lo requiera. No permitir el acceso público ayuda a evitar las vulneraciones de datos que se producen debido a los accesos anónimos no deseados.
 
-En este artículo se describe cómo analizar las solicitudes anónimas a una cuenta de almacenamiento y cómo evitar el acceso anónimo a la cuenta de almacenamiento o a alguno de sus contenedores.
+Cuando se deniega el acceso público a blobs en la cuenta de almacenamiento, Azure Storage rechaza todas las solicitudes anónimas a esa cuenta. Una vez que no se permite el acceso público a una cuenta, los contenedores de la misma no se pueden configurar posteriormente para el acceso público. Los contenedores ya configurados para el acceso público ya no aceptarán solicitudes anónimas. Para más información, consulte [Configuración del acceso de lectura público anónimo a contenedores y blobs](anonymous-read-access-configure.md).
+
+En este artículo se describe cómo usar un marco de tipo DRAG (detección-corrección-auditoría-gobernanza) para administrar continuamente el acceso público a las cuentas de almacenamiento.
 
 ## <a name="detect-anonymous-requests-from-client-applications"></a>Detección de solicitudes anónimas desde aplicaciones cliente
 
-Al no permitir el acceso de lectura público a una cuenta de almacenamiento, se arriesga a rechazar las solicitudes a contenedores y blobs que están configurados actualmente para el acceso público. Cuando no se permite el acceso público a una cuenta de almacenamiento, se invalida la configuración de acceso público de todos los contenedores de esta. Además, todas las solicitudes anónimas futuras a esa cuenta generarán un error.
+Al no permitir el acceso de lectura público a una cuenta de almacenamiento, se arriesga a rechazar las solicitudes a contenedores y blobs que están configurados actualmente para el acceso público. Cuando no se permite el acceso público a una cuenta de almacenamiento, se invalida la configuración de acceso público de cada contenedor de esta. Además, todas las solicitudes anónimas futuras a esa cuenta generarán un error.
 
 Para comprender de qué forma el impedimento del acceso público puede afectar a las aplicaciones cliente, Microsoft recomienda habilitar el registro y las métricas de esa cuenta y analizar los patrones de solicitudes anónimas a lo largo de un intervalo de tiempo. Use métricas para determinar el número de solicitudes anónimas a la cuenta de almacenamiento y utilice registros para determinar a qué contenedores se tiene acceso anónimo.
 
@@ -155,6 +157,126 @@ $ctx = $storageAccount.Context
 
 New-AzStorageContainer -Name $containerName -Permission Blob -Context $ctx
 ```
+
+### <a name="check-the-public-access-setting-for-multiple-accounts"></a>Comprobar la configuración de acceso público en varias cuentas
+
+Para comprobar el valor del acceso público en un conjunto de cuentas de almacenamiento con un rendimiento óptimo, puede usar Azure Resource Graph Explorer en Azure Portal. Para más información sobre el uso de Resource Graph Explorer, consulte [Inicio rápido: Ejecución de la primera consulta de Resource Graph mediante Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal).
+
+Si la siguiente consulta se ejecuta en el explorador de Resource Graph, este devuelve una lista de cuentas de almacenamiento y muestra la configuración de acceso público de cada cuenta:
+
+```kusto
+resources
+| where type =~ 'Microsoft.Storage/storageAccounts'
+| extend allowBlobPublicAccess = parse_json(properties).allowBlobPublicAccess
+| project subscriptionId, resourceGroup, name, allowBlobPublicAccess
+```
+
+## <a name="use-azure-policy-to-audit-for-compliance"></a>Uso de Azure Policy para auditar el cumplimiento
+
+Si tiene un gran número de cuentas de almacenamiento, tal vez quiera realizar una auditoría para asegurarse de que esas cuentas están configuradas para impedir el acceso público. Para auditar un conjunto de cuentas de almacenamiento para su cumplimiento, use Azure Policy. Azure Policy es un servicio que puede usar para crear, asignar y administrar directivas que aplican reglas a los recursos de Azure. Azure Policy le permite mantener esos recursos conforme a lo establecido en los estándares corporativos y los contratos de nivel de servicio. Para más información, consulte la [Introducción a Azure Policy](../../governance/policy/overview.md).
+
+### <a name="create-a-policy-with-an-audit-effect"></a>Creación de una directiva con un efecto de auditoría
+
+Azure Policy admite efectos que determinan lo que sucede cuando una regla de directiva se evalúa con respecto a un recurso. El efecto de auditoría crea una advertencia cuando un recurso no cumple los requisitos, pero no detiene la solicitud. Para obtener más información, consulte [Comprender los efectos de Azure Policy](../../governance/policy/concepts/effects.md).
+
+Para crear una directiva con un efecto de auditoría para la configuración de acceso público de una cuenta de almacenamiento con Azure Portal, siga estos pasos:
+
+1. En Azure Portal, vaya al servicio Azure Policy.
+1. Seleccione **Definiciones** en la sección **Creación**.
+1. Seleccione **Agregar definición de directiva** para crear una nueva definición de directiva.
+1. En el campo donde se indica la **ubicación de la definición**, seleccione el botón **Más** para especificar dónde se encuentra el recurso de directiva de auditoría.
+1. Escriba un nombre para la directiva. Si lo desea, puede escribir también una descripción y la categoría.
+1. En la **regla de directiva**, agregue la siguiente definición de directiva a la sección **policyRule**.
+
+    ```json
+    {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
+          },
+          {
+            "not": {
+              "field":"Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+              "equals": "false"
+            }
+          }
+        ]
+      },
+      "then": {
+        "effect": "audit"
+      }
+    }
+    ```
+
+1. Guarde la directiva.
+
+### <a name="assign-the-policy"></a>Asignación de la directiva
+
+A continuación, asigne la directiva a un recurso. El ámbito de la directiva corresponde a ese recurso y a todos los recursos que hay debajo del mismo. Para obtener más información sobre la asignación de directivas, consulte [estructura de asignaciones de Azure Policy](../../governance/policy/concepts/assignment-structure.md).
+
+Para asignar la directiva con Azure Portal, haga lo siguiente:
+
+1. En Azure Portal, vaya al servicio Azure Policy.
+1. Seleccione **Asignaciones** en la sección **Creación**.
+1. Seleccione **Asignar directiva** para crear una nueva asignación de directiva.
+1. En el campo del **ámbito**, seleccione el ámbito de la asignación de directiva.
+1. En el campo de la **definición de directiva**, seleccione el botón **Más** y, a continuación, seleccione la directiva que definió en la sección anterior de la lista.
+1. Escriba un nombre para la asignación de directiva. La descripción es opcional.
+1. Deje la opción **Cumplimiento de directivas** como *Habilitada*. Esta configuración no tiene ningún efecto en la directiva de auditoría.
+1. Seleccione **Revisar y crear** para crear la asignación.
+
+### <a name="view-compliance-report"></a>Ver el informe de cumplimiento
+
+Una vez asignada la Directiva, puede ver el informe de cumplimiento. El informe de cumplimiento de una directiva de auditoría proporciona información sobre las cuentas de almacenamiento que no cumplen con esa directiva. Para obtener más información, consulte [Obtención de datos de cumplimiento de directivas](../../governance/policy/how-to/get-compliance-data.md).
+
+El informe de cumplimiento puede tardar varios minutos en estar disponible después de que se cree la asignación de directiva.
+
+Para ver el informe de cumplimiento en Azure Portal, siga estos pasos:
+
+1. En Azure Portal, vaya al servicio Azure Policy.
+1. Seleccione **Cumplimiento**.
+1. Filtre los resultados en función del nombre de la asignación de directiva que creó en el paso anterior. El informe muestra el número de recursos que no cumplen con la directiva.
+1. Puede explorar en profundidad el informe para obtener más detalles, incluida una lista de cuentas de almacenamiento que no cumplen los requisitos.
+
+    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Captura de pantalla que muestra el informe de cumplimiento de la directiva de auditoría para el acceso público de blobs":::
+
+## <a name="use-azure-policy-to-enforce-authorized-access"></a>Uso de Azure Policy para aplicar el acceso autorizado
+
+Azure Policy admite la gobernanza en la nube, asegurándose así de que los recursos de Azure cumplen los requisitos y los estándares establecidos. Para asegurarse de que las cuentas de almacenamiento de su organización permiten solo solicitudes autorizadas, puede crear una directiva que impida la creación de una nueva cuenta de almacenamiento con una configuración de acceso público que permita las solicitudes anónimas. Esta directiva también impedirá todos los cambios de configuración en una cuenta existente si la configuración de acceso público de esa cuenta no es compatible con la directiva.
+
+La directiva de cumplimiento usa el efecto de denegación para evitar una solicitud que podría crear o modificar una cuenta de almacenamiento para permitir el acceso público. Para obtener más información, consulte [Comprender los efectos de Azure Policy](../../governance/policy/concepts/effects.md).
+
+Para crear una directiva con un efecto de denegación para una configuración de acceso público que permita solicitudes anónimas, siga los mismos pasos descritos en [Uso de Azure Policy para la auditoría de cumplimiento](#use-azure-policy-to-audit-for-compliance), pero proporcione el siguiente código JSON en la sección **policyRule** de la definición de directivas:
+
+```json
+{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "not": {
+          "field":"Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+          "equals": "false"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}
+```
+
+Después de crear la directiva con el efecto de denegación y asignarla a un ámbito, un usuario no puede crear una cuenta de almacenamiento que permita el acceso público. Asimismo, los usuarios tampoco pueden realizar cambios de configuración en una cuenta de almacenamiento existente que actualmente permita el acceso público. Si intentan hacerlo, se producirá un error. La configuración de acceso público de la cuenta de almacenamiento debe establecerse en **falso** para continuar con la creación o la configuración de la cuenta.
+
+En la siguiente imagen se muestra el error que se produce si se intenta crear una cuenta de almacenamiento que permita el acceso público (el valor predeterminado de una nueva cuenta) cuando una directiva con un efecto de denegación requiere que no se permita el acceso público.
+
+:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Captura de pantalla que muestra el error que se produce al crear una cuenta de almacenamiento que infringe la directiva":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

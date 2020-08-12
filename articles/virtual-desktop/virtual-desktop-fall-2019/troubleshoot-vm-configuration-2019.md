@@ -1,6 +1,6 @@
 ---
-title: 'Solución de problemas de host de sesión de Windows Virtual Desktop, Otoño 2019: Azure'
-description: Cómo resolver problemas al configurar máquinas virtuales de host de sesión en Windows Virtual Desktop.
+title: 'Solución de problemas de host de sesión de Windows Virtual Desktop (clásico): Azure'
+description: Cómo resolver problemas al configurar máquinas virtuales de host de sesión en Windows Virtual Desktop (clásico).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b2f4a288ab83ca9f20434c55a180c2d9b30be5d4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0155c9cf6b5d9df8a6a8831896093c4c6b074cd6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527666"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291258"
 ---
-# <a name="troubleshoot-session-host-virtual-machine-configuration"></a>Solución de los problemas de configuración de la máquina virtual host de sesión
+# <a name="windows-virtual-desktop-classic-session-host-virtual-machine-configuration"></a>Configuración de máquina virtual de host de sesión de Windows Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a la versión de otoño de 2019 que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager incorporados en la actualización de primavera de 2020, consulte [este artículo](../troubleshoot-vm-configuration.md).
+>Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../troubleshoot-vm-configuration.md).
 
 Use este artículo para solucionar los problemas que tiene al configurar las máquinas de virtuales (VM) de host de sesión de Windows Virtual Desktop.
 
