@@ -6,12 +6,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 01/21/2020
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 0ce291a068a9dbb8f24a5e0a26fbae39cfc3a161
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 987836281c1decb976418406b8e47afffb9cd0d8
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056913"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003221"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service (AKS) mediante Azure Portal
 
@@ -51,7 +51,7 @@ Para crear un clúster de AKS, realice los siguientes pasos:
 
 5. En la página **Autenticación**, configure las siguientes opciones:
     - Cree una entidad de servicio; para ello, deje el campo **Entidad de servicio** con **Entidad de servicio predeterminada (nueva)** . También puede elegir *Configurar la entidad de servicio* para usar una existente. Si usa una existente, deberá proporcionar el identificador de cliente y el secreto de SPN.
-    - Habilite la opción para los controles de acceso basado en roles (RBAC) de Kubernetes. Esta opción proporciona un control más pormenorizado sobre el acceso a los recursos de Kubernetes implementado en el clúster de AKS.
+    - Habilite la opción de control de acceso basado en rol (RBAC) de Kubernetes, Esta opción proporciona un control más pormenorizado sobre el acceso a los recursos de Kubernetes implementado en el clúster de AKS.
 
     También puede usar una identidad administrada en lugar de una entidad de servicio. Para más información, consulte [Uso de identidades administradas](use-managed-identity.md).
 

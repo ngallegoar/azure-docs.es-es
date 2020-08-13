@@ -1,19 +1,17 @@
 ---
 title: 'Actualizaciones de servicio para los grupos de host de Windows Virtual Desktop (clásico): Azure'
 description: Cómo crear un grupo host de validación para supervisar actualizaciones de servicio antes de implementar las actualizaciones en producción.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 448f02990798869e3dd5a804d1b0e0038b810a24
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f5a8d925a9875187358dc96b1770916974d1c6bd
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288678"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007138"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates-in-windows-virtual-desktop-classic"></a>Tutorial: Creación de un grupo de hosts para validar actualizaciones de servicio en Windows Virtual Desktop (clásico)
 
@@ -60,12 +58,12 @@ Get-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool"
 Los resultados del cmdlet deben ser similares a estos:
 
 ```
-    TenantName          : contoso 
+    TenantName          : contoso
     TenantGroupName     : Default Tenant Group
     HostPoolName        : contosoHostPool
     FriendlyName        :
     Description         :
-    Persistent          : False 
+    Persistent          : False
     CustomRdpProperty    : use multimon:i:0;
     MaxSessionLimit     : 10
     LoadBalancerType    : BreadthFirst
@@ -79,7 +77,7 @@ Las actualizaciones del servicio se realizan mensualmente. Si hay incidencias im
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha creado un grupo de hosts de validación, puede obtener información sobre cómo usar Azure Service Health para supervisar la implementación de Windows Virtual Desktop. 
+Ahora que ha creado un grupo de hosts de validación, puede obtener información sobre cómo usar Azure Service Health para supervisar la implementación de Windows Virtual Desktop.
 
 > [!div class="nextstepaction"]
 > [Configuración de alertas de servicio](set-up-service-alerts-2019.md)

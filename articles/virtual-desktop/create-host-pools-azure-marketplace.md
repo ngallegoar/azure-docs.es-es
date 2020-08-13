@@ -1,19 +1,17 @@
 ---
 title: Grupo de hosts de Windows Virtual Desktop en Azure Portal
 description: Creación de un grupo de hosts de Windows Virtual Desktop con Azure Portal.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e27bbdcec9b0c9e2bcabf4228a19d87e263d60f4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c9a421e15f3561bb4de7f528ab1c707a0251dfe5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291446"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002657"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Creación de un grupo de hosts con Azure Portal
 
@@ -61,7 +59,7 @@ Para empezar a crear el grupo de hosts:
 6. Escriba un nombre único para el grupo de hosts.
 
 7. En el campo "Location" (Ubicación), en el menú desplegable, seleccione la región en la que quiere crear el grupo de hosts.
-   
+
    La geografía de Azure asociada a las regiones seleccionadas es donde se almacenarán los metadatos de este grupo de hosts y sus objetos relacionados. Asegúrese de elegir las regiones dentro de la geografía en la que quiere que se almacenen los metadatos del servicio.
 
      > [!div class="mx-imgBorder"]
@@ -140,7 +138,7 @@ Para configurar la máquina virtual en el proceso de configuración del grupo de
 
     > [!div class="mx-imgBorder"]
     > ![Captura de pantalla de la página del grupo de seguridad que muestra una lista de los puertos disponibles en un menú desplegable.](media/available-ports.png)
-    
+
     Si elige **Advanced** (Avanzado), seleccione un grupo de seguridad de red existente que ya haya configurado.
 
 10. Después, seleccione si quiere que las máquinas virtuales se unan a un dominio y a una unidad organizativa específicos. Si elige **Yes** (Yes), especifique el dominio al que quiere unirse. También puede agregar una unidad organizativa determinada en la que quiera que estén las máquinas virtuales.
@@ -153,7 +151,7 @@ Ahora, estamos preparados para iniciar la siguiente fase de configuración del g
 
 ## <a name="workspace-information"></a>Información del área de trabajo
 
-El proceso de configuración del grupo de hosts crea un grupo de aplicaciones de escritorio de forma predeterminada. Para que el grupo de hosts funcione según lo previsto, debe publicar este grupo de aplicaciones en usuarios o grupos de usuarios, y debe registrar el grupo de aplicaciones en un área de trabajo. 
+El proceso de configuración del grupo de hosts crea un grupo de aplicaciones de escritorio de forma predeterminada. Para que el grupo de hosts funcione según lo previsto, debe publicar este grupo de aplicaciones en usuarios o grupos de usuarios, y debe registrar el grupo de aplicaciones en un área de trabajo.
 
 Para registrar el grupo de aplicaciones de escritorio en un área de trabajo:
 
@@ -167,10 +165,10 @@ Para registrar el grupo de aplicaciones de escritorio en un área de trabajo:
 
     Aquí puede agregar etiquetas para poder agrupar los objetos con metadatos y así facilitar las tareas para los administradores.
 
-4. Seleccione **Revisar y crear** cuando haya terminado. 
+4. Seleccione **Revisar y crear** cuando haya terminado.
 
      >[!NOTE]
-     >El proceso de validación "Review + create" (Revisar y crear) no comprueba si la contraseña cumple los estándares de seguridad o si la arquitectura es correcta, por lo que deberá confirmar si hay algún problema con cualquiera de estos aspectos. 
+     >El proceso de validación "Review + create" (Revisar y crear) no comprueba si la contraseña cumple los estándares de seguridad o si la arquitectura es correcta, por lo que deberá confirmar si hay algún problema con cualquiera de estos aspectos.
 
 5. Revise la información sobre la implementación para asegurarse de que todo es correcto. Seleccione **Crear** cuando haya terminado. Esta acción inicia el proceso de implementación, que crea los objetos siguientes:
 

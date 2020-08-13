@@ -1,19 +1,17 @@
 ---
 title: 'Creación de un inquilino en Windows Virtual Desktop (clásico): Azure'
 description: Se describe cómo configurar los inquilinos de Windows Virtual Desktop (clásico) en Azure Active Directory.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a1f2dbf1f7cfc8fbb6a29129c7e445ffef87b070
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e2858daaa834552da5a85063fd9973d2c35209d7
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286366"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005625"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-classic"></a>Tutorial: Creación de un inquilino en Windows Virtual Desktop (clásico)
 
@@ -82,12 +80,12 @@ Para asignar el rol de aplicación TenantCreator:
    > ![Captura de pantalla de la búsqueda de aplicaciones empresariales en Azure Portal](../media/azure-portal-enterprise-applications.png)
 
 2. En **Aplicaciones empresariales**, busque **Windows Virtual Desktop**. Verá las dos aplicaciones para las que ha dado su consentimiento en la sección anterior. De estas dos aplicaciones, seleccione **Windows Virtual Desktop**.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Captura de pantalla de los resultados de búsqueda al buscar "Windows Virtual Desktop" en "Aplicaciones empresariales". Se resalta la aplicación denominada "Windows Virtual Desktop".](../media/tenant-enterprise-app.png)
 
 3. Seleccione **Usuarios y grupos**. Es posible que vea que el administrador que concedió consentimiento a la aplicación ya aparece con el rol **Acceso predeterminado** asignado. Esto no es suficiente para crear un inquilino de Windows Virtual Desktop. Siga con estas instrucciones para agregar el rol **TenantCreator** a un usuario.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Captura de pantalla de los usuarios y grupos asignados para administrar la aplicación empresarial "Windows Virtual Desktop". La captura de pantalla muestra solo una asignación que es para el "Acceso predeterminado".](../media/tenant-default-access.png)
 
@@ -126,13 +124,13 @@ Para buscar su identificador de inquilino de Azure Active Directory (o **identif
 
 Para buscar el identificador de suscripción de Azure:
 1. En la misma sesión de [Azure Portal](https://portal.azure.com), busque y seleccione **Suscripciones**.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Captura de pantalla de los resultados de búsqueda para "Azure Active Directory" en Azure Portal. El resultado de búsqueda en "Servicios" aparece resaltado.](../media/tenant-search-subscription.png)
 
 2. Seleccione la suscripción de Azure que le gustaría usar para recibir las notificaciones del servicio Windows Virtual Desktop.
 3. Busque el **identificador de suscripción** y luego mantenga el puntero sobre el valor hasta que aparezca el icono del Portapapeles. Seleccione el icono del Portapapeles y péguelo en una ubicación práctica para que pueda usarlo más adelante como el valor de **AzureSubscriptionId**.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Captura de pantalla de las propiedades de la suscripción de Azure. El puntero se mantiene sobre el icono del Portapapeles para copiar y pegar el identificador de suscripción.](../media/tenant-subscription-id.png)
 

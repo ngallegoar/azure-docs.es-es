@@ -1,19 +1,17 @@
 ---
 title: 'Administración de grupos de aplicaciones para Windows Virtual Desktop: Azure Portal'
 description: Cómo administrar grupos de aplicaciones de Windows Virtual Desktop con Azure Portal.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5b0269b80cb879923f9f00861494915b6abe103e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6baada4c3b376b936f693d45e39e5887e77ef54b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283408"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010096"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Tutorial: Administración de grupos de aplicaciones con Azure Portal
 
@@ -49,16 +47,16 @@ Si ya ha creado un grupo de hosts y máquinas virtuales de host de sesión media
     > ![Captura de pantalla de la pestaña "Basics" (Aspectos básicos) en Azure Portal.](media/basics-tab.png)
 
 6. Si quiere agregar grupos de aplicaciones al grupo de hosts, seleccione **Host pools** (Grupos de hosts) en el menú del lado izquierdo de la pantalla.
-   
+
     Luego, seleccione el nombre del grupo de hosts al que quiere agregar grupos de aplicaciones.
-   
+
     Después, seleccione **Application groups** (Grupos de aplicaciones) en el lado izquierdo de la pantalla y elija **+ Add** (+ Agregar).
 
     Por último, seleccione el grupo de suscripción y el grupo de recursos en el que quiere crear el grupo de aplicaciones. Puede seleccionar el nombre de un grupo de recursos existente en el menú desplegable o elegir **Create new** (Crear nuevo) para crear uno.
 
       >[!NOTE]
       >Al agregar grupos de aplicaciones al grupo de hosts, el grupo de hosts relacionado con el grupo de aplicaciones ya está seleccionado porque se ha desplazado desde él.
-      > 
+      >
       > [!div class="mx-imgBorder"]
       >![Captura de pantalla de la pestaña Basics (Aspectos básicos) con el grupo de hosts preseleccionado.](media/host-pool-selected.png)
 
@@ -80,7 +78,7 @@ Si ya ha creado un grupo de hosts y máquinas virtuales de host de sesión media
 
 12.  Seleccione la pestaña **Applications** (Aplicaciones) y, luego, elija **+Add applications** (+ Agregar aplicaciones).
 
-13.  Para agregar una aplicación desde el menú Inicio: 
+13.  Para agregar una aplicación desde el menú Inicio:
 
       - Vaya a **Application source** (Origen de aplicación) y seleccione **Start menu** (Menú Inicio) en el menú desplegable. Luego, vaya a **Application** (Aplicación) y elija la aplicación en el menú desplegable.
 
@@ -111,7 +109,7 @@ Si ya ha creado un grupo de hosts y máquinas virtuales de host de sesión media
 16.  Si quiere registrar el grupo de aplicaciones en un área de trabajo, vaya a **Register application group** (Registrar grupo de aplicaciones) y seleccione **Yes** (Sí). Si prefiere registrar el grupo de aplicaciones en otro momento, seleccione **No**.
 
 17.  Si selecciona **Yes** (Sí), puede seleccionar un área de trabajo existente en la que registrar el grupo de aplicaciones.
-       
+
        >[!NOTE]
        >Solo puede registrar el grupo de aplicaciones en áreas de trabajo creadas en la misma ubicación que el grupo de hosts. También: si ha registrado anteriormente otro grupo de aplicaciones del mismo grupo de hosts que el del nuevo grupo de aplicaciones en un área de trabajo, se seleccionará y no podrá modificarlo. Todos los grupos de aplicaciones de un grupo de hosts deben estar registrados en la misma área de trabajo.
 

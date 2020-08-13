@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
-ms.date: 07/20/2020
-ms.openlocfilehash: 0eea1b696d8eae8606c0b6009f248a215d12db57
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/04/2020
+ms.openlocfilehash: 205e99303cd53adf6aa952ccd65441b72471f3a2
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515139"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810293"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Copias de seguridad automatizadas - Azure SQL Database e Instancia administrada de SQL
 
@@ -26,22 +26,38 @@ ms.locfileid: "86515139"
 
 ## <a name="what-is-a-database-backup"></a>¿Qué es una copia de seguridad de base de datos?
 
-Las copias de seguridad de base de datos son una parte esencial de cualquier estrategia de continuidad empresarial y recuperación ante desastres, ya que protegen los datos de daños o eliminaciones.
+Las copias de seguridad de base de datos son una parte esencial de cualquier estrategia de continuidad empresarial y recuperación ante desastres, ya que protegen los datos de daños o eliminaciones. Estas copias de seguridad habilitan la restauración de la base de datos a un momento dado dentro del período de retención configurado. Si las reglas de protección de datos exigen que las copias de seguridad estén disponibles durante un tiempo prolongado (hasta 10 años), puede configurar la [retención a largo plazo](long-term-retention-overview.md) para bases de datos únicas y agrupadas.
+
+### <a name="backup-frequency"></a>Frecuencia de copia de seguridad
 
 Tanto SQL Database como SQL Managed Instance usan tecnología de SQL Server para crear [copias de seguridad completas](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server) cada semana, [copias de seguridad diferenciales](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) cada 12 o 24 horas y [copias de seguridad del registro de transacciones](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) cada 5 o 10 minutos. La frecuencia de las copias de seguridad del registro de transacciones se basa en el tamaño de proceso y en la cantidad de actividad de la base de datos.
 
 Cuando una base de datos se restaura, el servicio averigua qué copia de seguridad completa, diferencial o del registro de transacciones es necesario restaurar.
 
-Estas copias de seguridad habilitan la restauración de la base de datos a un momento dado dentro del período de retención configurado. Las copias de seguridad se almacenan como [blobs de almacenamiento RA-GRS](../../storage/common/storage-redundancy.md) que se replican en una [región emparejada](../../best-practices-availability-paired-regions.md) para la protección frente a interrupciones que afectan al almacenamiento de copia de seguridad en la región primaria. 
+### <a name="backup-storage-redundancy"></a>Redundancia del almacenamiento de copia de seguridad
 
-Si las reglas de protección de datos exigen que las copias de seguridad estén disponibles durante un tiempo prolongado (hasta 10 años), puede configurar la [retención a largo plazo](long-term-retention-overview.md) para bases de datos únicas y agrupadas.
+> [!IMPORTANT]
+> La redundancia de almacenamiento configurable para copias de seguridad solo está disponible actualmente para SQL Managed Instance y solo se puede especificar durante el proceso de creación de instancia administrada. Una vez que se ha aprovisionado el recurso, no se puede cambiar la opción de redundancia del almacenamiento de copia de seguridad.
+
+La opción para configurar la redundancia del almacenamiento de copia de seguridad ofrece la flexibilidad de elegir entre [blobs de almacenamiento](../../storage/common/storage-redundancy.md) con redundancia local (LRS), con redundancia de zona (ZRS) o con redundancia geográfica (RA-GRS). Los mecanismos de redundancia de Storage almacenan varias copias de los datos, con el fin de protegerlos de eventos planeados y no planeados, como errores transitorios del hardware, interrupciones del suministro eléctrico o cortes de la red, y desastres naturales masivos. Actualmente esta característica solo está disponible para SQL Managed Instance.
+
+Los blobs de almacenamiento con RA-GRS se replican en una [región emparejada](../../best-practices-availability-paired-regions.md) para protegerse frente a interrupciones que afectan al almacenamiento de copia de seguridad en la región primaria y permiten restaurar el servidor en una región diferente en caso de desastre. 
+
+Por el contrario, los blobs de almacenamiento con LRS y ZRS se aseguran de que los datos permanecen dentro de la misma región donde se implementa SQL Database o SQL Managed Instance. El almacenamiento con redundancia de zona (ZRS) solo está disponible actualmente en [determinadas regiones](../../storage/common/storage-redundancy.md#zone-redundant-storage).
+
+> [!IMPORTANT]
+> En SQL Managed Instance, la redundancia de copia de seguridad configurada se aplica a la configuración de retención de copia de seguridad a corto plazo que se usa para la restauración a un momento dado (PITR) y las copias de seguridad de retención a largo plazo usadas para copias de seguridad a largo plazo (LTR).
+
+### <a name="backup-usage"></a>Uso de copia de seguridad
 
 Puede utilizar estas copias de seguridad para realizar lo siguiente:
 
-- [Restaurar una base de datos existente a un momento en el tiempo pasado](recovery-using-backups.md#point-in-time-restore) dentro del período de retención mediante Azure Portal, Azure PowerShell, la CLI de Azure o una API REST. En el caso de las bases de datos únicas y agrupadas, esta operación creará una base de datos en el mismo servidor que la original, pero con otro nombre para evitar sobrescribirla. Una vez finalizada la restauración, puede eliminar la base de datos original o [cambiarle el nombre](https://docs.microsoft.com/sql/relational-databases/databases/rename-a-database) y, luego, para que tenga el nombre de la original, cambiar también el de la restaurada. En una instancia administrada, esta operación también puede crear una copia de la base de datos en la misma instancia administrada (o en otra) en la misma suscripción y región.
-- [Restaurar una base de datos eliminada al momento de su eliminación](recovery-using-backups.md#deleted-database-restore) o a cualquier otro punto dentro del período de retención. La base de datos eliminada solo se puede restaurar en el mismo servidor o instancia administrada donde se ha creado la base de datos original. Al eliminar una base de datos, el servicio toma una copia de seguridad del registro de transacciones final antes de la eliminación, para evitar la pérdida de datos.
-- [Restaurar una base de datos en otra región geográfica](recovery-using-backups.md#geo-restore). La restauración geográfica le permite recuperarse de un desastre en una región geográfica cuando no puede acceder a la base de datos o a las copias de seguridad en la región primaria. Crea una base de datos en cualquier servidor o instancia administrada existente, en cualquier región de Azure.
-- [Restaurar una base de datos desde una copia de seguridad a largo plazo específica](long-term-retention-overview.md) de una base de datos única o agrupada, si la base de datos se ha configurado con una directiva de retención a largo plazo (LTR). LTR permite restaurar una versión antigua de la base de datos con [Azure Portal](long-term-backup-retention-configure.md#using-the-azure-portal) o [Azure PowerShell](long-term-backup-retention-configure.md#using-powershell) para respetar una solicitud de cumplimiento o ejecutar una versión antigua de la aplicación. Para más información, consulte [retención a largo plazo](long-term-retention-overview.md).
+- **Restauración a un momento dado de una base de datos existente** - [Restaurar una base de datos existente a un momento en el tiempo pasado](recovery-using-backups.md#point-in-time-restore) dentro del período de retención mediante Azure Portal, Azure PowerShell, la CLI de Azure o una API REST. En el caso de SQL Database, esta operación crea una base de datos en el mismo servidor que la original, pero usa otro nombre para evitar sobrescribirla. Una vez finalizada la restauración, puede eliminar la base de datos original. Como alternativa, puede [cambiar el nombre](https://docs.microsoft.com/sql/relational-databases/databases/rename-a-database) de la base de datos original y, luego, de la base de datos restaurada para que tenga el nombre de la original. De igual forma, en SQL Managed Instance esta operación crea una copia de la base de datos en la misma instancia administrada (o en otra) en la misma suscripción y región.
+- **Restauración a un momento dado de una base de datos eliminada** - [Restaurar una base de datos eliminada al momento de su eliminación](recovery-using-backups.md#deleted-database-restore) o a cualquier otro punto dentro del período de retención. La base de datos eliminada solo se puede restaurar en el mismo servidor o instancia administrada donde se ha creado la base de datos original. Al eliminar una base de datos, el servicio toma una copia de seguridad del registro de transacciones final antes de la eliminación, para evitar la pérdida de datos.
+- **Restauración geográfica** - [Restaurar una base de datos en otra región geográfica](recovery-using-backups.md#geo-restore). La restauración geográfica le permite recuperarse de un desastre en una región geográfica cuando no puede acceder a la base de datos o a las copias de seguridad en la región primaria. Crea una base de datos en cualquier servidor o instancia administrada existente, en cualquier región de Azure.
+   > [!IMPORTANT]
+   > La restauración geográfica solo está disponible para las instancias administradas con almacenamiento de copia de seguridad con redundancia geográfica (RA-GRS) configurado.
+- **Restauración desde una copia de seguridad a largo plazo** - [Restaurar una base de datos desde una copia de seguridad a largo plazo específica](long-term-retention-overview.md) de una base de datos única o agrupada, si la base de datos se ha configurado con una directiva de retención a largo plazo (LTR). LTR permite restaurar una versión antigua de la base de datos con [Azure Portal](long-term-backup-retention-configure.md#using-the-azure-portal) o [Azure PowerShell](long-term-backup-retention-configure.md#using-powershell) para respetar una solicitud de cumplimiento o ejecutar una versión antigua de la aplicación. Para más información, consulte [retención a largo plazo](long-term-retention-overview.md).
 
 Para llevar a cabo una restauración, vea [Recuperación de una base de datos mediante copias de seguridad](recovery-using-backups.md).
 
@@ -50,13 +66,13 @@ Para llevar a cabo una restauración, vea [Recuperación de una base de datos me
 
 Puede probar las operaciones de configuración de copia de seguridad y restauración con los ejemplos siguientes:
 
-| | Azure portal | Azure PowerShell |
+| Operación | Azure portal | Azure PowerShell |
 |---|---|---|
-| **Cambio del período de retención de copia de seguridad** | [Base de datos única](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Instancia administrada](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [Base de datos única](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Instancia administrada](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
-| **Cambio del período de retención de copia de seguridad a largo plazo** | [Base de datos única](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Instancia administrada: N/A  | [Base de datos única](long-term-backup-retention-configure.md)<br/>Instancia administrada: N/A  |
-| **Restauración de una base de datos desde un momento dado** | [Base de datos única](recovery-using-backups.md#point-in-time-restore) | [Base de datos única](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Instancia administrada](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
-| **Restauración de una base de datos eliminada** | [Base de datos única](recovery-using-backups.md) | [Base de datos única](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Instancia administrada](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
-| **Restauración de una base de datos desde Azure Blob Storage** | Base de datos única: N/D <br/>Instancia administrada: N/A  | Base de datos única: N/D <br/>[Instancia administrada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
+| **Cambio del período de retención de copia de seguridad** | [SQL Database](automated-backups-overview.md?tabs=single-database#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Instancia administrada de SQL](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [SQL Database](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Instancia administrada de SQL](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| **Cambio del período de retención de copia de seguridad a largo plazo** | [SQL Database](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>SQL Managed Instance: N/D  | [SQL Database](long-term-backup-retention-configure.md)<br/>[Instancia administrada de SQL](../managed-instance/long-term-backup-retention-configure.md)  |
+| **Restauración de una base de datos desde un momento dado** | [SQL Database](recovery-using-backups.md#point-in-time-restore)<br>[Instancia administrada de SQL](../managed-instance/point-in-time-restore.md) | [SQL Database](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Instancia administrada de SQL](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
+| **Restauración de una base de datos eliminada** | [SQL Database](recovery-using-backups.md)<br>[Instancia administrada de SQL](../managed-instance/point-in-time-restore.md#restore-a-deleted-database) | [SQL Database](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Instancia administrada de SQL](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| **Restauración de una base de datos desde Azure Blob Storage** | SQL Database: N/D <br/>SQL Managed Instance: N/D  | SQL Database: N/D <br/>[Instancia administrada de SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
 
 ## <a name="backup-scheduling"></a>Programación de copias de seguridad
 
@@ -98,6 +114,7 @@ No se cobra el consumo de almacenamiento de copia de seguridad hasta el tamaño 
 - En el caso de las operaciones de carga de datos de gran tamaño, considere la posibilidad de usar [índices de almacén de columnas agrupados](https://docs.microsoft.com/sql/database-engine/using-clustered-columnstore-indexes), siga los [procedimientos recomendados](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) relacionados, o bien reduzca el número de índices no agrupados.
 - En el nivel de servicio De uso general, el almacenamiento de datos aprovisionado es más económico que el precio del almacenamiento de copia de seguridad. Si los costos de exceso de almacenamiento de copia de seguridad siempre son elevados, le conviene valorar aumentar el almacenamiento de datos para ahorrar en almacenamiento de copia de seguridad.
 - En la lógica de aplicación, use TempDB en lugar de tablas permanentes para almacenar resultados temporales o datos transitorios.
+- Use el almacenamiento de copia de seguridad con redundancia local siempre que sea posible (por ejemplo, entornos de desarrollo y pruebas).
 
 ## <a name="backup-retention"></a>Retención de copias de seguridad
 
@@ -112,15 +129,13 @@ La retención de copias de seguridad para fines de PITR durante el período de l
 
 ### <a name="long-term-retention"></a>Retención a largo plazo
 
-En el caso de las bases de datos únicas y agrupadas, y las instancias administradas, se puede configurar una retención a largo plazo (LTR) de las copias de seguridad completas de hasta 10 años en Azure Blob Storage. Si habilita una directiva LTR, las copias de seguridad completas semanales se copian de forma automática en otro contenedor de RA-GRS. Para satisfacer los distintos requisitos de cumplimiento, puede seleccionar otros períodos de retención para copias de seguridad completas semanales, mensuales o anuales. El consumo de almacenamiento depende de la frecuencia seleccionada de las copias de seguridad de LTR y del período o períodos de retención. Para estimar el costo del almacenamiento de LTR, se puede usar la [calculadora de precios de LTR](https://azure.microsoft.com/pricing/calculator/?service=sql-database).
-
-Al igual que las copias de seguridad PITR, las copias de seguridad LTR están protegidas con almacenamiento con redundancia geográfica. Para obtener más información, consulte [Redundancia de Azure Storage](../../storage/common/storage-redundancy.md).
+En el caso de SQL Database y SQL Managed Instance, se puede configurar una retención a largo plazo (LTR) de las copias de seguridad completas de hasta 10 años en Azure Blob Storage. Después de configurar la directiva LTR, las copias de seguridad completas se copian de forma automática en otro contenedor de almacenamiento semanalmente. Para satisfacer los distintos requisitos de cumplimiento, puede seleccionar otros períodos de retención para copias de seguridad completas semanales, mensuales o anuales. El consumo de almacenamiento depende de la frecuencia seleccionada y de los pe.ríodos de retención de las copias de seguridad de LTR. Para estimar el costo del almacenamiento de LTR, se puede usar la [calculadora de precios de LTR](https://azure.microsoft.com/pricing/calculator/?service=sql-database).
 
 Para más información sobre LTR, vea [Retención de copias de seguridad a largo plazo](long-term-retention-overview.md).
 
 ## <a name="storage-costs"></a>Costos de almacenamiento
 
-El precio del almacenamiento varía en función de si usa el modelo de DTU o el modelo núcleo virtual.
+El precio del almacenamiento de copia de seguridad varía y depende del modelo de compra (DTU o núcleo virtual), la opción de redundancia del almacenamiento de copia de seguridad elegida y también de su región. El almacenamiento de copia de seguridad se cobra por GB consumidos al mes. Para ver los precios, consulte la página de [Precios de Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) y la página de [Precios de Azure SQL Managed Instance](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
 ### <a name="dtu-model"></a>Modelo de DTU
 
@@ -154,6 +169,18 @@ Los escenarios reales de facturación de copia de seguridad son más complejos. 
 
 Puede supervisar el consumo total de almacenamiento de copia de seguridad para cada tipo de copia de seguridad (completa, diferencial, del registro de transacciones) en el tiempo, como se describe en [Supervisión del consumo](#monitor-consumption).
 
+### <a name="backup-storage-redundancy"></a>Redundancia del almacenamiento de copia de seguridad
+
+La redundancia del almacenamiento de copia de seguridad afecta a los costos de copia de seguridad de la siguiente manera:
+- Precio LRS = x
+- Precio ZRS = 1,25x
+- Precio RA-GRS = 2x
+
+Para más información sobre los precios de almacenamiento de copia de seguridad, visite la página de [Precios de Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) y la página de [Precios de Azure SQL Managed Instance](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+
+> [!IMPORTANT]
+> La redundancia de almacenamiento configurable para copias de seguridad solo está disponible actualmente para SQL Managed Instance y solo se puede especificar durante el proceso de creación de instancia administrada. Una vez que se ha aprovisionado el recurso, no se puede cambiar la opción de redundancia del almacenamiento de copia de seguridad.
+
 ### <a name="monitor-costs"></a>Supervisión de costos
 
 Para comprender los costos de almacenamiento de copia de seguridad, vaya a **Administración de costos + facturación** en Azure Portal, seleccione **Administración de costos** y, después, seleccione **Análisis de costos**. Seleccione la suscripción deseada como **ámbito** y, a continuación, filtre por el período de tiempo y el servicio que le interese.
@@ -161,6 +188,9 @@ Para comprender los costos de almacenamiento de copia de seguridad, vaya a **Adm
 Agregue un filtro para el **nombre de servicio** y, después, seleccione **Base de datos SQL** en la lista desplegable. Use el filtro de **subcategoría del medidor** para elegir el contador de facturación para el servicio. En el caso de una sola base de datos o de un grupo de bases de datos elásticas, seleccione **single/elastic pool pitr backup storage**. En el caso de una instancia administrada, seleccione **mi pitr backup storage**. Las subcategorías **Almacenamiento** y **Proceso** pueden interesarle también, pero no están asociadas con los costos de almacenamiento de copia de seguridad.
 
 ![Análisis de costos del almacenamiento de copia de seguridad](./media/automated-backups-overview/check-backup-storage-cost-sql-mi.png)
+
+  >[!NOTE]
+  > Los medidores solo son visibles para los contadores que están en uso actualmente. Si un contador no está disponible, es probable que la categoría no se esté usando actualmente. Por ejemplo, los contadores de instancias administradas no estarán presentes para los clientes que no tengan implementada una instancia administrada. Del mismo modo, los contadores de almacenamiento no estarán visibles para los recursos que no consuman almacenamiento. 
 
 ## <a name="encrypted-backups"></a>Copias de seguridad cifradas
 
@@ -297,6 +327,54 @@ Código de estado: 200
 ```
 
 Para más información, consulte [API REST de retención de Backup](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies).
+
+#### <a name="sample-request"></a>Solicitud de ejemplo
+
+```http
+PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
+```
+
+#### <a name="request-body"></a>Cuerpo de la solicitud
+
+```json
+{
+  "properties":{
+    "retentionDays":28
+  }
+}
+```
+
+#### <a name="sample-response"></a>Respuesta de muestra
+
+Código de estado: 200
+
+```json
+{
+  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Sql/resourceGroups/resourceGroup/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default",
+  "name": "default",
+  "type": "Microsoft.Sql/resourceGroups/servers/databases/backupShortTermRetentionPolicies",
+  "properties": {
+    "retentionDays": 28
+  }
+}
+```
+
+Para más información, consulte [API REST de retención de Backup](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies).
+
+## <a name="configure-backup-storage-redundancy"></a>Configuración de la redundancia del almacenamiento de copia de seguridad
+
+> [!NOTE]
+> La redundancia de almacenamiento configurable para copias de seguridad solo está disponible actualmente para SQL Managed Instance y solo se puede especificar durante el proceso de creación de instancia administrada. Una vez que se ha aprovisionado el recurso, no se puede cambiar la opción de redundancia del almacenamiento de copia de seguridad.
+
+La redundancia del almacenamiento de copia de seguridad de una instancia administrada se puede configurar solo durante la creación de la instancia. El valor predeterminado es Almacenamiento con redundancia geográfica (RA-GRS). Para conocer las diferencias de precios entre el almacenamiento de copia de seguridad con redundancia local (LRS), con redundancia de zona (ZRS) y con redundancia geográfica (RA-GRS), visite la [página de precios de Azure SQL Managed Instance](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+
+### <a name="configure-backup-storage-redundancy-by-using-the-azure-portal"></a>Configuración de la redundancia del almacenamiento de copia de seguridad mediante Azure Portal
+
+En Azure Portal, la opción para cambiar la redundancia del almacenamiento de copia de seguridad se encuentra en la hoja **Proceso y almacenamiento**, a la que se puede tener acceso desde la opción **Configurar instancia administrada** de la pestaña **Datos básicos** al crear la instancia de SQL Managed Instance.
+![Abrir hoja de configuración Proceso y almacenamiento](./media/automated-backups-overview/open-configuration-blade-mi.png)
+
+Busque la opción para seleccionar la redundancia del almacenamiento de copia de seguridad en la hoja **Proceso y almacenamiento**.
+![Configuración de la redundancia del almacenamiento de copia de seguridad](./media/automated-backups-overview/select-backup-storage-redundancy-mi.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
