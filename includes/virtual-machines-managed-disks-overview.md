@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/17/2020
+ms.date: 08/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 2ef1fab7a6f32f45ee3047a24610085a2133a339
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 26d6ca641c03395996fdeaa4e54d2a001cf02bef
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87102992"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88162841"
 ---
 ## <a name="benefits-of-managed-disks"></a>Ventajas de los discos administrados
 
@@ -41,7 +41,7 @@ Para protegerse frente a desastres regionales, se puede usar [Azure Backup](../a
 
 ### <a name="granular-access-control"></a>Control de acceso pormenorizado
 
-Puede usar el [control de acceso basado en rol de Azure (RBAC)](../articles/role-based-access-control/overview.md) para asignar a uno o varios usuarios permisos concretos a un disco administrado. Los discos administrados exponen varias operaciones, entre las que se incluyen la lectura, la escritura (creación o actualización), la eliminación y la recuperación de un [identificador URI de la firma de acceso compartido (SAS)](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) para el disco. Puede conceder acceso solo a las operaciones necesarias para que una persona pueda realizar su trabajo. Por ejemplo, si no desea que una persona copie un disco administrado a una cuenta de almacenamiento, puede decidir no conceder acceso a la acción de exportación de dicho disco administrado. De igual forma, si no desea que una persona use URI de SAS para copiar un disco administrado, puede elegir no conceder dicho permiso al disco administrado.
+Puede usar el [control de acceso basado en rol de Azure (Azure RBAC)](../articles/role-based-access-control/overview.md) para asignar a uno o varios usuarios permisos concretos a un disco administrado. Los discos administrados exponen varias operaciones, entre las que se incluyen la lectura, la escritura (creación o actualización), la eliminación y la recuperación de un [identificador URI de la firma de acceso compartido (SAS)](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) para el disco. Puede conceder acceso solo a las operaciones necesarias para que una persona pueda realizar su trabajo. Por ejemplo, si no desea que una persona copie un disco administrado a una cuenta de almacenamiento, puede decidir no conceder acceso a la acción de exportación de dicho disco administrado. De igual forma, si no desea que una persona use URI de SAS para copiar un disco administrado, puede elegir no conceder dicho permiso al disco administrado.
 
 ### <a name="upload-your-vhd"></a>Carga de un disco duro virtual
 
@@ -53,7 +53,7 @@ Para aprender a transferir un disco duro virtual a Azure, consulte los artículo
 
 ### <a name="private-links"></a>Vínculos privados
 
-Los discos administrados admiten el uso de vínculos privados para importar o exportar un disco administrado interno a la red. Los vínculos privados le permiten generar un identificador URI de firma de acceso compartido (SAS) con límite de tiempo para los discos administrados no conectados y las instantáneas que puede usar para exportar los datos a otras regiones para la expansión regional, la recuperación ante desastres y el análisis forense. También puede usar el identificador URI de SAS para cargar directamente un VHD en un disco vacío desde su entorno local. Ahora puede aprovechar los [vínculos privados](../articles/private-link/private-link-overview.md) para restringir la exportación e importación de discos administrados para que solo pueda realizarse desde la red virtual de Azure. Los vínculos privados permiten garantizar que los datos solo viajan dentro de la red troncal segura de Microsoft.
+La compatibilidad de Private Link con discos administrados se encuentra actualmente en versión preliminar y se puede usar para importar o exportar un disco administrado interno a la red. Los vínculos privados le permiten generar un identificador URI de firma de acceso compartido (SAS) con límite de tiempo para los discos administrados no conectados y las instantáneas que puede usar para exportar los datos a otras regiones para la expansión regional, la recuperación ante desastres y el análisis forense. También puede usar el identificador URI de SAS para cargar directamente un VHD en un disco vacío desde su entorno local. Ahora puede aprovechar los [vínculos privados](../articles/private-link/private-link-overview.md) para restringir la exportación e importación de discos administrados para que solo pueda realizarse desde la red virtual de Azure. Los vínculos privados permiten garantizar que los datos solo viajan dentro de la red troncal segura de Microsoft.
 
 Para obtener información sobre cómo habilitar los vínculos privados para importar o exportar un disco administrado, consulte los artículos sobre la [CLI](../articles/virtual-machines/linux/disks-export-import-private-links-cli.md) o el [portal](../articles/virtual-machines/disks-enable-private-links-for-import-export-portal.md).
 
