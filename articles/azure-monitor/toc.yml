@@ -935,6 +935,10 @@
               href: app/sharepoint.md
             - name: Escritorio de Windows
               href: app/windows-desktop.md
+        - name: Otras herramientas
+          items:
+            - name: Análisis de cambios
+              href: app/change-analysis.md
     - name: Azure Monitor para máquinas virtuales
       items:
         - name: Información general
@@ -1049,7 +1053,7 @@
       items:
         - name: Azure Cache for Redis (versión preliminar)
           href: insights/redis-cache-insights-overview.md
-        - name: Azure Cosmos DB
+        - name: "Azure Cosmos\_DB"
           href: insights/cosmosdb-insights-overview.md
         - name: Redes
           href: insights/network-insights-overview.md
@@ -1062,10 +1066,6 @@
           href: insights/resource-group-insights.md
         - name: Información sobre la solución de problemas
           href: insights/troubleshoot-workbooks.md
-    - name: Análisis de cambios
-      items:
-        - name: Análisis de cambios
-          href: app/change-analysis.md
     - name: Soluciones
       items:
         - name: Información general
