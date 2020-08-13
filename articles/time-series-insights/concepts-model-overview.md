@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 74a20e46858aada48151809c5bedf1f93076827e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f62a7eb895248f5d39f5c3df136c88a9b1f0e5b1
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289962"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141727"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Modelo de serie temporal en Azure Time Series Insights Gen2
 
@@ -75,7 +75,7 @@ Estos componentes se combinan para especificar un modelo de serie temporal y org
 
 [![Gráfico de información general del modelo de serie temporal](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-Un modelo de serie temporal se puede crear y administrar mediante el [explorador de Azure Time Series Insights Gen2](/azure/time-series-insights/concepts-model-overview). La configuración del modelo de serie temporal se puede administrar mediante la [API de configuración del modelo](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
+Un modelo de serie temporal se puede crear y administrar mediante el [explorador de Azure Time Series Insights Gen2](/azure/time-series-insights/concepts-model-overview). La configuración del modelo de serie temporal se puede administrar mediante la [API de configuración del modelo](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis).
 
 ## <a name="time-series-model-instances"></a>Instancias del modelo de serie temporal
 
@@ -129,7 +129,7 @@ Las instancias tienen la siguiente representación JSON:
 ```
 
 > [!TIP]
-> Para obtener información sobre la compatibilidad con crear, leer, actualizar y eliminar (CRUD) de Instance API, lea el artículo [Consulta de datos](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) y la [documentación de Instance API REST](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
+> Para obtener información sobre la compatibilidad con crear, leer, actualizar y eliminar (CRUD) de Instance API, lea el artículo [Consulta de datos](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) y la [documentación de Instance API REST](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#instances-api).
 
 ## <a name="time-series-model-hierarchies"></a>Jerarquías del modelo de serie temporal
 
@@ -186,7 +186,7 @@ En el ejemplo JSON anterior:
 * `ManufactureDate` define una jerarquía con `year` primario y `month`secundario. Cada `ManufactureDate` puede tener varios `years` que, a su vez, pueden tener varios `months`.
 
 > [!TIP]
-> Para obtener información sobre la compatibilidad con crear, leer, actualizar y eliminar (CRUD) de Hierarchy API, lea el artículo [Consulta de datos](concepts-query-overview.md#time-series-model-query-tsm-q-apis) y la [documentación de Hierarchy API REST](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
+> Para obtener información sobre la compatibilidad con crear, leer, actualizar y eliminar (CRUD) de Hierarchy API, lea el artículo [Consulta de datos](concepts-query-overview.md#time-series-model-query-tsm-q-apis) y la [documentación de Hierarchy API REST](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#hierarchies-api).
 
 ### <a name="hierarchy-example"></a>Ejemplo de jerarquía
 
@@ -231,7 +231,7 @@ En la [demostración Contoso Wind Farm](https://insights.timeseries.azure.com/pr
 [![Ejemplo de tipo del modelo de serie temporal](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
 
 > [!TIP]
-> Para obtener información sobre la compatibilidad con crear, leer, actualizar y eliminar (CRUD) de Types API, lea el artículo [Consulta de datos](concepts-query-overview.md#time-series-model-query-tsm-q-apis) y la [documentación de Type API REST](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
+> Para obtener información sobre la compatibilidad con crear, leer, actualizar y eliminar (CRUD) de Types API, lea el artículo [Consulta de datos](concepts-query-overview.md#time-series-model-query-tsm-q-apis) y la [documentación de Type API REST](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#types-api).
 
 ### <a name="type-properties"></a>Propiedades de tipo
 
@@ -288,7 +288,7 @@ Los tipos del modelo de serie temporal pueden tener muchas variables que especif
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Lea la documentación de referencia del [modelo de la serie temporal](https://docs.microsoft.com/rest/api/time-series-insights/preview-model) para más información sobre cómo editarlo a través de las API.
+* Lea la documentación de referencia del [modelo de la serie temporal](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis) para más información sobre cómo editarlo a través de las API.
 
 * Explore las fórmulas y los cálculos que puede crear con las [variables del modelo de serie temporal](./concepts-variables.md)
 

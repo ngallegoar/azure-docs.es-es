@@ -8,14 +8,14 @@ ms.author: shresha
 manager: dpalled
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 08/12/2020
 ms.custom: shresha
-ms.openlocfilehash: a74a5e2b8e80121324dc8b880d90f493d5b2ddfd
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 784c19844c658af6850c755244314145223c45ef
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423956"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163958"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>Migración a las nuevas versiones de API de Azure Time Series Insights Gen2
 
@@ -23,7 +23,7 @@ ms.locfileid: "87423956"
 
 Si ha creado un entorno de Azure Time Series Insights Gen2 cuando su versión era la versión preliminar pública (antes del 16 de julio de 2020), actualice el entorno de TSI para usar las nuevas versiones de API disponibles con carácter general siguiendo los pasos descritos en este artículo.
 
-La nueva versión de la API es la `2020-07-31` y utiliza una [sintaxis de expresiones de serie temporal](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) actualizada.
+La nueva versión de la API es la `2020-07-31` y utiliza una [sintaxis de expresiones de serie temporal](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) actualizada.
 
 Los usuarios deben migrar las [variables del modelo de serie temporal](./concepts-variables.md) del entorno, las consultas guardadas, las consultas de Power BI y cualquier herramienta personalizada que realice llamadas a los puntos de conexión de la API. Si tiene alguna pregunta o duda sobre este proceso de migración, envíe una incidencia de soporte técnico a través de Azure Portal y mencione este documento.
 
@@ -95,7 +95,7 @@ Si la aplicación personalizada realiza llamadas a los siguientes puntos de cone
     - [Operaciones Delete y Get](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
     - [Lista](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/list)
 
-En el caso de los siguientes puntos de conexión de REST, debe actualizar la versión de la API a `2020-07-31` en el URI y asegurarse de que todas las repeticiones de la propiedad `tsx` usan la [sintaxis de expresiones de serie temporal](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) actualizada.
+En el caso de los siguientes puntos de conexión de REST, debe actualizar la versión de la API a `2020-07-31` en el URI y asegurarse de que todas las repeticiones de la propiedad `tsx` usan la [sintaxis de expresiones de serie temporal](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) actualizada.
 
 - API de tipos
   - [Operación Put](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput)
@@ -355,7 +355,7 @@ Como alternativa, `value` también puede ser `coalesce($event['Temp'].Double, to
 
 #### <a name="invalidinput"></a>InvalidInput
 
-Si ve el siguiente error, está usando la nueva versión de API (`2020-07-31`), pero no se ha actualizado la sintaxis TSX. Revise la [sintaxis de expresiones de serie temporal](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) y los ejemplos de migración anteriores. Asegúrese de que todas las propiedades `tsx` estén actualizadas correctamente antes de volver a enviar la solicitud de API.
+Si ve el siguiente error, está usando la nueva versión de API (`2020-07-31`), pero no se ha actualizado la sintaxis TSX. Revise la [sintaxis de expresiones de serie temporal](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) y los ejemplos de migración anteriores. Asegúrese de que todas las propiedades `tsx` estén actualizadas correctamente antes de volver a enviar la solicitud de API.
 
 ```JSON
 {

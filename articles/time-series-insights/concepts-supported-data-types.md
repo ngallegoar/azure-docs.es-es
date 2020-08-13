@@ -8,13 +8,13 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/23/2020
-ms.openlocfilehash: 9d29d83ed92ee0fa2217bb1c27fbf6c2fbb3584c
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.date: 08/12/2020
+ms.openlocfilehash: e6fd405d1969a2f40a5f0c3466a57fbec60723e9
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170892"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141166"
 ---
 # <a name="supported-data-types"></a>Tipos de datos admitidos
 
@@ -31,7 +31,7 @@ En la tabla siguiente se enumeran los tipos de datos admitidos por Azure Time Se
 
 ## <a name="sending-mixed-data-types"></a>Envío de tipos de datos mixtos
 
-El entorno de Azure Time Series Insights Gen2 está fuertemente tipado. Si los dispositivos o etiquetas envían datos de diferentes tipos para una propiedad de dispositivo, los valores se almacenarán en dos columnas separadas y la [función coalesce()](https://docs.microsoft.com/rest/api/time-series-insights/preview#other-functions) deberá usarse al definir las expresiones de las variables del modelo de serie temporal en las llamadas API.
+El entorno de Azure Time Series Insights Gen2 está fuertemente tipado. Si los dispositivos o etiquetas envían datos de diferentes tipos para una propiedad de dispositivo, los valores se almacenarán en dos columnas separadas y la [función coalesce()](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#other-functions) deberá usarse al definir las expresiones de las variables del modelo de serie temporal en las llamadas API.
 
 El explorador de Azure Time Series Insights ofrece una manera de fusionar automáticamente las columnas independientes de la misma propiedad de dispositivo. En el ejemplo siguiente, el sensor envía una propiedad `PresentValue` que puede ser un valor Long o Double. Para realizar una consulta a todos los valores almacenados (independientemente del tipo de datos) de la propiedad `PresentValue`, elija `PresentValue (Double | Long)` y las columnas se fusionarán automáticamente.
 
