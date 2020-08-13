@@ -7,20 +7,24 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 05bcbf8df695ba308a6eaff5e7401f0a6d638747
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 3250e4c35f6b898f4431d0f2fe15f84d915c1c8e
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337609"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760403"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consulta del grafo gemelo de Azure Digital Twins
 
-En este artículo se ofrecen ejemplos y más detalles sobre el uso del [lenguaje de Almacén de consultas de Azure Digital Twins](concepts-query-language.md) para consultar el [grafo de gemelos](concepts-twins-graph.md) y obtener información. Las consultas se ejecutan en el grafo con las [**API de consulta**](how-to-use-apis-sdks.md) de Azure Digital Twins.
+En este artículo se ofrecen ejemplos y más detalles sobre el uso del [lenguaje de consultas de Azure Digital Twins](concepts-query-language.md) para consultar el [grafo de gemelos](concepts-twins-graph.md) y obtener información. Las consultas se ejecutan en el grafo con las [**API de consulta**](how-to-use-apis-sdks.md) de Azure Digital Twins.
+
+[!INCLUDE [digital-twins-query-operations.md](../../includes/digital-twins-query-operations.md)]
+
+En el resto de este artículo se proporcionan ejemplos de cómo usar estas operaciones.
 
 ## <a name="query-syntax"></a>Sintaxis de consulta
 
-A continuación se muestran algunas consultas de ejemplo que muestran la estructura del lenguaje de consulta y realizan las operaciones de consulta posibles.
+Esta sección incluye consultas de ejemplo que muestran la estructura del lenguaje de consulta y realizan las operaciones de consulta posibles.
 
 Obtención de [Digital Twins](concepts-twins-graph.md) por propiedades (incluidos el identificador y los metadatos):
 ```sql
@@ -31,24 +35,63 @@ AND T.$dtId in ['123', '456']
 AND T.Temperature = 70
 ```
 
-Obtención de Digital Twins por [modelo](concepts-models.md)
-```sql
-SELECT  * 
-FROM DigitalTwins T  
-WHERE IS_OF_MODEL(T , 'dtmi:com:contoso:Space;3')
-AND T.roomSize > 50
-```
-
 > [!TIP]
 > El identificador de un gemelo digital se consulta con el campo de metadatos `$dtId`.
 
+También puede obtener gemelos por sus propiedades de *etiqueta*, como se describe en [Incorporación de etiquetas a gemelos digitales](how-to-use-tags.md):
+```sql
+select * from digitaltwins where is_defined(tags.red) 
+```
+
+### <a name="select-top-items"></a>Selección de los elementos principales
+
+Puede seleccionar los diversos elementos "principales" en una consulta mediante la cláusula `Select TOP`.
+
+```sql
+SELECT TOP (5)
+FROM DIGITALTWINS
+WHERE property = 42
+```
+
+### <a name="query-by-model"></a>Consulta por modelo
+
+El operador `IS_OF_MODEL` se puede utilizar para filtrar en función del [modelo](concepts-models.md) del gemelo. Admite la herencia y tiene varias opciones de sobrecarga.
+
+El uso más simple de `IS_OF_MODEL` solo toma un parámetro `twinTypeName`: `IS_OF_MODEL(twinTypeName)`.
+A continuación, se muestra un ejemplo de consulta que pasa un valor en este parámetro:
+
+```sql
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1')
+```
+
+Para especificar una colección gemela para buscar cuando hay más de uno (como cuando se usa `JOIN`), agregue el parámetro `twinCollection`: `IS_OF_MODEL(twinCollection, twinTypeName)`.
+A continuación, se muestra un ejemplo de consulta que agrega un valor en este parámetro:
+
+```sql
+SELECT * FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1')
+```
+
+Para realizar una coincidencia exacta, agregue el parámetro `exact`: `IS_OF_MODEL(twinTypeName, exact)`.
+A continuación, se muestra un ejemplo de consulta que agrega un valor en este parámetro:
+
+```sql
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1', exact)
+```
+
+También puede pasar los tres argumentos juntos: `IS_OF_MODEL(twinCollection, twinTypeName, exact)`.
+A continuación, se muestra un ejemplo de consulta que especifica un valor para los tres parámetros:
+
+```sql
+SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', exact)
+```
+
 ### <a name="query-based-on-relationships"></a>Consulta basada en relaciones
 
-Al realizar consultas basadas en relaciones de Digital Twins, el lenguaje de Almacén de consultas de Azure Digital Twins tiene una sintaxis especial.
+Al realizar consultas basadas en relaciones de Digital Twins, el lenguaje de consultas de Azure Digital Twins tiene una sintaxis especial.
 
 Las relaciones se extraen en el ámbito de la consulta en la cláusula `FROM`. Una diferencia importante de los lenguajes de tipo SQL "clásico" es que cada expresión de esta cláusula `FROM` no es una tabla; en su lugar, la cláusula `FROM` expresa un recorrido de relación entre entidades y se escribe con una versión de Azure Digital Twins de `JOIN`. 
 
-Recuerde que, con las funcionalidades del [modelo](concepts-models.md) de Azure Digital Twins, las relaciones no existen de forma independiente de los gemelos. Esto significa que la operación `JOIN` del lenguaje de Almacén de consultas de Azure Digital Twins es un poco diferente de la operación `JOIN` general de SQL, ya que las relaciones aquí no se pueden consultar de forma independiente y deben estar vinculadas a un gemelo.
+Recuerde que, con las funcionalidades del [modelo](concepts-models.md) de Azure Digital Twins, las relaciones no existen de forma independiente de los gemelos. Esto significa que la operación `JOIN` del lenguaje de consultas de Azure Digital Twins es un poco diferente de la operación `JOIN` general de SQL, ya que las relaciones aquí no se pueden consultar de forma independiente y deben estar vinculadas a un gemelo.
 Para incorporar esta diferencia, se usa la palabra clave `RELATED` en la cláusula `JOIN` para hacer referencia a un conjunto de relaciones de un gemelo. 
 
 En la siguiente sección se proporcionan varios ejemplos de lo que se ve a continuación.
@@ -74,7 +117,7 @@ WHERE T.$dtId = 'ABC'
 
 #### <a name="query-the-properties-of-a-relationship"></a>Consulta de las propiedades de una relación
 
-Del mismo modo que los gemelos digitales tienen propiedades que se describen a través de DTDL, las relaciones también pueden tener propiedades. El lenguaje de Almacén de consultas de Azure Digital Twins permite filtrar y proyectar relaciones, mediante la asignación de un alias a la relación dentro de la cláusula `JOIN`. 
+Del mismo modo que los gemelos digitales tienen propiedades que se describen a través de DTDL, las relaciones también pueden tener propiedades. El lenguaje de consultas de Azure Digital Twins permite filtrar y proyectar relaciones mediante la asignación de un alias a la relación dentro de la cláusula `JOIN`. 
 
 Como ejemplo, considere una relación *servicedBy* que tiene una propiedad *reportedCondition*. En la consulta siguiente, a esta relación se le asigna el alias "R" para hacer referencia a su propiedad.
 
@@ -129,7 +172,7 @@ Puede haber un retraso de hasta 10 segundos antes de que los cambios en la insta
 Hay otras limitaciones en el uso de `JOIN` durante la versión preliminar.
 * No se admiten subconsultas en la instrucción `FROM`.
 * No se admite la semántica `OUTER JOIN`, lo que significa que, si la relación tiene un rango de cero, se elimina toda la "fila" del conjunto de resultados de salida.
-* Durante la versión preliminar pública, la profundidad transversal del grafo está restringida: solo se permite un `JOIN` por consulta.
+* Durante la versión preliminar, la profundidad transversal del grafo está restringida a cinco niveles `JOIN` por consulta.
 * El origen de las operaciones `JOIN` está restringido: la consulta debe declarar los gemelos donde comienza la consulta.
 
 ## <a name="query-best-practices"></a>Procedimientos recomendados sobre las consultas

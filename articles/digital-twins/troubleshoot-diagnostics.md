@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 1a349883c8144aaff4aed70ba46ad0eaab04fe69
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 402eda92d5cc8e5c2566345d31c9ae625b82695c
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388334"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809412"
 ---
-# <a name="troubleshooting-azure-digital-twins-with-diagnostics-logging"></a>Solución de problemas de Azure Digital Twins con el registro de diagnóstico
+# <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Solución de problemas de Azure Digital Twins: Registro de diagnóstico
 
-Azure Digital Twins recopila [métricas](how-to-view-metrics.md) para la instancia del servicio que proporcionan información sobre el estado de los recursos. Puede usar estas métricas para evaluar el estado general del servicio Azure Digital Twins y los recursos conectados a él. Estas estadísticas orientadas al usuario ayudan a ver lo que está ocurriendo con su instancia de Azure Digital Twins y a realizar el análisis de la causa raíz de los problemas sin necesidad de ponerse en contacto con el soporte técnico de Azure.
+Azure Digital Twins recopila [métricas](troubleshoot-metrics.md) para la instancia del servicio que proporcionan información sobre el estado de los recursos. Puede usar estas métricas para evaluar el estado general del servicio Azure Digital Twins y los recursos conectados a él. Estas estadísticas orientadas al usuario ayudan a ver lo que está ocurriendo con su instancia de Azure Digital Twins y a realizar el análisis de la causa raíz de los problemas sin necesidad de ponerse en contacto con el soporte técnico de Azure.
 
 En este artículo se muestra cómo activar el **registro de diagnóstico** para los datos de métricas de la instancia de Azure Digital Twins. Estos registros pueden ayudarle a solucionar problemas con el servicio.
 
@@ -26,7 +26,7 @@ En este artículo se muestra cómo activar el **registro de diagnóstico** para 
 
 2. En el menú, seleccione **Configuración de diagnóstico** y **Agregar configuración de diagnóstico**.
 
-    :::image type="content" source="media/how-to-view-metrics/diagnostic-settings.png" alt-text="Captura de pantalla que muestra la página de configuración de diagnóstico y el botón para agregarla":::
+    :::image type="content" source="media/troubleshoot-metrics/diagnostic-settings.png" alt-text="Captura de pantalla que muestra la página de configuración de diagnóstico y el botón para agregarla":::
 
 3. En la página siguiente, rellene los valores a continuación:
      * **Diagnostic setting name** (Nombre de la configuración de diagnóstico): Asigne un nombre a la configuración de diagnóstico.
@@ -52,4 +52,4 @@ La nueva configuración surte efecto en unos 10 minutos. Después, los registros
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para más información sobre la configuración de diagnóstico, consulte el artículo [*Recopilación y consumo de los datos de registro provenientes de los recursos de Azure*](../azure-monitor/platform/platform-logs-overview.md).
-* Para información sobre las métricas de Azure Digital Twins, consulte el artículo [*Procedimiento de visualización de las métricas con Azure Monitor*](how-to-view-metrics.md).
+* Para información sobre las métricas de Azure Digital Twins, consulte el artículo [*Solución de problemas: visualización de las métricas con Azure Monitor*](troubleshoot-metrics.md).

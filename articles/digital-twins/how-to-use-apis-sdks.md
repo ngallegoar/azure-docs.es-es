@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 867c32203d8f780b307ede2ba2916ad4e82e1136
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 73e23f24717616ef417460d2fdae6116cfdbdb3a
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373254"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810418"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Uso de las API y los SDK de Azure Digital Twins
 
@@ -43,7 +43,7 @@ Las API de plano de datos se usan para administrar los elementos de la instancia
 * **Query**: la categoría Query permite a los desarrolladores [buscar conjuntos de gemelos digitales en el grafo de gemelos](how-to-query-graph.md) entre las relaciones.
 * **EventRoutes**: la categoría EventRoutes contiene las API para [enrutar datos](concepts-route-events.md), a través del sistema y a los servicios de bajada.
 
-La versión más reciente de la API de plano de datos para la versión preliminar pública es _**2020-05-31-preview**_.
+La versión más reciente de la API de plano de datos para la versión preliminar pública es _**2020-05-31-preview**_. La versión de API _2020-03-01-preview_ para las operaciones del plano de datos están en desuso.
 
 Para usar las API de plano de datos:
 * Para llamar directamente a las API...
@@ -284,7 +284,7 @@ Las métricas de API, como las solicitudes, la latencia y la tasa de errores, se
 
 En la página principal del portal, busque la instancia de Azure Digital Twins para ver sus detalles. Seleccione la opción **Métricas** en el menú de la instancia de Azure Digital Twins para abrir la página *Métricas*.
 
-:::image type="content" source="media/how-to-view-metrics/azure-digital-twins-metrics.png" alt-text="Captura de pantalla que muestra la página de métricas de Azure Digital Twins":::
+:::image type="content" source="media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Captura de pantalla que muestra la página de métricas de Azure Digital Twins":::
 
 Desde aquí, puede ver las métricas de la instancia y crear vistas personalizadas.
 

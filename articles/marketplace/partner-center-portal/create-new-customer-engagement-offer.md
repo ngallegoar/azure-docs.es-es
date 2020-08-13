@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: e90e45a0c96d8bbd2806a0ab6df70ef83e0cc9f6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 650210ab965936de6e48b2ace3f2042857760053
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121935"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800014"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Creación de una oferta de Dynamics 365 for Customer Engagement y PowerApps
 
@@ -195,10 +195,14 @@ Proporcione logotipos e imágenes para la oferta. Todas las imágenes deben esta
 
 #### <a name="store-logos"></a>Logotipos de Store
 
-Proporcione el logotipo de la oferta en tres tamaños de píxel:
-- **Pequeño** (obligatorio; 48 x 48)
-- **Grande** (obligatorio; 216 x 216)
-- **Ancho** (opcional; 255 x 115)
+Proporcione un archivo PNG para el logotipo de tamaño **grande** (entre 216 x 216 y 350 x 350 píxeles). El Centro de partners lo utilizará para crear un logotipo de tamaño **pequeño** (48 x 48 píxeles). Opcionalmente, puede reemplazarlo por una imagen diferente.
+
+Se requieren ambos tamaños de logotipo para su uso en distintos lugares de la lista:
+
+- **Pequeño (48 x 48)**
+- **Grande** (entre 216 x 216 y 350 x 350)
+
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Capturas de pantalla
 

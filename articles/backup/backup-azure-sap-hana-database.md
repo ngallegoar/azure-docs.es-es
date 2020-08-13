@@ -3,12 +3,12 @@ title: Copia de seguridad de una base de datos de SAP HANA a Azure con Azure Bac
 description: En este artículo, aprenderá a realizar copias de seguridad de una base de datos de SAP HANA en máquinas virtuales de Azure con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 273ba40feee01c2dd2bfe68d1660a5c94f254062
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0efd26272bbfc4c8f63f7f02a605d48e53577390
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513884"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809143"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
 
@@ -25,7 +25,7 @@ En este artículo, aprenderá a:
 > * Ejecutar un trabajo de copia de seguridad a petición.
 
 >[!NOTE]
->[Comience](./tutorial-backup-sap-hana-db.md) con la versión preliminar de la copia de seguridad de SAP HANA para RHEL (7.4, 7.6, 7.7 o 8.1). Para más consultas, escríbanos a [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+>A partir del 1 de agosto de 2020, la copia de seguridad de SAP HANA para RHEL (7.4, 7.6, 7.7 y 8.1) está disponible con carácter general.
 
 >[!NOTE]
 >**La eliminación temporal de SQL Server en máquinas virtuales de Azure y la eliminación temporal de SAP HANA en cargas de trabajo de máquinas virtuales de Azure** están ahora disponible en versión preliminar.<br>
@@ -67,7 +67,7 @@ Si emplea grupos de seguridad de red (NSG), use la etiqueta de servicio de *Azur
 
 1. Haga clic en **Agregar** para guardar la regla de seguridad de salida recién creada.
 
-Puede crear reglas de seguridad de salida de NSG para Azure Storage y Azure AD de forma similar.
+Puede crear reglas de seguridad de salida de NSG para Azure Storage y Azure AD de forma similar. Para más información sobre las etiquetas de servicio, consulte [este artículo](../virtual-network/service-tags-overview.md).
 
 #### <a name="azure-firewall-tags"></a>Etiquetas de Azure Firewall
 

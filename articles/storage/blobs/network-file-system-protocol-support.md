@@ -1,24 +1,24 @@
 ---
 title: Compatibilidad de Network File System 3.0 en Azure Blob Storage (versión preliminar) | Microsoft Docs
-description: Blob Storage ya es compatible con el protocolo Network File System (NFS) 3.0. Esta compatibilidad permite a los clientes de Linux montar un contenedor en Blob Storage desde una máquina virtual (VM) de Azure o un equipo local.
+description: Blob Storage ya es compatible con el protocolo Network File System (NFS) 3.0. Esta compatibilidad permite a los clientes de Windows y Linux montar un contenedor en Blob Storage desde una máquina virtual (VM) de Azure o un equipo que se ejecuta en el entorno local.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: ab8d262e4eac08ce21b7ad01402c3608d52a1aab
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 32eafc41451c42a9c929e94d30450b923e7eae83
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372899"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760930"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Compatibilidad del protocolo Network File System (NFS) 3.0 en Azure Blob Storage (versión preliminar)
 
-Blob Storage ya es compatible con el protocolo Network File System (NFS) 3.0. Esta compatibilidad permite a los clientes de Linux montar un contenedor en Blob Storage desde una máquina virtual (VM) de Azure o un equipo local. 
+Blob Storage ya es compatible con el protocolo Network File System (NFS) 3.0. Esta compatibilidad permite a los clientes de Windows o Linux montar un contenedor en Blob Storage desde una máquina virtual (VM) de Azure o un equipo que se ejecuta en el entorno local. 
 
 > [!NOTE]
 > La compatibilidad con el protocolo NFS 3.0 en Azure Blob Storage se encuentra en versión preliminar pública y está disponible en las siguientes regiones: Este de EE. UU., Centro de EE. UU. y Centro de Canadá.
@@ -41,7 +41,7 @@ Para montar un contenedor de cuenta de almacenamiento, tendrá que realizar esta
 
 7. Monte el contenedor.
 
-Para obtener instrucciones paso a paso, consulte [Montaje de Blob Storage en Linux con el protocolo Network File System (NFS) 3.0 (versión preliminar)](network-file-system-protocol-support-how-to.md).
+Para obtener instrucciones paso a paso, consulte [Montaje de Blob Storage con el protocolo Network File System (NFS) 3.0 (versión preliminar)](network-file-system-protocol-support-how-to.md).
 
 > [!IMPORTANT]
 > Es importante completar estas tareas en orden. No se pueden montar contenedores creados antes de habilitar el protocolo NFS 3.0 en la cuenta. Además, después de haber habilitado el protocolo NFS 3.0 en la cuenta, no puede deshabilitarlo.
@@ -113,7 +113,7 @@ No se cobra ninguna transacción durante la versión preliminar. Los precios de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para comenzar, consulte [Montaje de Blob Storage en Linux con el protocolo Network File System (NFS) 3.0 (versión preliminar)](network-file-system-protocol-support-how-to.md).
+Para comenzar, consulte [Montaje de Blob Storage con el protocolo Network File System (NFS) 3.0 (versión preliminar)](network-file-system-protocol-support-how-to.md).
 
 
 

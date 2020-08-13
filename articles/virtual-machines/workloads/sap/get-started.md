@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/16/2020
+ms.date: 08/04/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 03d0367b3794069908b31ee7af1250fd70f1bdf7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a882e3a21d5e1e99f6f9154fd2162071752b4499
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525218"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800355"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso de Azure para hospedar y ejecutar escenarios de carga de trabajo de SAP
 
@@ -104,6 +104,9 @@ Para obtener información sobre la integración de servicios de Azure en los com
 
 ## <a name="change-log"></a>Registro de cambios
 
+- 04/08/2020: Cambio en [Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure](./high-availability-guide-suse-pacemaker.md) y [Configuración de Pacemaker en Red Hat Enterprise Linux en Azure](./high-availability-guide-rhel-pacemaker.md) para resaltar la importancia de la resolución de nombres confiable en los clústeres de Pacemaker.
+- 04/08/2020: Cambio en [Instalación de alta disponibilidad para SAP NetWeaver en un clúster de conmutación por error de Windows y un recurso compartido de archivos para instancias de SAP ASCS/SCS](./sap-high-availability-installation-wsfc-file-share.md), [Instalación de alta disponibilidad para SAP NetWeaver en un clúster de conmutación por error de Windows y un disco compartido para una instancia de ASCS/SCS de SAP en Azure](./sap-high-availability-installation-wsfc-shared-disk.md), [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure](./high-availability-guide.md), [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications](./high-availability-guide-suse.md), [Alta disponibilidad de SAP NetWeaver en VM de Azure en SUSE Linux Enterprise Server con Azure NetApp Files para las aplicaciones de SAP](./high-availability-guide-suse-netapp-files.md), [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications: guía de varios SID](./high-availability-guide-suse-multi-sid.md), [Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux](./high-availability-guide-rhel.md), [Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux con Azure NetApp Files para aplicaciones SAP](./high-availability-guide-rhel-netapp-files.md) y [Alta disponibilidad para SAP NetWeaver en VM de Azure en Red Hat Enterprise Linux para SAP Applications: guía de varios SID](./high-availability-guide-rhel-multi-sid.md) para aclarar el uso del parámetro `enque/encni/set_so_keepalive`.
+- 23/07/2020: Se ha agregado el artículo [Ahorre en SAP HANA (instancias grandes) con una reserva de Azure](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md), en el que se explica lo que debe saber antes de comprar una reserva SAP HANA (instancias grandes) y cómo hacer la compra.
 - 16/07/2020: descripción del uso de Azure PowerShell para instalar la nueva extensión de máquina virtual para SAP en la [guía de implementación](deployment-guide.md).
 - 04/7/2020: lanzamiento de [Azure Monitor para soluciones de SAP (versión preliminar)](./azure-monitor-overview.md)
 - 01/07/2020: sugerencia de una configuración de almacenamiento menos costosa basada en la función de ráfaga del almacenamiento premium de Azure en el documento [Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA](./hana-vm-operations-storage.md). 
@@ -129,7 +132,7 @@ Para obtener información sobre la integración de servicios de Azure en los com
 - 31/03/2020: Cambio en [Alta disponibilidad de SAP HANA en máquinas virtuales de Azure en SLES](./sap-hana-high-availability.md) y en [Alta disponibilidad de SAP HANA en máquinas virtuales de Azure en RHEL](./sap-hana-high-availability-rhel.md) para agregar instrucciones sobre cómo especificar el tamaño de sección al crear volúmenes seccionados
 - 27/03/2020: Cambio en [Alta disponibilidad de SAP NetWeaver en VM de Azure en SUSE Linux Enterprise Server con Azure NetApp Files para las aplicaciones de SAP](./high-availability-guide-suse-netapp-files.md) para alinear las opciones de montaje del sistema de archivos con NetApp TR-4746 (quitar la opción de montaje de sincronización).
 - 26/03/2020: Cambio en [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications: guía de varios SID](./high-availability-guide-suse-multi-sid.md) para agregar una referencia a NetApp TR-4746.
-- 26/03/2020: Cambio en [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications](./high-availability-guide-suse.md), [Alta disponibilidad de SAP NetWeaver en VM de Azure en SUSE Linux Enterprise Server con Azure NetApp Files para las aplicaciones de SAP](./high-availability-guide-suse-netapp-files.md), [Alta disponibilidad para NFS en máquinas virtuales de Azure en SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md), [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications: guía de varios SID](./high-availability-guide-suse-multi-sid.md), [Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux](./high-availability-guide-rhel.md) y [Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux con Azure NetApp Files para aplicaciones SAP](./high-availability-guide-rhel-netapp-files.md) para actualizar los diagramas y aclarar las instrucciones para la creación de grupos de back-end de Azure Load Balancer.
+- 26/03/2020: Cambio en [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications](./high-availability-guide-suse.md), [Alta disponibilidad de SAP NetWeaver en VM de Azure en SUSE Linux Enterprise Server con Azure NetApp Files para las aplicaciones de SAP](./high-availability-guide-suse-netapp-files.md), [Alta disponibilidad para NFS en máquinas virtuales de Azure en SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md), [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en Red Hat Enterprise Linux para SAP Applications: guía de varios SID](./high-availability-guide-suse-multi-sid.md), [Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux](./high-availability-guide-rhel.md) y [Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux con Azure NetApp Files para aplicaciones SAP](./high-availability-guide-rhel-netapp-files.md) para actualizar los diagramas y aclarar las instrucciones para la creación de grupos de back-end de Azure Load Balancer.
 - 19/03/2020: Revisión principal del documento [Inicio rápido: Instalación manual de una única instancia de SAP HANA en Azure Virtual Machines](./hana-get-started.md) a [Inicio rápido: Instalación manual de una única instancia de SAP HANA en Azure Virtual Machines](./hana-get-started.md).
 - 17/03/2020: Cambio en [Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure](./high-availability-guide-suse-pacemaker.md) para quitar el valor de configuración de SBD que ya no es necesario.
 - 16/03/2020: Aclaración del escenario de certificación de columnas en la plataforma SAP HANA con certificación de IaaS en [Qué software de SAP es compatible para su implementación en Azure](./sap-supported-product-on-azure.md).

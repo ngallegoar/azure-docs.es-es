@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: 0a9eaeb9b77c7b4dd7e0b2347c66de3a325a66ee
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ff0df654650bb1c32d5c3e9833ebde2a81e3d65c
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505183"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799963"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Creación de una configuración de diagnóstico para enviar los registros y las métricas de la plataforma a diferentes destinos
 Los [registros de plataforma](platform-logs-overview.md) de Azure, como los registros de recursos y los registros de actividad de Azure, proporcionan información de diagnóstico y auditoría detallada sobre los recursos de Azure y la plataforma de Azure de la que dependen. Las [métricas de plataforma](data-platform-metrics.md) se recopilan de forma predeterminada y suelen almacenarse en la base de datos de métricas de Azure Monitor. En este artículo, se explica cómo crear y establecer la configuración de diagnóstico para enviar métricas y registros de plataforma a diferentes destinos.
@@ -58,7 +58,7 @@ Se deben crear todos los destinos para la configuración de diagnóstico con los
 [Cree un área de trabajo nueva](../learn/quick-create-workspace.md) si no tiene ya una. El área de trabajo no tiene que estar en la misma suscripción que la del recurso que envía los registros, siempre que el usuario que realiza la configuración tenga el acceso RBAC adecuado a ambas suscripciones.
 
 ### <a name="event-hub"></a>Centro de eventos
-Si no lo tiene, [cree un centro de eventos](../../event-hubs/event-hubs-create.md). El espacio de nombres de Event Hubs no tiene que estar necesariamente en la misma suscripción que la suscripción que emite los registros, siempre que el usuario que configure el valor tenga el acceso RBAC adecuado a ambas suscripciones y estas se encuentren en el mismo inquilino de AAD.
+Si no lo tiene, [cree un centro de eventos](../../event-hubs/event-hubs-create.md). El espacio de nombres de Event Hubs no tiene que estar necesariamente en la misma suscripción que la suscripción que emite los registros, siempre que el usuario que configure el valor tenga el acceso RBAC adecuado a ambas suscripciones y estas se encuentren en el mismo inquilino.
 
 La directiva de acceso compartido del espacio de nombres define los permisos que tiene el mecanismo de transmisión. Para transmitir a Event Hubs, se necesitan permisos de administración, envío y escucha. Puede crear o modificar directivas de acceso compartido en la pestaña Configurar de Azure Portal para su espacio de nombres de Event Hubs. Para actualizar la configuración de diagnóstico para incluir la transmisión, debe tener el permiso ListKey sobre esa regla de autorización de Event Hubs. 
 
@@ -182,7 +182,7 @@ Consulte [Ejemplos de plantillas de Resource Manager para la configuración de d
 Consulte [Configuración de diagnóstico](/rest/api/monitor/diagnosticsettings) para crear o actualizar configuraciones de diagnóstico mediante la [API REST de Azure Monitor](/rest/api/monitor/).
 
 ## <a name="create-using-azure-policy"></a>Creación mediante Azure Policy
-Dado que es necesario crear una configuración de diagnóstico para cada recurso de Azure, se puede usar Azure Policy para crear automáticamente una configuración de diagnóstico a medida que se crea cada recurso. Para más información, consulte [Implementación de Azure Monitor a escala mediante Azure Policy](deploy-scale.md).
+Dado que es necesario crear una configuración de diagnóstico para cada recurso de Azure, se puede usar Azure Policy para crear automáticamente una configuración de diagnóstico a medida que se crea cada recurso. Para más información, consulte [Implementación de Azure Monitor a escala mediante Azure Policy](../deploy-scale.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

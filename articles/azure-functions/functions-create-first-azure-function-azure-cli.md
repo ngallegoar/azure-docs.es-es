@@ -3,14 +3,14 @@ title: Creación de una función en Azure que responda a solicitudes HTTP
 description: Aprenda a crear una función desde la línea de comandos y, luego, a publicar el proyecto local en el hospedaje sin servidor en Azure Functions.
 ms.date: 03/30/2020
 ms.topic: quickstart
-ms.custom: tracking-python, devx-track-azurecli
+ms.custom: devx-track-python, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 4aa1a20109bb086229fae96015c5f29c72df6f22
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ba068ef00bcf1f671341ab00cabfe3c9bbb493ad
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497195"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847693"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Inicio rápido: Creación de una función en Azure que responda a solicitudes HTTP
 

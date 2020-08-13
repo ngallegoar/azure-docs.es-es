@@ -3,18 +3,18 @@ title: Creación de una oferta de módulo Azure IoT Edge con el Centro de partne
 description: Aprenda a crear, configurar y publicar una oferta de módulo IoT Edge en Azure Marketplace mediante el Centro de partners.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-author: anbene
-ms.author: mingshen
-ms.date: 06/17/2020
-ms.openlocfilehash: 11deb9b8146924d1a493872219ad85556d13c405
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.topic: article
+author: keferna
+ms.author: keferna
+ms.date: 07/22/2020
+ms.openlocfilehash: 779fc1cfc617e18eee4d84dcfd007f10ddb31f96
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520279"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808718"
 ---
-# <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Creación, configuración y publicación de una oferta de módulo IoT Edge en Azure Marketplace
+# <a name="create-an-iot-edge-module-offer"></a>Creación de una oferta de módulo de IoT Edge
 
 En este artículo se explica cómo crear y publicar una entrada de oferta de módulo IoT Edge para Azure Marketplace. Antes de comenzar, [cree una cuenta de Marketplace comercial en el Centro de partners](create-account.md), si aún no lo ha hecho. Asegúrese de que la cuenta está inscrita en el programa Marketplace comercial.
 
@@ -53,7 +53,7 @@ En esta página se incluyen vínculos para realizar operaciones en esta oferta e
 - Si la oferta es un borrador: [Eliminación de una oferta borrador](update-existing-offer.md#delete-a-draft-offer)
 - Si la oferta está activa: [Detención de la venta de una oferta](update-existing-offer.md#stop-selling-an-offer-or-plan)
 - Si la oferta está en versión preliminar: [Publicación](publishing-status.md#publisher-approval)
-- Si no ha completado el cierre de sesión del publicador: [Cancelación de la publicación.](update-existing-offer.md#cancel-publishing)
+- Si no ha completado el cierre de sesión del anunciante: [Cancelación de la publicación.](update-existing-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Configuración de la oferta
 
@@ -199,14 +199,15 @@ Proporcione logotipos e imágenes para usarlos con la oferta. Todas las imágene
 
 #### <a name="store-logos"></a>Logotipos de Store
 
-Proporcione archivos PNG del logotipo de la oferta en cada uno de los cuatro tamaños de píxel siguientes:
+Proporcione un archivo PNG para el logotipo de tamaño **grande** (entre 216 x 216 y 350 x 350 píxeles). El Centro de partners lo utilizará para crear un logotipo de tamaño **pequeño** (48 x 48 píxeles) y un logotipo de tamaño **medio** (90 x 90 píxeles). Opcionalmente, puede reemplazarlos por imágenes diferentes.
+
+Se requieren los tres tamaños de logotipo para su uso en distintos lugares de la lista:
 
 - **Pequeño (48 x 48)**
 - **Medio (90 x 90)**
-- **Grande (216 x 216)**
-- **Ancho (255 x 115)**
+- **Grande** (entre 216 x 216 y 350 x 350)
 
-Los cuatro logotipos son necesarios y se usan en lugares diferentes de la lista de Marketplace.
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots-optional"></a>Capturas de pantalla (opcional)
 

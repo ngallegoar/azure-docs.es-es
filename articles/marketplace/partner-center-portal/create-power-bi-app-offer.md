@@ -1,20 +1,20 @@
 ---
-title: Creación de una oferta de aplicación de Power BI en Marketplace comercial de Microsoft
+title: Creación de una oferta de aplicación de Power BI para Microsoft AppSource
 description: Obtenga información sobre cómo crear y publicar una oferta de aplicación de Power BI para Microsoft AppSource.
-author: anbene
-ms.author: mingshen
+author: navits09
+ms.author: navits
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: 8a4ff5c5bce7774f805130f68d7418a73cb751f8
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 07/22/2020
+ms.openlocfilehash: c464e26419648d396b39718f357bcef7e4fa5552
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85980361"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800305"
 ---
-# <a name="create-a-power-bi-app-for-microsoft-appsource"></a>Creación de una aplicación de Power BI para Microsoft AppSource
+# <a name="create-a-power-bi-app-offer"></a>Creación de una oferta de aplicación de Power BI
 
 En este artículo se describe cómo crear y publicar una oferta de aplicación de Power BI para Microsoft[AppSource](https://appsource.microsoft.com/).
 
@@ -207,11 +207,14 @@ Proporcione logotipos e imágenes para usarlos con la oferta. Todas las imágene
 
 #### <a name="store-logos"></a>Logotipos de Store
 
-Proporcione los archivos PNG del logotipo de la oferta en dos tamaños de píxeles:
-- **Pequeño (48 x 48)**
-- **Grande (216 x 216)**
+Proporcione un archivo PNG para el logotipo de tamaño **grande** (entre 216 x 216 y 350 x 350 píxeles). El Centro de partners lo utilizará para crear un logotipo de tamaño **pequeño** (48 x 48 píxeles). Opcionalmente, puede reemplazarlo por una imagen diferente.
 
-Los dos logotipos son necesarios y se usan en lugares diferentes de la lista de Marketplace.
+Se requieren ambos tamaños de logotipo para su uso en distintos lugares de la lista:
+
+- **Pequeño (48 x 48)**
+- **Grande** (entre 216 x 216 y 350 x 350)
+
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Capturas de pantalla
 

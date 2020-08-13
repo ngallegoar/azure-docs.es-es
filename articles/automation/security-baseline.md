@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 3b86c249630f7bfa5c2d319577c66d750b0f6268
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e78f4133e7f722870f6c84de2ab7e784cd151d79
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045913"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562691"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Base de referencia de seguridad de Azure para Automation
 
@@ -34,7 +34,7 @@ Para obtener más aislamiento para los runbooks, puede usar instancias de Hybrid
 
 Como alternativa, si tiene un requisito específico, también puede usarse Azure Firewall para cumplirlo.
 
-* [Redes virtuales y máquinas virtuales en Azure](../virtual-machines/windows/network-overview.md)
+* [Redes virtuales y máquinas virtuales en Azure](../virtual-machines/network-overview.md)
 
 * [Creación de una red virtual](../virtual-network/quick-create-portal.md)
 
@@ -220,7 +220,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 * [Regiones admitidas para el área de trabajo de Log Analytics vinculada](./how-to/region-mappings.md)
 
-* [Consulta de registros de Update Management](./automation-update-management-query-logs.md)
+* [Consulta de registros de Update Management](./update-management/update-mgmt-query-logs.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -240,7 +240,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4: Recopilación de registros de seguridad de sistemas operativos
 
-**Instrucciones**: Al usar Azure Automation con los trabajadores de runbooks multiinquilino, este control no es aplicable y la plataforma controla las máquinas virtuales subyacentes.
+**Guía**: Al usar Azure Automation con los trabajadores de runbooks multiinquilino, este control no es aplicable y la plataforma controla las máquinas virtuales subyacentes.
 
 Al usar la característica Hybrid Runbook Worker, Azure Security Center proporciona la supervisión del registro de eventos de seguridad para las máquinas virtuales de Windows. Si su organización desea conservar los datos del registro de eventos de seguridad, se puede almacenar en un nivel de recopilación de datos y se puede consultar en Log Analytics. Hay diferentes niveles: Mínimo, Común y Todo, que se detallan en el siguiente vínculo.
 
@@ -646,9 +646,9 @@ Al usar instancias de Hybrid Runbook Worker, los discos virtuales de las máquin
 
 Si usa instancias de Hybrid Runbook Worker respaldadas por Azure Virtual Machines, use Azure Update Management para administrar las actualizaciones y las revisiones de las máquinas virtuales. Update Management se basa en el repositorio de actualización configurado localmente para aplicar revisiones a sistemas de Windows compatibles. Herramientas como System Center Updates Publisher (Updates Publisher) le permiten publicar actualizaciones personalizadas en Windows Server Update Services (WSUS). Este escenario permite que Update Management aplique revisiones a las máquinas que usan Configuration Manager como repositorio de actualizaciones con software de terceros.
 
-* [Update Management en Azure](./automation-update-management.md)
+* [Update Management en Azure](./update-management/update-mgmt-overview.md)
 
-* [Administración de actualizaciones y revisiones para las máquinas virtuales de Azure](./automation-tutorial-update-management.md)
+* [Administración de actualizaciones y revisiones para las máquinas virtuales](./update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -660,9 +660,9 @@ Si usa instancias de Hybrid Runbook Worker respaldadas por Azure Virtual Machine
 
 Si usa instancias de Hybrid Runbook Worker respaldadas por Azure Virtual Machines, puede usar Azure Update Management para administrar las actualizaciones y las revisiones de las máquinas virtuales. Update Management se basa en el repositorio de actualización configurado localmente para aplicar revisiones a sistemas de Windows compatibles. Herramientas como System Center Updates Publisher (Updates Publisher) le permiten publicar actualizaciones personalizadas en Windows Server Update Services (WSUS). Este escenario permite que Update Management aplique revisiones a las máquinas que usan Configuration Manager como repositorio de actualizaciones con software de terceros.
 
-* [Solución Update Management de Azure](./automation-update-management.md)
+* [Solución Update Management de Azure](./update-management/update-mgmt-overview.md)
 
-* [Administración de actualizaciones y revisiones para las máquinas virtuales de Azure](./automation-tutorial-update-management.md)
+* [Administración de actualizaciones y revisiones para las máquinas virtuales de Azure](./update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -742,7 +742,7 @@ Si usa instancias de Hybrid Runbook Worker respaldadas por Azure Virtual Machine
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: Supervisión de recursos de Azure no aprobados
 
-**Instrucciones**: Use Azure Policy para aplicar restricciones en el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
+**Guía**: Use Azure Policy para aplicar restricciones en el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 - Tipos de recursos no permitidos
 - Tipos de recursos permitidos
 
@@ -848,7 +848,7 @@ El control de aplicaciones adaptables es una solución de un extremo a otro inte
 
 **Guía**: Las aplicaciones de alto riesgo implementadas en el entorno de Azure se pueden aislar mediante una red y contenedores de recursos independientes, con construcciones como redes virtuales, subred, suscripciones, grupos de administración, y pueden protegerse suficientemente con una instancia de Azure Firewall, un firewall de aplicaciones web (WAF) o un grupo de seguridad de red (NSG).
 
-* [Redes virtuales y máquinas virtuales en Azure](../virtual-machines/windows/network-overview.md)
+* [Redes virtuales y máquinas virtuales en Azure](../virtual-machines/network-overview.md)
 
 * [Información general de Azure Firewall](../firewall/overview.md)
 

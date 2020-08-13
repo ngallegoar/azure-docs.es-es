@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 07/07/2020
-ms.openlocfilehash: 8546e5fde51ddc8a29a852a2c5dbcd25fffad287
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: ae079fce02f58d6c6457d7fe6401526f4002662f
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405252"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798195"
 ---
 # <a name="create-a-managed-service-offer"></a>Creación de una oferta de servicio administrado
 
@@ -133,23 +133,17 @@ En esta sección, puede proporcionar logotipos e imágenes que se usarán al mos
 >[!NOTE]
 >Si tiene un problema al cargar archivos, asegúrese de que la red local no bloquee el servicio https://upload.xboxlive.com que usa el Centro de partners.
 
-#### <a name="marketplace-logos"></a>Logotipos de Marketplace
+#### <a name="store-logos"></a>Logotipos de Store
 
-Proporcione el logotipo de la oferta en cuatro tamaños de píxel:
+Proporcione un archivo PNG para el logotipo de tamaño **grande** (entre 216 x 216 y 350 x 350 píxeles). El Centro de partners lo utilizará para crear un logotipo de tamaño **pequeño** (48 x 48 píxeles) y un logotipo de tamaño **medio** (90 x 90 píxeles). Opcionalmente, puede reemplazarlos por imágenes diferentes.
+
+Se requieren los tres tamaños de logotipo para su uso en distintos lugares de la lista:
 
 - **Pequeño (48 x 48)**
 - **Medio (90 x 90)**
-- **Grande (216 x 216)**
-- **Ancho (255 x 115)**
+- **Grande** (entre 216 x 216 y 350 x 350)
 
-Siga estas instrucciones para los logotipos:
-
-- El diseño de Azure tiene una paleta de colores simple. Utilice pocos colores primarios y secundarios en el logotipo.
-- Los colores del tema del portal son el blanco y el negro. No use estos colores como fondo de los logotipos. Use un color que haga que su logotipo destaque en el portal. Nosotros recomendamos usar colores primarios simples.
-- Si usa un fondo transparente, asegúrese de que el logotipo y el texto no son blancos, negros ni azules.
-- La apariencia del logotipo debe ser homogénea y evitar degradados. No utilice un fondo degradado en el logotipo.
-- No coloque texto en el logotipo, ni siquiera el nombre de su empresa o de la marca.
-- Asegúrese de que el logotipo no quede estirado.
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Capturas de pantalla
 

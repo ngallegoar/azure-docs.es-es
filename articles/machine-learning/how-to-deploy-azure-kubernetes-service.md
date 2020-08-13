@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: ad34195e003e0ca2d73000d3482cc79c3dbe3ee0
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 9503abf147ee89ec03e7e1317df823426ea37b1c
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372117"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87758890"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implementación de un modelo en un clúster de Azure Kubernetes Service
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -63,7 +63,11 @@ El clúster de AKS y el área de trabajo de AML pueden estar en distintos grupos
 
 - En los fragmentos de código de la __CLI__ de este artículo se supone que ha creado un documento `inferenceconfig.json`. Para más información acerca cómo crear este documento, consulte el artículo en el que se explica [cómo y dónde se implementan los modelos](how-to-deploy-and-where.md).
 
+- Si necesita implementar un Standard Load Balancer (SLB) en el clúster en lugar de un Basic Load Balancer (BLB), cree un clúster en el portal de AKS, la CLI o el SDK y, a continuación, asócielo al área de trabajo de AML.
+
 - Si adjunta un clúster de AKS, que tiene un [intervalo IP autorizado habilitado para tener acceso al servidor de API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), habilite los intervalos IP del plano de control de AML del clúster de AKS. El plano de control de AML se implementa entre regiones emparejadas e implementa pods de inferencia en el clúster de AKS. Sin acceso al servidor de la API, no se pueden implementar los pods de inferencia. Use el [intervalo IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) para las [regiones emparejadas]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) al habilitar los intervalos IP en un clúster de AKS.
+
+__Los intervalos IP autorizados solo funcionan con Standard Load Balancer.__
  
  - El nombre del proceso DEBE ser único dentro de un área de trabajo.
    - El nombre es obligatorio y debe tener una longitud de entre 3 y 24 caracteres.
@@ -73,7 +77,7 @@ El clúster de AKS y el área de trabajo de AML pueden estar en distintos grupos
    
  - Si quiere implementar modelos en nodos de GPU o en nodos de FPGA (o en cualquier SKU específica), debe crear un clúster con la SKU específica. No se admite la creación de un grupo de nodos secundarios en un clúster existente ni la implementación de modelos en el grupo de nodos secundarios.
  
- - Si necesita implementar un Standard Load Balancer (SLB) en el clúster en lugar de un Basic Load Balancer (BLB), cree un clúster en el portal de AKS, la CLI o el SDK y, a continuación, asócielo al área de trabajo de AML. 
+ 
 
 
 
@@ -181,6 +185,9 @@ cluster_name = 'myexistingcluster'
 attach_config = AksCompute.attach_configuration(resource_group = resource_group,
                                          cluster_name = cluster_name)
 aks_target = ComputeTarget.attach(ws, 'myaks', attach_config)
+
+# Wait for the attach process to complete
+aks_target.wait_for_completion(show_output = True)
 ```
 
 Para más información acerca de las clases, los métodos y los parámetros que se usan en este ejemplo, consulte los siguientes documentos de referencia:
@@ -257,6 +264,30 @@ Para obtener información acerca del uso de Visual Studio Code, consulte cómo s
 
 > [!IMPORTANT]
 > La implementación a través de Visual Studio Code requiere que el clúster de AKS se cree o se adjunte al área de trabajo de antemano.
+
+### <a name="understand-the-deployment-processes"></a>Comprender los procesos de implementación
+
+La palabra "implementación" se usa en Kubernetes y Azure Machine Learning. "Implementación" tiene significados muy diferentes en estos dos contextos. En Kubernetes, una `Deployment` es una entidad concreta, que se especifica con un archivo YAML declarativo. Una `Deployment` de Kubernetes tiene un ciclo de vida definido y relaciones concretas con otras entidades de Kubernetes, como `Pods` y `ReplicaSets`. Puede obtener información sobre Kubernetes desde documentos y vídeos en [¿Qué es Kubernetes?](https://aka.ms/k8slearning).
+
+En Azure Machine Learning, "implementación" se usa en el sentido general de poner a disposición y limpiar los recursos del proyecto. Los pasos que Azure Machine Learning considera parte de la implementación son:
+
+1. Comprimir los archivos de la carpeta del proyecto y omitir los especificados en .amlignore o .gitignore.
+1. Escalar verticalmente el clúster de proceso (se relaciona con Kubernetes).
+1. Compilar o descargar el Dockerfile en el nodo de proceso (se relaciona con Kubernetes).
+    1. El sistema calcula un valor de hash de: 
+        - La imagen base 
+        - Pasos personalizados de Docker (consulte [Implementación de un modelo con una imagen base de Docker personalizada](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
+        - El archivo YAML de definición de Conda (consulte [Creación y uso de entornos de software en Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
+    1. El sistema utiliza este valor de hash como clave en una búsqueda de la instancia de Azure Container Registry (ACR) del área de trabajo.
+    1. Si no la encuentra, busca una coincidencia en la instancia de ACR global.
+    1. Si no existe, el sistema genera una imagen (que se almacenará en la memoria caché y se registrará en la instancia de ACR del área de trabajo).
+1. Descargar el archivo de proyecto comprimido en el almacenamiento temporal del nodo de proceso.
+1. Descomprimir el archivo de proyecto.
+1. El nodo de proceso que ejecuta `python <entry script> <arguments>`.
+1. Guardar registros, archivos de modelo y otros archivos escritos en `./outputs` en la cuenta de almacenamiento asociada con el área de trabajo.
+1. Reducir verticalmente el proceso, incluida la eliminación del almacenamiento temporal (se relaciona con Kubernetes).
+
+Cuando se usa AKS, Kubernetes controla el escalado vertical y la reducción vertical del proceso mediante el Dockerfile generado o encontrado como se describió anteriormente. 
 
 ## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Implementación de modelos en AKS mediante el lanzamiento controlado (versión preliminar)
 
@@ -395,15 +426,12 @@ print(token)
 >
 > Para recuperar un token, debe usar el SDK de Azure Machine Learning o el comando [az ml service get-access-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-get-access-token).
 
-## <a name="update-the-web-service"></a>Actualizar el servicio web
-
-[!INCLUDE [aml-update-web-service](../../includes/machine-learning-update-web-service.md)]
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Protección de experimentos e inferencias en una red virtual](how-to-enable-virtual-network.md)
 * [Cómo implementar un modelo con una imagen personalizada de Docker](how-to-deploy-custom-docker-image.md)
 * [Solución de problemas de implementación](how-to-troubleshoot-deployment.md)
+* [Actualización de servicio web](how-to-deploy-update-web-service.md)
 * [Uso de TLS para proteger un servicio web con Azure Machine Learning](how-to-secure-web-service.md)
 * [Consumir un modelo de ML que está implementado como un servicio web](how-to-consume-web-service.md)
 * [Supervisión de los modelos de Azure Machine Learning con Application Insights](how-to-enable-app-insights.md)

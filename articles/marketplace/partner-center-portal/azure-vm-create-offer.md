@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 07/28/2020
-ms.openlocfilehash: 9db6fbe002492c0db6e9e0e5e0a23ca1946759a5
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 0adffbb9058141ea89daefc292b937841659c879
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386442"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798076"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Creación de una oferta de máquina virtual de Azure en Azure Marketplace
 
@@ -245,16 +245,17 @@ Proporcione logotipos e imágenes para usarlos con la oferta. Todas las imágene
 >[!NOTE]
 >Si tiene problemas al cargar archivos, asegúrese de que la red local no bloquee el servicio https://upload.xboxlive.com que usa el Centro de partners.
 
-#### <a name="azure-marketplace-logos"></a>Logotipos de Azure Marketplace
+#### <a name="store-logos"></a>Logotipos de Store
 
-Proporcione archivos PNG del logotipo de la oferta con las cuatro dimensiones de imágenes siguientes:
+Proporcione un archivo PNG para el logotipo de tamaño **grande** (entre 216 x 216 y 350 x 350 píxeles). El Centro de partners lo utilizará para crear un logotipo de tamaño **pequeño** (48 x 48 píxeles) y un logotipo de tamaño **medio** (90 x 90 píxeles). Opcionalmente, puede reemplazarlos por imágenes diferentes.
 
-- **Pequeña** (48 &times; 48 píxeles)
-- **Mediana** (90 &times; 90 píxeles)
-- **Grande** (216 &times; 216 píxeles)
-- **Ancha** (255 &times; 115 píxeles)
+Se requieren los tres tamaños de logotipo para su uso en distintos lugares de la lista:
 
-Los cuatro logotipos son obligatorios y se muestran en varias listas de Azure Marketplace.
+- **Pequeño (48 x 48)**
+- **Medio (90 x 90)**
+- **Grande** (entre 216 x 216 y 350 x 350)
+
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Capturas de pantalla
 

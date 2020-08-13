@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/03/2020
+ms.date: 08/01/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: c347f637083d8dfdf39cbd032df97bc52973465f
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: d0344247ba4dfffee275782bc2db83142d34cff3
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372576"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800252"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Tamaños de VM para informática de alto rendimiento
 
@@ -42,16 +42,17 @@ Esta interfaz permite que las instancias compatibles con RDMA se comuniquen trav
 > RDMA a través de IB se admite en todas las máquinas virtuales compatibles con RDMA.
 > Solo se admite IP sobre IB en máquinas virtuales habilitadas para SR-IOV.
 
-- **Sistema operativo**: Linux es muy compatible con las máquinas virtuales de HPC; habitualmente se usan distribuciones como CentOS, RHEL, Ubuntu y SUSE. En cuanto a la compatibilidad con Windows, en todas las máquinas virtuales de la serie HPC se admite Windows Server 2016 y versiones más recientes. También se admiten Windows Server 2012 R2 y Windows Server 2012 en las máquinas virtuales habilitadas que no son SR-IOV (H16r, H16mr, A8 t A9). Tenga en cuenta que [Windows Server 2012 R2 no se admite en HBv2 ni en otras máquinas virtuales con más de 64 núcleos (virtuales o físicos)](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
+- **Sistema operativo**: Linux es muy compatible con las máquinas virtuales de HPC; habitualmente se usan distribuciones como CentOS, RHEL, Ubuntu y SUSE. En cuanto a la compatibilidad con Windows, en todas las máquinas virtuales de la serie HPC se admite Windows Server 2016 y versiones más recientes. También se admiten Windows Server 2012 R2 y Windows Server 2012 en las máquinas virtuales habilitadas que no son SR-IOV (H16r, H16mr, A8 t A9). Tenga en cuenta que [Windows Server 2012 R2 no se admite en HBv2 ni en otras máquinas virtuales con más de 64 núcleos (virtuales o físicos)](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows). Consulte [Imágenes de máquina virtual](./workloads/hpc/configure.md) para obtener una lista de imágenes de máquina virtual compatibles en Marketplace y cómo se pueden configurar de forma adecuada.
 
-- **Controladores de InfiniBand y RDMA**: en las máquinas virtuales compatibles con InfiniBand, se necesitan los controladores adecuados para habilitar RDMA. En Linux, las imágenes de las máquinas virtuales de la versión de CentOS-HPC en Marketplace se configuran previamente con los controladores adecuados. Las imágenes de máquinas virtuales de Ubuntu se pueden configurar con los controladores adecuados mediante las [instrucciones que se indican aquí](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). En las máquinas virtuales de la serie H y serie N compatibles con SR-IOV, se puede usar la [extensión de máquina virtual InfiniBandDriverLinux](./extensions/hpc-compute-infiniband-linux.md) para instalar los controladores OFED de Mellanox y habilitar InfiniBand. Obtenga más información sobre cómo habilitar InfiniBand en máquinas virtuales compatibles con RDMA en [Cargas de trabajo de HPC](./workloads/hpc/overview.md).
+- **Controladores de InfiniBand y RDMA**: en las máquinas virtuales compatibles con InfiniBand, se necesitan los controladores adecuados para habilitar RDMA. En Linux, tanto en el caso de las máquinas virtuales compatibles con SR-IOV como las que no, las imágenes de máquinas virtuales de CentOS-HPC en Marketplace se configuran previamente con los controladores adecuados. Las imágenes de máquinas virtuales de Ubuntu se pueden configurar con los controladores adecuados mediante las [instrucciones que se indican aquí](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). Consulte [Configuración y optimización de las máquinas virtuales para Linux OS](./workloads/hpc/configure.md) para obtener más información sobre las imágenes de sistema operativo Linux de máquinas virtuales listas para usar.
 
-En Windows, la [extensión de máquina virtual InfiniBandDriverWindows](./extensions/hpc-compute-infiniband-windows.md) instala controladores Windows Network Direct (en máquinas virtuales sin SR-IOV) o controladores Mellanox OFED (en máquinas virtuales con SR-IOV) para la conectividad RDMA. En algunas implementaciones de las instancias A8 y A9, la extensión HpcVmDrivers se agrega automáticamente. Tenga en cuenta que la extensión de máquina virtual HpcVmDrivers está en desuso, por lo que no se actualizará.
+   En Linux, se puede usar la [extensión de máquina virtual InfiniBandDriverLinux](./extensions/hpc-compute-infiniband-linux.md) para instalar los controladores OFED de Mellanox y habilitar InfiniBand en las máquinas virtuales de serie H y serie N compatibles con SR-IOV. Obtenga más información sobre cómo habilitar InfiniBand en máquinas virtuales compatibles con RDMA en [Cargas de trabajo de HPC](./workloads/hpc/enable-infiniband.md).
 
-Para agregar la extensión de máquina virtual a una máquina virtual, puede usar los cmdlets de [Azure PowerShell](/powershell/azure/). Para obtener más información, consulte el artículo de [características y extensiones de las máquinas virtuales](./extensions/overview.md). También puede trabajar con las extensiones para las máquinas virtuales implementadas en el [modelo de implementación clásica](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
+   En Windows, la [extensión de máquina virtual InfiniBandDriverWindows](./extensions/hpc-compute-infiniband-windows.md) instala controladores Windows Network Direct (en máquinas virtuales sin SR-IOV) o controladores Mellanox OFED (en máquinas virtuales con SR-IOV) para la conectividad RDMA. En algunas implementaciones de las instancias A8 y A9, la extensión HpcVmDrivers se agrega automáticamente. Tenga en cuenta que la extensión de máquina virtual HpcVmDrivers está en desuso, por lo que no se actualizará.
 
-- **MPI**: los tamaños de máquina virtual habilitados para SR-IOV en Azure (HBv2, HB, HC, NCv3 y NDv2) permiten que se use prácticamente cualquier tipo de MPI con Mellanox OFED.
-En las máquinas virtuales que no están habilitadas para SR-IOV, las implementaciones de MPI compatibles usan la interfaz Microsoft Network Direct (ND) para comunicarse entre máquinas virtuales. Por lo tanto, solo se admiten las versiones de Microsoft MPI (MS-MPI) 2012 R2 o posterior e Intel MPI 5.x. Las versiones posteriores (2017 y 2018) de la biblioteca en tiempo de ejecución de MPI pueden ser o no compatibles con los controladores de Azure RDMA.
+   Para agregar la extensión de máquina virtual a una máquina virtual, puede usar los cmdlets de [Azure PowerShell](/powershell/azure/). Para obtener más información, consulte el artículo de [características y extensiones de las máquinas virtuales](./extensions/overview.md). También puede trabajar con las extensiones para las máquinas virtuales implementadas en el [modelo de implementación clásica](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
+
+- **MPI**: los tamaños de máquina virtual habilitados para SR-IOV en Azure (HBv2, HB, HC, NCv3 y NDv2) permiten que se use prácticamente cualquier tipo de MPI con Mellanox OFED. En las máquinas virtuales que no están habilitadas para SR-IOV, las implementaciones de MPI compatibles usan la interfaz Microsoft Network Direct (ND) para comunicarse entre máquinas virtuales. Por lo tanto, solo se admiten las versiones de Microsoft MPI (MS-MPI) 2012 R2 o posterior e Intel MPI 5.x. Las versiones posteriores (2017 y 2018) de la biblioteca en tiempo de ejecución de MPI pueden ser o no compatibles con los controladores de Azure RDMA. Consulte [Configuración de MPI para HPC](./workloads/hpc/setup-mpi.md) para obtener más información sobre cómo configurar MPI en máquinas virtuales de HPC en Azure.
 
 - **Espacio de direcciones de red RDMA** : la red RDMA en Azure reserva el espacio de direcciones 172.16.0.0/16. Para ejecutar aplicaciones MPI en instancias implementadas en una red virtual Azure, asegúrese de que el espacio de direcciones de la red virtual no se superpone a la red RDMA.
 
@@ -98,6 +99,6 @@ Azure ofrece varias opciones para crear clústeres de máquinas virtuales de HPC
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre cómo optimizar la aplicación de HPC para Azure y algunos ejemplos en [Cargas de trabajo de HPC](./workloads/hpc/overview.md). 
-
-- Obtenga más información sobre cómo las [unidades de proceso de Azure (ACU)](acu.md) pueden ayudarlo a comparar el rendimiento en los distintos SKU de Azure.
+- Puede encontrar más información sobre la optimización de aplicaciones de HPC para Azure y algunos ejemplos en [Cargas de trabajo de HPC](./workloads/hpc/overview.md).
+- En los [blogs de la comunidad de Azure Compute Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute), encontrará los anuncios más recientes y algunos ejemplos y resultados de HPC.
+- Si desea una visión general de la arquitectura de la ejecución de cargas de trabajo de HPC, consulte [Informática de alto rendimiento (HPC) en Azure](/azure/architecture/topics/high-performance-computing/).

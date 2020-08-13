@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: marayerm
-ms.openlocfilehash: df2a7d7de236d4a2f7a93b92d7c0ac984de6f010
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 30eaa9b9f8700877607af047e5e64eca65471545
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095430"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759604"
 ---
 # <a name="azure-storage-explorer-support-lifecycle-and-policy"></a>Ciclo de vida y directiva de soporte técnico del Explorador de Azure Storage
 
@@ -35,19 +35,20 @@ A partir de la versión 1.14.1, todas las versiones del Explorador de Storage qu
 
 A partir de la versión 1.13.0, se mostrará una alerta en la aplicación cuando una versión esté aproximadamente a un mes de quedarse sin soporte técnico. La alerta anima a los usuarios a actualizar a la versión más reciente del Explorador de Storage. Una vez que una versión ya no es compatible, la alerta en aplicación se mostrará en cada inicio.
 
-## <a name="releases"></a>Lanzamientos
+## <a name="releases"></a>Versiones
 
 En esta tabla se describe la fecha de lanzamiento y la fecha de finalización del soporte técnico de todas las versiones del Explorador de Azure Storage.
 
 | Versión del Explorador de Storage  | Fecha de la versión       | Fecha de finalización de soporte técnico |
 |:-------------------------:|:------------------:|:-------------------:|
+| v1.14.2                   | 16 de julio de 2020      | 16 de julio de 2021       |
 | v1.14.1                   | 14 de julio de 2020      | 14 de julio de 2021       |
 | v1.14.0                   | 24 de junio de 2020      | 14 de julio de 2021       |
 | v1.13.1                   | 18 de mayo de 2020       | 14 de julio de 2021       |
 | v1.13.0                   | 1 de mayo de 2020        | 14 de julio de 2021       |
 | v1.12.0                   | 16 de enero de 2020   | 14 de julio de 2021       |
 | v1.11.2                   | 17 de diciembre de 2019  | 14 de julio de 2021       |
-| v1.11.1                   | 20 de noviembre de 2019  | 14 de julio de 2021       |
+| v1.11.1                   | 20 de noviembre de 2019  | 14 de julio de 2021       |
 | v1.11.0                   | 4 de noviembre de 2019   | 14 de julio de 2021       |
 | v1.10.1                   | 19 de septiembre de 2019 | 14 de julio de 2021       |
 | v1.10.0                   | 12 de septiembre de 2019 | 14 de julio de 2021       |

@@ -1,20 +1,20 @@
 ---
 title: Creación y administración de ámbitos de cifrado (versión preliminar)
-description: ''
+description: Aprenda a crear un ámbito de cifrado para aislar los datos de blobs en el nivel de contenedor o blob.
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 07/13/2020
+ms.date: 08/04/2020
 ms.topic: conceptual
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: f589f0108cf21e77be5103afcaa0242c6f191ab3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d4dd3f3ced8aac6852fe8516a4a5cadca2ebdc49
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540613"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564153"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>Creación y administración de ámbitos de cifrado (versión preliminar)
 
@@ -24,7 +24,7 @@ En este artículo se muestra cómo crear un ámbito de cifrado. También se mues
 
 ## <a name="create-an-encryption-scope"></a>Creación de un ámbito de cifrado
 
-Para crear un ámbito de cifrado, en primer lugar debe crear un almacén de claves de Azure y agregar la clave que quiere usar para el ámbito. El almacén de claves debe tener habilitadas las propiedades **Eliminación temporal** y **Purge Protection** (Protección de purgas), y debe estar en la misma región que la cuenta de almacenamiento. Para más información, consulte [Uso de claves administradas por el cliente con Azure Key Vault para administrar el cifrado de Azure Storage](../common/encryption-customer-managed-keys.md).
+Puede crear ámbitos de cifrado con una clave administrada por Microsoft o con una clave administrada por el cliente que se almacena en Azure Key Vault. Para crear un ámbito de cifrado con una clave administrada por el cliente, en primer lugar debe crear un almacén de claves de Azure y agregar la clave que quiere usar para el ámbito. El almacén de claves debe tener habilitadas las propiedades **Eliminación temporal** y **Purge Protection** (Protección de purgas), y debe estar en la misma región que la cuenta de almacenamiento. Para más información, consulte [Uso de claves administradas por el cliente con Azure Key Vault para administrar el cifrado de Azure Storage](../common/encryption-customer-managed-keys.md).
 
 Un ámbito de cifrado se habilita automáticamente al crearlo. Después de crearlo, puede especificarlo al crear un blob. También se puede especificar un ámbito de cifrado predeterminado al crear un contenedor, que se aplica automáticamente a todos los blobs del contenedor.
 

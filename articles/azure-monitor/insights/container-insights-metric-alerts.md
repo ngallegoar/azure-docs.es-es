@@ -2,13 +2,13 @@
 title: Alertas de métricas de Azure Monitor para contenedores | Microsoft Docs
 description: En este artículo se revisan las alertas de métricas recomendadas disponibles en Azure Monitor para contenedores en la versión preliminar pública.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: c8b75b0d9b22658253c4637bd6507144575934de
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/04/2020
+ms.openlocfilehash: 1826896ad2d5c64d389219018f51238826c840d0
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095134"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563371"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Alertas de métricas recomendadas (versión preliminar) de Azure Monitor para contenedores
 
@@ -33,7 +33,7 @@ Antes de empezar, confirme lo siguiente:
 
     El valor mostrado debe ser una versión posterior a **ciprod05262020**. Si el clúster tiene una versión anterior, siga los pasos del [Actualización del agente en el clúster de AKS](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) para obtener la versión más reciente.
     
-    Para obtener más información relacionada con la versión del agente, consulte el [historial de versiones del agente](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). Para comprobar que se están recopilando métricas, puede usar el explorador de métricas de Azure Monitor y comprobar que, en **Espacio de nombres de métrica**, se muestra **Conclusiones**. Si es así, puede empezar a configurar las alertas.
+    Para obtener más información relacionada con la versión del agente, consulte el [historial de versiones del agente](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). Para comprobar que se están recopilando métricas, puede usar el explorador de métricas de Azure Monitor y comprobar que, en **Espacio de nombres de métrica**, se muestra **Conclusiones**. Si es así, puede empezar a configurar las alertas. Si no ve ninguna métrica recopilada, significa que la entidad de servicio de clúster o MSI no tiene los permisos necesarios. Para comprobar que SPN o MSI es miembro del rol de **publicador de métricas de supervisión**, siga los pasos descritos en la sección [Actualización por clúster con la CLI de Azure](container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli) para confirmar y establecer la asignación de roles.
 
 ## <a name="alert-rules-overview"></a>Introducción a las reglas de alertas
 
