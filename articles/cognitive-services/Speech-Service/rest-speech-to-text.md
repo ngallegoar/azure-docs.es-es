@@ -3,19 +3,19 @@ title: 'Referencia de Speech to Text API (REST): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a usar speech-to-text API REST. En este artículo, obtendrá más información sobre las opciones de autorización y de consulta y sobre cómo estructurar una solicitud y recibir una respuesta.
 services: cognitive-services
-author: yinhew
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2020
-ms.author: yinhew
-ms.openlocfilehash: e7bbedf253d6a64609179a8710fc9accd1f03818
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: trbye
+ms.openlocfilehash: 5c356a1c707ede3b9417bc3e742a940333b4c4ac
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537976"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056829"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-text REST API
 
@@ -302,6 +302,6 @@ La siguiente es una respuesta típica de reconocimiento con evaluación de pronu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Obtenga su suscripción de prueba a Voz](https://azure.microsoft.com/try/cognitive-services/)
+- [Creación de una cuenta de Azure gratuita](https://azure.microsoft.com/free/cognitive-services/)
 - [Personalización de modelos acústicos](how-to-customize-acoustic-models.md)
 - [Personalización de modelos de lenguaje](how-to-customize-language-model.md)
