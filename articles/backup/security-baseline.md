@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 999c443a63ceb2ebb59fc0de72ecb09d1ccc3905
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d0a6b6561b5d0995d7794993608a4991b1da2718
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87062615"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810146"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Línea de base de seguridad de Azure para Backup
 
@@ -28,7 +28,7 @@ Para obtener más información, consulte [Introducción a las líneas de base de
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: Proteja los recursos mediante grupos de seguridad de red o Azure Firewall en su red virtual
 
-**Instrucciones**: No aplicable; no se puede asociar una red virtual, una subred o un grupo de seguridad de red a un almacén de Recovery Services. Al realizar una copia de seguridad de una máquina virtual de Azure, los datos se transfieren a través de la red troncal de Azure. Cuando se realiza una copia de seguridad desde un equipo local, se crea un túnel cifrado con un punto de conexión específico en Azure y se usan las credenciales para cifrar previamente los datos y enviarlos luego a través del túnel cifrado.
+**Guía**: No aplicable; no se puede asociar una red virtual, una subred o un grupo de seguridad de red a un almacén de Recovery Services. Al realizar una copia de seguridad de una máquina virtual de Azure, los datos se transfieren a través de la red troncal de Azure. Cuando se realiza una copia de seguridad desde un equipo local, se crea un túnel cifrado con un punto de conexión específico en Azure y se usan las credenciales para cifrar previamente los datos y enviarlos luego a través del túnel cifrado.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -36,7 +36,7 @@ Para obtener más información, consulte [Introducción a las líneas de base de
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>1.2: Supervise y registre la configuración y el tráfico de redes virtuales, subredes y NIC
 
-**Instrucciones**: No aplicable; no se puede asociar una red virtual, una subred o un grupo de seguridad de red a un almacén de Recovery Services. Al realizar una copia de seguridad de una máquina virtual de Azure, los datos se transfieren a través de la red troncal de Azure. Cuando se realiza una copia de seguridad desde un equipo local, se crea un túnel cifrado con un punto de conexión específico en Azure y se usan las credenciales para cifrar previamente los datos y enviarlos luego a través del túnel cifrado.
+**Guía**: No aplicable; no se puede asociar una red virtual, una subred o un grupo de seguridad de red a un almacén de Recovery Services. Al realizar una copia de seguridad de una máquina virtual de Azure, los datos se transfieren a través de la red troncal de Azure. Cuando se realiza una copia de seguridad desde un equipo local, se crea un túnel cifrado con un punto de conexión específico en Azure y se usan las credenciales para cifrar previamente los datos y enviarlos luego a través del túnel cifrado.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -672,7 +672,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 - [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Denegación de un tipo de recurso específico con Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Denegación de un tipo de recurso específico con Azure Policy](../governance/policy/samples/index.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -698,7 +698,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12: Limitación de capacidad de los usuarios para ejecutar scripts en recursos de proceso
 
-**Guía**: No aplicable; esta recomendación está pensada para los recursos de proceso.
+**Instrucciones**: No aplicable; esta recomendación está pensada para los recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -770,7 +770,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: Almacene imágenes de sistema operativo personalizadas de forma segura
 
-**Instrucciones**: No aplicable; esta guía está pensada para recursos de proceso.
+**Guía**: No aplicable; esta guía está pensada para recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 

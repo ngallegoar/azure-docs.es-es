@@ -5,12 +5,12 @@ author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
 ms.date: 05/25/2020
-ms.openlocfilehash: 6e87b54e2641b1e4a8cfdc134a2190bd56e4f61c
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 7f9c5afbeed0c772f76e013a37dd870ed2185be7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87384028"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827680"
 ---
 # <a name="replicate-azure-virtual-machines-running-in-proximity-placement-groups-to-another-region"></a>Replicación de máquinas virtuales de Azure que se ejecutan en grupos con ubicación por proximidad en otra región
 
@@ -42,7 +42,7 @@ En un escenario típico, puede hacer que las máquinas virtuales que se ejecutan
 ## <a name="set-up-site-recovery-for-virtual-machines-in-proximity-placement-group"></a>Configuración de Site Recovery para Virtual Machines en un grupo con ubicación por proximidad
 
 > [!NOTE]
-> Asegúrese de que tiene a mano el identificador único del grupo con ubicación por proximidad de destino. Si va a crear un nuevo grupo con ubicación por proximidad, compruebe el comando que se indica [aquí](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#create-a-proximity-placement-group) y, si usa un grupo con ubicación por proximidad existente, use el comando que se muestra [aquí](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#list-proximity-placement-groups).
+> Asegúrese de que tiene a mano el identificador único del grupo con ubicación por proximidad de destino. Si va a crear un nuevo grupo con ubicación por proximidad, compruebe el comando que se indica [aquí](../virtual-machines/windows/proximity-placement-groups.md#create-a-proximity-placement-group) y, si usa un grupo con ubicación por proximidad existente, use el comando que se muestra [aquí](../virtual-machines/windows/proximity-placement-groups.md#list-proximity-placement-groups).
 
 ### <a name="azure-to-azure"></a>De Azure a Azure
 
@@ -73,9 +73,9 @@ $OSDiskReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationC
 
 #Data disk
 $datadisk = Get-AzDisk -DiskName $datadiskName -ResourceGroupName $datadiskResourceGroup
-$datadiskId1 = $datadisk.Id
-$RecoveryReplicaDiskAccountType = $datadisk.Sku.Name
-$RecoveryTargetDiskAccountType = $datadisk.Sku.Name
+$datadiskId1 = $datadisk[0].Id
+$RecoveryReplicaDiskAccountType = $datadisk[0].Sku.Name
+$RecoveryTargetDiskAccountType = $datadisk[0].Sku.Name
 
 $DataDisk1ReplicationConfig  = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $EastUSCacheStorageAccount.Id -DiskId $datadiskId1 -RecoveryResourceGroupId $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType $RecoveryReplicaDiskAccountType -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType
 

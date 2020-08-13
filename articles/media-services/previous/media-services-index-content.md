@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 2989343a5cc9612ea0f4d3b177093fdef93f5d73
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8b9f0e824352126204c7a6f1cfe08d3e7c6c29a9
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000677"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826065"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indización de archivos multimedia con el Indizador multimedia de Azure
 
@@ -45,7 +45,7 @@ Puede especificar más detalles de las tareas de indización mediante la configu
 
 También puede procesar varios archivos multimedia a la vez mediante un archivo de manifiesto.
 
-Para obtener más información, consulte [Valores preestablecidos de tarea para Azure Media Indexer](/azure/media-services/previous/media-services-analytics-overview).
+Para obtener más información, consulte [Valores preestablecidos de tarea para Azure Media Indexer](./media-services-analytics-overview.md).
 
 ## <a name="index-an-asset"></a>Indización de un recurso
 El método siguiente carga un archivo multimedia como un recurso y crea un trabajo para indizarlo.
@@ -158,7 +158,7 @@ Si no se indexan correctamente todos los archivos multimedia de entrada, el trab
 ## <a name="index-multiple-files"></a>Indización de varios archivos
 El método siguiente carga varios archivos multimedia como un recurso y crea un trabajo para indizar todos esos archivos en un lote.
 
-Se crea un archivo de manifiesto con la extensión ".lst" y se carga en el recurso. El archivo de manifiesto contiene la lista de todos los archivos del recurso. Para obtener más información, consulte [Valores preestablecidos de tarea para Azure Media Indexer](/azure/media-services/previous/media-services-analytics-overview).
+Se crea un archivo de manifiesto con la extensión ".lst" y se carga en el recurso. El archivo de manifiesto contiene la lista de todos los archivos del recurso. Para obtener más información, consulte [Valores preestablecidos de tarea para Azure Media Indexer](./media-services-analytics-overview.md).
 
 ```csharp
     static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)

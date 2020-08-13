@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 96783955eac6ade90a155236891307720616ed20
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e3c5f6d7e04620cf36f6cd952467d47afd775b19
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323951"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824773"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Información general sobre la habilitación de Azure Monitor para VM
 
@@ -174,10 +174,10 @@ A continuación se muestran varios métodos para implementar estos agentes.
 
 | Método | Descripción |
 |:---|:---|
-| [Azure Portal](vminsights-enable-single-vm.md) | Instale ambos agentes en una sola máquina virtual, en un conjunto de escalado de máquinas virtuales o en máquinas virtuales híbridas conectadas a Azure Arc. |
+| [Azure Portal](./vminsights-enable-portal.md) | Instale ambos agentes en una sola máquina virtual, en un conjunto de escalado de máquinas virtuales o en máquinas virtuales híbridas conectadas a Azure Arc. |
 | [Plantillas de Resource Manager](vminsights-enable-powershell.md) | Instale ambos agentes con cualquiera de los métodos admitidos para implementar una plantilla de Resource Manager, como la CLI y PowerShell. |
-| [Azure Policy](vminsights-enable-at-scale-policy.md) | Asigne la iniciativa de Azure Policy para instalar automáticamente los agentes cuando se crea una máquina virtual o un conjunto de escalado de máquinas virtuales. |
-| [Instalación manual](vminsights-enable-hybrid-cloud.md) | Instale los agentes en el sistema operativo invitado en equipos hospedados fuera de Azure, incluidos los de su centro de datos u otros entornos en la nube. |
+| [Azure Policy](./vminsights-enable-policy.md) | Asigne la iniciativa de Azure Policy para instalar automáticamente los agentes cuando se crea una máquina virtual o un conjunto de escalado de máquinas virtuales. |
+| [Instalación manual](./vminsights-enable-hybrid.md) | Instale los agentes en el sistema operativo invitado en equipos hospedados fuera de Azure, incluidos los de su centro de datos u otros entornos en la nube. |
 
 
 
@@ -200,4 +200,3 @@ Para más información sobre el uso y la recopilación de datos, vea la [Declara
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para aprender a usar la característica de supervisión Rendimiento, consulte [Visualización del rendimiento de Azure Monitor para VM](vminsights-performance.md). Para ver las dependencias de las aplicaciones detectadas, consulte [Uso de la asignación de Azure Monitor para VM (versión preliminar) para conocer los componentes de una aplicación](vminsights-maps.md).
-

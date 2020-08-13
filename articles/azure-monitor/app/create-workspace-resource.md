@@ -5,12 +5,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: ef3c2161e5a032983a2cbc9e4ccdf60af6920a7d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 186d4c510b58e06fcb0b823ca0d5770a2684196e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323118"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824994"
 ---
 # <a name="workspace-based-application-insights-resources-preview"></a>Recursos de Application Insights basados en área de trabajo (versión preliminar)
 
@@ -19,7 +19,7 @@ Los recursos basados en área de trabajo permiten la integración completa entre
 Esto también permite el control de acceso basado en rol (RBAC) común en los recursos y elimina la necesidad de consultas entre aplicaciones y áreas de trabajo.
 
 > [!NOTE]
-> La ingesta de datos y la retención de recursos de Application Insights basados en área de trabajo se facturan por medio del área de trabajo de Log Analytics en la que se encuentran los datos. [Más información]( https://docs.microsoft.com/azure/azure-monitor/app/pricing#workspace-based-application-insights) sobre la facturación de recursos de Application Insights basados en área de trabajo.
+> La ingesta de datos y la retención de recursos de Application Insights basados en área de trabajo se facturan por medio del área de trabajo de Log Analytics en la que se encuentran los datos. [Más información]( ./pricing.md#workspace-based-application-insights) sobre la facturación de recursos de Application Insights basados en área de trabajo.
 
 Para probar la nueva experiencia, inicie sesión en [Azure Portal](https://portal.azure.com) y cree un recurso de Application Insights:
 
@@ -204,4 +204,3 @@ La funcionalidad de exportación continua heredada no es compatible con los recu
 [diagnostic]: ./diagnostic-search.md
 [metrics]: ../platform/metrics-charts.md
 [start]: ./app-insights-overview.md
-

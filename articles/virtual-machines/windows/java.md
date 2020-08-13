@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/17/2017
 ms.custom: devx-track-java
 ms.author: cynthn
-ms.openlocfilehash: d4ad1c46aa023f30a2d33ef11e576aa29607b273
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6c4ee08c1679abd54b98d2804ab120c9330f6968
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325430"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827493"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Creación y administración de máquinas virtuales Windows en Azure mediante Java
 
@@ -413,7 +413,7 @@ input.nextLine();
 
 ### <a name="resize-the-vm"></a>Cambio de tamaño de la máquina virtual
 
-Para decidir un tamaño de máquina virtual, se deben considerar muchos aspectos de la implementación. Para más información, consulte el artículo sobre los [tamaños de máquina virtual](sizes.md).  
+Para decidir un tamaño de máquina virtual, se deben considerar muchos aspectos de la implementación. Para más información, consulte el artículo sobre los [tamaños de máquina virtual](../sizes.md).  
 
 Para cambiar el tamaño de la máquina virtual, agregue este código al bloque Try del método Main:
 

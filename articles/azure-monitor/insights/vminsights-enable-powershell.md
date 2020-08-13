@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 7f71e52fd1fd40015ff93e189495daef0e2c333e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a2cdcab08bba76cb385666956b7663324f32c669
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328029"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824586"
 ---
 # <a name="enable-azure-monitor-for-vms-using-powershell"></a>Habilitar Azure Monitor para VM mediante PowerShell
 En este artículo se describe cómo habilitar Azure Monitor para VM en máquinas virtuales de Azure mediante PowerShell. Este procedimiento se puede usar para:
@@ -35,7 +35,7 @@ Para habilitar Azure Monitor para VM en varias máquinas virtuales o conjuntos d
 
 Para cada máquina virtual o conjunto de escalado de máquinas virtuales, el script comprueba si ya están instaladas las extensiones de máquina virtual para el agente de Log Analytics y Dependency Agent. Si lo están, el script vuelve a intentar realizar la instalación. Si no están instaladas, el script las instala.
 
-Compruebe que usa la versión Az 1.0.0 o posterior del módulo de Azure PowerShell con los alias de compatibilidad `Enable-AzureRM` habilitados. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
+Compruebe que usa la versión Az 1.0.0 o posterior del módulo de Azure PowerShell con los alias de compatibilidad `Enable-AzureRM` habilitados. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
 
 Para obtener una lista de los detalles de los argumentos del script y un ejemplo de uso, ejecute `Get-Help`.
 
