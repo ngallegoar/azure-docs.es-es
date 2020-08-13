@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentación de Azure Maps
-summary: 'Microsoft Azure Maps proporciona a todos los desarrolladores, independientemente de cuál sea su sector, eficaces funcionalidades geoespaciales. Esas funcionalidades geoespaciales vienen empaquetadas con los datos de asignación más recientes. Azure Maps está disponible para aplicaciones web y para dispositivos móviles. Azure Maps es un conjunto de API REST compatible con Azure One API. A continuación encontrará una descripción general de alto nivel de los servicios que Azure Maps ofrece: Maps, Search, Routing, Traffic, Mobility, Weather, Time Zones, Geolocation, Geofencing, Map Data y Spatial Operations. Los SDK de web y Android hacen que el desarrollo sea sencillo, flexible y portátil en varias plataformas.'
+summary: 'Microsoft Azure Maps proporciona a todos los desarrolladores, independientemente de cuál sea su sector, eficaces funcionalidades geoespaciales. Esas funcionalidades geoespaciales vienen empaquetadas con los datos de asignación más recientes. Azure Maps está disponible para aplicaciones web y para dispositivos móviles. Azure Maps es un conjunto de API REST compatible con Azure One API. A continuación encontrará una descripción general de alto nivel de los servicios que Azure Maps ofrece: Maps, Search, Routing, Traffic, Mobility, Weather, Time Zones, Geolocation, Geofencing, Map Data, Creator y Spatial Operations. Los SDK de web y Android hacen que el desarrollo sea sencillo, flexible y portátil en varias plataformas.'
 metadata:
   title: Documentación de Azure Maps | Microsoft Docs
   description: Obtenga información sobre Azure Maps y cómo usarlo para proporcionar servicios geoespaciales a su aplicación web o móvil.
@@ -9,12 +9,12 @@ metadata:
   author: anastasia-ms
   ms.author: v-stharr
   ms.date: 1/15/2020
-  ms.openlocfilehash: 0760dce9e64560c8ecb593f41b2d611bd059a639
-  ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+  ms.openlocfilehash: 4e95d7d9afb77dcf8e168a04c9e0f4fc3b266807
+  ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/31/2020
-  ms.locfileid: "87461755"
+  ms.lasthandoff: 08/11/2020
+  ms.locfileid: "88121653"
 landingContent:
 - title: Acerca de Azure Maps
   linkLists:

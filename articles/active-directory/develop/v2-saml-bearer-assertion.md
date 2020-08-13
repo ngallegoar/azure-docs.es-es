@@ -12,12 +12,12 @@ ms.date: 08/05/2019
 ms.author: kenwith
 ms.reviewer: paulgarn
 ms.custom: aaddev
-ms.openlocfilehash: 2d745ddcf7b1d5bd7976a0ca8461c13d8ae3c849
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e0db5bec00ce864536b3559eda160acdada5e157
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282388"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114700"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Plataforma de identidad de Microsoft y flujo de aserción de portador SAML de OAuth 2.0
 El flujo de aserción de portador SAML de OAuth 2.0 le permite solicitar un token de acceso de OAuth mediante una aserción SAML cuando un cliente tiene que usar una relación de confianza existente. La firma aplicada a la aserción SAML proporciona la autenticación de la aplicación autorizada. Una aserción SAML es un token de seguridad XML emitido por un proveedor de identidades y consumido por un proveedor de servicios. El proveedor de servicios se basa en su contenido para identificar el asunto de la aserción con fines relacionados con la seguridad.
@@ -37,7 +37,7 @@ Ahora, vamos a comprender cómo podemos capturar realmente aserciones SAML media
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-Establezca una relación de confianza entre el servidor o entorno de autorización (Microsoft 365) y el proveedor de identidades o el emisor de la aserción de portador SAML 2.0 (ADFS). Para configurar ADFS para el inicio de sesión único y como proveedor de identidades, puede consultar [este artículo](https://blogs.technet.microsoft.com/canitpro/2015/09/11/step-by-step-setting-up-ad-fs-and-enabling-single-sign-on-to-office-365/).
+Establezca una relación de confianza entre el servidor o entorno de autorización (Microsoft 365) y el proveedor de identidades o el emisor de la aserción de portador SAML 2.0 (ADFS). Para configurar ADFS para el inicio de sesión único y como proveedor de identidades, puede consultar [este artículo](/archive/blogs/canitpro/step-by-step-setting-up-ad-fs-and-enabling-single-sign-on-to-office-365).
 
 Registre la aplicación en el [portal](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade):
 1. Inicie sesión en la [hoja de registro de aplicaciones del portal](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) (tenga en cuenta que usamos los puntos de conexión v2.0 para Graph API y, por tanto, es necesario registrar la aplicación en este portal. De lo contrario, podríamos haber usado los registros en Azure Active Directory). 

@@ -139,6 +139,8 @@
               href: howto-monitor-application-health.md
             - name: Acerca de su aplicación
               href: howto-get-app-info.md
+            - name: Inscripción de certificados X.509
+              href: how-to-roll-x509-certificates.md
         - name: Administración desde otros lugares
           items:
             - name: Administración desde Azure Portal

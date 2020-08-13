@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c0d8d2b009194b58c76dbd0a171f701f90df4086
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f62f6702b36915c6a6e1350072982e231cd9c07e
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058279"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118236"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Adición del inicio de sesión en Microsoft a una aplicación web ASP.NET
 
@@ -264,7 +264,7 @@ En Visual Studio, cree otra vista para agregar el botón de inicio de sesión y
     ```
 
 ### <a name="more-information"></a>Más información
-Esta página agrega un botón de inicio de sesión en formato SVG con un fondo negro:<br/>![Iniciar sesión con Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Para más botones de inicio de sesión, vaya a [Directrices de personalización de marca](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Directrices de marca").
+Esta página agrega un botón de inicio de sesión en formato SVG con un fondo negro:<br/>![Iniciar sesión con Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Para más botones de inicio de sesión, vaya a [Directrices de personalización de marca](./howto-add-branding-in-azure-ad-apps.md "Directrices de marca").
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Agregar un controlador para mostrar las notificaciones del usuario
 Este controlador muestra los usos del atributo `[Authorize]` para proteger un controlador. Este atributo restringe el acceso al controlador, ya que solo permite usuarios autenticados. El código siguiente usa el atributo para mostrar las notificaciones de usuario que se recuperaron como parte del inicio de sesión:
@@ -403,7 +403,7 @@ Las aplicaciones que se integran con la plataforma de identidad de Microsoft sig
 - El desarrollador de aplicaciones agrega todos los permisos adicionales que requieran **consentimiento del administrador**.
 - O bien se configura el inquilino (en **Aplicaciones empresariales -> Configuración de usuario**), donde los usuarios no pueden dar el consentimiento a las aplicaciones que accedan a los datos de la empresa en su nombre.
 
-Para más información, consulte [Permisos y consentimiento en el punto de conexión de la Plataforma de identidad de Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
+Para más información, consulte [Permisos y consentimiento en el punto de conexión de la Plataforma de identidad de Microsoft](./v2-permissions-and-consent.md).
 
 ### <a name="view-application-results"></a>Visualización de los resultados de la aplicación
 
@@ -424,7 +424,7 @@ Una vez en la vista del controlador, verá una tabla que contiene las propiedade
 |**Subject** |Asunto |Cadena que identifica al usuario de forma exclusiva en la web|
 |**Id. de inquilino** |Guid | Un **GUID** que representa de forma única la organización de Azure AD del usuario|
 
-Además, debería ver una tabla de todas las notificaciones que se encuentran en la solicitud de autenticación. Para más información, consulte la [lista de notificaciones que se encuentran en un token de identificación](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Además, debería ver una tabla de todas las notificaciones que se encuentran en la solicitud de autenticación. Para más información, consulte la [lista de notificaciones que se encuentran en un token de identificación](./id-tokens.md).
 
 ### <a name="test-access-to-a-method-that-has-an-authorize-attribute-optional"></a>Probar el acceso a un método que tiene un atributo Authorize (opcional)
 
@@ -484,6 +484,6 @@ Más información acerca de las aplicaciones web que llaman a API web con la pla
 Aprenda a crear aplicaciones web que llamen a Microsoft Graph:
 
 > [!div class="nextstepaction"]
-> [Tutorial de Microsoft Graph ASP.NET](https://docs.microsoft.com/graph/tutorials/aspnet)
+> [Tutorial de Microsoft Graph ASP.NET](/graph/tutorials/aspnet)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

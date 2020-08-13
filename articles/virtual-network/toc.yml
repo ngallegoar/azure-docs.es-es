@@ -12,6 +12,8 @@
       href: quick-create-powershell.md
     - name: 'Creación de red virtual: CLI de Azure'
       href: quick-create-cli.md
+    - name: 'Creación de red virtual: plantilla de Resource Manager'
+      href: quick-create-template.md
   expanded: true
 - name: Tutoriales
   items:
@@ -238,7 +240,7 @@
                       href: routing-preference-cli.md
                 - name: Configuración de una máquina virtual con preferencia de enrutamiento de Internet
                   items:
-                    - name: Azure Portal
+                    - name: Azure portal
                       href: tutorial-routing-preference-virtual-machine-portal.md
                     - name: Azure PowerShell
                       href: configure-routing-preference-virtual-machine-powershell.md

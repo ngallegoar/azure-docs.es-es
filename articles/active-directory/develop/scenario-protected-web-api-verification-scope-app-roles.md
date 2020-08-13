@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 005fb194a5c1539b70ccb8e8ac7d938b190ee4f5
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 204bc7dd8cc31f48fdc09eae6b00247023de64f3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563320"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120973"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>API web protegida: Comprobación de ámbitos y roles de aplicación
 
@@ -88,7 +88,7 @@ El método `VerifyUserHasAnyAcceptedScope` hace algo similar a los pasos siguien
 
 #### <a name="verify-the-scopes-more-globally"></a>Verificación de los ámbitos más globalmente
 
-La definición de ámbitos pormenorizados para la API web y la verificación de los ámbitos en cada acción del controlador es el enfoque recomendado. Sin embargo, también es posible verificar los ámbitos en el nivel de la aplicación o un controlador mediante ASP.NET Core. Para obtener más información, consulte [Autorización basada en notificaciones](https://docs.microsoft.com/aspnet/core/security/authorization/claims) en la documentación de ASP.NET Core.
+La definición de ámbitos pormenorizados para la API web y la verificación de los ámbitos en cada acción del controlador es el enfoque recomendado. Sin embargo, también es posible verificar los ámbitos en el nivel de la aplicación o un controlador mediante ASP.NET Core. Para obtener más información, consulte [Autorización basada en notificaciones](/aspnet/core/security/authorization/claims) en la documentación de ASP.NET Core.
 
 ### <a name="net-mvc"></a>.NET MVC
 
@@ -96,7 +96,7 @@ Para ASP.NET, solo tiene que reemplazar `HttpContext.User` por `ClaimsPrincipal.
 
 ## <a name="verify-app-roles-in-apis-called-by-daemon-apps"></a>Verificación de los roles de aplicación de las API a las que llaman aplicaciones de demonio
 
-Si una [aplicación de demonio](scenario-daemon-overview.md) llama a la API web, la aplicación debe solicitar un permiso de aplicación a la API web. Como se muestra en [Exposición de los permisos de aplicación (roles de aplicación)](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#exposing-application-permissions-app-roles), la API expone estos permisos. Un ejemplo es el rol de aplicación `access_as_application`.
+Si una [aplicación de demonio](scenario-daemon-overview.md) llama a la API web, la aplicación debe solicitar un permiso de aplicación a la API web. Como se muestra en [Exposición de los permisos de aplicación (roles de aplicación)](./scenario-protected-web-api-app-registration.md#exposing-application-permissions-app-roles), la API expone estos permisos. Un ejemplo es el rol de aplicación `access_as_application`.
 
 Ahora debe hacer que la API verifique que el token recibido contiene la notificación `roles` y que esta notificación tiene el valor esperado. El código de verificación es similar al código que verifica los permisos delegados, con la diferencia de que la acción del controlador prueba los roles en lugar de los ámbitos:
 
