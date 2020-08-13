@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 22bfab5b9f00a392054fa1aef6a93195180fd968
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 30e57736d0b0e40eb01573d6acca2c618dcf6ee3
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373494"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759706"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migración de tráfico de Azure SQL Database a puertas de enlace más recientes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,17 +29,20 @@ Se enviará un aviso a los clientes por correo electrónico y en Azure Portal co
 # <a name="in-progress"></a>[En curso](#tab/in-progress-ip)
 ### <a name="september-2020"></a>Septiembre de 2020
 
-Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones:
+Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones. Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente a partir del 10 de septiembre de 2020:
+
+- Centro-oeste de EE. UU.: 13.78.248.43 
+- Norte de Sudáfrica: 102.133.120.2  
+
+Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones. Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente a partir del 1 de septiembre de 2020:
 
 - Norte de Europa: 13.74.104.113 
 - Oeste de EE. UU. 2: 40.78.248.10 
 - Oeste de Europa: 52.236.184.163 
 - Centro y Sur de EE. UU.: 20.45.121.1, 20.49.88.1 
 
-Las puertas de enlace de SQL existentes comenzarán a aceptar tráfico en las siguientes regiones:
+Las puertas de enlace de SQL existentes comenzarán a aceptar tráfico en las siguientes regiones. Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente a partir del 1 de septiembre de 2020. :
 - Este de Japón: 40.79.184.8, 40.79.192.5
-
-Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente a partir del 1 de septiembre de 2020. 
 
 ### <a name="august-2020"></a>Agosto de 2020
 
@@ -82,7 +85,7 @@ Puede verse afectado si:
 - Usa la [configuración con redundancia de zona](high-availability-sla.md#zone-redundant-configuration) para la base de datos
 
 No se verá afectado en los siguientes casos:
-
+ 
 - La directiva de conexión tiene redireccionamiento.
 - Tiene conexiones a SQL Database desde Azure y con etiquetas de servicio.
 - Las conexiones realizadas mediante versiones compatibles de JDBC Driver para SQL Server no percibirán ningún impacto. Para las versiones compatibles de JDBC, consulte [Descarga de Microsoft JDBC Driver para SQL Server](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).

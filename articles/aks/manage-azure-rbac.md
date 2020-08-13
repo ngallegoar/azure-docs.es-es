@@ -4,15 +4,15 @@ titleSuffix: Azure Kubernetes Service
 description: Aprenda a usar Azure RBAC para la autorización de Kubernetes con Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 07/07/2020
+ms.date: 07/20/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: bb4c689da38606561c657a3e4d85fd9e391267bf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 824146e7e0b1130b8e5f6c087dbf5ccbac2c8224
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056735"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799368"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Uso de Azure RBAC para la autorización de Kubernetes (versión preliminar)
 
@@ -33,29 +33,25 @@ La capacidad de administrar RBAC para los recursos de Kubernetes de Azure le ofr
 
 ### <a name="prerequisites"></a>Requisitos previos 
 - Suscríbase a la versión preliminar <https://aka.ms/aad-rbac-sign-up-form>.
+- Asegúrese de que tiene la versión 2.9.0 de la CLI de Azure o una posterior.
 - Asegúrese de que tiene habilitada la `EnableAzureRBACPreview` marca de características.
-- Asegúrese de que tiene habilitada la `AAD-V2` marca de características.
 - Asegúrese de que tiene instalada la [extensión de la CLI][az-extension-add] `aks-preview` v 0.4.55 o superior.
 - Asegúrese de que ha instalado [kubectl v 1.18.3 +][az-aks-install-cli].
 
-#### <a name="register-enableazurerbacpreview-and-aad-v2-preview-features"></a>Registro de `EnableAzureRBACPreview` y `AAD-V2` características en vista previa (GB)
+#### <a name="register-enableazurerbacpreview-preview-feature"></a>Registro de la característica en vista previa (GB) de `EnableAzureRBACPreview`
 
-A fin de crear un clúster de AKS que use Azure RBAC para la autorización de Kubernetes, debe habilitar las marcas de características `EnableAzureRBACPreview` y `AAD-V2` en su suscripción.
+A fin de crear un clúster de AKS que use Azure RBAC para la autorización de Kubernetes, debe habilitar la marca de característica `EnableAzureRBACPreview` en su suscripción.
 
-Registre las marcas de características `EnableAzureRBACPreview` y `AAD-V2` con el comando [az feature register][az-feature-register], como se muestra en el siguiente ejemplo:
+Registro de `EnableAzureRBACPreview` la marca de característica con el comando de [característica de registro az][az-feature-register], tal como se muestra en el siguiente ejemplo:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureRBACPreview"
-
-az feature register --namespace "Microsoft.ContainerService"  --name "AAD-V2"
 ```
 
 Tarda unos minutos en que el estado muestre *Registrado*. Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAzureRBACPreview')].{Name:name,State:properties.state}"
-
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AAD-V2')].{Name:name,State:properties.state}"
 ```
 
 Cuando todo esté listo, actualice el registro del proveedor de recursos *Microsoft.ContainerService* con el comando [az provider register][az-provider-register]:
@@ -283,7 +279,7 @@ az group delete -n MyResourceGroup
 
 - Obtenga más información sobre Autenticación de AKS, autorización y RBAC [aquí](concepts-identity.md).
 - Obtenga más información sobre Azure RBAC [aquí](../role-based-access-control/overview.md).
-- Obtenga más información sobre todas las acciones que puede usar para definir de un modo granular roles de Azure RBAC personalizados para la autorización de Kubernetes [aquí](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice).
+- Obtenga más información sobre todas las acciones que puede usar para definir de un modo pormenorizado roles de Azure personalizados para la autorización de Kubernetes [aquí](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice).
 
 
 <!-- LINKS - Internal -->

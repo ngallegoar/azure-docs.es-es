@@ -3,14 +3,14 @@ title: 'Inicio rápido: Obtención de intención con las API REST (LUIS)'
 description: En este inicio rápido de API REST, usará una aplicación de LUIS disponible públicamente para determinar la intención de un usuario a partir de texto conversacional.
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.custom: tracking-python, devx-track-javascript
+ms.custom: devx-track-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 0274cf1ac6a6d0cb37d2321f6fd02f98c784318f
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 2fd52011ed0d139e98740c8de077987edfae2c32
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405284"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873167"
 ---
 # <a name="quickstart-get-intent-with-rest-apis"></a>Inicio rápido: Obtención de intención con las API REST
 
