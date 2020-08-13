@@ -31,6 +31,8 @@
       href: quickstart-create-security-twin.md
     - name: Creación de alertas de seguridad personalizadas
       href: quickstart-create-custom-alerts.md
+    - name: Investigación de alertas de seguridad
+      href: quickstart-investigate-security-alerts.md
 - name: Conceptos
   items:
     - name: Autenticación del agente de seguridad

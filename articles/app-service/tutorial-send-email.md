@@ -4,12 +4,12 @@ description: Aprenda a invocar procesos empresariales desde una aplicación de A
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: mvc
-ms.openlocfilehash: 2b478ae75c8be978ea93a493b65dafdc7756c4b6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 874c67b0d8d29c163fa5f36b3d100f1d2a013d53
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083249"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080973"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Tutorial: Envío de correo electrónico e invocación de otros procesos empresariales desde App Service
 
@@ -32,23 +32,23 @@ Implemente una aplicación con el marco de lenguaje que prefiera para App Servic
 
 ### <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
 
-[Tutorial: Compilación de una aplicación ASP.NET Core y SQL Database en Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md)
+[Tutorial: Compilación de una aplicación ASP.NET Core y SQL Database en Azure App Service](tutorial-dotnetcore-sqldb-app.md)
 
 ### <a name="nodejs"></a>[Node.js](#tab/node)
 
-[Tutorial: Compilación de una aplicación Node.js y MongoDB en Azure](app-service-web-tutorial-nodejs-mongodb-app.md)
+[Tutorial: Compilación de una aplicación Node.js y MongoDB en Azure](tutorial-nodejs-mongodb-app.md)
 
 ### <a name="php"></a>[PHP](#tab/php)
 
-[Tutorial: Creación de una aplicación PHP y MySQL en Azure](app-service-web-tutorial-php-mysql.md)
+[Tutorial: Creación de una aplicación PHP y MySQL en Azure](tutorial-php-mysql-app.md)
 
 ### <a name="python"></a>[Python](#tab/python)
 
-[Tutorial: Ejecución de una aplicación web Python (Django) con PostgreSQL en Azure App Service](containers/tutorial-python-postgresql-app.md)
+[Tutorial: Ejecución de una aplicación web Python (Django) con PostgreSQL en Azure App Service](tutorial-python-postgresql-app.md)
 
 ### <a name="ruby"></a>[Ruby](#tab/ruby)
 
-[Compilación de una aplicación Ruby y Postgres en Azure App Service en Linux](containers/tutorial-ruby-postgres-app.md)
+[Compilación de una aplicación Ruby y Postgres en Azure App Service en Linux](tutorial-ruby-postgres-app.md)
 
 ---
 
@@ -191,7 +191,7 @@ var jsonData = JsonSerializer.Serialize(new
 });
 
 HttpResponseMessage result = await client.PostAsync(
-    // Requires DI configuration to access app settings. See https://docs.microsoft.com/azure/app-service/containers/configure-language-dotnetcore#access-environment-variables
+    // Requires DI configuration to access app settings. See https://docs.microsoft.com/azure/app-service/configure-language-dotnetcore#access-environment-variables
     _configuration["LOGIC_APP_URL"],
     new StringContent(jsonData, Encoding.UTF8, "application/json"));
     
@@ -201,7 +201,7 @@ var statusCode = result.StatusCode.ToString();
 > [!NOTE]
 > Este código se ha escrito así para simplificar la demostración. En la práctica, no cree instancias de un objeto `HttpClient` en cada solicitud. Siga las instrucciones que se indican en [Uso de IHttpClientFactory para implementar solicitudes HTTP resistentes](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
 
-Si está probando este código en la aplicación de ejemplo de [Tutorial: Compilación de una aplicación ASP.NET Core y SQL Database en Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md), podrá utilizarla para enviar una confirmación por correo electrónico en la [acción Create](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65) después de agregar el elemento `Todo`.
+Si está probando este código en la aplicación de ejemplo de [Tutorial: Compilación de una aplicación ASP.NET Core y SQL Database en Azure App Service](tutorial-dotnetcore-sqldb-app.md), podrá utilizarla para enviar una confirmación por correo electrónico en la [acción Create](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65) después de agregar el elemento `Todo`.
 
 ### <a name="nodejs"></a>[Node.js](#tab/node)
 
@@ -228,7 +228,7 @@ var jsonData = {
 
 ```
 
-Si está probando este código en la aplicación de ejemplo de [Tutorial: Cree una aplicación Node.js y MongoDB en Azure](app-service-web-tutorial-nodejs-mongodb-app.md), puede usar esta aplicación para enviar un correo electrónico de confirmación en la [función Create](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L14-L27), después de [the article is saved successfully](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L24) (el artículo se guardó correctamente).
+Si está probando este código en la aplicación de ejemplo de [Tutorial: Cree una aplicación Node.js y MongoDB en Azure](tutorial-nodejs-mongodb-app.md), puede usar esta aplicación para enviar un correo electrónico de confirmación en la [función Create](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L14-L27), después de [the article is saved successfully](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L24) (el artículo se guardó correctamente).
 
 ### <a name="php"></a>[PHP](#tab/php)
 
@@ -260,7 +260,7 @@ $response = $promise->wait();
 Log::info(print_r($response, TRUE));
 ```
 
-Si está probando este código en la aplicación de ejemplo de [Tutorial: Cree una aplicación PHP y MySQL en Azure](app-service-web-tutorial-php-mysql.md), puede utilizar esta aplicación para enviar un correo electrónico de confirmación en la [función Route::post](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), justo antes de la instrucción "return".
+Si está probando este código en la aplicación de ejemplo de [Tutorial: Cree una aplicación PHP y MySQL en Azure](tutorial-php-mysql-app.md), puede utilizar esta aplicación para enviar un correo electrónico de confirmación en la [función Route::post](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), justo antes de la instrucción "return".
 
 ### <a name="python"></a>[Python](#tab/python)
 
@@ -291,7 +291,7 @@ async with aiohttp.post('http://httpbin.org/post', data=json.dump(payload)) as r
     print(await resp.status())
 ``` -->
 
-Si está probando este código en la aplicación de ejemplo de [Tutorial: Ejecute una aplicación web de Python (Django) con PostgreSQL en Azure App Service](containers/tutorial-python-postgresql-app.md), puede utilizar esta aplicación para enviar un correo electrónico de confirmación en la [función Route::post](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48) justo antes de la instrucción "return".
+Si está probando este código en la aplicación de ejemplo de [Tutorial: Ejecute una aplicación web de Python (Django) con PostgreSQL en Azure App Service](tutorial-python-postgresql-app.md), puede utilizar esta aplicación para enviar un correo electrónico de confirmación en la [función Route::post](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48) justo antes de la instrucción "return".
 
 ### <a name="ruby"></a>[Ruby](#tab/ruby)
 
@@ -308,7 +308,7 @@ body = {
 connection = clnt.post_async(ENV['LOGIC_APP_URL'], body)
 ```
 
-Si está probando este código en la aplicación de ejemplo de [Compilación de una aplicación Ruby y Postgres en Azure App Service en Linux](containers/tutorial-ruby-postgres-app.md), puede usarla para enviar una confirmación por correo electrónico en la acción [create](https://github.com/Azure-Samples/rubyrails-tasks/blob/master/app/controllers/tasks_controller.rb#L26-L38) [cuando @task.save se ejecute correctamente](https://github.com/Azure-Samples/rubyrails-tasks/blob/master/app/controllers/tasks_controller.rb#L30).
+Si está probando este código en la aplicación de ejemplo de [Compilación de una aplicación Ruby y Postgres en Azure App Service en Linux](tutorial-ruby-postgres-app.md), puede usarla para enviar una confirmación por correo electrónico en la acción [create](https://github.com/Azure-Samples/rubyrails-tasks/blob/master/app/controllers/tasks_controller.rb#L26-L38) [cuando @task.save se ejecute correctamente](https://github.com/Azure-Samples/rubyrails-tasks/blob/master/app/controllers/tasks_controller.rb#L30).
 
 ---
 

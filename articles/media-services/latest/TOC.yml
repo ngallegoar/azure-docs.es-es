@@ -290,12 +290,16 @@
                   href: customize-encoder-presets-how-to.md
                 - name: Creación de una transformación de superposición
                   href: how-to-create-overlay.md
+                - name: Generación de miniaturas con .NET
+                  href: media-services-generate-thumbnails-dotnet.md
             - name: Con la CLI
               displayName: 'encode, encoding, custom, transform'
               href: custom-preset-cli-howto.md
             - name: Con REST
               displayName: 'encode, encoding, custom, transform'
               href: custom-preset-rest-howto.md
+            - name: Generación de miniaturas con REST
+              href: media-services-generate-thumbnails-rest.md
         - name: Realización de un subclip de vídeo
           items:
             - name: Con .NET
