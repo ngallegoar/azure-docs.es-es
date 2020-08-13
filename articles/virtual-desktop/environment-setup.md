@@ -1,19 +1,17 @@
 ---
 title: 'Entorno de Windows Virtual Desktop: Azure'
 description: Obtenga información sobre los elementos básicos de un entorno de Windows Virtual Desktop, como los grupos de hosts y los grupos de aplicaciones.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e382c1d52130d44479e94378da895c6add7ba3ee
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 99a07dd1791b539ea44fcbab250aa9c227ee1705
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283425"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002614"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Entorno de Windows Virtual Desktop
 
@@ -49,7 +47,7 @@ Para publicar recursos para los usuarios, debe asignarlos a grupos de aplicacion
 
 ## <a name="workspaces"></a>Áreas de trabajo
 
-Un área de trabajo es una agrupación lógica de grupos de aplicaciones de Windows Virtual Desktop. Cada grupo de aplicaciones de Windows Virtual Desktop debe estar asociado a un área de trabajo para que los usuarios vean las aplicaciones remotas y los escritorio publicados en ellos.  
+Un área de trabajo es una agrupación lógica de grupos de aplicaciones de Windows Virtual Desktop. Cada grupo de aplicaciones de Windows Virtual Desktop debe estar asociado a un área de trabajo para que los usuarios vean las aplicaciones remotas y los escritorio publicados en ellos.
 
 ## <a name="end-users"></a>Usuarios finales
 

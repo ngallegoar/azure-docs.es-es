@@ -9,12 +9,12 @@ ms.reviewer: v-ching, estfan, logicappspm
 ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: 337ecc6069211942a809f2bf3d793c5bccc08387
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b08b5db5639d498aa6a6a47b7f7121cad565fe02
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87277237"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986375"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Mejore la protección frente a amenazas mediante la integración de las operaciones de seguridad con Microsoft Graph Security y Azure Logic Apps.
 
@@ -126,7 +126,7 @@ Para más información sobre las consultas que puede usar con este conector, con
 
 Microsoft Graph admite [*suscripciones*](/graph/api/resources/subscription) o [*webhooks*](/graph/api/resources/webhooks). Para obtener, actualizar, o eliminar suscripciones, proporcione los [parámetros de consulta de ODATA admitidos por Microsoft Graph](/graph/query-parameters) a la construcción de entidad de Microsoft Graph e incluya `security/alerts` seguido de la consulta de ODATA. *No incluya* la URL base, por ejemplo, `https://graph.microsoft.com/v1.0`. En cambio, use el formato de este ejemplo:
 
-`security/alerts?$filter=status eq 'New'`
+`security/alerts?$filter=status eq 'NewAlert'`
 
 | Acción | Descripción |
 |--------|-------------|

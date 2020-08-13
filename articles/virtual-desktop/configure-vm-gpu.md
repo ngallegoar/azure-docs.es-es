@@ -1,18 +1,16 @@
 ---
 title: Configuración de GPU para Windows Virtual Desktop (Azure)
 description: Cómo habilitar la representación y codificación de aceleración por GPU en Windows Virtual Desktop.
-services: virtual-desktop
 author: gundarev
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: a80e9940aff69d351fde7512cfc38a12d6029f74
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: dd5eb8acb76fe5901149d90a6d551d8d14d363cc
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291489"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007783"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configuración de la aceleración por la unidad de procesamiento gráfico (GPU) para Windows Virtual Desktop
 
@@ -58,7 +56,7 @@ De forma predeterminada, las aplicaciones y los escritorios que se ejecutan en c
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>Configuración de la codificación de marcos de aceleración por GPU
 
 El Escritorio remoto codifica todos los gráficos que representan las aplicaciones y los escritorios (tanto si se representan mediante GPU como si lo hacen mediante CPU) para la transmisión a los clientes de Escritorio remoto. Cuando parte de la pantalla se actualiza con frecuencia, esta parte de la pantalla se codifica con un códec de vídeo (H.264/AVC). De forma predeterminada, el Escritorio remoto no aprovecha las GPU disponibles para esta codificación. Configure la directiva de grupo para el host de sesión para habilitar la codificación de marcos de aceleración por GPU. Continúe con los pasos anteriores:
- 
+
 >[!NOTE]
 >La codificación de fotogramas acelerados por GPU no está disponible en las máquinas virtuales de la Serie NVv4.
 

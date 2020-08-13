@@ -1,19 +1,17 @@
 ---
 title: 'Eliminación de grupos de hosts de Windows Virtual Desktop: Azure'
 description: Eliminación de un grupo de hosts en Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 07/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ced0d7513524758975919fad90f19581d15d95f4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dfc9858bea468389d8ce90677f048e5d1fd3bb82
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095554"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007597"
 ---
 # <a name="delete-a-host-pool"></a>Eliminación de un grupo de hosts
 

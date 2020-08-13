@@ -1,19 +1,17 @@
 ---
 title: 'PowerShell para Windows Virtual Desktop: Azure'
 description: Cómo solucionar problemas de PowerShell al configurar un entorno de Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cd34fa2bc4c1083d4bd4dda7d118e0348a1a7fd0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 03b6da1d35247749d8ec2c6459c8ddee69bfccb6
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288730"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002279"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>PowerShell para Windows Virtual Desktop
 
@@ -33,10 +31,10 @@ En esta sección se enumeran los comandos de PowerShell que se usan normalmente 
 ### <a name="error-new-azroleassignment-the-provided-information-does-not-map-to-an-ad-object-id"></a>Error: New-AzRoleAssignment: "The provided information does not map to an AD object ID" (New-AzRoleAssignment: la información proporcionada no está asignada a ningún id. de objeto de AD).
 
 ```powershell
-New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
+New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
-**Causa:** el usuario especificado con el parámetro *-SignInName* no se encuentra en la instancia de Azure Active Directory vinculada al entorno de Windows Virtual Desktop. 
+**Causa:** el usuario especificado con el parámetro *-SignInName* no se encuentra en la instancia de Azure Active Directory vinculada al entorno de Windows Virtual Desktop.
 
 **Solución:** Realice las siguientes comprobaciones:
 
@@ -46,7 +44,7 @@ New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Deskt
 
 ### <a name="error-new-azroleassignment-the-client-with-object-id-does-not-have-authorization-to-perform-action-over-scope-code-authorizationfailed"></a>Error: New-AzRoleAssignment: "El cliente con el id. de objeto no está autorizado para realizar la acción sobre el ámbito (código: AuthorizationFailed)"
 
-**Causa 1:** la cuenta usada no tiene permisos de propietario en la suscripción. 
+**Causa 1:** la cuenta usada no tiene permisos de propietario en la suscripción.
 
 **Corrección 1:** un usuario con permisos de propietario debe ejecutar la asignación de roles. Como alternativa, el usuario debe tener asignado el rol de administrador de acceso de usuario para asignar un usuario a un grupo de aplicaciones.
 
@@ -57,7 +55,7 @@ New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Deskt
 ### <a name="error-new-azwvdhostpool----the-location-is-not-available-for-resource-type"></a>Error: New-AzWvdHostPool: la ubicación no está disponible para el tipo de recurso
 
 ```powershell
-New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not available for resource type 'Microsoft.DesktopVirtualization/hostpools'. List of available regions for the resource type is 'eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,centralus'. 
+New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not available for resource type 'Microsoft.DesktopVirtualization/hostpools'. List of available regions for the resource type is 'eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,centralus'.
 ```
 
 Causa: Windows Virtual Desktop permite seleccionar la ubicación de grupos de hosts, grupos de aplicaciones y áreas de trabajo para almacenar metadatos de servicio en determinadas ubicaciones. Las opciones están restringidas en función de dónde esté disponible la característica. Este error significa que la característica no está disponible en la ubicación que ha elegido.

@@ -1,19 +1,17 @@
 ---
 title: 'PowerShell de Windows Virtual Desktop (clásico): Azure'
 description: Solución de problemas de PowerShell al configurar un entorno de inquilinos de Windows Virtual Desktop (clásico).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 04ef12d6de8820740be687bd09ffaa5a8e69eb86
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 23d1e4b06c9c0278742da0cec8ac565b5f80a362
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87269621"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004899"
 ---
 # <a name="windows-virtual-desktop-classic-powershell"></a>PowerShell de Windows Virtual Desktop (clásico)
 
