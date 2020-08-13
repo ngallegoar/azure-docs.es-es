@@ -4,12 +4,12 @@ description: Síntomas, causas y soluciones de errores de Azure Backup relaciona
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 188eef5471e93661041dadfc93f561d2173ba7f2
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 274435a958820c3fd08fef4a61643a1d656e31e3
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809772"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167936"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de problemas de Azure Backup: Problemas con el agente o la extensión
 
@@ -23,7 +23,7 @@ Los errores de copia de seguridad más comunes se pueden resolver automáticamen
 
 ### <a name="step-1-check-azure-vm-health"></a>Paso 1: Comprobación del estado de la máquina virtual de Azure
 
-- **Asegúrese de que el estado de aprovisionamiento de la máquina virtual de Azure sea "Ejecutando"** : Si el [estado de aprovisionamiento de la máquina virtual](../virtual-machines/windows/states-lifecycle.md#provisioning-states) es **Detenido/Desasignado/Actualizando**, interferirá con la operación de copia de seguridad. Abra *Azure Portal > VM > Información general >* y compruebe el estado de la máquina virtual para asegurarse de que esté **en ejecución**; y vuelva a intentar la operación de copia de seguridad.
+- **Asegúrese de que el estado de aprovisionamiento de la máquina virtual de Azure sea "Ejecutando"** : Si el [estado de aprovisionamiento de la máquina virtual](../virtual-machines/states-lifecycle.md#provisioning-states) es **Detenido/Desasignado/Actualizando**, interferirá con la operación de copia de seguridad. Abra *Azure Portal > VM > Información general >* y compruebe el estado de la máquina virtual para asegurarse de que esté **en ejecución**; y vuelva a intentar la operación de copia de seguridad.
 - **Revise las actualizaciones o los reinicios del sistema operativo pendientes**: Asegúrese de que no haya ninguna actualización o reinicio pendiente del sistema operativo en la máquina virtual.
 
 ### <a name="step-2-check-azure-vm-guest-agent-service-health"></a>Paso 2: Comprobación del estado del servicio de agente invitado de la máquina virtual de Azure
@@ -101,7 +101,7 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 **Código de error**: UserErrorVmProvisioningStateFailed<br>
 **Mensaje de error**: la máquina virtual está en un estado de aprovisionamiento con errores<br>
 
-Este error se produce cuando uno de los errores de extensión deja a la máquina virtual en un estado de aprovisionamiento con errores.<br>Abra **Azure Portal > VM > Configuración > Extensiones > Estado de las extensiones** y compruebe que el estado de todas las extensiones es **Aprovisionamiento realizado correctamente**. Para más información, consulte [Estados de aprovisionamiento](../virtual-machines/windows/states-lifecycle.md#provisioning-states).
+Este error se produce cuando uno de los errores de extensión deja a la máquina virtual en un estado de aprovisionamiento con errores.<br>Abra **Azure Portal > VM > Configuración > Extensiones > Estado de las extensiones** y compruebe que el estado de todas las extensiones es **Aprovisionamiento realizado correctamente**. Para más información, consulte [Estados de aprovisionamiento](../virtual-machines/states-lifecycle.md#provisioning-states).
 
 - Si la extensión VMSnapshot está en un estado con errores, haga clic con el botón derecho en la extensión con errores y elimínela. Desencadene una copia de seguridad a petición. Esta acción volverá a instalar las extensiones y ejecutará el trabajo de copia de seguridad.  <br>
 - Si cualquier otra extensión está en un estado con errores, puede interferir con la copia de seguridad. Asegúrese que se resuelven esos problemas de extensiones y vuelva a intentar la operación de copia de seguridad.
