@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: iainfou
-ms.openlocfilehash: d5eef553d0d3bf5acbcb61ef8f2dcfab88a53266
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: eb627b8069bcd9efd1d56adab5eda45dc34a1a10
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505552"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922003"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Cree un bosque de recursos de Azure Active Directory Domain Services y una confianza de bosque de salida en un dominio local mediante Azure PowerShell
 
@@ -148,8 +148,8 @@ Antes de empezar, asegúrese de que comprende las [consideraciones y recomendaci
 
 1. Cree la conectividad híbrida en su red local de Azure mediante una VPN de Azure o una conexión de Azure ExpressRoute. La configuración de red híbrida está fuera del ámbito de esta documentación y puede que ya exista en su entorno. Para obtener más información sobre escenarios específicos, consulte los siguientes artículos:
 
-    * [VPN de sitio a sitio de Azure](/vpn-gateway/vpn-gateway-about-vpngateways).
-    * [Información general de Azure ExpressRoute](/vpn-gateway/vpn-gateway-about-vpngateways).
+    * [VPN de sitio a sitio de Azure](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+    * [Información general de Azure ExpressRoute](/azure/expressroute/expressroute-introduction).
 
     > [!IMPORTANT]
     > Si crea la conexión directamente en la red virtual de su dominio administrado, use una subred de puerta de enlace independiente. No cree la puerta de enlace en la subred del dominio administrado.

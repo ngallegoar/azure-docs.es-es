@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Uso de GitOps con Helm para una configuración de clúster habilitada para Azure Arc (versión preliminar)
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: f6a30dd66ccf476da0293bdebf9054b6781a6bf6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 44803338a27fc492f4dc896a0edb398b2ce486ea
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049938"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926134"
 ---
 # <a name="deploy-helm-charts-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Implementación de gráficos de Helm mediante GitOps en clústeres de Kubernetes habilitados para Arc (versión preliminar)
 
@@ -156,7 +156,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 ## <a name="validate-application"></a>Validación de la aplicación
 
-Ejecute el siguiente comando y vaya a [localhost:3000](http://localhost:3000) en el explorador para comprobar que la aplicación se está ejecutando.
+Ejecute el siguiente comando y vaya a `localhost:3000` en el explorador para comprobar que la aplicación se está ejecutando.
 
 ```bash
 kubectl port-forward -n arc-k8s-demo svc/arc-k8s-demo-vote-front 3000:80

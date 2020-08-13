@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c4b9ae0ed682d6b34099c8eff941f1d0b6cabad
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 8367ec2ece59ca8794bc1eeb2027eb6c14db12a0
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461772"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925352"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrucciones: Planeamiento de la implementación de la unión a Azure Active Directory híbrido
 
@@ -123,7 +123,7 @@ Un entorno administrado se puede implementar mediante [Sincronización de hash d
 Estos escenarios no requieren que se configure un servidor de federación para la autenticación.
 
 > [!NOTE]
-> [La autenticación en la nube mediante el lanzamiento preconfigurado](/hybrid/how-to-connect-staged-rollout) solo se admite a partir de la actualización 1903 de Windows 10
+> [La autenticación en la nube mediante el lanzamiento preconfigurado](/azure/active-directory/hybrid/how-to-connect-staged-rollout) solo se admite a partir de la actualización 1903 de Windows 10
 
 ### <a name="federated-environment"></a>Entorno federado
 

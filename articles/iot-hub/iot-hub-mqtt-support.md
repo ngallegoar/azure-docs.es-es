@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
-ms.openlocfilehash: df6de62eefc0971ece0e0035299425689af5f784
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c11de5daacfd0d0b3d12c38064dac704c98ce60b
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307631"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924196"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicación con la instancia de IoT Hub mediante el protocolo MQTT
 
@@ -437,7 +437,7 @@ Como última consideración, si tiene que personalizar el comportamiento del pro
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre el protocolo MQTT, consulte la [documentación de MQTT](https://mqtt.org/documentation).
+Para obtener más información sobre el protocolo MQTT, consulte la [documentación de MQTT](https://mqtt.org/).
 
 Para más información acerca de planificación de la implementación de IoT Hub, consulte:
 

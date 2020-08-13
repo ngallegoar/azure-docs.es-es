@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/10/2020
-ms.openlocfilehash: d360b890023c1a14f80d9fc8efc703abd7544710
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/06/2020
+ms.openlocfilehash: 96e23c22568229ec5f5ba2365747e261b7e471ad
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328094"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921391"
 ---
 # <a name="build-the-landing-page-for-your-free-or-trial-saas-offer-in-the-commercial-marketplace"></a>Creación de la página de aterrizaje de su oferta de SaaS gratuita o de evaluación en el marketplace comercial
 
@@ -53,7 +53,7 @@ Para empezar, siga las instrucciones para [registrar una nueva aplicación](http
 
 Si tiene previsto consultar la API de Microsoft Graph, [configure la nueva aplicación para acceder a las API web](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis). Al seleccionar los permisos de API para esta aplicación, el valor predeterminado **User.Read** es suficiente para recopilar información básica sobre el usuario para que el proceso de incorporación sea automático y sin problemas. No solicite ningún permiso de la API con la etiqueta **necesita el consentimiento del administrador**, ya que esto impedirá que todos los usuarios que no sean administradores visiten la página de aterrizaje.
 
-Si requiere permisos elevados como parte del proceso de incorporación o aprovisionamiento, considere la posibilidad de usar la funcionalidad de [consentimiento incremental](https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison#incremental-and-dynamic-consent) de Azure AD para que todos los usuarios enviados desde el marketplace puedan interactuar inicialmente con la página de aterrizaje.
+Si requiere permisos elevados como parte del proceso de incorporación o aprovisionamiento, considere la posibilidad de usar la funcionalidad de [consentimiento incremental](https://aka.ms/incremental-consent) de Azure AD para que todos los usuarios enviados desde el marketplace puedan interactuar inicialmente con la página de aterrizaje.
 
 ## <a name="use-a-code-sample-as-a-starting-point"></a>Uso de un ejemplo de código como punto de partida
 

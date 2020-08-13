@@ -14,12 +14,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/20/2020
-ms.openlocfilehash: 2f8706fa8b272075ec64e2d36475509732914acf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e0b6aba2b857a16631871d13f4a0fc14b682393e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003224"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926712"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Ejecución de un paquete de SSIS mediante la actividad Ejecutar paquete SSIS de Azure Data Factory
 
@@ -97,7 +97,7 @@ En la pestaña **Settings** (Configuración) de la actividad Execute SSIS Packag
 
 La ubicación del paquete **SSISDB** se selecciona automáticamente si Azure-SSIS IR se aprovisionó con un catálogo de SSIS (SSISDB) hospedado en el servidor de base de datos o la instancia administrada de Azure SQL; también la puede seleccionar el usuario. Si está seleccionada, siga estos pasos.
 
-   1. Si la instancia de Azure-SSIS IR está en ejecución y la casilla **Manual entries** (Entradas manuales) está desactivada, puede examinar y seleccionar sus carpetas, proyectos, paquetes y entornos existentes de SSISDB. Seleccione **Refresh** (Actualizar) para capturar las carpetas, proyectos, paquetes y entornos recién agregados de SSISDB, de forma que estén disponibles para su examen y selección. Para examinar y seleccionar los entornos para la ejecución de paquetes, debe configurar los proyectos antes de agregar esos entornos como referencias desde las mismas carpetas en SSISDB. Para más información, consulte [Creación y asignación de entornos SSIS](https://docs.microsoft.com/sql/integration-services/create-and-map-a-server-environment?view=sql-server-2014).
+   1. Si la instancia de Azure-SSIS IR está en ejecución y la casilla **Manual entries** (Entradas manuales) está desactivada, puede examinar y seleccionar sus carpetas, proyectos, paquetes y entornos existentes de SSISDB. Seleccione **Refresh** (Actualizar) para capturar las carpetas, proyectos, paquetes y entornos recién agregados de SSISDB, de forma que estén disponibles para su examen y selección. Para examinar y seleccionar los entornos para la ejecución de paquetes, debe configurar los proyectos antes de agregar esos entornos como referencias desde las mismas carpetas en SSISDB. Para más información, consulte [Creación y asignación de entornos SSIS](https://docs.microsoft.com/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages).
 
    1. En **Logging level** (Nivel de registro), seleccione un ámbito predefinido de registro para la ejecución de su paquete. Active la casilla **Customized** (Personalizado), si quiere escribir en su lugar un nombre de registro personalizado. 
 
@@ -269,7 +269,7 @@ En la pestaña **Property Overrides** (Invalidaciones de propiedad) de la activi
 
    1. Escriba las rutas de acceso de las propiedades existentes en el paquete seleccionado una por una para asignarles valores manualmente. Asegúrese de que existen y que se han escrito correctamente para que la ejecución del paquete se realice satisfactoriamente. Por ejemplo, para invalidar el valor de la variable de usuario, escriba su ruta de acceso en el formato `\Package.Variables[User::<variable name>].Value`. 
 
-      Para obtener la **RUTA DE ACCESO DE LA PROPIEDAD** correcta para cualquier propiedad del paquete, puede abrir el paquete que la contiene en SSDT. Una vez abierto el paquete, seleccione su flujo de control y la propiedad **Configurations** en la ventana **Propiedades** de SSDT. Después, seleccione el botón de puntos suspensivos ( **…** ) situado junto a su propiedad **Configurations** para abrir el **Organizador de configuraciones de paquetes** que se usa normalmente para [crear configuraciones de paquetes en el modelo de implementación de paquetes](https://docs.microsoft.com/sql/integration-services/create-package-configurations?view=sql-server-2014). 
+      Para obtener la **RUTA DE ACCESO DE LA PROPIEDAD** correcta para cualquier propiedad del paquete, puede abrir el paquete que la contiene en SSDT. Una vez abierto el paquete, seleccione su flujo de control y la propiedad **Configurations** en la ventana **Propiedades** de SSDT. Después, seleccione el botón de puntos suspensivos ( **…** ) situado junto a su propiedad **Configurations** para abrir el **Organizador de configuraciones de paquetes** que se usa normalmente para [crear configuraciones de paquetes en el modelo de implementación de paquetes](https://docs.microsoft.com/sql/integration-services/packages/legacy-package-deployment-ssis#create-package-configurations). 
 
       ![Obtención de las propiedades de paquete desde la propiedad Configurations de SSDT](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties.png)
 
