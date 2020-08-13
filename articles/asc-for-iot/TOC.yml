@@ -29,6 +29,8 @@
       href: quickstart-configure-your-solution.md
     - name: Creación de un módulo gemelo de Azure Security Center para IoT
       href: quickstart-create-security-twin.md
+    - name: Investigación de recomendaciones de seguridad
+      href: quickstart-investigate-security-recommendations.md
     - name: Creación de alertas de seguridad personalizadas
       href: quickstart-create-custom-alerts.md
     - name: Investigación de alertas de seguridad

@@ -6,6 +6,16 @@
       href: ./kubernetes/overview.md
     - name: Acerca de los servidores habilitados para Azure Arc
       href: ./servers/overview.md
+- name: Guías de inicio rápido
+  items:
+    - name: Habilitar Arc para el agente de servidores
+      href: ./servers/learn/quick-enable-hybrid-vm.md
+- name: Tutoriales
+  items:
+    - name: Asignación de directivas para evaluar el cumplimiento
+      href: ./servers/learn/tutorial-assign-policy-portal.md
+    - name: Supervisión de la máquina
+      href: ./servers/learn/tutorial-enable-vm-insights.md
 - name: Ejemplos
   items:
     - name: Elementos integrados de Azure Policy

@@ -154,7 +154,7 @@ En los pasos siguientes se describe cómo agregar una asignación de roles a las
 
 1. Cuando esté en **Control de acceso (IAM)** , seleccione **Agregar** en "Agregar una asignación de roles".
 
-   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/storage-role-assignment.png" alt-text="Muestra la página Control de acceso (IAM) en una cuenta de almacenamiento y el botón "Agregar una asignación de roles" en Azure Portal.":::
+   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/storage-role-assignment.png" alt-text="Muestra la página Control de acceso (IAM) en una cuenta de almacenamiento y el botón Agregar una asignación de roles en Azure Portal.":::
 
 1. En la página lateral "Agregar una asignación de roles", elija el rol en la lista anterior en la lista desplegable **Role**. Escriba el **nombre** del almacén y seleccione **Guardar**.
 
@@ -176,7 +176,7 @@ Cree una zona DNS privada para permitir que el agente de movilidad resuelva los 
 
    1. Busque "Zona DNS privada" en la barra de búsqueda **Todos los servicios** y seleccione "Zona DNS privada" en la lista desplegable.
 
-      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Muestra la búsqueda "zona DNS privada" en la página de nuevos recursos en Azure Portal.":::
+      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Muestra la búsqueda zona DNS privada en la página de nuevos recursos en Azure Portal.":::
 
    1. Una vez que se encuentre en la página "Zona DNS privada", haga clic en el botón **\+Agregar** para empezar a crear una nueva zona.
 

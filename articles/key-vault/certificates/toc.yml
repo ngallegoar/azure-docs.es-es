@@ -46,6 +46,8 @@
       href: how-to-integrate-certificate-authority.md
     - name: 'Solución de problemas: importar certificados'
       href: import-cert-faqs.md
+    - name: Exportación de certificado desde el almacén de claves
+      href: how-to-export-certificate.md
 - name: Referencia
   items:
     - name: Azure PowerShell

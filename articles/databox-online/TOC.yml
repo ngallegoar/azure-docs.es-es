@@ -117,10 +117,14 @@
               href: azure-stack-edge-manage-access-power-connectivity-mode.md
             - name: A través de PowerShell
               href: azure-stack-edge-connect-powershell-interface.md
-        - name: Solución de problemas
-          href: azure-stack-edge-troubleshoot.md
-        - name: Ponerse en contacto con el servicio de soporte técnico de Microsoft
-          href: azure-stack-edge-contact-microsoft-support.md
+            - name: Solución de problemas
+              items:
+                - name: Mediante registros
+                  href: azure-stack-edge-troubleshoot.md
+                - name: Problemas de ordenación
+                  href: azure-stack-edge-troubleshoot-ordering.md
+                - name: Ponerse en contacto con el servicio de soporte técnico de Microsoft
+                  href: azure-stack-edge-contact-microsoft-support.md
         - name: Supervisión
           href: azure-stack-edge-monitor.md
         - name: Dispositivo de retorno

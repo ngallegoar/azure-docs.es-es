@@ -19,6 +19,8 @@
       href: terminology.md
     - name: Roles y requisitos
       href: concepts-roles-permissions.md
+    - name: Descripción de los precios
+      href: concepts-pricing.md
 - name: Ejemplos
   items:
     - name: Ejemplos de código
@@ -29,12 +31,12 @@
   items:
     - name: Supervisión
       href: how-to-monitor.md
-    - name: Configuración de asignaciones de conjuntos de datos
-      href: how-to-configure-mapping.md
     - name: Solución de problemas
       href: data-share-troubleshoot.md
     - name: Adición de conjuntos de datos
       href: how-to-add-datasets.md
+    - name: Configuración de asignaciones de conjuntos de datos
+      href: how-to-configure-mapping.md
     - name: Adición de destinatarios
       href: how-to-add-recipients.md
     - name: Eliminación de una invitación

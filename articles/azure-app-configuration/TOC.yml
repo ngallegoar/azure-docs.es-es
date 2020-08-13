@@ -91,8 +91,6 @@
           href: concept-customer-managed-keys.md
         - name: Protección del almacén de configuración con puntos de conexión privados
           href: concept-private-endpoint.md
-        - name: Integración con Identidad administrada de Azure
-          href: howto-integrate-azure-managed-service-identity.md
         - name: Habilitar el acceso mediante Azure Active Directory
           href: concept-enable-rbac.md
         - name: Asignación de una identidad administrada de Azure
@@ -115,6 +113,8 @@
       href: howto-app-configuration-event.md
     - name: Copia de seguridad automática del almacén de configuración
       href: howto-backup-config-store.md
+    - name: Uso de identidades administradas para acceder a App Configuration
+      href: howto-integrate-azure-managed-service-identity.md
 - name: Referencia
   items:
     - name: Configuración

@@ -72,7 +72,7 @@
               items:
                 - name: Configuración de la autenticación de Azure AD
                   href: database/authentication-aad-configure.md
-                - name: Multi-factor Authentication para AAD
+                - name: "Autenticación multifactor de Azure\_AD"
                   href: database/authentication-mfa-ssms-overview.md
                 - name: Configuración de Multi-factor Authentication
                   href: database/authentication-mfa-ssms-configure.md
@@ -763,7 +763,7 @@
                           href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-build?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
                         - name: 4 - Implementación del modelo
                           href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
-                    - name: Recomendaciones taxis de Nueva York (clasificación)
+                    - name: Recomendaciones de taxis de Nueva York (clasificación)
                       items:
                         - name: 1 - Introducción
                           href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
@@ -891,8 +891,10 @@
           href: managed-instance/threat-detection-configure.md
         - name: Conexión de aplicaciones
           href: managed-instance/connect-application-instance.md
-        - name: Creación de alertas
+        - name: Creación de alertas en una instancia administrada
           href: managed-instance/alerts-create.md
+        - name: Inicio manual de una conmutación por error en una instancia administrada
+          href: managed-instance/user-initiated-failover.md
     - name: Ejemplos
       items:
         - name: Azure CLI
@@ -1024,7 +1026,7 @@
                       href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
                     - name: Configuración manual
                       items:
-                        - name: Requisitos previos
+                        - name: Prerrequisitos
                           href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
                         - name: Tutorial
                           href: virtual-machines/windows/availability-group-manually-configure-tutorial.md

@@ -4,6 +4,8 @@
   items:
     - name: Acerca de la API de Azure para FHIR
       href: overview.md
+    - name: Conector de Azure IoT para FHIR (versión preliminar)
+      href: overview.md#azure-iot-connector-for-fhir-preview
 - name: Guías de inicio rápido
   expanded: true
   items:

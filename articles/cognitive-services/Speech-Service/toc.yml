@@ -117,30 +117,16 @@
   items:
     - name: Documentación de texto a voz
       href: index-text-to-speech.yml
-    - name: Información general
-      items:
-        - name: ¿Qué es el texto a voz?
-          href: text-to-speech.md
-        - name: Aspectos básicos de la conversión de texto a voz
-          href: text-to-speech-basics.md
-    - name: Guía de inicio rápido
-      items:
-        - name: Síntesis de voz en un altavoz
-          href: quickstarts/text-to-speech.md
-        - name: Síntesis de voz en un archivo de audio
-          href: quickstarts/text-to-speech-audio-file.md
-        - name: Síntesis de voz con audio de formato largo
-          href: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
+    - name: ¿Qué es el texto a voz?
+      href: text-to-speech.md
+    - name: Inicio rápido para la conversión de texto a voz
+      href: get-started-text-to-speech.md
     - name: Guías paso a paso
       items:
         - name: Mejora de síntesis con SSML
           href: speech-synthesis-markup.md
         - name: Síntesis de voz con Long Audio API
           href: long-audio-api.md
-        - name: Obtención de una lista de voces con REST (Python)
-          href: quickstart-python-get-text-to-speech-voices.md
-        - name: Conversión de texto a voz con REST (Python)
-          href: quickstart-python-text-to-speech.md
     - name: Personalización
       items:
         - name: Implementación responsable
