@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/09/2020
 ms.author: juliako
-ms.openlocfilehash: 5f8fb98b1032111eb55197fa5b7d561019be9de3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2c2d55b15fb69fe4c1aea21bb2183f0e40c3586c
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074481"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136497"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-media-services-v3"></a>Tutorial: Cargar, codificar y hacer streaming de vídeos con Media Services v3
 
@@ -72,7 +72,7 @@ Este ejemplo realiza las acciones siguientes:
 6. Crea un **objeto StreamingLocator**.
 7. Crea direcciones URL de streaming.
 
-### <a name="start-using-media-services-apis-with-net-sdk"></a><a id="start_using_dotnet" />Uso de las API de Media Services con SDK de .NET
+### <a name="start-using-media-services-apis-with-net-sdk"></a>Uso de las API de Media Services con SDK de .NET
 
 Para empezar a usar las API de Media Services con. NET, debe crear un objeto **AzureMediaServicesClient**. Para crear el objeto, debe proporcionar las credenciales necesarias para que el cliente se conecte a Azure mediante Azure AD. En el código que se clonó al principio del artículo, la función **GetCredentialsAsync** crea el objeto ServiceClientCredentials basándose en las credenciales proporcionadas en el archivo de configuración local.
 

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 07/16/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 81e2abc1b4fd0c540b08f96e6b34c16fca3319f1
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 59df49d320b23686a3d053335ea2b95e98125b28
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132023"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135562"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 
@@ -1267,6 +1267,20 @@ Para más información, consulte [Información general sobre los agentes de Azur
 |requests/failed|No|Error en las solicitudes|Count|Count|Número de solicitudes HTTP marcadas como erróneas. En la mayoría de los casos, se trata de solicitudes con un código de respuesta > = 400 y no igual a 401.|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, cloud/roleName|
 |requests/rate|No|Tasa de solicitudes del servidor|CountPerSecond|Average|Tasa de solicitudes del servidor por segundo|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, request/success, cloud/roleName|
 |traces/count|Sí|Traces|Count|Count|Número de documentos de seguimiento|trace/severityLevel, operation/synthetic, cloud/roleName, cloud/roleInstance|
+
+## <a name="microsoftiotcentraliotapps"></a>Microsoft.IoTCentral/IoTApps
+
+|Métrica|¿Se puede exportar con la configuración de diagnóstico?|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|Dimensions|
+|---|---|---|---|---|---|---|
+|c2d.property.read.failure|Sí|Lecturas de propiedades de dispositivo con error de IoT Central|Count|Total|Recuento de todas las lecturas de propiedades con error iniciadas desde IoT Central|Sin dimensiones|
+|c2d.property.read.success|Sí|Lecturas de propiedades de dispositivo correctas de IoT Central|Count|Total|Recuento de todas las lecturas de propiedades correctas iniciadas desde IoT Central|Sin dimensiones|
+|c2d.property.update.failure|Sí|Actualizaciones de propiedades de dispositivo con error de IoT Central|Count|Total|Recuento de todas las actualizaciones de propiedades con error iniciadas desde IoT Central|Sin dimensiones|
+|c2d.property.update.success|Sí|Actualizaciones de propiedades de dispositivo correctas de IoT Central|Count|Total|Recuento de todas las actualizaciones de propiedades correctas iniciadas desde IoT Central|Sin dimensiones|
+|connectedDeviceCount|No|Dispositivos conectados totales|Count|Average|Número de dispositivos conectados a IoT Central|Sin dimensiones|
+|d2c.property.read.failure|Sí|Lecturas de propiedades de dispositivo con error de los dispositivos|Count|Total|Recuento de todas las lecturas de propiedades con error iniciadas desde dispositivos|Sin dimensiones|
+|d2c.property.read.success|Sí|Lecturas de propiedades de dispositivo correctas de los dispositivos|Count|Total|Recuento de todas las lecturas de propiedades correctas iniciadas desde dispositivos|Sin dimensiones|
+|d2c.property.update.failure|Sí|Actualizaciones de propiedades de dispositivo con errores de los dispositivos|Count|Total|Recuento de todas las actualizaciones de propiedades con error iniciadas desde dispositivos|Sin dimensiones|
+|d2c.property.update.success|Sí|Actualizaciones de propiedades de dispositivo correctas de los dispositivos|Count|Total|Recuento de todas las actualizaciones de propiedades correctas iniciadas desde los dispositivos|Sin dimensiones|
 
 
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults

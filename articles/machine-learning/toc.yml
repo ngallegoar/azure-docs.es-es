@@ -161,11 +161,8 @@
             - name: Administración de los usuarios y los roles.
               href: how-to-assign-roles.md
             - name: Uso de redes virtuales
-              displayName: 'vnet, blob'
+              displayName: 'vnet, blob, private endpoint, private link'
               href: how-to-enable-virtual-network.md
-            - name: Uso de Private Link
-              displayName: private endpoint
-              href: how-to-configure-private-link.md
             - name: Protección de servicios web con TLS
               displayName: ssl
               href: how-to-secure-web-service.md
@@ -457,8 +454,8 @@
         - name: Depuración y solución de problemas de canalizaciones
           displayName: designer
           href: how-to-debug-pipelines.md
-        - name: Depuración de canalizaciones en Application Insights
-          href: how-to-debug-pipelines-application-insights.md
+        - name: Registro de datos de canalizaciones en Application Insights
+          href: how-to-log-pipelines-application-insights.md
         - name: Uso de paso de ejecución en paralelo
           displayName: score scoring batch consume pipeline parallelrunstep inference
           href: how-to-use-parallel-run-step.md
