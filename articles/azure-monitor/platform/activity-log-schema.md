@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/09/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: e50d6b6fe88cbad42d238ee2779abfe10e752f0e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 656161849ce8d48fb15cfac4024ec5b77adb5fee
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327283"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829516"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos del registro de actividad de Azure
 El [registro de actividad de Azure](platform-logs-overview.md) proporciona información sobre los eventos que se han producido en Azure en el nivel de la suscripción. En este artículo se describen las categorías de registro de actividad y el esquema de cada una. 
@@ -796,7 +796,7 @@ Esta categoría contiene registros de todas las operaciones de acción de efecto
 Cuando el registro de actividad de Azure se transmite a una cuenta de almacenamiento o a un centro de eventos, los datos siguen el [esquema de registros de recursos](./resource-logs-schema.md). En la tabla siguiente, se muestra la correspondencia de las propiedades entre los esquemas anteriores y el esquema de los registros de recursos.
 
 > [!IMPORTANT]
-> El formato de los datos de registro de actividad escritos en una cuenta de almacenamiento cambiaron a Líneas JSON el 1 de noviembre de 2018. Consulte [Preparación para el cambio de formato a los registros de recursos de Azure Monitor archivados en una cuenta de almacenamiento](/azure/azure-monitor/platform/resource-logs-blob-format) para más información sobre este cambio de formato.
+> El formato de los datos de registro de actividad escritos en una cuenta de almacenamiento cambiaron a Líneas JSON el 1 de noviembre de 2018. Consulte [Preparación para el cambio de formato a los registros de recursos de Azure Monitor archivados en una cuenta de almacenamiento](./resource-logs-blob-format.md) para más información sobre este cambio de formato.
 
 
 | Propiedad del esquema de registros de recursos | Propiedad del esquema de API REST de registro de actividad | Notas |
@@ -885,4 +885,3 @@ A continuación, se muestra un ejemplo de un evento que utiliza este esquema.
 ## <a name="next-steps"></a>Pasos siguientes
 * [Más información sobre el registro de actividad](platform-logs-overview.md)
 * [Creación de una configuración de diagnóstico para enviar el registro de actividad a un área de trabajo de Log Analytics, Azure Storage o Event Hubs](diagnostic-settings.md)
-

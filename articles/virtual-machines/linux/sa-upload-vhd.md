@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/10/2017
 ms.author: cynthn
 ms.custom: storage accounts
-ms.openlocfilehash: 288a697339fc6f8b001b445840e3fa98ab92f9a4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d667ff3949fcf58affc72b5d75a40abd8ca0dcb6
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292261"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830315"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Carga y creación de una máquina virtual Linux a partir de un disco personalizado mediante la CLI de Azure
 
@@ -72,7 +72,7 @@ az vm create --resource-group myResourceGroup --location westus \
     --use-unmanaged-disk
 ```
 
-La cuenta de almacenamiento de destino debe ser la misma cuenta donde cargó su disco virtual. También debe especificar todos los parámetros adicionales requeridos, o responder a sus avisos, por el comando **az vm create**, como la red virtual, la dirección IP pública, el nombre de usuario y las claves SSH. Puede obtener más información sobre los [parámetros disponibles de Resource Manager de la CLI clásica](../azure-cli-arm-commands.md#virtual-machines).
+La cuenta de almacenamiento de destino debe ser la misma cuenta donde cargó su disco virtual. También debe especificar todos los parámetros adicionales requeridos, o responder a sus avisos, por el comando **az vm create**, como la red virtual, la dirección IP pública, el nombre de usuario y las claves SSH. Puede obtener más información sobre los [parámetros disponibles de Resource Manager de la CLI clásica](/previous-versions/azure/virtual-machines/azure-cli-arm-commands#virtual-machines).
 
 ## <a name="requirements"></a>Requisitos
 Para completar los pasos siguientes, necesita:

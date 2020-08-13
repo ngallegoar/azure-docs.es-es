@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/18/2019
 ms.author: ayshak
-ms.openlocfilehash: 7732f83dfd44cbf686e2d076c665c980962b19d5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 58b3f9c3655a2e15842f7fa28ad3e6921395beba
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292357"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831454"
 ---
 # <a name="virtual-machine-isolation-in-azure"></a>Aislamiento de máquina virtual de Azure
 
@@ -59,7 +59,7 @@ Como los tamaños de VM aislados son tamaños vinculados al hardware, Azure prop
 **R.** : Se enviarán recordatorios 12 meses antes de que el tamaño aislado esté oficialmente en desuso.
 
 ### <a name="q-im-an-azure-service-fabric-customer-relying-on-the-silver-or-gold-durability-tiers-does-this-change-impact-me"></a>P: Soy un cliente de Azure Service Fabric que se basa en los niveles de durabilidad Silver o Gold. ¿Me afectará este cambio?
-**R.** : No. Las garantías proporcionadas por los [niveles de durabilidad](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) de Service Fabric seguirán funcionando incluso después de este cambio. Si necesita aislamiento de hardware físico por otras razones, es posible que tenga que realizar una de las acciones descritas anteriormente. 
+**R.** : No. Las garantías proporcionadas por los [niveles de durabilidad](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) de Service Fabric seguirán funcionando incluso después de este cambio. Si necesita aislamiento de hardware físico por otras razones, es posible que tenga que realizar una de las acciones descritas anteriormente. 
  
 ### <a name="q-what-are-the-milestones-for-d15_v2-or-ds15_v2-isolation-retirement"></a>P: ¿Cuáles son los hitos para la retirada del aislamiento D15_v2 o DS15_v2? 
 **R.** : 

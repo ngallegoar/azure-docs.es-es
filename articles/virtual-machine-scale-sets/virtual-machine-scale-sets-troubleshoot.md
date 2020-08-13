@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviwer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 1ee4c8a52098bfa7c012e85f25371c306b106b86
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b5e786a64d7d9606a3a99a3f1b3f8c67c9869cd1
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029440"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830689"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Solución de problemas de escalado automático de conjuntos de escalado de máquinas virtuales
 **Problema**: ha creado una infraestructura de escalado automático en Azure Resource Manager mediante conjuntos de escalado de máquinas virtuales (por ejemplo, mediante la implementación de una plantilla como esta: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale ), tiene sus reglas de escalado definidas y funciona perfectamente, salvo que sin importar la cantidad de carga que coloque en las máquinas virtuales, no se escala automáticamente.
@@ -23,7 +23,7 @@ ms.locfileid: "87029440"
 Entre los aspectos que debe considerar se incluyen:
 
 * ¿Cuántas vCPU tiene cada máquina virtual? ¿Está cargando cada vCPU?
-  La plantilla de inicio rápido de Azure del ejemplo anterior incluye un script do_work.php, que carga una única vCPU. Si está usando una máquina virtual con un tamaño superior a una única vCPU, como Standard_A1 o D1, debe ejecutar entonces esta carga varias veces. Compruebe el número de vCPU de las máquinas virtuales después de consultar [Tamaños de las máquinas virtuales Windows en Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+  La plantilla de inicio rápido de Azure del ejemplo anterior incluye un script do_work.php, que carga una única vCPU. Si está usando una máquina virtual con un tamaño superior a una única vCPU, como Standard_A1 o D1, debe ejecutar entonces esta carga varias veces. Compruebe el número de vCPU de las máquinas virtuales después de consultar [Tamaños de las máquinas virtuales Windows en Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * ¿Cuántas máquinas virtuales hay en el conjunto de escalado de máquinas virtuales? ¿Está realizando trabajos en cada una de ellas?
   
     Solo se produce un evento de escalabilidad horizontal si el promedio de uso de CPU en **todas** las máquinas virtuales de un conjunto de escalado supera el valor de umbral durante el tiempo interno definido en las reglas de escalado automático.

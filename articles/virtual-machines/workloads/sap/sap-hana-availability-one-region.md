@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 27b6e2e3cedcc8eca84644562639e0436e48245d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 58ea65e53f4a1262b448a3abd08807113d016fcb
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035866"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833324"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>Disponibilidad de SAP HANA dentro de una región de Azure
 En este artículo se describen varios escenarios de disponibilidad dentro de una región de Azure. Azure tiene muchas regiones repartidas por todo el mundo. Para obtener la lista de las regiones de Azure, consulte [Regiones de Azure](https://azure.microsoft.com/regions/). Para implementar SAP HANA en máquinas virtuales dentro de una región de Azure, Microsoft ofrece la implementación de una única máquina virtual con una instancia de HANA. Para una mayor disponibilidad, puede implementar dos máquinas virtuales con dos instancias de HANA dentro de un [conjunto de disponibilidad de Azure](../../windows/tutorial-availability-sets.md) que usen la replicación del sistema HANA para la disponibilidad. 
@@ -82,7 +82,7 @@ La arquitectura tiene el siguiente aspecto:
 
 Esta configuración no es adecuada para conseguir grandes tiempos de objetivo de punto de recuperación (RPO) y objetivo de tiempo de recuperación (RTO). En especial, los tiempos de RTO resultarían afectados debido a la necesidad de restaurar completamente la base de datos mediante los archivos de copia de seguridad copiados. Sin embargo, esta configuración es útil para recuperarse de la eliminación de datos no intencionada en las instancias principales. Con ella, puede restaurar en cualquier momento a un punto en el tiempo determinado, extraer los datos e importar los datos eliminados en la instancia principal. De ahí que tenga sentido usar este método de copia de seguridad en combinación con otra funcionalidad de alta disponibilidad. 
 
-Mientras se copian las copias de seguridad, es posible que pueda usar una máquina virtual más pequeña que la principal en la que se ejecuta la instancia de SAP HANA. Tenga en cuenta que a las máquinas virtuales más pequeñas puede adjuntar un menor número de VHD. Consulte [Tamaños de las máquinas virtuales Linux en Azure](../../linux/sizes.md) para ver los límites de los tipos de máquina virtual individual.
+Mientras se copian las copias de seguridad, es posible que pueda usar una máquina virtual más pequeña que la principal en la que se ejecuta la instancia de SAP HANA. Tenga en cuenta que a las máquinas virtuales más pequeñas puede adjuntar un menor número de VHD. Consulte [Tamaños de las máquinas virtuales Linux en Azure](../../sizes.md) para ver los límites de los tipos de máquina virtual individual.
 
 ### <a name="sap-hana-system-replication-without-automatic-failover"></a>Replicación del sistema de SAP HANA sin conmutación automática por error
 

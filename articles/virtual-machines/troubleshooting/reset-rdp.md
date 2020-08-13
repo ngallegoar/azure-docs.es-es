@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 03c1d8e6d6b5b1d55fee964b509c1bc08537cf6b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 80bcac36271d86334e11cb3cd161cd96777e6fe5
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088587"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832457"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Restablecer los Servicios de Escritorio remoto o su contraseña de administrador en una máquina virtual Windows
 Si no puede conectarse a una máquina virtual Windows, puede restablecer la contraseña de administrador local o la configuración de los Servicios de Escritorio remoto (esto no se admite en los controladores de dominio de Windows). Para restablecer la contraseña, use Azure Portal o la extensión de acceso de máquina virtual en Azure PowerShell. Una vez haya iniciado sesión en la máquina virtual, restablezca la contraseña del administrador local.  
-Si usa PowerShell, asegúrese de tener [instalado y configurado el módulo de PowerShell más reciente](/powershell/azure/) y de haber iniciado sesión en su suscripción a Azure. También puede [realizar estos pasos para máquinas virtuales creadas con el modelo de implementación clásica](/azure/virtual-machines/windows/classic/reset-rdp).
+Si usa PowerShell, asegúrese de tener [instalado y configurado el módulo de PowerShell más reciente](/powershell/azure/) y de haber iniciado sesión en su suscripción a Azure. También puede [realizar estos pasos para máquinas virtuales creadas con el modelo de implementación clásica](/previous-versions/azure/virtual-machines/windows/classic/reset-rdp).
 
 Puede restablecer los Servicios de Escritorio remoto y las credenciales de las siguientes maneras:
 

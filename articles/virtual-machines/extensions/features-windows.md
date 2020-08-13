@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c28fe96fe88a3b0744aaad72d49e8e2f52912fb6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 611edb06762b96ded7671b70ec0f5d4f07f51848
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082637"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829091"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Características y extensiones de las máquinas virtuales para Windows
 
@@ -36,7 +36,7 @@ Varias extensiones de máquina virtual de Azure diferentes están disponibles, c
 
 - Aplique configuraciones de estado deseado de PowerShell a una máquina virtual con la extensión DSC para Windows. Para obtener más información, consulte la sección sobre la [extensión de configuración de estado deseado de Azure](dsc-overview.md).
 - Configure la supervisión de una máquina virtual con la extensión de máquina virtual del agente de Log Analytics. Para más información, consulte el artículo sobre la [conexión de máquinas virtuales de Azure a registros de Azure Monitor](../../azure-monitor/learn/quick-collect-azurevm.md).
-- Configure una máquina virtual de Azure con Chef. Para más información, consulte el artículo sobre [automatización de la implementación de máquinas virtuales de Azure con Chef](../../chef/chef-automation.md).
+- Configure una máquina virtual de Azure con Chef. Para más información, consulte el artículo sobre [automatización de la implementación de máquinas virtuales de Azure con Chef](/azure/developer/chef/windows-vm-configure).
 - Configure la supervisión de su infraestructura de Azure con la extensión de Datadog. Para obtener más información, consulte el [blog de Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 

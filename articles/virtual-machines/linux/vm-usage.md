@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 07/28/2020
-ms.openlocfilehash: 30d665cc1d573ec47681599f2bde6a40864796c9
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 04536836c4d061249201c82f738aa41501f0847e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387717"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828870"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Descripción de uso de máquinas virtuales de Azure
 Mediante el análisis de los datos de uso de Azure, es posible obtener información importante sobre el consumo, es decir, información que puede permitirle mejorar la asignación y administración de los costos en toda la organización. En este documento se profundiza en los detalles de consumo de Azure Compute. Para más detalles sobre el uso general de Azure, navegue a [Descripción de la factura](../../cost-management-billing/understand/review-individual-bill.md).
@@ -35,7 +35,7 @@ Para comenzar, [descargue los detalles de uso](../../cost-management-billing/man
 | Consumida| La cantidad del recurso consumida durante ese día. Para Compute, se facturará por cada minuto de ejecución de la máquina virtual durante una hora determinada (hasta seis decimales de precisión).| `1, 0.5`|
 | Ubicación del recurso  | Identifica el centro de datos donde se está ejecutando el recurso.| `JA East`|
 | Servicio consumido | El servicio de la plataforma Azure que ha usado.| `Microsoft.Compute`|
-| Grupo de recursos | El grupo de recursos en el que se ejecuta el recurso implementado. Para más información, consulte [Información general de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview).|`MyRG`|
+| Grupo de recursos | El grupo de recursos en el que se ejecuta el recurso implementado. Para más información, consulte [Información general de Azure Resource Manager](../../azure-resource-manager/management/overview.md).|`MyRG`|
 | Id. de instancia | Identificador del recurso. El identificador contiene el nombre especificado para el recurso cuando se creó En el caso de las máquinas virtuales, el identificador de instancia contendrá los valores SubscriptionId, ResourceGroupName y VMName (o el nombre del conjunto de escalado para el uso de conjunto de escalado).| `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1`<br><br>or<br><br>`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1`|
 | Etiquetas| Etiqueta asignada al recurso. Use etiquetas para agrupar los registros de facturación. Obtenga información sobre cómo [etiquetar las máquinas virtuales](tag.md). Solo está disponible para las máquinas virtuales de Resource Manager.| `{"myDepartment":"RD","myUser":"myName"}`|
 | Información adicional | Metadatos específicos del servicio. En el caso de las VM, rellenamos los siguientes datos en el campo de información adicional: <br><br> Tipo de imagen: la imagen específica que ejecutó. Encuentre la lista completa de cadenas compatibles a continuación, en Tipos de imagen.<br><br> Tipo de servicio: el tamaño que implementó.<br><br> VMName: el nombre de la máquina virtual. Este campo solo se rellena para las VM del conjunto de escalado. Si necesita el nombre de la máquina virtual para las máquinas virtuales del conjunto de escalado, puede buscarlo en la cadena del identificador de instancia anterior.<br><br> UsageType: especifica el tipo de uso que representa.<br><br> ComputeHR es el uso de Horas de proceso de la máquina virtual subyacente, como Standard_D1_v2.<br><br> ComputeHR_SW es el cambio de software Premium si la máquina virtual usa software Premium, como Microsoft R Server. | Virtual Machines<br>`{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}`<br><br>Virtual Machine Scale Sets<br> `{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}`<br><br>Software Premium<br> `{"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"}` |

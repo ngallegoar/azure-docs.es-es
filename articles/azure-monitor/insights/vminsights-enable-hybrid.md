@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 7a6105e8742a4cb3d2f113c6ef723f6171baf4d9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 3b30cefdd72286c15095828c409a87f173200a7b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328061"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828411"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-virtual-machine"></a>Habilitar Azure Monitor para VM para una máquina virtual híbrida
 En este artículo se describe cómo habilitar Azure Monitor para VM para una máquina virtual fuera de Azure, incluidos los entornos locales y otros entornos en la nube.
 
 > [!IMPORTANT]
-> El método recomendado para habilitar máquinas virtuales híbridas primero consiste en habilitar [Azure Arc para servidores](/azure-arc/servers/overview.md), a fin de que las máquinas virtuales se puedan habilitar para Azure Monitor para VM con procesos similares a los de las máquinas virtuales de Azure. En este artículo se describe cómo incorporar máquinas virtuales híbridas si decide no usar Azure Arc.
+> El método recomendado para habilitar máquinas virtuales híbridas primero consiste en habilitar [Azure Arc para servidores](../../azure-arc/servers/overview.md), a fin de que las máquinas virtuales se puedan habilitar para Azure Monitor para VM con procesos similares a los de las máquinas virtuales de Azure. En este artículo se describe cómo incorporar máquinas virtuales híbridas si decide no usar Azure Arc.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -31,7 +31,7 @@ Las máquinas virtuales fuera de Azure requieren el mismo agente de Log Analytic
 Vea [Conexión de equipos Windows a Azure Monitor](../platform/agent-windows.md) o [Conexión de equipos Linux a Azure Monitor](../platform/agent-linux.md) para más información sobre la implementación del agente de Log Analytics. En este artículo se proporcionan detalles sobre Dependency Agent. 
 
 ## <a name="firewall-requirements"></a>Requisitos de firewall
-Los requisitos de firewall para el agente de Log Analytics se proporcionan en [Introducción al agente de Log Analytics](..//platform/log-analytics-agent.md#network-requirements). La extensión Dependency Agent para Service Map de Azure Monitor para VM no transmite ningún dato y no requiere ningún cambio en firewalls o puertos. Los datos de Mapa siempre son transmitidos por el agente de Log Analytics al servicio de Azure Monitor, ya sea directamente o mediante la [Puerta de enlace de Operations Management Suite](../../azure-monitor/platform/gateway.md), si las directivas de seguridad de TI no permiten que los equipos de la red se conecten a Internet.
+Los requisitos de firewall para el agente de Log Analytics se proporcionan en [Introducción al agente de Log Analytics](../platform/log-analytics-agent.md#network-requirements). La extensión Dependency Agent para Service Map de Azure Monitor para VM no transmite ningún dato y no requiere ningún cambio en firewalls o puertos. Los datos de Mapa siempre son transmitidos por el agente de Log Analytics al servicio de Azure Monitor, ya sea directamente o mediante la [Puerta de enlace de Operations Management Suite](../../azure-monitor/platform/gateway.md), si las directivas de seguridad de TI no permiten que los equipos de la red se conecten a Internet.
 
 
 ## <a name="dependency-agent"></a>Dependency Agent
@@ -158,7 +158,7 @@ Si la instalación del agente de dependencia se completó correctamente, pero no
 
     **Linux**: Busque el proceso en ejecución "microsoft-dependency-agent".
 
-2. ¿Está en el [plan de tarifa gratuito de Log Analytics ](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)? El plan gratuito permite hasta cinco equipos únicos. Ningún equipo posterior aparecerá en la asignación, incluso si los cinco anteriores ya no envían datos.
+2. ¿Está en el [plan de tarifa gratuito de Log Analytics ](./solutions.md)? El plan gratuito permite hasta cinco equipos únicos. Ningún equipo posterior aparecerá en la asignación, incluso si los cinco anteriores ya no envían datos.
 
 3. ¿El equipo envía datos de registro y de rendimiento a los registros de Azure Monitor? Realice la consulta siguiente para el equipo:
 

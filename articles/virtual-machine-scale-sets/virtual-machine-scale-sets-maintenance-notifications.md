@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 08/20/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: db6a8965b6a0d03c3de95644d3d455ce3c950960
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5521e49c767a2510bf7c8c53cf6ac5e86b73b466
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080444"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837183"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notificaciones de mantenimiento planeado de conjuntos de escalado de máquinas virtuales
 
@@ -181,7 +181,7 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 **R:** Las máquinas virtuales implementadas en un conjunto de disponibilidad o en conjuntos de escalado de máquinas virtuales usan dominios de actualización. Al realizar mantenimiento, Azure respeta la restricción de dominios de actualización y no reinicia las máquinas virtuales desde un dominio de actualización diferente (dentro del mismo conjunto de disponibilidad). Azure también espera al menos 30 minutos antes de pasar al siguiente grupo de máquinas virtuales. 
 
-Para más información acerca de la alta disponibilidad, consulte [Regiones y disponibilidad de máquinas virtuales en Azure](../virtual-machines/windows/availability.md).
+Para más información acerca de la alta disponibilidad, consulte [Regiones y disponibilidad de máquinas virtuales en Azure](../virtual-machines/availability.md).
 
 **P: ¿Cómo puedo recibir notificaciones acerca del mantenimiento planeado?**
 

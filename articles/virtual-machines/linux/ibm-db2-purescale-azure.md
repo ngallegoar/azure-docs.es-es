@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: ac9c8b0fe974c0a4dfebf1bcc303a379e2bd07ed
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0b032f48e18651af7f360471cc2834a5c45acc56
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87268040"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831420"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale en Azure
 
@@ -67,7 +67,7 @@ Esta arquitectura ejecuta las capas de datos, de aplicación y de almacenamiento
 
 -   Un clúster de DB2 pureScale. El tipo de recursos de proceso que necesita en Azure depende de su configuración. En general, puede usar dos enfoques:
 
-    -   Usar una red de informática de alto rendimiento (HPC) de varios nodos en la que varias instancias pequeñas y medianas acceden al almacenamiento compartido. Para este tipo de configuración de HPC, las [máquinas virtuales](../windows/sizes.md) de Azure de la serie E optimizadas para memoria o de la serie L optimizadas para almacenamiento proporcionan la potencia de proceso necesaria.
+    -   Usar una red de informática de alto rendimiento (HPC) de varios nodos en la que varias instancias pequeñas y medianas acceden al almacenamiento compartido. Para este tipo de configuración de HPC, las [máquinas virtuales](../sizes.md) de Azure de la serie E optimizadas para memoria o de la serie L optimizadas para almacenamiento proporcionan la potencia de proceso necesaria.
 
     -   Usar menos instancias grandes de máquinas virtuales para los motores de datos. Para instancias grandes, las máquinas virtuales de la [serie M](https://azure.microsoft.com/pricing/details/virtual-machines/series/) optimizadas para memoria son idóneas para cargas de trabajo intensas en memoria. Es posible que necesite una instancia dedicada, según el tamaño de la partición lógica (LPAR) que se usa para ejecutar DB2.
 

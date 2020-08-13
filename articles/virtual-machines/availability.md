@@ -6,12 +6,12 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: d26e1edb53f963d591b1ee1fba58b87fd454e898
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 18d7755bf6bf9d09a8da30cb5c2892af6ed90c7d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288578"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830655"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Opciones de disponibilidad para las máquinas virtuales de Azure
 
@@ -47,11 +47,11 @@ Este enfoque garantiza que al menos una instancia de la aplicación sigue ejecut
 
 ## <a name="virtual-machines-scale-sets"></a>Conjuntos de escalado de máquinas virtuales 
 
-Los conjuntos de escalado de máquinas virtuales de Azure permiten crear y administrar un grupo de máquinas virtuales con equilibrio de carga. El número de instancias de máquina virtual puede aumentar o disminuir automáticamente según la demanda, o de acuerdo a una programación definida. Los conjuntos de escalado proporcionan una alta disponibilidad a las aplicaciones y le permiten administrar, configurar y actualizar de forma centralizada muchas máquinas virtuales. Se recomienda la creación de dos o más máquinas virtuales en un conjunto de escalado para proporcionar una aplicación de alta disponibilidad y para cumplir el [99,95 % del Acuerdo de Nivel de Servicio de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). No hay ningún costo asociado con el conjunto de escalado propiamente dicho, solo se paga por cada instancia de máquina virtual que cree. Cuando una sola máquina virtual usa [discos SSD Premium de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd), se aplica el Acuerdo de Nivel de Servicio de Azure para los eventos de mantenimiento no planeados. Las máquinas virtuales de un conjunto de escalado se pueden implementar en varios dominios de actualización y dominios de error para maximizar la disponibilidad y la resistencia a las interrupciones debidas a interrupciones del centro de datos y a eventos de mantenimiento planeados o no planeados. Las máquinas virtuales de un conjunto de escalado también se pueden implementar en una sola zona de disponibilidad o en regiones. Las opciones de implementación de zona de disponibilidad pueden diferir según el modo de orquestación.
+Los conjuntos de escalado de máquinas virtuales de Azure permiten crear y administrar un grupo de máquinas virtuales con equilibrio de carga. El número de instancias de máquina virtual puede aumentar o disminuir automáticamente según la demanda, o de acuerdo a una programación definida. Los conjuntos de escalado proporcionan una alta disponibilidad a las aplicaciones y le permiten administrar, configurar y actualizar de forma centralizada muchas máquinas virtuales. Se recomienda la creación de dos o más máquinas virtuales en un conjunto de escalado para proporcionar una aplicación de alta disponibilidad y para cumplir el [99,95 % del Acuerdo de Nivel de Servicio de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). No hay ningún costo asociado con el conjunto de escalado propiamente dicho, solo se paga por cada instancia de máquina virtual que cree. Cuando una sola máquina virtual usa [discos SSD Premium de Azure](./windows/disks-types.md#premium-ssd), se aplica el Acuerdo de Nivel de Servicio de Azure para los eventos de mantenimiento no planeados. Las máquinas virtuales de un conjunto de escalado se pueden implementar en varios dominios de actualización y dominios de error para maximizar la disponibilidad y la resistencia a las interrupciones debidas a interrupciones del centro de datos y a eventos de mantenimiento planeados o no planeados. Las máquinas virtuales de un conjunto de escalado también se pueden implementar en una sola zona de disponibilidad o en regiones. Las opciones de implementación de zona de disponibilidad pueden diferir según el modo de orquestación.
 
 **Dominios de error y dominios de actualización**
 
-Los conjuntos de escalado de máquinas virtuales simplifican el diseño para lograr alta disponibilidad al alinear los dominios de error y los dominios de actualización. Solo tendrá que definir el número de dominios de error del conjunto de escalado. El número de dominios de error disponibles para los conjuntos de escalado puede variar en función de la región. Consulte [Administración de la disponibilidad de las máquinas virtuales Windows en Azure](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability).
+Los conjuntos de escalado de máquinas virtuales simplifican el diseño para lograr alta disponibilidad al alinear los dominios de error y los dominios de actualización. Solo tendrá que definir el número de dominios de error del conjunto de escalado. El número de dominios de error disponibles para los conjuntos de escalado puede variar en función de la región. Consulte [Administración de la disponibilidad de las máquinas virtuales Windows en Azure](./windows/manage-availability.md).
 
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidad
@@ -72,4 +72,3 @@ Las máquinas virtuales dentro de un conjunto de disponibilidad también se dist
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ya puede empezar a usar estas características de disponibilidad y redundancia para crear un entorno de Azure. Para información sobre los procedimientos recomendados, consulte [Lista de comprobación de disponibilidad](/azure/architecture/checklist/resiliency-per-service).
-

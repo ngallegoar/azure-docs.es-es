@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 06fe0cf14346b9a1a5a1f3c093abeec1d1be159a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 570e2798cf2ae5a20d55973622cca9344ea4a4a3
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292491"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837149"
 ---
 # <a name="dav4-and-dasv4-series"></a>Series Dav4 y Dasv4
 
@@ -32,7 +32,7 @@ Actualizaciones con conservación de memoria: Compatible
 
 Los tamaños de la serie Dav4 se basan en el procesador EPYC<sup>TM</sup> 7452 de AMD de 2,35 Ghz que pueden alcanzar una frecuencia máxima incrementada de 3,35 Ghz. Los tamaños de la serie Dav4 ofrecen una combinación de vCPU, memoria y almacenamiento local adecuados para la mayoría de las cargas de trabajo de producción. El almacenamiento en disco de datos se factura de forma independiente a las máquinas virtuales. Para usar SSD Premium, use los tamaños de Dasv4. El precio y los medidores de facturación para los tamaños Dasv4 son los mismos que para la serie Dav4.
 
-| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal: IOPS / MBps de lectura / MBps de escritura | Nº máx. NIC | Ancho de banda de red esperado (MBps) |
+| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal: IOPS / MBps de lectura / MBps de escritura | Nº máx. NIC | Ancho de banda de red esperado (Mbps) |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | Standard_D2a_v4 |  2  | 8  | 50  | 4  | 3000 / 46 / 23   | 2 | 1000 |
 | Standard_D4a_v4 |  4  | 16 | 100 | 8  | 6000 / 93 / 46   | 2 | 2000 |
@@ -57,7 +57,7 @@ Actualizaciones con conservación de memoria: Compatible
 
 Los tamaños de la serie Dasv4 se basan en el procesador EPYC<sup>TM</sup> 7452 de AMD de 2,35 Ghz que pueden alcanzar una frecuencia máxima incrementada de 3,35 Ghz y usar SSD Premium. Los tamaños de la serie Dasv4 ofrecen una combinación de vCPU, memoria y almacenamiento local adecuados para la mayoría de las cargas de trabajo de producción.
 
-| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS / MBps | Nº máx. NIC | Ancho de banda de red esperado (MBps) |
+| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS / MBps | Nº máx. NIC | Ancho de banda de red esperado (Mbps) |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Standard_D2as_v4|2|8|16|4|4000/32 (50)|3200/48|2 | 1000 |
 | Standard_D4as_v4|4|16|32|8|8000/64 (100)|6400/96|2 | 2000 |
@@ -81,7 +81,7 @@ Los tamaños de la serie Dasv4 se basan en el procesador EPYC<sup>TM</sup> 7452 
 
 Calculadora de precios: [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 
-Más información sobre los tipos de disco: [Tipos de disco](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
+Más información sobre los tipos de disco: [Tipos de disco](./linux/disks-types.md#ultra-disk)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

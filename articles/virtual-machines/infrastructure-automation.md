@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 07/17/2020
 ms.author: cynthn
-ms.openlocfilehash: 5567274fd9ee2cfaf41f9ff4c6e71bb2faab7b1d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 36ac0058f8f2cf3ca106b30c86207e46d0712193
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292382"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830553"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Uso de herramientas de automatización de la infraestructura con máquinas virtuales de Azure
 
@@ -34,9 +34,9 @@ Para crear y administrar máquinas virtuales (VM) de Azure de manera coherente a
 
 Obtenga información sobre cómo:
 
-- [Instalar y configurar Ansible en Linux para su uso con Azure](../ansible/ansible-install-configure.md).
-- [Crear una máquina virtual Linux](../ansible/ansible-create-vm.md).
-- [Administrar una máquina virtual Linux](../ansible/ansible-manage-linux-vm.md).
+- [Instalar y configurar Ansible en Linux para su uso con Azure](/azure/developer/ansible/install-on-linux-vm).
+- [Crear una máquina virtual Linux](/azure/developer/ansible/vm-configure).
+- [Administrar una máquina virtual Linux](/azure/developer/ansible/vm-manage).
 
 
 ## <a name="chef"></a>Chef
@@ -45,7 +45,7 @@ Obtenga información sobre cómo:
 Obtenga información sobre cómo:
 
 - [Implementar Chef Automate desde Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate?tab=Overview).
-- [Instalar Chef en Windows y crear máquinas virtuales de Azure](../chef/chef-automation.md).
+- [Instalar Chef en Windows y crear máquinas virtuales de Azure](/azure/developer/chef/windows-vm-configure).
 
 
 ## <a name="puppet"></a>Puppet
@@ -81,7 +81,7 @@ Obtenga información sobre cómo:
 
 
 ## <a name="azure-custom-script-extension"></a>Extensión de script personalizado de Azure
-La extensión de script personalizado para [Linux](./linux/extensions-customscript.md) o [Windows](./windows/extensions-customscript.md) descarga y ejecuta scripts en máquinas virtuales de Azure. Puede utilizar la extensión al crear una máquina virtual o en cualquier momento después de empezar a usarla.
+La extensión de script personalizado para [Linux](./extensions/custom-script-linux.md) o [Windows](./extensions/custom-script-windows.md) descarga y ejecuta scripts en máquinas virtuales de Azure. Puede utilizar la extensión al crear una máquina virtual o en cualquier momento después de empezar a usarla.
 
 Los scripts se pueden descargar desde Azure Storage o desde cualquier ubicación pública como, por ejemplo, un repositorio de GitHub. Con la extensión de script personalizado, puede escribir scripts en cualquier lenguaje que se pueda ejecutar en la máquina virtual de origen. Estos scripts se pueden usar para instalar aplicaciones o configurar la máquina virtual según sea necesario. Para proteger las credenciales, la información confidencial como las contraseñas se puede almacenar en una configuración protegida. Estas credenciales solo se descifran dentro de la máquina virtual.
 
@@ -116,7 +116,7 @@ Azure Automation también proporciona un servicio Desired State Configuration (D
 
 Obtenga información sobre cómo:
 
-- [Crear un runbook de PowerShell](../automation/automation-first-runbook-textual-powershell.md).
+- [Crear un runbook de PowerShell](../automation/learn/automation-tutorial-runbook-textual-powershell.md).
 - [Usar Hybrid Runbook Worker para administrar recursos locales](../automation/automation-hybrid-runbook-worker.md).
 - [Usar DSC de Automatización de Azure](../automation/automation-dsc-getting-started.md).
 
@@ -126,7 +126,7 @@ Obtenga información sobre cómo:
 
 Más información sobre:
 
-- [Azure DevOps Services](https://docs.microsoft.com/azure/devops/user-guide/index?view=vsts).
+- [Azure DevOps Services](/azure/devops/user-guide/index?view=vsts).
 
 
 ## <a name="jenkins"></a>Jenkins
@@ -134,7 +134,7 @@ Más información sobre:
 
 Obtenga información sobre cómo:
 
-- [Crear una infraestructura de desarrollo en una máquina virtual Linux en Azure con Jenkins, GitHub y Docker](../jenkins/tutorial-jenkins-github-docker-cicd.md).
+- [Crear una infraestructura de desarrollo en una máquina virtual Linux en Azure con Jenkins, GitHub y Docker](/azure/developer/jenkins/pipeline-with-github-and-docker).
 
 
 ## <a name="azure-resource-manager-template"></a>Plantilla del Administrador de recursos de Azure
@@ -149,4 +149,3 @@ Obtenga información sobre cómo:
 
 ## <a name="next-steps"></a>Pasos siguientes
 Hay muchas opciones diferentes para utilizar herramientas de automatización de infraestructura en Azure. Es libre de elegir la solución que mejor se adapte a sus necesidades y entorno. Para empezar a trabajar y probar algunas de las herramientas integradas en Azure, vea cómo automatizar la personalización de una máquina virtual [Linux](./linux/tutorial-automate-vm-deployment.md) o [Windows](./windows/tutorial-automate-vm-deployment.md).
-

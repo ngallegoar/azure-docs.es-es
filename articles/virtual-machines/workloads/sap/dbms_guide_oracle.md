@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3301667c0ee6ad739b6fb734c2cea3aef4889bd9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 15838e1e9acf328a0deaa981d1227c22c08dbbdf
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051850"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832270"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP
 
@@ -359,9 +359,9 @@ Se recomienda [Azure Managed Disks](../../windows/managed-disks-overview.md). Ta
 
 Las unidades de red o los recursos compartidos remotos, como los servicios de archivos de Azure, no son compatibles con los archivos de Oracle Database. Para más información, consulte:
 
-- [Introducing Microsoft Azure File Service (Introducción al servicio de archivos de Microsoft Azure)](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
+- [Introducing Microsoft Azure File Service (Introducción al servicio de archivos de Microsoft Azure)](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
 
-- [Persisting connections to Microsoft Azure Files (Persistencia de conexiones en archivos de Microsoft Azure)](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+- [Persisting connections to Microsoft Azure Files (Persistencia de conexiones en archivos de Microsoft Azure)](/archive/blogs/windowsazurestorage/persisting-connections-to-microsoft-azure-files)
 
 
 Si se usan discos basados en Azure Page BLOB Storage o Managed Disks, las declaraciones realizadas en [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](dbms_guide_general.md) también se aplican a las implementaciones con Oracle Database.
@@ -450,9 +450,9 @@ Se recomienda encarecidamente el uso de [Azure Managed Disks](../../windows/mana
 
 Las unidades de red o los recursos compartidos remotos, como los servicios de archivos de Azure, no son compatibles con los archivos de Oracle Database. Para obtener más información, vea lo siguiente: 
 
-- [Introducing Microsoft Azure File Service (Introducción al servicio de archivos de Microsoft Azure)](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
+- [Introducing Microsoft Azure File Service (Introducción al servicio de archivos de Microsoft Azure)](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
 
-- [Persisting connections to Microsoft Azure Files (Persistencia de conexiones en archivos de Microsoft Azure)](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+- [Persisting connections to Microsoft Azure Files (Persistencia de conexiones en archivos de Microsoft Azure)](/archive/blogs/windowsazurestorage/persisting-connections-to-microsoft-azure-files)
 
 Si se usan discos basados en Azure Page BLOB Storage o Managed Disks, las declaraciones realizadas en [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](dbms_guide_general.md) también se aplican a las implementaciones con Oracle Database.
 

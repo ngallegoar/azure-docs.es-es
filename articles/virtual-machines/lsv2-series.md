@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: cedb5899b392cb111f9c1bb76949e940ef837252
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 64f1de178e2b1e1692ddad316e6c1c1d20517b78
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284819"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835840"
 ---
 # <a name="lsv2-series"></a>Serie Lsv2
 
@@ -52,7 +52,7 @@ Actualizaciones con conservación de memoria: No compatible
 
 <sup>3</sup> La tecnología Hyper-V NVMe Direct proporciona acceso sin límite a las unidades de NVMe locales asignadas de forma segura al espacio de VM de invitado.  Para lograr el máximo rendimiento es necesario usar la última compilación WS2019 o Ubuntu 18.04 o 16.04 de Azure Marketplace.  El rendimiento de escritura varía en función del tamaño de E/S, la carga de unidad y la utilización de capacidad.
 
-<sup>4</sup> Las VM de la serie Lsv2 no proporcionan almacenamiento caché de host para el disco de datos, ya que las cargas de trabajo de Lsv2 no se ven beneficiadas.  Sin embargo, las máquinas virtuales Lsv2 pueden admitir la opción de disco de sistema operativo efímero de máquina virtual de Azure (hasta 30 GiB).
+<sup>4</sup> Las VM de la serie Lsv2 no proporcionan almacenamiento caché de host para el disco de datos, ya que las cargas de trabajo de Lsv2 no se ven beneficiadas.
 
 <sup>5</sup> Las VM de la serie Lsv2 pueden [expandir](linux/disk-bursting.md) su rendimiento de disco durante 30 minutos cada vez. 
 
@@ -87,7 +87,7 @@ Actualizaciones con conservación de memoria: No compatible
 
 Calculadora de precios: [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 
-Más información sobre los tipos de disco: [Tipos de disco](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
+Más información sobre los tipos de disco: [Tipos de disco](./linux/disks-types.md#ultra-disk)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1551bd3a6caedb61750b28120c222a57b491640e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 405ebbbfa4a662dd9ee3c8d10dde8f28e5ce9c66
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372627"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830451"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption para VM Linux 
 
@@ -34,7 +34,7 @@ Para obtener información sobre los aspectos básicos de Azure Disk Encryption p
 
 ### <a name="supported-vms"></a>VM admitidas
 
-Las VM Linux están disponibles en una [variedad de tamaños](sizes.md). Azure Disk Encryption no está disponible en [VM básicas o de serie A](https://azure.microsoft.com/pricing/details/virtual-machines/series/) ni en las máquinas virtuales que no cumplen estos requisitos mínimos de memoria:
+Las VM Linux están disponibles en una [variedad de tamaños](../sizes.md). Azure Disk Encryption no está disponible en [VM básicas o de serie A](https://azure.microsoft.com/pricing/details/virtual-machines/series/) ni en las máquinas virtuales que no cumplen estos requisitos mínimos de memoria:
 
 | Máquina virtual | Requisito mínimo de memoria |
 |--|--|

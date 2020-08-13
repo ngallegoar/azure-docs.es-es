@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 1e547cf3f08e49ce707cd079778588fb6be5acb5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7dc0913ab206c6b9152d7d6155642c28b430d6f2
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048425"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836333"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Base de referencia de seguridad de Azure para Logic Apps
 
@@ -835,13 +835,13 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: Uso exclusivo de servicios de Azure aprobados
 
-**Instrucciones**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
+**Guía**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 - Tipos de recursos no permitidos
 - Tipos de recursos permitidos
 
 * [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Denegación de un tipo de recurso específico con Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+* [Denegación de un tipo de recurso específico con Azure Policy](../governance/policy/samples/index.md)
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -867,7 +867,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12: Limitación de capacidad de los usuarios para ejecutar scripts en recursos de proceso
 
-**Guía**: No aplicable; esta recomendación está pensada para los recursos de proceso.
+**Instrucciones**: No aplicable; esta recomendación está pensada para los recursos de proceso.
 
 **Supervisión de Azure Security Center**: N/D
 
@@ -985,7 +985,7 @@ Además, Azure Resource Manager tiene la capacidad de exportar la plantilla en n
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: Almacene imágenes de sistema operativo personalizadas de forma segura
 
-**Instrucciones**: No aplicable; esta guía está pensada para recursos de proceso.
+**Guía**: No aplicable; esta guía está pensada para recursos de proceso.
 
 **Supervisión de Azure Security Center**: N/D
 

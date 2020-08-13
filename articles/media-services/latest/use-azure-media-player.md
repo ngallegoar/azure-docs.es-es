@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: juliako
-ms.openlocfilehash: bfc22862bc40679644d7dc9eddedf45fbacccab1
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ca2da842d9a2d529cf5ea01211efaff2047a9e9a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292882"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836027"
 ---
 # <a name="playback-with-azure-media-player"></a>Reproducción con Azure Media Player
 
@@ -47,7 +47,7 @@ Puede usar la [página de demostración de Azure Media Player](https://aka.ms/az
 
 ## <a name="set-up-azure-media-player-in-your-html"></a>Configuración de Azure Media Player en HTML
 
-Azure Media Player es fácil de configurar. Solo se tarda unos minutos en obtener la reproducción básica de contenido multimedia desde la cuenta de Media Services. Para más información sobre cómo instalar y configurar Azure Media Player, consulte la [documentación de Azure Media Player](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-overview).
+Azure Media Player es fácil de configurar. Solo se tarda unos minutos en obtener la reproducción básica de contenido multimedia desde la cuenta de Media Services. Para más información sobre cómo instalar y configurar Azure Media Player, consulte la [documentación de Azure Media Player](../azure-media-player/azure-media-player-overview.md).
 
 ## <a name="additional-notes"></a>Notas adicionales
 
@@ -55,5 +55,5 @@ Azure Media Player es fácil de configurar. Solo se tarda unos minutos en obtene
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Documentación de Azure Media Player](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-overview)
+* [Documentación de Azure Media Player](../azure-media-player/azure-media-player-overview.md)
 * [Ejemplos de Azure Media Player](https://github.com/Azure-Samples/azure-media-player-samples)

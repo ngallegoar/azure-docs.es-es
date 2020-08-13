@@ -3,12 +3,12 @@ title: Novedades de Azure Site Recovery
 description: Proporciona un resumen de las nuevas características y las actualizaciones más recientes en el servicio Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 4e3153ae611f368f66b045a69bab23ca0a52a033
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 28bdf902ab74bf4bb94a6bc02a558bf200b25e52
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089522"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836639"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novedades de Site Recovery
 
@@ -46,7 +46,7 @@ El [paquete acumulativo de actualizaciones 48](https://support.microsoft.com/hel
 **Mejoras y correcciones de problemas** | Un número de correcciones y mejoras (tal como se detalla en el paquete acumulativo).
 
 > [!NOTE]
-> El paquete acumulativo de actualizaciones 48 tiene un problema conocido con la habilitación de la replicación de máquinas Linux cifradas mediante ADE. [Más información](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-troubleshoot-errors#enable-protection-failed-as-the-installer-is-unable-to-find-the--root-disk-error-code-151137).
+> El paquete acumulativo de actualizaciones 48 tiene un problema conocido con la habilitación de la replicación de máquinas Linux cifradas mediante ADE. [Más información](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137).
 
 ### <a name="update-rollup-47"></a>Paquete acumulativo de actualizaciones 47
 
