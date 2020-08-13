@@ -1,19 +1,17 @@
 ---
 title: 'Conexión a Windows Virtual Desktop (clásico) desde Android: Azure'
 description: Cómo conectarse a Windows Virtual Desktop (clásico) mediante el cliente Android.
-services: virtual-desktop
-author: heidilohr
-ms.service: virtual-desktop
+author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c83d243a24fb0cacdf032dfa77e9bb17fdf5e824
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: b0fadcc592f5dd52bf1b72dc9d5658866ffba7f4
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87383807"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008481"
 ---
 # <a name="connect-to-windows-virtual-desktop-classic-with-the-android-client"></a>Conexión a Windows Virtual Desktop (clásico) con el cliente Android
 

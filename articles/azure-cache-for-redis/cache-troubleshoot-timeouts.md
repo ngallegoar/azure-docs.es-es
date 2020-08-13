@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: 3d9360a4b5c5f0ef080b3de2a9d425bcdf2b2e70
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: efe175e4086d5273471c1b0451e4cfb28449c236
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081906"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008940"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Solución de problemas de tiempos de expiración de Redis Cache
 
@@ -120,5 +120,5 @@ Puede usar los pasos siguientes para investigar posibles causas principales.
 
 - [Solución de problemas del lado cliente de Redis Cache](cache-troubleshoot-client.md)
 - [Solución de problemas del lado servidor de Redis Cache](cache-troubleshoot-server.md)
-- [¿Cómo se pueden realizar bancos de pruebas y probar el rendimiento del caché?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+- [¿Cómo se pueden realizar bancos de pruebas y probar el rendimiento del caché?](cache-management-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 - [Supervisión de Azure Cache for Redis](cache-how-to-monitor.md)

@@ -1,19 +1,17 @@
 ---
 title: 'Escalado de hosts de sesión con Azure Automation: Azure'
 description: Escalado automático de hosts de sesión de Windows Virtual Desktop con Azure Automation
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3fa85b7129aecb1f54c9e8da51cc8f2e98b8e915
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: a7ac01d71316fe4ccf44aa422d88dc31b1fd0ca4
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128333"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009450"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Escalado de hosts de sesión con Azure Automation
 
@@ -35,7 +33,7 @@ Puede usar la herramienta de escalado para:
 - Escalar horizontalmente las máquinas virtuales basadas en el número de sesiones por núcleo de CPU.
 - Reducir horizontalmente las máquinas virtuales durante las horas de menos uso, lo que mantiene en ejecución el número mínimo de máquinas virtuales del host de sesión.
 
-Para funcionar, la herramienta de escalado usa una combinación de cuentas de Azure Automation, runbooks de PowerShell, webhooks y Azure Logic Apps. Cuando se ejecuta la herramienta, la instancia de Azure Logic Apps llama a un webhook para iniciar el runbook de Azure Automation. A continuación, el runbook crea un trabajo.
+Para funcionar, la herramienta de escalado usa una combinación de cuentas de Azure Automation, runbooks de PowerShell, webhooks y Azure Logic Apps. Cuando se ejecuta la herramienta, la aplicación lógica de Azure llama a un webhook para iniciar el runbook de Azure Automation. A continuación, el runbook crea un trabajo.
 
 Durante el tiempo de uso en horas punta, el trabajo comprueba el número actual de sesiones y la capacidad de la máquina virtual del host de sesión que se está ejecutando para cada grupo de hosts. Usa esta información para calcular si las máquinas virtuales del host de sesión pueden admitir las sesiones existentes en función del parámetro *SessionThresholdPerCPU* definido en el archivo **CreateOrUpdateAzLogicApp.ps1**. Si las máquinas virtuales del host de sesión no admiten las sesiones existentes, el trabajo inicia máquinas virtuales del host de sesión adicionales en el grupo de hosts.
 
@@ -91,7 +89,7 @@ En primer lugar, necesitará una cuenta de Azure Automation para ejecutar el run
     ```powershell
     Login-AzAccount
     ```
-    
+
     >[!NOTE]
     >La cuenta debe tener derechos de colaborador en la suscripción a Azure en la que quiere implementar la herramienta de escalado.
 
@@ -117,11 +115,11 @@ En primer lugar, necesitará una cuenta de Azure Automation para ejecutar el run
          "Location"              = "<Azure_region_for_deployment>"
          "WorkspaceName"         = "<Log_analytics_workspace_name>"       # Optional. If specified, Log Analytics will be used to configure the custom log table that the runbook PowerShell script can send logs to
     }
-    
+
     .\CreateOrUpdateAzAutoAccount.ps1 @Params
     ```
 
-5. La salida del cmdlet incluirá un URI de webhook. Asegúrese de mantener un registro del URI porque lo usará como parámetro cuando configure la programación de ejecución para Azure Logic Apps.
+5. La salida del cmdlet incluirá un URI de webhook. Asegúrese de mantener un registro del URI porque lo usará como parámetro cuando configure la programación de ejecución para la aplicación lógica de Azure.
 
 6. Si especificó el parámetro **WorkspaceName** para Log Analytics, la salida del cmdlet también incluirá el id. del área de trabajo de Log Analytics y su clave principal. Asegúrese de recordar el identificador URI, porque deberá usarlo más tarde como parámetro cuando configure la programación de ejecución para la aplicación lógica de Azure.
 
@@ -183,14 +181,14 @@ Por último, deberá crear la aplicación lógica de Azure y configurar una prog
 
     ```powershell
     $AADTenantId = (Get-AzContext).Tenant.Id
-    
+
     $AzSubscription = Get-AzSubscription | Out-GridView -OutputMode:Single -Title "Select your Azure Subscription"
     Select-AzSubscription -Subscription $AzSubscription.Id
-    
+
     $ResourceGroup = Get-AzResourceGroup | Out-GridView -OutputMode:Single -Title "Select the resource group for the new Azure Logic App"
-    
+
     $WVDHostPool = Get-AzResource -ResourceType "Microsoft.DesktopVirtualization/hostpools" | Out-GridView -OutputMode:Single -Title "Select the host pool you'd like to scale"
-    
+
     $LogAnalyticsWorkspaceId = Read-Host -Prompt "If you want to use Log Analytics, enter the Log Analytics Workspace ID returned by when you created the Azure Automation account, otherwise leave it blank"
     $LogAnalyticsPrimaryKey = Read-Host -Prompt "If you want to use Log Analytics, enter the Log Analytics Primary Key returned by when you created the Azure Automation account, otherwise leave it blank"
     $RecurrenceInterval = Read-Host -Prompt "Enter how often you'd like the job to run in minutes, e.g. '15'"
@@ -203,12 +201,12 @@ Por último, deberá crear la aplicación lógica de Azure y configurar una prog
     $LimitSecondsToForceLogOffUser = Read-Host -Prompt "Enter the number of seconds to wait before automatically signing out users. If set to 0, any session host VM that has user sessions, will be left untouched"
     $LogOffMessageTitle = Read-Host -Prompt "Enter the title of the message sent to the user before they are forced to sign out"
     $LogOffMessageBody = Read-Host -Prompt "Enter the body of the message sent to the user before they are forced to sign out"
-    
+
     $AutoAccount = Get-AzAutomationAccount | Out-GridView -OutputMode:Single -Title "Select the Azure Automation account"
     $AutoAccountConnection = Get-AzAutomationConnection -ResourceGroupName $AutoAccount.ResourceGroupName -AutomationAccountName $AutoAccount.AutomationAccountName | Out-GridView -OutputMode:Single -Title "Select the Azure RunAs connection asset"
-    
+
     $WebhookURIAutoVar = Get-AzAutomationVariable -Name 'WebhookURIARMBased' -ResourceGroupName $AutoAccount.ResourceGroupName -AutomationAccountName $AutoAccount.AutomationAccountName
-    
+
     $Params = @{
          "AADTenantId"                   = $AADTenantId                             # Optional. If not specified, it will use the current Azure context
          "SubscriptionID"                = $AzSubscription.Id                       # Optional. If not specified, it will use the current Azure context
@@ -232,7 +230,7 @@ Por último, deberá crear la aplicación lógica de Azure y configurar una prog
          "LogOffMessageBody"             = $LogOffMessageBody                       # Optional. Default: "Your session will be logged off. Please save and close everything."
          "WebhookURI"                    = $WebhookURIAutoVar.Value
     }
-    
+
     .\CreateOrUpdateAzLogicApp.ps1 @Params
     ```
 

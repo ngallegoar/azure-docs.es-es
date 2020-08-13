@@ -1,19 +1,17 @@
 ---
 title: 'Creación de grupos de inquilinos y de hosts de Windows Virtual Desktop (clásico): Azure'
 description: Solución de problemas de grupos de inquilinos y de hosts durante la instalación de un entorno de inquilinos de Windows Virtual Desktop (clásico).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bd9a6dd5d11ab69635d610eee3f92a90e942b576
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: eed1b0e1b01d5d13330b927429eca9a28ff80658
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87269604"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009263"
 ---
 # <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Creación de grupos de inquilinos y de hosts en Windows Virtual Desktop (clásico)
 
@@ -43,9 +41,9 @@ Ejemplo de error no procesado:
 
 ```Error
 AADSTS650052 Message The app needs access to a service(\"{name}\") that your organization
-\"{organization}\" has not subscribed to or enabled. Contact your IT Admin to review the 
+\"{organization}\" has not subscribed to or enabled. Contact your IT Admin to review the
 configuration of your service subscriptions.650052 Message The app needs access to a service
-(\"{name}\") that your organization \"{organization}\" has not subscribed to or enabled. 
+(\"{name}\") that your organization \"{organization}\" has not subscribed to or enabled.
 Contact your IT Admin to review the configuration of your service subscriptions.
 ```
 
@@ -124,12 +122,12 @@ Para ver el error en el registro de actividad:
 1. Salga de la oferta de implementación de Azure Marketplace actual.
 2. En la barra de búsqueda superior, busque y seleccione **Registro de actividad**.
 3. Busque una actividad denominada **Validar implementación** que tenga el estado **Erróneo** y seleccione la actividad.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Captura de pantalla de la actividad individual **Validar implementación** con un estado *Erróneo*](../media/troubleshooting-marketplace-validation-error-activity-summary.png)
 
 4. Seleccione JSON y, a continuación, desplácese hacia abajo hasta la parte inferior de la pantalla hasta que vea el campo "statusMessage".
-   
+
    > [!div class="mx-imgBorder"]
    > ![Captura de pantalla de la actividad con errores, con un cuadro rojo alrededor de la propiedad statusMessage del texto JSON.](../media/troubleshooting-marketplace-validation-error-json-boxed.png)
 
@@ -260,7 +258,7 @@ Ejemplo de error no procesado:
    "message": "At least one resource deployment operation failed. Please list
  deployment operations for details. 4 Please see https://aka.ms/arm-debug for usage details.",
  "details": [
-         { "code": "Conflict",  
+         { "code": "Conflict",
          "message": "{\r\n \"status\": \"Failed\",\r\n \"error\": {\r\n \"code\":
          \"ResourceDeploymentFailure\",\r\n \"message\": \"The resource
          operation completed with terminal provisioning state 'Failed'.\",\r\n
