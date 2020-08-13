@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 206f87e45377287217b4895b8d481e14618c888c
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 38b474d4b454c61b83bfb1d62230930a0b569b1d
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386952"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164230"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Uso compartido de cuentas con Azure AD
 
@@ -55,7 +55,7 @@ Azure AD admite las cuentas compartidas de cualquier usuario de Enterprise Mobil
 
 Entre las características de Azure AD que permiten el uso compartido de las cuentas se incluyen las siguientes:
 
-* [Inicio de sesión único con contraseña](../manage-apps/what-is-single-sign-on.md#password-based-sso)
+* [Inicio de sesión único con contraseña](../manage-apps/sso-options.md#password-based-sso)
 * Agente de inicio de sesión único con contraseña
 * [Asignación de grupos](groups-self-service-management.md)
 * Aplicaciones de contraseñas personalizadas

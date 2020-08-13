@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 53e29734095506a3f55593f938c2d9aba5903771
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 68b80a3511a82ff06677d3b7bb1fbea1c68cb2ae
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095378"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164162"
 ---
 # <a name="azure-time-series-insights-gen2-explorer"></a>Explorador de Azure Time Series Insights Gen2
 
@@ -28,7 +28,7 @@ Para empezar a usar el Explorador de Azure Time Series Insights Gen2, debe hacer
 * Tener aprovisionado un entorno de Azure Time Series Insights Gen2. Lea el tutorial de [Azure Time Series Insights Gen2](./time-series-insights-update-create-environment.md) para más información sobre el aprovisionamiento de una instancia.
 * [Proporcionar acceso a datos](./time-series-insights-data-access.md) al entorno de Azure Time Series Insights Gen2 que creó para la cuenta. Puede proporcionar acceso al resto de usuarios y a usted mismo.
 * Agregar un origen de eventos al entorno de Azure Time Series Insights Gen2 para insertar datos en el entorno:
-  * Aprenda a [conectarse a un centro de eventos](./time-series-insights-how-to-add-an-event-source-eventhub.md) 
+  * Aprenda a [conectarse a un centro de eventos](./time-series-insights-how-to-add-an-event-source-eventhub.md)
   * Aprenda a [conectarse a un centro de IoT](./time-series-insights-how-to-add-an-event-source-iothub.md)
 
 ## <a name="explore-the-azure-time-series-insights-gen2-explorer"></a>Análisis del Explorador de Azure Time Series Insights Gen2
@@ -44,7 +44,6 @@ El Explorador de Azure Time Series Insights Gen2 consta de los siguientes siete 
 1. [Panel del gráfico](#5-chart-panel): muestra el gráfico de trabajo actual.
 1. [Escala de tiempo](#6-time-editor-panel): le permite modificar el intervalo de tiempo de trabajo.
 1. [Barra de la aplicación](#7-app-bar): Contiene las opciones de administración de usuario, como el inquilino actual; además le permite cambiar la configuración del tema y el idioma.
-
 
 ## <a name="1-environment-panel"></a>1. Panel de entornos
 
@@ -79,19 +78,19 @@ Para obtener más información sobre el modelo de serie temporal, lea los [Model
 
 ## <a name="3-hierarchy-tree-and-search-panel"></a>3. Árbol de jerarquía y panel de búsqueda
 
-El árbol de jerarquía y el panel de búsqueda le permiten buscar y navegar fácilmente por su jerarquía de [modelos de Time Series](./concepts-model-overview.md) a fin de buscar las instancias de serie temporal específicas que quiera mostrar en su gráfico. Cuando selecciona las instancias, estas se agregan tanto al gráfico actual como a los datos. 
+El árbol de jerarquía y el panel de búsqueda le permiten buscar y navegar fácilmente por su jerarquía de [modelos de Time Series](./concepts-model-overview.md) a fin de buscar las instancias de serie temporal específicas que quiera mostrar en su gráfico. Cuando selecciona las instancias, estas se agregan tanto al gráfico actual como a los datos.
 
 [![Árbol de jerarquía y panel de búsqueda](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png)](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png#lightbox)
 
 El panel Resultados de la búsqueda también le permite ver los resultados en una vista de jerarquía o en una vista de lista, lo que facilita la búsqueda de las instancias que desea mostrar.
- 
+
 ## <a name="4-time-series-well"></a>4. Cuadro de serie temporal
 
-El cuadro muestra los campos de instancia y otros metadatos asociados con las instancias del modelo de serie temporal seleccionadas. Mediante la selección de las casillas del lado derecho, puede ocultar o mostrar instancias específicas del gráfico actual. 
+El cuadro muestra los campos de instancia y otros metadatos asociados con las instancias del modelo de serie temporal seleccionadas. Mediante la selección de las casillas del lado derecho, puede ocultar o mostrar instancias específicas del gráfico actual.
 
   [![Cuadro de Gen2](media/v2-update-explorer/tsi-preview-ui-explorer-well.png)](media/v2-update-explorer/tsi-preview-ui-explorer-well.png#lightbox)
 
-También puede eliminar elementos de datos específicos de su cuadro de datos actual seleccionando el control **Eliminar** (papelera de reciclaje) de color rojo a la izquierda del elemento. El cuadro le permite controlar el modo en que se muestra cada elemento en el gráfico. Puede optar por agregar sombras mínimas/máximas, puntos de datos, desplazar el elemento en el tiempo y visualizar la instancia de forma escalonada. 
+También puede eliminar elementos de datos específicos de su cuadro de datos actual seleccionando el control **Eliminar** (papelera de reciclaje) de color rojo a la izquierda del elemento. El cuadro le permite controlar el modo en que se muestra cada elemento en el gráfico. Puede optar por agregar sombras mínimas/máximas, puntos de datos, desplazar el elemento en el tiempo y visualizar la instancia de forma escalonada.
 
 Además, el control exploraciones le permite crear fácilmente turnos de tiempo y gráficos de dispersión.  
 
@@ -104,7 +103,7 @@ Además, el control exploraciones le permite crear fácilmente turnos de tiempo 
 
 ## <a name="5-chart-panel"></a>5. Panel del gráfico
 
-El gráfico le permite mostrar las instancias de serie temporal como líneas. Asimismo, puede contraer el panel de entorno, el modelo de datos y el panel de control de intervalos de tiempo haciendo clic en los controles web para agrandar el gráfico. 
+El gráfico le permite mostrar las instancias de serie temporal como líneas. Asimismo, puede contraer el panel de entorno, el modelo de datos y el panel de control de intervalos de tiempo haciendo clic en los controles web para agrandar el gráfico.
 
   [![Introducción al gráfico de Gen2](media/v2-update-explorer/tsi-preview-chart-overview.png)](media/v2-update-explorer/tsi-preview-chart-overview.png#lightbox)
 
@@ -149,7 +148,7 @@ Cuando trabaje con Azure Time Series Insights Gen2, primero debe seleccionar un 
 > [!TIP]
 > Una parte de la escala de tiempo se resalta en color ámbar o naranja para indicar el intervalo de datos que está disponible en el almacén semiactivo.
 
-Los siguientes controles web están disponibles en Azure Time Series Insights Gen2 para que pueda seleccionar el intervalo de tiempo de funcionamiento. 
+Los siguientes controles web están disponibles en Azure Time Series Insights Gen2 para que pueda seleccionar el intervalo de tiempo de funcionamiento.
 
   [![Control de cuadro de exploración](media/v2-update-explorer/exploration-well-control.png)](media/v2-update-explorer/exploration-well-control.png#lightbox)
 
@@ -205,7 +204,7 @@ El Explorador de Azure Time Series Insights Gen2 admite dos temas:
 
 ### <a name="gen2-terms-panel"></a>Panel de términos de Gen2
 
-Esta sección se aplica solo a entornos de Gen1 existentes que intentan usar el Explorador en la interfaz de usuario actualizada. Es posible que quiera usar una combinación de los productos Gen1 y Gen2. Aunque se han agregado algunas funcionalidades con respecto a la interfaz de usuario existente al Explorador actualizado, puede obtener la experiencia completa de la interfaz de usuario del entorno de Gen1 en el nuevo Explorador de Azure Time Series Insights Gen2. 
+Esta sección se aplica solo a entornos de Gen1 existentes que intentan usar el Explorador en la interfaz de usuario actualizada. Es posible que quiera usar una combinación de los productos Gen1 y Gen2. Aunque se han agregado algunas funcionalidades con respecto a la interfaz de usuario existente al Explorador actualizado, puede obtener la experiencia completa de la interfaz de usuario del entorno de Gen1 en el nuevo Explorador de Azure Time Series Insights Gen2.
 
 En lugar de la jerarquía, se muestra el panel de términos de Azure Time Series Insights Gen2. El panel de términos permite definir consultas en el entorno. Úselo también para filtrar los datos según un predicado.
 
@@ -222,7 +221,7 @@ El panel del editor de términos de Azure Time Series Insights Gen2 acepta los p
 | `IN` | String, Bool, Double, DateTime, TimeSpan, NULL | Todos los operandos deben ser del mismo tipo o deben ser una constante NULL. |
 | `HAS` | String | En el lado derecho solo se permiten literales de cadenas constantes. No se permiten cadenas vacías ni NULL. |
 
-Para obtener más información sobre las operaciones de consulta y los tipos de datos admitidos, lea [Expresión de serie temporal (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
+Para obtener más información sobre las operaciones de consulta y los tipos de datos admitidos, lea [Expresión de serie temporal (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 ### <a name="examples-of-where-clauses"></a>Ejemplos de cláusulas Where
 
@@ -240,10 +239,10 @@ Puede mostrar y ocultar elementos en el panel del gráfico si selecciona el icon
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre [la ingesta de datos](./concepts-ingestion-overview.md) en su entorno.
+* Más información sobre [la ingesta de datos](./concepts-ingestion-overview.md) en su entorno.
 
-- Consulte el artículo sobre el [almacenamiento](concepts-storage.md).
+* Consulte el artículo sobre el [almacenamiento](concepts-storage.md).
 
-- Lea sobre el [modelado de datos](./concepts-model-overview.md) en Azure Time Series Insights Gen2.
+* Lea sobre el [modelado de datos](./concepts-model-overview.md) en Azure Time Series Insights Gen2.
 
-- Aprenda a [diagnosticar y solucionar problemas](./time-series-insights-update-how-to-troubleshoot.md) del entorno.
+* Aprenda a [diagnosticar y solucionar problemas](./time-series-insights-update-how-to-troubleshoot.md) del entorno.

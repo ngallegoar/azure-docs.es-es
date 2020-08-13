@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 6ed9d5eb8d230b05a090424d6105865acae69e61
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 96ebfecf01ff147a874674861c7cb64cb3725d52
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019359"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164927"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Acceso remoto a aplicaciones locales a través de Azure AD Application Proxy
 
@@ -41,7 +41,7 @@ Application Proxy funciona con:
 * Aplicaciones que se hospedan detrás de una [puerta de enlace de escritorio remoto](application-proxy-integrate-with-remote-desktop-services.md).
 * Aplicaciones cliente enriquecidas que se integran con la biblioteca de autenticación de Microsoft (MSAL).
 
-Application Proxy admite el inicio de sesión único. Para más información sobre los métodos admitidos, consulte [Elección de un método de inicio de sesión único](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
+Application Proxy admite el inicio de sesión único. Para más información sobre los métodos admitidos, consulte [Elección de un método de inicio de sesión único](sso-options.md#choosing-a-single-sign-on-method).
 
 Application Proxy se recomienda para dar a los usuarios remotos acceso a recursos internos. Application Proxy reemplaza la necesidad de una VPN o proxy inverso. No está pensado para los usuarios internos de la red corporativa.  Estos usuarios que usan innecesariamente Application Proxy pueden presentar problemas de rendimiento inesperados y no deseados.
 

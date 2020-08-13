@@ -11,13 +11,12 @@ ms.workload: identity
 ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94d120973939dd1efabee868fc75e9f6c1352bf3
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 68ccf3518a7011c0c39003d8e447a4e1d233fd91
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562640"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164587"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Uso de Azure AD Application Proxy para publicar aplicaciones locales para usuarios remotos
 
@@ -100,7 +99,7 @@ Application Proxy también admite los siguientes protocolos de autenticación co
 * [**Autenticación basada en contraseña o en formularios**](application-proxy-configure-single-sign-on-password-vaulting.md). Con este método de autenticación, los usuarios inician sesión en la aplicación con un nombre de usuario y una contraseña la primera vez que acceden a ella. Después del primer inicio de sesión, Azure AD proporciona el nombre de usuario y la contraseña a la aplicación. En este escenario, la autenticación se controla mediante Azure AD.
 * [**Autenticación SAML**](application-proxy-configure-single-sign-on-on-premises-apps.md). El inicio de sesión único basado en SAML es compatible con aplicaciones que usan los protocolos SAML 2.0 o WS-Federation. Con el inicio de sesión único de SAML, Azure AD se autentica en la aplicación mediante el uso de la cuenta de Azure AD del usuario.
 
-Para más información sobre los métodos admitidos, consulte [Elección de un método de inicio de sesión único](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
+Para más información sobre los métodos admitidos, consulte [Elección de un método de inicio de sesión único](sso-options.md#choosing-a-single-sign-on-method).
 
 ### <a name="security-benefits"></a>Ventajas de seguridad
 
