@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: cd6ea6d4967e024ddf88fb9572d5efae8b7a7815
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 48080bb4d1e24f7f98d3dfe1fd63b65ba46df35e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495350"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289908"
 ---
 ### <a name="property-limits"></a>Límites de propiedad
 
@@ -33,7 +33,7 @@ Se admite un máximo de dos orígenes de evento por instancia.
 * Obtenga información sobre cómo [agregar un origen de Event Hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 * Configure [un origen de centro de IoT](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).
 
-De forma predeterminada, los [entornos Gen2 admiten tasas de entrada](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-throughput-limitations) de hasta **1 megabyte por segundo (MB/s) por entorno**. Los clientes pueden escalar sus entornos hasta un rendimiento de **16 MB/s** si es necesario. Además, hay un límite por partición de **0,5 MB/s**.
+De forma predeterminada, los [entornos Gen2 admiten tasas de entrada](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-ingress-throughput-limits) de hasta **1 megabyte por segundo (MB/s) por entorno**. Los clientes pueden escalar sus entornos hasta un rendimiento de **16 MB/s** si es necesario. Además, hay un límite por partición de **0,5 MB/s**.
 
 ### <a name="api-limits"></a>Límites de API
 
