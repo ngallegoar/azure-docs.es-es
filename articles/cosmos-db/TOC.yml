@@ -1,4 +1,4 @@
-- name: Documentación sobre Azure Cosmos DB
+- name: "Documentación sobre Azure Cosmos\_DB"
   href: index.yml
 - name: Información general
   items:
@@ -829,7 +829,7 @@
           items:
             - name: Encabezados de respuesta
               href: gremlin-headers.md
-            - name: límites
+            - name: Límites
               href: gremlin-limits.md
             - name: Compatibilidad
               href: gremlin-compatibility.md
