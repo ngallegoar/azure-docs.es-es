@@ -13,7 +13,7 @@
       items:
         - name: C#
           href: quickstarts/csharp.md
-        - name: Go
+        - name: Ir
           href: quickstarts/go.md
         - name: Java
           href: quickstarts/java.md
@@ -88,7 +88,7 @@
 - name: Recursos
   items:
     - name: Obtener clave de API
-      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api'
+      href: 'https://azure.microsoft.com/free/cognitive-services'
     - name: Punto de conexión de Bing Web Search
       href: web-search-endpoints.md
     - name: Precios
