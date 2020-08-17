@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e2d72ba63633d7c5d3da3094cfa00e076513af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d05ee1be18b315c63ccf9d564ea95391a163826e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609119"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924502"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Configuración de identidades administradas de recursos de Azure en un conjunto de escalado de máquinas virtuales mediante Azure Portal
 
@@ -32,7 +32,7 @@ En este artículo, mediante PowerShell, aprenderá a realizar las operaciones de
 
 - Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md).
 - Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Para realizar las operaciones de administración de este artículo, su cuenta debe tener las siguientes asignaciones de control de acceso basado en rol:
+- Para llevar a cabo las operaciones de administración de este artículo, su cuenta debe tener las siguientes asignaciones de roles de Azure:
 
     > [!NOTE]
     > No se requieren asignaciones de roles del directorio de Azure AD.
@@ -105,5 +105,3 @@ En la actualidad Azure Portal no permite las identidades administradas asignadas
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Desde Azure Portal, asigne a una identidad administrada de un conjunto de escalado de máquinas virtuales de Azure [acceso a otro recurso de Azure](howto-assign-access-portal.md).
-
-

@@ -1,6 +1,6 @@
 ---
 title: ¿Qué es el inicio de sesión único de Azure?
-description: Aprenda a elegir un método de inicio de sesión único al configurar aplicaciones en Azure Active Directory (Azure AD). Use el inicio de sesión único, para que los usuarios no necesiten recordar las contraseñas de todas las aplicaciones y para simplificar la administración de cuentas.
+description: Obtenga información sobre cómo funciona el inicio de sesión único (SSO) con Azure Active Directory. Use el inicio de sesión único para que los usuarios no tengan que recordar contraseñas para todas las aplicaciones. Use también el inicio de sesión único para simplificar la administración de la administración de cuentas.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -11,23 +11,39 @@ ms.topic: overview
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b641437b7e15334d59c544b95d5be0f20f2a8df
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 6f3c6351a7bcd87ae25dfae53cb17f634bbef146
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387547"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121517"
 ---
 # <a name="what-is-single-sign-on-sso"></a>¿Qué es el inicio de sesión único (SSO)?
 
-El inicio de sesión único (SSO) agrega seguridad y comodidad cuando los usuarios inician sesión en aplicaciones en Azure Active Directory (Azure AD). Este artículo describe los métodos del inicio de sesión único y le ayuda a elegir el más apropiado al configurar las aplicaciones.
+El inicio de sesión único permite que un usuario no tenga que iniciar sesión en cada aplicación que use. El usuario inicia sesión una vez y esa credencial también se utiliza para otras aplicaciones.
+
+Si es un usuario final, es probable que no le interesen mucho los detalles del inicio de sesión único. Solo deseará usar las aplicaciones que le permitan ser productivo sin tener que escribir su contraseña a menudo. Puede encontrar sus aplicaciones en https://myapps.microsoft.com.
+ 
+Si es administrador o profesional de TI, siga leyendo para obtener más información sobre cómo se implementa el inicio de sesión único en Azure.
+
+## <a name="single-sign-on-basics"></a>Aspectos básicos del inicio de sesión único
+El inicio de sesión único proporciona un gran avance en el modo en que los usuarios inician sesión y usan las aplicaciones. Los sistemas de autenticación basados en el inicio de sesión único se suelen denominar de "autenticación moderna". Para comprender lo que hace posible el inicio de sesión único, consulte este vídeo.
+> [!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4]
+
+## <a name="understanding-where-an-app-is-hosted"></a>Descripción de dónde se hospeda una aplicación
+La forma de implementar el inicio de sesión único para una aplicación tiene mucho que ver con la ubicación donde esta se hospede. El hospedaje es importante debido a la manera en que el tráfico de red se enruta para acceder a la aplicación. Si una aplicación se hospeda en la red local y se accede a ella a través de la red local, lo que se conoce como "aplicación en el entorno local", no es necesario que los usuarios accedan a Internet para usarla. Si la aplicación se hospeda en otra parte y, por tanto, se conoce como "hospedada en la nube", los usuarios tendrán que acceder a Internet para poder usarla.
+
+> [!TIP]
+> Las aplicaciones en la nube también se denominan "aplicaciones de software como servicio" (SaaS). 
+
+> [!TIP]
+> Los términos "nube" e "Internet" suelen usarse indistintamente. El motivo tiene que ver con los diagramas de red. Es habitual denotar redes de equipos de gran tamaño con una forma de nube en un diagrama porque no es factible dibujar todos los componentes. Internet es la red más conocida y, por lo tanto, es fácil usar los términos indistintamente. Sin embargo, cualquier red de equipos puede usar la nube.
+
+## <a name="choosing-a-single-sign-on-method"></a>Elección de un método de inicio de sesión único
 
 - **Con el inicio de sesión único**, los usuarios inician sesión una vez con una cuenta para acceder a dispositivos unidos a dominio, recursos de la empresa, aplicaciones de software como servicio (SaaS) y aplicaciones web. Después de iniciar sesión, el usuario puede iniciar aplicaciones desde el portal de Office 365 o el panel de acceso Mis aplicaciones de Azure AD. Los administradores pueden centralizar la administración de cuentas de usuario y automáticamente agregar o quitar el acceso de usuario a aplicaciones basadas en la pertenencia a grupos.
 
 - **Sin el inicio de sesión único**, los usuarios deben recordar las contraseñas específicas de las aplicaciones e iniciar sesión en cada aplicación. El personal de TI necesita crear y actualizar las cuentas de usuario para cada aplicación como, por ejemplo, Office 365, Box y Salesforce. Los usuarios tienen que recordar sus contraseñas, además de dedicar tiempo a iniciar sesión en cada aplicación.
-
-## <a name="choosing-a-single-sign-on-method"></a>Elección de un método de inicio de sesión único
 
 Hay varias maneras de configurar una aplicación para el inicio de sesión único. La elección de un método de inicio de sesión único depende de cómo esté configurada la aplicación para la autenticación.
 
@@ -42,7 +58,7 @@ En la tabla siguiente se resumen los métodos de inicio de sesión únicos y los
 
 | Método de inicio de sesión único | Tipos de aplicación | Cuándo se usa |
 | :------ | :------- | :----- |
-| [OpenID Connect y OAuth](#openid-connect-and-oauth) | solo en la nube | OpenID Connect y OAuth se usan cuando se desarrollan aplicaciones nuevas. Este protocolo simplifica la configuración de la aplicación, tiene SDK fáciles de usar y permite que la aplicación use MS Graph.
+| [OpenID Connect y OAuth](#openid-connect-and-oauth) | En la nube y locales | OpenID Connect y OAuth se usan cuando se desarrollan aplicaciones nuevas. Este protocolo simplifica la configuración de la aplicación, tiene SDK fáciles de usar y permite que la aplicación use MS Graph.
 | [SAML](#saml-sso) | En la nube y locales | Elija SAML siempre que sea posible para las aplicaciones existentes que no utilizan OpenID Connect o OAuth. SAML funciona con las aplicaciones realizan la autenticación mediante uno de los protocolos SAML.|
 | [Basado en contraseñas](#password-based-sso) | En la nube y locales | Elija el método basado en contraseña cuando la aplicación se autentique con nombre de usuario y contraseña. El inicio de sesión único basado en contraseña permite el almacenamiento seguro de contraseñas de las aplicaciones y la reproducción mediante una extensión de explorador web o aplicación móvil. Este método usa el proceso de inicio de sesión existente proporcionado por la aplicación, pero permite que un administrador administre las contraseñas. |
 | [Vinculado](#linked-sign-on) | En la nube y locales | Elija el inicio de sesión vinculado si la aplicación está configurada para el inicio de sesión único en otro servicio de proveedor de identidades. Esta opción no agrega el inicio de sesión único a la aplicación. No obstante, es posible que ya se haya implementado el inicio de sesión único en la aplicación mediante otro servicio, como los Servicios de federación de Active Directory.|
@@ -197,10 +213,5 @@ Dado que este escenario se ofrece a través de una asociación entre Azure AD y 
 
 Para obtener más información, consulte [Ediciones de Azure Active Directory](../fundamentals/active-directory-whatis.md).
 
-## <a name="related-articles"></a>Artículos relacionados
+## <a name="next-steps"></a>Pasos siguientes
 * [Serie de guías de inicio rápido sobre la administración de aplicaciones](view-applications-portal.md)
-* [Tutoriales para integrar aplicaciones SaaS con Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Configuración del inicio de sesión único basado en contraseña](configure-password-single-sign-on-non-gallery-applications.md)
-* [Configuración del inicio de sesión vinculado](configure-linked-sign-on.md)
-* [Introducción a la administración del acceso a las aplicaciones](what-is-access-management.md)
-* Vínculo de descarga: [Plan de implementación del inicio de sesión único](https://aka.ms/SSODeploymentPlan).

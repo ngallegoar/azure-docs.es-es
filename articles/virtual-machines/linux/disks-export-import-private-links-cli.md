@@ -1,23 +1,23 @@
 ---
-title: 'CLI de Azure: restricción del acceso de importación y exportación a Managed Disks con vínculos privados (versión preliminar)'
-description: Habilite vínculos privados (versión preliminar) para los discos administrados con la CLI de Azure. Permite exportar e importar discos de forma segura solo dentro de la red virtual.
+title: 'CLI de Azure: Restricción del acceso para importar o exportar discos administrados con instancias de Private Link'
+description: Habilite instancias de Private Link para los discos administrados con la CLI de Azure. Permite exportar e importar discos de forma segura solo dentro de la red virtual.
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 07/15/2020
+ms.date: 08/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 5df11e704987098d61ced7afbff5e6234d4d5f04
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 009f8ec69261103faaa4de1e27ae7383257a13ca
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420298"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136412"
 ---
-# <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links-preview"></a>CLI de Azure: restricción del acceso de importación y exportación a Managed Disks con vínculos privados (versión preliminar)
+# <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links"></a>CLI de Azure: restricción del acceso de importación y exportación de discos administrados con instancias de Private Link
 
-Puede usar [puntos de conexión privados](../../private-link/private-endpoint-overview.md) (versión preliminar) para restringir la exportación e importación de Managed Disks y el acceso seguro a los datos mediante un [vínculo privado](../../private-link/private-link-overview.md) desde los clientes a la red virtual de Azure. El punto de conexión privado usa una dirección IP del espacio de direcciones de la red virtual para el servicio Managed Disks. El tráfico de red entre los clientes de la red virtual y Managed Disks atraviesa la red virtual y un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet. 
+La compatibilidad de las instancias de Private Link con discos administrados se encuentra actualmente en versión preliminar. Puede usar [puntos de conexión privados](../../private-link/private-endpoint-overview.md) para restringir la exportación e importación de discos administrados y el acceso seguro a los datos mediante una instancia de [Private Link](../../private-link/private-link-overview.md) desde los clientes de la red virtual de Azure. El punto de conexión privado usa una dirección IP del espacio de direcciones de la red virtual para el servicio Managed Disks. El tráfico de red entre los clientes de su red virtual y los discos administrados solo atraviesa la red virtual y un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición desde la red pública de Internet.
 
 Para usar vínculos privados para exportar e importar de Managed Disks, primero debe crear un recurso de acceso a disco y vincularlo a una red virtual en la misma suscripción mediante la creación de un punto de conexión privado. A continuación, asocie un disco o una instantánea con una instancia de acceso a disco. Finalmente, establezca la propiedad NetworkAccessPolicy del disco o la instantánea en `AllowPrivate`. Esto limitará el acceso a la red virtual. 
 

@@ -4,12 +4,12 @@ description: En este artículo se describe cómo migrar máquinas físicas a Azu
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: 16145c5d8b2414750b6eff9669fa7cd61eb482f5
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: ff8ac55f129e7579b12e2102c0c6292e9030021c
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165403"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066634"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migración de máquinas como servidores físicos a Azure
 
@@ -103,10 +103,13 @@ Azure Migrate:Server Migration usa un dispositivo de replicación para replicar 
 
 Para prepararse para la implementación del dispositivo, siga estos pasos:
 
-- Prepare una máquina para hospedar el dispositivo de replicación. [Revise](migrate-replication-appliance.md#appliance-requirements) los requisitos de la máquina. El dispositivo no debe instalarse en una máquina de origen que quiera replicar.
+- Prepare una máquina para hospedar el dispositivo de replicación. [Revise](migrate-replication-appliance.md#appliance-requirements) los requisitos de la máquina.
 - El dispositivo de replicación usa MySQL. Revise las [opciones](migrate-replication-appliance.md#mysql-installation) para instalar MySQL en el dispositivo.
 - Revise las direcciones URL de Azure necesarias para que el dispositivo de replicación acceda a las nubes [públicas](migrate-replication-appliance.md#url-access) y [gubernamentales](migrate-replication-appliance.md#azure-government-url-access).
 - Revise los requisitos de acceso [port] (migrate-replication-appliance.md#port-access) del dispositivo de replicación.
+
+> [!NOTE]
+> El dispositivo de replicación no debe instalarse en una máquina de origen que desee replicar ni en el dispositivo de detección y evaluación de Azure Migrate que pueda haber instalado antes.
 
 ## <a name="add-the-server-migration-tool"></a>Incorporación de la herramienta Server Migration
 
@@ -155,7 +158,7 @@ El primer paso de la migración consiste en configurar el dispositivo de replica
     ![Descarga del proveedor](media/tutorial-migrate-physical-virtual-machines/download-provider.png)
 
 10. Copie el archivo de instalación y el archivo de clave del dispositivo en el equipo con Windows Server 2016 que creó para el dispositivo.
-11. Ejecute el archivo de configuración del dispositivo de replicación, tal como se describe en el procedimiento siguiente. Una vez finalizada la instalación, el Asistente para configuración de dispositivos se iniciará automáticamente (también puede iniciar el Asistente manualmente mediante el acceso directo cspsconfigtool que se crea en el escritorio del dispositivo). Use la pestaña Administrar cuentas del Asistente para agregar los detalles de la cuenta que se usarán para la instalación de extracción del servicio Mobility. En este tutorial, vamos a instalar manualmente el servicio Mobility en las máquinas que se van a replicar, por lo que debe crear una cuenta ficticia en este paso y continuar.
+11. Una vez finalizada la instalación, el asistente para la configuración de dispositivos se iniciará automáticamente (también puede iniciarlo manualmente mediante el acceso directo cspsconfigtool que se crea en el escritorio del dispositivo). Use la pestaña Administrar cuentas del Asistente para agregar los detalles de la cuenta que se usarán para la instalación de extracción del servicio Mobility. En este tutorial, vamos a instalar manualmente el servicio Mobility en las máquinas virtuales de origen que se van a replicar, por lo que debe crear una cuenta ficticia en este paso y continuar. Puede especificar los siguientes datos para crear la cuenta ficticia: "guest" como nombre descriptivo, "username" como nombre de usuario y "password" como contraseña de la cuenta. Esta cuenta ficticia la usará en la fase de habilitación de la replicación. 
 
 12. Una vez que se haya reiniciado el dispositivo después de la configuración, en **Detectar máquinas**, seleccione el nuevo dispositivo en **Seleccionar servidor de configuración** y haga clic en **Finalize registration**  (Finalizar registro). El paso de finalización del registro realiza un par de tareas finales para preparar el dispositivo de replicación.
 
@@ -230,7 +233,7 @@ Ahora, seleccione las máquinas para la migración.
 2. En **Replicar** > **Configuración de origen** >  **¿Las máquinas están virtualizadas?** , seleccione **Not virtualized/Other** (No virtualizadas/Otros).
 3. En **Dispositivo local**, seleccione el nombre del dispositivo de Azure Migrate que configuró.
 4. En **Servidor de procesos**, seleccione el nombre del dispositivo de replicación.
-6. En **Credenciales de invitado**, se especifica una cuenta ficticia que se usará para instalar el servicio Mobility manualmente (no se admite la instalación de inserciones en el servidor físico). A continuación, haga clic en **Siguiente: Máquinas virtuales**.
+6. En **Credenciales de invitado**, seleccione la cuenta ficticia creada anteriormente en la [configuración del instalador de la replicación](#download-the-replication-appliance-installer) para instalar el servicio Mobility de forma manual (la instalación de inserción no se admite). A continuación, haga clic en **Siguiente: Máquinas virtuales**.   
 
     ![Replicación de máquinas virtuales](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 

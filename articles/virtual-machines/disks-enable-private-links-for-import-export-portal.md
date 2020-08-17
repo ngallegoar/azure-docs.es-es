@@ -1,23 +1,23 @@
 ---
-title: 'Azure Portal: restricción del acceso de importación y exportación a Managed Disks con vínculos privados (versión preliminar)'
-description: Habilite vínculos privados (versión preliminar) para los discos administrados con Azure Portal. Permite exportar e importar discos de forma segura solo dentro de la red virtual.
+title: 'Azure Portal: Restricción del acceso para importar o exportar discos administrados con instancias de Private Link'
+description: Habilite instancias de Private Link para los discos administrados con Azure Portal, actualmente en versión preliminar. Permite exportar e importar discos de forma segura dentro de una red virtual.
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 07/15/2020
+ms.date: 08/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 75b5ba995ff87649ec8a7a96a7c816bf2bec7e44
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 83f204a35e48962e525ad7d64c018eef301f9933
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535607"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135851"
 ---
-# <a name="azure-portal---restrict-importexport-access-for-managed-disks-with-private-links-preview"></a>Azure Portal: restricción del acceso de importación y exportación a Managed Disks con vínculos privados (versión preliminar)
+# <a name="azure-portal---restrict-importexport-access-for-managed-disks-with-private-links"></a>Azure Portal: restricción del acceso de importación y exportación de discos administrados con instancias de Private Link
 
-Puede generar un identificador URI de firma de acceso compartido (SAS) con límite de tiempo para los discos administrados no conectados y las instantáneas para exportar los datos a otra región para la expansión regional, la recuperación ante desastres y para leer los datos para el análisis forense. También puede usar el identificador URI de SAS para cargar directamente un VHD en un disco vacío desde el entorno local.  Ahora puede aprovechar los [vínculos privados](../private-link/private-link-overview.md) (versión preliminar) para restringir la exportación e importación a Managed Disks solo desde la red virtual de Azure. Además, cuando se usan vínculos privados, se asegura de que los datos nunca pasan por la red pública de Internet y siempre viajan dentro de la red troncal segura de Microsoft. 
+La compatibilidad de las instancias de Private Link con discos administrados se encuentra actualmente en versión preliminar y permite restringir la exportación e importación de los discos administrados, con el fin de que solo se produzca dentro de una red virtual de Azure. Puede generar un identificador URI de firma de acceso compartido (SAS) con límite de tiempo para los discos administrados no conectados y las instantáneas para exportar los datos a otra región para la expansión regional, la recuperación ante desastres y para leer los datos para el análisis forense. También puede usar el identificador URI de SAS para cargar directamente un VHD en un disco vacío desde el entorno local. El tráfico de red entre los clientes de su red virtual y los discos administrados solo atraviesa la red virtual y un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet.
 
 Puede crear un recurso de acceso a disco y vincularlo a la red virtual en la misma suscripción mediante la creación de un punto de conexión privado. Debe asociar un disco o una instantánea con un acceso al disco para exportar e importar los datos mediante vínculos privados. Además, debe establecer la propiedad NetworkAccessPolicy del disco o la instantánea en `AllowPrivate`. 
 

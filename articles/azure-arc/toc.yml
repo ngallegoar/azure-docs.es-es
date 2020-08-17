@@ -8,7 +8,7 @@
       href: ./servers/overview.md
 - name: Guías de inicio rápido
   items:
-    - name: Habilitar Arc para el agente de servidores
+    - name: Habilitación del agente de servidores habilitados para Arc
       href: ./servers/learn/quick-enable-hybrid-vm.md
 - name: Tutoriales
   items:

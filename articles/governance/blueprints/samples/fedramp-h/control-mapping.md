@@ -3,12 +3,12 @@ title: Controles del ejemplo de plano técnico con un nivel de impacto alto de F
 description: Asignación de controles del ejemplo de plano técnico con un nivel de impacto alto de FedRAMP. Cada control se asigna a una o varias directivas de Azure que ayudan en la evaluación.
 ms.date: 07/31/2020
 ms.topic: sample
-ms.openlocfilehash: ae534248196dec30c087ff4b529e699ef082426e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1b5be2a4dbc6c54e4d8aa69f6be7bc7c60b9a73d
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87484239"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926015"
 ---
 # <a name="control-mapping-of-the-fedramp-high-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico con un nivel de impacto alto de FedRAMP
 
@@ -32,7 +32,7 @@ Este plano técnico le ayudará a revisar aquellas cuentas que es posible que no
 
 ## <a name="ac-2-7-account-management--role-based-schemes"></a>Administración de cuentas AC-2 (7) | Esquemas basados en roles
 
-Azure implementa el [control de acceso basado en rol](../../../../role-based-access-control/overview.md) (RBAC) para permitirle administrar quién tiene acceso a los recursos de Azure. Mediante Azure Portal, puede revisar quién tiene acceso a los recursos de Azure y sus permisos. Este proyecto también asigna definiciones de [Azure Policy](../../../policy/overview.md) para auditar el uso de la autenticación de Azure Active Directory de los servidores SQL Server y Service Fabric. El uso de la autenticación de Azure Active Directory simplifica la administración de permisos y centraliza la administración de identidades de usuarios de base de datos y otros servicios de Microsoft. Además, este proyecto asigna una definición de Azure Policy para auditar el uso de reglas RBAC personalizadas. Conocer dónde se implementan las reglas RBAC personalizadas ayuda a verificar que la implementación se necesita y se realiza correctamente, ya que estas suelen producir errores.
+Azure implementa el [control de acceso basado en rol (Azure RBAC) de Azure](../../../../role-based-access-control/overview.md) para ayudarle a administrar quién tiene acceso a los recursos de Azure. Mediante Azure Portal, puede revisar quién tiene acceso a los recursos de Azure y sus permisos. Este proyecto también asigna definiciones de [Azure Policy](../../../policy/overview.md) para auditar el uso de la autenticación de Azure Active Directory de los servidores SQL Server y Service Fabric. El uso de la autenticación de Azure Active Directory simplifica la administración de permisos y centraliza la administración de identidades de usuarios de base de datos y otros servicios de Microsoft. Además, este proyecto asigna una definición de Azure Policy para auditar el uso de reglas RBAC personalizadas. Conocer dónde se implementan las reglas RBAC personalizadas ayuda a verificar que la implementación se necesita y se realiza correctamente, ya que estas suelen producir errores.
 
 - El administrador de Azure Active Directory debe aprovisionarse para servidores SQL Server
 - Auditar el uso de reglas de RBAC personalizadas
@@ -63,7 +63,7 @@ Tener solo un propietario de la suscripción de Azure no permite la redundancia 
 
 ## <a name="ac-6-7-least-privilege--review-of-user-privileges"></a>Privilegios mínimos AC-6 (7) | Revisión de privilegios de usuario
 
-Azure implementa el [control de acceso basado en rol](../../../../role-based-access-control/overview.md) (RBAC) para permitirle administrar quién tiene acceso a los recursos de Azure. Mediante Azure Portal, puede revisar quién tiene acceso a los recursos de Azure y sus permisos. Este proyecto asigna definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas cuya revisión es prioritaria. Revisar estos indicadores de la cuenta puede ayudarle a asegurarse de que se han implementado los controles de privilegios mínimos.
+Azure implementa el [control de acceso basado en rol (Azure RBAC) de Azure](../../../../role-based-access-control/overview.md) para ayudarle a administrar quién tiene acceso a los recursos de Azure. Mediante Azure Portal, puede revisar quién tiene acceso a los recursos de Azure y sus permisos. Este proyecto asigna definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas cuya revisión es prioritaria. Revisar estos indicadores de la cuenta puede ayudarle a asegurarse de que se han implementado los controles de privilegios mínimos.
 
 - Debe designar un máximo de tres propietarios para la suscripción
 - Auditar las máquinas virtuales Windows en las que el grupo Administradores contenga algún miembro especificado

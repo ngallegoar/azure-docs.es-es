@@ -4,12 +4,12 @@ description: En este artículo se describe cómo migrar máquinas virtuales de A
 ms.topic: tutorial
 ms.date: 06/16/2020
 ms.custom: MVC
-ms.openlocfilehash: 61a7bee52179ac525b42ad696d118f4f753f6931
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 9aad6993af4a90acb41316da0056da84f2e95f70
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534843"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066651"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Detección, evaluación y migración de máquinas virtuales de Amazon Web Services (AWS) a Azure
 
@@ -99,7 +99,7 @@ Azure Migrate: Server Migration usa un dispositivo de replicación para replicar
 Para prepararse para la implementación del dispositivo, siga estos pasos:
 
 - Configure una máquina virtual EC2 independiente para hospedar el dispositivo de replicación. Esta instancia debe ejecutar Windows Server 2012 R2 o Windows Server 2016. [Revise](./migrate-replication-appliance.md#appliance-requirements) los requisitos de hardware, software y red para el dispositivo.
-- El dispositivo no debe instalarse en una máquina virtual de origen que quiera replicar; se debe implementar en una máquina virtual diferente.
+- El dispositivo no se debe instalar en una máquina virtual de origen que desee replicar ni en el dispositivo de detección y evaluación de Azure Migrate que haya instalado antes. se debe implementar en una máquina virtual diferente.
 - Las máquinas virtuales de AWS de origen que se van a migrar deben tener línea de visión de red al dispositivo de replicación. Configure las reglas de grupo de seguridad necesarias para conseguirlo. Se recomienda implementar el dispositivo de replicación en la misma red privada virtual (VPC) que las máquinas virtuales de origen que se van a migrar. Si el dispositivo de replicación debe estar en otra VPC, las redes privadas virtuales deben conectarse mediante el emparejamiento de VPC.
 - Las máquinas virtuales de AWS de origen se comunican con el dispositivo de replicación en los puertos de entrada HTTPS 443 (orquestación del canal de control) y TCP 9443 (transporte de datos) para la administración de la replicación y la transferencia de datos de la replicación. A su vez, el dispositivo de replicación orquesta y envía los datos de replicación a Azure a través del puerto HTTPS 443 de salida. Para configurar estas reglas, edite las reglas de entrada y salida del grupo de seguridad con los puertos y la información de IP de origen adecuados.
 

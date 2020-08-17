@@ -12,16 +12,16 @@ ms.date: 04/09/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: it-pro
-ms.openlocfilehash: dce579596563855022f14bb2c07353b84d1e6127
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 8f6d9c3409e0b91b6744d406fb1af674f73dbe3c
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808378"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117896"
 ---
 # <a name="quickstart-view-the-list-of-applications-that-are-using-your-azure-active-directory-azure-ad-tenant-for-identity-management"></a>Inicio rápido: Visualización de la lista de aplicaciones que usan el inquilino de Azure Active Directory (Azure AD) para la administración de identidades
 
-Comience a usar Azure AD como sistema de Administración de identidad y acceso (IAM) de las aplicaciones que usa su organización. En este inicio rápido, verá las aplicaciones que ya están configuradas para usar el inquilino de Azure AD como proveedor de identidades.
+Comience a usar Azure AD como sistema de Administración de identidad y acceso (IAM) de las aplicaciones que usa su organización. En este inicio rápido, verá las aplicaciones que ya están configuradas para usar el inquilino de Azure AD como proveedor de identidades (IdP).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

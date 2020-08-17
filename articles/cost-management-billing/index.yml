@@ -10,12 +10,12 @@ metadata:
   author: bandersmsft
   ms.author: banders
   ms.date: 06/01/2020
-  ms.openlocfilehash: c119a7da6da42266c2cfb615a8aad887ac846579
-  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+  ms.openlocfilehash: c999417f091d82adf09df5d6962de146ef58b285
+  ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/23/2020
-  ms.locfileid: "87039766"
+  ms.lasthandoff: 08/16/2020
+  ms.locfileid: "88257379"
 landingContent:
 - title: Análisis de los costos
   linkLists:
@@ -71,6 +71,8 @@ landingContent:
     links:
     - text: Uso de alertas sobre los costos
       url: costs/cost-mgt-alerts-monitor-usage-spending.md
+    - text: Asignación de costos
+      url: costs/allocate-costs.md
     - text: Visualización y descarga de la factura de Azure
       url: understand/download-azure-invoice.md
     - text: Visualización y descarga de los datos de uso y los cargos de Azure

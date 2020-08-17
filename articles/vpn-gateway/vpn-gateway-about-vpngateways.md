@@ -1,6 +1,6 @@
 ---
 title: Acerca de Azure VPN Gateway
-description: Conozca más información sobre lo que es una instancia de VPN Gateway y las formas en que puede utilizarla para conectarse a redes virtuales de Azure. Aquí están incluidas la directiva IPsec o IKE de sitio a sitio entre implementaciones locales y soluciones de red virtual a red virtual, así como VPN de punto a sitio.
+description: Aprenda qué es una instancia de VPN Gateway y cómo usarla para conectarse a redes virtuales de sitio a sitio de IPsec/IKE, de red virtual a red virtual y de VPN de punto a sitio.
 services: vpn-gateway
 author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: overview
 ms.date: 06/01/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4ec008fa97c75f5ae7c79e2b98efc9005df1014f
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: c195fd3c6d3de518a70070327de5c12d5d210b6a
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300054"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036885"
 ---
 # <a name="what-is-vpn-gateway"></a>¿Qué es VPN Gateway?
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: d99a5feb344f970b10925b596726520b9dba9464
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 5ca6e7fa6e02ff6c5e49185c2fb02f9bc5a16d9c
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134016"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927307"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Mover las VM de Azure entre Azure Government y las regiones públicas 
 
@@ -53,7 +53,7 @@ En este tutorial se muestra cómo trasladar las VM de Azure entre Azure Governme
 Asegúrese de que la cuenta de Azure tiene permisos para la replicación de máquinas virtuales en Azure.
 
 - Revise los [permisos](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) que necesita para replicar máquinas en Azure.
-- Compruebe y modifique los permisos de [acceso basado en roles](../role-based-access-control/role-assignments-portal.md). 
+- Compruebe y modifique los permisos de [control de acceso basado en rol de Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). 
 
 ### <a name="set-up-an-azure-network"></a>Configurar una red de Azure
 

@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Búsqueda de la ruta a una ubicación | Microsoft Azure Maps'
-description: En este tutorial se muestra cómo representar la ruta a una ubicación (punto de interés) en un mapa mediante el servicio de enrutamiento de Microsoft Azure Maps.
+description: Obtenga información sobre cómo buscar una ruta a un punto de interés. Obtenga información sobre cómo establecer coordenadas de dirección y consultar el servicio Route de Azure Maps para obtener las direcciones al punto.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/14/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: d6a526e23be47c9e05de0c9064bdb4095a49d132
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0ff604e920ca3e0708fc21a1cadfe61646f4e30b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287408"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037582"
 ---
 # <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>Tutorial: Ruta a un punto de interés mediante Azure Maps
 
@@ -25,7 +25,7 @@ En este tutorial se muestra cómo usar la cuenta de Azure Maps y el SDK de Route
 > * Establecer las coordenadas de dirección
 > * Consultar en Route Service direcciones a un punto de interés
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de continuar, siga las instrucciones de [Creación de una cuenta](quick-demo-map-app.md#create-an-azure-maps-account), necesitará una suscripción en el plan de tarifa S1. Siga los pasos descritos en [Obtención de la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obtener la clave principal de la cuenta. Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](how-to-manage-authentication.md).
 

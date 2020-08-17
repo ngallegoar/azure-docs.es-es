@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 07/17/2020
+ms.date: 07/29/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ce816b74c12333477203cce690c955d5aaf1cda
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3a197c879e4c091c9b421c194e1f6a50b91d24bb
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093694"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007401"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-egress"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Egress
 
@@ -130,7 +130,7 @@ En esta sección, va a permitir que B.Simon acceda a Egress mediante el inicio d
 
 1. En la página siguiente, realice estos pasos.
 
-    ![Configuración de Egress](./media/egress-tutorial/configure1.PNG)
+    ![Configuración de Egress](./media/egress-tutorial/configure-1.PNG)
 
     a. En el menú del lado izquierdo, haga clic en **Configuración del inicio de sesión único**.
 
@@ -150,11 +150,11 @@ En esta sección, va a permitir que B.Simon acceda a Egress mediante el inicio d
 
 1. Haga clic en **Invite Users** (Invitar a usuarios) en el menú izquierdo y haga clic en **Invite Single User** (Invitar a un solo usuario) para agregar el usuario.
 
-    ![Creación de usuario de prueba de Egress](./media/egress-tutorial/createuser1.PNG)
+    ![Creación de usuario de prueba de Egress](./media/egress-tutorial/create-user-1.PNG)
 
 1. Rellene los campos obligatorios y haga clic en **Invite** (Invitar).
 
-    ![Creación de usuario de prueba de Egress](./media/egress-tutorial/createuser2.PNG)
+    ![Creación de usuario de prueba de Egress](./media/egress-tutorial/create-user-2.PNG)
 
 ## <a name="test-sso"></a>Prueba de SSO 
 

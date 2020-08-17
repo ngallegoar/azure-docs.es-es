@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Creación de una geovalla y seguimiento de dispositivos en un mapa de Microsoft Azure'
-description: Aprenderá a configurar una geovalla y a realizar un seguimiento de los dispositivos en relación con la geovalla mediante el servicio espacial de Microsoft Azure Maps.
+description: Obtenga información sobre cómo configurar una geovalla. Obtenga información sobre cómo realizar un seguimiento de los dispositivos con respecto a la geovalla mediante el servicio espacial de Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 7/15/2020
+ms.date: 8/11/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 775d98b992f2bca4441c868873ceaeb2389db81a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b88d9132ec1548c9d94fc418af35b55ac2836e96
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517397"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121245"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: Configuración de una geovalla con Azure Maps
 
@@ -25,7 +25,7 @@ Este tutorial le guía por los aspectos básicos de la creación y el uso de los
 Azure Maps proporciona una serie de servicios que admiten el seguimiento de los equipos que entren y salgan del área de construcción del escenario anterior. En este tutorial se explica cómo:
 
 > [!div class="checklist"]
-> * Cargue los [datos GeoJSON de geovalla](geofence-geojson.md) que definan las áreas del sitio de construcción que desee supervisar. Usaremos [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) para cargar geovallas como coordenadas de polígonos en su cuenta de Azure Maps.
+> * Cargue los [datos GeoJSON de geovalla](geofence-geojson.md) que definen las áreas del sitio de construcción que desea supervisar. Usaremos [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) para cargar geovallas como coordenadas de polígonos en su cuenta de Azure Maps.
 > * Configure dos [aplicaciones lógicas](https://docs.microsoft.com/azure/event-grid/handler-webhooks#logic-apps) que, cuando se desencadenen, envíen notificaciones de correo electrónico al administrador de operaciones del sitio de construcción, cuando el equipo entre y salga del área de geovalla.
 > * Use [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) para suscribirse a los eventos de entrada y salida de geovallas de Azure Maps. Instalaremos dos suscripciones de eventos de webhook que llamarán a los puntos de conexión HTTP definidos en las dos aplicaciones lógicas. A continuación, las aplicaciones lógicas enviarán las notificaciones de correo electrónico adecuadas sobre los equipos que salen o entran de la geovalla.
 > * Use [Search Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) para recibir notificaciones cuando una parte del equipo salga y entre de las áreas de la geovalla.

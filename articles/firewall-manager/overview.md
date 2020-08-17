@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 06/30/2020
+ms.date: 08/10/2020
 ms.author: victorh
-ms.openlocfilehash: 37cbc3737b826060e96524528b065bc8d711bd8b
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 0fcf1c8a3800a52e8fa8659fe4bf97e83103c79d
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87384776"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056999"
 ---
 # <a name="what-is-azure-firewall-manager"></a>¿Qué es Azure Firewall Manager?
 
@@ -25,7 +25,7 @@ Firewall Manager puede proporcionar administración de seguridad para dos tipos 
    Un [centro de Azure Virtual WAN](../virtual-wan/virtual-wan-about.md#resources) es un recurso administrado por Microsoft que permite crear fácilmente arquitecturas de tipo hub-and-spoke (centro y radio). Cuando las directivas de seguridad y enrutamiento están asociadas a ese concentrador, se denomina *[centro virtual protegido](secured-virtual-hub.md)* . 
 - **Red virtual de centro**
 
-   Se trata de una red virtual estándar de Azure que crea y administra uno mismo. Cuando las directivas de seguridad están asociadas con este tipo de centro, se conoce como *red virtual de centro*. En este momento, solo se admite la directiva de Azure Firewall. Puede emparejar las redes virtuales de radio que contienen los servidores y servicios de carga de trabajo. También puede administrar los firewalls de redes virtuales independientes que no están emparejadas con ningún radio.
+   Se trata de una red virtual estándar de Azure que crea y administra uno mismo. Cuando las directivas de seguridad están asociadas con este tipo de centro, se conoce como *red virtual de centro*. En este momento, solo se admite la directiva de Azure Firewall. Puede emparejar las redes virtuales de radio que contienen los servidores y servicios de carga de trabajo. También puede administrar los firewalls de redes virtuales independientes que no estén emparejadas con ningún radio.
 
 Para ver una comparación detallada entre los tipos de arquitectura de *centro virtual protegido* y *red virtual de centro de conectividad*, consulte [¿Cuáles son las opciones de arquitectura de Azure Firewall Manager?](vhubs-and-vnets.md)
 
@@ -66,7 +66,7 @@ Enrute fácilmente el tráfico al centro de conectividad seguro para filtrar y r
 
 Esta característica solo está disponible en implementaciones de centros virtuales protegidos.
 
-Puede usar proveedores de terceros para el filtrado de tráfico de rama a Internet (B2I), en paralelo con Azure Firewall para rama a red virtual (B2V), red virtual a red virtual (V2V) y red virtual a Internet (V2I). También puede usar proveedores de terceros para el filtrado del tráfico V2I, siempre que Azure Firewall no sea necesario para B2V o V2V. 
+Puede usar proveedores de terceros para el filtrado de tráfico de rama a Internet (B2I), en paralelo con Azure Firewall para rama a red virtual (B2V), red virtual a red virtual (V2V) y red virtual a Internet (V2I). También puede usar proveedores de terceros para el filtrado del tráfico V2I, siempre que Azure Firewall no sea necesario para B2V o V2V. 
 
 ## <a name="region-availability"></a>Disponibilidad en regiones
 
@@ -78,10 +78,12 @@ Azure Firewall Manager presenta los siguientes problemas conocidos:
 
 |Incidencia  |Descripción  |Mitigación  |
 |---------|---------|---------|
-|Actualmente no se admite la división del tráfico.|Actualmente no se admite la división del tráfico de PaaS público de Azure y de Office 365. Como tal, la selección de un proveedor de terceros para V2I o B2I también envía todo el tráfico de PaaS público de Azure y de Office 365 a través del servicio de asociados.|La división del tráfico en el centro de conectividad se está investigando.
-|Un centro virtual protegido por región.|No se puede tener más de un centro virtual protegido por región.|Cree varias WAN virtuales en una región.|
-|Las directivas base deben estar en la misma región que la directiva local.|Cree todas las directivas locales en la misma región que la directiva de base. Puede seguir aplicando una directiva que se creó en una región de un centro seguro desde otra región.|Investigando|
-|La comunicación entre centros de conectividad no funciona con los centros virtuales protegidos|Aún no se admite la comunicación entre centros virtuales protegidos. Sin embargo, la comunicación entre centros de conectividad todavía funciona.|Investigando|
+|División del tráfico|Actualmente no se admite la división del tráfico de PaaS público de Azure ni de Office 365. Como tal, la selección de un proveedor de terceros para V2I o B2I también envía todo el tráfico de PaaS público de Azure y de Office 365 a través del servicio de asociados.|La división del tráfico en el centro de conectividad se está investigando.
+|Un centro virtual protegido por región|No se puede tener más de un centro virtual protegido por región.|Cree varias WAN virtuales en una región.|
+|Las directivas base deben estar en la misma región que la directiva local|Cree todas las directivas locales en la misma región que la directiva de base. Puede seguir aplicando una directiva que se creó en una región de un centro seguro desde otra región.|Investigando|
+|Filtrado del tráfico entre centros en implementaciones de centros virtuales protegidos|Aún no se admite el filtrado de la comunicación entre centros virtuales protegidos. Sin embargo, la comunicación entre centros sigue funcionando si el filtrado del tráfico privado a través de Azure Firewall no está habilitado.|Investigando|
+|Radios en una región distinta a la del centro virtual|Los radios en una región distinta de la del centro virtual no se admiten.|Investigando<br><br>Cree un centro por región y redes virtuales del mismo nivel en la misma región que el centro.|
+|Tráfico de rama a rama con el filtrado de tráfico privado habilitado|El tráfico de rama a rama no se admite cuando está habilitado el filtrado de tráfico privado. |Investigando.<br><br>No proteja el tráfico privado si la conectividad de rama a rama es esencial.|
 |Todos los centros virtuales protegidos que comparten la misma WAN virtual deben estar en el mismo grupo de recursos.|Este comportamiento ya se alinea con los centros WAN virtuales en la actualidad.|Cree varias WAN virtuales para permitir que se creen centros virtuales protegidos en grupos de recursos diferentes.|
 
 ## <a name="next-steps"></a>Pasos siguientes

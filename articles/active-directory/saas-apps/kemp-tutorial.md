@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 07/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a0afdecfcab9cc1ab3903429b197fe859d40a7f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: cd436462d157a7e416f0f6a468edd33520ccec7d
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424678"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009945"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-kemp-loadmaster-azure-ad-integration"></a>Tutorial: Integración del inicio de sesión único de Azure Active Directory con Kemp LoadMaster
 
@@ -44,7 +44,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Kemp LoadMaster admite el inicio de sesión único iniciado por **IDP**.
-* Una vez configurado Kemp LoadMaster, puede aplicar el control de sesión, que protege a su organización, en tiempo real, frente a la filtración y la infiltración de la información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Una vez configurado la integración de Azure AD para Kemp LoadMaster, puede aplicar el control de sesión, que protege su organización, en tiempo real, frente a la filtración y la infiltración de la información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-kemp-loadmaster-azure-ad-integration-from-the-gallery"></a>Incorporación de Kemp LoadMaster desde la galería
 

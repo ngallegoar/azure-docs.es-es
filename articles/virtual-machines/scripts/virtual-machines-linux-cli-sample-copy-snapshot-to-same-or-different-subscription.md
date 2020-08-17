@@ -1,6 +1,6 @@
 ---
-title: 'Copia de instantáneas de un disco administrado en una suscripción: ejemplo de la CLI'
-description: 'Ejemplo de script de la CLI de Azure: copia (o transferencia) de instantáneas de un disco administrado en la misma suscripción o en otra con la CLI'
+title: 'Copia de instantáneas de un disco administrado en una suscripción: ejemplo de la CLI, VM Linux'
+description: 'Ejemplo de script de la CLI de Azure: copia (o transferencia) de instantáneas de un disco administrado en la misma suscripción o en otra con la CLI, en una VM Linux'
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: c17773da09b51e135e855002de7b35628c21508f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 637c8c3a2f6ba90a7a16fa375d99a7463be71270
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509771"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056098"
 ---
-# <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli"></a>Copia de instantánea de un disco administrado en la misma suscripción o en otra con CLI
+# <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli-on-a-linux-vm"></a>Copia de instantáneas de un disco administrado en la misma suscripción o en otra con la CLI, en una VM Linux
 
 Este script copia una instantánea de un disco administrado en la misma suscripción o en otra. Use este script en los escenarios siguientes:
 

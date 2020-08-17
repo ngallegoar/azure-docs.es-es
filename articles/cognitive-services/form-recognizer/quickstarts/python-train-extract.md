@@ -9,13 +9,13 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.custom: tracking-python
-ms.openlocfilehash: 64f5eefa465c3f7fc9e7c0040ca64797a806bc6e
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.custom: devx-track-python
+ms.openlocfilehash: 702a97b035f7a727b0d8def638fb409305ea0593
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86028044"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905115"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Inicio rápido: Entrenamiento de un modelo de Form Recognizer y extracción de datos del formulario mediante la API de REST con Python
 
@@ -27,7 +27,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para completar este inicio rápido, debe cumplir los siguientes requisitos:
 - [Python](https://www.python.org/downloads/) instalado (si desea ejecutar el ejemplo localmente).
-- Un conjunto de al menos cinco formularios del mismo tipo. Estos datos se usarán para entrenar el modelo. Los formularios pueden ser diferentes tipos de archivo, pero deben ser del mismo tipo de documento. En este inicio rápido puede usar un [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451). Cargue los archivos de entrenamiento en la raíz de un contenedor de almacenamiento de blobs de una cuenta de Azure Storage.
+- Un conjunto de al menos cinco formularios del mismo tipo. Estos datos se usarán para entrenar el modelo. Los formularios pueden ser diferentes tipos de archivo, pero deben ser del mismo tipo de documento. En este inicio rápido puede usar un [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451). Cargue los archivos de entrenamiento en la raíz de un contenedor de almacenamiento de blobs de una cuenta de Azure Storage de nivel de almacenamiento estándar.
 
 > [!NOTE]
 > En este inicio rápido se usan documentos remotos con acceso mediante la dirección URL. Para usar en cambio archivos locales, consulte la [documentación de referencia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync).

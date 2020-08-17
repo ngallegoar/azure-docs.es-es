@@ -8,7 +8,7 @@
       href: data-lake-analytics-whats-new.md
 - name: Introducción
   items:
-    - name: Azure Portal
+    - name: Azure portal
       href: data-lake-analytics-get-started-portal.md
     - name: Visual Studio
       href: data-lake-analytics-data-lake-tools-get-started.md
@@ -16,7 +16,7 @@
       href: data-lake-analytics-data-lake-tools-for-vscode.md
     - name: Azure PowerShell
       href: data-lake-analytics-get-started-powershell.md
-    - name: CLI de Azure
+    - name: Azure CLI
       href: data-lake-analytics-get-started-cli.md
 - name: Ejemplos
   items:
@@ -32,7 +32,7 @@
           href: ./security-controls-policy.md
         - name: Línea de base de seguridad para Azure Security Benchmark
           href: security-baseline.md
-- name: Procedimientos
+- name: Guías paso a paso
   items:
     - name: Administración con Data Lake Analytics
       items:

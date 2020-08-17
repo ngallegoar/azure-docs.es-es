@@ -3,12 +3,12 @@ title: Envío o recepción de eventos desde Azure Event Hubs mediante .NET (más
 description: Este artículo es un tutorial para crear una aplicación de .NET Core que envíe eventos a Azure Event Hubs, o los reciba de él, mediante el paquete Microsoft.Azure.EventHubs más reciente.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 9e7f40b0312798667b63c6cf5d02772307dbc2b9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 292e6e36337f565100c25d655882e60fa2a0bb6d
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537146"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080062"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Envío y recepción de eventos desde Azure Event Hubs: .NET (Azure.Messaging.EventHubs) 
 En este inicio rápido se muestra cómo enviar y recibir eventos desde un centro de eventos mediante la biblioteca de .NET **Azure.Messaging.EventHubs**. 
@@ -105,7 +105,7 @@ En esta sección se muestra cómo crear una aplicación de consola de .NET Core 
     > Para ver el código fuente completo con comentarios muy útiles, consulte [este archivo en GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/samples/Sample03_PublishAnEventBatch.cs).
 
 ## <a name="receive-events"></a>Recepción de eventos
-En esta sección se muestra cómo escribir una aplicación de consola de .NET Core que reciba mensajes de un centro de eventos mediante un procesador de eventos. El procesador de eventos simplifica la recepción de eventos desde centros de eventos mediante la administración de puntos de control persistentes y recepciones paralelas desde esos centros de eventos. Un procesador de eventos está asociado a un centro de eventos concreto y a un grupo de consumidores. Recibe eventos de varias particiones del centro de eventos y los pasa a un controlador delegado para que realice el procesamiento mediante el código que se ha especificado. 
+En esta sección se muestra cómo escribir una aplicación de consola de .NET Core que reciba mensajes de un centro de eventos mediante un procesador de eventos. El procesador de eventos simplifica la recepción de eventos desde centros de eventos mediante la administración de puntos de control persistentes y las recepciones paralelas desde esos centros de eventos. Un procesador de eventos está asociado a un centro de eventos concreto y a un grupo de consumidores. Recibe eventos de varias particiones del centro de eventos y los pasa a un controlador delegado para que realice el procesamiento mediante el código que se ha especificado. 
 
 
 > [!NOTE]

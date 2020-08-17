@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34bdd8561b30358e3cb5c9a64ed4405ba8d94588
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: db496ac504a48398ef7ab656cc5a6a890f882bab
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160145"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905506"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proofpoint-on-demand"></a>Tutorial: Integración de Azure Active Directory con Proofpoint on Demand
 
@@ -41,6 +41,9 @@ Para configurar la integración de Azure AD con Proofpoint on Demand, se necesit
 
 * Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
 * Suscripción habilitada para el inicio de sesión único en Proofpoint on Demand
+
+> [!NOTE]
+> Si usa MFA o la autenticación sin contraseña con Azure AD, desactive el valor de AuthnContext en la solicitud SAML. De lo contrario, Azure AD generará un error al no coincidir el valor de AuthnContext y no volverá a enviar el token a la aplicación.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -78,10 +81,10 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 Para configurar y probar el inicio de sesión único de Azure AD con Proofpoint on Demand, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Proofpoint on Demand](#configure-proofpoint-on-demand-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+2. **[Configuración del inicio de sesión único de Proofpoint on Demand](#configure-proofpoint-on-demand-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Proofpoint on Demand](#create-proofpoint-on-demand-test-user)** , para tener un homólogo de Britta Simon en Proofpoint on Demand que esté vinculado a la representación del usuario en Azure AD.
+5. **[Creación de un usuario de prueba de Proofpoint on Demand](#create-proofpoint-on-demand-test-user)**, para tener un homólogo de Britta Simon en Proofpoint on Demand que esté vinculado a la representación del usuario en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD

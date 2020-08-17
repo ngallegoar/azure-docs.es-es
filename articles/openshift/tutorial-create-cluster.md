@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: be04b690add70468335ac694e3be54fa55a94249
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 9a393e29c4b5b2faa48cbcd273c7bc7a46169ba3
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475658"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904197"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Creación de un clúster de la versión 4 de Red Hat OpenShift en Azure
 
@@ -49,9 +49,9 @@ Los secretos de extracción de Red Hat permiten al clúster acceder a los regist
 
    Tendrá que iniciar sesión en su cuenta de Red Hat, o bien crear una cuenta de Red Hat con su correo electrónico empresarial y aceptar los términos y condiciones.
 
-2. **Haga clic en Download pull secret** (Descargar secreto de incorporación de cambios).
+2. Vaya a la [**página del producto OpenShift**](https://developers.redhat.com/products/codeready-containers), si es la primera vez que crea un clúster. Después del registro, vaya a la [**página del administrador de clústeres de Red Hat OpenShift**](https://cloud.redhat.com/openshift/), donde puede hacer clic en **Download pull secret** (Descargar el secreto de extracción) y descargar un secreto de extracción para usarlo con el clúster de ARO.
 
-Mantenga el archivo `pull-secret.txt` guardado en un lugar seguro, ya que se usará cada vez que se cree un clúster.
+Mantenga el archivo de `pull-secret.txt` guardado en algún lugar seguro. El archivo se usará en cada creación de un clúster si necesita crear un clúster que incluya ejemplos u operadores para Red Hat o asociados certificados.
 
 Al ejecutar el comando `az aro create`, puede hacer referencia al secreto de incorporación de cambios mediante el parámetro `--pull-secret @pull-secret.txt`. Ejecute `az aro create` desde el directorio donde haya almacenado el archivo `pull-secret.txt`. De lo contrario, reemplace `@pull-secret.txt` por `@<path-to-my-pull-secret-file>`.
 

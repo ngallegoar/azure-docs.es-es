@@ -148,6 +148,12 @@
         - name: Solución de problemas
           expanded: false
           items:
+            - name: Solución de problemas de inicio de sesión
+              href: container-registry-troubleshoot-login.md
+            - name: Solución de problemas de red
+              href: container-registry-troubleshoot-access.md
+            - name: Solución de problemas de rendimiento del registro
+              href: container-registry-troubleshoot-performance.md
             - name: Detección de problemas comunes
               href: container-registry-check-health.md
             - name: Preguntas más frecuentes

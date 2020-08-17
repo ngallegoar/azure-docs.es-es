@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: cedc400ac6659cf2b2d0e9c499bf8789a6311e32
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 234d6af25f37bf04d3240177142d5ef919e8dd2d
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141898"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903483"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entrenamiento de un modelo de Form Recognizer con etiquetas mediante la herramienta de etiquetado de ejemplo
 
@@ -26,7 +26,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para completar este inicio rápido, debe cumplir los siguientes requisitos:
 
-- Un conjunto de al menos seis formularios del mismo tipo. Usará estos datos para entrenar el modelo y probar un formulario. En este inicio rápido puede usar un [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451). Cargue los archivos de entrenamiento en la raíz de un contenedor de almacenamiento de blobs de una cuenta de Azure Storage.
+- Un conjunto de al menos seis formularios del mismo tipo. Usará estos datos para entrenar el modelo y probar un formulario. En este inicio rápido puede usar un [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451). Cargue los archivos de entrenamiento en la raíz de un contenedor de almacenamiento de blobs de una cuenta de Azure Storage de nivel de rendimiento estándar.
 
 ## <a name="create-a-form-recognizer-resource"></a>Creación de un recurso de Form Recognizer
 
@@ -133,7 +133,7 @@ A continuación, creará etiquetas y las aplicará a los elementos de texto que 
    1. Haga clic en **+** para crear una nueva etiqueta.
    1. Escriba el nombre de la etiqueta.
    1. Presione Entrar para guardar la etiqueta.
-1. En el editor principal, haga clic y arrastre para seleccionar una o varias palabras de los elementos de texto resaltados.
+1. En el editor principal, haga clic para seleccionar las palabras en los elementos de texto resaltados.
 1. Haga clic en la etiqueta que desea aplicar o presione la tecla correspondiente del teclado. Las teclas numéricas se asignan como teclas de acceso rápido para las diez primeras etiquetas. Puede volver a ordenar las etiquetas con los iconos de flecha arriba y abajo del panel del editor de etiquetas.
     > [!Tip]
     > Tenga en cuenta las siguientes sugerencias cuando vaya a etiquetar los formularios.
@@ -192,7 +192,7 @@ Actualmente se admiten los siguientes tipos de valor y variaciones:
 
 Haga clic en el icono Train (Entrenar) en el panel izquierdo para abrir la página de entrenamiento. A continuación, haga clic en el botón **Entrenar** para empezar a entrenar el modelo. Una vez completado el proceso de entrenamiento, verá la siguiente información:
 
-* **Id. del modelo**: el identificador del modelo que se ha creado y entrenado. Cada llamada de entrenamiento crea un nuevo modelo con su propio identificador. Copie esta cadena en una ubicación segura; la necesitará si desea realizar llamadas de predicción mediante la API REST.
+* **Id. del modelo**: el identificador del modelo que se ha creado y entrenado. Cada llamada de entrenamiento crea un nuevo modelo con su propio identificador. Copie esta cadena en una ubicación segura; la necesitará si desea realizar llamadas de predicción mediante la [API REST](./curl-train-extract.md) o la [biblioteca cliente](./client-library.md).
 * **Precisión media**: el promedio de precisión del modelo. Puede mejorar la precisión del modelo mediante el etiquetado de formularios adicionales y el entrenamiento de nuevo para crear un nuevo modelo. Se recomienda empezar por etiquetar cinco formularios y agregar más formularios según sea necesario.
 * La lista de etiquetas y la precisión estimada por etiqueta.
 

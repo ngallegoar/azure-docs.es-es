@@ -2,15 +2,15 @@
 title: Creación e implementación de una especificación de plantilla
 description: Obtenga información sobre cómo crear una especificación de plantilla a partir de una plantilla de Resource Manager. A continuación, implemente la especificación de plantilla en un grupo de recursos de su suscripción.
 author: tfitzmac
-ms.date: 07/20/2020
+ms.date: 08/06/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: b2667e63f7cac5d1e3ad8475501ff909e8f6f3c1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8fe9ec46050ad831430239b960a7f528af7f4dc2
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101304"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924332"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Inicio rápido: Creación e implementación de una especificación de plantilla (versión preliminar)
 
@@ -53,7 +53,7 @@ Estas opciones se muestran a continuación.
    New-AzTemplateSpec `
      -ResourceGroupName templateSpecRG `
      -Name storageSpec `
-     -Version "1.0.0.0" `
+     -Version "1.0" `
      -Location westus2 `
      -TemplateJsonFile "c:\Templates\azuredeploy.json"
    ```
@@ -86,7 +86,7 @@ Estas opciones se muestran a continuación.
                    {
                        "type": "versions",
                        "apiVersion": "2019-06-01-preview",
-                       "name": "1.0.0.1",
+                       "name": "1.0",
                        "location": "westus2",
                        "dependsOn": [ "storageSpec" ],
                        "properties": {
@@ -195,7 +195,7 @@ Ahora puede implementar la especificación de plantilla. La implementación de l
 1. Obtenga el id. de recurso de la especificación de plantilla.
 
    ```azurepowershell
-   $id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name storageSpec -Version "1.0.0.0").Version.Id
+   $id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name storageSpec -Version "1.0").Version.Id
    ```
 
 1. Implemente la especificación de plantilla.
@@ -203,7 +203,16 @@ Ahora puede implementar la especificación de plantilla. La implementación de l
    ```azurepowershell
    New-AzResourceGroupDeployment `
      -TemplateSpecId $id `
-     -ResourceGroupName demoRG
+     -ResourceGroupName storageRG
+   ```
+
+1. Proporcione los parámetros exactamente como lo haría para una plantilla de ARM. Vuelva a implementar la especificación de plantilla con un parámetro para el tipo de cuenta de almacenamiento.
+
+   ```azurepowershell
+   New-AzResourceGroupDeployment `
+     -TemplateSpecId $id `
+     -ResourceGroupName storageRG `
+     -StorageAccountType Standard_GRS
    ```
 
 # <a name="arm-template"></a>[Plantilla de ARM](#tab/azure-resource-manager)
@@ -224,7 +233,7 @@ Ahora puede implementar la especificación de plantilla. La implementación de l
                "name": "demo",
                "properties": {
                    "templateLink": {
-                       "id": "[resourceId('templateSpecRG', 'Microsoft.Resources/templateSpecs/versions', 'storageSpec', '1.0.0.0')]"
+                       "id": "[resourceId('templateSpecRG', 'Microsoft.Resources/templateSpecs/versions', 'storageSpec', '1.0')]"
                    },
                    "parameters": {
                    },

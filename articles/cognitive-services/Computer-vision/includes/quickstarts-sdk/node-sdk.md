@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 01/22/2020
 ms.author: pafarley
 ms.custom: devx-track-javascript
-ms.openlocfilehash: dc01600d052752d4558e22fe5c5ca48fb84a8121
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 861e6528b52af39a56cc6b936eae0d68df2eecf5
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405505"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87841921"
 ---
 <a name="HOLTop"></a>
 
@@ -140,7 +140,7 @@ El código siguiente detecta objetos comunes en la imagen y los imprime en la co
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_objects)]
 
-Defina la función auxiliar `formatRectObjects`:
+Defina la función auxiliar `formatRectObjects` para devolver las coordenadas superior, izquierda, inferior y derecha, junto con el ancho y el alto.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_objectformat)]
 

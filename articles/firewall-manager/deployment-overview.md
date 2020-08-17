@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 07/28/2020
+ms.date: 08/10/2020
 ms.author: victorh
-ms.openlocfilehash: 748adbcc719df2cdcf734f308bd4b083e9ca6ec0
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 8cca982e291d5d4caf7856e0d807515511c41dc8
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372372"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055044"
 ---
 # <a name="azure-firewall-manager-deployment-overview"></a>Información general sobre la implementación de Azure Firewall Manager
 
@@ -65,6 +65,8 @@ Hay más de una forma de implementar Azure Firewall Manager, pero se recomienda 
 > - No se puede tener más de un concentrador por red WAN virtual por región. Sin embargo, es posible agregar varias redes WAN virtuales en la región para lograrlo.
 > - No se pueden tener espacios de direcciones IP superpuestos para los concentradores de una vWAN.
 > - Las conexiones de red virtual del concentrador deben estar en la misma región que el concentrador.
+>
+> Para obtener más información sobre problemas conocidos, consulte [¿Qué es Azure Firewall Manager?](overview.md#known-issues)
 
 ## <a name="convert-virtual-networks"></a>Conversión de redes virtuales
 

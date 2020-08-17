@@ -494,6 +494,8 @@
               href: platform/alerts-metric.md
             - name: Uso de umbrales dinámicos
               href: platform/alerts-dynamic-thresholds.md
+            - name: Alertas individuales para muchas series temporales
+              href: platform/alerts-metric-multiple-time-series-single-rule.md
             - name: Alertas de métricas en registros
               href: platform/alerts-metric-logs.md
             - name: Uso de la plantilla de Resource Manager

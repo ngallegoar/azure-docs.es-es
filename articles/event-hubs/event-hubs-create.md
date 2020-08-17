@@ -3,12 +3,12 @@ title: 'Guía de inicio rápido de Azure: Creación de un centro de eventos medi
 description: En esta guía de inicio rápido, aprenderá a crear un centro de eventos de Azure desde Azure Portal y, después, enviar y recibir eventos mediante el SDK de .NET Standard.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 9ca71dbb1a82e3fd9fe241e197b0bcbbfec2dcb8
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: bc9190bba6b21e59f10f51bd0eb7da2426f6d1b4
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323147"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902123"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Inicio rápido: Creación de un centro de eventos mediante Azure Portal
 Azure Event Hubs es una plataforma de streaming de macrodatos y servicio de ingesta de eventos de gran escalabilidad capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. Para más información sobre Event Hubs, consulte [Introducción a Event Hubs](event-hubs-about.md) y [Características de Event Hubs](event-hubs-features.md).
@@ -20,7 +20,7 @@ En esta guía de inicio rápido se crea un centro de eventos mediante [Azure Por
 Para completar esta guía de inicio rápido, asegúrese de que tiene:
 
 - Suscripción de Azure. Si no tiene una, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-- [Visual Studio 2019](https://www.visualstudio.com/vs) o cualquier versión posterior.
+- [Visual Studio 2019](https://www.visualstudio.com/vs) o posterior.
 - [SDK de .NET Standard](https://www.microsoft.com/net/download/windows), versión 2.0 o posterior.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
