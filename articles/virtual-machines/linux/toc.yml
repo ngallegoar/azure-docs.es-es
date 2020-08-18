@@ -418,7 +418,7 @@
         - name: Información general sobre la migración
           href: migration-classic-resource-manager-overview.md
         - name: Análisis a fondo de la migración
-          href: migration-classic-resource-manager-deep-dive.md
+          href: ../migration-classic-resource-manager-deep-dive.md
         - name: Planear la migración
           href: migration-classic-resource-manager-plan.md
         - name: Migrar mediante la CLI
@@ -428,7 +428,7 @@
         - name: Herramientas de la comunidad para la migración
           href: ../windows/migration-classic-resource-manager-community-tools.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Preguntas más frecuentes
-          href: migration-classic-resource-manager-faq.md
+          href: ../migration-classic-resource-manager-faq.md
     - name: Uso de imágenes
       displayName: 'SIG, AMI, image'
       items:
@@ -954,7 +954,7 @@
           href: detach-disk.md
         - name: Implementación de discos con plantilla de Resource Manager
           displayName: 'Azure Resource Manager, ARM'
-          href: using-managed-disks-template-deployments.md
+          href: ../using-managed-disks-template-deployments.md
         - name: Habilitación de discos compartidos
           href: disks-shared-enable.md
         - name: 'Carga de un disco duro virtual en un disco: CLI'
@@ -1004,7 +1004,7 @@
         - name: Rendimiento
           items:
             - name: Uso del acelerador de escritura
-              href: how-to-enable-write-accelerator.md
+              href: ../how-to-enable-write-accelerator.md
             - name: Uso de Ultra Disks
               href: disks-enable-ultra-ssd.md
             - name: Realización de pruebas comparativas de un disco
