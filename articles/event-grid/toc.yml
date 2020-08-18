@@ -236,7 +236,7 @@
       items:
         - name: Configuración de puntos de conexión privados
           href: configure-private-endpoints.md
-        - name: Configuración de la dirección IP del firewall (versión preliminar)
+        - name: Configuración de la dirección IP del firewall
           href: configure-firewall.md
         - name: Protección de webhook con AAD
           href: secure-webhook-delivery.md

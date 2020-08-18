@@ -654,13 +654,19 @@
                   href: app/opencensus-python-dependency.md
                 - name: Requests
                   href: app/opencensus-python-request.md
-            - name: Páginas web
+            - name: JavaScript
               items:
                 - name: JavaScript del lado cliente
                   displayname: 'SPA, Single Page Applications, React, JS, Angular'
                   href: app/javascript.md
                 - name: Mapa de origen para JavaScript
                   href: app/source-map-support.md
+                - name: Complementos
+                  items:
+                    - name: Complemento React
+                      href: app/javascript-react-plugin.md
+                    - name: Complemento React Native
+                      href: app/javascript-react-native-plugin.md
                 - name: Solución de problemas
                   items:
                     - name: Error de carga de SDK
@@ -1055,7 +1061,7 @@
       items:
         - name: Azure Cache for Redis (versión preliminar)
           href: insights/redis-cache-insights-overview.md
-        - name: "Azure Cosmos\_DB"
+        - name: Azure Cosmos DB
           href: insights/cosmosdb-insights-overview.md
         - name: Redes
           href: insights/network-insights-overview.md
