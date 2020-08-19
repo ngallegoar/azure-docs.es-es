@@ -3,18 +3,18 @@ title: Instalación de Hybrid Cloud Extension (HCX)
 description: Configuración de la solución VMware Hybrid Cloud Extension (HCX) para la nube privada de Azure VMware Solution (AVS)
 ms.topic: how-to
 ms.date: 07/15/2020
-ms.openlocfilehash: ea968cb21812f7273af342763d307c2faba1eea6
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 84388c3ec53d9067df2580aabb21ca5885d154b8
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475454"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905000"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Instalación de HCX para Azure VMware Solution
 
 En este artículo, se recorren los procedimientos para configurar la solución VMware Hybrid Cloud Extension (HCX) para la nube privada de Azure VMware Solution (AVS). HCX permite la migración de las cargas de trabajo de VMware a la nube y a otros sitios conectados mediante diversos tipos de migración integrados compatibles con HCX.
 
-HCX Advanced, la instalación predeterminada, admite hasta tres instancias de vCenter. Si se necesitan más de tres, los clientes tienen la opción de habilitar el complemento HCX Enterprise mediante el soporte técnico. La instalación de HCX Enterprise conlleva cargos adicionales para los clientes después de la disponibilidad general (GA), pero proporciona [características adicionales](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
+HCX Advanced, la instalación predeterminada, admite hasta tres conexiones de sitio (locales o de nube a nube). Si se necesitan más de tres conexiones de sitio, los clientes tienen la opción de habilitar el complemento HCX Enterprise mediante el soporte técnico, que, de momento, está en versión preliminar. HCX Enterprise conlleva cargos adicionales para los clientes después de la disponibilidad general (GA), pero proporciona [características adicionales](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
 
 
 Revise primero detenidamente las secciones [Antes de comenzar](#before-you-begin), [Requisitos de versión de software](#software-version-requirements) y [Requisitos previos](#prerequisites). 
@@ -22,7 +22,7 @@ Revise primero detenidamente las secciones [Antes de comenzar](#before-you-begin
 A continuación, se van a examinar todos los procedimientos necesarios para:
 
 > [!div class="checklist"]
-> * Implementar OVA de HCX en el entorno local
+> * Implementar OVA de HCX (conector) local
 > * Activar y configurar HCX
 > * Configurar el vínculo superior de red y la malla de servicio
 > * Completar la instalación mediante la comprobación del estado del dispositivo
@@ -36,11 +36,14 @@ Después de completar la instalación, puede seguir los siguientes pasos recomen
 * Revise los documentos de VMware [Migración de máquinas virtuales con VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g).
 * También, revise [Consideraciones de implementación de VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html).
 * Opcionalmente, revise los materiales relacionados de VMware en HCX, como la [serie de blogs](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html) de VMware vSphere en HCX. 
-* Pida una activación de HCX Enterprise de AVS mediante los canales de soporte técnico de AVS.
+* Solicite una activación de HCX Enterprise de AVS por medio de los canales de soporte técnico de AVS.
 
-El ajuste de tamaño de las cargas de trabajo con respecto a los recursos de proceso y almacenamiento es un paso esencial del planeamiento al prepararse para utilizar la solución HCX de la nube privada de AVS. Aborde el paso de ajuste de tamaño como parte del planeamiento inicial del entorno de la nube privada.   
+El ajuste de tamaño de las cargas de trabajo con respecto a los recursos de cálculo y almacenamiento es un paso esencial del planeamiento al prepararse para usar la solución HCX de la nube privada de AVS. Aborde el paso de ajuste de tamaño como parte del planeamiento inicial del entorno de la nube privada. 
+
+También puede ajustar el tamaño de las cargas de trabajo si completa una evaluación de AVS en el portal de Azure Migrate (https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment).
 
 ## <a name="software-version-requirements"></a>Requisitos de versión de software
+
 Los componentes de la infraestructura deben ejecutar la versión mínima necesaria. 
                                                          
 | Tipo de componente    | Requisitos del entorno de origen    | Requisitos del entorno de destino   |
