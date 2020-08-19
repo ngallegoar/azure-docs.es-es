@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 6b7453a0100233896e3d01769897ed224a0b2618
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03fe71855c43ba831f4b7a4ab746f05bd3bbb4a3
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737553"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846860"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Creación de una instancia de Azure Network Watcher
 
@@ -57,7 +57,7 @@ Cuando habilita Network Watcher mediante el portal, el nombre de la instancia de
 
 La instancia de Network Watcher se crea automáticamente en un grupo de recursos denominado *NetworkWatcherRG*. El grupo de recursos se crea si todavía no existe.
 
-Si desea personalizar el nombre de una instancia de Network Watcher y el grupo de recursos en que se encuentra, puede usar PowerShell, la CLI de Azure, la API REST o los métodos de ARMClient que se describen en la sección siguiente. En cada opción, el grupo de recursos debe existir antes de crear una instancia de Network Watcher ahí.  
+Si quiere personalizar el nombre de una instancia de Network Watcher y el grupo de recursos en que se encuentra, puede usar PowerShell, la CLI de Azure, la API REST o los métodos de ARMClient que se describen en la sección siguiente. En cada opción, el grupo de recursos debe existir antes de crear una instancia de Network Watcher ahí.  
 
 ## <a name="create-a-network-watcher-with-powershell"></a>Creación de una instancia de Network Watcher con PowerShell
 
@@ -100,6 +100,10 @@ $requestBody = @"
 
 armclient put "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}?api-version=${api-version}" $requestBody
 ```
+
+## <a name="create-a-network-watcher-using-azure-quickstart-template"></a>Creación de una instancia de Network Watcher con la plantilla de inicio rápido de Azure
+
+Para crear una instancia de Network Watcher, consulte esta [plantilla de inicio rápido](https://azure.microsoft.com/resources/templates/101-networkwatcher-create/).
 
 ## <a name="delete-a-network-watcher-in-the-portal"></a>Eliminación de una instancia de Network Watcher en el portal
 

@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d582db4bd7ef99d86602f49bc9046aadb8c3e8f0
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: e260ff55c3039b7943137ff1656068e9b5b9cb28
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460616"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053233"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migración a la autenticación en la nube mediante un lanzamiento preconfigurado (versión preliminar)
 
@@ -84,7 +84,7 @@ Los siguientes escenarios no se admiten en el lanzamiento preconfigurado:
 
 - La primera vez que se agrega un grupo de seguridad para el lanzamiento preconfigurado, está limitado a 200 usuarios para evitar que se agote el tiempo de espera de la experiencia de usuario. Después de agregar el grupo, puede agregarle más usuarios directamente, según sea necesario.
 
-- Mientras los usuarios están en el lanzamiento preconfigurado, la directiva de expiración de contraseñas se establece en 90 días sin opción de personalizarla. 
+- Mientras los usuarios están en fase de lanzamiento preconfigurado, cuando EnforceCloudPasswordPolicyForPasswordSyncedUsers está habilitado, la directiva de expiración de contraseñas se establece en 90 días sin la opción de personalizarla. 
 
 
 ## <a name="get-started-with-staged-rollout"></a>Introducción al lanzamiento preconfigurado

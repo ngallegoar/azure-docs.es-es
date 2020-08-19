@@ -1,6 +1,6 @@
 ---
 title: Métricas de Azure Storage Analytics (clásicas)
-description: Obtenga información sobre cómo usar métricas de Storage Analytics en Azure Storage.
+description: Obtenga información sobre cómo usar métricas de Storage Analytics en Azure Storage. Aprenda sobre las métricas de transacción y capacidad, cómo se almacenan las métricas, cómo se habilitan, etc.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: b4bb17fce7be7aeff2a6978177106201e4c80aee
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7d7db5a756e5d75cb4f9719f54d95f9cee1e8d2f
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087278"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828054"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Métricas de Azure Storage Analytics (clásicas)
 

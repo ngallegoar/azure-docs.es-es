@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: j-martens
 ms.author: jmartens
 ms.date: 06/11/2020
-ms.openlocfilehash: 173ff8b638c40773ca2c4bdac5021f2ea4b84549
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa754868677802b7d0000045f22090fbca62d9b6
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555540"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927426"
 ---
 # <a name="enterprise-and-basic-editions-of-azure-machine-learning"></a>Ediciones Enterprise y Basic de Azure Machine Learning 
 
@@ -112,7 +112,7 @@ Aprenda a [actualizar un área de trabajo de la edición Basic a Enterprise](how
 
 | Capacidades     | Edición                 |
 |------------------------------------------------------------------------------------|:-----------:|
-| Compatibilidad con [control de acceso basado en rol](how-to-assign-roles.md) (RBAC)                                           | All                     |
+| Compatibilidad con el [control de acceso basado en rol de Azure (RBAC de Azure)](how-to-assign-roles.md)                                           | All                     |
 | Compatibilidad del proceso con [redes virtuales (VNet)](how-to-enable-virtual-network.md)                                         | All                     |
 | Autenticación de puntos de conexión de puntuación                                                    | All                     |
 | [Private Link del área de trabajo](how-to-configure-private-link.md)                                                            | All                     |

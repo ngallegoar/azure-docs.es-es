@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ad84b8910e8d4f8af9845c33c22d128e317dedc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 870027637d9c45d0d5150db12046e454146ff169
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74232102"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829640"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planeamiento de la implementación de la supervisión y los informes de Azure Active Directory
 
@@ -193,6 +193,4 @@ En función de las decisiones que haya tomado anteriormente mediante la guía de
 
 Considere la posibilidad de implementar [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) 
 
-Considere la posibilidad de implementar el [control de acceso basado en rol (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
-
- 
+Considere la posibilidad de implementar el [control de acceso basado en rol de Azure (RBAC de Azure)](https://docs.microsoft.com/azure/role-based-access-control/overview).

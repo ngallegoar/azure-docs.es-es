@@ -1,6 +1,6 @@
 ---
 title: Modelado de relaciones en el diseño de almacenamiento en tablas de Azure | Microsoft Docs
-description: Comprenda el proceso de modelado al diseñar una solución de almacenamiento en tablas.
+description: Comprenda el proceso de modelado al diseñar la solución de almacenamiento de Azure Table. Lea acerca de las relaciones uno a varios, uno a uno y de herencia.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 25082c107fbc0feeb533aa2b4fc56cff960e778d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8c803a7b11aee3d57d6145bed296bd40ddd9bb5e
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75457563"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036052"
 ---
 # <a name="modeling-relationships"></a>Modelado de relaciones
 En este artículo se explica el proceso de modelado para ayudarle a diseñar soluciones de almacenamiento en tablas de Azure.
@@ -122,7 +122,7 @@ Para más información acerca de cómo trabajar con varios tipos de entidad en l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Patrones de diseño de tablas](table-storage-design-patterns.md)
+- [Patrones de diseño de tabla](table-storage-design-patterns.md)
 - [Diseño de consulta](table-storage-design-for-query.md)
 - [Cifrado de datos de tabla](table-storage-design-encrypt-data.md)
 - [Diseño para la modificación de datos](table-storage-design-for-modification.md)

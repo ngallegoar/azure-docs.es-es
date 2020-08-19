@@ -1,6 +1,6 @@
 ---
 title: Administración de cuentas de usuario en Azure API Management | Microsoft Docs
-description: Más información acerca de cómo crear usuarios o invitarlos en Azure API Management
+description: Aprenda a crear o a invitar usuarios en Azure API Management. Vea recursos adicionales que se pueden usar después de crear una cuenta de desarrollador.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: d8f7d7f7707add22d700421b229f6dbe725db465
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9ec482af2878ba302a4658314723b96fb9a42999
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250466"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904894"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Administración de cuentas de usuario en Azure API Management
 

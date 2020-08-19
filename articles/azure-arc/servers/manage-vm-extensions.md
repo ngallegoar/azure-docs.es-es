@@ -3,16 +3,12 @@ title: Administración de extensiones de máquina virtual con Azure Arc para ser
 description: Azure Arc para servidores (versión preliminar) puede administrar la implementación de extensiones de máquina virtual que proporcionan tareas de automatización y configuración posteriores a la implementación con máquinas virtuales que no son de Azure.
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
-ms.openlocfilehash: e04b2c63f782a4fcbb64273c08511ecb0bbc2bc3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0319420fe528d41a23ee8fae90c4ad8c326f35a0
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84977652"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121313"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-for-servers-preview"></a>Administración de extensiones de máquina virtual con Azure Arc para servidores (versión preliminar)
 
@@ -34,7 +30,7 @@ La compatibilidad con la extensión de máquina virtual de Azure Arc para servid
 
 ## <a name="availability"></a>Disponibilidad
 
-La funcionalidad de la extensión de VM solo está disponible en la lista de [regiones admitidas](overview.md#supported-regions). Asegúrese de incorporar el equipo en una de estas regiones.
+La funcionalidad de la extensión de máquina virtual solo está disponible en la lista de [regiones admitidas](overview.md#supported-regions). Asegúrese de incorporar el equipo en una de estas regiones.
 
 ## <a name="extensions"></a>Extensiones
 
@@ -727,6 +723,6 @@ Los pasos de solución de problemas siguientes se aplican a todas las extensione
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre cómo administrar la máquina con [Azure Policy](../../governance/policy/overview.md) para, por ejemplo, la [configuración de invitado](../../governance/policy/concepts/guest-configuration.md) de VM, la comprobación de que la máquina informa al área de trabajo de Log Analytics esperada, la habilitación de la supervisión con [Azure Monitor con máquinas virtuales](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md) y mucho más.
+- Obtenga información sobre cómo administrar la máquina con [Azure Policy](../../governance/policy/overview.md) para, por ejemplo, la [configuración de invitado](../../governance/policy/concepts/guest-configuration.md) de VM, la comprobación de que la máquina informa al área de trabajo de Log Analytics esperada, la habilitación de la supervisión con [Azure Monitor con máquinas virtuales](../../azure-monitor/insights/vminsights-enable-policy.md) y mucho más.
 
 - Más información sobre el [agente de Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). El agente de Log Analytics para Windows y Linux es necesario si desea supervisar de forma proactiva el sistema operativo y las cargas de trabajo que se ejecutan en la máquina, administrarlos mediante runbooks de Automation o soluciones como Update Management, o usar otros servicios de Azure como [Azure Security Center](../../security-center/security-center-intro.md).

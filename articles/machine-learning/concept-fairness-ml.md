@@ -1,5 +1,5 @@
 ---
-title: Evaluación y mitigación de problemas de equidad en los modelos de aprendizaje automático (versión preliminar)
+title: Mitigación de la equidad en los modelos de aprendizaje automático (versión preliminar)
 titleSuffix: Azure Machine Learning
 description: Obtenga información sobre la imparcialidad en los modelos de Machine Learning y cómo el paquete de Python de Fairlearn puede ayudarle a crear modelos más imparciales.
 services: machine-learning
@@ -8,22 +8,22 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 07/09/2020
-ms.openlocfilehash: 2cc3228c20fba322ec804a3bcc9ee322c7d37907
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 08/05/2020
+ms.openlocfilehash: 0d3e49fbb11af92d016910e91b0144f6de998238
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207305"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829380"
 ---
-# <a name="build-fairer-machine-learning-models-preview"></a>Generación de modelos de aprendizaje automático más equitativos (versión preliminar)
+# <a name="mitigate-fairness-in-machine-learning-models-preview"></a>Mitigación de la equidad en los modelos de aprendizaje automático (versión preliminar)
 
-Obtenga información sobre la equidad en el aprendizaje automático y cómo el paquete de Python de código abierto [Fairlearn](https://fairlearn.github.io/) puede ayudarle a crear modelos que sean más equitativos. Si no realiza ningún esfuerzo para comprender los problemas de equidad y evaluar la equidad al crear modelos de aprendizaje automático, puede crear modelos que produzcan resultados no equitativos. 
+Aprenda sobre la equidad en el aprendizaje automático y cómo el paquete de Python de código abierto [Fairlearn](https://fairlearn.github.io/) puede ayudarle a mitigar los problemas relacionados. Si no realiza ningún esfuerzo para comprender los problemas de equidad y evaluar la equidad al crear modelos de aprendizaje automático, puede crear modelos que produzcan resultados no equitativos.
 
 En el siguiente resumen de la [guía de usuario](https://fairlearn.github.io/user_guide/index.html) para el paquete de código abierto de Fairlearn, se describe cómo utilizarlo para evaluar la equidad de los sistemas de inteligencia artificial que está compilando.  El paquete de código abierto de Fairlearn también puede ofrecer opciones para ayudar a mitigar o ayudar a reducir los problemas de equidad que observe.  Consulte los [procedimientos](how-to-machine-learning-fairness-aml.md) y [los cuadernos de muestra](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) para habilitar la evaluación de equidad de los sistemas de AI durante el entrenamiento en Azure Machine Learning.
 
 
-## <a name="what-is-fairness-in-machine-learning-systems"></a>¿Qué es la imparcialidad en los sistemas de aprendizaje automático?
+## <a name="what-is-fairness-in-machine-learning-models"></a>¿Qué es la equidad en los sistemas de aprendizaje automático?
 
 >[!NOTE]
 > La imparcialidad es un desafío técnico y social. Muchos aspectos de la imparcialidad, tales como la justicia y el proceso de vencimiento, no se capturan en métricas cuantitativas de imparcialidad. Asimismo, muchas métricas cuantitativas de imparcialidad no se pueden satisfacer simultáneamente. El objetivo del paquete de código abierto de Fairlearn es permitir a los usuarios evaluar las distintas estrategias de impacto y mitigación. En última instancia, es responsabilidad de los usuarios humanos crear modelos de inteligencia artificial y aprendizaje automático con el fin de crear ventajas para su escenario.
@@ -38,7 +38,6 @@ Estos son dos tipos comunes de daños que puede causar la IA:
 
 Para reducir el comportamiento parcial de los sistemas de AI, tiene que evaluar y mitigar estos daños.
 
-
 ## <a name="fairness-assessment-and-mitigation-with-fairlearn"></a>Evaluación y mitigación de imparcialidad con Fairlearn
 
 Fairlearn es un paquete de Python de código abierto que permite a los desarrolladores de sistemas de aprendizaje automático evaluar la imparcialidad de sus sistemas y mitigar los problemas de imparcialidad observados.
@@ -50,7 +49,8 @@ El paquete de código abierto de Fairlearn tiene dos componentes:
 
 Juntos, estos componentes permiten a los científicos de datos y a los líderes empresariales administrar cualquier intercambio entre imparcialidad y rendimiento, y seleccionar la estrategia de mitigación que mejor se adapte a sus necesidades.
 
-## <a name="fairness-assessment"></a>Evaluación de imparcialidad
+## <a name="assess-fairness-in-machine-learning-models"></a>Acceso a la equidad en los modelos de aprendizaje automático
+
 En el paquete de código abierto de Fairlearn, la equidad se conceptualiza a través de un enfoque conocido como **equidad de grupo**, que pregunta: ¿Qué grupos de usuarios están en riesgo de experimentar daños? Los grupos pertinentes, también conocidos como subpoblaciónes, se definen a través de **características confidenciales** o atributos confidenciales. Las características confidenciales se pasan a un estimador en el paquete de código abierto de Fairlearn como un vector o una matriz denominada `sensitive_features`. El término sugiere que el diseñador del sistema debe mantener la confidencialidad de estas características al evaluar la imparcialidad del grupo. 
 
 Algo que se debe tener en cuenta es si estas características contienen implicaciones de privacidad debido a datos privados. De todos modos, la palabra "confidencial" no implica que estas características no se utilicen para realizar predicciones.
@@ -72,7 +72,7 @@ Durante la fase de valoración, la imparcialidad se cuantifica a través de las 
 
 - Disparidad en la tasa de selección: esta métrica contiene la diferencia de la tasa de selección entre distintos subgrupos. Un ejemplo de esto es la disparidad en la tasa de aprobación de préstamos. La tasa de selección indica la fracción de los puntos de referencia de cada clase clasificada como 1 (en la clasificación binaria) o la distribución de los valores de predicción (en la regresión).
 
-## <a name="unfairness-mitigation"></a>Mitigación de la parcialidad
+## <a name="mitigate-unfairness-in-machine-learning-models"></a>Mitigación de la parcialidad en los modelos de aprendizaje automático
 
 ### <a name="parity-constraints"></a>Restricciones de paridad
 

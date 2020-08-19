@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: a8138f125c55e3b2d76cb680ea48366c5a3e05fd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 38973e5484ece0b47e2f81ad78c716b5ee49cead
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051525"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829703"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Creación de un punto de conexión SCIM y configuración del aprovisionamiento de usuarios con Azure AD
 
@@ -745,7 +745,7 @@ Barra mínima de conjuntos de cifrado TLS 1.2:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>Intervalos IP
-Actualmente, el servicio de aprovisionamiento de Azure AD puede funcionar con cualquier intervalo de direcciones IP de Azure. Estamos trabajando para consolidar el conjunto de intervalos IP en los que opera el servicio. Este documento se actualizará una vez que la lista de intervalos IP esté consolidada. 
+El servicio de aprovisionamiento de Azure AD actualmente opera en los intervalos IP de AzureActiveDirectory y AzureActiveDirectoryDomainServices, tal y como se muestra [aquí](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Se está trabajando para consolidar solo los intervalos IP de AzureActiveDirectory. 
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Paso 3: Cree un punto de conexión SCIM
 

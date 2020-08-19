@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: 4ac95fa81fdbee237cacaa1541e333bb70c370fa
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f4938d517d9a5c244045798a79f31b96bacd03f5
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323305"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829448"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>¿Qué es una instancia de proceso de Azure Machine Learning?
 
@@ -33,7 +33,7 @@ Una instancia de proceso es una estación de trabajo totalmente administrada bas
 |Ventajas principales|Descripción|
 |----|----|
 |Productividad|Puede compilar e implementar modelos con cuadernos integrados y las siguientes herramientas en Azure Machine Learning Studio:<br/>-  Jupyter<br/>-  JupyterLab<br/>-RStudio (versión preliminar)<br/>La instancia de proceso está totalmente integrada con el área de trabajo y estudio de Azure Machine Learning. Puede compartir cuadernos y datos con otros científicos de datos en el área de trabajo. También puede configurar el desarrollo remoto VS Code con [SSH](how-to-set-up-vs-code-remote.md) |
-|Administrada y segura|Reduzca la superficie de seguridad y agregue compatibilidad con los requisitos de seguridad empresariales. Las instancias de proceso proporcionan directivas de administración sólidas y configuraciones de red seguras, como:<br/><br/>- Aprovisionamiento automatizado a partir de plantillas de Resource Manager o del SDK de Azure Machine Learning<br/>- [Control de acceso basado en rol (RBAC)](/azure/role-based-access-control/overview)<br/>- [Compatibilidad con redes virtuales](how-to-enable-virtual-network.md#compute-instance)<br/>- Directiva SSH para habilitar o deshabilitar el acceso SSH<br/>TLS 1.2 habilitado |
+|Administrada y segura|Reduzca la superficie de seguridad y agregue compatibilidad con los requisitos de seguridad empresariales. Las instancias de proceso proporcionan directivas de administración sólidas y configuraciones de red seguras, como:<br/><br/>- Aprovisionamiento automatizado a partir de plantillas de Resource Manager o del SDK de Azure Machine Learning<br/>- [Control de acceso basado en rol de Azure (RBAC de Azure)](/azure/role-based-access-control/overview)<br/>- [Compatibilidad con redes virtuales](how-to-enable-virtual-network.md#compute-instance)<br/>- Directiva SSH para habilitar o deshabilitar el acceso SSH<br/>TLS 1.2 habilitado |
 |Preconfigurado &nbsp;para&nbsp;ML|Ahorre tiempo en las tareas de configuración con paquetes de ML preconfigurados y actualizados, marcos de aprendizaje profundo y controladores de GPU.|
 |Totalmente personalizable|La amplia compatibilidad con los tipos de máquina virtual de Azure, incluidas las GPU y la personalización de bajo nivel persistente, como la instalación de paquetes y controladores, hace que los escenarios avanzados sean muy sencillos. |
 

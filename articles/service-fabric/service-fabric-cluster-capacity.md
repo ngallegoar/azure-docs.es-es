@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: f2af8dcb2460e4e95d29bd81e6994d145ac61a48
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4949a83ac2aac664c19be46a367fce2bbff4cb02
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247786"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904826"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Consideraciones de planeación de capacidad del clúster de Service Fabric
 
@@ -155,7 +155,7 @@ Las necesidades de capacidad del clúster se determinarán según sus requisitos
 
 #### <a name="virtual-machine-sizing"></a>Tamaño de la máquina virtual
 
-**En las cargas de trabajo de producción, el tamaño de máquina virtual recomendado (SKU) es estándar D2_V2 (o equivalente) con un mínimo de 50 GB de SSD local.** Se recomienda un mínimo de 50 GB de SSD local, pero algunas cargas de trabajo (como las que ejecutan contenedores de Windows) requerirán discos de mayor tamaño. Al elegir otros [tamaños de máquina virtual](../virtual-machines/sizes-general.md) para cargas de trabajo de producción, tenga en cuenta las siguientes restricciones:
+**En las cargas de trabajo de producción, el tamaño de máquina virtual recomendado (SKU) es [Standard D2_V2](../virtual-machines/dv2-dsv2-series.md) (o equivalente) con un mínimo de 50 GB de SSD local, 2 núcleos y 4 GiB de memoria.** Se recomienda un mínimo de 50 GB de SSD local, pero algunas cargas de trabajo (como las que ejecutan contenedores de Windows) requerirán discos de mayor tamaño. Al elegir otros [tamaños de máquina virtual](../virtual-machines/sizes-general.md) para cargas de trabajo de producción, tenga en cuenta las siguientes restricciones:
 
 - No se admiten tamaños de máquina virtual de base parcial como A0 estándar.
 - *La serie A* de tamaños de máquina virtual no se admiten por motivos de rendimiento.
