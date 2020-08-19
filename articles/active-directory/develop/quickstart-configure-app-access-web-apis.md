@@ -13,12 +13,12 @@ ms.date: 08/05/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: 800b399e73be032cfd9d2849b004018aa9d9031f
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 87c21587567ffe3462e4b702985114ac10454886
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120871"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140809"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Inicio rápido: Configuración de una aplicación cliente para acceder a las API web
 
@@ -148,7 +148,7 @@ Para agregar un secreto de cliente:
 
 ## <a name="add-permissions-to-access-web-apis"></a>Adición de permisos para acceder a las API web
 
-El [permiso Iniciar sesión y leer el perfil de usuario de Graph API](https://developer.microsoft.com/graph/docs/concepts/permissions_reference#user-permissions) se selecciona de forma predeterminada. Puede seleccionar entre [dos tipos de permisos](developer-glossary.md#permissions) para cada API web:
+El [permiso Iniciar sesión y leer el perfil de usuario de Graph API](/graph/permissions-reference#user-permissions) se selecciona de forma predeterminada. Puede seleccionar entre [dos tipos de permisos](developer-glossary.md#permissions) para cada API web:
 
 * **Permisos de aplicación**. La aplicación cliente necesita acceso directo a la API web como sí misma, sin contexto de usuario. Este tipo de permiso requiere el consentimiento del administrador. Este permiso no está disponible para aplicaciones cliente de escritorio y móviles.
 * **Permisos delegados**. la aplicación cliente necesita acceso a la API web como el usuario que inició sesión, pero con acceso limitado por el permiso seleccionado. Este tipo de permiso lo puede conceder un usuario a menos que el permiso requiera el consentimiento del administrador.

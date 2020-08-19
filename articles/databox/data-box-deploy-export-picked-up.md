@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 332b4fdb6e0a26437edbf4309ee0b89b79f7eb23
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 04e4394e6a439c923558ef90e13c14c0adaa4020
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845806"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142118"
 ---
 # <a name="tutorial-return-azure-data-box-preview"></a>Tutorial: Devolución de Azure Data Box Disk (versión preliminar)
 
@@ -176,7 +176,7 @@ Si encuentra algún problema, envíe un correo electrónico a Data Box Operation
 
 ## <a name="self-managed"></a>[Autoadministrado](#tab/in-selfmanaged)
 
-Si usa Data Box en Japón, Singapur, Corea y Oeste de Europa, y ha seleccionado la opción de envío autoadministrado durante la creación del pedido, siga estas instrucciones.
+Si usa Data Box en Japón, Singapur, Corea, India, Sudáfrica u Oeste de Europa, y ha seleccionado la opción de envío autoadministrado al crear el pedido, siga estas instrucciones.
 
 1. Una vez que este paso se complete correctamente, anote el código de autorización que se muestra en la página Preparación para el envío de la interfaz de usuario web local de Data Box.
 2. Apague el dispositivo y quite los cables. Enrolle y coloque de forma segura el cable de alimentación que se suministró junto con el dispositivo en la parte posterior del mismo.

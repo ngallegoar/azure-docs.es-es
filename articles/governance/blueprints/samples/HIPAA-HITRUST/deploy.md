@@ -1,14 +1,14 @@
 ---
 title: Implementación del ejemplo de plano técnico de HIPAA HITRUST
 description: Pasos de implementación para el ejemplo de plano técnico de HIPAA HITRUST, incluidos los detalles de los parámetros del artefacto de plano técnico.
-ms.date: 12/03/2019
+ms.date: 08/03/2020
 ms.topic: sample
-ms.openlocfilehash: b3101d67e281f3b613b95e3f3ef5f620ae44cec7
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: f41827d687beb583ea6402d517e88b8cf69903a0
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044845"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211521"
 ---
 # <a name="deploy-the-hipaa-hitrust-blueprint-sample"></a>Implementación del ejemplo de plano técnico de HIPAA HITRUST
 
@@ -106,6 +106,8 @@ Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|Descripción|
 |Implementación de auditorías en servidores SQL Server |Asignación de directiva |Nombre del grupo de recursos para la cuenta de almacenamiento para la auditoría del servidor de SQL |La auditoría escribe los eventos de base de datos en un registro de auditoría en la cuenta de Azure Storage (se creará una cuenta de almacenamiento en cada región en la que se cree una instancia de SQL Server que compartirán todos los servidores de esa región). Importante: para el correcto funcionamiento de la auditoría, no elimine ni cambie el nombre del grupo de recursos o de las cuentas de almacenamiento. |
 |Implementación de la configuración de diagnóstico de grupos de seguridad de red |Asignación de directiva |Prefijo de la cuenta de almacenamiento para diagnósticos de grupos de seguridad de red |Este prefijo se combina con la ubicación del grupo de seguridad de red para formar el nombre de la cuenta de almacenamiento que se creó. |
 |Implementación de la configuración de diagnóstico de grupos de seguridad de red |Asignación de directiva |Nombre del grupo de recursos para la cuenta de almacenamiento para el diagnóstico de grupos de seguridad de red (deben existir) |El grupo de recursos en el que se ha creado la cuenta de almacenamiento. Este grupo de recursos ya debe existir. |
+|\[Versión preliminar\]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Linux |Asignación de directiva |Área de trabajo de Log Analytics para VM Scale Sets (VMSS) para Linux |Si este área de trabajo está fuera del ámbito de la asignación, debe conceder manualmente los permisos de "colaborador de Log Analytics" (o similar) al identificador de la entidad de seguridad de la asignación de la directiva. |
+|\[Versión preliminar\]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Windows |Asignación de directiva |Área de trabajo de Log Analytics para VM Scale Sets (VMSS) para Linux |Si este área de trabajo está fuera del ámbito de la asignación, debe conceder manualmente los permisos de "colaborador de Log Analytics" (o similar) al identificador de la entidad de seguridad de la asignación de la directiva. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
