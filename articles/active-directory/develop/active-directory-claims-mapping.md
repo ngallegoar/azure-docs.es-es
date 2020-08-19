@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 08/06/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 29dc03d663d590c13a1948411ed597388750c1d7
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: d518dcf833a49e32d72938a31da412d53cc40037
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87427995"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141540"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedimientos: Personalizar las notificaciones emitidas en tokens para una determinada aplicación de un inquilino (versión preliminar)
 
@@ -261,13 +261,15 @@ Para controlar qué reclamaciones se emiten y de dónde provienen los datos, uti
 **Tipo de datos:** blob de JSON con una o varias entradas de esquema de notificación
 
 **Resumen:** en esta propiedad se definen las notificaciones que están presentes en los tokens afectados por la directiva, además del conjunto de notificaciones básicas y el conjunto de notificaciones principales.
-Para cada entrada de esquema de notificación definida en esta propiedad, se requiere cierta información. Especifique de dónde provienen los datos (**valor** o **par origen/identificador**) y qué notificación se usa para emitir los datos (**tipo de notificación**).
+Para cada entrada de esquema de notificación definida en esta propiedad, se requiere cierta información. Especifique de dónde provienen los datos (**valor**, **par origen/identificador** o **par origen/identificador de extensión**) y qué notificación se usa para emitir los datos (**tipo de notificación**).
 
 ### <a name="claim-schema-entry-elements"></a>Elementos de entrada de esquema de notificación
 
 **Valor:** el elemento Valor define un valor estático para los datos que se emiten en la notificación.
 
-**Par origen/Id.:** los elementos Origen e Id. definen en dónde se originan los datos de la notificación. 
+**Par origen/Id.:** los elementos Origen e Id. definen en dónde se originan los datos de la notificación.  
+
+**Par origen/identificador de extensión:** los elementos Source y ExtensionID definen el atributo de extensión de esquema de directorio que son el origen de los datos de la notificación. Para más información, consulte [Uso de atributos de extensión de esquema de directorio en notificaciones](active-directory-schema-extensions.md).
 
 Establezca el elemento Source (Origen) en uno de los valores siguientes: 
 
@@ -327,7 +329,7 @@ El elemento ID identifica la propiedad en el origen que proporciona el valor de 
 | Usuario | facsimiletelephonenumber | Número de teléfono de fax |
 | Usuario | assignedroles | Lista de roles de aplicación asignados al usuario|
 | application, resource, audience | displayname | Display Name (Nombre para mostrar) |
-| application, resource, audience | objected | ObjectID |
+| application, resource, audience | objectid | ObjectID |
 | application, resource, audience | etiquetas | Etiqueta de entidad de servicio |
 | Compañía | tenantcountry | País o región del inquilino |
 
@@ -416,7 +418,7 @@ En función del método elegido, se espera un conjunto de entradas y salidas. De
 
 ### <a name="custom-signing-key"></a>Clave de firma de personalizada
 
-Debe asignarse una clave de firma personalizada al objeto de entidad de servicio para que una directiva de asignación de notificaciones surta efecto. Esto garantiza que el creador de la directiva de asignación de notificaciones es el que ha modificado los tokens y protege a las aplicaciones frente a directivas de asignación de notificaciones creadas por actores malintencionados. Para agregar una clave de firma personalizada, puede usar el cmdlet `new-azureadapplicationkeycredential` de Azure PowerShell para crear una credencial de clave simétrica para el objeto de aplicación. Para obtener más información sobre este cmdlet de Azure PowerShell, consulte [New-AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
+Debe asignarse una clave de firma personalizada al objeto de entidad de servicio para que una directiva de asignación de notificaciones surta efecto. Esto garantiza que el creador de la directiva de asignación de notificaciones es el que ha modificado los tokens y protege a las aplicaciones frente a directivas de asignación de notificaciones creadas por actores malintencionados. Para agregar una clave de firma personalizada, puede usar el cmdlet `new-azureadapplicationkeycredential` de Azure PowerShell para crear una credencial de clave simétrica para el objeto de aplicación. Para obtener más información sobre este cmdlet de Azure PowerShell, consulte [New-AzureADApplicationKeyCredential](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
 
 Las aplicaciones que tienen habilitada la asignación de notificaciones deben validar sus claves de firma de tokens mediante la anexión de `appid={client_id}` a las [solicitudes de metadatos de OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). A continuación se muestra el formato del documento de metadatos de OpenID Connect que se debe usar: 
 

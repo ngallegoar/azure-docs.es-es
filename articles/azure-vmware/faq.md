@@ -4,12 +4,12 @@ description: En este artículo se ofrecen respuestas a algunas de las preguntas 
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: 1649b5649bd18b7ab53f3cc0196d7dff0f6f5b2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd27d4669788b10fc12c47e4514020f6b01300bc
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84112697"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87872334"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Preguntas frecuentes sobre la solución de VMware en Azure (AVS) en versión preliminar
 
@@ -25,7 +25,7 @@ A medida que las empresas buscan estrategias de modernización de la TI para mej
 
 **¿Dónde está disponible AVS en la actualidad?**
 
-Durante la versión preliminar, está disponible en el Este de EE. UU. en Norteamérica y en Ámsterdam en el Oeste de Europa.
+El servicio se agrega continuamente a regiones nuevas, por lo que debe consultar la [información de disponibilidad de servicio más reciente](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware) para más detalles. 
 
 **¿Pueden las cargas de trabajo que se ejecutan en una instancia de la solución de VMware en Azure (AVS) consumir o integrarse en los servicios de Azure?**
 
@@ -45,7 +45,7 @@ Las integraciones y los casos de uso específicos se pueden evaluar en cada caso
 
 **¿Puedo migrar VM de vSphere de entornos locales a nubes privadas de AVS?**
 
-Sí. La migración de VM y vMotion se pueden usar para mover VM a una nube privada si se cumplen los [requisitos de vMotion] [https://kb.vmware.com/s/article/210695 ] estándar de vCenter.
+Sí. La migración de VM y vMotion se pueden usar para mover VM a una nube privada si se cumplen los [requisitos de vMotion](https://kb.vmware.com/s/article/210695) estándar de vCenter.
 
 **¿Se requiere una versión específica de vSphere en entornos locales?**
 
@@ -57,7 +57,7 @@ Las actualizaciones realizadas en el propio servicio seguirán el proceso están
 
 **¿En qué se diferencia de Azure VMware Solution by CloudSimple?**
 
-Con la nueva solución Azure VMware Solution, Microsoft y VMware tienen una asociación directa con el proveedor de la nube. La nueva solución está diseñada, creada y respaldada completamente por Microsoft, y aprobada por VMware. Desde el punto de vista de la arquitectura, las soluciones son coherentes con la pila de tecnología de VMware que se ejecuta en una infraestructura dedicada de Azure.
+Con la nueva solución Azure VMware Solution, Microsoft y VMware tienen una asociación directa con el proveedor de la nube. La solución nueva está diseñada, creada y respaldada completamente por Microsoft, y aprobada por VMware. Desde el punto de vista de la arquitectura, las soluciones son coherentes con la pila de tecnología de VMware que se ejecuta en una infraestructura dedicada de Azure.
 
 **Si soy cliente de Azure VMware Solution, ¿qué significa esta versión preliminar en mi caso?**
 
@@ -65,7 +65,7 @@ No hay ningún cambio en la solución Azure VMware Solution by CloudSimple exist
 
 **¿Puedo migrar desde Azure VMware Solution by CloudSimple a esta nueva solución?**
 
-Sí, Azure VMware Solution admite la migración mediante herramientas conocidas de VMware, como HCX. En el caso de los clientes interesados en migrar a la nueva solución, colabore con el equipo de cuentas de Microsoft para explorar las opciones y la compatibilidad disponible.
+Sí, Azure VMware Solution admite la migración mediante herramientas conocidas de VMware, como HCX. En el caso de los clientes interesados en migrar a la solución nueva, colabore con el equipo de cuentas de Microsoft para explorar las opciones y la compatibilidad disponible.
 
 
 
@@ -89,7 +89,7 @@ Cada host ESXi tiene dos grupos de discos vSAN con un nivel de capacidad de 15,2
 
 **¿Cuánto ancho de banda de red hay disponible en cada host ESXi?**
 
-Los hosts ESXi admiten ancho de banda de conectividad de hasta 25 Gbps.
+Cada host ESXi de AVS está configurado con cuatro NIC de 25 Gbps, con dos NIC aprovisionadas para el tráfico del sistema ESXi y dos NIC aprovisionadas para el tráfico de carga de trabajo. 
 
 **¿Se cifran en reposo los datos almacenados en los almacenes de datos vSAN?**
 
@@ -216,7 +216,7 @@ Puede solicitar un aumento de cuota mediante el [envío de una solicitud de sopo
 > ```azurecli-interactive
 > az provider register -n Microsoft.AVS --subscription <your subscription ID>
 > ```
-> Para ver otras formas de registrar el proveedor de recursos, consulte [Tipos y proveedores de recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+> Para ver otras formas de registrar el proveedor de recursos, consulte [Tipos y proveedores de recursos de Azure](../azure-resource-manager/management/resource-providers-and-types.md).
 
 1. En Azure Portal, en **Ayuda y soporte técnico**, cree una **solicitud de soporte técnico** y proporcione la siguiente información para el vale:
    - **Tipo de problema**: Requisitos previos técnicos

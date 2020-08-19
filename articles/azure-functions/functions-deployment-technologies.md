@@ -4,16 +4,30 @@ description: Conozca las distintas formas de implementación de código en Azure
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 754a3ea2a316878cc8c2bd918b99476a7194b545
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: bf8944952abf83837d05019bd783bec2fd43cefe
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562946"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905132"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologías de implementación en Azure Functions
 
-Puede usar algunas tecnologías diferentes para implementar el código del proyecto de Azure Functions en Azure. En este artículo se ofrece una lista exhaustiva de esas tecnologías, se informa de qué tecnologías están disponibles para los tipos de instancias de Functions, se explica lo que sucede cuando se usa cada método y se proporcionan recomendaciones del mejor método que usar en diversos escenarios. Las diversas herramientas que admiten la implementación en Azure Functions se ajustan a la tecnología correcta en función de su contexto. En general, la implementación de archivos ZIP es la tecnología de implementación recomendada para Azure Functions.
+Puede usar algunas tecnologías diferentes para implementar el código del proyecto de Azure Functions en Azure. En este artículo se proporciona información general sobre los métodos de implementación disponibles y recomendaciones sobre el mejor método que se puede usar en cada escenario. También se proporciona una lista exhaustiva de las tecnologías de implementación subyacentes y detalles clave sobre ellas. 
+
+## <a name="deployment-methods"></a>Métodos de implementación
+
+La tecnología de implementación que se usa para publicar código en Azure normalmente viene determinada por el modo en que se publica la aplicación. El método de implementación adecuado se determina según las necesidades concretas y el punto del ciclo de desarrollo. Por ejemplo, durante el desarrollo y las pruebas, puede implementar directamente desde la herramienta de desarrollo, por ejemplo, Visual Studio Code. Si la aplicación está en producción, es más probable que se publique de forma continua desde el control de código fuente o mediante una canalización de publicación automatizada, que incluye validación y pruebas adicionales.  
+
+En la tabla siguiente se describen los métodos de implementación disponibles para el proyecto de Functions.
+
+| Tipo de implementación | Métodos | Óptimo para... |
+| -- | -- | -- |
+| Basado en herramientas | &bull;&nbsp;[Publicación de&nbsp;Visual&nbsp;Studio&nbsp;Code](functions-develop-vs-code.md#publish-to-azure)<br/>&bull;&nbsp;[Publicación de Visual Studio](functions-develop-vs.md#publish-to-azure)<br/>&bull;&nbsp;[Publicación de Core Tools](functions-run-local.md#publish) | Implementaciones durante el desarrollo y otras implementaciones ad-hock. Las implementaciones se administran de forma local mediante las herramientas. | 
+| Administrado por App Service| &bull;&nbsp;[Centro de&nbsp;implementación&nbsp;(CI/CD)](functions-continuous-deployment.md)<br/>&bull;&nbsp;[Implementaciones de&nbsp;contenedores](functions-create-function-linux-custom-image.md#enable-continuous-deployment-to-azure) |  Implementación continua (CI/CD) desde el control de código fuente o un registro de contenedor. Las implementaciones se administran mediante la plataforma App Service (Kudu).|
+| Canalizaciones externas|&bull;&nbsp;[Canalizaciones de DevOps](functions-how-to-azure-devops.md)<br/>&bull;&nbsp;[Acciones de GitHub](functions-how-to-github-actions.md) | Las canalizaciones de producción y DevOps que incluyen validación, pruebas y otras acciones adicionales se ejecutan como parte de una implementación automatizada. La canalización administra las implementaciones. |
+
+Aunque las implementaciones concretas de Functions usan la tecnología óptima en función de su contexto, la mayoría de los métodos de implementación se basan en la [implementación zip](#zip-deploy).
 
 ## <a name="deployment-technology-availability"></a>Disponibilidad de la tecnología de implementación
 

@@ -232,6 +232,8 @@
       href: ../extensions/troubleshoot.md
     - name: Instalación del agente de máquina virtual Windows sin conexión
       href: install-vm-agent-offline.md
+    - name: Solución de problemas del agente de máquina virtual de Windows
+      href: windows-azure-guest-agent.md
 - name: Copia de seguridad y restauración
   items:
     - name: Solución de errores de copia de seguridad en máquinas virtuales de Azure

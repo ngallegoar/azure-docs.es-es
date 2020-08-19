@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 06/25/2020
-ms.openlocfilehash: b7d7ec95d2227076ff7b7a95ce6e72fffc840975
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7194e4553386c25691bb3ede8096da7fb63c5dc0
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073345"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055240"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>¿Qué es Instancia administrada de Azure SQL?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Como parte de la familia de productos de Azure SQL, Azure SQL Managed Instance es un servicio de base de datos en la nube inteligente y escalable que combina la mayor compatibilidad con el motor de base de datos de SQL Server y todas las ventajas de una plataforma totalmente administrada y permanente como servicio. SQL Managed Instance tiene casi un 100 % de compatibilidad con el motor de base de datos más reciente de SQL Server (Enterprise Edition), lo que proporciona una implementación nativa de la [red virtual (VNet)](../../virtual-network/virtual-networks-overview.md) que permite solucionar problemas de seguridad habituales, y un [modelo de negocio](https://azure.microsoft.com/pricing/details/sql-database/) favorable para los clientes existentes de SQL Server. Instancia administrada de SQL permite a los clientes existentes de SQL Server migrar mediante lift-and-shift sus aplicaciones locales a la nube con cambios mínimos en la aplicación y la base de datos. Al mismo tiempo, SQL Managed Instance conserva todas las funcionalidades de PaaS (aplicación de revisiones y actualizaciones de versión automáticas, [copias de seguridad automáticas](../database/automated-backups-overview.md), [alta disponibilidad](../database/high-availability-sla.md)), que reducen enormemente la sobrecarga de administración y el costo total de propiedad.
+Azure SQL Managed Instance es un servicio de base de datos en la nube inteligente y escalable que combina la mayor compatibilidad con el motor de base de datos de SQL Server y todas las ventajas de una plataforma como servicio totalmente administrada y permanente. SQL Managed Instance tiene casi un 100 % de compatibilidad con el motor de base de datos más reciente de SQL Server (Enterprise Edition), lo que proporciona una implementación nativa de la [red virtual (VNet)](../../virtual-network/virtual-networks-overview.md) que permite solucionar problemas de seguridad habituales, y un [modelo de negocio](https://azure.microsoft.com/pricing/details/sql-database/) favorable para los clientes existentes de SQL Server. Instancia administrada de SQL permite a los clientes existentes de SQL Server migrar mediante lift-and-shift sus aplicaciones locales a la nube con cambios mínimos en la aplicación y la base de datos. Al mismo tiempo, SQL Managed Instance conserva todas las funcionalidades de PaaS (aplicación de revisiones y actualizaciones de versión automáticas, [copias de seguridad automáticas](../database/automated-backups-overview.md), [alta disponibilidad](../database/high-availability-sla.md)), que reducen enormemente la sobrecarga de administración y el costo total de propiedad.
 
 > [!IMPORTANT]
 > Para una lista de regiones en las que SQL Managed Instance está actualmente disponible, consulte las [regiones admitidas](resource-limits.md#supported-regions).

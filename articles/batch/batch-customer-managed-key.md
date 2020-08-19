@@ -5,12 +5,12 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: 77c0489838685d65d7579f37d6a6cb922af509f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2af82233013f064b185aefde3f2e1710bd86ed43
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87062533"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053752"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Configuración de claves administradas por el cliente para la cuenta de Azure Batch con Azure Key Vault e Identidad administrada
 
@@ -82,7 +82,7 @@ En el campo **Seleccionar** bajo **Entidad de seguridad**, rellene el valor `pri
 
 ### <a name="generate-a-key-in-azure-key-vault"></a>Generación de una clave en Azure Key Vault
 
-En Azure Portal, vaya a la instancia de Key Vault en la sección **clave** y seleccione **Generar/Importar**. Seleccione el **Tipo de clave** `RSA` y el **Tamaño de clave** `2048`.
+En Azure Portal, vaya a la instancia de Key Vault en la sección **clave** y seleccione **Generar/Importar**. En **Tipo de clave** seleccione `RSA` y en **Tamaño de la clave RSA** elija al menos `2048` bits. Los tipos de clave `EC` no se admiten actualmente como una clave administrada por el cliente en una cuenta de Batch.
 
 ![Crear una clave](./media/batch-customer-managed-key/create-key.png)
 
@@ -142,6 +142,7 @@ az batch account set \
 ```
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
   * **¿Son compatibles las claves administradas por el cliente con las cuentas existentes de Batch?** No. Las claves administradas por el cliente solo se admiten para las nuevas cuentas de Batch.
+  * **¿Puedo seleccionar tamaños de clave RSA mayores de 2048 bits?** Sí, también se admiten los tamaños de clave RSA de `3072` y `4096` bits.
   * **¿Qué operaciones hay disponibles después de la revocación de una clave administrada por el cliente?** La única operación permitida es la eliminación de la cuenta si Batch pierde el acceso a la clave administrada por el cliente.
   * **¿Cómo se debe restaurar el acceso a la cuenta de Batch si se elimina accidentalmente la clave Key Vault?** Dado que la protección de purga y la eliminación temporal están habilitadas, puede restaurar las claves existentes. Para más información, consulte [Recuperación de una instancia de Azure Key Vault](../key-vault/general/soft-delete-cli.md#recovering-a-key-vault).
   * **¿Puedo deshabilitar claves administradas por el cliente?** Puede volver a establecer el tipo de cifrado de la cuenta de Batch en "Clave administrada por Microsoft" en cualquier momento. Después, puede eliminar o cambiar la clave.

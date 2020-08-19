@@ -6,6 +6,11 @@
       href: overview.md
     - name: Almacenes de datos compatibles
       href: supported-data-stores.md
+- name: Guías de inicio rápido
+  items:
+    - name: 'Creación de un recurso compartido de datos: plantilla de Resource Manager'
+      displayName: Resource Manager
+      href: share-your-data-arm.md
 - name: Tutoriales
   expanded: true
   items:

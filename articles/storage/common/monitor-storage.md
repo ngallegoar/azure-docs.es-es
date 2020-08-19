@@ -1,6 +1,6 @@
 ---
 title: Supervisión de Azure Storage | Microsoft Docs
-description: Obtenga información sobre cómo supervisar el rendimiento y la disponibilidad de Azure Storage.
+description: Obtenga información sobre cómo supervisar el rendimiento y la disponibilidad de Azure Storage. Supervise los datos de Azure Storage, obtenga información sobre la configuración y analice los datos de métricas y registro.
 author: normesta
 services: storage
 ms.service: storage
@@ -9,12 +9,12 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: 2f6320bf4606dc9357ac676b3bc5d7421b24a36c
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: e1be9a7e543f8513f3b30182dfbc421dc38bdbce
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86182719"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836673"
 ---
 # <a name="monitor-azure-storage"></a>Supervisión de Azure Storage
 
@@ -86,9 +86,9 @@ También tendrá que especificar las categorías de operaciones para las que des
 
 | Category | Descripción |
 |:---|:---|
-| StorageRead | Operaciones de lectura en los blobs. |
-| StorageWrite | Operaciones de escritura en los blobs. |
-| StorageDelete | Operaciones de eliminación en los blobs. |
+| StorageRead | Operaciones de lectura en objetos. |
+| StorageWrite | Operaciones de escritura en objetos. |
+| StorageDelete | Operaciones de eliminación en objetos. |
 
 ## <a name="analyze-metric-data"></a>Análisis de datos de métricas
 

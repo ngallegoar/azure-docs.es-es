@@ -1,18 +1,18 @@
 ---
 title: Planeamiento de una implementación de Azure File Sync |Microsoft Docs
-description: Conozca los aspectos que debe tener en cuenta al planear una implementación de Azure Files.
+description: Planee sus implementaciones con Azure File Sync, que es un servicio que permite almacenar en caché varios recursos compartidos de archivos de Azure en una VM en la nube o en una instancia local de Windows Server.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f09e84d20b1a3c568eea015d92b93a99b8cf024e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: acdf830c9bf0eaedcca5bf0ffe1b2bd373750276
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036801"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030680"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 

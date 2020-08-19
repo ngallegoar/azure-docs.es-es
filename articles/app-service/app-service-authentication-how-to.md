@@ -4,12 +4,12 @@ description: Aprenda a personalizar la característica de autenticación y autor
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 747729b7cbb3dcce72eb36704b5965e8427b59e1
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: d69a75092f4ede5d5467357a7ac254be6e7c379b
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424263"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078400"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avanzado de la autenticación y autorización en Azure App Service
 
@@ -17,8 +17,7 @@ En este artículo se muestra cómo personalizar la [autenticación y autorizaci�
 
 Para comenzar inmediatamente, consulte uno de los siguientes tutoriales:
 
-* [Tutorial: Autenticación y autorización de usuarios de un extremo a otro en Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
-* [Tutorial: Autenticación y autorización de usuarios de un extremo a otro en Azure App Service para Linux](containers/tutorial-auth-aad.md)
+* [Tutorial: Autenticación y autorización de usuarios de extremo a extremo en Azure App Service](tutorial-auth-aad.md)
 * [Configuración de la aplicación para usar el inicio de sesión de Azure Active Directory](configure-authentication-provider-aad.md)
 * [Configuración de la aplicación para usar el inicio de sesión de Facebook](configure-authentication-provider-facebook.md)
 * [Configuración de la aplicación para usar el inicio de sesión de Google](configure-authentication-provider-google.md)
@@ -469,8 +468,68 @@ El código siguiente agota las posibles opciones de configuración del archivo:
 }
 ```
 
+## <a name="pin-your-app-to-a-specific-authentication-runtime-version"></a>Anclaje de la aplicación a una versión específica en tiempo de ejecución de autenticación
+
+Al habilitar la autenticación y la autorización, el middleware de la plataforma se inserta en la canalización de solicitudes HTTP, tal y como se describe en la [información general sobre las características](overview-authentication-authorization.md#how-it-works). Este middleware de la plataforma se actualiza periódicamente con nuevas características y mejoras, como parte de las actualizaciones habituales de la plataforma. La aplicación web o de funciones se ejecutará de forma predeterminada en la versión más reciente del middleware de la plataforma. Estas actualizaciones automáticas siempre son compatibles con las versiones anteriores. Sin embargo, en el caso excepcional de que la actualización automática provoque algún problema en tiempo de ejecución a la aplicación web o de funciones, se puede revertir temporalmente a la versión anterior del middleware. En este artículo se explica cómo anclar temporalmente una aplicación a una versión específica del middleware de autenticación.
+
+### <a name="automatic-and-manual-version-updates"></a>Actualizaciones de versiones automáticas y manuales 
+
+Para anclar la aplicación a una versión específica del middleware de la plataforma, establezca el valor `runtimeVersion` para la aplicación. La aplicación siempre se ejecuta en la versión más reciente, a menos que decida volver a anclarla explícitamente a una versión específica. El número de versiones admitidas a la vez es reducido. Si ancla la aplicación a una versión que ya no se admite, la aplicación usará la versión más reciente. Para ejecutar siempre la versión más reciente, establezca `runtimeVersion` en ~1. 
+
+### <a name="view-and-update-the-current-runtime-version"></a>Visualización y actualización de la versión actual del entorno de ejecución
+
+Puede cambiar la versión en tiempo de ejecución utilizada por la aplicación. La nueva versión en tiempo de ejecución surtirá efecto después de reiniciar la aplicación. 
+
+#### <a name="view-the-current-runtime-version"></a>Visualización de la versión actual del runtime
+
+Para ver la versión actual del middleware de autenticación de la plataforma, utilice la CLI de Azure o uno de los puntos de conexión HTTP de la versión built0 en la aplicación.
+
+##### <a name="from-the-azure-cli"></a>Desde la CLI de Azure
+
+En la CLI de Azure, consulte la versión actual del middleware mediante el comando [az webapp auth show](https://docs.microsoft.com/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-show).
+
+```azurecli-interactive
+az webapp auth show --name <my_app_name> \
+--resource-group <my_resource_group>
+```
+
+En el código, reemplace `<my_app_name>` por el nombre de la aplicación. Reemplace también `<my_resource_group>` por el nombre del grupo de recursos para la aplicación.
+
+Verá el campo `runtimeVersion` en la salida de la CLI. Será similar al siguiente ejemplo de salida, que se ha abreviado para mayor claridad: 
+```output
+{
+  "additionalLoginParams": null,
+  "allowedAudiences": null,
+    ...
+  "runtimeVersion": "1.3.2",
+    ...
+}
+```
+
+##### <a name="from-the-version-endpoint"></a>En el punto de conexión de la versión
+
+También puede consultar el punto de conexión de /.auth/version en una aplicación para ver la versión actual del middleware en el que se ejecuta la aplicación. Será similar al siguiente ejemplo de salida:
+```output
+{
+"version": "1.3.2"
+}
+```
+
+#### <a name="update-the-current-runtime-version"></a>Actualización de la versión de tiempo de ejecución
+
+En la CLI de Azure, puede actualizar el valor de `runtimeVersion` en la aplicación mediante el comando [az webapp auth update](https://docs.microsoft.com/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-update).
+
+```azurecli-interactive
+az webapp auth update --name <my_app_name> \
+--resource-group <my_resource_group> \
+--runtime-version <version>
+```
+
+Reemplace `<my_app_name>` por el nombre de la aplicación. Reemplace también `<my_resource_group>` por el nombre del grupo de recursos para la aplicación. Por último, reemplace `<version>` por una versión válida del tiempo de ejecución 1.x o `~1` en el caso de la versión más reciente. Encontrará las notas de la versión en las diferentes versiones en tiempo de ejecución [aquí] (https://github.com/Azure/app-service-announcements) ) para que pueda identificar la versión a la que debe anclar la aplicación.
+
+Este comando se puede ejecutar desde [Azure Cloud Shell](../cloud-shell/overview.md), para lo que es preciso hacer clic en **Pruébelo** en el código de ejemplo anterior. También puede usar la [CLI de Azure localmente](https://docs.microsoft.com/cli/azure/install-azure-cli) para ejecutar este comando después de ejecutar [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) para iniciar sesión.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Autenticación y autorización de usuarios de un extremo a otro (Windows)](app-service-web-tutorial-auth-aad.md)
-> [Tutorial: Autenticación y autorización de usuarios de un extremo a otro (Linux)](containers/tutorial-auth-aad.md)
+> [Tutorial: Autenticación y autorización de usuarios de un extremo a otro](tutorial-auth-aad.md)

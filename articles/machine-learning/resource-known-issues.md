@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
-ms.date: 03/31/2020
-ms.openlocfilehash: 8f58fcef1a35494053803d98b43ce97fed7205e0
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.date: 08/06/2020
+ms.openlocfilehash: 17d6137dd243c3bce011a1841ea9bca64e0b64ba
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373698"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120769"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemas conocidos y solución de problemas en Azure Machine Learning
 
@@ -131,7 +131,7 @@ A veces puede resultar útil proporcionar información de diagnóstico al solici
 
     Como alternativa, puede usar scripts de init si sigue experimentando problemas de instalación con las bibliotecas de Python. Este enfoque no se admite oficialmente. Para más información, consulte [Cluster-scoped init scripts](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts) (Script de init del ámbito de clúster).
 
-* **Error de importación de Databricks: no se puede importar el nombre "Timedelta" de "pandas._libs.tslibs"** : Si ve este error al usar el aprendizaje automático automatizado, ejecute las dos líneas siguientes en el cuaderno:
+* **Error de importación de Databricks: no se puede importar el nombre `Timedelta` desde `pandas._libs.tslibs`** : Si ve este error al usar el aprendizaje automático automatizado, ejecute las dos líneas siguientes en el cuaderno:
     ```
     %sh rm -rf /databricks/python/lib/python3.7/site-packages/pandas-0.23.4.dist-info /databricks/python/lib/python3.7/site-packages/pandas
     %sh /databricks/python/bin/pip install pandas==0.23.4
@@ -302,12 +302,53 @@ time.sleep(600)
     ```
     displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
     ```
+* **Error de automl_setup**: 
+    * En Windows, ejecute automl_setup desde un símbolo del sistema de Anaconda. Para instalar Miniconda, haga clic [aquí](https://docs.conda.io/en/latest/miniconda.html).
+    * Asegúrese de que CONDA de 64 bits está instalado, en lugar de 32 bits mediante la ejecución del comando `conda info`. `platform` debe ser `win-64` para Windows o `osx-64` para Mac.
+    * Asegúrese de está instalado Conda 4.4.10, o una versión posterior. Puede comprobar la versión con el comando `conda -V`. Si tiene instalada una versión anterior, puede actualizarla mediante el comando `conda update conda`.
+    * Linux: `gcc: error trying to exec 'cc1plus'`
+      *  Si se produce el error `gcc: error trying to exec 'cc1plus': execvp: No such file or directory`, instale los elementos esenciales de compilación mediante el comando `sudo apt-get install build-essential`.
+      * Pase un nuevo nombre como primer parámetro a automl_setup para crear un nuevo entorno de Conda. Vea los entornos de Conda existentes mediante `conda env list` y quítelos con `conda env remove -n <environmentname>`.
+      
+* **Error de automl_setup_linux.sh**: si automl_setup_linus.sh produce el error `unable to execute 'gcc': No such file or directory`- en Ubuntu Linux:
+  1. Asegúrese de que los puertos de salida 53 y 80 estén habilitados. En una máquina virtual de Azure, puede hacerlo desde Azure Portal; para ello, seleccione la máquina virtual y haga clic en redes.
+  2. Ejecute el comando: `sudo apt-get update`
+  3. Ejecute el comando: `sudo apt-get install build-essential --fix-missing`
+  4. Vuelva a ejecutar `automl_setup_linux.sh`.
+
+* **Error de configuration.ipynb**:
+  * En el caso de Conda local, asegúrese primero de que automl_setup se ejecute correctamente.
+  * Asegúrese de que subscription_id es correcto. Busque subscription_id en Azure Portal; para ello, seleccione Todos los servicios y, después, Suscripciones. Los caracteres "<" y ">" no deben incluirse en el valor de subscription_id. Por ejemplo, `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` tiene el formato válido.
+  * Garantice el acceso de tipo Colaborador o Propietario a la suscripción.
+  * Compruebe que la región sea una de las regiones admitidas: `eastus2`, `eastus`, `westcentralus`, `southeastasia`, `westeurope`, `australiaeast`, `westus2` o `southcentralus`.
+  * Asegúrese acceder a la región mediante Azure Portal.
+  
+* **Error de importación de AutoMLConfig**: hubo cambios en el paquete de la versión 1.0.76 del aprendizaje automático automatizado que requieren la desinstalación de la versión anterior antes de actualizar a la nueva versión. Si se detecta `ImportError: cannot import name AutoMLConfig` después de actualizar a la versión v 1.0.76, o posterior, del SDK desde una versión anterior, resuelva el error ejecutando `pip uninstall azureml-train automl` y luego `pip install azureml-train-auotml`. El script automl_setup.cmd lo hace automáticamente. 
+
+* **Error de workspace.from_config**: si se produce un error en la llamada ws = Workspace.from_config()':
+  1. Asegúrese de que el cuaderno configuration.ipynb se ha ejecutado correctamente.
+  2. Si el cuaderno se ejecuta desde una carpeta que no está en la carpeta donde se ejecutó `configuration.ipynb`, copie la carpeta aml_config y el archivo config.json que contiene en la nueva carpeta. Workspace.from_config lee el archivo config.json de la carpeta del cuaderno o su carpeta principal.
+  3. Si se está usando una suscripción, un grupo de recursos, un área de trabajo o una región nuevos, asegúrese de volver a ejecutar el cuaderno `configuration.ipynb`. Cambiar el archivo config.json directamente solo funcionará si el área de trabajo ya existe en el grupo de recursos especificado en la suscripción indicada.
+  4. Si desea cambiar la región, cambie el área de trabajo, el grupo de recursos o la suscripción. `Workspace.create` no creará ni actualizará un área de trabajo si ya existe, aunque la región especificada sea diferente.
+  
+* **Error del cuaderno de ejemplo**: si se produce un error en un cuaderno de ejemplo que indica que la propiedad, el método o la biblioteca no existen:
+  * Asegúrese de que se ha seleccionado el kernel correcto en Jupyter Notebook. El kernel se muestra en la parte superior derecha de la página del cuaderno. El valor predeterminado es azure_automl. Tenga en cuenta que el kernel se guarda como parte del cuaderno. Por lo tanto, si cambia a un nuevo entorno de Conda, tendrá que seleccionar el nuevo kernel en el cuaderno.
+      * Para Azure Notebooks, debe ser Python 3.6. 
+      * En el caso de entornos de Conda locales, debe ser el nombre del entorno de Conda que especificó en automl_setup.
+  * Asegúrese de que el cuaderno es para la versión del SDK que está usando. Puede comprobar la versión del SDK ejecutando `azureml.core.VERSION` en una celda de Jupyter Notebook. Puede descargar la versión anterior de los cuadernos de ejemplo de GitHub; para ello, haga clic en el botón `Branch`, seleccione la pestaña `Tags` y, después, seleccione la versión.
+
+* **Error de importación de Numpy en Windows**: algunos entornos Windows ven un error al cargar Numpy con la versión más reciente de Python: 3.6.8. Si ve este problema, pruebe con la versión 3.6.7 de Python.
+
+* **Error de importación de Numpy**: compruebe la versión de TensorFlow en el entorno de Conda de aprendizaje automático automatizado. Las versiones compatibles son < 1.13. Desinstale TensorFlow del entorno si la versión es >= 1.13. Puede comprobar la versión de TensorFlow y realizar la desinstalación de la siguiente manera:
+  1. Inicie un shell de comandos y active el entorno de Conda donde están instalados los paquetes de aprendizaje automático automatizado.
+  2. Escriba `pip freeze` y busque `tensorflow`. Si se encuentra, la versión indicada debe ser < 1,13.
+  3. Si la versión indicada no es una versión compatible, ponga `pip uninstall tensorflow` en el shell de comandos y escriba y (sí) para confirmar la operación.
 
 ## <a name="deploy--serve-models"></a>Implementación y servicio de modelos
 
 Realice estas acciones para los siguientes errores:
 
-|Error  | Resolución  |
+|Error  | Solución  |
 |---------|---------|
 |Error de creación de imágenes al implementar el servicio web     |  Agregar "pynacl==1.2.1" como una dependencia pip al archivo de Conda para la configuración de la imagen.       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Cambie la SKU de las máquinas virtuales usadas en la implementación por otra que tenga más memoria. |
@@ -382,5 +423,5 @@ Vea más artículos de solución de problemas para Azure Machine Learning:
 * [Solución de problemas de implementación de Docker con Azure Machine Learning](how-to-troubleshoot-deployment.md)
 * [Depuración de canalizaciones de aprendizaje automático](how-to-debug-pipelines.md)
 * [Depuración de la clase ParallelRunStep desde el SDK de Azure Machine Learning](how-to-debug-parallel-run-step.md)
-* [Depuración interactiva de una instancia de proceso de aprendizaje automático con VS Code](how-to-set-up-vs-code-remote.md)
+* [Depuración interactiva de una instancia de proceso de aprendizaje automático con VS Code](how-to-debug-visual-studio-code.md)
 * [Uso de Application Insights para depurar canalizaciones de aprendizaje automático](how-to-debug-pipelines-application-insights.md)

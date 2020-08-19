@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: e1cc3bac56e659b9a020880a26fd3d539f987503
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 55e5290630185466ea0801b06ece71069fc94d89
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86544880"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87545151"
 ---
 ## <a name="2-assign-access-permissions-to-an-identity"></a>2 Asignar permisos de acceso a una identidad
 
@@ -28,7 +28,7 @@ Se han incorporado tres roles integrados de Azure para conceder permisos de nive
 > [!IMPORTANT]
 > El control administrativo total de un recurso compartido de archivos, incluida la capacidad de tomar posición de un archivo, requiere usar la clave de la cuenta de almacenamiento. El control administrativo no puede realizarse con credenciales de Azure AD.
 
-Puede usar Azure Portal, PowerShell o la CLI de Azure para asignar los roles integrados a la identidad de Azure AD de un usuario a fin de conceder permisos de nivel de recurso compartido. Tenga en cuenta que la asignación de roles RBAC de nivel de recurso compartido puede tardar un tiempo en estar en vigor. 
+Puede usar Azure Portal, PowerShell o la CLI de Azure para asignar los roles integrados a la identidad de Azure AD de un usuario a fin de conceder permisos de nivel de recurso compartido. Tenga en cuenta que la asignación de roles de Azure de nivel de recurso compartido puede tardar un tiempo en estar en vigor. 
 
 > [!NOTE]
 > Recuerde [sincronizar sus credenciales de AD DS con Azure AD](../articles/active-directory/hybrid/how-to-connect-install-roadmap.md) si planea usar AD DS local para la autenticación. La sincronización de hash de contraseña de AD DS con Azure AD es opcional. El permiso de nivel de recurso compartido se concederá a la identidad de Azure AD sincronizada desde AD DS local.
@@ -36,7 +36,7 @@ Puede usar Azure Portal, PowerShell o la CLI de Azure para asignar los roles int
 La recomendación general es usar el permiso de nivel de recurso compartido para la administración del acceso de alto nivel para un grupo de AD que represente un grupo de usuarios e identidades y, después, aprovechar los permisos NTFS para el control de acceso pormenorizado en el nivel de directorio o archivo. 
 
 #### <a name="azure-portal"></a>Azure Portal
-Para asignar un rol de RBAC a una identidad de Azure AD mediante [Azure Portal](https://portal.azure.com), siga estos pasos:
+Para asignar un rol de Azure a una identidad de Azure AD mediante [Azure Portal](https://portal.azure.com), siga estos pasos:
 
 1. En Azure Portal, vaya al recurso compartido de archivos o [cree un recurso compartido de archivos](../articles/storage/files/storage-how-to-create-file-share.md).
 2. Seleccione **Access Control (IAM)** .
@@ -46,7 +46,7 @@ Para asignar un rol de RBAC a una identidad de Azure AD mediante [Azure Portal]
 
 #### <a name="powershell"></a>PowerShell
 
-El siguiente ejemplo de PowerShell muestra cómo asignar un rol de RBAC a una identidad de Azure AD, según el nombre de inicio de sesión. Para más información sobre la asignación de roles RBAC con PowerShell, consulte [Administración del acceso mediante RBAC y Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
+El siguiente ejemplo de PowerShell muestra cómo asignar un rol de Azure a una identidad de Azure AD, según el nombre de inicio de sesión. Para obtener más información sobre la asignación de roles de Azure con PowerShell, consulte [Administración del acceso mediante RBAC y Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
 
 Antes de ejecutar el siguiente script de ejemplo, no olvide reemplazar los valores de marcador de posición, incluidos los corchetes, por los suyos propios.
 
@@ -61,7 +61,7 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 #### <a name="cli"></a>CLI
   
-El siguiente comando de la CLI 2.0 muestra cómo asignar un rol de RBAC a una identidad de Azure AD, según el nombre de inicio de sesión. Para más información sobre la asignación de roles de RBAC con la CLI de Azure, consulte [Administración del acceso mediante RBAC y la CLI de Azure](../articles/role-based-access-control/role-assignments-cli.md). 
+El siguiente comando de la CLI 2.0 muestra cómo asignar un rol de Azure a una identidad de Azure AD, según el nombre de inicio de sesión. Para obtener más información sobre la asignación de roles de Azure con la CLI de Azure, consulte [Administración del acceso mediante RBAC y la CLI de Azure](../articles/role-based-access-control/role-assignments-cli.md). 
 
 Antes de ejecutar el siguiente script de ejemplo, no olvide reemplazar los valores de marcador de posición, incluidos los corchetes, por los suyos propios.
 
@@ -130,7 +130,7 @@ Para más información sobre cómo usar icacls para establecer los permisos de N
 
 ## <a name="4-mount-a-file-share-from-a-domain-joined-vm"></a>4 Montar un recurso compartido de archivos desde una VM unida al dominio
 
-El siguiente proceso comprueba que tanto recurso compartido de archivos como los permisos de acceso se han configurado correctamente y que puede acceder a un recurso compartido de archivos de Azure desde una máquina virtual unida a un dominio. Tenga en cuenta que la asignación de roles RBAC de nivel de recurso compartido puede tardar un tiempo en estar en vigor. 
+El siguiente proceso comprueba que tanto recurso compartido de archivos como los permisos de acceso se han configurado correctamente y que puede acceder a un recurso compartido de archivos de Azure desde una máquina virtual unida a un dominio. Tenga en cuenta que la asignación de roles de Azure de nivel de recurso compartido puede tardar un tiempo en estar en vigor. 
 
 Inicie sesión en la máquina virtual con la identidad de Azure AD a la que se hayan concedido permisos, tal como se muestra en la siguiente imagen. Si ha habilitado la autenticación de AD DS local para Azure Files, use sus credenciales de AD DS. Para la autenticación de Azure AD DS, inicie sesión con la credencial de Azure AD.
 

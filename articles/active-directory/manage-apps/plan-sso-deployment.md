@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0ee138ac41557554ae4b8fde8c9178336fd8d5db
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 85ec94ccf853d4f8b02a14ba08e9515170b36b5e
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387785"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054807"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planeación de una implementación de inicio de sesión único
 
@@ -324,3 +324,5 @@ Los vínculos siguientes presentan escenarios de solución de problemas. Es posi
 [Acceso con SSO](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 [Tutorial de inicio de sesión único de aplicaciones](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
+
+[Notas del producto para descargar: Plan de implementación de inicio de sesión único](https://aka.ms/SSODeploymentPlan)

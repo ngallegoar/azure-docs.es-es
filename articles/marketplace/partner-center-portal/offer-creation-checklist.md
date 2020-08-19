@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 11c1c307d00b9347081a313308ad2467086ec208
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e17edacf45583283d53c5484417f6a2dd7c6e012
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327402"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799929"
 ---
 # <a name="saas-offer-creation-checklist-in-partner-center"></a>Lista de comprobación de creación de ofertas de SaaS
 
@@ -79,9 +79,9 @@ La pestaña de propiedades es donde define las categorías y los sectores que se
 La página de descripción es donde debe proporcionar el texto y las imágenes que los clientes ven cuando consultan la oferta en Marketplace. 
 
 | **Nombre del campo**    | **Notas**   |
-| :---------------- | :-----------| 
+| :---------------- | :-----------|
 | Nombre  | Requerido, máx. 50 caracteres. |
-| Resumen  | Requerido, máx. 100 caracteres. | 
+| Resumen  | Requerido, máx. 100 caracteres. |
 | Descripción  | Requerido, máx. 3000 caracteres. |
 | Instrucciones de introducción  | Requerido, máx. 3000 caracteres. |
 | Instrucciones de introducción  | Requerido, máx. 3000 caracteres. |
@@ -91,7 +91,7 @@ La página de descripción es donde debe proporcionar el texto y las imágenes q
 | Título + dirección URL de vínculos útiles  | Opcional. |
 | Título + archivo de documentos de apoyo  | Requerido, mín. 1 y máx. 3. Debe estar en formato de archivo PDF. |
 | Capturas de pantalla  | Requerido, mín. 1 captura de pantalla y máx. 5; se recomienda 4 o más. Debe ser 1280 x 720 en formato PNG. |
-| Logotipos del almacén (pequeño, mediano, grande, ancho)  | Se requiere pequeño (48 x 48) y grande (216 x 216); otros tamaños opcionales pero recomendados: Mediano (90 x 90), ancho (255 x 115). Debe tener el formato .PNG. |
+| Logotipos de almacén (pequeño, mediano, grande)  | Se necesita el logotipo grande (216 x 216). El Centro de partners lo utilizará para crear un logotipo de tamaño pequeño (48 x 48 píxeles) y un logotipo de tamaño medio (90 x 90 píxeles). Opcionalmente, puede reemplazarlos por imágenes diferentes. El logotipo debe tener el formato PNG. |
 | Nombre + dirección URL + miniatura de vídeos  | Opcional, recomendado, máx. 4 vídeos. La miniatura debe tener el tamaño 1280 x 720 y estar en formato PNG. El vídeo debe estar hospedado en YouTube o Vimeo. |
 | Contactos (programa CSP, ingeniería, soporte técnico)  | Se requiere el contacto de ingeniería y soporte técnico (nombre, correo electrónico y número de teléfono); el contacto del programa CSP es opcional pero está recomendado. |
 | Dirección URL de soporte técnico  | Necesario. |
@@ -100,11 +100,11 @@ La página de descripción es donde debe proporcionar el texto y las imágenes q
 
 La página de versión preliminar es donde se especifica el público que tendrá acceso a la versión preliminar de su oferta, para verificar que la oferta cumple con todos sus requisitos antes de que se publique. 
 
-| **Nombre del campo**    | **Notas**   | 
-| :---------------- | :-----------| 
+| **Nombre del campo**    | **Notas**   |
+| :---------------- | :-----------|
 | Correo electrónico + descripción de AAD/MSA | Requerido, mín. 1 y máx. 10 si se especifica manualmente, o hasta 20 si carga un archivo CSV. |
 
-## <a name="technical-configuration-page"></a>Página de configuración técnica 
+## <a name="technical-configuration-page"></a>Página de configuración técnica
 
 La página de configuración técnica es donde especifica los detalles técnicos usados por Microsoft para conectarse a su oferta. No verá esta página si ha decidido no vender a través de Microsoft.
 

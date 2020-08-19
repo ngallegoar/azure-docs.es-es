@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: iainfou
-ms.openlocfilehash: cc78df7ea904bf85f5f2561319e6fc773244e971
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 912cf31e29854e9fcd54bbc358bb954c0d7bf389
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005220"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116706"
 ---
 # <a name="frequently-asked-questions-faqs-about-azure-active-directory-ad-domain-services"></a>Preguntas más frecuentes (P+F) sobre Azure Active Directory (AD) Domain Services
 
@@ -117,7 +117,11 @@ No. Microsoft administra el esquema del dominio administrado. No se admiten exte
 Sí. Los miembros del grupo *Administradores de controlador de dominio de AAD* reciben privilegios de *Administrador de DNS* con el fin de modificar los registros DNS en el dominio administrado. Estos usuarios pueden utilizar la consola de administrador de DNS en una máquina que ejecuta Windows Server unido al dominio administrado para administrar DNS. A fin de utilizar la consola de administrador de DNS, instale *Herramientas del servidor DNS*, que forma parte de la característica opcional *Herramientas de administración remota del servidor* en el servidor. Para obtener más información, consulte [Administración de DNS en un dominio administrado con Azure AD Domain Services](manage-dns.md)
 
 ### <a name="what-is-the-password-lifetime-policy-on-a-managed-domain"></a>¿Qué es la directiva de duración de la contraseña en un dominio administrado?
-La duración predeterminada de la contraseña en un dominio administrado de Azure AD Domain Services es de 90 días. Esta duración de la contraseña no está sincronizada con la duración de la contraseña configurada en Azure AD. Por lo tanto, podría darse una situación donde las contraseñas de los usuarios hayan expirado en el dominio administrado, pero sigan siendo válidas en Azure AD. En tales escenarios, los usuarios deben cambiar sus contraseñas en Azure AD y la nueva contraseña se sincronizará con el dominio administrado. Además, los atributos *password-does-not-expire* y *user-must-change-password-at-next-logon* de las cuentas de usuario no se sincronizan con el dominio administrado.
+La duración predeterminada de la contraseña en un dominio administrado de Azure AD Domain Services es de 90 días. Esta duración de la contraseña no está sincronizada con la duración de la contraseña configurada en Azure AD. Por lo tanto, podría darse una situación donde las contraseñas de los usuarios hayan expirado en el dominio administrado, pero sigan siendo válidas en Azure AD. En tales escenarios, los usuarios deben cambiar sus contraseñas en Azure AD y la nueva contraseña se sincronizará con el dominio administrado. Si desea cambiar la duración predeterminada de la contraseña en un dominio administrado, puede [crear y configurar directivas de contraseñas personalizadas](password-policy.md).
+
+Además, la directiva de contraseñas de Azure AD para *DisablePasswordExpiration* se sincroniza con un dominio administrado. Cuando *DisablePasswordExpiration* se aplica a un usuario en Azure AD, el valor de *UserAccountControl* para el usuario sincronizado en el dominio administrado indica *DONT_EXPIRE_PASSWORD*.
+
+Cuando los usuarios restablecen su contraseña en Azure AD, se aplica el atributo *forceChangePasswordNextSignIn = True*. Este atributo lo sincroniza un dominio administrado en Azure AD. Cuando el dominio administrado detecta que *forceChangePasswordNextSignIn* se ha establecido para un usuario sincronizado en Azure AD, el atributo*pwdLastSet* del dominio administrado se establece en *0*, lo que invalida la contraseña establecida actualmente.
 
 ### <a name="does-azure-ad-domain-services-provide-ad-account-lockout-protection"></a>¿Azure AD Domain Services proporciona protección de bloqueo de cuentas de AD?
 Sí. Tras escribir una contraseña incorrecta del dominio administrado cinco veces en un lapso de dos minutos, la cuenta de usuario quedará bloqueada durante 30 minutos. Pasados los 30 minutos, la cuenta de usuario se desbloqueará automáticamente. Los intentos no válidos de escribir la contraseña del dominio administrado no provocarán el bloqueo de la cuenta de usuario en Azure AD. La cuenta de usuario solo se bloqueará en el dominio administrado de Azure AD Domain Services. Para obtener más información [Directivas de bloqueo de cuenta y contraseña en dominios administrados](password-policy.md).

@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones de compatibilidad y limitaciones
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: d00f6ee8c10144a7c9fd65101dd21ccb7deeb0a6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9d7e3b4f565fac42d0a91d155846e672c7437f2d
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289488"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810469"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 
@@ -32,13 +32,6 @@ Copia de seguridad directa de máquinas virtuales de Azure (solo Windows)  | Cop
 Copia de seguridad de una máquina virtual de Azure en un servidor de copia de seguridad  | Copia de seguridad de archivos, carpetas y volúmenes; archivos de estado del sistema y de reconstrucción completa; datos de aplicaciones para System Center DPM o Microsoft Azure Backup Server (MABS).<br/><br/> Después, DPM/MABS realiza una copia de seguridad en el almacén de Backup. | Instale al agente de protección de DPM/MABS en la máquina virtual. El agente de MARS se instala en DPM/MABS.| Restauración de archivos, carpetas y volúmenes; archivos de estado del sistema y de reconstrucción completa; datos de aplicaciones.
 
 Más información sobre la copia de seguridad [mediante un servidor de copias de seguridad](backup-architecture.md#architecture-back-up-to-dpmmabs) y sobre los [requisitos de compatibilidad](backup-support-matrix-mabs-dpm.md).
-
->[!NOTE]
-> **Azure Backup ahora admite la copia de seguridad y restauración selectivas de discos mediante la solución de copia de seguridad de máquinas virtuales de Azure.**
->
->En la actualidad, Azure Backup admite la copia de seguridad de todos los discos (sistema operativo y datos) en una máquina virtual junto con la solución de copia de seguridad de máquinas virtuales. Con la funcionalidad de exclusión de disco, tiene la opción de realizar una copia de seguridad de uno o de varios de los múltiples discos de datos de una máquina virtual. Esto proporciona una solución eficaz y rentable para sus necesidades de copia de seguridad y restauración. Cada punto de recuperación contiene datos de los discos incluidos en la operación de copia de seguridad, lo que permite además tener un subconjunto de discos restaurados desde el punto de recuperación determinado durante la operación de restauración. Esto se aplica a la restauración tanto desde la instantánea como desde el almacén.
->
->Para suscribirse a la versión preliminar, escriba a AskAzureBackupTeam@microsoft.com.
 
 ## <a name="supported-backup-actions"></a>Acciones de copia de seguridad admitidas
 
@@ -144,7 +137,7 @@ Restaurar una máquina virtual en una red virtual distinta |Compatible.<br/><br/
 
 **Proceso** | **Soporte técnico**
 --- | ---
-Tamaño de VM |Cualquier tamaño de máquina virtual de Azure con al menos 2 núcleos de CPU y 1 GB de RAM<br/><br/> [Más información.](../virtual-machines/windows/sizes.md)
+Tamaño de VM |Cualquier tamaño de máquina virtual de Azure con al menos 2 núcleos de CPU y 1 GB de RAM<br/><br/> [Más información.](../virtual-machines/sizes.md)
 Copia de seguridad de máquinas virtuales en [conjuntos de disponibilidad](../virtual-machines/availability.md#availability-sets) | Compatible.<br/><br/> No se puede restaurar una máquina virtual en un conjunto disponible con la opción para crear rápidamente una máquina virtual. En su lugar, cuando restaure la máquina virtual, restaure el disco y úselo para implementar una máquina virtual, o bien restaure un disco y úselo para reemplazar un disco existente.
 Copia de seguridad de máquinas virtuales implementadas con la [ventaja de uso híbrido (HUB)](../virtual-machines/windows/hybrid-use-benefit-licensing.md) | Compatible.
 Copia de seguridad de máquinas virtuales implementadas en un [conjunto de escalado](../virtual-machine-scale-sets/overview.md) |Compatible. [El modo de orquestación](../virtual-machine-scale-sets/orchestration-modes.md) debe establecerse en 2 para el dominio de error. El conjunto de disponibilidad no se admite.
@@ -201,7 +194,7 @@ Tráfico de red en Azure:
 - El l tráfico de copia de seguridad de servidores al almacén de Recovery Services se cifra mediante el Estándar de cifrado avanzado 256.
 - Los datos de copia de seguridad se envían a través de un vínculo HTTPS seguro.
 - Los datos de copia de seguridad se almacenan en el almacén de Recovery Services en su forma cifrada.
-- Solo el usuario tiene la frase de contraseña para desbloquear estos datos. Microsoft no puede descifrar los datos de copia de seguridad en ningún momento.
+- Solo tiene la clave de cifrado para desbloquear estos datos. Microsoft no puede descifrar los datos de copia de seguridad en ningún momento.
 
   > [!WARNING]
   > Después de configurar el almacén, solo el usuario tiene acceso a la clave de cifrado. Microsoft nunca mantiene una copia y no tiene acceso a la clave. Si la clave se pierde, Microsoft no puede recuperar los datos de copia de seguridad.

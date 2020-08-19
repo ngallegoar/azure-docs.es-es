@@ -3,12 +3,12 @@ title: Copia de seguridad de recursos compartidos de archivos de Azure con API R
 description: Aprenda a usar la API REST para realizar copias de seguridad de recursos compartidos de archivos de Azure en el almacén de Recovery Services
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 7059dbae9d448b710880f1f9d72b843a6d77d98b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f48ebbd20d6775fe61c3e3dbb07e8f71af41635a
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055026"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036749"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Copia de seguridad de un recurso compartido de archivos de Azure con Azure Backup mediante API REST
 
@@ -106,9 +106,9 @@ x-ms-routing-request-id  : CENTRALUSEUAP:20200127T105304Z:d9bdb266-8349-4dbd-968
 Date   : Mon, 27 Jan 2020 10:53:04 GMT
 ```
 
-### <a name="get-list-of-storage-accounts-that-can-be-protected-with-recovery-services-vault"></a>Obtener una lista de cuentas de almacenamiento que se pueden proteger con el almacén de Recovery Services
+### <a name="get-list-of-storage-accounts-with-file-shares-that-can-be-backed-up-with-recovery-services-vault"></a>Obtenga una lista de cuentas de almacenamiento con recursos compartidos de archivos de los que se puede realizar una copia de seguridad con el almacén de Recovery Services
 
-Para confirmar que el “almacenamiento en caché” ha finalizado, muestre todas las cuentas de almacenamiento que se pueden proteger de la suscripción. A continuación, busque la cuenta de almacenamiento deseada en la respuesta. Esto se hace mediante la operación [GET ProtectableContainers](/rest/api/backup/protectablecontainers/list).
+Para confirmar que se ha realizado el "almacenamiento en caché", enumere todas las cuentas de almacenamiento de la suscripción con recursos compartidos de archivos de los que se pueda realizar una copia de seguridad con el almacén de Recovery Services. A continuación, busque la cuenta de almacenamiento deseada en la respuesta. Esto se hace mediante la operación [GET ProtectableContainers](/rest/api/backup/protectablecontainers/list).
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectableContainers?api-version=2016-12-01&$filter=backupManagementType eq 'AzureStorage'

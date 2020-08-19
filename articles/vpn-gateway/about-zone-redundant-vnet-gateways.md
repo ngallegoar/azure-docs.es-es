@@ -1,6 +1,6 @@
 ---
 title: Acerca de las puertas de enlace de red virtual con redundancia de zona en Azure Availability Zones
-description: Obtenga más información acerca de las puertas de enlace de VPN Gateway y ExpressRoute en Availability Zones.
+description: Implemente puertas de enlace de VPN y ExpressRoute en Azure Availability Zones para aportar resistencia, escalabilidad y mayor disponibilidad a las puertas de enlace de red virtual.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
@@ -9,12 +9,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: f1bbaab99b6422de4053839e2099869d2d08db95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3aed75c26880ae2c3e31b412496655e5225b2edc
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75864305"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035457"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Acerca de las puertas de enlace de red virtual con redundancia de zona en Azure Availability Zones
 

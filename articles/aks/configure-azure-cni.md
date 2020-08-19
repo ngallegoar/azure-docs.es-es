@@ -4,12 +4,12 @@ description: Aprenda a configurar redes de Azure CNI (avanzadas) en Azure Kubern
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: d025bcddfdee25cddac311ac9a201b7f3afebd22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1bf459c530195b8855169123b8f496e4969403b
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84416858"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87872436"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configuración de redes de Azure CNI en Azure Kubernetes Service (AKS)
 
@@ -87,7 +87,7 @@ Se exige un valor mínimo para los pods máximos por nodo para garantizar el esp
 
 ### <a name="configure-maximum---existing-clusters"></a>Configurar máximo: clústeres existentes
 
-La configuración de maxPod por nodo se puede definir cuando se crea un nuevo grupo de nodos. Si necesita aumentar el valor de maxPod por nodo en un clúster existente, agregue un nuevo grupo de nodos con el nuevo recuento de maxPod deseado. Después de migrar los pods al nuevo grupo, elimine el grupo anterior. Para eliminar cualquier grupo anterior en un clúster, asegúrese de que está configurando los modos de grupo de nodos tal como se define en el [documento del grupo de nodos del sistema [system-node-pools].
+La configuración de maxPod por nodo se puede definir cuando se crea un nuevo grupo de nodos. Si necesita aumentar el valor de maxPod por nodo en un clúster existente, agregue un nuevo grupo de nodos con el nuevo recuento de maxPod deseado. Después de migrar los pods al nuevo grupo, elimine el grupo anterior. Para eliminar cualquier grupo anterior en un clúster, asegúrese de que está configurando los modos de grupo de nodos tal como se define en el [documento de grupos de nodos del sistema][system-node-pools].
 
 ## <a name="deployment-parameters"></a>Parámetros de implementación
 

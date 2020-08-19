@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/28/2020
+ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac3f9adbb3b83345fe14df39014c6119e97ba7f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e8250661fdbd6c67faade31caaed61ee8a399fe
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84886100"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008104"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implementación de Azure AD Privileged Identity Management (PIM)
 
@@ -27,9 +27,9 @@ En esta guía detallada se describe cómo planear la implementación de Privileg
 
 > [!TIP]
 > En este artículo, verá los elementos marcados como:
-> 
+>
 > :heavy_check_mark: **Microsoft recomienda**
-> 
+>
 > Estas son recomendaciones generales que solo debe implementar si se aplican a sus necesidades empresariales específicas.
 
 ## <a name="learn-about-privileged-identity-management"></a>Información acerca de Privileged Identity Management
@@ -82,7 +82,7 @@ Para más información, vea [¿Qué es Azure AD Privileged Identity Management?]
 
 **Roles de Azure AD**: estos roles están todos en Azure Active Directory (por ejemplo, administrador global, administrador de Exchange y administrador de seguridad). Puede leer más sobre los roles y sus funcionalidades en [Permisos de roles de administrador en Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). Para obtener ayuda con la determinación de qué roles asignar a los administradores, consulte [Roles con privilegios mínimos por tarea](../users-groups-roles/roles-delegate-by-task.md).
 
-**Roles de recursos de Azure**: estas funciones están vinculadas a un recurso, grupo de recursos, suscripción o grupo de administración de Azure. Privileged Identity Management ofrece acceso Just-In-Time a ambos roles integrados, como propietario, administrador de acceso de usuario y colaborador, así como [roles personalizados](../../role-based-access-control/custom-roles.md). Para más información sobre roles de recursos de Azure, vea [Control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md).
+**Roles de recursos de Azure**: estas funciones están vinculadas a un recurso, grupo de recursos, suscripción o grupo de administración de Azure. Privileged Identity Management ofrece acceso Just-In-Time a ambos roles integrados, como propietario, administrador de acceso de usuario y colaborador, así como [roles personalizados](../../role-based-access-control/custom-roles.md). Para obtener más información sobre los roles de recursos de Azure, consulte [¿Qué es el control de acceso basado en rol de Azure (RBAC)?](../../role-based-access-control/overview.md).
 
 Para obtener más información, consulte [Roles que no se pueden administrar en Privileged Identity Management](pim-roles.md).
 
@@ -115,7 +115,7 @@ La siguiente sección le ayuda a identificar a todas las partes interesadas que 
 | Nombre y correo electrónico | **Propietario de recurso/suscripción**<br/>Un representante de los propietarios de TI de cada suscripción o recurso para los que desea implementar Privileged Identity Management. | SO/R/I |
 | Nombre y correo electrónico | **Propietario de seguridad**<br/>Un representante del equipo de seguridad que puede aprobar que el plan cumple los requisitos de seguridad de la organización. | SO/R |
 | Nombre y correo electrónico | **Administrador de soporte técnico de TI o departamento de soporte técnico**<br/>Un representante de la organización de soporte técnico de TI que puede proporcionar información sobre la compatibilidad de este cambio desde una perspectiva del departamento de soporte técnico. | R/I |
-| Nombre y correo electrónico de los usuarios piloto | **Usuarios de roles RBAC**<br/>El grupo de usuarios para el que se implementa la administración de identidades con privilegios. Necesitan saber cómo activar sus roles una vez que se implementa Privileged Identity Management. | I |
+| Nombre y correo electrónico de los usuarios piloto | **Usuarios con rol de Azure**<br/>El grupo de usuarios para el que se implementa la administración de identidades con privilegios. Necesitan saber cómo activar sus roles una vez que se implementa Privileged Identity Management. | I |
 
 ### <a name="enable-privileged-identity-management"></a>Azure Privileged Identity Management
 
@@ -142,9 +142,9 @@ Siga estos pasos para aplicar el principio de privilegio mínimo para los roles 
 
 1. Para conocer la granularidad de los roles, lea y entienda los [roles de administrador de Azure AD disponibles](../users-groups-roles/directory-assign-admin-roles.md#available-roles). Usted y su equipo también deben consultar [Roles de administrador por tarea de administrador en Azure Active Directory](../users-groups-roles/roles-delegate-by-task.md), donde se explica el rol con privilegios mínimos para tareas específicas.
 
-1. Especifique quién tiene roles con privilegios en su organización. Puede usar el [asistente de Privileged Identity Management](pim-security-wizard.md#run-the-wizard) para acceder a una página similar a la siguiente.
+1. Especifique quién tiene roles con privilegios en su organización. Puede usar la página [Detección e información (versión preliminar)](pim-security-wizard.md) en Privileged Identity Management para acceder a una página similar a la siguiente.
 
-    ![Panel Detectar roles con privilegios que muestra quién tiene roles con privilegios](./media/pim-deployment-plan/discover-privileged-roles-users.png)
+    ![Página Detección e información (versión preliminar) para reducir la exposición mediante roles con privilegios](./media/pim-deployment-plan/new-preview-page.png)
 
 1. Analice por qué todos los administradores globales de la organización necesitan el rol. Según la documentación leída anteriormente, si el trabajo de la persona de que se trata pueden realizarlo uno o varios roles de administrador granulares, debe quitarles el rol de administrador global y realizar las asignaciones correspondientes dentro de Azure Active Directory (como referencia: actualmente, Microsoft tiene solo unos diez administradores con el rol de administrador global. Obtenga más información sobre [cómo usa Microsoft la característica Privileged Identity Management](https://www.microsoft.com/itshowcase/Article/Content/887/Using-Azure-AD-Privileged-Identity-Management-for-elevated-access)).
 

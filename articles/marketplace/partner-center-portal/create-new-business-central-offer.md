@@ -1,18 +1,18 @@
 ---
 title: 'Creación de una oferta de Dynamics 365 Business Central: marketplace comercial de Microsoft'
-description: Conozca los pasos y las consideraciones para crear una nueva oferta de Dynamics 365 Business Central en el portal de marketplace comercial en el Centro de partners. Puede mostrar o vender su oferta en Azure Marketplace o a través del programa Proveedor de soluciones en la nube (CSP).
+description: Conozca los pasos y las consideraciones para crear una oferta de Dynamics 365 Business Central en el marketplace comercial de Microsoft del Centro de partners. Puede mostrar o vender su oferta en Azure Marketplace o a través del programa Proveedor de soluciones en la nube (CSP).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: navits09
 ms.author: navits
-ms.date: 06/17/2020
-ms.openlocfilehash: 456764ae2b08b9852e56b2ab3f7cd9238b540b58
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 08/07/2020
+ms.openlocfilehash: ff93a336b50ceac1106b31726d865ed3e0b41108
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121952"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031498"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Creación de una oferta de Dynamics 365 Business Central
 
@@ -182,10 +182,16 @@ Proporcione al menos un documento de marketing relacionado (y un máximo de tres
 
 ### <a name="marketplace-images"></a>Imágenes de Marketplace
 
-Proporcione logotipos e imágenes para la oferta. Todas las imágenes deben estar en formato PNG. Cargue el logotipo de la oferta en dos tamaños:
+Proporcione logotipos e imágenes para la oferta. Todas las imágenes deben estar en formato PNG. 
+
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
+Cargue el logotipo de la oferta en dos tamaños:
 
 * **Pequeño** (48 x 48 píxeles)
 * **Grande** (216 x 216 píxeles)
+
+[!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
 
 >[!NOTE]
 >Si tiene un problema al cargar archivos, asegúrese de que la red local no bloquee el servicio `https://upload.xboxlive.com` que usa el Centro de partners.

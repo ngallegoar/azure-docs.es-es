@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b431cee3b8e5fc168dec2766442d6f6b9869d1e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0dde9d8b50233c3c4033daf618e0e626c0174b0c
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74900373"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903160"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identidad del dispositivo y virtualización del escritorio
 
@@ -53,10 +53,10 @@ Antes de configurar las identidades de dispositivo en Azure AD para el entorno 
 |   |   |   | No persistente | No |
 |   | Administrado | Windows actual | Persistente | No |
 |   |   |   | No persistente | No |
-| Registrado en Azure AD | Federado | Windows actual | Persistente | No |
-|   |   |   | No persistente | No |
-|   | Administrado | Windows actual | Persistente | No |
-|   |   |   | No persistente | No |
+| Registrado en Azure AD | Federado | Windows actual | Persistente | No es aplicable |
+|   |   |   | No persistente | No es aplicable |
+|   | Administrado | Windows actual | Persistente | No es aplicable |
+|   |   |   | No persistente | No es aplicable |
 
 \* Un entorno de infraestructura de identidad **federada** representa un entorno con un proveedor de identidades como AD FS u otro IdP de terceros.
 
@@ -77,7 +77,7 @@ Si se basa en la herramienta de preparación del sistema (sysprep.exe) y utiliza
 
 Si se basa en la instantánea de una máquina virtual (VM) para crear otras VM, asegúrese de que esa instantánea no sea de una VM que ya se haya registrado en Azure AD como unión a Azure AD híbrido.
 
-Al implementar VDI no persistente, los administradores de TI deben prestar mucha atención a la administración de dispositivos obsoletos en Azure AD. Microsoft recomienda que los administradores de TI implementen las instrucciones siguientes. Si no lo hace, el directorio tendrá una gran cantidad de dispositivos unidos a Azure AD híbrido que se han registrado en la plataforma VDI no persistente.
+Las versiones actuales de Windows no admiten la unión a Azure AD híbrido para VDI no persistente. Al implementar VDI no persistente para Windows de nivel inferior, los administradores de TI deben prestar mucha atención a la administración de dispositivos obsoletos en Azure AD. Microsoft recomienda que los administradores de TI implementen las instrucciones siguientes. Si no lo hace, el directorio tendrá una gran cantidad de dispositivos unidos a Azure AD híbrido que se han registrado en la plataforma VDI no persistente.
 
 - Cree y use un prefijo para el nombre para mostrar del equipo que indique el escritorio como basado en VDI.
 - Implemente el siguiente comando como parte del script de cierre de sesión. Este comando desencadenará una llamada de mejor esfuerzo a Azure AD para eliminar el dispositivo.

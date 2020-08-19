@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: 5a2410a5ccaa10867e94b3a2ec10228a006fbe20
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: c09dca8b5927e417714ef89393950cfb58c89020
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534641"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042282"
 ---
 # <a name="set-up-email-notifications-for-security-alerts"></a>Configuración de notificaciones de alertas de seguridad por correo electrónico 
 
@@ -34,9 +34,15 @@ Para evitar un exceso de alertas, Security Center limita el volumen de correos s
 
 ## <a name="availability"></a>Disponibilidad
 
-- Estado de la versión: **Disponibilidad general**
-- Roles necesarios: **Administrador de seguridad** o **Propietario de la suscripción** 
-- Nubes: ✔ Nubes comerciales ✔ US Gov (parcial) ✘ Nubes nacionales o soberanas (China Gov y otros gobiernos)
+|Aspecto|Detalles|
+|----|:----|
+|Estado de la versión:|Disponibilidad general|
+|Precios:|Nivel gratis|
+|Roles y permisos necesarios:|**Administrador de seguridad**<br>**Propietario de la suscripción** |
+|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov (parcial)<br>![No](./media/icons/no-icon.png) China Gov, otros gobiernos|
+|||
+
+
 
 
 ## <a name="set-up-email-notifications-for-alerts"></a>Configuración de notificaciones de correo electrónico para alertas <a name="email"></a>

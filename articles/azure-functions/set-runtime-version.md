@@ -2,26 +2,26 @@
 title: Cómo seleccionar un destino para versiones en tiempo de ejecución de Azure Functions
 description: Azure Functions admite varias versiones del runtime. Obtenga información sobre cómo especificar la versión en tiempo de ejecución de una aplicación de función hospedada en Azure.
 ms.topic: conceptual
-ms.date: 11/26/2018
-ms.openlocfilehash: 5a71338b1b9735d7e7494dc2667bd7addf5d4a53
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 07/22/2020
+ms.openlocfilehash: 74ee0d382dcd468aed118a7de330eef95b329402
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77151962"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830876"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Cómo seleccionar un destino para versiones en tiempo de ejecución de Azure Functions
 
-Una aplicación de función se ejecuta en una versión específica del runtime de Azure Functions. Hay tres versiones principales: [1.x, 2.x y 3.x](functions-versions.md). De forma predeterminada, las aplicaciones de función se crean en la versión 2.x del entorno de ejecución. En este artículo se explica cómo configurar una aplicación de función en Azure para que se ejecute en la versión que elija. Para obtener información sobre cómo configurar un entorno de desarrollo local para una versión específica, consulte [Codificación y comprobación de las funciones de Azure Functions en un entorno local](functions-run-local.md).
+Una aplicación de función se ejecuta en una versión específica del runtime de Azure Functions. Hay tres versiones principales: [1.x, 2.x y 3.x](functions-versions.md). De forma predeterminada, las aplicaciones de función se crean en la versión 3.x del entorno de ejecución. En este artículo se explica cómo configurar una aplicación de función en Azure para que se ejecute en la versión que elija. Para obtener información sobre cómo configurar un entorno de desarrollo local para una versión específica, consulte [Codificación y comprobación de las funciones de Azure Functions en un entorno local](functions-run-local.md).
 
 ## <a name="automatic-and-manual-version-updates"></a>Actualizaciones de versiones automáticas y manuales
 
-Azure Functions permite hacer que el destino sea una versión específica del entorno en tiempo de ejecución mediante el uso de la configuración de aplicación `FUNCTIONS_EXTENSION_VERSION` en la aplicación de función. La aplicación de función se mantiene en la versión principal especificada hasta que elija explícitamente moverla a una nueva versión.
+Azure Functions permite hacer que el destino sea una versión específica del entorno en tiempo de ejecución mediante el uso de la configuración de aplicación `FUNCTIONS_EXTENSION_VERSION` en la aplicación de función. La aplicación de función se mantiene en la versión principal especificada hasta que elija explícitamente moverla a una nueva versión. Si especifica solo la versión principal, la aplicación de funciones se actualiza automáticamente a las nuevas versiones secundarias del entorno de ejecución cuando están disponibles. Las nuevas versiones secundarias no deberían introducir cambios importantes. 
 
-Si especifica solo la versión principal, la aplicación de funciones se actualiza automáticamente a las nuevas versiones secundarias del entorno de ejecución cuando están disponibles. Las nuevas versiones secundarias no deberían introducir cambios importantes. Si especifica una versión secundaria (por ejemplo, "2.0.12345"), la aplicación de función se mantiene en esa versión específica hasta que la modifique explícitamente.
+Si especifica una versión secundaria (por ejemplo, "2.0.12345"), la aplicación de función se mantiene en esa versión específica hasta que la modifique explícitamente. Las versiones secundarias anteriores se quitan del entorno de producción de manera periódica. Una vez que esto ocurre, la aplicación de funciones se ejecuta en la versión más reciente en lugar de hacerlo en la versión establecida en `FUNCTIONS_EXTENSION_VERSION`. Por este motivo, debe resolver rápidamente cualquier problema con la aplicación de funciones que requiera una versión secundaria específica, de modo que pueda tener como destino la versión principal. Las eliminaciones de versiones secundarias se anuncian en los [anuncios de App Service](https://github.com/Azure/app-service-announcements/issues).
 
 > [!NOTE]
-> Si ancla una versión específica de Azure Functions y, a continuación, intenta publicar en Azure mediante Visual Studio, aparecerá un cuadro de diálogo que le solicitará que actualice a la versión más reciente o que cancele la publicación. Para evitarlo, agregue la propiedad `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` en su archivo `.csproj`.
+> Si ancla una versión principal específica de Azure Functions y, a continuación, intenta publicar en Azure mediante Visual Studio, aparecerá un cuadro de diálogo que le solicitará que actualice a la versión más reciente o que cancele la publicación. Para evitarlo, agregue la propiedad `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` en su archivo `.csproj`.
 
 Cuando una nueva versión está disponible públicamente, un aviso en el portal le da la oportunidad de pasar a esa versión. Después de pasar a una nueva versión, siempre puede usar la configuración de la aplicación `FUNCTIONS_EXTENSION_VERSION` para volver a una versión anterior.
 

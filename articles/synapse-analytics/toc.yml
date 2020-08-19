@@ -74,10 +74,10 @@
       href: ./sql/tutorial-connect-power-bi-desktop.md
     - name: Científico de datos
       items:
-        - name: Predicción de las propinas en los taxis de Nueva York
+        - name: Ejecución de un experimento de regresión mediante Azure AutoML
+          href: ./spark/apache-spark-azure-machine-learning-tutorial.md
+        - name: Creación de un modelo de clasificación mediante Apache Spark MLlib
           href: ./spark/apache-spark-machine-learning-mllib-notebook.md
-        - name: Aumento de Apache Spark con más bibliotecas
-          href: ./spark/apache-spark-azure-portal-add-libraries.md
     - name: Analista de datos
       items:
         - name: Uso de SQL a petición para analizar y Synapse Studio para visualizar
@@ -202,8 +202,6 @@
               href: ./spark/apache-spark-overview.md
             - name: Conceptos de Apache Spark
               href: ./spark/apache-spark-concepts.md
-            - name: Compatibilidad de la biblioteca y del lenguaje del runtime
-              href: ./spark/apache-spark-version-support.md
             - name: ¿Qué es Delta Lake?
               href: ./spark/apache-spark-what-is-delta-lake.md
             - name: Rendimiento de Apache Spark
@@ -212,6 +210,12 @@
               href: ./spark/apache-spark-autoscale.md
         - name: Desarrollo
           items:
+            - name: Bibliotecas
+              items:
+                - name: Adición y administración de bibliotecas
+                  href: ./spark/apache-spark-azure-portal-add-libraries.md
+                - name: Compatibilidad de la biblioteca y del lenguaje del runtime
+                  href: ./spark/apache-spark-version-support.md
             - name: Cuadernos de Azure Synapse Studio
               href: ./spark/apache-spark-development-using-notebooks.md
             - name: ".NET para Apache\_Spark"
@@ -558,7 +562,7 @@
               href: ../data-factory/connector-azure-database-for-postgresql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Azure File Storage
               href: ../data-factory/connector-azure-file-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Azure SQL Database
+            - name: "Azure\_SQL\_Database"
               href: ../data-factory/connector-azure-sql-database.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Instancia administrada de Azure SQL
               href: ../data-factory/connector-azure-sql-database-managed-instance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json

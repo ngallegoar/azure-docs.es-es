@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 578560eccb13ff4b9169e11b0674859acc1fc901
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: efa4ca24dadb2fb5d347d79de20eebfacc9a58e0
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285873"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142186"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para continuidad empresarial y recuperación ante desastres en Azure Kubernetes Service (AKS)
 
@@ -93,7 +93,7 @@ La replicación geográfica es una característica de los registros de contenedo
 
 El estado se puede externalizar o colocar con el código que lo está manipulando. Generalmente, la externalización del estado se realiza con una base de datos u otro almacén de datos que se ejecuta en distintas máquinas de la red o fuera del proceso en la misma máquina.
 
-Los contenedores y los microservicios son más resistentes si los procesos que se ejecutan dentro de ellos no conservan el estado. Dado que las aplicaciones contienen casi siempre algún estado, use una solución PaaS, como Azure Database for MySQL, Azure Database for PostgreSQL o Microsoft Azure SQL Database.
+Los contenedores y los microservicios son más resistentes si los procesos que se ejecutan dentro de ellos no conservan el estado. Dado que las aplicaciones casi siempre contienen algún estado, utilice una solución PaaS, como Azure Cosmos DB, Azure Database for PostgreSQL, Azure Database for MySQL o Azure SQL Database.
 
 Para crear aplicaciones portátiles, consulte las siguientes directrices:
 

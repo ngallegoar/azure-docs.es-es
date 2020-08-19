@@ -9,19 +9,19 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 2517a0ac8edf30ac041708a57b166af6eb36440a
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: cb3cb41b46c2def4f99af7f1811e4ff96dff7070
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760808"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167035"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Montaje de Blob Storage con el protocolo Network File System (NFS) 3.0 (versión preliminar)
 
 Puede montar un contenedor en Blob Storage desde una máquina virtual (VM) de Azure basada en Linux o Windows o un sistema Linux o Windows que se ejecuta de forma local mediante el protocolo NFS 3.0. En este artículo se proporcionan instrucciones paso a paso. Para obtener más información acerca de la compatibilidad con el protocolo NFS 3.0 en Blob Storage, consulte [Compatibilidad del protocolo Network File System (NFS) 3.0 en Azure Blob Storage (versión preliminar)](network-file-system-protocol-support.md).
 
 > [!NOTE]
-> La compatibilidad con el protocolo NFS 3.0 en Azure Blob Storage se encuentra en versión preliminar pública y está disponible en las siguientes regiones: Este de EE. UU., Centro de EE. UU. y Centro de Canadá.
+> La compatibilidad con el protocolo NFS 3.0 en Azure Blob Storage se encuentra en versión preliminar pública y está disponible en las siguientes regiones: Este de EE. UU., Centro de EE. UU., Centro-oeste de EE. UU., Sudeste de Australia, Europa del Norte, Oeste de Reino Unido, Centro de Corea, Sur de Corea y Centro de Canadá.
 
 ## <a name="step-1-register-the-nfs-30-protocol-feature-with-your-subscription"></a>Paso 1: Registro de la característica de protocolo NFS 3.0 con la suscripción
 
@@ -92,7 +92,7 @@ A medida que configure la cuenta, elija estos valores:
 
 |Configuración | Value|
 |----|---|
-|Location|Una de las regiones siguientes: Este de EE. UU., Centro de EE. UU. y Centro de Canadá. |
+|Location|Una de las regiones siguientes: Este de EE. UU., Centro de EE. UU., Centro-oeste de EE. UU., Sudeste de Australia, Europa del Norte, Oeste de Reino Unido, Centro de Corea, Sur de Corea y Centro de Canadá |
 |Rendimiento|Premium|
 |Tipo de cuenta|BlockBlobStorage|
 |Replicación|Almacenamiento con redundancia local (LRS)|

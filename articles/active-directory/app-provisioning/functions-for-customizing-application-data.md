@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: kenwith
-ms.openlocfilehash: 42dcbf693b6ec685849b1523480506e9c8f5b54b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 8afe6ad23f0e23e2b9ab772f5526c63d307fa88b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202899"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003237"
 ---
 # <a name="how-to-write-expressions-for-attribute-mappings-in-azure-ad"></a>Procedimiento: Escritura de expresiones para la asignación de atributos en Azure AD
 
@@ -34,6 +34,7 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
   2. Constantes de cadena, que deben ir entre comillas. Por ejemplo: "Estados Unidos"
   3. Otras funciones. Por ejemplo: FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
 * Para las constantes de cadena, si necesita una barra diagonal inversa (\) o comillas dobles (") en la cadena, se deben convertirse con el símbolo de barra diagonal inversa (\). Por ejemplo: "Nombre de la empresa: \\"Contoso\\""
+* La sintaxis distingue entre mayúsculas y minúsculas, lo que se debe tener en cuenta al escribirlas como cadenas en una función, por oposición a copiarlas y pegarlas directamente desde aquí. 
 
 ## <a name="list-of-functions"></a>Lista de funciones
 

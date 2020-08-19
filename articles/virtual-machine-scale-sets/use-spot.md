@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
-ms.custom: jagaveer
-ms.openlocfilehash: 70d7eb000ed2d50bc22bb005621ee7515e5a2a61
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: jagaveer, devx-track-azurecli
+ms.openlocfilehash: de8cfa66d6d52fe16cc40c5df0f41a39fff134fd
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527462"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832644"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>Máquinas virtuales de Azure Spot para los conjuntos de escalado 
 
@@ -40,6 +40,11 @@ Si quiere que las instancias del conjunto de escalado de Spot se eliminen al exp
 
 Los usuarios pueden optar por recibir notificaciones en las máquinas virtuales mediante [Azure Scheduled Events](../virtual-machines/linux/scheduled-events.md). De este modo se le notificará que se van a expulsar las máquinas virtuales y tendrá 30 segundos para terminar los trabajos y cerrar las tareas antes de que esto ocurra. 
 
+## <a name="placement-groups"></a>Grupos de selección de ubicación
+Un grupo de selección de ubicación es una construcción similar a un conjunto de disponibilidad de Azure, con sus propios dominios de error y dominios de actualización. De forma predeterminada, un conjunto de escalado consta de un único grupo de selección de ubicación con un tamaño máximo de 100 máquinas virtuales. Si la propiedad `singlePlacementGroup` de un conjunto de escalado se establece en *false*, el conjunto de escalado puede estar compuesto por varios grupos de selección de ubicación y tiene un intervalo de 0 a 1000 máquinas virtuales. 
+
+> [!IMPORTANT]
+> A menos que use InfiniBand con HPC, se recomienda establecer la propiedad del conjunto de escalado `singlePlacementGroup` en *false* para habilitar varios grupos de selección de ubicación para un mejor escalado en la región o zona. 
 
 ## <a name="deploying-spot-vms-in-scale-sets"></a>Implementación de máquinas virtuales de Spot en conjuntos de escalado
 
@@ -64,6 +69,7 @@ az vmss create \
     --name myScaleSet \
     --image UbuntuLTS \
     --upgrade-policy-mode automatic \
+    --single-placement-group false \
     --admin-username azureuser \
     --generate-ssh-keys \
     --priority Spot \
@@ -89,14 +95,26 @@ $vmssConfig = New-AzVmssConfig `
 
 El proceso para crear un conjunto de escalado que use máquinas virtuales de Spot es igual que el que se detalla en el artículo de introducción para [Linux](quick-create-template-linux.md) o [Windows](quick-create-template-windows.md). 
 
-Para las implementaciones con plantilla de Spot, use `"apiVersion": "2019-03-01"` o una versión posterior. Agregue las propiedades `priority`, `evictionPolicy` y `billingProfile` a la sección `"virtualMachineProfile":` de la plantilla: 
+Para las implementaciones con plantilla de Spot, use `"apiVersion": "2019-03-01"` o una versión posterior. 
+
+Agregue las propiedades `priority`, `evictionPolicy` y `billingProfile` a la sección `"virtualMachineProfile":` y la propiedad `"singlePlacementGroup": false,` a la sección `"Microsoft.Compute/virtualMachineScaleSets"` de la plantilla:
 
 ```json
-                "priority": "Spot",
+
+{
+  "type": "Microsoft.Compute/virtualMachineScaleSets",
+  },
+  "properties": {
+    "singlePlacementGroup": false,
+    }
+
+        "virtualMachineProfile": {
+              "priority": "Spot",
                 "evictionPolicy": "Deallocate",
                 "billingProfile": {
                     "maxPrice": -1
                 }
+            },
 ```
 
 Para eliminar la instancia después de que se haya expulsado, cambie el parámetro `evictionPolicy` a `Delete`.

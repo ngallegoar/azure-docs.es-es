@@ -8,24 +8,66 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: f2ce8f300ae7586fc16fd9170ec290b19875d01c
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 95e9b208159e9af41563f12ce8af7892e13f6629
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371131"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121857"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novedades de Text Analytics API
 
 Text Analytics API se actualiza constantemente. Para mantenerse al día con los avances recientes, en este artículo se proporciona información sobre las nuevas versiones y características.
 
-## <a name="july-2020"></a>Julio de 2020
+## <a name="august-2020"></a>Agosto de 2020
+
+### <a name="general-api-updates"></a>Actualizaciones de API generales
+
+* Versión del modelo `2020-07-01` para los puntos de conexión `/keyphrases`, `/pii` y `/languages` v3, que agrega:
+    * [Categorías de entidades](named-entity-types.md?tabs=personal) gubernamentales y nacionales adicionales para el reconocimiento de entidades con nombre.
+* Ahora se devolverá un error HTTP 400 para las solicitudes de API v3 que superen los [límites de datos](concepts/data-limits.md) publicados. 
+
+### <a name="text-analytics-for-health-container-august-updates"></a>Actualizaciones de agosto de Text Analytics para el contenedor de estado
+
+Las siguientes actualizaciones son específicas de la versión de agosto de Text Analytics para el contenedor de estado únicamente.
+
+* Nueva versión de modelo de Text Analytics para estado: `2020-07-24`
+* Nueva dirección URL para enviar solicitudes de Text Analytics para estado: `http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health` 
+
+Se han cambiado las siguientes propiedades en la respuesta JSON:
+
+* El nombre de `type` ha cambiado a `category` 
+* El nombre de `score` ha cambiado a `confidenceScore`
+* Las entidades del campo `category` de la salida JSON están ahora en formato Pascal. Se ha cambiado el nombre de las siguientes entidades:
+    * Se ha cambiado el nombre de `EXAMINATION_RELATION` a `RelationalOperator`.
+    * Se ha cambiado el nombre de `EXAMINATION_UNIT` a `MeasurementUnit`.
+    * Se ha cambiado el nombre de `EXAMINATION_VALUE` a `MeasurementValue`.
+    * Se ha cambiado el nombre de `ROUTE_OR_MODE` a `MedicationRoute`.
+    * Se ha cambiado el nombre de la entidad relacional `ROUTE_OR_MODE_OF_MEDICATION` a `RouteOfMedication`.
+
+Se han agregado las entidades siguientes:
+
+* NER
+    * `AdministrativeEvent`
+    * `CareEnvironment`
+    * `HealthcareProfession`
+    * `MedicationForm` 
+
+* Extracción de relaciones
+    * `DirectionOfCondition`
+    * `DirectionOfExamination`
+    * `DirectionOfTreatment`
+
+> [!div class="nextstepaction"]
+> [Más información sobre la versión preliminar de Text Analytics para el contenedor de estado](how-tos/text-analytics-for-health.md)
+
+## <a name="july-2020"></a>Julio de 2020 
 
 ### <a name="text-analytics-for-health-container---public-gated-preview"></a>Text Analytics para la versión preliminar pública de contenedor de estado
 
-Text Analytics para el contenedor de estado está ahora en versión preliminar pública, lo que le permite extraer información de texto en inglés no estructurado en documentos clínicos como los formularios de ingesta de pacientes, las notas del doctor, los documentos de investigación y los resúmenes de descarga. Actualmente, no se le facturará el uso de Text Analytics para el contenedor de estado. 
+Text Analytics para el contenedor de estado está ahora en versión preliminar pública, lo que le permite extraer información de texto en inglés no estructurado en documentos clínicos como los formularios de ingesta de pacientes, las notas del doctor, los documentos de investigación y los resúmenes de descarga. Actualmente, no se le facturará el uso de Text Analytics para el contenedor de estado.
 
 El contenedor ofrece las siguientes características:
 
@@ -33,10 +75,6 @@ El contenedor ofrece las siguientes características:
 * Extracción de relaciones
 * Vinculación de entidad
 * Negación
-
-
-> [!div class="nextstepaction"]
-> [Más información sobre la versión preliminar de Text Analytics para el contenedor de estado](how-tos/text-analytics-for-health.md)
 
 ## <a name="may-2020"></a>Mayo de 2020
 

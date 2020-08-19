@@ -1,6 +1,6 @@
 ---
 title: Visualización del estado de los trabajos de Azure Import/Export | Microsoft Docs
-description: Aprenda a visualizar el estado de los trabajos de Import/Export y las unidades utilizadas.
+description: Aprenda a visualizar el estado de los trabajos de Azure Import/Export y las unidades utilizadas. Conozca los factores que afectan al tiempo que tardan en procesarse los trabajos.
 author: alkohli
 services: storage
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 7a000ab4a465e3b19efe6f2853bcd19dca47e440
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf44b24b9222072bf5f1493b36b0dfcca24b5389
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514136"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923618"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Visualización del estado de los trabajos de Azure Import/Export
 
@@ -73,7 +73,7 @@ La cantidad de tiempo que tarda en procesar un trabajo de importación o exporta
 -  Tipo de trabajo y tamaño de los datos copiados
 -  Número de discos en un trabajo. 
 
-El servicio Import/Export no tiene un Acuerdo de Nivel de Servicio, pero se esfuerza por completar la copia en un período de tiempo de entre siete y diez días después de que se reciben los discos. Además de para el estado publicado en Azure Portal, las API de REST pueden usarse para realizar el seguimiento del progreso del trabajo. El parámetro de porcentaje completo de la llamada API de la operación de [enumeración de trabajos](/previous-versions/azure/dn529083(v=azure.100)) proporciona el porcentaje del progreso de copia.
+El servicio Import/Export no tiene un Acuerdo de Nivel de Servicio, pero se esfuerza por completar la copia en un período de tiempo de entre siete y diez días después de que se reciben los discos. Además de para el estado que se publica en Azure Portal, las API REST se pueden usar para realizar un seguimiento del progreso del trabajo. El parámetro de porcentaje completo de la llamada API de la operación de [enumeración de trabajos](/previous-versions/azure/dn529083(v=azure.100)) proporciona el porcentaje del progreso de copia.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

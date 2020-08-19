@@ -3,12 +3,12 @@ title: 'Implementación de Live Video Analytics en un dispositivo IoT Edge: Azur
 description: En este artículo se enumeran los pasos que ayudarán a implementar Live Video Analytics en el dispositivo IoT Edge. Hará esto, por ejemplo, si tiene acceso a una máquina Linux local o ha creado previamente una cuenta de Azure Media Services.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: ea7a1026f42cd3d8745559bc195a89b7fbcb69a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f031f679d8fe8e1c14b6a4086f5e1c37f15c7855
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074457"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067943"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implementación de Live Video Analytics en un dispositivo IoT Edge
 
@@ -86,8 +86,8 @@ Live Video Analytics en IoT Edge expone propiedades de módulos gemelos que se d
 
 ### <a name="deploy-using-the-azure-portal"></a>Implementación mediante Azure Portal
 
-Azure Portal le guía en la creación de un manifiesto de implementación y la inserción de la implementación en un dispositivo de IoT Edge.
-Selección del dispositivo
+Azure Portal le guía en la creación de un manifiesto de implementación y la inserción de la implementación en un dispositivo de IoT Edge.  
+#### <a name="select-your-device-and-set-modules"></a>Selección del dispositivo y establecimiento de módulos
 
 1. Inicie sesión en [Azure Portal](https://ms.portal.azure.com/) y vaya a IoT Hub.
 1. Seleccione **IoT Edge** en el menú.
@@ -112,23 +112,12 @@ Un manifiesto de implementación es un documento JSON que describe qué módulos
     > [!TIP]
     > No seleccione **Agregar** hasta que haya especificado los valores en las pestañas **Configuración del módulo**, **Opciones de creación del contenedor** y **Configuración de módulos gemelos**, tal como se describe en este procedimiento.
     
-    > [!IMPORTANT]
+    > [!WARNING]
     > Azure IoT Edge distingue mayúsculas de minúsculas al realizar llamadas a los módulos. Tome nota de la cadena exacta que utilice como nombre de módulo.
 
 1. Abra la pestaña **Variables de entorno**.
    
-   Copie y pegue el siguiente código JSON en el cuadro para proporcionar el id. de usuario y el id. de grupo que se usarán para guardar los datos de la aplicación y las salidas de vídeo.
-    ```   
-   {
-        "LOCAL_USER_ID": 
-        {
-            "value": "1010"
-        },
-        "LOCAL_GROUP_ID": {
-            "value": "1010"
-        }
-    }
-     ``` 
+   Agregue los siguientes valores en los cuadros de entrada que vea ![Variables de entorno](./media/deploy-iot-edge-device/environment-variables.png) 
 
 1. Abra la pestaña **Opciones de creación del contenedor**.
 
@@ -201,8 +190,8 @@ Un manifiesto de implementación es un documento JSON que describe qué módulos
     "armEndpoint": "https://management.azure.com/",
     "allowUnsecuredEndpoints": true
     ```
-   [!Note]
-   La propiedad gemela **allowUnsecuredEndpoints** se establece como true para los tutoriales y las guías de inicio rápido.   
+   > [!Note]
+   > La propiedad gemela **allowUnsecuredEndpoints** se establece como true para los tutoriales y las guías de inicio rápido.   
    Se debe establecer esta propiedad en **false** cuando se ejecute en el entorno de producción. Esto garantizará que la aplicación bloqueará todos los puntos de conexión no seguros y, para poder ejecutar las topologías de gráfico, se necesitarán credenciales de conexión válidas.  
    
     Seleccione Agregar para incorporar las propiedades de módulos gemelos.
@@ -258,5 +247,7 @@ Después, vamos a probar el ejemplo con la invocación de un método directo. Le
     ![Mensaje de estado 200](./media/deploy-iot-edge-device/connection-timeout.png) 
 
 ## <a name="next-steps"></a>Pasos siguientes
+Pruebe [Inicio rápido: Introducción: Live Video Analytics on IoT Edge](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
 
-[Inicio rápido: Introducción: Live Video Analytics on IoT Edge](get-started-detect-motion-emit-events-quickstart.md)
+> [!TIP]
+> En el comando, que ejecutará después, utilizará `device-id` en lugar de `lva-sample-device`predeterminado.

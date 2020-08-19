@@ -2,16 +2,15 @@
 title: Uso de Azure AD en Azure Kubernetes Service
 description: Aprenda a usar Azure AD en Azure Kubernetes Service (AKS).
 services: container-service
-manager: gwallace
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 07/27/2020
 ms.author: thomasge
-ms.openlocfilehash: 06a97126df449b77bf3fcc48bd23231512c9dff2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: afc20052680e7f3e5b7d3a6b7320b7ca3b10dbd5
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056654"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799864"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Integración de Azure Active Directory administrado por AKS
 
@@ -36,11 +35,6 @@ La integración de Azure Active Directory administrado por AKS está disponible 
 * Los clústeres no habilitados para RBAC no se admiten en la integración de AAD administrado por AKS.
 * No se admite el cambio del inquilino de Azure AD asociado a la integración de AAD administrado por AKS.
 
-> [!IMPORTANT]
-> Las características en versión preliminar de AKS están disponibles como opción de participación y autoservicio. Las versiones preliminares se proporcionan "tal cual" y "como están disponibles", y están excluidas de los Acuerdos de Nivel de Servicio y la garantía limitada. Las versiones preliminares de AKS reciben cobertura parcial del soporte al cliente en la medida de lo posible. Por lo tanto, estas características no están diseñadas para usarse en producción. Para más información, consulte los siguientes artículos de soporte: 
-> - [Directivas de soporte técnico para AKS](support-policies.md) 
-> - [Preguntas más frecuentes de soporte técnico de Azure](faq.md)
-
 ## <a name="prerequisites"></a>Requisitos previos
 
 * La CLI de Azure, versión 2.9.0 o posterior
@@ -57,22 +51,6 @@ kubectl version --client
 ```
 
 Siga [estas instrucciones](https://kubernetes.io/docs/tasks/tools/install-kubectl/) para otros sistemas operativos.
-
-```azurecli-interactive 
-az feature register --name AAD-V2 --namespace Microsoft.ContainerService    
-``` 
-
-Pueden pasar unos minutos hasta que el estado aparezca como **Registrado**. Puede comprobar el estado del registro con el comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list): 
-
-```azurecli-interactive 
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AAD-V2')].{Name:name,State:properties.state}"    
-``` 
-
-Cuando el estado se muestre como Registrado, actualice el registro del proveedor de recursos `Microsoft.ContainerService` mediante el comando [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register):    
-
-```azurecli-interactive 
-az provider register --namespace Microsoft.ContainerService 
-``` 
 
 
 ## <a name="before-you-begin"></a>Antes de empezar
@@ -146,7 +124,7 @@ aks-nodepool1-15306047-0   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-1   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-2   Ready    agent   102m   v1.15.10
 ```
-Configure el [control de acceso basado en roles (RBAC)](./azure-ad-rbac.md) para configurar grupos de seguridad adicionales para los clústeres.
+Configure el [control de acceso basado en rol de Azure (RBAC)](./azure-ad-rbac.md) para configurar grupos de seguridad adicionales para los clústeres.
 
 ## <a name="troubleshooting-access-issues-with-azure-ad"></a>Solución de problemas de acceso con Azure AD
 

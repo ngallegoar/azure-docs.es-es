@@ -2,7 +2,7 @@
 title: 'Incorporación de una suscripción de Azure existente al inquilino: Azure AD'
 description: Instrucciones sobre cómo agregar una suscripción de Azure existente al inquilino de Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 347232d452b5d309da7cdb7c8fe34f0e41abde00
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 95c3ad5fa66e1327c1fe646303f268ae4e84bd89
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025345"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825028"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory
 
@@ -31,7 +31,7 @@ Si su suscripción expira, se pierde el acceso a los otros recursos asociados a 
 Todos los usuarios tienen un único directorio *particular* para la autenticación. Los usuarios también pueden ser invitados en otros directorios. Puede ver los directorios principales e invitados para cada usuario en Azure AD.
 
 > [!Important]
-> Al asociar una suscripción a un directorio diferente, los usuarios que tengan roles asignados mediante el [control de acceso basado en rol (RBAC)](../../role-based-access-control/role-assignments-portal.md) pierden el acceso. Los administradores de suscripciones clásicas, incluidos el administrador y los coadministradores del servicio, también pierden el acceso.
+> Al asociar una suscripción a otro directorio, los usuarios que tengan roles asignados mediante el [control de acceso basado en rol de Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) pierden el acceso. Los administradores de suscripciones clásicas, incluidos el administrador y los coadministradores del servicio, también pierden el acceso.
 >
 > También se quitan las asignaciones de directivas de una suscripción cuando dicha suscripción está asociada a un directorio diferente.
 >
@@ -95,6 +95,6 @@ Después de asociar una suscripción a un directorio diferente, puede que tenga 
 
 - Para crear un nuevo inquilino de Azure AD, consulte [Inicio rápido: Creación de un inquilino en Azure Active Directory](active-directory-access-create-new-tenant.md).
 
-- Para más información sobre cómo controla Microsoft Azure el acceso a los recursos, consulte [Roles de administrador de suscripciones clásicas, roles de RBAC de Azure y roles de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+- Para más información sobre cómo controla Microsoft Azure el acceso a los recursos, consulte [Roles de administrador de la suscripción clásica, roles de Azure y roles de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 - Para más información sobre cómo asignar roles en Azure AD, consulte [Asignación de roles de administrador y no administrador a los usuarios con Azure Active Directory](active-directory-users-assign-role-azure-portal.md).

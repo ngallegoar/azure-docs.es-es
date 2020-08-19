@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21b8748cf74a5061e9dfa154047f867df4cb5428
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: d6ede429de686dd005785b44cf5c6d9571aac5a2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848763"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117029"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integración de la infraestructura de la puerta de enlace de Escritorio remoto utilizando la extensión Servidor de directivas de redes (NPS) y Azure AD
 
@@ -110,6 +110,11 @@ Siga los pasos de [Introducción a Azure Multi-Factor Authentication en la nube]
 Una vez que una cuenta se ha habilitado para MFA, no puede iniciar sesión en los recursos controlados por la directiva MFA hasta que se haya configurado correctamente un dispositivo de confianza que se usará para el segundo factor de autenticación y haya realizado la autenticación mediante la verificación en dos pasos.
 
 Siga los pasos de [¿Qué significa Azure Multi-Factor Authentication para mí?](../user-help/multi-factor-authentication-end-user.md) para comprender y configurar correctamente los dispositivos para MFA con su cuenta de usuario.
+
+> [!IMPORTANT]
+> El comportamiento de inicio de sesión de la puerta de enlace de Escritorio remoto no ofrece la opción de escribir un código de verificación con Azure Multi-Factor Authentication. Se debe configurar una cuenta de usuario para la comprobación telefónica o la aplicación Microsoft Authenticator con notificaciones push.
+>
+> Si uno de estos dos métodos de autenticación no se ha configurado para un usuario, no podrá completar el desafío de Azure Multi-Factor Authentication e iniciar sesión en la puerta de enlace de Escritorio remoto.
 
 ## <a name="install-and-configure-nps-extension"></a>Instalación y configuración de la extensión NPS
 

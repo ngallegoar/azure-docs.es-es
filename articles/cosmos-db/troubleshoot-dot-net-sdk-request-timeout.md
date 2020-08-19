@@ -3,16 +3,16 @@ title: Solución de Azure Cosmos DB HTTP 408 o problemas de tiempo de espera de 
 description: Cómo diagnosticar y corregir la excepción de tiempo de espera de solicitud del SDK de .NET
 author: j82w
 ms.service: cosmos-db
-ms.date: 07/29/2020
+ms.date: 08/06/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 3d6fed539581b2d1add87ade92e34bcf2e1913e8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 09442e01fa160d3851169a51230fa4cbef7e0980
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87417614"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118576"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout"></a>Diagnóstico y solución de problemas de tiempo de espera de solicitud del SDK de .NET de Azure Cosmos DB
 El error HTTP 408 se produce si el SDK no puede completar la solicitud antes de que se produzca el límite de tiempo de espera.
@@ -45,9 +45,15 @@ La aplicación cliente que usa el SDK se debe escalar verticalmente u horizontal
 Cuando se ejecutan en Azure, los clientes que usan el SDK de .NET pueden alcanzar el agotamiento de puertos SNAT (PAT) de Azure.
 
 #### <a name="solution-1"></a>Solución 1:
-Siga la [guía de agotamiento de puertos SNAT](troubleshoot-dot-net-sdk.md#snat).
+Si utiliza máquinas virtuales de Azure, siga la [guía de agotamiento de puertos SNAT](troubleshoot-dot-net-sdk.md#snat).
 
 #### <a name="solution-2"></a>Solución 2:
+Si utiliza Azure App Service, siga la [guía de solución de problemas de errores de conexión](../app-service/troubleshoot-intermittent-outbound-connection-errors.md#cause) y [use el diagnóstico de App Service](https://azure.github.io/AppService/2018/03/01/Deep-Dive-into-TCP-Connections-in-App-Service-Diagnostics.html).
+
+#### <a name="solution-3"></a>Solución 3:
+Si utiliza Azure Functions, asegúrese de seguir la [recomendación de Azure Functions](../azure-functions/manage-connections.md#static-clients) de mantener los clientes singleton/estáticos para todos los servicios implicados (incluido Cosmos DB) y compruebe los [límites del servicio ](../azure-functions/functions-scale.md#service-limits) según el tipo y el tamaño del hospedaje de la aplicación de funciones.
+
+#### <a name="solution-4"></a>Solución 4:
 Si usa un Proxy HTTP, asegúrese de que pueda admitir el número de conexiones configuradas en el SDK de `ConnectionPolicy`.
 En caso contrario, se encontrará con problemas de conexión.
 

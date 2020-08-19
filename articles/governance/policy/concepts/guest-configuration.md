@@ -1,14 +1,14 @@
 ---
 title: Información sobre cómo auditar el contenido de máquinas virtuales
 description: Obtenga información sobre cómo Azure Policy usa Guest Configuration para auditar la configuración dentro de las máquinas virtuales.
-ms.date: 05/20/2020
+ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: f2f07a3e88984a84ca1529052d5899ad8570a268
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 906c86856342febc92f070493fde31af42e4ca10
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072828"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987110"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Información sobre Guest Configuration de Azure Policy
 
@@ -35,8 +35,9 @@ Para poder usar Guest Configuration debe registrar el proveedor de recursos. El 
 Para auditar la configuración en una máquina, se habilita una [extensión de máquina virtual](../../../virtual-machines/extensions/overview.md) y la máquina debe tener una identidad administrada por el sistema. La extensión descarga la asignación de directiva aplicable y la definición de configuración correspondiente. La identidad se usa para autenticar la máquina a medida que lee y escribe en el servicio de configuración de invitado. La extensión no es necesaria para las máquinas conectadas a Arc porque se incluye en el agente Connected Machine de Arc.
 
 > [!IMPORTANT]
-> La extensión de configuración de invitado y una identidad administrada son necesarias para realizar auditorías en las máquinas virtuales de Azure. La extensión de configuración de invitado es necesaria para realizar auditorías en las máquinas virtuales de Azure. Para implementar la extensión a escala, asigne la siguiente iniciativa de directiva: > implementar la extensión a escala, asigne las siguientes definiciones de directiva: 
->  - [Implementar los requisitos previos para habilitar directivas de configuración de invitado en máquinas virtuales](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8)
+> La extensión de configuración de invitado y una identidad administrada son necesarias para realizar auditorías en las máquinas virtuales de Azure. Para implementar la extensión a gran escala, asigne la siguiente iniciativa de directiva:
+> 
+> - [Implementar los requisitos previos para habilitar directivas de configuración de invitado en máquinas virtuales](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8)
 
 ### <a name="limits-set-on-the-extension"></a>Límites establecidos en la extensión
 
@@ -69,18 +70,37 @@ En la tabla siguiente se muestra una lista de sistemas operativos compatibles en
 |Microsoft|Windows Server|2012 y versiones posteriores|
 |Microsoft|Cliente Windows|Windows 10|
 |OpenLogic|CentOS|7.3 y versiones posteriores|
-|Red Hat|Red Hat Enterprise Linux|7.4 - 7.8, 9.0 y posteriores|
+|Red Hat|Red Hat Enterprise Linux|7.4 - 7.8|
 |Suse|SLES|12 SP3 y versiones posteriores|
 
 Las directivas de configuración de invitado admiten imágenes de máquina virtual personalizadas, siempre y cuando se trate de uno de los sistemas operativos de la tabla anterior.
 
-## <a name="guest-configuration-extension-network-requirements"></a>Requisitos de red de la extensión de configuración de invitado
+## <a name="network-requirements"></a>Requisitos de red
+
+Las máquinas virtuales de Azure pueden usar su adaptador de red local o un vínculo privado para comunicarse con el servicio de configuración de invitado.
+
+Las máquinas de Azure Arc se conectan mediante la infraestructura de red local para llegar a los servicios de Azure e informar del estado de cumplimiento.
+
+### <a name="communicate-over-virtual-networks-in-azure"></a>Comunicación a través de redes virtuales en Azure
+
+Las máquinas virtuales que usan redes virtuales para la comunicación requerirán acceso de salida a los centros de recursos de Azure en el puerto `443`. Si utiliza una red virtual privada en Azure que no permite el tráfico saliente, las excepciones deben configurarse con las reglas del grupo de seguridad de red. La etiqueta del servicio "GuestAndHybridManagement" se puede usar para hacer referencia al servicio de Guest Configuration.
+
+### <a name="communicate-over-private-link-in-azure"></a>Comunicación a través de un vínculo privado en Azure
+
+Las máquinas virtuales pueden usar un [vínculo privado](../../../private-link/private-link-overview.md) para la comunicación con el servicio de configuración de invitado. Aplique la etiqueta con el nombre `EnablePrivateNeworkGC` y el valor `TRUE` para habilitar esta característica. La etiqueta se puede aplicar antes o después de que se apliquen las directivas de configuración de invitado a la máquina.
+
+El tráfico se enruta mediante la [dirección IP pública virtual](../../../virtual-network/what-is-ip-address-168-63-129-16.md) de Azure para establecer un canal seguro y autenticado con recursos de la plataforma Azure.
+
+### <a name="azure-arc-connected-machines"></a>Máquinas conectadas de Azure Arc
+
+Los nodos que se encuentran fuera de Azure y que están conectados mediante Azure Arc requieren conectividad con el servicio de configuración de invitado.
+Detalles sobre los requisitos de red y proxy que se proporcionan en la [documentación de Azure Arc](../../../azure-arc/servers/overview.md).
 
 Para comunicarse con el proveedor de recursos de la configuración de invitado en Azure, las máquinas requieren acceso de salida a los centros de datos Azure en el puerto **443**. Si una red en Azure no permite el tráfico saliente, las excepciones deben configurarse con las reglas del [grupo de seguridad de red](../../../virtual-network/manage-network-security-group.md#create-a-security-rule). La [etiqueta del servicio](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" se puede usar para hacer referencia al servicio de Guest Configuration.
 
 ## <a name="managed-identity-requirements"></a>Requisitos de identidad administrada
 
-Las directivas de la iniciativa [Implementar los requisitos previos para habilitar directivas de configuración de invitado en máquinas virtuales](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) habilitan una identidad administrada asignada por el sistema, si no existe ninguna. Hay dos definiciones de directivas en la iniciativa que administran la creación de identidades. Las condiciones IF en las definiciones de directiva garantizan el comportamiento correcto en función del estado actual del recurso de máquina en Azure.
+Las definiciones de directiva de la iniciativa [Implementar los requisitos previos para habilitar directivas de configuración de invitado en máquinas virtuales](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) habilitan una identidad administrada asignada por el sistema, si no existe ninguna. Hay dos definiciones de directivas en la iniciativa que administran la creación de identidades. Las condiciones IF en las definiciones de directiva garantizan el comportamiento correcto en función del estado actual del recurso de máquina en Azure.
 
 Si la máquina no tiene ninguna identidad administrada actualmente, la directiva efectiva será: [\[Versión preliminar\]: Agregar una identidad administrada asignada por el sistema para habilitar las asignaciones de configuración de invitado en máquinas virtuales sin identidades](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
 
@@ -182,8 +202,8 @@ Hay ejemplos de directivas integradas de la configuración de invitado disponibl
 
 - Aprenda cómo ver los detalles de cada opción de configuración en la [vista de compatibilidad de la configuración de invitado](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration).
 - Puede consultar ejemplos en [Ejemplos de Azure Policy](../samples/index.md).
-- Revise la [estructura de definición de Azure Policy](definition-structure.md).
-- Vea la [Descripción de los efectos de directivas](effects.md).
+- Revise la [estructura de definición de Azure Policy](./definition-structure.md).
+- Vea la [Descripción de los efectos de directivas](./effects.md).
 - Obtenga información acerca de cómo se pueden [crear directivas mediante programación](../how-to/programmatically-create.md).
 - Obtenga información sobre cómo [obtener datos de cumplimiento](../how-to/get-compliance-data.md).
 - Obtenga información sobre cómo [corregir recursos no compatibles](../how-to/remediate-resources.md).

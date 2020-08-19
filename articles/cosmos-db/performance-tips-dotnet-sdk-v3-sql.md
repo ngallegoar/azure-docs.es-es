@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: jawilley
-ms.openlocfilehash: 30fdc3c2b75d8ae567acfc612514ab080b929c5f
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 9816ea7dd9f5aef9dcdd62319f8cc4408eff3fd8
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850263"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987263"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Sugerencias de rendimiento para Azure Cosmos DB y .NET
 
@@ -107,7 +107,7 @@ Cuando se ejecuta en el protocolo TCP, el cliente se optimiza para la latencia m
 
 En escenarios en los que tiene acceso disperso y observa un recuento de conexiones superior en comparación con el acceso del modo de puerta de enlace, puede hacer lo siguiente:
 
-* Configure la propiedad [CosmosClientOptions.PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) en `PrivatePortPool` (en vigor con la versión de Framework >= 4.6.1 y la versión de .NET Core >= 2.0): Esta propiedad permite al SDK usar un pequeño grupo de puertos efímeros para diferentes puntos de conexión de destino de Azure Cosmos DB.
+* Configure la propiedad [CosmosClientOptions.PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) en `PrivatePortPool` (válida con la versión de Framework >= 4.6.1 y la versión de .NET Core >= 2.0): Esta propiedad permite al SDK usar un pequeño grupo de puertos efímeros para diferentes puntos de conexión de destino de Azure Cosmos DB.
 * Configure la propiedad [CosmosClientOptions.IdleConnectionTimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout) para que sea mayor o igual que 10 minutos. Los valores recomendados son entre 20 minutos y 24 horas.
 
 <a id="same-region"></a>
@@ -149,7 +149,7 @@ Al trabajar en Azure Functions, las instancias también deben seguir las [instru
 
 **Deshabilitar la respuesta de contenido en operaciones de escritura**
 
-En el caso de cargas de trabajo con cargas útiles de creación intensivas, establezca la opción de solicitud EnableContentResponseOnWrite en false. El servicio ya no devolverá al SDK el recurso creado o actualizado. Normalmente, la aplicación tiene el objeto que se crea, por lo que no necesita que el servicio lo devuelva. Todavía se puede acceder a los valores de encabezado, como Solicitar cargo. Esto puede mejorar el rendimiento, porque el SDK ya no tendrá que asignar memoria ni serializar el cuerpo de la respuesta. Esto también reduce el uso de ancho de banda de red para mejorar más el rendimiento.  
+En el caso de cargas de trabajo con cargas útiles de operaciones de creación intensivas, establezca la opción de solicitud EnableContentResponseOnWrite en false. El servicio ya no devolverá al SDK el recurso creado o actualizado. Normalmente, la aplicación tiene el objeto que se crea, por lo que no necesita que el servicio lo devuelva. Todavía se puede acceder a los valores de encabezado, como Solicitar cargo. Esto puede mejorar el rendimiento, porque el SDK ya no tendrá que asignar memoria ni serializar el cuerpo de la respuesta. Esto también reduce el uso de ancho de banda de red para mejorar más el rendimiento.  
 
 ```csharp
 ItemRequestOption requestOptions = new ItemRequestOptions() { EnableContentResponseOnWrite = false };
