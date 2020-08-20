@@ -8,18 +8,18 @@ ms.subservice: personalizer
 ms.topic: include
 ms.custom: include file
 ms.date: 07/30/2020
-ms.openlocfilehash: 55bc13caec8a48ed058ea38bdc0ebe487839eef3
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: fdae79912e6fe3bf2f7d55b7405cb7883e484c47
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461141"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88602507"
 ---
 [Documentación de referencia](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer?view=azure-dotnet-preview) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Personalizer) | [Paquete (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/) | [Ejemplos](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/Personalizer)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
+* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services)
 * La versión actual de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 
 ## <a name="using-this-quickstart"></a>Uso de este inicio rápido
@@ -143,7 +143,7 @@ Agregue los métodos siguientes, que [obtienen las opciones de contenido](#get-f
 
 ## <a name="request-the-best-action"></a>Solicitud de la mejor acción
 
-Para completar la solicitud Rank, el programa solicita las preferencias del usuario para crear un elemento `currentContent` de las opciones de contenido. El proceso puede crear contenido para excluir de las acciones, que se muestra como `excludeActions`. Para recibir la respuesta, la solicitud Rank necesita las acciones y sus características, las características de currentContext, excludeActions y un identificador de evento único.
+Para completar la solicitud Rank, el programa solicita las preferencias del usuario para crear un elemento `currentContext` de las opciones de contenido. El proceso puede crear contenido para excluir de las acciones, que se muestra como `excludeActions`. Para recibir la respuesta, la solicitud Rank necesita las acciones y sus características, las características de currentContext, excludeActions y un identificador de evento único.
 
 Este inicio rápido tiene características de contexto simples de hora del día y preferencias alimentarias del usuario. En los sistemas de producción, la determinación y [evaluación](../concept-feature-evaluation.md) de [acciones y características](../concepts-features.md) no es una cuestión trivial.
 

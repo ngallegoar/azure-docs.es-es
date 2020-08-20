@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c24989c73aa4343fea2b719a5b1e8c63c06af010
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0d4c5a33f52799ea4da9c7c23fbace94e800660b
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835636"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589476"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Máquinas virtuales Linux en Azure
 
@@ -47,10 +47,14 @@ En esta tabla se muestran algunas de las formas en que puede obtener una lista d
 
 | Método | Descripción |
 | --- | --- |
-| Azure Portal |Seleccione una ubicación en la lista cuando cree una máquina virtual. |
+| Azure portal |Seleccione una ubicación en la lista cuando cree una máquina virtual. |
 | Azure PowerShell |Use el comando [Get-AzLocation](/powershell/module/az.resources/get-azlocation). |
 | API DE REST |Use la operación para [mostrar la lista de ubicaciones](/rest/api/resources/subscriptions). |
 | Azure CLI |Use la operación[az account list-locations](/cli/azure/account?view=azure-cli-latest). |
+
+### <a name="singapore-data-residency"></a>Residencia de datos en Singapur
+
+En Azure, la característica que permite almacenar los datos de clientes en una sola región solo está disponible actualmente en la región de Sudeste Asiático (Singapur) de la geoárea Asia Pacífico. En todas las demás regiones, los datos del cliente se almacenan en la geoárea. Para más información, consulte el [Centro de confianza](https://azuredatacentermap.azurewebsites.net/).
 
 ## <a name="availability"></a>Disponibilidad
 Azure anunció un Acuerdo de Nivel de Servicio líder de la industria de máquinas virtuales de una sola instancia del 99,9 % siempre y cuando la máquina virtual se implemente con Premium Storage en todos los discos.  Para que su implementación pueda optar al Acuerdo de Nivel de Servicio estándar de máquina virtual del 99,95 %, debe implementar dos o más máquinas virtuales que ejecuten la carga de trabajo dentro de un conjunto de disponibilidad. Un conjunto de disponibilidad garantiza que las máquinas virtuales se distribuyen en varios dominios de error de los centros de datos de Azure y que se implementan en hosts con diferentes ventanas de mantenimiento. En el [SLA de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo se explica la disponibilidad garantizada de Azure como un conjunto.

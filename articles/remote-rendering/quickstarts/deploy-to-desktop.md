@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: dc566d2702fb24ef551e4900bed7b828d2597383
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 6e1a6cb583c0d310cc7ce73995224c42bb84784d
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85557056"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566172"
 ---
 # <a name="quickstart-deploy-unity-sample-to-desktop"></a>Inicio rápido: Implementación de un ejemplo de Unity en el escritorio
 
@@ -58,9 +58,6 @@ Actualmente solo se admiten aplicaciones de escritorio planas en el escritorio, 
 1. Cambie el modo del depurador a **Local Machine** (Máquina local).\
   ![Configuración de la solución](./media/unity-deploy-config-pc.png)
 1. Compile la solución (F7).
-
-> [!WARNING]
-> Asegúrese de seleccionar **x86**. En la actualidad no se admite**UWP/x64**, consulte las [limitaciones de la plataforma](../reference/limits.md#platform-limitations).
 
 ## <a name="launch-the-sample-project"></a>Inicio del proyecto de ejemplo
 
