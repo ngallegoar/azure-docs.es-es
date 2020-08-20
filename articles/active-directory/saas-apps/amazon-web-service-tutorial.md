@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Amazon Web Services (AWS) | Microsoft Docs'
 description: Obtenga información sobre cómo configurar el inicio de sesión único entre Azure Active Directory y Amazon Web Services (AWS).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 7561c20b-2325-4d97-887f-693aa383c7be
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/14/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79e23f516fe31b4a21232f75286540e6c0d9019d
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 7377c6ea92ea53ca14525938e7522448afac541c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923021"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548363"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Amazon Web Services (AWS)
 
@@ -385,8 +381,6 @@ Al hacer clic en el icono de Amazon Web Services (AWS) en el Panel de acceso, au
 * Los roles deben cumplir los siguientes requisitos para que se puedan importar desde AWS en Azure AD:
 
   * Los roles deben tener exactamente un proveedor SAML definido en AWS
-
-  * La longitud combinada del rol ARN y el ARN del proveedor de SAML para un rol que se va a importar debe ser de 119 caracteres, como máximo
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
