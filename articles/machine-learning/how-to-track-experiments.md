@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: d0c6488f9a75bbf9ba6775138edeed9c4a397abf
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 7a0fd4178df92cc9102456c1fa2ae4e8927337e4
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552227"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547331"
 ---
 # <a name="enable-logging-in-azure-ml-training-runs"></a>Habilitación del registro en ejecuciones de entrenamiento de Azure ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -42,12 +42,6 @@ Puede registrar varios tipos de datos, como valores escalares, listas, tablas, i
 ## <a name="interactive-logging-session"></a>Sesión de registro interactivo
 
 Las sesiones de registro interactivo se utilizan normalmente en entornos de cuaderno. El método [Experiment.start_logging()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#start-logging--args----kwargs-) comienza con una sesión de registro interactivo. Todas las métricas que se registran durante la sesión se agregan al registro de ejecución del experimento. El método [run.complete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#complete--set-status-true-) finaliza las sesiones y marca la ejecución como completada.
-
-El siguiente fragmento de código usa una sesión de registro interactivo para registrar los parámetros de entrenamiento y las métricas de rendimiento con el método [run.log()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#log-name--value--description----). También carga el modelo entrenado en una ubicación de salida especificada.
-
-[!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb?name=create_experiment)]
-
-Para ver un cuaderno de ejemplo completo que usa el registro interactivo, consulte [Entrenamiento de un modelo en un cuaderno](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb).
 
 ## <a name="scriptrunconfig-logs"></a>Registros de ScriptRunConfig
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 75b71fe9a15b05679ab1b71b13bb0b1f51b7d1d1
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: 70cbb21430253dc9683cd3803f2a09ef8bb858cb
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816155"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545648"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Instalación y ejecución de los contenedores de Read (versión preliminar)
 
@@ -24,7 +24,7 @@ Los contenedores le permiten ejecutar las API de Computer Vision en su propio en
 
 Un único contenedor Docker, *Read* está disponible para Computer Vision: El contenedor *Read* le permite detectar y extraer *texto impreso* de imágenes que muestren diversos objetos con diferentes superficies y fondos, como recibos, pósteres y tarjetas de visita. Además, el contenedor *Read* también detecta *texto manuscrito* en las imágenes y admite los formatos PDF, TIFF y multipágina. Para obtener más información, consulte la documentación de la API [Read](concept-recognizing-text.md#read-api).
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

@@ -1,14 +1,14 @@
 ---
 title: Detalles de la estructura de definición de iniciativa
 description: Describe cómo se usan las definiciones de iniciativa de directiva para agrupar definiciones de directiva para la implementación en los recursos de Azure de la organización.
-ms.date: 05/29/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 80fa90765caa25d6995220134b9a5b4225133219
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: b151ef4d58998b810e116321de68cbdb2e8d3eff
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84205876"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544645"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Estructura de definición de iniciativa de Azure Policy
 

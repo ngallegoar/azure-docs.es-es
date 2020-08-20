@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: ec39b4c6a478af22363e7ff30fee81ae3509f724
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: ff56a3e9c15d6f4bf04765c30084a9ca68df0e73
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85555877"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544764"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Tutorial: Moderación de imágenes de productos de comercio electrónico con Azure Content Moderator
 
@@ -32,7 +32,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 
 El código de ejemplo completo está disponible en el repositorio [Samples eCommerce Catalog Moderation](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) de GitHub.
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
