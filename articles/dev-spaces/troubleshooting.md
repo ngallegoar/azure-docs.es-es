@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Obtenga información sobre cómo solucionar problemas y resolver problemas comunes al habilitar y usar Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s '
-ms.openlocfilehash: 7696cc8eaeef9ba5e2e0955bad6f17d28e95b5e5
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: e26f066294cb0a6a48c5a3299213206fe4226ad0
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077040"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210826"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Solución de problemas de Azure Dev Spaces
 
@@ -55,8 +55,6 @@ Si no tiene la CLI de Azure Dev Spaces instalada, puede instalarla mediante el c
 ```azurecli
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
-
-La recreación del controlador se puede realizar desde la CLI o desde Visual Studio. Consulte los inicios rápidos [Desarrollo en equipo](quickstart-team-development.md) o [Desarrollo con .NET Core](quickstart-netcore-visualstudio.md) para obtener ejemplos.
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>Error al crear el controlador debido a la longitud del nombre del controlador
 

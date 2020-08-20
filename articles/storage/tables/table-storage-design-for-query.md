@@ -2,18 +2,18 @@
 title: Diseño de almacenamiento de tablas de Azure para consultas | Microsoft Docs
 description: Diseñe tablas para consultas en el almacenamiento de tablas de Azure. Elija una clave de partición adecuada, optimice las consultas y ordene los datos de Table service.
 services: storage
-author: MarkMcGeeAtAquent
+author: tamram
+ms.author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 28a15541b9d706095bcd3d6d361bd7c983f195df
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: a15415ab7f5e01619a4a022d7254ef3995a825b0
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926253"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236342"
 ---
 # <a name="design-for-querying"></a>Diseño de consulta
 Las soluciones de Table service pueden requerir mucha lectura, escritura o una combinación de ambas. Este artículo se centra en los aspectos que se deben tener en cuenta al diseñar su instancia de Table service para admitir operaciones de lectura de forma eficaz. Normalmente, un diseño que admite operaciones de lectura eficazmente también es eficaz para las operaciones de escritura. Sin embargo, hay algunos otros aspectos que hay que tener en cuenta durante el diseño para admitir operaciones de escritura y que se explican en el artículo [Diseño para la modificación de datos](table-storage-design-for-modification.md).
@@ -98,7 +98,7 @@ Muchas aplicaciones tienen requisitos para utilizar datos ordenados en distintos
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Patrones de diseño de tabla](table-storage-design-patterns.md)
+- [Patrones de diseño de tablas](table-storage-design-patterns.md)
 - [Modelado de relaciones](table-storage-design-modeling.md)
 - [Cifrado de datos de tabla](table-storage-design-encrypt-data.md)
 - [Diseño para la modificación de datos](table-storage-design-for-modification.md)
