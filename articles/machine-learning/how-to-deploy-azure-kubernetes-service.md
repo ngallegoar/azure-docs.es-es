@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 9503abf147ee89ec03e7e1317df823426ea37b1c
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 5c253abf0fa6ae95dff178847209be407fb5bca5
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87758890"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120837"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implementación de un modelo en un clúster de Azure Kubernetes Service
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,7 +41,7 @@ El clúster de AKS y el área de trabajo de AML pueden estar en distintos grupos
 > El proceso de creación o de conexión es una tarea que se realiza una sola vez. Una vez que un clúster de AKS está conectado al área de trabajo, puede usarlo para las implementaciones. Cuando deje de necesitar el clúster de AKS puede desasociarlo o eliminarlo. Una vez que lo haga, ya no podrá realizar ninguna implementación en el clúster.
 
 > [!IMPORTANT]
-> Se recomienda realizar una depuración local antes de la implementación en el servicio web. Para obtener más información, vea [Depuración local](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally).
+> Se recomienda depurar localmente antes de la implementación en el servicio web. Para obtener más información, consulte [Depuración de forma local](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally).
 >
 > También puede consultar Azure Machine Learning: [Implementación en el cuaderno local](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local).
 
@@ -109,6 +109,13 @@ from azureml.core.compute import AksCompute, ComputeTarget
 # For example, to create a dev/test cluster, use:
 # prov_config = AksCompute.provisioning_configuration(cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST)
 prov_config = AksCompute.provisioning_configuration()
+# Example configuration to use an existing virtual network
+# prov_config.vnet_name = "mynetwork"
+# prov_config.vnet_resourcegroup_name = "mygroup"
+# prov_config.subnet_name = "default"
+# prov_config.service_cidr = "10.0.0.0/16"
+# prov_config.dns_service_ip = "10.0.0.10"
+# prov_config.docker_bridge_cidr = "172.17.0.1/16"
 
 aks_name = 'myaks'
 # Create the cluster
@@ -267,7 +274,7 @@ Para obtener información acerca del uso de Visual Studio Code, consulte cómo s
 
 ### <a name="understand-the-deployment-processes"></a>Comprender los procesos de implementación
 
-La palabra "implementación" se usa en Kubernetes y Azure Machine Learning. "Implementación" tiene significados muy diferentes en estos dos contextos. En Kubernetes, una `Deployment` es una entidad concreta, que se especifica con un archivo YAML declarativo. Una `Deployment` de Kubernetes tiene un ciclo de vida definido y relaciones concretas con otras entidades de Kubernetes, como `Pods` y `ReplicaSets`. Puede obtener información sobre Kubernetes desde documentos y vídeos en [¿Qué es Kubernetes?](https://aka.ms/k8slearning).
+La palabra "implementación" se usa en Kubernetes y Azure Machine Learning. "Implementación" tiene significados diferentes en estos dos contextos. En Kubernetes, una `Deployment` es una entidad concreta, que se especifica con un archivo YAML declarativo. Una `Deployment` de Kubernetes tiene un ciclo de vida definido y relaciones concretas con otras entidades de Kubernetes, como `Pods` y `ReplicaSets`. Puede obtener información sobre Kubernetes desde documentos y vídeos en [¿Qué es Kubernetes?](https://aka.ms/k8slearning).
 
 En Azure Machine Learning, "implementación" se usa en el sentido general de poner a disposición y limpiar los recursos del proyecto. Los pasos que Azure Machine Learning considera parte de la implementación son:
 

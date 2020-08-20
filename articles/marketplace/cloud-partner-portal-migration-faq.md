@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 59f66b88c998a78f5bd3ccf3757cb791aea2521b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fe909ba25191aa21e8a5bfa51c72690fd9c402eb
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87279311"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056557"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Preguntas más frecuentes sobre la transición de Cloud Partner Portal al Centro de partners
 
@@ -25,7 +25,7 @@ Puede seguir haciendo negocios como de costumbre en el Centro de partners:
 | Área<img src="" width=200px> | Cambios |
 | --- | --- |
 | Cuenta | No es necesario crear una cuenta del Centro de partners; puede usar las credenciales de Cloud Partner Portal existentes para iniciar sesión en el Centro de partners, donde podrá administrar la cuenta, los usuarios, los permisos y la facturación. El contrato de publicación y la información de perfil de empresa se migran a la nueva cuenta del Centro de partners, junto con cualquier información de perfil de pago de cuenta, permisos y cuentas de usuario, y ofertas activas. Obtenga más información en [Administración de la cuenta de marketplace comercial en el Centro de partners](partner-center-portal/manage-account.md). |
-| Experiencia de administración y publicación de ofertas | Los datos de la oferta se han migrado de Cloud Partner Portal al Centro de partners. Ahora accederá a las ofertas en el Centro de partners, que ofrece una mejor experiencia de usuario y una interfaz intuitiva. Obtenga información sobre la [Actualización de una oferta existente en el marketplace comercial](partner-center-portal/update-existing-offer.md). |
+| Experiencia de administración y publicación de ofertas | Los datos de la oferta se han migrado de Cloud Partner Portal al Centro de partners. Ahora accederá a las ofertas en el Centro de partners, que ofrece una mejor experiencia de usuario y una interfaz intuitiva. Aprenda a [actualizar una oferta existente en el marketplace comercial](partner-center-portal/update-existing-offer.md). |
 | Disponibilidad de las ofertas en el marketplace comercial | Sin cambios. Si la oferta está activa en el marketplace comercial, lo seguirá estando. |
 | Nuevas compras e implementaciones | Sin cambios. Los clientes pueden seguir comprando e implementando las ofertas sin interrupciones. |
 | Pagos | Todas las compras e implementaciones se le seguirán pagando de la forma habitual. Obtenga más información sobre la [Recepción de pagos en el marketplace comercial](partner-center-portal/get-paid.md). |
@@ -143,7 +143,7 @@ Las actualizaciones que no publique se guardan como borradores. Siga usando la v
 
 ### <a name="enhanced-preview-options"></a>Opciones de vista previa mejoradas
 
-El Centro de partners incluye una [característica de comparación](partner-center-portal/update-existing-offer.md#compare-changes-to-marketplace-offers) con opciones de filtrado mejoradas. Esto le ofrece la posibilidad de comparar con la versión preliminar y las versiones publicadas de la oferta.
+El Centro de partners incluye una [característica de comparación](partner-center-portal/update-existing-offer.md#compare-changes-to-commercial-marketplace-offers) con opciones de filtrado mejoradas. Esto le ofrece la posibilidad de comparar con la versión preliminar y las versiones publicadas de la oferta.
 
 [![Captura de pantalla que muestra la característica de comparación del Centro de partners](media/cpp-pc-faq/compare.png "Se muestra la característica Comparar del Centro de partners")](media/cpp-pc-faq/compare.png#lightbox)
 

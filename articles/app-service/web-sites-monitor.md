@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: d83aae778c940958d545a9402b09d24a55b1c5a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5507e6f97211f209eb559ff7491f22bdf1a00e54
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482690"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079678"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Supervisión de aplicaciones en Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) proporciona funciones de supervisión integradas para aplicaciones Web, móviles y aplicaciones de API en el [Azure Portal](https://portal.azure.com).
@@ -63,6 +63,10 @@ Se pueden incrementar o quitar de la aplicación mediante la actualización del 
 
 > [!IMPORTANT]
 > **Tiempo medio de respuesta** pasará a estar en desuso para evitar confusiones con las agregaciones de métricas. Use **Tiempo de respuesta** a modo de reemplazo.
+
+> [!NOTE]
+> Las métricas de una aplicación incluyen las solicitudes al sitio de SCM de la aplicación (Kudu).  Esto incluye las solicitudes para ver el LogStream del sitio con Kudu.  Las solicitudes de LogStream pueden abarcar varios minutos, lo que afectará a las métricas de tiempo de solicitud.  Los usuarios deben tener en cuenta esta relación al usar estas métricas con la lógica de escalado automático.
+> 
 
 Las métricas proporcionan información acerca de la aplicación o el comportamiento del plan de App Service.
 

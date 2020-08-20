@@ -1,18 +1,18 @@
 ---
 title: Preguntas más frecuentes (P+F) sobre Azure Files | Microsoft Docs
-description: Obtenga respuestas a algunas preguntas frecuentes sobre Azure Files.
+description: Obtenga respuestas a las preguntas frecuentes de Azure Files. Los recursos compartidos de archivos de Azure se pueden montar de manera simultánea en implementaciones de Windows, Linux y macOS locales o en la nube.
 author: roygara
 ms.service: storage
 ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 87c1aa4d65b313f4c068ef11c9d2209e9318ef02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0bdc9451f0dbc32e14197cde48a3613196b864c0
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482877"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037140"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Preguntas más frecuentes (P+F) sobre Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el [protocolo de bloque de mensajes del servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) estándar. Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en máquinas con Windows Server mediante Azure File Sync para tener un acceso rápido cerca de donde se usan los datos.

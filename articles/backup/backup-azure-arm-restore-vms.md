@@ -4,12 +4,12 @@ description: Restauración de una máquina virtual de Azure desde un punto de re
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: a43e7d1d97196afdad0a1e451b0c1618f0ea3a16
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: a006988049925d2d81c3f15fe24cfe60205b5789
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809191"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006339"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Restauración de datos de máquinas virtuales de Azure en Azure Portal
 
@@ -45,7 +45,7 @@ Algunos detalles sobre las cuentas de almacenamiento:
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
-Para restaurar una máquina virtual (crear una máquina virtual), asegúrese de tener los [permisos](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) de control de acceso basado en rol (RBAC) correctos para la operación de restauración de la máquina virtual.
+Para restaurar una máquina virtual (crear una máquina virtual), asegúrese de tener los [permisos](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) de control de acceso basado en roles (RBAC de Azure) correctos para la operación de restauración de la máquina virtual.
 
 Si no tiene permisos, puede [restaurar un disco](#restore-disks) y, luego, [usar la plantilla](#use-templates-to-customize-a-restored-vm) que se generó como parte de la operación de restauración para crear una máquina virtual.
 
@@ -173,7 +173,7 @@ La experiencia del usuario de restauración de la región secundaria será simil
 >
 >- Una vez que se desencadena la restauración y se está en la fase de transferencia de datos, no se puede cancelar el trabajo de restauración.
 >- La característica de restauración entre regiones restaura las máquinas virtuales de Azure habilitadas para CMK (claves administradas por el cliente), de las que no se realiza ninguna copia de seguridad en un almacén de Recovery Services habilitado para CMK, como sí sucede con las máquinas virtuales habilitadas para CMK en la región secundaria.
->- Los roles RBAC (controles de acceso basados en roles) necesarios para restaurar en la región secundaria son los mismos que los de la región primaria.
+>- Los roles de Azure necesarios para restaurar en la región secundaria son los mismos que los de la región primaria.
 
 ### <a name="monitoring-secondary-region-restore-jobs"></a>Supervisión de trabajos de restauración en la región secundaria
 

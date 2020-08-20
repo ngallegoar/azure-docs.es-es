@@ -3,14 +3,14 @@ title: Escalado vertical de un tipo de nodo de Azure Service Fabric
 description: Aprenda a escalar un clúster de Service Fabric mediante la adición de un conjunto de escalado de máquinas virtuales.
 ms.topic: article
 ms.date: 02/13/2019
-ms.openlocfilehash: a42e33fa87b6cf7966368481ef6d3920511919e3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a8a8a432d4a11427f2c4f545a0907540af3112bc
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260458"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056489"
 ---
-# <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Escalado vertical del tipo de nodo principal de un clúster de Service Fabric
+# <a name="scale-up-a-service-fabric-cluster-primary-node-type-by-adding-a-virtual-machine-scale-set"></a>Escalado vertical de un tipo de nodo principal de un clúster de Service Fabric mediante la adición de un conjunto de escalado de máquinas virtuales
 En este artículo, se explica cómo se escala verticalmente el tipo de nodo principal de un clúster Service Fabric aumentando los recursos de las máquinas virtuales. Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Un equipo o máquina virtual que forma parte de un clúster se denomina nodo. Los conjuntos de escalado de máquinas virtuales son un recurso de proceso de Azure que se puede usar para implementar y administrar una colección de máquinas virtuales de forma conjunta. Cada tipo de nodo que se define en un clúster de Azure está [configurado como un conjunto de escalado independiente](service-fabric-cluster-nodetypes.md). Cada tipo de nodo, a continuación, se puede administrar por separado. Después de crear un clúster de Service Fabric, puede escalar el tipo de nodo del clúster verticalmente (cambiar los recursos de los nodos) o actualizar el sistema operativo de las máquinas virtuales del tipo de nodo.  Puede escalar el clúster en cualquier momento, incluso con cargas de trabajo en ejecución en el clúster.  Según se escala el clúster, las aplicaciones se escalan automáticamente.
 
 > [!WARNING]

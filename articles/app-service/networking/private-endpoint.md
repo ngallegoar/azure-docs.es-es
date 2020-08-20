@@ -4,17 +4,17 @@ description: Conexión privada a una aplicación web mediante un punto de conexi
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 07/07/2020
+ms.date: 08/12/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 4fab75aef2a94ba7108085e9d5b5dbbf190342f6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 773e63cb5eb2a9825975402f65439acd6ad192ae
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068294"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135392"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Uso de puntos de conexión privados para una aplicación web de Azure (versión preliminar)
 
@@ -128,6 +128,8 @@ Estamos mejorando la característica Private Link y el punto de conexión privad
 - Para implementar un punto de conexión privado para la aplicación web con el CLI de Azure, consulte [Cómo conectarse de forma privada a una aplicación web con CLI de Azure][howtoguide2].
 - Para implementar un punto de conexión privado para la aplicación web con PowerShell, consulte [Cómo conectarse de forma privada a una aplicación web con PowerShell][howtoguide3].
 - Para implementar un punto de conexión privado para la aplicación web con la plantilla de Azure, consulte [Cómo conectarse de forma privada a una aplicación web con la plantilla de Azure][howtoguide4].
+- Ejemplo de un extremo a otro, cómo conectar una aplicación web de front-end a una aplicación web de back-end segura con inserción de red virtual y un punto de conexión privado mediante la plantilla de ARM, consulte este [inicio rápido][howtoguide5]
+- Ejemplo de un extremo a otro, cómo conectar una aplicación web de front-end a una aplicación web de back-end segura con inserción de red virtual y un punto de conexión privado mediante Terraform, consulte este [ejemplo][howtoguide6]
 
 
 <!--Links-->
@@ -144,3 +146,5 @@ Estamos mejorando la característica Private Link y el punto de conexión privad
 [howtoguide2]: https://docs.microsoft.com/azure/app-service/scripts/cli-deploy-privateendpoint
 [howtoguide3]: https://docs.microsoft.com/azure/app-service/scripts/powershell-deploy-private-endpoint
 [howtoguide4]: https://docs.microsoft.com/azure/app-service/scripts/template-deploy-private-endpoint
+[howtoguide5]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-privateendpoint-vnet-injection
+[howtoguide6]: https://docs.microsoft.com/azure/app-service/scripts/terraform-secure-backend-frontend

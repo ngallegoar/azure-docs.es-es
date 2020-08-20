@@ -3,12 +3,12 @@ title: Copia de seguridad de bases de datos de SQL Server en Azure
 description: En este artículo se explica cómo realizar una copia de seguridad de SQL Server en Azure. En este tutorial también se explica cómo se realiza la recuperación de SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: df8543d7f083dd2bf9d2421b4808de5b60a51e30
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 28644065619771069e556c941d2c5a77626e1ba6
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513785"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922904"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Acerca de la copia de seguridad de SQL Server en máquinas virtuales de Azure
 
@@ -40,7 +40,7 @@ Esta solución aprovecha las API nativas de SQL para realizar copias de segurida
 Antes de empezar, compruebe lo siguiente:
 
 1. Asegúrese de tener una instancia de SQL Server que se ejecuta en Azure. Puede [crear rápidamente una instancia de SQL Server](../azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart.md) en Marketplace.
-2. Revise los apartados en que se realizan [consideraciones acerca de las características](sql-support-matrix.md#feature-consideration-and-limitations) y se indica la [compatibilidad con los escenarios](sql-support-matrix.md#scenario-support).
+2. Revise los apartados en que se realizan [consideraciones acerca de las características](sql-support-matrix.md#feature-considerations-and-limitations) y se indica la [compatibilidad con los escenarios](sql-support-matrix.md#scenario-support).
 3. [Revise las preguntas más frecuentes](faq-backup-sql-server.md) sobre este escenario.
 
 ## <a name="set-vm-permissions"></a>Establecer permisos de máquina virtual

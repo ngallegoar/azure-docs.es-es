@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: f57c0353989cfcf924042d202bd80a57b476507b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 249b2406f048709fd7e4f76f8272b3158708e5bb
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322310"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056438"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Supervisión de métricas y registro en Azure Front Door
 
@@ -91,7 +91,7 @@ Front Door actualmente proporciona los registros de diagnóstico (agrupados por
 | RulesEngineMatchNames | Los nombres de las reglas que coincidieron con la solicitud. |
 | SecurityProtocol | La versión del protocolo TLS/SSL utilizada por la solicitud o null si no hay cifrado. |
 | SentToOriginShield | Campo booleano que representa si se produjo un error de caché en el primer entorno y la solicitud se envió a la caché regional. Omita este campo si la regla de enrutamiento es un redireccionamiento o si no tiene habilitado el almacenamiento en caché. |
-| TimeTaken | El período de tiempo que tardó la acción, en milisegundos. |
+| TimeTaken | Período de tiempo desde el primer byte de la solicitud en Front Door hasta el último byte de la respuesta, en segundos. |
 | TrackingReference | La cadena de referencia exclusiva que identifica una solicitud atendida por Front Door, que también se envía como encabezado X-Azure-Ref al cliente. Se requiere para buscar los detalles en los registros de acceso para una solicitud específica. |
 | UserAgent | Tipo de explorador utilizado por el cliente. |
 

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 6acc1ffd197ddba4290ff7c0751b259d98a70927
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 995ac2776f4197dac1c2ef73fd209833474be5a5
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754397"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922683"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planear un sistema de Avere vFXT
 
@@ -166,7 +166,7 @@ Al crear el clúster, puede elegir si desea crear o no una dirección IP públic
 
 ## <a name="vm-access-roles"></a>Roles de acceso a máquinas virtuales
 
-Azure usa el [control de acceso basado en rol](../role-based-access-control/index.yml) (RBAC) para autorizar que las máquinas virtuales del clúster realicen determinadas tareas. Por ejemplo, el controlador de clúster necesita autorización para crear y configurar las máquinas virtuales del nodo de clúster. Los nodos de clúster deben poder asignar o reasignar direcciones IP a otros nodos de clúster.
+Azure usa el [control de acceso basado en roles](../role-based-access-control/index.yml) (RBAC) para autorizar que las máquinas virtuales del clúster realicen determinadas tareas. Por ejemplo, el controlador de clúster necesita autorización para crear y configurar las máquinas virtuales del nodo de clúster. Los nodos de clúster deben poder asignar o reasignar direcciones IP a otros nodos de clúster.
 
 Se utilizan dos roles de Azure integrados para las máquinas de virtuales de Avere vFXT:
 

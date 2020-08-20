@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d2cf7dbcd97c8f740447607eaf443bc3ea4a6733
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f6175a797b14077cafacaca1f2fd48f36e945d9e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500617"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87425017"
 ---
 Los discos compartidos solo se pueden habilitar para un subconjunto de tipos de disco. Actualmente, solo los discos Ultra Disks y SSD Premium pueden habilitar discos compartidos. Cada disco administrado que tiene discos compartidos habilitados está sujeto a las siguientes limitaciones, organizadas según el tipo de disco:
 
@@ -25,6 +25,8 @@ Al compartir discos Ultra Disks, estos tienen las siguientes limitaciones adicio
 
 - Actualmente, se limita a la compatibilidad con Azure Resource Manager o SDK. 
 - Solo se pueden usar discos básicos con algunas versiones del clúster de conmutación por error de Windows Server. Para más información, consulte [Requisitos de hardware y opciones de almacenamiento de clústeres de conmutación por error](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
+
+Los discos Ultra Disks compartidos están disponibles en todas las regiones que admiten este tipo de disco de forma predeterminada y no requieren que se registren para poder usarlos.
 
 ### <a name="premium-ssds"></a>SSD Premium
 
@@ -38,4 +40,4 @@ Al compartir discos Ultra Disks, estos tienen las siguientes limitaciones adicio
 - Solo se pueden usar discos básicos con algunas versiones del clúster de conmutación por error de Windows Server. Para más información, consulte [Requisitos de hardware y opciones de almacenamiento de clústeres de conmutación por error](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
 - La compatibilidad con Azure Backup y Azure Site Recovery todavía no está disponible.
 
-Si está interesado en probar discos compartidos, [regístrese para obtener acceso](https://aka.ms/AzureSharedDiskGASignUp).
+Si está interesado en probar unidades SSD Premium compartidas, [regístrese para obtener acceso](https://aka.ms/AzureSharedDiskGASignUp).

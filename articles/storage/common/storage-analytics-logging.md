@@ -1,6 +1,6 @@
 ---
 title: Registro de Azure Storage Analytics
-description: Aprenda a registrar detalles sobre las solicitudes tramitadas en Azure Storage.
+description: Use Storage Analytics para registrar los detalles acerca de las solicitudes de Azure Storage. Vea qué solicitudes se registran, cómo se almacenan los registros, cómo habilitar el registro de almacenamiento, etc.
 author: normesta
 ms.service: storage
 ms.subservice: common
@@ -9,12 +9,12 @@ ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: 061c7f6a45b8667b7fd03d62bee67c695bec5e68
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 98c8bc07e1f5bb790c2f907bbc3c2125cae383a5
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87276795"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903228"
 ---
 # <a name="azure-storage-analytics-logging"></a>Registro de Azure Storage Analytics
 

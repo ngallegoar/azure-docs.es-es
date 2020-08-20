@@ -1,6 +1,6 @@
 ---
 title: Diseño de almacenamiento de tablas de Azure para consultas | Microsoft Docs
-description: Diseñe tablas para consultas en el almacenamiento de tablas de Azure.
+description: Diseñe tablas para consultas en el almacenamiento de tablas de Azure. Elija una clave de partición adecuada, optimice las consultas y ordene los datos de Table service.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 41a588ddc0c1be8014a84d8fe181013d8566f68d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 28a15541b9d706095bcd3d6d361bd7c983f195df
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75457644"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926253"
 ---
 # <a name="design-for-querying"></a>Diseño de consulta
 Las soluciones de Table service pueden requerir mucha lectura, escritura o una combinación de ambas. Este artículo se centra en los aspectos que se deben tener en cuenta al diseñar su instancia de Table service para admitir operaciones de lectura de forma eficaz. Normalmente, un diseño que admite operaciones de lectura eficazmente también es eficaz para las operaciones de escritura. Sin embargo, hay algunos otros aspectos que hay que tener en cuenta durante el diseño para admitir operaciones de escritura y que se explican en el artículo [Diseño para la modificación de datos](table-storage-design-for-modification.md).
@@ -41,7 +41,7 @@ Los ejemplos siguientes asumen que Table service almacena las entidades employee
 | **RowKey** (Identificación de empleado) |String |
 | **Nombre** |String |
 | **Apellidos** |String |
-| **Edad** |Entero |
+| **Age** |Entero |
 | **EmailAddress** |String |
 
 En el artículo [Introducción a Azure Table Storage](table-storage-overview.md) se describen algunas de las características clave de Azure Table service que influyen directamente en el diseño de consultas. Estos dan como resultado las siguientes directrices generales para diseñar consultas de Table service. Tenga en cuenta que la sintaxis de filtro utilizada en los ejemplos siguientes es de la API de REST de Table service. Para más información, consulte [Entidades de consulta](https://docs.microsoft.com/rest/api/storageservices/Query-Entities).  
@@ -81,7 +81,7 @@ Existen otros aspectos adicionales que se deben considerar al elegir **Partition
 ## <a name="optimizing-queries-for-the-table-service"></a>Optimización de consultas para Table service
 Table service indexará automáticamente las entidades mediante los valores **PartitionKey** y **RowKey** en un índice agrupado único, por lo tanto, este es el motivo por el que las consultas de punto son las más eficaces. Sin embargo, no hay ningún índice distinto del índice agrupado en **PartitionKey** y **RowKey**.
 
-Muchos diseños deben cumplir los requisitos para habilitar la búsqueda de entidades según varios criterios. Por ejemplo, localizar las entidades employee en función de correo electrónico, Id. de empleado o apellido. Los patrones descritos en [Patrones de diseño de tablas](table-storage-design-patterns.md) abordan estos tipos de requisitos y describen formas de trabajar en torno al hecho de que Table service no proporciona índices secundarios:  
+Muchos diseños deben cumplir los requisitos para habilitar la búsqueda de entidades según varios criterios. Por ejemplo, localizar las entidades de empleado en función de correo electrónico, identificador de empleado o apellido. Los patrones descritos en [Patrones de diseño de tablas](table-storage-design-patterns.md) abordan estos tipos de requisitos y describen formas de trabajar en torno al hecho de que Table service no proporciona índices secundarios:  
 
 * [Patrón de índice secundario dentro de la partición](table-storage-design-patterns.md#intra-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores **RowKey** (en la misma partición) para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey**.  
 * [Patrón de índice secundario entre particiones](table-storage-design-patterns.md#inter-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores **RowKey** en particiones o en tablas independientes para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey**.  
@@ -98,7 +98,7 @@ Muchas aplicaciones tienen requisitos para utilizar datos ordenados en distintos
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Patrones de diseño de tablas](table-storage-design-patterns.md)
+- [Patrones de diseño de tabla](table-storage-design-patterns.md)
 - [Modelado de relaciones](table-storage-design-modeling.md)
 - [Cifrado de datos de tabla](table-storage-design-encrypt-data.md)
 - [Diseño para la modificación de datos](table-storage-design-for-modification.md)

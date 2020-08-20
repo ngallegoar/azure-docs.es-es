@@ -7,20 +7,20 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: 93366bf963350bf9cbdbda15ec4070c21a1dc975
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 20c82793726221515ad4d1019f4d8f4754b3ae08
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090151"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036579"
 ---
-# <a name="common-questions-about-microsoft-commercial-marketplace"></a>Preguntas habituales sobre el marketplace comercial de Microsoft
+# <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Preguntas habituales sobre el marketplace comercial de Microsoft
 
 En este artículo se responden las preguntas más frecuentes sobre el marketplace comercial.
 
 ## <a name="general"></a>General
 
-### <a name="what-is-microsoft-commercial-marketplace"></a>¿Qué es el marketplace comercial de Microsoft?
+### <a name="what-is-the-microsoft-commercial-marketplace"></a>¿Qué es el marketplace comercial de Microsoft?
 
 El marketplace comercial conecta a negocios y agencias gubernamentales con soluciones creadas por nuestros partners. Nuestros partners crean y administran ofertas en el Centro de partners, y los clientes pueden descubrir y comprar soluciones por medio de experiencias en el producto (como Microsoft AppSource y Azure Marketplace), revendedores del programa Proveedor de soluciones en la nube y nuestros equipos de ventas mediante el programa de venta conjunta.
 
@@ -285,7 +285,7 @@ Para más información, consulte [Umbrales de pago, métodos e intervalos de tie
 
 ### <a name="in-what-countriesregions-are-taxes-managed-on-my-behalf"></a>¿En qué países o regiones se administran los impuestos en mi nombre?
 
-Los clientes pueden encontrar soluciones de nuestro marketplace comercial en todo el mundo y administramos los impuestos en muchas ubicaciones. 
+Los clientes pueden encontrar soluciones de nuestro marketplace comercial en todo el mundo y nos encargamos de la parte fiscal en muchas ubicaciones. 
 
 Para revisar la lista completa de ubicaciones, vaya a [Información sobre impuestos para los publicadores de Marketplace comercial](partner-center-portal/tax-details-paid-transactions.md).
 

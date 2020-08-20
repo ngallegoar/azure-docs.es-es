@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: f07e18498138d29497fa6ba85c5930a5a5f7ec4e
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: bf9ddc78caa1e19d35ad7e96af76dc0303a8a67c
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184776"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004730"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Configuración de la compatibilidad de red virtual con el nivel Premium de Azure Cache for Redis
 Azure Cache for Redis cuenta con diferentes opciones de caché, lo que proporciona flexibilidad en la elección del tamaño y las características de la memoria caché, incluidas algunas características del nivel Prémium, como la agrupación en clústeres, la persistencia y la compatibilidad con las redes virtuales. Una red virtual es una red privada en la nube. Cuando una instancia de Azure Cache for Redis se configure con una red virtual, no será posible acceder a ella públicamente, solo se podrá acceder a ella desde máquinas virtuales y aplicaciones de dentro de la red virtual. En este artículo se describe cómo configurar la compatibilidad con redes virtuales de una instancia de Azure Cache for Redis de nivel Premium.
@@ -20,8 +20,6 @@ Azure Cache for Redis cuenta con diferentes opciones de caché, lo que proporcio
 > Azure Cache for Redis admite redes virtuales clásicas y de Resource Manager.
 > 
 > 
-
-Para información sobre otras características del nivel Prémium de las cachés, consulte [Introducción al nivel Prémium de Azure Cache for Redis](cache-premium-tier-intro.md).
 
 ## <a name="why-vnet"></a>¿Por qué una red virtual?
 La implementación de [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) aporta más seguridad y aislamiento de su instancia de Azure Cache for Redis, así como subredes, directivas de control de acceso y otras características para restringir aún más el acceso.
@@ -237,9 +235,9 @@ Se puede encontrar información de contexto sobre las rutas definidas por el usu
 Para más información sobre ExpressRoute, consulte [Información técnica sobre ExpressRoute](../expressroute/expressroute-introduction.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Obtenga información acerca de cómo usar más características de la memoria caché del nivel Premium.
+Más información sobre las características de Azure Cache for Redis.
 
-* [Introducción al nivel Prémium de Azure Cache for Redis](cache-premium-tier-intro.md)
+* [Niveles de servicio de Azure Cache for Redis Premium](cache-overview.md#service-tiers)
 
 <!-- IMAGES -->
 

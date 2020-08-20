@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 0f277661ab61e7292fbb81d96c26c7d48c6d03ef
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 19c08029e78e68273298e76635136ff35ae724e0
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087057"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924128"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) acerca de Azure Virtual Network
 
@@ -109,7 +109,7 @@ Sí. Se pueden agregar subredes a redes virtuales en cualquier momento siempre y
 ### <a name="can-i-modify-the-size-of-my-subnet-after-i-create-it"></a>¿Puedo modificar el tamaño de la subred después de crearla?
 Sí. Puede agregar, quitar, expandir o contraer una subred si no hay máquinas virtuales ni servicios implementados en ella.
 
-### <a name="can-i-modify-subnets-after-i-created-them"></a>¿Puedo modificar subredes después de crearlas?
+### <a name="can-i-modify-vnet-after-i-created-them"></a>¿Puedo modificar subredes después de crearlas?
 Sí. Puede agregar, quitar y modificar los bloques CIDR usados por una red virtual.
 
 ### <a name="if-i-am-running-my-services-in-a-vnet-can-i-connect-to-the-internet"></a>¿Puedo conectarme a Internet si ejecuto mis servicios en una red virtual?

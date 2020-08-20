@@ -3,16 +3,16 @@ title: Recursos, roles y control de acceso en Azure Application Insights | Micro
 description: Propietarios, colaboradores y lectores de las perspectivas de su organización.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 38c7d7bcbcf193149fd8ab5e632674b6f8530a44
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 3d69ad7eeb7c8dd32c2e3cb286f9596bed7fe042
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325702"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926508"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Recursos, roles y control de acceso en Application Insights
 
-Puede controlar quién tiene acceso de lectura y actualización a sus datos de Azure [Application Insights][start], mediante el [control de acceso basado en rol de Microsoft Azure](../../role-based-access-control/role-assignments-portal.md).
+Puede controlar quién tiene acceso de lectura y actualización a los datos en Azure [Application Insights][start]mediante el uso del [ control de acceso basado en roles (RBAC de Azure) de Azure](../../role-based-access-control/role-assignments-portal.md).
 
 > [!IMPORTANT]
 > Asigne acceso a los usuarios para el **grupo de recursos o la suscripción** a los que pertenece el recurso de aplicación, no para el propio recurso. Asigne el rol de **colaborador de componentes de Application Insights** . De esta forma, se garantiza el control de acceso uniforme a las alertas y las pruebas web junto con su recurso de aplicación. [Más información](#access).
@@ -101,7 +101,7 @@ Si el usuario de su elección no está en el directorio, puede invitar a cualqui
 
 ## <a name="related-content"></a>Contenido relacionado
 
-* [Control de acceso basado en rol de Azure](../../role-based-access-control/role-assignments-portal.md)
+* [Control de acceso basado en roles de Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="powershell-query-to-determine-role-membership"></a>Consulta de PowerShell para determinar la pertenencia a roles
 
@@ -135,4 +135,3 @@ $resourceGroup = "RGNAME"
 [group]: ../../azure-resource-manager/management/overview.md
 [portal]: https://portal.azure.com/
 [start]: ./app-insights-overview.md
-

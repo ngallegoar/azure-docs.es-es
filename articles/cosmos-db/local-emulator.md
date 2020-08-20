@@ -6,12 +6,12 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
-ms.openlocfilehash: e06a2eac5387cd02e95d8252ae04edc356683ed9
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 7a115de449588ea69951e6d997aa5332e5d55ad1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86028246"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119528"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Uso del emulador de Azure Cosmos para desarrollo y pruebas locales
 
@@ -507,6 +507,8 @@ Use las siguientes sugerencias para solucionar los problemas que podrían surgir
 - Si se produce un problema de conectividad, [recopile los archivos de seguimiento](#trace-files), comprímalos y abra una incidencia de soporte técnico en [Azure Portal](https://portal.azure.com).
 
 - Si recibe un mensaje de **Servicio no disponible**, es posible que el emulador no pueda inicializar la pila de red. Compruebe si tiene instalado el cliente de Pulse Secure o el cliente de Juniper Networks, ya que sus controladores de filtro de red podrían ser la causa del problema. Normalmente el problema se corrige al desinstalar los controladores del filtro de red de otros fabricantes. Como alternativa, puede iniciar el emulador con /DisableRIO, lo cual cambiará la comunicación de red del emulador a una Winsock normal. 
+
+- Si encuentra problemas de conectividad **"Forbidden","message":"Request is being made with a forbidden encryption in transit protocol or cipher. Check account SSL/TLS minimum allowed protocol setting..."** ("Prohibido","mensaje":"La solicitud se realiza con un cifrado prohibido en el protocolo de tránsito o cifrado. Compruebe la configuración del protocolo SSL/TLS mínimo permitido de la cuenta...), esto puede deberse a cambios globales en el sistema operativo (por ejemplo, Insider Preview, compilación 20170) o a la configuración del explorador que habilita TLS 1.3 como valor predeterminado. Podría producirse un error similar al usar el SDK para ejecutar una solicitud en el emulador de Cosmos, como **Microsoft.Azure.Documents.DocumentClientException: Request is being made with a forbidden encryption in transit protocol or cipher. Check account SSL/TLS minimum allowed protocol setting** (La solicitud se realiza con un cifrado prohibido en el protocolo de tránsito o cifrado. Compruebe la configuración del protocolo SSL/TLS mínimo permitido de la cuenta). Esto es esperable en este momento, ya que el emulador de Cosmos solo acepta y funciona con el protocolo TLS 1.2. La solución recomendada es cambiar la configuración y usar de forma predeterminada TLS 1.2; por ejemplo, en el administrador de IIS, vaya a "Sitios"-> "Sitios web predeterminados" y busque "Enlaces de sitios" para el puerto 8081 y edítelo para deshabilitar TLS 1.3. Se puede realizar una operación similar para el explorador web a través de las opciones de "Configuración".
 
 - Mientras se ejecuta el emulador, si el equipo entra en modo de suspensión o se ejecuta alguna actualización del sistema operativo, es posible que aparezca un mensaje del tipo **el servicio no está disponible en estos momentos**. Restablezca el emulador; para ello, haga clic con el botón derecho en el icono que aparece en la bandeja de notificaciones de Windows y seleccione **Reset Data** (Restablecer datos).
 

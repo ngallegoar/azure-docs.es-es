@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 08/11/2020
 ms.author: b-juche
-ms.openlocfilehash: 7c792ee9c56a044942bb2249a57f2615c72badee
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 29055da1ea8093d413691a41d38d6280f43f728a
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533145"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88134503"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Preguntas más frecuentes acerca de Azure NetApp Files
 
@@ -177,6 +177,11 @@ Un volumen de protocolo dual admite los protocolos NFS y SMB.  Al intentar obten
 
 Para evitar el problema de tipo "Permiso denegado", asegúrese de que Active Directory para Windows incluya `pcuser` antes de obtener acceso al punto de montaje. Si agrega `pcuser` después de encontrar el problema "Permiso denegado", espere 24 horas para que la entrada de caché se borre antes de volver a intentar el acceso.
 
+### <a name="when-i-try-to-create-a-dual-protocol-volume-why-does-the-creation-process-fail-with-the-error-failed-to-validate-ldap-configuration-try-again-after-correcting-ldap-configuration"></a>Cuando intento crear un volumen de protocolo dual, ¿por qué se produce un error en el proceso de creación con el error "no se pudo validar la configuración de LDAP, inténtelo de nuevo después de corregir la configuración de LDAP"?  
+
+Es posible que falte el registro de puntero (PTR) del equipo host de AD en el servidor DNS. Tiene que crear una zona de búsqueda inversa en el servidor DNS y luego agregar un registro de puntero (PTR) del equipo host de AD a esa zona de búsqueda inversa.
+
+Por ejemplo, supongamos que la dirección IP de la máquina de AD es `1.1.1.1`, que el nombre de host de la máquina de AD (que se encuentra mediante el comando `hostname`) es `AD1` y el nombre de dominio es `myDomain.com`.  El registro PTR agregado a la zona de búsqueda inversa debe ser `1.1.1.1` -> `AD1.myDomain.com`.
 
 ## <a name="capacity-management-faqs"></a>Preguntas más frecuentes sobre la administración de la capacidad
 

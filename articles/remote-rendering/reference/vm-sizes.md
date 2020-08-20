@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 05/28/2020
 ms.topic: reference
-ms.openlocfilehash: aab914caa2647146639aa366f558c80bebcfde54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8e439a055b71ed291573965c561ee31610e3ed4
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809942"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121619"
 ---
 # <a name="vm-sizes"></a>Tamaños de VM
 
@@ -76,7 +76,7 @@ En consecuencia, es posible escribir una aplicación que se destina al tamaño `
 
 Hay dos maneras de determinar el número de polígonos de un modelo o una escena que contribuyen al límite del presupuesto de la VM de tamaño `standard`:
 * En la conversión del modelo, recupere el [archivo JSON de salida de la conversión](../how-tos/conversion/get-information.md) y compruebe la entrada `numFaces` en la [sección *inputStatistics*](../how-tos/conversion/get-information.md#the-inputstatistics-section).
-* Si la aplicación está tratando con contenido dinámico, el número de polígonos representados se puede consultar dinámicamente durante el tiempo de ejecución. Use una [consulta de evaluación de rendimiento](../overview/features/performance-queries.md#performance-assessment-queries) y busque el miembro `polygonsRendered` en la estructura `FrameStatistics`. El fondo de tablero de ajedrez siempre se atenúa con algún retraso para garantizar que se pueda realizar la acción del usuario después de esta consulta asincrónica. La acción del usuario puede consistir, por ejemplo, en ocultar o eliminar instancias de modelo.
+* Si la aplicación está tratando con contenido dinámico, el número de polígonos representados se puede consultar dinámicamente durante el tiempo de ejecución. Use una [consulta de evaluación de rendimiento](../overview/features/performance-queries.md#performance-assessment-queries) y busque el miembro `polygonsRendered` en la estructura `FrameStatistics`. El campo `polygonsRendered` se establecerá en `bad` cuando el representador alcance la limitación de polígono. El fondo de tablero de ajedrez siempre se atenúa con algún retraso para garantizar que se pueda realizar la acción del usuario después de esta consulta asincrónica. La acción del usuario puede consistir, por ejemplo, en ocultar o eliminar instancias de modelo.
 
 ## <a name="pricing"></a>Precios
 

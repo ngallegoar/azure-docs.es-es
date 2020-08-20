@@ -2,15 +2,15 @@
 title: Introducción a las especificaciones de plantilla
 description: Describe cómo crear especificaciones de plantilla y compartirlas con otros usuarios de la organización.
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 08/06/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 829aaa41bc60b3dcbf78ef6083457fff3b794914
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: f5151550b9f23ba63380688f53325f8976f14a51
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497807"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921885"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Especificaciones de plantilla de Azure Resource Manager (versión preliminar)
 
@@ -18,7 +18,7 @@ Una especificación de plantilla es un nuevo tipo de recurso para almacenar una 
 
 **Microsoft.Resources/templateSpecs** es el nuevo tipo de recurso para las especificaciones de plantilla. Consta de una plantilla principal y un número indefinido de plantillas vinculadas. Azure almacena de forma segura las especificaciones de plantilla en grupos de recursos. Las especificaciones de plantilla son compatibles con el [control de versiones](#versioning).
 
-Para implementar la especificación de plantilla, use herramientas estándar de Azure como PowerShell, la CLI de Azure, Azure Portal, REST, y otros SDK y clientes compatibles. Utilice los mismos comandos y pase los mismos parámetros para la plantilla.
+Para implementar la especificación de plantilla, use herramientas estándar de Azure como PowerShell, la CLI de Azure, Azure Portal, REST, y otros SDK y clientes compatibles. Utilice los mismos comandos que utilizaría para la plantilla.
 
 > [!NOTE]
 > Las especificaciones de plantilla se encuentran actualmente en versión preliminar. Para usarlas, debe [regístrese para la lista de espera](https://aka.ms/templateSpecOnboarding).
@@ -37,21 +37,32 @@ En el ejemplo siguiente se muestra una plantilla sencilla para crear una cuenta 
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [
-    {
-      "name": "[concat('storage', uniqueString(resourceGroup().id))]",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-06-01",
-      "location": "[resourceGroup().location]",
-      "kind": "StorageV2",
-      "sku": {
-        "name": "Premium_LRS",
-        "tier": "Premium"
-      }
-    }
-  ]
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccountType": {
+            "type": "string",
+            "defaultValue": "Standard_LRS",
+            "allowedValues": [
+                "Standard_LRS",
+                "Standard_GRS",
+                "Standard_ZRS",
+                "Premium_LRS"
+            ]
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
+            "name": "[concat('store', uniquestring(resourceGroup().id))]",
+            "location": "[resourceGroup().location]",
+            "kind": "StorageV2",
+            "sku": {
+                "name": "[parameters('storageAccountType')]"
+            }
+        }
+    ]
 }
 ```
 
@@ -105,6 +116,42 @@ $id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -
 New-AzResourceGroupDeployment `
   -TemplateSpecId $id `
   -ResourceGroupName demoRG
+```
+
+## <a name="parameters"></a>Parámetros
+
+Pasar parámetros a la especificación de plantilla es exactamente igual que pasar parámetros a una plantilla de Resource Manager. Agregue los valores de parámetro insertados o en un archivo de parámetros.
+
+Para pasar un parámetro insertado, use:
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -TemplateSpecId $id `
+  -ResourceGroupName demoRG `
+  -StorageAccountType Standard_GRS
+```
+
+Para crear un archivo de parámetros local, use:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "StorageAccountType": {
+      "value": "Standard_GRS"
+    }
+  }
+}
+```
+
+Y pase el archivo de parámetros con:
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -TemplateSpecId $id `
+  -ResourceGroupName demoRG `
+  -TemplateParameterFile ./mainTemplate.parameters.json
 ```
 
 ## <a name="create-a-template-spec-with-linked-templates"></a>Creación de una especificación de plantilla con plantillas vinculadas

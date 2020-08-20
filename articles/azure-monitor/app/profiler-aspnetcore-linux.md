@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: f01eaf879e70406c6dbe17e6fc544f7aed367e8b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a21d48787a39c491a2ab1ace1bf42ff85bd34993
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324121"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078094"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Generación de perfiles de aplicaciones web de Azure en Linux de ASP.NET Core con Application Insights Profiler
 
@@ -106,7 +106,7 @@ Las instrucciones siguientes se aplican a todos los entornos de desarrollo Windo
 
     ![Configuración del repositorio de Git](./media/profiler-aspnetcore-linux/setup-git-repo.png)
 
-Para obtener más opciones de implementación, consulte [este artículo](../../app-service/containers/choose-deployment-type.md).
+Para más opciones de implementación, consulte la [documentación de App Service](https://docs.microsoft.com/azure/app-service).
 
 ## <a name="deploy-your-project"></a>Implementación del proyecto
 

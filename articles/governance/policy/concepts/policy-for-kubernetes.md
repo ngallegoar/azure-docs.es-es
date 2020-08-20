@@ -1,14 +1,14 @@
 ---
 title: 'Versión preliminar: Descripción de Azure Policy para Kubernetes'
 description: Obtenga información sobre cómo Azure Policy usa Rego y Open Policy Agent para administrar clústeres que ejecutan Kubernetes en Azure o en el entorno local. Esta es una característica en vista previa.
-ms.date: 06/12/2020
+ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 461dd467ecda2764c6753ed6eeee0405f8420bbc
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: dc81d22677eeab16ae06e782c5ae47c121af04c6
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373766"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003513"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Descripción de Azure Policy para clústeres de Kubernetes (versión preliminar)
 
@@ -130,10 +130,16 @@ Una vez que se han completado los pasos anteriores de requisitos previos, instal
 
   1. En la página principal, seleccione el botón **Enable add-on** (Habilitar complemento).
 
-     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Habilitar la directiva de Azure para el complemento de AKS" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Habilitar la directiva de Azure para el complemento de AKS":::
 
+     <a name="migrate-from-v1"></a>
      > [!NOTE]
-     > Si el botón **Habilitar complemento** está atenuado, significa que la suscripción todavía no se ha agregado a la versión preliminar. Si el botón **Deshabilitar complemento** está habilitado y se muestra un mensaje de advertencia de migración a v2, Gatekeepver v2 sigue instalado y se debe quitar.
+     > Si el botón **Habilitar complemento** está atenuado, significa que la suscripción todavía no se ha agregado a la versión preliminar. Si el botón **Deshabilitar complemento** está habilitado y se muestra un mensaje de advertencia de migración a v2, el complemento v1 está instalado y se debe quitar antes de asignar las definiciones de directiva v2. El complemento _en desuso_ v1 se reemplazará automáticamente por el complemento v2 a partir del 24 de agosto de 2020. A partir de entonces, se deben asignar las nuevas versiones v2 de las definiciones de directiva. Para actualizar ahora, siga estos pasos:
+     > 
+     > 1. Para validar que el clúster de AKS tiene instalado el complemento v1, visite la página de **Directivas (versión preliminar)** en el clúster de AKS, y que tenga el mensaje "The current cluster uses Azure Policy add-on v1…" (El clúster actual utiliza el complemento de Azure Policy v1…).
+     > 1. [Quite el complemento](#remove-the-add-on-from-aks).
+     > 1. Seleccione el botón **Habilitar complemento** para instalar la versión v2 del complemento.
+     > 1. [Asignación de versiones V2 de las definiciones de directiva integradas v1](#assign-a-built-in-policy-definition)
 
 - Azure CLI
 

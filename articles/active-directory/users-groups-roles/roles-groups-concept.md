@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68d40e9dbc2c4da6b298f7245318c95de983edcc
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 65aed14ec7f644f2792aaecde5c8bccfffdd8081
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87530153"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078451"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Uso de grupos en la nube para administrar asignaciones de roles en Azure Active Directory (versión preliminar)
 
@@ -53,7 +53,7 @@ Hemos diseñado cómo se asignan los grupos a los roles para evitar que se produ
 Los siguientes escenarios no se admiten en este momento:  
 
 - Asignación de grupos en la nube a roles personalizados de Azure AD
-- Asignación de grupos en la nube a roles de Azure AD (integrados o personalizados) a través de una unidad administrativa
+- Asignación de grupos en la nube a roles de Azure AD (integrados o personalizados) a través de una unidad administrativa o ámbito de la aplicación
 - Asignación de grupos locales a roles de Azure AD (integrados o personalizados)
 
 ## <a name="known-issues"></a>Problemas conocidos

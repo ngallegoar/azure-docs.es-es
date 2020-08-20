@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 493c77a8f875018627bfe3167e66addeaf65d089
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 402672d8eeaae8a5097e2ab2905997eb1f646ad6
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445790"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056353"
 ---
 # <a name="frequently-asked-questions---azure-key-vault-certificate-import"></a>Preguntas más frecuentes: importación de certificados de Azure Key Vault
 
@@ -32,6 +32,10 @@ El certificado protegido que se cargó no guarda la contraseña asociada a él d
 ### <a name="how-can-i-resolve-bad-parameter-error-what-are-the-supported-certificate-formats-for-importing-in-key-vault"></a>¿Cómo puedo resolver un "Error de parámetro incorrecto"? ¿Cuáles son los formatos de certificado admitidos para la importación en Key Vault?
 
 Al importar el certificado, debe asegurarse de que la clave se incluye en el propio archivo. Si tiene la clave privada por separado en un formato diferente, tendrá que combinar la clave con el certificado. Algunas entidades de certificación proporcionan certificados en formatos diferentes. Por lo tanto, antes de importar el certificado, asegúrese de que está en formato .pem o. pfx y que la clave usada sea RSA o ECC. Consulte esta información para revisar los [requisitos del certificado](https://docs.microsoft.com/azure/key-vault/certificates/certificate-scenarios#formats-of-import-we-support) y los [requisitos de clave de certificado](https://docs.microsoft.com/azure/key-vault/keys/about-keys#cryptographic-protection).
+
+###  <a name="can-i-import-certificate-using-arm-template"></a>¿Se puede importar un certificado mediante una plantilla de ARM?
+
+No, no es posible realizar operaciones de certificado con plantillas de ARM. La solución alternativa recomendada sería usar los métodos de importación de certificados en la API, la CLI o PowerShell. Si tiene un certificado que ya existe, puede importarlo como un secreto.
 
 ### <a name="error-when-importing-certificate-via-portal-something-went-wrong-how-can-i-investigate-further"></a>Error al importar el certificado mediante portal: "Algo salió mal". ¿Cómo puedo investigar más?
     
