@@ -3,13 +3,14 @@ title: Referencia para desarrolladores de PowerShell para Azure Functions
 description: Aprenda a desarrollar funciones con PowerShell.
 author: eamonoreilly
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 ms.date: 04/22/2019
-ms.openlocfilehash: 8b8c84583bd80a7c3cbadde1caba231eed801c1f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 06838ecee809c5159bc8a290ecb4f589fd3ce04f
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506135"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207406"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guía del desarrollador de PowerShell para Azure Functions
 

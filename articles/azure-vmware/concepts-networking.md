@@ -3,12 +3,12 @@ title: 'Conceptos: interconectividad de red'
 description: Conozca los aspectos clave y los casos de uso de redes e interconectividad en la solución de VMware en Azure (AVS)
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: c0416da9c745ccf92970ff39f623a782d5784983
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f1f1f5a089781f1f7e882c9c8692f0c845ae485
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87062845"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214097"
 ---
 # <a name="azure-vmware-solution-avs-preview-networking-and-interconnectivity-concepts"></a>Conceptos de interconectividad y redes de la versión preliminar de la solución de VMware en Azure (AVS)
 
@@ -77,7 +77,7 @@ En la implementación de red virtual y local a nube privada completa, puede acce
 
 En el diagrama siguiente se muestra la interconectividad local a nube privada, que permite los siguientes casos de uso:
 * Cross-vCenter vMotion frecuente/poco frecuente
-* Acceso de administración desde el entorno local a la nube privada de AVS
+* Acceso de administración desde los entornos locales a la nube privada de AVS
 
 :::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Red virtual y conectividad de nube privada local completa" border="false":::
 

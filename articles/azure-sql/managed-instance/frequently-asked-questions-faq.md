@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 6713a1fbbbbca0aa212461cc966b42aaf2daa47e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5f42079d271a933cb9a722c7e33e6f646f7c4d1b
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498464"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210501"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Preguntas frecuentes acerca de Instancia administrada de Azure SQL (P+F)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -214,7 +214,7 @@ Sí, puede comprar el almacenamiento de complementos, independientemente del pro
 
 **¿Cómo puedo optimizar el rendimiento del almacenamiento en el nivel de servicio De uso general?**
 
-Para optimizar el rendimiento del almacenamiento, consulte [Procedimientos recomendados de almacenamiento en el nivel De uso general](https://techcommunity.microsoft.com/t5/datacat/storage-performance-best-practices-and-considerations-for-azure/ba-p/305525).
+Para optimizar el rendimiento del almacenamiento, consulte [Procedimientos recomendados de almacenamiento en el nivel De uso general](https://techcommunity.microsoft.com).
 
 ## <a name="backup-and-restore"></a>Copia de seguridad y restauración
 

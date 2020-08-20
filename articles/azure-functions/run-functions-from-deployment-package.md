@@ -3,21 +3,18 @@ title: Ejecución de la instancia de Azure Functions desde un paquete
 description: Para que el sistema en tiempo de ejecución de Azure Functions ejecute sus funciones, monte un archivo del paquete de implementación que contenga los archivos de proyecto de la aplicación de función.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: d40896d6a4659945dbeda9ca965366f0b2ca4bd2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6a2633550c9bcbdc59baf99f79559655afbb9b74
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79365278"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214242"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Ejecución de la instancia de Azure Functions desde un archivo de paquete
 
 En Azure, puede ejecutar las funciones directamente desde un archivo del paquete de implementación de la aplicación de función. La otra opción consiste en implementar los archivos en el directorio `d:\home\site\wwwroot` de la aplicación de función.
 
 En este artículo se describen las ventajas de ejecutar las funciones desde un paquete. También se muestra cómo habilitar esta funcionalidad en la aplicación de función.
-
-> [!IMPORTANT]
-> Al implementar las funciones en una aplicación de funciones de Linux en un [plan Premium](functions-scale.md#premium-plan), siempre debe ejecutar desde el archivo de paquete y [publicar la aplicación mediante Azure Functions Core Tools](functions-run-local.md#project-file-deployment).
 
 ## <a name="benefits-of-running-from-a-package-file"></a>Ventajas de la ejecución desde un archivo de paquete
   

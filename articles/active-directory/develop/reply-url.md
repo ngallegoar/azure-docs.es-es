@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 6a8cc588ff7325242e7e010e9869eaa9a24f6fc2
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 8be13a299de0fc3de0acaf0001722d8c96a460e6
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88033343"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205925"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Restricciones y limitaciones del identificador URI de redirección (dirección URL de respuesta)
 
@@ -62,9 +62,9 @@ Según las [secciones 8.3](https://tools.ietf.org/html/rfc8252#section-8.3) y [7
 
 Desde el punto de vista del desarrollo, esto significa algunas cosas:
 
-1. No registre varios identificadores URI de redirección en los que solo el puerto es distinto. El servidor de inicio de sesión seleccionará uno arbitrariamente y usará el comportamiento asociado a ese identificador URI de redirección (por ejemplo, si es una redirección de tipo `web`, `native` o `spa`).
-1. Si necesita que registrar varios URI de redirección en localhost para probar flujos diferentes durante el desarrollo, puede diferenciarlos mediante el componente de *ruta de acceso* del URI. Por ejemplo, `http://127.0.0.1/MyWebApp` no coincide con `http://127.0.0.1/MyNativeApp`.
-1. Según las guías de RFC, no debe usar `localhost` en el URI de redireccionamiento. En su lugar, use la dirección IP de bucle invertido real, `127.0.0.1`. Esto evita que la aplicación deje de funcionar por firewalls mal configurados o interfaces de red cuyo nombre se ha cambiado.
+* No registre varios identificadores URI de redirección en los que solo el puerto es distinto. El servidor de inicio de sesión seleccionará uno arbitrariamente y usará el comportamiento asociado a ese identificador URI de redirección (por ejemplo, si es una redirección de tipo `web`, `native` o `spa`).
+* Si necesita que registrar varios URI de redirección en localhost para probar flujos diferentes durante el desarrollo, puede diferenciarlos mediante el componente de *ruta de acceso* del URI. Por ejemplo, `http://127.0.0.1/MyWebApp` no coincide con `http://127.0.0.1/MyNativeApp`.
+* Según las guías de RFC, no debe usar `localhost` en el URI de redireccionamiento. En su lugar, use la dirección IP de bucle invertido real, `127.0.0.1`. Esto evita que la aplicación deje de funcionar por firewalls mal configurados o interfaces de red cuyo nombre se ha cambiado.
 
     La dirección de bucle invertido IPv6 (`[::1]`) no se admite actualmente.
 

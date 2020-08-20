@@ -5,14 +5,15 @@ description: Autenticación en Azure App Configuration mediante identidades adm
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
+ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: 7ccf1bed3a1791f0aa172a617deab1cd192540f3
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: b1efeeef09e7c228eb8fc14de52a6beb2e9ffffe
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135477"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206834"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>Uso de identidades administradas para acceder a App Configuration
 

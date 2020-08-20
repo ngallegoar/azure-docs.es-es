@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 38973e5484ece0b47e2f81ad78c716b5ee49cead
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 70938bf1dcd06ce9936767c66ffead0f8627c5a7
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829703"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235475"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Creación de un punto de conexión SCIM y configuración del aprovisionamiento de usuarios con Azure AD
 
@@ -751,7 +751,7 @@ El servicio de aprovisionamiento de Azure AD actualmente opera en los intervalo
 
 Ahora que ha diseñado el esquema y comprendido la implementación de SCIM de Azure AD, puede empezar a desarrollar el punto de conexión de SCIM. En lugar de comenzar desde cero y compilar la implementación totalmente por su cuenta, puede confiar en una serie de bibliotecas de SCIM de código abierto publicadas por la comunidad de SCIM.
 
-El [código de referencia](https://aka.ms/SCIMReferenceCode) de .NET Core de código abierto publicado por el equipo de aprovisionamiento de Azure AD es uno de esos recursos que puede iniciar su desarrollo. Una vez que haya creado el punto de conexión de SCIM, querrá probarlo. Puede usar la colección de [pruebas de Postman](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) proporcionadas como parte del código de referencia o ejecutar las solicitudes o respuestas de ejemplo proporcionadas [anteriormente](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#user-operations).  
+El [código de referencia](https://aka.ms/SCIMReferenceCode) de .NET Core de código abierto publicado por el equipo de aprovisionamiento de Azure AD es uno de esos recursos que puede iniciar su desarrollo. Una vez que haya creado el punto de conexión de SCIM, querrá probarlo. Puede usar la colección de [pruebas de Postman](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) proporcionadas como parte del código de referencia o ejecutar las solicitudes o respuestas de ejemplo proporcionadas [anteriormente](#user-operations).  
 
    > [!Note]
    > El código de referencia está pensado para ayudarle a empezar a crear el punto de conexión de SCIM y se proporciona "tal cual". Las contribuciones de la comunidad le ayudarán a crear y mantener el código.
@@ -799,7 +799,7 @@ El SDK de .NET Core incluye un certificado de desarrollo HTTPS que se puede usar
 * Microsoft.SCIM.WebHostSample: https://localhost:5001
 * IIS Express: https://localhost:44359/
 
-Para obtener más información sobre HTTPS en ASP.NET Core, use el siguiente vínculo: [Aplicar HTTPS en ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl)
+Para obtener más información sobre HTTPS en ASP.NET Core, use el siguiente vínculo: [Aplicar HTTPS en ASP.NET Core](/aspnet/core/security/enforcing-ssl)
 
 ### <a name="handling-endpoint-authentication"></a>Control de la autenticación de puntos de conexión
 
@@ -1168,12 +1168,12 @@ Una vez que haya empezado el ciclo inicial, puede seleccionar **Registros de apr
 
 ## <a name="step-5-publish-your-application-to-the-azure-ad-application-gallery"></a>Paso 5: Publique la aplicación en la galería de aplicaciones de Azure AD
 
-Si va a crear una aplicación que usará más de un inquilino, puede hacer que esté disponible en la galería de aplicaciones de Azure AD. De este modo, facilitará a las organizaciones la detección de la aplicación y la configuración del aprovisionamiento. Publicar la aplicación en la galería de Azure AD y hacer que el aprovisionamiento esté disponible para otros usuarios es fácil. Consulte los pasos [aquí](../develop/howto-app-gallery-listing.md). Microsoft colaborará con usted a fin de integrar su aplicación en nuestra galería, probar su punto de conexión y publicar la [documentación](../saas-apps/tutorial-list.md) de incorporación de versiones para que los clientes la usen. 
+Si va a crear una aplicación que usará más de un inquilino, puede hacer que esté disponible en la galería de aplicaciones de Azure AD. De este modo, facilitará a las organizaciones la detección de la aplicación y la configuración del aprovisionamiento. Publicar la aplicación en la galería de Azure AD y hacer que el aprovisionamiento esté disponible para otros usuarios es fácil. Consulte los pasos [aquí](../azuread-dev/howto-app-gallery-listing.md). Microsoft colaborará con usted a fin de integrar su aplicación en nuestra galería, probar su punto de conexión y publicar la [documentación](../saas-apps/tutorial-list.md) de incorporación de versiones para que los clientes la usen. 
 
 ### <a name="gallery-onboarding-checklist"></a>Lista de comprobación de la incorporación a la galería
 Siga la lista de comprobación siguiente para asegurarse de que la aplicación se incorpora con rapidez y que los clientes tienen una experiencia de implementación sin problemas. La información se recopilará en el momento en que se incorpore a la galería. 
 > [!div class="checklist"]
-> * Compatibilidad con un punto de conexión de grupo y de usuario de [SCIM 2.0 ](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-2-understand-the-azure-ad-scim-implementation) (solo se requiere uno, pero se recomiendan los dos)
+> * Compatibilidad con un punto de conexión de grupo y de usuario de [SCIM 2.0 ](#step-2-understand-the-azure-ad-scim-implementation) (solo se requiere uno, pero se recomiendan los dos)
 > * Admisión de al menos 25 solicitudes por segundo por inquilino (obligatorio)
 > * Establecimiento de contactos de ingeniería y soporte técnico para guiar la incorporación de clientes a la galería (obligatorio)
 > * Tres credenciales de prueba sin expiración para la aplicación (obligatorio)

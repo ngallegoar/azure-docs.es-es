@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 19a7bc70bd782f9b684cb48672147f5009e4a08f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ab8bee756cc714074a6f97156bf528ddeabff8a0
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073857"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236750"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configuración de entornos de ensayo en Azure App Service
 <a name="Overview"></a>
@@ -423,7 +423,6 @@ Estos son algunos errores de intercambio habituales:
       ...
     </conditions>
     ```
-- Algunas [reglas de restricción de IP](app-service-ip-restrictions.md) pueden impedir que durante el intercambio se envíen solicitudes HTTP a la aplicación. Los intervalos de direcciones IPv4 que empiezan por `10.` y `100.` son internos de la implementación. Debe permitir que se conecten a la aplicación.
 
 - Después de los intercambios de ranura, la aplicación puede experimentar reinicios inesperados. El motivo es que después de un intercambio, la configuración de enlace del nombre de host deja de estar sincronizada, lo que de por sí no provoca reinicios. Sin embargo, algunos eventos de almacenamiento subyacentes (como las conmutaciones por error de volúmenes de almacenamiento) pueden detectar estas discrepancias y forzar el reinicio de todos los procesos de trabajo. Para reducir estos tipos de reinicios, establezca la configuración de la aplicación [`WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1`](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) en *todas las ranuras*. Sin embargo, esta configuración de la aplicación *no* funciona con aplicaciones de Windows Communication Foundation (WCF).
 

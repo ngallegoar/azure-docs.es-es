@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/05/2020
-ms.openlocfilehash: 4d8a38666991760fbb133e617984ba23788034ca
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 4a8a2455ea3e5889293cb8285f36699942a46437
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87907869"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209336"
 ---
 # <a name="quickstart-create-a-search-index-using-the-microsoftazuresearch-v10-client-library"></a>Inicio rápido: Creación de un índice de búsqueda mediante la biblioteca cliente de la versión 10 Microsoft.Azure.Search
 
@@ -106,9 +106,9 @@ Este paso es necesario para generar una salida significativa en la consola. Al i
 
 1. Agregue dos definiciones de clase vacías al proyecto: Address.Methods.cs, Hotel.Methods.cs
 
-1. En Address.Methods.cs, sobrescriba el contenido predeterminado con el código que encontrará en las [líneas 1-25](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Address.Methods.cs/#L1-L25).
+1. En Address.Methods.cs, sobrescriba el contenido predeterminado con el código que encontrará en las [líneas 1-25](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart-v10/AzureSearchQuickstart/Address.Methods.cs#L1-L25).
 
-1. En Hotel.Methods.cs, copie las [líneas 1-68](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Hotel.Methods.cs/#L1-L68).
+1. En Hotel.Methods.cs, copie las [líneas 1-68](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart-v10/AzureSearchQuickstart/Hotel.Methods.cs#L1-L68).
 
 ## <a name="1---create-index"></a>1 - Creación de un índice
 

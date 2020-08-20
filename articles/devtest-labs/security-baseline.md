@@ -3,12 +3,12 @@ title: Base de referencia de seguridad de Azure para Azure DevTest Labs
 description: Base de referencia de seguridad de Azure para Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 158ead7531b0b3da2e495e36e40e761961bea498
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: ed263ad80250531431840516f2764055c75abd50
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761015"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212313"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Base de referencia de seguridad de Azure para Azure DevTest Labs
 
@@ -629,8 +629,8 @@ Además, las imágenes de máquinas virtuales de Azure Marketplace que publica M
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Almacene de forma segura la configuración de los recursos de Azure
 **Guía:** Use Azure DevOps para almacenar y administrar de forma segura el código, como directivas de Azure personalizadas, plantillas de Azure Resource Manager y scripts de Desired State Configuration. Para acceder a los recursos que administra en Azure DevOps, puede conceder o denegar permisos a usuarios específicos, grupos de seguridad integrados o grupos definidos en Azure Active Directory (Azure AD) si se integran con Azure DevOps.
 
-- [Tutorial de Git de Azure Repos](/devops/repos/git/gitworkflow?view=azure-devops)
-- [Acerca de los permisos y los grupos](/devops/organizations/security/about-permissions?view=azure-devops&tabs=preview-page)
+- [Tutorial de Git de Azure Repos](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow)
+- [Acerca de los permisos y los grupos](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions?view=azure-devops&tabs=preview-page)
 - [Integración entre Azure DevTest Labs y el flujo de trabajo de Azure DevOps](devtest-lab-dev-ops.md)
 
 **Supervisión de Azure Security Center:** No aplicable
