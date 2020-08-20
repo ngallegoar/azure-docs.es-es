@@ -11,12 +11,12 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd63e82788856624c3babe078de52e698f190ce0
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 91e89f274615e75fec818ec9e3ecf785aa6e804f
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796632"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88262965"
 ---
 # <a name="what-is-azure-active-directory"></a>¿Qué es Azure Active Directory?
 
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) es un servicio de administración de identidad
 
 - Recursos internos, como las aplicaciones de la red corporativa y la intranet, junto con todas las aplicaciones en la nube desarrolladas por su propia organización. Para más información sobre la creación de un inquilino para su organización, consulte [Guía de inicio rápido: Creación de un inquilino en Azure Active Directory](active-directory-access-create-new-tenant.md).
 
-Para obtener información sobre la diferencia entre Azure AD y Active Directory Domain Services, consulte [Comparación de Active Directory y Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). Puede utilizar los diversos pósteres de la [Serie de Microsoft Cloud para arquitectos empresariales](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources#identity) para conocer mejor los servicios de identidad principales de Azure, Azure AD y Office 365.
+Para obtener información sobre la diferencia entre Azure AD y Active Directory Domain Services, consulte [Comparación de Active Directory y Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). Puede utilizar los diversos pósteres de la [Serie de Microsoft Cloud para arquitectos empresariales](https://docs.microsoft.com/microsoft-365/solutions/cloud-architecture-models?view=o365-worldwide) para conocer mejor los servicios de identidad principales de Azure, Azure AD y Office 365.
 
 ## <a name="who-uses-azure-ad"></a>¿Quién usa Azure AD?
 

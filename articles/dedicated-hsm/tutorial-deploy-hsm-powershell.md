@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/14/2020
 ms.author: johndaw
-ms.openlocfilehash: e7958a722f7010d63794cacc072289030a72ed99
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 93333f2f0a2ef4aaf44884aa30afaa959459aaad
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512510"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257423"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutorial: Implementación de HSM en una red virtual existente con PowerShell
 
@@ -40,7 +40,7 @@ Este tutorial se centra en dos HSM y en la puerta de enlace de ExpressRoute nece
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Azure Dedicated HSM no está disponible actualmente en Azure Portal y, por tanto, toda interacción con el servicio se realizará a través de la línea de comandos o mediante PowerShell. En este tutorial se utilizará PowerShell en Azure Cloud Shell. Si no está familiarizado con PowerShell, siga las instrucciones de inicio que se encuentran aquí: [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+Azure Dedicated HSM no está disponible actualmente en Azure Portal y, por tanto, toda interacción con el servicio se realizará a través de la línea de comandos o mediante PowerShell. En este tutorial se utilizará PowerShell en Azure Cloud Shell. Si no está familiarizado con PowerShell, siga las instrucciones de inicio que se encuentran aquí: [Introducción a Azure PowerShell](/powershell/azure/get-started-azureps).
 
 Se supone que:
 
