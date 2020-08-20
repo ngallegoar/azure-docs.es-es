@@ -3,12 +3,12 @@ title: Configuración de un dispositivo de Azure Migrate en Azure Government
 description: Aprenda a configurar un dispositivo de Azure Migrate en Azure Government
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: f0ebc882646b5ff3f62ddddf91cffc85cb5e0da6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 993c25d7b2c580df47b61c836b885ed6379e8640
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109984"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612272"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Configuración de una aplicación en Azure Government 
 
@@ -34,7 +34,7 @@ Para instalar la aplicación para VMware, descargue un archivo comprimido de Azu
 ### <a name="download-the-script"></a>Descarga del script
 
 1.  En **Objetivos de migración** > **Servidores** > **Azure Migrate: Server Assessment**, haga clic en **Detectar**.
-2.  En **Detectar máquinas** >  **¿Las máquinas están virtualizadas?** , haga clic en **Yes, with VMware vSphere Hypervisor** (Sí, con VMware vSphere Hypervisor).
+2.  En **Detectar máquinas** >  **¿Las máquinas están virtualizadas?** , haga clic en **Sí, con VMware vSphere Hypervisor**.
 3.  Haga clic en **Descargar** para descargar el archivo comprimido. 
 
 
