@@ -4,8 +4,6 @@
   items:
     - name: ¿Qué es Azure Load Balancer?
       href: load-balancer-overview.md
-    - name: Novedades
-      href: whats-new.md
 - name: Guías de inicio rápido
   items:
     - name: 'Creación de un equilibrador de carga público: Azure Portal'
@@ -45,6 +43,8 @@
       href: powershell-samples.md
 - name: Conceptos
   items:
+    - name: Novedades
+      href: whats-new.md
     - name: Componentes
       href: components.md
     - name: Conceptos
