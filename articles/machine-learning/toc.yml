@@ -153,6 +153,8 @@
       href: concept-ml-pipelines.md
     - name: Preparación y seguridad para empresas
       items:
+        - name: Línea de base de seguridad
+          href: security-baseline.md
         - name: Seguridad y gobernanza para empresas
           items:
             - name: Introducción sobre la seguridad en la empresa
