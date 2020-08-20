@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: rogarana
-ms.openlocfilehash: 1ea1bfdf2c3b2dcfd49f87a5a75597a464b07913
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c3e8299a5acd7cbd3a6fd3cd76af33f4a798ad12
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999588"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833001"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Introducción: autenticación de Active Directory Domain Services local en SMB para recursos compartidos de archivos de Azure
 
@@ -46,6 +46,8 @@ Antes de habilitar la autenticación de AD DS para los recursos compartidos de 
     La característica se puede habilitar en un entorno de AD DS nuevo o existente. Las identidades usadas para el acceso deben estar sincronizadas con Azure AD. El inquilino de Azure AD y el recurso compartido de archivos al que accede debe estar asociado con la misma suscripción.
 
 - Unir una máquina local o una máquina virtual de Azure por dominio a un AD DS local. Para información acerca de cómo unirse a un dominio, consulte [Unión de un equipo a un dominio](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain).
+
+    Si la máquina no está unida a un dominio en AD DS, es posible que pueda seguir aprovechando las credenciales de AD para la autenticación si la máquina tiene una línea de visión del controlador de dominio de AD.
 
 - Seleccione o cree una cuenta de almacenamiento de Azure.  Para conseguir un rendimiento óptimo, se recomienda implementar la cuenta de almacenamiento en la misma región que el cliente desde el que vaya a acceder al recurso compartido. A continuación, [monte el recurso compartido de archivos de Azure](storage-how-to-use-files-windows.md) con la clave de la cuenta de almacenamiento. Al montar con la clave de la cuenta de almacenamiento, se comprueba la conectividad.
 
@@ -81,7 +83,7 @@ En el diagrama siguiente se ilustra el flujo de trabajo de un extremo a otro par
 
 ![Diagrama de flujo de trabajo de AD de Files](media/storage-files-active-directory-domain-services-enable/diagram-files-ad.png)
 
-Las identidades que se usan para acceder a los recursos compartidos de archivos de Azure se deben sincronizar con Azure AD para aplicar los permisos de archivo de nivel de recurso compartido mediante el modelo de [control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md). Se conservarán y aplicarán las [DACL tipo Windows](https://docs.microsoft.com/previous-versions/technet-magazine/cc161041(v=msdn.10)?redirectedfrom=MSDN) en archivos o directorios transferidos desde servidores de archivos existentes. Esto ofrece una perfecta integración con el entorno de AD DS de la empresa. A medida que reemplaza los servidores de archivos locales por recursos compartidos de archivos de Azure, los usuarios existentes pueden acceder a estos desde sus clientes actuales con una experiencia de inicio de sesión único, sin ningún cambio en las credenciales en uso.  
+Las identidades que se usan para acceder a los recursos compartidos de archivos de Azure se deben sincronizar con Azure AD para aplicar los permisos de archivo de nivel de recurso compartido mediante el modelo de [control de acceso basado en roles de Azure (RBAC de Azure)](../../role-based-access-control/overview.md). Se conservarán y aplicarán las [DACL tipo Windows](https://docs.microsoft.com/previous-versions/technet-magazine/cc161041(v=msdn.10)?redirectedfrom=MSDN) en archivos o directorios transferidos desde servidores de archivos existentes. Esto ofrece una perfecta integración con el entorno de AD DS de la empresa. A medida que reemplaza los servidores de archivos locales por recursos compartidos de archivos de Azure, los usuarios existentes pueden acceder a estos desde sus clientes actuales con una experiencia de inicio de sesión único, sin ningún cambio en las credenciales en uso.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

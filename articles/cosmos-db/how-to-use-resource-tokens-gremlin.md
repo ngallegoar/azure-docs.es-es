@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/06/2019
-ms.openlocfilehash: 45bfba5b0ab25aa9930719f136428ccc0df5014d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 211dce8a2810d9eb07bf0f388753afd50add4945
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263568"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87919963"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Uso de tokens de recursos de Azure Cosmos DB con el SDK de Gremlin
 
@@ -102,5 +102,5 @@ Con una sola cuenta de Gremlin, puede emitir un número ilimitado de tokens. Sin
 Un error común que las aplicaciones encuentran mientras usan tokens de recursos es que hay permisos insuficientes en el encabezado de autorización para la solicitud correspondiente. Se recomienda volver a intentarlo con otro encabezado de autorización. Este error se devuelve cuando el recorrido a través de Gremlin intenta escribir un borde o un vértice, pero el token de recurso solo concede permisos de *lectura*. Inspeccione el recorrido por si contiene alguno de los siguientes pasos: *.addV()* , *.addE()* , *.drop()* o *.property()* .
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Control de acceso basado en rol](role-based-access-control.md) en Azure Cosmos DB
+* [Control de acceso basado en roles de Azure (RBAC de Azure)](role-based-access-control.md) en Azure Cosmos DB
 * [Información sobre la protección del acceso a los datos](secure-access-to-data.md) en Azure Cosmos DB

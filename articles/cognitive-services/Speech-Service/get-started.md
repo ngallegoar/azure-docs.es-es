@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
-ms.openlocfilehash: 4604bfe7c815f79733f99a1a3727e4c68527e7ec
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 5dc1f8ed31c8d7199a31643a76e611d828da77ac
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656130"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056472"
 ---
-# <a name="try-the-speech-service-for-free"></a>Prueba gratuita del servicio de voz
+# <a name="try-the-speech-service-for-free"></a>Prueba gratuita del servicio Voz
 
 En este artículo, elige una opción para probar fácilmente el servicio Voz disponible gratis para que pueda descubrir lo que puede hacer el servicio y decidir si es adecuado para sus necesidades. Elija una de las dos opciones siguientes en función de su situación y caso de uso:
 
@@ -96,5 +96,5 @@ Para cambiar de una suscripción a otra, por ejemplo, cuando la evaluación grat
 Realice alguno de los inicios rápidos de 10 minutos o visite los ejemplos de SDK:
 
 > [!div class="nextstepaction"]
-> [Inicio rápido: Reconocimiento de voz en C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+> [Inicio rápido: Reconocimiento de voz con la CLI de Voz](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programmer-tool-spx)
 > [Ejemplos del SDK de Voz](speech-sdk.md#sample-source-code)

@@ -3,16 +3,16 @@ title: Roles y permisos de Azure
 description: Use el control de acceso basado en roles (Azure RBAC) de Azure y la administración de identidades y acceso (IAM) para proporcionar la personalización avanzada de permisos a los recursos de una instancia de Azure Container Registry.
 ms.topic: article
 ms.date: 12/02/2019
-ms.openlocfilehash: 90546b96f081893d312e66aae04e2125c1c210e5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 23a9c08162c03d4b34ed289d650fddcd7413ed08
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533315"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920082"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Roles y permisos de Azure Container Registry
 
-El servicio Azure Container Registry admite un conjunto de [roles de Azure integrados](../role-based-access-control/built-in-roles.md) que proporcionan distintos niveles de permisos a una instancia de Azure Container Registry. Use el [control de acceso basado en rol](../role-based-access-control/index.yml) (RBAC) de Azure para asignar permisos específicos a usuarios, entidades de servicio u otras entidades que necesiten interactuar con un registro. 
+El servicio Azure Container Registry admite un conjunto de [roles de Azure integrados](../role-based-access-control/built-in-roles.md) que proporcionan distintos niveles de permisos a una instancia de Azure Container Registry. Use el [control de acceso basado en rol de Azure](../role-based-access-control/index.yml) (RBAC de Azure) para asignar permisos específicos a usuarios, entidades de servicio u otras entidades que necesiten interactuar con un registro. 
 
 | Rol/permiso       | [Acceso a Resource Manager](#access-resource-manager) | [Crear o eliminar un registro](#create-and-delete-registry) | [Insertar imagen](#push-image) | [Extraer imagen](#pull-image) | [Eliminar los datos de imagen](#delete-image-data) | [Cambiar directivas](#change-policies) |   [Firmar imágenes](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |

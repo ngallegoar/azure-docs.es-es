@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: af19b72846c78ef80ba170b6d6e0cec97fa2b96e
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e1e6c9254c3906b79c3a20de4672dff1b9ac6c63
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533366"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121466"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Novedades de Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -52,7 +52,7 @@ En esta tabla se proporciona una comparación rápida del cambio en la terminolo
 | ---| --- |
 | Recuperación de base de datos acelerada con bases de datos únicas y grupos elásticos | Para más información, consulte [Recuperación de base de datos acelerada](../accelerated-database-recovery.md).|
 | Clasificación y detección de datos  |Para obtener información, vea [Detección y clasificación de datos de Azure SQL Database y Azure Synapse Analytics](data-discovery-and-classification-overview.md).|
-| Trabajos de base de datos elástica | Para más información, consulte [Creación, configuración y administración de trabajos elásticos](elastic-jobs-overview.md). |
+| Trabajos de bases de datos elásticas (versión preliminar) | Para más información, consulte [Creación, configuración y administración de trabajos elásticos](elastic-jobs-overview.md). |
 | Consultas elásticas | Para más información, consulte [Introducción a la consulta elástica](elastic-query-overview.md). |
 | Transacciones elásticas | [Transacciones distribuidas en bases de datos en la nube](elastic-transactions-overview.md). |
 | Editor de consultas de Azure Portal |Para más información, consulte [Uso del editor de consultas SQL de Azure Portal para conectarse a datos y consultarlos](connect-query-portal.md).|
@@ -95,7 +95,7 @@ Las características siguientes están habilitadas en el modelo de implementaci�
 
 ### <a name="known-issues"></a>Problemas conocidos
 
-|Incidencia  |Fecha de detección  |Estado  |Fecha de resolución  |
+|Problema  |Fecha de detección  |Status  |Fecha de resolución  |
 |---------|---------|---------|---------|
 |[La restauración de la copia de seguridad manual sin CHECKSUM puede devolver un error](#restoring-manual-backup-without-checksum-might-fail)|Mayo de 2020|Resuelto|Junio de 2020|
 |[El agente deja de responder al modificar, deshabilitar o habilitar los trabajos existentes](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Mayo de 2020|Resuelto|Junio de 2020|

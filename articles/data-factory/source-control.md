@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/30/2020
-ms.openlocfilehash: 2d6f667b6a49520dfe210fd797a828328899b634
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d171edb23b482ad1871990dcffd979d2125c4406
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83674593"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067416"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Control de código fuente en Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -93,7 +93,7 @@ El panel de configuración muestra la siguiente configuración del repositorio d
 
 ### <a name="use-a-different-azure-active-directory-tenant"></a>Uso de un inquilino de Azure Active Directory distinto
 
-El repositorio Git de Azure Repos puede estar en un inquilino de Azure Active Directory distinto. Para especificar otro inquilino de Azure AD, deberá tener permisos de administrador para la suscripción de Azure que utilice.
+El repositorio Git de Azure Repos puede estar en un inquilino de Azure Active Directory distinto. Para especificar otro inquilino de Azure AD, deberá tener permisos de administrador para la suscripción de Azure que utilice. Para más información, consulte [Agregar o cambiar los administradores de la suscripción de Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator#to-assign-a-user-as-an-administrator).
 
 ### <a name="use-your-personal-microsoft-account"></a>Uso de la cuenta de Microsoft personal
 
@@ -211,11 +211,11 @@ Se abrirá un panel lateral en el que se confirma que la rama de publicación y 
 
 ### <a name="permissions"></a>Permisos
 
-Lo normal es que no quiera que todos los miembros del equipo tengan permisos para actualizar la factoría. Se recomienda la siguiente configuración de permisos:
+Lo normal es que no quiera que todos los miembros del equipo tengan permisos para actualizar Data Factory. Se recomienda la siguiente configuración de permisos:
 
-*   Todos los miembros del equipo deberían tener permisos de lectura en la factoría de datos.
-*   Solo se debe permitir que un conjunto seleccionado de personas publique en la factoría. Para ello, deben tener el rol **colaborador de Data Factory** en la factoría. Para más información sobre los permisos, consulte [Roles y permisos para Azure Data Factory](concepts-roles-permissions.md).
-   
+*   Todos los miembros del equipo deberían tener permisos de lectura en la instancia de Data Factory.
+*   Solo se debe permitir que un conjunto seleccionado de personas publique en Data Factory. Para ello, deben tener el rol **colaborador de Data Factory** en el **grupo de recursos** que contiene la instancia de Data Factory. Para más información sobre los permisos, consulte [Roles y permisos para Azure Data Factory](concepts-roles-permissions.md).
+
 Se recomienda no permitir inserciones directas en el repositorio en la rama de colaboración. Esta restricción puede ayudarle a evitar errores, ya que cada inserción en el repositorio pasará por un proceso de solicitud de incorporación de cambios, tal como se describe en [Crear una rama de características](source-control.md#creating-feature-branches).
 
 ### <a name="using-passwords-from-azure-key-vault"></a>Uso de contraseñas de Azure Key Vault

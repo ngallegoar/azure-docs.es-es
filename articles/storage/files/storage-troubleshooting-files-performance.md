@@ -1,18 +1,18 @@
 ---
 title: Guía de solución de problemas de rendimiento de Azure Files
-description: Problemas de rendimiento conocidos con los recursos compartidos de archivos de Azure y las soluciones asociadas.
+description: Solución de problemas de rendimiento conocidos con los recursos compartidos de archivos de Azure. Detecte las posibles causas y soluciones alternativas asociadas cuando se producen estos problemas.
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 64c7e56f14fb06e7b211954eb93e4858563a8f08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6739e5619a0dcaa940d38571c4a88c4f68971dfe
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85511952"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009280"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Solucionar problemas de rendimiento de Azure Files
 
@@ -174,35 +174,35 @@ Latencia mayor a la esperada al acceder a Azure Files para cargas de trabajo int
 
 ## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Creación de una alerta si un recurso compartido de archivos se limita
 
-1. En [Azure Portal](https://portal.azure.com), haga clic en **Monitor**. 
-
-2. Haga clic **Alertas** y, a continuación, haga clic en **Nueva alerta de reglas**.
-
-3. Haga clic en **Seleccionar** para seleccionar el recurso **cuenta de almacenamiento/archivo** que contiene el recurso compartido de archivos en el que desea generar una alerta y, a continuación, haga clic en **Listo**. Por ejemplo, si el nombre de la cuenta de almacenamiento es contoso, seleccione el recurso contoso/archivo.
-
-4. Haga clic en **Agregar** para agregar una condición.
-
+1. Vaya a la **cuenta de almacenamiento** en **Azure Portal**.
+2. En la sección Supervisión, haga clic en **Alertas** y, después, haga clic en **+ Nueva regla de alertas**.
+3. Haga clic en **Editar recurso**, seleccione el **tipo de recurso de archivo** para la cuenta de almacenamiento y, a continuación, haga clic en **Listo**. Por ejemplo, si el nombre de la cuenta de almacenamiento es contoso, seleccione el recurso contoso/archivo.
+4. Haga clic en **Seleccionar condición** para agregar una condición.
 5. Verá una lista de señales admitidas para la cuenta de almacenamiento, seleccione la métrica **Transacciones**.
-
-6. En la hoja **Configuración de la lógica de señal**, vaya a la dimensión **Tipo de respuesta**, haga clic en el menú desplegable **Valores de la dimensión** y seleccione **SuccessWithThrottling** (para SMB) o **ClientThrottlingError** (para REST). 
-
-  > [!NOTE]
-  > Si el valor de la dimensión SuccessWithThrottling o ClientThrottlingError no aparece en la lista, significa que el recurso no se ha limitado.  Para agregar el valor de dimensión, haga clic en **+** junto a la lista desplegable **Valores de dimensión**, escriba **SuccessWithThrottling** o **ClientThrottlingError**, haga clic en **Aceptar** y, a continuación, repita el paso 6.
-
-7. Vaya a la dimensión **Recurso compartido de archivos**, haga clic en la lista desplegable **Valores de dimensión** y seleccione los recursos compartidos de archivos en los que desea generar alertas. 
+6. En la hoja **Configurar lógica de señal**, haga clic en la lista desplegable **Nombre de la dimensión** y seleccione **Tipo de respuesta**.
+7. Haga clic en el menú desplegable **Valores de la dimensión** y seleccione **SuccessWithThrottling** (para SMB) o **ClientThrottlingError** (para REST).
 
   > [!NOTE]
-  > Si el recurso compartido de archivos es un recurso compartido de archivos estándar, el menú desplegable de valores de dimensión estará en blanco porque las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar. Las alertas de limitación de los recursos compartidos de archivos estándar se desencadenarán si algún recurso compartido de archivos de la cuenta de almacenamiento está limitado y la alerta no identificará qué recurso compartido de archivos se ha limitado. Dado que las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar, se recomienda tener un recurso compartido de archivos por cada cuenta de almacenamiento. 
+  > Si el valor de la dimensión SuccessWithThrottling o ClientThrottlingError no aparece en la lista, significa que el recurso no se ha limitado. Para agregar el valor de dimensión, haga clic en **Agregar valor personalizado** junto a la lista desplegable **Valores de dimensión**, escriba **SuccessWithThrottling** o **ClientThrottlingError**, haga clic en **Aceptar** y, a continuación, repita el paso 7.
 
-8. Defina los **parámetros de alerta** (umbral, operador, granularidad de agregación y frecuencia) que se usan para evaluar la regla de alertas de métricas y haga clic en **Listo**.
+8. Haga clic en la lista desplegable **Nombre de la dimensión** y seleccione **Recurso compartido de archivos**.
+9. Haga clic en la lista desplegable **Valores de dimensión** y seleccione los recursos compartidos de archivos en los que desea generar alertas.
+
+  > [!NOTE]
+  > Si el recurso compartido de archivos es un recurso compartido de archivos estándar, seleccione **Todos los valores actuales y futuros**. El menú desplegable de valores de dimensión no mostrará los recursos compartidos de archivos porque las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar. Las alertas de limitación de los recursos compartidos de archivos estándar se desencadenarán si algún recurso compartido de archivos de la cuenta de almacenamiento está limitado y la alerta no identificará qué recurso compartido de archivos se ha limitado. Dado que las métricas por recurso compartido no están disponibles para los recursos compartidos de archivos estándar, se recomienda tener un recurso compartido de archivos por cada cuenta de almacenamiento.
+
+10. Defina los **parámetros de alerta** (umbral, operador, granularidad de agregación y frecuencia de evaluación) y haga clic en **Listo**.
 
   > [!TIP]
-  > Si usa un umbral estático, el gráfico de métricas puede ayudar a determinar un umbral razonable si el recurso compartido de archivos se está limitando actualmente. Si usa un umbral dinámico, el gráfico de métricas mostrará los umbrales calculados según los datos recientes.
+  > Si usa un umbral estático, el gráfico de métricas puede ayudar a determinar un valor de umbral razonable si el recurso compartido de archivos se está limitando actualmente. Si usa un umbral dinámico, el gráfico de métricas mostrará los umbrales calculados según los datos recientes.
 
-9. Agregue un **grupo de acciones** (correo electrónico, SMS, etc.) a la alerta, ya sea seleccionando un grupo de acciones existente o creando uno nuevo.
-
-10. Rellene los **detalles de la alerta**, como el **nombre de la regla de alertas**, la **descripción** y la **gravedad**.
-
-11. Haga clic en **Crear regla de alerta** para crear la alerta.
+11. Haga clic en **Seleccionar el grupo de acciones** para agregar un **grupo de acciones** (correo electrónico, SMS, etc.) a la alerta, para lo que puede seleccionar un grupo de acciones existente o crear uno nuevo.
+12. Rellene los **detalles de la alerta**, como el **nombre de la regla de alertas**, la **descripción** y la **gravedad**.
+13. Haga clic en **Crear regla de alerta** para crear la alerta.
 
 Para obtener más información sobre cómo configurar alertas en Azure Monitor, consulte [Introducción sobre las alertas en Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+
+## <a name="see-also"></a>Consulte también
+* [Solución de problemas de Azure Files en Windows](storage-troubleshoot-windows-file-connection-problems.md)
+* [Solución de problemas de Azure Files en Linux](storage-troubleshoot-linux-file-connection-problems.md)
+* [Preguntas más frecuentes (P+F) sobre Azure Files](storage-files-faq.md)

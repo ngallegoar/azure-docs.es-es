@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2020
 ms.author: memildin
-ms.openlocfilehash: 9d03866858c9f8af521b27c5e36f882d9e0e177d
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 9df4ac8b9dc3385868a72d31da93bec00eeb57bf
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87404980"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042877"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Guía de referencia sobre las recomendaciones de seguridad
 
@@ -160,8 +160,8 @@ La Puntuación de seguridad se basa en el número de recomendaciones de Security
 |**El cifrado de datos transparente en bases de datos SQL debe estar habilitado**|Habilite el cifrado de datos transparente para proteger los datos en reposo y satisfacer los requisitos de cumplimiento.<br>(Directiva relacionada: El cifrado de datos transparente en bases de datos SQL debe estar habilitado).|Bajo|**S**|SQL|
 |**La evaluación de vulnerabilidades debe estar habilitada en SQL Database**|La evaluación de vulnerabilidades permite detectar las vulnerabilidades potenciales de la base de datos, así como hacer un seguimiento y ayudar a corregirlas.<br>(Directiva relacionada: La evaluación de vulnerabilidades debe estar activada en sus servidores de SQL Server).|Alto|**S**|SQL|
 |**La evaluación de vulnerabilidades debe estar habilitada en Instancia administrada de SQL**|La evaluación de vulnerabilidades permite detectar las vulnerabilidades potenciales de la base de datos, así como hacer un seguimiento y ayudar a corregirlas.<br>(Directiva relacionada: La evaluación de vulnerabilidades debe estar habilitada en Instancia administrada de SQL|Alto|**S**|SQL|
-|**Es necesario corregir las vulnerabilidades de los servidores SQL Server en la máquina**.|La evaluación de vulnerabilidades de SQL examina la base de datos en busca de vulnerabilidades de seguridad y expone las posibles desviaciones de los procedimientos recomendados, como errores de configuración, permisos excesivos y datos confidenciales sin protección. La corrección de las vulnerabilidades encontradas puede mejorar considerablemente el estado de seguridad de la base de datos.|Alto|N|SQL|
-|**Se deben corregir las vulnerabilidades de las bases de datos SQL**|La evaluación de vulnerabilidades de SQL examina la base de datos en busca de vulnerabilidades de seguridad y expone las posibles desviaciones de los procedimientos recomendados, como errores de configuración, permisos excesivos y datos confidenciales sin protección. La corrección de las vulnerabilidades encontradas puede mejorar considerablemente el estado de seguridad de la base de datos.<br>(Directiva relacionada: Se deben corregir las vulnerabilidades de las bases de datos SQL).|Alto|N|SQL|
+|**Es necesario corregir las conclusiones de la evaluación de vulnerabilidades de los servidores SQL Server en las máquinas (versión preliminar)**|La evaluación de vulnerabilidades de SQL examina la base de datos en busca de vulnerabilidades de seguridad y expone las posibles desviaciones de los procedimientos recomendados, como errores de configuración, permisos excesivos y datos confidenciales sin protección. La corrección de las vulnerabilidades encontradas puede mejorar considerablemente el estado de seguridad de la base de datos.|Alto|N|SQL|
+|**Se deben corregir las conclusiones de la evaluación de vulnerabilidades de las bases de datos SQL**|La evaluación de vulnerabilidades de SQL examina la base de datos en busca de vulnerabilidades de seguridad y expone las posibles desviaciones de los procedimientos recomendados, como errores de configuración, permisos excesivos y datos confidenciales sin protección. La corrección de las vulnerabilidades encontradas puede mejorar considerablemente el estado de seguridad de la base de datos.<br>(Directiva relacionada: Se deben corregir las vulnerabilidades de las bases de datos SQL).|Alto|N|SQL|
 ||||||
 
 

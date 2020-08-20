@@ -1,6 +1,6 @@
 ---
 title: Directivas de almacenamiento en caché de Azure API Management | Microsoft Docs
-description: Aprenda sobre las directivas de almacenamiento en caché disponibles para su uso en Azure API Management.
+description: Aprenda sobre las directivas de almacenamiento en caché disponibles para su uso en Azure API Management. Consulte ejemplos y examine los recursos adicionales disponibles.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: e58cd8f19ab98601d37df185656038dbd5679eb2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: fc5298b85af4eaa6cd84c871d38ea1c773abe0b4
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255054"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87851603"
 ---
 # <a name="api-management-caching-policies"></a>Directivas de almacenamiento en caché de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).

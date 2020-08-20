@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
-ms.openlocfilehash: 4c5d6bf83d9aa9c3717b0f8e08785b0fc897577d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5fe674fa7ab6a6a3f222a215ebc6912549776fee
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244453"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067365"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Personalización de la salida de un clúster con una ruta definida por el usuario
 
@@ -60,7 +60,7 @@ A continuación se muestra una topología de red implementada en clústeres de A
 
 Si se establece `userDefinedRouting`, AKS no configurará automáticamente las rutas de salida. El usuario debe encargarse de la configuración de salida.
 
-El clúster de AKS debe implementarse en una red virtual existente con una subred que se haya configurado previamente porque, al usar la arquitectura de equilibrador de carga estándar (SLB), debe establecer una salida explícita. Como tal, esta arquitectura requiere el envío explícito del tráfico de salida a un dispositivo, como un firewall, una puerta de enlace o un proxy, o para permitir que la traducción de direcciones de red (NAT) se realice mediante una dirección IP pública asignada al equilibrador de carga estándar o dispositivo.
+El clúster de AKS debe implementarse en una red virtual existente con una subred que se haya configurado previamente porque, al no usar la arquitectura de equilibrador de carga estándar (SLB), debe establecer una salida explícita. Como tal, esta arquitectura requiere el envío explícito del tráfico de salida a un dispositivo, como un firewall, una puerta de enlace o un proxy, o para permitir que la traducción de direcciones de red (NAT) se realice mediante una dirección IP pública asignada al equilibrador de carga estándar o dispositivo.
 
 El proveedor de recursos de AKS implementará un equilibrador de carga estándar (SLB). El equilibrador de carga no está configurado con ninguna regla y [no incurre en ningún cargo hasta que se coloca una regla](https://azure.microsoft.com/pricing/details/load-balancer/). AKS **no** aprovisionará automáticamente una dirección IP pública para el front-end de SLB ni configurará automáticamente el grupo de back-end del equilibrador de carga.
 
