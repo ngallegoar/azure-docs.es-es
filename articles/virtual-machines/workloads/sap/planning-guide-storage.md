@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae3851da1dbcc5f7ac37821a64cada20164c7661
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 668f8ffdc4b797219dc1f3c23fecb858d8f706ad
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825011"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510868"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Tipos de Azure Storage para una carga de trabajo de SAP
 Azure tiene numerosos tipos de almacenamiento que difieren en gran medida en términos de funcionalidad, rendimiento, latencia y precio. Algunos de los tipos de almacenamiento no son para escenarios de SAP, o bien su uso está limitado en ellos. Sin embargo, hay varios tipos de almacenamiento de Azure que son idóneos para escenarios específicos de carga de trabajo de SAP, o bien están optimizados para ello. Especialmente en el caso de SAP HANA, algunos tipos de almacenamiento de Azure han recibido certificación para su uso con SAP HANA. En este documento, vamos a repasar los diferentes tipos de almacenamiento y describir su capacidad y uso con las cargas de trabajo de SAP y los componentes de SAP.
@@ -84,7 +84,7 @@ Antes de entrar en los detalles, presentamos el resumen y las recomendaciones qu
 | Familias de máquinas virtuales no M/MV2 no de HANA en volumen de registro de DBMS | no admitido | adecuación restringida (no en prod.) | adecuado para carga de trabajo hasta de tamaño medio | recomendado | no admitido |
 
 
-<sup>1</sup> Con el uso del [Acelerador de escritura de Azure](../../windows/how-to-enable-write-accelerator.md) para las familias de máquinas virtuales M/MV2 para los volúmenes de registros de registro/rehacer. <sup>2</sup> El uso de UNF requiere que /hana/data y /hana/log estén en ANF. 
+<sup>1</sup> Con el uso del [Acelerador de escritura de Azure](../../how-to-enable-write-accelerator.md) para las familias de máquinas virtuales M/MV2 para los volúmenes de registros de registro/rehacer. <sup>2</sup> El uso de UNF requiere que /hana/data y /hana/log estén en ANF. 
 
 Características que puede esperar de la lista de tipos de almacenamiento diferentes, como:
 
@@ -101,7 +101,7 @@ Características que puede esperar de la lista de tipos de almacenamiento difere
 | Redundancia geográfica | no para discos administrados | no para discos administrados | no | no | no |
 
 
-<sup>1</sup> Con el uso del [Acelerador de escritura de Azure](../../windows/how-to-enable-write-accelerator.md) para las familias de máquinas virtuales M/MV2 para los volúmenes de registro/rehacer.
+<sup>1</sup> Con el uso del [Acelerador de escritura de Azure](../../how-to-enable-write-accelerator.md) para las familias de máquinas virtuales M/MV2 para los volúmenes de registro/rehacer.
 
 <sup>2</sup> Los costos dependen del IOPS aprovisionado y el rendimiento.
 
@@ -137,7 +137,7 @@ La matriz de funcionalidad para la carga de trabajo de SAP tiene el siguiente as
 | Capacidad| Comentario| Notas y vínculos | 
 | --- | --- | --- | 
 | VHD de base de SO | adecuado | todos los sistemas |
-| Disco de datos | adecuado | todos los sistemas: [especialmente para SAP HANA](../../windows/how-to-enable-write-accelerator.md) |
+| Disco de datos | adecuado | todos los sistemas: [especialmente para SAP HANA](../../how-to-enable-write-accelerator.md) |
 | Directorio de transporte global de SAP | SÍ | [Compatible](https://launchpad.support.sap.com/#/notes/2015553) |
 | SAP sapmnt | adecuado | Todos los sistemas |
 | Almacenamiento de copia de seguridad | adecuado | para el almacenamiento a corto plazo de copias de seguridad |
@@ -149,12 +149,12 @@ La matriz de funcionalidad para la carga de trabajo de SAP tiene el siguiente as
 | Número máximo de IOPS por disco | 20 000 [en función del tamaño del disco](https://azure.microsoft.com/pricing/details/managed-disks/) | Tenga también en cuenta los [límites de la máquina virtual](../../sizes.md). |
 | SLA de rendimiento | SÍ | - |
 | Rendimiento lineal a la capacidad | semilineal entre corchetes | [Precios de Managed Disk](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| Certificación de HANA | SÍ | [especialmente para SAP HANA](../../windows/how-to-enable-write-accelerator.md) |
+| Certificación de HANA | SÍ | [especialmente para SAP HANA](../../how-to-enable-write-accelerator.md) |
 | Instantáneas de disco posibles | SÍ | - |
-| Instantáneas de máquina virtual de Azure Backup posibles | SÍ | a excepción de los discos de caché del [Acelerador de escritura](../../windows/how-to-enable-write-accelerator.md)  |
+| Instantáneas de máquina virtual de Azure Backup posibles | SÍ | a excepción de los discos de caché del [Acelerador de escritura](../../how-to-enable-write-accelerator.md)  |
 | Costos | MEDIUM | - |
 
-Azure Premium Storage no cumple los KPI de latencia de almacenamiento de SAP HANA de latencia de almacenamiento con los tipos comunes de almacenamiento en caché que se ofrecen con Azure Premium Storage. Para cumplir los KPI de latencia de almacenamiento para escrituras de registro de SAP HANA, debe usar el almacenamiento en caché del Acelerador de escritura de Azure como se describe en el artículo [Habilitar el acelerador de escritura](../../windows/how-to-enable-write-accelerator.md). El Acelerador de escritura de Azure beneficia a todos los demás sistemas DBMS para sus escrituras de registro de transacciones y de rehacer. Por lo tanto, se recomienda utilizarlo en todas las implementaciones de DBMS de SAP. Para SAP HANA, es obligatorio el uso del Acelerador de escritura de Azure junto con Azure Premium Storage.
+Azure Premium Storage no cumple los KPI de latencia de almacenamiento de SAP HANA de latencia de almacenamiento con los tipos comunes de almacenamiento en caché que se ofrecen con Azure Premium Storage. Para cumplir los KPI de latencia de almacenamiento para escrituras de registro de SAP HANA, debe usar el almacenamiento en caché del Acelerador de escritura de Azure como se describe en el artículo [Habilitar el acelerador de escritura](../../how-to-enable-write-accelerator.md). El Acelerador de escritura de Azure beneficia a todos los demás sistemas DBMS para sus escrituras de registro de transacciones y de rehacer. Por lo tanto, se recomienda utilizarlo en todas las implementaciones de DBMS de SAP. Para SAP HANA, es obligatorio el uso del Acelerador de escritura de Azure junto con Azure Premium Storage.
 
 
 

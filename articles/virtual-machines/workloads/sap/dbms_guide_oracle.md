@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15838e1e9acf328a0deaa981d1227c22c08dbbdf
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: bd8177f6fd8e40e9c4ea37bc7ead910806efbad2
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832270"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88504949"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP
 
@@ -404,7 +404,7 @@ Si se necesita más IOPS, se recomienda usar bloques de almacenamiento de Window
 
 
 #### <a name="write-accelerator"></a>Acelerador de escritura
-En las máquinas virtuales de Azure de la serie M, se puede reducir la latencia de escritura en los registros de fase de puesta al día en línea, en comparación con el rendimiento de Azure Premium Storage. Habilite el Acelerador de escritura de Azure para los discos (discos duros virtuales) en función del Azure Premium Storage que se usa para los archivos de registro de puesta al día en línea. Para más información, consulte [Acelerador de escritura](../../linux/how-to-enable-write-accelerator.md).
+En las máquinas virtuales de Azure de la serie M, se puede reducir la latencia de escritura en los registros de fase de puesta al día en línea, en comparación con el rendimiento de Azure Premium Storage. Habilite el Acelerador de escritura de Azure para los discos (discos duros virtuales) en función del Azure Premium Storage que se usa para los archivos de registro de puesta al día en línea. Para más información, consulte [Acelerador de escritura](../../how-to-enable-write-accelerator.md).
 
 
 ### <a name="backuprestore"></a>Copia de seguridad y restauración
@@ -498,7 +498,7 @@ Si se requieren más IOPS, se recomienda usar LVM (administrador de volúmenes l
 
 
 #### <a name="write-accelerator"></a>Acelerador de escritura
-En las máquinas virtuales de Azure de la serie M, cuando se usa el Acelerador de escritura de Azure se puede reducir la latencia de escritura en los registros de fase de puesta al día en línea, en comparación con el rendimiento de Azure Premium Storage. Habilite el Acelerador de escritura de Azure para los discos (discos duros virtuales) en función del Azure Premium Storage que se usa para los archivos de registro de puesta al día en línea. Para más información, consulte [Acelerador de escritura](../../linux/how-to-enable-write-accelerator.md).
+En las máquinas virtuales de Azure de la serie M, cuando se usa el Acelerador de escritura de Azure se puede reducir la latencia de escritura en los registros de fase de puesta al día en línea, en comparación con el rendimiento de Azure Premium Storage. Habilite el Acelerador de escritura de Azure para los discos (discos duros virtuales) en función del Azure Premium Storage que se usa para los archivos de registro de puesta al día en línea. Para más información, consulte [Acelerador de escritura](../../how-to-enable-write-accelerator.md).
 
 
 ### <a name="backuprestore"></a>Copia de seguridad y restauración

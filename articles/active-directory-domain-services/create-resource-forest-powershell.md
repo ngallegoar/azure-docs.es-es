@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: iainfou
-ms.openlocfilehash: eb627b8069bcd9efd1d56adab5eda45dc34a1a10
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 50a8e4f6d966a63a8e727dbacefbc7bb21f5f98b
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922003"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506335"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Cree un bosque de recursos de Azure Active Directory Domain Services y una confianza de bosque de salida en un dominio local mediante Azure PowerShell
 
@@ -88,7 +88,7 @@ Para crear un bosque de recursos de dominio administrado, use el script `New-Azu
 
 1. En primer lugar, cree un grupo de recursos con el cmdlet [New-AzResourceGroup][New-AzResourceGroup]. En el ejemplo siguiente, el grupo de recursos se denomina *myResourceGroup* y se crea en la región *westus*. Use su propio nombre y la región deseada:
 
-    ```azure-powershell
+    ```azurepowershell
     New-AzResourceGroup `
       -Name "myResourceGroup" `
       -Location "WestUS"
@@ -123,7 +123,7 @@ Para crear un bosque de recursos de dominio administrado, use el script `New-Azu
 
 1. A continuación deberá crear un bosque de recursos de dominio administrado mediante el script `New-AzureAaaddsForest`. En el ejemplo siguiente se crea un bosque denominado *addscontoso.com* y una subred de carga de trabajo. Proporcione sus propios nombres de parámetro e intervalos de direcciones IP o redes virtuales existentes.
 
-    ```azure-powershell
+    ```azurepowershell
     New-AzureAaddsForest `
         -azureSubscriptionId <subscriptionId> `
         -aaddsResourceGroupName "myResourceGroup" `
@@ -204,7 +204,7 @@ A continuación, proporcione al script la siguiente información:
 
 En el ejemplo siguiente se crea una relación de confianza denominada *myAzureADDSTrust* para *onprem.contoso.com*. Use sus propios nombres de parámetros y contraseñas.
 
-```azure-powershell
+```azurepowershell
 Add-AaddsResourceForestTrust `
     -ManagedDomainFqdn "aaddscontoso.com" `
     -TrustFqdn "onprem.contoso.com" `

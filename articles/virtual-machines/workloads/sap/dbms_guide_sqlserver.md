@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6e217540b1dd3744da855c71e0add289dd1c9e18
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e73bc3791ceb75685275af99f888136315c6e50d
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831063"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505567"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implementación de DBMS de Azure Virtual Machines de SQL Server para la carga de trabajo de SAP NetWeaver
 
@@ -355,7 +355,7 @@ En el diagrama anterior se muestra un caso sencillo. Como se menciona en el art�
 
 
 ### <a name="special-for-m-series-vms"></a>Aspectos especiales para las máquinas virtuales de la serie M
-Para la máquina virtual de Azure de la serie M, se puede reducir la latencia de escritura en el registro de transacciones mediante factores, en comparación con el rendimiento de Azure Premium Storage, cuando se usa el Acelerador de escritura de Azure. Por tanto, se debe implementar el Acelerador de escritura de Azure para los discos duros virtuales que forman el volumen para el registro de transacciones de SQL Server. En el documento [Acelerador de escritura](../../windows/how-to-enable-write-accelerator.md) se pueden leer los detalles.
+Para la máquina virtual de Azure de la serie M, se puede reducir la latencia de escritura en el registro de transacciones mediante factores, en comparación con el rendimiento de Azure Premium Storage, cuando se usa el Acelerador de escritura de Azure. Por tanto, se debe implementar el Acelerador de escritura de Azure para los discos duros virtuales que forman el volumen para el registro de transacciones de SQL Server. En el documento [Acelerador de escritura](../../how-to-enable-write-accelerator.md) se pueden leer los detalles.
   
 
 ### <a name="formatting-the-disks"></a>Aplicar formato a los discos

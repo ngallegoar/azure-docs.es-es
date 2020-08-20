@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: f86400f1fb45217133bbd715788986994f5f77cc
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: f6dc732a512368b007a289c3aaabc3123a696d96
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836265"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505264"
 ---
 # <a name="mv2-series"></a>Serie Mv2
 
@@ -28,7 +28,7 @@ Migración en vivo: No compatible
 
 Actualizaciones con conservación de memoria: No compatible
 
-Acelerador de escritura: [Compatible](./windows/how-to-enable-write-accelerator.md)
+Acelerador de escritura: [Compatible](./how-to-enable-write-accelerator.md)
 
 |Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS / MBps | Nº máx. NIC | Ancho de banda de red esperado (Mbps) |
 |---|---|---|---|---|---|---|---|---|

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 26179dd2491a8b8cbc2ef3eb0ad66fa61722d413
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 82dbb73da06097407d91f23d4d372aaa4cc76e99
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525269"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510902"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementación de DBMS de Azure Virtual Machines de SAP ASE para la carga de trabajo de SAP
 
@@ -59,7 +59,7 @@ Normalmente, el tamaño de página es de 2048 KB. Para obtener más informació
 
 ## <a name="recommendations-on-vm-and-disk-structure-for-sap-ase-deployments"></a>Recomendaciones sobre la estructura de discos y VM para implementaciones de SAP ASE
 
-SAP ASE para SAP NetWeaver Applications es compatible con cualquier tipo de VM que se enumere en la [nota de soporte técnico de SAP 1928533](https://launchpad.support.sap.com/#/notes/1928533). Los tipos de VM habituales que se usan para los servidores de bases de datos de SAP ASE de tamaño medio incluyen Esv3.  Las grandes bases de datos de varios terabytes pueden aprovechar los tipos de VM de la serie M. El rendimiento de escritura en disco del registro de transacciones de SAP ASE se puede mejorar si se habilita el Acelerador de escritura de la serie M. El Acelerador de escritura debe probarse atentamente con SAP ASE debido a la manera en que SAP ASE realiza escrituras en el registro.  Revise la [nota de soporte técnico de SAP 2816580](../../windows/how-to-enable-write-accelerator.md) y tenga en cuenta la posibilidad de ejecutar una prueba de rendimiento.  
+SAP ASE para SAP NetWeaver Applications es compatible con cualquier tipo de VM que se enumere en la [nota de soporte técnico de SAP 1928533](https://launchpad.support.sap.com/#/notes/1928533). Los tipos de VM habituales que se usan para los servidores de bases de datos de SAP ASE de tamaño medio incluyen Esv3.  Las grandes bases de datos de varios terabytes pueden aprovechar los tipos de VM de la serie M. El rendimiento de escritura en disco del registro de transacciones de SAP ASE se puede mejorar si se habilita el Acelerador de escritura de la serie M. El Acelerador de escritura debe probarse atentamente con SAP ASE debido a la manera en que SAP ASE realiza escrituras en el registro.  Revise la [nota de soporte técnico de SAP 2816580](../../how-to-enable-write-accelerator.md) y tenga en cuenta la posibilidad de ejecutar una prueba de rendimiento.  
 El Acelerador de escritura está diseñado únicamente para el disco del registro de transacciones. La memoria caché de nivel de disco debe establecerse en NONE. No se sorprenda si el Acelerador de escritura de Azure no muestra mejoras similares como con otro DBMS. En función de la forma en que SAP ASE escribe en el registro de transacciones, podría deberse a que el Acelerador de escritura de Azure muestre poca o ninguna aceleración.
 Se recomiendan discos independientes para dispositivos de datos y dispositivos de registro.  Las bases de datos del sistema sybsecurity y `saptools` no requieren discos dedicados y se pueden colocar en los discos que contienen los dispositivos de datos y de registro de la base de datos de SAP. 
 

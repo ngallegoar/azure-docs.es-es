@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: v-grpr
-ms.openlocfilehash: 81fc8de7e5a70ebb95e06a8e362cda41f8bfe1aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95c0a884b335920df9803a9b468ab522646b26a1
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945025"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258751"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Uso del envío autoadministrado para Azure Data Box Disk en Azure Portal
 
@@ -28,6 +28,7 @@ El envío autoadministrado está disponible como opción cuando [realiza un pedi
 * Japón
 * Singapur
 * Corea del Sur
+* Sudáfrica
 * India (versión preliminar)
 
 ## <a name="use-self-managed-shipping"></a>Uso del envío autoadministrado
