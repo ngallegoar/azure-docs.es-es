@@ -222,7 +222,7 @@
             - name: Serie Mv2
               href: ../mv2-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: VCPU restringidas
-              href: constrained-vcpu.md
+              href: ../constrained-vcpu.md
         - name: Almacenamiento optimizado
           items:
             - name: Información general
@@ -279,7 +279,7 @@
             - name: ¿Qué son las reservas de Azure?
               href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md?toc=/azure/virtual-machines/windows/toc.json
             - name: Flexibilidad de tamaño de instancia de máquina virtual
-              href: reserved-vm-instance-size-flexibility.md
+              href: ../reserved-vm-instance-size-flexibility.md
         - name: Máquinas virtuales de Spot
           displayName: 'pre-empt, preempt'
           href: spot-vms.md
@@ -305,7 +305,7 @@
             - name: ¿Qué son las reservas de Azure?
               href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md
             - name: Flexibilidad de tamaño de instancia de máquina virtual
-              href: reserved-vm-instance-size-flexibility.md
+              href: ../reserved-vm-instance-size-flexibility.md
     - name: Hosts dedicados
       href: dedicated-hosts.md
     - name: Mantenimiento y actualizaciones
@@ -313,21 +313,21 @@
     - name: Disk Storage
       items:
         - name: Introducción a los discos administrados
-          href: managed-disks-overview.md
+          href: ../managed-disks-overview.md
         - name: Selección de un tipo de disco para máquinas virtuales de IaaS
-          href: disks-types.md
+          href: ../disks-types.md
         - name: Cifrado
           href: disk-encryption.md
         - name: Reservas de Disk Storage
           href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Diseño para alto rendimiento
-          href: premium-storage-performance.md
+          href: ../premium-storage-performance.md
         - name: Seguridad de disco
           href: disk-bursting.md
         - name: Objetivos de escalabilidad para discos
           href: disk-scalability-targets.md
         - name: Copia de seguridad y recuperación ante desastres para discos
-          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+          href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Discos compartidos
           href: disks-shared.md
         - name: Discos de sistema operativo efímero
@@ -341,7 +341,7 @@
     - name: Seguridad
       items:
         - name: Seguridad y directivas
-          href: security-policy.md
+          href: ../security-policy.md
         - name: Azure Disk Encryption
           href: disk-encryption-overview.md
         - name: Controles de seguridad de Azure Policy
@@ -855,7 +855,7 @@
           displayName: Azure Resource Manager
           href: ../using-managed-disks-template-deployments.md
         - name: Habilitación de discos compartidos
-          href: disks-shared-enable.md
+          href: ../disks-shared-enable.md
         - name: 'Cargar un disco duro virtual en un disco: PowerShell'
           href: disks-upload-vhd-to-managed-disk-powershell.md
         - name: 'Importación y exportación de discos de forma segura: Azure Portal'
@@ -863,11 +863,11 @@
         - name: Cambio del tamaño de un disco
           href: expand-os-disk.md
         - name: Uso del Explorador de Storage para administrar discos
-          href: disks-use-storage-explorer-managed-disks.md
+          href: ../disks-use-storage-explorer-managed-disks.md
         - name: Instantánea de un disco
           href: snapshot-copy-managed-disk.md
         - name: Reserva de Disk Storage
-          href: disks-reserved-capacity.md
+          href: ../disks-reserved-capacity.md
         - name: 'Creación de una instantánea incremental: PowerShell'
           href: disks-incremental-snapshots.md
         - name: 'Creación de una instantánea incremental: Portal'
@@ -903,7 +903,7 @@
             - name: Habilitar el acelerador de escritura
               href: ../how-to-enable-write-accelerator.md
             - name: Uso de Ultra Disks
-              href: disks-enable-ultra-ssd.md
+              href: ../disks-enable-ultra-ssd.md
             - name: Realización de pruebas comparativas de un disco
               href: disks-benchmarks.md
         - name: 'Búsqueda de discos sin conectar: PowerShell'

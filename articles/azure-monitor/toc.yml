@@ -482,16 +482,12 @@
           href: platform/autoscale-resource-log-schema.md
     - name: Alertas
       items:
-        - name: Reglas de alertas de la aplicación
-          items:
-            - name: Disponibilidad
-              href: app/monitor-web-app-availability.md
-            - name: Alertas de métricas
-              href: ./platform/alerts-log.md
         - name: Reglas de alertas de métricas
           items:
             - name: Administración de alertas de métricas
               href: platform/alerts-metric.md
+            - name: Disponibilidad
+              href: app/monitor-web-app-availability.md
             - name: Uso de umbrales dinámicos
               href: platform/alerts-dynamic-thresholds.md
             - name: Alertas individuales para muchas series temporales
@@ -1061,7 +1057,7 @@
       items:
         - name: Azure Cache for Redis (versión preliminar)
           href: insights/redis-cache-insights-overview.md
-        - name: Azure Cosmos DB
+        - name: "Azure Cosmos\_DB"
           href: insights/cosmosdb-insights-overview.md
         - name: Redes
           href: insights/network-insights-overview.md

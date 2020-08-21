@@ -140,9 +140,6 @@
         - name: Datos de la galería
           displayName: export
           href: ai-gallery-control-personal-data-dsr.md
-        - name: Descarga de cuadernos
-          displayName: export
-          href: download-notebooks-data.md
 - name: Referencia
   items:
     - name: Referencia de módulos y algoritmos

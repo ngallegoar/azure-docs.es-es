@@ -8,16 +8,16 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 08/10/2020
 ms.author: vikancha
-ms.openlocfilehash: ab0205f05fc1d58157f4363dcc73564f3d4786b2
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: d07da12ecef7dfc6cf1a6df67f6beae01c4573d9
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88068060"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88168123"
 ---
 # <a name="ncast4_v3-series"></a>Serie NCasT4_v3 
 
-Las máquinas virtuales de la serie NCas T4_v3 usan la tecnología de las GPU [Nvidia Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) y las CPU AMD EPYC 7V12 (Rome). Las VM incluyen hasta 4 GPU de NVIDIA T4 con 16 GB de memoria cada una, hasta 64 núcleos de procesador de AMD EPYC 7V12 (Rome) sin multiproceso, y 440 GiB de memoria del sistema. Estas máquinas virtuales son ideales para ejecutar cargas de trabajo de aprendizaje automático e inteligencia artificial con Cuda, TensorFlow, Pytorch, Caffe y otros marcos, o las cargas de trabajo gráficas mediante la tecnología de NVIDIA GRID.
+Las máquinas virtuales de la serie NCas T4_v3 usan la tecnología de las GPU [Nvidia Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) y las CPU AMD EPYC 7V12 (Rome). Las VM incluyen hasta 4 GPU de NVIDIA T4 con 16 GB de memoria cada una, hasta 64 núcleos de procesador de AMD EPYC 7V12 (Rome) sin multiproceso, y 440 GiB de memoria del sistema. Estas máquinas virtuales son ideales para ejecutar cargas de trabajo de aprendizaje automático e inteligencia artificial con CUDA, TensorFlow, Pytorch, Caffe y otros marcos, o las cargas de trabajo gráficas mediante la tecnología de NVIDIA GRID. La serie NCasT4_v3 es idónea para ejecutar cargas de trabajo de inferencia.
 
 <br>
 
@@ -35,8 +35,8 @@ Actualizaciones con conservación de memoria: No compatible
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NC4as_T4_v3 |4 |28 |180 | 1 | 16 | 8 | 2 |
 | Standard_NV8as_T4_v3 |8 |56 |360 | 1 | 16 | 16 | 4  |
-| Standard_NV16as_T4_v3 |16 |110 |360 | 16 | 8 | 32 | 8  |
-| Standard_NV64as_T4_v3 |64 |440 |2880 | 64 | 16 | 32 | 8  |
+| Standard_NV16as_T4_v3 |16 |110 |360 | 1 | 16 | 32 | 8  |
+| Standard_NV64as_T4_v3 |64 |440 |2880 | 4 | 64 | 32 | 8  |
 
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]

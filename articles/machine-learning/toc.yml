@@ -72,9 +72,6 @@
       items:
         - name: Entrenamiento e implementación con la CLI
           href: tutorial-train-deploy-model-cli.md
-        - name: Creación de áreas de trabajo con la plantilla de Resource Manager
-          displayName: Resource Manager
-          href: tutorial-resource-manager-workspace.md
     - name: Visual Studio Code
       items:
         - name: Configuración de la extensión de Azure Machine Learning
