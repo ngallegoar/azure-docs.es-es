@@ -129,7 +129,7 @@ En la página *Solicitud de permisos de API* que sigue, cambie a la pestaña *AP
 
 A continuación, seleccione los permisos que quiere conceder para estas API. Expanda el permiso **Lectura (1)** y marque la casilla que indica *Read.Write* para conceder permisos de lectura y escritura para el registro de la aplicación.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-2.png" alt-text="Vista de la página "Solicitud de permisos de API" con la selección de permisos Read.Write para las API de Azure Digital Twins":::
+:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-2.png" alt-text="Vista de la página Solicitud de permisos de API con la selección de permisos Read.Write para las API de Azure Digital Twins":::
 
 Cuando termine, pulse *Agregar permisos*.
 
