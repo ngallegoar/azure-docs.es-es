@@ -8,6 +8,8 @@
       href: supported-data-stores.md
 - name: Guías de inicio rápido
   items:
+    - name: 'Creación de un recurso compartido de datos: Azure Portal'
+      href: share-your-data-portal.md
     - name: 'Creación de un recurso compartido de datos: plantilla de Resource Manager'
       displayName: Resource Manager
       href: share-your-data-arm.md
@@ -52,6 +54,9 @@
       href: security.md
     - name: Recuperación ante desastres
       href: disaster-recovery.md
+    - name: Uso compartido de los datos de Azure Data Explorer
+      href: /azure/data-explorer/data-share
+      maintainContext: true
 - name: Referencia
   items:
     - name: .NET

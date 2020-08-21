@@ -125,20 +125,26 @@
           href: partition-data.md
         - name: Clave de partición sintética
           href: synthetic-partition-keys.md
-    - name: Rendimiento aprovisionado
+    - name: Capacity
       items:
         - name: Unidades de solicitud
           displayName: 'RUs, RU'
           href: request-units.md
-        - name: Introducción a la capacidad de proceso aprovisionada
-          displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
-          href: set-throughput.md
-        - name: Aprovisionamiento de capacidad de proceso de escalabilidad automática
-          href: provision-throughput-autoscale.md
-        - name: Elección entre la capacidad de proceso estándar y de escalabilidad automática (manual)
-          href: how-to-choose-offer.md
-        - name: Preguntas frecuentes sobre la escalabilidad automática
-          href: autoscale-faq.md
+        - name: Rendimiento aprovisionado
+          items:
+            - name: Introducción a la capacidad de proceso aprovisionada
+              displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
+              href: set-throughput.md
+            - name: Aprovisionamiento de capacidad de proceso de escalabilidad automática
+              href: provision-throughput-autoscale.md
+            - name: Elección entre la capacidad de proceso estándar y de escalabilidad automática (manual)
+              href: how-to-choose-offer.md
+            - name: Preguntas frecuentes sobre la escalabilidad automática
+              href: autoscale-faq.md
+        - name: Sin servidor
+          href: serverless.md
+        - name: Elija entre el rendimiento aprovisionado y sin servidor
+          href: throughput-serverless.md
     - name: Consulta SQL
       items:
         - name: Introducción
@@ -238,6 +244,9 @@
                     - name: DateTimeToTicks
                       displayName: 'DateTimeToTicks, date time to ticks, date and time functions, datetime, ticks'
                       href: sql-query-datetimetoticks.md
+                    - name: DateTimeToTimestamp
+                      displayName: 'DateTimeToTimestamp, date time to timestamp, date and time functions, datetime, timestamp'
+                      href: sql-query-datetimetotimestamp.md
                     - name: GetCurrentDateTime
                       displayName: 'GetCurrentDateTime, get current date time, date and time functions, datetime'
                       href: sql-query-getcurrentdatetime.md
@@ -247,6 +256,12 @@
                     - name: GetCurrentTimestamp
                       displayName: 'GetCurrentTimestamp, get current timestamp, timestamp, date and time functions, datetime'
                       href: sql-query-getcurrenttimestamp.md
+                    - name: TicksToDateTime
+                      displayName: 'TicksToDateTime, ticks to date time, date and time functions, datetime, ticks'
+                      href: sql-query-tickstodatetime.md
+                    - name: TimestampToDateTime
+                      displayName: 'TimestampToDateTime, timestamp to date time, date and time functions, datetime, timestamp'
+                      href: sql-query-timestamptodatetime.md
                 - name: Funciones matemáticas
                   items:
                     - name: Funciones matemáticas
@@ -953,26 +968,28 @@
           href: how-to-manage-conflicts.md
         - name: Conversión del formato del token de sesión
           href: how-to-convert-session-token.md
-    - name: Rendimiento aprovisionado
+    - name: Capacity
       items:
-        - name: Aprovisionamiento de la capacidad de proceso estándar (manual) en un contenedor
-          displayName: 'request units, RUs, RU, collection level'
-          href: how-to-provision-container-throughput.md
-        - name: Aprovisionamiento de la capacidad de proceso estándar (manual) en una base de datos
-          displayName: 'request units, RUs, RU, shared throughput, database level'
-          href: how-to-provision-database-throughput.md
-        - name: Aprovisionamiento de la capacidad de proceso de la escalabilidad automática en una base de datos o en un contenedor
-          displayName: 'request units, RUs, RU, shared throughput, database level, collection level, autoscale'
-          href: how-to-provision-autoscale-throughput.md
-        - name: Cálculo de RU/s con Cosmos Capacity Planner
-          displayName: 'request units, RUs, RU, capacity'
-          href: estimate-ru-with-capacity-planner.md
         - name: Buscar cargo de la unidad de solicitud
           displayName: 'request units, RUs, RU, charge, consumption'
           href: find-request-unit-charge.md
-        - name: Escalado mediante el temporizador de Azure Functions
-          displayName: 'request units, RUs, RU, timer'
-          href: scale-on-schedule.md
+        - name: Rendimiento aprovisionado
+          items:
+            - name: Aprovisionamiento de la capacidad de proceso estándar (manual) en un contenedor
+              displayName: 'request units, RUs, RU, collection level'
+              href: how-to-provision-container-throughput.md
+            - name: Aprovisionamiento de la capacidad de proceso estándar (manual) en una base de datos
+              displayName: 'request units, RUs, RU, shared throughput, database level'
+              href: how-to-provision-database-throughput.md
+            - name: Aprovisionamiento de la capacidad de proceso de la escalabilidad automática en una base de datos o en un contenedor
+              displayName: 'request units, RUs, RU, shared throughput, database level, collection level, autoscale'
+              href: how-to-provision-autoscale-throughput.md
+            - name: Cálculo de RU/s con Cosmos Capacity Planner
+              displayName: 'request units, RUs, RU, capacity'
+              href: estimate-ru-with-capacity-planner.md
+            - name: Escalado mediante el temporizador de Azure Functions
+              displayName: 'request units, RUs, RU, timer'
+              href: scale-on-schedule.md
     - name: Uso de contenedores y elementos
       items:
         - name: Uso de datos de Cosmos DB
