@@ -141,7 +141,7 @@
           href: uptime-sla.md
         - name: Uso de grupos con ubicación por proximidad (versión preliminar)
           href: reduce-latency-ppg.md
-        - name: Actualización de la imagen de nodo (versión preliminar)
+        - name: Actualización de la imagen de nodo
           href: node-image-upgrade.md
         - name: Procesamiento de actualizaciones de sistema operativo del nodo
           href: node-updates-kured.md

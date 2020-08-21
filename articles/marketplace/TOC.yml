@@ -8,7 +8,7 @@
     - name: Información general y ventajas de Marketplace comercial
       href: ./marketplace-publishers-guide.md
       items:
-        - name: 'Un Marketplace, dos escaparates'
+        - name: Un Marketplace y dos tiendas en línea
           href: ./comparing-appsource-azure-marketplace.md
         - name: Publicación de opciones y consideraciones
           href: ./determine-your-listing-type.md

@@ -39,6 +39,8 @@
       href: security-center-enable-data-collection.md
     - name: Configuración de notificaciones de correo electrónico
       href: security-center-provide-security-contact-details.md
+    - name: Creación de una respuesta automática a una alerta con una plantilla de Resource Manager
+      href: quickstart-automation-alert.md
 - name: Tutoriales
   items:
     - name: Guía de planeamiento y operaciones
