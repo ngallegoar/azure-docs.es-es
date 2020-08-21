@@ -2,21 +2,21 @@
 title: Detección, evaluación y migración de máquinas virtuales EC2 de Amazon Web Services (AWS) a Azure
 description: En este artículo se describe cómo migrar máquinas virtuales de AWS a Azure con Azure Migrate.
 ms.topic: tutorial
-ms.date: 06/16/2020
+ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 9aad6993af4a90acb41316da0056da84f2e95f70
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 9e26268010e4287d1f98e99389ffeddf3e4747ce
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066651"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611439"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Detección, evaluación y migración de máquinas virtuales de Amazon Web Services (AWS) a Azure
 
-En este tutorial se muestra cómo detectar, evaluar y migrar máquinas virtuales de Amazon Web Services (AWS) a máquinas virtuales de Azure con las herramientas Azure Migrate: Server Assessment y Server Migration.
+En este tutorial se muestra cómo detectar, evaluar y migrar máquinas virtuales de Amazon Web Services (AWS) a máquinas virtuales de Azure mediante Azure Migrate: Server Assessment y Azure Migrate: Migración del servidor.
 
 > [!NOTE]
-> Cuando se migran máquinas virtuales de AWS a Azure, se tratan como si fueran servidores físicos. Usará el flujo de Server Migration de migración de máquinas físicas para migrar las máquinas virtuales de AWS a Azure.
+> Para migrar máquinas virtuales de AWS a Azure, puede tratarlas como servidores físicos.
 
 En este tutorial, aprenderá a:
 > [!div class="checklist"]
@@ -33,20 +33,29 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar.
 
-## <a name="discover-and-assess-aws-vms"></a>Detección y evaluación de máquinas virtuales de AWS  
+## <a name="discover-and-assess"></a>Detección y evaluación
 
 Antes de migrar a Azure, se recomienda realizar una evaluación de la detección y migración de máquinas virtuales. Esta evaluación ayuda a ajustar el tamaño adecuado de las máquinas virtuales de AWS para su migración a Azure y a calcular los posibles costos de proceso de Azure.
 
 Configure una evaluación como se indica a continuación:
 
-1. La evaluación se puede realizar tratando las máquinas virtuales de AWS como máquinas físicas, con el fin de llevarla a cabo mediante Azure Migrate: Server Assessment. Siga el [tutorial](./tutorial-prepare-physical.md) para configurar Azure y preparar las máquinas virtuales de AWS para una evaluación.
+1. Siga el [tutorial](./tutorial-prepare-physical.md) para configurar Azure y preparar las máquinas virtuales de AWS para una evaluación. Observe lo siguiente:
+
+    - Azure Migrate usa la autenticación de contraseña al detectar instancias de AWS. Las instancias de AWS no admiten la autenticación de contraseña de forma predeterminada. Antes de poder detectar la instancia, debe habilitar la autenticación de contraseña.
+        - En el caso de las máquinas Windows, permita el puerto WinRM 5986 (HTTPS) y 5985 (HTTP). Esto permite las llamadas remotas de Instrumental de administración de Windows. Si configura el 
+        - Para máquinas Linux:
+            1. Inicie sesión en cada máquina Linux.
+            2. Abra el archivo sshd_config: vi/etc/ssh/sshd_config
+            3. En el archivo, busque la línea **PasswordAuthentication** y cambie el valor a **yes** (sí).
+            4. Guarde el archivo y ciérrelo. Reinicie el servicio ssh.
+
 2. A continuación, siga este [tutorial](./tutorial-assess-physical.md) para configurar un proyecto y un dispositivo de Azure Migrate para detectar y evaluar las máquinas virtuales de AWS.
 
 Aunque se recomienda probar una evaluación, no es obligatorio llevarla a cabo para poder migrar máquinas virtuales.
 
-## <a name="migrate-aws-vms"></a>Migración de máquinas virtuales de AWS   
 
-## <a name="1-prerequisites-for-migration"></a>1. Requisitos previos para la migración
+
+## <a name="prerequisites"></a>Prerrequisitos 
 
 - Asegúrese de que las máquinas virtuales de AWS que quiere migrar ejecutan una versión del sistema operativo compatible. Las máquinas virtuales de AWS se tratan como máquinas físicas para el propósito de la migración. Revise los [sistemas operativos compatibles](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) para el flujo de trabajo de migración de servidores físicos. Se recomienda realizar una migración de prueba (conmutación por error de prueba) para validar si la máquina virtual funciona según lo esperado antes de continuar con la migración real.
 - Asegúrese de que las máquinas virtuales de AWS cumplan con las [configuraciones admitidas](./migrate-support-matrix-physical-migration.md#physical-server-requirements) para la migración a Azure.
@@ -56,7 +65,7 @@ Aunque se recomienda probar una evaluación, no es obligatorio llevarla a cabo p
     - Es importante realizar estos cambios antes de comenzar la migración. Si migra la máquina virtual antes de realizar el cambio, es posible que la máquina virtual no arranque en Azure.
 Revise los cambios en [Windows](prepare-for-migration.md#windows-machines) y [Linux](prepare-for-migration.md#linux-machines) que debe realizar.
 
-## <a name="2-prepare-azure-resources-for-migration"></a>2. Preparar los recursos de Azure para la migración
+### <a name="prepare-azure-resources-for-migration"></a>Preparar los recursos de Azure para la migración
 
 Prepare Azure para la migración con Azure Migrate: Herramienta de migración del servidor.
 
@@ -85,7 +94,7 @@ Asigne el rol de colaborador de la máquina virtual a la cuenta de Azure. Este r
 
 [Configure](../virtual-network/manage-virtual-network.md#create-a-virtual-network) una red virtual de Azure. Al realizar la replicación en Azure, las máquinas virtuales de Azure que se crean se unen a la red virtual de Azure que se especifica al configurar la migración.
 
-## <a name="3-prepare-aws-instances-for-migration"></a>3. Preparar las instancias de AWS para la migración
+## <a name="prepare-aws-instances-for-migration"></a>Preparar las instancias de AWS para la migración
 
 Para prepararse para la migración de AWS a Azure, debe preparar e implementar un dispositivo de replicación para la migración.
 
@@ -111,7 +120,7 @@ Para prepararse para la implementación del dispositivo, siga estos pasos:
 - El dispositivo de replicación usa MySQL. Revise las [opciones](migrate-replication-appliance.md#mysql-installation) para instalar MySQL en el dispositivo.
 - Revise las direcciones URL de Azure necesarias para que el dispositivo de replicación acceda a las nubes [públicas](migrate-replication-appliance.md#url-access) y [gubernamentales](migrate-replication-appliance.md#azure-government-url-access).
 
-## <a name="4-add-the-server-migration-tool"></a>4. Incorporación de la herramienta Server Migration
+## <a name="add-the-server-migration-tool"></a>Incorporación de la herramienta Server Migration
 
 Configure un proyecto de Azure Migrate y, luego, agréguele la herramienta Server Migration.
 
@@ -135,7 +144,7 @@ Configure un proyecto de Azure Migrate y, luego, agréguele la herramienta Serve
 10. En **Revisar y agregar herramientas**, revise la configuración y haga clic en **Agregar herramientas**.
 11. Después de agregar la herramienta, aparece en el proyecto de Azure Migrate > **Servidores** > **Herramientas de migración**.
 
-## <a name="5-set-up-the-replication-appliance"></a>5. Configuración del dispositivo de replicación
+## <a name="set-up-the-replication-appliance"></a>Configuración del dispositivo de replicación
 
 El primer paso de la migración consiste en configurar el dispositivo de replicación. Para configurar el dispositivo para la migración de las máquinas virtuales de AWS, debe descargar el archivo del instalador del dispositivo y, luego, ejecutarlo en la [máquina virtual que ha preparado](#prepare-a-machine-for-the-replication-appliance).
 
@@ -177,7 +186,7 @@ El primer paso de la migración consiste en configurar el dispositivo de replica
 
     ![Finalizar el registro](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
-## <a name="6-install-the-mobility-service"></a>6. Instalación de Mobility Service
+## <a name="install-the-mobility-service"></a>Instalación de Mobility Service
 
 Se debe instalar un agente del servicio Mobility en las máquinas virtuales de AWS de origen que se van a migrar. Los instaladores del agente están disponibles en el dispositivo de replicación. Debe encontrar el instalador correcto e instalar el agente en cada máquina que desee migrar. Haga lo siguiente:
 
@@ -229,7 +238,7 @@ Se debe instalar un agente del servicio Mobility en las máquinas virtuales de A
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <replication appliance IP address> -P <Passphrase File Path>
     ```
 
-## <a name="7-enable-replication-for-aws-vms"></a>7. Habilitar la replicación para máquinas virtuales de AWS
+## <a name="enable-replication-for-aws-vms"></a>Habilitar la replicación para máquinas virtuales de AWS
 
 > [!NOTE]
 > A través del portal, puede agregar hasta 10 máquinas virtuales para que se repliquen a la vez. Para replicar más máquinas virtuales simultáneamente, puede agregarlas en lotes de 10.
@@ -276,7 +285,7 @@ Se debe instalar un agente del servicio Mobility en las máquinas virtuales de A
 > [!NOTE]
 > Puede actualizar la configuración de replicación en cualquier momento antes de que esta comience; para ello, vaya a **Administrar** > **Replicación de máquinas**. Una vez iniciada la replicación, su configuración no se puede cambiar.
 
-## <a name="8-track-and-monitor-replication-status"></a>8. Realizar un seguimiento y supervisar el estado de la replicación
+## <a name="track-and-monitor-replication-status"></a>Realizar un seguimiento y supervisar el estado de la replicación
 
 - Al hacer clic en **Replicar**, comienza el trabajo de inicio de replicación.
 - Cuando el trabajo de inicio de replicación finaliza correctamente, las máquinas virtuales comienzan su replicación inicial en Azure.
@@ -288,7 +297,7 @@ Para supervisar el estado de la replicación, haga clic en **Replicando servidor
 
 ![Supervisión de la replicación](./media/tutorial-migrate-physical-virtual-machines/replicating-servers.png)
 
-## <a name="9-run-a-test-migration"></a>9. Ejecutar una migración de prueba
+## <a name="run-a-test-migration"></a>Ejecutar una migración de prueba
 
 Cuando comienza la replicación diferencial, puede ejecutar una migración de prueba para las máquinas virtuales antes de ejecutar una migración completa a Azure. La migración de prueba es muy recomendable, ya que supone una oportunidad para detectar cualquier posible problema y corregirlo antes de pasar a la migración real. Se recomienda hacerla al menos una vez para cada máquina virtual antes de migrarla.
 
@@ -314,7 +323,7 @@ Realice una migración de prueba como se indica a continuación:
     ![Limpiar la migración](./media/tutorial-migrate-physical-virtual-machines/clean-up.png)
 
 
-## <a name="10-migrate-aws-vms"></a>10. Migrar máquinas virtuales de AWS
+## <a name="migrate-aws-vms"></a>Migración de máquinas virtuales de AWS
 
 Después de comprobar que la migración de prueba funciona según lo previsto, puede migrar las máquinas virtuales de AWS.
 
@@ -340,6 +349,9 @@ Después de comprobar que la migración de prueba funciona según lo previsto, p
 5. Pase el tráfico a la instancia de máquina virtual de Azure migrada.
 6. Actualice la documentación interna para mostrar la nueva ubicación y la dirección IP las máquinas virtuales de Azure. 
 
+
+
+
 ## <a name="post-migration-best-practices"></a>Procedimientos recomendados después de la migración
 
 - Para aumentar la resistencia:
@@ -353,9 +365,7 @@ Después de comprobar que la migración de prueba funciona según lo previsto, p
 - Para supervisión y administración:
     - Considere la posibilidad de implementar [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) para supervisar el gasto y el uso de recursos.
 
-## <a name="next-steps"></a>Pasos siguientes
 
-Investigue el [proceso de la migración en la nube](/azure/architecture/cloud-adoption/getting-started/migrate) en el marco de Cloud Adoption Framework para Azure.
 
 ## <a name="troubleshooting--tips"></a>Solución de problemas y sugerencias
 
@@ -376,3 +386,7 @@ Investigue el [proceso de la migración en la nube](/azure/architecture/cloud-ad
 
 **Pregunta:** No puedo detectar instancias de AWS con Azure Migrate debido al código de estado HTTP 504 del servicio de administración remota de Windows    
 **Respuesta:** Asegúrese de revisar los requisitos del dispositivo de Azure Migrate y las necesidades de acceso URL. Asegúrese de que ninguna configuración de proxy bloquea el registro del dispositivo.   
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Investigue el [proceso de la migración en la nube](/azure/architecture/cloud-adoption/getting-started/migrate) en el marco de Cloud Adoption Framework para Azure.
