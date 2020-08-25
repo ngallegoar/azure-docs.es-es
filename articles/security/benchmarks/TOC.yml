@@ -89,6 +89,8 @@
       href: ../../data-lake-analytics/security-baseline.md
     - name: Línea de base de seguridad de DDOS Protection
       href: ../fundamentals/ddos-protection-security-baseline.md
+    - name: Línea de base de seguridad de Event Grid
+      href: ../../event-grid/security-baseline.md
     - name: Base de referencia de seguridad de Event Hubs
       href: ../../event-hubs/security-baseline.md
     - name: Línea de base de seguridad de ExpressRoute

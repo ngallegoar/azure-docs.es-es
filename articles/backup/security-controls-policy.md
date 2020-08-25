@@ -7,12 +7,12 @@ author: dcurwin
 ms.author: dacurwin
 ms.service: backup
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 688ee8552a169e9e73b339678ace1e8006c71223
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c30fbf0ffb68c4bf2c594a3ca1009fada99c9346
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093883"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761838"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-backup"></a>Controles de Cumplimiento normativo de Azure Policy para Azure Backup
 
@@ -24,5 +24,5 @@ ms.locfileid: "87093883"
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre [Cumplimiento normativo de Azure Policy](../governance/policy/concepts/regulatory-compliance.md).
+- Obtenga más información sobre el [cumplimiento normativo de Azure Policy](../governance/policy/concepts/regulatory-compliance.md).
 - Los elementos integrados se pueden encontrar en el [repositorio de GitHub de Azure Policy](https://github.com/Azure/azure-policy).
