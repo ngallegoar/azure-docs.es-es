@@ -8,13 +8,13 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 02/10/2020
-ms.openlocfilehash: eb7dcc0956cd9ce214ad3894aa8cc2b99beed942
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/17/2020
+ms.openlocfilehash: b74deaecd1a71fec14e31f0a6aca2fed34361d76
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519820"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506012"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search en PowerShell mediante las API REST
 > [!div class="op_single_selector"]
@@ -89,7 +89,7 @@ A menos que use el portal, debe existir un índice en el servicio antes de poder
 
 Los elementos necesarios de un índice incluyen un nombre y una colección de campos. La colección de campos define la estructura de un *documento*. Cada campo tiene un nombre, un tipo y unos atributos que determinan cómo se usa (por ejemplo, si es de búsqueda de texto completo, que se puede filtrar o que se puede recuperar en los resultados de búsqueda). Dentro de un índice, uno de los campos de tipo `Edm.String` se debe designar como la *clave* para la identidad del documento.
 
-Este índice se denomina "hotels-quickstart" y tiene las definiciones de campo que aparecen a continuación. Es un subconjunto de un [índice de hoteles](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) mayor usado en otros tutoriales. Lo hemos acortado en este inicio rápido para mayor brevedad.
+Este índice se denomina "hotels-quickstart" y tiene las definiciones de campo que aparecen a continuación. Es un subconjunto de un [índice de hoteles](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) mayor usado en otros artículos. Por motivos de brevedad, en este inicio rápido se han recortado las definiciones de los campos.
 
 1. Pegue este ejemplo en PowerShell para crear un objeto **$body** que contenga el esquema de índice.
 
@@ -319,7 +319,7 @@ Para insertar documentos, use una solicitud HTTP POST al punto de conexión de l
 
 En este paso se muestra cómo realizar consultas en un índice con [Search Documents API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
-Asegúrese de usar comillas sencillas en las direcciones $url de búsqueda. Las cadenas de consulta incluyen caracteres **$** , y puede omitir el uso de una secuencia de escape si toda la cadena está entre comillas sencillas.
+Asegúrese de usar comillas sencillas en las direcciones $url de búsqueda. Las cadenas de consulta incluyen caracteres **$** y se puede omitir el uso de una secuencia de escape si toda la cadena está entre comillas sencillas.
 
 1. Establezca el punto de conexión en la colección de documentos *hotels-quickstart* y agregue un parámetro **search** para pasarlo en una cadena de consulta. 
   
@@ -378,7 +378,7 @@ Pruebe con algunos otros ejemplos de consultas para hacerse una idea de la sinta
 $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=restaurant wifi&$count=true&$select=HotelName,Description,Tags'
 
 # Query example 2 
-# Apply a filter to the index to find hotels rated 4 or highter
+# Apply a filter to the index to find hotels rated 4 or higher
 # Returns the HotelName and Rating. Two documents match.
 $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=*&$filter=Rating gt 4&$select=HotelName,Rating'
 

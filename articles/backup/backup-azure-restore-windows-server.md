@@ -1,15 +1,14 @@
 ---
 title: Restauración de archivos en Windows Server mediante el agente de MARS
 description: En este artículo, aprenderá a restaurar datos almacenados en Azure en un equipo Windows Server o Windows con el agente de Microsoft Azure Recovery Services (MARS).
-ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 040ac3069500d0e52441df6f07d92645a7ae69df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d96c6c54431d0160bd58be0c3491ef2b22753e53
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764441"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263408"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Restauración de archivos en Windows Server mediante el agente de MARS
 
@@ -18,7 +17,7 @@ En este artículo se explica cómo restaurar datos a partir de un almacén de co
 * La restauración de datos en la misma máquina desde la cual se realizaron las copias de seguridad.
 * Restaurar datos en una máquina alternativa.
 
-Use la característica de restauración instantánea para montar una instantánea de punto de recuperación grabable como un volumen de recuperación. Después, puede explorar el volumen de recuperación y copiar archivos de recuperación en un equipo local, por tanto, restaurando los archivos de forma selectiva.
+Use la característica de restauración instantánea para montar una instantánea de punto de recuperación grabable como un volumen de recuperación. Después, puede explorar el volumen de recuperación y copiar archivos en un equipo local, de forma que se restauran los archivos de forma selectiva.
 
 > [!NOTE]
 > Se necesita la [actualización de enero de 2017 de Azure Backup](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) si desea utilizar la restauración instantánea para restaurar datos. También se deben proteger los datos de copia de seguridad en los almacenes en configuraciones regionales que aparecen en el artículo de soporte técnico. Consulte la [actualización de Azure Backup de enero de 2017](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) para obtener la lista más reciente de configuraciones regionales que admitan la restauración instantánea.
@@ -38,15 +37,15 @@ Si ha eliminado accidentalmente un archivo y desea restaurarlo en la misma máqu
 
 2. Seleccione **Recuperar datos** para iniciar el asistente.
 
-    ![Captura de pantalla de Azure Backup, con la opción Recuperar datos resaltada](./media/backup-azure-restore-windows-server/recover.png)
+    ![Captura de pantalla de Azure Backup, con la opción Recuperar datos resaltada (restauración en la misma máquina)](./media/backup-azure-restore-windows-server/recover.png)
 
 3. En la página **Introducción**, para restaurar los datos en el mismo servidor o equipo, seleccione **Este servidor (`<server name>`)**  > **Siguiente**.
 
-    ![Captura de pantalla de la página Introducción del Asistente de recuperación de datos](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
+    ![Captura de pantalla de la página de introducción al Asistente de recuperación de datos (restauración en la misma máquina)](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
 4. En la página **Seleccionar modo de recuperación**, seleccione **Archivos y carpetas individuales** > **Siguiente**.
 
-    ![Captura de pantalla de la página Seleccionar modo de recuperación del Asistente de recuperación de datos](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
+    ![Captura de pantalla de la página Seleccionar modo de recuperación del Asistente de recuperación de datos (restauración en la misma máquina)](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
    > La opción de restauración Archivos y carpetas individuales requiere .NET Framework 4.5.2 o posterior. Si no ve la opción **Archivos y carpetas individuales**, debe actualizar .NET Framework a la versión 4.5.2 o posterior e intentarlo de nuevo.
 
@@ -57,7 +56,7 @@ Si ha eliminado accidentalmente un archivo y desea restaurarlo en la misma máqu
 
     En el calendario, seleccione un punto de recuperación. Las fechas en **negrita** indican la disponibilidad de al menos un punto de recuperación. Si están disponibles varios puntos de recuperación dentro de una única fecha, elija el punto de recuperación específico desde el menú desplegable **Hora**.
 
-    ![Captura de pantalla de la página Seleccionar volumen y fecha del Asistente de recuperación de datos](./media/backup-azure-restore-windows-server/samemachine_selectvolumedate_instantrestore.png)
+    ![Captura de pantalla de la página Seleccionar volumen y fecha del Asistente de recuperación de datos (restauración en la misma máquina)](./media/backup-azure-restore-windows-server/samemachine_selectvolumedate_instantrestore.png)
 
 6. Después de elegir el punto de recuperación para realizar la restauración, seleccione **Montar**.
 
@@ -65,15 +64,15 @@ Si ha eliminado accidentalmente un archivo y desea restaurarlo en la misma máqu
 
 7. En la página **Examinar y recuperar archivos**, seleccione **Examinar** para abrir el Explorador de Windows y buscar los archivos y carpetas que desea.
 
-    ![Captura de pantalla de la página Examinar y recuperar archivos del Asistente de recuperación de datos](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
+    ![Captura de pantalla de la página Examinar y recuperar archivos del Asistente de recuperación de datos (restauración en la misma máquina)](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
-8. En el Explorador de Windows, copie los archivos y carpetas que desea restaurar y péguelos en cualquier ubicación local en el servidor o equipo. Puede abrir o transmitir los archivos directamente desde el volumen de recuperación y comprobar que está recuperando las versiones correctas.
+8. En el Explorador de Windows, copie los archivos y carpetas que desea restaurar y péguelos en cualquier ubicación local en el servidor o equipo. Puede abrir o transmitir los archivos directamente desde el volumen de recuperación y comprobar que se recuperan las versiones correctas.
 
-    ![Captura de pantalla del Explorador de Windows, con la opción Copiar resaltada](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
+    ![Captura de pantalla del Explorador de Windows con la opción Copiar resaltada (restauración en la misma máquina)](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
 
 9. Cuando haya terminado, en la página **Examinar y recuperar archivos**, seleccione **Desmontar**. Seleccione **Sí** para confirmar que desea desmontar el volumen.
 
-    ![Captura de pantalla de la página Examinar y recuperar archivos del Asistente de recuperación de datos](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
+    ![Captura de pantalla de la página Examinar y recuperar archivos del Asistente de recuperación de datos (restauración en la misma máquina)](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
     > Si no selecciona **Desmontar**, el volumen de recuperación permanecerá montado durante seis horas desde el momento en el que se montó. Sin embargo, el tiempo de montaje se puede extender hasta veinticuatro horas en el caso de una copia de archivos en curso. No se ejecutará ninguna operación de copia de seguridad mientras el volumen esté montado. Cualquier operación de copia de seguridad programada para ejecutarse durante el tiempo en el que el volumen está montado, se ejecutará después de desmontar el volumen de recuperación.
@@ -100,11 +99,11 @@ Estos pasos incluyen la siguiente terminología:
 
 3. Seleccione **Recuperar datos** para abrir el **Asistente de recuperación de datos**.
 
-    ![Captura de pantalla de Azure Backup, con la opción Recuperar datos resaltada](./media/backup-azure-restore-windows-server/recover.png)
+    ![Captura de pantalla de Azure Backup, con la opción Recuperar datos resaltada (restauración en una máquina alternativa)](./media/backup-azure-restore-windows-server/recover.png)
 
 4. En la página **Introducción**, seleccione **Otro servidor**.
 
-    ![Captura de pantalla de la página Introducción del Asistente de recuperación de datos](./media/backup-azure-restore-windows-server/alternatemachine_gettingstarted_instantrestore.png)
+    ![Captura de pantalla de la página de introducción al Asistente de recuperación de datos (restauración en una máquina alternativa)](./media/backup-azure-restore-windows-server/alternatemachine_gettingstarted_instantrestore.png)
 
 5. Proporcione el archivo de credenciales de almacén que se corresponde con el almacén de ejemplo y seleccione **Siguiente**.
 
@@ -112,31 +111,31 @@ Estos pasos incluyen la siguiente terminología:
 
 6. En la página **Seleccionar servidor de copia de seguridad**, seleccione la máquina de origen en la lista de máquinas mostradas y proporcione la frase de contraseña. Luego, seleccione **Siguiente**.
 
-    ![Captura de pantalla de la página Seleccionar servidor de copia de seguridad del Asistente de recuperación de datos](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
+    ![Captura de pantalla de la página Seleccionar servidor de copia de seguridad del Asistente de recuperación de datos (restauración en una máquina alternativa)](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
 
 7. En la página **Seleccionar modo de recuperación**, seleccione **Archivos y carpetas individuales** > **Siguiente**.
 
-    ![Captura de pantalla de la página Seleccionar modo de recuperación del Asistente de recuperación de datos](./media/backup-azure-restore-windows-server/alternatemachine_selectrecoverymode_instantrestore.png)
+    ![Captura de pantalla de la página Seleccionar modo de recuperación del Asistente de recuperación de datos (restauración en una máquina alternativa)](./media/backup-azure-restore-windows-server/alternatemachine_selectrecoverymode_instantrestore.png)
 
 8. En la página **Seleccionar volumen y fecha**, seleccione el volumen que contiene los archivos y carpetas que desea restaurar.
 
     En el calendario, seleccione un punto de recuperación. Las fechas en **negrita** indican la disponibilidad de al menos un punto de recuperación. Si están disponibles varios puntos de recuperación dentro de una única fecha, elija el punto de recuperación específico desde el menú desplegable **Hora**.
 
-    ![Captura de pantalla de la página Seleccionar volumen y fecha del Asistente de recuperación de datos](./media/backup-azure-restore-windows-server/alternatemachine_selectvolumedate_instantrestore.png)
+    ![Captura de pantalla de la página Seleccionar volumen y fecha del Asistente de recuperación de datos (restauración en una máquina alternativa)](./media/backup-azure-restore-windows-server/alternatemachine_selectvolumedate_instantrestore.png)
 
 9. Seleccione **Montar** para montar localmente el punto de recuperación como un volumen de recuperación en la máquina de destino.
 
 10. En la página **Examinar y recuperar archivos**, seleccione **Examinar** para abrir el Explorador de Windows y buscar los archivos y carpetas que desea.
 
-    ![Captura de pantalla de la página Examinar y recuperar archivos del Asistente de recuperación de datos](./media/backup-azure-restore-windows-server/alternatemachine_browserecover_instantrestore.png)
+    ![Captura de pantalla de la página Examinar y recuperar archivos del Asistente de recuperación de datos (restauración una máquina alternativa)](./media/backup-azure-restore-windows-server/alternatemachine_browserecover_instantrestore.png)
 
 11. En el Explorador de Windows, copie los archivos y carpetas desde el volumen de recuperación y péguelos en la ubicación de la máquina de destino. Puede abrir o transmitir los archivos directamente desde el volumen de recuperación y comprobar que se recuperan las versiones correctas.
 
-    ![Captura de pantalla del Explorador de Windows, con la opción Copiar resaltada](./media/backup-azure-restore-windows-server/alternatemachine_copy_instantrestore.png)
+    ![Captura de pantalla del Explorador de Windows con la opción Copiar resaltada (restauración en una máquina alternativa)](./media/backup-azure-restore-windows-server/alternatemachine_copy_instantrestore.png)
 
 12. Cuando haya terminado, en la página **Examinar y recuperar archivos**, seleccione **Desmontar**. Seleccione **Sí** para confirmar que desea desmontar el volumen.
 
-    ![Captura de pantalla de la página Examinar y recuperar archivos del Asistente de recuperación de datos](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
+    ![Desmontar el volumen (restauración en una máquina alternativa)](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
 
     > [!Important]
     > Si no selecciona **Desmontar**, el volumen de recuperación permanecerá montado durante seis horas desde el momento en el que se montó. Sin embargo, el tiempo de montaje se puede extender hasta veinticuatro horas en el caso de una copia de archivos en curso. No se ejecutará ninguna operación de copia de seguridad mientras el volumen esté montado. Cualquier operación de copia de seguridad programada para ejecutarse durante el tiempo en el que el volumen está montado, se ejecutará después de desmontar el volumen de recuperación.

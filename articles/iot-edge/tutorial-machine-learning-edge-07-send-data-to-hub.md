@@ -8,12 +8,12 @@ ms.date: 6/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: dca903591c5d6805108d55163aaedc2435d9297e
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 718f4c0b41400ae2e35b88820b2d4154dab23111
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85610087"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272831"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Tutorial: Envío de datos mediante una puerta de enlace transparente
 
@@ -225,7 +225,7 @@ Si tienes previsto explorar los recursos usados por este tutorial completo, espe
 
 1. Elimine los grupos de recursos creados para contener la máquina virtual de desarrollo, la máquina virtual de IoT Edge, IoT Hub, la cuenta de almacenamiento, el servicio de área de trabajo de aprendizaje automático (y los recursos creados: registro de contenedor, Application Insights, almacén de claves, cuenta de almacenamiento).
 
-1. Elimina el proyecto de aprendizaje automático en [Azure Notebooks](https://notebooks.azure.com).
+1. Elimine el proyecto de aprendizaje automático en [Azure Notebooks](https://notebooks.azure.com).
 
 1. Si has clonado el repositorio localmente, cierra las ventanas de PowerShell o VS Code que hagan referencia al repositorio local y, luego, elimina el directorio del repositorio.
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 692ddbf1e17e316bdcee6c34062ffa51ef278bc7
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 638ab84658c36536966ef990570684a047521ee6
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923788"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257449"
 ---
 ::: zone target="docs"
 
@@ -224,7 +224,7 @@ Realice los pasos siguientes si va a devolver el dispositivo en China.
 
 ### <a name="self-managed"></a>[Autoadministrado](#tab/in-selfmanaged)
 
-Si usa Data Box Disk en Japón, Singapur, Corea, Oeste de Europa o India, y ha seleccionado la opción de envío autoadministrada durante la creación del pedido, siga estas instrucciones.
+Si usa Data Box Disk en Gobierno de EE. UU., Japón, Singapur, Corea, Oeste de Europa, Sudáfrica o India, y ha seleccionado la opción de envío autoadministrado al crear el pedido, siga estas instrucciones.
 
 1. Vaya a la hoja **Información general** del pedido en Azure Portal. Siga las instrucciones que se muestran al seleccionar **Programar recogida**. Debería ver un código de autorización que se utiliza en el momento de dejar el pedido.
 

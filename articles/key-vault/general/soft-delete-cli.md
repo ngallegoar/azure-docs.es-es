@@ -1,20 +1,20 @@
 ---
 title: 'Azure Key Vault: Uso de la eliminación temporal con la CLI'
-description: Ejemplos de casos de uso de eliminación temporal con fragmentos de código de la CLI
+description: Aprenda a la usar CLI de Azure para usar la característica de eliminación temporal de Azure Key Vault que permite la recuperación de almacenes de claves y objetos de Key Vault.
 services: key-vault
 author: ShaneBala-keyvault
 manager: ravijan
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 8f32fcc319c3bffd9089d894c5376268227a0151
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: a86402fec698a299c7f233dcd8c7fde8270dd74d
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135936"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585668"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Uso de la eliminación temporal de Key Vault con la CLI
 
