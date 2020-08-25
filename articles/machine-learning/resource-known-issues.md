@@ -3,20 +3,20 @@ title: Problemas conocidos y soluciones
 titleSuffix: Azure Machine Learning
 description: Obtenga ayuda para buscar y corregir errores en Azure Machine Learning. Obtenga información sobre problemas conocidos, solución de problemas y soluciones alternativas.
 services: machine-learning
-author: j-martens
-ms.author: jmartens
+author: likebupt
+ms.author: keli19
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
-ms.date: 08/06/2020
-ms.openlocfilehash: 17d6137dd243c3bce011a1841ea9bca64e0b64ba
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.date: 08/13/2020
+ms.openlocfilehash: 71457be4e572a0e04dfffd0689bfbd458f7c2622
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120769"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190511"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemas conocidos y solución de problemas en Azure Machine Learning
 
@@ -248,6 +248,27 @@ En el recopilador de datos del modelo, puede tardar hasta 10 minutos para que l
 ```python
 import time
 time.sleep(600)
+```
+
+* **Registro de puntos de conexión en tiempo real**:
+
+los registros de puntos de conexión en tiempo real son datos de cliente. Para solucionar problemas de puntos de conexión en tiempo real, puede usar el código siguiente a fin de habilitar los registros. 
+
+Vea más detalles sobre la supervisión de puntos de conexión de servicio web en [este artículo](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights#query-logs-for-deployed-models).
+
+```python
+from azureml.core import Workspace
+from azureml.core.webservice import Webservice
+
+ws = Workspace.from_config()
+service = Webservice(name="service-name", workspace=ws)
+logs = service.get_logs()
+```
+Si tiene varios inquilinos, es posible que tenga que agregar el siguiente código de autenticación antes de `ws = Workspace.from_config()`
+
+```python
+from azureml.core.authentication import InteractiveLoginAuthentication
+interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in which your workspace resides")
 ```
 
 ## <a name="train-models"></a>Entrenamiento de modelos
