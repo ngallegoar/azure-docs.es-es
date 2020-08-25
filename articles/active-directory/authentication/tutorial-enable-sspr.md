@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b6fe3238a2ad602b388ff24faaee3a200084ae0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a4cdeff5e08813140c45d0a30877c3789d1bc21b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419485"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718856"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Habilitación del autoservicio de restablecimiento de contraseña de Azure Active Directory para que los usuarios puedan desbloquear su cuenta o restablecer contraseñas
 
@@ -148,4 +148,4 @@ En este tutorial habilitó el autoservicio de restablecimiento de contraseña en
 > * Probar el proceso SSPR como usuario
 
 > [!div class="nextstepaction"]
-> [Habilitación de Azure Multi-Factor Authentication](tutorial-mfa-applications.md)
+> [Habilitación de Azure Multi-Factor Authentication](./tutorial-enable-azure-mfa.md)
