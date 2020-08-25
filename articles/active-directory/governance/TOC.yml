@@ -126,6 +126,6 @@
   expanded: true
   items:
     - name: 'Revisiones de acceso: Graph API'
-      href: 'https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta'
+      href: /graph/api/resources/accessreviews-root?view=graph-rest-beta
     - name: 'Administración de derechos: Graph API'
-      href: 'https://docs.microsoft.com/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta'
+      href: /graph/api/resources/entitlementmanagement-root?view=graph-rest-beta
