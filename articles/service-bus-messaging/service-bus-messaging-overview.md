@@ -104,7 +104,7 @@ Service Bus admite los protocolos estándar [AMQP 1.0](service-bus-amqp-overview
 
 ## <a name="client-libraries"></a>Bibliotecas de clientes
 
-Service Bus admite bibliotecas de cliente para [.NET](https://github.com/Azure/azure-service-bus-dotnet/tree/master), [Java](https://github.com/Azure/azure-service-bus-java/tree/master)y [JMS](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client).
+Service Bus admite bibliotecas de cliente para [.NET](https://github.com/Azure/azure-service-bus-dotnet/tree/master), [Java](https://github.com/Azure/azure-service-bus-java/tree/master) y [JMS](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client).
 
 ## <a name="integration"></a>Integración
 
@@ -121,7 +121,7 @@ Service Bus se integra completamente con los siguientes servicios de Azure:
 Para comenzar a trabajar con la mensajería de Service Bus, consulte los siguientes artículos:
 
 * Para comparar los servicios de mensajería de Azure, consulte [Comparación de los servicios](../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json&bc=%2fazure%2fservice-bus-messaging%2fbreadcrumb%2ftoc.json).
-* Pruebe las guías de inicio rápido para [.NET](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md)o [JMS](service-bus-java-how-to-use-jms-api-amqp.md).
+* Pruebe las guías de inicio rápido para [.NET](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md) o [JMS](service-bus-java-how-to-use-jms-api-amqp.md).
 * Para administrar los recursos de Service Bus, consulte [Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/releases).
 * Más información sobre los niveles Estándar y Premium y sus precios, consulte [precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 * Para más información sobre el rendimiento y la latencia del nivel Premium, consulte [Mensajería Premium](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722).
