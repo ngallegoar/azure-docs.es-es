@@ -3,10 +3,8 @@
 - name: Información general
   expanded: true
   items:
-    - name: ¿Qué es Speech Service?
+    - name: Introducción al servicio de voz
       href: overview.md
-    - name: Prueba gratuita del servicio Voz
-      href: get-started.md
     - name: Idioma y voz admitidos
       displayName: 'languages,locales,voice,gender,language code,locale,locale code,neural voice,standard voice'
       href: language-support.md
