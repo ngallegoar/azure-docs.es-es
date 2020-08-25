@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 901815ba40459bd50562e557a0a766474c731ce0
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 84bf041f64a2f85f3aa3eada1dc1955c93dc034a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475907"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208201"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Solución de problemas de roles asignados a grupos en la nube
 
@@ -51,7 +51,7 @@ Estas son algunas preguntas y sugerencias para solucionar problemas comunes para
 
 **R:**  Sí, puede hacerlo. El administrador global y el administrador de usuarios tienen la capacidad de incluir cualquier grupo en un paquete de acceso. En el caso del administrador global, no se produce ningún cambio. Sin embargo, hay un ligero cambio en los permisos del rol Administrador de usuarios. Para incluir un grupo asignable del rol en un paquete de acceso, debe ser administrador de usuarios y también propietario del grupo asignable del rol. Esta es la tabla completa donde se muestra quién puede crear un paquete de acceso en la administración de licencias Enterprise:
 
-Rol de directorio de Azure AD | Rol de administración de derechos | Puede agregar grupos de seguridad\* | Puede agregar grupos de Office 365\* | Puede agregar aplicaciones | Puede agregar sitios de SharePoint Online
+Rol de directorio de Azure AD | Rol de administración de derechos | Puede agregar grupos de seguridad\* | Puede agregar grupos de Microsoft 365\* | Puede agregar aplicaciones | Puede agregar sitios de SharePoint Online
 ----------------------- | --------------------------- | ----------------------- | ------------------------- | ----------- |  -----------------------------
 Administrador global | N/D | ✔️ | ✔️ | ✔️  | ✔️
 Administrador de usuarios  | N/D  | ✔️  | ✔️  | ✔️

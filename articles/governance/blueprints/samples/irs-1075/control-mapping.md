@@ -1,14 +1,14 @@
 ---
 title: Controles del ejemplo de plano técnico de IRS 1075
 description: Asignación de controles del ejemplo de plano técnico IRS 1075. Cada control se asigna a una o varias directivas de Azure que ayudan a realizar la evaluación.
-ms.date: 05/13/2020
+ms.date: 08/19/2020
 ms.topic: sample
-ms.openlocfilehash: ce753ff1a7c6dd0029f3d6ee773ae40ab4cc78e9
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: b7208a475d35674cc1abb6932a04681a11f7e89b
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920779"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653756"
 ---
 # <a name="control-mapping-of-the-irs-1075-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico según la norma IRS 1075
 

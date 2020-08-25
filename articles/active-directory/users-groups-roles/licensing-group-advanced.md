@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 11/08/2019
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbdebd8d59034bd16a3199c1304606ccf12ab2c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2f055a6b8f4a8876c024bdd131a6001e21004e5
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727677"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209476"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Escenarios, limitaciones y problemas conocidos del uso de grupos para administrar las licencias en Azure Active Directory
 
@@ -205,7 +205,7 @@ Si usa licencias basadas en grupo, se recomienda que se familiarice con la sigui
 
 - Actualmente, las licencias basadas en grupos no admiten grupos anidados que contengan otros grupos. Si aplica una licencia a un grupo anidado, solo se aplican a los usuarios miembros del primer nivel inmediato del grupo.
 
-- La característica solo se puede usar con grupos de seguridad y grupos de Office 365 que tengan securityEnabled=TRUE.
+- La característica solo se puede usar con grupos de seguridad y grupos de Microsoft 365 que tengan securityEnabled=TRUE.
 
 - El [Centro de administración de Microsoft 365](https://admin.microsoft.com) no admite actualmente licencias basadas en grupo. Si un usuario hereda una licencia de un grupo, esta licencia aparece en el portal de administración de Office como una licencia de usuario normal. Si intenta modificar esa licencia o quitarla, el portal devuelve un mensaje de error. Las licencias de grupo heredadas no se pueden modificar directamente en un usuario.
 
