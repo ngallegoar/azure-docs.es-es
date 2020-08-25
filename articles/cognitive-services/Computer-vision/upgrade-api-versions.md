@@ -1,7 +1,7 @@
 ---
 title: Actualización a la versión 3.0 de Computer Vision API
 titleSuffix: Azure Cognitive Services
-description: Obtenga información acerca de cómo actualizar desde las versiones 2.0 y 2.1 a la versión 3.0 de Computer Vision API.
+description: Obtenga información sobre cómo actualizar a la API de lectura Computer Vision v3.0 desde v2.0/v2.1.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: pafarley
 ROBOTS: NOINDEX
-ms.openlocfilehash: 16add0dce88d0f809dc291d3c9de33e1a853f257
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 6e695fcfacac19ca82273d84d049bdb2afe14b54
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136581"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214187"
 ---
-# <a name="upgrade-to-v30-of-computer-vision-api-from-v20-and-v21"></a>Actualización a la versión 3.0 de Computer Vision API desde las versiones 2.0 y 2.1
+# <a name="upgrade-to-computer-vision-v30-read-api-from-v20v21"></a>Actualización a la API de lectura Computer Vision v3.0 desde v2.0/v2.1
 
-En esta guía se muestra cómo modificar el código existente para migrar desde la versión 2.0 y 2.1 de Computer Vision API a la versión 3.0 para los usuarios de la API REST. 
+En esta guía se muestra cómo actualizar el código existente de las operaciones de lectura de la API REST Computer Vision v2.0 o v2.1 a v3.0. 
 
 ## <a name="upgrade-batch-read-file-to-read"></a>Actualización de `Batch Read File` a `Read`
 

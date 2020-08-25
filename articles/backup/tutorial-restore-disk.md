@@ -1,17 +1,17 @@
 ---
-title: 'Tutorial: Restauración de un disco de máquina virtual con Azure Backup'
+title: 'Tutorial: Restauración de una máquina virtual con la CLI de Azure'
 description: Obtenga información acerca de cómo restaurar un disco y crear una máquina virtual recuperada en Azure con Backup and Recovery Services.
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: efad97c3668c50669be89e6eccaadb26cb313e81
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 56ea3de451e625ef5c55f92daa1b86bd34b1c4c4
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289475"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141353"
 ---
-# <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Restauración de un disco y creación de una máquina virtual recuperada en Azure
+# <a name="restore-a-vm-with-azure-cli"></a>Restauración de una máquina virtual con la CLI de Azure
 
 Azure Backup crea puntos de recuperación que se almacenan en almacenes de recuperación con redundancia geográfica. Cuando se realiza una restauración desde un punto de recuperación, se puede restaurar toda una máquina virtual o archivos individuales. En este artículo se explica cómo restaurar una máquina virtual completa mediante la CLI. En este tutorial, aprenderá a:
 
@@ -25,7 +25,7 @@ Para información sobre cómo usar PowerShell para restaurar un disco y crear un
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.18 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.18 u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -33,7 +33,7 @@ Para este tutorial se necesita una máquina virtual Linux protegida con Azure Ba
 
 ## <a name="backup-overview"></a>Introducción a Backup
 
-Cuando Azure inicia una copia de seguridad, la extensión de copia de seguridad en la máquina virtual toma una instantánea de un momento dado. La extensión de copia de seguridad se instala en la máquina virtual cuando se solicita la primera copia de seguridad. Azure Backup también puede tomar una instantánea del almacenamiento subyacente si la máquina virtual no se está ejecutando cuando se realiza la copia de seguridad.
+Cuando Azure inicia una copia de seguridad, la extensión de copia de seguridad en la máquina virtual toma una instantánea de un momento dado. La extensión de copia de seguridad se instala en la máquina virtual cuando se solicita la primera copia de seguridad. Azure Backup también puede tomar una instantánea del almacenamiento subyacente, si la máquina virtual no se está ejecutando cuando se realiza la copia de seguridad.
 
 De forma predeterminada, Azure Backup toma una copia de seguridad coherente del sistema de archivos. Después de que el servicio Azure Backup tome la instantánea, los datos se transfieren al almacén de Recovery Services. Para que el proceso resulte más eficaz, Azure Backup identifica y transfiere únicamente los bloques de datos que han cambiado desde la última copia de seguridad.
 
@@ -101,7 +101,7 @@ Si la máquina virtual con copia de seguridad tiene discos administrados y la in
     --restore-as-unmanaged-disk
     ```
 
-Con esto se restaurarán los discos administrados como discos no administrados en la cuenta de almacenamiento dada, y no se aprovechará la funcionalidad de restauración instantánea. En versiones futuras de la CLI, será obligatorio proporcionar el parámetro target-resource-group o el parámetro restore-as-unmanaged-disk.
+De esta forma se restaurarán los discos administrados como no administrados en la cuenta de almacenamiento dada y no se aprovechará la funcionalidad de restauración instantánea. En versiones futuras de la CLI, será obligatorio proporcionar el parámetro target-resource-group o el parámetro restore-as-unmanaged-disk.
 
 ### <a name="unmanaged-disks-restore"></a>Restauración de discos no administrados
 

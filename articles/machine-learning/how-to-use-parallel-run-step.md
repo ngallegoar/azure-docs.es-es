@@ -9,21 +9,23 @@ ms.topic: tutorial
 ms.reviewer: jmartens, larryfr
 ms.author: tracych
 author: tracychms
-ms.date: 07/16/2020
+ms.date: 08/14/2020
 ms.custom: Build2020, devx-track-python
-ms.openlocfilehash: 960b59275885efd547df63febab37d2403c1c7cf
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: dddb332498f41437eba77d75c38218c58b8c8379
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87847711"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507121"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Ejecución de la inferencia por lotes en grandes cantidades de datos mediante Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Obtenga información sobre cómo ejecutar una inferencia por lotes en grandes cantidades de datos de forma asincrónica y en paralelo con Azure Machine Learning. ParallelRunStep proporciona funcionalidades de paralelismo de serie.
+En este artículo se muestra cómo ejecutar el modelo de Azure Machine Learning en paralelo y evaluar rápidamente grandes cantidades de datos. 
 
-Con ParallelRunStep, es sencillo escalar inferencias sin conexión a grandes clústeres de máquinas en terabytes de datos estructurados o no estructurados, lo que aumenta la productividad y optimiza el costo.
+La inferencia de grandes conjuntos de datos o con modelos complicados puede llevar mucho tiempo. La clase `ParallelRunStep` permite realizar el procesamiento en paralelo, lo que puede acelerar los resultados generales. Aunque la ejecución de una sola evaluación sea bastante rápida, muchos escenarios (detección de objetos, procesamiento de vídeo, procesamiento de lenguaje natural, etc.) conllevan la ejecución de numerosas evaluaciones. 
+
+Con `ParallelRunStep`, es fácil escalar las inferencias por lotes a grandes grupos de máquinas. Tales grupos pueden administrar terabytes de datos estructurados o no estructurados con una mayor productividad y mejores costos.
 
 En este artículo, obtendrá información sobre las siguientes tareas:
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 04/27/2020
+ms.date: 08/14/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: 0dc79132ae75be511b53bf272e578ff0ce7a7775
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 068c2dc698e9f0b6d6f2f6486dff863c1343b178
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986821"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258276"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Límites de datos y velocidad de la API Text Analytics
 <a name="data-limits"></a>
@@ -31,8 +31,8 @@ Use este artículo para encontrar los límites de tamaño y las velocidades a la
 
 | Límite | Value |
 |------------------------|---------------|
-| Tamaño máximo de un documento individual | 5120 caracteres medidos por [StringInfo.LengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
-| Tamaño máximo de la solicitud completa | 1 MB |
+| Tamaño máximo de un documento individual | 5120 caracteres medidos por [StringInfo.LengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). También se aplica a Text Analytics para el contenedor de estado. |
+| Tamaño máximo de la solicitud completa | 1 MB. También se aplica a Text Analytics para el contenedor de estado. |
 
 El número máximo de documentos que puede enviar en una única solicitud dependerá de la versión de la API y de la característica que use.
 
@@ -48,7 +48,7 @@ Los límites siguientes han cambiado en la versión 3 de la API. Si se superan l
 | Extracción de frases clave | 10 |
 | Reconocimiento de entidades con nombre | 5 |
 | Entity Linking | 5 |
-
+| Text Analytics para el contenedor de estado | 1000 |
 #### <a name="version-2"></a>[Versión 2](#tab/version-2)
 
 | Característica | Número máximo de documentos por solicitud | 
@@ -63,7 +63,7 @@ Los límites siguientes han cambiado en la versión 3 de la API. Si se superan l
 
 ## <a name="rate-limits"></a>Límites de frecuencia
 
-El límite de velocidad variará en función del [plan de tarifa](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). Estos límites son los mismos en ambas versiones de la API.
+El límite de velocidad variará en función del [plan de tarifa](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). Estos límites son los mismos en ambas versiones de la API. Estos límites de velocidad no se aplican a Text Analytics para el contenedor de estado, que no tiene un límite de velocidad establecido.
 
 | Nivel          | Solicitudes por segundo | Solicitudes por minuto |
 |---------------|---------------------|---------------------|

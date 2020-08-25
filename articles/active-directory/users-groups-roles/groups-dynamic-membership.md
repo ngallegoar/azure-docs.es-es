@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: overview
-ms.date: 04/29/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3370a2631a81ce36fd994da73c871fb1e409c667
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8dda8c742a0aafe7ec3f46a0a9dbf0abd4a516b4
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84728374"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213799"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Reglas de pertenencia dinámica a grupos de Azure Active Directory
 
-En Azure Active Directory (Azure AD), puede crear reglas basadas en atributos complejos para habilitar la pertenencia dinámica a grupos. La pertenencia dinámica a grupos reduce la sobrecarga administrativa que conlleva agregar y eliminar usuarios. En este artículo se detallan las propiedades y la sintaxis para crear reglas de pertenencia dinámica para usuarios o dispositivos. Puede configurar una regla de pertenencia dinámica a grupos de seguridad o en grupos de Office 365.
+En Azure Active Directory (Azure AD), puede crear reglas basadas en atributos complejos para habilitar la pertenencia dinámica a grupos. La pertenencia dinámica a grupos reduce la sobrecarga administrativa que conlleva agregar y eliminar usuarios. En este artículo se detallan las propiedades y la sintaxis para crear reglas de pertenencia dinámica para usuarios o dispositivos. Puede configurar una regla de pertenencia dinámica en grupos de seguridad o grupos de Microsoft 365.
 
 Cuando cambia cualquier atributo de un usuario, el sistema evalúa todas las reglas de grupos dinámicos de un directorio para ver si la modificación desencadenaría adiciones o retiradas en el grupo. Si un usuario o dispositivo cumple una regla de un grupo, se agrega a este como miembro. Cuando ya no cumple la regla, se quita. No se puede agregar o quitar un miembro de un grupo dinámico de forma manual.
 
@@ -269,7 +269,7 @@ assignedPlans es una propiedad de varios valores que muestra todos los planes de
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-Una regla como esta se puede utilizar para agrupar a todos los usuarios para los que la funcionalidad de Office 365 (u otro servicio en línea de Microsoft) está habilitada. A continuación, podría solicitar la admisión en el grupo con un conjunto de directivas.
+Una regla como esta se puede utilizar para agrupar todos los usuarios en los que la funcionalidad de Microsoft 365 (u otro servicio en línea de Microsoft) está habilitada. A continuación, podría solicitar la admisión en el grupo con un conjunto de directivas.
 
 #### <a name="example-2"></a>Ejemplo 2
 

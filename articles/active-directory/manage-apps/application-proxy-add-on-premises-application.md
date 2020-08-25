@@ -11,13 +11,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4db0956b1a2dec7626a24de2939941c2384d6a8a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: e44de0058af0210ecb42eaa4be8b55d543d66103
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080769"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212812"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adición de una aplicación local para el acceso remoto mediante el proxy de aplicación en Azure Active Directory
 
@@ -32,7 +31,7 @@ Este tutorial:
 > * Agrega una aplicación local al inquilino de Azure AD.
 > * Verifica que un usuario de prueba puede iniciar sesión en la aplicación con una cuenta de Azure AD.
 
-## <a name="before-you-begin"></a>Antes de empezar
+## <a name="prerequisites"></a>Requisitos previos
 
 Para agregar una aplicación local a Azure AD, se necesita:
 
@@ -235,6 +234,10 @@ Para probar el inicio de sesión en la aplicación:
 
 Para solucionar problemas, vea [Solución de problemas y mensajes de error de Proxy de aplicación](application-proxy-troubleshoot.md).
 
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Cuando ya no los necesite, elimine los recursos que creó en este tutorial.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, se ha preparado el entorno local para que funcione con el proxy de aplicación y, después, se ha instalado y registrado el conector de proxy de aplicación. A continuación, agregó una aplicación a su inquilino de Azure AD. También comprobó que un usuario puede iniciar sesión en la aplicación con una cuenta de Azure AD.
@@ -250,4 +253,4 @@ Hizo todo esto:
 Ya está preparado para configurar la aplicación para el inicio de sesión único. Use el siguiente vínculo para elegir un método de inicio de sesión único y buscar tutoriales sobre el inicio de sesión único.
 
 > [!div class="nextstepaction"]
-> [Configuración del inicio de sesión único](what-is-single-sign-on.md#choosing-a-single-sign-on-method)
+> [Configuración del inicio de sesión único](sso-options.md#choosing-a-single-sign-on-method)

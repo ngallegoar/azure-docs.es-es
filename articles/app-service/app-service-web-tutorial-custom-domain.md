@@ -5,14 +5,14 @@ keywords: app service, azure app service, domain mapping, domain name, existing 
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 04/27/2020
+ms.date: 08/13/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 96a947a20a17c4dc08851824a392143ce162f186
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: c301876a57b3be4a112c7df2706bf17389a5af44
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543575"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190058"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Asignación de un nombre DNS personalizado existente a Azure App Service
 
@@ -125,11 +125,11 @@ Si tiene un subdominio distinto de `www`, reemplace `www` por el subdominio (por
 
 #### <a name="create-the-cname-record"></a>Crear un registro CNAME
 
-Asigne un subdominio al nombre de dominio predeterminado de la aplicación (`<app_name>.azurewebsites.net`, donde `<app_name>` es el nombre de la aplicación). Para crear una asignación CNAME para el subdominio `www`, cree dos registros:
+Asigne un subdominio al nombre de dominio predeterminado de la aplicación (`<app-name>.azurewebsites.net`, donde `<app-name>` es el nombre de la aplicación). Para crear una asignación CNAME para el subdominio `www`, cree dos registros:
 
 | Tipo de registro | Host | Value | Comentarios |
 | - | - | - |
-| CNAME | `www` | `<app_name>.azurewebsites.net` | La propia asignación de dominio. |
+| CNAME | `www` | `<app-name>.azurewebsites.net` | La propia asignación de dominio. |
 | TXT | `asuid.www` | [El identificador de comprobación que obtuvo anteriormente](#get-domain-verification-id). | App Service accede al registro TXT `asuid.<subdomain>` para comprobar la propiedad del dominio personalizado. |
 
 Después de agregar los registros CNAME y TXT, la página de registros DNS es como la del ejemplo siguiente:
@@ -210,7 +210,7 @@ Para asignar un registro D a una aplicación, normalmente al dominio raíz, cree
 > | Tipo de registro | Host | Value |
 > | - | - | - |
 > | A | `www` | D www Dirección IP de [Copiar la dirección IP de la aplicación](#info) |
-> | TXT | `asuid.www` | `<app_name>.azurewebsites.net` |
+> | TXT | `asuid.www` | `<app-name>.azurewebsites.net` |
 >
 
 Cuando se agregan los registros, la página de registros DNS es como la del ejemplo siguiente:
@@ -262,9 +262,14 @@ En el ejemplo del tutorial, asigne un [nombre DNS con caracteres comodín](https
 
 #### <a name="create-the-cname-record"></a>Crear un registro CNAME
 
-Agregue un registro CNAME para asignar un nombre con caracteres comodín al nombre de dominio predeterminado de la aplicación (`<app_name>.azurewebsites.net`).
+Asigne un nombre con caracteres comodín `*` al nombre de dominio predeterminado de la aplicación (`<app-name>.azurewebsites.net`, donde `<app-name>` es el nombre de la aplicación). Para asignar el nombre con caracteres comodín, cree dos registros:
 
-En el dominio `*.contoso.com` del ejemplo, el registro CNAME asignará el nombre `*` a `<app_name>.azurewebsites.net`.
+| Tipo de registro | Host | Value | Comentarios |
+| - | - | - |
+| CNAME | `*` | `<app-name>.azurewebsites.net` | La propia asignación de dominio. |
+| TXT | `asuid` | [El identificador de comprobación que obtuvo anteriormente](#get-domain-verification-id). | App Service accede al registro TXT `asuid` para comprobar la propiedad del dominio personalizado. |
+
+En el dominio `*.contoso.com` del ejemplo, el registro CNAME asignará el nombre `*` a `<app-name>.azurewebsites.net`.
 
 Cuando se agrega CNAME, la página de registros DNS es como la del ejemplo siguiente:
 
@@ -272,7 +277,7 @@ Cuando se agrega CNAME, la página de registros DNS es como la del ejemplo sigui
 
 #### <a name="enable-the-cname-record-mapping-in-the-app"></a>Habilitación de la asignación del registro CNAME en la aplicación
 
-Ahora puede agregar cualquier subdominio que coincida con el nombre con caracteres comodín a la aplicación (por ejemplo, `sub1.contoso.com` y `sub2.contoso.com` coinciden con `*.contoso.com`).
+Ahora puede agregar cualquier subdominio que coincida con el nombre con caracteres comodín a la aplicación (por ejemplo, `sub1.contoso.com` y `sub2.contoso.com` coinciden ambos con `*.contoso.com`).
 
 En el panel de navegación izquierdo de la página de la aplicación en Azure Portal, seleccione **Dominios personalizados**.
 
@@ -342,7 +347,7 @@ El comando siguiente agrega un nombre DNS personalizado configurado a una aplica
 
 ```bash 
 az webapp config hostname add \
-    --webapp-name <app_name> \
+    --webapp-name <app-name> \
     --resource-group <resource_group_name> \
     --hostname <fully_qualified_domain_name>
 ``` 
@@ -357,9 +362,9 @@ El comando siguiente agrega un nombre DNS personalizado configurado a una aplica
 
 ```powershell  
 Set-AzWebApp `
-    -Name <app_name> `
+    -Name <app-name> `
     -ResourceGroupName <resource_group_name> ` 
-    -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net")
+    -HostNames @("<fully_qualified_domain_name>","<app-name>.azurewebsites.net")
 ```
 
 Para obtener más información, vea [Asignación de un dominio personalizado a una aplicación web](scripts/powershell-configure-custom-domain.md).

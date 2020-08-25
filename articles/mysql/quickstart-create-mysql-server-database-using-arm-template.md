@@ -1,18 +1,18 @@
 ---
-title: Creación de una instancia de Azure DB for MySQL mediante una plantilla de Resource Manager
-description: En este artículo, aprenderá a crear un servidor de Azure Database for MySQL con la integración de red virtual mediante una plantilla de Azure Resource Manager.
+title: 'Inicio rápido: Creación de una instancia de Azure DB for MySQL: plantilla de Resource Manager'
+description: En este inicio rápido, aprenderá a crear un servidor de Azure Database for MySQL con la integración de red virtual mediante una plantilla de Azure Resource Manager.
 author: mgblythe
 ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/19/2020
-ms.openlocfilehash: 72ace8a94d16b79f756c83393db2b39a1c0df714
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: ed908c4711812302fffac2e1ce59d2196426b74c
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134859"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185866"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>Inicio rápido: Uso de una plantilla de Resource Manager para crear un servidor de Azure Database for MySQL
 

@@ -2,25 +2,21 @@
 title: 'Tutorial: Integración de Azure Active Directory con Zendesk | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Zendesk.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: 9d7c91e5-78f5-4016-862f-0f3242b00680
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/26/2020
+ms.date: 08/13/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f70e7067a78b439d3dcaf0b83460296cad7b4485
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: c7d452803d15bab77df8e85a861de914a5ed08d5
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585798"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546078"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zendesk"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Zendesk
 
@@ -143,13 +139,21 @@ En esta sección, va a permitir que B.Simon acceda a Zendesk mediante el inicio 
 
 ## <a name="configure-zendesk-sso"></a>Configuración del inicio de sesión único de Zendesk
 
+1. Para automatizar la configuración en **Zendesk**, es necesario que instale la **extension del explorador de inicio de sesión seguro de Mis aplicaciones**. Para ello, haga clic en **Instalar la extensión**.
+
+    ![imagen](./media/target-process-tutorial/install_extension.png)
+
+1. Después de agregar la extensión al explorador, haga clic en **Setup Zendesk** (Configurar Zendesk) para ir a la aplicación Zendesk. Desde allí, proporcione las credenciales de administrador para iniciar sesión en Zendesk. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos 3 a 6.
+
+    ![Configuración](common/setup-sso.png)
+
 1. Si quiere configurar Zendesk manualmente, abra una nueva ventana del explorador web, inicie sesión en el sitio de empresa de Zendesk como administrador y realice los pasos siguientes:
 
-2. Haga clic en **Administrador**.
+1. Haga clic en **Administrador**.
 
-3. En el panel de navegación izquierdo, haga clic en **Settings** (Configuración) y luego en **Security** (Seguridad).
+1. En el panel de navegación izquierdo, haga clic en **Settings** (Configuración) y luego en **Security** (Seguridad).
 
-4. En la pestaña **Security** (Seguridad), lleve a cabo los pasos siguientes:
+1. En la pestaña **Security** (Seguridad), lleve a cabo los pasos siguientes:
 
     ![Seguridad](./media/zendesk-tutorial/ic773089.png "Seguridad")
 

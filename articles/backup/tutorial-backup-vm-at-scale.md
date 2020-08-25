@@ -4,12 +4,12 @@ description: En este tutorial, aprenderá a crear un almacén de Recovery Servic
 ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 7a8849bba51939a0c40cba81925e1b4b4a6e3826
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ed91105488b812131d3a908c509998c955cec299
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372559"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263425"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Uso de Azure Portal para realizar la copia de seguridad de varias máquinas virtuales
 
@@ -156,7 +156,7 @@ Si tiene previsto seguir trabajando con los tutoriales siguientes, no elimine lo
 
 1. En el panel **myRecoveryServicesVault**, seleccione **3** en **Elementos de copia de seguridad** para abrir el menú correspondiente.
 
-    ![Elementos de copia de seguridad](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
+    ![Apertura del menú Elementos de copia de seguridad](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
 
 1. En el menú **Elementos de copia de seguridad**, seleccione **Máquina virtual de Azure** para abrir la lista de máquinas virtuales asociadas con el almacén.
 
@@ -185,7 +185,7 @@ Si tiene previsto seguir trabajando con los tutoriales siguientes, no elimine lo
 
 1. Cuando ya no quede ningún elemento en el almacén, seleccione **Eliminar**.
 
-    ![Selección de Detener copia de seguridad para eliminar el almacén](./media/tutorial-backup-vm-at-scale/deleting-the-vault.png)
+    ![Seleccionar Eliminar](./media/tutorial-backup-vm-at-scale/deleting-the-vault.png)
 
     Una vez eliminado el almacén, se volverá a la lista de almacenes de Recovery Services.
 
