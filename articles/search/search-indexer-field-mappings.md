@@ -9,14 +9,16 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 543644495a99bacd40edc3f2d9151e4c15808c50
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 47a8d58d6ca0a8a04823fe09fb52490f13cfead7
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038434"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208759"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Transformaciones y asignaciones de campos mediante indexadores de Azure Cognitive Search
+
+![Fases del indexador](./media/search-indexer-field-mappings/indexer-stages-field-mappings.png "fases del indexador")
 
 Al usar indexadores de Azure Cognitive Search, habrá ocasiones en que observará que los datos de entrada no coinciden demasiado con el esquema del índice de destino. En esos casos, puede usar **asignaciones de campos** para modificar los datos durante el proceso de indexación.
 

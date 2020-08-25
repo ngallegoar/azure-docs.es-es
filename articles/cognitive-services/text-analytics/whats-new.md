@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 95e9b208159e9af41563f12ce8af7892e13f6629
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 1a5f7dcd37a970d5e039ebc38f1059839424ff68
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121857"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192023"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novedades de Text Analytics API
 
@@ -34,7 +34,7 @@ Text Analytics API se actualiza constantemente. Para mantenerse al día con los 
 Las siguientes actualizaciones son específicas de la versión de agosto de Text Analytics para el contenedor de estado únicamente.
 
 * Nueva versión de modelo de Text Analytics para estado: `2020-07-24`
-* Nueva dirección URL para enviar solicitudes de Text Analytics para estado: `http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health` 
+* Nueva dirección URL para enviar solicitudes de estado de Text Analytics: `http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health` (Tenga en cuenta que es necesario borrar la caché del explorador para poder usar la aplicación web de demostración incluida en esta nueva imagen de contenedor)
 
 Se han cambiado las siguientes propiedades en la respuesta JSON:
 
