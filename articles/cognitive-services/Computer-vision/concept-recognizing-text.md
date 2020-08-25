@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e2226f70ed3318bb370f0afee003fd9f91153a45
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 9f9ebff77f54d86c3c4ed45fb5190de1900934e9
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167882"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207219"
 ---
 # <a name="optical-character-recognition-ocr"></a>Reconocimiento óptico de caracteres (OCR)
 
@@ -28,7 +28,18 @@ Computer Vision [Read API](https://westcentralus.dev.cognitive.microsoft.com/doc
 
 ![Cómo OCR convierte imágenes y documentos en una salida estructurada con texto extraído](./Images/how-ocr-works.svg)
 
-Read API proporciona funcionalidades de OCR mediante dos operaciones: **Lectura** y **Obtención de resultados de lectura**.
+## <a name="input-requirements"></a>Requisitos de entrada
+La operación de **lectura** de Read API toma imágenes y documentos como entrada. Tienen los siguientes requisitos:
+
+* Formatos de archivos admitidos: JPEG, PNG, BMP, PDF y TIFF.
+* En el caso de los formatos PDF y TIFF, se procesan 2000 páginas como máximo. En el caso de los suscriptores del nivel Gratis, solo se procesan las dos primeras páginas.
+* El tamaño de archivo debe ser inferior a 50 MB; y sus dimensiones, de al menos 50x50 píxeles y, como máximo, de 10 000x10 000 píxeles.
+* Los archivos PDF deben tener unas dimensiones de 17x17 pulgadas como máximo, lo que se corresponde con los tamaños de papel Legal o A3 y más pequeños.
+
+> [!NOTE]
+> **Entrada de idioma** 
+>
+> La [operación de lectura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) tiene un parámetro de solicitud opcional para el lenguaje. Este es el código de idioma BCP-47 del texto del documento. La lectura admite la identificación automática del idioma y documentos multilingües, por lo que solo debe proporcionar un código de idioma si desea forzar el procesamiento del documento como ese idioma específico.
 
 ## <a name="the-read-operation"></a>Operación de lectura
 
@@ -36,7 +47,7 @@ La [operación de lectura](https://westcentralus.dev.cognitive.microsoft.com/doc
 
 |Encabezado de respuesta| Dirección URL del resultado |
 |:-----|:----|
-|Operation-Location | https://cognitiveservice/vision/v3.0-preview/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f |
+|Operation-Location | `https://cognitiveservice/vision/v3.0/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
 ## <a name="the-get-read-results-operation"></a>Operación de obtención de resultados de lectura
 
@@ -112,19 +123,6 @@ Consulte el siguiente ejemplo de una respuesta JSON correcta:
 
 Complete la guía de inicio rápido sobre [extracción de texto impreso y manuscrito](./QuickStarts/CSharp-hand-text.md) para implementar OCR mediante C# y la API de REST.
 
-## <a name="input-requirements"></a>Requisitos de entrada
-
-Los documentos y las imágenes de entrada tienen los siguientes requisitos:
-* Formatos de archivos admitidos: JPEG, PNG, BMP, PDF y TIFF.
-* En el caso de los formatos PDF y TIFF, se procesan 2000 páginas como máximo. En el caso de los suscriptores del nivel Gratis, solo se procesan las dos primeras páginas.
-* El tamaño de archivo debe ser inferior a 50 MB; y sus dimensiones, de al menos 50x50 píxeles y, como máximo, de 10 000x10 000 píxeles.
-* Los archivos PDF deben tener unas dimensiones de 17x17 pulgadas como máximo, lo que se corresponde con los tamaños de papel Legal o A3 y más pequeños.
-
-> [!NOTE]
-> **Entrada de idioma** 
->
-> La [operación de lectura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) tiene un parámetro de solicitud opcional para el lenguaje. Este es el código de idioma BCP-47 del texto del documento. La lectura admite la identificación automática del idioma y documentos multilingües, por lo que solo debe proporcionar un código de idioma si desea forzar el procesamiento del documento como ese idioma específico.
-
 ## <a name="language-support"></a>Compatibilidad con idiomas
 
 ### <a name="printed-text"></a>Texto impreso
@@ -184,6 +182,9 @@ La [API de OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991
 ## <a name="data-privacy-and-security"></a>Seguridad y privacidad de datos
 
 Al igual que sucede con todas las instancias de Cognitive Services, los desarrolladores que usan los servicios Read/OCR deben estar al tanto de las directivas de Microsoft sobre los datos de los clientes. Para más información, consulte la página de Cognitive Services en [Microsoft Trust Center](https://www.microsoft.com/trust-center/product-overview).
+
+> [!NOTE]
+> Las operaciones de reconocimiento de texto de Computer Vision 2.0 pronto estarán en desuso en favor de la nueva Read API de la que se habla en este artículo. Los clientes existentes deben [realizar la transición a operaciones de lectura](upgrade-api-versions.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

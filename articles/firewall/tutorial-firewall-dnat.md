@@ -9,10 +9,10 @@ ms.date: 03/02/2020
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 7220e48c6103352108bdb89e107bb862ee194040
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "78251499"
 ---
 # <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Tutorial: Filtrado del tráfico de entrada de Internet con la DNAT de Azure Firewall mediante Azure Portal
@@ -144,7 +144,7 @@ Al finalizar la implementación, anote la dirección IP privada de la máquina v
    |Configuración  |Value  |
    |---------|---------|
    |Nombre     |FW-DNAT-test|
-   |Subscription     |\<su suscripción\>|
+   |Subscription     |\<your subscription\>|
    |Resource group     |**Usar existente**: RG-DNAT-Test |
    |Location     |Seleccione la misma ubicación que usó anteriormente.|
    |Elegir una red virtual     |**Usar existente**: VN-Hub|

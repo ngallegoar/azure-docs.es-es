@@ -163,6 +163,10 @@
               href: howto-manage-preferences.md
             - name: Alternancia de chat en directo
               href: howto-show-hide-chat.md
+    - name: Solución de problemas
+      items: null
+      '-name': Device connections
+      href: troubleshoot-connection.md
 - name: Referencia
   items:
     - name: Azure CLI
