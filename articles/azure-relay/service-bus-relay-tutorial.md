@@ -4,10 +4,10 @@ description: En este tutorial se describe la exposición de un servicio WCF RES
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.openlocfilehash: 50628073efd7114aaacfe37177d2f5beb3be3d47
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85322689"
 ---
 # <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Tutorial: Exposición de un servicio WCF REST local a un cliente externo mediante el uso de Azure WCF Relay
