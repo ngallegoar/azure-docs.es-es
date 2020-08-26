@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d52384f04fd8a2a2bc3c42af713378ad15d01c42
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 3ec578370d32664e36ffcc4bd075c3f6a3ed68ab
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192713"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795358"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>¿Qué es el registro de autoservicio de Azure Active Directory?
 
@@ -64,7 +64,7 @@ Si se cumplen las condiciones anteriores, a continuación, se crea un usuario mi
 Para más información sobre las suscripciones de Flow y PowerApps, consulte los siguientes artículos:
 
 * [¿Cómo puedo impedir que mis usuarios existentes comiencen a utilizar Power BI?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
-* [Preguntas y respuestas sobre Flow en su organización](https://docs.microsoft.com/flow/organization-q-and-a)
+* [Preguntas y respuestas sobre Flow en su organización](/flow/organization-q-and-a)
 
 ### <a name="how-do-the-controls-work-together"></a>¿Cómo funciona los controles conjuntamente?
 Estos dos parámetros se pueden usar juntos para definir un control más preciso del registro de autoservicio. Por ejemplo, el comando siguiente permitirá a los usuarios realizar registros de autoservicio, pero solo si estos usuarios ya tienen una cuenta en Azure AD (es decir, los usuarios que necesitan crear primero una cuenta comprobada por correo electrónico no pueden realizar registros de autoservicio):
