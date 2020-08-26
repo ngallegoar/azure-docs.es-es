@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 272dd95b97c65ecc52dd73909f1ed87d5e5ae3ca
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 3c4869859e11cb6c0cc868ec9deacb3e5cb972c6
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170503"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586578"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Agregar una organización conectada en la administración de derechos de Azure AD
 
@@ -103,7 +103,7 @@ Para agregar un directorio o dominio externo de Azure AD como organización cone
 
 Si la organización conectada cambia a otro dominio, el nombre de la organización cambia o quiere cambiar los patrocinadores, puede seguir las instrucciones de esta sección para actualizar la organización conectada.
 
-**Rol necesario**: *Administrador global*, *Administrador de usuarios* o *Invitador de usuarios invitados*
+**Rol necesario**: *administrador global* o *administrador de usuarios*.
 
 1. En Azure Portal, seleccione **Azure Active Directory** y, a continuación, **Gobernanza de identidades**.
 
@@ -120,7 +120,7 @@ Si la organización conectada cambia a otro dominio, el nombre de la organizaci�
 
 Si ya no tiene una relación con un dominio o directorio externo de Azure AD, puede eliminar la organización conectada.
 
-**Rol necesario**: *Administrador global*, *Administrador de usuarios* o *Invitador de usuarios invitados*
+**Rol necesario**: *administrador global* o *administrador de usuarios*.
 
 1. En Azure Portal, seleccione **Azure Active Directory** y, a continuación, **Gobernanza de identidades**.
 
@@ -131,6 +131,10 @@ Si ya no tiene una relación con un dominio o directorio externo de Azure AD, p
     Actualmente, solo se puede eliminar una organización conectada si no hay usuarios conectados.
 
     ![Botón Eliminar de la organización conectada](./media/entitlement-management-organization/organization-delete.png)
+
+## <a name="managing-a-connected-organization-programmatically"></a>Administración de una organización conectada mediante programación
+
+También puede crear, enumerar, actualizar y eliminar organizaciones conectadas mediante Microsoft Graph. Un usuario de un rol adecuado con una aplicación con el permiso `EntitlementManagement.ReadWrite.All` delegado puede llamar a la API para administrar objetos [connectedOrganization](https://docs.microsoft.com/graph/api/resources/connectedorganization?view=graph-rest-beta) y establecer patrocinadores para ellos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

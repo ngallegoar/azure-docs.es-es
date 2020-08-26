@@ -3,12 +3,12 @@ title: Novedades de Microsoft Azure Backup Server
 description: Microsoft Azure Backup Server proporciona funcionalidades mejoradas de copia de seguridad para proteger máquinas virtuales, archivos y carpetas, cargas de trabajo, etc.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: d9d04d9f763549ce15e57f768432cd933cf1414c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a3ff38d9371ee9b95666ce638d0a6dc4b8822e20
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032449"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190840"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>Novedades de Microsoft Azure Backup Server (MABS)
 
@@ -25,7 +25,7 @@ En MABS V2 se presentó [Modern Backup Storage](backup-mabs-add-storage.md) (MB
 
 Para lograr la escala y el rendimiento mediante MBS, se recomienda usar un pequeño porcentaje (4 % del almacenamiento total) de almacenamiento flash (SSD) con MABS V3 UR1 como un volumen en capas junto con el almacenamiento en disco duros DPM. MABS V3 UR1 con almacenamiento en capas ofrece copias de seguridad entre un 50 y un 70 % más rápidas. Consulte el artículo de DPM [Configuración de MBS con almacenamiento en capas](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) para obtener los pasos de configuración el almacenamiento en capas.
 
-### <a name="support-for-refs-volumes-and-refs-volumes-with-deduplication-enabled"></a>Compatibilidad con volúmenes ReFS y volúmenes ReFS con desduplicación habilitada
+### <a name="support-for-refs-volumes"></a>Compatibilidad con volúmenes ReFS
 
 Con MABS V3 UR1, puede realizar una copia de seguridad de los volúmenes y las cargas de trabajo de ReFS implementados en el volumen ReFS. Puede realizar una copia de seguridad de las siguientes cargas de trabajo implementadas en los volúmenes ReFS:
 
@@ -36,6 +36,8 @@ Con MABS V3 UR1, puede realizar una copia de seguridad de los volúmenes y las 
 
 >[!NOTE]
 > La copia de seguridad de máquinas virtuales Hyper-V almacenadas en un volumen ReFS es compatible con MABS V3
+
+>[IMPORTANTE] Hemos detectado algunos problemas con la copia de seguridad de volúmenes de ReFS desduplicados. Estamos trabajando para corregirlos y actualizaremos esta sección en cuanto tengamos una solución disponible. Hasta entonces, vamos a quitar la compatibilidad con la copia de seguridad de volúmenes de ReFS desduplicados de MABSv3 UR1.
 
 ### <a name="azure-vmware-solution-protection-support"></a>Compatibilidad con la protección de Azure VMware Solution
 

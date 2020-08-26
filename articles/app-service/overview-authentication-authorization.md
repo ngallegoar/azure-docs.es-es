@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 8362cc3b8f8477f77d8ec672144e7c68d2e3434d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: b6984e16d1ddcee7d3f276ddcdf8c89609f14fe5
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080735"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271029"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticación y autorización en Azure App Service y Azure Functions
 
@@ -77,7 +77,7 @@ Normalmente, debe escribir código para recopilar, almacenar y actualizar estos 
 
 Los tokens de identificador, los tokens de acceso y los tokens de actualización se almacenaron en caché durante la sesión autenticada y solamente el usuario asociado puede acceder a ellos.  
 
-Si no necesita trabajar con tokens en la aplicación, puede deshabilitar el almacén de tokens.
+Si no necesita trabajar con tokens en la aplicación, puede deshabilitar el almacén de tokens en la página **Autenticación/Autorización** de la aplicación.
 
 ### <a name="logging-and-tracing"></a>Registro y seguimiento
 

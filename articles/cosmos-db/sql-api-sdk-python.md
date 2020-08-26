@@ -1,20 +1,20 @@
 ---
 title: API, SDK y recursos de Python para SQL de Azure Cosmos DB
 description: Obtenga toda la información sobre la API y el SDK de Python para SQL, incluidas la fechas de lanzamiento, fechas de retirada y cambios realizados entre las versiones del SDK de Python para Azure Cosmos DB.
-author: anfeldma-ms
+author: Rodrigossz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
-ms.date: 08/05/2020
+ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-python
-ms.openlocfilehash: 44d9521e9d02195cb1d4ff61fd519f31ce9c0018
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: e9f9daea2c0d570efb81603784ee730b11668426
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876264"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585991"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Python para Azure Cosmos DB para SQL API: Notas de la versión y recursos
 
@@ -27,7 +27,8 @@ ms.locfileid: "87876264"
 > * [SDK de Java v4](sql-api-sdk-java-v4.md)
 > * [Versión 2 del SDK de Java asincrónico](sql-api-sdk-async-java.md)
 > * [SDK de Java v2 sincrónico](sql-api-sdk-java.md)
-> * [Spring Data](sql-api-sdk-java-spring.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Conector de Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
@@ -45,6 +46,20 @@ ms.locfileid: "87876264"
 |**Plataforma admitida actualmente**|[Python 2.7](https://www.python.org/downloads/) y [Python 3.5.3+](https://www.python.org/downloads/)|
 
 ## <a name="release-history"></a>Historial de versiones
+
+### <a name="410-2020-08-10"></a>4.1.0 (10-08-2020)
+
+- Se ha agregado la advertencia de desuso para el modo de indexación "diferida". El back-end ya no permite la creación de contenedores con este modo y los establecerá en coherentes en su lugar.
+
+**Nuevas características:**
+- Se ha agregado la capacidad de establecer el TTL de almacenamiento analítico al crear un nuevo contenedor.
+
+**Correcciones de errores**
+- Se ha corregido la compatibilidad con elementos dict como entradas para las API get_client.
+- Se ha corregido la compatibilidad con Python 2/3 en los iteradores de consulta.
+- Se ha corregido el error de sugerencia de tipo (problema n.º 12570).
+- Se ha corregido un error que provocaba que los encabezados de opciones no se agregaran a la función upsert_item. Problema n.º 11791: gracias @aalapatirvbd.
+- Se ha corregido un error generado al usarse un identificador que no es de cadena en un elemento. Ahora genera TypeError en lugar de AttributeError (problema n.º 11793).
 
 ### <a name="400"></a>4.0.0
 

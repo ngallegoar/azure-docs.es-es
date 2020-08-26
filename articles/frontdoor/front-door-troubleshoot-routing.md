@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/22/2018
 ms.author: sharadag
-ms.openlocfilehash: f4310350e83284d6a2839f8c3d86526d3cda74ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40809fae312401cb62fabb10140b9bb7f60e3715
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743582"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234778"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Solución de problemas comunes de enrutamiento
 
@@ -102,7 +102,7 @@ Hay varias causas posibles para este síntoma:
          - Por ejemplo, si el back-end solo acepta solicitudes HTTP, las siguientes configuraciones serían válidas:
             - Los _protocolos aceptados_ son HTTP y HTTPS. El _protocolo de reenvío_ es HTTP. Confrontar solicitud no funcionará, ya que HTTPS es un protocolo permitido y, si llegó una solicitud como HTTPS, Front Door intentaría reenviarla mediante HTTPS.
 
-            - Los _protocolos aceptados_ son HTTP. El _protocolo de reenvío_ es confrontar solicitud o HTTPS.
+            - Los _protocolos aceptados_ son HTTP. El _protocolo de reenvío_ es Confrontar solicitud o HTTPS.
 
     - La opción _Reescritura de dirección URL_ está deshabilitada de manera predeterminada, y solo debería usar este campo si quiere restringir el ámbito de los recursos hospedados en back-end que quiera que estén disponibles. Cuando esté deshabilitado, Front Door reenviará la misma ruta de acceso de solicitud que reciba. Es posible que este campo esté mal configurado y Front Door esté solicitando un recurso del back-end que no está disponible; por tanto, devuelve un código de estado HTTP 404.
 

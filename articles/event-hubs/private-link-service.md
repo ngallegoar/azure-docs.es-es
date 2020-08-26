@@ -3,12 +3,12 @@ title: Integración de Azure Event Hubs con Azure Private Link
 description: Aprenda a integrar Azure Event Hubs con Azure Private Link
 ms.date: 07/29/2020
 ms.topic: article
-ms.openlocfilehash: 66753e51fd1e918e5659e219c5ebbe471705b3ee
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 8d6d5c13e1a5eab55998d3b98596ce845de104eb
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421115"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185475"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Permiso para acceder a los espacios de nombres de Azure Event Hubs a través de puntos de conexión privados 
 Azure Private Link le permite acceder a los servicios de Azure (por ejemplo, Azure Event Hubs, Azure Storage y Azure Cosmos DB) y a los servicios de asociados o clientes hospedados de Azure mediante un **punto de conexión privado** de la red virtual.
@@ -18,21 +18,19 @@ Un punto de conexión privado es una interfaz de red que le conecta de forma pri
 Para más información, consulte [¿Qué es Azure Private Link?](../private-link/private-link-overview.md)
 
 > [!IMPORTANT]
-> Esta característica se admite en los niveles tanto **estándar** como **dedicado**. 
-
->[!WARNING]
-> La habilitación de los puntos de conexión privados puede evitar que otros servicios de Azure interactúen con Event Hubs.
+> Esta característica se admite en los niveles tanto **estándar** como **dedicado**. No se admiten en el nivel **básico**.
 >
-> Los servicios de confianza de Microsoft no se admiten cuando se usan instancias de Virtual Network.
+> La habilitación de los puntos de conexión privados puede evitar que otros servicios de Azure interactúen con Event Hubs.  Las solicitudes que bloquean incluyen aquellas de otros servicios de Azure, desde Azure Portal, desde los servicios de registro y de métricas, etc. 
+> 
+> Estos son algunos de los servicios que no pueden tener acceso a los recursos de Event Hubs cuando están habilitados los puntos de conexión privados. Tenga en cuenta que **NO** es una lista exhaustiva.
 >
-> Estos son los escenarios comunes de Azure que no funcionan con instancias de Virtual Network (tenga en cuenta que la lista **NO** está completa).
 > - Azure Stream Analytics
 > - Enrutamientos de Azure IoT Hub
 > - Azure IoT Device Explorer
+> - Azure Event Grid
+> - Azure Monitor (configuración de diagnósticos)
 >
-> Los siguientes servicios de Microsoft deben estar en una red virtual
-> - Azure Web Apps
-> - Azure Functions
+> Como excepción, puede permitir el acceso a los recursos de Event Hubs desde determinados servicios de confianza, incluso cuando los puntos de conexión privados no están habilitados. Para ver una lista de servicios de confianza, consulte [Servicios de confianza](#trusted-microsoft-services).
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Incorporación de un punto de conexión privado mediante Azure Portal
 
@@ -105,6 +103,10 @@ Si ya tiene un espacio de nombres de Event Hubs, puede crear una conexión de v�
 12. Confirme que la conexión de punto de conexión privado que ha creado aparece en la lista de puntos de conexión. En este ejemplo, el punto de conexión privado se aprueba automáticamente porque se conectó a un recurso de Azure de su directorio y tiene permisos suficientes. 
 
     ![Punto de conexión privado creado](./media/private-link-service/private-endpoint-created.png)
+
+[!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
+
+Para permitir que los servicios de confianza accedan a su espacio de nombres, cambie a la pestaña **Firewalls y redes virtuales** de la página **Redes** y seleccione **Sí** para **¿Quiere permitir que los servicios de confianza de Microsoft puedan omitir este firewall?** 
 
 ## <a name="add-a-private-endpoint-using-powershell"></a>Incorporación de un punto de conexión privado mediante PowerShell
 En el ejemplo siguiente se muestra cómo usar Azure PowerShell para crear una conexión de punto de conexión privado. No crea un clúster dedicado. Siga los pasos de [este artículo](event-hubs-dedicated-cluster-create-portal.md) para crear un clúster de Event Hubs dedicado. 

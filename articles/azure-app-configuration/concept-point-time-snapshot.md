@@ -1,19 +1,19 @@
 ---
 title: Recuperación de pares clave-valor desde un momento dado
 titleSuffix: Azure App Configuration
-description: Recuperar pares clave-valor antiguos mediante instantáneas de un momento dado en Azure App Configuration
+description: Recupere pares clave-valor antiguos mediante instantáneas de un momento dado en Azure App Configuration, lo que mantendrá un registro de los cambios en los pares clave-valor.
 services: azure-app-configuration
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: b706b5d5ec68daa10fd6eac237b7b7416764167b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: b1d559d82cb22d8a787785c6d8c6a5101d89793a
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830122"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586637"
 ---
 # <a name="point-in-time-snapshot"></a>Instantánea en un momento dado
 

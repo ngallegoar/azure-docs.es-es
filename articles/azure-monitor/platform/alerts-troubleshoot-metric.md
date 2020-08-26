@@ -4,14 +4,14 @@ description: Problemas comunes con las alertas de métricas de Azure Monitor y p
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 08/09/2020
+ms.date: 08/13/2020
 ms.subservice: alerts
-ms.openlocfilehash: c6b7d1fb28e81957ded56662a06946e56c3dc00e
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 1c1fe613721ea2bc2d4b9665d6da73b094487efc
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114904"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190666"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solución de problemas en las alertas de métricas de Azure Monitor 
 
@@ -130,9 +130,9 @@ Para evitar que se produzca un error en la implementación al intentar validar l
         }
 ```
 
-## <a name="export-the-arm-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Exportación de la plantilla de ARM de una regla de alertas de métricas mediante Azure Portal
+## <a name="export-the-azure-resource-manager-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Exportación de la plantilla de Azure Resource Manager de una regla de alertas de métricas mediante Azure Portal
 
-La exportación de la plantilla de ARM de una regla de alertas de métricas le ayuda a conocer su sintaxis y sus propiedades JSON, y se puede usar para automatizar implementaciones futuras.
+La exportación de la plantilla de Resource Manager de una regla de alertas de métricas le ayuda a conocer su sintaxis y sus propiedades JSON, y se puede usar para automatizar implementaciones futuras.
 1. Vaya a la sección **Grupos de recursos** en el portal y seleccione el grupo de recursos que contenga la regla.
 2. En la sección de información general, active la casilla **Mostrar tipos ocultos**.
 3. En el filtro **Tipo**, seleccione *microsoft.insights/metricalerts*.
@@ -207,7 +207,7 @@ Asegúrese de usar los comandos de la CLI adecuados para las alertas de métrica
 
    - Para una métrica de plataforma: asegúrese de usar el nombre de la **métrica** de [la página de métricas admitidas de Azure Monitor](./metrics-supported.md) y no el **nombre para mostrar de la métrica**.
 
-   - Para una métrica personalizada: asegúrese de que la métrica ya se esté generando (no puede crear una regla de alerta en una métrica personalizada que todavía no existe) y de que proporcione el espacio de nombres de la métrica personalizada (consulte [en este artículo](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric) un ejemplo de plantilla de ARM).
+   - Para una métrica personalizada: asegúrese de que la métrica ya se esté generando (no puede crear una regla de alerta en una métrica personalizada que todavía no existe) y de que proporcione el espacio de nombres de la métrica personalizada (consulte [aquí](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric) un ejemplo de plantilla de Resource Manager).
 
 - Si va a crear [alertas de métricas en registros](./alerts-metric-logs.md), asegúrese de incluir las dependencias correspondientes. Consulte la [plantilla de ejemplo](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 

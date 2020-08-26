@@ -1,17 +1,17 @@
 ---
 title: Descripción del almacén de pares clave-valor de Azure App Configuration
-description: Descubra cómo se almacenan los datos de configuración en Azure App Configuration.
+description: Describa el almacenamiento de pares clave-valor en Azure App Configuration, que almacena los datos de configuración como pares clave-valor. Los pares clave-valor son una representación de la configuración de la aplicación.
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.openlocfilehash: 9a0ed747ea0c894214a633bdbc8141e95e95b5fb
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: b1998532c3d9e4272d91280d57d9ea2f6e7a262c
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830043"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586399"
 ---
 # <a name="keys-and-values"></a>Claves y valores
 

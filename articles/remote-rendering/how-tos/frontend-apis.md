@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2010
 ms.topic: how-to
-ms.openlocfilehash: c43ed412116d0cb30f7d06ba65467fd529f367ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dcff550b5411ac00dc54d2103278812f32f56543
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552699"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509984"
 ---
 # <a name="use-the-azure-frontend-apis-for-authentication"></a>Uso de las API de front-end de Azure para la autenticación
 
@@ -64,7 +64,7 @@ Las clases relevantes son ```AzureFrontend``` y ```AzureSession```. ```AzureFron
 
 Cada elemento ```AzureSession``` abierto o creado conservará una referencia al front-end que lo crea. Para apagar correctamente, todas las sesiones se deben desasignar antes que el front-end.
 
-Al desasignar una sesión, no se detendrá la VM en Azure. `AzureSession.StopAsync` se debe invocar explícitamente.
+Al desasignar una sesión, no se detendrá el servidor en Azure; `AzureSession.StopAsync` se debe invocar explícitamente.
 
 Una vez que se ha creado una sesión y su estado se ha marcado como listo, puede conectarse al entorno en tiempo de ejecución de representación remota con `AzureSession.ConnectToRuntime`.
 

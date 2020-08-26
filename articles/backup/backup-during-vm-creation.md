@@ -3,12 +3,12 @@ title: Habilitar copia de seguridad al crear una máquina virtual de Azure
 description: Describe cómo habilitar la copia de seguridad al crear una VM de Azure con Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 7fb6fd25f5031669633641ea02f34180f6f795d4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c744f6aa2bef6d3d6800aa6b6dc077915fc5205b
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032857"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586705"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Habilitar copia de seguridad al crear una máquina virtual de Azure
 
@@ -47,6 +47,9 @@ Si aún no ha iniciado sesión en su cuenta, hágalo en [Azure Portal](https://p
     - [Obtenga más información](backup-instant-restore-capability.md) sobre la funcionalidad de restauración instantánea.
 
       ![Directiva de copia de seguridad predeterminada](./media/backup-during-vm-creation/daily-policy.png)
+
+>[!NOTE]
+>[SSE y PMK son los métodos de cifrado predeterminados](backup-encryption.md) para las máquinas virtuales de Azure. Azure Backup admite la copia de seguridad y la restauración de estas máquinas virtuales de Azure.
 
 ## <a name="azure-backup-resource-group-for-virtual-machines"></a>Grupo de recursos de Azure Backup para máquinas virtuales
 

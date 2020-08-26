@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/15/2020
-ms.openlocfilehash: c0f23c864430b6cb2f49f924d5aaa8bde296037c
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 14a3a76ef4fefb7a33b272b846e1f1cb66644c3e
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135970"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225689"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Red virtual administrada de Azure Data Factory (versión preliminar)
 
@@ -82,15 +82,11 @@ Los orígenes de datos siguientes pueden establecer una conexión a través de u
 - Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse)
 - Azure CosmosDB SQL
 - Azure Key Vault
-- Azure Private Link
+- Servicio Azure Private Link
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Comunicaciones salientes a través del punto de conexión público desde la red virtual administrada de ADF
 - Solo se abre el puerto 443 para las comunicaciones salientes.
 - Azure Storage y Azure Data Lake Gen2 no pueden establecer una conexión a través del punto de conexión público desde la red virtual administrada de ADF.
-
-### <a name="other-known-issues"></a>Otros problemas conocidos
-La ejecución de depuración para la conectividad de CosmosDB no funciona, incluidas la depuración del flujo de datos y la de canalización.
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

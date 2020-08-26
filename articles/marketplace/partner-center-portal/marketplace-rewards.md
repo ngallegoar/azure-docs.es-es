@@ -8,12 +8,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 25a164fc8709d7c9f6249336ece34bd8a5378f23
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 702486a0728a7394d8d8febffc11b11bc113a030
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496022"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606747"
 ---
 # <a name="marketplace-rewards"></a>Recompensas de Marketplace
 
@@ -27,7 +27,7 @@ Un miembro del equipo de Recompesas se pondrá en contacto con usted cuando se p
 
 En el caso de los asociados de transacciones, a medida que aumenta las ventas facturadas a través de la plataforma de Marketplace, se desbloquean mayores ventajas por nivel.
 
-El requisito mínimo para publicar en los escaparates es un MPNID, por lo que estas ventajas están disponibles para todos los asociados, con independencia del estado de la competencia de MPN o del tipo de asociado. Cada asociado está capacitado para hacer crecer su negocio con Marketplace como plataforma.
+El requisito mínimo para publicar en las tiendas en línea es un MPNID, por lo que estas ventajas están disponibles para todos los asociados, con independencia del estado de la competencia de MPN o del tipo de asociado. Cada asociado está capacitado para hacer crecer su negocio con Marketplace como plataforma.
 
 Obtendrá ayuda para entender los recursos que tiene disponibles y en la implementación de los procedimientos recomendados, lo que también puede [revisar por su cuenta.](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)
 

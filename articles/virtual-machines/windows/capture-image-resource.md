@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: d1cd4a25a2a9f07c75976d5eb5c97ba450ffdabb
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e579223691ed7593d04c3b67004a6dd511f72c78
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284649"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236614"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Captura de una imagen administrada de una máquina virtual generalizada en Azure
 
@@ -39,13 +39,15 @@ Para generalizar la máquina virtual de Windows, siga estos pasos:
 
 1. Inicie sesión en la máquina virtual Windows.
    
-2. Abra una ventana de símbolo del sistema como administrador. Cambie el directorio a %windir%\system32\sysprep, y, después, ejecute `sysprep.exe`.
+2. Abra una ventana de símbolo del sistema como administrador. 
+
+3. Elimine el directorio de Panther (C:\Windows\Panther). Luego, sustitúyalo por %windir%\system32\sysprep, y, después, ejecute `sysprep.exe`.
    
-3. En **Herramienta de preparación del sistema**, seleccione **Iniciar la Configuración rápida (OOBE)** y active la casilla **Generalizar**.
+4. En **Herramienta de preparación del sistema**, seleccione **Iniciar la Configuración rápida (OOBE)** y active la casilla **Generalizar**.
    
-4. En **Opciones de apagado**, seleccione **Apagar**.
+5. En **Opciones de apagado**, seleccione **Apagar**.
    
-5. Seleccione **Aceptar**.
+6. Seleccione **Aceptar**.
    
     ![Iniciar Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 

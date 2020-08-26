@@ -1,14 +1,14 @@
 ---
 title: Administración de áreas de trabajo de Azure Sentinel a gran escala
 description: Obtenga información sobre cómo a administrar de forma eficaz Azure Sentinel en recursos delegados de clientes.
-ms.date: 06/17/2020
+ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: fc6d66a31ed46766bbe664fd8656792c97ff69fd
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 1734efb57b18cfc559144b13aaecb882612ca73b
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163244"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511259"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Administración de áreas de trabajo de Azure Sentinel a gran escala
 
@@ -69,9 +69,9 @@ Puede implementar libros en el inquilino de administración y crear paneles a es
 
 También puede implementar libros directamente en un inquilino individual que administra para escenarios específicos de ese cliente.
 
-## <a name="run-queries-across-azure-sentinel-workspaces"></a>Ejecución de consultas en áreas de trabajo de Azure Sentinel
+## <a name="run-log-analytics-and-hunting-queries-across-azure-sentinel-workspaces"></a>Ejecución de Log Analytics y consultas de búsqueda en áreas de trabajo de Azure Sentinel
 
-Puede crear y guardar consultas de los análisis de registros para la detección de amenazas de forma centralizada en el inquilino de administración. Estas consultas se pueden realizar en todas las áreas de trabajo de Azure Sentinel de sus clientes mediante el operador de unión y la expresión de área de trabajo (). Para obtener más información consulte [Consultas entre áreas de trabajo](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
+Puede crear y guardar consultas de Log Analytics para la detección de amenazas de forma centralizada en el inquilino de administración, incluidas las [consultas de búsqueda](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-hunting). Estas consultas se pueden realizar en todas las áreas de trabajo de Azure Sentinel de sus clientes mediante el operador de unión y la expresión de área de trabajo (). Para obtener más información consulte [Consultas entre áreas de trabajo](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
 
 ## <a name="use-automation-for-cross-workspace-management"></a>Usar la automatización para la administración entre áreas de trabajo
 

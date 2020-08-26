@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: c09dca8b5927e417714ef89393950cfb58c89020
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: dda61b81ee2c357ddac29701832fe4780ea06859
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042282"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516306"
 ---
 # <a name="set-up-email-notifications-for-security-alerts"></a>Configuración de notificaciones de alertas de seguridad por correo electrónico 
 
@@ -32,6 +32,9 @@ Para evitar un exceso de alertas, Security Center limita el volumen de correos s
 - un máximo de **dos** correos electrónicos al día para alertas de **gravedad media**
 - un máximo de **un** correo electrónico al día para alertas de **gravedad baja**
 
+
+:::image type="content" source="./media/security-center-provide-security-contacts/email-notification-settings.png" alt-text="Configuración de los detalles de los contactos que recibirán correos electrónicos sobre las alertas de seguridad" :::
+
 ## <a name="availability"></a>Disponibilidad
 
 |Aspecto|Detalles|
@@ -41,8 +44,6 @@ Para evitar un exceso de alertas, Security Center limita el volumen de correos s
 |Roles y permisos necesarios:|**Administrador de seguridad**<br>**Propietario de la suscripción** |
 |Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov (parcial)<br>![No](./media/icons/no-icon.png) China Gov, otros gobiernos|
 |||
-
-
 
 
 ## <a name="set-up-email-notifications-for-alerts"></a>Configuración de notificaciones de correo electrónico para alertas <a name="email"></a>
@@ -64,3 +65,4 @@ Para más información sobre las alertas de seguridad, consulte los siguientes r
 
 * [Alertas de seguridad: una guía de referencia](alerts-reference.md): obtenga información sobre las alertas de seguridad que puede ver en el módulo de protección contra amenazas de Azure Security Center.
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md): aprenda a administrar y responder a alertas de seguridad.
+* [Automatización de flujos de trabajo](workflow-automation.md): automatice respuestas a alertas con lógica de notificación personalizada

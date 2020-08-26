@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7452a08125008e3d25ffb7d0eff59f55ca9be0b1
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 88a0239409d29700d95b8949c1499dd30f50bb5f
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372661"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510732"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Escenarios de Azure Disk Encryption en máquinas virtuales Linux
 
@@ -413,7 +413,7 @@ Azure Disk Encryption no funciona en los siguientes escenarios, características
 - Una máquina virtual con "puntos de montaje anidados", es decir, varios puntos de montaje en una sola ruta de acceso (como "/1stmountpoint/data/2stmountpoint").
 - Una máquina virtual con una unidad de datos montada en la parte superior de una carpeta de sistema operativo.
 - Máquinas virtuales de la serie M con discos de Acelerador de escritura.
-- Aplicación de ADE a una VM que tiene un disco de datos cifrado con el [cifrado del lado del servidor con claves administradas por el cliente](disk-encryption.md) (SSE + CMK) o la aplicación de SSE + CMK a un disco de datos en una VM cifrada con ADE.
+- La aplicación de ADE a una máquina virtual que tiene, o que *siempre* ha tenido, los discos cifrados con el [cifrado del lado servidor con claves administradas por el cliente](disk-encryption.md) (SSE + CMK). La aplicación de SSE + CMK a un disco de datos en una máquina virtual cifrada con ADE tampoco es un escenario admitido.
 - Migración de una VM cifrada con ADE al [cifrado del lado servidor con claves administradas por el cliente](disk-encryption.md).
 
 ## <a name="next-steps"></a>Pasos siguientes

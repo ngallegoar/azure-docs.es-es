@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 8b2b62ac4d79964c0a597f40d8154e5f57350f0b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 9db8a0397c836e8cbc45404d9c4f149255fc76fa
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031088"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271063"
 ---
 # <a name="monitor-azure-file-sync"></a>Supervisión de Azure File Sync
 
@@ -135,7 +135,7 @@ Usar el registro Eventos de telemetría en el servidor para supervisar el servid
 
 Estado de la sincronización
 
-- El id. de evento 9102 se registra una vez finalizada una sesión de sincronización. Use este evento para determinar si las sesiones de sincronización son correctas (**HResult = 0**) y si hay errores de sincronización por elemento. Para obtener más información, consulte la documentación [estado de la sincronización](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) y [errores por elemento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
+- El id. de evento 9102 se registra una vez finalizada una sesión de sincronización. Use este evento para determinar si las sesiones de sincronización son correctas (**HResult = 0**) y si hay errores de sincronización por elemento (**PerItemErrorCount**). Para obtener más información, consulte la documentación [estado de la sincronización](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) y [errores por elemento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
 
   > [!Note]  
   > A veces, las sesiones de sincronización producen un error general o tienen un elemento PerItemErrorCount distinto de cero. Sin embargo, aún así hacen progresos y algunos archivos se sincronizan correctamente. Se puede observar esto en campos Applied como, por ejemplo, AppliedFileCount, AppliedDirCount, AppliedTombstoneCount y AppliedSizeBytes. Estos campos indican qué parte de la sesión se ha realizado correctamente. Si ve varias sesiones de sincronización seguidas que producen un error pero que tienen un número cada vez mayor de campos Applied, debe dar tiempo para que se vuelva a intentar la sincronización antes de abrir una incidencia de soporte técnico.
@@ -156,12 +156,13 @@ Estado de la nube por niveles
   - El identificador de evento 9016 proporciona resultados de conversión en fantasma para un volumen. Por ejemplo: el porcentaje de espacio libre, el Número de archivos reflejados en la sesión y el Número de archivos no reflejados.
   - El id. de evento 9029 proporciona información de la sesión de conversión en fantasma para el punto de conexión de un servidor. Por ejemplo: el Número de archivos que se han intentado en la sesión, el Número de archivos organizados en niveles de la sesión y el Número de archivos ya organizados en niveles.
   
-- Para supervisar la actividad de recuperación en un servidor, use los id. de evento 9005, 9006, 9009 y 9059 en el registro de Eventos de telemetría, ubicado en el Visor de eventos en *Applications and Services\Microsoft\FileSync\Agent*.
+- Para supervisar la actividad de recuperación en un servidor, use los id. de evento 9005, 9006, 9009, 9059 y 9071 en el registro de Eventos de telemetría, ubicado en el Visor de eventos en *Aplicaciones y servicios\Microsoft\FileSync\Agent*.
 
   - El identificador de evento 9005 proporciona confiabilidad de recuperación a un punto de conexión de servidor. Por ejemplo: el Total de archivos únicos a los que se puede acceder y el Total de archivos únicos con acceso erróneo.
   - El identificador de evento 9006 proporciona una distribución de errores de recuperación a un punto de conexión de servidor. Por ejemplo: Total de solicitudes con error y ErrorCode. Se registra un evento por código de error.
   - El id. de evento 9009 proporciona información de la sesión de recuperación para un punto de conexión de servidor. Por ejemplo: DurationSeconds, CountFilesRecallSucceeded y CountFilesRecallFailed.
   - El id. de evento 9059 proporciona una distribución de recuperación de aplicación para un punto de conexión de servidor. Por ejemplo: ShareId, Nombre de la aplicación y TotalEgressNetworkBytes.
+  - El identificador de evento 9071 proporciona la eficiencia de la nube por niveles para un punto de conexión de servidor. Por ejemplo: TotalDistinctFileCountCacheHit, TotalDistinctFileCountCacheMiss, TotalCacheHitBytes y TotalCacheMissBytes.
 
 ### <a name="performance-counters"></a>Contadores de rendimiento
 
@@ -194,7 +195,7 @@ En esta sección se proporcionan varias alertas de ejemplo para Azure File Sync.
 4. Configure la condición, para lo que debe hacer clic en **Seleccionar condición**.
 5. En la hoja **Configurar lógica de señal**, haga clic en **Sync session result** (Resultado de la sesión de sincronización) en el nombre de la señal.  
 6. Seleccione la siguiente configuración de la dimensión: 
-    - Nombre de dimensión: **Nombre de punto de conexión del servidor**  
+    - Nombre de la dimensión: **Nombre del punto de conexión del servidor**  
     - Operador: **=** 
     - Valores de la dimensión: **Todos los valores actuales y futuros**  
 7. Vaya a **Lógica de alerta** y complete los siguientes valores: 
@@ -212,7 +213,7 @@ En esta sección se proporcionan varias alertas de ejemplo para Azure File Sync.
 
 1. En **Azure Portal**, vaya al **servicio de sincronización de almacenamiento** respectivo. 
 2. Vaya a la sección **Supervisión** y haga clic en **Alertas**. 
-3. Haga clic en **+ Nueva regla de alertas** para crear una regla de alertas. 
+3. Haga clic en **+ Nueva regla de alertas** para crear una regla de alertas. 
 4. Configure la condición, para lo que debe hacer clic en **Seleccionar condición**.
 5. En la hoja **Configurar lógica de señal**, haga clic en **Archivos que no se están sincronizando** en el nombre de la señal.  
 6. Seleccione la siguiente configuración de la dimensión: 

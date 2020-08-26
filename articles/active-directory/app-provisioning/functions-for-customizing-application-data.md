@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: kenwith
-ms.openlocfilehash: 8afe6ad23f0e23e2b9ab772f5526c63d307fa88b
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: d454ab3ad382c6237ab9f8c215473801285ba3c9
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003237"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235679"
 ---
 # <a name="how-to-write-expressions-for-attribute-mappings-in-azure-ad"></a>Procedimiento: Escritura de expresiones para la asignación de atributos en Azure AD
 
@@ -193,7 +193,7 @@ devuelve un valor DateTime que representa 2012-01-01 23:00:00.
 | Nombre | Obligatorio/Repetición | Tipo | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |String |Normalmente el nombre del atributo del objeto de origen. |
-| **inputFormat** |Obligatorio |String |Formato esperado del valor de origen. Para conocer los formatos admitidos, consulte [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **inputFormat** |Obligatorio |String |Formato esperado del valor de origen. Para conocer los formatos admitidos, consulte [/dotnet/standard/base-types/custom-date-and-time-format-strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 | **outputFormat** |Obligatorio |String |Formato de la fecha de salida. |
 
 ---
@@ -394,7 +394,7 @@ Devuelve "Joh".
 ### <a name="numfromdate"></a>NumFromDate
 **Función:**<br> NumFromDate(value)
 
-**Descripción:**<br> La función NumFromDate convierte un valor DateTime a un formato de Active Directory necesario para establecer atributos como [accountExpires](https://docs.microsoft.com/windows/win32/adschema/a-accountexpires). Use esta función para convertir valores DateTime recibidos de aplicaciones de recursos humanos en la nube, como WorkDay y SuccessFactors, a su representación de AD equivalente. 
+**Descripción:**<br> La función NumFromDate convierte un valor DateTime a un formato de Active Directory necesario para establecer atributos como [accountExpires](/windows/win32/adschema/a-accountexpires). Use esta función para convertir valores DateTime recibidos de aplicaciones de recursos humanos en la nube, como WorkDay y SuccessFactors, a su representación de AD equivalente. 
 
 **Parámetros:**<br> 
 

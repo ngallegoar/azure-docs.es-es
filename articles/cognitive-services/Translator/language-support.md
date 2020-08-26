@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 4e4200e291db81ff759e21eac5b1a9b785b5657f
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: d692daf2f7f8b77358e73246fd8d8760f95982ac
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888302"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510800"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Compatibilidad de idiomas y regiones con la traducción de texto y voz
 
-Use Translator para traducir a y desde cualquiera de los más de 60 idiomas de traducción de texto. La traducción automática neuronal (NMT) es el nuevo estándar de traducción automática de alta calidad con tecnologías de inteligencia artificial, y está disponible de forma predeterminada con la versión V3 de Translator cuando hay un sistema neuronal disponible.
+Use Translator para traducir a y desde cualquiera de los más de 70 idiomas de traducción de texto. La traducción automática neuronal (NMT) es el nuevo estándar de traducción automática de alta calidad con tecnologías de inteligencia artificial, y está disponible de forma predeterminada con la versión V3 de Translator cuando hay un sistema neuronal disponible.
 
 También puede usar Translator junto con Traductor personalizado para compilar sistemas de traducción neuronal que entiendan la terminología que se usa en su empresa y su sector y con Servicio Voz de Microsoft para agregar traducción de voz a la aplicación.
 
@@ -47,6 +47,7 @@ Translator admite los siguientes idiomas para la traducción de texto a texto.
 |Chino tradicional|   `zh-Hant`       |
 |Croata|  `hr`    |
 |Checo| `cs`    |
+|Dari|  `prs`   |
 |Danés|    `da`        |
 |Neerlandés| `nl`|
 |Inglés|   `en`    |
@@ -83,6 +84,8 @@ Translator admite los siguientes idiomas para la traducción de texto a texto.
 |Maori| `mi`  |
 |Maratí| `mr`  |
 |Noruego| `nb`    |
+|Odia|  `or`    |
+|Pastún|    `ps`    |
 |Persa|   `fa`    |
 |Polaco|    `pl`    |
 |Portugués (Brasil)|   `pt-br` |
