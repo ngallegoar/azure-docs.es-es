@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: cc2f6d6a4a65cc2ada44c0b415b51735043096f7
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: e33b912ab65a3565e42c294388949a5c55b4ee8a
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165607"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88683766"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API mediante la identidad de la consola de aplicación
 
@@ -202,7 +202,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 > |---------|---------|
 > | `config.ClientSecret` | Es el secreto de cliente creado para la aplicación en Azure Portal. |
 > | `config.ClientId` | Es el **Identificador de aplicación (cliente)** de la aplicación registrada en Azure Portal. Puede encontrar este valor en la página **Información general** de la aplicación en Azure Portal. |
-> | `config.Authority`    | (Opcional) El punto de conexión STS del usuario que se autenticará. Normalmente <https://login.microsoftonline.com/{tenant}> en la nube pública, donde {tenant} es el nombre o el identificador del inquilino.|
+> | `config.Authority`    | (Opcional) El punto de conexión STS del usuario que se autenticará. Normalmente `https://login.microsoftonline.com/{tenant}` en la nube pública, donde {tenant} es el nombre o el identificador del inquilino.|
 
 Para más información, consulte la [documentación de referencia de `ConfidentialClientApplication`](/dotnet/api/microsoft.identity.client.iconfidentialclientapplication?view=azure-dotnet).
 

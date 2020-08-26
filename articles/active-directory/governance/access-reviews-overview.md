@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: 956e61894113b4728760de519ad49be71ed184cc
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: c69a5e153377eee86eaf0c43d6c982dee2938ddf
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605005"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783678"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>¿Qué son las revisiones de acceso de Azure AD?
 
@@ -81,7 +81,7 @@ El directorio debe tener al menos tantas licencias de Azure AD Premium P2 como
 
 Las licencias de Azure AD Premium P2 **no** son necesarias para los usuarios con los roles Administrador global o Administrador de usuarios que configuran revisiones de acceso, realizan configuraciones o aplican las decisiones a partir de los resultados de las revisiones.
 
-Por cada licencia de Azure AD Premium P2 de pago que asigne a uno de los usuarios de la organización, puede usar la colaboración negocio a negocio (B2B) Azure AD para invitar hasta a cinco usuarios, gracias a la concesión de usuarios externos. Los usuarios invitados también pueden usar las características de Azure AD Premium P2. Para más información, consulte [Guía de concesión de licencias de colaboración B2B de Azure Active Directory](../b2b/licensing-guidance.md).
+Por cada licencia de Azure AD Premium P2 de pago que asigne a uno de los usuarios de la organización, puede usar la colaboración negocio a negocio (B2B) Azure AD para invitar hasta a cinco usuarios, gracias a la concesión de usuarios externos. Los usuarios invitados también pueden usar las características de Azure AD Premium P2. Para más información, consulte [Guía de concesión de licencias de colaboración B2B de Azure Active Directory](../external-identities/licensing-guidance.md).
 
 Para más información sobre las licencias, consulte [Asignación o eliminación de licencias mediante el portal de Azure Active Directory](../fundamentals/license-users-groups.md).
 

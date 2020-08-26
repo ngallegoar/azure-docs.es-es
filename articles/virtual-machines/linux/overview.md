@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0d4c5a33f52799ea4da9c7c23fbace94e800660b
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b205665a0e5fc06fdc784efa91036f26da5d3cde
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589476"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654351"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Máquinas virtuales Linux en Azure
 
@@ -71,7 +71,7 @@ Su suscripción tiene [límites de cuota](../../azure-resource-manager/managemen
 
 El servicio Managed Disks controla la creación y administración de las cuentas de almacenamiento de Azure Storage en segundo plano y se asegura de que no tenga que preocuparse de los límites de escalabilidad de la cuenta de almacenamiento. Especifique el tamaño del disco y el nivel de rendimiento (Estándar o Premium), y Azure crea y administra el disco. Al agregar discos o escale y reduzca la máquina virtual no tendrá que preocuparse por el almacenamiento que se va a usar. Si está creando nuevas máquinas virtuales, [use la CLI de Azure](quick-create-cli.md) o Azure Portal para crear máquinas virtuales con sistema operativo administrado y discos de datos. Si tiene máquinas virtuales con discos no administrados, puede [convertir las máquinas virtuales para realizar copias de seguridad con Managed Disks](convert-unmanaged-to-managed-disks.md).
 
-También puede administrar sus imágenes personalizadas en una cuenta de almacenamiento por región de Azure y utilizarlas para crear cientos de máquinas virtuales en la misma suscripción. Para más información acerca de Managed Disks, consulte [Introducción a Azure Managed Disks](../linux/managed-disks-overview.md).
+También puede administrar sus imágenes personalizadas en una cuenta de almacenamiento por región de Azure y utilizarlas para crear cientos de máquinas virtuales en la misma suscripción. Para más información acerca de Managed Disks, consulte [Introducción a Azure Managed Disks](../managed-disks-overview.md).
 
 ## <a name="distributions"></a>Distribuciones 
 Microsoft Azure permite ejecutar varias de las distribuciones de Linux más populares proporcionadas y mantenidas por diversos asociados.  Entre otras cosas, puede encontrar distribuciones como Red Hat Enterprise, CentOS, SUSE Linux Enterprise, Debian, Ubuntu, CoreOS, RancherOS y FreeBSD en Azure Marketplace. Microsoft trabaja activamente con distintas comunidades de Linux para agregar aún más tipos a la lista de [distribuciones de Linux aprobadas para Azure](endorsed-distros.md).

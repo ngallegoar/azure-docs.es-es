@@ -1,18 +1,18 @@
 ---
 title: ¿Qué es Azure Lighthouse?
 description: Azure Lighthouse permite a los proveedores de servicios ofrecer servicios administrados para sus clientes con mayor automatización y eficacia a escala.
-ms.date: 08/12/2020
+ms.date: 08/19/2020
 ms.topic: overview
-ms.openlocfilehash: f65411c03725058e8aa6491245ffd94987efa6c9
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: d21d11d1316b177f38b6bce197dec4f2c3d3fac8
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163227"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660740"
 ---
 # <a name="what-is-azure-lighthouse"></a>¿Qué es Azure Lighthouse?
 
-Azure Lighthouse ofrece un plano de control único para ver y administrar los recursos de Azure a través de varios inquilinos con una mayor automatización y escalado, y una gobernanza mejorada. Con Azure Lighthouse, los proveedores de servicios pueden ofrecer servicios administrados mediante herramientas de administración completas y sólidas integradas en la plataforma Azure. Esta oferta también puede ayudar a las organizaciones de TI empresariales a administrar recursos en varios inquilinos.
+Azure Lighthouse permite la administración de varios inquilinos, lo que proporciona no solo unas mayores automatización y escalabilidad, sino también una mejor gobernanza de recursos e inquilinos. Con Azure Lighthouse, los proveedores de servicios pueden ofrecer servicios administrados mediante herramientas de administración completas y sólidas integradas en la plataforma Azure. Esta oferta también puede ayudar a las organizaciones de TI empresariales a administrar recursos en varios inquilinos.
 
 ![Diagrama de información general de Azure Lighthouse](media/azure-lighthouse-overview.jpg)
 

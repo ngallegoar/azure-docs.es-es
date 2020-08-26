@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/14/2020
 ms.author: victorh
-ms.openlocfilehash: 7e89188e7ebc979c403b86ee26c876e8c40aa208
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 41190cd52e29b187182589f93e9d494d05943cf8
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260557"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705442"
 ---
 # <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---arm-template"></a>Inicio rápido: Creación de una instancia de Azure Firewall con varias direcciones IP públicas: plantilla de Resource Manager
 
@@ -37,7 +37,7 @@ Esta plantilla crea una instancia de Azure Firewall con dos grupos de direccione
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/fw-docs-qs).
 
-:::code language="json" source="~/quickstart-templates/fw-docs-qs/azuredeploy.json" range="001-391" highlight="238-370":::
+:::code language="json" source="~/quickstart-templates/fw-docs-qs/azuredeploy.json":::
 
 En la plantilla se definen varios recursos de Azure:
 
