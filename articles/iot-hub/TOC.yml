@@ -53,6 +53,9 @@
           href: quickstart-device-streams-proxy-nodejs.md
         - name: C
           href: quickstart-device-streams-proxy-c.md
+    - name: Enrutamiento automático de mensajes mediante una plantilla de Resource Manager
+      displayName: Resource Manager
+      href: horizontal-arm-route-messages.md
 - name: Tutoriales
   items:
     - name: Enrutamiento de mensajes
@@ -417,7 +420,7 @@
               href: iot-hub-troubleshoot-error-504101-gatewaytimeout.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/azure-cli-reference-for-IoT
     - name: Azure PowerShell
       href: /powershell/module/az.iothub#iothub

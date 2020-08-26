@@ -1,4 +1,4 @@
-- name: Información general
+- name: Introducción
   items:
     - name: Introducción
       href: get-started.md
@@ -227,6 +227,8 @@
               href: high-availability-guide-rhel-netapp-files.md
         - name: Varios SID de SAP
           items:
+            - name: Windows con disco compartido de Azure para instancias de (A)SCS
+              href: sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md
             - name: Windows con disco compartido para instancias de (A)SCS
               href: sap-ascs-ha-multi-sid-wsfc-shared-disk.md
             - name: Windows con uso compartido de archivos SOFS para instancias de (A)SCS

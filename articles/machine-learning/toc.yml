@@ -509,6 +509,8 @@
       href: monitor-resource-reference.md
     - name: Referencia de YAML de la canalización del aprendizaje automático
       href: reference-pipeline-yaml.md
+    - name: Paridad de nubes soberanas
+      href: reference-machine-learning-cloud-parity.md
 - name: Recursos
   items:
     - name: Notas de la versión
