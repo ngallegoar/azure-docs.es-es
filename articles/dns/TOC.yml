@@ -41,6 +41,10 @@
           href: tutorial-alias-rr.md
 - name: Conceptos
   items:
+    - name: Seguridad
+      items:
+        - name: Línea de base de seguridad
+          href: security-baseline.md
     - name: DNS público
       items:
         - name: Zonas y registros

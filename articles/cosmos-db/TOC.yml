@@ -510,6 +510,8 @@
           href: unique-keys.md
         - name: Transacciones y control de simultaneidad optimista
           href: database-transactions-optimistic-concurrency.md
+        - name: Datos adjuntos
+          href: attachments.md
     - name: Fuente de cambios
       items:
         - name: Introducción a la fuente de cambios
