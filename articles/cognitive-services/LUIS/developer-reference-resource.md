@@ -3,13 +3,13 @@ title: 'Recursos para desarrolladores: Language Understanding'
 description: Los SDK, las API REST o la CLI le ayudan a desarrollar aplicaciones de Language Understanding (LUIS) en su lenguaje de programación. Administre los recursos de Azure y predicciones de LUIS.
 ms.topic: reference
 ms.date: 05/19/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 01cbaf5a7e8eb733680381da21a7b1f9aa5c2cea
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 759111ee7e77ce00fec3762b1a20494c2771ef8f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236002"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88931206"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Recursos de desarrolladores de SDK, REST y CLI para Language Understanding (LUIS)
 
