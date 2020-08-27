@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 0a24339d728c43817b6a7ae6eac8782ad0e27b09
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 46568bf3969d050fd964c85278debd9d599db266
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142526"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796568"
 ---
 # <a name="features"></a>Características
 
@@ -90,7 +90,7 @@ Se admiten todos los tipos de parámetro de búsqueda.
 | `_security`             | Sí       | Sí       | Sí       |         |
 | `_text`                 | No        | No        | No        |         |
 | `_content`              | No        | No        | No        |         |
-| `_list`                 | No        | Sí       | Sí       |         |
+| `_list`                 | Sí       | Sí       | Sí       |         |
 | `_has`                  | No        | No        | No        |         |
 | `_type`                 | Sí       | Sí       | Sí       |         |
 | `_query`                | No        | No        | No        |         |

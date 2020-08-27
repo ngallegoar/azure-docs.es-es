@@ -8,16 +8,16 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 1e5269333de27c146d4b9e2040801c4b14564125
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 06e25e1426f206a4542444f57954ed4859a11142
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562624"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927143"
 ---
 # <a name="upgrade-to-the-latest-azure-cognitive-search-service-rest-api-version"></a>Actualización a la versión más reciente de la API de REST del servicio Búsqueda cognitiva de Azure
 
-Si usa una versión anterior de la [API REST de Search](https://docs.microsoft.com/rest/api/searchservice/), este artículo lo ayudará a actualizar la aplicación para que use la versión más reciente de la API disponible con carácter general, 2020-06-30.
+Si usa una versión anterior de la [API REST de Search](/rest/api/searchservice/), este artículo lo ayudará a actualizar la aplicación para que use la versión más reciente de la API disponible con carácter general, 2020-06-30.
 
 La versión 2020-06-30 de la API REST contiene algunos cambios con respecto a versiones anteriores. Se trata principalmente de cambios compatibles con versiones anteriores, por lo que cambiar el código apenas debe exigir esfuerzo, según la versión que utilizaba antes. En [Pasos para la actualización](#UpgradeSteps) se describen los cambios de código necesarios para usar nuevas características.
 
@@ -32,7 +32,7 @@ Al actualizar a versiones nuevas, es probable que no tenga que hacer ningún cam
 
 * Se produce un error en el código cuando se devuelven propiedades no reconocidas en una respuesta de la API. De forma predeterminada, la aplicación debe omitir propiedades que no comprende.
 
-* El código conserva las solicitudes de API e intenta volver a enviarlas a la nueva versión de API. Por ejemplo, esto podría suceder si la aplicación conserva tokens de continuación devueltos por la API de búsqueda (para más información, busque `@search.nextPageParameters` en la [referencia de la API de búsqueda](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)).
+* El código conserva las solicitudes de API e intenta volver a enviarlas a la nueva versión de API. Por ejemplo, esto podría suceder si la aplicación conserva tokens de continuación devueltos por la API de búsqueda (para más información, busque `@search.nextPageParameters` en la [referencia de la API de búsqueda](/rest/api/searchservice/Search-Documents)).
 
 * El código hace referencia a una versión de API anterior a la versión 2019-05-06 y que está sujeta a uno o varios de los cambios importantes de esa versión. La sección [Actualización a 2019-05-06](#upgrade-to-2019-05-06) proporciona más detalles. 
 
@@ -146,4 +146,4 @@ Puede actualizar índices "planos" al formato nuevo mediante los pasos siguiente
 Revise la documentación de referencia de la API de REST del servicio Search. Si tiene algún problema, puede solicitar ayuda en [Stack Overflow](https://stackoverflow.com/) o [ponerse en contacto con el servicio de soporte técnico](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
-> [Referencia de la API de REST del servicio Search](https://docs.microsoft.com/rest/api/searchservice/)
+> [Referencia de la API de REST del servicio Search](/rest/api/searchservice/)
