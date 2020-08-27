@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: iainfou
-ms.openlocfilehash: 50a8e4f6d966a63a8e727dbacefbc7bb21f5f98b
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 893085179c27ce88c3e310170715e2f83a59ddc7
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506335"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723170"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Cree un bosque de recursos de Azure Active Directory Domain Services y una confianza de bosque de salida en un dominio local mediante Azure PowerShell
 
@@ -148,15 +148,15 @@ Antes de empezar, asegúrese de que comprende las [consideraciones y recomendaci
 
 1. Cree la conectividad híbrida en su red local de Azure mediante una VPN de Azure o una conexión de Azure ExpressRoute. La configuración de red híbrida está fuera del ámbito de esta documentación y puede que ya exista en su entorno. Para obtener más información sobre escenarios específicos, consulte los siguientes artículos:
 
-    * [VPN de sitio a sitio de Azure](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-    * [Información general de Azure ExpressRoute](/azure/expressroute/expressroute-introduction).
+    * [VPN de sitio a sitio de Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+    * [Información general de Azure ExpressRoute](../expressroute/expressroute-introduction.md).
 
     > [!IMPORTANT]
     > Si crea la conexión directamente en la red virtual de su dominio administrado, use una subred de puerta de enlace independiente. No cree la puerta de enlace en la subred del dominio administrado.
 
 1. Para administrar un dominio administrado, cree una VM de administración, únase al dominio administrado e instale las herramientas de administración de AD DS necesarias.
 
-    Mientras se implementa el bosque de recursos del dominio administrado, [cree una VM de Windows Server](https://docs.microsoft.com/azure/active-directory-domain-services/join-windows-vm); a continuación, [instale las herramientas de administración del núcleo de AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-management-vm) y así poder instalar las herramientas de administración necesarias. Espere a unir la VM de administración al dominio administrado hasta que llegue a uno de los siguientes pasos después de implementar correctamente el dominio.
+    Mientras se implementa el bosque de recursos del dominio administrado, [cree una VM de Windows Server](./join-windows-vm.md); a continuación, [instale las herramientas de administración del núcleo de AD DS](./tutorial-create-management-vm.md) y así poder instalar las herramientas de administración necesarias. Espere a unir la VM de administración al dominio administrado hasta que llegue a uno de los siguientes pasos después de implementar correctamente el dominio.
 
 1. Valide la conectividad de red entre la red local y la red virtual de Azure.
 
@@ -260,7 +260,7 @@ Debe tener una máquina virtual de Windows Server unida al dominio de recursos 
 1. Conéctese a la VM de Windows Server unida al bosque de recursos del dominio administrado mediante el Escritorio remoto y sus credenciales de administrador del dominio administrado. Si obtiene un error de Autenticación a nivel de red (NLA), compruebe que la cuenta de usuario que usó no sea una cuenta de usuario de dominio.
 
     > [!TIP]
-    > Para conectarse de forma segura a las máquinas virtuales unidas a Azure AD Domain Services, puede usar el [servicio de host de Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) en las regiones de Azure admitidas.
+    > Para conectarse de forma segura a las máquinas virtuales unidas a Azure AD Domain Services, puede usar el [servicio de host de Azure Bastion](../bastion/bastion-overview.md) en las regiones de Azure admitidas.
 
 1. Abra un símbolo del sistema y use el comando `whoami` para mostrar el nombre distintivo del usuario autenticado actualmente:
 
@@ -286,7 +286,7 @@ Con la VM de Windows Server unida al bosque de recursos del dominio administrado
 1. Conéctese a la VM de Windows Server unida al bosque de recursos del dominio administrado mediante el Escritorio remoto y sus credenciales de administrador del dominio administrado. Si obtiene un error de Autenticación a nivel de red (NLA), compruebe que la cuenta de usuario que usó no sea una cuenta de usuario de dominio.
 
     > [!TIP]
-    > Para conectarse de forma segura a las máquinas virtuales unidas a Azure AD Domain Services, puede usar el [servicio de host de Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) en las regiones de Azure admitidas.
+    > Para conectarse de forma segura a las máquinas virtuales unidas a Azure AD Domain Services, puede usar el [servicio de host de Azure Bastion](../bastion/bastion-overview.md) en las regiones de Azure admitidas.
 
 1. Abra **Configuración de Windows** y busque y seleccione **Centro de redes y recursos compartidos**.
 1. Elija la opción **Cambiar configuración de uso compartido avanzado**.

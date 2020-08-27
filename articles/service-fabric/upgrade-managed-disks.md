@@ -3,16 +3,16 @@ title: Actualización de nodos de clúster para usar discos administrados de Azu
 description: Aquí se muestra cómo actualizar un clúster de Service Fabric existente para usar Azure Managed Disks con poco o ningún tiempo de inactividad del clúster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 1ca85af86df28691e2194c40e1cdde1abd7c8a4d
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 152bdaea121e65de8332fcde8543b8158ff11714
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192305"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717530"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Actualización de nodos de clúster para usar Azure Managed Disks
 
-[Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md) es la nueva oferta de almacenamiento en disco recomendada que se puede usar con Azure Virtual Machines para almacenar datos de forma persistente. Puede mejorar la resistencia de las cargas de trabajo de Service Fabric actualizando los conjuntos de escalado de máquinas virtuales que subyacen a los tipos de nodo para usar Managed Disks. Aquí se muestra cómo actualizar un clúster de Service Fabric existente para usar Azure Managed Disks con poco o ningún tiempo de inactividad del clúster.
+[Azure Managed Disks](../virtual-machines/managed-disks-overview.md) es la nueva oferta de almacenamiento en disco recomendada que se puede usar con Azure Virtual Machines para almacenar datos de forma persistente. Puede mejorar la resistencia de las cargas de trabajo de Service Fabric actualizando los conjuntos de escalado de máquinas virtuales que subyacen a los tipos de nodo para usar Managed Disks. Aquí se muestra cómo actualizar un clúster de Service Fabric existente para usar Azure Managed Disks con poco o ningún tiempo de inactividad del clúster.
 
 La estrategia general para actualizar un nodo de clúster de Service Fabric para usar discos administrados es:
 
@@ -365,7 +365,7 @@ En este tutorial, ha aprendido a actualizar los conjuntos de escalado de máquin
 
 Obtenga información sobre cómo:
 
-* [Escalado vertical del tipo de nodo principal de un clúster de Service Fabric](service-fabric-scale-up-node-type.md)
+* [Escalado vertical del tipo de nodo principal de un clúster de Service Fabric](service-fabric-scale-up-primary-node-type.md)
 
 * [Conversión de una plantilla de conjunto de escalado para usar discos administrados](../virtual-machine-scale-sets/virtual-machine-scale-sets-convert-template-to-md.md)
 

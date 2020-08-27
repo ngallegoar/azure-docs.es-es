@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: 2e62296e95a7b412a24c9d0c151c2bc9175ab4b7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cf7ae504e57d0b7947f4ff7dc48d50b2e0141eea
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529751"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936646"
 ---
 # <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Supervisión del estado y los resultados del indizador de Azure Cognitive Search
 
@@ -80,7 +80,7 @@ Para obtener más información sobre cómo investigar los errores y las adverten
 
 ## <a name="monitor-using-rest-apis"></a>Supervisión mediante las API REST
 
-Puede recuperar el estado y el historial de ejecución de un indizador con el [comando Obtener estado del indizador](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status):
+Puede recuperar el estado y el historial de ejecución de un indizador con el [comando Obtener estado del indizador](/rest/api/searchservice/get-indexer-status):
 
 ```http
 GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2020-06-30
@@ -125,7 +125,7 @@ Cada ejecución del indizador también tiene su propio estado, que indica si la 
 
 Cuando se restablece un indizador para actualizar su estado de seguimiento de cambios, se agrega una entrada independiente en el historial de ejecución con el estado **Restablecer**.
 
-Para obtener más información sobre los códigos de estado y los datos de supervisión del indizador, consulte [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
+Para obtener más información sobre los códigos de estado y los datos de supervisión del indizador, consulte [GetIndexerStatus](/rest/api/searchservice/get-indexer-status).
 
 <a name="dotnetsdk"></a>
 
@@ -184,8 +184,8 @@ Cada ejecución del indizador también tiene su propio estado, que indica si la 
 
 Cuando se restablece un indizador para actualizar su estado de seguimiento de cambios, se agrega una entrada independiente en el historial con el estado **Restablecer**.
 
-Para obtener más detalles sobre los códigos de estado y la información de supervisión del indizador, consulte [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) en la API de REST.
+Para obtener más detalles sobre los códigos de estado y la información de supervisión del indizador, consulte [GetIndexerStatus](/rest/api/searchservice/get-indexer-status) en la API de REST.
 
 Para recuperar información sobre errores o advertencias específicos del documento, enumere las listas `IndexerExecutionResult.Errors` y `IndexerExecutionResult.Warnings`.
 
-Para obtener más información sobre las clases del SDK de .NET que se usan para supervisar los indizadores, vea [IndexerExecutionInfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutioninfo?view=azure-dotnet) e [IndexerExecutionResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet).
+Para obtener más información sobre las clases del SDK de .NET que se usan para supervisar los indizadores, vea [IndexerExecutionInfo](/dotnet/api/microsoft.azure.search.models.indexerexecutioninfo?view=azure-dotnet) e [IndexerExecutionResult](/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet).

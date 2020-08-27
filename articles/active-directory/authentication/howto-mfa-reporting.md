@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8584ca84efc889afebe6758e254bda845912316
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c550576a5bd762d3333aa8a533ee6106369193c3
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87418243"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719519"
 ---
 # <a name="use-the-sign-ins-report-to-review-azure-multi-factor-authentication-events"></a>Uso del informe de inicios de sesión para revisar los eventos de Azure Multi-Factor Authentication
 
@@ -90,7 +90,7 @@ Los detalles siguientes aparecen en la ventana *Detalles de autenticación* para
 
 ## <a name="powershell-reporting-on-users-registered-for-mfa"></a>Creación de informes de PowerShell sobre los usuarios registrados para MFA
 
-En primer lugar, asegúrese de que tiene el [módulo de PowerShell MSOnline V1](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0) instalado.
+En primer lugar, asegúrese de que tiene el [módulo de PowerShell MSOnline V1](/powershell/azure/active-directory/overview?view=azureadps-1.0) instalado.
 
 Identifique los usuarios que se han registrado en MFA mediante el PowerShell siguiente. Este conjunto de comandos excluye los usuarios deshabilitados, ya que estas cuentas no se pueden autenticar en Azure AD:
 

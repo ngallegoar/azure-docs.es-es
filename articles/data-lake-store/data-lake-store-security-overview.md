@@ -1,18 +1,18 @@
 ---
 title: Introducción a la seguridad de Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Descripción de cómo Azure Data Lake Storage Gen1 es un almacén de macrodatos más seguro
+description: Obtenga información sobre las capacidades de seguridad de Azure Data Lake Storage Gen1, incluida la autenticación, la autorización, el aislamiento de red, la protección de datos y la auditoría.
 services: data-lake-store
 author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: 4992be004a4b60b7b5fb591d834e8938cf03f34f
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: ec0e62297e6eee995fc571589d450176c81f8aac
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926287"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192833"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Seguridad de Azure Data Lake Storage Gen1
 

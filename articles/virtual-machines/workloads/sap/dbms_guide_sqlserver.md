@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e73bc3791ceb75685275af99f888136315c6e50d
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 0fc7d62cc89e240d931f3d0f255a917a73a4114c
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505567"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654589"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implementación de DBMS de Azure Virtual Machines de SQL Server para la carga de trabajo de SAP NetWeaver
 
@@ -247,7 +247,7 @@ ms.locfileid: "88505567"
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../windows/disks-types.md
+[storage-premium-storage-preview-portal]:../../disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -381,7 +381,7 @@ SQL Server 2014 y versiones posteriores ofrecen la posibilidad de almacenar arch
 * Para este método de implementaciones también se aplican las consideraciones que se indicaron anteriormente relacionadas con la distribución de los discos virtuales en diferentes cuentas de Azure Storage. Significa que el número de operaciones de E/S cuenta para los límites de la cuenta de Azure Storage.
 * En lugar de contabilizarse en la cuota de E/S de almacenamiento de la máquina virtual, el tráfico de los blobs de almacenamiento que representan los datos y los archivos de registro de SQL Server se contabilizará en el ancho de banda de red de la máquina virtual del tipo de máquina virtual concreto. Para saber cuál es la red y el ancho de banda de red de un determinado tipo de máquina virtual, consulte el artículo [Tamaños de las máquinas virtuales Windows en Azure](../../sizes.md).
 * Como resultado de la inserción de E/S de archivos mediante la cuota de red, se eliminará mayormente la cuota de almacenamiento y, con ese uso, solo parcialmente el ancho de banda de red general de la máquina virtual.
-* Ya no se aplican los objetivos de rendimiento de E/S y de IOPS que tiene Azure Premium Storage para los distintos tamaños de disco. Incluso si los blobs que ha creado están en Azure Premium Storage. Los objetivos están documentados en el artículo [Discos administrados y Premium Storage de alto rendimiento para VM](../../windows/disks-types.md#premium-ssd). Como resultado de colocar los archivos de datos y los archivos de registro de SQL Server directamente en blobs que se almacenan en Azure Premium Storage, las características de rendimiento pueden variar respecto a los discos duros virtuales de Azure Premium Storage.
+* Ya no se aplican los objetivos de rendimiento de E/S y de IOPS que tiene Azure Premium Storage para los distintos tamaños de disco. Incluso si los blobs que ha creado están en Azure Premium Storage. Los objetivos están documentados en el artículo [Discos administrados y Premium Storage de alto rendimiento para VM](../../disks-types.md#premium-ssd). Como resultado de colocar los archivos de datos y los archivos de registro de SQL Server directamente en blobs que se almacenan en Azure Premium Storage, las características de rendimiento pueden variar respecto a los discos duros virtuales de Azure Premium Storage.
 * El almacenamiento en caché basado en host que está disponible para los discos de Azure Premium Storage no está disponible al colocar los archivos de datos de SQL Server directamente en los blobs de Azure.
 * En las máquinas virtuales de la serie M no se puede usar el Acelerador de escritura de Azure para admitir escrituras inferiores a milisegundos en el archivo de registro de transacciones de SQL Server. 
 
