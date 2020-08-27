@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: f80403946b3097e81678383c4829ef6606f26cd6
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 9594e1ed14b017591ea2c4ddda59ba61feb81b0c
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430348"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272287"
 ---
 # <a name="enhanced-secure-score-in-azure-security-center"></a>Puntuación de seguridad mejorada de Azure Security Center
 
@@ -140,7 +140,7 @@ En la tabla siguiente se enumeran los controles de seguridad de Azure Security C
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Administrar el acceso y los permisos (puntuación máxima: 4)</p></strong>Una parte fundamental de un programa de seguridad es asegurarse de que los usuarios tengan el acceso necesario para realizar sus trabajos, pero no más: el <a href="https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models">modelo de acceso con privilegios mínimos</a>.<br>Controle el acceso a los recursos mediante la creación de asignaciones de roles con <a href="https://docs.microsoft.com/azure/role-based-access-control/overview">control de acceso basado en rol (RBAC)</a>. Una asignación de roles consta de tres elementos:<br>- <strong>Entidad de seguridad</strong>: el objeto al que el usuario solicita acceso.<br>- <strong>Definición de roles</strong>: los permisos.<br>- <strong>Ámbito</strong>: conjunto de recursos a los que se aplican los permisos.</td>
-    <td class="tg-lboi"; width=55%>- Las cuentas en desuso se deben eliminar de la suscripción (versión preliminar).<br>- Las cuentas en desuso con permisos de propietario se deben eliminar de la suscripción (versión preliminar).<br>- Las cuentas externas con permisos de propietario se deben eliminar de la suscripción (versión preliminar).<br>- Las cuentas externas con permisos de escritura se deben eliminar de la suscripción (versión preliminar).<br>- Debe haber más de un propietario asignado a la suscripción.<br>- Se debe usar el control de acceso basado en rol (RBAC) en los servicios de Kubernetes (versión preliminar).<br>- Los clústeres de Service Fabric solo deben usar Azure Active Directory para la autenticación de cliente.</td>
+    <td class="tg-lboi"; width=55%>- Las cuentas en desuso se deben eliminar de la suscripción (versión preliminar).<br>- Las cuentas en desuso con permisos de propietario se deben eliminar de la suscripción (versión preliminar).<br>- Las cuentas externas con permisos de propietario se deben eliminar de la suscripción (versión preliminar).<br>- Las cuentas externas con permisos de escritura se deben eliminar de la suscripción (versión preliminar).<br>- Debe haber más de un propietario asignado a la suscripción.<br>- Se debe usar el control de acceso basado en rol (RBAC) en los servicios de Kubernetes (versión preliminar).<br>- Los clústeres de Service Fabric solo deben usar Azure Active Directory para la autenticación de cliente.<br>- Para proteger las suscripciones, deben usarse entidades de servicio en lugar de certificados de administración.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Corregir configuraciones de seguridad (puntuación máxima: 4)</p></strong>Los recursos de TI incorrectamente configurados presentan un riesgo mayor de sufrir ataques. Al implementar recursos e intentar ajustarse a unos plazos determinados, suelen pasarse por alto acciones de protección básicas. Puede haber configuraciones de seguridad incorrectas a cualquier nivel de la infraestructura: desde los sistemas operativos y los dispositivos de red hasta los recursos en la nube.<br>Azure Security Center compara continuamente la configuración de los recursos con los requisitos de los estándares del sector, las regulaciones y los bancos de pruebas. Una vez que haya configurado los "paquetes de cumplimiento" (estándares y de referencia) pertinentes para su organización, las carencias darán lugar a recomendaciones de seguridad que incluyen el CCEID y una explicación del posible impacto en la seguridad.<br><a href="https://docs.microsoft.com/azure/security/benchmarks/introduction">Azure Security Benchmark</a> y <a href="https://www.cisecurity.org/benchmark/azure/">CIS Microsoft Azure Foundations Benchmark versión 1.1.0</a> son dos paquetes que se usan con frecuencia.</td>

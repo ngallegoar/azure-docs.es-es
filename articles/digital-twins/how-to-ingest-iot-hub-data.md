@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 8/11/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5209ffb0328e90fb2ca9b91773cbf18dd4ed2916
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 47e4bb291d031c41c89c88435a795004490e20a1
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163640"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505332"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Ingesta de telemetría de IoT Hub en Azure Digital Twins
 
@@ -24,10 +24,10 @@ Este documento de procedimientos le guía en el proceso de escritura de una func
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de continuar con este ejemplo, debe completar los siguientes requisitos previos.
-* **Una instancia de IoT Hub**. Consulte la sección *Creación de una instancia de IoT Hub* de [este inicio rápido de IoT Hub](../iot-hub/quickstart-send-telemetry-cli.md) para obtener instrucciones.
-* **Una función de Azure** con los permisos correctos para llamar a la instancia de Digital Twins. Consulte [*Procedimientos: Configuración de una función de Azure para procesar datos*](how-to-create-azure-function.md) para obtener instrucciones. 
-* **Una instancia de Digital Twins** que recibirá la telemetría del dispositivo. Consulte [*Procedimientos: Configuración de una instancia de Azure Digital Twins y autenticación*](./how-to-set-up-instance-portal.md) 
+Antes de continuar con este ejemplo, debe configurar los siguientes recursos como requisito previo:
+* **Una instancia de IoT Hub**. Para instrucciones, consulte la sección *Creación de una instancia de IoT Hub* de [este inicio rápido de IoT Hub](../iot-hub/quickstart-send-telemetry-cli.md).
+* **Una función de Azure** con los permisos correctos para llamar a la instancia de Digital Twins. Para instrucciones, consulte [*Procedimiento: Configuración de una función de Azure para procesar datos*](how-to-create-azure-function.md). 
+* **Una instancia de Azure Digital Twins** que recibirá la telemetría del dispositivo. Para instrucciones, consulte [*Procedimiento: Configuración de una instancia de Azure Digital Twins y autenticación*](./how-to-set-up-instance-portal.md).
 
 ### <a name="example-telemetry-scenario"></a>Escenario de telemetría de ejemplo
 

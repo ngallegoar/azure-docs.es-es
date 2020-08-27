@@ -188,6 +188,9 @@
           href: /azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc
         - name: Proteger su implementación de IoT
           href: /azure/iot-fundamentals/iot-security-deployment?context=azure/iot-hub/rc/rc
+        - name: Controles de seguridad de Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
     - name: Protección mediante certificados de entidad de certificación X.509
       items:
         - name: Introducción a la seguridad mediante certificados de entidad de certificación X.509
@@ -420,7 +423,7 @@
               href: iot-hub-troubleshoot-error-504101-gatewaytimeout.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/azure-cli-reference-for-IoT
     - name: Azure PowerShell
       href: /powershell/module/az.iothub#iothub

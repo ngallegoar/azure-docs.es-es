@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: sgilley
 ms.author: nilsp
 author: NilsPohlmann
-ms.date: 12/05/2019
+ms.date: 8/14/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 0a8bb3ff3d1fc36d4213c6d1a8ea402833bd915e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 8b6ed41333a0ea113d939ab79bd9e9291a0dae9c
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852946"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244061"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creación y ejecución de canalizaciones de Machine Learning con el SDK de Azure Machine Learning
 
@@ -30,7 +30,7 @@ Cada fase de una canalización de Machine Learning, como la preparación de dato
 
 Las canalizaciones de Machine Learning que cree serán visibles para los miembros de su [área de trabajo](how-to-manage-workspace.md) de Azure Machine Learning. 
 
-Las canalizaciones de Machine Learning usan destinos de proceso remotos para el cálculo y el almacenamiento de los datos intermedios y finales asociados a esa canalización. Asimismo, pueden leer y escribir datos en y desde las ubicaciones de[Azure Storage](https://docs.microsoft.com/azure/storage/).
+Las canalizaciones de Machine Learning usan destinos de proceso remotos para el cálculo y los datos temporales asociados a esa canalización. Asimismo, pueden leer y escribir datos en y desde las ubicaciones de[Azure Storage](https://docs.microsoft.com/azure/storage/).
 
 Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -119,7 +119,7 @@ Puede encontrar más información y código de ejemplo para trabajar con conjunt
 
 ## <a name="set-up-a-compute-target"></a>Configuración de un destino de proceso
 
-En Azure Machine Learning, el término __proceso__ (o __destino de proceso__) se refiere a las máquinas o clústeres que realizarán los pasos del cálculo en su canal de aprendizaje automático.   Consulte los [destinos de proceso del entrenamiento del modelo](how-to-set-up-training-targets.md) para obtener una lista completa de destinos de proceso y cómo crearlos y adjuntarlos a su área de trabajo.  El proceso para crear o adjuntar un destino de proceso es el mismo independientemente de si entrena un modelo o ejecuta un paso de la canalización. Después de crear y adjuntar el destino de proceso, utilice el objeto `ComputeTarget` en su [paso de canalización](#steps).
+En Azure Machine Learning, el término __proceso__ (o __destino de proceso__) se refiere a las máquinas o clústeres que realizarán los pasos del cálculo en su canal de aprendizaje automático. Consulte los [destinos de proceso del entrenamiento del modelo](how-to-set-up-training-targets.md) para obtener una lista completa de destinos de proceso y cómo crearlos y adjuntarlos a su área de trabajo. El proceso para crear o adjuntar un destino de proceso es el mismo independientemente de si entrena un modelo o ejecuta un paso de la canalización. Después de crear y adjuntar el destino de proceso, utilice el objeto `ComputeTarget` en su [paso de canalización](#steps).
 
 > [!IMPORTANT]
 > No se admite la realización de operaciones de administración en destinos de proceso desde dentro de trabajos remotos. Puesto que las canalizaciones de aprendizaje automático se envían como un trabajo remoto, no use operaciones de administración en destinos de proceso desde dentro de la canalización.
@@ -269,27 +269,93 @@ Para consultar un ejemplo más detallado, vea un [cuaderno de ejemplo](https://a
 > [!TIP]
 > Las canalizaciones de Azure Machine Learning solo pueden trabajar con datos almacenados en el almacén de datos predeterminado de la cuenta de Data Lake Analytics. Si los datos con los que necesita trabajar están en un almacén no predeterminado, puede usar [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) para copiar los datos antes del entrenamiento.
 
+## <a name="configure-the-training-runs-environment"></a>Configuración del entorno de ejecución de entrenamiento
+
+El siguiente paso consiste en asegurarse de que la ejecución del entrenamiento remoto tiene todas las dependencias necesarias para los pasos de entrenamiento. Las dependencias y el contexto del entorno de ejecución se establecen creando y configurando un objeto `RunConfiguration`. 
+
+```python
+from azureml.core.runconfig import RunConfiguration
+from azureml.core.conda_dependencies import CondaDependencies
+from azureml.core import Environment 
+
+aml_run_config = RunConfiguration()
+# `compute_target` as defined in "Azure Machine Learning compute" section above
+aml_run_config.target = compute_target
+
+USE_CURATED_ENV = True
+if USE_CURATED_ENV :
+    curated_environment = Environment.get(workspace=ws, name="AzureML-Tutorial")
+    aml_run_config.environment = curated_environment
+else:
+    aml_run_config.environment.python.user_managed_dependencies = False
+    
+    # Add some packages relied on by data prep step
+    aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
+        conda_packages=['pandas','scikit-learn'], 
+        pip_packages=['azureml-sdk', 'azureml-dataprep[fuse,pandas]'], 
+        pin_sdk_version=False)
+```
+
+El código anterior muestra dos opciones para administrar las dependencias. Tal como se presenta, con `USE_CURATED_ENV = True`, la configuración se basa en un entorno seleccionado. Los entornos seleccionados están preparados con bibliotecas interdependientes comunes y pueden ser mucho más rápidos para ponerlos en línea. Los entornos seleccionados tienen imágenes de Docker creadas previamente en [Microsoft Container Registry](https://hub.docker.com/publishers/microsoftowner). La ruta de acceso que se toma si cambia `USE_CURATED_ENV` a `False` muestra el patrón para establecer explícitamente las dependencias. En ese escenario, se creará una nueva imagen de Docker personalizada y se registrará en Azure Container Registry dentro del grupo de recursos (consulte [Introducción a los registros de contenedores privados de Docker en Azure](https://docs.microsoft.com/azure/container-registry/container-registry-intro)). La creación y el registro de esta imagen pueden tardar unos minutos.
+
 ## <a name="construct-your-pipeline-steps"></a><a id="steps"></a>Construir los pasos de la canalización
 
-Después de crear y adjuntar un destino de proceso al área de trabajo, está listo para definir un paso de la canalización. Hay muchos pasos integrados disponibles a través del SDK de Azure Machine Learning. El más básico de estos pasos es [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py), que ejecuta un script de Python en un destino de proceso específico.
+Una vez creado el recurso de proceso y el entorno, está listo para definir los pasos de la canalización. Hay muchos pasos integrados disponibles a través del SDK de Azure Machine Learning, como puede ver en la [documentación de referencia del paquete de `azureml.pipeline.steps`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py). La clase más flexible es [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py), que ejecuta un script de Python.
 
 ```python
 from azureml.pipeline.steps import PythonScriptStep
 
+dataprep_source_dir = "./dataprep_src"
+entry_point = "prepare.py"
+
+# `my_dataset` as defined above
 ds_input = my_dataset.as_named_input('input1')
 
-trainStep = PythonScriptStep(
-    script_name="train.py",
+# `output_data1`, `compute_target`, `aml_run_config` as defined above
+data_prep_step = PythonScriptStep(
+    script_name=entry_point,
+    source_directory=dataprep_source_dir,
     arguments=["--input", ds_input.as_download(), "--output", output_data1],
     inputs=[ds_input],
     outputs=[output_data1],
     compute_target=compute_target,
-    source_directory=project_folder,
+    runconfig=aml_run_config,
     allow_reuse=True
 )
 ```
 
-La reutilización de los resultados anteriores (`allow_reuse`) es clave cuando se usan canalizaciones en un entorno de colaboración, ya que eliminar las repeticiones innecesarias ofrece agilidad. La reutilización es el comportamiento predeterminado cuando el nombre del script, las entradas y los parámetros de un paso siguen siendo los mismos. Cuando se reutiliza la salida del paso indicado, el trabajo no se envía al proceso; en cambio, los resultados de la ejecución anterior están disponibles de inmediato para la ejecución del siguiente paso. Si `allow_reuse` se establece en "false", siempre se generará una nueva ejecución para este paso durante la ejecución de la canalización. 
+En el código anterior se muestra un paso típico de canalización inicial. El código de preparación de los datos está en un subdirectorio (en este ejemplo, `"prepare.py"` en el directorio `"./dataprep.src"`). Como parte del proceso de creación de la canalización, este directorio se comprime y se carga en el elemento `compute_target` y el paso ejecuta el script especificado como el valor de `script_name`.
+
+Los valores `arguments`, `inputs` y `outputs` especifican las entradas y salidas del paso. En el ejemplo anterior, los datos de línea base son el conjunto de datos `my_dataset`. Los datos correspondientes se descargarán en el recurso de proceso, ya que el código lo especifica como `as_download()`. El script `prepare.py` realiza las tareas de transformación de datos adecuadas para la tarea a mano y envía los datos a `output_data1`, de tipo `PipelineData`. Para más información, consulte [Movimiento de datos a los pasos de canalización de Machine Learning (Python) y entre ellos](how-to-move-data-in-out-of-pipelines.md). 
+
+El paso se ejecutará en el equipo definido por `compute_target`, con la configuración `aml_run_config`. 
+
+La reutilización de los resultados anteriores (`allow_reuse`) es clave cuando se usan canalizaciones en un entorno de colaboración, ya que eliminar las repeticiones innecesarias ofrece agilidad. La reutilización es el comportamiento predeterminado cuando el nombre del script, las entradas y los parámetros de un paso siguen siendo los mismos. Si se permite la reutilización, los resultados de la ejecución anterior se envían inmediatamente al paso siguiente. Si `allow_reuse` se establece en `False`, siempre se generará una nueva ejecución para este paso durante la ejecución de la canalización.
+
+Es posible crear una canalización con un solo paso, pero casi siempre tendrá elegirá dividir el proceso general en varios pasos. Por ejemplo, puede tener pasos para la preparación de los datos, el entrenamiento, la comparación de modelos y la implementación. Por ejemplo, puede imaginarse que, después del elemento `data_prep_step` especificado anteriormente, el paso siguiente sería el entrenamiento:
+
+```python
+train_source_dir = "./train_src"
+train_entry_point = "train.py"
+
+training_results = PipelineData(
+    "training_results",
+    datastore=def_blob_store,
+    output_name="training_results")
+
+train_step = PythonScriptStep(
+    script_name=train_entry_point,
+    source_directory=train_source_dir,
+    arguments=["--prepped_data", output_data1, "--training_results", training_results],
+    inputs=[output_data1],
+    outputs=[training_results],
+    compute_target=compute_target,
+    runconfig=aml_run_config,
+    allow_reuse=True
+)
+```
+
+El código anterior es muy similar al del paso de preparación de datos. El código de entrenamiento está en un directorio independiente del código de preparación de datos. La salida de `PipelineData` del paso de preparación de datos, `output_data1`, se usa como _entrada_ al paso de entrenamiento. Un nuevo objeto `PipelineData`, `training_results`, se crea para almacenar los resultados de un paso posterior de comparación o implementación. 
 
 Después de definir sus pasos, debe compilar la canalización mediante algunos o todos ellos.
 
@@ -297,13 +363,13 @@ Después de definir sus pasos, debe compilar la canalización mediante algunos o
 > No se carga ningún archivo o dato en Azure Machine Learning cuando define los pasos o compila la canalización.
 
 ```python
-# list of steps to run
-compareModels = [trainStep, extractStep, compareStep]
+# list of steps to run (`compare_step` definition not shown)
+compare_models = [data_prep_step, train_step, compare_step]
 
 from azureml.pipeline.core import Pipeline
 
 # Build the pipeline
-pipeline1 = Pipeline(workspace=ws, steps=[compareModels])
+pipeline1 = Pipeline(workspace=ws, steps=[compare_models])
 ```
 
 En el ejemplo siguiente se usa el destino de proceso de Azure Databricks que creó anteriormente: 

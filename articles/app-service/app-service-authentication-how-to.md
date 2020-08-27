@@ -4,12 +4,12 @@ description: Aprenda a personalizar la característica de autenticación y autor
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: d69a75092f4ede5d5467357a7ac254be6e7c379b
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 7ec16b5de6053256fa6565db510ee94776def2c4
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078400"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272321"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avanzado de la autenticación y autorización en Azure App Service
 
@@ -146,7 +146,7 @@ App Service pasa las notificaciones de usuario a la aplicación mediante encabez
 
 El código escrito en cualquier lenguaje o plataforma puede obtener la información que necesita de estos encabezados. Para las aplicaciones de ASP.NET 4.6, **ClaimsPrincipal** se establece automáticamente con los valores adecuados. Sin embargo, ASP.NET Core no proporciona un middleware de autenticación que se integre con las notificaciones de usuario de App Service. Para obtener una solución alternativa, vea [MaximeRouiller.Azure.AppService.EasyAuth](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth).
 
-La aplicación también puede obtener detalles adicionales sobre el usuario autenticado mediante una llamada a `/.auth/me`. Los SDK del servidor de Mobile Apps proporcionan métodos de asistente para trabajar con estos datos. Para más información, consulte [Uso del SDK de Node.js de Azure Mobile Apps](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity) y [Trabajar con el SDK del servidor back-end de .NET para Azure Mobile Apps](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info).
+Si el [almacén de tokens](overview-authentication-authorization.md#token-store) está habilitado para la aplicación, también puede obtener detalles adicionales sobre el usuario autenticado mediante una llamada a `/.auth/me`. Los SDK del servidor de Mobile Apps proporcionan métodos de asistente para trabajar con estos datos. Para más información, consulte [Uso del SDK de Node.js de Azure Mobile Apps](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity) y [Trabajar con el SDK del servidor back-end de .NET para Azure Mobile Apps](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info).
 
 ## <a name="retrieve-tokens-in-app-code"></a>Recuperación de los tokens en el código de aplicación
 
@@ -161,14 +161,14 @@ Desde el código de servidor, los tokens específicos del proveedor se inyectan 
 | Twitter | `X-MS-TOKEN-TWITTER-ACCESS-TOKEN` <br/> `X-MS-TOKEN-TWITTER-ACCESS-TOKEN-SECRET` |
 |||
 
-Desde el código de cliente (por ejemplo, una aplicación móvil o JavaScript en el explorador), envíe la solicitud `GET` HTTP a `/.auth/me`. El JSON devuelto tiene los tokens específicos del proveedor.
+Desde el código de cliente (por ejemplo, una aplicación móvil o JavaScript en el explorador), envíe la solicitud `GET` HTTP a `/.auth/me` (el [almacén de tokens](overview-authentication-authorization.md#token-store) debe estar habilitado). El JSON devuelto tiene los tokens específicos del proveedor.
 
 > [!NOTE]
 > Los tokens de acceso son para acceder a recursos de proveedor, por lo que solo están presentes si se configura el proveedor con un secreto de cliente. Para ver cómo obtener tokens de actualización, consulte Tokens de acceso de actualización.
 
 ## <a name="refresh-identity-provider-tokens"></a>Actualización de los tokens de proveedor de identidad
 
-Cuando el token de acceso de su proveedor (no el [token de sesión](#extend-session-token-expiration-grace-period)) expire, debe volver a autenticar al usuario antes de volver a usar ese token. Puede evitar la expiración del token mediante la realización de una llamada `GET` al punto de conexión `/.auth/refresh` de la aplicación. Cuando se llama, App Service actualiza automáticamente los tokens de acceso en el almacén de tokens para el usuario autenticado. Las solicitudes posteriores para los tokens por código de aplicación obtienen los tokens actualizados. Sin embargo, para que la actualización de token funcione, el almacén de tokens debe contener [tokens de actualización](https://auth0.com/learn/refresh-tokens/) para el proveedor. Cada proveedor documenta la manera de obtener tokens de actualización, pero en la lista siguiente se muestra un breve resumen:
+Cuando el token de acceso de su proveedor (no el [token de sesión](#extend-session-token-expiration-grace-period)) expire, debe volver a autenticar al usuario antes de volver a usar ese token. Puede evitar la expiración del token mediante la realización de una llamada `GET` al punto de conexión `/.auth/refresh` de la aplicación. Cuando se llama, App Service actualiza automáticamente los tokens de acceso en el [almacén de tokens](overview-authentication-authorization.md#token-store) para el usuario autenticado. Las solicitudes posteriores para los tokens por código de aplicación obtienen los tokens actualizados. Sin embargo, para que la actualización de token funcione, el almacén de tokens debe contener [tokens de actualización](https://auth0.com/learn/refresh-tokens/) para el proveedor. Cada proveedor documenta la manera de obtener tokens de actualización, pero en la lista siguiente se muestra un breve resumen:
 
 - **Google**: anexe un parámetro de cadena de consulta `access_type=offline` en su llamada API `/.auth/login/google`. Si usa el SDK de Mobile Apps, puede agregar el parámetro a una de las sobrecargas `LogicAsync` (vea [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) (Tokens de actualización de Google)).
 - **Facebook**: no proporciona tokens de actualización. Los tokens de larga duración expiran en 60 días (vea [Facebook Expiration and Extension of Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension) (Expiración y extensión de tokens de acceso de Facebook)).
@@ -297,6 +297,9 @@ La configuración de autenticación se puede configurar mediante un archivo que 
     1.  Establecer en `enabled` en "true"
     2.  Establecer en `isAuthFromFile` en "true"
     3.  Establecer `authFilePath` en el nombre del archivo (por ejemplo, "auth.json")
+
+> [!NOTE]
+> El formato de `authFilePath` varía entre las plataformas. En Windows, se admiten las rutas de acceso relativas y absolutas. Se recomienda la relativa. En el caso de Linux, actualmente solo se admiten rutas de acceso absolutas, por lo que el valor de configuración debe ser "/home/site/wwwroot/auth.json" o similar.
 
 Una vez que haya realizado esta actualización de la configuración, el contenido del archivo se usará para definir el comportamiento de autenticación o autorización de App Service para ese sitio. Si alguna vez quiere volver a la configuración de Azure Resource Manager, puede hacerlo volviendo a establecer el elemento `isAuthFromFile` en "false".
 

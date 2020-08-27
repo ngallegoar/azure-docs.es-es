@@ -4,12 +4,12 @@ description: Obtenga información acerca de cómo usar GPU para cargas de trabaj
 services: container-service
 ms.topic: article
 ms.date: 03/27/2020
-ms.openlocfilehash: 30cbac0984236717581c994700483b85829c4571
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ed655a6809f2932bbe8e85fb1cd9fd7996cf7647
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244300"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213181"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Uso de GPU para cargas de trabajo de cálculo intensivo en Azure Kubernetes Service (AKS)
 
@@ -52,7 +52,7 @@ Obtenga las credenciales para el clúster de AKS mediante el comando [az aks get
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-## <a name="install-nvidia-drivers"></a>Instalación de controladores NVIDIA
+## <a name="install-nvidia-device-plugin"></a>Instalación del complemento de dispositivo NVIDIA
 
 Para poder usar las GPU en los nodos, debe implementar un elemento DaemonSet para el complemento de dispositivo NVIDIA. Este objeto DaemonSet ejecuta un pod en cada nodo para proporcionar los controladores requeridos para las GPU.
 

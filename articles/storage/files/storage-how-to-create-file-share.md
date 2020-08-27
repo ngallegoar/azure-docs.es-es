@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: a642aa9735c4360c11d50cf475e5de63259c55df
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, references_regions
+ms.openlocfilehash: aaba608ba80a751c40cd300dee80f673897c22a8
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495716"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88525656"
 ---
 # <a name="create-an-azure-file-share"></a>Creación de un recurso compartido de archivos de Azure
 Para crear un recurso compartido de archivos de Azure, debe responder a tres preguntas sobre cómo lo usará:
@@ -229,6 +229,60 @@ Se producirá un error en este comando si la cuenta de almacenamiento está incl
 
 > [!Note]  
 > El nombre del recurso compartido de archivos debe estar en minúsculas. Para obtener detalles completos sobre cómo asignar un nombre a recursos compartidos y archivos, consulte  [Asignación de nombres y referencia a recursos compartidos, directorios, archivos y metadatos](https://msdn.microsoft.com/library/azure/dn167011.aspx).
+
+### <a name="create-a-hot-or-cool-file-share"></a>Creación de un recurso compartido de archivos de acceso frecuente o esporádico
+Un recurso compartido de archivos de una **cuenta de almacenamiento de uso general v2 (GPv2)** puede contener recursos compartidos de archivos de acceso frecuente o esporádico u optimizados para transacciones (o una combinación de ellos). Los recursos compartidos optimizados para transacciones están disponibles en todas las regiones de Azure, pero los recursos compartidos de archivos de acceso frecuente y esporádico solo están disponibles [en un subconjunto de regiones](storage-files-planning.md#storage-tiers). Puede crear un recurso compartido de archivos de acceso frecuente o esporádico mediante el módulo en versión preliminar de Azure PowerShell o la CLI de Azure. 
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+Azure Portal no admite todavía la creación de recursos compartidos de archivos de acceso frecuente y esporádico, o el traslado de los recursos compartidos de archivos optimizados para transacciones existentes a acceso frecuente o esporádico. Consulte las instrucciones para crear un recurso compartido de archivos con PowerShell o la CLI de Azure.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+```PowerShell
+# Update the Azure storage module to use the preview version. You may need to close and 
+# reopen PowerShell before running this command. If you are running PowerShell 5.1, ensure 
+# the following:
+# - Run the below cmdlets as an administrator.
+# - Have PowerShellGet 2.2.3 or later. Uncomment the following line to check.
+# Get-Module -ListAvailable -Name PowerShellGet
+Remove-Module -Name Az.Storage -ErrorAction SilentlyContinue
+Uninstall-Module -Name Az.Storage
+Install-Module -Name Az.Storage -RequiredVersion "2.1.1-preview" -AllowClobber -AllowPrerelease 
+
+# Assuming $resourceGroupName and $storageAccountName from earlier in this document have already
+# been populated. The access tier parameter may be TransactionOptimized, Hot, or Cool for GPv2 
+# storage accounts. Standard tiers are only available in standard storage accounts. 
+$shareName = "myhotshare"
+
+New-AzRmStorageShare `
+    -ResourceGroupName $resourceGroupName `
+    -StorageAccountName $storageAccountName `
+    -Name $shareName `
+    -AccessTier Hot
+
+# You can also change an existing share's tier.
+Update-AzRmStorageShare `
+    -ResourceGroupName $resourceGroupName `
+    -StorageAccountName $storageAccountName `
+    -Name $shareName `
+    -AccessTier Cool
+```
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+La funcionalidad para crear o mover un recurso compartido de archivos a un nivel específico está disponible en la actualización más reciente de la CLI de Azure. La actualización de la CLI de Azure es específica de la distribución de Linux o del sistema operativo que está usando. Para obtener instrucciones sobre cómo actualizar la CLI de Azure en el sistema, vea [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+```bash
+# Assuming $resourceGroupName and $storageAccountName from earlier in this document have already
+# been populated. The access tier parameter may be TransactionOptimized, Hot, or Cool for GPv2
+# storage accounts. Standard tiers are only available in standard storage accounts.
+shareName="myhotshare"
+
+az storage share-rm create \
+    --resource-group $resourceGroupName \
+    --storage-account $storageAccountName \
+    --name $shareName \
+    --access-tier "Hot"
+```
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Planeamiento de una implementación de Azure Files](storage-files-planning.md) o [una implementación de Azure File Sync](storage-sync-files-planning.md). 

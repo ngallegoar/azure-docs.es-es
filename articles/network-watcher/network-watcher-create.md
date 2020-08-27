@@ -1,6 +1,6 @@
 ---
 title: Creación de una instancia de Azure Network Watcher | Microsoft Docs
-description: Aprenda a habilitar Network Watcher en una región de Azure.
+description: Obtenga información sobre cómo crear una instancia de Azure Network Watcher en una región de Azure mediante Azure Portal u otras tecnologías y cómo eliminar una instancia de Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 03fe71855c43ba831f4b7a4ab746f05bd3bbb4a3
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6809e8a44120eddbae4965bff30f80b617bdd024
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846860"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272168"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Creación de una instancia de Azure Network Watcher
 

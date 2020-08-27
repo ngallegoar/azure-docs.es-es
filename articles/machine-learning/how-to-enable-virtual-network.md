@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 16065b45a6afea25615b985d3c89445dee48bd1d
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 9f92e703dd45e893a3dfdd8a4c1d6aa3e9b8e96e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167732"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506522"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Aislamiento de red durante el entrenamiento e inferencia con redes virtuales privadas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,6 +32,13 @@ Una __red virtual__ actúa como un límite de seguridad, aislando los recursos d
 + Conocimientos prácticos generales sobre el [servicio Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) y las [redes IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm).
 
 + Una red virtual y una subred preexistentes que se usarán con los recursos de proceso.
+
++ Para implementar recursos en una red virtual o subred, la cuenta de usuario debe tener permisos para realizar las siguientes acciones en los controles de acceso basados en rol (RBAC) de Azure:
+
+    - "Microsoft.Network/virtualNetworks/join/action" en el recurso de red virtual.
+    - "Microsoft.Network/virtualNetworks/subnet/join/action" en el recurso de subred.
+
+    Para obtener más información sobre RBAC con redes, vea los [roles integrados de redes](/azure/role-based-access-control/built-in-roles#networking).
 
 ## <a name="private-endpoints"></a>Puntos de conexión privados
 
@@ -85,7 +92,7 @@ Studio admite la lectura de datos de los siguientes tipos de almacén de datos e
 
 Agregue el área de trabajo y la cuenta de almacenamiento a la misma red virtual para que puedan acceder entre sí.
 
-1. Para conectar el área de trabajo a la red virtual, [habilite Azure Private Link](how-to-configure-private-link.md). Esta funcionalidad está actualmente en versión preliminar y está disponible en las regiones Este de EE. UU., Oeste de EE. UU. 2 y Centro y Sur de EE. UU.
+1. Para conectar el área de trabajo a la red virtual, [habilite Azure Private Link](how-to-configure-private-link.md). Esta funcionalidad está actualmente en versión preliminar y está disponible en las regiones Este de EE. UU. y Oeste de EE. UU. 2.
 
 1. Para conectar la cuenta de almacenamiento a la red virtual, [configure las opciones de firewalls y redes virtuales](#use-a-storage-account-for-your-workspace).
 
