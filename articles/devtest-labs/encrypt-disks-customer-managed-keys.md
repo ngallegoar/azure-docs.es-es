@@ -3,17 +3,17 @@ title: Cifrado de discos de sistema operativo mediante claves administradas por 
 description: Aprenda a cifrar discos de sistema operativo (SO) mediante claves administradas por el cliente en Azure DevTest Labs.
 ms.topic: article
 ms.date: 07/28/2020
-ms.openlocfilehash: 209ab1f74dce0982af66777f211c41066d53b8f9
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 241f53f0c8f289b43b8de465eb7509489345b955
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566206"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815928"
 ---
 # <a name="encrypt-operating-system-os-disks-using-customer-managed-keys-in-azure-devtest-labs"></a>Cifrado de discos de sistema operativo (SO) mediante claves administradas por el cliente en Azure DevTest Labs
 El cifrado del lado servidor (SSE) protege los datos y le ayuda a cumplir los compromisos de cumplimiento y seguridad de la organización. SSE cifra automáticamente los datos almacenados en discos administrados de Azure (discos de datos y de SO) en reposo de forma predeterminada cuando los conserva en la nube. Obtenga más información acerca del [cifrado de disco](../virtual-machines/windows/disk-encryption.md) en Azure. 
 
-En DevTest Labs, todos los discos de sistema operativo y de datos que se hayan creado como parte de un laboratorio, se cifran mediante claves administradas por la plataforma. De todas formas, como propietario de un laboratorio, puede optar por cifrar los discos de sistema operativo de la máquina virtual del laboratorio con sus propias claves. Si opta por administrar el cifrado con sus propias claves, puede especificar una **clave administrada por el cliente** que se usará para cifrar los datos de los discos de sistema operativo. Para más información sobre el cifrado del lado servidor (SSE) con claves administradas por el cliente y otros tipos de cifrado de disco administrado, consulte [Claves administradas por el cliente](../virtual-machines/windows/disk-encryption.md#customer-managed-keys). Consulte también las [restricciones en el uso de claves administradas por el cliente](../virtual-machines/windows/disks-enable-customer-managed-keys-portal.md#restrictions).
+En DevTest Labs, todos los discos de sistema operativo y de datos que se hayan creado como parte de un laboratorio, se cifran mediante claves administradas por la plataforma. De todas formas, como propietario de un laboratorio, puede optar por cifrar los discos de sistema operativo de la máquina virtual del laboratorio con sus propias claves. Si opta por administrar el cifrado con sus propias claves, puede especificar una **clave administrada por el cliente** que se usará para cifrar los datos de los discos de sistema operativo. Para más información sobre el cifrado del lado servidor (SSE) con claves administradas por el cliente y otros tipos de cifrado de disco administrado, consulte [Claves administradas por el cliente](../virtual-machines/windows/disk-encryption.md#customer-managed-keys). Consulte también las [restricciones en el uso de claves administradas por el cliente](../virtual-machines/disks-enable-customer-managed-keys-portal.md#restrictions).
 
 
 > [!NOTE]
@@ -25,7 +25,7 @@ En la sección siguiente se muestra cómo un propietario del laboratorio puede c
 
 ## <a name="pre-requisites"></a>Requisitos previos
 
-1. Si no tiene un conjunto de cifrado de disco, siga este artículo para [configurar una instancia de Key Vault y un conjunto de cifrado de disco](../virtual-machines/windows/disks-enable-customer-managed-keys-portal.md#set-up-your-azure-key-vault). Tenga en cuenta los siguientes requisitos para el conjunto de cifrado de disco: 
+1. Si no tiene un conjunto de cifrado de disco, siga este artículo para [configurar una instancia de Key Vault y un conjunto de cifrado de disco](../virtual-machines/disks-enable-customer-managed-keys-portal.md). Tenga en cuenta los siguientes requisitos para el conjunto de cifrado de disco: 
 
     - El conjunto de cifrado de disco tiene que estar **en la misma región y suscripción que el laboratorio**. 
     - Asegúrese de que el propietario del laboratorio tenga al menos un **acceso de nivel de lector** al conjunto de cifrado de disco que se usará para cifrar los discos de sistema operativo del laboratorio. 

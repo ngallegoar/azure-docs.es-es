@@ -10,12 +10,12 @@ ms.workload: storage
 ms.date: 06/01/2017
 ms.author: jaboes
 ms.subservice: disks
-ms.openlocfilehash: 15c3f2de30509a7dc6836f5d39fac4c0ea8b7f25
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 708df0a8ed1085c6e7d435c6f3c3b811ef2ed64e
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88513074"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854326"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Uso de discos administrados en plantillas de Azure Resource Manager
 
@@ -263,7 +263,7 @@ Para información completa sobre las especificaciones de API de REST, revise la 
 * Para conocer las plantillas completas que usan discos administrados, viste los vínculos siguientes al repositorio de inicio rápido de Azure.
     * [Máquina virtual Windows con disco administrado](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
     * [Máquina virtual Linux con disco administrado](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
-* Visite el documento [Introducción a Azure Managed Disks](~/articles/virtual-machines/windows/managed-disks-overview.md) para más información sobre los discos administrados.
+* Visite el documento [Introducción a Azure Managed Disks](managed-disks-overview.md) para más información sobre los discos administrados.
 * Revise la documentación de referencia de plantilla de los recursos de máquina virtual en el documento de [referencia de plantilla Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines).
 * Revise la documentación de referencia de plantilla de los recursos de disco en el documento de [referencia de plantilla Microsoft.Compute/disks](/azure/templates/microsoft.compute/disks).
 * Para más información acerca del uso de discos administrados en Azure Virtual Machine Scale Sets, consulte el documento [Uso de discos de datos con conjuntos de escalado](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks).
