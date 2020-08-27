@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85b457b4aefee408e35fb89d46e0de0dc4e96740
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: f5c44f72021fa46352ae6ded8fe671ea4f1a4d60
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213861"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797180"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Creación o actualización de un grupo dinámico en Azure Active Directory
 
@@ -80,7 +80,7 @@ Si la regla que escribió no es válida, aparece una explicación de por qué no
 
 ## <a name="turn-on-or-off-welcome-email"></a>Activación o desactivación del correo electrónico de bienvenida
 
-Cuando se crea un nuevo grupo de Microsoft 365, se envía una notificación de bienvenida por correo a los usuarios que se agregaron al grupo. Más tarde, si cambian los atributos de un usuario o dispositivo, se procesan los cambios de pertenencia de todas las reglas de grupo dinámico de la organización. Los usuarios que se agregan también reciben la notificación de bienvenida. Este comportamiento se puede desactivar en [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps).
+Cuando se crea un nuevo grupo de Microsoft 365, se envía una notificación de bienvenida por correo a los usuarios que se agregaron al grupo. Más tarde, si cambian los atributos de un usuario o dispositivo, se procesan los cambios de pertenencia de todas las reglas de grupo dinámico de la organización. Los usuarios que se agregan también reciben la notificación de bienvenida. Este comportamiento se puede desactivar en [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps).
 
 ## <a name="check-processing-status-for-a-rule"></a>Comprobación del estado de procesamiento de una regla
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
-ms.openlocfilehash: f6e356f868cdb2107a19084070a85a0388ab4af7
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 37ff94608e9756142f70a4f3c64d0a6f7eeea685
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554745"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932906"
 ---
 # <a name="get-customer-managed-key-information-from-indexes-and-synonym-maps"></a>Obtención de información de la clave administrada por el cliente de mapas de sinónimos e índices
 
@@ -66,6 +66,6 @@ Invoke-RestMethod -Uri $uri -Headers $headers | ConvertTo-Json
 
 Ahora que sabe qué clave y versión de cifrado se usan, puede administrar la clave en Azure Key Vault o comprobar otras opciones de configuración.
 
-+ [Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante PowerShell](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-powershell)
++ [Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante PowerShell](../key-vault/secrets/quick-create-powershell.md)
 
 + [Configuración de claves administradas por el cliente para el cifrado de datos en Azure Cognitive Search](search-security-manage-encryption-keys.md)

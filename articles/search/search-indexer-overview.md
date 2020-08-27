@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f93df91f87f8119a503f2f7c452b61e3af5924f8
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 982073c77a7e876611f753c716f55c50df8b0817
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88208800"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935167"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indexadores de Azure Cognitive Search
 
@@ -31,8 +31,8 @@ Puede ejecutar los indexadores a petición o con una programación de actualizac
 Puede crear y administrar indexadores mediante estos enfoques:
 
 * [Portal > Asistente para la importación de datos](search-import-data-portal.md)
-* [API de REST de servicio](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
-* [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexersoperations)
+* [API de REST de servicio](/rest/api/searchservice/Indexer-operations)
+* [SDK de .NET](/dotnet/api/microsoft.azure.search.iindexersoperations)
 
 Inicialmente, un nuevo indexador se anuncia como una característica en versión preliminar. Las características en versión preliminar se introdujeron en las API (REST y. NET) y luego se integraron en el portal después de aprobarse para disponibilidad general. Si va a evaluar un nuevo indexador, debe pensar en escribir código.
 
@@ -95,24 +95,24 @@ En la siguiente imagen se muestra una representación de [sesión de depuración
 Los indexadores pueden ofrecer características que son exclusivas del origen de datos. En este sentido, algunos aspectos de la configuración de orígenes de datos o indexadores varían según el tipo de indexador. No obstante, todos los indexadores comparten composición básica y requisitos. Más adelante, se explican los pasos que son comunes a todos los indexadores.
 
 ### <a name="step-1-create-a-data-source"></a>Paso 1: Creación de un origen de datos
-Un indexador obtiene la conexión de origen de datos desde un objeto de *origen de datos*. La definición del origen de datos proporciona una cadena de conexión y, posiblemente, las credenciales. Para crear el recurso, llame a la API de REST [Create Datasource](https://docs.microsoft.com/rest/api/searchservice/create-data-source) o [clase DataSource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource).
+Un indexador obtiene la conexión de origen de datos desde un objeto de *origen de datos*. La definición del origen de datos proporciona una cadena de conexión y, posiblemente, las credenciales. Para crear el recurso, llame a la API de REST [Create Datasource](/rest/api/searchservice/create-data-source) o [clase DataSource](/dotnet/api/microsoft.azure.search.models.datasource).
 
 Los orígenes de datos se configuran y administran independientemente de los indexadores que los usan, lo que significa que varios indexadores pueden usar un origen de datos para cargar más de un índice a la vez.
 
 ### <a name="step-2-create-an-index"></a>Paso 2: Creación de un índice
-Un indexador automatizará algunas tareas relacionadas con la ingesta de datos, pero la creación de un índice no suele ser una de ellas. Como requisito previo, debe tener un índice predefinido con campos que coincidan con los del origen de datos externo. Los campos deben coincidir por nombre y tipo de datos. Para más información sobre la estructura de un índice, consulte [Create an Index (Azure Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Index) [Creación de un índice (API de REST de Azure Cognitive Search)] o [Index class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index) (Clase Index). Para obtener ayuda con las asociaciones de campo, consulte [Field mappings in Azure Cognitive Search indexers](search-indexer-field-mappings.md) (Asignaciones de campos en los indexadores de Azure Cognitive Search).
+Un indexador automatizará algunas tareas relacionadas con la ingesta de datos, pero la creación de un índice no suele ser una de ellas. Como requisito previo, debe tener un índice predefinido con campos que coincidan con los del origen de datos externo. Los campos deben coincidir por nombre y tipo de datos. Para más información sobre la estructura de un índice, consulte [Create an Index (Azure Cognitive Search REST API)](/rest/api/searchservice/Create-Index) [Creación de un índice (API de REST de Azure Cognitive Search)] o [Index class](/dotnet/api/microsoft.azure.search.models.index) (Clase Index). Para obtener ayuda con las asociaciones de campo, consulte [Field mappings in Azure Cognitive Search indexers](search-indexer-field-mappings.md) (Asignaciones de campos en los indexadores de Azure Cognitive Search).
 
 > [!Tip]
 > Aunque los indexadores no pueden generar un índice, el Asistente para **importar datos** del portal puede ayudarle. En la mayoría de los casos, el asistente puede inferir un esquema de índice de los metadatos existentes en el origen y presentar un esquema de índice preliminar que se pueda modificar en línea mientras el asistente esté activo. Una vez que el índice se crea en el servicio, la mayoría de las posteriores modificaciones se limitan a agregar nuevos campos. Tenga en cuenta al asistente para crear índices, pero no para revisarlos. Para obtener conocimientos prácticos, recorra el [tutorial del portal](search-get-started-portal.md).
 
 ### <a name="step-3-create-and-schedule-the-indexer"></a>Paso 3: Creación y programación del indizador
-La definición del indexador es una construcción que reúne todos los elementos relacionados con la ingesta de datos. Los elementos necesarios incluyen un origen de datos y un índice. Los elementos opcionales incluyen una programación y asignaciones de campos. La asignación de campos solo es opcional si los campos de origen y los campos de índice se corresponden claramente. Para más información sobre la estructura de un indexador, consulte [Create Indexer (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer) [Crear el indexador (API de REST de Azure Cognitive Search)].
+La definición del indexador es una construcción que reúne todos los elementos relacionados con la ingesta de datos. Los elementos necesarios incluyen un origen de datos y un índice. Los elementos opcionales incluyen una programación y asignaciones de campos. La asignación de campos solo es opcional si los campos de origen y los campos de índice se corresponden claramente. Para más información sobre la estructura de un indexador, consulte [Create Indexer (Azure Search Service REST API)](/rest/api/searchservice/Create-Indexer) [Crear el indexador (API de REST de Azure Cognitive Search)].
 
 <a id="RunIndexer"></a>
 
 ## <a name="run-indexers-on-demand"></a>Ejecutar indexadores a petición
 
-Aunque es común para programar la indexación, un indexador también puede invocarse a petición mediante el [comando Ejecutar](https://docs.microsoft.com/rest/api/searchservice/run-indexer):
+Aunque es común para programar la indexación, un indexador también puede invocarse a petición mediante el [comando Ejecutar](/rest/api/searchservice/run-indexer):
 
 ```http
 POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2020-06-30
@@ -128,7 +128,7 @@ El estado del indexador se puede supervisar en el portal o mediante la API de Ob
 
 ## <a name="get-indexer-status"></a>Obtener el estado del indexador
 
-Puede recuperar el estado y el historial de ejecución de un indexador a través del [comando Obtener estado del indexador](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status):
+Puede recuperar el estado y el historial de ejecución de un indexador a través del [comando Obtener estado del indexador](/rest/api/searchservice/get-indexer-status):
 
 ```http
 GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2020-06-30

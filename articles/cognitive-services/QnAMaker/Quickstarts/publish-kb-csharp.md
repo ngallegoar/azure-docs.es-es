@@ -3,14 +3,14 @@ title: 'Inicio rápido: Publicación de la base de conocimiento en QnA Maker con
 description: Esta guía de inicio rápido basada en REST de C# publica la base de conocimiento y crea un punto de conexión al que se puede llamar en su aplicación o bot de chat.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27
+ms.custom: RESTCURL2020FEB27, devx-track-csharp
 ms.topic: how-to
-ms.openlocfilehash: 7eaa8d7f7d86e215ea2e9906075c27dd2916dcd5
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: ccad31c5a67eaec53ee9366961187bb1ed235283
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342755"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934164"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Inicio rápido: Publicación de una base de conocimiento en QnA Maker con C#
 

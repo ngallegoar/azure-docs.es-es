@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59f80b986a9d1a3b2be9aa413ce4175d8eb88bc4
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 46d692b81d24b6c5088ffc42644ed1dd7f45b2d2
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213823"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795315"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Asignación de etiquetas de confidencialidad a grupos de Microsoft 365 en Azure Active Directory
 
-Azure Active Directory (Azure AD) permite aplicar etiquetas de confidencialidad publicadas por el [Centro de cumplimiento de Microsoft 365](https://sip.protection.office.com/homepage) a los grupos de Microsoft 365. Las etiquetas de confidencialidad se aplican a grupos de servicios como Outlook, Microsoft Teams y SharePoint. Esta característica está actualmente en disponibilidad general. Para más información sobre el soporte técnico de aplicaciones de Office 365, consulte [Compatibilidad de Office 365 con las etiquetas de confidencialidad](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
+Azure Active Directory (Azure AD) permite aplicar etiquetas de confidencialidad publicadas por el [Centro de cumplimiento de Microsoft 365](https://sip.protection.office.com/homepage) a los grupos de Microsoft 365. Las etiquetas de confidencialidad se aplican a grupos de servicios como Outlook, Microsoft Teams y SharePoint. Esta característica está actualmente en disponibilidad general. Para más información sobre el soporte técnico de aplicaciones de Office 365, consulte [Compatibilidad de Office 365 con las etiquetas de confidencialidad](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
 
 > [!IMPORTANT]
 > Para configurar esta característica, debe haber al menos una licencia activa de Azure Active Directory Premium P1 en la organización de Azure AD.
@@ -48,7 +48,7 @@ Para aplicar etiquetas publicadas a grupos, primero debe habilitar la caracterí
     ```
 
     > [!NOTE]
-    > Si no se ha creado ninguna configuración de grupo para esta organización de Azure AD, primero debe crearla. Siga los pasos de [Cmdlets de Azure Active Directory para configurar las opciones de grupo](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-settings-cmdlets) y cree una configuración de grupo para esta organización de Azure AD.
+    > Si no se ha creado ninguna configuración de grupo para esta organización de Azure AD, primero debe crearla. Siga los pasos de [Cmdlets de Azure Active Directory para configurar las opciones de grupo](./groups-settings-cmdlets.md) y cree una configuración de grupo para esta organización de Azure AD.
 
 1. A continuación, muestre la configuración actual del grupo.
 
@@ -145,7 +145,7 @@ Si debe realizar un cambio, use un [script de Azure AD PowerShell](https://gith
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Uso de etiquetas de confidencialidad con Microsoft Teams, grupos de Microsoft 365 y sitios de SharePoint](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
+- [Uso de etiquetas de confidencialidad con Microsoft Teams, grupos de Microsoft 365 y sitios de SharePoint](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
 - [Actualización de grupos después de cambiar la directiva de etiquetas manualmente con el script de Azure AD PowerShell](https://github.com/microsoftgraph/powershell-aad-samples/blob/master/ReassignSensitivityLabelToO365Groups.ps1)
-- [Edición de la configuración de un grupo](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal)
-- [Administrar grupos mediante los comandos de PowerShell](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-settings-v2-cmdlets)
+- [Edición de la configuración de un grupo](../fundamentals/active-directory-groups-settings-azure-portal.md)
+- [Administrar grupos mediante los comandos de PowerShell](./groups-settings-v2-cmdlets.md)
