@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ef840dc84c04875333958fa59ce399f2d16d07b5
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 58bb87d5af785d3cffd96f3bd02477f97ed967a9
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214012"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935371"
 ---
 # <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Cómo asignar campos enriquecidos con IA a un índice de búsqueda
 
@@ -32,7 +32,7 @@ Ejemplos de asignaciones de campos de salida:
 * No tiene un conjunto de aptitudes pero está indizando un tipo complejo desde una base de datos Cosmos DB. Quiere obtener acceso a un nodo de ese tipo complejo y asignarlo a un campo en el índice.
 
 > [!NOTE]
-> Recientemente se ha habilitado la funcionalidad de asignación de funciones en las asignaciones de campos de salida. Para obtener más información sobre las funciones de asignación, consulte [Funciones de asignación de campos](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#field-mapping-functions)
+> Recientemente se ha habilitado la funcionalidad de asignación de funciones en las asignaciones de campos de salida. Para obtener más información sobre las funciones de asignación, consulte [Funciones de asignación de campos](./search-indexer-field-mappings.md#field-mapping-functions)
 
 ## <a name="use-outputfieldmappings"></a>Usar outputFieldMappings
 
