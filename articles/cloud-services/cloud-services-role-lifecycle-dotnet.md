@@ -5,15 +5,16 @@ services: cloud-services
 documentationcenter: .net
 author: tgore03
 ms.service: cloud-services
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: e23eea439235659cf68da1063ae50a718a847a8d
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: d64414abfbc62e52b172a2c42796ec8d89d1719f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142322"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930067"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Personalizar el ciclo de vida de un rol web o de trabajo en .NET
 Cuando cree un rol de trabajo, amplíe la clase [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) que ofrece métodos para invalidar que le permiten responder a eventos del ciclo de vida. Para los roles web esta clase es opcional, por lo que debe usarla para responder a eventos del ciclo de vida.

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: a5eb24b5420431a43afa2ffd006ac821f0e907c9
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: e5ed84c6daaf01deb67d39bd13de1498dca131c5
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185764"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750869"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Caracterización en aprendizaje automático automatizado
 
@@ -108,7 +108,7 @@ Límite de protección|Estado|Condición&nbsp;para&nbsp;el desencadenador
 **Atribución de los valores de características que faltan** |Superado <br><br><br> ¡Listo!| No se ha detectado que falten valores de característica en los datos de entrenamiento. Obtenga más información sobre la [imputación de valores que faltan](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options). <br><br> Se han detectado valores de característica que faltan en los datos de entrenamiento y se han imputado.
 **Control de características de cardinalidad alta** |Superado <br><br><br> ¡Listo!| Se han analizado las entradas y no se han detectado características de cardinalidad alta. <br><br> Se han detectado características de cardinalidad alta en las entradas y se han controlado.
 **Control de división de validación** |¡Listo!| La configuración de validación se ha establecido en `'auto'` y los datos de entrenamiento contenían *menos de 20 000 filas*. <br> Todas las iteraciones del modelo entrenado se han validado mediante validación cruzada. Obtenga más información sobre la [validación de datos](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data). <br><br> La configuración de validación se ha establecido en `'auto'` y los datos de entrenamiento contenían *más de 20 000 filas*. <br> Los datos de entrada se han dividido en un conjunto de datos de entrenamiento y un conjunto de datos de validación para comprobar el modelo.
-**Detección de equilibrio de clases** |Superado <br><br>Con alertas <br><br>¡Listo! | Se analizaron las entradas y todas las clases están equilibradas en los datos de entrenamiento. Se considera que un conjunto de datos está equilibrado si todas las clases tienen una representación adecuada en el conjunto de datos según el número y proporción de las muestras. <br><br><br> Se han detectado clases desequilibradas en las entradas. Para corregir el sesgo del modelo, corrija el problema de equilibrio. Obtenga más información sobre [datos desequilibrados](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data).<br><br><br> Se detectaron clases desequilibradas en las entradas, y la lógica de barrido ha determinado aplicar el equilibrio.
+**Detección de equilibrio de clases** |Superado <br><br><br><br>Con alertas <br><br><br>¡Listo! | Se analizaron las entradas y todas las clases están equilibradas en los datos de entrenamiento. Se considera que un conjunto de datos está equilibrado si todas las clases tienen una representación adecuada en el conjunto de datos según el número y proporción de las muestras. <br><br> Se han detectado clases desequilibradas en las entradas. Para corregir el sesgo del modelo, corrija el problema de equilibrio. Obtenga más información sobre [datos desequilibrados](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data).<br><br> Se detectaron clases desequilibradas en las entradas, y la lógica de barrido ha determinado aplicar el equilibrio.
 **Detección de problemas de memoria** |Superado <br><br><br><br> ¡Listo! |<br> Se han analizado los valores seleccionados (horizonte, retardo y ventana con desplazamiento) sin que se hayan detectado incidencias potenciales de memoria insuficiente. Obtenga más información sobre las [configuraciones de previsión](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment) de series temporales. <br><br><br>Se han analizado los valores seleccionados (horizonte, retardo y ventana con desplazamiento) y pueden provocar que el experimento se quede sin memoria. Se han desactivado las configuraciones de ventana con desplazamiento o retardo.
 **Detección de frecuencias** |Superado <br><br><br><br> ¡Listo! |<br> Se ha analizado la serie temporal y todos los puntos de datos están alineados con la frecuencia detectada. <br> <br> Se ha analizado la serie temporal y se han detectado puntos de datos que no están alineados con la frecuencia detectada. Estos puntos de datos se quitaron del conjunto de datos. Obtenga más información sobre la [preparación de datos para las previsiones de serie temporal](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data).
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: e38d59ff1eb31dd5fc3ecf6b7df6b12504141d5e
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: ff70beef89f6db240db244de1e11e54193858be0
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88082851"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705782"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Información general del agente de Azure Monitor (versión preliminar)
 El agente de Azure Monitor (AMA) recopila datos de supervisión del sistema operativo invitado de máquinas virtuales y los entrega a Azure Monitor. En este artículo se proporciona información general sobre el agente de Azure Monitor, incluido cómo instalarlo y cómo configurar la recopilación de datos.
@@ -107,7 +107,7 @@ El agente de Azure Monitor se implementa como [extensión de VM de Azure](../../
 |:---|:---|:---|
 | Publicador | Microsoft.Azure.Monitor  | Microsoft.Azure.Monitor |
 | Tipo      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
-| TypeHandlerVersion  | 1.0 | 0.9 |
+| TypeHandlerVersion  | 1.0 | 1.5 |
 
 Instale el agente de Azure Monitor con cualquiera de los métodos para instalar los agentes de máquina virtual, incluidos los siguientes con PowerShell o la CLI. Como alternativa, puede instalar el agente y configurar la recopilación de datos en máquinas virtuales de su suscripción a Azure desde el portal con el procedimiento descrito en [Configuración de la recopilación de datos para el agente de Azure Monitor (versión preliminar)](data-collection-rule-azure-monitor-agent.md#create-using-the-azure-portal).
 
@@ -116,14 +116,14 @@ Instale el agente de Azure Monitor con cualquiera de los métodos para instalar 
 # <a name="cli"></a>[CLI](#tab/CLI1)
 
 ```azurecli
-az vm extension set --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --version 1.0 --ids {resource ID of the VM}
+az vm extension set --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --ids {resource ID of the VM}
 
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell1)
 
 ```powershell
-Set-AzVMExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -Version 1.0 -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus
+Set-AzVMExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus
 ```
 ---
 
@@ -133,14 +133,14 @@ Set-AzVMExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publ
 # <a name="cli"></a>[CLI](#tab/CLI2)
 
 ```azurecli
-az vm extension set --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --version 0.9 --ids {resource ID of the VM}
+az vm extension set --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --ids {resource ID of the VM}
 
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell2)
 
 ```powershell
-Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -Version 0.9 -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus
+Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus
 ```
 ---
 

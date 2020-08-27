@@ -11,16 +11,16 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23e2f7424464860b647883be2441e903900cb266
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ebe6671e0a5f4821d06e93e3da4e37bd09a2fa7
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80652880"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716952"
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Puerta de enlace de Escritorio remoto y Servidor Azure Multi-Factor Authentication con RADIUS
 
-A menudo, Puerta de enlace de Escritorio remoto utiliza los [servicios de directivas de red (NPS)](https://docs.microsoft.com/windows-server/networking/core-network-guide/core-network-guide#BKMK_optionalfeatures) local para autenticar a los usuarios. En este artículo se describe cómo enrutar la solicitud RADIUS desde Puerta de enlace de Escritorio remoto (a través del NPS local) a Servidor Multi-Factor Authentication. La combinación de Azure MFA y Puerta de enlace de Escritorio remoto significa que los usuarios pueden tener acceso a sus entornos de trabajo desde cualquier lugar mientras realicen una autenticación segura.
+A menudo, Puerta de enlace de Escritorio remoto utiliza los [servicios de directivas de red (NPS)](/windows-server/networking/core-network-guide/core-network-guide#BKMK_optionalfeatures) local para autenticar a los usuarios. En este artículo se describe cómo enrutar la solicitud RADIUS desde Puerta de enlace de Escritorio remoto (a través del NPS local) a Servidor Multi-Factor Authentication. La combinación de Azure MFA y Puerta de enlace de Escritorio remoto significa que los usuarios pueden tener acceso a sus entornos de trabajo desde cualquier lugar mientras realicen una autenticación segura.
 
 Puesto que no se admite la autenticación de Windows para los servicios de terminal en Server 2012 R2, utilice Puerta de enlace de Escritorio remoto y RADIUS para integrar con el servidor MFA.
 

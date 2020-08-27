@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
-ms.openlocfilehash: 1b91a39e1297d8952da67a4f8d3b8568cefe04ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f05804785435824970d90410d9a1c9490a3d6c06
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73620560"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654725"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Solución de problemas de una máquina virtual Linux mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante la CLI de Azure
 Si la máquina virtual Linux se encuentra un error de disco o de arranque, deberá realizar los pasos para solucionar problemas en el propio disco duro virtual. Un ejemplo habitual sería una entrada no válida en `/etc/fstab` que impide que la máquina virtual se pueda arrancar correctamente. En este artículo se detalla cómo utilizar la CLI de Azure para conectar el disco duro virtual a otra máquina virtual Linux para solucionar los errores y, posteriormente, volver a crear la máquina virtual original. 
@@ -37,7 +37,7 @@ El proceso de solución de problemas es el siguiente:
 Para realizar estos pasos para la solución de problemas, es preciso tener instalada la [CLI de Azure](/cli/azure/install-az-cli2) más reciente y haber iniciado sesión en una cuenta de Azure mediante [az login](/cli/azure/reference-index).
 
 > [!Important]
-> Los scripts de este artículo solo se aplican a las máquinas virtuales que usan [Managed Disks](../linux/managed-disks-overview.md). 
+> Los scripts de este artículo solo se aplican a las máquinas virtuales que usan [Managed Disks](../managed-disks-overview.md). 
 
 En los ejemplos siguientes, reemplace los nombres de parámetros por los suyos propios, como `myResourceGroup` y `myVM`.
 
