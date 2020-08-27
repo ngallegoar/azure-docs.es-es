@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/11/2019
 author: shganesh-dev
 ms.author: shganesh
-ms.openlocfilehash: 2bd38bc7a499aa9178d49f54e27a88a38206e521
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5b688d64641f6dd8779d699bcd1d646e40b19b87
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317576"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245679"
 ---
 # <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Panel Descargas de los análisis de marketplace comercial
 
@@ -25,9 +25,7 @@ Para acceder al panel Descargas, abra el panel **[Analizar](https://partner.micr
 
 ## <a name="downloads-dashboard"></a>Panel Descargas
 
-El panel **Descargas** del menú **Analizar** muestra las solicitudes de las descargas que contienen más de 1000 filas de datos de clientes o pedidos.
-
-Recibirá una notificación emergente y un correo con un vínculo al panel **Descargas** cada vez que solicite una descarga con más de 1000 filas de datos. Estas descargas de datos estarán disponibles durante un período de 30 días y, a continuación, se quitarán.
+El panel **Descargas** del menú **Analizar** muestra las solicitudes de las descargas que contienen más de 1000 filas de datos de clientes o pedidos. Estas descargas de datos estarán disponibles durante de 30 días y, a continuación, se quitarán.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

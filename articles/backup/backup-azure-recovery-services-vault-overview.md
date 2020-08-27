@@ -2,19 +2,17 @@
 title: Introducción a los almacenes de Recovery Services
 description: Información general y comparación entre los almacenes de Recovery Services y los de Azure Backup.
 ms.topic: conceptual
-ms.date: 08/10/2018
-ms.openlocfilehash: 0e1d061c6baf31fad2e937a604098f0baff6086d
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.date: 08/17/2020
+ms.openlocfilehash: 5334bc2aea5ddbf734c3fd3ef314ff4da609d61d
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041908"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587759"
 ---
 # <a name="recovery-services-vaults-overview"></a>Introducción a los almacenes de Recovery Services
 
 En este artículo se describen las características de un almacén de Recovery Services. Un almacén de Recovery Services es una entidad de almacenamiento de Azure que aloja datos. Normalmente, los datos son copias de datos o información de configuración de máquinas virtuales (VM), cargas de trabajo, servidores o estaciones de trabajo. Puede usar almacenes de Recovery Services para almacenar datos de copia de seguridad de varios servicios de Azure como máquinas virtuales de IaaS (Linux o Windows) y bases de datos de Azure SQL. Los almacenes de Recovery Services son compatibles con System Center DPM, Windows Server, Azure Backup Server y muchos más. Los almacenes de Recovery Services facilitan la tarea de organizar los datos de copia de seguridad, al mismo tiempo que reduce al mínimo su sobrecarga administrativa. Los almacenes de Recovery Services se basan en el modelo de Azure Resource Manager de Azure, que proporciona características como las siguientes:
-
-## <a name="comparing-recovery-services-vaults-and-backup-vaults"></a>Comparación de almacenes de Recovery Services y de Backup
 
 - **Funcionalidades mejoradas para ayudar a proteger datos de copia de seguridad**: con los almacenes de Recovery Services, Azure Backup proporciona funcionalidades de seguridad para proteger las copias de seguridad en la nube. Estas características de seguridad garantizan que puede proteger las copias de seguridad y recuperar datos de forma segura, incluso si los servidores de producción y copia de seguridad están en peligro. [Más información](backup-azure-security-feature.md)
 
@@ -34,10 +32,19 @@ Un almacén de Recovery Services es una entidad que almacena las copias de segur
 
 - Para obtener más información acerca de la redundancia de almacenamiento, consulte estos artículos sobre redundancia [geográfica](../storage/common/storage-redundancy.md) y [local](../storage/common/storage-redundancy.md).
 
-### <a name="additional-resources"></a>Recursos adicionales
+## <a name="encryption-settings-in-the-recovery-services-vault"></a>Configuración del cifrado en el almacén de Recovery Services
 
-- [Escenarios admitidos y no admitidos de almacén](backup-support-matrix.md#vault-support)
-- [Preguntas más frecuentes de almacén](backup-azure-backup-faq.md)
+En esta sección se describen las opciones disponibles para cifrar los datos de copia de seguridad almacenados en el almacén de Recovery Services.
+
+### <a name="encryption-of-backup-data-using-platform-managed-keys"></a>Cifrado de datos de copia de seguridad mediante claves administradas por la plataforma
+
+De forma predeterminada, todos los datos se cifran mediante claves administradas por la plataforma. No es necesario realizar ninguna acción explícita de su parte para habilitar este cifrado. Se aplica a todas las cargas de trabajo de las que se realiza una copia de seguridad en el almacén de Recovery Services.
+
+### <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Cifrado de datos de copia de seguridad mediante claves administradas por el cliente
+
+Puede elegir cifrar los datos mediante las claves de cifrado que posee y administra. Azure Backup le permite usar las claves RSA almacenadas en Azure Key Vault para cifrar las copias de seguridad. La clave de cifrado utilizada para cifrar las copias de seguridad puede ser diferente de la que se usa para el origen. Los datos se protegen mediante una clave de cifrado de datos (DEK) basada en AES 256, que, a su vez, está protegida con las claves del usuario. Esto le proporciona un control total sobre los datos y las claves. Para permitir el cifrado, debe concederse al almacén de Recovery Services el acceso a la clave de cifrado en Azure Key Vault. Puede deshabilitar la clave o revocar el acceso siempre que sea necesario. Sin embargo, debe habilitar el cifrado con las claves antes de intentar proteger los elementos en el almacén.
+
+Obtenga más información acerca de cómo cifrar los datos de copia de seguridad [mediante claves administradas por el cliente](encryption-at-rest-with-cmk.md).
 
 ## <a name="azure-advisor"></a>Azure Advisor
 
@@ -47,9 +54,15 @@ Azure Advisor proporciona [recomendaciones](../advisor/advisor-high-availabilit
 
 ![Azure Advisor](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
 
+## <a name="additional-resources"></a>Recursos adicionales
+
+- [Escenarios admitidos y no admitidos de almacén](backup-support-matrix.md#vault-support)
+- [Preguntas más frecuentes de almacén](backup-azure-backup-faq.md)
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Use los artículos siguientes para realizar estos pasos:</br>
-[Copia de seguridad de una máquina virtual de IaaS](backup-azure-arm-vms-prepare.md)</br>
-[Copia de seguridad de Azure Backup Server](backup-azure-microsoft-azure-backup.md)</br>
-[Copia de seguridad de Windows Server](backup-windows-with-mars-agent.md)
+Use los artículos siguientes para realizar estos pasos:
+
+- [Copia de seguridad de una máquina virtual de IaaS](backup-azure-arm-vms-prepare.md)
+- [Copia de seguridad de Azure Backup Server](backup-azure-microsoft-azure-backup.md)
+- [Copia de seguridad de Windows Server](backup-windows-with-mars-agent.md)

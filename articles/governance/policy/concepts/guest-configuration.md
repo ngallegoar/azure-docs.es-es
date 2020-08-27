@@ -3,17 +3,16 @@ title: Información sobre cómo auditar el contenido de máquinas virtuales
 description: Obtenga información sobre cómo Azure Policy usa Guest Configuration para auditar la configuración dentro de las máquinas virtuales.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 906c86856342febc92f070493fde31af42e4ca10
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 624f0a2464323e8002b9940471c93b3030f053d5
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987110"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544679"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Información sobre Guest Configuration de Azure Policy
 
-Azure Policy puede auditar la configuración dentro de un equipo, tanto para las máquinas que se ejecutan en Azure como para las [conectadas a Arc](../../../azure-arc/servers/overview.md).
-La validación se realiza mediante el cliente y la extensión Guest Configuration. La extensión, a través del cliente, valida la configuración como:
+Azure Policy puede auditar la configuración dentro de un equipo, tanto para las máquinas que se ejecutan en Azure como para las [conectadas a Arc](../../../azure-arc/servers/overview.md). La validación se realiza mediante el cliente y la extensión Guest Configuration. La extensión, a través del cliente, valida la configuración como:
 
 - La configuración del sistema operativo
 - Configuración de la aplicación o presencia
@@ -93,8 +92,7 @@ El tráfico se enruta mediante la [dirección IP pública virtual](../../../virt
 
 ### <a name="azure-arc-connected-machines"></a>Máquinas conectadas de Azure Arc
 
-Los nodos que se encuentran fuera de Azure y que están conectados mediante Azure Arc requieren conectividad con el servicio de configuración de invitado.
-Detalles sobre los requisitos de red y proxy que se proporcionan en la [documentación de Azure Arc](../../../azure-arc/servers/overview.md).
+Los nodos que se encuentran fuera de Azure y que están conectados mediante Azure Arc requieren conectividad con el servicio de configuración de invitado. Detalles sobre los requisitos de red y proxy que se proporcionan en la [documentación de Azure Arc](../../../azure-arc/servers/overview.md).
 
 Para comunicarse con el proveedor de recursos de la configuración de invitado en Azure, las máquinas requieren acceso de salida a los centros de datos Azure en el puerto **443**. Si una red en Azure no permite el tráfico saliente, las excepciones deben configurarse con las reglas del [grupo de seguridad de red](../../../virtual-network/manage-network-security-group.md#create-a-security-rule). La [etiqueta del servicio](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" se puede usar para hacer referencia al servicio de Guest Configuration.
 

@@ -3,12 +3,12 @@ title: Eliminación de un almacén de Microsoft Azure Recovery Services
 description: En este artículo, aprenderá a quitar dependencias y, luego, a eliminar un almacén de Azure Backup Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 5446c54ac070555987dfc05afa67825f307ee61b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 41d0cbc8e1c59f33efc24f38b535aa9cf91b2cc9
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055215"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257959"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Eliminación de un almacén de Recovery Services de Azure Backup
 
@@ -43,8 +43,9 @@ Para eliminar correctamente un almacén, debe seguir los pasos en este orden:
 - **Paso 3**: Debe comprobar los tres lugares siguientes para verificar si hay elementos protegidos:
 
   - **Elementos protegidos por la nube**: Vaya al menú del panel del almacén > **Elementos de copia de seguridad**. Todos los elementos que se enumeran aquí deben eliminarse con **Detener copia de seguridad** o **Eliminar datos de copia de seguridad** junto con sus datos de copia de seguridad.  [Siga estos pasos](#delete-protected-items-in-the-cloud) para quitar esos elementos.
+  - **Instancia de SQL Server**: Vaya al menú del panel del almacén > **Infraestructura de copia de seguridad** > **Servidores protegidos**. En Servidores protegidos, seleccione el servidor del que desea anular el registro. Para eliminar el almacén, debe anular el registro de todos los servidores. Haga clic con el botón derecho en el servidor protegido y seleccione **Anular registro**.
   - **Servidores protegidos MARS**: Vaya al menú del panel del almacén > **Infraestructura de copia de seguridad** > **Servidores protegidos**. Si tiene servidores protegidos MARS, todos los elementos que se enumeran aquí deben eliminarse junto con sus datos de copia de seguridad. [Siga estos pasos](#delete-protected-items-on-premises) para eliminar los servidores protegidos MARS.
-  - **Servidores de administración MABS o DPM**: Vaya al menú del panel del almacén > **Infraestructura de copia de seguridad** > **Servidores de administración de copia de seguridad**. Si tiene DPM o Azure Backup Server (MABS), todos los elementos que se enumeran aquí se deben eliminar junto con sus datos de copia de seguridad (o debe anularse su registro). [Siga estos pasos](#delete-protected-items-on-premises) para eliminar los servidores de administración.
+   - **Servidores de administración MABS o DPM**: Vaya al menú del panel del almacén > **Infraestructura de copia de seguridad** > **Servidores de administración de copia de seguridad**. Si tiene DPM o Azure Backup Server (MABS), todos los elementos que se enumeran aquí se deben eliminar junto con sus datos de copia de seguridad (o debe anularse su registro). [Siga estos pasos](#delete-protected-items-on-premises) para eliminar los servidores de administración.
 
 - **Paso 4**: Debe asegurarse de que se han eliminado todas las cuentas de almacenamiento registradas. Vaya al menú del panel del almacén > **Infraestructura de copia de seguridad** > **Cuentas de almacenamiento**. Si aparecen cuentas de almacenamiento, debe anular el registro de todas ellas. Para aprender a anular el registro de la cuenta, consulte [Anulación del registro de una cuenta de almacenamiento](manage-afs-backup.md#unregister-a-storage-account).
 

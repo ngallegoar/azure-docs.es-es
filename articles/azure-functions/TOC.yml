@@ -175,11 +175,12 @@
               href: functions-develop-vs.md
             - name: Desarrollo de Core Tools
               href: functions-run-local.md
+              displayName: 'local, runtime'
         - name: Creación de funciones
           items:
             - name: Desencadenador HTTP
               items:
-                - name: Azure portal
+                - name: Portal de Azure
                   href: functions-create-first-azure-function.md
                 - name: Línea de comandos
                   href: ./functions-create-first-azure-function-azure-cli.md

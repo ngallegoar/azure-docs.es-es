@@ -3,12 +3,12 @@ title: Introducción a las características de seguridad
 description: Obtenga información sobre las funcionalidades de seguridad de Azure Backup que le ayudan a proteger los datos de copia de seguridad y a satisfacer las necesidades de seguridad de su negocio.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 944ef2e86ad8e56501692b29d0958bc4fc19bf0a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8a63585635f578f55b274c3257807fc731eacc47
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319310"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589391"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Introducción a las características de seguridad de Azure Backup
 
@@ -48,9 +48,9 @@ Mediante el cifrado, se protegen los datos y es más fácil cumplir los compromi
 
 * Dentro de Azure, los datos en tránsito entre Azure Storage y el almacén [se protegen mediante HTTPS](backup-support-matrix.md#network-traffic-to-azure). Estos datos permanecen en la red troncal de Azure.
 
-* Los datos de copia de seguridad se cifran automáticamente mediante [claves administradas por Microsoft](backup-encryption.md#encryption-of-backup-data-using-platform-managed-keys) y no es necesario realizar ninguna acción explícita para habilitarlos. También puede cifrar los datos de copia de seguridad con [claves administradas por el cliente](encryption-at-rest-with-cmk.md) almacenadas en Azure Key Vault. Se aplica a todas las cargas de trabajo de las que se realiza una copia de seguridad en el almacén de Recovery Services.
+* Los datos de copia de seguridad se cifran automáticamente mediante [claves administradas por la plataforma](backup-encryption.md) y no es necesario realizar ninguna acción explícita para habilitarlos. También puede cifrar los datos de copia de seguridad con [claves administradas por el cliente](encryption-at-rest-with-cmk.md) almacenadas en Azure Key Vault. Se aplica a todas las cargas de trabajo de las que se realiza una copia de seguridad en el almacén de Recovery Services.
 
-* Azure Backup admite la copia de seguridad y la restauración de máquinas virtuales de Azure que tengan cifrados sus discos del sistema operativo o de datos con [Azure Disk Encryption (ADE)](backup-encryption.md#backup-of-vms-encrypted-using-ade) y [máquinas virtuales con discos cifrados con CMK](backup-encryption.md#backup-of-managed-disk-vms-encrypted-using-customer-managed-keys). Obtenga más información sobre las [máquinas virtuales de Azure cifradas y Azure Backup](./backup-azure-vms-encryption.md).
+* Azure Backup admite la copia de seguridad y la restauración de máquinas virtuales de Azure que tengan cifrados sus discos del sistema operativo o de datos con [Azure Disk Encryption (ADE)](backup-azure-vms-encryption.md#encryption-support-using-ade) y [máquinas virtuales con discos cifrados con CMK](backup-azure-vms-encryption.md#encryption-using-customer-managed-keys). Obtenga más información sobre las [máquinas virtuales de Azure cifradas y Azure Backup](./backup-azure-vms-encryption.md).
 
 * Cuando se realiza una copia de seguridad de los datos desde servidores locales con el agente de MARS, los datos se cifran con una frase de contraseña antes de cargarse en Azure Backup y se descifran solo después de descargarse de Azure Backup. Obtenga más información sobre las [características de seguridad que ayudan a proteger las copias de seguridad híbridas](#security-features-to-help-protect-hybrid-backups).
 

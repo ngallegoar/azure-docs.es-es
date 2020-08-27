@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: 31bb6dd188786fda532bf85d071e119e69e5bccc
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 2ca0031d3ae9fc1347c3a8bd7bf24c2780e502a8
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797872"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607458"
 ---
 # <a name="consulting-service-offers"></a>Ofertas de servicio de consultoría
 
@@ -22,7 +22,7 @@ Las ofertas de servicios de consultoría son interacciones específicas del clie
 
 ## <a name="compare-consulting-services"></a>Comparar servicios de consultoría
 
-Los escaparates de marketplace comercial, Microsoft AppSource y Azure Marketplace se organizan de acuerdo con las audiencias y los productos en la nube para ayudar a los clientes a encontrar exactamente lo que necesitan. Cada escaparate tiene opciones de publicación especializadas que le ayudan a maximizar la inversión en publicación. Para obtener más información sobre la diferencia entre los dos escaparates, consulte [Comparación de Microsoft AppSource y Azure Marketplace](comparing-appsource-azure-marketplace.md).
+Las tiendas en línea de marketplace comercial, Microsoft AppSource y Azure Marketplace se organizan de acuerdo con el público y los productos en la nube para ayudar a los clientes a encontrar exactamente lo que necesitan. Cada tienda en línea tiene opciones de publicación especializadas que le ayudan a maximizar la inversión en publicación. Para obtener más información sobre la diferencia entre las dos tiendas en línea, consulte [Comparación de Microsoft AppSource y Azure Marketplace](comparing-appsource-azure-marketplace.md).
 
 Las ofertas de servicios de consultoría basadas en Dynamics 365, Power Apps y Power BI son aptas para publicarse en AppSource. Para más información, descargue el archivo PDF de [instrucciones de publicación de servicios consultoría de Microsoft AppSource](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409).
 
@@ -34,7 +34,7 @@ Las ofertas de servicios de consultoría y servicios administrados que se basan 
 > Los servicios de consultoría en AppSource deben centrarse en ofertas para usuarios con experiencia en la entrega de soluciones de calidad para Dynamics 365, Power BI o Power Apps.
  
 > [!TIP]
-> Para publicar en el escaparate de Azure Marketplace, en la lista desplegable **Producto principal** del Centro de partners, seleccione **Azure**.
+> Para publicar en Azure Marketplace, en la lista desplegable **Producto principal** del Centro de partners, seleccione **Azure**.
 >
 > Para publicar en AppSource, en la lista desplegable **Producto principal** del Centro de partners, seleccione **Dynamics 365**, **Power BI** o **Power Apps**.
 
@@ -86,12 +86,12 @@ Los asociados integradores de sistemas pueden enviar ofertas de servicios de con
 Empiece por [registrar](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) la información de su empresa en Marketplace. Consulte [Conviértase en anunciante en los escaparates de Marketplace](become-publisher.md) para obtener una lista de comprobación completa de los requisitos de registro. 
 
 ## <a name="prepare-your-publishing-artifacts"></a>Preparación de los artefactos de publicación
-Antes del registro, puede empezar a recopilar y preparar el contenido que ayudará a que su anuncio exprese el valor de su servicio y solución para el cliente objetivo.
+Antes del registro, puede empezar a recopilar y preparar el contenido que ayudará a que su anuncio exprese el valor de su servicio y solución para el cliente objetivo. 
 
 |Configuración para nuevos anunciantes  |
 |---------|
 |Identificador de MPN     |
-|Logotipos de compañía: 48 x 48 píxeles (opcional), 216 x 216 píxeles y 350 x 350 píxeles (obligatorio)  |
+|Logotipos de empresa (48 x 48, 216 x 216 píxeles)     |
 |Destino de clientes potenciales     |
 ||
 
