@@ -8,12 +8,12 @@ author: troy0820
 ms.author: b-trconn
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 40a915531aa58567b17a774a15504dc92770479f
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 046cd30c0f93a468287c73573a3d18f4ba66221b
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87854165"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690228"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-backup"></a>Creación de una copia de seguridad de aplicaciones del clúster de Red Hat OpenShift en Azure 4
 
@@ -29,7 +29,7 @@ Si decide instalar y usar la CLI de forma local, en este tutorial es preciso que
 
 ### <a name="install-velero"></a>Instalación de Velero
 
-Para [instalar](https://velero.io/docs/master/basic-install/) Velero en el sistema, siga el proceso recomendado para su sistema operativo.
+Para [instalar](https://velero.io/docs/main/basic-install/) Velero en el sistema, siga el proceso recomendado para su sistema operativo.
 
 ### <a name="set-up-azure-storage-account-and-blob-container"></a>Configuración de un contenedor de blobs y una cuenta de almacenamiento de Azure
 

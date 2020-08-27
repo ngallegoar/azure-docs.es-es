@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 8353b7290f0e0073faf93b4ea23bcc0ba50bb89e
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: faf46a90a04e35eb041deb31913980575b1e0d28
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236478"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88688052"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Procesadores de fuente de cambios de Azure Cosmos DB
 
@@ -100,8 +100,8 @@ Se le cobrarán las RU consumidas, puesto que la entrada y la salida de datos de
 El procesador de fuente de cambios se puede hospedar en cualquier plataforma que admita procesos o tareas de larga duración:
 
 * Un [WebJob de Azure](https://docs.microsoft.com/learn/modules/run-web-app-background-task-with-webjobs/) que se ejecuta continuamente.
-* Un proceso de una [máquina virtual de Azure](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs.md#azure-virtual-machines).
-* Un trabajo en segundo plano de [Azure Kubernetes Service](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs.md#azure-kubernetes-service).
+* Un proceso de una [máquina virtual de Azure](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-virtual-machines).
+* Un trabajo en segundo plano de [Azure Kubernetes Service](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-kubernetes-service).
 * Un [servicio hospedado de ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services).
 
 Aunque el procesador de fuente de cambios puede ejecutarse en entornos de corta duración, ya que el contenedor de concesión mantiene el estado, el ciclo de inicio y detención de estos entornos agregará retraso a la recepción de las notificaciones (debido a la sobrecarga que supone iniciar el procesador cada vez que se inicie el entorno).

@@ -3,13 +3,13 @@ title: Retención y almacenamiento de datos en Azure Application Insights | Micr
 description: Declaración de directiva de retención y privacidad
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 1b1a1e370d55ad58bf1468c2e8b2381b62707b6a
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: f6fa42d6cc20c4d26caa7f571f13bb3917b2c7c5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245951"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929336"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recopilación, retención y almacenamiento de datos en Application Insights
 

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
 ms.date: 03/24/2020
-ms.openlocfilehash: 0dff28d5bfb2623a7362dc9b8aeb0840ac4e1e49
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 22f0b7af7434288bea45e6edcf4868dcffe526db
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430096"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690726"
 ---
 # <a name="what-is-machine-learning-studio-classic"></a>¿Qué es Machine Learning Studio (clásico)?
 
@@ -29,7 +29,7 @@ Machine Learning Studio (clásico) es el lugar en que confluyen la ciencia de da
 
 ## <a name="the-machine-learning-studio-classic--interactive-workspace"></a>El área de trabajo interactiva de Machine Learning Studio (clásico)
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 
 Para desarrollar un modelo de análisis predictivo, normalmente se utilizan datos de una o varias fuentes, se transforman y analizan los datos a través de diversas funciones estadísticas y de manipulación de datos y se genera un conjunto de resultados. Desarrollar un modelo como este es un proceso iterativo: a medida que se modifican las diversas funciones y sus parámetros, sus resultados convergen hasta que esté satisfecho con un modelo entrenado y efectivo.
 
