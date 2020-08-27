@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 668f8ffdc4b797219dc1f3c23fecb858d8f706ad
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 819ac1f01cc182c79571de35ec0753f694dc7722
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510868"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653620"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Tipos de Azure Storage para una carga de trabajo de SAP
 Azure tiene numerosos tipos de almacenamiento que difieren en gran medida en términos de funcionalidad, rendimiento, latencia y precio. Algunos de los tipos de almacenamiento no son para escenarios de SAP, o bien su uso está limitado en ellos. Sin embargo, hay varios tipos de almacenamiento de Azure que son idóneos para escenarios específicos de carga de trabajo de SAP, o bien están optimizados para ello. Especialmente en el caso de SAP HANA, algunos tipos de almacenamiento de Azure han recibido certificación para su uso con SAP HANA. En este documento, vamos a repasar los diferentes tipos de almacenamiento y describir su capacidad y uso con las cargas de trabajo de SAP y los componentes de SAP.
@@ -36,7 +36,7 @@ Existen más métodos de redundancia, que se describen en el artículo [Redundan
 
 ### <a name="azure-managed-disks"></a>Azure Managed Disks
 
-Los discos Managed Disks son un tipo de recurso de Azure Resource Manager que puede usarse en lugar de discos duros virtuales almacenados en cuentas de Azure Storage. Los discos Managed Disks se alinean automáticamente con el [conjunto de disponibilidad][virtual-machines-manage-availability] de la máquina virtual a la que están conectados y, por tanto, aumentan la disponibilidad de la máquina virtual y los servicios que se ejecutan en la máquina virtual. Para más información, lea [este artículo de información general](../../windows/managed-disks-overview.md).
+Los discos Managed Disks son un tipo de recurso de Azure Resource Manager que puede usarse en lugar de discos duros virtuales almacenados en cuentas de Azure Storage. Los discos Managed Disks se alinean automáticamente con el [conjunto de disponibilidad][virtual-machines-manage-availability] de la máquina virtual a la que están conectados y, por tanto, aumentan la disponibilidad de la máquina virtual y los servicios que se ejecutan en la máquina virtual. Para más información, lea [este artículo de información general](../../managed-disks-overview.md).
 
 En relación con la resistencia, en este ejemplo se muestra la ventaja de estos discos administrados:
 
@@ -61,7 +61,7 @@ Se necesita almacenamiento persistente en la carga de trabajo de SAP en varios c
 - Recursos compartidos de archivos o discos compartidos que contienen el directorio de transporte global para NetWeaver o S/4HANA. El contenido de esos recursos compartidos lo consume el software que se ejecuta en varias máquinas virtuales o se usa para crear escenarios de clúster de conmutación por error de alta disponibilidad.
 - El directorio /sapmnt o los recursos compartidos de archivos comunes para procesos EDI o similares. El contenido de esos recursos compartidos lo consume el software que se ejecuta en varias máquinas virtuales o se usa para crear escenarios de clúster de conmutación por error de alta disponibilidad.
 
-En las siguientes secciones, se explican los diferentes tipos de almacenamiento de Azure y su uso para la carga de trabajo de SAP que se aplican a los cuatro escenarios anteriores. En el artículo [¿Qué tipos de disco están disponibles en Azure?](../../linux/disks-types.md) se documenta una categorización general de cómo se deben usar los distintos tipos de almacenamiento de Azure. Las recomendaciones para usar los diferentes tipos de almacenamiento de Azure para una carga de trabajo de SAP no van a ser muy diferentes.
+En las siguientes secciones, se explican los diferentes tipos de almacenamiento de Azure y su uso para la carga de trabajo de SAP que se aplican a los cuatro escenarios anteriores. En el artículo [¿Qué tipos de disco están disponibles en Azure?](../../disks-types.md) se documenta una categorización general de cómo se deben usar los distintos tipos de almacenamiento de Azure. Las recomendaciones para usar los diferentes tipos de almacenamiento de Azure para una carga de trabajo de SAP no van a ser muy diferentes.
 
 Para conocer las restricciones de compatibilidad con los tipos de almacenamiento de Azure para SAP NetWeaver/nivel de aplicación de S/4HANA, lea la [nota de soporte 2015553 de SAP](https://launchpad.support.sap.com/#/notes/2015553). Para obtener más información sobre los tipos de almacenamiento de Azure certificados y compatibles, lea el artículo [Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA](./hana-vm-operations-storage.md).
 
@@ -123,7 +123,7 @@ El almacenamiento SSD Premium de Azure se introdujo con el objetivo de proporcio
 * Acuerdo de Nivel de Servicio para IOPS y rendimiento
 * Menor variabilidad de la latencia de E/S
 
-Este tipo de almacenamiento se dirige a las cargas de trabajo de DBMS, el tráfico de almacenamiento que requiere una latencia baja de milisegundos de un solo dígito. Por su parte, los Acuerdos de Nivel de Servicio sobre el costo de IOPS y rendimiento en el caso de Azure Premium Storage no se refieren al volumen de datos real almacenado en dichos discos, sino a la categoría de tamaño de ese disco, independientemente de la cantidad de datos que contengan. También se pueden crear discos en Premium Storage sin correspondencia directa con las categorías de tamaño mostradas en el artículo [SSD Premium](../../linux/disks-types.md#premium-ssd). Las conclusiones de este artículo son las siguientes:
+Este tipo de almacenamiento se dirige a las cargas de trabajo de DBMS, el tráfico de almacenamiento que requiere una latencia baja de milisegundos de un solo dígito. Por su parte, los Acuerdos de Nivel de Servicio sobre el costo de IOPS y rendimiento en el caso de Azure Premium Storage no se refieren al volumen de datos real almacenado en dichos discos, sino a la categoría de tamaño de ese disco, independientemente de la cantidad de datos que contengan. También se pueden crear discos en Premium Storage sin correspondencia directa con las categorías de tamaño mostradas en el artículo [SSD Premium](../../disks-types.md#premium-ssd). Las conclusiones de este artículo son las siguientes:
 
 - El almacenamiento se organiza en intervalos. Por ejemplo, un disco en el intervalo de capacidad de 513 GiB a 1024 GiB comparte las mismas funcionalidades y los mismos costos mensuales.
 - La IOPS por GiB no realiza un seguimiento lineal de las categorías de tamaño. Los discos más pequeños por debajo de 32 GiB tienen tasas de IOPS mayores por GiB. En el caso de los discos de más de 32 GiB a 1024 GiB, la tasa de IOPS por GiB se encuentra entre 4-5 IOPS por GiB. En el caso de discos más grandes, de hasta 32 767 GiB, la tasa de IOPS por GiB está por debajo de 1.
@@ -184,8 +184,8 @@ Los discos Ultra de Azure ofrecen un alto rendimiento, un número elevado de IOP
 Al crear un disco Ultra, puede definir tres dimensiones:
 
 - La capacidad del disco. Los intervalos van de 4 GiB a 65 536 GiB.
-- IOPS aprovisionada para el disco. Se aplican valores máximos diferentes a la capacidad del disco. Lea el artículo [Disco Ultra](../../linux/disks-types.md#ultra-disk) para obtener más detalles
-- Ancho de banda de almacenamiento aprovisionado. Se aplica un ancho de banda máximo diferente en función de la capacidad del disco. Lea el artículo [Disco Ultra](../../linux/disks-types.md#ultra-disk) para obtener más detalles
+- IOPS aprovisionada para el disco. Se aplican valores máximos diferentes a la capacidad del disco. Lea el artículo [Disco Ultra](../../disks-types.md#ultra-disk) para obtener más detalles
+- Ancho de banda de almacenamiento aprovisionado. Se aplica un ancho de banda máximo diferente en función de la capacidad del disco. Lea el artículo [Disco Ultra](../../disks-types.md#ultra-disk) para obtener más detalles
 
 El costo de un solo disco lo determinan las tres dimensiones que se pueden definir para los discos concretos por separado. 
 

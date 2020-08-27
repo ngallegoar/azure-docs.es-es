@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: e5fb19b0d8d94b5ccc07c465c3e9f3bf0de50ab7
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6e34bd91a1deb5bbd28c11e8f23ea2b812333aaf
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843069"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652600"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir un modelo de Azure Machine Learning que está implementado como un servicio web
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -157,30 +157,6 @@ La API REST espera que el cuerpo de la solicitud sea un documento JSON con la si
 
 > [!IMPORTANT]
 > La estructura de los datos debe coincidir con lo que esperan el script y el modelo de puntuación en el servicio. El script de puntuación podría modificar los datos antes de pasarlos al modelo.
-
-Por ejemplo, el modelo en el ejemplo [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) espera una matriz de 10 números. El script de puntuación de este ejemplo crea una matriz Numpy a partir de la solicitud y la pasa al modelo. En el siguiente ejemplo se muestran los datos que este servicio espera:
-
-```json
-{
-    "data": 
-        [
-            [
-                0.0199132141783263, 
-                0.0506801187398187, 
-                0.104808689473925, 
-                0.0700725447072635, 
-                -0.0359677812752396, 
-                -0.0266789028311707, 
-                -0.0249926566315915, 
-                -0.00259226199818282, 
-                0.00371173823343597, 
-                0.0403433716478807
-            ]
-        ]
-}
-```
-
-El servicio web puede aceptar varios conjuntos de datos en una solicitud. Devuelve un documento JSON que contiene una matriz de respuestas.
 
 ### <a name="binary-data"></a>Datos binarios
 
