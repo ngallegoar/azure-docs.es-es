@@ -4,12 +4,12 @@ description: Funcionalidad de restauración instantánea de Azure y preguntas fr
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 6ea4c3757da4e24ae0455cf35f119bf57ed644a6
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: bb9a7a32306fc76ea8852787601f3b3b3828daf8
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531836"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611813"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Rendimiento mejorado de la copia de seguridad y la restauración con la funcionalidad de restauración instantánea de Azure Backup
 
@@ -44,8 +44,8 @@ De manera predeterminada, las instantáneas de recuperación se conservan durant
 * Las instantáneas se almacenan junto con los discos para acelerar la creación de puntos de recuperación y las operaciones de restauración. Como resultado, verá los costos de almacenamiento que corresponden a las instantáneas tomadas durante este período.
 * Las instantáneas incrementales se almacenan como blobs en páginas. A todos los usuarios que usen discos no administrados se les cobrará por las instantáneas almacenadas en su cuenta de almacenamiento local. Como las colecciones de puntos de restauración utilizadas por las copias de seguridad de máquinas virtuales administradas usan instantáneas de blobs en el nivel de almacenamiento subyacente, para discos administrados, verá los costos correspondientes a los precios de instantáneas de blobs, que son incrementales.
 * Para las cuentas de almacenamiento premium, las instantáneas tomadas para los puntos de recuperación de instantánea se consideran en el límite de 10 TB de espacio asignado.
-* Puede obtener la capacidad de configurar la retención de instantáneas según las necesidades de restauración. En función de los requisitos, puede configurar la retención de instantáneas en un día como mínimo en la hoja de la directiva de copia de seguridad como se explica a continuación. Esto le ayuda a ahorrar costos de retención de instantáneas si no lleva a cabo restauraciones con frecuencia.
-* Es una actualización unidireccional; una vez actualizada a la restauración instantánea, no se puede volver atrás.
+* Puede obtener la capacidad de configurar la retención de instantáneas según las necesidades de restauración. En función de los requisitos, puede configurar la retención de instantáneas en un día como mínimo en el panel de la directiva de copia de seguridad como se explica a continuación. Esto le ayuda a ahorrar costos de retención de instantáneas si no lleva a cabo restauraciones con frecuencia.
+* Se trata de una actualización unidireccional. Una vez que se ha actualizado a la restauración instantánea, no puede volverse atrás.
 
 >[!NOTE]
 >Con esta actualización instantánea de la restauración, la duración de la retención de instantáneas de todos los clientes (**los nuevos y los ya existentes**) se establecerá en un valor predeterminado de dos días. Pese a ello, puede establecer la duración según sus necesidades en cualquier valor entre 1 y 5 días.
@@ -61,7 +61,7 @@ Las instantáneas incrementales se almacenan en la cuenta de almacenamiento de l
 
 ### <a name="using-azure-portal"></a>Uso de Azure Portal
 
-En Azure Portal puede ver que se ha agregado un campo a la hoja **Directiva de copia de seguridad de máquina virtual** en la sección **Restauración instantánea**. Puede cambiar la duración de la retención de instantáneas en la hoja **Directiva de copia de seguridad de máquina virtual** para todas las máquinas virtuales asociadas con la directiva de copia de seguridad específica.
+En Azure Portal puede ver que se ha agregado un campo al panel **VM Backup Policy** (Directiva de copia de seguridad de máquina virtual) en la sección **Restauración instantánea**. Puede cambiar la duración de la retención de instantáneas en el panel **VM Backup Policy** (Directiva de copia de seguridad de máquina virtual) para todas las máquinas virtuales asociadas con la directiva de copia de seguridad específica.
 
 ![Funcionalidad de restauración instantánea](./media/backup-azure-vms/instant-restore-capability.png)
 
@@ -110,7 +110,7 @@ El nuevo modelo no permite eliminar el punto de restauración (nivel 2), a menos
 
 ### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>¿Por qué continúa existiendo mi instantánea incluso una vez expirado el tiempo de retención establecido en la directiva de copia de seguridad?
 
-Si el punto de recuperación tiene instantáneas y que es el más reciente disponible, se conserva hasta el momento en que se realice la copia de seguridad siguiente correctamente. Esto atiende a lo estipulado en el diseño de la actual directiva de "recolección de elementos no utilizados" (GC), que exige que haya al menos un punto de recuperación siempre presente en caso de que se produzca un error en todas las copias de seguridad por un problema en la máquina virtual. En escenarios normales, los puntos de recuperación se eliminan en un máximo de 24 horas después de su expiración.
+Si el punto de recuperación tiene instantáneas y si es el más reciente disponible, se conserva hasta que se realice correctamente la siguiente copia de seguridad. Esto atiende a lo estipulado en el diseño de la actual directiva de "recolección de elementos no utilizados" (GC), que exige que haya al menos un punto de recuperación siempre presente en caso de que se produzca un error en todas las copias de seguridad por un problema en la máquina virtual. En escenarios normales, los puntos de recuperación se eliminan en un máximo de 24 horas después de su expiración.
 
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>No necesito la característica de restauración instantánea. ¿Se puede deshabilitar?
 

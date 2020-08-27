@@ -3,12 +3,12 @@ title: Configuración de los valores de diagnóstico del almacén a gran escala
 description: Configuración de diagnóstico de Log Analytics de diagnóstico para todos los almacenes de un ámbito determinado mediante Azure Policy
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 2400be15dcd46084e9a605076c00cf5c5ac92463
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 58ef8af56bb3f44664ffaec6a17bab5f5e92808e
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498056"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612510"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configuración de los valores de diagnóstico del almacén a gran escala
 
@@ -36,15 +36,15 @@ Para asignar la directiva a almacenes del ámbito necesario, siga estos pasos:
 2. Seleccione **Definiciones** en el menú de la izquierda para obtener una lista de todas las directivas integradas en los recursos de Azure.
 3. Filtre la lista por **Categoría = Supervisión**. Busque la directiva denominada **[Preview]: Deploy Diagnostic Settings for Recovery Services Vault to Log Analytics workspace for resource specific categories** ([Versión preliminar]: Implementación de la configuración de diagnóstico para el almacén de Recovery Services en el área de trabajo de Log Analytics para categorías de recursos específicas).
 
-    ![Hoja Definición de directiva](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
+    ![Panel de definición de directiva](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
 
-4. Haga clic en el nombre de la directiva. Se le redirigirá a la definición detallada de dicha directiva.
+4. Seleccione el nombre de la directiva. Se le redirigirá a la definición detallada de dicha directiva.
 
     ![Definición de directiva detallada](./media/backup-azure-policy-configure-diagnostics/detailed-policy-definition.png)
 
-5. Haga clic en el botón **Asignar** en la parte superior de la hoja. Esta acción le redirigirá a la hoja **Asignar directiva**.
+5. Seleccione el botón **Asignar** en la parte superior del panel. Esta acción le redirigirá al panel **Asignar directiva**.
 
-6. En **Conceptos básicos**, haga clic en los tres puntos situados junto al campo **Ámbito**. Se abrirá la hoja de contexto adecuada, donde podrá seleccionar la suscripción en la que se va a aplicar la directiva. También puede seleccionar un grupo de recursos, de modo que la directiva se aplique solo a los almacenes de un grupo de recursos determinado.
+6. En **Conceptos básicos**, seleccione los tres puntos situados junto al campo **Ámbito**. Se abrirá el panel de contexto adecuado, donde podrá seleccionar la suscripción a la que se va a aplicar la directiva. También puede seleccionar un grupo de recursos, de modo que la directiva se aplique solo a los almacenes de un grupo de recursos determinado.
 
     ![Conceptos básicos de la asignación de directiva](./media/backup-azure-policy-configure-diagnostics/policy-assignment-basics.png)
 
@@ -53,7 +53,7 @@ Para asignar la directiva a almacenes del ámbito necesario, siga estos pasos:
     * **Nombre del perfil**: nombre que se asignará a la configuración de diagnóstico creada por la directiva.
     * **Área de trabajo de Log Analytics**: área de trabajo de Log Analytics a la que se debe asociar la configuración de diagnóstico. Los datos de diagnóstico de todos los almacenes del ámbito de la asignación de directiva se insertarán en el área de trabajo de LA especificada.
 
-    * **Exclusion Tag Name [Nombre de etiqueta de exclusión (opcional)] y Exclusion Tag Value [Valor de etiqueta de exclusión (opcional)]** : puede optar por excluir de la asignación de directiva aquellos almacenes que contengan un determinado nombre y valor de etiqueta. Por ejemplo, si **no** desea que se agregue una configuración de diagnóstico a los almacenes que tengan una etiqueta "isTest" establecida en el valor "yes", debe escribir "isTest" en el campo **Exclusion Tag Name** (Nombre de etiqueta de exclusión) y "yes" en el campo **Exclusion Tag Value** (Valor de etiqueta de exclusión). Si se deja en blanco alguno de estos dos campos (o ambos), la directiva se aplicará a todos los almacenes pertinentes, independientemente de las etiquetas que contengan.
+    * **Exclusion Tag Name [Nombre de etiqueta de exclusión (opcional)] y Exclusion Tag Value [Valor de etiqueta de exclusión (opcional)]** : puede optar por excluir de la asignación de directiva aquellos almacenes que contengan un determinado nombre y valor de etiqueta. Por ejemplo, si **no** desea que se agregue una configuración de diagnóstico a los almacenes que tengan una etiqueta "isTest" establecida en el valor "yes", debe escribir "isTest" en el campo **Nombre de etiqueta de exclusión** y "yes" en el campo **Valor de etiqueta de exclusión**. Si se deja en blanco alguno de estos dos campos (o ambos), la directiva se aplicará a todos los almacenes pertinentes, sean cuales sean las etiquetas que contengan.
 
     ![Parámetros de la asignación de directiva](./media/backup-azure-policy-configure-diagnostics/policy-assignment-parameters.png)
 
@@ -61,7 +61,7 @@ Para asignar la directiva a almacenes del ámbito necesario, siga estos pasos:
 
     ![Corrección de la asignación de directiva](./media/backup-azure-policy-configure-diagnostics/policy-assignment-remediation.png)
 
-9. Vaya a pestaña **Revisar y crear** y, a continuación, haga clic en **Crear**.
+9. Vaya a pestaña **Revisar y crear** y seleccione **Crear**.
 
 ## <a name="under-what-conditions-will-the-remediation-task-apply-to-a-vault"></a>¿En qué condiciones se aplica la tarea de corrección a un almacén?
 

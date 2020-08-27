@@ -3,16 +3,16 @@ title: Creación de una oferta de módulo Azure IoT Edge con el Centro de partne
 description: Aprenda a crear, configurar y publicar una oferta de módulo IoT Edge en Azure Marketplace mediante el Centro de partners.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 07/22/2020
-ms.openlocfilehash: 779fc1cfc617e18eee4d84dcfd007f10ddb31f96
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.date: 08/07/2020
+ms.openlocfilehash: 2584d10a73f183958e3b7010255979cc47bc2cd9
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808718"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606349"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Creación de una oferta de módulo de IoT Edge
 
@@ -27,7 +27,7 @@ En este artículo se explica cómo crear y publicar una entrada de oferta de mó
     ![Muestra el menú de navegación izquierdo.](./media/new-offer-iot-edge.png)
 
 > [!IMPORTANT]
-> Después de publicar una oferta, las modificaciones que se realicen en el Centro de partners solo aparecen en los escaparates cuando la oferta se vuelve a publicar. Asegúrese de volver a realizar la publicación siempre después de realizar cambios.
+> Después de publicar una oferta, las modificaciones que se realicen en el Centro de partners solo aparecen en las tiendas en línea cuando la oferta se vuelve a publicar. Asegúrese de volver a realizar la publicación siempre después de realizar cambios.
 
 ### <a name="offer-id-and-alias"></a>Identificador y alias de la oferta
 
@@ -194,20 +194,23 @@ Para obtener más información sobre la creación de listas de ofertas, consulte
 
 Proporcione logotipos e imágenes para usarlos con la oferta. Todas las imágenes deben estar en formato PNG. Las imágenes borrosas se rechazarán.
 
+[!INCLUDE [logostips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >Si tiene un problema al cargar archivos, asegúrese de que la red local no bloquee el servicio https://upload.xboxlive.com que usa el Centro de partners.
 
 #### <a name="store-logos"></a>Logotipos de Store
 
-Proporcione un archivo PNG para el logotipo de tamaño **grande** (entre 216 x 216 y 350 x 350 píxeles). El Centro de partners lo utilizará para crear un logotipo de tamaño **pequeño** (48 x 48 píxeles) y un logotipo de tamaño **medio** (90 x 90 píxeles). Opcionalmente, puede reemplazarlos por imágenes diferentes.
-
-Se requieren los tres tamaños de logotipo para su uso en distintos lugares de la lista:
+Proporcione archivos PNG del logotipo de la oferta en cada uno de los cuatro tamaños de píxel siguientes:
 
 - **Pequeño (48 x 48)**
 - **Medio (90 x 90)**
-- **Grande** (entre 216 x 216 y 350 x 350)
+- **Grande (216 x 216)**
+- **Ancho (255 x 115)**
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+Los cuatro logotipos son necesarios y se usan en lugares diferentes de la lista de Marketplace.
+
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
 #### <a name="screenshots-optional"></a>Capturas de pantalla (opcional)
 
@@ -285,9 +288,11 @@ Agregue al menos un id. de suscripción de Azure, ya sea de forma individual (ha
 
 Seleccione **Guardar borrador** antes de continuar con la siguiente sección, Información general del plan.
 
-### <a name="plan-overview"></a>Información general del plan
+## <a name="plan-overview"></a>Información general del plan
 
 Esta pestaña le permite ofrecer diversas opciones de planes dentro de la misma oferta en el Centro de partners. Los planes (anteriormente denominados SKU) pueden diferir en cuanto a las nubes disponibles, como las nubes globales, las nubes gubernamentales y la imagen de referencia del plan. Para publicar su oferta en Marketplace, debe configurar al menos un plan.
+
+Puede crear hasta 100 planes para cada oferta, de los cuales hasta 45 pueden ser privados. Más información sobre los planes privados en [Ofertas privadas en el marketplace comercial de Microsoft](../private-offers.md).
 
 Después de crear sus planes, la pestaña **Información general del plan** muestra lo siguiente:
 
@@ -302,7 +307,7 @@ Las acciones disponibles en Información general del plan varían en función de
 - **Eliminar borrador**: si el estado del plan es un borrador.
 - **Detener el plan de venta**: si el estado el plan es publicado.
 
-#### <a name="create-new-plan"></a>Creación de un nuevo plan
+### <a name="create-new-plan"></a>Creación de un nuevo plan
 
 Seleccione **Crear nuevo plan**. Aparece el cuadro de diálogo **Nuevo plan**.
 
@@ -334,7 +339,7 @@ Esta opción es visible únicamente si **Azure Government** está seleccionado e
 
 Los servicios de Azure Government controlan datos que están sujetos a determinados reglamentos y requisitos gubernamentales. Por ejemplo, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 y CJIS. Para dar a conocer sus certificaciones de estos programas, puede proporcionar hasta 100 vínculos que las describan. Pueden ser vínculos a sus listas en el programa directamente o a su propio sitio web. Estos vínculos solo son visibles para los clientes de Azure Government.
 
-## <a name="plan-listing"></a>Lista del plan
+### <a name="plan-listing"></a>Lista del plan
 
 Esta pestaña muestra información específica de cada plan diferente de la misma oferta.
 
@@ -374,7 +379,7 @@ A continuación se muestra un ejemplo de los detalles del plan de Azure Marketpl
 2. Nombre del plan
 3. Description del plan
 
-## <a name="availability"></a>Disponibilidad
+### <a name="availability"></a>Disponibilidad
 
 Si desea ocultar la oferta publicada para que los clientes no puedan buscarla, examinarla ni comprarla en Marketplace, active la casilla **Ocultación del plan** en la pestaña Disponibilidad.
 
@@ -446,14 +451,14 @@ Por ejemplo, si el módulo ContosoModule escucha las entradas de ContosoInput y 
 - Nombre 2: FromContosoModuleToCloud
 - Valor 2: FROM /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream
 
-**Propiedades deseadas del módulo gemelo predeterminado**. Un módulo gemelo es un documento JSON que se encuentra en IoT Hub y que almacena la información de estado de una instancia del módulo, incluidas las propiedades deseadas. Las propiedades deseadas se usan junto con las propiedades notificadas para sincronizar la configuración o las condiciones del módulo. El back-end de solución puede establecer propiedades deseadas, y el módulo puede leerlas. El módulo también puede recibir notificaciones de cambios en las propiedades deseadas. Las propiedades deseadas se crean usando hasta cinco pares nombre-valor, y cada valor predeterminado debe tener menos de 512 caracteres. Puede definir hasta cinco propiedades deseadas gemelas nombre-valor. Los valores de las propiedades deseadas gemelas deben ser un JSON válido, sin escape, sin matrices y con una jerarquía anidada máxima de cuatro niveles. En un escenario donde un parámetro necesario para un valor predeterminado no tiene sentido (por ejemplo, la dirección IP del servidor de un cliente), puede agregar un parámetro como valor predeterminado. Para más información sobre las propiedades deseadas gemelas, consulte [Definición o actualización de las propiedades deseadas](../../iot-edge/module-composition.md#define-or-update-desired-properties).
+**Propiedades deseadas del módulo gemelo predeterminado**. Un módulo gemelo es un documento JSON que se encuentra en IoT Hub y que almacena la información de estado de una instancia del módulo, incluidas las propiedades deseadas. Las propiedades deseadas se usan junto con las propiedades notificadas para sincronizar la configuración o las condiciones del módulo. El back-end de solución puede establecer propiedades deseadas, y el módulo puede leerlas. El módulo también puede recibir notificaciones de cambios en las propiedades deseadas. Las propiedades deseadas se crean usando hasta cinco pares nombre-valor, y cada valor predeterminado debe tener menos de 512 caracteres. Puede definir hasta cinco propiedades deseadas gemelas nombre-valor. Los valores de las propiedades deseadas gemelas deben ser un JSON válido, sin escape, sin matrices y con una jerarquía anidada máxima de cuatro niveles. En un escenario donde un parámetro necesario para un valor predeterminado no tiene sentido (por ejemplo, la dirección IP del servidor de un cliente), puede agregar un parámetro como valor predeterminado. Para más información sobre las propiedades deseadas gemelas, consulte [Definición o actualización de las propiedades deseadas](../../iot-edge/module-composition.md#define-or-update-desired-properties).
 
 Por ejemplo, si un módulo admite una frecuencia de actualización configurable de forma dinámica mediante propiedades deseadas gemelas, tiene sentido definir la siguiente propiedad deseada gemela predeterminada:
 
 - Nombre 1: RefreshRate
 - Valor 1: 60
 
-**Variables de entorno predeterminadas**. Las variables de entorno proporcionan información complementaria a un módulo que facilita el proceso de configuración. Las variables de entorno se crean mediante pares nombre-valor. Cada nombre y valor de la variable de entorno predeterminada debe tener menos de 512 caracteres, y puede definir hasta cinco. Si un parámetro necesario para un valor predeterminado no tiene sentido (por ejemplo, la dirección IP del servidor de un cliente), puede agregar un parámetro como valor predeterminado.
+**Variables de entorno predeterminadas**. Las variables de entorno proporcionan información complementaria a un módulo que facilita el proceso de configuración. Las variables de entorno se crean mediante pares nombre-valor. Cada nombre y valor de la variable de entorno predeterminada debe tener menos de 512 caracteres, y puede definir hasta cinco. Si un parámetro necesario para un valor predeterminado no tiene sentido (por ejemplo, la dirección IP del servidor de un cliente), puede agregar un parámetro como valor predeterminado.
 
 Por ejemplo, si un módulo exige aceptar los términos de uso para iniciarse, puede definir la variable de entorno siguiente:
 

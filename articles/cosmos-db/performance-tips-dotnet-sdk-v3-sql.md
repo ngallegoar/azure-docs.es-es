@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: jawilley
-ms.openlocfilehash: 9816ea7dd9f5aef9dcdd62319f8cc4408eff3fd8
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 90b4ffb273fc314a7c92971490fb09b6f0c131ee
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987263"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258353"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Sugerencias de rendimiento para Azure Cosmos DB y .NET
 
@@ -71,15 +71,12 @@ La forma en que un cliente se conecta a Azure Cosmos DB tiene importantes implic
      Si la aplicación se ejecuta dentro de una red corporativa con restricciones de Firewall estrictas, el modo de puerta de enlace es la mejor opción, ya que utiliza el Puerto HTTPS estándar y un único punto de conexión. La desventaja para el rendimiento, sin embargo, es que el modo de puerta de enlace implica un salto de red adicional cada vez que se leen desde o se escriben datos a Azure Cosmos DB. Por tanto, el modo directo ofrece un mejor rendimiento porque hay menos saltos de red. También se recomienda el modo de conexión de puerta de enlace cuando se ejecutan aplicaciones en entornos que tienen un número limitado de conexiones de socket.
 
      Cuando use el SDK de Azure Functions, especialmente en el [plan de consumo](../azure-functions/functions-scale.md#consumption-plan), tenga en cuenta los [límites actuales en las conexiones](../azure-functions/manage-connections.md). En ese caso, el modo de puerta de enlace podría ser mejor si también está trabajando con otros clientes basados en HTTP dentro de la aplicación Azure Functions.
-
-
-En el modo de puerta de enlace, Azure Cosmos DB usa el puerto 443 y los puertos 10250, 10255 y 10256 cuando se usa la API de Azure Cosmos DB para MongoDB. El puerto 10250 se asigna a una instancia de MongoDB predeterminada sin replicación geográfica. Los puertos 10255 y 10256 se asignan a la instancia de MongoDB que tiene replicación geográfica.
      
-Al usar TCP en modo directo, además de los puertos de puerta de enlace, debe asegurarse de que el intervalo de puertos entre 10000 y 20000 está abierto porque Azure Cosmos DB utiliza puertos TCP dinámicos (cuando se usa el modo directo en [puntos de conexión privados](./how-to-configure-private-endpoints.md), se tiene que abrir el intervalo completo de puertos TCP, de 0 a 65535). Los puertos están abiertos de forma predeterminada para la configuración estándar de la máquina virtual de Azure. Si estos puertos no están abiertos e intenta usar TCP, recibirá un error 503 de servicio no disponible. En esta tabla se muestran los modos de conectividad disponibles para varias API y los puertos de servicio que se usan para cada API:
+Al utilizar TCP en modo directo, además de los puertos de puerta de enlace, debe asegurarse de que el intervalo de puertos entre 10000 y 20000 esté abierto porque Azure Cosmos DB utiliza puertos TCP dinámicos. Al usar el modo directo en [puntos de conexión privados](./how-to-configure-private-endpoints.md), el intervalo completo de puertos TCP (de 0 a 65535) debe estar abierto. Los puertos están abiertos de forma predeterminada para la configuración estándar de la máquina virtual de Azure. Si estos puertos no están abiertos e intenta usar TCP, recibirá un error 503 de servicio no disponible. En la tabla siguiente se muestran los modos de conectividad disponibles para varias API y los puertos de servicio que se usan para cada API:
 
 |Modo de conexión  |Protocolo admitido  |SDK admitidos  |API o puerto de servicio  |
 |---------|---------|---------|---------|
-|Puerta de enlace  |   HTTPS    |  Todos los SDK    |   SQL (443), MongoDB (10250, 10255, 10256), Tabla (443), Cassandra (10350), Graph (443)    |
+|Puerta de enlace  |   HTTPS    |  Todos los SDK    |   SQL (443), MongoDB (10250, 10255, 10256), Tabla (443), Cassandra (10350), Graph (443) <br> El puerto 10250 se asigna a una instancia de API de Azure Cosmos DB para MongoDB predeterminada sin replicación geográfica. Mientras que los puertos 10255 y 10256 se asignan a la instancia que tiene replicación geográfica.   |
 |Directo    |     TCP    |  .NET SDK    | Al usar puntos de conexión de servicio o públicos: puertos en el intervalo de 10000 a 20000<br>Al usar puntos de conexión privados: puertos en el intervalo de 0 a 65535 |
 
 Azure Cosmos DB ofrece un modelo de programación RESTful sencillo y abierto sobre HTTPS. Además, ofrece un protocolo TCP eficaz que también es RESTful en su modelo de comunicación y está disponible a través del SDK de cliente de .NET. El protocolo TCP usa TLS para la autenticación inicial y el cifrado del tráfico. Para obtener el mejor rendimiento, utilice el protocolo TCP cuando sea posible.

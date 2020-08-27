@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones de compatibilidad y limitaciones
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: f2f3d26f74c6227ad257c188d4088fd41fca7075
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 5871e61229277d8036727c11b42d9d7a061bad99
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922323"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612527"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de compatibilidad para Azure Backup
 
@@ -79,8 +79,8 @@ Esto es lo que se admite si quiere hacer copias de seguridad de máquinas Linux:
 --- | ---
 **Copia de seguridad directa de máquina local que ejecuta Linux** | No compatible. El agente de MARS solo puede instalarse en máquinas Windows.
 **Uso de la extensión del agente para realizar la copia de seguridad de una máquina virtual de Azure que ejecuta Linux** | Copia de seguridad coherente con la aplicación mediante [scripts personalizados](backup-azure-linux-app-consistent.md).<br/><br/> Recuperación de nivel de archivo.<br/><br/> Restauración mediante la creación de una máquina virtual desde un disco o un punto de recuperación.
-**Uso de DPM para realizar la copia de seguridad de máquinas locales que ejecutan Linux** | Copia de seguridad coherente con archivo de máquinas virtuales invitadas de Linux en Hyper-V y VMWare.<br/><br/> Restauración de máquinas virtuales invitadas de Linux en Hyper-V y VMWare.
-**Uso de MABS para realizar la copia de seguridad de máquinas locales que ejecutan Linux** | Copia de seguridad coherente con archivo de máquinas virtuales invitadas de Linux en Hyper-V y VMWare.<br/><br/> Restauración de máquinas virtuales invitadas de Linux en Hyper-V y VMWare.
+**Uso de DPM para realizar la copia de seguridad de máquinas locales que ejecutan Linux** | Copia de seguridad coherente con archivo de máquinas virtuales invitadas de Linux en Hyper-V y VMware.<br/><br/> Restauración de máquinas virtuales invitadas de Linux en Hyper-V y VMware.
+**Uso de MABS para realizar la copia de seguridad de máquinas locales que ejecutan Linux** | Copia de seguridad coherente con archivo de máquinas virtuales invitadas de Linux en Hyper-V y VMware.<br/><br/> Restauración de máquinas virtuales invitadas de Linux en Hyper-V y VMware.
 **Uso de MABS o DPM para realizar las copias de seguridad de máquinas virtuales Linux de Azure** | No compatible.
 
 ## <a name="daylight-saving-time-support"></a>Compatibilidad con horario de verano

@@ -3,12 +3,12 @@ title: Copia de seguridad de bases de datos de SQL Server en Azure
 description: En este artículo se explica cómo realizar una copia de seguridad de SQL Server en Azure. En este tutorial también se explica cómo se realiza la recuperación de SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 28644065619771069e556c941d2c5a77626e1ba6
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 92097f4be02e81d3a8d306f6dc00bb0e8c939005
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922904"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612544"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Acerca de la copia de seguridad de SQL Server en máquinas virtuales de Azure
 
@@ -27,7 +27,7 @@ Esta solución aprovecha las API nativas de SQL para realizar copias de segurida
 
 * Una vez que especifique la máquina virtual con SQL Server que desea proteger y que consulte las bases de datos que hay en ella, el servicio Azure Backup instalará una extensión de copia de seguridad de cargas de trabajo en la máquina virtual con la extensión `AzureBackupWindowsWorkload` del nombre.
 * Esta extensión consta de un coordinador y un complemento SQL. Mientras que el coordinador es el responsable de desencadenar los flujos de trabajo de varias operaciones como la configuración de las copias de seguridad o la copia de seguridad y restauración, el complemento es responsable de flujo de datos real.
-* Para poder detectar bases de datos en esta máquina virtual, Azure Backup crea la cuenta `NT SERVICE\AzureWLBackupPluginSvc`. Dicha cuenta se usa para realizar operaciones de copia de seguridad y restauración, y requiere permisos de administrador del sistema de SQL. La cuenta `NT SERVICE\AzureWLBackupPluginSvc` es una [cuenta de servicio virtual](/windows/security/identity-protection/access-control/service-accounts#virtual-accounts) y, por lo tanto, no requiere administración de contraseñas. Azure Backup aprovecha la cuenta `NT AUTHORITY\SYSTEM` para la detección y la consulta de bases de datos, por lo que debe tener un inicio de sesión público en SQL. Si no se creó la VM con SQL Server en Azure Marketplace, podría recibir el error **UserErrorSQLNoSysadminMembership**. Si esto sucede, [siga estas instrucciones](#set-vm-permissions).
+* Para poder detectar bases de datos en esta máquina virtual, Azure Backup crea la cuenta `NT SERVICE\AzureWLBackupPluginSvc`. Dicha cuenta se usa para realizar operaciones de copia de seguridad y restauración, y requiere permisos de administrador del sistema de SQL. La cuenta `NT SERVICE\AzureWLBackupPluginSvc` es una [cuenta de servicio virtual](/windows/security/identity-protection/access-control/service-accounts#virtual-accounts) y, por lo tanto, no requiere administración de contraseñas. Azure Backup aprovecha la cuenta `NT AUTHORITY\SYSTEM` para la detección y la consulta de bases de datos, por lo que debe tener un inicio de sesión público en SQL. Si no se creó la máquina virtual con SQL Server en Azure Marketplace, podría recibir el error **UserErrorSQLNoSysadminMembership**. Si esto sucede, [siga estas instrucciones](#set-vm-permissions).
 * Una vez que desencadene la protección de la configuración en las bases de datos seleccionadas, el servicio de copia de seguridad configura el coordinador con las programaciones de las copias de seguridad y otros detalles de la directiva, que la extensión almacena en caché localmente en la máquina virtual.
 * A la hora programada, el coordinador se comunica con el complemento y empieza a transmitir los datos de la copia de seguridad en secuencias desde el servidor con SQL Server mediante VDI.  
 * El complemento envía los datos directamente en el almacén de Recovery Services, lo que elimina la necesidad de una ubicación de almacenamiento provisional. El servicio Azure Backup cifra los datos y los almacena en cuentas de almacenamiento.
@@ -51,7 +51,7 @@ Antes de empezar, compruebe lo siguiente:
 * Crea una cuenta NT SERVICE\AzureWLBackupPluginSvc para detectar las bases de datos en la máquina virtual. Dicha cuenta se usa para realizar una operación de copia de seguridad y restauración, y requiere permisos de administrador del sistema de SQL.
 * Detecta las bases de datos que se ejecutan en una CM, Azure Backup usa la cuenta NT AUTHORITY\SYSTEM. Esta cuenta ofrecer inicio de sesión público en SQL.
 
-Si no creó la VM con SQL Server en Azure Marketplace o si usa SQL 2008 y 2008 R2, es posible que reciba un error **UserErrorSQLNoSysadminMembership**.
+Si no creó la máquina virtual con SQL Server en Azure Marketplace o si usa SQL 2008 y 2008 R2, es posible que reciba un error **UserErrorSQLNoSysadminMembership**.
 
 Para conceder permisos en el caso de **SQL 2008** y **2008 R2** que se ejecutan en Windows 2008 R2, consulte [aquí](#give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2).
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/04/2020
 ms.author: jeedes
-ms.openlocfilehash: ca75aea393e4850eb302cb03914296d7c1eaa951
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bdd0530aa580f8f1a1cfdffb81d070827a714115
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88517659"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88686078"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Tutorial: Integración de Atlassian Cloud con Azure Active Directory
 
@@ -179,7 +179,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
       
    1. Asignación de atributos para un inquilino de Azure AD sin una licencia de Office 365 
 
-      a. Haga clic en la notificación **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** .
+      a. Haga clic en la notificación `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` .
 
       ![imagen](./media/atlassian-cloud-tutorial/email-address.png)
          

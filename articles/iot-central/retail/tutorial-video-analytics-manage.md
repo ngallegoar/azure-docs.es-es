@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 30e123b24a5d2c9e45df6ee6dc6debfb88b920f3
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 76e72e8fd134c65cc9334e635375cc25e9b09a75
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038090"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719077"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>Tutorial: Supervisión y administración de una aplicación de análisis de vídeo con detección de objetos y movimiento
 
@@ -155,22 +155,22 @@ docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FR
 |amsResourceGroup| ResourceGroup |
 |amsAccountName| AccountName|
 
-Vaya al panel **Monitor** (Supervisión) de la aplicación. A continuación, haga clic en uno de los hipervínculos de detección de objetos capturados en el icono **Inference Event Video** (Vídeo de evento de inferencia). El reproductor de vídeo local muestra el vídeo en una página:
+Vaya al dispositivo **camera-003** y seleccione la pestaña **Dashboard** (Panel). A continuación, haga clic en uno de los hipervínculos de detección de objetos capturados en el icono **Inference Event Video** (Vídeo de evento de inferencia). El reproductor de vídeo local muestra el vídeo en una página:
 
 :::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Fragmento de vídeo":::
 
-## <a name="change-the-simulated-devices-in-application-dashboard"></a>Cambio de los dispositivos simulados en el panel de la aplicación
+## <a name="change-the-simulated-devices-in-application-dashboards"></a>Cambio de los dispositivos simulados en los paneles de la aplicación
 
 Los paneles de la aplicación se rellenan originalmente con los datos de telemetría y las propiedades generadas a partir de los dispositivos simulados de IoT Central. Para configurar los iconos para la telemetría desde cámaras reales o el simulador Live555, siga estos pasos:
 
-1. Vaya al panel **Real Camera Monitor** (Monitor de cámara real).
+1. Vaya al panel de aplicación **(Sample) Real Camera Monitor** ([Ejemplo] Monitor de cámara real).
 1. Seleccione **Editar**.
+1. Seleccione el icono **Note** (Nota) y elimínelo.
+1. Cambie el título del panel por *Real Camera Monitor* (Monitor de cámara real).
 1. En el icono **Inference Count** (Recuento de inferencias), seleccione el icono de configuración.
 1. En la sección **Configure Chart** (Configurar gráfico), seleccione una o varias cámaras reales en el grupo de dispositivos **LVA Edge Object Detector** (Detector de objetos LVA Edge).
 1. Seleccione el campo de telemetría `AI Inference Interface/Inference Count`.
 1. Seleccione **Actualizar**.
-
-   
 
 1. Repita los pasos para los iconos siguientes:
     1. El gráfico circular **Detection** (Detección) usa el tipo de telemetría `AI Inference Interface/Inference/entity/tag/value`.

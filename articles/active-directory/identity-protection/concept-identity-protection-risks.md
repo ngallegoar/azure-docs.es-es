@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 06/26/2020
+ms.date: 08/15/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de905c61642c36a07c7f87e0be910b0f035bffc1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c92994fee6de4c56257343af2ef418393b505ad
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555255"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507440"
 ---
 # <a name="what-is-risk"></a>¿Qué es el riesgo?
 
@@ -65,6 +65,12 @@ Estos riesgos se pueden calcular en tiempo real o sin conexión, usando orígene
 | Riesgo adicional detectado | En tiempo real o sin conexión | Esta detección indica que se descubrió una de las detecciones prémium anteriores. Dado que las detecciones premium solo son visibles para los clientes de Azure AD Premium P2, se denominan "Riesgo adicional detectado" para los clientes sin licencias de Azure AD Premium P2. |
 
 ## <a name="common-questions"></a>Preguntas frecuentes
+
+### <a name="risk-levels"></a>Niveles de riesgo
+
+Identity Protection clasifica el riesgo en tres niveles: bajo, medio y alto. 
+
+Aunque Microsoft no proporciona detalles específicos sobre cómo se calcula el riesgo, podemos decir que cada nivel ofrece una mayor certeza de que el usuario o el inicio de sesión están en peligro. Por ejemplo, una situación en la que las propiedades de inicio de sesión de un usuario son desconocidas podría no plantear el mismo nivel de amenaza que una filtración de credenciales de otro usuario.
 
 ### <a name="leaked-credentials"></a>Credenciales con fugas
 

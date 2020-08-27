@@ -4,12 +4,12 @@ ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 02/24/2020
 ms.author: tomfitz
-ms.openlocfilehash: 33a63280f6973d2c5e29db29f7a6f3fc68c57c77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0ab7c2efc499c43245680e56a7e5ca1b5261397
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84424770"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88748759"
 ---
 | Recurso | Límite |
 | --- | --- |
@@ -17,7 +17,7 @@ ms.locfileid: "84424770"
 | Recursos por grupo de recursos, por tipo de recurso |800: algunos tipos de recursos pueden superar el límite de 800. Consulte [Resources not limited to 800 instances per resource group](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md) (Recursos no limitados a 800 instancias por grupo de recursos). |
 | Implementaciones por grupo de recursos en el historial de implementaciones |800<sup>1</sup> |
 | Recursos por implementación |800 |
-| Bloqueos de administración por ámbito único |20 |
+| Bloqueos de administración por [ámbito](../articles/azure-resource-manager/management/overview.md#understand-scope) único  |20 |
 | Número de etiquetas por recurso o grupo de recursos |50 |
 | Longitud de la clave de etiqueta |512 |
 | Longitud del valor de la etiqueta |256 |

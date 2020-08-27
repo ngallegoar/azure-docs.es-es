@@ -1,32 +1,32 @@
 ---
-title: Tamaños de VM
+title: Tamaños de servidor
 description: Se describen los distintos tamaños de máquina virtual que se pueden asignar.
 author: florianborn71
 ms.author: flborn
 ms.date: 05/28/2020
 ms.topic: reference
-ms.openlocfilehash: e8e439a055b71ed291573965c561ee31610e3ed4
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: b9479c2ab5b63440a03bd74d2503930108a49091
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121619"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511192"
 ---
-# <a name="vm-sizes"></a>Tamaños de VM
+# <a name="server-sizes"></a>Tamaños de servidor
 
-El servicio de representación puede operar en dos tipos de máquinas diferentes en Azure, denominadas `Standard` y `Premium`.
+Azure Remote Rendering está disponible en dos configuraciones de servidor: `Standard` y `Premium`.
 
 ## <a name="polygon-limits"></a>Límites de polígonos
 
-Hay una limitación estricta de **20 millones de polígonos** para el tamaño de VM `Standard`. Para el tamaño `Premium` no existe tal limitación.
+Remote Rendering con el servidor de tamaño `Standard` tiene un tamaño máximo de escena de polígonos de 20 millones. Remote Rendering con el tamaño `Premium` no exige un máximo forzado, pero el rendimiento puede verse afectado si el contenido supera las funcionalidades de representación del servicio.
 
-Cuando el representador alcanza este límite en una VM estándar, cambia la representación a un fondo de tablero de ajedrez:
+Cuando el representador de un tamaño de servidor Standard alcanza esta limitación, cambia la representación a un fondo de tablero de ajedrez:
 
 ![Tablero de ajedrez](media/checkerboard.png)
 
-## <a name="allocate-the-vm"></a>Asignación de la VM
+## <a name="specify-the-server-size"></a>Especificación del tamaño del servidor
 
-Debe especificarse el tipo de VM deseado en el momento de la inicialización de la sesión de representación. No se puede cambiar en una sesión en ejecución. Los ejemplos de código siguientes muestran el lugar en el que debe especificarse el tamaño de la VM:
+El tipo deseado de configuración del servidor tiene que especificarse en el momento de la inicialización de la sesión de representación. No se puede cambiar en una sesión en ejecución. Los ejemplos de código siguientes muestran el lugar en el que debe especificarse el tamaño del servidor:
 
 ```cs
 async void CreateRenderingSession(AzureFrontend frontend)
@@ -51,7 +51,7 @@ void CreateRenderingSession(ApiHandle<AzureFrontend> frontend)
 }
 ```
 
-Para los [scripts de PowerShell de ejemplo](../samples/powershell-example-scripts.md), el tamaño de la VM debe especificarse dentro del archivo `arrconfig.json`:
+Para los [scripts de PowerShell de ejemplo](../samples/powershell-example-scripts.md), el tamaño de servidor deseado debe especificarse dentro del archivo `arrconfig.json`:
 
 ```json
 {
@@ -74,13 +74,13 @@ En consecuencia, es posible escribir una aplicación que se destina al tamaño `
 
 ### <a name="how-to-determine-the-number-of-polygons"></a>Procedimientos para determinar el número de polígonos
 
-Hay dos maneras de determinar el número de polígonos de un modelo o una escena que contribuyen al límite del presupuesto de la VM de tamaño `standard`:
+Hay dos maneras de determinar el número de polígonos de un modelo o una escena que contribuyan al límite del presupuesto del tamaño de configuración `standard`:
 * En la conversión del modelo, recupere el [archivo JSON de salida de la conversión](../how-tos/conversion/get-information.md) y compruebe la entrada `numFaces` en la [sección *inputStatistics*](../how-tos/conversion/get-information.md#the-inputstatistics-section).
 * Si la aplicación está tratando con contenido dinámico, el número de polígonos representados se puede consultar dinámicamente durante el tiempo de ejecución. Use una [consulta de evaluación de rendimiento](../overview/features/performance-queries.md#performance-assessment-queries) y busque el miembro `polygonsRendered` en la estructura `FrameStatistics`. El campo `polygonsRendered` se establecerá en `bad` cuando el representador alcance la limitación de polígono. El fondo de tablero de ajedrez siempre se atenúa con algún retraso para garantizar que se pueda realizar la acción del usuario después de esta consulta asincrónica. La acción del usuario puede consistir, por ejemplo, en ocultar o eliminar instancias de modelo.
 
 ## <a name="pricing"></a>Precios
 
-Para obtener un desglose detallado de los precios de cada tipo de VM, consulte la página [Precios de Remote Rendering](https://azure.microsoft.com/pricing/details/remote-rendering).
+Para obtener un desglose detallado de los precios de cada tipo de configuración, consulte la página [Precios de Remote Rendering](https://azure.microsoft.com/pricing/details/remote-rendering).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Scripts de PowerShell de ejemplo](../samples/powershell-example-scripts.md)

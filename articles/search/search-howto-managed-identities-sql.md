@@ -9,33 +9,32 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: d0933f5305007bc4a8238adb2b6b949ab0c11edf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 321c13e88cb09c7078a169c3e1666cf781ec7787
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559944"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553145"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity-preview"></a>Configuración de una conexión de indexador a Azure SQL Database mediante una identidad administrada (versión preliminar)
 
 > [!IMPORTANT] 
-> La compatibilidad con la configuración de una conexión a un origen de datos mediante una identidad administrada se encuentra actualmente en versión preliminar pública controlada. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción.
-> Para solicitar acceso a las versión preliminar, rellene [este formulario](https://aka.ms/azure-cognitive-search/mi-preview-request).
+> La compatibilidad con la configuración de una conexión en un origen de datos mediante una identidad administrada se encuentra actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción.
 
 Esta página describe cómo configurar una conexión de indexador a Azure SQL Database mediante una identidad administrada en lugar de proporcionar credenciales en la cadena de conexión del objeto de origen de datos.
 
-Antes de obtener más información acerca de esta característica, se recomienda que se familiarice con lo que es un indexador y cómo configurar uno para el origen de datos. Encontrará más información en los vínculos siguientes:
+Antes de obtener más información acerca de esta característica, se recomienda que se familiarice con lo que es un indexador y cómo configurar uno para el origen de datos. Se puede encontrar más información en los vínculos siguientes:
 
 * [Información general del indexador](search-indexer-overview.md)
 * [Indexador de Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
 ## <a name="set-up-a-connection-using-a-managed-identity"></a>Configuración de una conexión mediante una identidad administrada
 
-### <a name="1---turn-on-system-assigned-managed-identity"></a>1\. Activación de la identidad administrada asignada por el sistema
+### <a name="1---turn-on-system-assigned-managed-identity"></a>1 - Activar la identidad administrada asignada por el sistema
 
-Cuando se habilita una identidad administrada asignada por el sistema, Azure crea una identidad para el servicio de búsqueda que se puede usar para autenticarse en otros servicios de Azure como parte del mismo inquilino y la misma suscripción. Después, puede usar esta identidad en las asignaciones de control de acceso basado en rol (RBAC) que permiten el acceso a los datos durante la indexación.
+Cuando se habilita una identidad administrada asignada por el sistema, Azure crea una identidad para el servicio de búsqueda que se puede usar para autenticarse en otros servicios de Azure en el mismo inquilino y la misma suscripción. Después, puede usar esta identidad en las asignaciones de control de acceso basado en rol (RBAC) que permiten el acceso a los datos durante la indexación.
 
-![Activación de la identidad administrada asignada por el sistema](./media/search-managed-identities/turn-on-system-assigned-identity.png "Activación de la identidad administrada asignada por el sistema")
+![Activar la identidad administrada asignada por el sistema](./media/search-managed-identities/turn-on-system-assigned-identity.png "Activación de la identidad administrada asignada por el sistema")
 
 Después de seleccionar **Guardar**, verá un identificador de objeto que se ha asignado al servicio de búsqueda.
 
@@ -98,7 +97,9 @@ En este paso, concederá permiso a su servicio de Azure Cognitive Search para le
 
 ### <a name="5---create-the-data-source"></a>5\. Creación del origen de datos
 
-Al realizar la indexación desde SQL Database, el origen de datos debe tener las siguientes propiedades obligatorias:
+La [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source), Azure Portal y el [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) admiten la cadena de conexión de identidad administrada. A continuación se muestra un ejemplo de cómo crear un origen de datos para indexar los datos de la base de datos de Azure SQL mediante la [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source) y una cadena de conexión de identidad administrada. El formato de la cadena de conexión de identidad administrada es el mismo para la API REST, el SDK de .NET y Azure Portal.
+
+Al crear un origen de datos mediante la [API de REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source), el origen de datos debe tener las siguientes propiedades obligatorias:
 
 * **name** es el nombre único del origen de datos dentro del servicio de búsqueda.
 * **type** es `azuresql`.
@@ -122,8 +123,6 @@ api-key: [admin key]
     "container" : { "name" : "my-table" }
 } 
 ```
-
-Azure Portal y el [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) también admiten la cadena de conexión de identidades administradas. Azure Portal requiere una marca de características que se le proporcionará al registrarse en la versión preliminar mediante el vínculo de la parte superior de esta página. 
 
 ### <a name="6---create-the-index"></a>6\. Creación del índice
 

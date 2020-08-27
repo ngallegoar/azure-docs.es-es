@@ -4,12 +4,12 @@ description: Supervisión del rendimiento de aplicaciones de Azure App Services.
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: d30d5fa8532b9bdec2b231daf9a59732dc1ebce8
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 33ad4503b744b4737c2d63f74e146a79d36080e1
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079712"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258730"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Supervisar el rendimiento de Azure App Service
 
@@ -114,16 +114,14 @@ Las aplicaciones web de App Service basadas en Python no admiten actualmente la 
 
 La supervisión de cliente está habilitada en ASP.NET. Para habilitar la supervisión de cliente:
 
-* Seleccione **Configuración** >** **Configuración de la aplicación** **
-   * En la configuración de la aplicación, agregue un nuevo **nombre de la configuración de la aplicación** y **valor**:
+* **Parámetros** **>** **Configuración**
+   * En Configuración de la aplicación, cree una **nueva configuración de la aplicación**:
 
      Nombre: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
      Valor: `true`
 
    * **Guarde** la configuración y **reinicie** la aplicación.
-
-![Captura de pantalla de la interfaz de usuario de la configuración de la aplicación](./media/azure-web-apps/appinsights-javascript-enabled.png)
 
 Para deshabilitar la supervisión de cliente, quite el par clave-valor asociado de la configuración de la aplicación o establezca el valor en false.
 
@@ -133,16 +131,14 @@ La supervisión de cliente está **habilitada de manera predeterminada** para la
 
 Si por algún motivo quiere deshabilitar la supervisión de cliente:
 
-* Seleccione **Configuración** > **Configuración de la aplicación**
-   * En la configuración de la aplicación, agregue un nuevo **nombre de la configuración de la aplicación** y **valor**:
+* **Parámetros** **>** **Configuración**
+   * En Configuración de la aplicación, cree una **nueva configuración de la aplicación**:
 
      Nombre: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
      Valor: `false`
 
    * **Guarde** la configuración y **reinicie** la aplicación.
-
-![Captura de pantalla de la interfaz de usuario de la configuración de la aplicación](./media/azure-web-apps/appinsights-javascript-disabled.png)
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 

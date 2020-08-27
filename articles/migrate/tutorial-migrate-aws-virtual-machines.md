@@ -4,12 +4,12 @@ description: En este artículo se describe cómo migrar máquinas virtuales de A
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 9e26268010e4287d1f98e99389ffeddf3e4747ce
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 0ef9adfe7ee88141b67bb9e8c9586c5cc6e5df6f
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611439"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762426"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Detección, evaluación y migración de máquinas virtuales de Amazon Web Services (AWS) a Azure
 
@@ -379,7 +379,7 @@ Después de comprobar que la migración de prueba funciona según lo previsto, p
 **Respuesta:** Actualmente, no se admite la importación de evaluaciones para este flujo de trabajo. Como solución alternativa, puede exportar la evaluación y seleccionar manualmente la recomendación de máquina virtual durante el paso de habilitación de replicación.
   
 **Pregunta:** Recibo el error "Failed to fetch BIOS GUID" (No se pudo capturar el GUID del BIOS) al intentar detectar mis máquinas virtuales de AWS   
-**Respuesta:** Revise los sistemas operativos compatibles para las máquinas virtuales de AWS.  
+**Respuesta:** Use siempre el inicio de sesión raíz para la autenticación y no otro usuario. Revise también los sistemas operativos compatibles para las máquinas virtuales de AWS.  
 
 **Pregunta:** Mi estado de replicación no progresa    
 **Respuesta:** Compruebe si el dispositivo de replicación cumple los requisitos. Asegúrese de que ha habilitado los puertos necesarios, TCP 9443 y HTTPS 443, en el dispositivo de replicación para el transporte de datos. Asegúrese de que no haya versiones duplicadas obsoletas del dispositivo de replicación conectadas al mismo proyecto.   

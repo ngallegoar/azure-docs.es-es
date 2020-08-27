@@ -75,6 +75,8 @@
       items:
         - name: Creación de un laboratorio
           href: devtest-lab-create-lab.md
+        - name: Creación de un laboratorio aislado de la red
+          href: network-isolation.md
         - name: Creación o modificación de laboratorios mediante una plantilla de Resource Manager
           href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
         - name: Especificación del grupo de recursos para máquinas virtuales de laboratorio

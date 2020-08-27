@@ -34,8 +34,10 @@
       href: release-notes.md
 - name: Guías de inicio rápido
   items:
-    - name: Creación de un área de trabajo de Synapse
+    - name: Creación de un área de trabajo de Synapse mediante Azure Portal
       href: quickstart-create-workspace.md
+    - name: Creación de un área de trabajo de Synapse mediante la CLI de Azure
+      href: quickstart-create-workspace-cli.md
     - name: Uso de Synapse Studio
       href: quickstart-synapse-studio.md
     - name: Vinculación de un área de trabajo de Power BI

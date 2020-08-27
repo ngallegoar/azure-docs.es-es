@@ -172,6 +172,10 @@
               href: manage/pay-by-invoice.md
             - name: Creación de suscripciones adicionales
               href: manage/create-subscription.md
+            - name: Creación de suscripciones mediante programación
+              href: manage/programmatically-create-subscription.md
+            - name: Concesión de acceso para crear suscripciones de EA
+              href: manage/grant-access-to-create-subscription.md
             - name: Información sobre la exportación de suscripciones
               href: manage/export-subscriptions.md
             - name: Cambio de la tarjeta de crédito

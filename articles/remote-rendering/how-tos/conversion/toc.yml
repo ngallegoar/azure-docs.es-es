@@ -8,5 +8,5 @@
   href: configure-model-conversion.md
 - name: Reemplazo de materiales durante la conversión de modelos
   href: override-materials.md
-- name: Obtención de información acerca de un modelo convertido
+- name: Obtención de información sobre conversiones
   href: get-information.md

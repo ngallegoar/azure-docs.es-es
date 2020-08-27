@@ -6,6 +6,10 @@
       href: overview.md
     - name: Diferencias con respecto a la versión anterior
       href: overview-differences.md
+- name: Inicio rápido
+  items:
+    - name: Exploración de un escenario de ejemplo
+      href: quickstart-adt-explorer.md
 - name: Tutoriales
   items:
     - name: Programación de una aplicación cliente
@@ -76,6 +80,8 @@
       items:
         - name: Ingesta de telemetría desde IoT Hub
           href: how-to-ingest-iot-hub-data.md
+        - name: Integración con Logic Apps
+          href: how-to-integrate-logic-apps.md
     - name: Conexión de salida
       items:
         - name: Administración de puntos de conexión y rutas
@@ -88,8 +94,6 @@
           href: how-to-integrate-maps.md
         - name: Integración con Azure Time Series Insights
           href: how-to-integrate-time-series-insights.md
-        - name: Integración con Logic Apps
-          href: how-to-integrate-logic-apps.md
     - name: Solución de problemas
       items:
         - name: Visualización de métricas en Azure Monitor

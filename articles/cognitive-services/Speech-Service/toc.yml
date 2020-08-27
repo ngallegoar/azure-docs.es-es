@@ -520,17 +520,11 @@
           href: speech-container-faq.md
 - name: SDK de voz
   items:
-    - name: Información general
-      items:
-        - name: Acerca del SDK de Voz
-          href: speech-sdk.md
-        - name: Disponibilidad de escenario
-          href: scenario-availability.md
-    - name: Guía de inicio rápido
-      items:
-        - name: Configuración del SDK de Voz
-          displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'
-          href: quickstarts/setup-platform.md
+    - name: Introducción al SDK de Voz
+      href: speech-sdk.md
+    - name: Configuración del SDK de Voz
+      displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'
+      href: quickstarts/setup-platform.md
     - name: Guías paso a paso
       items:
         - name: Habilitar registro

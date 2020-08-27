@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: e7199b6d54a0150845bfc09c38e002e6cc298ee7
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: a53ac9387664aafc218f13834e0499fde417d87d
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066736"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566087"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger el acceso y los datos en Azure Logic Apps
 
@@ -159,7 +159,7 @@ Por ejemplo, supongamos que la aplicación lógica tiene una directiva de autori
 
 Antes de habilitar esta autenticación, tenga en cuenta los siguientes aspectos:
 
-* Una llamada entrante a la aplicación lógica solo puede usar un esquema de autorización, ya sea Azure AD OAuth o [firmas de acceso compartido (SAS)](#sas). Solo se admiten esquemas de autorización de [tipo portador](../active-directory/develop/active-directory-v2-protocols.md#tokens) para los tokens de OAuth, que solo se admiten para el desencadenador de solicitud.
+* Una llamada entrante a la aplicación lógica solo puede usar un esquema de autorización, ya sea Azure AD OAuth o [firmas de acceso compartido (SAS)](#sas). El uso de un esquema no deshabilita el otro, pero cuando se utilizan ambos al mismo tiempo se produce un error porque el servicio no sabe qué esquema elegir. Solo se admiten esquemas de autorización de [tipo portador](../active-directory/develop/active-directory-v2-protocols.md#tokens) para los tokens de OAuth, que solo se admiten para el desencadenador de solicitud.
 
 * La aplicación lógica está limitada a un número máximo de directivas de autorización. Cada directiva de autorización también tiene un número máximo de [notificaciones](../active-directory/develop/developer-glossary.md#claim). Para más información, consulte el artículo de [límites y configuración para Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
 
@@ -240,7 +240,7 @@ Para habilitar Azure AD OAuth en la plantilla de ARM para implementar la aplicac
 ],
 ```
 
-Para más información sobre la sección `accessControl`, vea [Restricción de los intervalos IP entrantes en la plantilla de Azure Resource Manager](#restrict-inbound-ip-template) y [Referencia de plantillas de flujos de trabajo de Microsoft.Logic](/templates/microsoft.logic/2019-05-01/workflows).
+Para más información sobre la sección `accessControl`, vea [Restricción de los intervalos IP entrantes en la plantilla de Azure Resource Manager](#restrict-inbound-ip-template) y [Referencia de plantillas de flujos de trabajo de Microsoft.Logic](/azure/templates/microsoft.logic/2019-05-01/workflows).
 
 <a name="restrict-inbound-ip"></a>
 
@@ -786,8 +786,8 @@ Los extremos HTTP y HTTPS admiten varios tipos de autenticación. En algunos des
 
 En esta tabla se identifican los tipos de autenticación que están disponibles en los desencadenadores y las acciones donde puede seleccionar un tipo de autenticación:
 
-| Tipo de autenticación | Disponibilidad |
-|---------------------|--------------|
+| Tipo de autenticación | Desencadenadores y acciones admitidos |
+|---------------------|--------------------------------|
 | [Basic](#basic-authentication) | Azure API Management, Azure App Services, HTTP, HTTP y Swagger, webhook HTTP |
 | [Certificado de cliente](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP y Swagger, webhook HTTP |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, webhook HTTP |
@@ -952,7 +952,7 @@ Al usar [parámetros protegidos](#secure-action-parameters) para administrar y p
 
 ### <a name="managed-identity-authentication"></a>Autenticación de identidad administrada
 
-Si la opción [Identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) está disponible, la aplicación lógica puede usar la identidad asignada por el sistema o una identidad *única* asignada por el usuario creada de forma manual para autenticar el acceso a otros recursos que están protegidos por Azure Active Directory (Azure AD) sin iniciar la sesión. Azure administra esta identidad y le ayuda a proteger las credenciales porque, de esta forma, no tiene que proporcionar secretos o cambiarlos. Obtenga más información sobre [Servicios de Azure que admiten las identidades administradas para la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Si la opción [Identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) está disponible en un [desencadenador o acción específicos](#add-authentication-outbound), la aplicación lógica puede usar la identidad asignada por el sistema o una identidad *única* asignada por el usuario creada de forma manual para autenticar el acceso a otros recursos que están protegidos por Azure Active Directory (Azure AD) sin iniciar la sesión. Azure administra esta identidad y le ayuda a proteger las credenciales porque, de esta forma, no tiene que proporcionar secretos o cambiarlos. Obtenga más información sobre [Servicios de Azure que admiten las identidades administradas para la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 1. Para que la aplicación lógica pueda usar una identidad administrada, siga los pasos descritos en [Autenticación de acceso a los recursos de Azure con identidades administradas en Azure Logic Apps](../logic-apps/create-managed-service-identity.md). En estos pasos se habilita la identidad administrada en la aplicación lógica y se configura el acceso de dicha identidad al recurso de Azure de destino.
 

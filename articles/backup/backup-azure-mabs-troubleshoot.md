@@ -4,12 +4,12 @@ description: Solucionar problemas de instalación, registro de Azure Backup Serv
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: a4882867f9bbe5123df275b8d1c69fe4e163f294
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 54b7295eaed5f04a118cf5097ebc7b25b18f67d2
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054831"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88522851"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Solución de problemas de Azure Backup Server
 
@@ -27,6 +27,39 @@ Antes de empezar a solucionar problemas de Microsoft Azure Backup Server (MABS),
 - Si se produce un error de instalación automática, compruebe si el agente de DPM ya está presente. En caso afirmativo, desinstale al agente y vuelva a intentar la instalación.
 - [Asegúrese de que ningún otro proceso o software antivirus interfiera con Azure Backup](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup).<br>
 - Asegúrese de que el servicio del Agente SQL se esté ejecutando y esté establecido en el modo automático en el servidor MABS.<br>
+
+## <a name="configure-antivirus-for-mabs-server"></a>Configuración del antivirus para el servidor MABS
+
+MABS es compatible con la mayoría de los productos de software antivirus más utilizados. Se recomienda aplicar los pasos siguientes para evitar conflictos:
+
+1. **Deshabilitar la supervisión en tiempo real**: deshabilite la supervisión en tiempo real mediante el software antivirus para lo siguiente:
+    - `C:\Program Files<MABS Installation path>\XSD`
+    - `C:\Program Files<MABS Installation path>\Temp`
+    - Letra de unidad del volumen de Modern Backup Storage
+    - Registros de réplicas y de transferencias: Para ello, deshabilite la supervisión en tiempo real de **dpmra.exe**, que se encuentra en la carpeta `Program Files\Microsoft Azure Backup Server\DPM\DPM\bin`. La supervisión en tiempo real degrada el rendimiento porque el software antivirus examina todas las réplicas cada vez que MABS se sincroniza con el servidor protegido y examina todos los archivos afectados cada vez que MABS aplica cambios en las réplicas.
+    - Consola de administrador: Para evitar que afecte al rendimiento, deshabilite la supervisión en tiempo real del proceso **csc.exe**. El proceso **csc.exe** es el compilador C\#, y la supervisión en tiempo real puede degradar el rendimiento porque el software antivirus examina los archivos que el proceso **csc.exe** emite al generar mensajes XML. El proceso **csc.exe** se encuentra en las siguientes rutas de acceso:
+        - `\Windows\Microsoft.net\Framework\v2.0.50727\csc.exe`
+        - `\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe`
+    - Para el agente de MARS instalado en el servidor de MABS, se recomienda excluir los siguientes archivos y ubicaciones:
+        - `C:\Program Files\Microsoft Azure Backup Server\DPM\MARS\Microsoft Azure Recovery Services Agent\bin\cbengine.exe` como proceso
+        - `C:\Program Files\Microsoft Azure Backup Server\DPM\MARS\Microsoft Azure Recovery Services Agent\folder`
+        - Ubicación temporal (si no está usando la ubicación estándar)
+2. **Deshabilitar la supervisión en tiempo real en el servidor protegido**: Deshabilite la supervisión en tiempo real de **dpmra.exe**, que se encuentra en la carpeta `C:\Program Files\Microsoft Data Protection Manager\DPM\bin`, en el servidor protegido.
+3. **Configurar el software antivirus para eliminar los archivos infectados en los servidores protegidos y el servidor de MABS**: A fin de evitar daños en las réplicas y los puntos de recuperación, configure el software antivirus para que elimine los archivos infectados en lugar de eliminarlos o enviarlos a cuarentena automáticamente. La limpieza automática y la puesta en cuarentena pueden hacer que el software antivirus modifique los archivos y que realice cambios que MABS no pueda detectar.
+
+Debe ejecutar una sincronización manual con una regularidad. Compruebe el trabajo cada vez que el software antivirus elimine un archivo de la réplica, incluso si la réplica esté marcada como incoherente.
+
+### <a name="mabs-installation-folders"></a>Carpetas de instalación de MABS
+
+Las carpetas de instalación predeterminadas para DPM son las siguientes:
+
+- `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM`
+
+También puede ejecutar el siguiente comando para buscar la ruta de acceso de la carpeta de instalación:
+
+```cmd
+Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
+```
 
 ## <a name="invalid-vault-credentials-provided"></a>Se han proporcionado credenciales de almacén no válidas
 

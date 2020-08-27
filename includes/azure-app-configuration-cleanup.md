@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 1/31/2020
 ms.author: lcozzens
 ms.custom: include file
-ms.openlocfilehash: e49f68f43044b93f329295181717ec2d3ade9fc6
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 751613e7b3b2252b62dff2c3e1adad83bdc8c393
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116995"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88639185"
 ---
 Si no desea seguir usando los recursos creados en este artículo, elimine el grupo de recursos que creó aquí para evitar cargos.
 
@@ -22,7 +22,7 @@ Si no desea seguir usando los recursos creados en este artículo, elimine el gru
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y después seleccione **Grupos de recursos**.
 1. En el cuadro de texto **Filtrar por nombre**, escriba el nombre del grupo de recursos. 
-1. En la lista de resultados, seleccione el grupo de recursos y haga clic con el botón derecho en la fila o utilice el botón **puntos suspensivos** (**...**) para abrir el menú contextual.
+1. En la lista resultados, seleccione el nombre del grupo de recursos para ver la información general.
 1. Seleccione **Eliminar grupo de recursos**.
 1. Se le pedirá que confirme la eliminación del grupo de recursos. Escriba el nombre del grupo de recursos para confirmar y seleccione **Eliminar**.
 

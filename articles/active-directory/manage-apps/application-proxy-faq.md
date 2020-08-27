@@ -2,25 +2,21 @@
 title: Preguntas más frecuentes sobre Azure AD Application Proxy| Microsoft Docs
 description: Obtenga respuestas a las preguntas más frecuentes (p+f) sobre el uso de Azure AD Application Proxy para publicar aplicaciones internas y locales en usuarios remotos.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 78a0cb6217d8c1d25f08801066a970d6bc94e1b0
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: edf51dad768e8d8b5ea5dc6c1eff88f43f0f6b70
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042112"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589170"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Preguntas más frecuentes sobre Active Directory (Azure AD) Application Proxy
 
@@ -90,6 +86,15 @@ El proxy de aplicación requiere Windows Server 2012 R2 o versiones posteriores.
 
 
 ## <a name="application-configuration"></a>Configuración de aplicaciones
+
+### <a name="i-am-receiving-an-error-about-an-invalid-certificate-or-possible-wrong-password"></a>Recibo un error sobre un certificado no válido o una contraseña posiblemente incorrecta
+
+Después de cargar el certificado SSL, recibirá el mensaje "certificado no válido, contraseña posiblemente incorrecta" en el portal.
+
+A continuación se ofrecen algunas sugerencias para solucionar este error:
+- Compruebe si el certificado da problemas. Instálelo en su equipo local. Si no experimenta ningún problema, el certificado es correcto.
+- Asegúrese de que la contraseña no contenga caracteres especiales. A efectos de las pruebas, la contraseña solo debería contener los caracteres 0-9, A-Z y a-z.
+- Si el certificado se creó con el proveedor de almacenamiento de claves de software de Microsoft, se debe utilizar el algoritmo de RSA.
 
 ### <a name="what-is-the-length-of-the-default-and-long-back-end-timeout-can-the-timeout-be-extended"></a>¿Cuál es la duración del tiempo de expiración de back-end predeterminado y "largo"? ¿Se puede ampliar el tiempo de expiración?
 

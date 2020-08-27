@@ -3,18 +3,18 @@ title: Creación de una oferta de SaaS, Azure Marketplace y Microsoft AppSource
 description: Cómo crear una oferta de software como servicio (SaaS) para mostrarla o venderla en Azure Marketplace, Microsoft AppSource o bien mediante el programa Proveedor de soluciones en la nube (CSP) mediante el portal del marketplace comercial de Microsoft Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 07/22/2020
+ms.topic: how-to
+ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 2b12eb88f0297c44fabb62e40d315517f3d3b954
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 7500eddc2416a1cb705ef207930c5fe4c6f1068a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800368"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604748"
 ---
-# <a name="create-a-saas-offer"></a>Creación de una oferta SaaS
+# <a name="create-a-saas-offer-in-the-commercial-marketplace"></a>Creación de una oferta de SaaS en el marketplace comercial
 
 Para empezar a crear ofertas de software como servicio (SaaS) en marketplace comercial, asegúrese de primero [crear una cuenta del Centro de partners](./create-account.md) y después abrir el [panel Marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), con la pestaña **Información general** seleccionada.
 
@@ -30,7 +30,7 @@ Para empezar a crear ofertas de software como servicio (SaaS) en marketplace com
    ![Muestra el menú de navegación izquierdo.](./media/new-offer-saas.png)
 
 > [!NOTE]
-> Después de publicar una oferta, las modificaciones que se realicen en el Centro de partners solo aparecen en los escaparates cuando la oferta se vuelve a publicar. Asegúrese de volver a realizar la publicación siempre después de realizar cambios.
+> Después de publicar una oferta, las modificaciones que se realicen en el Centro de partners solo aparecen en las tiendas en línea cuando la oferta se vuelve a publicar. Asegúrese de volver a realizar la publicación siempre después de realizar cambios.
 
 ## <a name="new-offer"></a>Nueva oferta
 
@@ -185,7 +185,7 @@ La oferta se publicará en AppSource o Azure Marketplace en función de las func
 - Al menos una y un máximo de dos categorías, incluidas una categoría principal y una secundaria (opcional).
 - Hasta dos subcategorías para cada categoría principal o secundaria. Si no hay ninguna subcategoría aplicable a la oferta, seleccione **No aplicable**.
 
-Vea la lista completa de categorías y subcategorías aplicables a cada escaparate en [Procedimientos recomendados para la publicación de ofertas](../gtm-offer-listing-best-practices.md).
+Vea la lista completa de categorías y subcategorías aplicables a cada tienda en línea en [Procedimientos recomendados para la publicación de ofertas](../gtm-offer-listing-best-practices.md).
 
 ### <a name="industries"></a>Industrias
 
@@ -282,16 +282,18 @@ Este campo es obligatorio.
 #### <a name="files-and-images"></a>Archivos e imágenes
 
 - **Documentos** (obligatorio): agregue a su oferta documentos de marketing relacionados en formato PDF. Incluya un mínimo de un (1) documento por oferta y un máximo de tres (3).
-- **Imágenes** (obligatorio): en todos los catálogos,hay varios lugares en los que pueden aparecer imágenes del logotipo de su oferta. Proporcione un archivo PNG para el logotipo de tamaño **grande** (entre 216 x 216 y 350 x 350 píxeles). El Centro de partners lo utilizará para crear un logotipo de tamaño **pequeño** (48 x 48 píxeles) y un logotipo de tamaño **medio** (90 x 90 píxeles). Opcionalmente, puede reemplazarlos por imágenes diferentes. La adición de un logotipo **ancho** es opcional.
+- **Imágenes**: cargue imágenes de logotipo en formato PNG:
 
-    Se requieren tres tamaños de logotipo para su uso en distintos lugares de la lista; uno es opcional:
+  - **Pequeño** (48×48 píxeles, obligatorio)
+  - **Mediano** (90×90 píxeles, obligatorio)
+  - **Grande** (216×216 píxeles, obligatorio)
+  - **Ancho** (255×115 píxeles) (opcional)
 
-    - **Pequeño (48 x 48)**
-    - **Medio (90 x 90)**
-    - **Grande** (entre 216 x 216 y 350 x 350)
-    - **Ancho** (255 x 115), *opcional*
+   Estos tres tamaños de logotipo se usan en distintos lugares de las tiendas en línea:
 
-    [!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+   -   El logotipo pequeño (48×48 píxeles) aparece en los resultados de la búsqueda de Azure Marketplace, y en la página principal y en la página de resultados de búsqueda de Microsoft AppSource. 
+   -   El logotipo mediano (90×90 píxeles) aparece cuando se crea un nuevo recurso en Microsoft Azure.
+   -   El logotipo grande (entre 216×216 y 350×350 píxeles) aparece en la página de catálogo de ofertas de Azure Marketplace y Microsoft AppSource.
 
 - **Capturas de pantallas** (obligatorio): agregue un máximo de cinco capturas de pantallas que muestren la oferta, con un tamaño de 1280 x 720 píxeles. Todas las imágenes deben estar en formato .PNG.
 - **Vídeos** (opcional): Agregue vínculos a vídeos en que se muestre la oferta. Puede usar vínculos a vídeos de YouTube o Vimeo para que acompañen a la oferta para los clientes. También tendrá que incluir una imagen en miniatura del vídeo con un tamaño de 1280 x 720 píxeles y en formato PNG. Puede mostrar un máximo de cuatro vídeos por oferta.
@@ -349,6 +351,8 @@ Seleccione **Guardar borrador** antes de continuar.
 ## <a name="plan-overview"></a>Información general del plan
 
 Esta página le permite ofrecer una variedad de opciones de planes dentro de la misma oferta. Estos planes (a veces denominados SKU) pueden diferir en lo tocante a versión, monetización o niveles de servicio. Para vender su oferta en Marketplace, debe configurar al menos un plan.
+
+Puede crear hasta 100 planes para cada oferta, de los cuales hasta 45 pueden ser privados. Más información sobre los planes privados en [Ofertas privadas en el marketplace comercial de Microsoft](../private-offers.md).
 
 Una vez creados, verá los nombres de los planes, los identificadores, los modelos de precios, disponibilidad (pública o privada), el estado actual de la publicación y las acciones disponibles.
 

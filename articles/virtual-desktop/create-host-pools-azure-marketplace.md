@@ -3,15 +3,15 @@ title: Grupo de hosts de Windows Virtual Desktop en Azure Portal
 description: Creación de un grupo de hosts de Windows Virtual Desktop con Azure Portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 04/30/2020
+ms.date: 08/21/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c9a421e15f3561bb4de7f528ab1c707a0251dfe5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 30101d4e9125b0ac283710ebb26205c2bb120766
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002657"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755490"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Creación de un grupo de hosts con Azure Portal
 
@@ -36,7 +36,7 @@ También deberá saber lo siguiente:
 - Dónde está el origen de la imagen que quiere usar. ¿Está en Azure Gallery o es una imagen personalizada?
 - Sus credenciales de unión un dominio.
 
-Asegúrese también de que ha registrado el proveedor de recursos Microsoft.DesktopVirtualization. Si aún no lo ha hecho, vaya a **Suscripciones**, seleccione el nombre de su suscripción y, a continuación, **Proveedores de recursos de Azure**.
+Asegúrese también de que ha registrado el proveedor de recursos Microsoft.DesktopVirtualization. Si aún no lo ha hecho, vaya a **Suscripciones**, seleccione el nombre de la suscripción y, a continuación, **Proveedores de recursos**. Busque DesktopVirtualization, seleccione Microsoft.DesktopVirtualization y, a continuación, seleccione Registrar.
 
 Cuando se crea un grupo de hosts de Windows Virtual Desktop con la plantilla de Azure Resource Manager, se puede crear una máquina virtual desde una imagen de Azure Gallery, una imagen administrada o una imagen no administrada. Para obtener más información sobre cómo crear imágenes de máquina virtual, vea [Preparación de un VHD o un VHDX de Windows para cargar en Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) y [Creación de una imagen administrada de una máquina virtual generalizada en Azure](../virtual-machines/windows/capture-image-resource.md).
 
@@ -80,9 +80,9 @@ Para empezar a crear el grupo de hosts:
        > [!div class="mx-imgBorder"]
        > ![Captura de pantalla del campo "Assignment Type" (Tipo de asignación) con "Pooled" (Agrupado) seleccionado. El usuario está desplazando el cursor sobre "Breadth-first" (Equilibrio de carga en amplitud) en el menú desplegable "Load Balancing" (Equilibrio de carga).](media/pooled-assignment-type.png)
 
-10. Seleccione **Siguiente: VM details** (Detalles de VM).
+10. Seleccione **Siguiente: Virtual Machines >** (Siguiente: Máquinas virtuales).
 
-11. Si ya ha creado las máquinas virtuales y quiere usarlas con el nuevo grupo de hosts, seleccione **No**. Si quiere crear máquinas virtuales y registrarlas en el nuevo grupo de hosts, seleccione **Yes** (Sí).
+11. Si ya ha creado las máquinas virtuales y quiere usarlas con el nuevo grupo de hosts, seleccione **No** (No), seleccione **Next: Workspace >** (Siguiente: Área de trabajo) y vaya a la sección [Workspace information](#workspace-information) (Información del área de trabajo). Si quiere crear máquinas virtuales y registrarlas en el nuevo grupo de hosts, seleccione **Yes** (Sí).
 
 Ahora que ha completado la primera parte, vamos a pasar a la siguiente parte del proceso de configuración en el que se crea la máquina virtual.
 
@@ -92,26 +92,28 @@ Ahora que hemos recorrido la primera parte, tendrá que configurar la máquina v
 
 Para configurar la máquina virtual en el proceso de configuración del grupo de hosts:
 
-1. En "Resource Group" (Grupo de recursos), elija el grupo de recursos donde quiere crear las máquinas virtuales. Puede ser un grupo de recursos diferente al que usó para el grupo de hosts.
+1. En **Resource Group** (Grupo de recursos), elija el grupo de recursos donde quiere crear las máquinas virtuales. Puede ser un grupo de recursos diferente al que usó para el grupo de hosts.
 
-2. Elija la **región de la máquina virtual** donde quiere crear las máquinas virtuales. Puede ser igual o diferente a la región seleccionada para el grupo de hosts.
+2. Elija la **ubicación de la máquina virtual** donde quiere crear las máquinas virtuales. Puede ser igual o diferente a la región seleccionada para el grupo de hosts.
 
-3. A continuación, elija el tamaño de la máquina virtual que quiere crear. Puede mantener el tamaño predeterminado tal cual o seleccionar **Change Size** (Cambiar tamaño) para cambiar el tamaño. Si selecciona **Change Size** (Cambiar tamaño), en la ventana que aparece, elija el tamaño de la máquina virtual adecuado para su carga de trabajo.
+3. A continuación, elija el **tamaño de máquina virtual** que quiere usar. Puede mantener el tamaño predeterminado tal cual o seleccionar **Change size** (Cambiar tamaño) para cambiar el tamaño. Si selecciona **Change size** (Cambiar tamaño), en la ventana que aparece, elija el tamaño de la máquina virtual adecuado para la carga de trabajo.
 
-4. En "Number of VMs" (Número de máquinas virtuales), proporcione el número de máquinas virtuales que quiere crear para el grupo de hosts.
+4. En **Number of VMs** (Número de máquinas virtuales), proporcione el número de máquinas virtuales que quiere crear para el grupo de hosts.
 
     >[!NOTE]
-    >En el proceso de configuración se pueden crear hasta 400 máquinas virtuales al configurar el grupo de hosts y cada proceso de configuración de máquina virtual crea cuatro objetos en el grupo de recursos. Dado que en el proceso de creación no se comprueba la cuota de suscripción, asegúrese de que el número de máquinas virtuales que especifique se encuentre dentro de los límites de la máquina virtual y de la API de Azure en el grupo de recursos y la suscripción. Después de terminar de crear el grupo de hosts, puede agregar más máquinas virtuales.
+    >En el proceso de configuración se pueden crear hasta 400 máquinas virtuales al configurar el grupo de hosts y cada proceso de configuración de máquina virtual crea cuatro objetos en el grupo de recursos. Dado que en el proceso de creación no se comprueba la cuota de la suscripción, asegúrese de que el número de máquinas virtuales que especifique se encuentra dentro de los límites de la máquina virtual y de la API de Azure del grupo de recursos y la suscripción. Después de terminar de crear el grupo de hosts, puede agregar más máquinas virtuales.
 
 5. A continuación, proporcione un **prefijo de nombre** para asignar un nombre a las máquinas virtuales que crea el proceso de configuración. El sufijo será `-` y los números comienzan a partir de 0.
 
-6. A continuación, elija la imagen que debe usarse para crear la máquina virtual. Puede elegir entre **Gallery** (Galería) o **Storage Blob**.
+6. A continuación, elija la imagen que debe usarse para crear la máquina virtual. Puede elegir entre **Gallery** (Galería) o **Storage blob** (Blob de Storage).
 
     - Si elige **Gallery** (Galería), seleccione una de las imágenes recomendadas en el menú desplegable:
 
-      - sesión múltiple de Windows 10 Enterprise, versión 1909 + Aplicaciones de Microsoft 365 para empresa, Gen 1
-      - Sesión múltiple de Windows 10 Enterprise, versión 1909 - Gen 1
-      - Windows Server 2019 Datacenter - Gen 1
+      - Windows 10 Enterprise para sesiones múltiples, versión 1909
+      - Windows 10 Enterprise para sesiones múltiples, versión 1909 + Aplicaciones de Microsoft 365
+      - Windows Server 2019 Datacenter
+      - Windows 10 Enterprise para sesiones múltiples, versión 2004
+      - Windows 10 Enterprise para sesiones múltiples, versión 2004 + Aplicaciones de Microsoft 365
 
      Si no ve la imagen que quiere, seleccione **Browse all images and disks** (Examinar todas las imágenes y discos), lo que le permite seleccionar otra imagen de la galería o una imagen proporcionada por Microsoft y otros anunciantes.
 
@@ -127,7 +129,7 @@ Para configurar la máquina virtual en el proceso de configuración del grupo de
 
 7. Elija qué tipo de discos del sistema operativo quiere que usen las máquinas virtuales: SSD estándar, SSD Premium o HDD estándar.
 
-8. En "Network and security" (Red y seguridad), seleccione la red virtual y la subred en la que quiere colocar las máquinas virtuales creadas. Asegúrese de que la red virtual pueda conectarse al controlador de dominio, ya que tendrá que unir al dominio las máquinas virtuales que se encuentran dentro de la red virtual. Luego, seleccione si quiere o no una dirección IP pública para las máquinas virtuales. Se recomienda seleccionar **No**, ya que una dirección IP privada es más segura.
+8. En Network and security (Red y seguridad), seleccione la **red virtual** y la **subred** en la que quiere colocar las máquinas virtuales creadas. Asegúrese de que la red virtual pueda conectarse al controlador de dominio, ya que tendrá que unir al dominio las máquinas virtuales que se encuentran dentro de la red virtual. Luego, seleccione si quiere o no una dirección IP pública para las máquinas virtuales. Se recomienda seleccionar **No**, ya que una dirección IP privada es más segura.
 
 9. Seleccione el tipo de grupo de seguridad que desee: **Basic** (Básico), **Advanced** (Avanzado) o **None** (Ninguno).
 
@@ -141,11 +143,11 @@ Para configurar la máquina virtual en el proceso de configuración del grupo de
 
     Si elige **Advanced** (Avanzado), seleccione un grupo de seguridad de red existente que ya haya configurado.
 
-10. Después, seleccione si quiere que las máquinas virtuales se unan a un dominio y a una unidad organizativa específicos. Si elige **Yes** (Yes), especifique el dominio al que quiere unirse. También puede agregar una unidad organizativa determinada en la que quiera que estén las máquinas virtuales.
+10. Después, seleccione si quiere que las máquinas virtuales se unan a un dominio y a una unidad organizativa específicos. Si elige **Yes** (Yes), especifique el dominio al que quiere unirse. Opcionalmente, puede agregar una unidad organizativa específica en la que quiera que estén las máquinas virtuales. Si elige **No**, las máquinas virtuales se unirán al dominio que coincide con el sufijo del **nombre principal de usuario unido al dominio de AD**.
 
 11. En "Administrator account" (Cuenta de administrador), escriba las credenciales del administrador de dominio de Active Directory de la red virtual que ha seleccionado.
 
-12. Seleccione **Workspace** (Área de trabajo).
+12. Seleccione **Siguiente: Workspace >** (Siguiente: Área de trabajo).
 
 Ahora, estamos preparados para iniciar la siguiente fase de configuración del grupo de hosts: registro del grupo de aplicaciones en un área de trabajo.
 
@@ -161,7 +163,7 @@ Para registrar el grupo de aplicaciones de escritorio en un área de trabajo:
 
 2. A continuación, elija si quiere crear un área de trabajo o seleccionar entre las áreas de trabajo existentes. Solo las áreas de trabajo creadas en la misma ubicación que el grupo de hosts se pueden registrar en el grupo de aplicaciones.
 
-3. Opcionalmente, puede seleccionar **Tags** (Etiquetas).
+3. Opcionalmente, puede seleccionar **Next: Tags >** (Siguiente: Etiquetas).
 
     Aquí puede agregar etiquetas para poder agrupar los objetos con metadatos y así facilitar las tareas para los administradores.
 
@@ -175,7 +177,7 @@ Para registrar el grupo de aplicaciones de escritorio en un área de trabajo:
      - El nuevo grupo de hosts.
      - Un grupo de aplicaciones de escritorio.
      - Un área de trabajo, si decidió crearla.
-     - Si ha decidido registrar el grupo de aplicaciones de escritorio, el registro se completará.
+     - Si ha decidido registrar el grupo de aplicaciones de escritorio, el registro se habrá completado.
      - Máquinas virtuales, si ha decidido crearlas, que se unen al dominio y se registran en el nuevo grupo de hosts.
      - Un vínculo de descarga de una plantilla de administración de recursos de Azure basada en la configuración.
 

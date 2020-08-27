@@ -3,12 +3,12 @@ title: Reducción de los costos de servicio con Azure Advisor
 description: Utilice Azure Advisor para optimizar el costo de las implementaciones de Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: e8f0e555f71c31bb3286cee59bb7161c3ce3986e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 15f357248a6174de1e0890a4b45e9fa3930a06fe
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284377"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258536"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Reducción de los costos de servicio con Azure Advisor
 
@@ -96,6 +96,8 @@ Al usar la inteligencia sobre el recuento de objetos de Azure Blob Storage, el t
 
 Es preferible usar el disco del sistema operativo efímero para máquinas virtuales IaaS de corta duración o máquinas virtuales con cargas de trabajo sin estado. Advisor proporciona recomendaciones para los recursos que pueden beneficiarse del disco del sistema operativo efímero.
 
+## <a name="reduce-azure-data-explorer-table-cache-period-policy-for-cluster-cost-optimization-preview"></a>(VERSIÓN PRELIMINAR) Reducción del período de caché (directiva) de la tabla de Azure Data Explorer para la optimización del coste de clúster (versión preliminar)
+Advisor identifica los recursos en los que reducir la directiva de caché de la tabla liberará los nodos de clúster de Azure Data Explorer que tienen un bajo uso CPU, memoria y una configuración de tamaño de caché alto.
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Obtención de acceso a las recomendaciones sobre el costo en Azure Advisor
 

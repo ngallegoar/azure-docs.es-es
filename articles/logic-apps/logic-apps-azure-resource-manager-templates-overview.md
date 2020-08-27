@@ -3,15 +3,15 @@ title: 'Información general: automatización de la implementación para Azure L
 description: Obtenga información sobre las plantillas de Azure Resource Manager para automatizar la implementación de Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 07/25/2019
-ms.openlocfilehash: 6a89eb16c8042efc86bb5cc8bd5fba7c821dc341
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/17/2020
+ms.openlocfilehash: 391692d708adbd542b2cf358f0ac597dc1db3fa0
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520976"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88565560"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Introducción: Automatización de la implementación para Azure Logic Apps mediante plantillas de Azure Resource Manager
 
@@ -237,7 +237,7 @@ Este archivo de parámetros de ejemplo especifica los valores de los parámetros
 
 ## <a name="template-resources"></a>Recursos de plantilla
 
-La plantilla tiene un objeto `resources`, que es una matriz que contiene las definiciones de cada recurso que se va a crear e implementar en Azure, como la [definición de recursos de la aplicación lógica](#logic-app-resource-definition), [cualquier definición de recursos de conexión](#connection-resource-definitions) y cualquier otro recurso que necesite su aplicación lógica para la implementación.
+La plantilla tiene un objeto `resources`, que es una matriz que contiene las definiciones de cada recurso que se va a crear e implementar en Azure, como la [definición de recursos de la aplicación lógica](#logic-app-resource-definition), [cualquier definición de recursos de conexión](#connection-resource-definitions) y cualquier otro recurso que necesite la aplicación lógica para la implementación.
 
 ```json
 {
@@ -264,6 +264,22 @@ La plantilla tiene un objeto `resources`, que es una matriz que contiene las def
 
 > [!NOTE]
 > Las plantillas pueden incluir definiciones de recursos para varias aplicaciones lógicas, por lo que debe asegurarse de que todos los recursos de la aplicación lógica especifican el mismo grupo de recursos de Azure. Al implementar la plantilla en un grupo de recursos de Azure mediante Visual Studio, se le pedirá que especifique la aplicación lógica que quiere abrir. Además, el proyecto del grupo de recursos de Azure puede contener más de una plantilla, por lo que debe asegurarse de seleccionar el archivo de parámetros correcto cuando se le solicite.
+
+<a name="view-resource-definitions"></a>
+
+### <a name="view-resource-definitions"></a>Visualización de definiciones de recursos
+
+Para revisar las definiciones de todos los recursos de un grupo de recursos de Azure, [descargue la aplicación lógica de Azure en Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), que es la forma más sencilla de crear una plantilla de aplicación lógica con parámetros válida lista en su mayor parte para la implementación. También puede seguir estos pasos en Azure Portal:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con sus credenciales de su cuenta de Azure.
+
+1. Busque el grupo de recursos de Azure que contiene la aplicación lógica, las conexiones y otros recursos.
+
+1. En la barra de herramientas del grupo de recursos, seleccione **Información general** y, luego, seleccione todos los recursos del grupo de recursos.
+
+1. En la barra de herramientas del grupo de recursos, en **Configuración**, seleccione **Exportar plantilla**.
+
+   El portal muestra las definiciones de los recursos seleccionados. Para más información, consulte [Exportación de uno y varios recursos a la plantilla en Azure Portal](../azure-resource-manager/templates/export-template-portal.md).
 
 Para obtener información general sobre los recursos de plantilla y sus atributos, consulte estos temas:
 
@@ -1013,7 +1029,7 @@ Para obtener más información sobre cómo trabajar con entidades de servicio, c
 
 ## <a name="references-to-parameters"></a>Referencias a parámetros
 
-Para hacer referencia a los parámetros de plantilla, puede usar expresiones de plantilla con [funciones de plantilla](../azure-resource-manager/templates/template-functions.md), que se evalúan en la implementación. Las expresiones de plantilla usan corchetes ( **[]** ):
+Para hacer referencia a los parámetros de plantilla, puede usar expresiones de plantilla con [funciones de plantilla](../azure-resource-manager/templates/template-functions.md), que se evalúan en la implementación. Las expresiones de plantilla usan corchetes (**[]**):
 
 `"<attribute-name>": "[parameters('<template-parameter-name>')]"`
 

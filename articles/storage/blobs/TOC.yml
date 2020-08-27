@@ -17,7 +17,7 @@
       items:
         - name: Uso de blobs
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: storage-quickstart-blobs-portal.md
             - name: Explorador de Storage
               href: storage-quickstart-blobs-storage-explorer.md
@@ -739,6 +739,8 @@
               href: data-lake-storage-explorer.md
             - name: CLI de sistema de archivos de Hadoop
               href: data-lake-storage-use-hdfs-data-lake-storage.md
+            - name: Establecimiento de listas de control de acceso de forma recursiva
+              href: recursive-access-control-lists.md
         - name: Consultar
           items:
             - name: Filtro de datos con aceleración de consultas

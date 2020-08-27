@@ -15,7 +15,7 @@
   items:
     - name: Creación de un centro de eventos
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: event-hubs-create.md
         - name: Azure CLI
           href: event-hubs-quickstart-cli.md
@@ -27,13 +27,13 @@
     - name: Envío y recepción de eventos
       items:
         - name: .NET (Azure.Messaging.EventHubs)
-          href: get-started-dotnet-standard-send-v2.md
+          href: event-hubs-dotnet-standard-getstarted-send.md
         - name: Java (azure-messaging-eventhubs)
-          href: get-started-java-send-v2.md
+          href: event-hubs-java-get-started-send.md
         - name: 'Python (azure-eventhub, versión 5)'
-          href: get-started-python-send-v2.md
+          href: event-hubs-python-get-started-send.md
         - name: 'JavaScript (azure/event-hubs, versión 5)'
-          href: get-started-node-send-v2.md
+          href: event-hubs-node-get-started-send.md
         - name: Go
           href: event-hubs-go-get-started-send.md
         - name: C (solo enviar)
@@ -43,13 +43,9 @@
     - name: Envío y recepción de eventos (versiones o paquetes antiguos)
       items:
         - name: .NET (Microsoft.Azure.EventHubs)
-          href: event-hubs-dotnet-standard-getstarted-send.md
+          href: event-hubs-dotnet-standard-get-started-send-legacy.md
         - name: Java (azure-eventhubs)
-          href: event-hubs-java-get-started-send.md
-        - name: 'Python (azure-eventhub, versión 1)'
-          href: event-hubs-python-get-started-send.md
-        - name: 'JavaScript (azure/event-hubs, versión 2)'
-          href: event-hubs-node-get-started-send.md
+          href: event-hubs-java-get-started-send-legacy.md
         - name: .NET Framework (Microsoft.ServiceBus)
           href: event-hubs-dotnet-framework-getstarted-send.md
     - name: Captura de eventos
@@ -58,9 +54,7 @@
           href: event-hubs-capture-enable-through-portal.md
         - name: Uso de una plantilla de Resource Manager para habilitar la captura de Event Hubs
           href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
-        - name: 'Lectura de los datos capturados mediante Python (azure-eventhub, versión 5)'
-          href: get-started-capture-python-v2.md
-        - name: 'Lectura de los datos capturados con Python (azure-eventhub, versión 1)'
+        - name: Lectura de los datos capturados mediante Python
           href: event-hubs-capture-python.md
     - name: Streaming en Event Hubs para Apache Kafka
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md

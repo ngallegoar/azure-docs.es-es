@@ -43,7 +43,7 @@
           href: plan-an-application-integration.md
         - name: Planeamiento de las aplicaciones que no se encuentran en la galería
           href: non-gallery-apps.md
-        - name: Planeación de una implementación del panel de acceso
+        - name: Planeamiento de una implementación de Aplicaciones
           href: access-panel-deployment-plan.md
         - name: Instrucciones para desarrolladores
           href: developer-guidance-for-integrating-applications.md

@@ -4,12 +4,12 @@ description: En este tutorial, aprenderá a crear un almacén de Recovery Servic
 ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: ed91105488b812131d3a908c509998c955cec299
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 76c09cc02a3545d975de5d6d49b396b12f8abb44
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263425"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757513"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Uso de Azure Portal para realizar la copia de seguridad de varias máquinas virtuales
 
@@ -136,7 +136,7 @@ Para ejecutar un trabajo de copia de seguridad a petición:
 
 1. En el menú contextual, seleccione **Realizar copia de seguridad ahora**.
 
-    ![Menú contextual](./media/tutorial-backup-vm-at-scale/context-menu.png)
+    ![Menú contextual: seleccionar Realizar copia de seguridad ahora](./media/tutorial-backup-vm-at-scale/context-menu.png)
 
     Se abrirá el menú Realizar copia de seguridad ahora.
 
@@ -166,7 +166,7 @@ Si tiene previsto seguir trabajando con los tutoriales siguientes, no elimine lo
 
 1. En el menú **Elementos de copia de seguridad**, seleccione los puntos suspensivos para abrir el menú contextual.
 
-    ![Menú contextual](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
+    ![En el menú Elementos de copia de seguridad, abrir el menú contextual](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
 
 1. En el menú contextual, seleccione **Detener copia de seguridad** para abrir el menú Detener copia de seguridad.
 

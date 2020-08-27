@@ -4,12 +4,12 @@ description: En este tutorial aprenderá a hacer una copia de seguridad de las b
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4113ba75f007bfa03fed5cfeaed7737797e37ed9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a0b6683183d6bf73b5376c6320106373ffd4ba78
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489527"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762409"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Copia de seguridad de las bases de datos de SAP HANA en una máquina virtual de Azure con la CLI de Azure
 
@@ -19,7 +19,7 @@ En este documento se supone que ya tiene una base de datos de SAP HANA instalada
 
 > [!div class="checklist"]
 >
-> * Creación de un almacén de Servicios de recuperación
+> * Creación de un almacén de Recovery Services
 > * Registrar la instancia de SAP HANA y detectar bases de datos en ella
 > * Habilitar la copia de seguridad de una base de datos de SAP HANA
 > * Desencadenamiento de una copia de seguridad a petición
@@ -30,7 +30,7 @@ Consulte los [escenarios admitidos actualmente](./sap-hana-backup-support-matrix
 
 Para instalar y usar la CLI localmente, debe ejecutar la versión xx.xxx.x de la CLI de Azure o una posterior. Para averiguar la versión de la CLI, ejecute `az --version`. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
-## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Servicios de recuperación
+## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 
 Un almacén de Recovery Services es un contenedor lógico que almacena los datos de copia de seguridad de los recursos protegidos, como las máquinas virtuales de Azure o las cargas de trabajo que se ejecutan en estas (como las bases de datos de SQL o de HANA). Cuando se ejecuta el trabajo de copia de seguridad para un recurso protegido, crea un punto de recuperación en el almacén de Recovery Services. Posteriormente, se puede usar uno de estos puntos de recuperación para restaurar los datos a un momento dado en el tiempo.
 

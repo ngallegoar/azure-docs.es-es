@@ -4,12 +4,12 @@ description: En este tutorial aprenderá a restaurar las bases de datos de SAP H
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 282f0ee61ffae455d6d3e49ea445d5ddc2fe56ac
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a1dbf0593c7c9b65c4e285b7162411de6c01bbbf
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500834"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762290"
 ---
 # <a name="tutorial-restore-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Restauración de las bases de datos de SAP HANA en una máquina virtual de Azure con la CLI de Azure
 
@@ -89,7 +89,7 @@ En este tutorial se realizará la restauración a un punto de restauración ante
 Con el nombre de punto de restauración anterior y el modo de restauración, vamos a crear el objeto de configuración de recuperación mediante el cmdlet [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig?view=azure-cli-latest#az-backup-recoveryconfig-show). Echemos un vistazo a lo que significa cada uno de los parámetros restantes de este cmdlet:
 
 * **--target-item-name** es el nombre que utilizará la base de datos restaurada. En este caso, *restored_database*.
-* **--target-server-name** es el nombre de un servidor SAP HANA que se ha registrado correctamente en un almacén de Recovery Services y se encuentra en la misma región que la base de datos que se va a restaurar. En este tutorial se va a restaurar la base de datos en el mismo servidor SAP HANA que se ha protegido, denominado *hxehost*.
+* **--target-server-name** es el nombre de un servidor de SAP HANA que se ha registrado correctamente en un almacén de Recovery Services y se encuentra en la misma región que la base de datos que se va a restaurar. En este tutorial se va a restaurar la base de datos en el mismo servidor SAP HANA que se ha protegido, denominado *hxehost*.
 * **--target-server-type**; para la restauración de las bases de datos de SAP HANA, se debe usar **SapHanaDatabase**.
 
 ```azurecli-interactive

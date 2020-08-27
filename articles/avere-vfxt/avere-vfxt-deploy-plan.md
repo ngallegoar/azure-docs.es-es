@@ -1,17 +1,17 @@
 ---
 title: Planear un sistema de Avere vFXT - Azure
-description: Aquí se explica el plan que se debe realizar antes de implementar Avere vFXT para Azure
+description: Planee un clúster de Avere vFXT for Azure que responda a sus necesidades. Consulte las preguntas para formular antes de visitar Azure Marketplace o de crear máquinas virtuales.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 995ac2776f4197dac1c2ef73fd209833474be5a5
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: e5c33144dcebe491757dfafb2879fe51545827ce
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922683"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272797"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planear un sistema de Avere vFXT
 

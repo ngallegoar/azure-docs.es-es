@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
-ms.openlocfilehash: 5fe674fa7ab6a6a3f222a215ebc6912549776fee
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 2ffe9d525e92fa2154889cea43f681a0f31a18ab
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067365"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214223"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Personalización de la salida de un clúster con una ruta definida por el usuario
 
@@ -71,7 +71,8 @@ Para ilustrar la aplicación de un clúster con un tipo de salida que usa una ru
 > [!IMPORTANT]
 > El tipo de salida de UDR requiere que haya una ruta para 0.0.0.0/0 y un destino del próximo salto de NVA (aplicación virtual de red) en la tabla de rutas.
 > La tabla de enrutamiento ya tiene un valor predeterminado de 0.0.0.0/0 a Internet, sin una dirección IP pública para SNAT, simplemente agregar esta ruta no le proporcionará la salida. AKS validará que no cree una ruta 0.0.0.0/0 que apunte a Internet, sino a NVA o a la puerta de enlace, etc.
-
+> 
+> Cuando se utiliza un tipo de salida de UDR, no se crea una dirección IP pública del equilibrador de carga a menos que se configure un servicio del tipo *loadbalancer*.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

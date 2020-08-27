@@ -3,12 +3,12 @@ title: 'Script de PowerShell: buscar el almacén de la cuenta de almacenamiento'
 description: Aprenda a usar un script de Azure PowerShell para buscar el almacén de Recovery Services en el que está registrada la cuenta de almacenamiento.
 ms.topic: sample
 ms.date: 1/28/2020
-ms.openlocfilehash: b343b2f93ed439188c5c0238bf108064f6e132c1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1e12f1472b8141d06a1b3c1c9049e057f100d0e4
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513258"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757530"
 ---
 # <a name="powershell-script-to-find-the-recovery-services-vault-where-a-storage-account-is-registered"></a>Script de PowerShell para buscar el almacén de Recovery Services donde está registrada una cuenta de almacenamiento
 
@@ -64,7 +64,7 @@ En el ejemplo siguiente se intenta encontrar el almacén de Recovery Services en
 
 ## <a name="output"></a>Output
 
-El resultado mostrará la ruta de acceso completa del almacén de Recovery Services en el que está registrada la cuenta de almacenamiento. Este es una salida de ejemplo:
+La salida mostrará la ruta de acceso completa del almacén de Recovery Services en el que está registrada la cuenta de almacenamiento. Este es una salida de ejemplo:
 
 ```output
 Found Storage account afsaccount registered in vault: /subscriptions/ ef4ad5a7-c2c0-4304-af80-af49f49af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault123

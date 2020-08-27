@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2019
 ms.author: yelevin
-ms.openlocfilehash: 34091e0c9f18cb87a240054f534f474710eb421d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7f03c11b53c6dc61fad6b916e7c08086917b416
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563939"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88565747"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Conexión de su solución externa con Common Event Format
 
@@ -33,7 +33,7 @@ En este artículo se describe el funcionamiento de la conexión, se proporcionan
 > [!NOTE] 
 > Los datos se almacenan en la ubicación geográfica del área de trabajo en la que se ejecute Azure Sentinel.
 
-Para establecer esta conexión, debe implementar un agente en una máquina virtual dedicada o máquina local para admitir la comunicación entre el dispositivo y Azure Sentinel. En el siguiente diagrama se describe la configuración en el caso de una VM Linux en Azure.
+Para establecer esta conexión, debe implementar un agente en una máquina virtual dedicada o máquina local Linux (VM o local) para admitir la comunicación entre el dispositivo y Azure Sentinel. En el siguiente diagrama se describe la configuración en el caso de una VM Linux en Azure.
 
  ![CEF en Azure](./media/connect-cef/cef-syslog-azure.png)
 

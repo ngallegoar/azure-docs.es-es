@@ -3,20 +3,20 @@ title: Guía de administración de costos de Azure Lab Services
 description: Entienda las distintas formas de ver los costos de Lab Services.
 author: rbest
 ms.author: rbest
-ms.date: 06/26/2020
+ms.date: 08/16/2020
 ms.topic: article
-ms.openlocfilehash: fbbaf4a3646260fc09467e214b82fd0213415635
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0aaa454df05cd8981b314abe238163caced7864c
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445311"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604600"
 ---
 # <a name="cost-management-for-azure-lab-services"></a>Administración de costos de Azure Lab Services
 
 La administración de costos se puede dividir en dos áreas distintas: estimación de costos y análisis de costos.  La estimación de costos se realiza al configurar el laboratorio a fin de asegurarse de que la estructura inicial de este se ajuste al presupuesto previsto.  El análisis de costos normalmente se realiza al final del mes a fin de analizar los costos y determinar las acciones necesarias para el mes siguiente.
 
-## <a name="estimating-the-lab-costs"></a>Estimación de los costos del laboratorio
+## <a name="estimate-the-lab-costs"></a>Estimación de los costos del laboratorio
 
 Cada panel de laboratorio tiene una sección **Costos y facturación** que presenta una estimación aproximada de lo que va a costar el laboratorio ese mes.  La estimación de costos resume el uso de horas con el número máximo de usuarios por el costo estimado por hora.  Para obtener la estimación más precisa, configure el laboratorio, incluida la [programación](how-to-create-schedules.md), y el panel refleja el costo estimado.  
 
@@ -25,7 +25,7 @@ Es posible que esta estimación no refleje todos los costos posibles, ya que alg
 > [!div class="mx-imgBorder"]
 > ![Panel de estimación de costos](./media/cost-management-guide/dashboard-cost-estimation.png)
 
-## <a name="analyzing-previous-months-usage"></a>Análisis del uso de los meses anteriores
+## <a name="analyze-previous-months-usage"></a>Análisis del uso en los meses anteriores
 
 El análisis de costos sirve para revisar el uso de los meses anteriores a fin de ayudar a determinar cualquier ajuste necesario para el laboratorio.  El desglose de los costos del pasado puede encontrarse en el [análisis de costos de la suscripción](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis).  En Azure Portal, puede escribir "Suscripciones" en el campo de búsqueda superior y seleccionar la opción Suscripciones.  
 
@@ -39,14 +39,14 @@ Seleccione la suscripción concreta que se va a revisar.
 
  Seleccione "Análisis de costos" en el panel de la izquierda, en **Administración de costos**.
 
- > [!div class="mx-imgBorder"]
+> [!div class="mx-imgBorder"]
 > ![Análisis de costos de una suscripción](./media/cost-management-guide/subscription-cost-analysis.png)
 
 Este panel permite un análisis de costos en profundidad, incluida la posibilidad de exportar a otros tipos de archivo según una programación.  La administración de costos tiene numerosas capacidades; para obtener más información, vea [¿Qué es Administración de costos y la facturación?](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview)
 
 Si se filtra por el tipo de recurso `microsoft.labservices/labaccounts`, solo se muestra el costo asociado a Lab Services.
 
-## <a name="understanding-the-usage"></a>Reconocimiento del uso
+## <a name="understand-the-usage"></a>Descripción del uso
 
 A continuación se muestra un ejemplo del análisis de costos.
 
@@ -68,9 +68,69 @@ Algunas universidades han usado la cuenta de laboratorio y el grupo de recursos 
 
 En función del tipo de clase, hay formas de administrar los costos a fin de reducir el número de máquinas virtuales en ejecución sin que haya un alumno presente.
 
-### <a name="auto-shutdown-on-disconnect"></a>Apagado automático al desconectar
+### <a name="maximize-cost-control-with-auto-shutdown-settings"></a>Maximización del control de costos con la configuración de apagado automático
 
-Durante la creación del laboratorio, el propietario de este puede establecer que las máquinas virtuales del laboratorio se [apaguen cuando la conexión RDP a la máquina virtual se desconecte](how-to-enable-shutdown-disconnect.md).  Esta configuración minimiza los casos en que el alumno se desconecta pero se olvida de detener la máquina virtual.
+Las características de control de costos para el apagado automático le permiten evitar desperdiciar horas de uso de las máquinas virtuales dentro de los laboratorios. La combinación de las tres características siguientes de apagado y desconexión automáticos detecta la mayoría de los casos en los que los usuarios dejan funcionando sin querer sus máquinas virtuales:
+
+> [!div class="mx-imgBorder"]
+> ![Análisis de costos de una suscripción](./media/cost-management-guide/auto-shutdown-disconnect.png)
+
+Esta configuración se puede realizar en los niveles de cuenta de laboratorio y laboratorio. Si la configuración está habilitada en el nivel de la cuenta de laboratorio, se aplica a todos los laboratorios de la cuenta. En todas las nuevas cuentas de laboratorio, esta configuración está activada de forma predeterminada. 
+
+#### <a name="details-about-auto-shutdown-settings"></a>Detalles acerca de la configuración del apagado automático
+
+* Desconectar automáticamente a los usuarios de las máquinas virtuales que el sistema operativo considere inactivas (solo Windows).
+
+    > [!NOTE]
+    > Esta opción solo está disponible para las máquinas virtuales Windows.
+
+    Cuando la opción está activada, al usuario se le desconecta de las máquinas del laboratorio cuando el sistema operativo Windows considera que la sesión está inactiva (lo que incluye las máquinas virtuales de plantilla). La [definición de inactividad del sistema operativo Windows](https://docs.microsoft.com/windows/win32/taskschd/task-idle-conditions#detecting-the-idle-state) usa dos criterios: 
+
+    * Ausencia de usuario: no hay ninguna entrada del teclado ni del mouse.
+    * Falta de consumo de recursos: todos los procesadores y discos han estado inactivos durante un porcentaje de tiempo determinado.
+
+    Los usuarios verán un mensaje similar a este en la máquina virtual antes de que se desconecten: 
+
+    > [!div class="mx-imgBorder"]
+    > ![Análisis de costos de una suscripción](./media/cost-management-guide/idle-timer-expired.png)
+    
+    La máquina virtual sigue en ejecución cuando se desconecta al usuario. Si el usuario inicia sesión para conectarse de nuevo a la máquina virtual, las ventanas o los archivos que se abrieron o el trabajo sin guardar antes de la desconexión seguirán estando ahí. En este estado, dado que la máquina virtual está en ejecución, sigue contando como activa y acumula costos. 
+    
+    Para apagar automáticamente las máquinas virtuales Windows inactivas que están desconectadas, use la combinación de las opciones **Disconnect users when virtual machines are idle** (Desconectar a los usuarios cuando las máquinas virtuales estén inactivas) y **Shut down virtual machines when users disconnect** (Apagar las máquinas virtuales cuando los usuarios se desconecten).
+
+    Por ejemplo, supongamos que configura las opciones de la siguiente manera:
+    
+    * Disconnect users when virtual machines are idle (Desconectar a los usuarios cuando las máquinas virtuales estén inactivas): 15 minutes after idle state is detected (15 minutos después de que se detecte el estado de inactividad).
+    * Shut down virtual machines when users disconnect (Apagar las máquinas virtuales cuando los usuarios se desconecten): 5 minutes after user disconnects (5 minutos después de que el usuario se desconecte).
+    
+    En este caso, las máquinas virtuales Windows se apagarán automáticamente 20 minutos después de que el usuario deje de usarlas. 
+    
+    > [!div class="mx-imgBorder"]
+    > ![Análisis de costos de una suscripción](./media/cost-management-guide/vm-idle-diagram.png)
+* Apagar automáticamente las máquinas virtuales cuando los usuarios se desconectan (Windows y Linux)
+    
+    Esta configuración es compatible con máquinas virtuales Windows y Linux. Cuando esta opción está activada, el apagado automático se realizará cuando:
+    
+    * En Windows, la conexión a Escritorio remoto (RDP) está desconectada.
+    * En Linux, la conexión SSH está desconectada.
+    
+    > [!NOTE]
+    > Solo se admiten [distribuciones y versiones específicas de Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux#supported-linux-distributions).
+    
+    Puede especificar el tiempo que las máquinas virtuales deben esperar a que el usuario vuelva a conectarse antes de que se apaguen automáticamente. 
+* Apagar automáticamente las máquinas virtuales que se han iniciado, pero a las que los usuarios no se conectan
+     
+    Dentro de un laboratorio, un usuario puede iniciar una máquina virtual, pero no llegar a conectarse a ella. Por ejemplo:
+    
+    * Una programación en el laboratorio inicia todas las máquinas virtuales de la sesión de una clase, pero algunos alumnos no aparecen o no se conectan a sus máquinas.  
+    * Un usuario inicia una máquina virtual, pero se olvida de conectarse. 
+    
+    La opción "Shut down virtual machines when users do not connect" (Apagar máquinas virtuales cuando los usuarios no se conecten) detectará estos casos y apagará automáticamente las máquinas virtuales.  
+    
+Para información sobre cómo configurar y habilitar el apagado automático de las máquinas virtuales al desconectarse, consulte estos artículos:
+
+* [Configuración del apagado automático de las máquinas virtuales de una cuenta de laboratorio](how-to-configure-lab-accounts.md)
+* [Configuración del apagado automático de las máquinas virtuales de un laboratorio](how-to-enable-shutdown-disconnect.md)
 
 ### <a name="quota-vs-scheduled-time"></a>Cuota frente a hora programada
 

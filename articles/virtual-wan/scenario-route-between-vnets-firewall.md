@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f48b30e0e4e76a4cf4c855008776f6b7541ad5a2
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 7a344b9c1383976cfe1b7507c120e19221f3555f
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850665"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589357"
 ---
 # <a name="scenario-azure-firewall---custom"></a>Escenario: Azure Firewall: personalizado
 
@@ -34,12 +34,14 @@ Para averiguar el número de tablas de rutas que se necesitarán, puede crear un
 En la tabla anterior, una "X" representa la conectividad directa entre dos conexiones sin que el tráfico atraviese Azure Firewall en Virtual WAN y "AzFW" indica que el flujo pasará por Azure Firewall. Dado que hay dos patrones de conectividad distintos en la matriz, se necesitarán dos tablas de rutas que se configurarán de la siguiente manera:
 
 * Redes virtuales:
-  * Tabla de enrutamiento asociada: **RT_VNet**
-  * Propagación a tablas de enrutamiento: **RT_VNet**
+  * Tabla de rutas asociada: **RT_VNet**
+  * Propagación a tablas de rutas: **RT_VNet**
 * Ramas:
-  * Tabla de enrutamiento asociada: **Valor predeterminado**
-  * Propagación a tablas de enrutamiento: **Valor predeterminado**
+  * Tabla de rutas asociada: **Valor predeterminado**
+  * Propagación a tablas de rutas: **Valor predeterminado**
 
+> [!NOTE]
+> Puede crear una instancia de Virtual WAN independiente con un solo centro virtual protegido en cada región y, a continuación, conectar cada instancia de Virtual WAN entre sí a través de VPN de sitio a sitio.
 
 Para obtener información sobre el enrutamiento de centros virtuales, consulte [Acerca del enrutamiento de centros virtuales](about-virtual-hub-routing.md).
 

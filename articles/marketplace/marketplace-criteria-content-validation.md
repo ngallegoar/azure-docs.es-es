@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: 757f729caa7ea8a038a29f8e0a56465848b774ad
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 69be4118aca45582c38bb49a996782d661d8084f
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035117"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604412"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Instrucciones de descripción de Azure Marketplace
 
@@ -50,8 +50,8 @@ En este artículo se explican los requisitos y las directrices para anunciar nue
 | 1 | Título de la oferta |<ul><li>Debe constar únicamente de letras en minúscula, guiones o caracteres de subrayado. El título no se puede modificar una vez publicado.</li><li>Describe la oferta de la solución.</li><li>Se corresponde con la promoción en línea de la solución en el sitio web del asociado. | Contiene palabras clave de búsqueda. |
 | 2 | Información técnica: Configuración |<ul><li>En aplicaciones de software como servicio (SaaS), elija si solo quiere publicar su aplicación o permitir que los clientes la compren mediante Azure.</li><li>Seleccione el texto que quiera en el botón de adquisición de la oferta: *Gratis*, *Prueba gratuita* o *Ponerse en contacto conmigo*.</li><li>En la ventana emergente, seleccione solo un producto aplicables si la aplicación usa la tecnología: Cortana Intelligence, plantillas de solución de Power BI, Power Apps. |  |
 | 3 | Versión de prueba | Seleccione *Sí* o *No*. | El cliente puede entender fácilmente cuáles son los próximos pasos: <ol><li>Evaluar la versión de prueba.</li><li>Comprar ahora.</li><li>Ponerse en contacto por correo electrónico o teléfono para acordar una prueba de concepto, evaluación o sesión informativa.</li></ol> |
-| 4 | Detalles del escaparate: Resumen de la oferta | Aparece en la página de búsqueda de la aplicación y tiene un máximo de 100 caracteres. | |
-| 5 | Detalles del escaparate: Industrias | Sectores (2 como máximo): seleccione los correspondientes sectores a los que se adapta mejor la aplicación. | |
+| 4 | Detalles de la tienda en línea: Resumen de la oferta | Aparece en la página de búsqueda de la aplicación y tiene un máximo de 100 caracteres. | |
+| 5 | Detalles de la tienda en línea: Industrias | Sectores (2 como máximo): seleccione los correspondientes sectores a los que se adapta mejor la aplicación. | |
 | 6 | Descripción de la oferta | <ul><li>Se permite HTML simple, incluidas las etiquetas \<p>, \<em>, \<ul>, \<li>, \<ol> y de encabezado. Máx. 3000 caracteres</li><li>Contiene 2-3 párrafos.</li><li>La oferta de solución se entiende fácilmente de un vistazo.</li><li>La descripción es completa y captura la audiencia de destino, el tipo de usuario y por qué resulta valiosa (propuesta de valor).</li><li>Está en formato narrativo de párrafo con frases cortas fáciles de comprender. | <ul><li>Se describe el sector de destino (si procede).</li><li>Un buen formato de estilo en el que cada encabezado de párrafo tiene una única oración o frase que resume el contenido que sigue e incluye viñetas (cuando corresponda) para hacer hincapié en las ventajas clave. El objetivo es que el lector entienda la oferta de un vistazo en un formato sencillo de ver y no tenga que leer los párrafos.</li><li>Hay espaciado entre cada párrafo. Se lee como un folleto de automóvil. Es decir, es exhaustivo y describe la oferta de forma sencilla, sin jerga técnica. | 
 | 7 | Artefactos de marketing | Los logotipos se muestran correctamente. | <ul><li>Logotipos: Se requieren pequeños (48×48 píxeles), medianos (90×90 píxeles) y grandes (entre 216×216 y 350×350 píxeles).</li><li>Captura de pantalla (5 como máximo): se necesita una imagen .PNG con una resolución de 1280 x 720 píxeles. |
 | 8 | Categorías y sectores | <ul><li>Las categorías coinciden con las funcionalidades de la oferta de solución.</li><li>Seleccione al menos un elemento en la ventana emergente.</li><li>No seleccione categorías en las que no encaja la solución.</li><li>Sector óptimo o todos los sectores seleccionados (si no hay un sector óptimo). | Máx. 3 categorías seleccionadas, si procede. |

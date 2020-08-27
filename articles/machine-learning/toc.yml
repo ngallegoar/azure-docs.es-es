@@ -436,6 +436,8 @@
           href: how-to-create-your-first-pipeline.md
         - name: Movimiento de datos a los pasos de canalización de Machine Learning (Python) y entre ellos
           href: how-to-move-data-in-out-of-pipelines.md
+        - name: Implementación de canalizaciones de Machine Learning (Python)
+          href: how-to-deploy-pipelines.md
         - name: Programación de una canalización (Python)
           href: how-to-schedule-pipelines.md
         - name: Desencadenar una canalización

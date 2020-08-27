@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: 3e7f310f37bd016a73c589db3c9a23e197465427
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 70977c30edce124aa0d39bcc57d4ccd015d65961
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053923"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214049"
 ---
 # <a name="what-is-batch-transcription"></a>¿Qué es la transcripción por lotes?
 
@@ -63,7 +63,7 @@ Si tiene previsto personalizar los modelos, siga los pasos descritos en [Persona
 
 Transcription API de Batch admite los siguientes formatos:
 
-| Formato | Códec | Bitrate | Velocidad de muestreo                     |
+| Formato | Códec | Bits por muestra | Velocidad de muestreo             |
 |--------|-------|---------|---------------------------------|
 | WAV    | PCM   | 16 bits  | 8 kHz o 16 kHz, mono o estéreo |
 | MP3    | PCM   | 16 bits  | 8 kHz o 16 kHz, mono o estéreo |

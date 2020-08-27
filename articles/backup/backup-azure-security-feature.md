@@ -4,12 +4,12 @@ description: Aprenda a usar las características de seguridad de Azure Backup pa
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 9d8f8d6937cd93a9da9c82b2ed501c9fbb815b11
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 03bbcef2ce408a1b1f5e2c2d909728d3ed8e7e19
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079356"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611252"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Características de seguridad para proteger copias de seguridad híbridas mediante Azure Backup
 
@@ -17,7 +17,7 @@ Cada vez es mayor la preocupación que generan problemas de seguridad como malwa
 
 - **Prevención**. Se agrega una capa adicional de autenticación cada vez que se realiza una operación crítica, como cambiar la frase de contraseña. Esta validación se realiza para asegurarse de que dichas operaciones solo pueden realizarlas usuarios que tengan credenciales de Azure válidas.
 - **Alertas**. Se envía una notificación por correo electrónico al administrador de suscripciones cada vez que se realiza una operación crítica, como eliminar datos de copia de seguridad. Este correo electrónico garantiza que el usuario reciba una notificación rápidamente acerca de dichas acciones.
-- **Recuperación**. Los datos de copia de seguridad eliminados se conservan durante 14 días a partir de la fecha de la eliminación. Esto garantiza la capacidad de recuperación de los datos en un período dado, con el fin de que no haya pérdida de datos, aunque se produzca un ataque. Además, se mantiene un mayor número de puntos de recuperación mínimos para protegerse contra datos dañados.
+- **Recuperación**. Los datos de copia de seguridad eliminados se conservan durante 14 días a partir de la fecha de la eliminación. Esto garantiza la capacidad de recuperación de los datos en un período dado, con el fin de que no haya pérdida de datos aunque se produzca un ataque. Además, se mantiene un mayor número de puntos de recuperación mínimos para protegerse contra datos dañados.
 
 > [!NOTE]
 > Las características de seguridad no se deben habilitar si usa la copia de seguridad de VM de infraestructura como servicio (IaaS). Estas características no están aún disponibles para la copia de seguridad de VM de IaaS, por lo que su habilitación no tendrá ningún impacto. Las características de seguridad solo se deben habilitar si se usa: <br/>
@@ -40,24 +40,24 @@ Si va a crear un almacén de Recovery Services, puede usar todas las caracterís
     ![Captura de pantalla de opción Examinar de Azure Portal](./media/backup-azure-security-feature/browse-to-rs-vaults.png) <br/>
 
     Aparece la lista de almacenes de Servicios de recuperación. Seleccione un almacén en ella. Se abre el panel del almacén seleccionado.
-3. En la lista de elementos que aparece en el almacén, en **Configuración**, haga clic en **Propiedades**.
+3. En la lista de elementos que aparece en el almacén, en **Configuración**, seleccione **Propiedades**.
 
     ![Captura de pantalla de opciones del almacén de Recovery Services](./media/backup-azure-security-feature/vault-list-properties.png)
-4. En **Configuración de seguridad**, haga clic en **Actualizar**.
+4. En **Configuración de seguridad**, seleccione **Actualizar**.
 
     ![Captura de pantalla de propiedades del almacén de Recovery Services](./media/backup-azure-security-feature/security-settings-update.png)
 
-    El vínculo de actualización abre la hoja **Configuración de seguridad**, que proporciona un resumen de las características y permite habilitarlas.
+    El vínculo de actualización abre el panel **Configuración de seguridad**, que proporciona un resumen de las características y le permite habilitarlas.
 5. En el menú desplegable **Have you configured Azure Multi-Factor Authentication?** (¿Ha configurado Azure Multi-Factor Authentication?), seleccione un valor para confirmar si ha habilitado [Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md). Si está habilitado, se le pedirá que realice la autenticación desde otro dispositivo (por ejemplo, un teléfono móvil) al iniciar sesión en Azure Portal.
 
    Al realizar operaciones críticas en Backup, debe especificar un PIN de seguridad, disponible en Azure Portal. Al habilitar Azure Multi-Factor Authentication, se agrega una capa de seguridad. Solo los usuarios autorizados con credenciales de Azure válidas y autenticados desde un segundo dispositivo pueden tener acceso a Azure Portal.
-6. Para guardar la configuración de seguridad, seleccione **Habilitar** y haga clic en **Guardar**. Solo se puede seleccionar **Habilitar** después de seleccionar un valor en la lista **Have you configured Azure Multi-Factor Authentication?** (¿Ha configurado Azure Multi-Factor Authentication?) del paso anterior.
+6. Para guardar la configuración de seguridad, seleccione **Habilitar** y seleccione **Guardar**. Solo se puede seleccionar **Habilitar** después de seleccionar un valor en la lista **Have you configured Azure Multi-Factor Authentication?** (¿Ha configurado Azure Multi-Factor Authentication?) del paso anterior.
 
     ![Captura de pantalla de configuración de seguridad](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
 ## <a name="recover-deleted-backup-data"></a>Recuperar datos de copia de seguridad eliminados
 
-Backup conserva los datos de copia de seguridad eliminados durante 14 días adicionales y no los elimina inmediatamente si se realiza la operación de **detener copia de seguridad con la eliminación de datos de copia de seguridad**. Para restaurar estos datos dentro del período de 14 días, siga los pasos que se muestran a continuación, según lo que use:
+La copia de seguridad conserva los datos de copia de seguridad eliminados durante 14 días adicionales y no los elimina inmediatamente si se realiza la operación de **Detener copia de seguridad con la eliminación de** datos de copia de seguridad. Para restaurar estos datos dentro del período de 14 días, siga los pasos que se muestran a continuación, según lo que use:
 
 En el caso de los usuarios del **agente de Azure Recovery Services**:
 
@@ -72,7 +72,7 @@ Para los usuarios de **Azure Backup Server**:
 En el caso de los usuarios de **Data Protection Manager**:
 
 1. Si el servidor en el que se realizaron las copias de seguridad está aún disponible, vuelva a proteger los orígenes de datos eliminados y use la característica **Recuperar datos** para realizar la recuperación desde todos los puntos de recuperación antiguos.
-2. Si este servidor no está disponible, utilice [Agregar DPM externo](backup-azure-alternate-dpm-server.md) para usar otro servidor Data Protection Manager para obtener estos datos.
+2. Si este servidor no está disponible, utilice [Agregar DPM externo](backup-azure-alternate-dpm-server.md) para usar otro servidor de Administrador de protección de datos para obtener estos datos.
 
 ## <a name="prevent-attacks"></a>Prevenir ataques
 
@@ -90,7 +90,7 @@ Para recibir este PIN:
 
 1. Inicie sesión en Azure Portal.
 2. Vaya al **almacén de Recovery Services** > **Configuración** > **Propiedades**.
-3. En **PIN de seguridad**, haga clic en **Generar**. Se abrirá una hoja que contiene el PIN que se va a escribir en la interfaz de usuario del agente de Azure Recovery Services.
+3. En **PIN de seguridad**, seleccione **Generar**. Se abrirá un panel que contiene el PIN que se va a escribir en la interfaz de usuario del agente de Azure Recovery Services.
     Este PIN solo es válido durante cinco minutos y se genera automáticamente después de ese período.
 
 ### <a name="maintain-a-minimum-retention-range"></a>Mantener una duración de retención mínima

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: 20c82793726221515ad4d1019f4d8f4754b3ae08
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 82a6b2674fe73bd448bb7ccbd230e837bd1cbb2a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036579"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607340"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Preguntas habituales sobre el marketplace comercial de Microsoft
 
@@ -124,7 +124,7 @@ Para completar una compra a un precio muy bajo, le sugerimos que publique un pla
 
 ### <a name="what-are-leads-from-the-commercial-marketplace-and-what-should-i-do-with-them"></a>¿Qué son los clientes potenciales del marketplace comercial y qué debo hacer con ellos?
 
-A medida que los clientes usan las ofertas que publica en los escaparates Microsoft AppSource y Azure Marketplace, se va capturando información. Una vez que los clientes ha demostrado un interés suficiente, se crea un cliente potencial y se envía la oportunidad al sistema de su elección. Los editores que aprovechan nuestro marketplace comercial suelen hacer un seguimiento de los clientes potenciales, desarrollar relaciones con ellos y convertir el interés en oportunidades de negocio.
+A medida que los clientes usen las ofertas que publique en las tiendas en línea de Microsoft AppSource y Azure Marketplace, se va capturando información. Una vez que los clientes ha demostrado un interés suficiente, se crea un cliente potencial y se envía la oportunidad al sistema de su elección. Los editores que aprovechan nuestro marketplace comercial suelen hacer un seguimiento de los clientes potenciales, desarrollar relaciones con ellos y convertir el interés en oportunidades de negocio.
 
 Para más información, consulte [Clientes potenciales a partir de la oferta de Marketplace](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
@@ -140,7 +140,7 @@ Las ofertas se presentan a los clientes por medio de experiencias en el producto
 
 ### <a name="can-my-offer-appear-in-both-microsoft-appsource-and-azure-marketplace"></a>¿Puede aparecer mi oferta en Microsoft AppSource y en Azure Marketplace a la vez?
 
-Microsoft AppSource es el destino de las soluciones empresariales y del sector, y Azure Marketplace está diseñado para soluciones de TI y de desarrollador. Las ofertas están disponibles en cada escaparate en función de las categorías y los sectores seleccionados durante la creación de la oferta. En el caso excepcional de que la oferta sea relevante para los usuarios de ambos escaparates, puede aparecer en ambos.
+Microsoft AppSource es el destino de las soluciones empresariales y del sector, y Azure Marketplace está diseñado para soluciones de TI y de desarrollador. Las ofertas están disponibles en cada uno de llas tiendas en línea en función de las categorías y los sectores que seleccionara durante la creación de la oferta. En el caso excepcional de que la oferta sea pertinente para los usuarios de ambas tiendas en línea, puede aparecer en ambos.
 
 ### <a name="what-is-the-cloud-solution-provider-program"></a>¿Qué es el programa Proveedor de soluciones en la nube?
 
