@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: 96ad10fcca260223d92203a80f396de816238efc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dce3c484a16918931df80d5201fad090b2c0cb2e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529574"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922640"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Sinónimos de Azure Cognitive Search
 
@@ -23,7 +23,7 @@ En Azure Cognitive Search, la expansión de sinónimos se realiza en el momento 
 
 ## <a name="create-synonyms"></a>Creación de sinónimos
 
-No hay ningún soporte técnico del portal para crear sinónimos, pero puede usar la API REST o el SDK de .NET. Para empezar a trabajar con REST, se recomienda hacerlo [mediante Postman](search-get-started-postman.md) y la formulación de solicitudes que usan esta API: [Creación de asignaciones de sinónimos](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). En el caso de los desarrolladores de C#, puede empezar a trabajar con la opción [Add Synonyms in Azure Cognitive Searching using C#](search-synonyms-tutorial-sdk.md) (Adición de sinónimos en Azure Cognitive Search con C#).
+No hay ningún soporte técnico del portal para crear sinónimos, pero puede usar la API REST o el SDK de .NET. Para empezar a trabajar con REST, se recomienda hacerlo [mediante Postman](search-get-started-postman.md) y la formulación de solicitudes que usan esta API: [Creación de asignaciones de sinónimos](/rest/api/searchservice/create-synonym-map). En el caso de los desarrolladores de C#, puede empezar a trabajar con la opción [Add Synonyms in Azure Cognitive Searching using C#](search-synonyms-tutorial-sdk.md) (Adición de sinónimos en Azure Cognitive Search con C#).
 
 Opcionalmente, si usa [claves administradas por el cliente](search-security-manage-encryption-keys.md) para el cifrado en reposo del servicio, puede aplicar dicha protección al contenido de la asignación de sinónimos.
 
@@ -173,4 +173,4 @@ Si dispone de un índice existente en un entorno de desarrollo (no producción),
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Creación de un mapa de sinónimos](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)
+> [Creación de un mapa de sinónimos](/rest/api/searchservice/create-synonym-map)
