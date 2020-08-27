@@ -3,12 +3,12 @@ title: Configuración del apagado automático de las VM en Azure Lab Services
 description: En este artículo se describe cómo configurar el apagado automático de las VM en la cuenta de laboratorio.
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 8dbc54ad14530006b56bf336d9d78e7d59843485
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 8647aed0e66993b8a7b8e5c0a42c8ceabbb1fb9e
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88603892"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798455"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab-account"></a>Configuración del apagado automático de las máquinas virtuales de una cuenta de laboratorio
 
@@ -18,7 +18,7 @@ Cuando las máquinas virtuales no se están usando, se pueden habilitar varias c
 - Apagar automáticamente las máquinas virtuales cuando los usuarios se desconectan (Windows y Linux)
 - Apagar automáticamente las máquinas virtuales que se han iniciado, pero a las que los usuarios no se conectan.
 
-Puede encontrar más detalles sobre las características de apagado automático en la sección [Maximización del control de costos con la configuración de apagado automático](cost-management-guide.md#maximize-cost-control-with-auto-shutdown-settings).
+Puede encontrar más detalles sobre las características de apagado automático en la sección [Maximización del control de costos con la configuración de apagado automático](cost-management-guide.md#automatic-shutdown-settings-for-cost-control).
 
 ## <a name="enable-automatic-shutdown"></a>Habilitación del apagado automático
 

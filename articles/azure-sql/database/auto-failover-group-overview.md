@@ -12,17 +12,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2020
-ms.openlocfilehash: d4398b2bf37ad5dcf60a931f5d4991a3ad00845a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 5a7f13982de000478b14eb75d7341ed2e99c1274
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826558"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245577"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Los grupos de conmutación por error automática permiten administrar la replicación y la conmutación por error de un grupo de bases de datos en un servidor o de todas las bases de datos de una instancia administrada en otra región. Se trata de una abstracción declarativa sobre la característica de [replicación geográfica activa](active-geo-replication-overview.md) existente, diseñada para simplificar la implementación y administración de bases de datos con replicación geográfica a escala. Puede iniciar la conmutación por error manualmente o puede delegarla en el servicio de Azure según una directiva definida por el usuario. La última opción le permite recuperar automáticamente varias bases de datos relacionadas en una región secundaria después de errores catastróficos u otros eventos no planeados que generen una pérdida total o parcial de la disponibilidad de SQL Database o Instancia administrada de SQL en la región primaria. Un grupo de conmutación por error puede incluir una o varias bases de datos, utilizadas normalmente por la misma aplicación. Además, puede usar las bases de datos secundarias legibles para descargar las cargas de trabajo de consulta de solo lectura. Debido a que los grupos de conmutación por error automática implican varias bases de datos, se deben configurar en el servidor principal. Los grupos de conmutación por error automática admiten la replicación de todas las bases de datos en el grupo solo a una instancia o un servidor secundario en otra región.
+La característica de los grupos de conmutación por error automática permite administrar la replicación y la conmutación por error en otra región de un grupo de bases de datos de un servidor o de todas las bases de datos de una instancia administrada. Se trata de una abstracción declarativa sobre la característica de [replicación geográfica activa](active-geo-replication-overview.md) existente, diseñada para simplificar la implementación y administración de bases de datos con replicación geográfica a escala. Puede iniciar la conmutación por error manualmente o puede delegarla en el servicio de Azure según una directiva definida por el usuario. La última opción le permite recuperar automáticamente varias bases de datos relacionadas en una región secundaria después de errores catastróficos u otros eventos no planeados que generen una pérdida total o parcial de la disponibilidad de SQL Database o Instancia administrada de SQL en la región primaria. Un grupo de conmutación por error puede incluir una o varias bases de datos, utilizadas normalmente por la misma aplicación. Además, puede usar las bases de datos secundarias legibles para descargar las cargas de trabajo de consulta de solo lectura. Debido a que los grupos de conmutación por error automática implican varias bases de datos, se deben configurar en el servidor principal. Los grupos de conmutación por error automática admiten la replicación de todas las bases de datos en el grupo solo a una instancia o un servidor secundario en otra región.
 
 > [!NOTE]
 > Si desea tener varias instancias de Azure SQL Database secundarias en la misma región o en regiones diferentes, use la [replicación geográfica activa](active-geo-replication-overview.md).
@@ -203,7 +203,7 @@ Para ilustrar la secuencia de cambios, supondremos que el servidor A es el servi
 1. Realice una conmutación por error planeada para cambiar el servidor principal a B. El servidor A se convertirá en el nuevo servidor secundario. La conmutación por error puede producir varios minutos de tiempo de inactividad. El tiempo real dependerá del tamaño del grupo de conmutación por error.
 2. Cree instancias secundarias adicionales de cada base de datos del servidor B en el servidor C mediante la [replicación geográfica activa](active-geo-replication-overview.md). Cada base de datos del servidor B tendrá dos secundarios, uno en el servidor A y otro en el servidor C. Esto garantizará que las bases de datos principales permanezcan protegidas durante la transición.
 3. Elimine el grupo de conmutación por error. En este momento, se producirá un error en los inicios de sesión. Esto se debe a que se han eliminado los alias de SQL para los agentes de escucha del grupo de conmutación por error y la puerta de enlace no reconoce el nombre del grupo de conmutación por error.
-4. Vuelva a crear el grupo de conmutación por error con el mismo nombre entre los servidores A y C. En este momento, se dejarán de producir errores en los inicios de sesión.
+4. Vuelva a crear el grupo de conmutación por error con el mismo nombre entre los servidores B y C. En este momento, se dejarán de producir errores en los inicios de sesión.
 5. Agregue todas las bases de datos principales del servidor B al nuevo grupo de conmutación por error.
 6. Realice una conmutación por error planeada del grupo de conmutación por error para cambiar los servidores B y C. Ahora, el servidor C será el principal y el B será el secundario. Todas las bases de datos secundarias del servidor A se vincularán automáticamente a las instancias principales de C. Como en el paso 1, la conmutación por error puede producir varios minutos de tiempo de inactividad.
 7. Quite el servidor A. Todas las bases de datos de dicho servidor se eliminarán automáticamente.
@@ -231,7 +231,7 @@ Para garantizar la conectividad sin interrupciones a la Instancia administrada d
 > [!IMPORTANT]
 > La primera Instancia administrada creada en la subred determina la zona DNS de todas las instancias posteriores de la misma subred. Esto significa que dos instancias de la misma subred no pueden pertenecer a zonas DNS diferentes.
 
-Para obtener más información sobre cómo crear la Instancia administrada de SQL secundaria en la misma zona DNS que la instancia principal, consulte [Creación de una instancia administrada secundaria](../managed-instance/failover-group-add-instance-tutorial.md#3---create-a-secondary-managed-instance).
+Para obtener más información sobre cómo crear la Instancia administrada de SQL secundaria en la misma zona DNS que la instancia principal, consulte [Creación de una instancia administrada secundaria](../managed-instance/failover-group-add-instance-tutorial.md#create-a-secondary-managed-instance).
 
 ### <a name="enabling-replication-traffic-between-two-instances"></a>Habilitación del tráfico de replicación entre dos instancias
 

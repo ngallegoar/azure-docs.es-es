@@ -1,22 +1,22 @@
 ---
 title: 'Detalles de pagos por región: Marketplace comercial de Microsoft'
-description: Aprenda cómo el tiempo estimado para transferir los pagos y los escaparates de Microsoft desde los que puede recibir pagos varían en función de su país o región, así como de su tipo de cuenta de pago.
+description: Aprenda cómo el tiempo estimado para transferir pagos, y los almacenes en línea de Microsoft desde los que puede recibir pagos, varía en función del país o región, así como del tipo de cuenta de pago.
 author: mingshen-ms
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 44246fa122b7c602e47c44e48c43c2a42d01de77
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f5614da7eac0717894d2bcb3c9cfdd959cb57f72
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327334"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607281"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>Umbrales de pago, métodos e intervalos de tiempo
 
-El tiempo estimado para transferir los pagos y los escaparates desde los que puede recibir pagos pueden variar en función de su país o región, así como de su tipo de cuenta de pago. En este artículo se describen los métodos de pago admitidos en cada país y región.
+El tiempo estimado para transferir los pagos, y los almacenes en línea desde los que puede recibir pagos, puede variar en función del país o región, así como del tipo de cuenta de pago. En este artículo se describen los métodos de pago admitidos en cada país y región.
 
 Para cualquier país o región dados, pagamos mediante ACH/SEPA o transferencia bancaria. Algunos países o regiones también admiten PayPal como método de pago.
 

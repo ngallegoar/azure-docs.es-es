@@ -7,12 +7,13 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2e8a2030acd4297ab3032e8f1e3bde5b6df66659
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.custom: references_regions
+ms.openlocfilehash: aab06b4870efd88893b4a14c1127de7ffcd2ba68
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037174"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88520537"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 [Azure Files](storage-files-introduction.md) se puede implementar de dos formas principales: montando directamente los recursos compartidos de archivos de Azure sin servidor o almacenando en caché recursos compartidos de archivos de Azure localmente mediante Azure File Sync. La opción de implementación que elija cambiará todo aquello que debe tener en cuenta a la hora de planear la implementación. 
@@ -103,7 +104,7 @@ Para más información, consulte [Advanced Threat Protection para Azure Storage]
 ## <a name="storage-tiers"></a>Niveles de almacenamiento
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
 
-En general, las características de Azure Files y la interoperabilidad con otros servicios coinciden en los recursos compartidos de archivos prémium y los recursos compartidos de archivos estándar, pero hay algunas diferencias importantes:
+En general, las características de Azure Files y la interoperabilidad con otros servicios coinciden en los recursos compartidos de archivos prémium y los recursos compartidos de archivos estándar (lo que incluye los recursos compartidos de archivos frecuentes, esporádicos y optimizados de transacciones). Sin embargo, hay algunas diferencias importantes:
 - **Modelo de facturación**
     - Los recursos compartidos de archivos prémium se facturan con un modelo de facturación aprovisionado, lo que significa que se paga por la cantidad de almacenamiento que se aprovisiona en lugar de la cantidad de almacenamiento que se solicita realmente. 
     - Los recursos compartidos de archivos estándar se facturan con un modelo de pago por uso, que incluye un costo básico de almacenamiento para la cantidad de almacenamiento que realmente se consume y, a continuación, un costo de transacción adicional basado en el uso del recurso compartido. Con los recursos compartidos de archivos estándar, su factura aumentará si usa (lee, escribe o monta) más el recurso compartido de archivos de Azure.

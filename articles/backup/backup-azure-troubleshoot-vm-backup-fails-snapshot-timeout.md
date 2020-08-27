@@ -4,12 +4,12 @@ description: Síntomas, causas y soluciones de errores de Azure Backup relaciona
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 274435a958820c3fd08fef4a61643a1d656e31e3
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: d690ed23f49d3aa3f77b88c8d57c963ae2a98682
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167936"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611864"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de problemas de Azure Backup: Problemas con el agente o la extensión
 
@@ -31,7 +31,7 @@ Los errores de copia de seguridad más comunes se pueden resolver automáticamen
 - **Asegúrese de que el servicio de agente invitado de la máquina virtual de Azure se ha iniciado y actualizado**:
   - En una máquina virtual de Windows:
     - Vaya a **services.msc** y asegúrese de que el **servicio de agente invitado de la máquina virtual de Azure de Windows** esté en funcionamiento. Además, asegúrese de que esté instalada la [versión más reciente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Para más información, consulte el artículo sobre [problemas del agente invitado de la máquina virtual de Windows](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms).
-    - El agente de la máquina virtual de Azure se instala de forma predeterminada en cualquier máquina virtual de Windows a partir de la imagen de Azure Marketplace desde el portal, PowerShell, la interfaz de la línea de comandos o una plantilla de Azure Resource Manager. Es posible que sea necesaria una [instalación manual del agente](../virtual-machines/extensions/agent-windows.md#manual-installation) cuando crea una imagen de máquina virtual personalizada que se implementa en Azure.
+    - El agente de máquina virtual de Azure se instala de forma predeterminada en cualquier máquina virtual Windows a partir de una imagen de Azure Marketplace desde el portal, PowerShell, la interfaz de la línea de comandos o una plantilla de Azure Resource Manager. Es posible que sea necesaria una [instalación manual del agente](../virtual-machines/extensions/agent-windows.md#manual-installation) cuando crea una imagen de máquina virtual personalizada que se implementa en Azure.
     - Revise la matriz de compatibilidad para comprobar si la máquina virtual se ejecuta en el [sistema operativo Windows compatible](backup-support-matrix-iaas.md#operating-system-support-windows).
   - En una máquina virtual de Linux,
     - Asegúrese de que el servicio de agente invitado de la máquina virtual de Azure se está ejecutando mediante el comando `ps-e`. Además, asegúrese de que esté instalada la [versión más reciente](../virtual-machines/extensions/update-linux-agent.md). Para más información, consulte el artículo sobre [problemas del agente invitado de la máquina virtual de Linux](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).
@@ -65,7 +65,7 @@ Azure Backup usa la Extensión de instantánea de máquina virtual para realizar
 
 - **Asegúrese de que el servicio de escritura de VSS esté en funcionamiento**: Siga estos pasos para [solucionar problemas de escritura de VSS](backup-azure-vms-troubleshoot.md#extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state).
 - **Siga las directrices de los procedimientos recomendados de copia de seguridad**: Revise los [procedimientos recomendados para habilitar la copia de seguridad de las máquinas virtuales de Azure](backup-azure-vms-introduction.md#best-practices).
-- **Revise las directrices de los discos cifrados**: Si va a habilitar la copia de seguridad de las máquinas virtuales con un disco cifrado, asegúrese de haber proporcionado todos los permisos necesarios. Para más información, consulte el artículo sobre la [copia de seguridad y restauración de las máquinas virtuales cifradas de Azure](backup-azure-vms-encryption.md#encryption-support).
+- **Revise las directrices de los discos cifrados**: Si va a habilitar la copia de seguridad de las máquinas virtuales con un disco cifrado, asegúrese de haber proporcionado todos los permisos necesarios. Para más información, consulte el artículo sobre la [copia de seguridad y restauración de las máquinas virtuales cifradas de Azure](backup-azure-vms-encryption.md).
 
 ## <a name="usererrorguestagentstatusunavailable---vm-agent-unable-to-communicate-with-azure-backup"></a><a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable: El agente de máquina virtual no se puede comunicar con Azure Backup
 
@@ -105,7 +105,7 @@ Este error se produce cuando uno de los errores de extensión deja a la máquina
 
 - Si la extensión VMSnapshot está en un estado con errores, haga clic con el botón derecho en la extensión con errores y elimínela. Desencadene una copia de seguridad a petición. Esta acción volverá a instalar las extensiones y ejecutará el trabajo de copia de seguridad.  <br>
 - Si cualquier otra extensión está en un estado con errores, puede interferir con la copia de seguridad. Asegúrese que se resuelven esos problemas de extensiones y vuelva a intentar la operación de copia de seguridad.
-- Si el estado de aprovisionamiento de la máquina virtual es un estado de actualización, puede interferir con la copia de seguridad. Asegúrese de que es correcto y vuelva a intentar la operación de copia de seguridad.
+- Si el estado de aprovisionamiento de la máquina virtual es un estado de actualización, puede interferir con la copia de seguridad. Asegúrese de que sea correcto y vuelva a intentar la operación de copia de seguridad.
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached: Se ha alcanzado el límite máximo de colecciones del punto de restauración
 
@@ -175,13 +175,13 @@ La operación de copia de seguridad podría generar un error cuando se realiza u
 
 El trabajo de copia de seguridad reciente no se pudo completar porque hay un trabajo de copia de seguridad existente en curso. No se puede iniciar un nuevo trabajo de copia de seguridad hasta que no finalice el trabajo actual. Asegúrese de que la operación de copia de seguridad en curso se complete antes de activar o programar otras operaciones de copia de seguridad. Para comprobar el estado de los trabajos de copia de seguridad, siga estos pasos:
 
-1. Inicie sesión en Azure Portal y haga clic en **Todos los servicios**. Escriba Recovery Services y haga clic en **Almacenes de Recovery Services**. Aparece la lista de almacenes de Servicios de recuperación.
+1. Inicie sesión en Azure Portal y seleccione **Todos los servicios**. Escriba Recovery Services y seleccione **Almacenes de Recovery Services**. Aparece la lista de almacenes de Servicios de recuperación.
 2. En la lista de almacenes de Recovery Services, seleccione un almacén donde esté configurada la copia de seguridad.
-3. En el menú del panel del almacén, haga clic en **Trabajos de copia de seguridad** para mostrar todos los trabajos de copia de seguridad.
+3. En el menú del panel del almacén, seleccione **Trabajos de copia de seguridad** para mostrar todos los trabajos de copia de seguridad.
    - Si un trabajo de copia de seguridad está en curso, espere a que se complete o cancele el trabajo de copia de seguridad.
-     - Para cancelar el trabajo de copia de seguridad, haga clic con el botón derecho en el trabajo de copia de seguridad y haga clic en **Cancelar** o use [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob).
+     - Para cancelar el trabajo de copia de seguridad, haga clic con el botón derecho en él y seleccione **Cancelar** o use [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob).
    - Si ha reconfigurado la copia de seguridad en otro almacén, asegúrese de no haya ningún trabajo de copia de seguridad en ejecución en el almacén antiguo. Si existe, cancele el trabajo de copia de seguridad.
-     - Para cancelar el ratón de trabajo de copia de seguridad, haga clic con el botón derecho en el trabajo de copia de seguridad y haga clic en **Cancelar** o use [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob).
+     - Para cancelar el trabajo de copia de seguridad, haga clic con el botón derecho en él y seleccione **Cancelar** o use [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob).
 4. Reintente la operación de copia de seguridad.
 
 Si la operación de copia de seguridad programada tarda más, generando un conflicto con la siguiente configuración de copia de seguridad, consulte [Procedimientos recomendados](backup-azure-vms-introduction.md#best-practices), [Rendimiento de Backup](backup-azure-vms-introduction.md#backup-performance) y [Consideraciones de la restauración](backup-azure-vms-introduction.md#backup-and-restore-considerations).
@@ -191,7 +191,7 @@ Si la operación de copia de seguridad programada tarda más, generando un confl
 **Código de error**: UserErrorCrpReportedUserError <br>
 **Mensaje de error**: Se ha producido un error en la copia de seguridad. Para más información, consulte los detalles del mensaje de error del trabajo.
 
-Este error se envía desde la máquina virtual de IaaS. Para identificar la causa principal del problema, vaya a la configuración del almacén de Recovery Services. En la sección **Supervisión**, seleccione **Trabajos de copia de seguridad** para filtrar y ver el estado. Haga clic en **Errores** para revisar los detalles del mensaje de error subyacente. Realice otras acciones según las recomendaciones de la página de detalles del error.
+Este error se envía desde la máquina virtual de IaaS. Para identificar la causa principal del problema, vaya a la configuración del almacén de Recovery Services. En la sección **Supervisión**, seleccione **Trabajos de copia de seguridad** para filtrar y ver el estado. Seleccione **Errores** para revisar los detalles del mensaje de error subyacente. Realice otras acciones según las recomendaciones de la página de detalles del error.
 
 ## <a name="usererrorbcmdatasourcenotpresent---backup-failed-this-virtual-machine-is-not-actively-protected-by-azure-backup"></a>UserErrorBcmDatasourceNotPresent - Error de copia de seguridad: esta máquina virtual no está protegida (activamente) con Azure Backup.
 
@@ -204,7 +204,7 @@ Compruebe si la máquina virtual especificada está protegida de forma activa (q
 
 ### <a name="the-agent-is-installed-in-the-vm-but-its-unresponsive-for-windows-vms"></a><a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>El agente está instalado en la máquina virtual, pero no responde (en máquinas virtuales Windows)
 
-#### <a name="solution"></a>Solución
+#### <a name="solution-for-this-error"></a>Solución para este error
 
 Es posible que el agente de máquina virtual se haya dañado o que el servicio se haya detenido. Puede intentar volver a instalar al agente de máquina virtual para obtener la versión más reciente. O bien, intente restablecer la comunicación con el servicio.
 
@@ -256,9 +256,9 @@ Para obtener una lista completa de las opciones del archivo de configuración de
 
 ### <a name="application-control-solution-is-blocking-iaasbcdrextensionexe"></a>La solución de control de aplicaciones está bloqueando IaaSBcdrExtension.exe
 
-Si ejecuta [AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) (u otra solución de control de aplicaciones) y las reglas se basan en el publicador o en la ruta de acceso, pueden bloquear la ejecución de **IaaSBcdrExtension.exe**.
+Si ejecuta [AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) (u otra solución de control de aplicaciones) y las reglas se basan en el editor o en la ruta de acceso, pueden bloquear la ejecución de **IaaSBcdrExtension.exe**.
 
-#### <a name="solution"></a>Solución
+#### <a name="solution-to-this-issue"></a>Solución a este problema
 
 Excluya la ruta de acceso `/var/lib` o el ejecutable **IaaSBcdrExtension.exe** de AppLocker (u otro software de control de aplicaciones).
 
@@ -266,7 +266,7 @@ Excluya la ruta de acceso `/var/lib` o el ejecutable **IaaSBcdrExtension.exe** d
 
 La copia de seguridad de máquina virtual se basa en la emisión de comandos de instantánea para la cuenta del almacenamiento subyacente. La copia de seguridad puede producir un error porque no tiene ningún acceso a la cuenta de almacenamiento o porque se retrasa la ejecución de la tarea de instantáneas.
 
-#### <a name="solution"></a>Solución
+#### <a name="solution-for-this-issue"></a>No hay solución para este problema.
 
 Las siguientes condiciones podrían hacer que la tarea de instantáneas no se realizara:
 
@@ -280,7 +280,7 @@ Las siguientes condiciones podrían hacer que la tarea de instantáneas no se re
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. Vaya a la opción **Todos los recursos**, seleccione el grupo de recursos de la colección de puntos de restauración en el siguiente formato AzureBackupRG_`<Geo>`_`<number>`.
 3. En la sección **Configuración**, seleccione **Bloqueos** para mostrar los bloqueos.
-4. Para quitar el bloqueo, seleccione los puntos suspensivos y haga clic en **Eliminar**.
+4. Para quitar el bloqueo, seleccione los puntos suspensivos y elija **Eliminar**.
 
     ![Eliminación del bloqueo](./media/backup-azure-arm-vms-prepare/delete-lock.png)
 
@@ -307,16 +307,16 @@ Después de quitar el bloqueo, desencadene una copia de seguridad a petición. E
 Para borrar manualmente la colección de puntos de restauración que no se han borrado debido al bloqueo del grupo de recursos, pruebe con los siguientes pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. En el menú **central**, haga clic en **Todos los recursos**, seleccione el grupo de recursos con el siguiente formato AzureBackupRG_`<Geo>`_`<number>` donde se encuentra la máquina virtual.
+2. En el menú **central**, seleccione **Todos los recursos**, elija el grupo de recursos con el siguiente formato AzureBackupRG_`<Geo>`_`<number>` donde se encuentra la máquina virtual.
 
-    ![Eliminación del bloqueo](./media/backup-azure-arm-vms-prepare/resource-group.png)
+    ![Selección del grupo de recursos](./media/backup-azure-arm-vms-prepare/resource-group.png)
 
-3. Haga clic en el grupo de recursos; se muestra el panel **Información general**.
+3. Seleccione el grupo de recursos; aparece el panel **Información general**.
 4. Seleccione la opción **Mostrar tipos ocultos** para mostrar todos los recursos ocultos. Seleccione las colecciones de puntos de restauración con el siguiente formato AzureBackupRG_`<VMName>`_`<number>`.
 
-    ![Eliminación del bloqueo](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
+    ![Selección de la colección de puntos de restauración](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
 
-5. Haga clic en **Eliminar** para borrar la colección de puntos de restauración.
+5. Seleccione **Eliminar** para borrar la colección de puntos de restauración.
 6. Vuelva a intentar la operación de copia de seguridad.
 
 > [!NOTE]

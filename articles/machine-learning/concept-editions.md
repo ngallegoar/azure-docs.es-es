@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: j-martens
 ms.author: jmartens
 ms.date: 06/11/2020
-ms.openlocfilehash: aa754868677802b7d0000045f22090fbca62d9b6
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: fbe3f0109ca3af2cf9ff44061c7882e6bd72c8a6
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927426"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88508609"
 ---
-# <a name="enterprise-and-basic-editions-of-azure-machine-learning"></a>Ediciones Enterprise y Basic de Azure Machine Learning 
+# <a name="enterprise-preview-and-basic-editions-of-azure-machine-learning"></a>Ediciones Enterprise (versión preliminar) y Basic de Azure Machine Learning 
 
 Azure Machine Learning ofrece dos ediciones adaptadas a sus necesidades de aprendizaje automático. Estas ediciones determinan qué herramientas de aprendizaje automático están disponibles para los desarrolladores y científicos de datos en su área de trabajo.
 
@@ -23,7 +23,7 @@ Azure Machine Learning ofrece dos ediciones adaptadas a sus necesidades de apren
 
 La edición se asigna cada vez que se crea un área de trabajo. Los clientes son responsables de los costos en los que se incurre en el proceso y en otros recursos de Azure durante este tiempo. Descubra cómo [administrar los costos de Azure Machine Learning](concept-plan-manage-cost.md).
 
-Aprenda a [actualizar un área de trabajo de la edición Basic a Enterprise](how-to-manage-workspace.md#upgrade). 
+Aprenda a [actualizar un área de trabajo de la edición Basic a Enterprise (versión preliminar)](how-to-manage-workspace.md#upgrade). 
 
 ## <a name="whats-in-each-edition"></a>Qué hay en cada edición
 

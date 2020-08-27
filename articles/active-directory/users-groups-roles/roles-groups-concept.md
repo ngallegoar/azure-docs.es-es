@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30d18041a746a0c1046a51cf408494ccb81019c9
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: fe509879c38f979525a673890c05fcfe5c8e3880
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183214"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798319"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Uso de grupos en la nube para administrar asignaciones de roles en Azure Active Directory (versión preliminar)
 
@@ -33,7 +33,7 @@ Cree un grupo de seguridad o de Office 365 con la propiedad "isAssignableToRole
 Si no desea que los miembros del grupo tengan acceso permanente al rol, puede usar Azure AD Privileged Identity Management. Asigne un grupo como miembro apto de un rol de Azure AD. Después, cada miembro del grupo es apto para que se active la asignación del rol al que está asignado el grupo. A continuación, pueden activar su asignación de roles durante un tiempo fijo.
 
 > [!Note]
-> Debe tener la versión actualizada de Privileged Identity Management para poder asignar un grupo a un rol de Azure AD mediante PIM. Podría estar en una versión anterior de PIM porque su organización de Azure AD aprovecha la API de Privileged Identity Management. Póngase en contacto con el alias pim_preview@microsoft.com para trasladar la organización y actualizar la API. Obtenga más información en el artículo sobre [roles y características de Azure AD en PIM](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-ad-roles-features).
+> Debe tener la versión actualizada de Privileged Identity Management para poder asignar un grupo a un rol de Azure AD mediante PIM. Podría estar en una versión anterior de PIM porque su organización de Azure AD aprovecha la API de Privileged Identity Management. Póngase en contacto con el alias pim_preview@microsoft.com para trasladar la organización y actualizar la API. Obtenga más información en el artículo sobre [roles y características de Azure AD en PIM](../privileged-identity-management/azure-ad-roles-features.md).
 
 ## <a name="why-we-enforce-creation-of-a-special-group-for-assigning-it-to-a-role"></a>Por qué se exige la creación de un grupo especial para asignarlo a un rol
 
@@ -65,7 +65,7 @@ Los siguientes escenarios no se admiten en este momento:
   - En el portal de PIM, en **Mis roles** se puede mostrar solo una asignación de roles, independientemente del número de métodos por los que se concede la asignación (mediante uno o varios grupos y directamente).
 - *Solo clientes con licencia de Azure AD P2*: incluso después de eliminar el grupo, aún se muestra un miembro apto del rol en la interfaz de usuario de PIM. Funcionalmente, no hay ningún problema. Se trata simplemente de un problema de caché de Azure Portal.  
 - El centro de administración de Exchange todavía no reconoce la pertenencia al rol mediante el grupo, pero funcionará el cmdlet de PowerShell.
-- El portal de Azure Information Protection (el portal clásico) todavía no reconoce la pertenencia al rol mediante el grupo. Puede [migrar a la plataforma de etiquetado de confidencialidad unificada](https://docs.microsoft.com/azure/information-protection/configure-policy-migrate-labels) y, a continuación, usar el Centro de seguridad y cumplimiento de Office 365 a fin de utilizar las asignaciones de grupo para administrar roles.
+- El portal de Azure Information Protection (el portal clásico) todavía no reconoce la pertenencia al rol mediante el grupo. Puede [migrar a la plataforma de etiquetado de confidencialidad unificada](/azure/information-protection/configure-policy-migrate-labels) y, a continuación, usar el Centro de seguridad y cumplimiento de Office 365 a fin de utilizar las asignaciones de grupo para administrar roles.
 
 Estamos solucionando estos problemas.
 

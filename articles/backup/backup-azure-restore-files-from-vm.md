@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a recuperar archivos y carpetas desde
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: e12669609b21d23b775af27f95528c4b42e95e81
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: ba97a5812359fc72e52d68e337762f7234aa3883
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533564"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611847"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure
 
@@ -32,7 +32,7 @@ Para restaurar archivos o carpetas desde el punto de recuperación, vaya a la m�
 
 3. En el menú del panel de Backup, seleccione **Recuperación de archivos**.
 
-    ![Botón Recuperación de archivos](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
+    ![Selección de Recuperación de archivos](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
 
     Se abre el menú **Recuperación de archivos**.
 
@@ -42,7 +42,7 @@ Para restaurar archivos o carpetas desde el punto de recuperación, vaya a la m�
 
 5. Si desea descargar el software para copiar archivos del punto de recuperación, seleccione **Descargar ejecutable** (para máquinas virtuales Windows de Azure) o en **Descargar script** (para máquinas virtuales Linux de Azure, se genera un script de Python).
 
-    ![Contraseña generada](./media/backup-azure-restore-files-from-vm/download-executable.png)
+    ![Descarga del ejecutable](./media/backup-azure-restore-files-from-vm/download-executable.png)
 
     Azure descarga el archivo ejecutable o el script en el equipo local.
 
@@ -56,7 +56,7 @@ Para restaurar archivos o carpetas desde el punto de recuperación, vaya a la m�
 
 7. Asegúrese de que [tiene la máquina correcta](#selecting-the-right-machine-to-run-the-script) para ejecutar el script. Si la máquina correcta es la misma máquina en la que descargó el script, puede pasar a la sección de descarga. Desde la ubicación de descarga (normalmente, la carpeta *Descargas*), haga clic con el botón derecho en el archivo ejecutable o el script y ejecútelo con las credenciales del administrador. Cuando se le solicite, escriba la contraseña o péguela de la memoria y presione **Entrar**. Una vez que se escriba la contraseña válida, el script se conecta al punto de recuperación.
 
-    ![Menú Recuperación de archivos](./media/backup-azure-restore-files-from-vm/executable-output.png)
+    ![Salida del ejecutable](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
 8. En el caso de las máquinas Linux, se genera un script de Python. Es necesario descargar el script y copiarlo en el servidor Linux relevante o compatible. Es posible que haya que modificar los permisos para ejecutarlo con ```chmod +x <python file name>```. Luego se ejecuta el archivo de Python con ```./<python file name>```.
 
@@ -85,6 +85,9 @@ Después de identificar los archivos y copiarlos en una ubicación de almacenami
 Cuando los discos estén desmontados, recibirá un mensaje. Puede tardar unos minutos en actualizarse la conexión para que pueda quitar los discos.
 
 En Linux, cuando se corta la conexión con el punto de recuperación, el sistema operativo no elimina las rutas de acceso de montaje correspondientes automáticamente. Las rutas de acceso de montaje adoptan la forma de volúmenes "huérfanos" y se pueden ver, pero se genera un error al acceder a los archivos o al escribir en ellos. Se pueden quitar manualmente. Cuando el script se ejecuta, este identifica todos los volúmenes existentes desde todos los puntos de recuperación anteriores y los limpia, aunque con consentimiento previo.
+
+> [!NOTE]
+> Asegúrese de que la conexión se cierra después de restaurar los archivos necesarios. Esto es importante, especialmente en el escenario en el que la máquina en la que se ejecuta el script también está configurada para la copia de seguridad. En caso de que la conexión siga abierta, se puede producir un error "UserErrorUnableToOpenMount" en la copia de seguridad posterior. Esto sucede porque se supone que las unidades o volúmenes montados están disponibles y, al acceder a ellos, podrían producir un error debido a que el almacenamiento subyacente (es decir, el servidor de destino iSCSI) no está disponible. La limpieza de la conexión quitará estas unidades o volúmenes, por lo que no estarán disponibles durante la copia de seguridad.
 
 ## <a name="selecting-the-right-machine-to-run-the-script"></a>Selección de la máquina correcta para ejecutar el script
 

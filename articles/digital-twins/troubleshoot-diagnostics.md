@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: d47bb7cc868c5733c6e36290f097fec783764cd3
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5091edbf9138cb8ff03df193dcbeed692aaf13e3
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003587"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612408"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Solución de problemas de Azure Digital Twins: Registro de diagnóstico
 
@@ -88,7 +88,7 @@ Esta es una lista completa de las operaciones y las [llamadas API REST de Azure 
 | ADTEventRoutesOperation | Microsoft.DigitalTwins/eventroutes/write | Event Routes Add API |
 |  | Microsoft.DigitalTwins/eventroutes/read | Event Routes Get By Id and List API |
 |  | Microsoft.DigitalTwins/eventroutes/delete | Event Routes Delete API |
-|  | Microsoft.DigitalTwins/eventroutes/action | Salida de un evento a un servicio de punto final (no una llamada API) |
+|  | Microsoft.DigitalTwins/eventroutes/action | Error al intentar publicar eventos en un servicio de punto de conexión (no una llamada API) |
 | ADTDigitalTwinsOperation | Microsoft.DigitalTwins/digitaltwins/write | Agregar, agregar relaciones, actualizar, actualizar componente de Digital Twins |
 |  | Microsoft.DigitalTwins/digitaltwins/read | Obtener por identificador, obtener componente, obtener relación por identificador, enumerar relaciones entrantes, enumerar relaciones de Digital Twins |
 |  | Microsoft.DigitalTwins/digitaltwins/delete | Eliminar, eliminar relación de Digital Twins |

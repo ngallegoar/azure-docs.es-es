@@ -4,14 +4,14 @@ description: Obtenga información sobre la configuración y cambio de la directi
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: e1254b31bffa72918b46c550e8354bd1c2195dfb
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: f723d7ac218869313f02212d27d9f96b74bb7f0f
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077601"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607513"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Directivas de indexación en Azure Cosmos DB
 
@@ -30,7 +30,7 @@ Azure Cosmos DB admite dos modos de indexación:
 - **Ninguna**: La indexación está deshabilitada en el contenedor. Esto se utiliza normalmente cuando se usa un contenedor como un almacén de pares clave-valor puro sin necesidad de índices secundarios. También se puede usar para mejorar el rendimiento de las operaciones masivas. Una vez completadas las operaciones masivas, el modo de índice se puede establecer en Coherente y supervisarse mediante [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) hasta que se complete.
 
 > [!NOTE]
-> Azure Cosmos DB también admite un modo de indexación diferida. La indexación diferida realiza actualizaciones en el índice con un nivel de prioridad mucho menor cuando el motor no realiza ningún otro trabajo. Esto puede producir resultados de consulta **incoherentes o incompletos**. Si tiene previsto consultar un contenedor de Cosmos, no debe seleccionar la indexación diferida. En junio de 2020, se incluyó un cambio que ya no permite que los nuevos contenedores se establezcan en el modo de indexación diferida. Si la cuenta de Azure Cosmos DB ya contiene al menos un contenedor con indexación diferida, esta cuenta se excluye automáticamente del cambio. También puede solicitar una exención si se pone en contacto con el [soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> Azure Cosmos DB también admite un modo de indexación diferida. La indexación diferida realiza actualizaciones en el índice con un nivel de prioridad mucho menor cuando el motor no realiza ningún otro trabajo. Esto puede producir resultados de consulta **incoherentes o incompletos**. Si tiene previsto consultar un contenedor de Cosmos, no debe seleccionar la indexación diferida. En junio de 2020, se incluyó un cambio que ya no permite que los nuevos contenedores se establezcan en el modo de indexación diferida. Si la cuenta de Azure Cosmos DB ya contiene al menos un contenedor con indexación diferida, esta cuenta se excluye automáticamente del cambio. También puede ponerse en contacto con el [servicio de soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para solicitar una exención (excepto si usa una cuenta de Azure Cosmos en modo [sin servidor](serverless.md) que no admite la indexación diferida).
 
 De forma predeterminada, la directiva de indexación se establece en `automatic`. Esto se consigue al establecer la propiedad `automatic` de la directiva de indexación en `true`. Al establecer esta propiedad en `true`, se permite que Azure Cosmos DB indexe automáticamente los documentos a medida que se escriben.
 
@@ -260,6 +260,9 @@ Las consideraciones siguientes se usan cuando se crean índices compuestos para 
 ## <a name="modifying-the-indexing-policy"></a>Modificación de la directiva de indexación
 
 Se puede actualizar en cualquier momento una directiva de indexación de un contenedor [mediante Azure Portal o uno de los SDK admitidos](how-to-manage-indexing-policy.md). Una actualización de la directiva de indexación desencadena una transformación del índice antiguo al nuevo, que se realiza en línea y en local (por lo que no se consume ningún espacio de almacenamiento adicional durante la operación). El índice de la directiva antigua se transforma eficientemente en la nueva directiva sin que ello afecte a la disponibilidad de escritura, la disponibilidad de lectura ni al rendimiento aprovisionado en el contenedor. La transformación del índice es una operación asincrónica, y el tiempo que tarda en completarse depende del rendimiento aprovisionado, el número de elementos y su tamaño.
+
+> [!IMPORTANT]
+> La transformación de índice es una operación que consume [unidades de solicitud](request-units.md). Las unidades de solicitud consumidas por una transformación de índice no se facturan actualmente si se usan contenedores [sin servidor](serverless.md). Estas unidades de solicitud se facturarán una vez que el modo sin servidor esté disponible con carácter general.
 
 > [!NOTE]
 > Es posible realizar un seguimiento del progreso de transformación del índice [mediante uno de los SDK](how-to-manage-indexing-policy.md).
