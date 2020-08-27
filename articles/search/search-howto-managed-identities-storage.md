@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: dacfeeff06d58a084d4313ca50b51f262cf61381
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 30305607ea291587f7751b7e8048924f995251e9
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553087"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88917982"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity-preview"></a>Configuración de una conexión a una cuenta de Azure Storage mediante una identidad administrada (versión preliminar)
 
@@ -68,7 +68,7 @@ En este paso, concederá permiso a su servicio de Azure Cognitive Search para le
 
 ### <a name="3---create-the-data-source"></a>3 - Crear el origen de datos
 
-La [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source), Azure Portal y el [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) admiten la cadena de conexión de identidad administrada. A continuación, se muestra un ejemplo de cómo crear un origen de datos para indexar datos desde una cuenta de almacenamiento mediante la [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source) y una cadena de conexión de identidad administrada. El formato de la cadena de conexión de identidad administrada es el mismo en la API REST, el SDK de .NET y Azure Portal.
+La [API REST](/rest/api/searchservice/create-data-source), Azure Portal y el [SDK de .NET](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) admiten la cadena de conexión de identidad administrada. A continuación, se muestra un ejemplo de cómo crear un origen de datos para indexar datos desde una cuenta de almacenamiento mediante la [API REST](/rest/api/searchservice/create-data-source) y una cadena de conexión de identidad administrada. El formato de la cadena de conexión de identidad administrada es el mismo en la API REST, el SDK de .NET y Azure Portal.
 
 Al realizar la indexación desde una cuenta de almacenamiento, el origen de datos debe tener las siguientes propiedades obligatorias:
 
@@ -83,7 +83,7 @@ Al realizar la indexación desde una cuenta de almacenamiento, el origen de dato
         * *ResourceId=/subscriptions/**id. de la suscripción**/resourceGroups/**nombre del grupo de recursos**/providers/Microsoft.Storage/storageAccounts/**nombre de la cuenta de almacenamiento**/;*
 * **container** especifica un contenedor o un nombre de tabla en la cuenta de almacenamiento. De manera predeterminada, se pueden recuperar todos los blobs dentro del contenedor. Si solo desea indexar blobs en un directorio virtual determinado, puede especificar ese directorio. Para ello, use el parámetro opcional **query**.
 
-Ejemplo de cómo crear un objeto de origen de datos de blob mediante la [API de REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source):
+Ejemplo de cómo crear un objeto de origen de datos de blob mediante la [API de REST](/rest/api/searchservice/create-data-source):
 
 ```
 POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
@@ -118,7 +118,7 @@ Aquí se muestra cómo crear un índice con un campo `content` utilizable en bú
     }
 ```
 
-Para obtener más información sobre la creación de índices, vea el artículo de [creación de índices](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Para obtener más información sobre la creación de índices, vea el artículo de [creación de índices](/rest/api/searchservice/create-index).
 
 ### <a name="5---create-the-indexer"></a>5 - Crear el indexador
 
@@ -143,7 +143,7 @@ Ejemplo de definición de indexador para un indexador de blobs:
 
 Este indizador se ejecutará cada dos horas (el intervalo de programación se establece en PT2H). Para ejecutar un indizador cada 30 minutos, establézcalo en PT30M. El intervalo más breve que se admite es de 5 minutos. La programación es opcional: si se omite, el indizador solo se ejecuta una vez cuando se crea. Sin embargo, puede ejecutarlo a petición en cualquier momento.   
 
-Para más información sobre la API Create Indexer, consulte [Crear indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Para más información sobre la API Create Indexer, consulte [Crear indexador](/rest/api/searchservice/create-indexer).
 
 Para más información sobre cómo definir las programaciones del indexador, consulte [Programación de indexadores para Azure Cognitive Search](search-howto-schedule-indexers.md).
 

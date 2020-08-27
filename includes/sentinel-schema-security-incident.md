@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/28/2020
 ms.author: yelevin
 ms.custom: include file
-ms.openlocfilehash: 76020b3c1f28e5b5f6363aef181b76bc93a9613e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 63cb53dc60a718892d4bf86140e7fd51303bd61c
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87293840"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761733"
 ---
 ### <a name="the-data-model-of-the-schema"></a>El modelo de datos del esquema
 
@@ -25,7 +25,7 @@ ms.locfileid: "87293840"
 | **Clasificación** | string | Clasificación de cierre de incidentes |
 | **ClassificationComment** | string | Comentario de clasificación de cierre de incidentes |
 | **ClassificationReason** | string | Motivo de clasificación de cierre de incidentes |
-| **ClosureTime** | datetime | Marca de tiempo (UTC) de la última vez que se cerró el incidente |
+| **ClosedTime** | datetime | Marca de tiempo (UTC) de la última vez que se cerró el incidente |
 | **Comentarios** | dinámico | Comentarios sobre el incidente |
 | **CreatedTime** | datetime | Marca de tiempo (UTC) de cuando se creó el incidente |
 | **Descripción** | cadena | Descripción del incidente |
