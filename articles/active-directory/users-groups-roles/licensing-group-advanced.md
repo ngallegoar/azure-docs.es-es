@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2f055a6b8f4a8876c024bdd131a6001e21004e5
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 937c5dbf3417e5914a0b4285c3bb114d7499e0fb
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88209476"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799067"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Escenarios, limitaciones y problemas conocidos del uso de grupos para administrar las licencias en Azure Active Directory
 
@@ -211,7 +211,7 @@ Si usa licencias basadas en grupo, se recomienda que se familiarice con la sigui
 
 - Cuando se asignan o modifican licencias para un grupo grande (por ejemplo, con más de 100 000 usuarios), podría afectar el rendimiento. En concreto, el volumen de cambios generado por la automatización de Azure AD podría afectar negativamente el rendimiento de la sincronización de directorios entre Azure AD y los sistemas locales.
 
-- Si usa grupos dinámicos para administrar la pertenencia de los usuarios, compruebe que el usuario forma parte del grupo, lo cual es necesario para la asignación de licencias. De lo contrario, [compruebe el estado de procesamiento de la regla de pertenencia](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule) del grupo dinámico.
+- Si usa grupos dinámicos para administrar la pertenencia de los usuarios, compruebe que el usuario forma parte del grupo, lo cual es necesario para la asignación de licencias. De lo contrario, [compruebe el estado de procesamiento de la regla de pertenencia](./groups-create-rule.md) del grupo dinámico.
 
 - En determinadas situaciones de carga elevada, los cambios en los grupos o en la pertenencia a grupos con las licencias existentes pueden tardar mucho tiempo en procesarse. Si observa que los cambios tardan más de 24 horas en procesar un tamaño de grupo de 60 000 usuarios o menos, [abra una incidencia de soporte técnico](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) para que podamos investigar lo que ocurre. 
 

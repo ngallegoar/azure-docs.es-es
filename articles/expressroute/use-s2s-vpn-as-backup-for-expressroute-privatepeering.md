@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: rambala
-ms.openlocfilehash: df4108604c656cd6383bd57b462c0f12f31bdd7b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 68596b881ef1b62187bdb7194b364c9477b4e04d
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206865"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244778"
 ---
 # <a name="using-s2s-vpn-as-a-backup-for-expressroute-private-peering"></a>Uso de VPN S2S como copia de seguridad para el emparejamiento privado de ExpressRoute
 
@@ -116,7 +116,7 @@ Cust11.inet.0: 14 destinations, 21 routes (14 active, 0 holddown, 0 hidden)
 
 ### <a name="configuring-for-symmetric-traffic-flow"></a>Configuración del flujo de tráfico simétrico
 
-Hemos observado que, cuando una determinada ruta local se anuncia a través de ExpressRoute y VPN S2S, Azure prefiere la ruta de acceso de ExpressRoute. Para forzar que Azure prefiera una ruta de acceso de VPN S2S en lugar de la de ExpressRoute coexistente, debe anunciar rutas más específicas (prefijo más largo con máscara de subred mayor) a través de la conexión VPN. Nuestro objetivo aquí es usar las conexiones VPN como copia de seguridad solamente. Por lo tanto, el comportamiento de la selección de la ruta de acceso predeterminada de Azure está en línea con nuestro objetivo. 
+Hemos observado que, cuando una determinada ruta local se anuncia a través de ExpressRoute y VPN S2S, Azure prefiere la ruta de acceso de ExpressRoute. Para forzar que Azure prefiera una ruta de acceso de VPN S2S en lugar de la de ExpressRoute coexistente, debe anunciar rutas más específicas (prefijo más largo con máscara de subred mayor) a través de la conexión VPN. Nuestro objetivo es usar las conexiones VPN como copia de seguridad solamente. Por lo tanto, el comportamiento de la selección de la ruta de acceso predeterminada de Azure está en línea con nuestro objetivo. 
 
 Es nuestra responsabilidad asegurarnos de que el tráfico destinado a Azure desde el entorno local también prefiera la ruta de acceso de ExpressRoute en vez de VPN S2S. La preferencia local predeterminada de los enrutadores de CE y firewalls de la instalación local es 100. Por lo tanto, al configurar la preferencia local de las rutas recibidas a través de los emparejamientos privados de ExpressRoute mayores que 100 (por ejemplo, 150), podemos hacer que el tráfico destinado a Azure prefiera el circuito ExpressRoute en el estado estable.
 
