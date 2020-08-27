@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 0d2b840b401dc90b332f91c93a9eda03d6643432
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 21e6dc5a975f43456a077559eebafd975cea66a1
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245560"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816497"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Vista previa: uso de claves administradas por el cliente para el cifrado de imágenes
 
@@ -23,13 +23,13 @@ Puede confiar en las claves administradas por la plataforma para el cifrado de l
 
 El cifrado del lado servidor mediante claves administradas por el cliente usa Azure Key Vault. Puede importar [las claves RSA](../key-vault/keys/hsm-protected-keys.md) a su instancia de Key Vault o generar nuevas claves RSA en Azure Key Vault.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para este artículo, es necesario que ya disponga de un conjunto de cifrado de disco para su imagen.
 
-- Para usar solo una clave administrada por el cliente, consulte **Habilitación de claves administradas por el cliente con el cifrado del lado servidor** mediante [Azure Portal](./windows/disks-enable-customer-managed-keys-portal.md) o [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
+- Para usar solo una clave administrada por el cliente, consulte **Habilitación de claves administradas por el cliente con el cifrado del lado servidor** mediante [Azure Portal](./disks-enable-customer-managed-keys-portal.md) o [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
 
-- Para usar las claves administradas por la plataforma y las administradas por el cliente (para el cifrado doble), consulte **Habilitación del cifrado doble en reposo** mediante [Azure Portal](./windows/disks-enable-double-encryption-at-rest-portal.md) o [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
+- Para usar las claves administradas por la plataforma y las administradas por el cliente (para el cifrado doble), consulte **Habilitación del cifrado doble en reposo** mediante [Azure Portal](./disks-enable-double-encryption-at-rest-portal.md) o [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
     > [!IMPORTANT]
     > Debe usar este vínculo [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) para tener acceso a Azure Portal. El cifrado doble en reposo no está visible actualmente en Azure Portal público sin usar el vínculo.
 

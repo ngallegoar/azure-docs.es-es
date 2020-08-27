@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: a6902d1420090b81c933f07f7e929aa86c052404
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 56e3c1e48df51cd24d70517ee23d47ef27d378d7
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009246"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935337"
 ---
 # <a name="ocr-cognitive-skill"></a>Aptitud cognitiva de OCR
 
-La aptitud de **reconocimiento óptico de caracteres (OCR)** reconoce texto impreso y manuscrito en archivos de imágenes. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) API [v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) de Cognitive Services. La aptitud de **reconocimiento óptico de caracteres** se asocia a la siguiente funcionalidad:
+La aptitud de **reconocimiento óptico de caracteres (OCR)** reconoce texto impreso y manuscrito en archivos de imágenes. Esta aptitud utiliza los modelos de aprendizaje automático proporcionados por [Computer Vision](../cognitive-services/computer-vision/home.md) API [v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) de Cognitive Services. La aptitud de **reconocimiento óptico de caracteres** se asocia a la siguiente funcionalidad:
 
 + En inglés, español, alemán, francés, italiano, portugués y holandés, se usa ["Read"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) API.
 + En todos los demás idiomas se usa ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-api) API.
@@ -212,4 +212,4 @@ En el ejemplo del conjunto de aptitudes anterior, se asume que existe un campo d
 + [Aptitudes integradas](cognitive-search-predefined-skills.md)
 + [Aptitud TextMerger](cognitive-search-skill-textmerger.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
-+ [Create Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Create Indexer (REST)](/rest/api/searchservice/create-indexer)
