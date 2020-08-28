@@ -82,7 +82,7 @@
             - name: Copia de un disco administrado
               href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md
             - name: Exportación de una instantánea como VHD a una cuenta de almacenamiento
-              href: ../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md
+              href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md
             - name: Exportación del disco duro virtual de un disco administrado a una cuenta de almacenamiento
               href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd.md
             - name: Creación de una instantánea a partir de un disco duro virtual
@@ -124,7 +124,7 @@
             - name: Copia de un disco administrado
               href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
             - name: Exportación de una instantánea como un disco duro virtual a una cuenta de almacenamiento
-              href: ../scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-storage-account.md
+              href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md
             - name: Exportación del disco duro virtual de un disco administrado a una cuenta de almacenamiento
               href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-vhd.md
             - name: Copia de una instantánea
@@ -1026,7 +1026,7 @@
   href: ../troubleshooting/index.yml
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/vm
     - name: Azure PowerShell
       href: /powershell/azure/
