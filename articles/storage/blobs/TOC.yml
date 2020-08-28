@@ -17,7 +17,7 @@
       items:
         - name: Uso de blobs
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: storage-quickstart-blobs-portal.md
             - name: Explorador de Storage
               href: storage-quickstart-blobs-storage-explorer.md
@@ -347,6 +347,8 @@
                   href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Uso de la API REST de Azure Storage
                   href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Evitar autorización con clave compartida
+                  href: ../common/shared-key-authorization-prevent.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Delegación del acceso con firmas de acceso compartido (SAS)
               items:
                 - name: Creación de una SAS de delegación de usuario
