@@ -986,9 +986,11 @@
                 - name: Modelo de licencia
                   displayName: 'ahb, ahub, payg, change, modify, update'
                   href: virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md
-                - name: Edición
+                - name: Cambio de edición
                   displayName: 'change, modify, update'
                   href: virtual-machines/windows/change-sql-server-edition.md
+                - name: Cambio de versión
+                  href: virtual-machines/windows/change-sql-server-version.md
                 - name: Storage
                   href: virtual-machines/windows/storage-configuration.md
                 - name: Integración de Azure Key Vault
@@ -1024,6 +1026,8 @@
                       href: virtual-machines/windows/automated-backup-sql-2014.md
                 - name: Grupos de disponibilidad AlwaysOn
                   items:
+                    - name: Azure portal
+                      href: virtual-machines/windows/availability-group-azure-portal-configure.md
                     - name: PowerShell o Az CLI
                       href: virtual-machines/windows/availability-group-az-commandline-configure.md
                     - name: Plantillas de inicio rápido de Azure
