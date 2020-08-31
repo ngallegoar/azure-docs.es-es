@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: beb5c7262a5475f5c1535e120fcebe4c70838c7e
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 1873cd14883e8b1a5174b8761e4a0bc9ba1ef872
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135494"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641864"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Inicio rápido: Configuración de las propiedades de una aplicación en el inquilino de Azure Active Directory (Azure AD)
 
@@ -47,7 +47,7 @@ Para editar las propiedades de la aplicación:
 3. Dedique un momento a comprender las opciones disponibles para su configuración:
     - La opción **¿Habilitado para que los usuarios inicien sesión?** determina si los usuarios asignados a la aplicación pueden iniciar sesión.
     - La opción **¿Asignación de usuarios?** determina si los usuarios que no están asignados a la aplicación pueden iniciar sesión.
-    - La opción **¿Es visible para los usuarios?** determina si los usuarios asignados a una aplicación pueden verla en el [panel de acceso](https://myapps.microsoft.com) y en el iniciador de Office 365. (Vea el menú de gofres en la esquina superior izquierda de un sitio web de Office 365 o Microsoft 365).
+    - La opción **¿Es visible para los usuarios?** determina si los usuarios asignados a una aplicación pueden verla en [Mis aplicaciones](https://myapps.microsoft.com) y en el iniciador de aplicaciones de Office 365. (Vea el menú de gofres en la esquina superior izquierda de un sitio web de Office 365 o Microsoft 365).
     
     > [!TIP]
     > La asignación de usuarios se produce en la sección **Usuarios y grupos** de la navegación.

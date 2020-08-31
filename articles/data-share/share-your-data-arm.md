@@ -1,20 +1,20 @@
 ---
-title: 'Inicio rápido: Uso compartido fuera de la organización mediante Azure Data Share'
-description: 'Inicio rápido: uso compartido de datos con clientes y asociados mediante Azure Data Share y la plantilla de Resource Manager'
+title: 'Uso compartido fuera de la organización (plantilla de ARM): Inicio rápido de Azure Data Share'
+description: Aprenda a compartir los datos con los clientes y los asociados mediante Azure Data Share y la plantilla de Resource Manager en este inicio rápido.
 author: mumian
 ms.author: jgao
 ms.service: data-share
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 08/17/2020
-ms.openlocfilehash: 62c800e8da3ab4f99b0933e286debcb05c5c3e22
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.date: 08/19/2020
+ms.openlocfilehash: 76ef44d438b9af7ada6c1c464705a22ee10f4c58
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88575661"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654113"
 ---
-# <a name="tutorial-share-data-using-azure-data-share-and-resource-manager-templates"></a>Tutorial: uso compartido de datos mediante Azure Data Share y las plantillas de Resource Manager
+# <a name="quickstart-share-data-using-azure-data-share-and-resource-manager-templates"></a>Inicio rápido: uso compartido de datos mediante Azure Data Share y las plantillas de Resource Manager
 
 Aprenda a configurar una nueva instancia de Azure Data Share desde una cuenta de Azure Storage mediante una plantilla de Resource Manager y a empezar a compartir datos con clientes y asociados externos a la organización de Azure. Para ver una lista de los almacenes de datos compatibles, consulte los [Almacenes de datos admitidos en Azure Data Share](./supported-data-stores.md).
 
@@ -101,4 +101,4 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a crear una instancia de Azure Data Share y a invitar a destinatarios. Para más información acerca de la forma en que un consumidor de datos puede aceptar y recibir un recurso compartido de datos, vaya al tutorial para [aceptar y recibir datos](subscribe-to-data-share.md).
+En este inicio rápido, ha aprendido a crear un recurso compartido de datos de Azure y a invitar a destinatarios. Para más información acerca de la forma en que un consumidor de datos puede aceptar y recibir un recurso compartido de datos, vaya al tutorial para [aceptar y recibir datos](subscribe-to-data-share.md).

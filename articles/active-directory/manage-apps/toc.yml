@@ -212,16 +212,10 @@
               href: application-sign-in-unexpected-user-consent-prompt.md
             - name: Error de consentimiento del usuario
               href: application-sign-in-unexpected-user-consent-error.md
-            - name: Problemas al iniciar sesión desde el portal personalizado
-              href: application-sign-in-other-problem-deeplink.md
-            - name: Problemas al iniciar sesión desde el panel de acceso
+            - name: Problemas al iniciar sesión desde Aplicaciones
               href: application-sign-in-other-problem-access-panel.md
             - name: Error en la página de inicio de sesión de la aplicación
               href: application-sign-in-problem-application-error.md
-            - name: 'Problema con el inicio de sesión único con contraseña: aplicaciones que no son de la galería'
-              href: application-sign-in-problem-password-sso-non-gallery.md
-            - name: 'Problema con el inicio de sesión único con contraseña: aplicaciones de la galería'
-              href: application-sign-in-problem-password-sso-gallery.md
             - name: Problema al iniciar sesión en una aplicación de Microsoft
               href: application-sign-in-problem-first-party-microsoft.md
             - name: 'Problema con el inicio de sesión único federado: aplicaciones que no son de la galería'
@@ -232,14 +226,12 @@
               href: application-sign-in-problem-custom-dev.md
         - name: Solución de problemas de inicio de sesión único
           items:
+            - name: Solución de problemas de inicio de sesión único basado en contraseña
+              href: troubleshoot-password-based-sso.md
             - name: 'Problemas habituales en la configuración federada: aplicaciones de la galería'
               href: configure-federated-single-sign-on-gallery-applications-problems.md
             - name: 'Problemas habituales en la configuración federada: aplicaciones que no son de la galería'
               href: configure-federated-single-sign-on-non-gallery-applications-problems.md
-            - name: 'Problemas habituales en la configuración de contraseñas: aplicaciones de la galería'
-              href: configure-password-single-sign-on-gallery-applications-problems.md
-            - name: 'Problemas habituales en la configuración de contraseñas: aplicaciones que no son de la galería'
-              href: configure-password-single-sign-on-non-gallery-applications-problems.md
         - name: Solución de problemas de enumeración y asignación de aplicaciones
           items:
             - name: Administración de la lista de aplicaciones del inquilino
@@ -248,16 +240,10 @@
               href: ways-users-get-assigned-to-applications.md
         - name: Solución de problemas de Aplicaciones
           items:
-            - name: Administración de la extensión del explorador
-              href: manage-access-panel-browser-extension.md
             - name: Aplicación que no aparece
               href: access-panel-troubleshoot-application-not-appearing.md
             - name: Aparece una aplicación inesperada
               href: access-panel-troubleshoot-unexpected-application.md
-            - name: No se puede iniciar sesión
-              href: access-panel-troubleshoot-web-sign-in-problem.md
-            - name: Error al usar el acceso de autoservicio a las aplicaciones
-              href: access-panel-troubleshoot-self-service-access.md
         - name: Solución de problemas de aplicaciones locales
           items:
             - name: Solución de problemas del proxy de aplicación
