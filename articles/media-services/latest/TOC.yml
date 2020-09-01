@@ -7,6 +7,8 @@
     - name: Novedades en Media Services
       displayName: release notes
       href: release-notes.md
+    - name: Cumplimiento de Media Services
+      href: concept-compliance.md
 - name: Guías de inicio rápido
   items:
     - name: Configurar el entorno
@@ -45,33 +47,34 @@
           href: encrypt-content-quickstart.md
 - name: Tutoriales
   items:
-    - name: Codificación de archivos remotos y streaming de vídeo
+    - name: .NET
       items:
-        - name: Con REST
-          displayName: 'encoding, job, transform'
+        - name: Codificación y transmisión en secuencias de un archivo remoto REST
           href: stream-files-tutorial-with-rest.md
-        - name: Con la CLI
-          href: stream-files-cli-quickstart.md
-        - name: Con .NET
+        - name: Codificación y transmisión en secuencias de un archivo remoto .NET
           href: stream-files-dotnet-quickstart.md
-        - name: Con Node.js
+        - name: Codificación y transmisión en secuencias de un archivo cargado
+          href: stream-files-tutorial-with-api.md
+        - name: Streaming en vivo
+          href: stream-live-tutorial-with-api.md
+        - name: Análisis del vídeo
+          href: analyze-videos-tutorial-with-api.md
+        - name: Cifrado dinámico con AES-128
+          href: protect-with-aes128.md
+        - name: Cifrado dinámico con DRM
+          href: protect-with-drm.md
+    - name: CLI
+      items:
+        - name: Codificación y transmisión en secuencias de un archivo remoto CLI
+          href: stream-files-cli-quickstart.md
+    - name: Node.js
+      items:
+        - name: Codificación y transmisión en secuencias de un archivo remoto Node.js
           href: stream-files-nodejs-quickstart.md
-    - name: Almacenamiento de eventos de Azure Media Services en Azure Log Analytics
-      href: tutorial-events-log-analytics.md
-    - name: Codificación de archivos cargados y streaming de vídeo
-      displayName: 'encode, encoding, job, transform'
-      href: stream-files-tutorial-with-api.md
-    - name: Streaming en vivo
-      href: stream-live-tutorial-with-api.md
-      displayName: 'Live Events, Live Outputs, ingest'
-    - name: Análisis del vídeo
-      displayName: 'job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset'
-      href: analyze-videos-tutorial-with-api.md
-    - name: Cifrado dinámico con AES-128
-      href: protect-with-aes128.md
-    - name: Cifrado dinámico con DRM
-      displayName: 'PlayReady, Widevine, FairPlay'
-      href: protect-with-drm.md
+    - name: Portal de Azure
+      items:
+        - name: Almacenamiento de eventos de Azure Media Services en Azure Log Analytics
+          href: tutorial-events-log-analytics.md
 - name: Ejemplos
   items:
     - name: "Ejemplos de Media Services\_v3"

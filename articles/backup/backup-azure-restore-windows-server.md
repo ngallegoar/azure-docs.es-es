@@ -3,12 +3,12 @@ title: Restauración de archivos en Windows Server mediante el agente de MARS
 description: En este artículo, aprenderá a restaurar datos almacenados en Azure en un equipo Windows Server o Windows con el agente de Microsoft Azure Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: d96c6c54431d0160bd58be0c3491ef2b22753e53
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: e61ad7083a7b6979222566112820bad133022844
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263408"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892514"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Restauración de archivos en Windows Server mediante el agente de MARS
 
@@ -47,10 +47,10 @@ Si ha eliminado accidentalmente un archivo y desea restaurarlo en la misma máqu
 
     ![Captura de pantalla de la página Seleccionar modo de recuperación del Asistente de recuperación de datos (restauración en la misma máquina)](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
-   > La opción de restauración Archivos y carpetas individuales requiere .NET Framework 4.5.2 o posterior. Si no ve la opción **Archivos y carpetas individuales**, debe actualizar .NET Framework a la versión 4.5.2 o posterior e intentarlo de nuevo.
+   > La opción de restauración Archivos y carpetas individuales requiere .NET Framework 4.5.2 o posterior. Si no ve la opción **Archivos y carpetas individuales**, debe actualizar .NET Framework a la versión 4.5.2 o posterior e intentarlo de nuevo.
 
    > [!TIP]
-   > La opción **Archivos y carpetas individuales** permite el acceso rápido a los datos de punto de recuperación. Es adecuada para recuperar archivos individuales, con tamaños que no superen los 80 GB en total, y ofrece velocidades de transferencia o copia de hasta 6 MBps durante la recuperación. La opción **Volumen** recupera todos los datos de los que se ha realizado una copia de seguridad en un volumen especificado. Esta opción ofrece mayores velocidades de transferencia (hasta 40 MBps), lo que resulta ideal para la recuperación de volúmenes completos o de datos de gran tamaño.
+   > La opción **Archivos y carpetas individuales** permite el acceso rápido a los datos de punto de recuperación. Es adecuado para recuperar archivos individuales y se recomienda para un tamaño total de menos de 80 GB. Ofrece velocidades de transferencia o copia de hasta 6 MBps durante la recuperación. La opción **Volumen** recupera todos los datos de los que se ha realizado una copia de seguridad en un volumen especificado. Esta opción ofrece mayores velocidades de transferencia (hasta 40 MBps) y se recomienda para la recuperación de volúmenes completos o de datos de gran tamaño.
 
 5. En la página **Seleccionar volumen y fecha**, seleccione el volumen que contiene los archivos y carpetas que desea restaurar.
 
@@ -72,10 +72,10 @@ Si ha eliminado accidentalmente un archivo y desea restaurarlo en la misma máqu
 
 9. Cuando haya terminado, en la página **Examinar y recuperar archivos**, seleccione **Desmontar**. Seleccione **Sí** para confirmar que desea desmontar el volumen.
 
-    ![Captura de pantalla de la página Examinar y recuperar archivos del Asistente de recuperación de datos (restauración en la misma máquina)](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
+    ![Captura de pantalla de la página Examinar y recuperar archivos del Asistente de recuperación de datos (restauración en la misma máquina): Confirmar desmontaje del volumen de restauración](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > Si no selecciona **Desmontar**, el volumen de recuperación permanecerá montado durante seis horas desde el momento en el que se montó. Sin embargo, el tiempo de montaje se puede extender hasta veinticuatro horas en el caso de una copia de archivos en curso. No se ejecutará ninguna operación de copia de seguridad mientras el volumen esté montado. Cualquier operación de copia de seguridad programada para ejecutarse durante el tiempo en el que el volumen está montado, se ejecutará después de desmontar el volumen de recuperación.
+    > Si no selecciona **Desmontar**, el volumen de recuperación permanecerá montado durante seis horas desde el momento en el que se montó. Sin embargo, el tiempo de montaje se puede extender hasta 24 horas en el caso de una copia de archivos en curso. No se ejecutará ninguna operación de copia de seguridad mientras el volumen esté montado. Cualquier operación de copia de seguridad programada para ejecutarse durante el tiempo en el que el volumen está montado, se ejecutará después de desmontar el volumen de recuperación.
     >
 
 ## <a name="use-instant-restore-to-restore-data-to-an-alternate-machine"></a>Uso de restauración instantánea para restaurar datos en una máquina alternativa
@@ -138,7 +138,7 @@ Estos pasos incluyen la siguiente terminología:
     ![Desmontar el volumen (restauración en una máquina alternativa)](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > Si no selecciona **Desmontar**, el volumen de recuperación permanecerá montado durante seis horas desde el momento en el que se montó. Sin embargo, el tiempo de montaje se puede extender hasta veinticuatro horas en el caso de una copia de archivos en curso. No se ejecutará ninguna operación de copia de seguridad mientras el volumen esté montado. Cualquier operación de copia de seguridad programada para ejecutarse durante el tiempo en el que el volumen está montado, se ejecutará después de desmontar el volumen de recuperación.
+    > Si no selecciona **Desmontar**, el volumen de recuperación permanecerá montado durante seis horas desde el momento en el que se montó. Sin embargo, el tiempo de montaje se puede extender hasta 24 horas en el caso de una copia de archivos en curso. No se ejecutará ninguna operación de copia de seguridad mientras el volumen esté montado. Cualquier operación de copia de seguridad programada para ejecutarse durante el tiempo en el que el volumen está montado, se ejecutará después de desmontar el volumen de recuperación.
     >
 
 ## <a name="next-steps"></a>Pasos siguientes
