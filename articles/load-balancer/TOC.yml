@@ -9,13 +9,15 @@
     - name: 'Creación de un equilibrador de carga público: Azure Portal'
       href: quickstart-load-balancer-standard-public-portal.md
     - name: 'Creación de un equilibrador de carga público: PowerShell'
-      href: quickstart-create-standard-load-balancer-powershell.md
+      href: quickstart-load-balancer-standard-public-powershell.md
     - name: 'Creación de un equilibrador de carga público: CLI de Azure'
       href: quickstart-load-balancer-standard-public-cli.md
     - name: 'Creación de un equilibrador de carga público: plantilla de Resource Manager'
       href: quickstart-load-balancer-standard-public-template.md
     - name: 'Creación de un equilibrador de carga interno: Azure Portal'
       href: quickstart-load-balancer-standard-internal-portal.md
+    - name: 'Creación de un equilibrador de carga interno: PowerShell'
+      href: quickstart-load-balancer-standard-internal-powershell.md
     - name: 'Creación de un equilibrador de carga interno: CLI de Azure'
       href: quickstart-load-balancer-standard-internal-cli.md
   expanded: true
