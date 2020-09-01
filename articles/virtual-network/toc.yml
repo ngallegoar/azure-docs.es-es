@@ -50,7 +50,7 @@
           items:
             - name: Información general
               href: nat-overview.md
-            - name: Recurso
+            - name: Resource
               href: nat-gateway-resource.md
             - name: Métricas y alertas
               href: nat-metrics.md
@@ -97,7 +97,11 @@
     - name: Seguridad
       items:
         - name: Grupos de seguridad de red
-          href: security-overview.md
+          items:
+            - name: Información general
+              href: security-overview.md
+            - name: Funcionamiento
+              href: network-security-group-how-it-works.md
         - name: Grupos de seguridad de aplicaciones
           href: application-security-groups.md
         - name: Etiquetas de servicio
