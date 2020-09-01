@@ -3,18 +3,18 @@ title: Copia de seguridad sin conexión con Azure Data Box para DPM y MABS
 description: Puede usar Azure Data Box para propagar datos de copia de seguridad inicial sin conexión desde DPM y MABS.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 8b585dc46eb2bdd54e48950ca861f0edc8f0a7ed
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 33515cdd943f3816328bfd77d831288c5ee0a608
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88186827"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890032"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Propagación sin conexión mediante Azure Data Box para DPM y MABS (versión preliminar)
 
 > [!NOTE]
 > Esta característica se aplica a Data Protection Manager (DPM) 2019 UR2 y versiones posteriores.<br><br>
-> Esta característica está actualmente en versión preliminar para Microsoft Azure Backup Server (MABS). Si está interesado en usar Azure Data Box para la propagación sin conexión con MABS, puede ponerse en contacto con nosotros en [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com).
+> Esta característica está actualmente en versión preliminar para Microsoft Azure Backup Server (MABS). Si le interesa usar Azure Data Box para la propagación sin conexión con MABS, puede ponerse en contacto con nosotros en [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com).
 
 En este artículo se explica cómo usar Azure Data Box para propagar datos de copia de seguridad inicial sin conexión desde DPM y MABS a un almacén de Azure Recovery Services.
 
@@ -58,9 +58,9 @@ Asegúrese de lo siguiente:
 
 - Una suscripción válida a Azure.
 - El usuario designado para realizar la directiva de copia de seguridad sin conexión debe ser un propietario de la suscripción de Azure.
-- El trabajo de Data Box y el almacén de Recovery Services al que se deben propagar los datos deben estar disponibles en las mismas suscripciones.
+- El trabajo de Data Box y el almacén de Recovery Services al que se deben propagar los datos deben estar disponibles en las mismas suscripciones.
     > [!NOTE]
-    > Se recomienda que la cuenta de almacenamiento de destino y el almacén de Recovery Services estén en la misma región, aunque no es obligatorio.
+    > Se recomienda que la cuenta de almacenamiento de destino y el almacén de Recovery Services estén en la misma región, aunque no es obligatorio.
 
 ### <a name="order-and-receive-the-data-box-device"></a>Pedir y recibir el dispositivo Data Box
 
@@ -131,7 +131,7 @@ Especifique un origen alternativo: *WIM: D: \Sources\Install.wim: 4*
     ![Selección de replicación en línea inicial](./media/offline-backup-azure-data-box-dpm-mabs/choose-initial-online-replication.png)
 
     >[!NOTE]
-    > La opción para seleccionar **Transferir mediante discos propiedad de Microsoft** no está disponible en MABS v3, ya que la característica está en versión preliminar. Póngase en contacto con nosotros en [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com) si quiere usar esta característica en MABS v3.
+    > La opción para seleccionar **Transferir mediante discos propiedad de Microsoft** no está disponible en MABS v3, ya que la característica está en versión preliminar. Póngase en contacto con nosotros en [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com) si quiere usar esta característica en MABS v3.
 
 12. Inicie sesión en Azure cuando se le pida con unas credenciales de usuario con acceso de propietario en la suscripción de Azure. Tras un inicio de sesión correcto, se muestra la siguiente pantalla:
 
@@ -194,7 +194,7 @@ Especifique un origen alternativo: *WIM: D: \Sources\Install.wim: 4*
 Siga estos pasos una vez que la copia de seguridad de los datos en Azure Data Box Disk sea correcta.
 
 - Siga los pasos de [este artículo](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up) para enviar Azure Data Box Disk a Azure. Si ha usado un dispositivo Azure Data Box de 100 TB, siga [estos pasos](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up) para enviar Azure Data Box a Azure.
-- [Supervise el trabajo de Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) en Azure Portal Una vez que el trabajo de Azure Data Box está *Completo*, el servidor de DPM o MABS mueve automáticamente los datos de la cuenta de almacenamiento al almacén de Recovery Services en el momento de la siguiente copia de seguridad programada. Luego marca el trabajo de copia de seguridad como *Trabajo completado* si se ha creado correctamente un punto de recuperación.
+- [Supervise el trabajo de Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) en Azure Portal Una vez que el trabajo de Azure Data Box está *Completo*, el servidor de DPM o MABS mueve automáticamente los datos de la cuenta de almacenamiento al almacén de Recovery Services en el momento de la siguiente copia de seguridad programada. Luego marca el trabajo de copia de seguridad como *Trabajo completado* si se ha creado correctamente un punto de recuperación.
 
   > [!NOTE]
   > El servidor de DPM o MABS desencadena las copias de seguridad a las horas programadas durante la creación del grupo de protección. Pero estos trabajos se marcan como *Waiting for Azure Data Box job to be completed* (Esperando a que se complete el trabajo de Azure Data Box) hasta que se completa el trabajo.
@@ -234,7 +234,7 @@ Para solucionar este problema, siga estos pasos y vuelva a intentar la configura
 2. Si ningún otro servidor tiene configurada la propagación sin conexión y ningún otro depende de la aplicación `AzureOfflineBackup_<Azure User Id>`, elimine esta aplicación de **Azure Portal> Azure Active Directory > Registros de aplicaciones**.
 
    > [!NOTE]
-   > Compruebe si la aplicación `AzureOfflineBackup_<Azure User Id>` no tiene configurada ninguna otra propagación sin conexión y que tampoco haya otro servidor que dependa de esta aplicación. Vaya a **Configuración > Claves** en la sección Claves públicas: no debe haber ninguna otra **clave pública** agregada. Como referencia, observe la siguiente captura de pantalla:
+   > Compruebe si la aplicación `AzureOfflineBackup_<Azure User Id>` no tiene configurada ninguna otra propagación sin conexión y que tampoco haya otro servidor que dependa de esta aplicación. Vaya a **Configuración > Claves** en la sección Claves públicas. No debe haber ninguna otra **clave pública** agregada. Como referencia, observe la siguiente captura de pantalla:
    >
    > ![Claves públicas](./media/offline-backup-azure-data-box-dpm-mabs/public-keys.png)
 
@@ -255,13 +255,13 @@ En el servidor de DPM o MABS donde intenta configurar la copia de seguridad sin 
     > Para obtener el identificador de usuario de Azure, realice una de estas acciones:
     >
     >- Desde la instancia de PowerShell conectada a Azure, ejecute el comando `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"`.
-    > - Vaya a la ruta de acceso del Registro `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup` con el nombre *CurrentUserId*.
+    > - Navegue hasta la ruta de acceso del registro `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup` con el nombre *CurrentUserId*.
 
 6. Haga clic con el botón derecho en la cadena agregada en el paso anterior y seleccione **Modificar**. En el valor, proporcione la huella digital del certificado exportado en el **punto 2** y seleccione **Aceptar**.
 7. Para obtener el valor de la huella digital, haga doble clic en el certificado, seleccione **Detalles** y vaya hacia abajo hasta que vea el campo Huella digital. Seleccione **Huella digital** y copie el valor.
 
-   ![Certificado](./media/offline-backup-azure-data-box-dpm-mabs/certificate.png)
+   ![Valor de la huella digital](./media/offline-backup-azure-data-box-dpm-mabs/certificate.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Propagación sin conexión mediante un disco propio (con el servicio Azure Import/Export)](backup-azure-backup-server-import-export.md)
+- [Propagación sin conexión mediante un disco propio (con el servicio Azure Import/Export)](backup-azure-backup-server-import-export.md)

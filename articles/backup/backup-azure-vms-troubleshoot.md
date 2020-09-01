@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a solucionar los errores detectados a
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 0f598e0058d817fbba8d816500ab252134be0eb5
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a5784aeb615c6d84048835bd6169f0819fad2f56
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371743"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892344"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solución de errores de copia de seguridad en las máquinas virtuales de Azure
 
@@ -28,7 +28,7 @@ En esta sección se trata el error en la operación de copia de seguridad de la 
 * Compruebe que la máquina virtual tiene conectividad a Internet.
   * Asegúrese de que no hay otro servicio de copia de seguridad en ejecución.
 * En `Services.msc`, asegúrese de que el estado del servicio **Microsoft Azure Guest Agent** es **En ejecución**. Si falta el servicio **Windows Azure Guest Agent**, instálelo desde [Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services](./backup-azure-arm-vms-prepare.md#install-the-vm-agent).
-* El **registro de eventos** puede mostrar errores procedentes de otros productos de copia de seguridad, como por ejemplo Copias de seguridad de Windows Server, que no se deben a Azure Backup. Siga estos pasos para determinar si el problema tiene que ver con Azure Backup:
+* El **registro de eventos** puede mostrar errores de copia de seguridad procedentes de otros productos, como por ejemplo, Copias de seguridad de Windows Server, que no se deben a Azure Backup. Siga estos pasos para determinar si el problema tiene que ver con Azure Backup:
   * Si hay algún error en una entrada **Backup** (Copia de seguridad) en el origen del evento o en el mensaje, compruebe si las copias de seguridad de la máquina virtual IaaS de Azure se realizaron correctamente y si se creó un punto de restauración con el tipo de instantánea deseado.
   * Si Azure Backup funciona, es probable que el problema lo produzca otra solución de copia de seguridad.
   * Este es un ejemplo de un error 517 del visor de eventos en el que Azure Backup funcionaba correctamente, pero se produjo un error en "Copias de seguridad de Windows Server":<br>
@@ -93,8 +93,8 @@ La operación de copia de seguridad no se pudo realizar debido a un problema con
 * Si no se puede reiniciar el servicio, reinstale el servicio **Coordinador de transacciones distribuidas** siguiendo los pasos siguientes:
   * Detenga el servicio MSDTC.
   * Abra el símbolo del sistema (cmd).
-  * Ejecute el comando "msdtc-uninstall".
-  * Ejecute el comando "msdtc-install".
+  * Ejecute el comando `msdtc -uninstall`.
+  * Ejecute el comando `msdtc -install`.
   * Inicie el servicio MSDTC.
 * Inicie el servicio de Windows **Aplicación del sistema COM+** . Una vez que se inicie **Aplicación del sistema COM+** , desencadene un trabajo de copia de seguridad desde Azure Portal.</ol>
 
@@ -167,7 +167,7 @@ Mensaje de error: No se pudo realizar la operación de instantánea porque se ex
 
 No se pudo realizar la operación de instantánea porque se excedió el límite de instantáneas para algunos de los discos asociados. Siga los pasos de solución de problemas siguientes y luego vuelva a intentar la operación.
 
-* Elimine las instantáneas de blobs de disco que no sean necesarias. Tenga cuidado de no eliminar el blob de disco. Solo se deben eliminar los blobs de instantánea.
+* Elimine las instantáneas de blobs de disco que no sean necesarias. Tenga cuidado de no eliminar blobs de disco. Solo se deben eliminar los blobs de instantáneas.
 * Si está habilitada la eliminación temporal en cuentas de almacenamiento de disco de VM, configure la retención de eliminación temporal de manera que las instantáneas existentes sean inferiores a las máximas permitidas en cualquier momento.
 * Si Azure Site Recovery está habilitado en la VM de la que se ha realizado la copia de seguridad, realice los siguientes pasos:
 
@@ -183,7 +183,7 @@ Error de operación de copia de seguridad de la VM debido a un retraso en las ll
 
 **Paso 1**: Creación de una instantánea con permisos de host
 
-En el símbolo del sistema de administrador con permisos elevados, ejecute el comando siguiente:
+Desde un símbolo del sistema elevado (administrador), ejecute el siguiente comando:
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotMethod /t REG_SZ /d firstHostThenGuest /f
@@ -192,7 +192,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 
 Esto garantizará que las instantáneas se realizan con permisos de host en lugar de invitado. Vuelva a intentar la operación de copia de seguridad.
 
-**Paso 2**: Pruebe a cambiar la programación de la copia de seguridad a un momento en que la VM esté bajo una carga menor (menos CPU, E/S por segundo, etc.).
+**Paso 2**: Pruebe a cambiar la programación de la copia de seguridad a un momento en que la VM esté bajo una carga menor (por ejemplo, menos CPU u IOPS).
 
 **Paso 3**: Pruebe a [aumentar el tamaño de la VM](https://azure.microsoft.com/blog/resize-virtual-machines/) y reintente la operación.
 
@@ -289,23 +289,23 @@ Si la copia de seguridad tarda más de 12 horas o la restauración tarda más d
 
 Normalmente, el agente de la máquina virtual ya está presente en las máquinas virtuales que se crean desde la Galería de Azure. Sin embargo, las máquinas virtuales que se migran desde los centros de datos locales no tendrán instalado el agente de máquina virtual. Para dichas máquinas virtuales, el agente de máquina virtual debe instalarse explícitamente.
 
-#### <a name="windows-vms"></a>Máquinas virtuales Windows
+#### <a name="windows-vms---set-up-the-agent"></a>Máquinas virtuales Windows: configuración del agente
 
 * Descargue e instale el [MSI del agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Para completar la instalación, necesita privilegios de administrador.
 * En el caso de las máquinas virtuales creadas con el modelo de implementación clásica, [actualice la propiedad de la máquina virtual](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) para indicar que el agente está instalado. Este paso no es necesario para las máquinas virtuales de Azure Resource Manager.
 
-#### <a name="linux-vms"></a>Máquinas virtuales con Linux
+#### <a name="linux-vms---set-up-the-agent"></a>Máquinas virtuales Linux: configuración del agente
 
 * Instale la versión más reciente del agente desde el repositorio de distribución. Para obtener más información sobre el nombre del paquete, consulte el [repositorio del agente de Linux](https://github.com/Azure/WALinuxAgent).
 * En el caso de las máquinas virtuales creadas con el modelo de implementación clásica, [actualice la propiedad de la máquina virtual](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) y asegúrese de que el agente está instalado. Este paso no es necesario para las máquinas virtuales de Resource Manager.
 
 ### <a name="update-the-vm-agent"></a>Actualización del agente de máquina virtual
 
-#### <a name="windows-vms"></a>Máquinas virtuales Windows
+#### <a name="windows-vms---update-the-agent"></a>Máquinas virtuales Windows: actualización del agente
 
 * Para actualizar el agente de VM, vuelva a instalar los [archivos binarios del agente de VM](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Antes de actualizar al agente, asegúrese de que no ocurra ninguna operación de copia de seguridad durante la actualización del agente de VM.
 
-#### <a name="linux-vms"></a>Máquinas virtuales con Linux
+#### <a name="linux-vms---update-the-agent"></a>Máquinas virtuales Linux: actualización del agente
 
 * Para actualizar el agente de máquina virtual Linux, siga las instrucciones del artículo [Actualización del agente Linux de Azure en una máquina virtual](../virtual-machines/extensions/update-linux-agent.md?toc=/azure/virtual-machines/linux/toc.json).
 

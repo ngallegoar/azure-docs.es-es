@@ -4,13 +4,13 @@ description: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/10/2020
-ms.openlocfilehash: 3cd2ed692f3a34223675da69efd92e78c2ba9504
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.date: 08/19/2020
+ms.openlocfilehash: 97ba976c841e192646ebb484fe4d004556e34c54
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88082860"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640844"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Configuración de la recopilación de datos para el agente de Azure Monitor (versión preliminar)
 Las reglas de recopilación de datos (DCR) definen los datos que entran en Azure Monitor y especifican dónde se deben enviar. En este artículo se describe cómo crear una regla de recopilación de datos para recopilar datos de máquinas virtuales mediante el agente de Azure Monitor.
@@ -61,6 +61,11 @@ Haga clic en **Agregar origen de datos** (Agregar origen de datos) y, después, 
 > [!NOTE]
 > Cuando se hayan creado las asociaciones y la regla de recopilación de datos, los datos pueden tardar hasta cinco minutos en enviarse a los destinos.
 
+## <a name="createusingrestapi"></a>Creación mediante la API REST
+Siga los pasos que se indican a continuación para crear una DCR y asociaciones mediante la API REST. 
+1. Cree manualmente el archivo DCR con el formato JSON que se muestra en  [DCR de ejemplo](data-collection-rule-overview.md#sample-data-collection-rule).
+2. Cree la regla con la  [API REST](https://docs.microsoft.com/rest/api/monitor/datacollectionrules/create#examples).
+3. Cree una asociación para cada máquina virtual a la regla de recopilación de datos mediante la  [API REST](https://docs.microsoft.com/rest/api/monitor/datacollectionruleassociations/create#examples).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

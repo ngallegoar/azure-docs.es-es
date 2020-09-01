@@ -3,12 +3,12 @@ title: Preparación del servidor DPM para realizar copias de seguridad de las ca
 description: En este artículo, aprenderá a preparar las copias de seguridad de System Center Data Protection Manager (DPM) en Azure con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 7043b4411856addf0fae26ee5402c4d3878e7f12
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 96eadb4d600b6aa842cdbded2a906d70f27cf55e
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612663"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890814"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparación para realizar copias de seguridad de las cargas de trabajo en Azure con System Center DPM
 
@@ -161,7 +161,7 @@ Todas las máquinas cuya copia de seguridad se realiza con Azure Backup deben te
 
     > [!WARNING]
     > El usuario posee la frase de contraseña de cifrado y Microsoft no puede verla.
-    > Si la frase de contraseña se pierde u olvida; Microsoft no puede ayudar a recuperar los datos de copia de seguridad.
+    > Si la frase de contraseña se pierde u olvida, Microsoft no puede ayudar a recuperar los datos de copia de seguridad.
 
 7. Seleccione **Registrar** para registrar el servidor DPM en el almacén.
 

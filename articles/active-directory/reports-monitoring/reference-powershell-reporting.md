@@ -17,24 +17,25 @@ ms.date: 08/07/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0510184e2471d61c8911b5fcd484fd5dec0bce28
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 6a198a63d633573ad683a3f8e8215b2975721bc9
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144482"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794933"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Cmdlets de Azure AD PowerShell para informes
 
 > [!NOTE] 
-> En la actualidad, estos cmdlets de Powershell solo funcionan con el módulo de la [versión preliminar de Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing). Tenga en cuenta que no se recomienda utilizar el módulo de la versión preliminar para producción. 
+> En la actualidad, estos cmdlets de PowerShell solo funcionan con el módulo de la [versión preliminar de Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing). Tenga en cuenta que no se recomienda utilizar el módulo de la versión preliminar para producción. 
 
 Para instalar la versión preliminar pública, use lo siguiente. 
 
 ```powershell
 Install-module AzureADPreview
 ```
-Para obtener más información sobre cómo conectarse a Azure AD con PowerShell, consulte el artículo [Azure AD PowerShell for Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).  
+
+Para más información sobre cómo conectarse a Azure AD con PowerShell, consulte el artículo [Azure AD PowerShell for Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).  
 
 Con los informes de Azure Active Directory (Azure AD), puede obtener detalles sobre las actividades de todas las operaciones de escritura en su dirección (registros de auditoría) y los datos de autenticación (registros de inicio de sesión). Aunque la información está disponible mediante MS Graph API, ahora puede recuperar los mismos datos usando los cmdlets de PowerShell de Azure AD para la generación de informes.
 
@@ -42,7 +43,7 @@ En este artículo se ofrece información general sobre los cmdlets de PowerShell
 
 ## <a name="audit-logs"></a>Registros de auditoría
 
-Los [registros de auditoría](concept-audit-logs.md) proporcionan rastreabilidad mediante los registros de todos los cambios realizados por diversas características de Azure AD. Algunos ejemplos de registros de auditoría incluyen los cambios realizados en cualquier recurso de Azure AD como agregar o quitar usuarios, aplicaciones, grupos, roles y directivas.
+Los [registros de auditoría](concept-audit-logs.md) proporcionan rastreabilidad mediante los registros de todos los cambios realizados por diversas características de Azure AD. Algunos ejemplos de registros de auditoría incluyen los cambios realizados en cualquier recurso de Azure AD, como agregar o quitar usuarios, aplicaciones, grupos, roles y directivas.
 
 Puede acceder a los registros de auditoría con el cmdlet "Get-AzureADAuditDirectoryLogs".
 

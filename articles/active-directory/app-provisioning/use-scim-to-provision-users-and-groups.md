@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 70938bf1dcd06ce9936767c66ffead0f8627c5a7
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: be33841206fa30a5b4975a604af1b5d9e38551a8
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235475"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690262"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Creación de un punto de conexión SCIM y configuración del aprovisionamiento de usuarios con Azure AD
 
@@ -153,6 +153,7 @@ Dentro de la [especificación del protocolo SCIM 2.0](http://www.simplecloud.inf
 * Admitir la consulta de usuarios por identificador y por administrador, según la sección 3.4.2 del protocolo SCIM.  
 * Admitir la consulta de grupos por Id. y miembro, según la sección 3.4.2 del protocolo SCIM.  
 * Acepta un token de portador único para la autenticación y autorización de Azure AD para la aplicación.
+* Admite la eliminación temporal de un usuario `active=false` y la restauración del usuario `active=true`.
 
 Siga estas directrices generales al implementar un punto de conexión SCIM para garantizar la compatibilidad con Azure AD:
 

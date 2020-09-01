@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: cbbfddca1a6a07625a69be8ffb0409640d825793
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: d4ed88dea0d230fd3488621c217ef9ea086310d5
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037019"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691486"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Uso de controles de aplicaciones adaptables para reducir las superficies de ataque de las máquinas
 
@@ -83,7 +83,7 @@ Seleccione la recomendación o abra la página de controles de aplicaciones adap
     - **Ninguna recomendación**: máquinas sin una lista de aplicaciones permitidas definida y que no admiten la característica. Es posible que su máquina virtual esté en esta pestaña por las siguientes razones:
       - Falta un agente de Log Analytics
       - El agente de Log Analytics no envía eventos
-      - Es una máquina Windows con una directiva de [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker) ya existente habilitada por un GPO o una directiva de seguridad local.
+      - Es una máquina Windows con una directiva de [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) ya existente habilitada por un GPO o una directiva de seguridad local.
 
       > [!TIP]
       > Security Center necesita al menos dos semanas de datos para definir las recomendaciones únicas por grupo de máquinas. Las máquinas que se han creado recientemente, o que pertenecen a suscripciones que solo se habilitaron recientemente con el nivel estándar, aparecerán en la pestaña **Ninguna recomendación**.

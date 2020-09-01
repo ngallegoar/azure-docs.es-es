@@ -12,12 +12,12 @@ ms.date: 08/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 3d810d14dd6b49bc054e3844a60ec33c62dc084c
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 1ce8f376d3264a06618cb7321c75142dcf92d9ea
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271250"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891868"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publicación de la aplicación en la galería de aplicaciones de Azure AD
 
@@ -98,7 +98,7 @@ OAuth 2.0 es un protocolo [estándar de la industria](https://oauth.net/2/) par
 
 ### <a name="saml-20-or-ws-fed"></a>SAML 2.0 o WS-Fed
 
-SAML es un estándar de inicio de sesión único, consolidado y ampliamente adoptado para aplicaciones web. Para más información sobre cómo Azure usa SAML, vea [Uso del protocolo SAML por parte de Azure](active-directory-saml-protocol-reference.md). 
+SAML es un [estándar de inicio de sesión único](https://www.oasis-open.org/standards#samlv2.0), consolidado y ampliamente adoptado para aplicaciones web. Para más información sobre cómo Azure usa SAML, vea [Uso del protocolo SAML por parte de Azure](active-directory-saml-protocol-reference.md). 
 
 Web Services Federation (WS-Fed) es un [estándar del sector](https://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html) que normalmente se usa para las aplicaciones web que se desarrollan mediante la plataforma .NET.
 

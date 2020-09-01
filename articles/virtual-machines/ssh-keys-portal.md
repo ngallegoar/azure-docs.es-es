@@ -5,14 +5,14 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 07/31/2020
+ms.date: 08/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 17ab7ee75e335d686bf308c4b15a53dc4e2e6b0e
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: abc9a2ae130d987c90ce87ffaecbf2bb44b06010
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041755"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929452"
 ---
 # <a name="generate-and-store-ssh-keys-in-the-azure-portal"></a>Generar y almacenar claves SSH en Azure Portal
 
@@ -28,7 +28,7 @@ Para obtener información más detallada sobre la creación y el uso de claves S
 
 1. Abra [Azure Portal](https://portal.azure.com).
 
-1. En la parte superior de la página, escriba *SSH* para realizar la búsqueda. En **Marketplace*, seleccione **Claves SSH**.
+1. En la parte superior de la página, escriba *SSH* para realizar la búsqueda. En **Marketplace**, seleccione **Claves SSH**.
 
 1. En la página de **claves SSH**, seleccione **Crear**.
 
@@ -89,6 +89,20 @@ También puede cargar una clave SSH pública para almacenarla en Azure. Para obt
 1. Una vez completada la validación, seleccione **Crear**. 
 
 Una vez que se ha cargado la clave, puede elegir usarla cuando cree una VM.
+
+## <a name="list-keys"></a>Enumeración de claves
+
+Las claves SSH creadas en el portal se almacenan como recursos, por lo que puede filtrar la vista de recursos para verlas todas.
+
+1. En el portal, seleccione **Todos los recursos**.
+1. En los filtros, seleccione **Tipo**, anule la selección de la opción **Seleccionar todo** para borrar la lista.
+1. Escriba **SSH** en el filtro y seleccione **Clave SSH**.
+
+   :::image type="content" source="./media/ssh-keys/filter.png" alt-text="Captura de pantalla sobre cómo filtrar la lista para ver todas las claves SSH.":::
+
+## <a name="get-the-public-key"></a>Obtención de la clave pública
+
+Si necesita la clave pública, puede copiarla fácilmente desde la página del portal de la clave. Solo tiene que mostrar las claves (mediante el proceso de la última sección) y, a continuación, seleccionar una clave en la lista. Se abrirá la página de la clave y podrá hacer clic en el icono **Copiar al portapapeles** junto a la clave para copiarla.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

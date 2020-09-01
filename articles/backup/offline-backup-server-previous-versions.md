@@ -3,12 +3,12 @@ title: 'Copia de seguridad sin conexión para Data Protection Manager (DPM) y Mi
 description: Con Azure Backup, puede enviar datos fuera de la red mediante el servicio Azure Import/Export. En este artículo se explica el flujo de trabajo de la copia de seguridad sin conexión para las versiones anteriores de DPM y Azure Backup Server.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: e986baaf6ac2943bd210761ff2194eacdee5984a
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: b747fd3c682dc1caf7312ba7279470a1e6b38bd5
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88261929"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890100"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Flujo de trabajo de copia de seguridad sin conexión para DPM y Azure Backup Server (versiones anteriores)
 
@@ -46,7 +46,7 @@ La copia de seguridad sin conexión es compatible con todos los modelos de imple
 > * Copia de seguridad de todas las cargas de trabajo y archivos con MABS.
 
 >[!NOTE]
->Las suscripciones de CSP de Azure no se admiten para su uso con la propagación sin conexión para DPM 2019 RTM y versiones anteriores, y MABS v3 RTM y versiones anteriores. Todavía se admiten copias de seguridad en línea a través de la red.
+>Las suscripciones de CSP de Azure no se admiten para su uso con la propagación sin conexión para DPM 2019 RTM y versiones anteriores, y MABS v3 RTM y versiones anteriores. Todavía se admiten copias de seguridad en línea a través de la red.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

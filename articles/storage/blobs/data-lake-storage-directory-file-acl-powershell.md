@@ -6,15 +6,15 @@ author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: how-to
-ms.date: 08/10/2020
+ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: ef205a9a94ef7b40ed271387df617a5d96a78307
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 01706b3f6850d49240b9c84997cbbec528045200
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054313"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923881"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Uso de PowerShell para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2
 
@@ -297,7 +297,7 @@ $file.ACL
 
 En la siguiente imagen se muestra la salida después de obtener la ACL de un directorio.
 
-![Obtención de una salida de ACL](./media/data-lake-storage-directory-file-acl-powershell/get-acl.png)
+![Obtención de una salida de ACL para el directorio](./media/data-lake-storage-directory-file-acl-powershell/get-acl.png)
 
 En este ejemplo, el usuario propietario tiene permisos de lectura, escritura y ejecución. El grupo propietario tiene permisos de solo lectura y ejecución. Para más información sobre las listas de control de acceso, vea [Control de acceso en Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
@@ -344,31 +344,9 @@ $file.ACL
 
 En la siguiente imagen se muestra la salida después de establecer la ACL de un archivo.
 
-![Obtención de una salida de ACL](./media/data-lake-storage-directory-file-acl-powershell/set-acl.png)
+![Obtención de una salida de ACL para el archivo](./media/data-lake-storage-directory-file-acl-powershell/set-acl.png)
 
 En este ejemplo, el usuario propietario y el grupo propietario tienen permisos de solo lectura y escritura. Los demás usuarios tienen permisos de escritura y ejecución. Para más información sobre las listas de control de acceso, vea [Control de acceso en Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
-
-
-### <a name="set-acls-on-all-items-in-a-container"></a>Establecimiento de listas de control de acceso en todos los elementos de un contenedor
-
-`Get-AzDataLakeGen2Item` y el parámetro `-Recurse` se pueden usar junto con el cmdlet `Update-AzDataLakeGen2Item` de forma recursiva para establecer la ACL de los directorios y archivos de un contenedor. 
-
-```powershell
-$filesystemName = "my-file-system"
-$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rw- 
-$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- -InputObject $acl 
-$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission -wx -InputObject $acl
-
-$Token = $Null
-do
-{
-     $items = Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse -ContinuationToken $Token    
-     if($items.Count -le 0) { Break;}
-     $items | Update-AzDataLakeGen2Item -Acl $acl
-     $Token = $items[$items.Count -1].ContinuationToken;
-}
-While ($Token -ne $Null) 
-```
 
 ### <a name="add-or-update-an-acl-entry"></a>Incorporación o actualización de una entrada de ACL
 
@@ -404,6 +382,10 @@ foreach ($a in $aclnew)
 }
 Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $aclnew
 ```
+
+### <a name="set-an-acl-recursively-preview"></a>Establecimiento de una ACL de forma recursiva (versión preliminar)
+
+Puede agregar, actualizar y quitar las ACL de forma recursiva para los elementos secundarios existentes de un directorio primario sin tener que realizar estos cambios individualmente para cada elemento secundario. Para obtener más información, consulte [Establecimiento de listas de control de acceso (ACL) de forma recursiva para Azure Data Lake Storage Gen2](recursive-access-control-lists.md).
 
 <a id="gen1-gen2-map"></a>
 

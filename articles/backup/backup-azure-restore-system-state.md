@@ -3,12 +3,12 @@ title: Restauración del estado del sistema a Windows Server
 description: Explicación detallada para restaurar el estado de sistema de Windows Server a partir de una copia de seguridad en Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 727268b2dc9473a6bda79f023e8a75202d43afe4
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 9237d3d087da7f9e72813baa0056cd6b70f2c914
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263442"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892548"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restauración del estado del sistema a Windows Server
 
@@ -181,7 +181,7 @@ En este artículo solo se describe el primer escenario, que llama a una restaura
     * Siga las instrucciones anteriores para [aplicar el estado del sistema restaurado a Windows Server](#apply-restored-system-state-on-a-windows-server) con la utilidad Copias de seguridad de Windows Server.
 
         >[!NOTE]
-        >Si va a restaurar todos los datos de Active Directory (y no quedan controladores de dominio que funcionen en el bosque), en el paso 9 anterior, asegúrese de seleccionar **Realizar una restauración autoritativa de los archivos de Active Directory**.
+        >Si va a restaurar todos los datos de Active Directory (y no quedan controladores de dominio que funcionen en el bosque), en el paso 9 anterior, asegúrese de seleccionar **Realizar una restauración autoritativa de los archivos de Active Directory**.
 
     * Use la utilidad [wbadmin](/windows-server/administration/windows-commands/wbadmin-start-systemstaterecovery) para realizar la restauración desde la línea de comandos.
 

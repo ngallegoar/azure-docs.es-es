@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 079e3f9219d649d9740d38a8a8452e51b9d84acf
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: a2f319f7bbd3fa0c6c4efb7e225bfc85a76002f2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066413"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919716"
 ---
 # <a name="azure-database-for-mysql-infrastructure-double-encryption"></a>Cifrado doble de infraestructura de Azure Database for MySQL
 
@@ -36,7 +36,7 @@ La implementación en los niveles de infraestructura también admite una diversi
 
 El cifrado doble de infraestructura de Azure Database for MySQL proporciona las siguientes ventajas:
 
-1. **Diversidad de implementación de cifrado adicional**: la intención planeada de cambiar al cifrado basado en hardware diversificará aún más las implementaciones proporcionando una implementación basada en hardware además de otra basada en software.
+1. **Diversidad de implementación de cifrado adicional**: La intención planeada de cambiar al cifrado basado en hardware diversificará aún más las implementaciones proporcionando una implementación basada en hardware además de otra basada en software.
 2. **Errores de implementación**: dos capas de cifrado en el nivel de infraestructura protegen frente a los errores en el almacenamiento en caché o la administración de memoria en niveles superiores que exponen datos de texto no cifrado. Además, las dos capas también protegen frente a los errores de implementación del cifrado en general.
 
 La combinación de estas proporciona una protección sólida frente a las amenazas comunes y los puntos débiles utilizados para atacar la criptografía.
@@ -62,6 +62,12 @@ Las funcionalidades de cifrado que proporciona Azure Database for MySQL se puede
 Para Azure Database for MySQL, la compatibilidad con el cifrado doble de infraestructura mediante una clave administrada por el servicio tiene las siguientes limitaciones:
 
 * La compatibilidad con esta funcionalidad se limita a los planes de tarifa **De uso general** y **Optimizados para memoria**.
+* Puede crear una instancia de Azure Database for MySQL que tenga habilitado el cifrado de infraestructura en las siguientes regiones:
+
+   * Este de EE. UU.
+   * Centro-sur de EE. UU.
+   * Oeste de EE. UU. 2
+   
 * * Esta característica solo se admite en regiones y servidores que admiten almacenamiento de hasta 16 TB. Para ver la lista de regiones de Azure que admiten almacenamiento de hasta 16 TB, consulte la [documentación de almacenamiento](concepts-pricing-tiers.md#storage).
 
     > [!NOTE]

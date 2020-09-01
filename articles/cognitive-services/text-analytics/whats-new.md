@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 08/26/2020
 ms.author: aahi
-ms.openlocfilehash: 1a5f7dcd37a970d5e039ebc38f1059839424ff68
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: f017960e304df04148c318b5098f384e6140de9a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192023"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930917"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novedades de Text Analytics API
 
@@ -27,7 +27,9 @@ Text Analytics API se actualiza constantemente. Para mantenerse al día con los 
 
 * Versión del modelo `2020-07-01` para los puntos de conexión `/keyphrases`, `/pii` y `/languages` v3, que agrega:
     * [Categorías de entidades](named-entity-types.md?tabs=personal) gubernamentales y nacionales adicionales para el reconocimiento de entidades con nombre.
+    * Compatibilidad con noruego y turco en Análisis de sentimiento v3.
 * Ahora se devolverá un error HTTP 400 para las solicitudes de API v3 que superen los [límites de datos](concepts/data-limits.md) publicados. 
+* Los puntos de conexión que devuelven un desplazamiento ya admiten el parámetro opcional `stringIndexType`, que ajusta los valores devueltos `offset` y `length` para que coincidan con un [esquema de índice de cadena](concepts/text-offsets.md) compatible.
 
 ### <a name="text-analytics-for-health-container-august-updates"></a>Actualizaciones de agosto de Text Analytics para el contenedor de estado
 

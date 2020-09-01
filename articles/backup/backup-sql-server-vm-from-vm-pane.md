@@ -3,12 +3,12 @@ title: Copia de seguridad de una máquina virtual con SQL Server desde el panel 
 description: En este artículo, aprenderá a realizar copias de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure desde el panel de la máquina virtual.
 ms.topic: conceptual
 ms.date: 08/13/2020
-ms.openlocfilehash: dd30ca1fb138d3e3bd44633b9d5e71beae6d96be
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 4f4ea202ee96e93a621c8dd0025c9ebc8b8d445d
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226942"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891664"
 ---
 # <a name="back-up-a-sql-server-from-the-vm-pane"></a>Copia de seguridad de SQL Server desde el panel de la máquina virtual
 

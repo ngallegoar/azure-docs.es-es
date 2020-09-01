@@ -3,20 +3,20 @@ title: Uso de entornos de software
 titleSuffix: Azure Machine Learning
 description: Cree y administre entornos para el entrenamiento y la implementación de modelos. Administre paquetes de Python y otros valores para el entorno.
 services: machine-learning
-author: rastala
-ms.author: roastala
+author: saachigopal
+ms.author: sagopal
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: e6e4b8d7cc3b22737e7e76c31fd1377912fe28cb
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 3368a42248e084476eb27318abbcd1ca9fbfdacf
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167154"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927551"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Creación y uso de entornos de software en Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -62,11 +62,6 @@ ws = Workspace.from_config()
 env = Environment.get(workspace=ws, name="AzureML-Minimal")
 ```
 
-Para modificar un entorno seleccionado, este se debe copiar:
-
-```python
-env = Environment.get(workspace=ws, name="AzureML-Tutorial").clone("new_env")
-```
 Puede enumerar los entornos mantenidos y sus paquetes mediante el código siguiente:
 
 ```python
@@ -158,7 +153,7 @@ Agregue paquetes a un entorno con los archivos de Conda, pip o Private Wheel. Es
 
 Si hay un paquete disponible en un repositorio de paquetes Conda, se recomienda usar la instalación de Conda en lugar de la instalación de pip. Los paquetes de Conda suelen incluir archivos binarios pregenerados que hacen que la instalación sea más confiable.
 
-En el ejemplo siguiente se agrega al entorno. Agrega la versión 1.17.0 de `numpy`. También agrega el paquete de `pillow`, `myenv`. En el ejemplo se usan el método [`add_conda_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-conda-package-conda-package-) y el método [`add_pip_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-pip-package-pip-package-), respectivamente.
+En el ejemplo siguiente se agrega al entorno `myenv`. Agrega la versión 1.17.0 de `numpy`. También se agrega el paquete de `pillow`. En el ejemplo se usan el método [`add_conda_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-conda-package-conda-package-) y el método [`add_pip_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-pip-package-pip-package-), respectivamente.
 
 ```python
 from azureml.core.environment import Environment
@@ -247,10 +242,14 @@ build = env.build(workspace=ws)
 build.wait_for_completion(show_output=True)
 ```
 
-Resulta útil compilar imágenes de forma local mediante el método [`build_local()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-). Así mismo, al establecer el parámetro opcional `pushImageToWorkspaceAcr = True`, se incluirá la imagen resultante en el registro de contenedor del área de trabajo de Azure Machine Learning. 
+Resulta útil compilar imágenes de forma local mediante el método [`build_local()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-). Para compilar una imagen de Docker, establezca el parámetro opcional `useDocker=True`. Para insertar la imagen resultante en el registro de contenedor del área de trabajo de AzureML, establezca `pushImageToWorkspaceAcr=True`.
+
+```python
+build = env.build_local(workspace=ws, useDocker=True, pushImageToWorkspaceAcr=True)
+```
 
 > [!WARNING]
->  Si se cambia el orden de las dependencias o de los canales de un entorno, se generará un nuevo entorno y, por tanto, será necesario volver a compilar la imagen.
+>  Si se cambia el orden de las dependencias o de los canales de un entorno, se generará un nuevo entorno y, por tanto, será necesario volver a compilar la imagen. Además, al llamar al método `build()` de una imagen existente se actualizarán sus dependencias si hay nuevas versiones. 
 
 ## <a name="enable-docker"></a>Habilitación de Docker
 
@@ -328,7 +327,7 @@ myenv.python.interpreter_path = "/opt/miniconda/bin/python"
 En el caso de un entorno registrado, se pueden recuperar los detalles de la imagen mediante el código siguiente, donde `details` es una instancia de [DockerImageDetails](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockerimagedetails?view=azure-ml-py) (SDK de AzureML para Python > = 1.11) y proporciona toda la información sobre la imagen del entorno, como el dockerfile, el registro y el nombre de la imagen.
 
 ```python
-details = environment.get_image_details()
+details = environment.get_image_details(workspace=ws)
 ```
 
 ## <a name="use-environments-for-training"></a>Uso de entornos para el entrenamiento
@@ -422,10 +421,6 @@ service = Model.deploy(
 ## <a name="notebooks"></a>Cuaderno
 
 En este [artículo](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#add-new-kernels) se proporciona información sobre cómo instalar un entorno de Conda como kernel en un cuaderno.
-
-Este [cuaderno de ejemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments) amplía los conceptos y métodos que se muestran en este artículo.
-
-En este [cuaderno de ejemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local/train-on-local.ipynb) se muestra cómo entrenar un modelo localmente con diferentes tipos de entornos.
 
 En [Implementación de un modelo mediante una imagen base personalizada de Docker](how-to-deploy-custom-docker-image.md), se muestra cómo implementar un modelo mediante una imagen base personalizada de Docker.
 

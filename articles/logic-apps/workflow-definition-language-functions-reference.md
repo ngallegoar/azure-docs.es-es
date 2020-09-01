@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/06/2020
-ms.openlocfilehash: ca6324bd27749d9be3f516dbcd8ff99eca39d1a6
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.date: 08/26/2020
+ms.openlocfilehash: e4f9fa554a7c0e45abe1e9686605c95bb79d1739
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875462"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932957"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guía de referencia para usar las funciones en las expresiones para Azure Logic Apps y Power Automate
 
@@ -1128,27 +1128,27 @@ bool(<value>)
 
 | Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Sí | Any | Valor que se va a convertir |
+| <*value*> | Sí | Any | Valor para convertir en booleano. |
 |||||
+
+Si está utilizando `bool()` con un objeto, el valor del objeto debe ser una cadena o un entero que se pueda convertir en un valor booleano.
 
 | Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
-| true o false | Boolean | Versión booleana del valor especificado |
+| `true` o `false` | Boolean | Versión booleana del valor especificado. |
 ||||
 
-*Ejemplo*
+*Salidas*
 
-Estos ejemplos convierten los valores especificados en valores booleanos:
+En estos ejemplos se muestran los diferentes tipos de entrada admitidos para `bool()`:
 
-```
-bool(1)
-bool(0)
-```
-
-Y devuelve estos resultados:
-
-* Primer ejemplo: `true`
-* Segundo ejemplo: `false`
+| Valor de entrada | Tipo | Valor devuelto |
+| ----------- | ---------- | ---------------------- |
+| `bool(1)` | Entero | `true` |
+| `bool(0)` | Entero    | `false` |
+| `bool(-1)` | Entero | `true` |
+| `bool('true')` | String | `true` |
+| `bool('false')` | String | `false` |
 
 <a name="coalesce"></a>
 
