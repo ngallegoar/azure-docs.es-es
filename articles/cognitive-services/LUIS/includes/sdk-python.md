@@ -148,7 +148,7 @@ Los métodos de creación de entidades forman parte de la clase [ModelOperations
 
 El código de creación de entidad crea una entidad de aprendizaje automático con subentidades y características aplicadas a las subentidades de `Quantity`.
 
-:::image type="content" source="../media/quickstart-sdk/machine-learned-entity.png" alt-text="El código de creación de entidad crea una entidad de aprendizaje automático con subentidades y características aplicadas a las subentidades de "Quantity".":::
+:::image type="content" source="../media/quickstart-sdk/machine-learned-entity.png" alt-text="El código de creación de entidad crea una entidad de aprendizaje automático con subentidades y características aplicadas a las subentidades de Quantity.":::
 
 [!code-python[Create entities](~/cognitive-services-quickstart-code/python/LUIS/sdk-3x/authoring_and_predict.py?name=AuthoringAddEntities)]
 
