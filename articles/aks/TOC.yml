@@ -129,6 +129,8 @@
       href: security-hardened-vm-host-image.md
     - name: Introducción a los diagnósticos de Azure Kubernetes Service
       href: concepts-diagnostics.md
+    - name: Ingeniería de software sostenible
+      href: concepts-sustainable-software-engineering.md
 - name: Guías paso a paso
   items:
     - name: Operaciones del clúster
