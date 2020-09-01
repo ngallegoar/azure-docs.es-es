@@ -132,7 +132,7 @@ En la página *Solicitud de permisos de API* que sigue, cambie a la pestaña *AP
 
 A continuación, seleccione los permisos que quiere conceder para estas API. Expanda el permiso **Lectura (1)** y marque la casilla que indica *Read.Write* para conceder permisos de lectura y escritura para el registro de la aplicación.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-2.png" alt-text="Vista de la página "Solicitud de permisos de API" con la selección de permisos Read.Write para las API de Azure Digital Twins":::
+:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-2.png" alt-text="Vista de la página Solicitud de permisos de API con la selección de permisos Read.Write para las API de Azure Digital Twins":::
 
 Cuando termine, pulse *Agregar permisos*.
 
@@ -140,13 +140,13 @@ Cuando termine, pulse *Agregar permisos*.
 
 De nuevo en la página *Permisos de API*, compruebe si ya hay una entrada para Azure Digital Twins que refleja los permisos de lectura y escritura:
 
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-api-permissions.png" alt-text="Vista del portal de los permisos de API para el registro de la aplicación de Azure AD que muestra "Acceso de lectura y escritura" para Azure Digital Twins":::
+:::image type="content" source="media/how-to-set-up-instance/portal/verify-api-permissions.png" alt-text="Vista del portal de los permisos de API para el registro de la aplicación de Azure AD que muestra Acceso de lectura y escritura para Azure Digital Twins":::
 
 También puede comprobar la conexión a Azure Digital Twins en el archivo *manifest.json* del registro de la aplicación, que se actualizó automáticamente con la información de Azure Digital Twins cuando agregó los permisos de API.
 
 Para ello, seleccione *Manifiesto* en el menú para ver el código del manifiesto del registro de la aplicación. Desplácese hasta la parte inferior de la ventana de código y busque estos campos en `requiredResourceAccess`. Los valores deben coincidir con los de la siguiente captura de pantalla:
 
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-manifest.png" alt-text="Vista del portal del manifiesto para el registro de aplicación de Azure AD. Anidado en "requiredResourceAccess", hay un valor "resourceAppId" de 0b07f429-9f4b-4714-9392-cc5e8e80c8b0 y un valor "resourceAccess > id" de 4589bd03-58cb-4e6c-b17f-b580e39652f8":::
+:::image type="content" source="media/how-to-set-up-instance/portal/verify-manifest.png" alt-text="Vista del portal del manifiesto para el registro de aplicación de Azure AD. Anidado en requiredResourceAccess, hay un valor resourceAppId de 0b07f429-9f4b-4714-9392-cc5e8e80c8b0 y un valor resourceAccess > id de 4589bd03-58cb-4e6c-b17f-b580e39652f8":::
 
 ### <a name="collect-important-values"></a>Recopilación de valores importantes
 
