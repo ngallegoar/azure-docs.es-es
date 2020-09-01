@@ -41,6 +41,8 @@
       href: location-condition.md
     - name: Herramienta What if
       href: what-if-tool.md
+    - name: Evaluación continua de acceso
+      href: concept-continuous-access-evaluation.md
     - name: Controles personalizados
       href: controls.md
     - name: Migraciones con directiva clásica
