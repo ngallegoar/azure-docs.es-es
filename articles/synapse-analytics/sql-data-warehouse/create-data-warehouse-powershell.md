@@ -1,5 +1,5 @@
 ---
-title: Creación y consulta de un grupo de SQL de Synapse con Azure PowerShell
+title: Creación de un grupo de Synapse SQL con Azure PowerShell
 description: Cree rápidamente un grupo de Synapse SQL con una regla de firewall de nivel de servidor mediante Azure PowerShell.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -11,14 +11,14 @@ ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 21ca3968065df2575b101efa7735d56f87683938
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: e6683746e2a8f274f7260a3d5bb60e956d49d30a
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85211109"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751906"
 ---
-# <a name="quickstart-create-and-query-a-synapse-sql-pool-with-azure-powershell"></a>Inicio rápido: Creación y consulta de un grupo de SQL de Synapse con Azure PowerShell
+# <a name="quickstart-create-a-synapse-sql-pool-with-azure-powershell"></a>Inicio rápido: Creación de un grupo de Synapse SQL con Azure PowerShell
 
 Cree un grupo de SQL de Synapse (almacenamiento de datos) en Azure Synapse Analytics mediante Azure PowerShell.
 
@@ -151,4 +151,4 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ya ha creado un grupo de SQL y una regla de firewall, la ha conectado al grupo de SQL y ha ejecutado algunas consultas. Para más información, diríjase al artículo [Carga de datos en un grupo de SQL](load-data-from-azure-blob-storage-using-polybase.md).
+Ya ha creado un grupo de SQL, una regla de firewall y la ha conectado al grupo de SQL. Para más información, diríjase al artículo [Carga de datos en un grupo de SQL](load-data-from-azure-blob-storage-using-polybase.md).

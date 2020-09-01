@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/18/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: b58a729397118b01d2ff346c0d1f09f70435efae
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 2d8ac3775021c574d3c03e44b06d6b5e689070e7
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604682"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852661"
 ---
 # <a name="what-is-azure-virtual-wan"></a>¿Qué es Azure Virtual WAN?
 
@@ -124,15 +124,15 @@ Para obtener información de las ubicaciones, consulte el de ubicación, consult
 
 Las tablas de rutas ahora tienen características para la asociación y propagación. Una tabla de rutas preexistente es una tabla de enrutamiento que no tiene estas características. Si tiene rutas preexistentes en el enrutamiento del centro y desea usar las nuevas funcionalidades, tenga en cuenta lo siguiente:
 
-* **Clientes de la versión Estándar de Virtual WAN con rutas preexistentes en un centro virtual**: Para usar las nuevas funcionalidades de la tabla de rutas espere hasta la semana del 17 de agosto, que es cuando se completa la implementación en Azure. Si tiene rutas preexistentes en la sección Enrutamiento del centro de Azure Portal, primero debe eliminarlas y, luego, intentar crear tablas de rutas nuevas (disponibles en la sección Tablas de rutas del centro de Azure Portal).
+* **Clientes de la versión Estándar de Virtual WAN con rutas preexistentes en un centro virtual**: Si tiene rutas preexistentes en la sección Enrutamiento del centro de Azure Portal, primero debe eliminarlas y, luego, intentar crear tablas de rutas nuevas (disponibles en la sección Tablas de rutas del centro de Azure Portal).
 
-* **Clientes de la versión Básica de Virtual WAN con rutas preexistentes en un centro virtual**: Para usar las nuevas funcionalidades de la tabla de rutas espere hasta la semana del 17 de agosto, que es cuando se completa la implementación en Azure. Si tiene rutas preexistentes en la sección Enrutamiento del centro de Azure Portal, primero debe eliminarlas y, después, **actualizar** la versión Básica de Virtual WAN a la versión Estándar. Consulte [Actualización de una virtual WAN de Básica a Estándar](upgrade-virtual-wan.md).
+* **Clientes de la versión Básica de Virtual WAN con rutas preexistentes en un centro virtual**: Si tiene rutas preexistentes en la sección Enrutamiento del centro de Azure Portal, primero debe eliminarlas y, después, **actualizar** la versión Básica de Virtual WAN a la versión Estándar. Consulte [Actualización de una virtual WAN de Básica a Estándar](upgrade-virtual-wan.md).
 
 ## <a name="faq"></a><a name="faq"></a>P+F
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 
-## <a name="view-the-latest-feature-updates"></a><a name="new"></a>Visualización de las actualizaciones más recientes de las características
+## <a name="whats-new"></a><a name="new"></a>Novedades
 
 Suscríbase a la fuente RSS y vea las actualizaciones más recientes de las características de Virtual WAN en la página [Actualizaciones de Azure](https://azure.microsoft.com/updates/?category=networking&query=VIRTUAL%20WAN).
 

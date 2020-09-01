@@ -4,12 +4,12 @@ description: Aprenda rápidamente a ejecutar un trabajo de Batch con la CLI de A
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: c59e8891678d9fc1af7c4fe78e4ee2d267ec99b4
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 606862b31ba4921e39e693735507fca39282091c
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511395"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642408"
 ---
 # <a name="quickstart-create-a-batch-account-by-using-arm-template"></a>Inicio rápido: Creación de una cuenta de Batch mediante una plantilla de ARM
 
@@ -31,7 +31,7 @@ Debe contar con una suscripción de Azure activa.
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-batchaccount-with-storage/).
 
-:::code language="json" source="~/quickstart-templates/101-batchaccount-with-storage/azuredeploy.json" range="1-80" highlight="36-69":::
+:::code language="json" source="~/quickstart-templates/101-batchaccount-with-storage/azuredeploy.json":::
 
 En la plantilla se definen dos recursos de Azure:
 
@@ -54,7 +54,7 @@ En la plantilla se definen dos recursos de Azure:
    - **Nombre de la cuenta de Batch**: Deje el valor predeterminado.
    - **Storage Accountsku** (SKU de la cuenta de almacenamiento): seleccione un tipo de cuenta de almacenamiento. Por ejemplo, **Standard_LRS**.
    - **Ubicación**: deje el valor predeterminado para que los recursos estén en la misma ubicación que el grupo de recursos.
-   - Acepto los términos y condiciones anteriores: **Seleccionar**.
+   - Acepto los términos y condiciones indicados anteriormente: **Seleccionar**.
 
 1. Seleccione **Comprar**.
 

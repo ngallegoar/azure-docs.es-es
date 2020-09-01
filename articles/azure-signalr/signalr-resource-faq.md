@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: c944ae3a5d647cc457edd20a5d3dd0489e19e286
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 6d104e41a0cae906c346e81a26617a9d29795fb3
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192287"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853287"
 ---
 # <a name="azure-signalr-service-faq"></a>Preguntas más frecuentes sobre Azure SignalR Service
 
@@ -78,8 +78,8 @@ En la hoja de información general de los recursos de Azure SignalR Service, ya 
 ## <a name="what-is-the-meaning-of-service-mode-defaultserverlessclassic-how-can-i-choose"></a>¿Qué significa el modo de servicio `Default`/`Serverless`/`Classic`? ¿Cómo lo elijo?
 
 Modos:
-* El modo `Default` **requiere** un servidor de centro de conectividad. Cuando no hay ninguna conexión de servidor disponible para el centro de conectividad, aparece un error cuando el cliente intenta conectarse a este centro.
-* El modo `Serverless` **NO** permite ninguna conexión de servidor, es decir, rechazará todas las conexiones de servidor, por lo que todos los clientes deben estar en modo sin servidor.
+* El modo `Default` *requiere* un servidor de centro de conectividad. En este modo, Azure SignalR enruta el tráfico de cliente a las conexiones del servidor de centro del conectividad conectado. Azure SignalR comprueba si hay un servidor del centro de conectividad conectado. Si no se encuentra un servidor del centro de conectividad conectado, Azure SignalR rechaza las conexiones de cliente entrantes. También puede usar **Management API** en este modo para administrar los clientes conectados directamente mediante Azure SignalR.
+* El modo `Serverless` *no*  permite ninguna conexión de servidor, es decir, rechazará todas las conexiones de servidor. Todos los clientes deben estar en modo sin servidor. Los clientes se conectan a Azure SignalR y los usuarios suelen usar tecnologías sin servidor, como **Azure Function** para administrar las lógicas del centro de conectividad. Consulte un [ejemplo sencillo](https://docs.microsoft.com/azure/azure-signalr/signalr-quickstart-azure-functions-javascript?WT.mc_id=signalrquickstart-github-antchu) que usa el modo sin servidor de Azure SignalR.
 * El modo `Classic` es un estado mixto. Si un centro de conectividad tiene conexión de servidor, el nuevo cliente se enrutará al servidor del centro de conectividad; de lo contrario, el cliente entrará en modo sin servidor.
 
   Esto puede provocar un problema, por ejemplo, que todas las conexiones del servidor se pierdan durante un momento y algunos clientes entren en modo sin servidor, en lugar de realizar el enrutamiento al servidor del centro.

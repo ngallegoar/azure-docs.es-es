@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 08/18/2020
+ms.date: 08/25/2020
 ms.author: victorh
-ms.openlocfilehash: b4ef35f2892925919ca9c8eda37a9b0e0d11835e
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: ae220a1b70be7178c4c2fea01103991c8729ae79
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590411"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855043"
 ---
 # <a name="what-is-azure-firewall-manager"></a>¿Qué es Azure Firewall Manager?
 
@@ -86,7 +86,7 @@ Azure Firewall Manager presenta los siguientes problemas conocidos:
 |Tráfico de rama a rama con el filtrado de tráfico privado habilitado|El tráfico de rama a rama no se admite cuando está habilitado el filtrado de tráfico privado. |Investigando.<br><br>No proteja el tráfico privado si la conectividad de rama a rama es esencial.|
 |Todos los centros virtuales protegidos que comparten la misma WAN virtual deben estar en el mismo grupo de recursos.|Este comportamiento ya se alinea con los centros WAN virtuales en la actualidad.|Cree varias WAN virtuales para permitir que se creen centros virtuales protegidos en grupos de recursos diferentes.|
 |Error en la incorporación en masa de direcciones IP|El firewall del centro de conectividad seguro pasa al estado con errores si se agregan varias direcciones IP públicas.|Agregue incrementos menores de direcciones IP públicas. Por ejemplo, agréguelas de 10 en 10.|
-|Las reglas de aplicación generan un error en un centro seguro con DNS personalizado (versión preliminar) configurado.|El proxy DNS o DNS personalizado (versión preliminar) no funcionan en escenarios en los que está configurada una NIC de administración de firewall. Aquí se incluyen las implementaciones de centros seguros y los casos en los que está habilitada la tunelización forzada.|Se está investigando la solución.|
+|Las reglas de aplicación generan un error en un centro seguro con DNS personalizado (versión preliminar) configurado.|DNS personalizado (versión preliminar) no funciona en las implementaciones de concentrador seguro y en las implementaciones de red virtual de concentrador donde está habilitada la tunelización forzada.|Se está investigando la solución.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

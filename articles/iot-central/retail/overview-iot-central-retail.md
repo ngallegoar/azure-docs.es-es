@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: c060b87b24d7467097d06adecb9f34acb4993779
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 3cae2902385eb82f65243c631745df5ca48825f3
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032303"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719241"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Creación de soluciones de comercio minorista con Azure IoT Central
 
@@ -160,20 +160,20 @@ La aplicación de análisis de vídeo usa un módulo de [Live Video Analytics (L
 
 La plantilla de la aplicación incluye cuatro paneles de la aplicación:
 
-* **Setup** (Instalación) proporciona información sobre el diseño de la aplicación y le permite agregar y eliminar cámaras.
-* **Manage** (Administración) le permite administrar las cámaras. Por ejemplo, puede configurar las cámaras, ver la información de estado e iniciar las cámaras que van a estar activas.
-* **Real cameras** (Cámaras reales) le permite ver información de las cámaras reales, como los recuentos de detección y los eventos de cámara.
-* **Monitor** (Seguimiento) le permite ver información detallada de todas las cámaras.
+* **Introducción** proporciona vínculos a recursos que le ayudarán a empezar a usar la plantilla de aplicación.
+* En el **Panel de demostración** se proporciona una ilustración de los tipos de información que se pueden mostrar desde las cámaras conectadas.
+* **Administración de cámaras reales (ejemplo)** usa cámaras simuladas para mostrar cómo se pueden administrar las cámaras desde la aplicación.
+* **Supervisión de cámaras reales (ejemplo)** usa cámaras simuladas para mostrar cómo se pueden supervisar las cámaras desde la aplicación.
 
 :::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Análisis de vídeo: detección de objetos y movimiento":::
 
 Para más información sobre la arquitectura de la solución, consulte [arquitectura de la aplicación de análisis de vídeo](architecture-video-analytics.md).
 
-Para aprender a implementar la solución, consulte el tutorial [Creación de una aplicación de análisis de vídeo en Azure IoT Central](tutorial-video-analytics-create-app.md).
+Para aprender a implementar la solución, consulte el tutorial [Creación de una aplicación de análisis de vídeo en Azure IoT Central](tutorial-video-analytics-deploy.md).
 
 ### <a name="live-video-analytics"></a>Live Video Analytics
 
-Live Video Analytics proporciona una plataforma que le permite crear aplicaciones de vídeo inteligentes que abarcan el perímetro y la nube. La plataforma ofrece la funcionalidad de capturar, grabar, analizar vídeo en directo y publicar los resultados, que podrían ser análisis de vídeo o vídeo, en los servicios de Azure. Los servicios de Azure podrían ejecutarse en la nube o en el perímetro. Puede usar la plataforma para mejorar las soluciones de IoT con análisis de vídeo.
+[Live Video Analytics](https://github.com/Azure/live-video-analytics) proporciona una plataforma que le permite crear aplicaciones de vídeo inteligentes que abarcan el perímetro y la nube. La plataforma ofrece la funcionalidad de capturar, grabar, analizar vídeo en directo y publicar los resultados, que podrían ser análisis de vídeo o vídeo, en los servicios de Azure. Los servicios de Azure podrían ejecutarse en la nube o en el perímetro. Puede usar la plataforma para mejorar las soluciones de IoT con análisis de vídeo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -184,4 +184,5 @@ Para empezar a crear una solución para el comercio minorista:
 * [Implementación y recorrido por la plantilla de aplicación del centro de distribución digital](./tutorial-iot-central-digital-distribution-center.md)
 * [Implementación y recorrido de la plantilla de aplicación de administración de inventario inteligente](./tutorial-iot-central-smart-inventory-management.md)
 * [Implementación y recorrido de la plantilla de aplicación del centro de micrologística](./tutorial-micro-fulfillment-center.md)
+* [Implementación y recorrido por la plantilla de aplicación de análisis de vídeo](./tutorial-video-analytics-deploy.md).
 * Para más información sobre IoT Central, consulte [Introducción a IoT Central](../preview/overview-iot-central.md).

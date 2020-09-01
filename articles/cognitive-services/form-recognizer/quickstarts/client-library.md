@@ -11,12 +11,12 @@ ms.date: 08/17/2020
 ms.author: pafarley
 ms.custom: devx-track-javascript
 zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: 9b6759fedab8d72b883698b9d04c0e2b7df2fdcc
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: eb44456815642989a6f2b36cb15e159318018644
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505414"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723340"
 ---
 # <a name="quickstart-use-the-form-recognizer-client-library"></a>Inicio rápido: Uso de la biblioteca cliente de Form Recognizer
 
@@ -29,6 +29,10 @@ Use la biblioteca cliente de Form Recognizer para:
 * [Entrenar un modelo personalizado](#train-a-custom-model)
 * [Analizar formularios con un modelo personalizado](#analyze-forms-with-a-custom-model)
 * [Administrar modelos personalizados](#manage-your-custom-models)
+
+> [!NOTE]
+> Las bibliotecas de cliente admiten la versión más reciente de Form Recognizer en disponibilidad general, v2.0. 
+
 
 ::: zone pivot="programming-language-csharp"
 

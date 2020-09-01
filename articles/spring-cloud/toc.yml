@@ -5,8 +5,6 @@
   items:
     - name: ¿Qué es Azure Spring Cloud?
       href: spring-cloud-overview.md
-    - name: Java y sistema operativo base para aplicaciones de microservicios de Spring
-      href: spring-cloud-principles-microservice-apps.md
 - name: Guías de inicio rápido
   expanded: true
   items:

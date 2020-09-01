@@ -4,18 +4,18 @@ description: Habilite instancias de Private Link para los discos administrados c
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 08/11/2020
+ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 83f204a35e48962e525ad7d64c018eef301f9933
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: ab861b3ed265da9060e2367bdfdeeeee7047c584
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135851"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815868"
 ---
-# <a name="azure-portal---restrict-importexport-access-for-managed-disks-with-private-links"></a>Azure Portal: restricción del acceso de importación y exportación de discos administrados con instancias de Private Link
+# <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Use Azure Portal para restringir el acceso de importación y exportación para discos administrados con Private Links
 
 La compatibilidad de las instancias de Private Link con discos administrados se encuentra actualmente en versión preliminar y permite restringir la exportación e importación de los discos administrados, con el fin de que solo se produzca dentro de una red virtual de Azure. Puede generar un identificador URI de firma de acceso compartido (SAS) con límite de tiempo para los discos administrados no conectados y las instantáneas para exportar los datos a otra región para la expansión regional, la recuperación ante desastres y para leer los datos para el análisis forense. También puede usar el identificador URI de SAS para cargar directamente un VHD en un disco vacío desde el entorno local. El tráfico de red entre los clientes de su red virtual y los discos administrados solo atraviesa la red virtual y un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet.
 
@@ -100,5 +100,5 @@ Ya ha completado la configuración de los vínculos privados que puede usar al i
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Preguntas más frecuentes sobre vínculos privados](linux/faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
+- [Preguntas más frecuentes sobre vínculos privados](./faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
 - [Exportación o copia de instantáneas administradas como VHD a una cuenta de almacenamiento en otra región con PowerShell](scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md)

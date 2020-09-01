@@ -4,12 +4,12 @@ description: Proporciona información general del servicio Azure Backup, y cómo
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: 70fcbc432c3a3584047fe5ac39f217981a73df71
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: da4f9b4814e93a964105a7ed3ea4addaecd43864
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513530"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611235"
 ---
 # <a name="what-is-the-azure-backup-service"></a>¿Qué es el servicio Azure Backup?
 
@@ -19,7 +19,7 @@ El servicio Azure Backup proporciona soluciones sencillas, seguras y rentables t
 
 ## <a name="what-can-i-back-up"></a>¿De qué puedo hacer copia de seguridad?
 
-- **Entorno local**: realice una copia de seguridad tanto de los archivos, como de las carpetas y del estado del sistema mediante el [agente de Microsoft Azure Recovery Services (MARS)](backup-support-matrix-mars-agent.md). O bien, use el agente de DPM o de Azure Backup Server (MABS) para proteger las máquinas virtuales locales ([Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) y [VMWare](backup-azure-backup-server-vmware.md)) y otras [cargas de trabajo locales](backup-mabs-protection-matrix.md)
+- **Entorno local**: realice una copia de seguridad tanto de los archivos, como de las carpetas y del estado del sistema mediante el [agente de Microsoft Azure Recovery Services (MARS)](backup-support-matrix-mars-agent.md). O bien, use el agente de DPM o de Azure Backup Server (MABS) para proteger las máquinas virtuales locales ([Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) y [VMware](backup-azure-backup-server-vmware.md)) y otras [cargas de trabajo locales](backup-mabs-protection-matrix.md)
 - **Máquinas virtuales de Azure** - [realice copias de seguridad de máquinas virtuales Windows o Linux completas](backup-azure-vms-introduction.md) (mediante extensiones de copia de seguridad), o bien realice copias de seguridad de archivos, carpetas y estados del sistema mediante el [agente de MARS](backup-azure-manage-mars.md).
 - **Recursos compartidos Azure Files** - [Copia de seguridad de recursos compartidos de archivos de Azure en una cuenta de almacenamiento](backup-afs.md)
 - **SQL Server en máquinas virtuales de Azure** -  [haga copias de seguridad de las bases de datos de SQL Server que se ejecutan en las máquinas virtuales de Azure](backup-azure-sql-database.md)

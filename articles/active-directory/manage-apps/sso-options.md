@@ -11,18 +11,18 @@ ms.topic: overview
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.openlocfilehash: 3c3d6529b3513a9f82313675b8240cf41b44f12f
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: c380642cd4297a753b113bdbfdfb46060656269e
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88170187"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642102"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Opciones de inicio de sesión único en Azure AD
 
 El inicio de sesión único ofrece muchas ventajas con respecto a los métodos de inicio de sesión tradicionales.
 
-- **Con el inicio de sesión único**, los usuarios inician sesión una vez con una cuenta para acceder a dispositivos unidos a dominio, recursos de la empresa, aplicaciones de software como servicio (SaaS) y aplicaciones web. Después de iniciar sesión, el usuario puede iniciar aplicaciones desde el portal de Office 365 o el panel de acceso Mis aplicaciones de Azure AD. Los administradores pueden centralizar la administración de cuentas de usuario y automáticamente agregar o quitar el acceso de usuario a aplicaciones basadas en la pertenencia a grupos.
+- **Con el inicio de sesión único**, los usuarios inician sesión una vez con una cuenta para acceder a dispositivos unidos a dominio, recursos de la empresa, aplicaciones de software como servicio (SaaS) y aplicaciones web. Después de iniciar sesión, el usuario puede iniciar las aplicaciones desde el portal de Office 365 o desde Mis aplicaciones. Los administradores pueden centralizar la administración de cuentas de usuario y automáticamente agregar o quitar el acceso de usuario a aplicaciones basadas en la pertenencia a grupos.
 
 - **Sin el inicio de sesión único**, los usuarios deben recordar las contraseñas específicas de las aplicaciones e iniciar sesión en cada aplicación. El personal de TI necesita crear y actualizar las cuentas de usuario para cada aplicación como, por ejemplo, Office 365, Box y Salesforce. Los usuarios tienen que recordar sus contraseñas, además de dedicar tiempo a iniciar sesión en cada aplicación.
 
@@ -123,7 +123,7 @@ El administrador de Azure AD o los usuarios pueden administrar las contraseñas 
 
 Si el administrador de Azure AD administra las credenciales:  
 
-- El usuario no necesita restablecer ni recordar el nombre de usuario y la contraseña. El usuario puede acceder a la aplicación haciendo clic en ella en su panel de acceso o a través de un vínculo proporcionado.
+- El usuario no necesita restablecer ni recordar el nombre de usuario y la contraseña. El usuario puede acceder a la aplicación si hace clic en ella en Mis aplicaciones o a través del vínculo que se proporcione.
 - El administrador puede realizar tareas de administración de las credenciales. Por ejemplo, el administrador puede actualizar el acceso a las aplicaciones según la pertenencia a grupos de usuarios y el estado de los empleados.
 - El administrador puede usar credenciales administrativas para proporcionar acceso a las aplicaciones que comparten muchos usuarios. Por ejemplo, el administrador puede permitir que todos los usuarios que pueden acceder a una aplicación tengan acceso a una red social o aplicación que comparta documentos.
 
