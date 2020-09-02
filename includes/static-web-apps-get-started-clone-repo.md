@@ -4,14 +4,14 @@ ms.service: static-web-apps
 ms.topic: include
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 5d34c53782b4409ee15b19f6076d7433b7590808
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 277f9c684c50ea9d55b3e5907c30bf9d7348f4b2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752581"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88944453"
 ---
-## <a name="clone-the-repository-to-your-machine"></a>Clonación del repositorio en una máquina
+## <a name="clone-the-repository"></a>Clonación del repositorio
 
 Con el repositorio creado en su cuenta de GitHub, clone el proyecto en la máquina local mediante el siguiente comando.
 

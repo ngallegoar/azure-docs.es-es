@@ -4,14 +4,15 @@ description: Acceda rápidamente a las preguntas frecuentes sobre Azure SignalR 
 author: sffamily
 ms.service: signalr
 ms.topic: overview
+ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 6d104e41a0cae906c346e81a26617a9d29795fb3
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 9aa510a055cb76b30508cb98a25cd9c919eb117d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853287"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928316"
 ---
 # <a name="azure-signalr-service-faq"></a>Preguntas más frecuentes sobre Azure SignalR Service
 

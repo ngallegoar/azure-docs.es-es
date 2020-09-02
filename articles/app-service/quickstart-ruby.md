@@ -6,19 +6,19 @@ ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.topic: quickstart
 ms.date: 07/11/2019
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 875649d2405aa5542a7b66e247cc50d4b2cba20d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 49f2100386af21cee8f76403d7a2d2e4ac6b8f63
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88084315"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961347"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service"></a>Creación de una aplicación Ruby on Rails en App Service
 
-[Azure App Service en Linux](overview.md#app-service-on-linux) proporciona un servicio de hospedaje web muy escalable y con aplicación automática de revisiones que usa el sistema operativo Linux. En este tutorial de inicio rápido se explica cómo implementar una aplicación Ruby on Rails en App Service en Linux mediante [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+[Azure App Service en Linux](overview.md#app-service-on-linux) proporciona un servicio de hospedaje web muy escalable y con aplicación automática de revisiones que usa el sistema operativo Linux. En este tutorial de inicio rápido se explica cómo implementar una aplicación Ruby on Rails en App Service en Linux mediante [Cloud Shell](../cloud-shell/overview.md).
 
 > [!NOTE]
-> La pila de desarrollo de Ruby solo admite Ruby on Rails de momento. Si desea usar otra plataforma, como Sinatra, o una versión de Ruby no admitida, tiene que [ejecutarla en un contenedor personalizado](containers/quickstart-docker-go.md).
+> La pila de desarrollo de Ruby solo admite Ruby on Rails de momento. Si desea usar otra plataforma, como Sinatra, o una versión de Ruby no admitida, tiene que [ejecutarla en un contenedor personalizado](./quickstart-custom-container.md?pivots=platform-linux%3fpivots%3dplatform-linux).
 
 ![Hello-world](./media/quickstart-ruby/hello-world-configured.png)
 
