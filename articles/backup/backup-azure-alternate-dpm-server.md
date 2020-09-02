@@ -3,12 +3,12 @@ title: Recuperación de datos de una instancia de Azure Backup Server
 description: Recupere los datos que protegió en un almacén de Recovery Services desde cualquier Azure Backup Server registrado en dicho almacén.
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 5531a2a9599465bd5ad3410504cbf341fb6c0c0f
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 93ae34184679b5144288a4c8cb4dabd90ae69fa1
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84249083"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827450"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Recuperación de datos de Azure Backup Server
 
@@ -54,7 +54,7 @@ Para recuperar datos de una instancia de Azure Backup Server:
 8. Elija una de las siguientes opciones: **Crear copia**, **Omitir** o **Sobrescribir**.
 
    * **Crear copia**: crea una copia del archivo si hay un conflicto de nombres.
-   * **Omitir**: si hay un conflicto de nombres no recupera el archivo, sino que deja el archivo original.
+   * **Omitir**: si hay un conflicto de nombres, no recupera el archivo, sino que deja el archivo original.
    * **Sobrescribir**: si hay un conflicto de nombres, sobrescribe la copia existente del archivo.
 
      Elija la opción adecuada para **Restaurar seguridad**. Puede aplicar la configuración de seguridad del equipo de destino donde se están recuperando los datos o la configuración de seguridad aplicable al producto en el momento en que se creó el punto de recuperación.

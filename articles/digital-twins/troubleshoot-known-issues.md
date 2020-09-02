@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 9130a3248e881c9d4e2c9bfe9017f43198d50f51
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 01d962db45a58781ca5f2ba494de16ad420b0807
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590173"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88921076"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problemas conocidos en Azure Digital Twins
 
@@ -51,7 +51,9 @@ En el caso de los usuarios que iniciaron sesión con una [cuenta Microsoft (MSA)
 
 ## <a name="issue-with-interactive-browser-authentication"></a>Problema con la autenticación interactiva del explorador
 
-Al escribir código de autenticación en las aplicaciones de Azure Digital Twins con la versión más reciente (versión **1.2.0**) de la biblioteca **[Azure.Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet)** , puede experimentar problemas con el método [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet).
+Al escribir código de autenticación en las aplicaciones de Azure Digital Twins con la versión **1.2.0** de la biblioteca **[Azure.Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet)** , puede experimentar problemas con el método [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet).
+
+Esta no es la versión más reciente de la biblioteca. La versión más reciente es **1.2.2**.
 
 El método afectado se usa en los artículos siguientes: 
 * [*Tutorial: Programación de una aplicación cliente*](tutorial-code.md)
@@ -62,16 +64,13 @@ El problema incluye una respuesta de error de "Azure.Identity.AuthenticationFail
 
 ### <a name="troubleshooting-steps"></a>Pasos para solucionar problemas
 
-Para resolverlo, haga que las aplicaciones usen explícitamente la versión **1.1.1** de Azure.Identity. Con esta versión de la biblioteca, el explorador se cargará y autenticará según lo previsto.
-
->[!NOTE]
-> No basta con agregar la biblioteca sin especificar una versión, ya que seguirá usando la última, **1.2.0**, de forma predeterminada. Tendrá que especificar la versión **1.1.1** explícitamente.
+Para resolver el problema, actualice las aplicaciones de modo que usen la versión de Azure.Identity **1.2.2**. Con esta versión de la biblioteca, el explorador se cargará y autenticará según lo previsto.
 
 ### <a name="possible-causes"></a>Causas posibles
 
-Se trata de una incompatibilidad entre Azure Digital Twins y la versión más reciente de la biblioteca Azure.Identity, **1.2.0**. 
+Está relacionado con un problema abierto de la versión más reciente de la biblioteca Azure.Identity (versión **1.2.0**): [*No se puede autenticar cuando se usa InteractiveBrowserCredential*](https://github.com/Azure/azure-sdk-for-net/issues/13940).
 
-Este problema se observa cuando se usa la versión **1.2.0** de la aplicación, o si se agrega la biblioteca al proyecto sin especificar una versión (ya que, en este caso, también se toma como predeterminada esta última versión).
+Este problema se observa cuando se usa la versión **1.2.0** de la aplicación de Azure Digital Twins o si se agrega la biblioteca al proyecto sin especificar una versión (ya que, en este caso, también se toma como predeterminada esta versión más reciente).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

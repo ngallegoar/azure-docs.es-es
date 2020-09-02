@@ -6,17 +6,17 @@ ms.topic: how-to
 ms.date: 07/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2032a7c9d9cd9b17da956dc829234462f8b9e726
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 049b962740abc98a6ac7d029c1419d40aa722165
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509610"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922572"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Uso de Microsoft Teams en Windows Virtual Desktop
 
 >[!IMPORTANT]
->La optimización multimedia para Teams no es compatible con entornos de Microsoft 365 Government.
+>La optimización multimedia para Teams es compatible con entornos de Microsoft 365 Government (GCC). La optimización multimedia para Teams no es compatible con GCC-High o DoD.
 
 >[!NOTE]
 >La optimización multimedia de Microsoft Teams solo está disponible para el cliente de escritorio de Windows en máquinas con Windows 10. Las optimizaciones multimedia requieren la versión de cliente de escritorio de Windows 1.2.1026.0 o posterior.
@@ -32,7 +32,7 @@ Para poder usar Microsoft Teams en Windows Virtual Desktop, tendrá que hacer l
 - [Prepare la red](/microsoftteams/prepare-network/) para Microsoft Teams.
 - Instale el [cliente de escritorio de Windows](connect-windows-7-10.md) en un dispositivo con Windows 10 o Windows 10 IoT Enterprise que cumpla los [requisitos de hardware de Teams de un equipo Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Conéctese a una máquina virtual (VM) de sesión múltiple de Windows 10 o Windows 10 Enterprise.
-- Instale la aplicación de escritorio Teams en el host mediante la instalación por máquina. Para la optimización multimedia de Microsoft Teams se necesita la versión 1.3.00.4461 o posterior de la aplicación de escritorio Teams.
+- [Descargue](https://www.microsoft.com/microsoft-365/microsoft-teams/download-app) e instale la aplicación de escritorio Teams en el host mediante la instalación por máquina. Para la optimización multimedia de Microsoft Teams se necesita la versión 1.3.00.4461 o posterior de la aplicación de escritorio Teams.
 
 ## <a name="install-the-teams-desktop-app"></a>Instalación de la aplicación de escritorio Teams
 
@@ -94,8 +94,8 @@ Puede implementar la aplicación de escritorio Teams mediante una instalación p
 
         Teams se instala en la carpeta Program Files (x86) de un sistema operativo de 64 bits y en la carpeta Archivos de programa de un sistema operativo de 32 bits. En este momento se ha completado la instalación de la imagen dorada. En el caso de instalaciones no persistentes, es necesario instalar Teams por cada máquina.
 
-        Hay dos marcas que se pueden establecer al instalar equipos, **ALLUSER=1** y **ALLUSERS=1**. Es importante saber en qué se diferencian estos parámetros. El parámetro **ALLUSER=1** solo se usa en entornos de VDI para especificar una instalación por equipo. El parámetro **ALLUSERS=1** se puede usar en entornos de VDI y de otro tipo. Al establecer este parámetro, el instalador a nivel de todo el equipo de Teams aparece en Programas y características en el panel de control, así como en Aplicaciones y características en la configuración de Windows. Todos los usuarios con credenciales de administrador en el equipo pueden desinstalar Teams. 
-       
+        Hay dos marcas que se pueden establecer al instalar equipos, **ALLUSER=1** y **ALLUSERS=1**. Es importante saber en qué se diferencian estos parámetros. El parámetro **ALLUSER=1** solo se usa en entornos de VDI para especificar una instalación por equipo. El parámetro **ALLUSERS=1** se puede usar en entornos de VDI y de otro tipo. Al establecer este parámetro, el instalador a nivel de todo el equipo de Teams aparece en Programas y características en el panel de control, así como en Aplicaciones y características en la configuración de Windows. Todos los usuarios con credenciales de administrador en el equipo pueden desinstalar Teams.
+
         > [!NOTE]
         > En la actualidad, los usuarios y administradores no pueden deshabilitar el inicio automático para Teams durante el inicio de sesión.
 

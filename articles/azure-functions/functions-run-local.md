@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: bbdc05d2b5a770791bb81f26a71b9dc3eb7523d5
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 8dfc1471955a6d10199a078922151ff3aeda4294
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505723"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929503"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Uso de Azure Functions Core Tools
 
@@ -37,7 +37,7 @@ Hay tres versiones de Azure Functions Core Tools. La versión que use depende de
 
 + **Versión 1.x**: es compatible con la versión 1.x del entorno en tiempo de ejecución de Azure Functions. Esta versión de las herramientas solo se admite en equipos con Windows y se instala desde un [paquete npm](https://www.npmjs.com/package/azure-functions-core-tools).
 
-A menos que se indique lo contrario, los ejemplos de este artículo son para la versión 3.x.
+Solo puede instalar una versión de Core Tools en un equipo determinado. A menos que se indique lo contrario, los ejemplos de este artículo son para la versión 3.x.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -257,20 +257,21 @@ Incluso cuando se usa el Emulador de Microsoft Azure Storage para tareas de desa
 
   ![Copia de la cadena de conexión desde el Explorador de Azure Storage](./media/functions-run-local/storage-explorer.png)
 
-+ Utilice Core Tools para descargar la cadena de conexión de Azure con uno de los siguientes comandos:
++ Utilice Core Tools en el directorio raíz del proyecto para descargar la cadena de conexión de Azure mediante uno de los siguientes comandos:
 
   + Descargue toda la configuración de una aplicación de función existente:
 
     ```
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
+
   + Obtenga la cadena de conexión de una cuenta de almacenamiento concreta:
 
     ```
     func azure storage fetch-connection-string <StorageAccountName>
     ```
 
-    Si aún no ha iniciado sesión en Azure, se le pedirá que lo haga.
+    Si aún no ha iniciado sesión en Azure, se le pedirá que lo haga. Estos comandos sobrescriben cualquier configuración existente en el archivo local. settings.json. 
 
 ## <a name="create-a-function"></a><a name="create-func"></a>Creación de una función
 

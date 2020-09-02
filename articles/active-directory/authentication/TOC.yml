@@ -116,6 +116,10 @@
               href: howto-authentication-passwordless-security-key-windows.md
             - name: Inicio de sesión único en recursos locales
               href: howto-authentication-passwordless-security-key-on-premises.md
+            - name: Preguntas frecuentes acerca de los entornos híbridos
+              href: howto-authentication-passwordless-faqs.md
+            - name: Solución de problemas de entornos híbridos
+              href: howto-authentication-passwordless-troubleshoot.md
         - name: Inicio de sesión telefónico sin contraseña
           href: howto-authentication-passwordless-phone.md
         - name: Windows Hello para empresas
@@ -209,7 +213,7 @@
               href: howto-mfa-nps-extension-errors.md
     - name: Solución de problemas
       items:
-        - name: Solución de problemas de SSPR
+        - name: SSPR
           href: active-directory-passwords-troubleshoot.md
         - name: Preguntas frecuentes sobre SSPR
           href: active-directory-passwords-faq.md

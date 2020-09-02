@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4cb24a89d19abb753e2be704dbad7fd5b2ddcad
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 64fc4e1192a1ec33b1d13c38d66e9aab5cbe256b
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236563"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705629"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Creación masiva de usuarios en Azure Active Directory
 
@@ -35,7 +35,7 @@ Descargue y rellene la plantilla CSV de carga masiva para facilitar la creación
 ![Hoja de cálculo para la carga y notas que explican el propósito y los valores de cada fila y columna](./media/users-bulk-add/create-template-example.png)
 
 > [!WARNING]
-> Si intenta agregar solo una entrada en la plantilla CSV, debe conservar la fila 3 y agregar la nueva entrada a la fila 4. 
+> Si agrega solo una entrada en la plantilla CSV, debe conservar la fila 3 y agregar la entrada nueva a la fila 4.
 
 ### <a name="csv-template-structure"></a>Estructura de la plantilla CSV
 

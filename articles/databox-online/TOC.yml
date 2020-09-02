@@ -71,17 +71,17 @@
           items:
             - name: A través de kubectl
               items:
-                - name: Acceso a un clúster de Kubernetes
+                - name: Acceso a clústeres de Kubernetes
                   href: azure-stack-edge-gpu-create-kubernetes-cluster.md
-                - name: Exposición de una aplicación sin estado
+                - name: Aplicación sin estado
                   href: azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md
-                - name: Implementación de una aplicación con estado (aprovisionamiento estático)
+                - name: Aplicación con estado con aprovisionamiento estático
                   href: azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md
-                - name: Implementación de una aplicación con estado (aprovisionamiento dinámico)
+                - name: Aplicación con estado con aprovisionamiento dinámico
                   href: azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md
             - name: A través de IoT Edge
               items:
-                - name: Exposición de una aplicación sin estado
+                - name: Aplicación sin estado
                   href: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md
             - name: A través de Azure Arc
               items:
@@ -119,8 +119,8 @@
               href: azure-stack-edge-j-series-create-certificates-tool.md
             - name: Solución de errores de certificados
               href: azure-stack-edge-j-series-certificate-troubleshooting.md
-            - name: Desarrollo de un módulo de C#
-              href: azure-stack-edge-j-series-create-iot-edge-module.md
+        - name: Desarrollo de un módulo de C#
+          href: azure-stack-edge-j-series-create-iot-edge-module.md
         - name: Administración del proceso perimetral
           href: azure-stack-edge-j-series-manage-compute.md
         - name: Administración de puerta de enlace de almacenamiento

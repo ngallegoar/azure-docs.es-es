@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: f4938d517d9a5c244045798a79f31b96bacd03f5
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: c72777bf2a4415a7f773f82a21a121f5e58f2ec0
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829448"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651922"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>¿Qué es una instancia de proceso de Azure Machine Learning?
 
@@ -155,26 +155,22 @@ Usted también puede crear una instancia
 * Directamente de la [experiencia de cuadernos integrados](tutorial-1st-experiment-sdk-setup.md#azure)
 * En Azure Portal
 * A partir de una plantilla de Azure Resource Manager. Para ver una plantilla de ejemplo, consulte [Creación una plantilla de instancia de proceso de Azure Machine Learning](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).
-* Con [SDK de Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb)
+* Con SDK de Azure Machine Learning
 * Desde la extensión de la [CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md#computeinstance)
 
 Los núcleos dedicados por región por cuota de la familia de máquinas virtuales y la cuota regional total, que se aplica a la creación de la instancia de proceso. está unificada y compartida con la cuota de clúster de proceso de entrenamiento Azure Machine Learning. La detención de la instancia de proceso no libera la cuota para garantizar que pueda reiniciar la instancia de proceso.
 
 ## <a name="compute-target"></a>Destino de proceso
 
-Las instancias de proceso se pueden usar como [destino de proceso de entrenamiento](concept-compute-target.md#train) de forma similar a los clústeres de entrenamiento de Azure Machine Learning. 
+Las instancias de proceso se pueden usar como [destino de proceso de entrenamiento](concept-compute-target.md#train) de forma similar a los clústeres de Azure Machine Learning. 
 
 Una instancia de proceso:
 * Tiene una cola de trabajo.
 * Ejecuta trabajos de forma segura en un entorno de red virtual, sin necesidad de que las empresas abran el puerto SSH. El trabajo se ejecuta en un entorno en contenedor y empaqueta las dependencias del modelo en un contenedor de Docker.
 * Puede ejecutar varios trabajos pequeños en paralelo (versión preliminar).  Se pueden ejecutar dos trabajos por núcleo en paralelo mientras el resto de los trabajos se ponen en cola.
+* Admite trabajos de entrenamiento distribuidos con varias GPU de un solo nodo.
 
 Puede usar la instancia de proceso como destino de implementación de inferencia local para escenarios de prueba o depuración.
-
-> [!NOTE]
-> No se admiten trabajos de entrenamiento distribuidos en la instancia de proceso.  Use (clústeres de proceso](how-to-set-up-training-targets.md#amlcompute) para aprendizaje distribuido.
-
-Para más información, consulte el cuaderno [train-on-computeinstance](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb). Este cuaderno también está disponible en la carpeta Studio **Muestras** en *training/train-on-computeinstance*.
 
 ## <a name="what-happened-to-notebook-vm"></a><a name="notebookvm"></a>¿Qué ha ocurrido con la VM de cuaderno?
 

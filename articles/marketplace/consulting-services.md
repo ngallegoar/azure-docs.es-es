@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: 2ca0031d3ae9fc1347c3a8bd7bf24c2780e502a8
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: afcca913b8a9c8fb31fa6e18d0570aebd68b8ef3
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607458"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814729"
 ---
 # <a name="consulting-service-offers"></a>Ofertas de servicio de consultoría
 
@@ -72,40 +72,40 @@ Para más información acerca de las competencias, vaya a la página [Competenci
 
 Los asociados integradores de sistemas pueden enviar ofertas de servicios de consultoría para los siguientes veinte países o regiones:
 
-| Países  | (continuación)   | (continuación)  | (continuación)  |
+| Países | (cont.) |  (cont.) |  (cont.) |
 |---------|----------|----------|----------|
 | Australia | Bélgica | Canadá | Dinamarca |
 | Finlandia  | Francia | Alemania  | India   |
 | Italia    | Japón  |  México  |  Países Bajos  |
 |  Nueva Zelanda  |  Noruega  |  Polonia  | Sudáfrica |
 |  Suecia  | Suiza  |  Estados Unidos  | Reino Unido  |
-||
+|
 
 ## <a name="register-for-consulting-services-in-the-commercial-marketplace"></a>Registro de servicios de consultoría en marketplace comercial
 
-Empiece por [registrar](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) la información de su empresa en Marketplace. Consulte [Conviértase en anunciante en los escaparates de Marketplace](become-publisher.md) para obtener una lista de comprobación completa de los requisitos de registro. 
+Empiece por [registrar](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) la información de su empresa en Marketplace. Consulte [Conviértase en anunciante en los escaparates de Marketplace](become-publisher.md) para obtener una lista de comprobación completa de los requisitos de registro.
 
 ## <a name="prepare-your-publishing-artifacts"></a>Preparación de los artefactos de publicación
 Antes del registro, puede empezar a recopilar y preparar el contenido que ayudará a que su anuncio exprese el valor de su servicio y solución para el cliente objetivo. 
 
 |Configuración para nuevos anunciantes  |
-|---------|
-|Identificador de MPN     |
-|Logotipos de empresa (48 x 48, 216 x 216 píxeles)     |
-|Destino de clientes potenciales     |
-||
+| - |
+| Identificador de MPN |
+| Logotipos de empresa (48 x 48, 216 x 216 píxeles) |
+| Destino de clientes potenciales |
+|
 
 |Configuración para nuevas ofertas  |
-|---------|
-|Nombre (200 caracteres) y descripción (2000 caracteres) de la oferta    |
-|Competencias     |
-|Disponibilidad de país/región     |
-|Duración de contratación     |
-|Sectores aplicables, categorías y palabras clave de búsqueda     |
-|Vídeo de información general del producto    |
-|Capturas de pantalla (número máximo 5, 1280 x 720 píxeles)     |
-|Documentos de marketing (3 como máximo)     |
-||
+| - |
+| Nombre (200 caracteres) y descripción (2000 caracteres) de la oferta |
+| Competencias  |
+| Disponibilidad de país/región |
+| Duración de contratación  |
+| Sectores aplicables, categorías y palabras clave de búsqueda |
+| Vídeo de información general del producto |
+| Capturas de pantalla (número máximo 5, 1280 x 720 píxeles) |
+| Documentos de marketing (3 como máximo) |
+|
 
 ## <a name="the-publishing-process"></a>El proceso de publicación
 

@@ -4,17 +4,17 @@ description: Funcionalidad de restauración instantánea de Azure y preguntas fr
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: bb9a7a32306fc76ea8852787601f3b3b3828daf8
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: ddc8e8fa460943c09f80ebb462b1dbd578f9b23b
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611813"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892633"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Rendimiento mejorado de la copia de seguridad y la restauración con la funcionalidad de restauración instantánea de Azure Backup
 
 > [!NOTE]
-> De acuerdo con los comentarios de los usuarios, vamos a cambiar el nombre de **pila de copia de seguridad de VM V2** por **restauración instantánea** para reducir la confusión con la funcionalidad de Azure Stack.
+> De acuerdo con los comentarios de los usuarios, hemos cambiado el nombre de **Pila de copia de seguridad de VM V2** a **Restauración instantánea** para reducir la confusión con la funcionalidad de Azure Stack.
 > Todos los usuarios de Azure Backup ya se actualizaron a **la restauración instantánea**.
 
 El nuevo modelo de restauración instantánea proporciona las siguientes mejoras en la característica:
@@ -76,7 +76,7 @@ $bkpPol.SnapshotRetentionInDays=5
 Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
 
-La retención de instantáneas predeterminada para cada directiva está establecida en dos días. El usuario puede cambiar el valor a un mínimo de uno y un máximo de cinco días. Para las directivas semanales, se ha corregido la retención de instantáneas a cinco días.
+La retención de instantáneas predeterminada para cada directiva está establecida en dos días. El usuario puede cambiar el valor a un mínimo de un día y un máximo de cinco. Para las directivas semanales, se ha corregido la retención de instantáneas a cinco días.
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
@@ -115,4 +115,3 @@ Si el punto de recuperación tiene instantáneas y si es el más reciente dispon
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>No necesito la característica de restauración instantánea. ¿Se puede deshabilitar?
 
 La característica de restauración instantánea está habilitada para todos los usuarios y no se puede deshabilitar. Puede reducir la retención de instantáneas a un mínimo de un día.
-
