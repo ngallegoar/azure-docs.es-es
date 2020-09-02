@@ -1,4 +1,4 @@
-- name: Introducción
+- name: Información general
   items:
     - name: Introducción
       href: get-started.md
@@ -301,6 +301,8 @@
   items:
     - name: Azure CLI
       href: /cli/azure/ext/sap-hana/hanainstance
+    - name: Azure PowerShell
+      href: /powershell/module/az.hanaonazure/#sap-hana-on-azure
 - name: Recursos
   items:
     - name: Azure Roadmap

@@ -161,7 +161,8 @@
     - name: Plantilla de Resource Manager
       href: /azure/templates/microsoft.cache/allversions
     - name: Elementos integrados de Azure Policy
-      href: ./policy-samples.md
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
     - name: Comandos de Redis
       href: 'https://redis.io/commands#'
 - name: Recursos

@@ -11,7 +11,7 @@
   items:
     - name: Creación de un trabajo
       items:
-        - name: Azure portal
+        - name: Azure Portal
           href: stream-analytics-quick-create-portal.md
         - name: Azure CLI
           href: quick-create-azure-cli.md
@@ -40,9 +40,6 @@
   items:
     - name: Ejemplos de código
       href: 'https://azure.microsoft.com/resources/samples/?service=stream-analytics'
-    - name: Elementos integrados de Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceptos
   items:
     - name: Elección de una tecnología de análisis de streaming
@@ -655,6 +652,9 @@
       href: /azure/templates/microsoft.streamanalytics/allversions
     - name: Azure CLI
       href: /cli/azure/ext/stream-analytics/stream-analytics
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Versiones preliminares de Stream Analytics

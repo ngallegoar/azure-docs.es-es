@@ -4,12 +4,6 @@
   items:
     - name: Acerca de Kubernetes habilitado para Azure Arc
       href: overview.md
-- name: Ejemplos
-  items:
-    - name: Elementos integrados de Azure Policy
-      items:
-        - name: Kubernetes habilitado para Azure Arc
-          href: policy-samples.md
 - name: Guías paso a paso
   items:
     - name: Conexión a Azure Arc
@@ -34,3 +28,8 @@
           href: deploy-azure-iot-edge-workloads.md
     - name: Solución de problemas
       href: Troubleshooting.md
+- name: Referencia
+  items:
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: policy-reference.md
