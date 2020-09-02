@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 0e17ecea6c85329b22310ebe1d06e2fe63cdd773
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: ea08843dc73ed7603181eee1cf36495fda82b8d4
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042826"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003854"
 ---
 # <a name="what-is-azure-digital-twins"></a>¿Qué es Azure Digital Twins?
 
@@ -105,5 +105,4 @@ Si ha trabajado con la versión preliminar anterior de Azure Digital Twins, obte
 
 O bien, avance y profundice en el trabajo con Azure Digital Twins con el primer tutorial:
 
-> [!div class="nextstepaction"]
-> [*Tutorial: Programación de una aplicación cliente*](tutorial-code.md)
+[*Tutorial: Programación de una aplicación cliente*](tutorial-code.md)
