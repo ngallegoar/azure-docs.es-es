@@ -4,11 +4,6 @@
   items:
     - name: ¿Qué es Resource Manager?
       href: overview.md
-- name: Ejemplos
-  items:
-    - name: Elementos integrados de Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceptos
   items:
     - name: Límites del servicio y la suscripción
@@ -17,8 +12,6 @@
       href: resource-name-rules.md
     - name: Implementación de Resource Manager y clásica
       href: deployment-models.md
-    - name: Atributos comunes de seguridad de Azure
-      href: azure-resource-manager-security-controls.md
     - name: Proveedores de recursos por servicio
       href: azure-services-resource-providers.md
     - name: Tipos de recursos de extensión
@@ -30,6 +23,8 @@
         - name: Controles de seguridad de Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
+        - name: Atributos comunes de seguridad de Azure
+          href: azure-resource-manager-security-controls.md
 - name: Procedimientos
   items:
     - name: Traslado (grupos de recursos y suscripciones)
@@ -118,7 +113,7 @@
           href: tag-support.md
     - name: Administración de grupos de recursos
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
           href: manage-resource-groups-portal.md
         - name: Azure CLI
@@ -129,7 +124,7 @@
           href: manage-resource-groups-powershell.md
     - name: Administrar recursos
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           displayName: 'open,delete,deploy,move,lock,tag,monitor'
           href: manage-resources-portal.md
         - name: Azure CLI
@@ -172,6 +167,9 @@
       href: /java/api/com.microsoft.azure.management.resources
     - name: Python
       href: /python/api/overview/azure/resources?view=azure-python
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Azure Roadmap

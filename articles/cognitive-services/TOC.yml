@@ -26,10 +26,6 @@
       href: resource-manager-template.md
     - name: Registro de diagnóstico
       href: diagnostic-logging.md
-- name: Ejemplos
-  items:
-    - name: Elementos integrados de Azure Policy
-      href: ./policy-samples.md
 - name: Seguridad
   items:
     - name: Seguridad de Cognitive Services
@@ -86,6 +82,11 @@
           href: ./big-data/recipes/anomaly-detection.md
         - name: 'Receta: Art Explorer'
           href: ./big-data/recipes/art-explorer.md
+- name: Referencia
+  items:
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Azure Roadmap

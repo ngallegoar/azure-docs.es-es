@@ -17,7 +17,7 @@
       items:
         - name: Uso de blobs
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: storage-quickstart-blobs-portal.md
             - name: Explorador de Storage
               href: storage-quickstart-blobs-storage-explorer.md
@@ -111,9 +111,6 @@
           href: storage-samples-blobs-powershell.md
         - name: Azure CLI
           href: storage-samples-blobs-cli.md
-        - name: Elementos integrados de Azure Policy
-          displayName: 'samples, policies, definitions'
-          href: ../common/policy-samples.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Conceptos
       items:
         - name: Cuentas de almacenamiento
@@ -554,6 +551,9 @@
           href: /azure/templates/microsoft.storage/allversions
         - name: Supervisión de datos
           href: ../common/monitor-storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Elementos integrados de Azure Policy
+          displayName: 'samples, policies, definitions'
+          href: ../common/policy-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Recursos
       items:
         - name: Actualizaciones de Azure
@@ -713,12 +713,8 @@
                   href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Procedimientos
       items:
-        - name: Crear
-          items:
-            - name: "Creación de una cuenta de almacenamiento (de uso general, versión\_2)"
-              href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Creación de una cuenta de almacenamiento (blob en bloques)
-              href: storage-blob-create-account-block-blob.md
+        - name: Crear una cuenta de almacenamiento
+          href: create-data-lake-storage-account.md
         - name: Migrar
           items:
             - name: Migración desde Data Lake Storage Gen1
@@ -830,6 +826,9 @@
         - name: Plantilla de Resource Manager
           displayName: ARM
           href: /azure/templates/microsoft.storage/allversions
+        - name: Elementos integrados de Azure Policy
+          displayName: 'samples, policies, definitions'
+          href: ../common/policy-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Recursos
       items:
         - name: Problemas conocidos
