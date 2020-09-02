@@ -6,18 +6,21 @@ author: laurenhughes
 ms.topic: article
 ms.date: 08/11/2020
 ms.author: lahugh
-ms.openlocfilehash: 109192efa19605af003dcfb30592c865ce7495b5
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 4a0acf284475f3c9119f3b9d012debad656b1faa
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136660"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661357"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Acceso a recursos de Kubernetes en Azure Portal (versión preliminar)
 
 Azure Portal incluye un visor de recursos de Kubernetes (versión preliminar) para facilitar el acceso a los recursos de Kubernetes en el clúster de Azure Kubernetes Service (AKS). Ver los recursos de Kubernetes en Azure Portal reduce la necesidad de cambiar de contexto entre el Azure Portal y la herramienta de línea de comandos `kubectl`. De este modo, se simplifican la visualización y edición de recursos de Kubernetes. El visor de recursos actualmente incluye varios tipos de recursos, como implementaciones, pods y conjuntos de réplicas.
 
 La vista de recursos de Kubernetes en Azure Portal reemplaza al [complemento del panel de AKS][kubernetes-dashboard], que ha quedado obsoleto.
+
+>[!NOTE]
+>Esta funcionalidad no es compatible actualmente en [los clústeres privados de Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/private-clusters).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 

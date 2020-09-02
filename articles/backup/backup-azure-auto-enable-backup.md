@@ -3,12 +3,12 @@ title: Habilitación automática de la copia de seguridad al crear máquinas vir
 description: Un artículo en el que se describe cómo usar Azure Policy para habilitar automáticamente la copia de seguridad de todas las máquinas virtuales creadas en un ámbito determinado
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 19985ebc51fe713ee0392800e2791ea1891ff3cd
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: de4923000bc842203535e03727fd532c67a8f517
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612680"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826079"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Habilitación automática de la copia de seguridad al crear máquinas virtuales mediante Azure Policy
 
@@ -30,7 +30,7 @@ Actualmente, Azure Backup proporciona una directiva integrada (mediante Azure Po
 
 ## <a name="using-the-built-in-policy"></a>Uso de la directiva integrada
 
-Para asignar la directiva al ámbito necesario, siga estos pasos:
+Para asignar la directiva al ámbito necesario, siga los pasos a continuación:
 
 1. Inicie sesión en Azure Portal y vaya al panel **Directiva**.
 1. Seleccione **Definiciones** en el menú de la izquierda para obtener una lista de todas las directivas integradas en los recursos de Azure.
@@ -52,7 +52,7 @@ Para asignar la directiva al ámbito necesario, siga estos pasos:
 
 > [!NOTE]
 >
-> Se recomienda que esta directiva no se asigne a más de 200 máquinas virtuales a la vez. Si la directiva está asignada a más de 200 máquinas virtuales, puede ocurrir que la copia de seguridad se desencadene unas horas después de cuando lo especifica la programación.
+> Se recomienda que esta directiva no se asigne a más de 200 máquinas virtuales a la vez. Si la directiva está asignada a más de 200 máquinas virtuales, puede ocurrir que la copia de seguridad se desencadene unas horas después de lo especificado en la programación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

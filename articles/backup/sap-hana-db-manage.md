@@ -3,12 +3,12 @@ title: Administración de bases de datos de SAP HANA con copia de seguridad en m
 description: En este artículo, aprenderá las tareas comunes para administrar y supervisar las bases de datos de SAP HANA que se ejecutan en máquinas virtuales de Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 98dd67668d1b88a25dfa3b91174cd96730c435e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7e23ffc2fe39389725519f7b94a0fe6ffaecf69c
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049460"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826708"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Administración y supervisión de bases de datos de SAP HANA de las que se ha realizado copia de seguridad
 
@@ -129,7 +129,7 @@ Puede cambiar la directiva subyacente para un elemento de copia de seguridad de 
 >[!NOTE]
 > Cualquier cambio en el período de retención se aplicará de manera retrospectiva a todos los puntos de recuperación más antiguos, además de los nuevos.
 >
-> Las directivas de copia de seguridad incrementales no se pueden usar para las bases de datos de SAP HANA. Las copias de seguridad incrementales no se admite actualmente para estas bases de datos.
+> Las directivas de copia de seguridad incrementales no se pueden usar para las bases de datos de SAP HANA. Las copias de seguridad incrementales no se admiten actualmente para estas bases de datos.
 
 ### <a name="modify-policy"></a>Modificación de directivas
 
@@ -171,7 +171,7 @@ Puede dejar de proteger una base de datos SAP HANA de dos maneras:
 
 Si decide dejar los puntos de recuperación, tenga en cuenta estos detalles:
 
-* Todos los puntos de recuperación permanecerán intactos para siempre; al detenerse la protección de los datos se detendrá la eliminación de todos los puntos y se conservarán los datos.
+* Todos los puntos de recuperación permanecerán intactos para siempre y al detenerse la protección de los datos se detendrá la eliminación de todos los puntos y se conservarán los datos.
 * Se le cobrará la instancia protegida y el almacenamiento consumido. Para más información, consulte [Precios de Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
 * Si elimina un origen de datos sin detener las copias de seguridad, las nuevas copias de seguridad producirán errores.
 

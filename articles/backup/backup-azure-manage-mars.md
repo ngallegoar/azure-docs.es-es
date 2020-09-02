@@ -4,12 +4,12 @@ description: Aprenda a administrar y supervisar las copias de seguridad del agen
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 581141ea5ffaecf774d292f66a05da5e40c8dc54
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: b46303bdb7fc6c39aafd3046a4bcbc5e0ba75766
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263306"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893075"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Administración de copias de seguridad del agente de Microsoft Azure Recovery Services (MARS) con el servicio Azure Backup
 
@@ -80,7 +80,7 @@ Puede agregar reglas de exclusión para omitir archivos y carpetas que no desea 
     ![Seleccione los elementos que desea quitar](./media/backup-azure-manage-mars/select-items-remove.png)
 
     > [!NOTE]
-    > Proceda con precaución al quitar completamente un volumen de la directiva.  Si necesita volver a agregarlo, se tratará como un nuevo volumen. La siguiente copia de seguridad programada realizará una copia de seguridad inicial (copia de seguridad completa) en lugar de una copia de seguridad incremental. Si necesita quitar y agregar temporalmente elementos más adelante, se recomienda usar **Configuración de exclusión** en lugar de **Quitar elementos** para garantizar una copia de seguridad incremental en lugar de una copia de seguridad completa.
+    > Proceda con precaución al quitar completamente un volumen de la directiva.  Si necesita volver a agregarlo, se tratará como un nuevo volumen. La siguiente copia de seguridad programada realizará una copia de seguridad inicial (copia de seguridad completa) en lugar de una copia de seguridad incremental. Si necesita quitar o añadir temporalmente elementos más adelante, se recomienda usar **Configuración de exclusión** en lugar de **Quitar elementos** para garantizar que se haga una copia de seguridad incremental en lugar de una copia de seguridad completa.
 
 2. Complete los pasos siguientes y seleccione **Finalizar** para completar la operación.
 
@@ -92,7 +92,7 @@ Hay dos formas de detener la protección de una copia de seguridad de archivos y
   - Esta opción detendrá la protección para todos los trabajos de copia de seguridad futuros.
   - El servicio Azure Backup seguirá conservando todos los puntos de recuperación existentes.  
   - Podrá restaurar los datos de copia de seguridad de los puntos de recuperación que no hayan expirado.
-  - Si decide reanudar la protección, podrá usar la opción *Vuelva a habilitar la programación de copia de seguridad*. Después de eso, los datos se conservarán de acuerdo con la nueva directiva de retención.
+  - Si decide reanudar la protección, podrá usar la opción *Vuelva a habilitar la programación de copia de seguridad*. Después de la operación, los datos se conservarán de acuerdo con la nueva directiva de retención.
 - **Detener la protección y eliminar los datos de copia de seguridad**.
   - Esta opción hará que todos los trabajos de copia de seguridad futuros dejen de proteger los datos y eliminará todos los puntos de recuperación.
   - Recibirá un correo electrónico de alerta de eliminación de datos de copia de seguridad con el mensaje *Your data for this Backup item has been deleted. This data will be temporarily available for 14 days, after which it will be permanently deleted* (Los datos de este elemento de copia de seguridad se han eliminado. Estos datos estarán disponibles temporalmente durante un período de 14 días, tras el cual se eliminarán de forma permanente) y la acción recomendada *Reprotect the Backup item within 14 days to recover your data* (Vuelva a proteger el elemento de copia de seguridad en el plazo de 14 días para recuperar los datos).
@@ -154,7 +154,7 @@ Si ha detenido la protección y conservado los datos y, después, decide reanuda
 
 ## <a name="re-generate-passphrase"></a>Regeneración de la frase de contraseña
 
-Una frase de contraseña se usa para cifrar y descifrar los datos durante la copia de seguridad o la restauración del entrono local o la máquina local mediante el agente de MARS en Azure o desde Azure. Si perdió u olvidó la frase de contraseña, puede volver a generar la frase de contraseña (siempre que el equipo todavía esté registrado en el almacén de Recovery Services y la copia de seguridad esté configurada) siguiendo estos pasos:
+Una frase de contraseña se usa para cifrar y descifrar los datos durante la copia de seguridad o la restauración del entrono local o la máquina local mediante el agente de MARS en Azure o desde Azure. Si ha perdido u olvidado la frase de contraseña, puede volver a generarla (siempre que el equipo siga registrado en el almacén de Recovery Services y la copia de seguridad se haya configurado) mediante estos pasos:
 
 1. En la consola del agente de MARS, vaya a **Panel acciones** > **Cambiar propiedades** >. Luego, vaya a la **pestaña Cifrado**.<br>
 1. Active la casilla **Cambiar frase de contraseña**.<br>
@@ -163,7 +163,7 @@ Una frase de contraseña se usa para cifrar y descifrar los datos durante la cop
 
     ![Generar la frase de contraseña.](./media/backup-azure-manage-mars/passphrase.png)
 
-1. Seleccione **Aceptar** para aplicar los cambios.  Si está habilitada la [característica de seguridad](./backup-azure-security-feature.md#enable-security-features) en Azure Portal para el almacén de Recovery Services, se le pedirá que escriba el PIN de seguridad. Para recibir el PIN, siga los pasos indicados en este [artículo](./backup-azure-security-feature.md#authentication-to-perform-critical-operations).<br>
+1. Seleccione **Aceptar** para aplicar los cambios.  Si la [característica de seguridad](./backup-azure-security-feature.md#enable-security-features) está habilitada en Azure Portal para el almacén de Recovery Services, se le pedirá que escriba el PIN de seguridad. Para recibir el PIN, siga los pasos indicados en este [artículo](./backup-azure-security-feature.md#authentication-to-perform-critical-operations).<br>
 1. Pegue el PIN de seguridad desde el portal y seleccione **Aceptar** para aplicar los cambios.<br>
 
     ![Pegar el PIN de seguridad](./media/backup-azure-manage-mars/passphrase2.png)

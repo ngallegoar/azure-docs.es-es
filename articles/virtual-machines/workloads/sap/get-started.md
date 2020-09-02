@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/18/2020
+ms.date: 08/25/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 538ea1746e92b3ec7d45f06031cfdc965e286d7a
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 704d4c1b4e4e4229f35526748494aaac2e351f99
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88603848"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871384"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso de Azure para hospedar y ejecutar escenarios de carga de trabajo de SAP
 
@@ -88,6 +88,10 @@ Para obtener información sobre la integración de servicios de Azure en los com
 
 ## <a name="change-log"></a>Registro de cambios
 
+- 25/08/2020: Cambios en la [guía de alta disponibilidad para ASCS/SCS de SAP con WSFC y un disco compartido](./sap-high-availability-guide-wsfc-shared-disk.md), [Preparación de la infraestructura de Azure para ASCS/SCS de SAP con WSFC y un disco compartido](./sap-high-availability-infrastructure-wsfc-shared-disk.md) e [Instalación de la alta disponibilidad de SAP NW con WSFC y un disco compartido](./sap-high-availability-guide-wsfc-shared-disk.md) para presentar la opción de uso del disco compartido de Azure y la arquitectura de SAP ERS2 del documento
+- 25/08/2020: Publicación de la [guía de alta disponibilidad de varios SID de ASCS/SCS de SAP con WSFC y un disco compartido de Azure](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md)
+- 25/08/2020: Cambios en la [guía de alta disponibilidad de ASCS/SCS de SAP con WSFC y Azure NetApp Files (SMB)](./high-availability-guide-windows-netapp-files-smb.md), [Preparación de la infraestructura de Azure para ASCS/SCS de SAP con WSFC y el recurso compartido de archivos](./sap-high-availability-infrastructure-wsfc-file-share.md), [guía de alta disponibilidad de varios SID para ASCS/SCS de SAP con WSFC y un disco compartido](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md) y [guía de alta disponibilidad de varios SID para ASCS/SCS de SAP con WSFC y el recurso compartido de archivos de SOFS](./sap-ascs-ha-multi-sid-wsfc-file-share.md) como resultado de actualizaciones de contenido y la reestructuración de las guías de alta disponibilidad para ASCS/SCS de SAP con WFC y un disco compartido 
+- 21/08/2020: Incorporación de una nueva versión del sistema operativo a [Sistemas operativos compatibles con instancias grandes de HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance) como sistema operativo disponible para unidades HLI de tipo I y II
 - 18/08/2020: Versión de la [alta disponibilidad del escalado vertical de SAP HANA con ANF en RHEL](./sap-hana-high-availability-netapp-files-red-hat.md)
 - 17/08/2020: Adición de información sobre el uso de Azure Site Recovery para mover sistemas SAP NetWeaver del entorno local a Azure, en el artículo [Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver](./planning-guide.md)
 - 14/08/2020: Adición de consejos de configuración de disco para DB2 en el artículo [Implementación de DBMS de Azure Virtual Machines de IBM Db2 para carga de trabajo de SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm)

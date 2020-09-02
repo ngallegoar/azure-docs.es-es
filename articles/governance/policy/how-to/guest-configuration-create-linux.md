@@ -3,12 +3,12 @@ title: Creación de directivas de Configuración de invitado para Linux
 description: Aprenda a crear una directiva de Configuración de invitado de Azure Policy para Linux.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 8bf01d8f69439f7b4d60fba76de0b7abf636c274
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7510cf378bc7e2d999de122be27662a7ccf0ba92
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547727"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717547"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Creación de directivas de Configuración de invitado para Linux
 
@@ -25,8 +25,7 @@ Use las siguientes acciones para crear su propia configuración para validar el 
 > [!IMPORTANT]
 > Las directivas personalizadas con la configuración de invitados son una característica en vista previa (GB).
 >
-> La extensión de configuración de invitado es necesaria para realizar auditorías en las máquinas virtuales de Azure. Para implementar la extensión a gran escala, en todas las máquinas Linux asigne las siguientes definiciones de directiva:
-> - [Implemente los requisitos previos para habilitar la directiva de configuración de invitado en VM de Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
+> La extensión de configuración de invitado es necesaria para realizar auditorías en las máquinas virtuales de Azure. Para implementar la extensión a gran escala en todas las máquinas Linux, asigne las siguientes definiciones de directiva: `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
 
 ## <a name="install-the-powershell-module"></a>Instalación del módulo de PowerShell
 

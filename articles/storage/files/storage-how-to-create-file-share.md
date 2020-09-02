@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: aaba608ba80a751c40cd300dee80f673897c22a8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 236134887728ebc3dd4d03fa4c9d9d450b39eac2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525656"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930679"
 ---
 # <a name="create-an-azure-file-share"></a>Creación de un recurso compartido de archivos de Azure
 Para crear un recurso compartido de archivos de Azure, debe responder a tres preguntas sobre cómo lo usará:
@@ -267,6 +267,9 @@ Update-AzRmStorageShare `
     -AccessTier Cool
 ```
 
+> [!Note]  
+> La capacidad de establecer y cambiar los niveles mediante PowerShell se proporciona en la versión preliminar del módulo Az.Storage de PowerShell. Puede que estos cmdlets o sus salidas cambien antes de su publicación en la versión con disponibilidad general del módulo Az.Storage de PowerShell, por lo que debe crear scripts con esto en mente.
+
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 La funcionalidad para crear o mover un recurso compartido de archivos a un nivel específico está disponible en la actualización más reciente de la CLI de Azure. La actualización de la CLI de Azure es específica de la distribución de Linux o del sistema operativo que está usando. Para obtener instrucciones sobre cómo actualizar la CLI de Azure en el sistema, vea [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -282,6 +285,10 @@ az storage share-rm create \
     --name $shareName \
     --access-tier "Hot"
 ```
+
+> [!Note]  
+> La capacidad de establecer un nivel con el parámetro `--access-tier` se proporciona en una versión preliminar del último paquete de la CLI de Azure. Este comando o su salida pueden cambiar antes de pasar a tener disponibilidad general, por lo que debe crear scripts con esto en mente.
+
 ---
 
 ## <a name="next-steps"></a>Pasos siguientes

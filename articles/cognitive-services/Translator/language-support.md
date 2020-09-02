@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: d692daf2f7f8b77358e73246fd8d8760f95982ac
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: d8e6a4e769b08d674b355f6f88a0967316e95c63
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510800"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782335"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Compatibilidad de idiomas y regiones con la traducción de texto y voz
 
@@ -75,6 +75,8 @@ Translator admite los siguientes idiomas para la traducción de texto a texto.
 |Klingon|   `tlh-Latn`  |
 |Klingon (plqaD)|   `tlh-Piqd`  |
 |Coreano |`ko`   |
+|Kurdo (central)  |`ku`   |
+|Kurdo (norte) |`kmr`  |
 |Letón|   `lv`    |
 |Lituano|    `lt`    |
 |Malgache|  `mg`    |
@@ -158,6 +160,7 @@ Translator detecta los siguientes idiomas para traducción y transliteración.
 |Malayo| `ms`        |
 |Maltés|   `mt`    |
 |Noruego| `nb`    |
+|Pastún|    `ps`    |
 |Persa|   `fa`    |
 |Polaco|    `pl`    |
 |Portugués (Brasil)|   `pt-br` |
@@ -194,19 +197,19 @@ El método Transliterate admite los siguientes idiomas. En "Hacia/Desde", "<-->"
 | Chino (simplificado) | `zh-Hans` | Chino simplificado `Hans`| <--> | Chino tradicional `Hant`|
 | Chino (tradicional) | `zh-Hant` | Chino tradicional `Hant`| <--> | Latino `Latn` |
 | Chino (tradicional) | `zh-Hant` | Chino tradicional `Hant`| <--> | Chino simplificado `Hans` |
-| Gujarati | `gu`  | Guyaratí `Gujr` | --> | Latino `Latn` |
+| Gujarati | `gu`  | Guyaratí `Gujr` | <--> | Latino `Latn` |
 | Hebreo | `he` | Hebreo `Hebr` | <--> | Latino `Latn` |
 | Hindi | `hi` | Devanagari `Deva` | <--> | Latino `Latn` |
 | Japonés | `ja` | Japonés `Jpan` | <--> | Latino `Latn` |
-| Canarés | `kn` | Canarés `Knda` | --> | Latino `Latn` |
-| Malayalam | `ml` | Malayalam `Mlym` | --> | Latino `Latn` |
-| Maratí | `mr` | Devanagari `Deva` | --> | Latino `Latn` |
+| Canarés | `kn` | Canarés `Knda` | <--> | Latino `Latn` |
+| Malayalam | `ml` | Malayalam `Mlym` | <--> | Latino `Latn` |
+| Maratí | `mr` | Devanagari `Deva` | <--> | Latino `Latn` |
 | Odia | `or` | Odia `Orya` | <--> | Latino `Latn` |
 | Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latino `Latn`  |
 | Serbio (cirílico) | `sr-Cyrl` | Cirílico `Cyrl`  | --> | Latino `Latn` |
 | Serbio (latino) | `sr-Latn` | Latino `Latn` | --> | Cirílico `Cyrl`|
-| Tamil | `ta` | Tamil `Taml` | --> | Latino `Latn` |
-| Telugu | `te` | Telugu `Telu` | --> | Latino `Latn` |
+| Tamil | `ta` | Tamil `Taml` | <--> | Latino `Latn` |
+| Telugu | `te` | Telugu `Telu` | <--> | Latino `Latn` |
 | Tailandés | `th` | Tailandés `Thai` | --> | Latino `Latn` |
 
 ### <a name="dictionary"></a>Diccionario
@@ -296,6 +299,7 @@ Los siguientes idiomas están disponibles para personalización al y del inglés
 | Francés      | `fr`          |
 | Alemán      | `de`          |
 | Griego      | `el`          |
+| Gujarati| `gu`    |
 | Hebreo      | `he`          |
 | Hindi      | `hi`          |
 | Húngaro      | `hu`          |
@@ -309,11 +313,14 @@ Los siguientes idiomas están disponibles para personalización al y del inglés
 | Letón      | `lv`          |
 | Lituano      | `lt`          |
 | Malgache| `mg`    |
+| Malayo|    `ms`        |
 | Maori| `mi`  |
+| Maratí| `mr`  |
 | Noruego      | `nb`          |
 | Persa      | `fa`          |
 | Polaco      | `pl`          |
 | Portugués (Brasil) | `pt-br` |
+| Punjabi|`pa`|
 | Rumano      | `ro`          |
 | Ruso      | `ru`          |
 | Samoano|   `sm`    |
@@ -325,6 +332,7 @@ Los siguientes idiomas están disponibles para personalización al y del inglés
 | Tailandés      | `th`          |
 | Turco      | `tr`          |
 | Ucraniano      | `uk`          |
+| Urdu| `ur`    |
 | Vietnamita      | `vi`          |
 | Galés | `cy` |
 

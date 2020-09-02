@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 08/07/2020
-ms.openlocfilehash: 3e8822462cd7989f6bc1f051b3868d6241f591b1
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 33b3dcdc4fbcf08114f6ba6d63bb949250380d63
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166712"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816531"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Creación de una oferta de máquina virtual de Azure en Azure Marketplace
 
@@ -249,16 +249,17 @@ Proporcione logotipos e imágenes para usarlos con la oferta. Todas las imágene
 
 #### <a name="azure-marketplace-logos"></a>Logotipos de Azure Marketplace
 
-Proporcione archivos PNG del logotipo de la oferta con las cuatro dimensiones de imágenes siguientes:
+Proporcione un archivo PNG para el logotipo de tamaño **Grande**. El Centro de partners lo usará para crear un logotipo **Pequeño** y un logotipo **Mediano**. Opcionalmente, puede reemplazarlos por imágenes diferentes más adelante.
 
-- **Pequeña** (48 &times; 48 píxeles)
-- **Mediana** (90 &times; 90 píxeles)
-- **Grande** (216 &times; 216 píxeles)
-- **Ancha** (255 &times; 115 píxeles)
+- **Grande** (de 216 x 216 a 350 x 350 píxeles, obligatorio)
+- **Mediano** (90 x 90 píxeles, opcional)
+- **Pequeño** (48 x 48 píxeles, opcional)
 
-Los cuatro logotipos son obligatorios y se muestran en varias listas de Azure Marketplace.
+Estos logotipos se usan en distintos lugares de la publicación:
 
 [!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Capturas de pantalla
 

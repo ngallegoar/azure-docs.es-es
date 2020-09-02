@@ -3,12 +3,12 @@ title: ¿Se pueden hacer copias de seguridad Azure Backup Server V3 RTM?
 description: En este artículo se incluye una matriz de protección en la que se indican todas las cargas de trabajo, los tipos de datos y las instalaciones que Azure Backup Server V3 RTM protege.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 86e192e13b49b89e8d66c5f912ef88f02a1b21b4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 21c5fbcdf8aa3454a9af968509cb4cbf76b31f9e
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611983"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763616"
 ---
 # <a name="azure-backup-server-v3-rtm-protection-matrix"></a>Matriz de protección de Azure Backup Server V3 RTM
 
@@ -32,9 +32,9 @@ En la siguiente matriz se indican los elementos que pueden protegerse con Azure 
 |Servidores (32 bits y 64 bits)|Windows Server 2012/2012 con SP1: Datacenter y Standard|Servidor físico<br /><br />Máquina virtual local de Hyper-V<br /> <br /> Azure Stack|V3, V2|Volumen, recurso compartido, carpeta, archivo y estado del sistema/sin sistema operativo<br /><br />Azure Backup Server debe ejecutarse al menos en Windows Server 2012 R2 para proteger los volúmenes desduplicados de Windows Server 2012.|
 |Servidores (32 bits y 64 bits)|Windows Server 2012/2012 con SP1: Datacenter y Standard|Máquina virtual de Azure (cuando la carga de trabajo se ejecute como máquina virtual de Azure)<br /> <br /> Azure Stack|V3, V2|Volumen, recurso compartido, carpeta y archivo<br /><br />Azure Backup Server debe ejecutarse al menos en Windows Server 2012 R2 para proteger los volúmenes desduplicados de Windows Server 2012.|
 |Servidores (32 bits y 64 bits)|Windows Server 2012/2012 con SP1: Datacenter y Standard|Máquina virtual Windows en VMware (protege las cargas de trabajo en una máquina virtual de Windows en VMware)<br /> <br /> Azure Stack|V3, V2|Volumen, recurso compartido, carpeta, archivo y estado del sistema/sin sistema operativo<br /><br />Azure Backup Server debe ejecutarse al menos en Windows Server 2012 R2 para proteger los volúmenes desduplicados de Windows Server 2012.|
-|Servidores (32 bits y 64 bits)|Windows Server 2008 R2 SP1: Standard y Enterprise|Servidor físico<br /><br />Máquina virtual local de Hyper-V<br /> <br /> Azure Stack|V3, V2<br />Debe ejecutar SP1 e instalar [Windows Management Frame 4.0](https://www.microsoft.com/download/details.aspx?id=40855).|Volumen, recurso compartido, carpeta, archivo y estado del sistema/sin sistema operativo|
-|Servidores (32 bits y 64 bits)|Windows Server 2008 R2 SP1: Standard y Enterprise|Máquina virtual de Azure (cuando la carga de trabajo se ejecute como máquina virtual de Azure)<br /> <br /> Azure Stack|V3, V2<br />Debe ejecutar SP1 e instalar [Windows Management Frame 4.0](https://www.microsoft.com/download/details.aspx?id=40855).|Volumen, recurso compartido, carpeta y archivo|
-|Servidores (32 bits y 64 bits)|Windows Server 2008 R2 SP1: Standard y Enterprise|Máquina virtual Windows en VMware (protege las cargas de trabajo que se ejecutan en una máquina virtual Windows en VMware)<br /> <br /> Azure Stack|V3, V2<br />Debe ejecutar SP1 e instalar [Windows Management Frame 4.0](https://www.microsoft.com/download/details.aspx?id=40855).|Volumen, recurso compartido, carpeta, archivo y estado del sistema/sin sistema operativo|
+|Servidores (32 bits y 64 bits)|Windows Server 2008 R2 SP1: Standard y Enterprise|Servidor físico<br /><br />Máquina virtual local de Hyper-V<br /> <br /> Azure Stack|V3, V2<br />Debe ejecutar SP1 e instalar [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616).|Volumen, recurso compartido, carpeta, archivo y estado del sistema/sin sistema operativo|
+|Servidores (32 bits y 64 bits)|Windows Server 2008 R2 SP1: Standard y Enterprise|Máquina virtual de Azure (cuando la carga de trabajo se ejecute como máquina virtual de Azure)<br /> <br /> Azure Stack|V3, V2<br />Debe ejecutar SP1 e instalar [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616).|Volumen, recurso compartido, carpeta y archivo|
+|Servidores (32 bits y 64 bits)|Windows Server 2008 R2 SP1: Standard y Enterprise|Máquina virtual Windows en VMware (protege las cargas de trabajo que se ejecutan en una máquina virtual Windows en VMware)<br /> <br /> Azure Stack|V3, V2<br />Debe ejecutar SP1 e instalar [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616).|Volumen, recurso compartido, carpeta, archivo y estado del sistema/sin sistema operativo|
 |Servidores (32 bits y 64 bits)|Windows Server 2008 SP2|Servidor físico<br /><br />Máquina virtual local de Hyper-V<br /> <br /> Azure Stack|No compatible|Volumen, recurso compartido, carpeta, archivo y estado del sistema/sin sistema operativo|
 |Servidores (32 bits y 64 bits)|Windows Server 2008 SP2|Máquina virtual Windows en VMware (protege las cargas de trabajo en una máquina virtual de Windows en VMware)<br /> <br /> Azure Stack|V3, V2|Volumen, recurso compartido, carpeta, archivo y estado del sistema/sin sistema operativo|
 |Servidores (32 bits y 64 bits)|Windows Storage Server 2008|Servidor físico<br /><br />Máquina virtual local de Hyper-V<br /> <br /> Azure Stack|V3, V2|Volumen, recurso compartido, carpeta, archivo y estado del sistema/sin sistema operativo|

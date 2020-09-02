@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: c3123d22d2a13be9b9e5360e82990ba3a6320b1a
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: daffcbf0a2ceb6f28cbb539906d4c6387840aa20
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008804"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752104"
 ---
 # <a name="configure-an-aks-cluster"></a>Configuración de un clúster de AKS
 
@@ -81,7 +81,7 @@ Si quiere crear grupos de nodos con la imagen AKS Ubuntu 16.04, puede hacerlo o
 
 Un entorno de ejecución de contenedor es un software que ejecuta contenedores y administra imágenes de contenedor en un nodo. El entorno de ejecución ayuda a abstraer la funcionalidad específica del sistema operativo o de sys-call para ejecutar contenedores en Linux o Windows. Actualmente, AKS usa [Moby](https://mobyproject.org/) (Docker ascendente) como entorno de ejecución de contenedor. 
     
-![CRI de Docker](media/cluster-configuration/docker-cri.png)
+![Docker CRI 1](media/cluster-configuration/docker-cri.png)
 
 [`Containerd`](https://containerd.io/) es un entorno de ejecución de contenedor básico compatible con [OCI](https://opencontainers.org/) (Open Container Initiative) que proporciona el conjunto mínimo de funciones necesarias para ejecutar contenedores y administrar imágenes en un nodo. Fue [donado](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) a la Cloud Native Compute Foundation (CNCF) en marzo de 2017. La versión de Moby que AKS usa actualmente se basa en `containerd` y ya aprovecha sus ventajas, como se mostró anteriormente. 
 
@@ -89,7 +89,7 @@ Con los grupos de nodos y los nodos basados en contenedores, en lugar de comunic
 
 Usar `containerd` para los nodos AKS mejora la latencia de inicio del pod y reduce el consumo de recursos de nodo del entorno de ejecución de contenedor. Estas mejoras son posibles gracias a la nueva arquitectura, en la que el kubelet se comunica directamente con `containerd` mediante el complemento CRI; sin embargo, en la arquitectura de Moby o Docker, el kubelet se comunica con `dockershim` y con el motor de Docker antes de llegar a `containerd` y, por lo tanto, tiene saltos adicionales en el flujo.
 
-![CRI de Docker](media/cluster-configuration/containerd-cri.png)
+![Docker CRI 2](media/cluster-configuration/containerd-cri.png)
 
 `Containerd` funciona en todas las versiones de disponibilidad general de Kubernetes en AKS y en todas las versiones de Kubernetes anteriores a la versión 1.10, y admite todas las características de Kubernetes y AKS.
 
@@ -236,7 +236,7 @@ Si quiere crear un grupo de nodos Gen1 normal, puede hacerlo omitiendo la etique
 
 ## <a name="ephemeral-os-preview"></a>Sistema operativo efímero (versión preliminar)
 
-El disco del sistema operativo de una máquina virtual de Azure se replica automáticamente, de forma predeterminada, en Azure Storage para evitar la pérdida de datos cuando hay que reubicar la máquina virtual en otro host. Sin embargo, como los contenedores no están diseñados para preservar el estado local, este comportamiento ofrece un valor limitado y además presenta algunos inconvenientes, como un aprovisionamiento más lento de los nodos y una menor latencia de lectura y escritura.
+El disco del sistema operativo de una máquina virtual de Azure se replica automáticamente, de forma predeterminada, en Azure Storage para evitar la pérdida de datos cuando hay que reubicar la máquina virtual en otro host. Sin embargo, como los contenedores no están diseñados para preservar el estado local, este comportamiento ofrece un valor limitado y, además, presenta algunos inconvenientes, como un aprovisionamiento más lento de los nodos y una mayor latencia de lectura y escritura.
 
 En cambio, los discos de sistema operativo efímero solo se almacenan en el equipo host, al igual que los discos temporales. Esto proporciona una latencia de lectura y escritura menor, junto con escalabilidad de nodos y actualizaciones de clúster más rápidas.
 

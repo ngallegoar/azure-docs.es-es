@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 3d8c5d408ef2b958ca7d3454f23ce2c52fb1d1be
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 0f9a8a1c4631fc667d0dd31ae62f7d57aefccc90
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88513047"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855851"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Preguntas más frecuentes sobre la migración del método clásico al de Azure Resource Manager
 
@@ -70,7 +70,7 @@ No se puede anular la migración si se produce un error en la operación de conf
 
 ## <a name="do-i-have-to-buy-another-express-route-circuit-if-i-have-to-use-iaas-under-resource-manager"></a>¿Tengo que comprar otro circuito de ExpressRoute para usar IaaS en Resource Manager? 
 
-No. Hace poco hemos habilitado la [transición de los circuitos ExpressRoute del modelo de implementación clásica al modelo de implementación de Resource Manager](~/articles/expressroute/expressroute-move.md). No hace falta que compre un nuevo circuito de ExpressRoute si ya tiene uno.
+No. Hace poco hemos habilitado la [transición de los circuitos ExpressRoute del modelo de implementación clásica al modelo de implementación de Resource Manager](../expressroute/expressroute-move.md). No hace falta que compre un nuevo circuito de ExpressRoute si ya tiene uno.
 
 ## <a name="what-if-i-had-configured-role-based-access-control-policies-for-my-classic-iaas-resources"></a>¿Qué ocurre si había configurado las directivas de control de acceso basado en rol para mis recursos IaaS clásicos? 
 
@@ -93,7 +93,7 @@ Para migrar la máquina virtual al modo de Resource Manager:
 1. Elimine la extensión de instantánea o copia de seguridad de la máquina virtual.
 2. Migre la máquina virtual del modo clásico al modo de Resource Manager. Asegúrese de que la información de almacenamiento y red correspondiente a la máquina virtual también se migra al modo de Resource Manager.
 
-Además, si quiere hacer una copia de seguridad de la máquina virtual migrada, vaya a la hoja Administración de máquina virtual para [habilitar la copia de seguridad](~/articles/backup/quick-backup-vm-portal.md#enable-backup-on-a-vm).
+Además, si quiere hacer una copia de seguridad de la máquina virtual migrada, vaya a la hoja Administración de máquina virtual para [habilitar la copia de seguridad](../backup/quick-backup-vm-portal.md#enable-backup-on-a-vm).
 
 ## <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-migration"></a>¿Puedo validar mi suscripción o mis recursos para ver si son aptos para la migración? 
 
@@ -113,7 +113,7 @@ Todos los recursos para los que se proporcionen nombres explícitamente en el mo
 
 ## <a name="can-i-migrate-expressroute-circuits-used-across-subscriptions-with-authorization-links"></a>¿Puedo migrar circuitos de ExpressRoute utilizados en las suscripciones con vínculos de autorización? 
 
-Los circuitos de ExpressRoute que usan vínculos de autorización entre suscripciones no se pueden migrar automáticamente sin tiempo de inactividad. Contamos con instrucciones sobre cómo se pueden migrar mediante pasos manuales. Para conocer los pasos que deben darse y obtener más información, consulte [Migración de circuitos ExpressRoute y las redes virtuales asociadas del modelo de implementación clásica a Resource Manager](~/articles/expressroute/expressroute-migration-classic-resource-manager.md).
+Los circuitos de ExpressRoute que usan vínculos de autorización entre suscripciones no se pueden migrar automáticamente sin tiempo de inactividad. Contamos con instrucciones sobre cómo se pueden migrar mediante pasos manuales. Para conocer los pasos que deben darse y obtener más información, consulte [Migración de circuitos ExpressRoute y las redes virtuales asociadas del modelo de implementación clásica a Resource Manager](../expressroute/expressroute-migration-classic-resource-manager.md).
 
 ## <a name="i-got-the-message-vm-is-reporting-the-overall-agent-status-as-not-ready-hence-the-vm-cannot-be-migrated-ensure-that-the-vm-agent-is-reporting-overall-agent-status-as-ready-or-vm-contains-extension-whose-status-is-not-being-reported-from-the-vm-hence-this-vm-cannot-be-migrated"></a>Aparece el mensaje *"La máquina virtual notifica el estado de agente general No preparado. Por lo tanto, la VM no se puede migra. Asegúrese de que el agente de VM notifica el estado de agente general como Preparado"* o *"la máquina virtual contiene la extensión cuyo estado no se notifica desde la VM. Por lo tanto, esta máquina virtual no se puede migrar."*
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 08/06/2020
-ms.openlocfilehash: 1d11318d2af640a0cf417286ee777ce833297a4f
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: f9c5b8ae16cb43576d788f72478e2cfba521a736
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873609"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749872"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configuración de clústeres en HDInsight con Apache Hadoop, Apache Spark, Apache Kafka, etc.
 
@@ -133,6 +133,9 @@ Durante la configuración se especifica un contenedor de blobs de una cuenta de 
 
 > [!IMPORTANT]
 > Habilitar la transferencia segura del almacenamiento después de crear un clúster puede producir errores al usar la cuenta de almacenamiento, por lo que no se recomienda. Es mejor crear un clúster mediante una cuenta de almacenamiento que ya tenga habilitada la transferencia segura.
+
+> [!Note]  
+> Azure HDInsight no transfiere, mueve ni copia automáticamente los datos almacenados en Azure Storage de una región a otra.
 
 ### <a name="metastore-settings"></a>Configuración de metastores
 

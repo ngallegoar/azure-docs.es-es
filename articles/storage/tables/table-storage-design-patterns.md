@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 32904044cf6dcecf19b1a78eb4236dc02555bb86
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 8a50aa02a2ba7187c8221c046fcabb7f4a6473fa
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034204"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826691"
 ---
 # <a name="table-design-patterns"></a>Patrones de diseño de tabla
 En este artículo se describen algunos patrones adecuados para su uso con soluciones de Table service. Además, verá cómo puede abordar de manera práctica algunos de los problemas, y las ventajas e inconvenientes descritos en otros artículos de diseño de Table Storage. En el diagrama siguiente se resumen las relaciones entre los distintos patrones:  
@@ -310,7 +310,7 @@ Observe que **RowKey** es ahora una clave compuesta formada por el identificador
 
 El ejemplo siguiente describe cómo se pueden recuperar todos los datos de revisión para un empleado concreto (como employee 000123 en el departamento de ventas):  
 
-$filter=(PartitionKey eq 'Ventas') y (RowKey ge 'empid_000123') y (RowKey lt 'empid_000124')&$select=RowKey,Manager Rating,Peer Rating,Comments  
+$filter=(PartitionKey eq "Sales") y (RowKey ge "empid_000123") y (RowKey lt "000123_2012")&$select=RowKey,Manager Rating,Peer Rating,Comments  
 
 ### <a name="issues-and-considerations"></a>Problemas y consideraciones
 Tenga en cuenta los puntos siguientes al decidir cómo implementar este patrón:  

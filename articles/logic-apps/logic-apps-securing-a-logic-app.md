@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 08/11/2020
-ms.openlocfilehash: a53ac9387664aafc218f13834e0499fde417d87d
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.date: 08/20/2020
+ms.openlocfilehash: 883eede5296f3f280bf30c9a459c02a9243f9081
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566087"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719536"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger el acceso y los datos en Azure Logic Apps
 
@@ -725,7 +725,7 @@ Se pueden proteger los puntos de conexión que reciben llamadas o solicitudes de
 
 * Incorporación de la autenticación en las solicitudes salientes.
 
-  Cuando trabaja con un desencadenador o acción basados en HTTP que realiza llamadas salientes, como HTTP, HTTP + Swagger o webhook, puede agregar autenticación a la solicitud enviada por la aplicación lógica. Por ejemplo, puede seleccionar estos tipos de autenticación:
+  Cuando usa un desencadenador o acción basados en HTTP que realiza llamadas salientes, como por ejemplo HTTP, puede agregar autenticación a la solicitud enviada por la aplicación lógica. Por ejemplo, puede seleccionar estos tipos de autenticación:
 
   * [Autenticación básica](#basic-authentication)
 
@@ -792,7 +792,7 @@ En esta tabla se identifican los tipos de autenticación que están disponibles 
 | [Certificado de cliente](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP y Swagger, webhook HTTP |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, webhook HTTP |
 | [Sin formato](#raw-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, webhook HTTP |
-| [Identidad administrada](#managed-identity-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, webhook HTTP |
+| [Identidad administrada](#managed-identity-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP |
 |||
 
 <a name="basic-authentication"></a>

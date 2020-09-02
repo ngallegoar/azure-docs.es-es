@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 07/27/2020
-ms.openlocfilehash: f26addda79d57a055f7b431968319138d499ef18
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 1a73b4707f83d6a23dffc20d95aa7b8a0fa465b3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272925"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649064"
 ---
 # <a name="sparkcruise-on-azure-hdinsight"></a>SparkCruise en Azure HDInsight
 
@@ -58,7 +58,7 @@ En el escenario de ejemplo siguiente se muestra cómo usar *SparkCruise* para op
     sudo /opt/peregrine/analyze/peregrine.sh show
     ```
 
-El comando `analyze` analiza los planes de consulta y crea una representación tabular de la carga de trabajo. A continuación, el comando `views` identifica expresiones de subplan comunes y selecciona expresiones de subplan interesantes para su posterior materialización y reutilización. La salida es un archivo de comentarios que contiene anotaciones para futuras consultas Spark SQL. 
+El comando `analyze` analiza los planes de consulta y crea una representación tabular de la carga de trabajo. Esta tabla de cargas de trabajo se puede consultar mediante el cuaderno *WorkloadInsights* que se incluye en el repositorio [Ejemplos de HDInsight SparkCruise](https://github.com/Azure-Samples/azure-sparkcruise-samples). A continuación, el comando `views` identifica expresiones de subplan comunes y selecciona expresiones de subplan interesantes para su posterior materialización y reutilización. La salida es un archivo de comentarios que contiene anotaciones para futuras consultas Spark SQL. 
 
 El comando `show` muestra una salida parecida al siguiente texto:
 
@@ -148,6 +148,7 @@ sudo /opt/peregrine/analyze/peregrine.sh clean
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* [Uso del cuaderno de conclusiones de la carga de trabajo para determinar las ventajas de SparkCruise](https://github.com/Azure-Samples/azure-sparkcruise-samples/tree/main/SparkCruise)
 * [Mejora del rendimiento de las cargas de trabajo de Apache Spark con la memoria caché de E/S de Azure HDInsight](apache-spark-improve-performance-iocache.md)
 * [Optimización de trabajos de Apache Spark en HDInsight](./apache-spark-perf.md)
 * [SparkCruise: Reutilización del cálculo manos libres en Spark](https://people.cs.umass.edu/~aroy/sparkcruise-vldb19.pdf)

@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones de compatibilidad y limitaciones
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: cfa8a6c7cb2da35929151dfce09c0bc31ee69bb2
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 6cb9f53bceb6caaac77dddd6828c46842e53d257
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611541"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825263"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 
@@ -49,7 +49,7 @@ Copias de seguridad por día (mediante DPM/MABS) | Dos copias de seguridad progr
 Copia de seguridad mensual o anual| No se admite cuando la copia de seguridad se realiza con la extensión de máquina virtual de Azure. Solo se admiten copias de seguridad diarias y semanales.<br/><br/> Puede configurar la directiva para conservar las copias de seguridad diarias y semanales durante el período de retención mensual o anual.
 Ajuste automático del reloj | No compatible.<br/><br/> Azure Backup no se ajusta automáticamente a los cambios al horario de verano cuando realiza la copia de seguridad de una máquina virtual.<br/><br/>  Modifique la directiva de forma manual según sea necesario.
 [Características de seguridad para copias de seguridad híbridas](./backup-azure-security-feature.md) |No se pueden deshabilitar las características de seguridad.
-Copia de seguridad de la máquina virtual cuya hora se ha cambiado | No compatible.<br/><br/> Si se cambia la hora de la máquina a una fecha y hora futuras después de habilitar la copia de seguridad para esa máquina virtual; incluso si se revierte el cambio horario, no se garantiza que la copia de seguridad sea correcta.
+Copia de seguridad de la máquina virtual cuya hora se ha cambiado | No compatible.<br/><br/> Si se cambia la hora de la máquina a una fecha y hora futuras después de habilitar la copia de seguridad para esa máquina virtual, aunque se revierta el cambio horario, no se garantiza que la copia de seguridad se efectúe correctamente.
 Máquinas virtuales de Azure en [conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/overview.md) | La copia de seguridad y restauración se admiten para las máquinas virtuales con el [modo de orquestación](../virtual-machine-scale-sets/orchestration-modes.md#orchestration-modes) establecido en 3. <br><br>Los conjuntos de disponibilidad no se admiten.
 
 ## <a name="operating-system-support-windows"></a>Compatibilidad con sistema operativo (Windows)
@@ -149,7 +149,7 @@ Copia de seguridad con [Configuración de diagnóstico](../azure-monitor/platfor
 Restauración de máquinas virtuales ancladas por zona | Compatible (para máquinas virtuales cuya copia de seguridad se ha realizado después de enero de 2019 y en las que hay [zonas de disponibilidad](https://azure.microsoft.com/global-infrastructure/availability-zones/) disponibles).<br/><br/>Actualmente se admite la restauración en la misma zona que está anclada en las máquinas virtuales. Sin embargo, si la zona no está disponible, se producirá un error en la restauración.
 Máquinas virtuales de Gen2 | Compatible <br> Azure Backup admite la copia de seguridad y la restauración de [máquinas virtuales de Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). Cuando estas máquinas virtuales se restauran a partir del punto de recuperación, se restauran como [máquinas virtuales de Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 Copia de seguridad de máquinas virtuales de Azure con bloqueos | No se admite para máquinas virtuales no administradas. <br><br> Se admite para máquinas virtuales administradas.
-[Máquinas virtuales de Spot](../virtual-machines/windows/spot-vms.md) | No compatible. Azure Backup restaura las máquinas virtuales de Spot como máquinas virtuales de Azure convencionales.
+[Máquinas virtuales de Spot](../virtual-machines/spot-vms.md) | No compatible. Azure Backup restaura las máquinas virtuales de Spot como máquinas virtuales de Azure convencionales.
 
 ## <a name="vm-storage-support"></a>Compatibilidad con almacenamiento de máquina virtual
 
@@ -165,7 +165,7 @@ Copia de seguridad y restauración de discos y máquinas virtuales desduplicados
 Agregar disco a una máquina virtual protegida | Compatible.
 Cambiar tamaño de disco de una máquina virtual protegida | Compatible.
 Almacenamiento compartido| No se admite la copia de seguridad de máquinas virtuales mediante el Volumen compartido de clúster (CSV) o el Servidor de archivos de escalabilidad horizontal. Es probable que los escritores de CSV experimenten errores durante la copia de seguridad. En la restauración, es posible que los discos que contienen volúmenes CSV no aparezcan.
-[Discos compartidos](../virtual-machines/windows/disks-shared-enable.md) | No compatible.
+[Discos compartidos](../virtual-machines/disks-shared-enable.md) | No compatible.
 
 ## <a name="vm-network-support"></a>Compatibilidad con red de VM
 

@@ -8,30 +8,30 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 702486a0728a7394d8d8febffc11b11bc113a030
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 465543e639514753bc0a6762dbbeb888d490ccd2
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606747"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705051"
 ---
 # <a name="marketplace-rewards"></a>Recompensas de Marketplace
 
-Marketplace Rewards están diseñado para ayudarle en su fase de crecimiento específica, empezando por las actividades de reconocimiento para que pueda obtener sus primeros clientes. A medida que crezca en el marketplace comercial, podrá desbloquear nuevas ventajas diseñadas para ayudarlo a convertir clientes y cerrar acuerdos.
+Marketplace Rewards están diseñado para ayudarle en su fase de crecimiento específica, empezando por las actividades de reconocimiento para que pueda obtener sus primeros clientes. A medida que crezca en el Marketplace comercial de Microsoft, podrá desbloquear nuevas ventajas diseñadas para ayudarlo a convertir clientes y cerrar acuerdos.
 
 Este programa crea un bucle de retroalimentación positivo: las ventajas de cada fase de crecimiento le permitirán llegar hasta la fase siguiente, por lo que podrá llevar su negocio a los clientes de Microsoft gracias al campo de Microsoft y a través del canal de Microsoft; para ello, solo debe aprovechar la opción comercial de Marketplace como plataforma.
 
-Sus ventajas se diferencian en función de si la oferta es de [Lista, Prueba o Transacción](../determine-your-listing-type.md#choose-a-call-to-action).
+Sus ventajas se diferencian en función de si la oferta es de [Lista, Prueba o Transacción](../determine-your-listing-type.md#choose-a-listing-option).
 
 Un miembro del equipo de Recompesas se pondrá en contacto con usted cuando se publique la oferta, en función de su idoneidad.
 
-En el caso de los asociados de transacciones, a medida que aumenta las ventas facturadas a través de la plataforma de Marketplace, se desbloquean mayores ventajas por nivel.
+En el caso de los asociados de transacciones, a medida que aumenta las ventas facturadas a través de la plataforma del marketplace comercial, se desbloquean mayores ventajas por nivel.
 
-El requisito mínimo para publicar en las tiendas en línea es un MPNID, por lo que estas ventajas están disponibles para todos los asociados, con independencia del estado de la competencia de MPN o del tipo de asociado. Cada asociado está capacitado para hacer crecer su negocio con Marketplace como plataforma.
+El requisito mínimo para publicar en las tiendas en línea es un MPNID, por lo que estas ventajas están disponibles para todos los asociados, con independencia del estado de la competencia de MPN o del tipo de asociado. Cada asociado está capacitado para hacer crecer su negocio con el marketplace comercial como plataforma.
 
 Obtendrá ayuda para entender los recursos que tiene disponibles y en la implementación de los procedimientos recomendados, lo que también puede [revisar por su cuenta.](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)
 
-Compruebe si cumple los requisitos del programa Marketplace Rewards [aquí](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace).
+Para comprobar su idoneidad para el programa Marketplace Rewards, consulte la página de [Marketplace Rewards](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) del Centro de partners.
 
 Los pasos para comenzar son sencillos:
 

@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: cb3cb41b46c2def4f99af7f1811e4ff96dff7070
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 09206b8189f03a37f8bd7d073238609a3f1bd3ad
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167035"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816106"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Montaje de Blob Storage con el protocolo Network File System (NFS) 3.0 (versión preliminar)
 
@@ -109,11 +109,11 @@ Cree un contenedor en la cuenta de almacenamiento mediante alguna de estas herra
 
 |Herramientas|SDK|
 |---|---|
-|[Explorador de Azure Storage](data-lake-storage-explorer.md#create-a-container)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)|
+|[Azure Portal](https://portal.azure.com)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)|
 |[AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
 |[PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
 |[CLI de Azure](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|
-|[Azure Portal](https://portal.azure.com)|[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
+||[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
 
 ## <a name="step-7-mount-the-container"></a>Paso 7: Montaje del contenedor
 
@@ -153,6 +153,15 @@ Cree un directorio en el sistema Windows o Linux y, a continuación, monte un co
    - Reemplace el marcador de posición `<storage-account-name>` que aparece en este comando por el nombre de la cuenta de almacenamiento.  
 
    - Reemplace el marcador de posición `<container-name>` por el nombre del contenedor.
+
+3. Si necesita permisos de escritura, puede que necesite cambiar el UID y el GID predeterminados que usa Windows para conectarse al recurso compartido. Para ello, ejecute los siguientes comandos de PowerShell como administrador:
+
+   ```
+   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousUid -PropertyType DWord -Value 0
+   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousGid -PropertyType DWord -Value 0
+   ```
+   
+   - Reinicie el servicio de cliente NFS o reinicie el servidor después de efectuar este cambio.
 
 ---
 

@@ -3,12 +3,12 @@ title: Introducción a los almacenes de Recovery Services
 description: Información general y comparación entre los almacenes de Recovery Services y los de Azure Backup.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 5334bc2aea5ddbf734c3fd3ef314ff4da609d61d
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 6b6550bc8c5221547d55ad1e81a985b8ecd303e0
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587759"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889624"
 ---
 # <a name="recovery-services-vaults-overview"></a>Introducción a los almacenes de Recovery Services
 
@@ -20,7 +20,7 @@ En este artículo se describen las características de un almacén de Recovery S
 
 - **Control de acceso basado en rol (RBAC)** : RBAC permite un control muy detallado de la administración de acceso en Azure. [Azure proporciona diversas funciones integradas](../role-based-access-control/built-in-roles.md) y Azure Backup tiene tres [roles integrados para administrar puntos de recuperación](backup-rbac-rs-vault.md). Los almacenes de Recovery Services son compatibles con RBAC, que restringe el acceso de copia de seguridad y restauración al conjunto definido de roles de usuario. [Más información](backup-rbac-rs-vault.md)
 
-- **Eliminación temporal**:  Con la eliminación temporal, aunque un actor malintencionado elimine una copia de seguridad (o se eliminen por accidente datos de copia de seguridad), los datos de copia de seguridad se conservan durante 14 días adicionales, lo que permite la recuperación de ese elemento de copia de seguridad sin pérdida de datos. Esta retención adicional de 14 días de los datos de copia de seguridad en el estado "eliminación temporal" no acarrea ningún costo para el cliente. [Más información](backup-azure-security-feature-cloud.md).
+- **Eliminación temporal**:  Con la eliminación temporal, aunque un actor malintencionado elimine una copia de seguridad (o se eliminen por accidente datos de copia de seguridad), los datos de copia de seguridad se conservan durante 14 días adicionales, lo que permite la recuperación de ese elemento de copia de seguridad sin pérdida de datos. La retención adicional de 14 días de los datos de copia de seguridad con el estado de "eliminación temporal" no tiene costo alguno para el cliente. [Más información](backup-azure-security-feature-cloud.md).
 
 - **Restauración entre regiones**:  la restauración entre regiones (CRR) permite restaurar máquinas virtuales de Azure en una región secundaria, que es una región emparejada de Azure. Si Azure declara un desastre en la región primaria, los datos replicados en la región secundaria estarán disponibles para su restauración en esta última región para mitigar el desastre de tiempo de inactividad real en la región primaria de su entorno. [Más información](backup-azure-arm-restore-vms.md#cross-region-restore).
 

@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5056f453580ef3e4549a0d8ee5b59e893d8c56bf
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e6702ab3753604af50e21f931dd23f63de3c1451
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522298"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936204"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual de Key Vault para Linux
 
@@ -130,6 +130,8 @@ La configuración de JSON para una extensión de máquina virtual debe estar ani
 
 
 ## <a name="azure-powershell-deployment"></a>Implementación de Azure PowerShell
+> [!WARNING]
+> Los clientes de PowerShell suelen agregar `\` a `"` en el archivo settings.json, lo cual producirá en akvvm_service el error: `[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`.
 
 Azure PowerShell puede usarse para implementar la extensión de máquina virtual de Key Vault en una máquina virtual o un conjunto de escalado de máquinas virtuales. 
 

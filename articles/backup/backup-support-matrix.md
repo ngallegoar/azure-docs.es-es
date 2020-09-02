@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones de compatibilidad y limitaciones
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 5871e61229277d8036727c11b42d9d7a061bad99
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 9b0698b16d3432c1bfefd3cf909cdfdf5529200e
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612527"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892191"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de compatibilidad para Azure Backup
 
@@ -136,7 +136,7 @@ Backup admite la compresión del tráfico de copia de seguridad, tal y como se r
 **Configuración** | **Límites**
 --- | ---
 **Número máximo de puntos de recuperación por instancia protegida (máquina o carga de trabajo)** | 9999
-**Tiempo máximo de expiración de un punto de recuperación** | Sin límite
+**Tiempo de expiración máximo de un punto de recuperación** | Sin límite
 **Frecuencia máxima de copia de seguridad en DPM/MABS** | Cada 15 minutos para SQL Server<br/><br/> Una vez cada hora para otras cargas de trabajo.
 **Frecuencia máxima de copia de seguridad en el almacén** | **Máquinas Windows locales o máquinas virtuales de Azure que ejecutan MARS:** tres al día.<br/><br/> **DPM/MABS:** Dos por día<br/><br/> **Copia de seguridad de la máquina virtual de Azure:** una al día.
 **Retención de punto de recuperación** | Diariamente, semanalmente, mensualmente y anualmente
@@ -145,7 +145,7 @@ Backup admite la compresión del tráfico de copia de seguridad, tal y como se r
 
 ## <a name="cross-region-restore"></a>Restauración entre regiones
 
-Azure Backup ha agregado la característica Restauración entre regiones para reforzar la disponibilidad de los datos y la capacidad de resistencia, lo que otorga a los clientes control total para restaurar los datos en una región secundaria. Para configurar esta característica, visite [el artículo Establecimiento de la restauración entre regiones](backup-create-rs-vault.md#set-cross-region-restore). Esta característica es compatible con los siguientes tipos de administración:
+Azure Backup ha agregado la característica Restauración entre regiones para reforzar la disponibilidad de los datos y la capacidad de resistencia, lo que le otorga control total para restaurar los datos en una región secundaria. Para configurar esta característica, visite [el artículo Establecimiento de la restauración entre regiones](backup-create-rs-vault.md#set-cross-region-restore). Esta característica es compatible con los siguientes tipos de administración:
 
 | Tipo de administración de copias de seguridad | Compatible                                                    | Regiones admitidas |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |

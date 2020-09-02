@@ -3,18 +3,18 @@ title: Administración de almacenes y servidores de Azure Recovery Services
 description: En este artículo se explica cómo usar el panel de información general del almacén de Recovery Services para supervisar y administrar los almacenes de Recovery Services.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 68c6354fa15ee2a6873b57e5c1622afb108b9a10
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: a34ac44e3fe8d3a0b7789b37b0b0308d42d4e3da
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263337"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756068"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Supervisión y administración de almacenes de Recovery Services
 
 En este artículo se explica cómo usar el panel de **información general** del almacén de Recovery Services para supervisar y administrar los almacenes de Recovery Services. Al abrir un almacén de Recovery Services de la lista, se abre el panel de **información general** del mismo. El panel proporciona diversos detalles acerca del almacén. Hay *iconos* que muestran el estado de las alertas críticas y de advertencia, los trabajos de copia de seguridad en curso y con errores, y la cantidad usada de almacenamiento con redundancia local (LRS) y almacenamiento con redundancia geográfica (GRS). Si realiza copias de seguridad de máquinas virtuales de Azure en el almacén, el icono [**Estado de la comprobación previa a la copia de seguridad** muestra todos los elementos críticos o de advertencia](#backup-pre-check-status). La imagen siguiente es el panel de **información general** de **Contoso-vault**. El icono **Elementos de copia de seguridad** muestra que hay nueve elementos registrados en el almacén.
 
-![panel del almacén de Servicios de recuperación](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
+![Panel del almacén de Recovery Services](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
 Los requisitos previos de este artículo son: una suscripción de Azure, un almacén de Recovery Services y que haya al menos un elemento de copia de seguridad configurado para el almacén.
 
@@ -32,11 +32,11 @@ Para supervisar las alertas o ver los datos de administración de un almacén de
 
 3. En el cuadro de diálogo **Todos los servicios**, escriba **Recovery Services**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Cuando aparezca la opción **Almacenes de Recovery Services**, selecciónela para abrir la lista de almacenes de Recovery Services de su suscripción.
 
-    ![Creación del almacén de Recovery Services, paso 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
+    ![Creación del almacén de Recovery Services (paso 1)](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
 4. En la lista de almacenes, seleccione un almacén para abrir su panel **Información general**.
 
-    ![panel del almacén de Servicios de recuperación](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
+    ![Panel del almacén de Recovery Services](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
     El panel de información general utiliza iconos para proporcionar alertas y datos de los trabajos de copia de seguridad.
 
@@ -65,17 +65,17 @@ El menú Alertas de copia de seguridad, en la imagen anterior, se filtra por: es
 
 ### <a name="backup-pre-check-status"></a>Estado de comprobación previa a la copia de seguridad
 
-Las comprobaciones previas de copia de seguridad, comprueba la configuración de las máquinas virtuales en busca de problemas que puedan afectar negativamente a las copias de seguridad. Agregan esta información para que pueda verla directamente desde el panel del almacén de Recovery Services y proporcionar recomendaciones para medidas correctivas para garantizar copias de seguridad correctas coherentes con el archivo o coherentes con la aplicación. No requieren ninguna infraestructura y no tienen ningún coste adicional.  
+Las comprobaciones previas de copia de seguridad, comprueba la configuración de las máquinas virtuales en busca de problemas que puedan afectar negativamente a las copias de seguridad. Agregan esta información para que pueda verla directamente desde el panel del almacén de Recovery Services y proporcionar recomendaciones para medidas correctivas que garanticen la realización de copias de seguridad coherentes con el archivo o con la aplicación. No requieren ninguna infraestructura y no tienen ningún coste adicional.  
 
 Las comprobaciones previas de copia de seguridad se ejecutan como parte de las operaciones de copia de seguridad programadas para las máquinas virtuales de Azure. Concluyen con uno de los siguientes estados:
 
 * **Superado**: Este estado indica que la configuración de la máquina virtual debe llevar a copias de seguridad correctas y no es necesario realizar ninguna acción correctiva.
-* **Advertencia**: Este estado indica uno o más problemas en la configuración de la máquina virtual que *podrían* provocar fallas en la copia de seguridad. Proporciona pasos *recomendados* para garantizar copias de seguridad correctas. Por ejemplo, si no tiene instalado el Agente de máquina virtual más reciente, pueden producirse errores en las copias de seguridad de forma intermitente. Esta situación proporciona un estado de advertencia.
-* **Crítico**: Este estado indica uno o más problemas críticos en la configuración de la máquina virtual que *provocarán* errores de copia de seguridad y proporciona los pasos *necesarios* para garantizar copias de seguridad correctas. Por ejemplo, un problema de red provocado por una actualización de las reglas de NSG de una máquina virtual hará que se produzca un error en las copias de seguridad, ya que impide que la máquina virtual se comunique con el servicio de Azure Backup. Esta situación proporcionaría un estado crítico.
+* **Advertencia**: Este estado indica uno o más problemas en la configuración de la máquina virtual que *podrían* provocar fallas en la copia de seguridad. Proporciona pasos *recomendados* para garantizar copias de seguridad correctas. Por ejemplo, si no tiene instalado el Agente de máquina virtual más reciente, pueden producirse errores en las copias de seguridad de forma intermitente. Esta situación proporcionará un estado de advertencia.
+* **Crítico**: Este estado indica uno o más problemas críticos en la configuración de la máquina virtual que *provocarán* errores de copia de seguridad y proporciona los pasos *necesarios* para garantizar copias de seguridad correctas. Por ejemplo, un problema de red provocado por una actualización de las reglas de NSG de una máquina virtual hará que se produzca un error en las copias de seguridad, ya que impide que la máquina virtual se comunique con el servicio de Azure Backup. Esta situación proporcionará un estado de crítico.
 
 Siga los pasos que se indican a continuación para comenzar a resolver los problemas de comprobación previa de copias de seguridad de máquinas virtuales en el almacén de Recovery Services.
 
-* Seleccione el icono **Estado de la comprobación previa de la copia de seguridad (máquinas virtuales de Azure)** en el panel del almacén de Recovery Services.
+* Seleccione el icono **Estado de la comprobación previa a la copia de seguridad (máquinas virtuales de Azure)** en el panel del almacén de Recovery Services.
 * Seleccione cualquier máquina virtual con un Estado de comprobación previa de copia de seguridad de **Crítico** o **Advertencia**. Esta acción abrirá el panel de **detalles de la máquina virtual**.
 * Seleccione la notificación del panel en la parte superior del panel para ver la descripción del problema de configuración y los pasos correctos.
 
@@ -96,7 +96,7 @@ La lista de alertas de copia de seguridad muestra la información seleccionada d
 | Nivel de alerta | Eventos que generan alertas |
 | ----------- | ----------- |
 | Crítico | Se reciben alertas críticas cuando: se producen errores en trabajos de copia de seguridad o en trabajos de recuperación y cuando se detiene la protección de un servidor, pero se conservan los datos.|
-| Advertencia | Las alertas de advertencia se reciben cuando: los trabajos de copia de seguridad se completan con advertencias, por ejemplo, cuando no se realiza la copia de seguridad de menos de 100 archivos por problemas de daños, o cuando se realiza una copia de seguridad de más de 1 000 000 archivos correctamente). |
+| Advertencia | Las alertas de advertencia se reciben cuando: los trabajos de copia de seguridad se completan con advertencias. Por ejemplo, cuando no se realiza la copia de seguridad de menos de 100 archivos por problemas de daños, o cuando se realiza una copia de seguridad de más de 1 000 000 archivos correctamente). |
 | Informativo | Actualmente, no hay alertas informativas en uso. |
 
 ### <a name="viewing-alert-details"></a>Visualización de los detalles de una alerta

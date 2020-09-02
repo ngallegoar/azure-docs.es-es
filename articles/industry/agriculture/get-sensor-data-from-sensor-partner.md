@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 08099ede82f8ebd9c1cd6e585a16800ee1626f65
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 3452641b336308ddf46349064345b154e55aa53c
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508794"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649166"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obtención de datos de sensor de los asociados de sensor
 
@@ -87,6 +87,10 @@ Siga los pasos que se indican a continuación para generar la información anter
     ./generatePartnerCredentials.ps1
 
     ```
+
+> [!NOTE]
+> 1. El nombre del punto de conexión de API del centro de datos debe estar en minúsculas.
+> 2. Si está copiando la dirección URL del nombre del sitio web de FarmBeats para el punto de conexión de API del centro de datos, asegúrese de que no hay ninguna barra diagonal (/) al final.
 
 9. Siga las instrucciones en pantalla para capturar los valores del **punto de conexión de API**, el **identificador de inquilino**, el **identificador de cliente**, el **secreto de cliente** y la **cadena de conexión de EventHub**.
 

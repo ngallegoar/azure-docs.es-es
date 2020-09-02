@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/08/2020
+ms.date: 08/24/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 556d3df41b7ee66bfb2b32b8a566d7172f45e313
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 407853152d4f18d8f8daacd8ef7d19c878384076
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034471"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871163"
 ---
 # <a name="azure-storage-redundancy"></a>Redundancia de Azure Storage
 
@@ -64,8 +64,8 @@ En la tabla siguiente se muestran los tipos de cuentas de almacenamiento que adm
 | Tipo de cuenta de almacenamiento | Regiones admitidas | Servicios admitidos |
 |--|--|--|
 | Uso general v2<sup>1</sup> | Sudeste de Asia<br /> Este de Australia<br /> Norte de Europa<br />  Oeste de Europa<br /> Centro de Francia<br /> Japón Oriental<br /> Norte de Sudáfrica<br /> Sur de Reino Unido<br /> Centro de EE. UU.<br /> Este de EE. UU.<br /> Este de EE. UU. 2<br /> Oeste de EE. UU. 2 | Blobs en bloques<br /> Blobs en páginas<sup>2</sup><br /> Recursos compartidos de archivos (estándar)<br /> Tablas<br /> Colas<br /> |
-| BlockBlobStorage<sup>1</sup> | Sudeste de Asia<br /> Este de Australia<br /> Oeste de Europa<br /> Este de EE. UU. | Solo blobs en bloques Premium |
-| FileStorage | Sudeste de Asia<br /> Este de Australia<br /> Oeste de Europa<br /> Este de EE. UU. | Solo recursos compartidos de archivos Premium |
+| BlockBlobStorage<sup>1</sup> | Sudeste de Asia<br /> Este de Australia<br /> Norte de Europa<br /> Oeste de Europa<br /> Este de EE. UU. <br /> Oeste de EE. UU. 2| Solo blobs en bloques Premium |
+| FileStorage | Sudeste de Asia<br /> Este de Australia<br /> Norte de Europa<br /> Oeste de Europa<br /> Este de EE. UU. <br /> Oeste de EE. UU. 2 | Solo recursos compartidos de archivos Premium |
 
 <sup>1</sup> El nivel de archivo no se admite actualmente en las cuentas de ZRS.<br />
 <sup>2</sup> Las cuentas de almacenamiento que contienen discos administrados de Azure para máquinas virtuales siempre usan almacenamiento con redundancia local. Los discos no administrados de Azure también deben usar almacenamiento con redundancia local. Es posible crear una cuenta de almacenamiento para discos no administrados de Azure que use almacenamiento con redundancia geográfica, pero no se recomienda debido a los posibles problemas de coherencia en la replicación geográfica asincrónica. Ni los discos administrados ni los no administrados admiten ZRS o GZRS. Para más información sobre los discos administrados, consulte [Precios de Azure Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -83,9 +83,9 @@ Azure Storage ofrece dos opciones para copiar los datos a una región secundaria
 - El **almacenamiento con redundancia geográfica (GRS)** copia los datos de forma sincrónica tres veces dentro de una única ubicación física en la región primaria mediante LRS. Luego copia los datos de forma asincrónica en una única ubicación física en la región secundaria.
 - El **almacenamiento con redundancia de zona geográfica (GZRS)** copia los datos de forma sincrónica en tres zonas de disponibilidad de Azure en la región primaria mediante ZRS. Luego copia los datos de forma asincrónica en una única ubicación física en la región secundaria.
 
-La principal diferencia entre GRS y GZRS es la forma en que los datos se replican en la región primaria. Dentro de la ubicación secundaria, los datos siempre se replican de forma sincrónica tres veces mediante LRS. LRS en la región secundaria protege los datos frente a errores de hardware.
+La principal diferencia entre GRS y GZRS es la forma en que los datos se replican en la región primaria. Dentro de la región secundaria, los datos siempre se replican de forma sincrónica tres veces mediante LRS. LRS en la región secundaria protege los datos frente a errores de hardware.
 
-Con GRS o GZRS, los datos de la ubicación secundaria no están disponible para el acceso de lectura o escritura a menos que suceda una conmutación por error en la región secundaria. Para obtener acceso de lectura a la región secundaria, configure la cuenta de almacenamiento para usar el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) o el almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS). Para más información, consulte [Acceso de lectura a los datos de la región secundaria](#read-access-to-data-in-the-secondary-region).
+Con GRS o GZRS, los datos de la región secundaria no están disponible para el acceso de lectura o escritura a menos que suceda una conmutación por error en la región secundaria. Para obtener acceso de lectura a la región secundaria, configure la cuenta de almacenamiento para usar el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) o el almacenamiento con redundancia de zona geográfica con acceso de lectura (RA-GZRS). Para más información, consulte [Acceso de lectura a los datos de la región secundaria](#read-access-to-data-in-the-secondary-region).
 
 Si la región primaria deja de estar disponible, puede conmutar por error a la región secundaria. Una vez completada la conmutación por error, la región secundaria se convierte en la región primaria y se pueden leer y escribir datos de nuevo. Para más información sobre la recuperación ante desastres y el método de conmutación por error a la región secundaria, consulte [Recuperación ante desastres y conmutación por error de la cuenta](storage-disaster-recovery-guidance.md).
 

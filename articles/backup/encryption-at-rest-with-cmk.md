@@ -3,12 +3,12 @@ title: Cifrado de datos de copia de seguridad mediante claves administradas por 
 description: Obtenga información sobre el modo en que Azure Backup le permite cifrar los datos de copia de seguridad mediante claves administradas por el cliente.
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: dfed3f983867568befc77d7dbc81cdde70eef9ed
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 55b994d287e4e2d3971b43359936815822bc18a4
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589612"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892650"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Cifrado de datos de copia de seguridad mediante claves administradas por el cliente
 
@@ -39,7 +39,7 @@ En este artículo se tratan los temas siguientes:
 
 - Actualmente, esta característica solo se puede configurar desde Azure Portal.
 
-Si no ha creado y configurado el almacén de Recovery Services, [lea aquí cómo hacerlo](backup-create-rs-vault.md).
+Si no ha creado y configurado un almacén de Recovery Services, [lea aquí cómo hacerlo](backup-create-rs-vault.md).
 
 ## <a name="configuring-a-vault-to-encrypt-using-customer-managed-keys"></a>Configuración de un almacén para cifrar mediante claves administradas por el cliente
 
@@ -55,12 +55,12 @@ Esta acción implica los pasos siguientes:
 
 Es necesario que todos estos pasos se sigan en el orden mencionado anteriormente para lograr los resultados deseados. Cada paso se describe en detalle a continuación.
 
-### <a name="enable-managed-identity-for-your-recovery-services-vault"></a>Habilitar la identidad administrada para el almacén de Recovery Services
+### <a name="enable-managed-identity-for-your-recovery-services-vault"></a>Habilitación de la identidad administrada para el almacén de Recovery Services
 
 Azure Backup usa la identidad administrada asignada por el sistema para autenticar el almacén de Recovery Services para tener acceso a las claves de cifrado almacenadas en Azure Key Vault. Para habilitar la identidad administrada para el almacén de Recovery Services, siga los pasos que se mencionan a continuación.
 
 >[!NOTE]
->Una vez habilitada, la identidad administrada NO debe deshabilitarse (ni siquiera temporalmente). Deshabilitar la identidad administrada puede provocar un comportamiento incoherente.
+>Una vez habilitada, la identidad administrada **no** debe deshabilitarse (ni siquiera temporalmente). Deshabilitar la identidad administrada puede provocar un comportamiento incoherente.
 
 1. Vaya al almacén de Recovery Services -> **Identidad**.
 
@@ -138,7 +138,7 @@ También puede habilitar la eliminación temporal y la protección de purga a tr
 > - Todos los pasos mencionados con anterioridad se han completado correctamente:
 >   - La identidad administrada del almacén de Recovery Services se ha habilitado y se le han asignado los permisos necesarios.
 >   - El almacén de Azure Key Vault tiene habilitadas la eliminación temporal y la protección de purga.
-> - El almacén de Recovery Services para el que desea habilitar el cifrado de CMK no tiene elementos protegidos ni registrados en él.
+> - El almacén de Recovery Services para el que desea habilitar el cifrado de CMK **no** tiene elementos protegidos ni registrados en él.
 
 Una vez comprobado lo anterior, continúe con la selección de la clave de cifrado para el almacén.
 
@@ -220,7 +220,7 @@ El conjunto de cifrado de discos se especifica en Configuración de cifrado en e
 1. En el menú desplegable, seleccione el DES que quiere usar para los discos restaurados. **Asegúrese de que tiene acceso al DES.**
 
 >[!NOTE]
->La posibilidad de elegir un DES durante la restauración no está disponible si se restaura una máquina virtual que usa Azure Disk Encryption.
+>No es posible elegir un DES durante la restauración si va a restaurar una máquina virtual que usa Azure Disk Encryption.
 
 ![Cifrado del disco con la clave](./media/encryption-at-rest-with-cmk/encrypt-disk-using-your-key.png)
 
@@ -240,7 +240,7 @@ No, el cifrado de CMK solo se puede habilitar para los nuevos almacenes. Por lo 
 
 ### <a name="i-tried-to-protect-an-item-to-my-vault-but-it-failed-and-the-vault-still-doesnt-contain-any-items-protected-to-it-can-i-enable-cmk-encryption-for-this-vault"></a>Intenté proteger un elemento en el almacén, pero se produjo un error y el almacén todavía no contiene elementos protegidos. ¿Puedo habilitar el cifrado de CMK para este almacén?
 
-No, el almacén no debe haber tenido ningún intento de proteger ningún elemento en el pasado.
+No, no deben haberse producido intentos de proteger ningún elemento del almacén en el pasado.
 
 ### <a name="i-have-a-vault-that-is-using-cmk-encryption-can-i-later-revert-to-encryption-using-platform-managed-keys-even-if-i-have-backup-items-protected-to-the-vault"></a>Tengo un almacén que usa el cifrado CMK. ¿Puedo revertir más adelante el cifrado mediante claves administradas por la plataforma aunque tenga elementos de copia de seguridad protegidos en el almacén?
 
@@ -252,7 +252,7 @@ No, en este artículo solo se describe el cifrado de datos de Backup. Para Azure
 
 ### <a name="i-missed-one-of-the-steps-in-this-article-and-went-on-to-protect-my-data-source-can-i-still-use-cmk-encryption"></a>Me faltó uno de los pasos de este artículo y procedí a proteger el origen de datos. ¿Puedo seguir usando el cifrado de CMK?
 
-No seguir los pasos del artículo y proceder con la protección de elementos puede provocar que el almacén no pueda usar el cifrado con claves administradas por el cliente. Por lo tanto, se recomienda que consulte esta [lista de comprobación](#backing-up-to-a-vault-encrypted-with-customer-managed-keys) antes de continuar con la protección de los elementos.
+No seguir las indicaciones del artículo y proceder con la protección de elementos puede provocar que el almacén no utilice el cifrado con claves administradas por el cliente. Por lo tanto, se recomienda que consulte esta [lista de comprobación](#backing-up-to-a-vault-encrypted-with-customer-managed-keys) antes de continuar con la protección de los elementos.
 
 ### <a name="does-using-cmk-encryption-add-to-the-cost-of-my-backups"></a>¿El uso de cifrado con CMK añade costos a mis copias de seguridad?
 

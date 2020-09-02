@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 990a2d5279c796f354055328e6968ea705ea10b2
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 581feff516e0f0cd820c94290d4aaa729cc4d3a4
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873643"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889947"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Uso de áreas de trabajo detrás de un firewall en Azure Machine Learning
 
@@ -24,9 +24,9 @@ En este artículo, aprenderá a configurar Azure Firewall para controlar el acce
 
 Aunque la información de este documento se basa en el uso de [Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md), sirve también para otros productos de firewall. Si tiene alguna pregunta sobre cómo permitir la comunicación a través del firewall, consulte la documentación del firewall que usa.
 
-## <a name="network-rules"></a>Reglas de red
+## <a name="application-rules"></a>Reglas de aplicación
 
-En el firewall, cree una regla de red que permita el tráfico entrante y saliente de las direcciones de este artículo.
+En el firewall, cree una _regla de aplicación_ que permita el tráfico entrante y saliente de las direcciones de este artículo.
 
 > [!TIP]
 > Al agregar la regla de red, establezca __Protocolo__ en cualquiera y los puertos en `*`.
@@ -57,6 +57,7 @@ Los hosts de esta sección son propiedad de Microsoft y proporcionan servicios n
 | **mcr.microsoft.com** | Microsoft Container Registry para imágenes de Docker base |
 | **your-acr-server-name.azurecr.io** | Solo es necesario si Azure Container Registry está detrás de la red virtual. En esta configuración, se crea un vínculo privado desde el entorno de Microsoft hasta la instancia de ACR de la suscripción. Use el nombre del servidor de ACR para el área de trabajo de Azure Machine Learning. |
 | **\*.notebooks.azure.net** | Se necesita en los cuadernos de Azure Machine Learning Studio. |
+| **graph.windows.net** | Necesario para cuadernos |
 
 ## <a name="python-hosts"></a>Hosts de Python
 
@@ -78,6 +79,15 @@ Los hosts de esta sección se usan para instalar paquetes de R. Son necesarios d
 | **Nombre de host** | **Propósito** |
 | ---- | ---- |
 | **cloud.r-project.org** | Usado al instalar paquetes CRAN |
+
+## <a name="azure-government-region"></a>Región de Azure Government
+
+Direcciones URL necesarias para regiones Azure Government.
+
+| **Nombre de host** | **Propósito** |
+| ---- | ---- |
+| **usgovarizona.api.ml.azure.us** | Región EE.UU.: Arizona |
+| **usgovvirginia.api.ml.azure.us** | Región EE.UU.: Virginia |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

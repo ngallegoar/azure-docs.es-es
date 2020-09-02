@@ -3,12 +3,12 @@ title: Solución de problemas de errores de copia de seguridad de bases de datos
 description: En este artículo se describe cómo se solucionan los errores comunes que pueden producirse al usar Azure Backup para realizar copias de seguridad de bases de datos de SAP HANA.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 88d8f5e500c39f51e5bc1afbc2ec7804b9bc79db
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6216c39231ad17a55f0d428fe5e1f85e64cef403
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503615"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826997"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Solución de problemas al realizar copias de seguridad de bases de datos de SAP HANA en Azure
 
@@ -96,7 +96,7 @@ Supongamos que hay una copia de seguridad de una instancia "H21" de HANA de SDC.
 Tenga en cuenta los siguientes puntos:
 
 - De manera predeterminada, el nombre de la base de datos restaurada se rellenará con el nombre del elemento de copia de seguridad. En este caso, h21(sdc).
-- Si selecciona el destino como H11, el nombre de la base de datos restaurada NO CAMBIARÁ de manera automática. **Se debe editar para cambiarlo a h11(sdc)** . Con respecto a SDC, el nombre de la base de datos restaurada será el identificador de la instancia de destino en minúsculas más "sdc" entre corchetes.
+- Si selecciona H11 como destino, el nombre de la base de datos restaurada no cambiará de manera automática. **Se debe editar para cambiarlo a h11(sdc)** . Con respecto a SDC, el nombre de la base de datos restaurada será el identificador de la instancia de destino en minúsculas más "sdc" entre corchetes.
 - Como SDC solo puede tener una base de datos única, también debe hacer clic en la casilla para permitir reemplazar los datos existentes de la base de datos por los datos del punto de recuperación.
 - Linux distingue mayúsculas de minúsculas. De este modo, tiene que tener cuidado y respetar su uso.
 

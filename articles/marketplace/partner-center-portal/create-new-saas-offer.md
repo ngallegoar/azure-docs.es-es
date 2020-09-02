@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 7500eddc2416a1cb705ef207930c5fe4c6f1068a
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: c1550b941c6d0f58feba7d505c7206993e14226b
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604748"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88856069"
 ---
 # <a name="create-a-saas-offer-in-the-commercial-marketplace"></a>Creación de una oferta de SaaS en el marketplace comercial
 
@@ -234,7 +234,7 @@ Hay dos tipos de modificaciones para los anunciantes de Marketplace comercial:
 
 #### <a name="terms-and-conditions"></a>Términos y condiciones
 
-Si quiere proporcionar sus propios términos y condiciones personalizados, puede especificarlos en el campo Términos y condiciones. Puede escribir hasta 10 000 caracteres de texto en este campo. Si los términos y condiciones requieren una descripción más larga, escriba en este campo un vínculo de dirección URL donde se pueden encontrar los términos y condiciones. A los clientes les aparecerá como un vínculo activo.
+Si quiere proporcionar sus propios términos y condiciones personalizados, puede especificarlos en el campo Términos y condiciones. Puede escribir hasta 10 000 caracteres de texto en este campo. Si los términos y condiciones requieren una descripción más larga, escriba en este campo un vínculo de dirección URL donde se pueden encontrar los términos y condiciones.
 
 Los clientes deben aceptar estos términos para poder probar la oferta.
 
@@ -282,18 +282,19 @@ Este campo es obligatorio.
 #### <a name="files-and-images"></a>Archivos e imágenes
 
 - **Documentos** (obligatorio): agregue a su oferta documentos de marketing relacionados en formato PDF. Incluya un mínimo de un (1) documento por oferta y un máximo de tres (3).
-- **Imágenes**: cargue imágenes de logotipo en formato PNG:
+- **Imágenes** (obligatorio): en todos los catálogos,hay varios lugares en los que pueden aparecer imágenes del logotipo de su oferta. Proporcione un archivo PNG para el logotipo de tamaño **Grande**. El Centro de partners lo usará para crear un logotipo **Pequeño** y un logotipo **Mediano**. Opcionalmente, puede reemplazarlos por imágenes diferentes más adelante.
 
-  - **Pequeño** (48×48 píxeles, obligatorio)
-  - **Mediano** (90×90 píxeles, obligatorio)
-  - **Grande** (216×216 píxeles, obligatorio)
-  - **Ancho** (255×115 píxeles) (opcional)
+  - **Grande** (de 216 x 216 a 350 x 350 píxeles, obligatorio)
+  - **Mediano** (90 x 90 píxeles, opcional)
+  - **Pequeño** (48 x 48 píxeles, opcional)
+  
+  Estos logotipos se usan en distintos lugares de la publicación:
 
-   Estos tres tamaños de logotipo se usan en distintos lugares de las tiendas en línea:
+   - El logotipo grande aparece en la página de descripción de la oferta de Azure Marketplace y Microsoft AppSource.
+   - El logotipo mediano aparece cuando se crea un nuevo en Microsoft Azure.
+   - El logotipo pequeño aparece en los resultados de la búsqueda de Azure Marketplace, y en la página principal y en la página de resultados de búsqueda de Microsoft AppSource.
 
-   -   El logotipo pequeño (48×48 píxeles) aparece en los resultados de la búsqueda de Azure Marketplace, y en la página principal y en la página de resultados de búsqueda de Microsoft AppSource. 
-   -   El logotipo mediano (90×90 píxeles) aparece cuando se crea un nuevo recurso en Microsoft Azure.
-   -   El logotipo grande (entre 216×216 y 350×350 píxeles) aparece en la página de catálogo de ofertas de Azure Marketplace y Microsoft AppSource.
+   [!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 - **Capturas de pantallas** (obligatorio): agregue un máximo de cinco capturas de pantallas que muestren la oferta, con un tamaño de 1280 x 720 píxeles. Todas las imágenes deben estar en formato .PNG.
 - **Vídeos** (opcional): Agregue vínculos a vídeos en que se muestre la oferta. Puede usar vínculos a vídeos de YouTube o Vimeo para que acompañen a la oferta para los clientes. También tendrá que incluir una imagen en miniatura del vídeo con un tamaño de 1280 x 720 píxeles y en formato PNG. Puede mostrar un máximo de cuatro vídeos por oferta.

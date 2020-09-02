@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: bd575eb5f646b749b431516670c64c764f4d4c9c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: a78e1b9cc1d9ca8a815fdb586287983020232fd1
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828513"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782947"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure Monitor
 
@@ -80,6 +80,10 @@ El Explorador de datos de Azure es un servicio de exploración de datos altament
 
 ### <a name="how-do-i-retrieve-log-data"></a>¿Cómo puedo recuperar los datos de registro?
 Todos los datos se recuperan de un área de trabajo de Log Analytics mediante una consulta de registro escrita en el lenguaje de consulta Kusto (KQL). Puede escribir sus propias consultas o usar soluciones e Insights que incluyan consultas de registro para una aplicación o servicio determinados. Consulte [Introducción a las consultas de registro en Azure Monitor](log-query/log-query-overview.md).
+
+### <a name="can-i-delete-data-from-a-log-analytics-workspace"></a>¿Puedo eliminar datos de un área de trabajo de Log Analytics?
+Los datos se eliminan de un área de trabajo en función del [período de retención](platform/manage-cost-storage.md#change-the-data-retention-period). Puede eliminar datos específicos por motivos de privacidad o de cumplimiento. Consulte [Cómo exportar y eliminar datos privados](platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) para más información.
+
 
 ### <a name="what-is-a-log-analytics-workspace"></a>¿Qué es un área de trabajo de Log Analytics?
 Todos los datos de registro que recopila Azure Monitor se almacenan en un área de trabajo de Log Analytics. Un área de trabajo es esencialmente un contenedor donde los datos de registro se recopilan de diversos orígenes. Puede tener una sola área de trabajo de Log Analytics para todos los datos de supervisión o puede tener requisitos para varias áreas de trabajo. Consulte [Diseño de la implementación de registros de Azure Monitor](platform/design-logs-deployment.md).

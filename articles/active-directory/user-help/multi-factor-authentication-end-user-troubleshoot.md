@@ -9,15 +9,16 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 08/04/2020
+ms.date: 08/20/2020
 ms.author: curtand
 ms.reviewer: kexia
-ms.openlocfilehash: 754d456f557b6c9500cdb64ee01a42124a18ab9c
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+metadata ms.custom: contperfq1
+ms.openlocfilehash: 61ba06054e86d544ae4ab1edbdef8d86667ef3b2
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036681"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796585"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Problemas comunes con la verificación en dos fases y la cuenta profesional o educativa
 
@@ -31,14 +32,10 @@ Cuando la verificación en dos pasos está activada, se requiere una combinació
 
 La verificación en dos pasos es más segura que una contraseña porque requiere algo que el usuario _sabe_ y algo que _tiene_. Ningún hacker tiene su teléfono físico.
 
-<center>
-
-![Imagen de los métodos de autenticación conceptuales](../authentication/media/concept-mfa-howitworks/methods.png)</center>
-
 >[!Important]
->Si es administrador, puede encontrar más información sobre cómo configurar y administrar su entorno de Azure AD en la [documentación de Azure AD](https://docs.microsoft.com/azure/active-directory).
->
->Este contenido también está diseñado solo para su uso con la cuenta profesional o educativa, que es la cuenta que le proporcionó su organización (por ejemplo, alain@contoso.com). Si tiene problemas con la verificación en dos fases y su cuenta personal de Microsoft, que es una cuenta que configuró por sí mismo (por ejemplo, danielle@outlook.com), consulte [Activar o desactivar la verificación en dos pasos para la cuenta de Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+>Si es administrador, puede encontrar más información sobre cómo configurar y administrar su entorno de Azure AD en la [documentación de Azure AD](../index.yml).
+
+Este contenido está diseñado para ofrecer asistencia con la cuenta profesional o educativa, que es la cuenta que le proporcionó su organización (por ejemplo, dritan@contoso.com). Si tiene problemas con la verificación en dos pasos de una cuenta personal de Microsoft, que es una cuenta que configuró por sí mismo (por ejemplo, danielle@outlook.com), vea [Activar o desactivar la verificación en dos pasos para la cuenta de Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
 ## <a name="i-dont-have-my-mobile-device-with-me"></a>No llevo conmigo mi dispositivo móvil
 

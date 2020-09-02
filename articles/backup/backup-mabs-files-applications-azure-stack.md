@@ -3,12 +3,12 @@ title: Copia de seguridad de archivos en máquinas virtuales de Azure Stack
 description: Use Azure Backup para hacer una copia de seguridad de los archivos y aplicaciones de Azure Stack, así como para restaurarlos, en el entorno de Azure Stack.
 ms.topic: conceptual
 ms.date: 06/05/2018
-ms.openlocfilehash: b45e3a0916f46f247503ea336105646f5538246c
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: caac247b5a972c515b4350f1b0c79792bbf75537
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263136"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825807"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Copia de seguridad de archivos y aplicaciones en Azure Stack
 

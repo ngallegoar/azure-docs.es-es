@@ -3,12 +3,12 @@ title: Uso de Azure Backup Server para realizar copias de seguridad de cargas de
 description: En este artículo, aprenderá a preparar su entorno para proteger las cargas de trabajo y hacer copias de seguridad de ellas mediante Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 9ae8fd824144c70edeb1e084155e8cdff95cd8b9
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 553073cf70e6806077a4df98e237bbbe0d2bb21a
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612340"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892293"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalación y actualización de Azure Backup Server
 
@@ -19,7 +19,7 @@ ms.locfileid: "88612340"
 >
 >
 
-> Se aplica a: MABS v3. (MABS v2 ya no se admite. Si usa una versión anterior a MABS v3, actualice a la versión más reciente).
+> Se aplica a: MABS v3. (MABS v2 ya no se admite. Si usa una versión anterior a MABS v3, actualice a la versión más reciente).
 
 En este artículo se explica cómo preparar el entorno para la copia de seguridad de las cargas de trabajo mediante Microsoft Azure Backup Server (MABS). Con Azure Backup Server, puede proteger cargas de trabajo de aplicaciones como máquinas virtuales de Hyper-V, Microsoft SQL Server, SharePoint Server, Microsoft Exchange y clientes Windows desde una única consola.
 
@@ -62,7 +62,7 @@ Si no desea ejecutar el servidor de base de Azure, puede ejecutar el servidor en
 Puede desduplicar el almacenamiento de DPM con la desduplicación de Windows Server. Más información sobre cómo funcionan juntos [DPM y la desduplicación](/system-center/dpm/deduplicate-dpm-storage?view=sc-dpm-2019) al implementarlos en máquinas virtuales de Hyper-V.
 
 > [!NOTE]
-> Azure Backup Server está diseñado para ejecutarse en un servidor dedicado de objetivo único. No se puede instalar Azure Backup Server en:
+> Azure Backup Server está diseñado para ejecutarse en un servidor dedicado de objetivo único. Azure Backup Server no se puede instalar en:
 >
 > * Un equipo que se ejecuta como controlador de dominio
 > * Un equipo en el que está instalado el rol del servidor de aplicaciones
@@ -70,7 +70,7 @@ Puede desduplicar el almacenamiento de DPM con la desduplicación de Windows Ser
 > * Un equipo en el que se ejecute Exchange Server
 > * Un equipo que sea un nodo de un clúster
 >
-> La instalación de Azure Backup Server no se admite en Windows Server Core ni Microsoft Hyper-V Server.
+> La instalación de Azure Backup Server no está admitida en Windows Server Core ni Microsoft Hyper-V Server.
 
 Siempre una Azure Backup Server a un dominio. Si piensa mover el servidor a un dominio diferente, instale primero Azure Backup Server y luego una el servidor al nuevo dominio. *No se permite*mover una máquina de Azure Backup Server existente a un dominio nuevo después de la implementación.
 
@@ -101,7 +101,7 @@ Para editar la configuración de replicación de almacenamiento:
    * En la lista de recursos, escriba **Recovery Services**.
    * Cuando comience a escribir, la lista se filtrará en función de la entrada. Cuando vea la opción **Almacenes de Recovery Services**, haga clic en ella.
 
-     ![Creación del almacén de Recovery Services, paso 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
+     ![Creación del almacén de Recovery Services (paso 1)](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
 
      Aparece la lista de almacenes de Recovery Services.
    * En la lista de almacenes de Recovery Services, seleccione un almacén.
@@ -129,13 +129,13 @@ Para editar la configuración de replicación de almacenamiento:
     El asistente **Introducción a Backup** cambia la opción **Preparar infraestructura** para realizar copias de seguridad de las cargas de trabajo en Azure.
 
    > [!NOTE]
-   > Si solo desea hacer copia de seguridad de archivos y carpetas, se recomienda utilizar el agente de Azure Backup y seguir las instrucciones del artículo [Primer análisis: Copia de seguridad de archivos y carpetas](./backup-windows-with-mars-agent.md). Si va a proteger más que archivos y carpetas o tiene pensado expandir las necesidades de protección en un futuro, seleccione esas cargas de trabajo.
+   > Si solo desea hacer copia de seguridad de archivos y carpetas, se recomienda utilizar el agente de Azure Backup y seguir las instrucciones del artículo [Primer análisis: Copia de seguridad de archivos y carpetas](./backup-windows-with-mars-agent.md). Si va a proteger otros elementos además de archivos y carpetas, o tiene pensado ampliar los requisitos de protección en un futuro, seleccione esas cargas de trabajo.
    >
    >
 
     ![Cambio del Asistente para introducción](./media/backup-azure-microsoft-azure-backup/getting-started-prep-infra.png)
 
-6. En el panel **Preparar infraestructura** que se abre, seleccione los vínculos de **Descarga** para instalar Azure Backup Server y descargar las credenciales del almacén. Utilice las credenciales del almacén durante el registro de Azure Backup Server en el almacén de Servicios de recuperación. Los vínculos le llevan al Centro de descarga donde se puede descargar el paquete de software.
+6. En el panel **Preparar infraestructura** que se abre, seleccione los vínculos de **Descarga** para instalar Azure Backup Server y descargar las credenciales del almacén. Utilice las credenciales del almacén durante el registro de Azure Backup Server en el almacén de Recovery Services. Los vínculos le llevan al Centro de descarga donde se puede descargar el paquete de software.
 
     ![Preparación de la infraestructura de Azure Backup Server](./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png)
 
@@ -143,7 +143,7 @@ Para editar la configuración de replicación de almacenamiento:
 
     ![Centro de descarga 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
-    Puesto que el tamaño de descarga de todos los archivos juntos es de más de 3 GB, con un vínculo de descarga a 10 Mbps, se puede tardar hasta sesenta minutos en completarla.
+    Puesto que el tamaño de la descarga de todos los archivos juntos es superior a 3 GB, con un vínculo de descarga a 10 Mbps, se puede tardar hasta sesenta minutos en completarla.
 
 ### <a name="extracting-the-software-package"></a>Extracción del paquete de software
 
@@ -170,7 +170,7 @@ Después de completar el proceso de extracción, active la casilla para iniciar 
 
     >[!NOTE]
     >Si desea usar su propio servidor SQL Server, las versiones de SQL Server admitidas son SQL Server 2014 SP1 o posterior, 2016 y 2017.  Todas las versiones de SQL Server deben ser Estándar o Enterprise de 64 bits.
-    >Azure Backup Server no funcionará con una instancia remota de SQL Server. La instancia que se utiliza en Azure Backup Server debe ser local. Si utiliza un servidor SQL Server existente para MABS, el programa de instalación de MABS solo permitirá utilizar *instancias con nombre* de SQL Server.
+    >Azure Backup Server no funcionará con una instancia remota de SQL Server. La instancia que se utiliza en Azure Backup Server debe ser local. Si utiliza un servidor SQL Server existente para MABS, el programa de instalación de MABS solo permitirá utilizar *instancias con nombre* de SQL Server.
 
     ![Azure Backup Server - Comprobación de SQL](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
@@ -199,7 +199,7 @@ Después de completar el proceso de extracción, active la casilla para iniciar 
 
     ![Proporcionar la ubicación para la instalación de los archivos](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
-    La ubicación temporal es un requisito para hacer copias de seguridad en Azure. Asegúrese de que la ubicación temporal sea al menos el 5% de los datos cuya copia de seguridad se planea hacer en la nube. Para la protección de disco, deben configurarse discos independientes una vez completada la instalación. Para más información sobre los grupos de almacenamiento, consulte [Preparación del almacenamiento de datos](/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
+    La ubicación temporal es un requisito para hacer copias de seguridad en Azure. Asegúrese de que la ubicación temporal sea al menos el 5% de los datos cuya copia de seguridad se planea hacer en la nube. Para la protección de disco, deben configurarse discos independientes una vez completada la instalación. Para más información sobre los grupos de almacenamiento, vea [Preparación del almacenamiento de datos](/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
 5. Proporcione una contraseña segura para las cuentas de usuario locales con permisos restringidos y seleccione **Siguiente**.
 
     ![Proporcionar una contraseña segura](./media/backup-azure-microsoft-azure-backup/security-screen.png)
@@ -216,7 +216,7 @@ Después de completar el proceso de extracción, active la casilla para iniciar 
     ![Resumen de la configuración](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
 8. La instalación se realiza en fases. En la primera fase, se instala el agente de Microsoft Azure Recovery Services en el servidor. El asistente comprueba igualmente la conectividad a Internet. Si se dispone de conectividad a Internet, puede continuar con la instalación. En caso contrario, debe proporcionar detalles del proxy para conectarse a Internet.
 
-    El siguiente paso es configurar el agente de Microsoft Azure Recovery Services. Como parte de la configuración, tendrá que proporcionar las credenciales del almacén para registrar la máquina en el almacén de Servicios de recuperación. También proporcionará una frase de contraseña para cifrar y descifrar los datos enviados entre Azure y sus instalaciones. Puede generar una frase de contraseña automáticamente o proporcionar la suya propia, con un mínimo de 16 caracteres. Continúe con el asistente hasta que se haya configurado el agente.
+    El siguiente paso es configurar el agente de Microsoft Azure Recovery Services. Como parte de la configuración, tendrá que proporcionar las credenciales del almacén para registrar la máquina en el almacén de Recovery Services. También proporcionará una frase de contraseña para cifrar y descifrar los datos enviados entre Azure y sus instalaciones. Puede generar una frase de contraseña automáticamente o proporcionar la suya propia, con un mínimo de 16 caracteres. Continúe con el asistente hasta que se haya configurado el agente.
 
     ![Asistente para registrar servidor](./media/backup-azure-microsoft-azure-backup/mars/04.png)
 9. Una vez que se complete correctamente el registro de Microsoft Azure Backup Server, el asistente para instalación global prosigue con la instalación y configuración de los componentes de SQL Server y de Microsoft Azure Backup Server. Tras completarse la instalación de los componentes de SQL Server, se instalan los componentes de Azure Backup Server.
@@ -283,7 +283,7 @@ Estos son los pasos en caso de que necesite migrar MABS a un nuevo servidor sin 
 
 ## <a name="network-connectivity"></a>Conectividad de red
 
-Azure Backup Server requiere conectividad al servicio Azure Backup para que el producto funcione correctamente. Para validar si la máquina tiene conectividad a Azure, use el cmdlet ```Get-DPMCloudConnection``` en la consola de PowerShell de Azure Backup Server. Si la salida del cmdlet es TRUE, entonces hay conectividad, de lo contrario, no la hay.
+Azure Backup Server requiere conectividad al servicio Azure Backup para que el producto funcione correctamente. Para validar si la máquina tiene conectividad a Azure, use el cmdlet ```Get-DPMCloudConnection``` en la consola de PowerShell de Azure Backup Server. Si la salida del cmdlet es TRUE, entonces existe conectividad, de lo contrario, no hay conectividad.
 
 Además, la suscripción de Azure debe encontrarse en un estado correcto. Para averiguar el estado de la suscripción y administrarla, inicie sesión en el [portal de suscripción](https://account.windowsazure.com/Subscriptions).
 
@@ -333,7 +333,7 @@ Use los procedimientos siguientes para actualizar MABS.
 
 > [!NOTE]
 >
-> MABS V2 no es un requisito previo para la instalación de MABS V3. Sin embargo, puede solo puede actualizar a MABS V3 desde MABS V2.
+> MABS V2 no es un requisito previo para la instalación de MABS V3. Sin embargo, puede solo puede actualizar a MABS V3 desde MABS V2.
 
 Para actualizar MABS, realice los siguientes pasos:
 
@@ -343,7 +343,7 @@ Para actualizar MABS, realice los siguientes pasos:
 
    > [!NOTE]
    >
-   > No salga mientras se está actualizando la instancia de SQL; si lo hace, la instancia de informes de SQL se desinstalará y, por tanto, se producirá un error cuando intente volver a actualizar MABS.
+   > No cierre el programa mientras se actualiza la instancia de SQL. Si lo cierra, se desinstalará la instancia de SQL Reporting y se generará un error al intentar volver a actualizar MABS.
 
    > [!IMPORTANT]
    >

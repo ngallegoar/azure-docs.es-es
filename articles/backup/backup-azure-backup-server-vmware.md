@@ -3,12 +3,12 @@ title: Copia de seguridad de máquinas virtuales de VMware con Azure Backup Serv
 description: En este artículo, aprenderá a usar Azure Backup Server para realizar una copia de seguridad de las máquinas virtuales de VMware que se ejecutan en un servidor de VMWare vCenter y ESXi.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 892d308df15ef745f34419ec315e2c5000b0852c
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: f498a7b7d2faf9ff857b504043233c46c843a961
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263544"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826946"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Copia de seguridad de máquinas virtuales de VMware con Azure Backup Server
 

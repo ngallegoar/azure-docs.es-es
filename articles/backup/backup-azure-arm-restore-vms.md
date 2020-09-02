@@ -4,12 +4,12 @@ description: Restauración de una máquina virtual de Azure desde un punto de re
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: af9b505e762e201713b8e554b7886e5e2062dfef
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 0607133f26113123f1c75d714c6c71f19cf2db63
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263017"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826521"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Restauración de datos de máquinas virtuales de Azure en Azure Portal
 
@@ -65,7 +65,7 @@ Si no tiene permisos, puede [restaurar un disco](#restore-disks) y, luego, [usar
     - **Crear nuevo**: Utilice esta opción si desea crear una máquina virtual. Puede crear una máquina virtual con una configuración básica, o bien restaurar un disco y crear una máquina virtual personalizada.
     - **Reemplazar el existente**. Use esta opción si desea reemplazar los discos de una máquina virtual existente.
 
-        ![Asistente para configuración de restauración](./media/backup-azure-arm-restore-vms/restore-configuration.png)
+        ![Asistente para configurar la restauración de máquina virtual](./media/backup-azure-arm-restore-vms/restore-configuration.png)
 
 1. Especifique la configuración de la opción de restauración seleccionada.
 
@@ -79,7 +79,7 @@ Como una de las [opciones de restauración](#restore-options), puede crear una m
 1. En **Red virtual**, seleccione la red virtual en el que se colocará la máquina virtual. Se muestran todas las redes virtuales asociadas con la suscripción. Seleccione la subred. De forma predeterminada se selecciona la primera subred.
 1. En **Ubicación de almacenamiento provisional**, especifique la cuenta de almacenamiento de la máquina virtual. [Más información](#storage-accounts).
 
-    ![Asistente para configuración de restauración](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
+    ![Asistente para restaurar la configuración: elegir opciones de restauración](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
 
 1. Seleccione **Restaurar** para desencadenar la operación de restauración.
 
@@ -171,8 +171,8 @@ La experiencia del usuario de restauración de la región secundaria será simil
 
 >[!NOTE]
 >
->- Una vez que se desencadena la restauración y se está en la fase de transferencia de datos, no se puede cancelar el trabajo de restauración.
->- La característica de restauración entre regiones restaura las máquinas virtuales de Azure habilitadas para CMK (claves administradas por el cliente), de las que no se realiza ninguna copia de seguridad en un almacén de Recovery Services habilitado para CMK, como sí sucede con las máquinas virtuales habilitadas para CMK en la región secundaria.
+>- Una vez que se desencadena la restauración y se ha iniciado la fase de transferencia de datos, no se puede cancelar el trabajo de restauración.
+>- La característica de restauración entre regiones restaura las máquinas virtuales de Azure habilitadas para CMK (claves administradas por el cliente), que no tienen una copia de seguridad en un almacén de Recovery Services habilitado para CMK, como máquinas virtuales no habilitadas para CMK en la región secundaria.
 >- Los roles de Azure necesarios para restaurar en la región secundaria son los mismos que los de la región primaria.
 
 ### <a name="monitoring-secondary-region-restore-jobs"></a>Supervisión de trabajos de restauración en la región secundaria
@@ -184,7 +184,7 @@ La experiencia del usuario de restauración de la región secundaria será simil
 
 ## <a name="restoring-unmanaged-vms-and-disks-as-managed"></a>Restauración de discos y máquinas virtuales no administrados como administrados
 
-Se le proporciona una opción para restaurar los [discos no administrados](../storage/common/storage-disaster-recovery-guidance.md#azure-unmanaged-disks) como [discos administrados](../virtual-machines/windows/managed-disks-overview.md) durante la restauración. De forma predeterminada, las máquinas virtuales o los discos no administrados se restauran como discos o máquinas virtuales no administrados. Sin embargo, ahora es posible restaurarlos como máquinas virtuales o discos administrados, si decide hacerlo. Estas restauraciones no se desencadenan desde la fase de instantánea, sino únicamente desde la fase de almacén. Esta característica no está disponible para las máquinas virtuales cifradas no administradas.
+Se le proporciona una opción para restaurar los [discos no administrados](../storage/common/storage-disaster-recovery-guidance.md#azure-unmanaged-disks) como [discos administrados](../virtual-machines/managed-disks-overview.md) durante la restauración. De forma predeterminada, las máquinas virtuales o los discos no administrados se restauran como discos o máquinas virtuales no administrados. Sin embargo, ahora es posible restaurarlos como máquinas virtuales o discos administrados, si decide hacerlo. Estas restauraciones no se desencadenan desde la fase de instantánea, sino únicamente desde la fase de almacén. Esta característica no está disponible para las máquinas virtuales cifradas no administradas.
 
 ![Restauración como discos administrados](./media/backup-azure-arm-restore-vms/restore-as-managed-disks.png)
 

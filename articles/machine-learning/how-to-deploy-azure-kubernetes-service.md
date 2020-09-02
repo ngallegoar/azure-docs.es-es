@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 5c253abf0fa6ae95dff178847209be407fb5bca5
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 6c85a7315fe05bb4fedabd176295523c2fa95d81
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120837"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855234"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implementación de un modelo en un clúster de Azure Kubernetes Service
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,7 +28,9 @@ Aprenda a usar Azure Machine Learning para implementar un modelo como un servici
 - Opciones de  __aceleración de hardware__, como GPU y matrices de puertas programables (FPGA).
 
 > [!IMPORTANT]
-> El escalado de clústeres no se proporciona a través del SDK de Azure Machine Learning. Para más información acerca del escalado de nodos en un clúster de Azure Kubernetes Service, consulte [Escalado del número de nodos en un clúster de Azure Kubernetes Service](../aks/scale-cluster.md).
+> El escalado de clústeres no se proporciona a través del SDK de Azure Machine Learning. Para más información acerca del escalado de nodos en un clúster de AKS, consulte 
+- [Escalado manual del número de nodos en un clúster de AKS](../aks/scale-cluster.md)
+- [Configuración del escalador automático en AKS](../aks/cluster-autoscaler.md)
 
 En Azure Kubernetes Service, la implementación se realiza en un clúster de AKS que está __conectado a su área de trabajo__. Hay dos formas de conectar un clúster de AKS a un área de trabajo:
 
@@ -65,9 +67,16 @@ El clúster de AKS y el área de trabajo de AML pueden estar en distintos grupos
 
 - Si necesita implementar un Standard Load Balancer (SLB) en el clúster en lugar de un Basic Load Balancer (BLB), cree un clúster en el portal de AKS, la CLI o el SDK y, a continuación, asócielo al área de trabajo de AML.
 
+- Si tiene una instancia de Azure Policy que restringe la creación de direcciones IP públicas, se producirá un error en la creación del clúster de AKS. AKS requiere una dirección IP pública para el [tráfico de salida](https://docs.microsoft.com/azure/aks/limit-egress-traffic). En este artículo también se proporcionan instrucciones para bloquear el tráfico de salida desde el clúster a través de la dirección IP pública, excepto en el caso de algunos FQDN. Hay dos formas de habilitar una dirección IP pública:
+  - El clúster puede usar la dirección IP pública creada de forma predeterminada con BLB o SLB.
+  - El clúster se puede crear sin una dirección IP pública y luego configurar una dirección IP pública con un firewall con una ruta definida por el usuario, como se documenta [aquí](https://docs.microsoft.com/azure/aks/egress-outboundtype) 
+  
+  El plano de control AML no se comunica con esta dirección IP pública. Se comunica con el plano de control AKS para las implementaciones. 
+
 - Si adjunta un clúster de AKS, que tiene un [intervalo IP autorizado habilitado para tener acceso al servidor de API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), habilite los intervalos IP del plano de control de AML del clúster de AKS. El plano de control de AML se implementa entre regiones emparejadas e implementa pods de inferencia en el clúster de AKS. Sin acceso al servidor de la API, no se pueden implementar los pods de inferencia. Use el [intervalo IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) para las [regiones emparejadas]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) al habilitar los intervalos IP en un clúster de AKS.
 
-__Los intervalos IP autorizados solo funcionan con Standard Load Balancer.__
+
+  Los intervalos IP autorizados solo funcionan con Standard Load Balancer.
  
  - El nombre del proceso DEBE ser único dentro de un área de trabajo.
    - El nombre es obligatorio y debe tener una longitud de entre 3 y 24 caracteres.
@@ -76,10 +85,6 @@ __Los intervalos IP autorizados solo funcionan con Standard Load Balancer.__
    - El nombre debe ser único en todos los procesos existentes dentro de una región de Azure. Verá una alerta si el nombre elegido no es único
    
  - Si quiere implementar modelos en nodos de GPU o en nodos de FPGA (o en cualquier SKU específica), debe crear un clúster con la SKU específica. No se admite la creación de un grupo de nodos secundarios en un clúster existente ni la implementación de modelos en el grupo de nodos secundarios.
- 
- 
-
-
 
 ## <a name="create-a-new-aks-cluster"></a>Creación de un clúster de AKS
 
@@ -228,6 +233,10 @@ Para más información, consulte la referencia de [az ml computetarget attach ak
 ## <a name="deploy-to-aks"></a>Implementación en AKS
 
 Para implementar un modelo en Azure Kubernetes Service, cree una __configuración de implementación__ que describa los recursos de proceso necesarios. Por ejemplo, el número de núcleos y la memoria. También necesita una __configuración de inferencia__, que describe el entorno necesario para hospedar el modelo y el servicio web. Para más información sobre cómo crear la configuración de inferencia, consulte [Cómo y dónde implementar modelos](how-to-deploy-and-where.md).
+
+> [!NOTE]
+> El número de modelos que se implementará se limita a 1000 modelos por implementación (por contenedor).
+
 
 ### <a name="using-the-sdk"></a>Uso del SDK
 

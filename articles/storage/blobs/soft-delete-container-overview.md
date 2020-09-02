@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 08/25/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 47582f941c314933baf378478b1380cb8316935b
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 60c7ac6a86c963a4a133f06ba6d9d602cb9090d0
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066617"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854534"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Eliminación temporal de contenedores (versión preliminar)
 
@@ -27,8 +27,8 @@ Para una protección integral de los datos de blobs, Microsoft recomienda habili
 - Eliminación temporal de blobs, para proteger frente a la eliminación o sobrescritura accidentales de un blob individual. Para obtener información sobre cómo habilitar la eliminación temporal de blobs, consulte [Eliminación temporal para blobs](soft-delete-blob-overview.md).
 - Control de versiones de blobs (versión preliminar), para conservar automáticamente las versiones anteriores de un blob. Cuando el control de versiones de blobs está habilitado, puede restaurar una versión anterior de un blob para recuperar los datos si se modifican o eliminan por error. Para obtener información sobre cómo habilitar el control de versiones de blobs, consulte [Habilitación y administración del control de versiones de blobs](versioning-enable.md).
 
-> [!IMPORTANT]
-> Para evitar la eliminación accidental de una cuenta de almacenamiento, configure el bloqueo **CannotDelete** en el recurso de la cuenta de almacenamiento. Para obtener más información sobre el bloqueo de recursos de Azure, vea [Bloqueo de recursos para impedir cambios inesperados](../../azure-resource-manager/management/lock-resources.md).
+> [!WARNING]
+> No se puede deshacer la eliminación de una cuenta de almacenamiento. La eliminación temporal no protege contra la eliminación de una cuenta de almacenamiento. Para evitar la eliminación accidental de una cuenta de almacenamiento, configure el bloqueo **CannotDelete** en el recurso de la cuenta de almacenamiento. Para obtener más información sobre el bloqueo de recursos de Azure, vea [Bloqueo de recursos para impedir cambios inesperados](../../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="how-container-soft-delete-works"></a>Funcionamiento de la eliminación temporal de contenedores
 

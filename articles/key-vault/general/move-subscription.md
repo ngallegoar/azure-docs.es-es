@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: d37fae18cd2f3e3bfad647cc176253dc6bb101ab
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b37b327a535b716bbce845cd5883e58ec5379c48
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585817"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782726"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Traslado de Azure Key Vault a otra suscripción
 
@@ -59,7 +59,9 @@ Asegúrese de ir a la página de Azure Policy en Azure Portal y examine las asig
 
 ## <a name="procedure"></a>Procedimiento
 
-### <a name="initial-steps-moving-key-vault"></a>Pasos iniciales (trasladar el almacén de claves)
+Si usted: 
+
+### <a name="moving-key-vault-to-a-new-subscription-within-the-same-tenant"></a>Movimiento de Key Vault a una nueva suscripción dentro del mismo inquilino
 
 1. Iniciar sesión en Azure Portal
 2. Vaya a almacén de claves.
@@ -70,9 +72,9 @@ Asegúrese de ir a la página de Azure Policy en Azure Portal y examine las asig
 7. Confirme la advertencia relacionada con el traslado de recursos.
 8. Seleccione Aceptar.
 
-### <a name="additional-steps-post-move"></a>Pasos adicionales (después del traslado)
+### <a name="additional-steps-if-you-moved-key-vault-to-a-subscription-in-a-new-tenant"></a>Pasos adicionales si ha migrado el almacén de claves a una suscripción en un nuevo inquilino
 
-Ahora que ha trasladado el almacén de claves a la nueva suscripción, debe actualizar el identificador de inquilino y quitar las directivas de acceso anteriores. Estos son los tutoriales de estos pasos en PowerShell y la CLI de Azure.
+Si ha migrado el almacén de claves a una suscripción en un nuevo inquilino, tiene que actualizar manualmente el identificador de inquilino y quitar las directivas de acceso anteriores. Estos son los tutoriales de estos pasos en PowerShell y la CLI de Azure. Si usa PowerShell, puede que tenga que ejecutar el comando Clear-AzContext que se describe a continuación para que pueda ver recursos fuera del ámbito que tiene seleccionado actualmente. 
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionId <your-subscriptionId>                # Select your Azure Subscription

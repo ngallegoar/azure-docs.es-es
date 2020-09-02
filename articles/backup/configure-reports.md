@@ -3,12 +3,12 @@ title: Configuración de informes de Azure Backup
 description: Configure y vea informes para Azure Backup mediante Log Analytics y libros de Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 94298c5826f7158655367ae1dd6b7dd54cb88d24
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 4e5e9258540e5cdab14e438cde96cd89aad7498d
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612442"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826861"
 ---
 # <a name="configure-azure-backup-reports"></a>Configuración de informes de Azure Backup
 
@@ -89,7 +89,7 @@ Use esta pestaña para ver los parámetros de facturación principales de las co
    ![Pestaña Uso](./media/backup-azure-configure-backup-reports/usage.png)
 
 > [!NOTE]
-> En el caso de las cargas de trabajo de DPM, los usuarios pueden ver una pequeña diferencia (del orden de 20 MB por servidor DPM) entre los valores de uso mostrados en los informes en comparación con el valor de uso agregado, tal como se muestra en la pestaña Información general del almacén de Recovery Services. Esta diferencia se tiene en cuenta por el hecho de que cada servidor DPM que se está registrando para la copia de seguridad tiene un origen de datos "Metadata" asociado que no aparece como un artefacto para la creación de informes.
+> En el caso de las cargas de trabajo de DPM, los usuarios pueden ver una pequeña diferencia (del orden de 20 MB por servidor DPM) entre los valores de uso mostrados en los informes en comparación con el valor de uso agregado, tal como se muestra en la pestaña **Información general** del almacén de Recovery Services. Esta diferencia se tiene en cuenta por el hecho de que cada servidor DPM que se está registrando para la copia de seguridad tiene un origen de datos "Metadata" asociado que no aparece como un artefacto para la creación de informes.
 
 ##### <a name="jobs"></a>Trabajos
 
@@ -109,7 +109,7 @@ Use esta pestaña para obtener visibilidad sobre las posibles oportunidades de o
 
 ###### <a name="inactive-resources"></a>Recursos inactivos
 
-Con esta vista, puede identificar los elementos de copia de seguridad que no han tenido una copia de seguridad correcta durante un período de tiempo considerable. Esto puede significar que la máquina subyacente de la que se hace una copia de seguridad ya no existe (y, por lo tanto, se produce un error en las copias de seguridad) o hay algún problema con la máquina que impide que las copias de seguridad se realicen de forma confiable.
+Con esta vista, puede identificar los elementos de copia de seguridad para los que no se ha efectuado una copia de seguridad correctamente durante un período de tiempo considerable. Esto puede significar que la máquina subyacente de la que se hace una copia de seguridad ya no existe (y, por lo tanto, se produce un error en las copias de seguridad) o hay algún problema con la máquina que impide que las copias de seguridad se realicen de forma confiable.
 
 Para ver los recursos inactivos, vaya a la pestaña **Optimizar** y seleccione el icono **Inactive Resources** (Recursos inactivos). Al seleccionar este icono, se muestra una cuadrícula con los detalles de todos los recursos inactivos que existen en el ámbito seleccionado. De forma predeterminada, la cuadrícula muestra los elementos que no han tenido un punto de recuperación en los últimos siete días. Para buscar recursos inactivos correspondientes a un intervalo de tiempo distinto, puede ajustar el filtro **Intervalo de tiempo** en la parte superior de la pestaña.
 

@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 08/25/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 0d915c0b293e9f3deadbfb2a5fb0ff7f379e1717
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 87e0fe7baaf3d83c18b12227e9ecb5bf1d2fb361
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053480"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869463"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Características de Blob Storage disponibles en Azure Data Lake Storage Gen2
 
@@ -53,6 +53,7 @@ En esta tabla se enumeran las características de Blob Storage que puede usar co
 |Conmutación por error de cuenta|Todavía no se admite|Todavía no se admite|[Recuperación ante desastres y conmutación por error de la cuenta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |ACL del contenedor de blobs|Todavía no se admite<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Todavía no se admite<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|[Establecer lista de control de acceso de contenedor](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
 |Dominios personalizados|Todavía no se admite|Todavía no se admite|[Asignación de un dominio personalizado a un punto de conexión de Azure Blob Storage](storage-custom-domain-name.md)|
+|Ámbitos de cifrado|Todavía no se admite|Todavía no se admite|[Creación y administración de ámbitos de cifrado (versión preliminar)](encryption-scope-manage.md)|
 
 <div id="diagnostic-logging"><sup>1</sup> Para las cuentas de almacenamiento de blobs en bloques Premium, los registros de diagnóstico (versión clásica) no se pueden habilitar mediante Azure Portal. Puede habilitarlos mediante PowerShell.</div><br>
 

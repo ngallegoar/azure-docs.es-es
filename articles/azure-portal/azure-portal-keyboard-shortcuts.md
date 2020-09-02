@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 12/20/2019
 ms.author: mblythe
 ms.custom: accessibility
-ms.openlocfilehash: 7d9bc6365070c0aec96def2f55758204925fe7ba
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: e3f078cdaa54246d91e6bff5393171c05935d755
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88205947"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826793"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Métodos abreviados de teclado de Azure Portal
 
@@ -52,6 +52,10 @@ Este artículo enumera los métodos abreviados de teclado que funcionan en Azure
 |Ir a **Todos los recursos**|G + A |
 |Ir a **Grupos de recursos**|G + R |
 |Abrir el elemento de barra lateral izquierda en esta posición |G + número|
+
+## <a name="keyboard-shortcuts-for-specific-pages-in-the-azure-portal"></a>Métodos abreviados de teclado para páginas específicas en Azure Portal
+
+- [Azure Resource Graph Explorer](../governance/resource-graph/reference/keyboard-shortcuts.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

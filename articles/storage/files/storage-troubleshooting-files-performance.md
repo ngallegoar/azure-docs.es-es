@@ -4,15 +4,15 @@ description: Solución de problemas de rendimiento conocidos con los recursos co
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 04/25/2019
+ms.date: 08/24/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 6739e5619a0dcaa940d38571c4a88c4f68971dfe
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: fe1460d4353addff1b8e3095cfe06c1fcb3b7bd0
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009280"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782377"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Solucionar problemas de rendimiento de Azure Files
 
@@ -20,9 +20,9 @@ En este artículo se enumeran algunos problemas habituales relacionados con los 
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Alta latencia, rendimiento bajo y problemas de rendimiento general
 
-### <a name="cause-1-share-experiencing-throttling"></a>Causa 1: El recurso compartido está experimentando limitación
+### <a name="cause-1-share-was-throttled"></a>Causa 1: Se ha limitado el recurso compartido de archivos
 
-La cuota predeterminada en un recurso compartido Premium es de 100 GiB, que proporciona 100 IOPS de base de referencia (con un potencial para aumentar hasta 300 durante una hora). Para más información sobre el aprovisionamiento y su relación con IOPS, consulte la sección [Recursos compartidos aprovisionados](storage-files-planning.md#understanding-provisioning-for-premium-file-shares) de la guía de planificación.
+Las solicitudes se limitan cuando se alcanzan los límites de IOPS, entradas o salidas de un recurso compartido de archivos. Para conocer los límites de los recursos compartidos de archivos de nivel Estándar y Premium, consulte [Objetivos de escalabilidad de archivos y recursos compartidos de archivos](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets).
 
 Para confirmar si se está limitando el recurso compartido, puede aprovechar las métricas de Azure en el portal.
 
@@ -47,7 +47,8 @@ Para confirmar si se está limitando el recurso compartido, puede aprovechar las
 
 ### <a name="solution"></a>Solución
 
-- Aumente la capacidad aprovisionada del recurso compartido especificando una cuota mayor en el recurso compartido.
+- Si usa un recurso compartido de archivos Estándar, habilite [Recursos compartidos de archivos grandes](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share?tabs=azure-portal) en su cuenta de almacenamiento. Los recursos compartidos de archivos grandes admiten hasta 10 000 IOPS por recurso compartido.
+- Si usa un recurso compartido de archivos Premium, aumente el tamaño del recurso compartido de archivos aprovisionado para aumentar el límite de IOPS. Para más información, consulte la sección [Descripción del aprovisionamiento de recursos compartidos de archivos prémium](https://docs.microsoft.com/azure/storage/files/storage-files-planning#understanding-provisioning-for-premium-file-shares) en la guía de plan de Azure Files.
 
 ### <a name="cause-2-metadatanamespace-heavy-workload"></a>Causa 2: Cargas de trabajo pesadas del espacio de nombres o los metadatos
 

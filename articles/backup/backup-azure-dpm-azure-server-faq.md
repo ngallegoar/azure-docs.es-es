@@ -4,12 +4,12 @@ description: En este artículo, encontrará respuestas a preguntas habituales so
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.openlocfilehash: b2994e250c37d707eee5428e83c151728f83a1ab
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 00eb064aaf549ee0d83d0cf7d9c9b47c2dc5ef78
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522936"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827212"
 ---
 # <a name="azure-backup-server-and-dpm---faq"></a>Preguntas frecuentes sobre Azure Backup Server y DPM
 
@@ -65,7 +65,7 @@ Sí, se puede recuperar el elemento en el sitio de SharePoint original.
 
 ### <a name="can-i-recover-a-sharepoint-database-to-the-original-location-if-sharepoint-is-configured-by-using-sql-alwayson"></a>¿Puedo recuperar una base de datos de SharePoint en la ubicación original si SharePoint está configurada con SQL AlwaysOn?
 
-Como las bases de datos de SharePoint están configuradas en SQL AlwaysOn, no se pueden modificar a menos que se quite el grupo de disponibilidad. En consecuencia, DPM no puede restaurar la base de datos en la ubicación original. Puede recuperar una base de datos SQL Server en otra instancia de SQL Server.
+Dado que las bases de datos de SharePoint están configuradas en SQL AlwaysOn, no se pueden modificar a menos que se quite el grupo de disponibilidad. En consecuencia, DPM no puede restaurar la base de datos en la ubicación original. Puede recuperar una base de datos SQL Server en otra instancia de SQL Server.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

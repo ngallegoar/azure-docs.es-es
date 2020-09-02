@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 391692d708adbd542b2cf358f0ac597dc1db3fa0
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 9d3c5a914fe472dd7e4f797cb633e65951bf07e7
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88565560"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871469"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Introducción: Automatización de la implementación para Azure Logic Apps mediante plantillas de Azure Resource Manager
 
@@ -269,17 +269,7 @@ La plantilla tiene un objeto `resources`, que es una matriz que contiene las def
 
 ### <a name="view-resource-definitions"></a>Visualización de definiciones de recursos
 
-Para revisar las definiciones de todos los recursos de un grupo de recursos de Azure, [descargue la aplicación lógica de Azure en Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), que es la forma más sencilla de crear una plantilla de aplicación lógica con parámetros válida lista en su mayor parte para la implementación. También puede seguir estos pasos en Azure Portal:
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con sus credenciales de su cuenta de Azure.
-
-1. Busque el grupo de recursos de Azure que contiene la aplicación lógica, las conexiones y otros recursos.
-
-1. En la barra de herramientas del grupo de recursos, seleccione **Información general** y, luego, seleccione todos los recursos del grupo de recursos.
-
-1. En la barra de herramientas del grupo de recursos, en **Configuración**, seleccione **Exportar plantilla**.
-
-   El portal muestra las definiciones de los recursos seleccionados. Para más información, consulte [Exportación de uno y varios recursos a la plantilla en Azure Portal](../azure-resource-manager/templates/export-template-portal.md).
+Para revisar las definiciones de recurso de todos los recursos de un grupo de recursos de Azure, [descargue la aplicación lógica de Azure en Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), que es la forma más sencilla de crear una plantilla válida de aplicación lógica con parámetros que está prácticamente lista para la implementación.
 
 Para obtener información general sobre los recursos de plantilla y sus atributos, consulte estos temas:
 
@@ -584,7 +574,7 @@ Para obtener más información sobre los parámetros de definición de flujo de 
 
 ## <a name="connection-resource-definitions"></a>Definiciones de recursos de conexión
 
-Cuando la aplicación lógica crea y usa conexiones a otros servicios y sistemas mediante el uso de [conectores administrados](../connectors/apis-list.md), el objeto `resources` de la plantilla contiene las definiciones de recursos para esas conexiones.
+Cuando la aplicación lógica crea y usa conexiones a otros servicios y sistemas mediante el uso de [conectores administrados](../connectors/apis-list.md), el objeto `resources` de la plantilla contiene las definiciones de recursos para esas conexiones. Aunque cree conexiones desde una aplicación lógica, estas son recursos de Azure independientes con sus propias definiciones de recursos. Para revisar estas definiciones de recursos de conexión, puede [descargar la aplicación lógica desde Azure en Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), que es la forma más sencilla de crear una plantilla válida de aplicación lógica con parámetros prácticamente lista para la implementación.
 
 ```json
 {

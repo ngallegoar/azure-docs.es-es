@@ -3,12 +3,12 @@ title: Introducción a las características de seguridad
 description: Obtenga información sobre las funcionalidades de seguridad de Azure Backup que le ayudan a proteger los datos de copia de seguridad y a satisfacer las necesidades de seguridad de su negocio.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 8a63585635f578f55b274c3257807fc731eacc47
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: f9a505723b40df61665a99e898d59ecfb8c03fd5
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589391"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890474"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Introducción a las características de seguridad de Azure Backup
 
@@ -16,7 +16,7 @@ Una de las medidas más importantes que puede adoptar para proteger los datos es
 
 ## <a name="management-and-control-of-identity-and-user-access"></a>Administración y control de identidades y del acceso de usuarios
 
-Las cuentas de almacenamiento usadas por los almacenes de Recovery Services están aisladas y son inaccesibles para usuarios con fines malintencionados. Solo se permite el acceso mediante operaciones de administración de Azure Backup, como la restauración. Azure Backup le permite controlar las operaciones administradas mediante acceso específico con [control de acceso basado en rol (RBAC) de Azure](./backup-rbac-rs-vault.md). RBAC permite repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
+Las cuentas de almacenamiento empleadas por los almacenes de Recovery Services están aisladas, y los usuarios no pueden acceder a ellas con fines malintencionados. Solo se permite el acceso mediante operaciones de administración de Azure Backup, como la restauración. Azure Backup le permite controlar las operaciones administradas mediante acceso específico con [control de acceso basado en rol (RBAC) de Azure](./backup-rbac-rs-vault.md). RBAC permite repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
 
 Azure Backup proporciona tres [roles integrados](../role-based-access-control/built-in-roles.md) para controlar las operaciones de administración de copia de seguridad:
 
@@ -56,7 +56,7 @@ Mediante el cifrado, se protegen los datos y es más fácil cumplir los compromi
 
 ## <a name="protection-of-backup-data-from-unintentional-deletes"></a>Protección de los datos de copia de seguridad ante eliminaciones accidentales
 
-Azure Backup proporciona características de seguridad que ayudan a proteger los datos de copia de seguridad incluso después de su eliminación. Con la eliminación temporal, si un usuario elimina la copia de seguridad de una máquina virtual, los datos de copia de seguridad se conservan durante 14 días más, lo que permite la recuperación de ese elemento de copia de seguridad sin pérdida de datos. Esta retención adicional de 14 días de los datos de copia de seguridad en el estado de "eliminación temporal" no supone ningún costo para el cliente. [Más información sobre la eliminación temporal](backup-azure-security-feature-cloud.md).
+Azure Backup proporciona características de seguridad que ayudan a proteger los datos de copia de seguridad incluso después de su eliminación. Con la eliminación temporal, si un usuario elimina la copia de seguridad de una máquina virtual, los datos de copia de seguridad se conservan durante 14 días más, lo que permite la recuperación de ese elemento de copia de seguridad sin pérdida de datos. Esta retención adicional de 14 días de los datos de copia de seguridad en el estado de "eliminación temporal" no le supone ningún costo. [Más información sobre la eliminación temporal](backup-azure-security-feature-cloud.md).
 
 ## <a name="monitoring-and-alerts-of-suspicious-activity"></a>Supervisión y alertas por actividad sospechosa
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9f140594ef18df7f9a6a3b919998962c966cde76
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 995d621ffbabd6743d248812c88ebe7e65da24ca
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587606"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796959"
 ---
 # <a name="manage-digital-twins"></a>Administración de Digital Twins
 
@@ -104,8 +104,10 @@ object result = await client.GetDigitalTwin(id);
 
 Esta llamada devuelve los datos de gemelos como una cadena JSON. 
 
-> [!TIP]
-> Solo se devuelven las propiedades que se han establecido al menos una vez cuando se recupera un gemelo con `GetDigitalTwin`.
+Solo se devuelven las propiedades que se han establecido al menos una vez cuando se recupera un gemelo con `GetDigitalTwin`.
+
+>[!TIP]
+>El `displayName` para un gemelo es parte de sus metadatos del modelo, por lo que no se mostrará al obtener los datos de la instancia gemela. Para ver este valor, puede [recuperarlo del modelo](how-to-manage-model.md#retrieve-models).
 
 Para recuperar varios gemelos mediante una única llamada API, consulte los ejemplos de la API de consulta en [*Procedimiento: Consulta del grafo de gemelos*](how-to-query-graph.md).
 

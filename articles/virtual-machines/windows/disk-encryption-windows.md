@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 10e306d26ebfd5ffafe65d7aa52753e993b085bf
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 951c1fd89f9e943b72c32492ff40dae3bd07bb61
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509168"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794490"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Escenarios de Azure Disk Encryption en máquinas virtuales Windows
 
@@ -264,9 +264,8 @@ Azure Disk Encryption no funciona para los siguientes escenarios, característic
 - Creación de una imagen o instantánea de una máquina virtual cifrada y su uso para implementar máquinas virtuales adicionales.
 - Máquinas virtuales de Gen2 (consulte: [Compatibilidad con máquinas virtuales de generación 2 en Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
 - Máquinas virtuales de la serie M con discos de Acelerador de escritura.
-- La aplicación de ADE a una máquina virtual que tiene, o que *siempre* ha tenido, los discos cifrados con el [cifrado del lado servidor con claves administradas por el cliente](disk-encryption.md) (SSE + CMK). La aplicación de SSE + CMK a un disco de datos en una máquina virtual cifrada con ADE tampoco es un escenario admitido.
-- Migración de una VM cifrada con ADE al [cifrado del lado servidor con claves administradas por el cliente](disk-encryption.md).
-
+- Aplicación de ADE a una máquina virtual que tiene discos cifrados con el [cifrado del lado servidor con claves administradas por el cliente](disk-encryption.md) (SSE + CMK). La aplicación de SSE + CMK a un disco de datos en una máquina virtual cifrada con ADE tampoco es un escenario admitido.
+- Migración de una máquina virtual cifrada con ADE, o que **alguna vez** haya estado cifrada con ADE, al [cifrado del lado servidor con claves administradas por el cliente](disk-encryption.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

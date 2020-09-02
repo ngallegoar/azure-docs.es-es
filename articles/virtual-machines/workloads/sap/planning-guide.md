@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87c8b160a0b8791d13976be975090d16e68ea82f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 63872f3d62bcf62562cef7fd4ee02e9a0535da67
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547416"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756884"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver
 
@@ -242,7 +242,7 @@ ms.locfileid: "88547416"
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md
-[storage-premium-storage-preview-portal]:../../windows/disks-types.md
+[storage-premium-storage-preview-portal]:../../disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -270,7 +270,7 @@ ms.locfileid: "88547416"
 [virtual-machines-linux-create-upload-vhd-oracle]:../../linux/oracle-create-upload-vhd.md
 [virtual-machines-linux-redhat-create-upload-vhd]:../../linux/redhat-create-upload-vhd.md
 [virtual-machines-linux-how-to-attach-disk]:../../linux/add-disk.md
-[virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:../../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk
+[virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:../../linux/add-disk.md#format-and-mount-the-disk
 [virtual-machines-linux-tutorial]:../../linux/quick-create-cli.md
 [virtual-machines-linux-update-agent]:../../linux/update-agent.md
 [virtual-machines-manage-availability]:../../linux/manage-availability.md
@@ -533,7 +533,7 @@ Al implementar servicios o VM en Azure, la implementación de discos duros virtu
 
 tuvieron un rol importante en la planeación de una implementación de SAP en Azure. Tenía que administrar el número de discos persistentes en una cuenta de almacenamiento. Necesitaba administrar las cuentas de almacenamiento y, finalmente, crear nuevas cuentas de almacenamiento para crear más discos persistentes.
 
-En los últimos años, la introducción de [Azure Managed Disks](../../windows/managed-disks-overview.md) le ha liberado de esas tareas. La recomendación para las implementaciones de SAP es aprovechar Azure Managed Disks en lugar de administrar las cuentas de almacenamiento de Azure manualmente. Azure Managed Disks distribuirá discos entre diferentes cuentas de almacenamiento de modo que no se superen los límites de cada cuenta.
+En los últimos años, la introducción de [Azure Managed Disks](../../managed-disks-overview.md) le ha liberado de esas tareas. La recomendación para las implementaciones de SAP es aprovechar Azure Managed Disks en lugar de administrar las cuentas de almacenamiento de Azure manualmente. Azure Managed Disks distribuirá discos entre diferentes cuentas de almacenamiento de modo que no se superen los límites de cada cuenta.
 
 En una cuenta de almacenamiento, tiene un tipo de concepto de carpeta denominado "contenedores" que se puede usar para agrupar determinados discos en contenedores específicos.
 
@@ -804,7 +804,7 @@ Estos son los requisitos que se deben cumplir a la hora de preparar su propio di
 
 * Originalmente, el VHD que contiene el sistema operativo podía tener un tamaño máximo de 127 GB. Esta limitación se eliminó a finales de marzo de 2015. Ahora, el VHD que contiene el sistema operativo puede tener un tamaño máximo de 1 TB, al igual que cualquier otro VHD hospedado en Azure Storage.
 * Debe tener el formato de VHD fijo. Los VHD dinámicos o en formato VHDx aún no se admiten en Azure. Los VHD dinámicos se convertirán en VHD estáticos al cargarlos con los cmdlets de PowerShell o la CLI.
-* Los discos duros virtuales que estén montados en la máquina virtual y se deban volver a montar en ella en Azure tienen que tener también un formato de disco duro virtual fijo. Lea [este artículo (Linux)](../../linux/managed-disks-overview.md) y [este otro (Windows)](../../windows/managed-disks-overview.md) para conocer los límites de tamaño de los discos de datos. Los VHD dinámicos se convertirán en VHD estáticos al cargarlos con los cmdlets de PowerShell o la CLI.
+* Los discos duros virtuales que estén montados en la máquina virtual y se deban volver a montar en ella en Azure tienen que tener también un formato de disco duro virtual fijo. Lea [este artículo](../../managed-disks-overview.md) para conocer los límites de tamaño de los discos de datos. Los VHD dinámicos se convertirán en VHD estáticos al cargarlos con los cmdlets de PowerShell o la CLI.
 * Agregue otra cuenta local con privilegios de administrador que puede utilizar el servicio de soporte técnico de Microsoft, o que se puede asignar como contexto para que se ejecuten los servicios y las aplicaciones hasta que se implemente la máquina virtual y se puedan utilizar usuarios más adecuados.
 * Agregue otras cuentas locales, ya que se podrían necesitar para el escenario de implementación concreto.
 
@@ -831,7 +831,7 @@ Estos son los requisitos que se deben cumplir a la hora de preparar su propia im
 
 * Originalmente, el VHD que contiene el sistema operativo podía tener un tamaño máximo de 127 GB. Esta limitación se eliminó a finales de marzo de 2015. Ahora, el VHD que contiene el sistema operativo puede tener un tamaño máximo de 1 TB, al igual que cualquier otro VHD hospedado en Azure Storage.
 * Debe tener el formato de VHD fijo. Los VHD dinámicos o en formato VHDx aún no se admiten en Azure. Los VHD dinámicos se convertirán en VHD estáticos al cargarlos con los cmdlets de PowerShell o la CLI.
-* Los discos duros virtuales que estén montados en la máquina virtual y se deban volver a montar en ella en Azure tienen que tener también un formato de disco duro virtual fijo. Lea [este artículo (Linux)](../../windows/managed-disks-overview.md) y [este otro (Windows)](../../linux/managed-disks-overview.md) para conocer los límites de tamaño de los discos de datos. Los VHD dinámicos se convertirán en VHD estáticos al cargarlos con los cmdlets de PowerShell o la CLI.
+* Los discos duros virtuales que estén montados en la máquina virtual y se deban volver a montar en ella en Azure tienen que tener también un formato de disco duro virtual fijo. Lea [este artículo](../../managed-disks-overview.md) para conocer los límites de tamaño de los discos de datos. Los VHD dinámicos se convertirán en VHD estáticos al cargarlos con los cmdlets de PowerShell o la CLI.
 * Agregue otras cuentas locales, ya que se podrían necesitar para el escenario de implementación concreto.
 * Si la imagen contiene una instalación de SAP NetWeaver y es probable que se vaya a modificar el nombre original del host en el momento de la implementación de Azure, se recomienda copiar en la plantilla las últimas versiones del DVD del administrador de aprovisionamiento de software de SAP. Así podrá utilizar fácilmente la función de cambio de nombre de SAP proporciona para adaptar el nombre de host cambiado o modificar al SID del sistema SAP dentro de la imagen de la máquina virtual implementada en cuanto se inicie una nueva copia.
 
@@ -1632,7 +1632,7 @@ Procedimientos:
 > A continuación, se ofrecen algunos ejemplos de documentación sobre la configuración de impresoras de red en Linux e incluso un capítulo sobre la impresión en Linux. Funcionará del mismo modo que en una máquina virtual de Linux en Azure si la máquina virtual forma parte de una VPN:
 >
 > * SLES <https://en.opensuse.org/SDB:Printing_via_SMB_(Samba)_Share_or_Windows_Share>
-> * RHEL u Oracle Linux <https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System_Administrators_Guide/sec-Printer_Configuration.html#s1-printing-smb-printer>
+> * RHEL u Oracle Linux <https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html-single/system_administrators_guide/index#sec-Starting_Print_Settings_Config>
 >
 >
 
@@ -1803,7 +1803,7 @@ Existen dos tipos de eventos de plataforma Azure que pueden afectar a la disponi
 * Eventos de mantenimiento planeado son actualizaciones periódicas realizadas por Microsoft en la plataforma Azure subyacente para mejorar en general la fiabilidad, el rendimiento y la seguridad de la infraestructura de la plataforma sobre las que se funcionan sus máquinas virtuales.
 * Eventos de mantenimiento no planeado se producen cuando el hardware o la infraestructura física subyacente a su máquina virtual presentan algún tipo de error. Entre estos podemos encontrar errores de la red local, errores de los discos locales u otras errores a nivel de bastidor. Cuando se encuentra un error de este tipo, la plataforma Azure migrará automáticamente la máquina virtual del servidor físico en mal estado que hospeda la máquina virtual a un servidor físico con un estado correcto. Estos eventos no son habituales, pero pueden hacer que su máquina virtual se reinicie.
 
-Se puede encontrar más información en esta documentación: <https://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
+Para más información, consulte [Administración de la disponibilidad de las máquinas virtuales Windows en Azure](../../windows/manage-availability.md) y [Administración de la disponibilidad de máquinas virtuales Linux en Azure](../../linux/manage-availability.md).
 
 #### <a name="azure-storage-redundancy"></a>Redundancia de Azure Storage
 
@@ -1811,7 +1811,7 @@ Los datos de la cuenta de Microsoft Azure Storage se replican siempre para garan
 
 Dado que Azure Storage mantiene de forma predeterminada tres imágenes de los datos, no se precisan RAID5 o RAID1 en varios discos de Azure.
 
-Se puede encontrar más información en este artículo: <https://azure.microsoft.com/documentation/articles/storage-redundancy/>
+Para más información, consulte [Redundancia de Azure Storage](../../../storage/common/storage-redundancy.md).
 
 #### <a name="utilizing-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-sap-applications"></a>Utilización del reinicio de VM de la infraestructura de Azure para lograr una mayor disponibilidad de las aplicaciones de SAP
 
@@ -1870,7 +1870,6 @@ Si se implementan unas cuantas instancias del servidor de aplicaciones de SAP en
 
 ![Alta disponibilidad de los servidores de aplicaciones de SAP en Azure][planning-guide-figure-3000]
 
-Se puede encontrar más información en esta documentación: <https://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
 
 #### <a name="high-availability-for-sap-central-services-on-azure"></a>Alta disponibilidad para los servicios centrales de SAP en Azure
 

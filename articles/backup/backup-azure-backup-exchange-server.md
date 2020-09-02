@@ -4,12 +4,12 @@ description: Obtenga información acerca de cómo realizar una copia de segurida
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 2d547b1d86b95a4f90d3faaa2f676c7cc37255d3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 48a0e0f4b838b3f9b26de5a9cf297ddcdfc2a7e9
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091137"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889726"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Copia de seguridad de un servidor Exchange en Azure Backup con System Center 2012 R2 DPM
 
@@ -32,7 +32,7 @@ Antes de continuar, asegúrese de que se cumplen todos los [requisitos previos](
 * En el servidor DPM se han descargado las credenciales del almacén y del agente.
 * El agente está instalado en el servidor DPM.
 * Las credenciales de almacén se utilizaban para registrar el servidor DPM.
-* Si va a proteger Exchange 2016, actualice al paquete acumulativo de actualizaciones 9 de DPM 2012 R2 o posterior.
+* Si va a proteger Exchange 2016, actualice a DPM 2012 R2 UR9 o posterior.
 
 ## <a name="dpm-protection-agent"></a>Agente de protección DPM
 
@@ -49,7 +49,7 @@ Para instalar al agente de protección DPM en el servidor Exchange, siga estos p
 4. Seleccione la base de datos del servidor Exchange que desea proteger y haga clic en **Siguiente**.
 
    > [!NOTE]
-   > Si va a proteger Exchange 2013, compruebe en [Requisitos previos de Exchange 2013](/system-center/dpm/back-up-exchange).
+   > Si va a proteger Exchange 2013, compruebe los [Requisitos previos de Exchange 2013](/system-center/dpm/back-up-exchange).
    >
    >
 

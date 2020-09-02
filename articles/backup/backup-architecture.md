@@ -3,12 +3,12 @@ title: Introducción a la arquitectura
 description: Proporciona información general sobre la arquitectura, los componentes y los procesos usados por el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: fc57f275d7693c9cf93adf04dc5dcc7524ba0567
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1081de6b467b896bd8cc62b84c9a67c329b11e02
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835738"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824039"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitectura y componentes de Azure Backup
 
@@ -193,9 +193,8 @@ Las máquinas virtuales de Azure usan discos para almacenar su sistema operativo
 
 Para obtener más información sobre el almacenamiento en discos y los tipos de discos disponibles para las máquinas virtuales, consulte estos artículos:
 
-- [Introducción a los discos administrados de Azure](../virtual-machines/windows/managed-disks-overview.md)
-- [Introducción a los discos administrados de Azure](../virtual-machines/linux/managed-disks-overview.md)
-- [¿Qué tipos de disco están disponibles en Azure?](../virtual-machines/windows/disks-types.md)
+- [Introducción a los discos administrados de Azure](../virtual-machines/managed-disks-overview.md)
+- [¿Qué tipos de disco están disponibles en Azure?](../virtual-machines/disks-types.md)
 
 ### <a name="back-up-and-restore-azure-vms-with-premium-storage"></a>Copia de seguridad y restauración de máquinas virtuales de Azure con Premium Storage
 
@@ -204,7 +203,7 @@ Puede realizar una copia de seguridad de máquinas virtuales de Azure mediante P
 - Durante el proceso de copia de seguridad de máquinas virtuales con Premium Storage, el servicio Backup crea una ubicación de almacenamiento provisional, llamada *AzureBackup-* en la cuenta de almacenamiento. El tamaño de la ubicación de ensayo equivale al de la instantánea del punto de recuperación.
 - Asegúrese de que haya espacio disponible suficiente en la cuenta de Premium Storage para dar cabida a la ubicación de almacenamiento provisional. Para obtener más información, consulte [Objetivos de escalabilidad de las cuentas de almacenamiento de blob en páginas prémium](../storage/blobs/scalability-targets-premium-page-blobs.md). No modifique la ubicación de almacenamiento provisional.
 - Una vez finalizado el trabajo de copia de seguridad, se elimina esta ubicación.
-- El precio del almacenamiento usado para la ubicación de almacenamiento provisional es coherente con todos los [precios de Premium Storage](../virtual-machines/windows/disks-types.md#billing).
+- El precio del almacenamiento usado para la ubicación de almacenamiento provisional es coherente con todos los [precios de Premium Storage](../virtual-machines/disks-types.md#billing).
 
 Al restaurar máquinas virtuales de Azure mediante Premium Storage, puede restaurarlas a Premium Storage o Standard Storage. Normalmente, las restaurará a Premium Storage. Pero si necesita solo un subconjunto de archivos de la máquina virtual, podría ser más rentable restaurarlas a Standard Storage.
 

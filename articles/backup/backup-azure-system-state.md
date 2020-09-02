@@ -3,12 +3,12 @@ title: Copias de seguridad del estado del sistema de Windows en Azure
 description: Obtenga información sobre cómo realizar copias de seguridad el estado del sistema de equipos Windows Server en Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: a56e500cc0330a6406b4465ab5baeafa39b544aa
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 8ce30b93ebaecec1e69c6c6a6f1064c6cdd3d0f6
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263051"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824469"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Copias de seguridad del estado del sistema de Windows en Azure
 
@@ -98,7 +98,7 @@ Ahora que ha creado un almacén, configúrelo para realizar copias de seguridad 
 ## <a name="install-and-register-the-agent"></a>Instalación y registro del agente
 
 > [!NOTE]
-> La habilitación de la copia de seguridad a través de Azure Portal todavía no está disponible. Use el agente de Microsoft Azure Recovery Services para hacer la copia de seguridad del estado del sistema de Windows Server.
+> La habilitación de la copia de seguridad a través de Azure Portal no está disponible. Use el agente de Microsoft Azure Recovery Services para hacer la copia de seguridad del estado del sistema de Windows Server.
 >
 
 1. Busque y haga doble clic en **MARSagentinstaller.exe** en la carpeta de descargas (u otra ubicación guardada).
@@ -116,7 +116,7 @@ Ahora que ha creado un almacén, configúrelo para realizar copias de seguridad 
    * Guarde la frase de contraseña en una ubicación segura.
 
      > [!NOTE]
-     > Si pierde u olvida la frase de contraseña, Microsoft no puede ayudarle a recuperar los datos de copia de seguridad. Guarde el archivo en una ubicación segura. Es necesario restaurar una copia de seguridad.
+     > Si pierde u olvida la frase de contraseña, Microsoft no puede ayudarle a recuperar los datos de copia de seguridad. Guarde el archivo en una ubicación segura. Es necesario para restaurar una copia de seguridad.
      >
      >
 
@@ -132,7 +132,7 @@ La copia de seguridad inicial incluye dos tareas:
 Para realizar la copia de seguridad inicial use el agente de Microsoft Azure Recovery Services.
 
 > [!NOTE]
-> Puede realizar copias de seguridad del estado del sistema en Windows Server 2008 R2 mediante Windows Server 2016. No se admite la copia de seguridad del estado del sistema en SKU de cliente. El estado del sistema no se muestra como una opción para clientes de Windows o máquinas de Windows Server 2008 SP2.
+> Puede realizar copias de seguridad del estado del sistema en Windows Server 2008 R2 mediante Windows Server 2016. No se admite la copia de seguridad del estado del sistema en las SKU de cliente. El estado del sistema no se muestra como una opción para clientes de Windows o máquinas de Windows Server 2008 SP2.
 >
 >
 

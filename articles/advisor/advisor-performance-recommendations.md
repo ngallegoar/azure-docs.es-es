@@ -3,12 +3,12 @@ title: Mejora del rendimiento de las aplicaciones de Azure con Advisor
 description: Use recomendaciones sobre rendimiento de Azure Advisor para mejorar la velocidad y la capacidad de respuesta de las aplicaciones empresariales críticas.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: bdca8cd39427fb0d25f8b3308eaf2be24e0eb81a
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 0112e94e7652026e020e99ca82ad757c236a0c53
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257462"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653314"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Mejora del rendimiento de las aplicaciones de Azure con Azure Advisor
 
@@ -51,32 +51,32 @@ Advisor identifica las máquinas virtuales con discos estándar que tienen un gr
 
 Azure Premium Storage ofrece compatibilidad con discos de alto rendimiento y latencia baja para máquinas virtuales que ejecutan cargas de trabajo intensivas de E/S. Los discos de máquinas virtuales que usan cuentas de Premium Storage almacenan datos en unidades de estado sólido (SSD). Para lograr un rendimiento óptimo en la aplicación, se recomienda migrar todos los discos de máquinas virtuales que requieran E/S por segundo elevados a Premium Storage.
 
-## <a name="remove-data-skew-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Eliminación de la asimetría de datos en las tablas de SQL Data Warehouse para aumentar el rendimiento de las consultas
+## <a name="remove-data-skew-on-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Eliminación del sesgo de los datos en las tablas de Azure Synapse Analytics para aumentar el rendimiento de las consultas
 
 La asimetría de datos puede provocar movimientos de datos innecesarios o cuellos de botella en los recursos al ejecutar la carga de trabajo. Advisor detecta una asimetría de datos de distribución mayor del 15 %. Recomienda que redistribuya los datos y revise de las selecciones de clave de distribución de las tablas. Para más información sobre la identificación y eliminación de asimetrías, consulte [Solución de problemas de asimetría](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute.md#how-to-tell-if-your-distribution-column-is-a-good-choice).
 
-## <a name="create-or-update-outdated-table-statistics-in-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Creación o actualización de las estadísticas de tabla obsoletas en las tablas de SQL Data Warehouse para aumentar el rendimiento de las consultas
+## <a name="create-or-update-outdated-table-statistics-in-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Creación o actualización de las estadísticas de tabla obsoletas en las tablas de Azure Synapse Analytics para aumentar el rendimiento de las consultas
 
-Advisor identifica las tablas que no tienen [estadísticas de tabla](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics.md) actualizadas y recomienda crear o actualizar las estadísticas de tabla. El optimizador de consultas de SQL Data Warehouse utiliza estas estadísticas actualizadas para estimar la cardinalidad o número de filas en el resultado de la consulta. Estas estimaciones permiten al optimizador de consultas crear un plan de consulta para proporcionar el rendimiento más rápido.
+Advisor identifica las tablas que no tienen [estadísticas de tabla](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics.md) actualizadas y recomienda crear o actualizar las estadísticas de tabla. El optimizador de consultas de Azure Synapse Analytics utiliza estas estadísticas actualizadas para estimar la cardinalidad o el número de filas en los resultados de la consulta. Estas estimaciones permiten al optimizador de consultas crear un plan de consulta para proporcionar el rendimiento más rápido.
 
 ## <a name="improve-mysql-connection-management"></a>Mejora de la administración de conexiones de MySQL
 
 El análisis de Advisor puede indicar que la aplicación que se conecta al servidor de MySQL puede no administrar las conexiones de forma eficaz. Esta condición puede dar lugar a un consumo innecesario de recursos y a una mayor latencia de la aplicación. Para mejorar la administración de conexiones, se recomienda reducir el número de conexiones de corta duración y eliminar las conexiones innecesarias. Puede llevar a cabo estas mejoras mediante la configuración de un agrupador de conexiones del lado servidor, como ProxySQL.
 
 
-## <a name="scale-up-to-optimize-cache-utilization-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Escalado vertical para optimizar el uso de la memoria caché en las tablas de SQL Data Warehouse para mejorar el rendimiento de las consultas
+## <a name="scale-up-to-optimize-cache-utilization-on-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Escalado vertical para optimizar el uso de la memoria caché en las tablas de Azure Synapse Analytics para mejorar el rendimiento de las consultas
 
-Azure Advisor detecta si las tablas de SQL Data Warehouse tienen un elevado porcentaje de memoria caché utilizada y un reducido porcentaje de aciertos. Esta condición indica una elevada expulsión de la memoria caché, lo que puede afectar al rendimiento de la instancia de SQL Data Warehouse. Advisor le sugiere que escale verticalmente la instancia de SQL Data Warehouse para asegurarse de que asigna suficiente capacidad de memoria caché a la carga de trabajo.
+Azure Advisor detecta si las tablas de Azure Synapse Analytics tienen un elevado porcentaje de memoria caché utilizada y un reducido porcentaje de aciertos. Esta condición indica una elevada expulsión de la memoria caché, lo que puede afectar al rendimiento de la instancia de Azure Synapse Analytics. Advisor le sugiere que escale verticalmente la instancia de Azure Synapse Analytics para asegurarse de que asigna suficiente capacidad de memoria caché a la carga de trabajo.
 
-## <a name="convert-sql-data-warehouse-tables-to-replicated-tables-to-increase-query-performance"></a>Conversión de tablas de SQL Data Warehouse en tablas replicadas para aumentar el rendimiento de las consultas
+## <a name="convert-azure-synapse-analytics-tables-to-replicated-tables-to-increase-query-performance"></a>Conversión de las tablas de Azure Synapse Analytics en tablas replicadas para aumentar el rendimiento de las consultas
 
 Advisor identifica las tablas que no están replicadas, pero que se beneficiarían de la conversión. Recomienda que convierta estas tablas. Las recomendaciones se basan en:
 - El tamaño de la tabla replicada. 
 - El número de columnas. 
 - El tipo de distribución de la tabla. 
-- El número de particiones en la tabla de SQL Data Warehouse. 
+- El número de particiones en la tabla de Azure Synapse Analytics. 
 
-Se puede proporcionar heurística adicional en la recomendación para el contexto. Para obtener más información acerca de cómo se determina esta recomendación, vea [Recomendaciones de SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md#replicate-tables). 
+Se puede proporcionar heurística adicional en la recomendación para el contexto. Para más información acerca de cómo se determina esta recomendación, consulte [Recomendaciones de Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md#replicate-tables). 
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-the-latest-azure-features"></a>Migración de la cuenta de almacenamiento a Azure Resource Manager para obtener las características más recientes de Azure
 

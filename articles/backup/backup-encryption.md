@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo las características de cifrado de
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.custom: references_regions
-ms.openlocfilehash: 1350be3fb869e7b81eaba14f91aff7f0e9e3c992
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 71183e99522707737812096567d877df740c4bae
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586654"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763650"
 ---
 # <a name="encryption-in-azure-backup"></a>Cifrado en Azure Backup
 
@@ -27,7 +27,7 @@ Azure Backup incluye el cifrado en dos niveles:
   - **Copia de seguridad de máquinas virtuales de Azure**: Azure Backup admite la copia de seguridad de máquinas virtuales con discos cifrados mediante [claves administradas por la plataforma](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys), así como [claves administradas por el cliente](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys) que posee y administra. Además, también puede hacer una copia de seguridad de las máquinas virtuales de Azure que tienen el sistema operativo o los discos de datos cifrados mediante [Azure Disk Encryption](backup-azure-vms-encryption.md#encryption-support-using-ade). ADE usa BitLocker para las VM Windows y DM-Crypt para las VM Linux a fin de realizar el cifrado de invitado.
 
 >[!NOTE]
->El cifrado de infraestructura se encuentra actualmente en versión preliminar limitada y solo está disponible en las regiones Este de EE. UU., Oeste de EE. UU. 2, Centro y Sur de EE. UU. y US Gov Arizona. Si desea usar la característica en cualquiera de estas regiones, rellene [este formulario](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) y envíenos un correo electrónico a [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+>El cifrado de infraestructura se encuentra actualmente en versión preliminar limitada y solo está disponible en las regiones Este de EE. UU., Oeste de EE. UU. 2, Centro y Sur de EE. UU. y US Gov Arizona. Si desea usar la característica en alguna de estas regiones, rellene [este formulario](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) y envíelo por correo electrónico a [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

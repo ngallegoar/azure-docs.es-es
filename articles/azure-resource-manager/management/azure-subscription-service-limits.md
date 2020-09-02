@@ -4,12 +4,12 @@ description: Se proporciona una lista de límites, cuotas y restricciones de sus
 ms.topic: conceptual
 author: davidsmatlak
 ms.date: 06/04/2020
-ms.openlocfilehash: 79aaa594a708fe775a2cdcc6e15b7c7f880f9f50
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 86c9958818b5439502ab37471ed7a51fb3f21bf9
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810486"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854081"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 
@@ -275,6 +275,10 @@ Para conocer los límites específicos de Media Services v2 (heredado), vea [Me
 ### <a name="expressroute-limits"></a>Límites de ExpressRoute
 
 [!INCLUDE [expressroute-limits](../../../includes/expressroute-limits.md)]
+
+### <a name="virtual-network-gateway-limits"></a>Límites de la puerta de enlace de red virtual
+
+[!INCLUDE [virtual-wan-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
 
 ### <a name="virtual-wan-limits"></a>Límites de Virtual WAN
 

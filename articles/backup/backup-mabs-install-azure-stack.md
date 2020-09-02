@@ -3,12 +3,12 @@ title: Instalación de Azure Backup Server en Azure Stack
 description: En este artículo, aprenderá a usar Azure Backup Server para proteger cargas de trabajo o realizar una copia de seguridad de ellas en Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 5b6ae97f30bf704e5bc495cc8020e8bcb0e30ce3
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 644aeeb8670c4b8d551ba1d3f6b1b16aa199f4ef
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263068"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827014"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalación de Azure Backup Server en Azure Stack
 
@@ -228,7 +228,7 @@ Azure Backup Server comparte código con Data Protection Manager. En el instalad
 4. Microsoft Azure Backup Server requiere SQL Server. El paquete de instalación de Azure Backup Server se incluye con los archivos binarios de SQL Server adecuados. Si quiere usar su propia instalación de SQL, puede hacerlo. Sin embargo, la opción recomendada es permitir que el instalador agregue una instancia de SQL Server nueva. Para asegurarse de que la opción que elige funciona con el entorno, seleccione **Comprobar e instalar**.
 
    > [!NOTE]
-   > Azure Backup Server no funcionará con una instancia remota de SQL Server. La instancia que Azure Backup Server usa debe ser local.
+   > Azure Backup Server no funcionará con una instancia remota de SQL Server. La instancia que Azure Backup Server usa debe ser local.
    >
 
     ![Azure Backup Server (configuración de SQL)](./media/backup-mabs-install-azure-stack/mabs-install-wizard-sql-install-9.png)

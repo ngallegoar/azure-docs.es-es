@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 427a09f3855d44af0206ebf1fd6183099da75f19
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: b4c4b1f7aed6a188c491e6f4961442fa85744b6b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446980"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718550"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure AD Connect Health
 Este artículo incluye respuestas a preguntas más frecuentes (P+f) sobre Azure Active Directory (Azure AD) Connect Health. Estas preguntas más frecuentes abarcan cuestiones sobre cómo usar el servicio; por ejemplo, el modelo de facturación, las funcionalidades, las limitaciones y el soporte técnico.
@@ -37,9 +37,11 @@ En la tabla siguiente se enumeran los roles y las versiones de sistema operativo
 
 |Role| Sistema operativo/versión|
 |--|--|
-|Active Directory Federation Services (AD FS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
+|Active Directory Federation Services (AD FS)| <ul><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
 |Azure AD Connect | Versión 1.0.9125 o posterior.|
-|Active Directory Domain Services (AD DS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
+|Active Directory Domain Services (AD DS)| <ul><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
+
+No se admiten las instalaciones de Windows Server Core.
 
 Tenga en cuenta que las características proporcionadas por el servicio pueden diferir según el rol y el sistema operativo. En otras palabras, todas las características pueden no estar disponibles para todas las versiones del sistema operativo. Vea las descripciones de las características para obtener más información.
 

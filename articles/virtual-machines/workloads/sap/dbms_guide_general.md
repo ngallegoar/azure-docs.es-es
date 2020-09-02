@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad6bbc1d3c20659441b8b062898526471f4d713a
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 15c0368b2d0bd85f6fee65ffa2c9d6776d07f162
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510239"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650622"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -111,10 +111,7 @@ En general, el proceso de instalación y configuración de DBMS, Windows y Linux
 ## <a name="storage-structure-of-a-vm-for-rdbms-deployments"></a><a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Estructura de almacenamiento de una máquina virtual para las implementaciones de RDBMS
 Para seguir este capítulo, lea y comprenda la información presentada en [este capítulo][deployment-guide-3] de la [Guía de implementación][deployment-guide]. Antes de leer este capítulo, es necesario que comprenda y conozca las diferentes series de máquinas virtuales y las diferencias entre el almacenamiento estándar y premium. 
 
-Para información sobre Azure Storage para máquinas virtuales de Azure, consulte:
-
-- [Introducción a los discos administrados para máquinas virtuales Windows de Azure](../../windows/managed-disks-overview.md).
-- [Introducción a los discos administrados para máquinas virtuales Linux de Azure](../../linux/managed-disks-overview.md).
+Para más información sobre Azure Storage para las máquinas virtuales de Azure, consulte [Introducción a los discos administrados para máquinas virtuales de Azure](../../managed-disks-overview.md).
 
 En una configuración básica, normalmente se recomienda una estructura de implementación en la que el sistema operativo, el DBMS y los archivos binarios finales de SAP sean independientes de los archivos de base de datos. Se recomienda que los sistemas SAP que se ejecutan en máquinas virtuales de Azure tengan instalado el disco duro virtual base (o disco) con el sistema operativo, los archivos ejecutables del sistema de administración de bases de datos y los archivos ejecutables de SAP. 
 

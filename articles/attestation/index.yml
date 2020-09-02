@@ -1,0 +1,63 @@
+### YamlMime:Landing
+title: Microsoft Azure Attestation (versión preliminar)
+summary: Aprenda a usar Azure Attestation
+metadata:
+  title: Documentación de Azure Attestation
+  description: Aprenda a usar Azure Attestation para crear y mantener las claves que acceden y cifran recursos, aplicaciones y soluciones en la nube. Tutoriales, referencias de API y mucho más.
+  services: attestation
+  ms.service: attestation
+  ms.topic: landing-page
+  author: msmbaldwin
+  ms.author: mbaldwin
+  ms.date: 07/20/2020
+  ms.openlocfilehash: e0fa5be7d88a2de661838ca85fe5f365e8da930f
+  ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 09/01/2020
+  ms.locfileid: "89236465"
+landingContent:
+- title: Acerca de Microsoft Azure Attestation
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Microsoft Azure Attestation?
+      url: overview.md
+- title: Primeros pasos
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Inicio rápido de PowerShell
+      url: quickstart-powershell.md
+    - text: Inicio rápido de la plantilla de Resource Manager
+      url: quickstart-template.md
+- title: Conceptos
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Conceptos básicos
+      url: basic-concepts.md
+    - text: Gramática de reglas de notificaciones
+      url: claim-rule-grammar.md
+    - text: Conjuntos de notificaciones
+      url: claim-sets.md
+    - text: Flujo de trabajo
+      url: workflow.md
+- title: Tutoriales
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Creación y firma de una directiva de atestación
+      url: author-sign-policy.md
+    - text: Ejemplos de código de atestación de SGX
+      url: /samples/browse/?expanded=azure&terms=attestation
+- title: Ejemplos
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Ejemplos de directivas
+      url: policy-examples.md
+    - text: Ejemplos de firmante de directiva
+      url: policy-signer-examples.md
+    - text: Preguntas más frecuentes
+      url: faq.md

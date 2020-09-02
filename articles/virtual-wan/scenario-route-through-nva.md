@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: a8bed6c46b0660d5bf43863a5c7aaf4eeaf7e26f
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6b62f8c33c73ded978c0c2e3a8c3b7fadea49c96
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853243"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852084"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Escenario: Enrutamiento del tráfico a través de una aplicación virtual de red
 
 Al trabajar con el enrutamiento de centros virtuales de Virtual WAN, hay bastantes escenarios disponibles. En este escenario de NVA, el objetivo consiste en enrutar el tráfico a través de una NVA (aplicación virtual de red) para rama a red virtual y red virtual a rama. Para obtener información sobre el enrutamiento de centros virtuales, vea [Acerca del enrutamiento de centros virtuales](about-virtual-hub-routing.md).
 
 > [!NOTE]
-> Es posible que algunas de estas funcionalidades de enrutamiento todavía se estén implementando. Si la implementación no se ha producido todavía en su región, siga los pasos descritos en estas versiones de los artículos mientras tanto:
+> Si ya tiene una configuración con rutas anteriores a las nuevas funcionalidades, [Configuración del enrutamiento de centro virtual](how-to-virtual-hub-routing.md) ya está disponible, siga los pasos de estas versiones de los artículos:
 >* [Artículo de Azure Portal](virtual-wan-route-table-nva-portal.md)
 >* [Artículo de PowerShell](virtual-wan-route-table-nva.md)
 >

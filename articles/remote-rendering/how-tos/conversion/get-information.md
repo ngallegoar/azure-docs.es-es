@@ -1,20 +1,40 @@
 ---
-title: Obtención de información acerca de un modelo convertido
-description: Descripción de todos los parámetros de conversión de modelos
+title: Obtención de información sobre conversiones
+description: Obtención de información sobre conversiones
 author: malcolmtyrrell
 ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: f5c38ac88503416b37b720a091c9e46d819a3146
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 529bfb61b3af7040f3656c04071683841f5abe86
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509304"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870296"
 ---
-# <a name="get-information-about-a-converted-model"></a>Obtención de información acerca de un modelo convertido
+# <a name="get-information-about-conversions"></a>Obtención de información sobre conversiones
 
-El archivo arrAsset generado por el servicio de conversión está diseñado exclusivamente para el consumo por parte del servicio de representación. Sin embargo, puede haber ocasiones en las que quiera acceder a información sobre un modelo sin iniciar una sesión de representación. Por lo tanto, el servicio de conversión coloca un archivo JSON junto al archivo arrAsset en el contenedor de salida. Por ejemplo, si se convierte un archivo `buggy.gltf`, el contenedor de salida incluirá un archivo denominado `buggy.info.json` junto al archivo convertido `buggy.arrAsset`. Este archivo contiene información sobre el modelo de origen, el modelo convertido y sobre la propia conversión.
+## <a name="information-about-a-conversion-the-result-file"></a>Información sobre una conversión: El archivo de resultados
+
+Cuando el servicio de conversión convierte un recurso, escribe un resumen de los problemas en un "archivo de resultados". Por ejemplo, si se convierte un archivo `buggy.gltf`, el contenedor de salida incluirá un archivo llamado `buggy.result.json`.
+
+El archivo de resultados muestra los errores y las advertencias que se produjeron durante la conversión y proporciona un resumen del resultado, que puede ser `succeeded`, `failed` o `succeeded with warnings`.
+El archivo de resultados está estructurado como una matriz JSON de objetos, cada uno de los cuales tiene una propiedad de cadena que puede ser `warning`, `error`, `internal warning`, `internal error` o `result`. Habrá como máximo un error ( `error` o `internal error`) y siempre habrá un valor de `result`.
+
+## <a name="example-result-file"></a>Ejemplo de archivo de *resultados*
+
+En el siguiente ejemplo se describe una conversión que generó correctamente un archivo arrAsset. Sin embargo, puesto que faltaba una textura, el archivo arrAsset resultante podría no ser el previsto.
+
+```JSON
+[
+  {"warning":"4004","title":"Missing texture","details":{"texture":"buggy_baseColor.png","material":"buggy_col"}},
+  {"result":"succeeded with warnings"}
+]
+```
+
+## <a name="information-about-a-converted-model-the-info-file"></a>Información sobre un modelo convertido: El archivo de información
+
+El archivo arrAsset generado por el servicio de conversión está diseñado exclusivamente para el consumo por parte del servicio de representación. Sin embargo, puede haber ocasiones en las que quiera acceder a información sobre un modelo sin iniciar una sesión de representación. Para admitir este flujo de trabajo, el servicio de conversión coloca un archivo JSON junto al archivo arrAsset en el contenedor de salida. Por ejemplo, si se convierte un archivo `buggy.gltf`, el contenedor de salida incluirá un archivo denominado `buggy.info.json` junto al archivo convertido `buggy.arrAsset`. Este archivo contiene información sobre el modelo de origen, el modelo convertido y sobre la propia conversión.
 
 ## <a name="example-info-file"></a>Archivo de *información* de ejemplo
 
@@ -124,6 +144,11 @@ En esta sección se registra la información calculada a partir del recurso conv
 * `numMeshPartsInstanced`: número de mallas que se reutilizan en arrAsset.
 * `recenteringOffset`: cuando está habilitada la opción `recenterToOrigin` en [ConversionSettings](configure-model-conversion.md), este valor es el traslado que movería el modelo convertido de vuelta a su posición original.
 * `boundingBox`: límites del modelo.
+
+## <a name="deprecated-features"></a>Características en desuso
+
+El servicio de conversión escribe los archivos `stdout.txt` y `stderr.txt` en el contenedor de salida, y estos eran el único origen de advertencias y errores.
+Estos archivos ahora están en desuso. Para este fin se usan ahora [archivos de resultados](#information-about-a-conversion-the-result-file).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

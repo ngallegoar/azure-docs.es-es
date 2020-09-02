@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 5748f758d8ac2f1723a20858920a4f261c07f938
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 6318f426e42612f21da7a43c9857894ae610f68e
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88608697"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871194"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Solución de problemas de replicación en la migración de máquinas virtuales VMware sin agente
 
@@ -30,13 +30,36 @@ Siga los pasos que se indican a continuación para supervisar el estado de repli
 
   1. Vaya a la página Servidores de Azure Migrate en Azure Portal.
   2. Para ir a la página "Replicación de máquinas", haga clic en "Replicando servidores" en el icono de migración del servidor.
-  3. Verá una lista de servidores de replicación junto con información adicional, como el estado, el mantenimiento, la hora de la última sincronización, etc. La columna health (mantenimiento) indica el estado de replicación actual de la máquina virtual. Un valor "Crítical" (Crítico) o "Warning" (Advertencia) en la columna health (mantenimiento) suele indicar que se produjo un error en el ciclo de replicación anterior de la máquina virtual. Para obtener más información, haga clic con el botón derecho en la máquina virtual y seleccione "Error Details" (Detalles del error). La página "Error Details" (Detalles del error) contiene información sobre el error y detalles adicionales sobre cómo solucionar problemas. También verá un vínculo "Recent Events" (Eventos recientes) que se puede usar para ir a la página de eventos de la máquina virtual.
+  3. Verá una lista de servidores de replicación junto con información adicional, como el estado, el mantenimiento, la hora de la última sincronización, etc. La columna health (mantenimiento) indica el estado de replicación actual de la máquina virtual. Un valor "Crítical" (Crítico) o "Warning" (Advertencia) en la columna se estado suele indicar que se produjo un error en el ciclo de replicación anterior de la máquina virtual. Para obtener más información, haga clic con el botón derecho en la máquina virtual y seleccione "Error Details" (Detalles del error). La página "Error Details" (Detalles del error) contiene información sobre el error y detalles adicionales sobre cómo solucionar problemas. También verá un vínculo "Recent Events" (Eventos recientes) que se puede usar para ir a la página de eventos de la máquina virtual.
   4. Haga clic en "Recent Events" (Eventos recientes) para ver los errores anteriores del ciclo de replicación para la máquina virtual. En la página de eventos, busque el más reciente del tipo "Replication cycle failed" (Error en el ciclo de replicación) o "Replication cycle failed for disk" (Error en el ciclo de replicación para el disco) para la máquina virtual.
   5. Haga clic en el evento para conocer las posibles causas del error y los pasos de corrección recomendados. Utilice la información proporcionada para solucionar problemas y corregir el error.
     
 ## <a name="common-replication-errors"></a>Errores de replicación comunes
 
 En esta sección se describen algunos de los errores comunes y cómo puede solucionarlos.
+
+## <a name="key-vault-operation-failed-error-when-trying-to-replicate-vms"></a>Error en la operación de Key Vault al intentar replicar las máquinas virtuales
+
+**Error:** “Key Vault operation failed. Operation : Configure managed storage account, Key Vault: Key-vault-name, Storage Account: storage account name failed with the error:” (Error de la operación de Key Vault. Operación: Configuración de la cuenta de almacenamiento administrada, Key Vault: nombre del almacén de claves, cuenta de almacenamiento: error del nombre de la cuenta de almacenamiento:)
+
+**Error:** “Key Vault operation failed. Operation : Generate shared access signature definition, Key Vault: Key-vault-name, Storage Account: storage account name failed with the error:” (Error de la operación de Key Vault. Operación: Generación de la definición de la firma de acceso compartido, Key Vault: nombre del almacén de claves, cuenta de almacenamiento: error del nombre de la cuenta de almacenamiento:)
+
+![Key Vault](./media/troubleshoot-changed-block-tracking-replication/key-vault.png)
+
+Este error suele deberse a que la directiva de acceso de usuarios de Key Vault no proporciona al usuario que ha iniciado sesión los permisos necesarios para configurar las cuentas de almacenamiento que se van a administrar con Key Vault. Para comprobar la directiva de acceso de usuarios del almacén de claves, vaya a la página del almacén de claves en el portal de este servicio y seleccione las directivas de acceso. 
+
+Cuando el portal crea el almacén de claves, también agrega una directiva de acceso de usuarios que concede al usuario que ha iniciado sesión los permisos para configurar las cuentas de almacenamiento que se van a administrar con Key Vault. En esta situación, pueden producirse errores por dos motivos
+
+- El usuario que ha iniciado sesión es una entidad de seguridad remota en el inquilino de Azure de los clientes (una suscripción de CSP, y el usuario que ha iniciado sesión es el administrador del asociado). La solución alternativa en este caso es eliminar el almacén de claves, cerrar la sesión en el portal y, luego, iniciar sesión con una cuenta de usuario desde el inquilino de los clientes (no una entidad de seguridad remota) y volver a intentar la operación. Normalmente, el asociado de CSP tendrá una cuenta de usuario en el inquilino de Azure Active Directory de los clientes que puede usar. Si no, puede crear una cuenta de usuario propia en el inquilino de Azure Active Directory de los clientes, iniciar sesión en el portal como nuevo usuario y, luego, volver a intentar la operación de replicación. La cuenta usada debe tener concedidos permisos de propietario o colaborador además de los de administrador de acceso de usuarios a la cuenta en el grupo de recursos (migración del grupo de recursos del proyecto).
+
+- El otro caso que puede darse es cuando un usuario (user1) intenta configurar la replicación inicialmente y encuentra un error, pero el almacén de claves ya se ha creado (y la directiva de acceso de usuarios se ha asignado como corresponde a este usuario). Ahora, más adelante, un usuario diferente (user2) intenta configurar la replicación, pero la operación de configuración de la cuenta de almacenamiento administrada o de generación de la definición de SAS produce un error, ya que no hay ninguna directiva de acceso de usuario correspondiente al usuario2 en el almacén de claves.
+
+**Solución:** Para solucionar este problema, cree una directiva de acceso de usuarios para user2 en el permiso keyvault granting user2 para configurar la cuenta de almacenamiento administrada y generar definiciones de SAS. Para ello, user2 puede usar los siguientes cmdlets de Azure PowerShell:
+
+$userPrincipalId = $(Get-AzureRmADUser -UserPrincipalName "user2_email_address").Id
+
+Set-AzureRmKeyVaultAccessPolicy -VaultName "keyvaultname" -ObjectId $userPrincipalId -PermissionsToStorage get, list, delete, set, update, regeneratekey, getsas, listsas, deletesas, setsas, recover, backup, restore, purge
+
 
 ## <a name="disposeartefactstimedout"></a>DisposeArtefactsTimedOut
 
@@ -59,7 +82,7 @@ El componente que intenta replicar datos en Azure está inactivo o no responde. 
 
    2.  Abra el complemento MMC de servicios de Microsoft (ejecute > services.msc) y compruebe si el servicio Microsoft Azure Gateway se está ejecutando. Si el servicio está detenido o no se está ejecutando, inícielo. Como alternativa, puede abrir el símbolo del sistema o PowerShell, y ejecutar lo siguiente: "Net Start asrgwy"
 
-3. Compruebe si hay problemas de conectividad entre el dispositivo de Azure Migrate y la cuenta de almacenamiento en caché: 
+3. Compruebe si hay problemas de conectividad entre el dispositivo de Azure Migrate y la cuenta de almacenamiento del dispositivo: 
 
     Ejecute el siguiente comando después de descargar azcopy en el dispositivo de Azure Migrate:
     
@@ -69,7 +92,7 @@ El componente que intenta replicar datos en Azure está inactivo o no responde. 
     
       1. [Descargue](https://go.microsoft.com/fwlink/?linkid=2138966) azcopy
         
-      2. Busque la cuenta de almacenamiento del dispositivo en el grupo de recursos. La cuenta de almacenamiento tiene un nombre similar a migrategwsa\*\*\*\*\*\*\*\*\*\*. Este es el valor del parámetro [cuenta] en el comando anterior.
+      2. Busque la cuenta de almacenamiento del dispositivo en el grupo de recursos. La cuenta de almacenamiento tiene un nombre similar a migrategwsa\*\*\*\*\*\*\*\*\*\*. Este es el valor del parámetro [account] (cuenta) en el comando anterior.
         
       3. Busque la cuenta de almacenamiento en Azure Portal. Asegúrese de que la suscripción que usa para buscar es la misma (suscripción de destino) en la que se crea la cuenta de almacenamiento. Vaya a Contenedores en la sección Blob Service. Haga clic en +Contenedor y cree un contenedor. Deje el nivel de acceso público en el valor predeterminado seleccionado.
         
@@ -107,9 +130,9 @@ El componente que intenta replicar datos en Azure está inactivo o no responde. 
     
     1. Abra PowerShell en el dispositivo de Azure Migrate y ejecute el siguiente comando:
     
-    _test-netconnection Key Vault URI -P 443_
+    _test-netconnection Key Vault URI -P 443_
     
-    Este comando intentará una conexión TCP y devolverá una salida.
+    Este comando intentará establecer una conexión TCP y devolverá una salida.
     
      - En la salida, compruebe el campo "_TcpTestSucceeded_". Si el valor es "_true_", no hay ningún problema de conectividad entre el dispositivo de Azure Migrate y Azure Key Vault. Si el valor es "false", hay un problema de conectividad.
     
@@ -149,7 +172,7 @@ Estas son algunas causas posibles:
     
       1. [Descargue](https://go.microsoft.com/fwlink/?linkid=2138966) azcopy
         
-      2. Busque la cuenta de almacenamiento del dispositivo en el grupo de recursos. La cuenta de almacenamiento tiene un nombre similar a migrategwsa\*\*\*\*\*\*\*\*\*\*. Este es el valor del parámetro [account] (cuenta) en el comando anterior.
+      2. Busque la cuenta de almacenamiento del dispositivo en el grupo de recursos. La cuenta de almacenamiento tiene un nombre similar a migratelsa\*\*\*\*\*\*\*\*\*\*. Este es el valor del parámetro [account] (cuenta) en el comando anterior.
         
       3. Busque la cuenta de almacenamiento en Azure Portal. Asegúrese de que la suscripción que usa para buscar es la misma (suscripción de destino) en la que se crea la cuenta de almacenamiento. Vaya a Contenedores en la sección Blob Service. Haga clic en +Contenedor y cree un contenedor. Deje el nivel de acceso público en el valor predeterminado seleccionado.
         
@@ -226,7 +249,7 @@ Por ejemplo: Mensaje de error: Error interno. [Se detectó una configuración de
 
 En la siguiente sección se enumeran algunos de los errores de VMware más frecuentes y cómo puede mitigarlos.
 
-## <a name="error-message-an-internal-error-occurred-server-refused-connection"></a>Mensaje de error: Error interno. [Server Refused Connection] ([El servidor ha rechazado la conexión])
+### <a name="error-message-an-internal-error-occurred-server-refused-connection"></a>Mensaje de error: Error interno. [Server Refused Connection] ([El servidor ha rechazado la conexión])
 
 El problema es un problema conocido de VMware y se produce en VDDK 6.7. Debe detener el servicio de puerta de enlace que se ejecuta en el dispositivo de Azure Migrate, [descargar una actualización desde KB de VMware](https://go.microsoft.com/fwlink/?linkid=2138889) y reiniciar el servicio de puerta de enlace.
 
@@ -240,33 +263,33 @@ Pasos para iniciar el servicio de puerta de enlace:
 1. Presione Windows + R, abra services.msc. Haga clic con el botón derecho en "Microsoft Azure Gateway Service" (Servicio de puerta de enlace de Microsoft Azure) e inícielo.
 2. Como alternativa, puede abrir el símbolo del sistema o PowerShell, y ejecutar lo siguiente: Net Start asrgwy.
 
-## <a name="error-message-an-internal-error-occurred-an-invalid-snapshot-configuration-was-detected"></a>Mensaje de error: Error interno. [Se detectó una configuración de instantánea no válida.]
+### <a name="error-message-an-internal-error-occurred-an-invalid-snapshot-configuration-was-detected"></a>Mensaje de error: Error interno. [Se detectó una configuración de instantánea no válida.]
 
 Si tiene una máquina virtual con varios discos, es posible que se produzca este error si quita un disco de la máquina virtual. Para solucionar este problema, consulte los pasos descritos en [este artículo de VMware](https://go.microsoft.com/fwlink/?linkid=2138890).
 
-## <a name="error-message-an-internal-error-occurred-generate-snapshot-hung"></a>Mensaje de error: Error interno. [Generate Snapshot Hung] ([Generar bloqueo de instantánea])
+### <a name="error-message-an-internal-error-occurred-generate-snapshot-hung"></a>Mensaje de error: Error interno. [Generate Snapshot Hung] ([Generar bloqueo de instantánea])
 
-Este problema se produce cuando se bloquea la generación de instantáneas. Cuando ocurre este problema, puede ver que la tarea para crear instantánea se detiene en 95 % o en 99 %. Consulte esta [KB de VMware](https://go.microsoft.com/fwlink/?linkid=2138969) para solucionar este problema.
+Este problema se produce cuando la generación de instantáneas deja de responder. Cuando ocurre este problema, puede ver que la tarea para crear instantánea se detiene en 95 % o en 99 %. Consulte esta [KB de VMware](https://go.microsoft.com/fwlink/?linkid=2138969) para solucionar este problema.
 
-## <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Mensaje de error: Error interno. [Failed to consolidate the disks on VM [Reasons]] ([No se pudo consolidar los discos en la máquina virtual _[razones]_ ])
+### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Mensaje de error: Error interno. [Failed to consolidate the disks on VM [Reasons]] ([No se pudo consolidar los discos en la máquina virtual _[razones]_ ])
 
 Cuando se consolidan los discos al final del ciclo de replicación, se produce un error en la operación. Siga las instrucciones de la [KB de VMware](https://go.microsoft.com/fwlink/?linkid=2138970); para ello, seleccione la _razón_ adecuada para resolver el problema.
 
 Los errores siguientes se producen cuando ocurre un error relacionado con las operaciones de instantáneas de VMware para crear, eliminar o consolidar discos. Siga las instrucciones de la sección siguiente para corregir los errores:
 
-## <a name="error-message-an-internal-error-occurred-another-task-is-already-in-progress"></a>Mensaje de error: Error interno. [Otra tarea ya está en curso]
+### <a name="error-message-an-internal-error-occurred-another-task-is-already-in-progress"></a>Mensaje de error: Error interno. [Otra tarea ya está en curso]
 
 Este problema se produce cuando hay tareas de máquina virtual en conflicto que se ejecutan en segundo plano o cuando se agota el tiempo de espera de una tarea en vCenter Server. Siga la solución que se proporciona en el siguiente [KB de VMware](https://go.microsoft.com/fwlink/?linkid=2138891).
 
-## <a name="error-message-an-internal-error-occurred-operation-not-allowed-in-current-state"></a>Mensaje de error: Error interno. [Operation not allowed in current state] ([Operación no permitida en el estado actual])
+### <a name="error-message-an-internal-error-occurred-operation-not-allowed-in-current-state"></a>Mensaje de error: Error interno. [Operation not allowed in current state] ([Operación no permitida en el estado actual])
 
 Este problema se produce cuando los agentes de administración de vCenter Server dejan de funcionar. Para resolver este problema, consulte la resolución en el siguiente [KB de VMware](https://go.microsoft.com/fwlink/?linkid=2138971).
 
-## <a name="error-message-an-internal-error-occurred-snapshot-disk-size-invalid"></a>Mensaje de error: Error interno. [Snapshot Disk size invalid] ([Tamaño de disco de instantánea no válido])
+### <a name="error-message-an-internal-error-occurred-snapshot-disk-size-invalid"></a>Mensaje de error: Error interno. [Snapshot Disk size invalid] ([Tamaño de disco de instantánea no válido])
 
 Se trata de un problema conocido de VMware en el que el tamaño de disco indicado por la instantánea se convierte en cero. Siga la solución que se proporciona en el [KB de VMware](https://go.microsoft.com/fwlink/?linkid=2138972).
 
-## <a name="error-message-an-internal-error-occurred-memory-allocation-failed-out-of-memory"></a>Mensaje de error: Error interno. [Memory allocation failed. Out of memory.] ([Error de asignación de memoria. Memoria insuficiente.])
+### <a name="error-message-an-internal-error-occurred-memory-allocation-failed-out-of-memory"></a>Mensaje de error: Error interno. [Memory allocation failed. Out of memory.] ([Error de asignación de memoria. Memoria insuficiente.])
 
 Esto sucede cuando el búfer del host NFC no tiene memoria suficiente. Para resolver este problema, debe trasladar la máquina virtual (proceso vMotion) a un host diferente que disponga de recursos.
 

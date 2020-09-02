@@ -4,12 +4,12 @@ description: Aprenda cómo conectarse de forma privada a una cuenta de Azure Bat
 ms.topic: how-to
 ms.date: 08/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: fac9523dc2ecabaec5d1c108e0ddd7536f01f077
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 0fd16e4e11d0b3f08a7ba0e2f425785e3cce7927
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004253"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814117"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Uso de puntos de conexión privados con cuentas de Azure Batch
 
@@ -19,7 +19,8 @@ Al usar [Azure Private Link](../private-link/private-link-overview.md), puede co
 
 Private Link permite a los usuarios obtener acceso a una cuenta de Azure Batch desde dentro de la red virtual o cualquier red virtual emparejada. También se puede acceder a los recursos asignados a Private Link en el entorno local a través de un emparejamiento privado a través de VPN o [Azure ExpressRoute](../expressroute/expressroute-introduction.md). Puede conectarse a una cuenta de Azure Bacth configurada con Private Link mediante el [método de aprobación automático o manual](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow).
 
-La compatibilidad con la conectividad privada en Azure Batch está disponible actualmente en las siguientes regiones de Azure: Centro-oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU., Centro-sur de EE. UU., US Gov Virginia, US Gov Arizona, Asia Pacífico, Francia y Sur de Reino Unido.
+> [!IMPORTANT]
+> La compatibilidad con la conectividad privada en Azure Batch está disponible actualmente en las siguientes regiones de Azure: Centro de EE. UU., Centro-norte de EE. UU., Centro-sur de EE. UU., Centro-oeste de EE. UU., Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU., Oeste de EE. UU. 2, Este de Asia, Centro de Francia, Sur de Reino Unido, Norte de Europa, Oeste de Europa, Este de Japón, Oeste de Japón, Este de Australia y todas las regiones de US Gov y US DoD.
 
 En este artículo se describen los pasos para crear una cuenta de Batch privada y cómo acceder a ella mediante un punto de conexión privado.
 

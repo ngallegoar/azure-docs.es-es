@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 55f2ab7008644ac084782e448e8e761cd19ea37e
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: bcc7ebd8d9a6e61425ba7cd980a400c3fe756492
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225791"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762341"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Actividad de eliminación en Azure Data Factory
 
@@ -64,8 +64,11 @@ Estas son algunas recomendaciones para usar la actividad de eliminación:
             "referenceName": "<dataset name>",
             "type": "DatasetReference"
         },
-        "recursive": true/false,
-        "maxConcurrentConnections": <number>,
+        "storeSettings": {
+            "type": "<source type>",
+            "recursive": true/false,
+            "maxConcurrentConnections": <number>
+        },
         "enableLogging": true/false,
         "logStorageSettings": {
             "linkedServiceName": {
@@ -133,7 +136,7 @@ Root/ (Raíz):<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nb
 
 Ahora está usando la actividad de eliminación para eliminar archivos o carpetas mediante la combinación de diferentes valores de propiedad del conjunto de datos y la actividad de eliminación:
 
-| folderPath (del conjunto de datos) | fileName (del conjunto de datos) | recursive (de la actividad de eliminación) | Output |
+| folderPath | fileName | recursive | Output |
 |:--- |:--- |:--- |:--- |
 | Root (Raíz)/ Folder_A_2 | NULL | False | Root/ (Raíz):<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>5.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.txt |
 | Root (Raíz)/ Folder_A_2 | NULL | True | Root/ (Raíz):<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_A_2/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>5.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_B_1/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>6.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>7.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_B_2/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>8.txt</strike> |
@@ -761,7 +764,7 @@ También puede obtener la plantilla para mover archivos [aquí](solution-templat
 
 -   La actividad de eliminación no admite la eliminación de la lista de carpetas descrita con el comodín.
 
--   Cuando use el filtro de atributo de archivo: modifiedDatetimeStart y modifiedDatetimeEnd para seleccionar los archivos que van a eliminar, asegúrese de establecer "fileName": "*" en el conjunto de datos.
+-   Al usar el filtro de atributo de archivo en modifiedDatetimeStart y modifiedDatetimeEnd de la actividad de eliminación para seleccionar los archivos que se van a eliminar, asegúrese de establecer "wildcardFileName": "*" también en la actividad de eliminación también.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,12 +3,12 @@ title: Uso de la configuración de diagnóstico en almacenes de Recovery Service
 description: En este artículo, se explica cómo se utilizan los nuevos y los antiguos eventos de diagnóstico de Azure Backup.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 2b562ee7fc4afbc28119aa36cfa071291dd61f12
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: e5f666886dca0959b0f06b799088cadf4593ec39
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612629"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826674"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Uso de la configuración de diagnóstico en almacenes de Recovery Services
 
@@ -29,7 +29,7 @@ Azure Backup proporciona los siguientes eventos de diagnóstico. Cada evento pro
 * AddonAzureBackupPolicy
 * AddonAzureBackupStorage
 
-Si usa el [evento heredado](#legacy-event) AzureBackupReport, se recomienda cambiar al uso de los eventos anteriores lo antes posible.
+Si sigue usando el [evento heredado](#legacy-event) AzureBackupReport, se recomienda cambiar al uso de los eventos anteriores.
 
 Para más información, consulte [Modelo de datos para eventos de diagnóstico de Azure Backup](./backup-azure-reports-data-model.md).
 

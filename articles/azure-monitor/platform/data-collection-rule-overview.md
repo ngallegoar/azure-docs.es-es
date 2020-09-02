@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/10/2020
-ms.openlocfilehash: af5324373359cea643a3e31b6bb94e614ddb7e36
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.date: 08/19/2020
+ms.openlocfilehash: 177b79e0a33f4d43d07da9d0dea26df40e2ef11e
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88082855"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723867"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Reglas de recopilación de datos en Azure Monitor (versión preliminar)
 Las reglas de recopilación de datos (DCR) definen los datos que entran en Azure Monitor y especifican dónde se deben enviar los datos o almacenarlos. En este artículo se proporciona información general sobre las reglas de recopilación de datos, incluido su contenido y su estructura, y cómo puede crearlas y trabajar con ellas.
@@ -28,7 +28,7 @@ Una regla de recopilación de datos incluye los siguientes componentes.
 
 | Componente | Descripción |
 |:---|:---|
-| Orígenes de datos | Origen único de los datos de supervisión con su propio formato y método que expone sus datos. Entre los ejemplos de origen de datos se incluyen el registro de eventos de Windows, los contadores de rendimiento y syslog. Cada origen de datos coincide con un tipo de origen de datos determinado tal y como se describe a continuación. |
+| Orígenes de datos | Origen único de los datos de supervisión con su propio formato y método para exponer los datos. Entre los ejemplos de origen de datos se incluyen el registro de eventos de Windows, los contadores de rendimiento y syslog. Cada origen de datos coincide con un tipo de origen de datos determinado tal y como se describe a continuación. |
 | Secuencias | Identificador único que describe un conjunto de orígenes de datos que se transformarán y se esquematizarán como un tipo. Cada origen de datos requiere una o varias secuencias; varios orígenes de datos pueden utilizar una secuencia. Todos los orígenes de datos de una secuencia comparten un esquema común. Por ejemplo, puede usar varias secuencias si desea enviar un origen de datos determinado a varias tablas en el mismo área de trabajo de Log Analytics. |
 | Destinations | Conjunto de destinos donde deben enviarse los datos. Algunos ejemplos son el área de trabajo de Log Analytics, Métricas de Azure Monitor y Event Hubs de Azure. | 
 | Flujos de datos | Definición de las secuencias que se deben enviar a los destinos. | 
@@ -44,7 +44,7 @@ Cada origen de datos tiene un tipo de origen de datos. Cada tipo define un conju
 |:---|:---|
 | extensión | Origen de datos basado en la extensión de máquina virtual |
 | performanceCounters | Contadores de rendimiento para Windows y Linux |
-| syslog | Eventos Syslog en máquinas virtuales Linux |
+| syslog | Eventos de Syslog en Linux |
 | windowsEventLogs | Registro de eventos de Windows |
 
 
@@ -54,21 +54,21 @@ En la tabla siguiente se enumeran los límites que se aplican actualmente a cada
 | Límite | Value |
 |:---|:---|
 | Número máximo de orígenes de datos | 10 |
-| Número máximo de especificadores de contador en rendimiento | 100 |
-| Número máximo de nombres de dispositivo en SysLog | 20 |
-| Número máximo de consultas XPath en EventLog | 100 |
+| Número máximo de especificadores de contador en el contador de rendimiento | 100 |
+| Número máximo de nombres de utilidades en Syslog | 20 |
+| Número máximo de consultas XPath en el registro de eventos | 100 |
 | Número máximo de flujos de datos | 10 |
 | Número máximo de flujos de datos | 10 |
 | Número máximo de extensiones | 10 |
 | Tamaño máximo de la configuración de la extensión | 32 Kb |
-| Número máximo de Áreas de trabajo de Log Analytics | 10 |
+| Número máximo de áreas de trabajo de Log Analytics | 10 |
 
 
 ## <a name="create-a-dcr"></a>Creación de una regla de recopilación de datos
 Actualmente hay dos métodos disponibles para crear una regla de recopilación de datos:
 
 - [Use Azure Portal](data-collection-rule-azure-monitor-agent.md) para crear una regla de recopilación de datos y asociarla a una o varias máquinas virtuales.
-- Edite directamente la regla de recopilación de datos en JSON y envíela con la API REST.
+- Editar directamente la regla de recopilación de datos en el archivo JSON y [enviarla mediante la API de REST](https://docs.microsoft.com/rest/api/monitor/datacollectionrules).
 
 ## <a name="sample-data-collection-rule"></a>Eliminación de una regla de recopilación de datos
 La siguiente regla de recopilación de datos de ejemplo es para las máquinas virtuales con el agente de administración de Azure y tiene los detalles siguientes:
@@ -83,8 +83,7 @@ La siguiente regla de recopilación de datos de ejemplo es para las máquinas vi
   - Recopila eventos de depuración, críticos y de emergencia desde la utilidad cron.
   - Recopila eventos de alerta, críticos y de emergencia desde la utilidad syslog.
 - Destinations
-  - Envía todos los datos a un área de trabajo de Log Analytics denominada centralTeamWorkspace.
-  - Envía datos de rendimiento a Métricas de Azure Monitor en la suscripción actual.
+  - Envía todos los datos a un área de trabajo de Log Analytics denominada centralWorkspace.
 
 ```json
 {
@@ -157,7 +156,7 @@ La siguiente regla de recopilación de datos de ejemplo es para las máquinas vi
             ]
           },
           {
-            "name": "sylogBase",
+            "name": "syslogBase",
             "streams": [
               "Microsoft-Syslog"
             ],

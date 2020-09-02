@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 1b296cd942e36817da2832467ab603ebd833f825
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: ded2f54379e60e8e3fc26d9c2166930a6f953078
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87907857"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854855"
 ---
 # <a name="troubleshooting-azure-digital-twins-alerts"></a>Solución de problemas de Azure Digital Twins: Alertas
 
@@ -28,13 +28,17 @@ Aquí se describe cómo habilitar las alertas para la instancia de Azure Digital
 
 2. En el menú, seleccione **Alertas** y, luego, **+ Nueva regla de alertas**.
 
-    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Captura de pantalla que muestra la página Alertas y el botón para agregar. No hay ninguna alerta configurada todavía" lightbox="media/troubleshoot-alerts/alerts-pre.png":::
-
 3. En la página *Crear regla de alerta* que se muestra a continuación, puede seguir las indicaciones para definir las condiciones, las acciones que se deben desencadenar y los detalles de la alerta.     
     * Los detalles del **ámbito** se deberían rellenar automáticamente con los detalles correspondientes a su instancia.
     * Definirá los detalles de **Condición** y **Grupo de acciones** para personalizar los desencadenadores y las respuestas de alertas.
+    * En la sección **Detalles de la regla de alertas**, escriba el _Nombre de la regla de alertas_ y una _Descripción (opcional)_ . Puede seleccionar la casilla _Habilitar la regla tras la creación_ si quiere que la alerta se active en cuanto se cree.
+    * En función de algunas condiciones y acciones que agregue, deberá seleccionar _Guardar regla de alerta en el grupo de recursos_ y _Gravedad_ desde las listas desplegables respectivas.
 
-    :::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Captura de pantalla que muestra la página Crear regla de alerta con secciones para el ámbito, la condición y el grupo de acciones" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
+4. Seleccione el botón _Crear regla de alertas_ para crear la regla de alertas.
+
+:::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Captura de pantalla que muestra la página Crear regla de alerta con secciones para el ámbito, la condición y el grupo de acciones" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
+
+:::image type="content" source="media/troubleshoot-alerts/alert-rule-details.png" alt-text="Captura de pantalla que muestra la sección de detalles de la regla de alertas de la creación de una regla de alertas" lightbox="media/troubleshoot-alerts/alert-rule-details.png":::
 
 Para un tutorial guiado sobre cómo rellenar estos campos, consulte [*Información general sobre las alertas en Microsoft Azure*](../azure-monitor/platform/alerts-overview.md). A continuación se muestran algunos ejemplos de cómo se verán los pasos en Azure Digital Twins.
 
@@ -44,7 +48,7 @@ Este es un extracto del proceso *Seleccionar condición* que ilustra los tipos d
 
 Después de seleccionar una señal, se le pedirá configurar la lógica de la alerta. Puede filtrar en una dimensión, establecer un valor de umbral para la alerta y establecer la frecuencia de las comprobaciones de la condición. Este es un ejemplo de configuración de una alerta para cuando la métrica promedio de Frecuencia de errores de enrutamiento supere el 5 %.
 
-:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Captura de pantalla que muestra la segunda página Configurar lógica de señal. La página muestra el historial de métricas, tiene un área para filtrar en una dimensión, como operaciones de Event Grid, y una sección para definir la lógica de alerta, como el promedio es mayor que 5":::
+:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Captura de pantalla que muestra la segunda página Configurar lógica de señal. La página muestra el historial de métricas, tiene un área para filtrar en una dimensión, como operaciones de Event Grid, y una sección para definir la lógica de alerta, como "el promedio es mayor que 5"":::
  
 Después de configurar las alertas, aparecerán de nuevo en la página *Alertas* correspondiente a la instancia.
  

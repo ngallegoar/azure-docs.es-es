@@ -4,12 +4,12 @@ description: Instrucciones sobre cómo mover el almacén de Recovery Services en
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: fbbe914b3e567a1a136d735fc52965524bc17b67
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 0b06b12c2bb989e4c0fc4e04440fc5f452df2da3
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612578"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827127"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Traslado del almacén de Recovery Services entre suscripciones y grupos de recursos de Azure
 
@@ -50,12 +50,12 @@ Centro de Francia, Sur de Francia, Nordeste de Alemania, Centro de Alemania, US 
 
 ## <a name="use-azure-portal-to-move-recovery-services-vault-to-different-resource-group"></a>Uso de Azure Portal para trasladar un almacén de Recovery Services a otro grupo de recursos
 
-Para mover un almacén de Recovery Services y sus recursos asociados a un grupo de recursos diferente
+Para mover un almacén de Recovery Services y los recursos asociados a un grupo de recursos diferente:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. Abra la lista de **almacenes de Recovery Services** y seleccione el nombre del almacén que desea mover. Cuando se abre el panel del almacén, aparece como se muestra en la siguiente imagen.
 
-   ![Almacén de Recovery Services abierto](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
+   ![Abrir el almacén de Recovery Services](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
    Si no ve la **Información esencial** del almacén, seleccione el icono de la lista desplegable. Ahora debería ver la información esencial del almacén.
 
@@ -84,7 +84,7 @@ Puede mover un almacén de Recovery Services y sus recursos asociados a otra sus
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. Abra la lista de almacenes de Recovery Services y seleccione el almacén que desea mover. Cuando se abre el panel del almacén, aparece como se muestra en la siguiente imagen.
 
-    ![Almacén de Recovery Services abierto](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
+    ![Abrir el almacén de Recovery Services](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
     Si no ve la **Información esencial** del almacén, seleccione el icono de la lista desplegable. Ahora debería ver la información esencial del almacén.
 
@@ -106,7 +106,7 @@ Puede mover un almacén de Recovery Services y sus recursos asociados a otra sus
 7. Seleccione la opción **Comprendo que las herramientas y los scripts asociados con recursos movidos no funcionarán hasta que los actualice para que usen nuevos identificadores de recursos** para confirmar y, a continuación, **Aceptar**.
 
 > [!NOTE]
-> La copia de seguridad entre suscripciones (el almacén de RS y las máquinas virtuales protegidas están en distintas suscripciones) no es un escenario admitido. Además, la opción de redundancia de almacenamiento desde el almacenamiento con redundancia local (LRS) al almacenamiento con redundancia global (GRS) y viceversa no se puede modificar durante la operación de movimiento del almacén.
+> La copia de seguridad entre suscripciones (el almacén de RS y las máquinas virtuales protegidas están en distintas suscripciones) no es un escenario admitido. Además, durante la operación de movimiento del almacén, no es posible modificar la opción de redundancia de almacenamiento desde el almacenamiento con redundancia local (LRS) al almacenamiento con redundancia global (GRS) ni viceversa
 >
 >
 
@@ -141,7 +141,7 @@ Para mover a una nueva suscripción, proporcione el parámetro `--destination-su
 ## <a name="post-migration"></a>Después de la migración
 
 1. Establezca/verifique los controles de acceso para los grupos de recursos.  
-2. La característica de supervisión y creación de informes de Backup debe volver a configurarse para el almacén una vez finalizado el proceso de traslado. La configuración anterior se perderá durante la esta operación.
+2. La característica de supervisión y creación de informes de Backup debe volver a configurarse para el almacén una vez finalizada la operación de movimiento. La configuración anterior se perderá durante la esta operación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

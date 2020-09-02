@@ -16,6 +16,8 @@
       href: add-application-portal.md
     - name: Configuración de una aplicación
       href: add-application-portal-configure.md
+    - name: Asignación de usuarios a una aplicación
+      href: add-application-portal-assign-users.md
     - name: Configuración del inicio de sesión único
       href: add-application-portal-setup-sso.md
     - name: Eliminar una aplicación

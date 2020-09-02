@@ -4,12 +4,12 @@ description: Conozca las distintas formas de implementación de código en Azure
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: bf8944952abf83837d05019bd783bec2fd43cefe
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 3865e6906b39633e14c86619770188f1c73fed8e
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905132"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641966"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologías de implementación en Azure Functions
 
@@ -203,6 +203,12 @@ La siguiente tabla muestra los sistemas operativos y lenguajes que admiten la ed
 | TypeScript (Node.js) | | | | | | |
 
 <sup>*</sup> La edición del portal solo está habilitada para los desencadenadores HTTP y de temporizador de Functions en Linux con los planes Premium y Dedicado.
+
+## <a name="deployment-behaviors"></a>Comportamientos de implementación
+
+Cuando se realiza una implementación, todas las ejecuciones existentes pueden finalizar o agotar el tiempo de espera, después de lo cual se carga el código nuevo para empezar a procesar solicitudes.
+
+Si necesita más control sobre esta transición, debe usar ranuras de implementación.
 
 ## <a name="deployment-slots"></a>Ranuras de implementación
 

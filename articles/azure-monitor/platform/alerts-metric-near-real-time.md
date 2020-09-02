@@ -5,14 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 8/16/2020
+ms.date: 8/20/2020
 ms.subservice: alerts
-ms.openlocfilehash: 877134fb1d4417c04da3bf6a96267b413389ecb2
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 05586f95de03b09b95eb589812935970126b12f2
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258442"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661323"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos compatibles para las alertas de métricas de Azure Monitor
 
@@ -44,7 +44,7 @@ Esta es la lista completa de los orígenes de métricas de Azure Monitor que se 
 |Microsoft.ClassicStorage/storageAccounts/queueServices | Sí | No | |
 |Microsoft.ClassicStorage/storageAccounts/tableServices | Sí | No | |
 |Microsoft.CognitiveServices/accounts | Sí | No | [Cognitive Services](./metrics-supported.md#microsoftcognitiveservicesaccounts) |
-|Microsoft.Compute/virtualMachines | Sí | Sí | [Máquinas virtuales](./metrics-supported.md#microsoftcomputevirtualmachines) |
+|Microsoft.Compute/virtualMachines | Sí | Sí<sup>1</sup> | [Máquinas virtuales](./metrics-supported.md#microsoftcomputevirtualmachines) |
 |Microsoft.Compute/virtualMachineScaleSets | Sí | No |[Conjuntos de escalado de máquinas virtuales](./metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
 |Microsoft.ContainerInstance/containerGroups | Sí| No | [Grupos de contenedores](./metrics-supported.md#microsoftcontainerinstancecontainergroups) |
 |Microsoft.ContainerRegistry/registries | Sin | No | [Registros de contenedor](./metrics-supported.md#microsoftcontainerregistryregistries) |
@@ -111,6 +111,8 @@ Esta es la lista completa de los orígenes de métricas de Azure Monitor que se 
 |Microsoft.Web/serverfarms | Sí | No | [Planes de App Service](./metrics-supported.md#microsoftwebserverfarms)|
 |Microsoft.Web/sites | Sí | No | [App Services](./metrics-supported.md#microsoftwebsites-excluding-functions) y [Functions](./metrics-supported.md#microsoftwebsites-functions)|
 |Microsoft.Web/sites/slots | Sí | No | [Ranuras de App Service](./metrics-supported.md#microsoftwebsitesslots)|
+
+<sup>1</sup> Compatible solo con las métricas de plataforma (no con métricas personalizadas)
 
 ## <a name="payload-schema"></a>Esquema de carga
 

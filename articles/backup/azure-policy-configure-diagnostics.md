@@ -3,12 +3,12 @@ title: Configuración de los valores de diagnóstico del almacén a gran escala
 description: Configuración de diagnóstico de Log Analytics de diagnóstico para todos los almacenes de un ámbito determinado mediante Azure Policy
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 58ef8af56bb3f44664ffaec6a17bab5f5e92808e
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 17a5ee5a541c3317c9ec9a6cfbed57d85f5116b4
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612510"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892242"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configuración de los valores de diagnóstico del almacén a gran escala
 
@@ -20,9 +20,9 @@ Para simplificar la creación de la configuración de diagnóstico a gran escala
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
-* La directiva se puede aplicar al mismo tiempo a todos los almacenes de Recovery Services de una suscripción determinada (o a un grupo de recursos dentro de la suscripción). El usuario que asigna la directiva debe tener acceso de "propietario" a la suscripción a la que la asigna.
+* La directiva se puede aplicar al mismo tiempo a todos los almacenes de Recovery Services de una suscripción determinada (o a un grupo de recursos dentro de la suscripción). El usuario que asigna la directiva debe tener acceso de **propietario** a la suscripción a la que se asigna la directiva.
 
-* El área de trabajo de LA especificada por el usuario (a la que se enviarán los datos de diagnóstico) puede estar en una suscripción distinta de la de los almacenes a los que se asigna la directiva. El usuario debe tener acceso de "lector", "colaborador" o "propietario" a la suscripción en la que existe el área de trabajo de LA especificado.
+* El área de trabajo de LA especificada por el usuario (a la que se enviarán los datos de diagnóstico) puede estar en una suscripción distinta de la de los almacenes a los que se asigna la directiva. El usuario debe tener acceso de **lector**, **colaborador** o **propietario** a la suscripción en la que existe el área de trabajo de LA especificado.
 
 * Actualmente no se admite el ámbito del grupo de administración.
 
@@ -44,7 +44,7 @@ Para asignar la directiva a almacenes del ámbito necesario, siga estos pasos:
 
 5. Seleccione el botón **Asignar** en la parte superior del panel. Esta acción le redirigirá al panel **Asignar directiva**.
 
-6. En **Conceptos básicos**, seleccione los tres puntos situados junto al campo **Ámbito**. Se abrirá el panel de contexto adecuado, donde podrá seleccionar la suscripción a la que se va a aplicar la directiva. También puede seleccionar un grupo de recursos, de modo que la directiva se aplique solo a los almacenes de un grupo de recursos determinado.
+6. En **Conceptos básicos**, seleccione los tres puntos situados junto al campo **Ámbito**. Se abrirá el panel de contexto adecuado, donde podrá seleccionar la suscripción en la que se va a aplicar la directiva. También puede seleccionar un grupo de recursos, de modo que la directiva se aplique solo a los almacenes de un grupo de recursos determinado.
 
     ![Conceptos básicos de la asignación de directiva](./media/backup-azure-policy-configure-diagnostics/policy-assignment-basics.png)
 
@@ -78,7 +78,7 @@ Además, si un usuario tiene un almacén con solo un subconjunto de los seis eve
 >
 > Si un almacén tiene una configuración de diagnóstico existente con un **subconjunto de categorías Específico del recurso** habilitadas, que se ha configurado para enviar datos a un área de trabajo de LA específica (por ejemplo, "Área de trabajo X"), se producirá un error en la tarea de corrección (solo para ese almacén) si el área de trabajo de LA de destino proporcionada en la asignación de directiva es la **misma** "Área de trabajo X".
 >
->Esto se debe a que, si los eventos habilitados por dos configuraciones de diagnóstico diferentes en el mismo recurso se **superponen** de alguna forma, la configuración no puede tener la misma área de trabajo de LA que el destino. Tendrá que resolver manualmente este error; para ello, vaya al almacén pertinente y establezca una configuración de diagnóstico con un área de trabajo de LA distinta de la del destino.
+>Esto se debe a que si los eventos habilitados por dos configuraciones de diagnóstico diferentes en el mismo recurso se **superponen** de alguna forma, la configuración no puede tener la misma área de trabajo de LA que el destino. Tendrá que resolver manualmente este error; para ello, vaya al almacén pertinente y establezca una configuración de diagnóstico con un área de trabajo de LA distinta de la del destino.
 >
 > Tenga en cuenta que **no** se producirá un error en la tarea de corrección si la configuración de diagnóstico existente solo está habilitada por AzureBackupReport con Área de trabajo X como destino, ya que en este caso no habrá ninguna superposición entre los eventos habilitados por la configuración existente y los eventos habilitados por la configuración creada con la tarea de corrección.
 

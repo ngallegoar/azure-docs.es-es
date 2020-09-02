@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81daa7696c645c1353cdd5e6d3cbca90ac4f03da
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 6440e71eade32bfea4ed19448fd2f2007b519cc8
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388125"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816089"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de inicio de sesión en el portal de Azure Active Directory
 
@@ -47,11 +47,7 @@ En este artículo se ofrece una visión general del reporte de inicios de sesió
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>¿Qué licencia de Azure AD se necesita para acceder a la actividad de inicio de sesión?
 
-- El informe de actividad de inicio de sesión está disponible en [todas las ediciones de Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data).
-
-- Si desea acceder a los datos de inicio de sesión mediante una API, el inquilino debe tener una licencia asociada de [Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md).
-
-
+El informe de actividad de inicio de sesión está disponible en [todas las ediciones de Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data) y también se puede acceder a ella mediante Microsoft Graph API.
 
 ## <a name="sign-ins-report"></a>Informe de inicios de sesión
 

@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: b1baeaa31eddc13a68f2cc1d374b850f1c1a26bd
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 2ff8d962479188ddf324dc5ff75d22eac4fed3d6
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136344"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826776"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilidad geográfica y compatibilidad con monedas para marketplace comercial
 
@@ -172,12 +172,19 @@ Se pueden adquirir ofertas de marketplace comercial en 141 zonas geográficas, 
 
 ## <a name="how-we-convert-currency"></a>Conversión de la moneda
 
-Todos los tipos de ofertas de pago ofrecen a los ISV la opción de introducir los precios en USD o de cargarlos en la moneda local. Los precios especificados en USD se convierten automáticamente a la moneda local cuando se guarda la página. Las tarifas que usa el Centro de partners se actualizan diariamente. Los ISV pueden exportar los precios y revisar los equivalentes convertidos.
+Todos los tipos de ofertas de pago ofrecen la opción de introducir los precios en USD o de cargarlos en la moneda local. Los precios especificados en USD se convierten automáticamente a la moneda local cuando se guarda la página. Las tarifas que usa el Centro de partners se actualizan diariamente. Puede exportar los precios y revisar los equivalentes convertidos.
 
 Para ajustar el precio antes de publicar una oferta, solo es necesario exportar la hoja de cálculo de precios, modificarla y cargarla con los cambios.
 
 > [!NOTE]
 > Después de que se publica un precio para un mercado en el plan, no se puede cambiar más adelante. Asegúrese de que los precios sean correctos antes de publicarlos; para ello, exporte la hoja de cálculo de precios y revise los precios en cada mercado.
+
+El precio de una oferta siempre se muestra a los clientes en su moneda local. El precio que seleccione en Centro de partners se convertirá a la moneda local de los clientes según el tipo de cambio en el momento en que haya guardado el precio dentro de Centro de partners. El precio que se muestra a los clientes en las tiendas en línea no cambia, a menos que vuelva a publicar la oferta.
+
+Microsoft recibe los pagos de los clientes en su moneda local y le paga a usted en su moneda local. Microsoft convierte la moneda local del cliente a su moneda local según el tipo de cambio del día de la compra.
+
+> [!NOTE]
+> Microsoft convierte los precios de las ofertas mediante el tipo de cambio de Microsoft Treasury.
 
 ## <a name="retrieving-currency-information-by-api"></a>Recuperación de la información de moneda mediante API
 

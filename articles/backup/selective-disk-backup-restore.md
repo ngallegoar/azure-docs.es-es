@@ -4,12 +4,12 @@ description: En este artículo, se describen la copia de seguridad y la restaura
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: 6a5e574795dfded98260da20711dab7d16cabd5b
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 44454977a977a85b8735657a439a265467f1bcf5
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566240"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824753"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Copia de seguridad y restauración selectivas de discos para máquinas virtuales de Azure
 
@@ -190,7 +190,7 @@ Cuando ejecute estos comandos, verá `"diskExclusionProperties": null`.
 
 ## <a name="using-powershell"></a>Usar PowerShell
 
-Asegúrese de usar Azure PS versión 3.7.0 o posterior.
+Asegúrese de usar Azure PowerShell versión 3.7.0 o posterior.
 
 ### <a name="enable-backup-with-powershell"></a>Habilitación de la copia de seguridad con PowerShell
 
@@ -277,7 +277,7 @@ La restauración selectiva de discos es una funcionalidad adicional que se obtie
 - La restauración selectiva de discos solo se admite para los puntos de recuperación creados después de habilitar la funcionalidad de exclusión de discos.
 - Las copias de seguridad con la configuración de exclusión de discos **activada** solo admiten la opción **Disk restore** (Restauración de disco). Las opciones de restauración **VM restore** (Restauración de máquina virtual) o **Replace Existing** (Reemplazar existente) no se admiten en este caso.
 
-![Las opciones para restaurar la máquina virtual y reemplazar la existente no están disponibles durante la operación de restauración.](./media/selective-disk-backup-restore/options-not-available.png)
+![La opción para restaurar la máquina virtual y reemplazar la existente no está disponible durante la operación de restauración.](./media/selective-disk-backup-restore/options-not-available.png)
 
 ## <a name="limitations"></a>Limitaciones
 

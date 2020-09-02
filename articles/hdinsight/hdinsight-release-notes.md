@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/09/2020
-ms.openlocfilehash: 82a66d88b3c7c3492e7cb90116ff8ff8e61ca1b0
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.date: 08/25/2020
+ms.openlocfilehash: 0587a179b98a410cdba46b7817d86567f275f25d
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036596"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826827"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notas de la versión de Azure HDInsight
 
@@ -72,3 +72,7 @@ Las siguientes instancias de JIRA se llevan a HBase:
 
 ## <a name="component-version-change"></a>Cambio de versión de componentes
 No hay cambio de versión de componentes para esta versión. En [este documento](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions) puede encontrar las versiones actuales de los componentes para HDInsight 4.0 y HDInsight 3.6.
+
+## <a name="known-issues"></a>Problemas conocidos
+
+Se ha corregido un problema de Azure Portal, en el que los usuarios experimentaban un error cuando creaban un clúster de Azure HDInsight mediante un tipo de autenticación de SSH de la clave pública. Cuando los usuarios hacían clic en **Revisar y crear**, recibían el error "No debe contener tres caracteres consecutivos del nombre de usuario de SSH". Este problema se ha corregido, pero es posible que deba actualizar la memoria caché del explorador; para ello, presione Ctrl + F5 para cargar la vista corregida. La solución a este problema consistió en crear un clúster con una plantilla de Resource Manager. 

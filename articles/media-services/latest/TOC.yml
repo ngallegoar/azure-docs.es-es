@@ -49,20 +49,22 @@
   items:
     - name: .NET
       items:
-        - name: Codificación y transmisión en secuencias de un archivo remoto REST
-          href: stream-files-tutorial-with-rest.md
         - name: Codificación y transmisión en secuencias de un archivo remoto .NET
           href: stream-files-dotnet-quickstart.md
-        - name: Codificación y transmisión en secuencias de un archivo cargado
+        - name: Codificación y transmisión en secuencias de un archivo cargado en .NET
           href: stream-files-tutorial-with-api.md
-        - name: Streaming en vivo
+        - name: Streaming en directo con .NET
           href: stream-live-tutorial-with-api.md
-        - name: Análisis del vídeo
+        - name: Análisis de vídeo con .NET
           href: analyze-videos-tutorial-with-api.md
         - name: Cifrado dinámico con AES-128
           href: protect-with-aes128.md
         - name: Cifrado dinámico con DRM
           href: protect-with-drm.md
+    - name: REST
+      items:
+        - name: Codificación y transmisión en secuencias de un archivo remoto REST
+          href: stream-files-tutorial-with-rest.md
     - name: CLI
       items:
         - name: Codificación y transmisión en secuencias de un archivo remoto CLI
@@ -71,7 +73,7 @@
       items:
         - name: Codificación y transmisión en secuencias de un archivo remoto Node.js
           href: stream-files-nodejs-quickstart.md
-    - name: Portal de Azure
+    - name: Azure portal
       items:
         - name: Almacenamiento de eventos de Azure Media Services en Azure Log Analytics
           href: tutorial-events-log-analytics.md

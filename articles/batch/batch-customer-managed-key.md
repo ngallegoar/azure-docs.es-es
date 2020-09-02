@@ -5,12 +5,12 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: 2af82233013f064b185aefde3f2e1710bd86ed43
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: a89d0182f6a659cee65ebc1de7d97d40418b4b20
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053752"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654895"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Configuración de claves administradas por el cliente para la cuenta de Azure Batch con Azure Key Vault e Identidad administrada
 
@@ -19,7 +19,7 @@ De forma predeterminada, Azure Batch usa claves administradas por la plataforma 
 Las claves que proporcione deben haberse generado en [Azure Key Vault](../key-vault/general/basic-concepts.md), y las cuentas de Batch que quiera configurar con claves administradas por el cliente tienen que estar habilitadas con [Identidad administrada de Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
-> La compatibilidad con las claves administradas por el cliente de Azure Batch se encuentra actualmente en versión preliminar pública para las regiones Centro-oeste de EE. UU., Este de EE. UU., Centro-sur de EE. UU., Oeste de EE. UU. 2, US Gov Virginia y US Gov Arizona.
+> La compatibilidad con las claves administradas por el cliente de Azure Batch se encuentra actualmente en versión preliminar pública para las regiones Oeste de Europa, Norte de Europa, Norte de Suiza, Centro de EE. UU., Centro-sur de EE. UU., Centro-oeste de EE. UU., Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU. 2, US Gov Virginia y US Gov Arizona.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
 > Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

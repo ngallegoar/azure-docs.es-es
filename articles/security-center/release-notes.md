@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: dbd040bf7caf3dbe9ed9820bf189bc1f74475c09
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: c7df035aec199953bdf9a6bd56262af70a5a77e7
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586901"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723969"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novedades de Azure Security Center
 
@@ -38,13 +38,14 @@ Las actualizaciones de agosto incluyen:
 - [Compatibilidad agregada con los valores predeterminados de seguridad de Azure Active Directory (para la autenticación multifactor)](#added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication)
 - [Recomendación de entidades de servicio agregada](#service-principals-recommendation-added)
 - [Evaluación de vulnerabilidades en máquinas virtuales: recomendaciones y directivas consolidadas](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
+- [Se han agregado nuevas directivas de seguridad de AKS a la iniciativa de ASC_default para su uso solo por parte de clientes de versión preliminar privada](#new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only)
 
 
 ### <a name="asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets"></a>Inventario de recursos: nueva vista eficaz de la posición de seguridad de sus recursos
 
-El inventario de recursos de Security Center proporciona una manera de ver la posición de seguridad de los recursos que ha conectado a Security Center.
+El inventario de recursos de Security Center (actualmente en versión preliminar) proporciona una manera de ver la posición de seguridad de los recursos que ha conectado a Security Center.
 
-Security Center analiza periódicamente el estado de seguridad de los recursos de Azure para identificar posibles puntos vulnerables de la seguridad. A continuación, proporciona recomendaciones sobre cómo corregir dichos puntos vulnerables. Cuando algún recurso tenga recomendaciones pendientes, aparecerán en el inventario.
+Security Center analiza periódicamente el estado de seguridad de los recursos de Azure para identificar posibles puntos vulnerables de la seguridad. A continuación, se proporcionan recomendaciones sobre cómo corregir dichos puntos vulnerables. Cuando algún recurso tenga recomendaciones pendientes, aparecerán en el inventario.
 
 Puede usar la vista y sus filtros para explorar los datos de la posición de seguridad y realizar acciones adicionales en función de los resultados.
 
@@ -126,6 +127,17 @@ Si tiene scripts, consultas o automatizaciones que hacen referencia a las recome
 |[**La evaluación de vulnerabilidades debe estar habilitada en las máquinas virtuales**](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)<br>Id. de directiva: 501541f7-f7e7-4cd6-868c-4190fdad3ac9 |Integrada + BYOL|
 ||||
 
+
+### <a name="new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only"></a>Se han agregado nuevas directivas de seguridad de AKS a la iniciativa de ASC_default para su uso solo por parte de clientes de versión preliminar privada
+
+Para asegurarse de que las cargas de trabajo de Kubernetes son seguras de forma predeterminada, Security Center está agregando directivas en el nivel de Kubernetes y recomendaciones de protección, incluidas las opciones de cumplimiento con el control de admisión de Kubernetes.
+
+La fase temprana de este proyecto incluye una versión preliminar privada y la adición de nuevas directivas (deshabilitadas de forma predeterminada) a la iniciativa ASC_default.
+
+Puede omitir estas directivas con seguridad y no habrá ningún impacto en el entorno. Si desea habilitarlas, regístrese para obtener la versión preliminar en https://aka.ms/SecurityPrP y seleccione una de las opciones siguientes:
+
+1. **Versión preliminar única**: para unirse solo a esta versión preliminar privada. Mencione explícitamente "ASC Continuous SCAN" como la versión preliminar a la que le gustaría unirse.
+1. **Programa continuo**: para agregarse a esta y a futuras versiones preliminares privadas. Deberá completar un perfil y un contrato de privacidad.
 
 
 ## <a name="july-2020"></a>Julio de 2020

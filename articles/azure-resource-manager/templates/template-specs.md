@@ -2,15 +2,15 @@
 title: Introducción a las especificaciones de plantilla
 description: Describe cómo crear especificaciones de plantilla y compartirlas con otros usuarios de la organización.
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 08/24/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: f5151550b9f23ba63380688f53325f8976f14a51
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: a88e799d2298cb21b5196f5aa143e5453c0447c0
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921885"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783797"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Especificaciones de plantilla de Azure Resource Manager (versión preliminar)
 
@@ -37,32 +37,32 @@ En el ejemplo siguiente se muestra una plantilla sencilla para crear una cuenta 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storageAccountType": {
-            "type": "string",
-            "defaultValue": "Standard_LRS",
-            "allowedValues": [
-                "Standard_LRS",
-                "Standard_GRS",
-                "Standard_ZRS",
-                "Premium_LRS"
-            ]
-        }
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2019-06-01",
-            "name": "[concat('store', uniquestring(resourceGroup().id))]",
-            "location": "[resourceGroup().location]",
-            "kind": "StorageV2",
-            "sku": {
-                "name": "[parameters('storageAccountType')]"
-            }
-        }
-    ]
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_ZRS",
+        "Premium_LRS"
+      ]
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-06-01",
+      "name": "[concat('store', uniquestring(resourceGroup().id))]",
+      "location": "[resourceGroup().location]",
+      "kind": "StorageV2",
+      "sku": {
+        "name": "[parameters('storageAccountType')]"
+      }
+    }
+  ]
 }
 ```
 
@@ -70,21 +70,59 @@ Cuando se crea la especificación de plantilla, los comandos de PowerShell o la 
 
 Cree una especificación de plantilla mediante:
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
-New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpecsRg -TemplateJsonFile ./mainTemplate.json
+New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpecsRg -Location westus2 -TemplateJsonFile ./mainTemplate.json
 ```
 
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az template-specs create \
+  --name storageSpec \
+  --version "1.0" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "./mainTemplate.json"
+```
+
+---
+
 Puede ver todas las especificaciones de plantilla de su suscripción mediante:
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Get-AzTemplateSpec
 ```
 
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az template-specs list
+```
+
+---
+
 Puede ver los detalles de una especificación de plantilla, incluidas sus versiones con:
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Get-AzTemplateSpec -ResourceGroupName templateSpecsRG -Name storageSpec
 ```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az template-specs show \
+    --name storageSpec \
+    --resource-group templateSpecRG \
+    --version "1.0"
+```
+
+---
 
 ## <a name="deploy-template-spec"></a>Implementación de la especificación de plantilla
 
@@ -98,7 +136,9 @@ En lugar de pasar una ruta de acceso o un URI para una plantilla, para implement
 
 Observe que el identificador de recurso incluye un número de versión para la especificación de plantilla.
 
-Por ejemplo, puede implementar una especificación de plantilla mediante el siguiente comando de PowerShell.
+Por ejemplo, puede implementar una especificación de plantilla mediante el siguiente comando.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0"
@@ -108,15 +148,41 @@ New-AzResourceGroupDeployment `
   -ResourceGroupName demoRG
 ```
 
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0"
+
+az deployment group create \
+  --resource-group demoRG \
+  --template-spec $id
+```
+
+---
+
 En la práctica, normalmente ejecutará `Get-AzTemplateSpec` para obtener el identificador de la especificación de plantilla que quiere implementar.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0).Version.Id
 
 New-AzResourceGroupDeployment `
-  -TemplateSpecId $id `
-  -ResourceGroupName demoRG
+  -ResourceGroupName demoRG `
+  -TemplateSpecId $id
 ```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+id = $(az template-specs show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
+
+az deployment group create \
+  --resource-group demoRG \
+  --template-spec $id
+```
+
+---
 
 ## <a name="parameters"></a>Parámetros
 
@@ -124,12 +190,25 @@ Pasar parámetros a la especificación de plantilla es exactamente igual que pas
 
 Para pasar un parámetro insertado, use:
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 New-AzResourceGroupDeployment `
   -TemplateSpecId $id `
   -ResourceGroupName demoRG `
   -StorageAccountType Standard_GRS
 ```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az deployment group create \
+  --resource-group demoRG \
+  --template-spec $id \
+  --parameters storageAccountType='Standard_GRS'
+```
+
+---
 
 Para crear un archivo de parámetros local, use:
 
@@ -147,12 +226,25 @@ Para crear un archivo de parámetros local, use:
 
 Y pase el archivo de parámetros con:
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 New-AzResourceGroupDeployment `
   -TemplateSpecId $id `
   -ResourceGroupName demoRG `
   -TemplateParameterFile ./mainTemplate.parameters.json
 ```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az deployment group create \
+  --resource-group demoRG \
+  --template-spec $id \
+  --parameters "./mainTemplate.parameters.json"
+```
+
+---
 
 ## <a name="create-a-template-spec-with-linked-templates"></a>Creación de una especificación de plantilla con plantillas vinculadas
 
@@ -162,35 +254,34 @@ El siguiente ejemplo consta de una plantilla principal con dos plantillas vincul
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    ...
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            ...
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "relativePath": "artifacts/webapp.json"
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            ...
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "relativePath": "artifacts/database.json"
-                }
-            }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  ...
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-06-01",
+      ...
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "relativePath": "artifacts/webapp.json"
         }
-    ],
-    "outputs": {}
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-06-01",
+      ...
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "relativePath": "artifacts/database.json"
+        }
+      }
+    }
+  ],
+  "outputs": {}
 }
-
 ```
 
 Cuando se ejecuta el comando de PowerShell o de la CLI para crear la especificación de plantilla del ejemplo anterior, el comando busca tres archivos: la plantilla principal, la plantilla de aplicación web (`webapp.json`) y la plantilla de base de datos (`database.json`), y las empaqueta en la especificación de plantilla.
@@ -207,35 +298,35 @@ El ejemplo siguiente es similar al anterior, pero se usa la propiedad `id` para 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    ...
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            "name": "networkingDeployment",
-            ...
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'networkingSpec', '1.0')]"
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            "name": "storageDeployment",
-            ...
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'storageSpec', '1.0')]"
-                }
-            }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  ...
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-06-01",
+      "name": "networkingDeployment",
+      ...
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'networkingSpec', '1.0')]"
         }
-    ],
-    "outputs": {}
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-06-01",
+      "name": "storageDeployment",
+      ...
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "id": "[resourceId('templateSpecsRG', 'Microsoft.Resources/templateSpecs/versions', 'storageSpec', '1.0')]"
+        }
+      }
+    }
+  ],
+  "outputs": {}
 }
 ```
 

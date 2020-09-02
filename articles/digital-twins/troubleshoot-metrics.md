@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 5e061e4d6f9e67cc7d92548f54add94097ede7d1
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: dafea083e68b2afe6b6bcf45b4cff8779f817049
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905215"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749023"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Solución de problemas de Azure Digital Twins: Métricas
 
@@ -88,9 +88,9 @@ Métricas relacionadas con el enrutamiento:
 
 | Métrica | Nombre para mostrar de la métrica | Unidad | Tipo de agregación| Descripción | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| MessagesRouted | Mensajes enrutados (versión preliminar) | Count | Total | Número de mensajes que se enrutan a un servicio de Azure de punto de conexión, como Event Hubs, Service Bus o Event Grid. | Operación, <br>Resultado |
-| RoutingFailureRate | Frecuencia de errores de enrutamiento (versión preliminar) | Percent | Average | Porcentaje de eventos que producen un error a medida que se enrutan desde Azure Digital Twins a un servicio de Azure de punto de conexión, como Event Hubs, Service Bus o Event Grid. | Operación, <br>Resultado |
-| RoutingLatency | Latencia de enrutamiento (versión preliminar) | Milisegundos | Average | Tiempo transcurrido entre el enrutamiento de un evento desde Azure Digital Twins hasta su publicación en el servicio de Azure de punto de conexión, como Event Hubs, Service Bus o Event Grid. | Operación, <br>Resultado |
+| MessagesRouted | Mensajes enrutados (versión preliminar) | Count | Total | Número de mensajes que se enrutan a un servicio de Azure de punto de conexión, como Event Hubs, Service Bus o Event Grid. | Tipo de punto de conexión <br>Resultado |
+| RoutingFailureRate | Frecuencia de errores de enrutamiento (versión preliminar) | Percent | Average | Porcentaje de eventos que producen un error a medida que se enrutan desde Azure Digital Twins a un servicio de Azure de punto de conexión, como Event Hubs, Service Bus o Event Grid. | Tipo de punto de conexión <br>Resultado |
+| RoutingLatency | Latencia de enrutamiento (versión preliminar) | Milisegundos | Average | Tiempo transcurrido entre el enrutamiento de un evento desde Azure Digital Twins hasta su publicación en el servicio de Azure de punto de conexión, como Event Hubs, Service Bus o Event Grid. | Tipo de punto de conexión <br>Resultado |
 
 ## <a name="dimensions"></a>Dimensions
 
@@ -100,7 +100,7 @@ Las dimensiones ayudan a identificar más detalles sobre las métricas. Algunas 
 | --- | --- |
 | Autenticación | OAuth |
 | Operación (para las solicitudes de API) | Microsoft.DigitalTwins/digitaltwins/delete, <br>Microsoft.DigitalTwins/digitaltwins/write, <br>Microsoft.DigitalTwins/digitaltwins/read, <br>Microsoft.DigitalTwins/eventroutes/read, <br>Microsoft.DigitalTwins/eventroutes/write, <br>Microsoft.DigitalTwins/eventroutes/delete, <br>Microsoft.DigitalTwins/models/read, <br>Microsoft.DigitalTwins/models/write, <br>Microsoft.DigitalTwins/models/delete, <br>Microsoft.DigitalTwins/query/action |
-| Operación (para el enrutamiento) | Event Grid, <br>Event Hub, <br>Service Bus |
+| Tipo de punto de conexión | Event Grid, <br>Event Hub, <br>Service Bus |
 | Protocolo | HTTPS |
 | Resultado | Correcto, <br>Error |
 | Código de estado | 200, 404, 500, etc. |

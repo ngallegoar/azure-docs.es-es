@@ -1,14 +1,14 @@
 ---
 title: Incorporación de un cliente a Azure Lighthouse
 description: Obtenga información sobre cómo incorporar un cliente a Azure Lighthouse, lo que permite administrar sus recursos y acceder a ellos desde su propio inquilino mediante la administración de recursos delegados de Azure.
-ms.date: 08/12/2020
+ms.date: 08/20/2020
 ms.topic: how-to
-ms.openlocfilehash: f20df54a4bc689effad210746f93928defdaf0f5
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: db6a819c72f1ef46f542ed47cad6caae23c0d191
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167324"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719060"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Incorporación de un cliente a Azure Lighthouse
 
@@ -121,7 +121,7 @@ Para incorporar el cliente, deberá crear una plantilla de [Azure Resource Manag
 
 |Campo  |Definición  |
 |---------|---------|
-|**mspOfferName**     |Nombre que describe esta definición. Este valor se muestra al cliente como el título de la oferta.         |
+|**mspOfferName**     |Nombre que describe esta definición. Este valor se muestra al cliente como el título de la oferta y debe ser un valor único.        |
 |**mspOfferDescription**     |Breve descripción de la oferta (por ejemplo, "oferta de administración de VM de Contoso").      |
 |**managedByTenantId**     |El identificador de inquilino.          |
 |**authorizations**     |Los valores de **principalId** para los usuarios/grupos/SPN del inquilino, cada uno de ellos con un valor de **principalIdDisplayName** para ayudar a su cliente a entender el propósito de la autorización y asignarla a un valor de **roleDefinitionId** integrado para especificar el nivel de acceso.      |
@@ -138,7 +138,7 @@ La plantilla que elija dependerá de si se incorpora una suscripción completa, 
 |Suscripción (al usar una oferta publicada en Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
-> El proceso que se describe aquí requiere una implementación en el nivel de suscripción independiente para cada suscripción que se está incorporando, incluso si va a incorporar suscripciones en el mismo inquilino de cliente. También se necesitan implementaciones independientes si se incorporan varios grupos de recursos en distintas suscripciones del mismo inquilino del cliente. Sin embargo, la incorporación de varios grupos de recursos dentro de una sola suscripción puede realizarse en una implementación en el nivel de suscripción.
+> El proceso que se describe aquí requiere una implementación independiente para cada suscripción que se está incorporando, incluso si va a incorporar suscripciones en el mismo inquilino de cliente. También se necesitan implementaciones independientes si se incorporan varios grupos de recursos en distintas suscripciones del mismo inquilino del cliente. Sin embargo, la incorporación de varios grupos de recursos dentro de una sola suscripción puede realizarse en una implementación.
 >
 > También se necesitan implementaciones independientes para varias ofertas que se aplican a la misma suscripción (o grupos de recursos dentro de una suscripción). Cada oferta aplicada debe usar un valor de **mspOfferName** diferente.
 
@@ -199,12 +199,22 @@ La última autorización del ejemplo anterior agrega un valor de **principalId**
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Implementación de las plantillas de Azure Resource Manager
 
-Una vez actualizado el archivo de parámetros, un usuario del inquilino del cliente debe implementar la plantilla de Azure Resource Manager en su inquilino como implementación de nivel de suscripción. Se necesita una implementación independiente para cada suscripción que quiera incorporar (o para cada suscripción que contenga grupos de recursos que quiera incorporar). La implementación puede realizarse mediante PowerShell o la CLI de Azure, como se muestra a continuación.
+Una vez actualizado el archivo de parámetros, un usuario del inquilino del cliente debe implementar la plantilla de Azure Resource Manager en su inquilino. Se necesita una implementación independiente para cada suscripción que quiera incorporar (o para cada suscripción que contenga grupos de recursos que quiera incorporar).
 
 > [!IMPORTANT]
-> Esta implementación en el nivel de suscripción debe realizarse desde una cuenta que no sea de invitado en el inquilino del cliente que tenga el [rol Propietario integrado](../../role-based-access-control/built-in-roles.md#owner) para la suscripción que se va a incorporar (o que contiene los grupos de recursos que se están incorporando). Para ver todos los usuarios que puedan delegar la suscripción, cualquiera de los usuarios del inquilino del cliente puede seleccionar la suscripción en Azure Portal, abrir **Control de acceso (IAM)** y [ver todos los usuarios con el rol Propietario](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
+> Esta implementación debe realizarse desde una cuenta que no sea de invitado en el inquilino del cliente que tenga el [rol Propietario integrado](../../role-based-access-control/built-in-roles.md#owner) para la suscripción que se va a incorporar (o que contiene los grupos de recursos que se están incorporando). Para ver todos los usuarios que puedan delegar la suscripción, cualquiera de los usuarios del inquilino del cliente puede seleccionar la suscripción en Azure Portal, abrir **Control de acceso (IAM)** y [ver todos los usuarios con el rol Propietario](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription). 
 >
 > Si la suscripción se creó con el [programa Proveedor de soluciones en la nube (CSP)](../concepts/cloud-solution-provider.md), cualquier usuario que tenga el rol de [agente de administración](/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) en el inquilino del proveedor de servicios puede realizar la implementación.
+
+La implementación puede realizarse en Azure Portal, mediante PowerShell o la CLI de Azure, como se muestra a continuación.
+
+### <a name="azure-portal"></a>Azure portal
+
+1. En nuestro [repositorio de GitHub](https://github.com/Azure/Azure-Lighthouse-samples/), seleccione el botón **Deploy to Azure** (Implementar en Azure) que se muestra junto a la plantilla que quiera usar. La plantilla se abrirá en Azure Portal.
+1. Escriba los valores de **Msp Offer Name** (nombre de oferta de MSP), **Msp Offer Description** (descripción de la oferta de MSP), **Managed by Tenant Id** (administrado por id. de inquilino) y **Authorizations** (autorizaciones). Si lo prefiere, puede seleccionar **Editar parámetros** para especificar valores de `mspOfferName`, `mspOfferDescription`, `managedbyTenantId` y `authorizations` directamente en el archivo de parámetros. Asegúrese de actualizar estos valores, en lugar de usar los valores predeterminados de la plantilla.
+1. Seleccione **Revisar y crear** y, luego, **Crear**.
+
+Transcurridos unos minutos, se mostrará una notificación indicando que la implementación se ha completado.
 
 ### <a name="powershell"></a>PowerShell
 

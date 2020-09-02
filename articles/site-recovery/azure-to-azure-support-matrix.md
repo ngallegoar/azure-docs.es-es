@@ -4,12 +4,12 @@ description: Resume la compatibilidad con la recuperación ante desastres de má
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: 823e116b659a582ceb9a09b752179ee5a78f4ebd
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 3006522f75ed732c08e453a266e660cf4c577917
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607040"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815375"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de soporte para la recuperación ante desastres de máquinas virtuales de Azure entre regiones de Azure
 
@@ -195,6 +195,7 @@ Grupos con ubicación por proximidad | Compatible | Las máquinas virtuales que 
 -- | ---
 Cambiar el tamaño de disco en una máquina virtual replicada | Se admite en la máquina virtual de origen antes de la conmutación por error. No es necesario deshabilitar o volver a habilitar la replicación.<br/><br/> Si cambia la máquina virtual de origen después de la conmutación por error, los cambios no se capturan.<br/><br/> Si cambia el tamaño del disco en la máquina virtual de Azure después de la conmutación por error, Site Recovery no capturará los cambios y la conmutación por recuperación se realizará al tamaño original de la máquina virtual.
 Agregar un disco a una máquina virtual replicada | Compatible
+Cambios sin conexión en discos protegidos | Para desconectar discos y realizar modificaciones sin conexión en ellos debe desencadenar una resincronización completa.
 
 ## <a name="replicated-machines---storage"></a>Máquinas replicadas: almacenamiento
 
@@ -206,8 +207,8 @@ Esta tabla resume la compatibilidad con el disco del sistema operativo, el disco
 
 **Componente** | **Soporte técnico** | **Detalles**
 --- | --- | ---
-Tamaño máximo del disco de sistema operativo | 2048 GB | [Más información](../virtual-machines/windows/managed-disks-overview.md) sobre discos de máquina virtual.
-Disco temporal | No compatible | El disco temporal se excluye de la replicación siempre.<br/><br/> No almacene los datos persistentes en el disco temporal. [Más información](../virtual-machines/windows/managed-disks-overview.md).
+Tamaño máximo del disco de sistema operativo | 2048 GB | [Más información](../virtual-machines/managed-disks-overview.md) sobre discos de máquina virtual.
+Disco temporal | No compatible | El disco temporal se excluye de la replicación siempre.<br/><br/> No almacene los datos persistentes en el disco temporal. [Más información](../virtual-machines/managed-disks-overview.md).
 Tamaño máximo del disco de datos | 8192 GB para discos administrados<br></br>4095 GB para discos no administrados|
 Tamaño mínimo del disco de datos | Sin restricción de discos no administrados. 2 GB en discos administrados |
 Número máximo de discos de datos | Hasta 64, según la compatibilidad con un tamaño específico de máquina virtual de Azure | [Más información](../virtual-machines/sizes.md) sobre tamaños de máquina virtual.
@@ -254,6 +255,7 @@ En la tabla siguiente se resumen los límites de Site Recovery.
 - Estos límites se basan en nuestras pruebas, pero evidentemente no pueden cubrir todas las combinaciones de E/S posibles de la aplicación.
 - Los resultados reales pueden variar en función de la combinación de E/S de la aplicación.
 - Hay dos límites que deben tenerse en cuenta: renovación de datos por disco y por máquina virtual.
+- El límite actual para la actividad de datos por máquina virtual es de 54 MB/s, independientemente del tamaño.
 
 **Destino de almacenamiento** | **Promedio de E/S de disco de origen** |**Actividad de datos media de disco de origen** | **Actividad de datos de disco de origen total por día**
 ---|---|---|---
@@ -267,7 +269,7 @@ Disco Premium P20, P30, P40 o P50 | 16 KB, o más |20 MB/s | 1684 GB por disco
 ## <a name="replicated-machines---networking"></a>Máquinas replicadas: redes
 **Configuración** | **Soporte técnico** | **Detalles**
 --- | --- | ---
-NIC | Número máximo admitido para un tamaño específico de máquina virtual de Azure | Las NIC se crean cuando se crea la máquina virtual durante la conmutación por error.<br/><br/> El número de tarjetas NIC en la máquina virtual de conmutación por error viene determinado por el número de tarjetas NIC que haya en la máquina virtual de origen en el momento de habilitar la replicación. Si agrega o quita una tarjeta NIC después de habilitar la replicación, esto no influirá en el número de NIC de la máquina virtual replicada después de la conmutación por error. <br/><br/> No existe garantía de que el orden de lo adaptadores de red después de la conmutación sea el mismo que el orden original. <br/><br/> Puede cambiar el nombre de los adaptadores de red en la región de destino en función de las convenciones de nomenclatura de su organización.
+NIC | Número máximo admitido para un tamaño específico de máquina virtual de Azure | Las NIC se crean cuando se crea la máquina virtual durante la conmutación por error.<br/><br/> El número de tarjetas NIC en la máquina virtual de conmutación por error viene determinado por el número de tarjetas NIC que haya en la máquina virtual de origen en el momento de habilitar la replicación. Si agrega o quita una tarjeta NIC después de habilitar la replicación, esto no influirá en el número de NIC de la máquina virtual replicada después de la conmutación por error. <br/><br/> No existe garantía de que el orden de lo adaptadores de red después de la conmutación sea el mismo que el orden original. <br/><br/> Puede cambiar el nombre de los adaptadores de red en la región de destino en función de las convenciones de nomenclatura de su organización. El cambio de nombre de adaptador de red es compatible con PowerShell.
 Equilibrador de carga de Internet | Compatible | Asocie el equilibrador de carga configurado previamente con un script de Azure Automation de un plan de recuperación.
 Equilibrador de carga interno | Compatible | Asocie el equilibrador de carga configurado previamente con un script de Azure Automation de un plan de recuperación.
 Dirección IP pública | Compatible | Asocie una dirección IP pública existente a la NIC. O bien, cree una dirección IP pública y asóciela con la NIC mediante un script de Azure Automation de un plan de recuperación.

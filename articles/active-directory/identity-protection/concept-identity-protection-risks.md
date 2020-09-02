@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 08/15/2020
+ms.date: 08/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c92994fee6de4c56257343af2ef418393b505ad
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 3ecb25e9bb9625a5ada70be2df61898a462c86af
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507440"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815059"
 ---
 # <a name="what-is-risk"></a>¿Qué es el riesgo?
 
@@ -39,6 +39,7 @@ Estos riesgos se calculan sin conexión, usando orígenes de inteligencia sobre 
 | Detección de riesgos | Descripción |
 | --- | --- |
 | Credenciales con fugas | Este tipo de detección de riesgo indica que se han filtrado las credenciales válidas del usuario. Cuando los cibercriminales llegan a poner en peligro las contraseñas válidas de usuarios legítimos, es frecuente que las compartan. Normalmente lo hacen publicándolas en la Web oscura, los sitios de pegado, o bien mediante el intercambio o la venta de esas credenciales en el mercado negro. Cuando el servicio de credenciales filtradas de Microsoft adquiere las credenciales de usuario de la Web oscura, los sitios de pegado u otros orígenes, se comparan con las credenciales válidas actuales de los usuarios de Azure AD para encontrar coincidencias válidas. Para obtener más información sobre las credenciales filtradas, consulte [Preguntas frecuentes](#common-questions). |
+| Difusión de contraseñas | Un ataque de difusión de contraseñas es aquel por el que se ataca a varios nombres de usuario mediante contraseñas comunes, en un único ataque por la fuerza bruta, para obtener acceso no autorizado. Esta detección de riesgo se desencadena cuando se realiza un ataque de difusión de contraseñas. |
 | Inteligencia de Azure AD sobre amenazas | Este tipo de detección de riesgo indica una actividad de usuario poco común para el usuario en cuestión o coherente con patrones de ataque conocidos basados en orígenes de inteligencia sobre amenazas internas y externas de Microsoft. |
 
 ### <a name="sign-in-risk"></a>Riesgo de inicio de sesión
@@ -70,7 +71,7 @@ Estos riesgos se pueden calcular en tiempo real o sin conexión, usando orígene
 
 Identity Protection clasifica el riesgo en tres niveles: bajo, medio y alto. 
 
-Aunque Microsoft no proporciona detalles específicos sobre cómo se calcula el riesgo, podemos decir que cada nivel ofrece una mayor certeza de que el usuario o el inicio de sesión están en peligro. Por ejemplo, una situación en la que las propiedades de inicio de sesión de un usuario son desconocidas podría no plantear el mismo nivel de amenaza que una filtración de credenciales de otro usuario.
+Aunque Microsoft no proporciona detalles específicos sobre cómo se calcula el riesgo, diremos que cada nivel aporta una mayor seguridad de que el usuario o el inicio de sesión están en peligro. Por ejemplo, cosas como un caso de propiedades de inicio de sesión desconocidas para un usuario podría no ser tan amenazante como la filtración de credenciales para otro usuario.
 
 ### <a name="leaked-credentials"></a>Credenciales con fugas
 
