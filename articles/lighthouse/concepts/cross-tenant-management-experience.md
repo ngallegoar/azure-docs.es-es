@@ -3,12 +3,12 @@ title: Experiencias de administración entre inquilinos
 description: La administración de recursos delegados de Azure habilita una experiencia de administración entre inquilinos.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0ad1c0944076f24363961da21ee347dbd7c0239c
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 41e93f2a6a9fb21720dd2348dd611160b05b65c0
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163516"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146919"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiencias de administración entre inquilinos
 
@@ -35,7 +35,7 @@ Puede realizar tareas de administración en recursos delegados directamente en e
 
 El [cmdlet Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) de Azure PowerShell muestra los atributos `HomeTenantId` y `ManagedByTenantIds` de cada suscripción, lo que le permite identificar si una suscripción devuelta pertenece a un inquilino administrado o a un inquilino que administra.
 
-Del mismo modo, los comandos de la CLI de Azure como [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list) muestran los atributos `homeTenantId` y `managedByTenants`.
+Del mismo modo, los comandos de la CLI de Azure como [az account list](/cli/azure/account#az-account-list) muestran los atributos `homeTenantId` y `managedByTenants`.
 
 > [!TIP]
 > Si no ve estos valores al usar la CLI de Azure, intente borrar la memoria caché ejecutando `az account clear` seguido de `az login --identity`.

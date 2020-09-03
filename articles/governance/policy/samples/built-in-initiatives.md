@@ -4,12 +4,12 @@ description: Se enumeran las iniciativas de directiva integradas para Azure Poli
 ms.date: 07/10/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 23286e136a5b74a922c25af2e83a5019b387d64a
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: b458925d99b20fece95a5647ac48d75af43eea8e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276901"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89298147"
 ---
 # <a name="azure-policy-built-in-initiative-definitions"></a>Definiciones de iniciativa integradas de Azure Policy
 
@@ -19,27 +19,27 @@ El nombre de cada iniciativa integrada contiene un vínculo al origen de la defi
 
 ## <a name="cosmos-db"></a>Cosmos DB
 
-[!INCLUDE [azure-policy-samples-policysets-cosmos-db](../../../../includes/policy/samples/bycat/policysets-cosmos-db.md)]
+[!INCLUDE [azure-policy-reference-policysets-cosmos-db](../../../../includes/policy/reference/bycat/policysets-cosmos-db.md)]
 
 ## <a name="guest-configuration"></a>Configuración de invitado
 
-[!INCLUDE [azure-policy-samples-policysets-guest-configuration](../../../../includes/policy/samples/bycat/policysets-guest-configuration.md)]
+[!INCLUDE [azure-policy-reference-policysets-guest-configuration](../../../../includes/policy/reference/bycat/policysets-guest-configuration.md)]
 
 ## <a name="kubernetes"></a>Kubernetes
 
-[!INCLUDE [azure-policy-samples-policysets-kubernetes](../../../../includes/policy/samples/bycat/policysets-kubernetes.md)]
+[!INCLUDE [azure-policy-reference-policysets-kubernetes](../../../../includes/policy/reference/bycat/policysets-kubernetes.md)]
 
 ## <a name="monitoring"></a>Supervisión
 
-[!INCLUDE [azure-policy-samples-policysets-monitoring](../../../../includes/policy/samples/bycat/policysets-monitoring.md)]
+[!INCLUDE [azure-policy-reference-policysets-monitoring](../../../../includes/policy/reference/bycat/policysets-monitoring.md)]
 
 ## <a name="regulatory-compliance"></a>Cumplimiento normativo
 
-[!INCLUDE [azure-policy-samples-policysets-regulatory-compliance](../../../../includes/policy/samples/bycat/policysets-regulatory-compliance.md)]
+[!INCLUDE [azure-policy-reference-policysets-regulatory-compliance](../../../../includes/policy/reference/bycat/policysets-regulatory-compliance.md)]
 
 ## <a name="security-center"></a>Security Center
 
-[!INCLUDE [azure-policy-samples-policysets-security-center](../../../../includes/policy/samples/bycat/policysets-security-center.md)]
+[!INCLUDE [azure-policy-reference-policysets-security-center](../../../../includes/policy/reference/bycat/policysets-security-center.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

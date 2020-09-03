@@ -3,12 +3,13 @@ title: Creación de directivas de Configuración de invitado para Linux
 description: Aprenda a crear una directiva de Configuración de invitado de Azure Policy para Linux.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 7510cf378bc7e2d999de122be27662a7ccf0ba92
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 4f49732aa2be50b0d8be6f1f3af974121dc9f363
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717547"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076368"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Creación de directivas de Configuración de invitado para Linux
 

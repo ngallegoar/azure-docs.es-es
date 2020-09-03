@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 5be97414a2e4270870d976a9922415b227c66e27
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 91e75b60f5324288c9f1adac59e31b9c1a1b0e9e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924357"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289178"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Conexión a un almacén de conocimiento con Power BI
 
@@ -68,7 +68,7 @@ Haga clic en **Obtener plantilla de Power BI** en la página **Agregar conocimi
 
 1. Haga clic en el icono con flechas opuestas en el lado superior derecho de la tabla para expandir el *contenido*. Cuando aparezca la lista de columnas, seleccione todas las columnas y, a continuación, anule la selección de las columnas que comienzan por "metadata". Haga clic en **Aceptar** para mostrar las columnas seleccionadas.
 
-   ![Editar tablas](media/knowledge-store-connect-power-bi/powerbi-expand-content-table.png "Expandir contenido")
+   ![Expandir contenido](media/knowledge-store-connect-power-bi/powerbi-expand-content-table.png "Expandir contenido")
 
 1. Para cambiar el tipo de datos de las columnas siguientes, haga clic en el icono ABC-123 situado en la parte superior izquierda de la columna.
 
