@@ -48,7 +48,7 @@ Este es un extracto del proceso *Seleccionar condición* que ilustra los tipos d
 
 Después de seleccionar una señal, se le pedirá configurar la lógica de la alerta. Puede filtrar en una dimensión, establecer un valor de umbral para la alerta y establecer la frecuencia de las comprobaciones de la condición. Este es un ejemplo de configuración de una alerta para cuando la métrica promedio de Frecuencia de errores de enrutamiento supere el 5 %.
 
-:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Captura de pantalla que muestra la segunda página Configurar lógica de señal. La página muestra el historial de métricas, tiene un área para filtrar en una dimensión, como operaciones de Event Grid, y una sección para definir la lógica de alerta, como "el promedio es mayor que 5"":::
+:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Captura de pantalla que muestra la segunda página Configurar lógica de señal. La página muestra el historial de métricas, tiene un área para filtrar en una dimensión, como operaciones de Event Grid, y una sección para definir la lógica de alerta, como el promedio es mayor que 5":::
  
 Después de configurar las alertas, aparecerán de nuevo en la página *Alertas* correspondiente a la instancia.
  
