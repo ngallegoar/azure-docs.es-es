@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 220aa4e0d545eedcd1eb0e6f5a6555b17a361da2
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 781cc10895f3a77afe71d508c1194b425010ec41
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815307"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319549"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Creación y uso de imágenes de Linux en Azure
 
@@ -46,7 +46,7 @@ Azure ofrece dos tipos principales de imágenes, generalizadas y especializadas.
 
 ### <a name="generalized-images"></a>Imágenes generalizadas
 
-Una imagen generalizada es una imagen que requiere que se complete la configuración en el primer arranque. Por ejemplo, la primera vez que arranque establezca el nombre de host, el usuario administrador y otras configuraciones específicas de la máquina virtual. Esto resulta útil no solo si desea reutilizar la imagen varias veces, sino también si desea usar parámetros durante la creación. Si la imagen generalizada contiene el agente de Azure, este procesará los parámetros y transmitirá a la plataforma la señal de que se ha completado la configuración inicial. Este proceso se denomina **aprovisionamiento**. 
+Una imagen generalizada es una imagen que requiere que se complete la configuración en el primer arranque. Por ejemplo, la primera vez que arranque establezca el nombre de host, el usuario administrador y otras configuraciones específicas de la máquina virtual. Esto resulta útil no solo si desea reutilizar la imagen varias veces, sino también si desea usar parámetros durante la creación. Si la imagen generalizada contiene el agente de Azure, este procesará los parámetros y transmitirá a la plataforma la señal de que se ha completado la configuración inicial. Este proceso se denomina [aprovisionamiento](https://docs.microsoft.com/azure/virtual-machines/linux/provisioning). 
 
 El aprovisionamiento requiere que se incluya un aprovisionador en la imagen. Hay dos aprovisionadores:
 - [Agente Linux de Azure](../extensions/agent-linux.md)
