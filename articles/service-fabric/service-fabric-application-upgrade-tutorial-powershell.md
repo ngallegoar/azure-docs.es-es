@@ -3,12 +3,13 @@ title: Actualización de aplicaciones de Service Fabric con PowerShell
 description: Este artículo le guía a través de la experiencia de implementación de una aplicación de Service Fabric, la modificación del código y la aplicación de actualizaciones con PowerShell.
 ms.topic: conceptual
 ms.date: 8/5/2020
-ms.openlocfilehash: 2bd74d071d5dfb3385d4203704eacd5ba685917e
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 61eba8b7285c2a015ee40d48bc4a73850b412576
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064594"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075195"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Actualización de aplicaciones de Service Fabric con PowerShell
 > [!div class="op_single_selector"]

@@ -3,12 +3,12 @@ title: Administración de extensiones de máquina virtual con servidores habilit
 description: Los servidores habilitados para Azure Arc (versión preliminar) pueden administrar la implementación de extensiones de máquina virtual que proporcionan tareas de automatización y configuración posteriores a la implementación con máquinas virtuales que no son de Azure.
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1b27172a14896041cb4217b12af41d6a04118721
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 259a55c0e5cb4074871fd70a61e6c61d5cf3c50a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213117"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018168"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers-preview"></a>Administración de extensiones de máquina virtual con servidores habilitados para Azure Arc (versión preliminar)
 
@@ -89,7 +89,7 @@ Las extensiones de máquina virtual se pueden aplicar a la máquina administrada
 
     ![Instalación de la extensión de máquina virtual de Log Analytics](./media/manage-vm-extensions/mma-extension-config.png)
 
-    Para completar la instalación, debe proporcionar el id. del área de trabajo y la clave principal. Si no está familiarizado con el método para encontrar esta información, consulte [Obtención del id. y la clave del área de trabajo](../../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key).
+    Para completar la instalación, debe proporcionar el id. del área de trabajo y la clave principal. Si no está familiarizado con el método para encontrar esta información, consulte [Obtención del id. y la clave del área de trabajo](../../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
 
 4. Después de confirmar la información necesaria que proporcionó, seleccione **Crear**. Se muestra un resumen de la implementación y puede revisar el estado de esta.
 

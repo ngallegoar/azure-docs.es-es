@@ -6,12 +6,12 @@ ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 08/11/2020
-ms.openlocfilehash: 809011df3c8cd6dbc1ee2a2129a261102adb43c0
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: c1527161948a6312fc0877748b2818b3ccc2143e
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067858"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322626"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Tutoriales en vídeo del flujo de datos de asignación
 
@@ -107,8 +107,6 @@ Como se realizan actualizaciones constantemente en el producto, se han agregado 
 
 [Linaje de datos](https://www.youtube.com/watch?v=5KvqYF-y93s)
 
-[Consejos de optimización](https://www.youtube.com/watch?v=a2KtwUJngHo)
-
 [Iteración de archivos con parámetros](http://youtu.be/uEgz0ptYRDM?hd=1)
 
 [Reducción de los tiempos de inicio](https://youtu.be/FFCbU4ujCiY?t=528)
@@ -121,7 +119,7 @@ Como se realizan actualizaciones constantemente en el producto, se han agregado 
 
 [Optimización de los tiempos de inicio del flujo de datos](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
 
-[Azure Integration Runtime para flujos de datos](https://mssqldude.wordpress.com/)
+[Azure Integration Runtime para flujos de datos](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
 
 ## <a name="mapping-data-flow-scenarios"></a>Escenarios del flujo de datos de asignación
 
@@ -131,7 +129,7 @@ Como se realizan actualizaciones constantemente en el producto, se han agregado 
 
 [Patrón de limpieza de direcciones](https://youtu.be/axEYbuU3lmw)
 
-[Desduplicación](https://www.youtube.com/watch?v=OLenvYwg__I)
+[Desduplicación](https://youtu.be/QOi26ETtPTw)
 
 [Combinación de archivos](http://youtu.be/WbDTBAyYte8)
 

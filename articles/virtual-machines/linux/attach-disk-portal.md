@@ -4,15 +4,15 @@ description: Use el portal para conectar un disco de datos nuevo o existente a u
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 08/28/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 82b4bd4444ae73b6a4631bae7efb8110de00f439
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: a37ed39f3c663f9f77daa1ed8f6946403348edd0
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757715"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89072645"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Uso del portal para conectar un disco de datos a una máquina virtual Linux 
 En este artículo se muestra cómo adjuntar discos nuevos y existentes a una máquina virtual Linux a través del Portal de Azure. También puede [adjuntar un disco de datos a una máquina virtual con Windows en Azure Portal](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -138,15 +138,17 @@ sudo mount /dev/sdc1 /datadrive
 Para asegurarse de que la unidad se vuelve a montar automáticamente después de reiniciar, debe agregarse al archivo */etc/fstab*. Además, se recomienda usar el UUID (identificador único global) en */etc/fstab* para hacer referencia a la unidad, en lugar de solo el nombre del dispositivo (por ejemplo, */dev/sdc1*). Si el SO detecta un error de disco durante el arranque, con el UUID se evita que se monte el disco incorrecto en una ubicación especificada. A los discos de datos restantes se les asignarán después esos mismos identificadores de dispositivo. Para buscar el UUID de la unidad nueva, use la utilidad `blkid`:
 
 ```bash
-sudo -i blkid
+sudo blkid
 ```
 
 El resultado es similar al ejemplo siguiente:
 
 ```bash
-/dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
-/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"
-/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
+/dev/sda1: LABEL="cloudimg-rootfs" UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4" PARTUUID="1a1b1c1d-11aa-1234-1a1a1a1a1a1a"
+/dev/sda15: LABEL="UEFI" UUID="BCD7-96A6" TYPE="vfat" PARTUUID="1e1g1cg1h-11aa-1234-1u1u1a1a1u1u"
+/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4" TYPE="ext4" PARTUUID="1a2b3c4d-01"
+/dev/sda14: PARTUUID="2e2g2cg2h-11aa-1234-1u1u1a1a1u1u"
+/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="xfs" PARTLABEL="xfspart" PARTUUID="c1c2c3c4-1234-cdef-asdf3456ghjk"
 ```
 
 > [!NOTE]
@@ -161,7 +163,7 @@ sudo nano /etc/fstab
 En este ejemplo, use el valor de UUID para el dispositivo `/dev/sdc1` que se creó en los pasos anteriores y el punto de montaje `/datadrive`. Agregue la línea siguiente al final del archivo `/etc/fstab`:
 
 ```bash
-UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
+UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,nofail   1   2
 ```
 
 Usamos el editor nano, así que cuando haya terminado de editar el archivo, use `Ctrl+O` para escribir el archivo y `Ctrl+X` para salir del editor.
@@ -204,7 +206,7 @@ Hay dos maneras de habilitar la compatibilidad con TRIM en su máquina virtual L
 * Use la opción de montaje `discard` en */etc/fstab*, por ejemplo:
 
     ```bash
-    UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
+    UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,discard   1   2
     ```
 * En algunos casos, la opción `discard` podría tener afectar al rendimiento. Como alternativa, puede ejecutar el comando `fstrim` manualmente desde la línea de comandos o agregarlo a su crontab para ejecutar con regularidad:
   

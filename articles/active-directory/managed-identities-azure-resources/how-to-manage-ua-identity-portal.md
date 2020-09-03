@@ -3,7 +3,7 @@ title: 'Cómo administrar una identidad administrada asignada por el usuario med
 description: Instrucciones paso a paso para crear, enumerar, eliminar y asignar un rol a una identidad administrada asignada por el usuario.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/26/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 348d436d1cb1fa838a34c9ebe86f5e37f0f85803
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: e5045c81f280d9d7687a466aed2e918d21eec697
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930575"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266394"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Creación, enumeración, eliminación o asignación de un rol a una identidad administrada asignada por el usuario mediante Azure Portal
 
@@ -35,7 +35,7 @@ En este artículo aprenderá a crear, enumerar, eliminar y asignar un rol a una 
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Crear una identidad administrada asignada por el usuario
 
-Para crear una identidad administrada asignada por el usuario, la cuenta requiere la asignación del rol [Colaborador de identidades administradas](/azure/role-based-access-control/built-in-roles#managed-identity-contributor).
+Para crear una identidad administrada asignada por el usuario, la cuenta requiere la asignación del rol [Colaborador de identidades administradas](../../role-based-access-control/built-in-roles.md#managed-identity-contributor).
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta asociada a la suscripción de Azure para crear la identidad administrada asignada por el usuario.
 2. En el cuadro de búsqueda, escriba *Identidades administradas* y en **Servicios**, haga clic en **Identidades administradas**.
@@ -50,7 +50,7 @@ Para crear una identidad administrada asignada por el usuario, la cuenta requier
 
 ## <a name="list-user-assigned-managed-identities"></a>Enumerar identidades administradas asignadas por el usuario
 
-Para crear o leer una identidad administrada asignada por el usuario, la cuenta requiere la asignación del rol [Operador de identidades administradas ](/azure/role-based-access-control/built-in-roles#managed-identity-operator) o [Colaborador de identidades administradas](/azure/role-based-access-control/built-in-roles#managed-identity-contributor).
+Para crear o leer una identidad administrada asignada por el usuario, la cuenta requiere la asignación del rol [Operador de identidades administradas ](../../role-based-access-control/built-in-roles.md#managed-identity-operator) o [Colaborador de identidades administradas](../../role-based-access-control/built-in-roles.md#managed-identity-contributor).
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta asociada a la suscripción de Azure para enumerar las identidades administradas asignadas por el usuario.
 2. En el cuadro de búsqueda, escriba *Identidades administradas* y en Servicios, haga clic en **Identidades administradas**.
@@ -60,9 +60,9 @@ Para crear o leer una identidad administrada asignada por el usuario, la cuenta 
 
 ## <a name="delete-a-user-assigned-managed-identity"></a>Eliminar una identidad administrada asignada por el usuario
 
-Para eliminar una identidad administrada asignada por el usuario, la cuenta requiere la asignación del rol [Colaborador de identidades administradas](/azure/role-based-access-control/built-in-roles#managed-identity-contributor).
+Para eliminar una identidad administrada asignada por el usuario, la cuenta requiere la asignación del rol [Colaborador de identidades administradas](../../role-based-access-control/built-in-roles.md#managed-identity-contributor).
 
-La eliminación de una identidad asignada por el usuario no la quita de ninguna VM o recurso a la que estuviera asignada.  Para quitar la identidad asignada por el usuario desde una máquina virtual, consulte [Eliminación de una identidad administrada asignada por el usuario de una VM](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#remove-a-user-assigned-managed-identity-from-a-vm).
+La eliminación de una identidad asignada por el usuario no la quita de ninguna VM o recurso a la que estuviera asignada.  Para quitar la identidad asignada por el usuario desde una máquina virtual, consulte [Eliminación de una identidad administrada asignada por el usuario de una VM](./qs-configure-portal-windows-vm.md#remove-a-user-assigned-managed-identity-from-a-vm).
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta asociada a la suscripción de Azure para eliminar una identidad administrada asignada por el usuario.
 2. Seleccione la identidad administrada asignada por el usuario y haga clic en **Eliminar**.
@@ -72,7 +72,7 @@ La eliminación de una identidad asignada por el usuario no la quita de ninguna 
 
 ## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>Asignación de un rol a una identidad administrada asignada por el usuario 
 
-Para asignar un rol a una identidad administrada asignada por el usuario, la cuenta requiere la asignación del rol [Administrador de acceso de usuario](/azure/role-based-access-control/built-in-roles#user-access-administrator).
+Para asignar un rol a una identidad administrada asignada por el usuario, la cuenta requiere la asignación del rol [Administrador de acceso de usuario](../../role-based-access-control/built-in-roles.md#user-access-administrator).
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta asociada a la suscripción de Azure para enumerar las identidades administradas asignadas por el usuario.
 2. En el cuadro de búsqueda, escriba *Identidades administradas* y en Servicios, haga clic en **Identidades administradas**.
@@ -86,4 +86,4 @@ Para asignar un rol a una identidad administrada asignada por el usuario, la cue
    - **Asignar acceso a**: el recurso al que se asigna la identidad administrada asignada por el usuario
    - **Seleccionar**: el miembro al que se asigna acceso
    
-   ![IAM de identidad administrada asignada por el usuario](./media/how-to-manage-ua-identity-portal/assign-role-screenshot2.png)  
+   ![IAM de identidad administrada asignada por el usuario](./media/how-to-manage-ua-identity-portal/assign-role-screenshot2.png)
