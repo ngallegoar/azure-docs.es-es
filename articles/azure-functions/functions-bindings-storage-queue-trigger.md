@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 515e23fa318e8e77024dadefe9a13e795999f820
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 01021530c491fd25a199f32475c031a0e7f6cd0b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761702"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376645"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Desencadenador de Azure Queue Storage para Azure Functions
 
@@ -388,7 +388,7 @@ El algoritmo utiliza la siguiente lógica:
 - Cuando se encuentra un mensaje, el entorno de ejecución espera dos segundos y, a continuación, busca otro mensaje.
 - Si no encuentra ningún mensaje, espera unos cuatro segundos antes de volver a intentarlo.
 - Después de varios intentos fallidos para obtener un mensaje de la cola, el tiempo de espera sigue aumentando hasta que alcanza el tiempo de espera máximo, predeterminado en un minuto.
-- El tiempo de espera máximo se configura mediante la propiedad `maxPollingInterval` en el [archivo host.json](functions-host-json.md#queues).
+- El tiempo de espera máximo se configura mediante la propiedad `maxPollingInterval` en el [archivo host.json](functions-host-json-v1.md#queues).
 
 En el desarrollo local, el intervalo máximo de sondeo predeterminado es de dos segundos.
 

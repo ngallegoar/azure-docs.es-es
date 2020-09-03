@@ -3,20 +3,20 @@ title: 'Azure Front Door: almacenamiento en caché | Microsoft Docs'
 description: Este artículo le ayuda a comprender cómo Azure Front Door supervisa el estado de los servidores back-end.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: e521711cdf488f00b56e2805ee0aaa6ee8412958
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.author: duau
+ms.openlocfilehash: 1cb24e4a959e7d32a3c3b5b69a39938df4efddfa
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056965"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399878"
 ---
 # <a name="caching-with-azure-front-door"></a>Almacenamiento en caché con Azure Front Door
 En el documento siguiente se especifica el comportamiento de Front Door con reglas de enrutamiento que han habilitado el almacenamiento en caché. Front Door es una red Content Delivery Network (CDN) moderna, junto con la aceleración de sitios dinámicos y el equilibrio de carga; también admite comportamientos de almacenamiento en caché como cualquier otra red CDN.

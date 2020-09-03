@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81f3f771987ce2ff11aab88a4d35df01b6c85941
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 5cead917c6c98d10d3f9e5ebe2f75bd5513574c5
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184353"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948936"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Términos de uso de Azure Active Directory
 
@@ -50,7 +50,7 @@ Términos de uso de Azure AD tiene las siguientes funcionalidades:
 - Mostrar quién ha aceptado o no los términos de uso.
 - Ayudar a cumplir los reglamentos de privacidad.
 - Mostrar un registro de la actividad de términos de uso a efectos de cumplimiento y auditoría.
-- Crear y administrar los términos de uso mediante [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/agreement) (actualmente en versión preliminar).
+- Crear y administrar los términos de uso mediante [Microsoft Graph API](/graph/api/resources/agreement?view=graph-rest-beta) (actualmente en versión preliminar).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

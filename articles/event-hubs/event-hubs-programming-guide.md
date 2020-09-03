@@ -3,12 +3,13 @@ title: 'Guía de programación de .NET: Azure Event Hubs (heredado) | Microsoft 
 description: En este artículo se proporciona información sobre cómo escribir código para Azure Event Hubs con el SDK de Azure .NET.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 5be30d7786fa094a55badb7b38ff2116a6013b6a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 17bec931f79a6dbb3d98270ab0ff6e2d1d4c6541
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934028"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013918"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Guía de programación de .NET para Azure Event Hubs (paquete heredado Microsoft.Azure.EventHubs)
 En este artículo se describen algunos escenarios comunes para escribir código mediante Azure Event Hubs. En él se presupone un conocimiento previo de Event Hubs. Para obtener una visión general conceptual de Event Hubs, consulte la [Información general de Azure Event Hubs](./event-hubs-about.md).

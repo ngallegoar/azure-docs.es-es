@@ -10,13 +10,13 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 6e34bd91a1deb5bbd28c11e8f23ea2b812333aaf
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.custom: how-to, devx-track-python, devx-track-csharp
+ms.openlocfilehash: 56cd2117a352626cf59023d62ea8c931401389c5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652600"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018100"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir un modelo de Azure Machine Learning que está implementado como un servicio web
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -179,7 +179,7 @@ Para obtener información sobre cómo habilitar la compatibilidad con CORS en un
 
 ## <a name="call-the-service-c"></a>Llamada al servicio (C#)
 
-En este ejemplo se muestra cómo usar C# para llamar al servicio web creado a partir del ejemplo [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb):
+En este ejemplo se muestra cómo usar C# para llamar al servicio web creado a partir del ejemplo [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb):
 
 ```csharp
 using System;
@@ -268,7 +268,7 @@ Los resultados devueltos son similares al siguiente documento JSON:
 
 ## <a name="call-the-service-go"></a>Llamada al servicio (Go)
 
-En este ejemplo se muestra cómo usar Go para llamar al servicio web creado a partir del ejemplo [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb):
+En este ejemplo se muestra cómo usar Go para llamar al servicio web creado a partir del ejemplo [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb):
 
 ```go
 package main
@@ -360,7 +360,7 @@ Los resultados devueltos son similares al siguiente documento JSON:
 
 ## <a name="call-the-service-java"></a>Llamada al servicio (Java)
 
-En este ejemplo se muestra cómo usar Java para llamar al servicio web creado a partir del ejemplo [Train within notebook ](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb):
+En este ejemplo se muestra cómo usar Java para llamar al servicio web creado a partir del ejemplo [Train within notebook ](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb):
 
 ```java
 import java.io.IOException;
@@ -440,7 +440,7 @@ Los resultados devueltos son similares al siguiente documento JSON:
 
 ## <a name="call-the-service-python"></a>Llamada al servicio (Python)
 
-En este ejemplo muestra cómo utilizar Python para llamar al servicio web creado a partir del ejemplo [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb):
+En este ejemplo muestra cómo utilizar Python para llamar al servicio web creado a partir del ejemplo [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb):
 
 ```python
 import requests

@@ -9,17 +9,19 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: tutorial
-ms.date: 08/11/2020
+ms.topic: how-to
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: a046a3caba9a0909d873356bda8d1fa6cf1f9860
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 0bdb2c36bc895c9229e4c04e9e0d76aa852bd139
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719264"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297313"
 ---
 # <a name="upload-media-for-streaming-or-encoding"></a>Carga de elementos multimedia para la transmisión por secuencias o la codificación
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 En Media Services, los archivos digitales (elementos multimedia) se cargan en un contenedor de blobs asociado con un recurso. La entidad [Recurso](/rest/api/media/operations/asset) puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos sobre estos archivos). Una vez cargados los archivos en el contenedor del recurso, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming.
 

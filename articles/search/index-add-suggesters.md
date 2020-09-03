@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/21/2020
-ms.openlocfilehash: b7918f83d5328c0bf75461d564f3833167c6195e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4889e73e851e285c84d5d4429298e9a7cdacc140
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924561"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014394"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Creación de un proveedor de sugerencias para habilitar la función autocompletar y los resultados sugeridos en una consulta
 

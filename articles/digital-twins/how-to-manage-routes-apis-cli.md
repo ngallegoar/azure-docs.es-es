@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6ae3e72dc6e79b252c79c78fd5fac27bff8d4740
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 27b745353521a44733c46170a5f5952c194c2343
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905234"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293513"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Administración de puntos de conexión y rutas en Azure Digital Twins (API y CLI)
 
@@ -179,6 +179,8 @@ Estos son los filtros de ruta admitidos. Use los detalles de la columna *Filtrar
 ## <a name="manage-endpoints-and-routes-with-cli"></a>Administración de puntos de conexión y rutas con la CLI
 
 Los puntos de conexión y las rutas también se pueden administrar mediante la CLI de Azure Digital Twins. Para obtener más información sobre el uso de la CLI y los comandos disponibles, consulte [*Procedimiento: Uso de la CLI de Azure Digital Twins*](how-to-use-cli.md).
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 [!INCLUDE [digital-twins-route-metrics](../../includes/digital-twins-route-metrics.md)]
 

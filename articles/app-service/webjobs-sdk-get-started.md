@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: ded612fb79001adf2ada1a289603bc8a7561d38f
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: eebdf053cc3eea1dfc91476bff3817891bec42a3
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612493"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959066"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introducción al SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
@@ -184,7 +184,7 @@ A partir de la versión 3.x, es necesario instalar explícitamente la extensión
 
    El atributo `QueueTrigger` indica el tiempo de ejecución para llamar a esta función cuando se escribe un mensaje nuevo en una cola de Azure Storage denominada `queue`. El contenido del mensaje de cola se proporciona para el código del método en el parámetro `message`. El cuerpo del método es donde se procesan los datos de desencadenador. En este ejemplo, el código solo registra el mensaje.
 
-   El parámetro `message` no tiene que ser una cadena. También puede enlazar a un objeto JSON, una matriz de bytes o un objeto [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage). Consulte [Uso del desencadenador de cola](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#usage). Cada tipo de enlace (como colas, blobs o tablas) tiene un conjunto diferente de tipos de parámetros con los que puede enlazar.
+   El parámetro `message` no tiene que ser una cadena. También puede enlazar a un objeto JSON, una matriz de bytes o un objeto [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage). Consulte [Uso del desencadenador de cola](../azure-functions/functions-bindings-storage-queue-trigger.md?tabs=csharp#usage). Cada tipo de enlace (como colas, blobs o tablas) tiene un conjunto diferente de tipos de parámetros con los que puede enlazar.
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
@@ -280,7 +280,7 @@ En esta sección, va a crear y ejecutar el proyecto localmente, y desencadenar l
 
    Debido a que ha utilizado el atributo `QueueTrigger` en la función `ProcessQueueMessage`, el tiempo de ejecución del SDK de WeJobs escucha los mensajes de cola cuando se inicia. Encuentra un nuevo mensaje de cola en la cola denominada *queue* (cola) y llama a la función.
 
-   Debido al [retroceso exponencial del sondeo de la cola](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#polling-algorithm), el tiempo de ejecución podría tardar hasta 2 minutos en encontrar el mensaje e invocar la función. Este tiempo de espera se puede reducir mediante la ejecución en [modo de desarrollo](webjobs-sdk-how-to.md#host-development-settings).
+   Debido al [retroceso exponencial del sondeo de la cola](../azure-functions/functions-bindings-storage-queue-trigger.md?tabs=csharp#polling-algorithm), el tiempo de ejecución podría tardar hasta 2 minutos en encontrar el mensaje e invocar la función. Este tiempo de espera se puede reducir mediante la ejecución en [modo de desarrollo](webjobs-sdk-how-to.md#host-development-settings).
 
    La salida de la consola tendrá un aspecto similar al siguiente:
 
@@ -444,7 +444,7 @@ Durante la implementación, cree una instancia de App Service en la que se ejecu
 1. Actualice la página **Cola** y el nuevo mensaje desaparecerá porque se ha procesado por la función que se ejecuta en Azure.
 
    > [!TIP]
-   > Cuando está realizando pruebas en Azure, utilice el [modo de desarrollo](webjobs-sdk-how-to.md#host-development-settings) para garantizar que se invoca a una función de desencadenador de cola de inmediato y evitar retrasos debido al [retroceso exponencial del sondeo de la cola](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#polling-algorithm).
+   > Cuando está realizando pruebas en Azure, utilice el [modo de desarrollo](webjobs-sdk-how-to.md#host-development-settings) para garantizar que se invoca a una función de desencadenador de cola de inmediato y evitar retrasos debido al [retroceso exponencial del sondeo de la cola](../azure-functions/functions-bindings-storage-queue-trigger.md?tabs=csharp#polling-algorithm).
 
 ### <a name="view-logs-in-application-insights"></a>Visualización de registros en Application Insights
 
