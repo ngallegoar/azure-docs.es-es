@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fafe9fd46322b0720d876f5b70d204fdf23fbb2
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: f58e5a07348dfde4e4618eb58746f08016c55ed6
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716306"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049577"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Crear una estrategia de administración de control de acceso resistente con Azure Active Directory
 
@@ -92,7 +92,7 @@ Este conjunto de directivas de ejemplo concederá a los usuarios seleccionados e
 
 ### <a name="contingencies-for-user-lockout"></a>Contingencias para el bloqueo de usuario
 
-Como alternativa, su organización también puede crear directivas de contingencia. Para crear directivas de contingencia, debe definir los criterios de equilibrio entre la continuidad del negocio, los costos operacionales, los costos financieros y los riesgos de seguridad. Por ejemplo, puede activar una directiva de contingencia solo a un subconjunto de usuarios, para un subconjunto de aplicaciones, para un subconjunto de clientes, o desde un subconjunto de ubicaciones. Las directivas de contingencia darán acceso a los administradores y usuarios finales a aplicaciones y recursos, durante una interrupción cuando no se implementase ningún método de mitigación. Microsoft recomienda habilitar las directivas de contingencia en [modo de solo informe](../conditional-access/howto-conditional-access-report-only.md) cuando no se usan, para que los administradores puedan supervisar el posible impacto de las directivas en caso de que deban activarse.
+Como alternativa, su organización también puede crear directivas de contingencia. Para crear directivas de contingencia, debe definir los criterios de equilibrio entre la continuidad del negocio, los costos operacionales, los costos financieros y los riesgos de seguridad. Por ejemplo, puede activar una directiva de contingencia solo a un subconjunto de usuarios, para un subconjunto de aplicaciones, para un subconjunto de clientes, o desde un subconjunto de ubicaciones. Las directivas de contingencia darán acceso a los administradores y usuarios finales a aplicaciones y recursos, durante una interrupción cuando no se implementase ningún método de mitigación. Microsoft recomienda habilitar las directivas de contingencia en [modo de solo informe](../conditional-access/howto-conditional-access-insights-reporting.md) cuando no se usan, para que los administradores puedan supervisar el posible impacto de las directivas en caso de que deban activarse.
 
  Comprender la exposición durante una interrupción ayuda a reducir el riesgo y es una parte fundamental del proceso de planeación. Para crear el plan de contingencia, primero determine los siguientes requisitos empresariales de su organización:
 
