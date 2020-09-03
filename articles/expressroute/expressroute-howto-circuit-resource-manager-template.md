@@ -2,17 +2,17 @@
 title: 'Plantilla de Azure ExpressRoute: Creación de un circuito ExpressRoute'
 description: Aprenda a crear un circuito de Azure ExpressRoute mediante la implementación de una plantilla de Azure Resource Manager con Azure PowerShell.
 services: expressroute
-author: charwen
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.author: charwen
-ms.openlocfilehash: 78318726a658b6e0dc966288f386c65ee4c6f0e4
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.author: duau
+ms.openlocfilehash: 73efae90f4403d1fbab3319ce0288761d3867340
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190444"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396172"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Creación de un circuito de ExpressRoute mediante una plantilla de Azure Resource Manager
 

@@ -3,12 +3,12 @@ title: Configuración de su propia clave para cifrar datos en reposo de Azure Se
 description: En este artículo se proporciona información sobre cómo configurar su propia clave para cifrar datos en reposo de Azure Service Bus.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 97de8df336367a74f66628675569c06d7726f2a4
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: e3da167fcdd3bac53de86dae07242cf8bccb621c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067246"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400592"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configuración de claves administradas por el cliente para cifrar datos en reposo de Azure Service Bus mediante Azure Portal
 Azure Service Bus Premium proporciona cifrado de datos en reposo con Azure Storage Service Encryption (Azure SSE). Service Bus Premium se basa en Azure Storage para almacenar los datos y, de forma predeterminada, todos los datos que se almacenan con Azure Storage se cifran mediante claves administradas por Microsoft. 
@@ -82,12 +82,12 @@ Después de habilitar las claves administradas por el cliente, debe asociar la c
     > 
     >   * Si la [recuperación ante desastres geográfica](service-bus-geo-dr.md) ya está habilitada para el espacio de nombres de Service Bus y desea habilitar la clave administrada por el cliente, siga estos pasos: 
     >     * Interrumpa el emparejamiento
-    >     * [Configure la directiva de acceso](../key-vault/general/managed-identity.md) para la identidad administrada de los espacios de nombres principal y secundario en el almacén de claves.
+    >     * [Configure la directiva de acceso](../key-vault/general/assign-access-policy-portal.md) para la identidad administrada de los espacios de nombres principal y secundario en el almacén de claves.
     >     * Configure el cifrado en el espacio de nombres principal.
     >     * Vuelva a emparejar los espacios de nombres principal y secundario.
     > 
     >   * Si desea habilitar la recuperación ante desastres geográfica en un espacio de nombres de Service Bus en el que la clave administrada por el cliente ya está configurada, haga lo siguiente:
-    >     * [Configure la directiva de acceso](../key-vault/general/managed-identity.md) para la identidad administrada del espacio de nombres secundario en el almacén de claves.
+    >     * [Configure la directiva de acceso](../key-vault/general/assign-access-policy-portal.md) para la identidad administrada del espacio de nombres secundario en el almacén de claves.
     >     * Empareje los espacios de nombres principal y secundario.
 
 

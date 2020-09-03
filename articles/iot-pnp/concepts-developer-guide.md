@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9e6d13fedbfa495448164c1354868e12992dd71c
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: f1860f9645a50789803d509a6a1ea98bc0ea1a9e
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88856035"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950143"
 ---
 # <a name="iot-plug-and-play-preview-developer-guide"></a>Guía para desarrolladores de IoT Plug and Play (versión preliminar)
 
@@ -57,7 +57,7 @@ El anuncio del id. de modelo se ha agregado a las siguientes versiones de los SD
 
 ## <a name="dps-payload"></a>Carga de DPS
 
-Los dispositivos que usan [Device Provisioning Service (DPS)](/iot-dps/) pueden incluir el elemento `modelId` que se usará durante el proceso de aprovisionamiento con la siguiente carga JSON.
+Los dispositivos que usan [Device Provisioning Service (DPS)](../iot-dps/about-iot-dps.md) pueden incluir el elemento `modelId` que se usará durante el proceso de aprovisionamiento con la siguiente carga JSON.
 
 ```json
 {

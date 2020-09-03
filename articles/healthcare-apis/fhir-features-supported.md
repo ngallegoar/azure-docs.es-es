@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 46568bf3969d050fd964c85278debd9d599db266
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: bdf328222fef1f763776bd26c47f5cd4d65e487e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796568"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000012"
 ---
 # <a name="features"></a>Características
 
@@ -98,7 +98,7 @@ Se admiten todos los tipos de parámetro de búsqueda.
 | Operaciones de búsqueda       | Admitida: PaaS | Admitida: OSS (SQL) | Admitida: OSS (Cosmos DB) | Comentario |
 |-------------------------|-----------|-----------|-----------|---------|
 | `_filter`               | No        | No        | No        |         |
-| `_sort`                 | No        | No        | No        |         |
+| `_sort`                 | No        | Parcial   | Parcial        |   `_sort=_lastUpdated` se admite       |
 | `_score`                | No        | No        | No        |         |
 | `_count`                | Sí       | Sí       | Sí       |         |
 | `_summary`              | Parcial   | Parcial   | Parcial   | `_summary=count` se admite |
