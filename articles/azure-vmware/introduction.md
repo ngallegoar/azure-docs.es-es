@@ -3,12 +3,12 @@ title: Introducción
 description: Obtenga información sobre las características y las ventajas de Azure VMware Solution para implementar y administrar las cargas de trabajo basadas en VMware en Azure.
 ms.topic: overview
 ms.date: 05/04/2020
-ms.openlocfilehash: 9d39cb759190eef535519decccec943ab66de2c7
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 3d6801a6cdec7600cc6003711a08e6af8c86483e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752134"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005061"
 ---
 # <a name="what-is-azure-vmware-solution-preview"></a>¿Qué es la versión preliminar de Azure VMware Solution?
 
@@ -46,7 +46,7 @@ Las actualizaciones periódicas del software de VMware y de la nube privada de A
 
 ## <a name="monitoring-your-private-cloud"></a>Supervisión de una nube privada
 
-Puede usar los [registros de Azure Monitor](../azure-monitor/overview.md) para recopilar los registros de las máquinas virtuales que se ejecuten en una nube privada de Azure VMware Solution. Puede [descargar e instalar el agente de MMA](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) en las máquinas virtuales Linux y Windows que se ejecutan en las nubes privadas de Azure VMware Solution. Para ello, puede usar las mismas consultas que se ejecutan en las máquinas virtuales locales. Puede ejecutar las mismas consultas que ejecutaría normalmente en las máquinas virtuales, exactamente las mismas. Para más información sobre cómo crear consultas, consulte el apartado en que se indica [cómo escribir consultas](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries).
+Puede usar los [registros de Azure Monitor](../azure-monitor/overview.md) para recopilar los registros de las máquinas virtuales que se ejecuten en una nube privada de Azure VMware Solution. Puede [descargar e instalar el agente de MMA](../azure-monitor/platform/log-analytics-agent.md#installation-options) en las máquinas virtuales Linux y Windows que se ejecutan en las nubes privadas de Azure VMware Solution. Para ello, puede usar las mismas consultas que se ejecutan en las máquinas virtuales locales. Puede ejecutar las mismas consultas que ejecutaría normalmente en las máquinas virtuales, exactamente las mismas. Para más información sobre cómo crear consultas, consulte el apartado en que se indica [cómo escribir consultas](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

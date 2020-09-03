@@ -8,12 +8,12 @@ ms.date: 08/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 5141ad9c088998bbc0ea241382c47f7b74b014b4
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 2c9c63956144c6438dc0900fa9fdd06ce7d30f60
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815902"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322065"
 ---
 # <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links"></a>CLI de Azure: restricción del acceso de importación y exportación de discos administrados con instancias de Private Link
 
@@ -162,4 +162,4 @@ az deployment group create -g $resourceGroupName \
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Preguntas más frecuentes sobre vínculos privados](../faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
-- [Exportación o copia de instantáneas administradas como VHD a una cuenta de almacenamiento de otra región con CLI](../scripts/virtual-machines-linux-cli-sample-copy-managed-disks-vhd.md)
+- [Exportación o copia de instantáneas administradas como VHD a una cuenta de almacenamiento de otra región con CLI](../scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md)

@@ -3,7 +3,7 @@ title: 'Configuración de identidades administradas en VMSS de Azure: Azure AD'
 description: Instrucciones detalladas para configurar identidades administradas de recursos de Azure en un conjunto de escalado de máquinas virtuales mediante Azure Portal.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d05ee1be18b315c63ccf9d564ea95391a163826e
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: e9ab1adeac5f8c67e06682f49fdded88e6a350e7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924502"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262680"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Configuración de identidades administradas de recursos de Azure en un conjunto de escalado de máquinas virtuales mediante Azure Portal
 
@@ -37,7 +37,7 @@ En este artículo, mediante PowerShell, aprenderá a realizar las operaciones de
     > [!NOTE]
     > No se requieren asignaciones de roles del directorio de Azure AD.
 
-    - [Colaborador de máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para habilitar y quitar la identidad administrada asignada por el sistema desde un conjunto de escalado de máquinas virtuales.
+    - [Colaborador de máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) para habilitar y quitar la identidad administrada asignada por el sistema desde un conjunto de escalado de máquinas virtuales.
 
 ## <a name="system-assigned-managed-identity"></a>Identidad administrada asignada por el sistema
 

@@ -7,12 +7,12 @@ ms.date: 08/28/2019
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 2aed6a2fea38f10a2e06ea51edb7fb529c8a2dde
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 33eaf6274f2da09ab98a21e6028b0103df817744
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212526"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961370"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Ejecución de un contenedor personalizado en Azure
 
@@ -103,7 +103,7 @@ Cree una aplicación web ASP.NET siguiendo estos pasos:
 
    ![Configurar una instancia de Web App for Containers](media/quickstart-custom-container/configure-web-app-continer.png)
 
-    Si tiene una imagen personalizada de la aplicación web en otra parte como, por ejemplo, en [Azure Container Registry](/azure/container-registry/) o en cualquier otro repositorio privado, puede configurarla aquí.
+    Si tiene una imagen personalizada de la aplicación web en otra parte como, por ejemplo, en [Azure Container Registry](../container-registry/index.yml) o en cualquier otro repositorio privado, puede configurarla aquí.
 
 1. Seleccione **Revisar y crear** y, después, **Crear** y espere que Azure cree los recursos necesarios.
 
@@ -173,8 +173,8 @@ Vuelva a [desplazarse a la aplicación de contenedor](#browse-to-the-container-a
 
 Puede usar otra imagen personalizada de Docker para ejecutar la aplicación. Sin embargo, debe elegir la [imagen primaria (imagen base)](https://docs.docker.com/develop/develop-images/baseimages/) correcta para la plataforma que desee:
 
-- Para implementar aplicaciones de .NET Framework, use una imagen primaria basada en la versión del [canal de mantenimiento a largo plazo (LTSC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) de Windows Server Core 2019. 
-- Para implementar aplicaciones de .NET Core, use una imagen primaria basada en la versión del [canal de servicio semianual (SAC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) de Windows Server Nano 1809. 
+- Para implementar aplicaciones de .NET Framework, use una imagen primaria basada en la versión del [canal de mantenimiento a largo plazo (LTSC)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) de Windows Server Core 2019. 
+- Para implementar aplicaciones de .NET Core, use una imagen primaria basada en la versión del [canal de servicio semianual (SAC)](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) de Windows Server Nano 1809. 
 
 La descarga de una imagen primaria tarda un tiempo en completarse durante el inicio de la aplicación. Sin embargo, puede reducir el tiempo de inicio mediante una de las siguientes imágenes primarias que ya están almacenadas en caché en Azure App Service:
 
@@ -188,7 +188,7 @@ La descarga de una imagen primaria tarda un tiempo en completarse durante el ini
 ::: zone-end  
 
 ::: zone pivot="container-linux"
-App Service en Linux proporciona pilas de aplicaciones predefinidas en Linux con compatibilidad con lenguajes como .NET, PHP o Node.js entre otros. También puede usar una imagen personalizada de Docker para ejecutar la aplicación web en una pila de aplicaciones aún sin definir en Azure. En este inicio rápido se muestra cómo implementar una imagen desde [Azure Container Registry](/azure/container-registry) (ACR) en App Service.
+App Service en Linux proporciona pilas de aplicaciones predefinidas en Linux con compatibilidad con lenguajes como .NET, PHP o Node.js entre otros. También puede usar una imagen personalizada de Docker para ejecutar la aplicación web en una pila de aplicaciones aún sin definir en Azure. En este inicio rápido se muestra cómo implementar una imagen desde [Azure Container Registry](../container-registry/index.yml) (ACR) en App Service.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -200,7 +200,7 @@ App Service en Linux proporciona pilas de aplicaciones predefinidas en Linux con
 
 ## <a name="create-an-image"></a>Crear una imagen
 
-Para completar este inicio rápido, necesitará una imagen de aplicación web adecuada almacenada en [Azure Container Registry](/azure/container-registry). Siga las instrucciones del artículo [Guía de inicio rápido: Creación de un registro de contenedor privado con Azure Portal](/azure/container-registry/container-registry-get-started-portal), pero use la imagen `mcr.microsoft.com/azuredocs/go` en lugar de `hello-world`. Como referencia, el [ejemplo de Dockerfile se encuentra en el repositorio Azure Samples](https://github.com/Azure-Samples/go-docs-hello-world).
+Para completar este inicio rápido, necesitará una imagen de aplicación web adecuada almacenada en [Azure Container Registry](../container-registry/index.yml). Siga las instrucciones del artículo [Guía de inicio rápido: Creación de un registro de contenedor privado con Azure Portal](../container-registry/container-registry-get-started-portal.md), pero use la imagen `mcr.microsoft.com/azuredocs/go` en lugar de `hello-world`. Como referencia, el [ejemplo de Dockerfile se encuentra en el repositorio Azure Samples](https://github.com/Azure-Samples/go-docs-hello-world).
 
 > [!IMPORTANT]
 > Asegúrese de establecer la opción **Usuario administrador** en **Habilitar** al crear el registro de contenedor. También puede establecerla en la sección **Claves de acceso** de la página de registro en Azure Portal. Esta opción de configuración es necesaria para el acceso a App Service.
@@ -261,4 +261,4 @@ A continuación, vea otras extensiones de Azure.
 
 O bien, puede conseguirlas todas si instala el paquete de extensiones [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack).
 
-::: zone-end  
+::: zone-end

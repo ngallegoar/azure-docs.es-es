@@ -9,12 +9,13 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: ebeea9cd6e928a9d9d77a8475cee774f3d33b28e
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3ec3e44c667d6821c4a6dc0779a760b65de5046e
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752970"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321909"
 ---
 <a name="HOLTop"></a>
 
@@ -264,5 +265,5 @@ Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede elimin
 > [!div class="nextstepaction"]
 >[Referencia de la API Computer Vision (.NET)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet)
 
-* [¿Qué es Computer Vision?](../../Home.md)
+* [¿Qué es Computer Vision?](../../overview.md)
 * El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs).

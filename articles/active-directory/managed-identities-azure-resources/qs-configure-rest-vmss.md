@@ -3,7 +3,7 @@ title: 'Configuración de identidades administradas en un conjunto de escalado d
 description: Instrucciones paso a paso para configurar identidades administradas asignadas por el sistema y por el usuario en un conjunto de escalado de máquinas virtuales de Azure mediante CURL para llamar a la API REST.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bf514480f0ca247606ffbc50148556eeed007c8
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 09a66f45fe3e20bedf5ff99ee924ac267b4fd869
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921527"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266806"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configuración de identidades administradas de recursos de Azure en un conjunto de escalado de máquinas virtuales mediante llamadas a la API REST
 
@@ -42,11 +42,11 @@ En este artículo, mediante CURL para llamar al punto de conexión REST de Azure
     > [!NOTE]
     > No se requieren asignaciones de roles del directorio de Azure AD.
 
-    - [Colaborador de máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para crear un conjunto de escalado de máquinas virtuales y habilitar y quitar la identidad administrada asignada por el usuario o el sistema desde un conjunto de escalado de máquinas virtuales.
-    - Rol [Colaborador de identidad administrada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) para crear una identidad administrada asignada por el usuario.
-    - Rol [Operador de identidad administrada](/azure/role-based-access-control/built-in-roles#managed-identity-operator) para asignar y quitar una identidad asignada por el usuario en un conjunto de escalado de máquinas virtuales.
-- Si usa Windows, instale el [subsistema de Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about) o [Azure Cloud Shell](../../cloud-shell/overview.md) en Azure Portal.
-- [Instale la consola local de la CLI de Azure](/cli/azure/install-azure-cli) si utiliza el [subsistema de Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about) o un [sistema operativo de distribución de Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
+    - [Colaborador de máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) para crear un conjunto de escalado de máquinas virtuales y habilitar y quitar la identidad administrada asignada por el usuario o el sistema desde un conjunto de escalado de máquinas virtuales.
+    - Rol [Colaborador de identidad administrada](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) para crear una identidad administrada asignada por el usuario.
+    - Rol [Operador de identidad administrada](../../role-based-access-control/built-in-roles.md#managed-identity-operator) para asignar y quitar una identidad asignada por el usuario en un conjunto de escalado de máquinas virtuales.
+- Si usa Windows, instale el [subsistema de Windows para Linux](/windows/wsl/about) o [Azure Cloud Shell](../../cloud-shell/overview.md) en Azure Portal.
+- [Instale la consola local de la CLI de Azure](/cli/azure/install-azure-cli) si utiliza el [subsistema de Windows para Linux](/windows/wsl/about) o un [sistema operativo de distribución de Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
 - Si utiliza la consola local de la CLI de Azure, inicie sesión en Azure mediante `az login` con una cuenta que esté asociada a la suscripción de Azure de la que desea administrar las identidades administradas asignadas por el usuario o por el sistema.
 
 

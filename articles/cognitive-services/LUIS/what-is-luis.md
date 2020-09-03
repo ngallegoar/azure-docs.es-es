@@ -5,12 +5,12 @@ keywords: Azure, artificial intelligence, ai, natural language processing, nlp, 
 ms.topic: overview
 ms.date: 08/07/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 22fe99e1552a9612adfbc455d60852f1591a1a54
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 98d801f6a34feb40d56215f8b6257a68ec628e10
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752151"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320059"
 ---
 # <a name="what-is-language-understanding-luis"></a>¿Qué es Language Understanding (LUIS)?
 
@@ -64,7 +64,7 @@ Diseñe su modelo con las categorías de intenciones del usuario llamadas **[int
 |`When does your store open?`|StoreHoursAndLocation|abierto|
 |`Schedule a meeting at 1pm with Bob in Distribution`|ScheduleMeeting|1 p.m., Bob|
 
-Cree el modelo con las API de [creación](https://go.microsoft.com/fwlink/?linkid=2092087), con el [**portal de LUIS**](https://www.luis.ai) o con ambos. Obtenga más información sobre cómo crear con el [portal](get-started-portal-build-app.md) y las [bibliotecas de cliente del SDK](quickstart-sdk.md).
+Cree el modelo con las API de [creación](https://go.microsoft.com/fwlink/?linkid=2092087), con el [**portal de LUIS**](https://www.luis.ai) o con ambos. Obtenga más información sobre cómo crear con el [portal](get-started-portal-build-app.md) y las [bibliotecas de cliente del SDK](azure-sdk-quickstart.md).
 
 ## <a name="step-2-get-the-query-prediction"></a>Paso 2: Obtención de la predicción de consulta
 
@@ -126,7 +126,7 @@ LUIS proporciona una funcionalidad de Text Analytics como parte de los recursos 
 
 ## <a name="learn-with-the-quickstarts"></a>Aprenda con las guías de inicio rápido
 
-Obtenga información sobre LUIS con inicios rápidos prácticos mediante el [portal](get-started-portal-build-app.md) y las [bibliotecas de cliente del SDK](quickstart-sdk.md).
+Obtenga información sobre LUIS con inicios rápidos prácticos mediante el [portal](get-started-portal-build-app.md) y las [bibliotecas de cliente del SDK](azure-sdk-quickstart.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
