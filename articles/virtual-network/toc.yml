@@ -111,6 +111,9 @@
           href: ddos-protection-overview.md
         - name: TAP de red virtual
           href: virtual-network-tap-overview.md
+        - name: Controles de seguridad de Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
     - name: Subredes
       items:
         - name: Extensión de subred
@@ -239,7 +242,7 @@
               items:
                 - name: Creación de una dirección IP pública
                   items:
-                    - name: Azure Portal
+                    - name: Azure portal
                       href: routing-preference-portal.md
                     - name: Azure PowerShell
                       href: routing-preference-powershell.md
@@ -247,7 +250,7 @@
                       href: routing-preference-cli.md
                 - name: Configuración de una máquina virtual con preferencia de enrutamiento de Internet
                   items:
-                    - name: Azure Portal
+                    - name: Azure portal
                       href: tutorial-routing-preference-virtual-machine-portal.md
                     - name: Azure PowerShell
                       href: configure-routing-preference-virtual-machine-powershell.md

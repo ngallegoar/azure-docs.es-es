@@ -72,6 +72,9 @@
           href: concepts-data-access-security-private-link.md
         - name: Protección contra amenazas avanzada
           href: concepts-data-access-and-security-threat-protection.md
+        - name: Controles de seguridad de Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Línea de base de seguridad
           href: security-baseline.md
     - name: Continuidad empresarial

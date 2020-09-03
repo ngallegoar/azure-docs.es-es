@@ -70,23 +70,23 @@
             - name: Máquina virtual a partir de carga de VHD
               href: ./../scripts/virtual-machines-windows-powershell-upload-generalized-script.md
             - name: Conexión de un disco de sistema operativo
-              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md
+              href: ./../scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md
             - name: Máquina virtual a partir de instantánea
               href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md
         - name: Administración del almacenamiento
           items:
             - name: Creación de un disco administrado a partir de un VHD
-              href: ../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md
+              href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md
             - name: Creación de un disco administrado a partir de una instantánea
-              href: ../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md
+              href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md
             - name: Copia de un disco administrado
               href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md
             - name: Exportación de una instantánea como VHD a una cuenta de almacenamiento
               href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md
             - name: Exportación del disco duro virtual de un disco administrado a una cuenta de almacenamiento
-              href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd.md
+              href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md
             - name: Creación de una instantánea a partir de un disco duro virtual
-              href: ../scripts/virtual-machines-windows-powershell-sample-create-snapshot-from-vhd.md
+              href: ../scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md
             - name: Copia de una instantánea
               href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
         - name: Seguridad
@@ -118,15 +118,15 @@
         - name: Administración del almacenamiento
           items:
             - name: Creación de un disco administrado desde un disco duro virtual
-              href: ../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-vhd.md
+              href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd.md
             - name: Creación de un disco administrado a partir de una instantánea
-              href: ../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-snapshot.md
+              href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot.md
             - name: Copia de un disco administrado
               href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
             - name: Exportación de una instantánea como un disco duro virtual a una cuenta de almacenamiento
               href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md
             - name: Exportación del disco duro virtual de un disco administrado a una cuenta de almacenamiento
-              href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-vhd.md
+              href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md
             - name: Copia de una instantánea
               href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription.md
         - name: Red
@@ -172,7 +172,7 @@
         - name: Tamaños de VM
           href: ../sizes.md
         - name: Máquinas virtuales de segunda generación
-          href: generation-2.md
+          href: ../generation-2.md
         - name: Uso general
           items:
             - name: Información general
@@ -621,7 +621,7 @@
     - name: Administración de máquinas virtuales
       items:
         - name: Uso de máquinas virtuales
-          href: vm-usage.md
+          href: ../vm-usage.md
         - name: Tareas comunes de PowerShell
           href: ps-common-ref.md
         - name: Cambio del tamaño de máquina virtual

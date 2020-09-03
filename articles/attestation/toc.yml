@@ -15,7 +15,7 @@
     - name: Creación y firma una directiva de atestación
       href: author-sign-policy.md
     - name: Ejemplos de código de atestación de SGX
-      href: 'https://docs.microsoft.com/en-us/samples/browse/?expanded=azure&terms=attestation'
+      href: /samples/browse/?expanded=azure&terms=attestation
 - name: Ejemplos
   items:
     - name: Directiva de atestación
