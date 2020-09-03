@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 7/14/2020
-ms.openlocfilehash: 8c8bcb6bde7ec7ec3e3f7f60213dbbc641cfa127
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 88ecd2dda91d72c0ff3d4bf9c85b783445514e81
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281674"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179562"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Guía de incorporación del programa Connect para fabricantes de software independientes (ISV) de Microsoft Business Applications
 

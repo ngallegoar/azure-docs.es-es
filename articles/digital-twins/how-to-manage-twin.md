@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 995d621ffbabd6743d248812c88ebe7e65da24ca
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: b88d017110f4d7b9859f2d801c5405ecee1589c5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796959"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297474"
 ---
 # <a name="manage-digital-twins"></a>Administración de Digital Twins
 
@@ -381,6 +381,8 @@ Para obtener un ejemplo de cómo eliminar todos los gemelos a la vez, descargue 
 ## <a name="manage-twins-with-cli"></a>Administración de gemelos con la CLI
 
 Los gemelos también se pueden administrar con la CLI de Azure Digital Twins. Los comandos se pueden encontrar en [*Procedimiento: Uso de la CLI de Azure Digital Twins*](how-to-use-cli.md).
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

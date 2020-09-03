@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46a56e830c8c9b55c9bbe48cd7d23ad8475b51b8
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 7eb39f1053abeb201c413db7c6bbd3e9f261bd95
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853021"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011351"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planeamiento de una implementación de revisiones de acceso de Azure Active Directory
 
@@ -182,7 +182,7 @@ Entre los objetivos típicos de revisión, se incluyen:
 
 * La [pertenencia](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) a un grupo (sincronizado con Azure AD o creado en Azure AD u Office 365, incluido Microsoft Teams).
 
-* Un [paquete de acceso](/entitlement-management-overview.md) que agrupa recursos (grupos, aplicaciones y sitios) en un único paquete para administrar el acceso.
+* Un [paquete de acceso](/azure/active-directory/governance/entitlement-management-overview) que agrupa recursos (grupos, aplicaciones y sitios) en un único paquete para administrar el acceso.
 
 * [Roles de recursos de Azure AD y de Azure Resource](../privileged-identity-management/pim-resource-roles-assign-roles.md), tal y como se definen en Privileged Identity Management.
 
@@ -422,7 +422,7 @@ Para reducir el riesgo de acceso por parte de dispositivos obsoletos, los admini
 | Artículos de procedimientos| Descripción |
 | - | - |
 | [Crear revisiones de acceso](entitlement-management-access-reviews-create.md)| Muestra cómo revisar un paquete de acceso. |
-| [Realizar revisiones de acceso](/entitlement-management-access-reviews-review-access.md)| Indica cómo realizar revisiones de acceso para otros usuarios asignados a un paquete de acceso. |
+| [Realizar revisiones de acceso](entitlement-management-access-reviews-review-access.md)| Indica cómo realizar revisiones de acceso para otros usuarios asignados a un paquete de acceso. |
 | [Paquetes de acceso con autorrevisión asignada](entitlement-management-access-reviews-self-review.md)| Aborda los paquetes de acceso con autorrevisión asignada. |
 
 

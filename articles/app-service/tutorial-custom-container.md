@@ -7,18 +7,18 @@ ms.author: msangapu
 keywords: azure app service, web app, linux, windows, docker, container
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: a3579ba805d0da08184e6274de60086a9d55a938
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: df46d61ddfba5f4da977b19db3158691c78168f8
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212947"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958497"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migración de software personalizado a Azure App Service mediante un contenedor personalizado
 
 ::: zone pivot="container-windows"  
 
-[Azure App Service](overview.md) proporciona las pilas de aplicaciones predefinidas en Windows, como ASP.NET o Node.js, que se ejecutan en IIS. El entorno preconfigurado de Windows bloquea el sistema operativo desde el acceso administrativo, las instalaciones de software, cambios en la caché global de ensamblados, etc (consulte [Funcionalidad del sistema operativo en Azure App Service](operating-system-functionality.md)). Sin embargo, con un contenedor de Windows personalizado en App Service (versión preliminar) se pueden realizar los cambios en el sistema operativo que necesita la aplicación, por lo que es fácil migrar aplicaciones locales que requieren configuración personalizada para el sistema operativo y el software. En este tutorial se muestra cómo migrar a App Service a partir de una aplicación de ASP.NET que utiliza fuentes personalizadas instaladas en la biblioteca de fuentes de Windows. Implemente una imagen de Windows con configuración personalizada de Visual Studio en [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) y ejecútela en App Service.
+[Azure App Service](overview.md) proporciona las pilas de aplicaciones predefinidas en Windows, como ASP.NET o Node.js, que se ejecutan en IIS. El entorno preconfigurado de Windows bloquea el sistema operativo desde el acceso administrativo, las instalaciones de software, cambios en la caché global de ensamblados, etc (consulte [Funcionalidad del sistema operativo en Azure App Service](operating-system-functionality.md)). Sin embargo, con un contenedor de Windows personalizado en App Service (versión preliminar) se pueden realizar los cambios en el sistema operativo que necesita la aplicación, por lo que es fácil migrar aplicaciones locales que requieren configuración personalizada para el sistema operativo y el software. En este tutorial se muestra cómo migrar a App Service a partir de una aplicación de ASP.NET que utiliza fuentes personalizadas instaladas en la biblioteca de fuentes de Windows. Implemente una imagen de Windows con configuración personalizada de Visual Studio en [Azure Container Registry](../container-registry/index.yml) y ejecútela en App Service.
 
 ![Muestra la aplicación web que se ejecuta en un contenedor Windows.](media/tutorial-custom-container/app-running.png)
 
@@ -92,7 +92,7 @@ Puede encontrar _InstallFont.ps1_ en el proyecto **CustomFontSample**. Es un sen
 
 ## <a name="publish-to-azure-container-registry"></a>Publicación en Azure Container Registry
 
-[Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) puede almacenar las imágenes para las implementaciones de contenedor. Puede configurar App Service para usar imágenes hospedadas en Azure Container Registry.
+[Azure Container Registry](../container-registry/index.yml) puede almacenar las imágenes para las implementaciones de contenedor. Puede configurar App Service para usar imágenes hospedadas en Azure Container Registry.
 
 ### <a name="open-publish-wizard"></a>Apertura del asistente para publicación
 
@@ -439,7 +439,7 @@ Para implementar un contenedor en Azure App Service, primero debe crear una apli
     
     Para más información sobre esta variable de entorno, consulte el archivo [Léame del repositorio de GitHub del ejemplo](https://github.com/Azure-Samples/docker-django-webapp-linux).
 
-1. Habilite la [identidad administrada](/azure/app-service/overview-managed-identity) para la aplicación web mediante el comando [`az webapp identity assign`](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign):
+1. Habilite la [identidad administrada](./overview-managed-identity.md) para la aplicación web mediante el comando [`az webapp identity assign`](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign):
 
     ```azurecli-interactive
     az webapp identity assign --resource-group AppSvc-DockerTutorial-rg --name <app-name> --query principalId --output tsv
@@ -466,7 +466,7 @@ Para implementar un contenedor en Azure App Service, primero debe crear una apli
     - `<registry-name>` por el nombre del registro de contenedor
     - `<subscription-id>` por el identificador de suscripción recuperado con el comando `az account show`
 
-Para más información acerca de estos permisos, consulte [¿Qué es el control de acceso basado en rol de Azure (RBAC)?](/azure/role-based-access-control/overview). 
+Para más información acerca de estos permisos, consulte [¿Qué es el control de acceso basado en rol de Azure (RBAC)?](../role-based-access-control/overview.md). 
 
 ## <a name="deploy-the-image-and-test-the-app"></a>Implementación de la imagen y prueba de la aplicación
 
