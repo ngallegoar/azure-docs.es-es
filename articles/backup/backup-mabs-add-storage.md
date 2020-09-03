@@ -3,12 +3,12 @@ title: Uso de Modern Backup Storage con Azure Backup Server
 description: Obtenga información sobre las nuevas características de Azure Backup Server. En este artículo se describe cómo actualizar la instalación de la instancia de Backup Server.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: b8620f6999c1fcb1a1e70c73fb71fcaac008d930
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 997b2052751473d095b6534ef0bcbe3ed6a099ad
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825875"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378243"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Adición de almacenamiento a Azure Backup Server
 
@@ -105,7 +105,7 @@ La actualización de los grupos de protección para que usen Modern Backup Stora
 
    ![Detener protección de miembro](/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
-2. En el cuadro de diálogo **Quitar del grupo**, revise el espacio en disco usado y el espacio disponible para el grupo de almacenamiento. El valor predeterminado es dejar los puntos de recuperación en el disco y permitirles expirar según su directiva de retención asociada. Haga clic en **OK**.
+2. En el cuadro de diálogo **Quitar del grupo**, revise el espacio en disco usado y el espacio disponible para el grupo de almacenamiento. El valor predeterminado es dejar los puntos de recuperación en el disco y permitirles expirar según su directiva de retención asociada. Seleccione **Aceptar**.
 
    Si quiere devolver de inmediato el espacio en disco usado al grupo de almacenamiento libre, active la casilla **Eliminar réplica en disco** para eliminar los datos de copia de seguridad (y los puntos de recuperación) asociados a ese miembro.
 

@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: 106427a6b26386e6ff881862f836e9108a27aa96
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: c34cf47a5b8c20c10b160ac6e55309b3c18448f3
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88082326"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959024"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>Tutorial: Solución de problemas de una aplicación de App Service con Azure Monitor
 
@@ -18,9 +18,9 @@ ms.locfileid: "88082326"
 > La integración de Azure Monitor con App Service se encuentra en [versión preliminar](https://aka.ms/appsvcblog-azmon).
 >
 
-En este tutorial se muestra cómo solucionar los problemas de una aplicación de [App Service](overview.md) mediante [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview). La aplicación de ejemplo incluye código destinado a agotar la memoria y provocar errores HTTP 500, de modo que puede diagnosticar y corregir el problema mediante Azure Monitor. Cuando haya terminado, tendrá una aplicación de ejemplo que se ejecuta en App Service en Linux integrado con [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
+En este tutorial se muestra cómo solucionar los problemas de una aplicación de [App Service](overview.md) mediante [Azure Monitor](../azure-monitor/overview.md). La aplicación de ejemplo incluye código destinado a agotar la memoria y provocar errores HTTP 500, de modo que puede diagnosticar y corregir el problema mediante Azure Monitor. Cuando haya terminado, tendrá una aplicación de ejemplo que se ejecuta en App Service en Linux integrado con [Azure Monitor](../azure-monitor/overview.md).
 
-[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) maximiza la disponibilidad y el rendimiento de las aplicaciones y los servicios con una completa solución que permite recopilar, analizar y actuar sobre datos de telemetría tanto en la nube como en entornos locales.
+[Azure Monitor](../azure-monitor/overview.md) maximiza la disponibilidad y el rendimiento de las aplicaciones y los servicios con una completa solución que permite recopilar, analizar y actuar sobre datos de telemetría tanto en la nube como en entornos locales.
 
 En este tutorial, aprenderá a:
 
@@ -38,7 +38,7 @@ También puede seguir los pasos de este tutorial en macOS, Linux, Windows.
 Para completar este tutorial, necesita:
 
 - [Suscripción de Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [CLI de Azure](/cli/azure/install-azure-cli)
 - [Git](https://git-scm.com/)
 
 ## <a name="create-azure-resources"></a>Creación de recursos de Azure
@@ -73,12 +73,12 @@ az monitor log-analytics workspace create --resource-group myResourceGroup --wor
 
 ### <a name="create-a-diagnostic-setting"></a>Creación de una configuración de diagnóstico
 
-Las configuraciones de diagnóstico se pueden usar para recopilar métricas para determinados servicios de Azure en los registros de Azure Monitor para analizarlas con otros datos de supervisión mediante consultas de registro. En este tutorial, habilitará el servidor web y los registros de error y salida estándar. Consulte los [tipos de registro admitidos](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs#supported-log-types) para obtener una lista completa de los tipos de registro y sus descripciones.
+Las configuraciones de diagnóstico se pueden usar para recopilar métricas para determinados servicios de Azure en los registros de Azure Monitor para analizarlas con otros datos de supervisión mediante consultas de registro. En este tutorial, habilitará el servidor web y los registros de error y salida estándar. Consulte los [tipos de registro admitidos](./troubleshoot-diagnostic-logs.md#supported-log-types) para obtener una lista completa de los tipos de registro y sus descripciones.
 
 Ejecute los siguientes comandos para crear la configuración de diagnóstico para AppServiceConsoleLogs (error y salida estándar) y AppServiceHTTPLogs (registros del servidor web). Reemplace _\<app-name>_ y _\<workspace-name>_ por sus valores. 
 
 > [!NOTE]
-> Los dos primeros comandos, `resourceID` y `workspaceID`, son variables que se utilizarán en el comando `az monitor diagnostic-settings create`. Consulte [Creación de una configuración de diagnóstico con la CLI de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings#create-diagnostic-settings-using-azure-cli) para más información sobre este comando.
+> Los dos primeros comandos, `resourceID` y `workspaceID`, son variables que se utilizarán en el comando `az monitor diagnostic-settings create`. Consulte [Creación de una configuración de diagnóstico con la CLI de Azure](../azure-monitor/platform/diagnostic-settings.md#create-using-azure-cli) para más información sobre este comando.
 >
 
 ```bash
@@ -129,7 +129,7 @@ En Azure Portal, seleccione el área de trabajo de Log Analytics.
 
 ### <a name="log-queries"></a>Consultas de registros
 
-Las consultas de registro ayudan a aprovechar al máximo el valor de los datos recopilados en registros de Azure Monitor. Las consultas de registro se usan para identificar los registros tanto en AppServiceHTTPLogs como en AppServiceConsoleLogs. Consulte [Introducción a las consultas de registro](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) para más información sobre las consultas de registro.
+Las consultas de registro ayudan a aprovechar al máximo el valor de los datos recopilados en registros de Azure Monitor. Las consultas de registro se usan para identificar los registros tanto en AppServiceHTTPLogs como en AppServiceConsoleLogs. Consulte [Introducción a las consultas de registro](../azure-monitor/log-query/log-query-overview.md) para más información sobre las consultas de registro.
 
 ### <a name="view-appservicehttplogs-with-log-query"></a>Visualización de AppServiceHTTPLogs con una consulta de registro
 

@@ -4,12 +4,12 @@ description: Residencia de datos e información sobre los servidores habilitados
 ms.topic: reference
 ms.date: 08/25/2020
 ms.custom: references_regions
-ms.openlocfilehash: 028398c27dde9760192d366b9e8a91dca8e429cf
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 8f207f5889c1764eebcc6081960ff70c0d5bca3a
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88860468"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048863"
 ---
 # <a name="azure-arc-enabled-servers-preview-data-residency"></a>Servidores habilitados para Azure Arc (versión preliminar): Residencia de datos
 
@@ -34,4 +34,4 @@ Para obtener más información sobre la resistencia regional y la compatibilidad
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre el diseño de la [resistencia de Azure](/architecture/reliability/architect).
+Más información sobre el diseño de la [resistencia de Azure](/azure/architecture/reliability/architect).

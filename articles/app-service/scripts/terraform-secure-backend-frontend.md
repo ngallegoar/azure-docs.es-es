@@ -8,21 +8,21 @@ ms.date: 08/10/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 238cd5e79fe749052206cfdf25d576f88f1020e8
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 76591b9f397bd84e5afac19a56dd2c6467f4650f
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065444"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962237"
 ---
 # <a name="create-two-web-apps-connected-securely-with-private-endpoint-and-vnet-integration"></a>Cree dos aplicaciones web conectadas de forma segura con Punto de conexión privado e Integración con red virtual
 
-En este artículo se muestra un ejemplo de uso de [Punto de conexión privado](https://docs.microsoft.com/azure/app-service/networking/private-endpoint) y de [Integración de red virtual](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) para conectar dos aplicaciones web (front-end y back-end) de forma segura siguiendo estos pasos:
+En este artículo se muestra un ejemplo de uso de [Punto de conexión privado](../networking/private-endpoint.md) y de [Integración de red virtual](../web-sites-integrate-with-vnet.md) para conectar dos aplicaciones web (front-end y back-end) de forma segura siguiendo estos pasos:
 - Implementación de una red virtual
 - Creación de la primera subred para la integración
 - Creación de la segunda subred para el punto de conexión privado; para ello, tiene que establecer un parámetro específico y deshabilitar las directivas de red
 - Implementación de un plan de App Service de tipo PremiumV2, la SKU mínima necesaria para la característica Punto de conexión privado
-- Cree la aplicación web de front-end con una configuración de aplicación específica para usar la zona DNS privada; [consulte aquí más detalles](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#azure-dns-private-zones)
+- Cree la aplicación web de front-end con una configuración de aplicación específica para usar la zona DNS privada; [consulte aquí más detalles](../web-sites-integrate-with-vnet.md#azure-dns-private-zones)
 - Conexión de la aplicación web front-end a la subred de integración
 - Creación de la aplicación web back-end
 - Creación de la zona privada de DNS con el nombre de la zona de vínculo privado para la aplicación web privatelink.azurewebsites.net
@@ -31,7 +31,7 @@ En este artículo se muestra un ejemplo de uso de [Punto de conexión privado](h
 
 ## <a name="how-to-use-terraform-in-azure"></a>Procedimiento para usar Terraform en Azure
 
-Vaya a la [documentación de Azure](https://docs.microsoft.com/azure/developer/terraform/) para aprender a usar Terraform con Azure.
+Vaya a la [documentación de Azure](/azure/developer/terraform/) para aprender a usar Terraform con Azure.
 
 ## <a name="the-complete-terraform-file"></a>El archivo Terraform completo
 
@@ -149,4 +149,4 @@ resource "azurerm_private_endpoint" "privateendpoint" {
 ## <a name="next-steps"></a>Pasos siguientes
 
 
-> [Más información sobre el uso de Terraform en Azure](https://docs.microsoft.com/azure/developer/terraform/)
+> [Más información sobre el uso de Terraform en Azure](/azure/developer/terraform/)
