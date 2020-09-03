@@ -7,12 +7,13 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: a4d8a919d1881f61e490f135cc8fb1659c64cbd3
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: d5d66ca05390af5f6fef91ca959f1db3d547d3fb
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871129"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014054"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-header-too-large-message"></a>Diagnóstico y solución de problemas del mensaje "Encabezado de solicitud demasiado grande" de Azure Cosmos DB
 El mensaje "Encabezado de solicitud demasiado grande" se muestra con un código de error HTTP 400. Este error se produce cuando el tamaño del encabezado de solicitud ha crecido tanto que supera el tamaño máximo permitido. Se recomienda usar la versión más reciente del SDK. Utilice como mínimo la versión 3.x o 2.x, ya que estas versiones agregan un seguimiento del tamaño del encabezado al mensaje de excepción.
