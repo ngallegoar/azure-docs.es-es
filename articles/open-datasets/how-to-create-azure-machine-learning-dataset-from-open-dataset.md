@@ -8,12 +8,12 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 96eeafd7e434e2c3a42311999fcd4979531df2aa
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 00718e15b069e9be25abdaf0e4460eae20c6afd0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88584886"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998082"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Creación de conjuntos de datos de Azure Machine Learning en Azure Open Datasets
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,7 +27,7 @@ Mediante la creación de un [conjunto de datos de Azure Machine Learning](../mac
 
 Para comprender el lugar de los almacenes de datos en el flujo de trabajo global de acceso a datos de Azure Machine Learning, consulte el artículo [Acceso seguro a los datos](../machine-learning/concept-data.md#data-workflow).
 
-Azure Open Datasets son conjuntos de datos públicos mantenidos que puede usar para agregar características de escenarios específicos con el fin de enriquecer sus soluciones predictivas y mejorar su precisión. Consulte el [Catálogo Open Datasets](https://azure.microsoft.com/services/op[en-datasets/catalog/) para encontrar los datos de dominio público que pueden ayudarle a entrenar modelos de Machine Learning, como:
+Azure Open Datasets son conjuntos de datos públicos mantenidos que puede usar para agregar características de escenarios específicos con el fin de enriquecer sus soluciones predictivas y mejorar su precisión. Consulte el [Catálogo Open Datasets](https://azure.microsoft.com/en-in/services/open-datasets/catalog/) para encontrar los datos de dominio público que pueden ayudarle a entrenar modelos de Machine Learning, como:
 
 * [tiempo](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/)
 * [censo](https://azure.microsoft.com/services/open-datasets/catalog/us-decennial-census-zip/)

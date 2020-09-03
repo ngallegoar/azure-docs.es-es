@@ -11,19 +11,19 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 075bf78599602b1b92f3cec01fe5dfb92b5321cc
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: fcb38f761a72bf2c6e5dee8bb993cec9143e7241
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654453"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998958"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-gen2-environment-using-c-sharp"></a>Consulta de datos desde el entorno de Azure Time Series Insights Gen2 mediante C Sharp
 
 En este ejemplo de C# se muestra cómo consultar datos desde las [API de acceso a datos de segunda generación](https://docs.microsoft.com/rest/api/time-series-insights/reference-data-access-overview) en los entornos de Azure Time Series Insights de segunda generación.
 
 > [!TIP]
-> Consulte ejemplos de código C# de segunda generación en [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen1-sample/csharp-tsi-gen1-sample).
+> Consulte ejemplos de código C# de segunda generación en [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen2-sample/csharp-tsi-gen2-sample).
 
 ## <a name="summary"></a>Resumen
 
@@ -71,7 +71,7 @@ Como alternativa, agregue cada paquete con [NuGet 2.12+](https://www.nuget.org/
 
 ## <a name="c-sample-code"></a>Código de ejemplo de C#
 
-Consulte el repositorio [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen1-sample/csharp-tsi-gen1-sample/Program.cs) para acceder al código de ejemplo de C#. 
+Consulte el repositorio [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen2-sample/csharp-tsi-gen2-sample) para acceder al código de ejemplo de C#. 
 
 > [!NOTE]
 >

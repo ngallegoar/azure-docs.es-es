@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cffd72171693499365f31b6eb51fd2586187b98b
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 93caf52d8b4a11f9843ad5f18ebf968d1d0730cd
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271270"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226214"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Tutorial: Configuración del asistente de Log Analytics
 
@@ -41,15 +41,15 @@ En este tutorial, aprenderá a:
 
 Familiarícese con estos artículos:
 
-- [Tutorial: Recopilación y análisis de registros de recurso desde un recurso de Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs)
+- [Tutorial: Recopilación y análisis de registros de recurso desde un recurso de Azure](../../azure-monitor/learn/tutorial-resource-logs.md)
 
-- [Integración de registros de actividad con Log Analytics](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Integración de registros de actividad con Log Analytics](./howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Administración de cuentas de acceso de emergencia en Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
+- [Administración de cuentas de acceso de emergencia en Azure AD](../users-groups-roles/directory-emergency-access.md)
 
-- [Referencia rápida de KQL](https://docs.microsoft.com/azure/data-explorer/kql-quick-reference)
+- [Referencia rápida de KQL](/azure/data-explorer/kql-quick-reference)
 
-- [Libros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
+- [Libros de Azure Monitor](../../azure-monitor/platform/workbooks-overview.md)
 
 
 
