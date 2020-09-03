@@ -9,12 +9,12 @@ author: ericgre
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 8b15b3c4444a6f26734b133f169cea7074956ae7
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: f88ccd077c857826271484c9929b37f8c5d751fe
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042918"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962713"
 ---
 # <a name="terraform-samples-for-azure-app-service"></a>Ejemplos de Terraform para Azure App Service
 
@@ -24,5 +24,5 @@ En la tabla siguiente se incluyen vínculos a scripts de Terraform.
 |-|-|
 |**Creación de la aplicación**||
 | [Creación de dos aplicaciones conectadas de forma segura con punto de conexión privado e integración con red virtual](./scripts/terraform-secure-backend-frontend.md )| Crea dos aplicaciones de App Service y las conecta con un punto de conexión privado e integración con red virtual. |
-| [Aprovisionamiento de App Service y uso del intercambio de ranuras para la implementación](https://docs.microsoft.com/azure/developer/terraform/provision-infrastructure-using-azure-deployment-slots)| Aprovisiona la infraestructura de App Service con ranuras de implementación de Azure. |
+| [Aprovisionamiento de App Service y uso del intercambio de ranuras para la implementación](/azure/developer/terraform/provision-infrastructure-using-azure-deployment-slots)| Aprovisiona la infraestructura de App Service con ranuras de implementación de Azure. |
 | | |

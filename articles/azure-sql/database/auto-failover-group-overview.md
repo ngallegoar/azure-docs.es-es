@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 07/09/2020
-ms.openlocfilehash: 5a7f13982de000478b14eb75d7341ed2e99c1274
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.date: 08/28/2020
+ms.openlocfilehash: 3b81ce6e1b77db7b89f293850e2d00fde5d40cfa
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245577"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076521"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -89,11 +89,11 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
 
 - **Agente de escucha de lectura-escritura de grupo de conmutación por error**
 
-  Un registro CNAME de DNS que apunta a la dirección URL de la base de datos principal actual. Se crea automáticamente cuando se crea el grupo de conmutación por error y permite que la carga de trabajo de lectura y escritura se vuelva a conectar de forma transparente a la base de datos principal cuando esta cambia después de la conmutación por error. Cuando se crea el grupo de conmutación por error en un servidor, el registro CNAME de DNS para la dirección URL del cliente de escucha tiene el formato `<fog-name>.database.windows.net`. Cuando se crea el grupo de conmutación por error en Instancia administrada de SQL, el registro CNAME de DNS para la dirección URL del cliente de escucha tiene el formato `<fog-name>.zone_id.database.windows.net`.
+  Un registro CNAME de DNS que apunta a la dirección URL de la base de datos principal actual. Se crea automáticamente cuando se crea el grupo de conmutación por error y permite que la carga de trabajo de lectura y escritura se vuelva a conectar de forma transparente a la base de datos principal cuando esta cambia después de la conmutación por error. Cuando se crea el grupo de conmutación por error en un servidor, el registro CNAME de DNS para la dirección URL del cliente de escucha tiene el formato `<fog-name>.database.windows.net`. Cuando se crea el grupo de conmutación por error en Instancia administrada de SQL, el registro CNAME de DNS para la dirección URL del cliente de escucha tiene el formato `<fog-name>.<zone_id>.database.windows.net`.
 
 - **Agente de escucha de solo lectura de grupo de conmutación por error**
 
-  Un registro CNAME de DNS formado que apunta al agente de escucha de solo lectura que apunta a la dirección URL de la base de datos secundaria. Se crea automáticamente cuando se crea el grupo de conmutación por error y permite que la carga de trabajo de SQL de solo lectura se vuelva a conectar de forma transparente a la secundaria con las reglas de equilibrio de carga especificadas. Cuando se crea el grupo de conmutación por error en un servidor, el registro CNAME de DNS para la dirección URL del cliente de escucha tiene el formato `<fog-name>.secondary.database.windows.net`. Cuando se crea el grupo de conmutación por error en Instancia administrada de SQL, el registro CNAME de DNS para la dirección URL del cliente de escucha tiene el formato `<fog-name>.zone_id.secondary.database.windows.net`.
+  Un registro CNAME de DNS formado que apunta al agente de escucha de solo lectura que apunta a la dirección URL de la base de datos secundaria. Se crea automáticamente cuando se crea el grupo de conmutación por error y permite que la carga de trabajo de SQL de solo lectura se vuelva a conectar de forma transparente a la secundaria con las reglas de equilibrio de carga especificadas. Cuando se crea el grupo de conmutación por error en un servidor, el registro CNAME de DNS para la dirección URL del cliente de escucha tiene el formato `<fog-name>.secondary.database.windows.net`. Cuando se crea el grupo de conmutación por error en Instancia administrada de SQL, el registro CNAME de DNS para la dirección URL del cliente de escucha tiene el formato `<fog-name>.secondary.<zone_id>.database.windows.net`.
 
 - **Directiva de conmutación por error automática**
 
@@ -257,13 +257,13 @@ Al realizar operaciones OLTP, use `<fog-name>.zone_id.database.windows.net` como
 
 ### <a name="using-read-only-listener-to-connect-to-the-secondary-instance"></a>Uso del agente de escucha de solo lectura para conectarse a la instancia secundaria
 
-Si tiene una carga de trabajo de solo lectura que es tolerante a una cierta obsolescencia de los datos, puede usar la base de datos secundaria en la aplicación. Para conectarse directamente a la base de datos secundaria con replicación geográfica, use `server.secondary.zone_id.database.windows.net` como dirección URL del servidor y la conexión se realizará directamente a dicha base de datos.
+Si tiene una carga de trabajo de solo lectura que es tolerante a una cierta obsolescencia de los datos, puede usar la base de datos secundaria en la aplicación. Para conectarse directamente a la base de datos secundaria con replicación geográfica, use `<fog-name>.secondary.<zone_id>.database.windows.net` como dirección URL del servidor y la conexión se realizará directamente a dicha base de datos.
 
 > [!NOTE]
 > En determinados niveles de servicio, SQL Database admite el uso de [réplicas de solo lectura](read-scale-out.md) para equilibrar las cargas de trabajo de consultas de solo lectura mediante la capacidad de una réplica de solo lectura y el uso del parámetro `ApplicationIntent=ReadOnly` en la cadena de conexión. Cuando se ha configurado una base de datos secundaria con replicación geográfica, puede usar esta funcionalidad para conectarse a una réplica de solo lectura de la ubicación principal o de la ubicación con replicación geográfica.
 >
-> - Para conectarse a una réplica de solo lectura en la ubicación principal, use `<fog-name>.zone_id.database.windows.net`.
-> - Para conectarse a una réplica de solo lectura en la ubicación secundaria, use `<fog-name>.secondary.zone_id.database.windows.net`.
+> - Para conectarse a una réplica de solo lectura en la ubicación principal, use `<fog-name>.<zone_id>.database.windows.net`.
+> - Para conectarse a una réplica de solo lectura en la ubicación secundaria, use `<fog-name>.secondary.<zone_id>.database.windows.net`.
 
 ### <a name="preparing-for-performance-degradation"></a>Preparación para la degradación del rendimiento
 

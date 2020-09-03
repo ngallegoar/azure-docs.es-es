@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 06/20/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 10182abb99788e4974e08c9bfc5c9c53df2a201b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 27b01a86d1bc44b5adb977f10339a0f2d56a64d4
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212926"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958565"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Tutorial: Compilación de una aplicación ASP.NET Core y SQL Database en Azure App Service
 
@@ -63,7 +63,7 @@ git clone https://github.com/azure-samples/dotnetcore-sqldb-tutorial
 cd dotnetcore-sqldb-tutorial
 ```
 
-El proyecto de ejemplo contiene una aplicación básica CRUD (crear, leer, actualizar, eliminar) que usa [Entity Framework Core](https://docs.microsoft.com/ef/core/).
+El proyecto de ejemplo contiene una aplicación básica CRUD (crear, leer, actualizar, eliminar) que usa [Entity Framework Core](/ef/core/).
 
 ### <a name="run-the-application"></a>Ejecución de la aplicación
 
@@ -126,7 +126,7 @@ Cuando se crea el servidor lógico de SQL Database, la CLI de Azure muestra info
 
 ### <a name="configure-a-server-firewall-rule"></a>Configuración de una regla de firewall del servidor
 
-Cree una [regla de firewall de nivel de servidor de Azure SQL Database](../sql-database/sql-database-firewall-configure.md) mediante el comando [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create). Cuando tanto la dirección IP de inicio como final están establecidas en 0.0.0.0., el firewall solo se abre para otros recursos de Azure. 
+Cree una [regla de firewall de nivel de servidor de Azure SQL Database](../azure-sql/database/firewall-configure.md) mediante el comando [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create). Cuando tanto la dirección IP de inicio como final están establecidas en 0.0.0.0., el firewall solo se abre para otros recursos de Azure. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server-name> --name AllowAzureIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -144,7 +144,7 @@ az sql server firewall-rule create --name AllowLocalClient --server <server-name
 
 ### <a name="create-a-database"></a>Crear una base de datos
 
-Cree una base de datos con un [nivel de rendimiento S0](../sql-database/sql-database-service-tiers-dtu.md) en el servidor con el comando [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create).
+Cree una base de datos con un [nivel de rendimiento S0](../azure-sql/database/service-tiers-dtu.md) en el servidor con el comando [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create).
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server-name> --name coreDB --service-objective S0
@@ -459,12 +459,12 @@ Aún se muestran todas las tareas pendientes existentes. Cuando vuelva a publica
 
 Mientras la aplicación ASP.NET Core se ejecuta en Azure App Service, puede hacer que los registros de la consola se canalicen a Cloud Shell. De este modo, puede obtener los mismos mensajes de diagnóstico para ayudarle a depurar errores de la aplicación.
 
-El proyecto de ejemplo ya sigue las instrucciones indicadas en [Registro de ASP.NET Core en Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#azure-app-service-provider) con dos cambios de configuración:
+El proyecto de ejemplo ya sigue las instrucciones indicadas en [Registro de ASP.NET Core en Azure](/aspnet/core/fundamentals/logging#azure-app-service-provider) con dos cambios de configuración:
 
 - Incluye una referencia a `Microsoft.Extensions.Logging.AzureAppServices` en *DotNetCoreSqlDb.csproj*.
 - Llama a `loggerFactory.AddAzureWebAppDiagnostics()` en *Program.cs*.
 
-Para establecer el [nivel de registro](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level) de ASP.NET Core en App Service en `Information` desde el nivel predeterminado `Error`, utilice el comando [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) en Cloud Shell.
+Para establecer el [nivel de registro](/aspnet/core/fundamentals/logging#log-level) de ASP.NET Core en App Service en `Information` desde el nivel predeterminado `Error`, utilice el comando [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) en Cloud Shell.
 
 ```azurecli-interactive
 az webapp log config --name <app-name> --resource-group myResourceGroup --application-logging true --level information
@@ -484,7 +484,7 @@ Cuando las secuencias de registro se inicien, actualice la aplicación de Azure 
 
 Para detener el streaming del registro en cualquier momento, escriba `Ctrl`+`C`.
 
-Para más información acerca de cómo personalizar los registros de ASP.NET Core, consulte [Registro en ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
+Para más información acerca de cómo personalizar los registros de ASP.NET Core, consulte [Registro en ASP.NET Core](/aspnet/core/fundamentals/logging).
 
 ## <a name="manage-your-azure-app"></a>Administración de la aplicación de Azure
 

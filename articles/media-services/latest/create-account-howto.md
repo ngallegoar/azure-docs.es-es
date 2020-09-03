@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/15/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 23a26e01c8329fa384d29443a143b173c58a2c6e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 93f5e4d659b94bd79345a5e687de14ab6a5e8ba6
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88539144"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267979"
 ---
 # <a name="create-a-media-services-account"></a>Creación de una cuenta de Media Services
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Para iniciar el cifrado, la codificación, el análisis, la administración y el streaming de contenido multimedia en Azure, debe crear una cuenta de Media Services. La cuenta de Media Services debe asociarse con una o varias cuentas de almacenamiento. En este artículo se describen los pasos para crear una cuenta de Azure Media Services.
 

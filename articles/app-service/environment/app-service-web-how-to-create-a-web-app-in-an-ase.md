@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9359fe07818b3c5fbc08082cdf1f96195a7836ab
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: d0ac8e0cf187d1a6a329f2c7332c9ec37018d4cf
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080616"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962526"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Creación de una aplicación web en una instancia de App Service Environment v1
 
@@ -105,4 +105,4 @@ Después de crear la aplicación web y el plan de App Service, es una buena idea
 [HowtoScale]: app-service-web-scale-a-web-app-in-an-app-service-environment.md
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md
 [ResourceGroups]: ../../azure-resource-manager/management/overview.md
-[AzurePowershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[AzurePowershell]: /powershell/azure/?view=azps-3.8.0

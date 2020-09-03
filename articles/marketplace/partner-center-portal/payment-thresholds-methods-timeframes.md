@@ -6,13 +6,13 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2020
-ms.openlocfilehash: f5614da7eac0717894d2bcb3c9cfdd959cb57f72
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.date: 09/02/2020
+ms.openlocfilehash: 0d98afb97113f222b9ff0edc8405ea75ad10a3fb
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607281"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322082"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>Umbrales de pago, métodos e intervalos de tiempo
 
@@ -78,7 +78,7 @@ Estos son los países y regiones en los que se usan estos métodos de pago para 
 | Côte d'Ivoire | Sí | Sí | Sí | No |
 | Croacia | Sí | Sí | Sí | No |
 | Chipre | Sí | Sí | Sí | Sí |
-| República Checa | Sí | Sí | Sí | Sí |
+| Chequia | Sí | Sí | Sí | Sí |
 | Dinamarca | Sí | Sí | Sí | Sí |
 | Dominica | Sí | Sí | No | Sí |
 | República Dominicana | Sí | Sí | Sí | Sí |
@@ -123,7 +123,6 @@ Estos son los países y regiones en los que se usan estos métodos de pago para 
 | Liechtenstein | Sí | Sí | Sí | Sí |
 | Lituania | Sí | Sí | Sí | No |
 | Luxemburgo | Sí | Sí | Sí | Sí |
-| Macedonia del Norte | No | Sí | Sí | No |
 | Madagascar | Sí | Sí | Sí | No |
 | Malaui | Sí | Sí | Sí | Sí |
 | Malasia | Sí | Sí | Sí | Sí |
@@ -142,6 +141,7 @@ Estos son los países y regiones en los que se usan estos métodos de pago para 
 | Nicaragua | Sí | Sí | Sí | Sí |
 | Níger | Sí | Sí | Sí | No |
 | Nigeria | Sí | Sí | Sí | No |
+| Macedonia del Norte | No | Sí | Sí | No |
 | Noruega | Sí | Sí | Sí | Sí |
 | Omán | Sí | Sí | Sí | Sí |
 | Pakistán | Sí | Sí | Sí | No |

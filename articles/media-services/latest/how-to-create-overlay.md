@@ -5,15 +5,17 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
-ms.date: 07/27/2020
-ms.openlocfilehash: 85b1b6c56221deaa03057a7ccb658b4bf67124eb
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 08/31/2020
+ms.openlocfilehash: 6c93408bce8da9f8cd0e4a0d0bab615e2bd362dc
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830587"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267333"
 ---
 # <a name="how-to-create-an-overlay-with-media-encoder-standard"></a>Creación de una superposición con Media Encoder Standard
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Media Encoder Estándar permite superponer una imagen en un vídeo existente. Actualmente, se admiten los siguientes formatos: png, jpg, gif y bmp.
 

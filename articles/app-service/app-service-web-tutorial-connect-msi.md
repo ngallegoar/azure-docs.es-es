@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate
-ms.openlocfilehash: bb1c947a388811efb5d161b7739664bea9fc85c8
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 882188c638c77fa0055f1c2d2e664d97a4fe9359
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213719"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962271"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: Protección de la conexión con Azure SQL Database desde App Service mediante una identidad administrada
 
@@ -37,7 +37,7 @@ Lo qué aprenderá:
 > * Conectarse a SQL Database desde Visual Studio mediante la autenticación de Azure AD
 
 > [!NOTE]
->La autenticación de Azure AD es _distinta_ de la [autenticación integrada de Windows](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) en Active Directory (AD DS) local. AD DS y Azure AD utilizan protocolos de autenticación completamente diferentes. Para más información, consulte [Documentación de Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/).
+>La autenticación de Azure AD es _distinta_ de la [autenticación integrada de Windows](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) en Active Directory (AD DS) local. AD DS y Azure AD utilizan protocolos de autenticación completamente diferentes. Para más información, consulte [Documentación de Azure AD Domain Services](../active-directory-domain-services/index.yml).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -83,7 +83,7 @@ Ahora está listo para desarrollar y depurar la aplicación con SQL Database com
 
 ### <a name="macos-client"></a>Cliente de macOS
 
-Visual Studio para Mac no está integrado con la autenticación de Azure AD. No obstante, la biblioteca [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) que utilizará más adelante puede usar tokens de la CLI de Azure. Para habilitar el desarrollo y la depuración en Visual Studio, primero debe [instalar la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) en la máquina local.
+Visual Studio para Mac no está integrado con la autenticación de Azure AD. No obstante, la biblioteca [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) que utilizará más adelante puede usar tokens de la CLI de Azure. Para habilitar el desarrollo y la depuración en Visual Studio, primero debe [instalar la CLI de Azure](/cli/azure/install-azure-cli) en la máquina local.
 
 Una vez que se haya instalado la CLI de Azure en la máquina local, inicie sesión en la CLI de Azure con el siguiente comando mediante el usuario de Azure AD:
 
