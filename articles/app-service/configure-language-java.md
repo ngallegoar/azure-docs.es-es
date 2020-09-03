@@ -10,12 +10,12 @@ ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 30d5fa329131cdfd380a84843b3ba202b2e22e39
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 5d94da91428da2270e0f690df4dcd43ae43d8597
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080137"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961659"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Configuración de una aplicación Java para Azure App Service
 
@@ -31,8 +31,8 @@ Puede usar el [complemento de Azure Web App para Maven](/java/api/overview/azure
 
 De lo contrario, el método de implementación dependerá del tipo de archivo:
 
-- Para implementar archivos .war en Tomcat, utilice el punto de conexión `/api/wardeploy/` para realizar el conjunto de rutinas POST en el archivo. Para obtener más información sobre esta API, consulte [este documento](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file).
-- Para implementar archivos .jar en Java SE, use el punto de conexión `/api/zipdeploy/` del sitio de Kudu. Para obtener más información sobre esta API, consulte [este documento](https://docs.microsoft.com/azure/app-service/deploy-zip#rest).
+- Para implementar archivos .war en Tomcat, utilice el punto de conexión `/api/wardeploy/` para realizar el conjunto de rutinas POST en el archivo. Para obtener más información sobre esta API, consulte [este documento](./deploy-zip.md#deploy-war-file).
+- Para implementar archivos .jar en Java SE, use el punto de conexión `/api/zipdeploy/` del sitio de Kudu. Para obtener más información sobre esta API, consulte [este documento](./deploy-zip.md#rest).
 
 No implemente el archivo .war o .jar con el FTP. La herramienta FTP está diseñada para cargar los scripts de inicio, dependencias u otros archivos en tiempo de ejecución. Tenga en cuenta que no es la opción óptima para realizar la implementación de aplicaciones web.
 
@@ -56,7 +56,7 @@ Para más información, consulte la [referencia del comando Jcmd ](https://docs.
 
 #### <a name="analyze-jfr-files"></a>Análisis de archivos `.jfr`
 
-Use [FTPS](deploy-ftp.md) para descargar el archivo JFR en el equipo local. Para analizar el archivo JFR, descargue e instale [Zulu Mission Control](https://www.azul.com/products/zulu-mission-control/). Para obtener instrucciones acerca de Zulu Mission Control, consulte la [documentación de Azul](https://docs.azul.com/zmc/) y [las instrucciones de instalación](https://docs.microsoft.com/java/azure/jdk/java-jdk-flight-recorder-and-mission-control).
+Use [FTPS](deploy-ftp.md) para descargar el archivo JFR en el equipo local. Para analizar el archivo JFR, descargue e instale [Zulu Mission Control](https://www.azul.com/products/zulu-mission-control/). Para obtener instrucciones acerca de Zulu Mission Control, consulte la [documentación de Azul](https://docs.azul.com/zmc/) y [las instrucciones de instalación](/java/azure/jdk/java-jdk-flight-recorder-and-mission-control).
 
 ### <a name="stream-diagnostic-logs"></a>Transmisión de registros de diagnóstico
 
@@ -68,7 +68,7 @@ Para más información, consulte [Registros de secuencias en Cloud Shell](troubl
 
 Habilite el [registro de aplicaciones](troubleshoot-diagnostic-logs.md#enable-application-logging-windows) a través de Azure Portal o la [CLI de Azure](/cli/azure/webapp/log#az-webapp-log-config) para configurar App Service para que escriba los flujos de salida y de error de la consola estándar en el sistema de archivos local o en Azure Blob Storage. El registro en el sistema de archivos local de App Service se deshabilita 12 horas después de su configuración. Si necesita una retención más prolongada, configure la aplicación para escribir la salida en un contenedor de Blob Storage. Los registros de aplicación de Java y Tomcat pueden encontrarse en el directorio */LogFiles/Application/* .
 
-Si la aplicación usa [Logback](https://logback.qos.ch/) o [Log4j](https://logging.apache.org/log4j) para el seguimiento, puede reenviar estos seguimientos para su revisión en Azure Application Insights mediante las instrucciones de configuración del marco de registro en [Exploración de los registros de seguimiento de Java en Application Insights](/azure/application-insights/app-insights-java-trace-logs).
+Si la aplicación usa [Logback](https://logback.qos.ch/) o [Log4j](https://logging.apache.org/log4j) para el seguimiento, puede reenviar estos seguimientos para su revisión en Azure Application Insights mediante las instrucciones de configuración del marco de registro en [Exploración de los registros de seguimiento de Java en Application Insights](../azure-monitor/app/java-trace-logs.md).
 
 
 ## <a name="customization-and-tuning"></a>Personalización y optimización
@@ -144,7 +144,7 @@ Para mejorar el rendimiento de las aplicaciones Tomcat, puede compilar los archi
 
 ## <a name="secure-applications"></a>Aplicaciones seguras
 
-Las aplicaciones de Java que se ejecutan en App Service presentan el mismo conjunto de [procedimientos recomendados de seguridad](/azure/security/security-paas-applications-using-app-services) que otras aplicaciones.
+Las aplicaciones de Java que se ejecutan en App Service presentan el mismo conjunto de [procedimientos recomendados de seguridad](../security/fundamentals/paas-applications-using-app-services.md) que otras aplicaciones.
 
 ### <a name="authenticate-users-easy-auth"></a>Autenticación de usuarios (autenticación sencilla)
 
@@ -172,7 +172,7 @@ for (Object key : map.keySet()) {
     }
 ```
 
-Para cerrar la sesión de los usuarios, utilice la ruta de acceso `/.auth/ext/logout`. Para realizar otras acciones, consulte la documentación acerca del [uso de la autenticación y de la autorización de App Service](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to). También hay documentación oficial acerca de la [interfaz HttpServletRequest](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) y sus métodos. Los siguientes métodos de servlet también se hidrata métodos según la configuración de App Service:
+Para cerrar la sesión de los usuarios, utilice la ruta de acceso `/.auth/ext/logout`. Para realizar otras acciones, consulte la documentación acerca del [uso de la autenticación y de la autorización de App Service](./app-service-authentication-how-to.md). También hay documentación oficial acerca de la [interfaz HttpServletRequest](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) y sus métodos. Los siguientes métodos de servlet también se hidrata métodos según la configuración de App Service:
 
 ```java
 public boolean isSecure()
@@ -235,7 +235,7 @@ Estas instrucciones se aplican a todas las conexiones de base de datos. Deberá 
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
 | PostgreSQL | `org.postgresql.Driver`                        | [Descargar](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Descargar](https://dev.mysql.com/downloads/connector/j/) (seleccione "Platform Independent") |
-| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Descargar](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#download)                                                           |
+| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Descargar](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#download)                                                           |
 
 Para configurar Tomcat para que use Java Database Connectivity (JDBC) o Java Persistence API (JPA), personalice primero la variable de entorno `CATALINA_OPTS` que lee Tomcat al iniciarse. Establezca estos valores a través de un valor de la aplicación en el [complemento de Maven de App Service](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md):
 
@@ -321,7 +321,7 @@ El JDK (Java Development Kit) compatible con Azure es [Zulu](https://www.azul.co
 
 Las actualizaciones de versión principal se proporcionarán a través de nuevas opciones de entorno de ejecución en Azure App Service para Windows. Para actualizar a estas versiones más recientes, los clientes deben configurar su implementación de App Service. Asimismo, son responsables de probar y garantizar que la actualización principal satisface sus necesidades.
 
-Los JDK compatibles se revisarán trimestralmente de manera automática en enero, abril, julio y octubre de cada año. Para obtener más información sobre Java en Azure, consulte [este documento de soporte técnico](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support).
+Los JDK compatibles se revisarán trimestralmente de manera automática en enero, abril, julio y octubre de cada año. Para obtener más información sobre Java en Azure, consulte [este documento de soporte técnico](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 ### <a name="security-updates"></a>Actualizaciones de seguridad
 
@@ -343,14 +343,14 @@ El soporte técnico para el JDK de [Azul Zulu compatible con Azure](https://www.
 
 ### <a name="runtime-support"></a>Compatibilidad con el tiempo de ejecución
 
-Los desarrolladores pueden [abrir una incidencia](/azure/azure-portal/supportability/how-to-create-azure-support-request) con los JDK de Azul Zulu a través de soporte técnico de Azure si tienen un [plan de soporte técnico completo](https://azure.microsoft.com/support/plans/).
+Los desarrolladores pueden [abrir una incidencia](../azure-portal/supportability/how-to-create-azure-support-request.md) con los JDK de Azul Zulu a través de soporte técnico de Azure si tienen un [plan de soporte técnico completo](https://azure.microsoft.com/support/plans/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tema se proporciona la instrucción de compatibilidad de Java Runtime para Azure App Service en Windows.
 
 - Para más información sobre el hospedaje de aplicaciones web con Azure App Service, consulte [Información general de App Service](overview.md).
-- Para obtener información acerca del desarrollo de Java en Azure, visite el [centro para desarrolladores de Azure para Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable).
+- Para obtener información acerca del desarrollo de Java en Azure, visite el [centro para desarrolladores de Azure para Java](/java/azure/?view=azure-java-stable).
 
 ::: zone-end
 
@@ -366,8 +366,8 @@ Puede usar el [complemento Maven para Azure App Service](/java/api/overview/azur
 
 De lo contrario, el método de implementación dependerá del tipo de archivo:
 
-- Para implementar archivos .war en Tomcat, utilice el punto de conexión `/api/wardeploy/` para realizar el conjunto de rutinas POST en el archivo. Para obtener más información sobre esta API, consulte [este documento](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file).
-- Para implementar archivos .jar en las imágenes de Java SE, use el punto de conexión `/api/zipdeploy/` del sitio de Kudu. Para obtener más información sobre esta API, consulte [este documento](https://docs.microsoft.com/azure/app-service/deploy-zip#rest).
+- Para implementar archivos .war en Tomcat, utilice el punto de conexión `/api/wardeploy/` para realizar el conjunto de rutinas POST en el archivo. Para obtener más información sobre esta API, consulte [este documento](./deploy-zip.md#deploy-war-file).
+- Para implementar archivos .jar en las imágenes de Java SE, use el punto de conexión `/api/zipdeploy/` del sitio de Kudu. Para obtener más información sobre esta API, consulte [este documento](./deploy-zip.md#rest).
 
 No implemente el archivo .war o .jar con el FTP. La herramienta FTP está diseñada para cargar los scripts de inicio, dependencias u otros archivos en tiempo de ejecución. Tenga en cuenta que no es la opción óptima para realizar la implementación de aplicaciones web.
 
@@ -390,9 +390,9 @@ Para más información, consulte [Registros de secuencias en Cloud Shell](troubl
 Habilite el [registro de aplicaciones](troubleshoot-diagnostic-logs.md#enable-application-logging-windows) a través de Azure Portal o la [CLI de Azure](/cli/azure/webapp/log#az-webapp-log-config) para configurar App Service para que escriba los flujos de salida y de error de la consola estándar en el sistema de archivos local o en Azure Blob Storage. El registro en el sistema de archivos local de App Service se deshabilita 12 horas después de su configuración. Si necesita una retención más prolongada, configure la aplicación para escribir la salida en un contenedor de Blob Storage. Los registros de aplicación de Java y Tomcat pueden encontrarse en el directorio */home/LogFiles/Application/* .
 
 >[!NOTE]
->El registro en el sistema de archivos de App Service local que se deshabilita después de 12 horas solo se aplica a instancias de App Services basadas en Windows. El registro de Azure Blob Storage para instancias de App Services basadas en Linux solo se puede configurar mediante [Azure Monitor (versión preliminar)](/azure/app-service/troubleshoot-diagnostic-logs#send-logs-to-azure-monitor-preview) 
+>El registro en el sistema de archivos de App Service local que se deshabilita después de 12 horas solo se aplica a instancias de App Services basadas en Windows. El registro de Azure Blob Storage para instancias de App Services basadas en Linux solo se puede configurar mediante [Azure Monitor (versión preliminar)](./troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor-preview) 
 
-Si la aplicación usa [Logback](https://logback.qos.ch/) o [Log4j](https://logging.apache.org/log4j) para el seguimiento, puede reenviar estos seguimientos para su revisión en Azure Application Insights mediante las instrucciones de configuración del marco de registro en [Exploración de los registros de seguimiento de Java en Application Insights](/azure/application-insights/app-insights-java-trace-logs).
+Si la aplicación usa [Logback](https://logback.qos.ch/) o [Log4j](https://logging.apache.org/log4j) para el seguimiento, puede reenviar estos seguimientos para su revisión en Azure Application Insights mediante las instrucciones de configuración del marco de registro en [Exploración de los registros de seguimiento de Java en Application Insights](../azure-monitor/app/java-trace-logs.md).
 
 ### <a name="troubleshooting-tools"></a>Herramienta para la solución de problemas
 
@@ -439,7 +439,7 @@ Para más información, consulte la [referencia del comando Jcmd ](https://docs.
 
 ### <a name="analyzing-recordings"></a>Análisis de grabaciones
 
-Use [FTPS](deploy-ftp.md) para descargar el archivo JFR en el equipo local. Para analizar el archivo JFR, descargue e instale [Zulu Mission Control](https://www.azul.com/products/zulu-mission-control/). Para obtener instrucciones acerca de Zulu Mission Control, consulte la [documentación de Azul](https://docs.azul.com/zmc/) y [las instrucciones de instalación](https://docs.microsoft.com/java/azure/jdk/java-jdk-flight-recorder-and-mission-control).
+Use [FTPS](deploy-ftp.md) para descargar el archivo JFR en el equipo local. Para analizar el archivo JFR, descargue e instale [Zulu Mission Control](https://www.azul.com/products/zulu-mission-control/). Para obtener instrucciones acerca de Zulu Mission Control, consulte la [documentación de Azul](https://docs.azul.com/zmc/) y [las instrucciones de instalación](/java/azure/jdk/java-jdk-flight-recorder-and-mission-control).
 
 ## <a name="customization-and-tuning"></a>Personalización y optimización
 
@@ -520,7 +520,7 @@ Para mejorar el rendimiento de las aplicaciones Tomcat, puede compilar los archi
 
 ## <a name="secure-applications"></a>Aplicaciones seguras
 
-Las aplicaciones de Java que se ejecutan en App Service para Linux presentan el mismo conjunto de [procedimientos recomendados de seguridad](/azure/security/security-paas-applications-using-app-services) que otras aplicaciones.
+Las aplicaciones de Java que se ejecutan en App Service para Linux presentan el mismo conjunto de [procedimientos recomendados de seguridad](../security/fundamentals/paas-applications-using-app-services.md) que otras aplicaciones.
 
 ### <a name="authenticate-users-easy-auth"></a>Autenticación de usuarios (autenticación sencilla)
 
@@ -548,7 +548,7 @@ for (Object key : map.keySet()) {
     }
 ```
 
-Para cerrar la sesión de los usuarios, utilice la ruta de acceso `/.auth/ext/logout`. Para realizar otras acciones, consulte la documentación acerca del [uso de la autenticación y de la autorización de App Service](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to). También hay documentación oficial acerca de la [interfaz HttpServletRequest](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) y sus métodos. Los siguientes métodos de servlet también se hidrata métodos según la configuración de App Service:
+Para cerrar la sesión de los usuarios, utilice la ruta de acceso `/.auth/ext/logout`. Para realizar otras acciones, consulte la documentación acerca del [uso de la autenticación y de la autorización de App Service](./app-service-authentication-how-to.md). También hay documentación oficial acerca de la [interfaz HttpServletRequest](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) y sus métodos. Los siguientes métodos de servlet también se hidrata métodos según la configuración de App Service:
 
 ```java
 public boolean isSecure()
@@ -583,7 +583,7 @@ De forma predeterminada, los certificados públicos o privados [cargados en App 
 Puede ser necesaria una configuración adicional para el cifrado de la conexión de JDBC con certificados en el almacén de claves de Java. Consulte la documentación del controlador JDBC elegido.
 
 - [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
-- [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
+- [SQL Server](/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
 - [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
 - [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
 - [Cassandra](https://docs.datastax.com/en/developer/java-driver/4.3/)
@@ -668,7 +668,7 @@ Estas instrucciones se aplican a todas las conexiones de base de datos. Deberá 
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
 | PostgreSQL | `org.postgresql.Driver`                        | [Descargar](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Descargar](https://dev.mysql.com/downloads/connector/j/) (seleccione "Platform Independent") |
-| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Descargar](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#download)                                                           |
+| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Descargar](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#download)                                                           |
 
 Para configurar Tomcat para que use Java Database Connectivity (JDBC) o Java Persistence API (JPA), personalice primero la variable de entorno `CATALINA_OPTS` que lee Tomcat al iniciarse. Establezca estos valores a través de un valor de la aplicación en el [complemento de Maven de App Service](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md):
 
@@ -831,7 +831,7 @@ Consulte la [documentación de Spring Boot relativa al acceso a datos](https://d
 
 ## <a name="use-redis-as-a-session-cache-with-tomcat"></a>Uso de Redis como caché de sesión con Tomcat
 
-Puede configurar Tomcat para que use un almacén de sesión externo como [Azure Redis Cache](/azure/azure-cache-for-redis/). Esto permite conservar el estado de sesión de usuario (como los datos del carro de la compra) cuando un usuario se transfiere a otra instancia de la aplicación, por ejemplo, cuando se produce un escalado automático, un reinicio o una conmutación por error.
+Puede configurar Tomcat para que use un almacén de sesión externo como [Azure Redis Cache](../azure-cache-for-redis/index.yml). Esto permite conservar el estado de sesión de usuario (como los datos del carro de la compra) cuando un usuario se transfiere a otra instancia de la aplicación, por ejemplo, cuando se produce un escalado automático, un reinicio o una conmutación por error.
 
 Para usar Tomcat con Redis, debe configurar la aplicación para que use una implementación de [PersistentManager](https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html). En los pasos siguientes se explica este proceso con [Pivotal Session Manager: redis-store](https://github.com/pivotalsoftware/session-managers/tree/master/redis-store) como ejemplo.
 
@@ -883,7 +883,7 @@ Para usar Tomcat con Redis, debe configurar la aplicación para que use una impl
 
     Este archivo especifica y configura la implementación del administrador de sesión de la aplicación. Usa las variables de entorno establecidas en el paso anterior para mantener la información de la cuenta fuera de los archivos de código fuente.
 
-3. Use FTP para cargar el archivo JAR del administrador de sesión en la instancia de App Service y colóquelo en el directorio */home/tomcat/lib*. Para más información, consulte [Implementación de la aplicación en Azure App Service mediante FTP/S](https://docs.microsoft.com/azure/app-service/deploy-ftp).
+3. Use FTP para cargar el archivo JAR del administrador de sesión en la instancia de App Service y colóquelo en el directorio */home/tomcat/lib*. Para más información, consulte [Implementación de la aplicación en Azure App Service mediante FTP/S](./deploy-ftp.md).
 
 4. Deshabilite la [cookie de afinidad de sesión](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) de la instancia de App Service. Puede hacerlo desde Azure Portal si va a la aplicación y establece **Configuración > Configuración general > Afinidad ARR** en **Desactivada**. También puede usar el siguiente comando:
 

@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
-ms.openlocfilehash: acb74d806f1ad361d3772438eec7fb788a843b02
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 25ec74f3638ce857e4472d73a51e45f24c4df5ec
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88243724"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997734"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Uso de identidades administradas asignadas por el sistema para acceder a datos de Azure Cosmos DB
 
@@ -90,10 +91,10 @@ az role assignment create --assignee $principalId --role "DocumentDB Account Con
 
 Ahora tenemos una aplicación de funciones que tiene una identidad administrada asignada por el sistema con el rol **Colaborador de cuenta de DocumentDB** en los permisos de Azure Cosmos DB. El código de la aplicación de funciones siguiente obtendrá las claves de Azure Cosmos DB, creará un objeto CosmosClient, obtendrá la temperatura del acuario y, después, la guardará en Azure Cosmos DB.
 
-En este ejemplo se usa la [API List Keys](/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListKeys) para acceder a las claves de la cuenta de Azure Cosmos DB.
+En este ejemplo se usa la [API List Keys](/rest/api/cosmos-db-resource-provider/2020-04-01/databaseaccounts/listkeys) para acceder a las claves de la cuenta de Azure Cosmos DB.
 
 > [!IMPORTANT] 
-> Si quiere [asignar el rol Lector de cuentas de Cosmos DB](#grant-access-to-your-azure-cosmos-account), tendrá que usar la [List Read Only Keys API](/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListReadOnlyKeys). Esto solamente rellenará las claves de solo lectura.
+> Si quiere [asignar el rol Lector de cuentas de Cosmos DB](#grant-access-to-your-azure-cosmos-account), tendrá que usar la [List Read Only Keys API](/rest/api/cosmos-db-resource-provider/2020-04-01/databaseaccounts/listreadonlykeys). Esto solamente rellenará las claves de solo lectura.
 
 La API List Keys devuelve el objeto `DatabaseAccountListKeysResult`. Este tipo no está definido en las bibliotecas de C#. En el código siguiente se muestra la implementación de esta clase:  
 
