@@ -93,6 +93,9 @@
     - name: Evaluación del impacto de una nueva directiva
       displayName: 'audit, enforcementmode, compliance'
       href: ./concepts/evaluate-impact.md
+    - name: Directivas recomendadas
+      displayName: 'VMs, virtual machines'
+      href: ./concepts/recommended-policies.md
     - name: Cumplimiento normativo
       displayName: 'standards, domains, controls'
       href: ./concepts/regulatory-compliance.md
@@ -174,7 +177,7 @@
       href: 'https://github.com/azure/azure-policy#known-issues'
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/policy
     - name: Azure PowerShell
       items:

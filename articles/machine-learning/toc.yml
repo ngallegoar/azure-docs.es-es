@@ -219,9 +219,10 @@
     - name: Creación de recursos de proceso
       items:
         - name: Uso de Studio
+          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority'
           href: how-to-create-attach-compute-studio.md
         - name: Uso del SDK de Python
-          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
+          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority'
           href: how-to-create-attach-compute-sdk.md
     - name: Configurar el entorno
       items:
@@ -477,9 +478,6 @@
         - name: Depuración y solución de problemas de paso de ejecución en paralelo
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md
-        - name: Iteración y evolución de canalizaciones de aprendizaje automático
-          displayName: modularizing testing
-          href: concept-pipeline-practices-tips.md
     - name: Canalizaciones de Azure para CI/CD
       displayName: 'continuous, integration, delivery'
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context

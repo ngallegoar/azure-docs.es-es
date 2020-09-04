@@ -173,6 +173,8 @@
           href: iot-hub-devguide-glossary.md
     - name: Seguridad
       items:
+        - name: Línea de base de seguridad
+          href: security-baseline.md
         - name: Recomendaciones
           href: /azure/iot-fundamentals/security-recommendations?context=azure/iot-hub/rc/rc
         - name: Seguridad total
@@ -418,7 +420,7 @@
               href: iot-hub-troubleshoot-error-504101-gatewaytimeout.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/azure-cli-reference-for-IoT
     - name: Azure PowerShell
       href: /powershell/module/az.iothub#iothub
