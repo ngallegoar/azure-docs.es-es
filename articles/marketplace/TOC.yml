@@ -59,6 +59,8 @@
               href: ./marketplace-criteria-content-validation.md
             - name: Proveedores de soluciones en la nube
               href: ./cloud-solution-providers.md
+            - name: Guía de incorporación de programas de conexión
+              href: ./cloud-partner-portal/business-applications-isv-program.md
         - name: Sus ventajas de Marketplace
           href: ./gtm-your-marketplace-benefits.md
           items:
@@ -133,7 +135,7 @@
                       href: ./partner-center-portal/common-sas-uri-issues.md
         - name: Servicios de consultoría
           items:
-            - name: Requisitos previos
+            - name: Prerrequisitos
               href: ./partner-center-portal/consulting-service-prerequisites.md
             - name: Creación de una oferta de servicios de consultoría
               href: ./partner-center-portal/create-consulting-service-offer.md
@@ -292,7 +294,7 @@
       items:
         - name: Información general
           href: ./cloud-partner-portal-api-overview.md
-        - name: Requisitos previos
+        - name: Prerrequisitos
           href: ./cloud-partner-portal-api-prerequisites.md
         - name: Consideraciones
           href: ./cloud-partner-portal-api-considerations.md
