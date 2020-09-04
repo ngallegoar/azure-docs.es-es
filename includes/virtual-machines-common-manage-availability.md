@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d7f7b0eb2c49e4abba9e12e09d70e321cc6c06f4
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 965da18c265fad1686473d5d6dcf8ba4a7a53b33
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88760551"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89326270"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Información sobre los reinicios de máquinas virtuales: mantenimiento frente a tiempo de inactividad
 Hay tres escenarios que pueden afectar a la máquina virtual de Azure: mantenimiento de hardware no planeado, tiempo de inactividad inesperado y mantenimiento planeado.
@@ -33,7 +33,7 @@ Para reducir el impacto del tiempo de parada debido a uno o más de estos evento
 * [Configure varias máquinas virtuales en un conjunto de disponibilidad para la redundancia]
 * [Uso de Managed Disks para las máquinas virtuales de un conjunto de disponibilidad]
 * [Uso de eventos programados para responder de manera proactiva a eventos que afectan a la máquina virtual](../articles/virtual-machines/linux/scheduled-events.md)
-* [Configuración de cada nivel de aplicación en conjuntos separados de disponibilidad]
+* [Configure cada nivel de aplicación en conjuntos separados de disponibilidad](../articles/virtual-machines/windows/tutorial-availability-sets.md)
 * [Combinación de un equilibrador de carga con conjuntos o zonas de disponibilidad]
 * [Uso de zonas de disponibilidad para protegerse frente a errores en el nivel de centro de datos]
 
@@ -82,12 +82,12 @@ az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Lo
 ```
 
 > [!NOTE]
-> En determinadas circunstancias, dos máquinas virtuales en el mismo conjunto de disponibilidad podrían compartir el mismo dominio de error. Para confirmarlo, vaya al conjunto de disponibilidad y compruebe la columna **Dominio de error**.
-> Esto puede deberse a la siguiente secuencia mientras se implementan las máquinas virtuales:
-> - Implementar la primera máquina virtual
-> - Detener o desasignar la primera máquina virtual
-> - Implementar la segunda máquina virtual en estas circunstancias, el disco del sistema operativo de la segunda máquina virtual puede crearse en el mismo dominio de error que la primera máquina virtual, por lo que la segunda máquina virtual también aterrizará en el mismo FaultDomain. 
-> Para evitar este problema, se recomienda no detener ni desasignar las máquinas virtuales entre implementaciones.
+> En determinadas circunstancias, dos máquinas virtuales del mismo conjunto de disponibilidad pueden compartir un dominio de error. Para confirmar un dominio de error compartido, vaya al conjunto de disponibilidad y compruebe la columna **Dominio de error**. Un dominio de error compartido podría deberse a la finalización de la siguiente secuencia al implementar las máquinas virtuales:
+> 1. Implemente la primera máquina virtual.
+> 1. Detenga o desasigne la primera máquina virtual.
+> 1. Implemente la segunda máquina virtual.
+>
+> En estas circunstancias, el disco del sistema operativo de la segunda máquina virtual puede crearse en el mismo dominio de error que la primera máquina virtual, por lo que las dos máquinas virtuales estarán en el mismo dominio de error. Para evitar este problema, se recomienda no detener ni desasignar las máquinas virtuales entre implementaciones.
 
 Si tiene previsto usar máquinas virtuales con discos no administrados, siga los procedimientos recomendados que aparecen a continuación para las cuentas de almacenamiento donde se almacenan los discos duros virtuales (VHD) de las máquinas virtuales como [blobs en páginas](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 

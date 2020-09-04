@@ -187,6 +187,14 @@
           href: azure-netapp-files.md
         - name: Uso de Ultra Disks de Azure (versión preliminar)
           href: use-ultra-disks.md
+        - name: Controladores de almacenamiento CSI
+          items:
+            - name: Habilitación de controladores de almacenamiento CSI (versión preliminar)
+              href: csi-storage-drivers.md
+            - name: Controladores CSI de Azure Data Box Disk (versión preliminar)
+              href: azure-disk-csi.md
+            - name: Controladores CSI de Azure Files (versión preliminar)
+              href: azure-files-csi.md
     - name: Configuración de las redes
       items:
         - name: Creación o uso de una red virtual existente
@@ -252,9 +260,9 @@
           href: update-credentials.md
         - name: Habilitar la integración de Azure Active Directory
           items:
-            - name: 'AKS: AAD administrado'
+            - name: "Azure\_AD administrado por AKS"
               href: managed-aad.md
-            - name: Integración de AAD (heredado)
+            - name: "Integración de Azure\_AD (heredado)"
               href: azure-ad-integration-cli.md
         - name: Uso de Azure RBAC para la autorización de Kubernetes (versión preliminar)
           href: manage-azure-rbac.md

@@ -17,12 +17,16 @@
               href: ./lead-management-for-cloud-marketplace.md
             - name: Transacciones en Marketplace comercial
               href: ./marketplace-commercial-transaction-capabilities-and-considerations.md
+            - name: Planes y precios
+              href: plans-pricing.md
             - name: Ofertas privadas
               href: ./private-offers.md
             - name: Contrato estándar
               href: ./standard-contract.md
             - name: Atribución de uso del cliente para asociados de Azure
               href: ./azure-partner-customer-usage-attribution.md
+            - name: Países y regiones admitidos
+              href: ./sell-from-countries.md
         - name: Guías de publicación por tipo de oferta
           href: ./publisher-guide-by-offer-type.md
           items:
@@ -32,8 +36,6 @@
               href: ./marketplace-solution-templates.md
             - name: Aplicaciones administradas de aplicaciones de Azure
               href: ./marketplace-managed-apps.md
-            - name: Aplicaciones SaaS
-              href: ./marketplace-saas-applications-technical-publishing-guide.md
             - name: Contenedores
               href: ./marketplace-containers.md
             - name: Módulos de IoT Edge
@@ -113,7 +115,7 @@
           items:
             - name: Creación de una oferta de máquina virtual de Azure
               href: ./partner-center-portal/azure-vm-create-offer.md
-            - name: Creación de un recurso técnico de máquina virtual de Azure
+            - name: Creación de recursos técnicos de máquina virtual de Azure
               items:
                 - name: 'Certificación de máquinas virtuales: problemas y soluciones'
                   href: ./partner-center-portal/vm-certification-issues-solutions.md
@@ -131,7 +133,7 @@
                       href: ./partner-center-portal/common-sas-uri-issues.md
         - name: Servicios de consultoría
           items:
-            - name: Prerrequisitos
+            - name: Requisitos previos
               href: ./partner-center-portal/consulting-service-prerequisites.md
             - name: Creación de una oferta de servicios de consultoría
               href: ./partner-center-portal/create-consulting-service-offer.md
@@ -165,10 +167,8 @@
               href: ./partner-center-portal/create-power-bi-app-offer.md
         - name: Ofertas de SaaS
           items:
-            - name: Lista de comprobación de creación de ofertas de SaaS
-              href: ./partner-center-portal/offer-creation-checklist.md
-            - name: Creación de una oferta SaaS
-              href: ./partner-center-portal/create-new-saas-offer.md
+            - name: Planificación de una oferta de SaaS
+              href: plan-saas-offer.md
             - name: "Autenticación de Azure\_AD para SaaS"
               items:
                 - name: "Introducción a Azure\_AD y SaaS"
@@ -177,6 +177,26 @@
                   href: ./azure-ad-transactable-saas-landing-page.md
                 - name: Página de aterrizaje de las ofertas gratuitas o de prueba
                   href: ./azure-ad-free-or-trial-landing-page.md
+            - name: Facturación según uso de SaaS
+              href: ./partner-center-portal/saas-metered-billing.md
+            - name: Creación y publicación de una oferta de SaaS
+              items:
+                - name: Creación de una oferta SaaS
+                  href: create-new-saas-offer.md
+                - name: Configuración de las propiedades de una oferta de SaaS
+                  href: create-new-saas-offer-properties.md
+                - name: Configuración del listado de una oferta de SaaS
+                  href: create-new-saas-offer-listing.md
+                - name: Adición de un público en la versión preliminar
+                  href: create-new-saas-offer-preview.md
+                - name: Adición de detalles técnicos
+                  href: create-new-saas-offer-technical.md
+                - name: Creación de planes
+                  href: create-new-saas-offer-plans.md
+                - name: Prueba y publicación de una oferta de SaaS
+                  href: test-publish-saas-offer.md
+            - name: Comercialización de una oferta de SaaS
+              href: create-new-saas-offer-marketing.md
             - name: API de suministro de SaaS
               href: ./partner-center-portal/pc-saas-fulfillment-apis.md
               items:
@@ -188,8 +208,6 @@
                   href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
                 - name: Preguntas más frecuentes sobre las API de suministro de SaaS
                   href: ./partner-center-portal/saas-fulfillment-apis-faq.md
-            - name: Facturación según uso de SaaS
-              href: ./partner-center-portal/saas-metered-billing.md
         - name: Introducción a la administración de clientes potenciales
           href: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
           items:
@@ -207,8 +225,6 @@
               href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md
         - name: Servicio de medición de Marketplace
           items:
-            - name: Servicio de detección de anomalías
-              href: ./partner-center-portal/anomaly-detection-service-for-metered-billing.md
             - name: Estrategias de autenticación
               href: ./partner-center-portal/marketplace-metering-service-authentication.md
             - name: API del servicio de medición de Marketplace
@@ -234,7 +250,7 @@
       href: review-publish-offer.md
     - name: Actualización de oferta existente
       href: ./partner-center-portal/update-existing-offer.md
-    - name: Activación de ventajas
+    - name: Activación de Marketplace Rewards
       href: ./partner-center-portal/marketplace-rewards.md
     - name: Partner Center Analytics
       items:
@@ -276,7 +292,7 @@
       items:
         - name: Información general
           href: ./cloud-partner-portal-api-overview.md
-        - name: Prerrequisitos
+        - name: Requisitos previos
           href: ./cloud-partner-portal-api-prerequisites.md
         - name: Consideraciones
           href: ./cloud-partner-portal-api-considerations.md
@@ -304,3 +320,7 @@
           href: ./cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - name: Opciones de soporte técnico
       href: ./partner-center-portal/support.md
+    - name: Recursos
+      items:
+        - name: Etiquetas HTML que se admiten
+          href: supported-html-tags.md

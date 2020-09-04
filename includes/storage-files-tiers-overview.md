@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 24f92443acddb17c0a2d337f51dbf9183996c49f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7fd91e898c12a13e35ae8b9055ebb5a57de2a051
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520536"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89272179"
 ---
 Azure Files ofrece cuatro niveles diferentes de almacenamiento: Premium, Optimizado para transacciones, Frecuente y Esporádico, con el fin de que pueda adaptar sus recursos compartidos a los requisitos de rendimiento y precio de su escenario:
 
@@ -30,9 +30,31 @@ Los recursos compartidos de archivos de nivel de acceso frecuente y de nivel de 
 - Centro de Australia 2
 - Este de Australia
 - Sudeste de Australia
+- Sur de Brasil
+- Este de Canadá
+- Centro de Canadá
 - Centro de Francia
 - Sur de Francia
+- Norte de Alemania (público)
+- Centro-oeste de Alemania (público)
+- India central
+- Sur de India
+- India occidental
+- Japón Oriental
+- Japón Occidental
 - Centro de Corea del Sur
 - Corea del Sur
+- Este de Noruega
+- Oeste de Noruega
+- Norte de Sudáfrica
+- Oeste de Sudáfrica
+- Norte de Suiza
+- Oeste de Suiza
+- Centro de Emiratos Árabes Unidos
+- Norte de Emiratos Árabes Unidos
+- Sur de Reino Unido
+- Oeste de Reino Unido
+- Centro-Norte de EE. UU
+- Centro-sur de EE. UU.
 
 Para implementar un recurso compartido de archivos de nivel de acceso frecuente o nivel de acceso esporádico, consulte el artículo sobre la [creación de recursos compartido de archivos de nivel de acceso frecuente o nivel de acceso esporádico](../articles/storage/files/storage-how-to-create-file-share.md#create-a-hot-or-cool-file-share). 

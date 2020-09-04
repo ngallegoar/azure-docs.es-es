@@ -65,6 +65,8 @@
       href: ../../firewall/security-baseline.md
     - name: Base de referencia de seguridad de Azure Functions
       href: ../../azure-functions/security-baseline.md
+    - name: Línea base de seguridad de Azure Monitor
+      href: ../../azure-monitor/security-baseline.md
     - name: Línea de base de seguridad de Azure Machine Learning
       href: ../../machine-learning/security-baseline.md
     - name: Base de referencia de seguridad de Azure Policy
