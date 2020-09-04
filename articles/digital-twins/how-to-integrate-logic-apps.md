@@ -157,7 +157,7 @@ Se le dirigirá a la página de implementación de la aplicación lógica. Cuand
 
 En *Diseñador de aplicaciones lógicas*, en *Empezar con un desencadenador común*, seleccione _**Repetición**_.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-designer-recurrence.png" alt-text="Página "Diseñador de aplicaciones lógicas" en Azure Portal. Hay un resaltado alrededor del desencadenador común "Repetición".":::
+:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-designer-recurrence.png" alt-text="Página Diseñador de aplicaciones lógicas en Azure Portal. Hay un resaltado alrededor del desencadenador común Repetición.":::
 
 En la página *Diseñador de aplicaciones lógicas* que aparece a continuación, cambie la frecuencia de **Repetición** a *Segundo*, de modo que el evento se desencadene cada 3 segundos. Esto hará que sea más fácil ver los resultados más adelante sin tener que esperar mucho tiempo.
 
@@ -165,7 +165,7 @@ Presione *+ Nuevo paso*.
 
 Esto abrirá el cuadro *Elegir una acción*. Cambie a la pestaña *Personalizada*. Debería ver el conector personalizado anterior en el cuadro superior.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/custom-action.png" alt-text="Crear un flujo en el Diseñador de aplicaciones lógicas en Azure Portal. En el cuadro "Elegir una acción",está seleccionada la pestaña "Personalizada". El conector personalizado anterior del usuario se muestra en el cuadro, con un resaltado alrededor.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/custom-action.png" alt-text="Crear un flujo en el Diseñador de aplicaciones lógicas en Azure Portal. En el cuadro Elegir una acción,está seleccionada la pestaña Personalizada. El conector personalizado anterior del usuario se muestra en el cuadro, con un resaltado alrededor.":::
 
 Selecciónelo para mostrar la lista de las API contenidas en ese conector. Use la barra de búsqueda o desplácese por la lista para seleccionar **DigitalTwins_Add**. (Esta es la API que se usa en este artículo, pero también puede seleccionar cualquier otra API como una opción válida para una conexión de Logic Apps).
 
@@ -178,7 +178,7 @@ En el nuevo cuadro *DigitalTwinsAdd*, rellene los campos como se indica a contin
 
 Presione *Guardar* en el Diseñador de aplicaciones lógicas.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/save-logic-app.png" alt-text="Vista finalizada de la aplicación en el conector de Logic apps. El cuadro DigitalTwinsAdd se rellena con los valores descritos anteriormente, incluido un cuerpo de revisión JSON de ejemplo. El botón "Guardar" de la ventana está resaltado.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/save-logic-app.png" alt-text="Vista finalizada de la aplicación en el conector de Logic apps. El cuadro DigitalTwinsAdd se rellena con los valores descritos anteriormente, incluido un cuerpo de revisión JSON de ejemplo. El botón Guardar de la ventana está resaltado.":::
 
 ## <a name="query-twin-to-see-the-update"></a>Consulta del gemelo para ver la actualización
 
