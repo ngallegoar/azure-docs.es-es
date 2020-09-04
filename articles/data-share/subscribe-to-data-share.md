@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/14/2020
-ms.openlocfilehash: 409f143ce67e301e3b2a973d8d2db80380fbd50e
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 104654a721912324cdc8ea636e8b4e75765e73f7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258675"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268900"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutorial: Aceptación y recepción de datos con Azure Data Share  
 
@@ -38,7 +38,7 @@ Asegúrese de que se cumplen todos los requisitos previos antes de aceptar una i
 * Permisos para escribir en la cuenta de almacenamiento, que se encuentra en *Microsoft.Storage/storageAccounts/write*. Este permiso existe en el rol de colaborador. 
 * Permisos para agregar la asignación de roles a la cuenta de almacenamiento, que se encuentra en *Microsoft.Authorization/role assignments/write*. Este permiso existe en el rol de propietario.  
 
-### <a name="receive-data-into-a-sql-based-source"></a>Recepción de datos en un origen basado en SQL:
+### <a name="receive-data-into-a-sql-based-target"></a>Recepción de datos en un destino basado en SQL:
 
 * Permisos para escribir en las bases de datos de SQL Server, que se encuentra en *Microsoft.Sql/servers/databases/write*. Este permiso existe en el rol de colaborador. 
 * Permisos para que la identidad administrada del recurso compartido de datos acceda a Azure SQL Database o Azure SQL Data Warehouse. Esto se puede hacer mediante los siguientes pasos: 
@@ -78,7 +78,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
    Para abrir la invitación desde Azure Portal directamente, busque **Invitaciones de recurso compartido de datos** en Azure Portal. Este paso le lleva a la lista de invitaciones de Data Share.
 
-   ![Invitaciones](./media/invitations.png "Lista de invitaciones") 
+   ![Lista de invitaciones](./media/invitations.png "Lista de invitaciones") 
 
 1. Seleccione el recurso compartido que desea ver. 
 
