@@ -307,14 +307,6 @@
           href: ../acu.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Cuotas de vCPU
           href: quotas.md
-        - name: Instancias reservadas
-          items:
-            - name: Pago de máquinas virtuales por adelantado
-              href: prepay-reserved-vm-instances.md
-            - name: ¿Qué son las reservas de Azure?
-              href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md
-            - name: Flexibilidad de tamaño de instancia de máquina virtual
-              href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Puntuaciones de pruebas comparativas
           href: compute-benchmark-scores.md
     - name: Distribuciones aprobadas
@@ -947,7 +939,7 @@
           items:
             - name: Azure CLI
               href: add-disk.md
-            - name: Portal de Azure
+            - name: Azure Portal
               href: attach-disk-portal.md
         - name: Desconexión de un disco
           href: detach-disk.md
@@ -1130,7 +1122,7 @@
               href: ../../site-recovery/migrate-overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/vm
     - name: PowerShell
       href: /powershell/azure/

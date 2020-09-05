@@ -109,8 +109,6 @@
           href: credential-access-key-vault.md
         - name: Uso de certificados con Batch
           href: batch-certificates.md
-    - name: Uso de paquetes de aplicaciones
-      href: batch-application-packages.md
     - name: Copia de archivos y aplicaciones en nodos de grupo
       items:
         - name: Copia de aplicaciones y datos en nodos de grupo
@@ -226,7 +224,7 @@
           href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/batch
     - name: Azure PowerShell
       href: /powershell/module/az.batch
