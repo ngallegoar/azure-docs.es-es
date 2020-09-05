@@ -206,6 +206,10 @@
       items:
         - name: Solución de problemas de incorporación de aplicaciones
           href: troubleshoot-adding-apps.md
+        - name: Solución de problemas de inicio de sesión único basado en contraseña
+          href: troubleshoot-password-based-sso.md
+        - name: Solución de problemas del inicio de sesión único basado en SAML
+          href: troubleshoot-saml-based-sso.md
         - name: Solución de problemas sobre inicio de sesión del usuario
           items:
             - name: Petición de consentimiento inesperada
@@ -224,14 +228,6 @@
               href: application-sign-in-problem-federated-sso-gallery.md
             - name: Problema con una aplicación desarrollada de forma personalizada
               href: application-sign-in-problem-custom-dev.md
-        - name: Solución de problemas de inicio de sesión único
-          items:
-            - name: Solución de problemas de inicio de sesión único basado en contraseña
-              href: troubleshoot-password-based-sso.md
-            - name: 'Problemas habituales en la configuración federada: aplicaciones de la galería'
-              href: configure-federated-single-sign-on-gallery-applications-problems.md
-            - name: 'Problemas habituales en la configuración federada: aplicaciones que no son de la galería'
-              href: configure-federated-single-sign-on-non-gallery-applications-problems.md
         - name: Solución de problemas de aplicaciones locales
           items:
             - name: Solución de problemas del proxy de aplicación
