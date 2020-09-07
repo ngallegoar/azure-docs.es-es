@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/18/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: eec99ae353d4e5ca1bede1afef135def96207c50
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: fab36a538cd9dfa17852c513974af062fa7a0ec2
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604684"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89303989"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>¿El usuario necesita disponer de una topología radial con los dispositivos SD-WAN/VPN para usar Azure Virtual WAN?
 
@@ -249,9 +249,12 @@ Cuando un circuito ExpressRoute se conecta a un centro de conectividad virtual, 
 
 El comportamiento actual es preferir la ruta de acceso del circuito ExpressRoute frente a una conexión entre centros para la conectividad de red virtual a red virtual. Sin embargo, esto no se recomienda en una configuración de Virtual WAN. El equipo de Virtual WAN está trabajando en una corrección para permitir la preferencia de centro de conectividad a centro de conectividad frente a la ruta de acceso de ExpressRoute. La recomendación es para que varios circuitos ExpressRoute (proveedores distintos) se conecten a un centro de conectividad y usen la conectividad entre centros de conectividad que proporciona Virtual WAN para los flujos de tráfico entre regiones.
 
+### <a name="can-hubs-be-created-in-different-resource-group-in-virtual-wan"></a>¿Se pueden crear concentradores en un grupo de recursos diferente en Virtual WAN?
+Sí. Esta opción solo está disponible actualmente mediante PowerShell. El portal de Virtual WAN asigna los concentradores en el mismo grupo de recursos que el propio recurso de Virtual WAN.
+
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>¿Hay compatibilidad con IPv6 en un Virtual WAN?
 
-IPv6 no se admite en el centro de conectividad de Virtual WAN y sus puertas de enlace. Si tiene una red virtual compatible con IPv6 y quiere conectarla a Virtual WAN, este escenario tampoco se admite.
+IPv6 no se admite en el centro de conectividad de Virtual WAN y sus puertas de enlace. Si tiene una red virtual que tiene compatibilidad con IPv4 e IPv6 y desea conectar la red virtual a Virtual WAN, este escenario no se admite actualmente. 
 
 ### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionalities"></a>¿Cuál es la versión de API recomendada para utilizar en los scripts que automatizan varias funcionalidades de Virtual WAN?
 

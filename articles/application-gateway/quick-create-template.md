@@ -1,20 +1,20 @@
 ---
 title: 'Inicio rápido: Dirección del tráfico web mediante una plantilla de Resource Manager'
 titleSuffix: Azure Application Gateway
-description: Obtenga información sobre cómo utilizar una plantilla de Resource Manager para crear una instancia de Azure Application Gateway que dirija el tráfico web a las máquinas virtuales de un grupo de back-end.
+description: En esta guía de inicio rápido, obtendrá información sobre cómo utilizar una plantilla de Resource Manager para crear una instancia de Azure Application Gateway que dirija el tráfico web a las máquinas virtuales de un grupo de back-end.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 05/28/2020
+ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: ebcb51dc4de9283752d61831eb0cad801ec1ac4b
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: f492521469281615d4182294feaefffff688bd21
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705952"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961693"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---arm-template"></a>Inicio rápido: Dirección del tráfico web con Azure Application Gateway: plantilla de ARM
 

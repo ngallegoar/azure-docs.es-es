@@ -6,16 +6,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 8/13/2020
+ms.date: 09/01/2020
 ms.topic: include
-ms.custom: include file
+ms.custom: include file, devx-track-dotnet, cog-serv-seo-aug-2020
 ms.author: diberry
-ms.openlocfilehash: d0ae5fa41d039be235ff0c9abb4facf95b1f3b2e
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: fff4e8c43263dfcc49be6cb6269078643118e8df
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88246473"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89323119"
 ---
 Use las bibliotecas cliente de Language Understanding (LUIS) para .NET para:
 * Crear una aplicación.
@@ -66,7 +66,6 @@ Cree una nueva aplicación de consola de .NET Core en el IDE o editor que prefie
     ...
     ```
 
-
 ### <a name="install-the-nuget-libraries"></a>Instalación de las bibliotecas de NuGet
 
 En el directorio de la aplicación, instale las bibliotecas cliente de Language Understanding (LUIS) para .NET con los siguientes comandos:
@@ -79,6 +78,8 @@ dotnet add package Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime --ver
 ## <a name="authoring-object-model"></a>Creación de un modelo de objetos
 
 El cliente de creación de Language Understanding (LUIS) es un objeto [LUISAuthoringClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.luisauthoringclient?view=azure-dotnet) que se autentica en Azure, que contiene la clave de creación.
+
+## <a name="code-examples-for-authoring"></a>Ejemplos de código para la creación
 
 Una vez creado el cliente, úselo para acceder a la funcionalidad, entre la que se incluye:
 
@@ -94,6 +95,8 @@ Una vez creado el cliente, úselo para acceder a la funcionalidad, entre la que 
 
 El cliente del entorno de ejecución de predicción de Language Understanding (LUIS) es un objeto [LUISRuntimeClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.luisruntimeclient?view=azure-dotnet) que se autentica en Azure, que contiene la clave del recurso.
 
+## <a name="code-examples-for-prediction-runtime"></a>Ejemplos de código para el entorno de ejecución de predicción
+
 Una vez creado el cliente, úselo para acceder a la funcionalidad, entre la que se incluye:
 
 * Predicción por [almacenamiento provisional o espacio de producción](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.predictionoperationsextensions.getslotpredictionasync?view=azure-dotnet)
@@ -104,9 +107,11 @@ Una vez creado el cliente, úselo para acceder a la funcionalidad, entre la que 
 
 ## <a name="add-the-dependencies"></a>Adición de las dependencias
 
-1. En el directorio del proyecto, abra el archivo *Program.cs* en el editor o IDE que prefiera. Reemplace el código existente `using` por las siguientes directivas `using`:
+En el directorio del proyecto, abra el archivo *Program.cs* en el editor o IDE que prefiera. Reemplace el código existente `using` por las siguientes directivas `using`:
 
-    [!code-csharp[Add NuGet libraries to code file](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x//Program.cs?name=Dependencies)]
+[!code-csharp[Add NuGet libraries to code file](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x//Program.cs?name=Dependencies)]
+
+## <a name="add-boilerplate-code"></a>Adición de código reutilizable
 
 1. Cambie la firma del método `Main` para permitir las llamadas asincrónicas:
 
@@ -117,6 +122,8 @@ Una vez creado el cliente, úselo para acceder a la funcionalidad, entre la que 
 1. Agregue el resto del código del método `Main` de la clase `Program`, salvo que se especifique lo contrario.
 
 ## <a name="create-variables-for-the-app"></a>Creación de variables para la aplicación
+
+Cree dos conjuntos de variables: cambie el primer conjunto y el segundo déjelo como aparece en el ejemplo de código. 
 
 1. Cree variables para almacenar la clave de creación y los nombres de recursos.
 
@@ -130,7 +137,7 @@ Una vez creado el cliente, úselo para acceder a la funcionalidad, entre la que 
 
 Cree un objeto [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.apikeyserviceclientcredentials?view=azure-dotnet) con la clave y úselo con el punto de conexión para crear un objeto [LUISAuthoringClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.luisauthoringclient?view=azure-dotnet).
 
-[!code-csharp[Create LUIS authoring client object](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x//Program.cs?name=AuthoringCreateClient)]
+[!code-csharp[Authenticate the client](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x//Program.cs?name=AuthoringCreateClient)]
 
 ## <a name="create-a-luis-app"></a>Creación de una aplicación de LUIS
 
@@ -147,7 +154,7 @@ Cree un elemento [ModelCreateObject](https://docs.microsoft.com/dotnet/api/micro
 
 El valor `intentName` está codificado de forma rígida en `OrderPizzaIntent` como parte de las variables de la sección [Creación de variables para la aplicación](#create-variables-for-the-app).
 
-[!code-csharp[Create intent](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x//Program.cs?name=AddIntent)]
+[!code-csharp[Create intent for the app](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x//Program.cs?name=AddIntent)]
 
 ## <a name="create-entities-for-the-app"></a>Creación de entidades para la aplicación
 
@@ -159,11 +166,11 @@ Los métodos de creación de entidades forman parte de la clase [Model](https://
 
 El código de creación de entidad crea una entidad de aprendizaje automático con subentidades y características aplicadas a las subentidades de `Quantity`.
 
-:::image type="content" source="../media/quickstart-sdk/machine-learned-entity.png" alt-text="El código de creación de entidad crea una entidad de aprendizaje automático con subentidades y características aplicadas a las subentidades de Quantity.":::
+:::image type="content" source="../media/quickstart-sdk/machine-learned-entity.png" alt-text="Captura de pantalla parcial del portal que muestra la entidad creada, una entidad de aprendizaje automático con subentidades y características aplicadas a las subentidades "Quantity".":::
 
-[!code-csharp[Create entities](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x//Program.cs?name=AuthoringAddEntities)]
+[!code-csharp[Create entities for the app](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x//Program.cs?name=AuthoringAddEntities)]
 
-Utilice el método siguiente en la clase para buscar el identificador de la subentidad de Quantity, con el fin de asignar las características a esa subentidad.
+Use el método siguiente en la clase para buscar el identificador de la subentidad Quantity con el fin de asignar las características a esa subentidad.
 
 [!code-csharp[Find subentity id](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x//Program.cs?name=AuthoringSortModelObject)]
 
@@ -173,11 +180,11 @@ Con el fin de determinar la intención de una expresión y extraer las entidades
 
 Para agregar expresiones de ejemplo, cree una lista de objetos [ExampleLabelObject](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.models.examplelabelobject?view=azure-dotnet), un objeto para cada expresión de ejemplo. Cada ejemplo debe marcar todas las entidades con un diccionario de pares nombre-valor de nombre de entidad y valor de entidad. El valor de la entidad debe reflejar exactamente lo que aparece en el texto de la expresión de ejemplo.
 
-:::image type="content" source="../media/quickstart-sdk/labeled-example-machine-learned-entity.png" alt-text="El valor de la entidad debe reflejar exactamente lo que aparece en el texto de la expresión de ejemplo.":::
+:::image type="content" source="../media/quickstart-sdk/labeled-example-machine-learned-entity.png" alt-text="Captura de pantalla parcial que muestra la expresión del ejemplo con etiquetas en el portal. ":::
 
-Llame a [Examples.AddAsync](https://docs.microsoft.com//dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.examplesextensions.addasync?view=azure-dotnet) con el identificador de la aplicación, el identificador de la versión y el ejemplo. 
+Llame a [Examples.AddAsync](https://docs.microsoft.com//dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.examplesextensions.addasync?view=azure-dotnet) con el identificador de la aplicación, el identificador de la versión y el ejemplo.
 
-[!code-csharp[Add example utterance to a specific intent](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x//Program.cs?name=AuthoringAddLabeledExamples)]
+[!code-csharp[Add example utterance to intent](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x//Program.cs?name=AuthoringAddLabeledExamples)]
 
 ## <a name="train-the-app"></a>Entrenamiento de la aplicación
 
@@ -187,9 +194,9 @@ El método [Train.TrainVersionAsync](https://docs.microsoft.com/dotnet/api/micro
 
 Un modelo muy pequeño, como el que se muestra en este inicio rápido, se entrenará muy rápidamente. En el caso de las aplicaciones en el nivel de producción, el entrenamiento de la aplicación debe incluir una llamada de sondeo al método [GetStatusAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.trainextensions.getstatusasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_LUIS_Authoring_TrainExtensions_GetStatusAsync_Microsoft_Azure_CognitiveServices_Language_LUIS_Authoring_ITrain_System_Guid_System_String_System_Threading_CancellationToken_) para determinar cuándo o si el entrenamiento se realizó correctamente. La respuesta es una lista de objetos [ModelTrainingInfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.models.modeltraininginfo?view=azure-dotnet) con un estado independiente para cada objeto. Para que el entrenamiento se considere completo, todos los objetos deben ser correctos.
 
-[!code-csharp[Train the app's version](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x//Program.cs?name=TrainAppVersion)]
+[!code-csharp[Train the app](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x//Program.cs?name=TrainAppVersion)]
 
-## <a name="publish-a-language-understanding-app"></a>Publicación de una aplicación de Language Understanding
+## <a name="publish-app-to-production-slot"></a>Publicación de la aplicación en el espacio de producción
 
 La aplicación de LUIS se publica con el método [PublishAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.publishasync?view=azure-dotnet). Así se publica la versión entrenada actual en el espacio especificado en el punto de conexión. La aplicación cliente usa este punto de conexión para enviar expresiones del usuario y con ellas predecir la intención y extraer entidades.
 
@@ -201,7 +208,7 @@ Use un objeto [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet
 
 [!INCLUDE [Caution about using authoring key](caution-authoring-key.md)]
 
-[!code-csharp[Create LUIS runtime client object](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x//Program.cs?name=PredictionCreateClient)]
+[!code-csharp[Authenticate the prediction runtime client](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x//Program.cs?name=PredictionCreateClient)]
 
 
 ## <a name="get-prediction-from-runtime"></a>Obtención de la predicción a partir del entorno de ejecución
@@ -212,7 +219,7 @@ La expresión de usuario forma parte del objeto [PredictionRequest](https://docs
 
 El método **GetSlotPredictionAsync** necesita varios parámetros como, por ejemplo, el identificador de la aplicación, el nombre del espacio y el objeto de la solicitud de predicción para completar la solicitud. Las demás opciones, como verbose, muestran todas las intenciones y el registro es opcional.
 
-[!code-csharp[Get prediction based on query](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x//Program.cs?name=QueryPredictionEndpoint)]
+[!code-csharp[Get prediction from runtime](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x//Program.cs?name=QueryPredictionEndpoint)]
 
 [!INCLUDE [Prediction JSON response](sdk-json.md)]
 

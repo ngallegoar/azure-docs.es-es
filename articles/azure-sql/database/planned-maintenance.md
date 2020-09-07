@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 ms.date: 08/25/2020
-ms.openlocfilehash: 85459f357032a7f9944d50e3e4f3929015c6dcfd
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4c7b78f14602632068a19d520aeeb940b543be61
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869124"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948222"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Planeación de eventos de mantenimiento de Azure en Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -24,6 +24,8 @@ ms.locfileid: "88869124"
 Obtenga información sobre cómo prepararse para los eventos de mantenimiento planeado en la base de datos en Azure SQL Database e Instancia administrada de Azure SQL.
 
 ## <a name="what-is-a-planned-maintenance-event"></a>¿Qué es un evento de mantenimiento planeado?
+
+Para mantener la seguridad, la compatibilidad, la estabilidad y el rendimiento de los servicios Azure SQL Database y Azure SQL Managed Instance, se realizan actualizaciones por medio de los componentes del servicio casi continuamente. Gracias a la moderna y sólida arquitectura de servicio y a tecnologías innovadoras como la [aplicación de revisiones en caliente](https://aka.ms/azuresqlhotpatching), la mayoría de las actualizaciones son completamente transparentes y sin impacto en lo que respecta a la disponibilidad del servicio. Aun así, algunos tipos de actualizaciones causan interrupciones breves del servicio y requieren tratamiento especial. 
 
 Para cada base de datos, Azure SQL Database e Instancia administrada de Azure SQL mantienen un cuórum de réplicas de base de datos en el que una de ellas es la principal. En todo momento, una réplica principal debe realizar mantenimiento en línea, mientras que al menos una réplica secundaria debe estar en buen estado. Durante el mantenimiento planeado, los miembros del cuórum de la base de datos se quedarán sin conexión una a la vez, con la intención de que haya una réplica principal respondiendo y al menos una réplica secundaria en línea, de forma que no haya tiempo de inactividad en el cliente. Cuando sea necesario que la réplica principal esté sin conexión, se producirá un proceso de reconfiguración o conmutación por error en el que una réplica secundaria se convertirá en la nueva réplica principal.  
 

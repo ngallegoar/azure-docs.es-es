@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: Creación de una instancia de Azure Firewall con Availability Zones: plantilla de Resource Manager'
-description: Implementación de Azure Firewall mediante una plantilla. La red virtual tiene una red virtual con tres subredes. Se implementan dos máquinas virtuales con Windows Server; un jumpbox y un servidor.
+description: En este inicio rápido, implementará Azure Firewall mediante una plantilla. La red virtual tiene una red virtual con tres subredes. Se implementan dos máquinas virtuales con Windows Server; un jumpbox y un servidor.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 04/30/2020
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 104e2e9f6593d95caf77c0796f8b9465eebcfcee
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: c8b4102968e4b6b633216e29d5e993a1c98fa1c6
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705136"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071727"
 ---
 # <a name="quickstart-deploy-azure-firewall-with-availability-zones---arm-template"></a>Inicio rápido: Implementación de Azure Firewall con Availability Zones: plantilla de Resource Manager
 

@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 04/13/2020
 ms.author: erhopf
-ms.openlocfilehash: 182cf54f58b4fbb8b80fb4ff9d7c1a9c1e353470
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 1554722308675a44a9c144059cc9886996fa3166
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723918"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918441"
 ---
 # <a name="language-support-for-form-recognizer"></a>Compatibilidad de idiomas con Form Recognizer
 
@@ -26,11 +26,11 @@ En este artículo se enumeran los idiomas humanos que admite el servicio Form Re
 |:-----|:----:|:-----:|:---:|:---:|
 |Chino (simplificado) | `zh-Hans`| | ✔ |
 |Neerlandés | `nl` | |✔ |
-|Inglés | `en` |✔ |
+|Inglés (impreso y manuscrito) | `en` |✔ |
 |Francés | `fr` | |✔ |
 |Alemán | `de` | |✔ |
 |Italiano | `it` | |✔ |
 |Portugués | `pt` | |✔ |
 |Español | `es` | |✔ |
 
-* La versión preliminar pública de Form Recognizer v 2.1 admite estos idiomas para `Analyze Layout` y `Train Custom Model` (_entrenamiento con etiquetas_ y _entrenamiento sin etiquetas_). `Analyze Receipt` y `Analyze Business Card` solo se admiten en inglés.
+* La versión preliminar pública de Form Recognizer v2.1 admite estos idiomas para las opciones de diseño y personalización. Los recibos y las tarjetas de presentación pregenerados solo se admiten en inglés.

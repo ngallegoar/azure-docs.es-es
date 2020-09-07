@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: quickstart
 ms.date: 08/19/2020
-ms.openlocfilehash: 7dd81afb3189055c194b8a94b4bcbdf48f85d6f2
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 5ceaf949df88468b2239bd901f639ba6096b0d5f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658394"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269648"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-in-the-azure-portal"></a>Inicio rápido: Uso compartido de los datos con Azure Data Share en Azure Portal
 
@@ -47,7 +47,7 @@ Cree un recurso de Azure Data Share en un grupo de recursos de Azure.
 
 1. Cuando la implementación se complete, seleccione **Ir al grupo de recursos**.
 
-## <a name="create-a-data-share"></a>Creación de una instancia de Azure Data Share
+## <a name="create-a-share"></a>Creación de un recurso compartido
 
 1. Vaya a la página de información general de Azure Data Share.
 
@@ -57,15 +57,15 @@ Cree un recurso de Azure Data Share en un grupo de recursos de Azure.
 
 1. Seleccione **Crear**.
 
-1. Rellene los detalles de Azure Data Share. Especifique un nombre, un tipo de recurso compartido, una descripción del contenido de los recursos compartidos y las condiciones de uso (opcional). 
+1. Rellene los detalles del recurso compartido. Especifique un nombre, un tipo de recurso compartido, una descripción del contenido de los recursos compartidos y las condiciones de uso (opcional). 
 
    ![EnterShareDetails](./media/enter-share-details.png "Introducción de detalles del recurso compartido") 
 
 1. Seleccione **Continuar**.
 
-1. Para agregar conjuntos de datos a Azure Data Share, seleccione **Add Datasets** (Agregar conjuntos de datos). 
+1. Para agregar conjuntos de datos al recurso compartido, seleccione **Agregar conjuntos de datos**. 
 
-   ![Conjuntos de datos](./media/datasets.png "Conjuntos de datos")
+   ![Adición de conjuntos de datos al recurso compartido](./media/datasets.png "Conjuntos de datos")
 
 1. Seleccione el tipo de conjunto de datos que desea agregar. Verá una lista diferente de tipos de conjuntos de datos en función del tipo de recurso compartido (instantánea o en contexto) que haya seleccionado en el paso anterior. Si comparte desde Azure SQL Database o Azure SQL Data Warehouse, se le pedirán credenciales de SQL. Realice la autenticación con el usuario que ha creado como parte de los requisitos previos.
 

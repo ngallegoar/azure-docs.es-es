@@ -3,15 +3,15 @@ title: Grupo de hosts de Windows Virtual Desktop en Azure Portal
 description: Creación de un grupo de hosts de Windows Virtual Desktop con Azure Portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 08/21/2020
+ms.date: 09/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 30101d4e9125b0ac283710ebb26205c2bb120766
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: b6d54c226dd3a156ff6164f87fc755aac3dd040c
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755490"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322592"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Creación de un grupo de hosts con Azure Portal
 
@@ -47,6 +47,8 @@ Si aún no tiene una suscripción a Azure, asegúrese de [crear una cuenta](http
 Para empezar a crear el grupo de hosts:
 
 1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com/).
+   
+   >![NOTA] Si va a iniciar sesión en el portal de US Gov, vaya a [https://portal.azure.us/](https://portal.azure.us/) en su lugar.
 
 2. Escriba **Windows Virtual Desktop** en la barra de búsqueda y, luego, busque y seleccione **Windows Virtual Desktop** en Servicios.
 
@@ -72,7 +74,7 @@ Para empezar a crear el grupo de hosts:
       > [!div class="mx-imgBorder"]
       > ![Captura de pantalla del menú desplegable del campo "Assignment Type" (Tipo de asignación). El usuario ha seleccionado "Automatic" (Automático).](media/assignment-type-field.png)
 
-9. Si elige **Pooled** (Agrupado), escriba la siguiente información:
+9.  Si elige **Pooled** (Agrupado), escriba la siguiente información:
 
      - En **Max session limit** (Límite máximo de sesiones), escriba el número máximo de usuarios entre los que desea que se equilibre la carga en un solo host de sesión.
      - En **Load balancing algorithm** (Algoritmo de equilibrio de carga), elija equilibrio de carga en amplitud o equilibrio de carga en profundidad, según el patrón de uso.
@@ -129,9 +131,11 @@ Para configurar la máquina virtual en el proceso de configuración del grupo de
 
 7. Elija qué tipo de discos del sistema operativo quiere que usen las máquinas virtuales: SSD estándar, SSD Premium o HDD estándar.
 
-8. En Network and security (Red y seguridad), seleccione la **red virtual** y la **subred** en la que quiere colocar las máquinas virtuales creadas. Asegúrese de que la red virtual pueda conectarse al controlador de dominio, ya que tendrá que unir al dominio las máquinas virtuales que se encuentran dentro de la red virtual. Luego, seleccione si quiere o no una dirección IP pública para las máquinas virtuales. Se recomienda seleccionar **No**, ya que una dirección IP privada es más segura.
+8. En Network and security (Red y seguridad), seleccione la **red virtual** y la **subred** en la que quiere colocar las máquinas virtuales creadas. Asegúrese de que la red virtual pueda conectarse al controlador de dominio, ya que tendrá que unir al dominio las máquinas virtuales que se encuentran dentro de la red virtual. Los servidores DNS de la red virtual que seleccionó deben estar configurados para usar la dirección IP del controlador de dominio.
 
-9. Seleccione el tipo de grupo de seguridad que desee: **Basic** (Básico), **Advanced** (Avanzado) o **None** (Ninguno).
+9. Luego, seleccione si quiere una dirección IP pública para las máquinas virtuales. Se recomienda seleccionar **No**, ya que una dirección IP privada es más segura.
+
+10. Seleccione el tipo de grupo de seguridad que desee: **Basic** (Básico), **Advanced** (Avanzado) o **None** (Ninguno).
 
     Si selecciona **Basic** (Básico), tendrá que decidir si quiere abrir algún puerto de entrada. Si selecciona **Yes** (Sí), elija de la lista de puertos estándar a los que permitir conexiones entrantes.
 
@@ -143,11 +147,13 @@ Para configurar la máquina virtual en el proceso de configuración del grupo de
 
     Si elige **Advanced** (Avanzado), seleccione un grupo de seguridad de red existente que ya haya configurado.
 
-10. Después, seleccione si quiere que las máquinas virtuales se unan a un dominio y a una unidad organizativa específicos. Si elige **Yes** (Yes), especifique el dominio al que quiere unirse. Opcionalmente, puede agregar una unidad organizativa específica en la que quiera que estén las máquinas virtuales. Si elige **No**, las máquinas virtuales se unirán al dominio que coincide con el sufijo del **nombre principal de usuario unido al dominio de AD**.
+11. Después, seleccione si quiere que las máquinas virtuales se unan a un dominio y a una unidad organizativa específicos. Si elige **Yes** (Yes), especifique el dominio al que quiere unirse. Opcionalmente, puede agregar una unidad organizativa específica en la que quiera que estén las máquinas virtuales. Si elige **No**, las máquinas virtuales se unirán al dominio que coincide con el sufijo del **nombre principal de usuario unido al dominio de AD**.
 
-11. En "Administrator account" (Cuenta de administrador), escriba las credenciales del administrador de dominio de Active Directory de la red virtual que ha seleccionado.
+  - Al especificar una unidad organizativa, asegúrese de usar la ruta de acceso completa (nombre distintivo) y sin comillas.
 
-12. Seleccione **Siguiente: Workspace >** (Siguiente: Área de trabajo).
+12. En "Administrator account" (Cuenta de administrador), escriba las credenciales del administrador de dominio de Active Directory de la red virtual que ha seleccionado. Esta cuenta no puede tener habilitada la autenticación multifactor (MFA). Al unirse a un dominio de Azure Active Directory Domain Services (Azure AD DS), la cuenta debe formar parte del grupo administradores de Azure AD DC y la contraseña de la cuenta debe funcionar en Azure AD DS.
+
+13. Seleccione **Siguiente: Workspace >** (Siguiente: Área de trabajo).
 
 Ahora, estamos preparados para iniciar la siguiente fase de configuración del grupo de hosts: registro del grupo de aplicaciones en un área de trabajo.
 

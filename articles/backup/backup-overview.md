@@ -4,12 +4,12 @@ description: Proporciona información general del servicio Azure Backup, y cómo
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: da4f9b4814e93a964105a7ed3ea4addaecd43864
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 9954c8fa6affca7d2c2b73d7176280587d749476
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611235"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017896"
 ---
 # <a name="what-is-the-azure-backup-service"></a>¿Qué es el servicio Azure Backup?
 
@@ -34,7 +34,7 @@ Azure Backup proporciona las siguientes ventajas principales:
 - **Descarga de copia de seguridad local**: Azure Backup ofrece una solución sencilla para hacer copias de seguridad de los recursos locales en la nube. Obtenga copias de seguridad a corto y largo plazo sin necesidad de implementar complejas soluciones de copias de seguridad locales.
 - **Copia de seguridad de máquinas virtuales de IaaS de Azure**: Azure Backup proporciona copias de seguridad independientes y aisladas para evitar la destrucción accidental de datos originales. Las copias de seguridad se almacenan en un almacén de Recovery Services con administración integrada de puntos de recuperación. La configuración y la escalabilidad son sencillas, las copias de seguridad están optimizadas y puede restaurarlas fácilmente cuando sea necesario.
 - **Escala sencilla**: Azure Backup usa la eficacia subyacente y la escala ilimitada de la nube de Azure para proporcionar alta disponibilidad, sin sobrecarga de mantenimiento o supervisión.
-- **Obtención de una transferencia de datos ilimitada**: Azure Backup no limita la cantidad de datos de entrada y salida que se transfieren ni cobra por ellos.
+- **Obtención de una transferencia de datos ilimitada**: Azure Backup no limita la cantidad de datos de entrada o salida que se transfieren ni cobra por ellos.
   - Datos de salida hacen referencia a los datos transferidos desde un almacén de Recovery Services durante una operación de restauración.
   - Si realiza una copia de seguridad inicial sin conexión mediante el servicio Azure Import/Export para importar grandes cantidades de datos, hay un costo asociado a los datos de entrada.  [Más información](backup-azure-backup-import-export.md).
 - **Protección de los datos**: Azure Backup proporciona soluciones para proteger los datos tanto [en tránsito](backup-azure-security-feature.md) como [en reposo](backup-azure-security-feature-cloud.md).

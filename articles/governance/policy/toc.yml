@@ -72,6 +72,8 @@
           href: ./samples/azure-security-benchmark.md
         - name: "CIS Microsoft Azure Foundations Benchmark\_1.1.0"
           href: ./samples/cis-azure-1-1-0.md
+        - name: "HIPAA/HITRUST\_9.2"
+          href: ./samples/hipaa-hitrust-9-2.md
         - name: "NIST\_SP\_800-53\_R4"
           href: ./samples/nist-sp-800-53-r4.md
         - name: "NIST\_SP\_800-171\_R2"

@@ -4,12 +4,12 @@ description: En este tutorial, aprenderá a crear un almacén de Recovery Servic
 ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 76c09cc02a3545d975de5d6d49b396b12f8abb44
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: a9517ffc1e37d50f7c0e57b9ed53fb8bcf55fd70
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757513"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180582"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Uso de Azure Portal para realizar la copia de seguridad de varias máquinas virtuales
 
@@ -53,7 +53,7 @@ El almacén de Recovery Services contiene los datos de la copia de seguridad y l
 
     ![Valores del almacén de Recovery Services](./media/tutorial-backup-vm-at-scale/review-and-create.png)
 
-    Un almacén de Recovery Services debe estar en la misma ubicación que las máquinas virtuales que se están protegiendo. Si tiene máquinas virtuales en varias regiones, cree un almacén de Recovery Services en cada una de ellas. En este tutorial se crea un almacén de Recovery Services en *Oeste de Europa*, porque es la ubicación donde se creó *myVM* (la máquina virtual creada con el inicio rápido).
+    Un almacén de Recovery Services debe estar en la misma ubicación que las máquinas virtuales que se están protegiendo. Si tiene máquinas virtuales en varias regiones, cree un almacén de Recovery Services en cada una de ellas. En este tutorial se crea un almacén de Recovery Services en *Oeste de Europa*, porque es la ubicación donde se creó *myVM* (la máquina virtual creada con la guía de inicio rápido).
 
 1. Cuando esté listo para crear el almacén de Recovery Services, seleccione **Crear**.
 

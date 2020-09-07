@@ -1,25 +1,24 @@
 ---
 title: Acerca de Azure VPN Gateway
-description: Aprenda qué es una instancia de VPN Gateway y cómo usarla para conectarse a redes virtuales de sitio a sitio de IPsec/IKE, de red virtual a red virtual y de VPN de punto a sitio.
+description: Aprenda qué es VPN Gateway y cómo se usa para conectarse a redes virtuales de sitio a sitio de IPsec/IKE, de red virtual a red virtual y de VPN de punto a sitio.
 services: vpn-gateway
 author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 08/25/2020
+ms.date: 08/27/2020
 ms.author: cherylmc
-ms.openlocfilehash: c7fbea977904145aa2e8851f45a4b70f9ce0c560
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.custom: contperfq1
+ms.openlocfilehash: 23d8d28a03217b1359462332da736f852cfaf8ea
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855613"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015397"
 ---
 # <a name="what-is-vpn-gateway"></a>¿Qué es VPN Gateway?
 
 VPN Gateway es un tipo específico de puerta de enlace de red virtual que se usa para enviar tráfico cifrado entre una red virtual de Azure y una ubicación local a través de la red pública de Internet. También puede usar una instancia de VPN Gateway para enviar tráfico cifrado entre las redes virtuales de Azure a través de la red de Microsoft. Cada red virtual solo puede tener una instancia de VPN Gateway. Sin embargo, puede crear varias conexiones a la misma instancia. Al crear varias conexiones a la misma instancia de VPN Gateway, todos los túneles VPN comparten el ancho de banda disponible de la puerta de enlace.
-
-Las puertas de enlace de VPN se pueden implementar en Azure Availability Zones. Esto aporta una mayor disponibilidad, escalabilidad y resistencia a las puertas de enlace de red virtual. Implementar puertas de enlace en Azure Availability Zones separa de forma física y lógica las puertas de enlace dentro de una región, y protege la conectividad de red local en Azure de errores de nivel de zona. Consulte [Acerca de las puertas de enlace de red virtual con redundancia de zona en Azure Availability Zones](about-zone-redundant-vnet-gateways.md).
 
 ## <a name="what-is-a-virtual-network-gateway"></a><a name="whatis"></a>¿Qué es una puerta de enlace de red virtual?
 
@@ -33,9 +32,15 @@ La creación de una puerta de enlace de red virtual puede tardar en completarse 
 
 Una conexión de puerta de enlace de VPN se basa en varios recursos con una configuración específica. La mayoría de los recursos puede configurarse por separado, aunque en algunos casos es necesario seguir un orden determinado.
 
-### <a name="design-connection-topology-diagrams"></a><a name="diagrams"></a>Diseño: Diagramas de topologías de conexión
+### <a name="design"></a><a name="diagrams"></a>Diseño
 
-Es importante saber que hay distintas configuraciones disponibles para las conexiones de VPN Gateway. Es preciso determinar qué configuración es la que mejor se adapta a sus necesidades. Por ejemplo, las conexiones de punto a sitio, de sitio a sitio y de ExpressRoute o de sitio a sitio coexistentes tienen instrucciones y requisitos de configuración diferentes. Para obtener información sobre los diagramas de topología de diseño y de conexión, consulte [Diseño](design.md).
+Es importante saber que hay distintas configuraciones disponibles para las conexiones de VPN Gateway. Es preciso determinar qué configuración es la que mejor se adapta a sus necesidades. Por ejemplo, las conexiones de punto a sitio, de sitio a sitio y de ExpressRoute o de sitio a sitio coexistentes tienen instrucciones y requisitos de configuración diferentes. Para obtener información sobre el diseño y para ver los diagramas de topología de conexión, consulte [Diseño](design.md).
+
+### <a name="planning-table"></a><a name="planningtable"></a>Tabla de planeación
+
+La tabla siguiente puede ayudarle a decidir la mejor opción de conectividad para su solución.
+
+[!INCLUDE [cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
 ### <a name="settings"></a><a name="settings"></a>Configuración
 
@@ -44,12 +49,6 @@ La configuración que ha elegido para cada recurso es fundamental para crear una
 ### <a name="deployment-tools"></a><a name="tools"></a>Herramientas de implementación
 
 Puede empezar a crear y configurar recursos mediante una herramienta de configuración, como el portal de Azure. Más adelante puede decidir cambiar a otra herramienta, como PowerShell, para configurar recursos adicionales o para modificar los existentes cuando sea aplicable. Actualmente, no se pueden configurar todos los recursos ni establecer todas las configuraciones de recurso en Azure Portal. Las instrucciones de los artículos para cada topología de configuración indican cuándo se necesita una herramienta de configuración específica.
-
-### <a name="planning-table"></a><a name="planningtable"></a>Tabla de planeación
-
-La tabla siguiente puede ayudarle a decidir la mejor opción de conectividad para su solución.
-
-[!INCLUDE [cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
 ## <a name="gateway-skus"></a><a name="gwsku"></a>SKU de puerta de enlace
 
@@ -61,6 +60,10 @@ Al crear una puerta de enlace de red virtual, hay que especificar la SKU de la p
 ### <a name="gateway-skus-by-tunnel-connection-and-throughput"></a><a name="benchmark"></a>SKU de puerta de enlace por túnel, conexión y rendimiento
 
 [!INCLUDE [Aggregated throughput by SKU](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
+
+## <a name="availability-zones"></a><a name="availability"></a>Zonas de disponibilidad
+
+Las puertas de enlace de VPN se pueden implementar en Azure Availability Zones. Esto aporta una mayor disponibilidad, escalabilidad y resistencia a las puertas de enlace de red virtual. Implementar puertas de enlace en Azure Availability Zones separa de forma física y lógica las puertas de enlace dentro de una región, y protege la conectividad de red local en Azure de errores de nivel de zona. Consulte [Acerca de las puertas de enlace de red virtual con redundancia de zona en Azure Availability Zones](about-zone-redundant-vnet-gateways.md).
 
 ## <a name="pricing"></a><a name="pricing"></a>Precios
 

@@ -1,19 +1,22 @@
 ---
 title: Integración de Azure Key Vault con Kubernetes
 description: En este tutorial, accederá a los secretos de Azure Key Vault y los recuperará mediante el controlador Secrets Store Container Storage Interface (CSI) para montarlos en los pods de Kubernetes.
-author: rkarlin
-ms.author: rkarlin
+author: ShaneBala-keyvault
+ms.author: sudbalas
 ms.service: key-vault
 ms.topic: tutorial
-ms.date: 06/04/2020
-ms.openlocfilehash: 1942576037c7367612580a04d4187ccf4655aade
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.date: 08/25/2020
+ms.openlocfilehash: bfcaf9d4b1d03457f2e4cddd2e0eaf9d9d58eee2
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685891"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869191"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutorial: Configuración y ejecución del proveedor de Azure Key Vault para el controlador Secrets Store CSI en Kubernetes
+
+> [!IMPORTANT]
+> El controlador de CSI es un proyecto de código abierto que no es compatible con el soporte técnico de Azure. Informe de todos los comentarios y problemas relacionados con la integración de Key Vault para el controlador de CSI en el vínculo de GitHub en la parte inferior de la página. Esta herramienta se proporciona para que los usuarios se ocupen por sí mismos de su instalación en los clústeres y recopilen comentarios de nuestra comunidad.
 
 En este tutorial, accederá a los secretos de Azure Key Vault y los recuperará mediante el controlador Secrets Store Container Storage Interface (CSI) para montar los secretos en los pods de Kubernetes.
 

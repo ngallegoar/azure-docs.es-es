@@ -47,6 +47,9 @@
     - name: Visualización y administración de clientes
       displayName: my customers
       href: ./how-to/view-manage-customers.md
+    - name: Vínculo a su identificador de asociado
+      displayName: 'partner earned credit, pec, mpn'
+      href: ./how-to/partner-earned-credit.md
     - name: Quitar el acceso a una delegación
       displayName: 'delete, undelegate'
       href: ./how-to/remove-delegation.md
@@ -78,7 +81,7 @@
           href: ./how-to/view-service-provider-activity.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/managedservices
     - name: Azure PowerShell
       href: /powershell/module/az.managedservices#managed_services

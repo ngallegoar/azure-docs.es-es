@@ -4,12 +4,12 @@ description: En este tutorial aprenderá a administrar las bases de datos de SAP
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 13cd6e33fbec261b52aae73b1b01fe26764885fe
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 3051eb9a6f0c395f8ec06d92d6501296ec39c768
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757360"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007305"
 ---
 # <a name="tutorial-manage-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Administración de las bases de datos de SAP HANA de una máquina virtual de Azure con la CLI de Azure
 
@@ -35,7 +35,7 @@ Si ha usado [Realización de una copia de seguridad de una base de datos de SAP 
 * el elemento o la base de datos con copia de seguridad denominado *saphanadatabase;hxe;hxe* y
 * los recursos de la región *westus2*.
 
-La CLI de Azure facilita la administración de las bases de datos de SAP HANA que se ejecutan en una máquina virtual de Azure con copia de seguridad realizada mediante Azure Backup. En este tutorial se detallan todas las operaciones de administración.
+La CLI de Azure facilita la administración de las bases de datos de SAP HANA que se ejecutan en una máquina virtual de Azure con copia de seguridad realizada mediante Azure Backup. En este tutorial se detallan todas las operaciones de administración.
 
 ## <a name="monitor-backup-and-restore-jobs"></a>Supervisar los trabajos de copia de seguridad y restauración
 
@@ -119,7 +119,7 @@ Puede dejar de proteger una base de datos SAP HANA de dos maneras:
 
 Si decide dejar los puntos de recuperación, tenga en cuenta estos detalles:
 
-* Todos los puntos de recuperación permanecerán intactos para siempre; al detenerse la protección de los datos se detendrá la eliminación de todos los puntos y se conservarán los datos.
+* Todos los puntos de recuperación permanecerán intactos para siempre y, al detenerse la protección de los datos, se detendrá la eliminación de todos los puntos y se conservarán los datos.
 * Se le cobrará la instancia protegida y el almacenamiento consumido.
 * Si elimina un origen de datos sin detener las copias de seguridad, las nuevas copias de seguridad producirán errores.
 

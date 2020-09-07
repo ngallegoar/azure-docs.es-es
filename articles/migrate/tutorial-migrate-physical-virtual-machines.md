@@ -4,12 +4,12 @@ description: En este artículo se describe cómo migrar máquinas físicas a Azu
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: ff8ac55f129e7579b12e2102c0c6292e9030021c
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 7091d95a07da60faed7012df04c05def340df7b4
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066634"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376084"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migración de máquinas como servidores físicos a Azure
 
@@ -148,7 +148,7 @@ El primer paso de la migración consiste en configurar el dispositivo de replica
 4. En **Región de destino**, seleccione la región de Azure a la que desea migrar las máquinas.
 5. Seleccione **Confirme que la región de destino de la migración es nombreDeRegión**.
 6. Haga clic en **Crear recursos**. Esto crea un almacén de Azure Site Recovery en segundo plano.
-    - Si ya ha configurado la migración con Azure Migrate Server Migration, no se puede configurar la opción de destino, ya que los recursos se configuraron anteriormente.
+    - Si ya ha configurado la migración con Azure Migrate Server Migration, no se puede configurar la opción de destino, ya que los recursos se configuraron anteriormente.    
     - Después de hacer clic en este botón ya no se puede cambiar la región de destino de este proyecto.
     - Todas las migraciones posteriores se realizan a esta región.
 
@@ -245,20 +245,28 @@ Ahora, seleccione las máquinas para la migración.
 
 9. En **Configuración de destino**, seleccione la suscripción y la región de destino a la que va a migrar, y especifique el grupo de recursos en el que residirán las máquinas virtuales de Azure después de la migración.
 10. En **Red virtual**, seleccione la red virtual o la subred de Azure a la que se unirán las máquinas virtuales de Azure después de la migración.
-11. En **Ventaja híbrida de Azure**:
+11. En **Opciones de disponibilidad**, seleccione:
+    -  La zona de disponibilidad para anclar la máquina migrada a una zona de disponibilidad específica de la región. Use esta opción para distribuir los servidores que forman una capa de aplicación de varios nodos en Availability Zones. Si selecciona esta opción, deberá especificar la zona de disponibilidad que se va a usar en cada una de las máquinas seleccionadas en la pestaña Proceso. Esta opción solo está disponible si la región de destino seleccionada para la migración admite Availability Zones.
+    -  El conjunto de disponibilidad para colocar la máquina migrada en un conjunto de disponibilidad. Para usar esta opción, el grupo de recursos de destino seleccionado debe tener uno o varios conjuntos de disponibilidad.
+    - No se requiere ninguna opción de redundancia de infraestructura si no necesita ninguna de estas configuraciones de disponibilidad para las máquinas migradas.
+12. En **Ventaja híbrida de Azure**:
 
     - Seleccione **No** si no desea aplicar la Ventaja híbrida de Azure. A continuación, haga clic en **Siguiente**.
     - Seleccione **Sí** si tiene equipos con Windows Server que están incluidos en suscripciones activas de Software Assurance o Windows Server y desea aplicar el beneficio a las máquinas que va a migrar. A continuación, haga clic en **Siguiente**.
 
     ![Configuración de destino](./media/tutorial-migrate-physical-virtual-machines/target-settings.png)
 
-12. En **Proceso**, revise el nombre de la máquina virtual, su tamaño, el tipo de disco del sistema operativo y el conjunto de disponibilidad. Las máquinas virtuales deben cumplir los [requisitos de Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
+13. En **Proceso**, revise el nombre, el tamaño, el tipo de disco del sistema operativo y la configuración de disponibilidad (si se ha seleccionado en el paso anterior) de la máquina virtual. Las máquinas virtuales deben cumplir los [requisitos de Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 
-    - **Tamaño de VM**: de forma predeterminada, Azure Migrate Server Migration elige un tamaño basándose en la coincidencia más cercana en la suscripción de Azure. También puede elegir un tamaño de manera manual en **Tamaño de la máquina virtual de Azure**. 
-    - **Disco del sistema operativo**: especifique el disco del sistema operativo (arranque) de la máquina virtual. Este es el disco que tiene el cargador de arranque y el instalador del sistema operativo. 
-    - **Conjunto de disponibilidad**: si la máquina virtual debe estar incluida en un conjunto de disponibilidad de Azure después de la migración, especifique el conjunto. El conjunto debe estar en el grupo de recursos de destino que especifique para la migración.
+    - **Tamaño de VM**: si usa las recomendaciones de la evaluación, el menú desplegable de tamaño de máquina virtual muestra el tamaño recomendado. De lo contrario, Azure Migrate elige un tamaño en función de la coincidencia más cercana en la suscripción de Azure. También puede elegir un tamaño de manera manual en **Tamaño de la máquina virtual de Azure**.
+    - **Disco del sistema operativo**: especifique el disco del sistema operativo (arranque) de la máquina virtual. Este es el disco que tiene el cargador de arranque y el instalador del sistema operativo.
+    - **Zona de disponibilidad**: especifique la zona de disponibilidad que se va a usar.
+    - **Conjunto de disponibilidad**: especifique el conjunto de disponibilidad que se va a usar.
 
-    ![Configuración de Proceso](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
+> [!NOTE]
+>Si quiere seleccionar otra opción de disponibilidad para un conjunto de máquinas virtuales, vaya al paso 1 y repita los pasos seleccionando diferentes opciones de disponibilidad tras el inicio de la replicación de uno de los conjuntos de máquinas virtuales.
+
+    ![Compute settings](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
 13. En **Discos**, especifique si los discos de máquina virtual se deben replicar en Azure y seleccione el tipo de disco (discos SSD o HDD estándar o bien discos administrados premium) en Azure. A continuación, haga clic en **Siguiente**.
     - Puede excluir discos de la replicación.
@@ -325,7 +333,7 @@ Después de comprobar que la migración de prueba funciona según lo previsto, p
 2. En **Replicación de máquinas**, haga clic con el botón derecho en la máquina virtual > **Migrar**.
 3. En **Migrar** >  **¿Quiere apagar las máquinas virtuales y realizar una migración planificada sin perder datos?** , seleccione **Sí** > **Aceptar**.
     - Si no desea apagar la máquina virtual, seleccione **No**
-
+    
     Nota: Para la migración del servidor físico, se recomienda que la aplicación deje de estar disponible como parte de la ventana de migración (no permita que las aplicaciones acepten ninguna conexión) y, a continuación, inicie la migración (el servidor debe mantenerse en ejecución, por lo que los cambios restantes pueden sincronizarse) antes de que se complete la migración.
 
 4. Se inicia un trabajo de migración de la máquina virtual. Realice un seguimiento del trabajo en las notificaciones de Azure.

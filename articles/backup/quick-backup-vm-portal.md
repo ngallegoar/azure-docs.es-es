@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/12/2020
 ms.custom: mvc
-ms.openlocfilehash: c41fb7426cf740b5861b0b571cf7ce5c54d681ef
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: b0060c0aff8293ca5748cf8c055ebb2bbfb596e2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757615"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017454"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Copia de seguridad de una máquina virtual en Azure
 
@@ -39,7 +39,7 @@ Un almacén de Recovery Services es un contenedor lógico que almacena los datos
 
     ![Habilitar la copia de seguridad de una máquina virtual en Azure Portal](./media/quick-backup-vm-portal/enable-backup.png)
 
-    De forma predeterminada, el almacén se establece para el almacenamiento con redundancia geográfica. Para proteger aún más los datos, este nivel de redundancia del almacenamiento garantiza que los datos de las copia de seguridad se replican en una región de Azure secundaria que se encuentra a cientos de kilómetros de la región primaria.
+    De forma predeterminada, el almacén se establece para el almacenamiento con redundancia geográfica. Para proteger aún más los datos, este nivel de redundancia del almacenamiento garantiza que los datos de la copia de seguridad se replican en una región de Azure secundaria que se encuentra a cientos de kilómetros de la región primaria.
 
     Cree y use directivas para definir cuándo se ejecuta un trabajo de copia de seguridad y durante cuánto tiempo se almacenan los puntos de recuperación. La directiva de protección predeterminada ejecuta un trabajo de copia de seguridad cada día y conserva los puntos de seguridad durante 30 días. Estos valores de la directiva predeterminada se pueden usar para proteger rápidamente la máquina virtual.
 

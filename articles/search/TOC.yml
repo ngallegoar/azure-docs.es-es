@@ -114,6 +114,8 @@
         - name: Controles de seguridad de Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
+        - name: Protección de recursos del indizador
+          href: search-indexer-securing-resources.md
 - name: Guías paso a paso
   items:
     - name: Creación de índices y construcciones
@@ -354,6 +356,14 @@
               href: search-security-trimming-for-azure-search.md
             - name: Filtro por identidades de usuario
               href: search-security-trimming-for-azure-search-with-aad.md
+        - name: Seguridad de salida (indizadores)
+          items:
+            - name: Acceso a través de un intervalo IP
+              href: search-indexer-howto-access-ip-restricted.md
+            - name: Acceso a través de una excepción de un servicio de confianza
+              href: search-indexer-howto-access-trusted-service-exception.md
+            - name: Acceso a través de puntos de conexión privados
+              href: search-indexer-howto-access-private.md
     - name: Administrar
       items:
         - name: Portal
@@ -384,7 +394,7 @@
           href: cognitive-search-common-errors-warnings.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/search?view=azure-cli-latest
     - name: Azure PowerShell
       href: /powershell/module/az.search
@@ -392,14 +402,14 @@
       href: /azure/templates/microsoft.search/searchservices
     - name: REST
       items:
-        - name: Search 2020-06-30
+        - name: Search API (estable)
           href: /rest/api/searchservice
-        - name: Search 2020-06-30-Preview
+        - name: Search API (versión preliminar)
           href: /rest/api/searchservice/index-preview
-        - name: Management 2020-03-13
+        - name: Management API (estable)
           href: /rest/api/searchmanagement
-        - name: Management 2019-10-01-Preview
-          href: /rest/api/searchmanagement/index-2019-10-01-preview
+        - name: Management API (versión preliminar)
+          href: /rest/api/searchmanagement/index-preview
     - name: .NET
       items:
         - name: API de búsqueda

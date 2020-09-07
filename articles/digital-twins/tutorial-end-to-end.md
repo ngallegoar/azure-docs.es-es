@@ -1,5 +1,5 @@
 ---
-title: Conexión de una solución de un extremo a otro
+title: 'Tutorial: Conexión de una solución de un extremo a otro.'
 titleSuffix: Azure Digital Twins
 description: Tutorial para crear soluciones de Azure Digital Twins de un extremo a otro controladas por los datos de los dispositivos.
 author: baanders
@@ -7,22 +7,23 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 0407046dcafb0dcc1872d5083669e09b378a75cd
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: b22505d5152b005a054d36fafb965006d04b201e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827391"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401782"
 ---
-# <a name="build-out-an-end-to-end-solution"></a>Creación de soluciones de un extremo a otro
+# <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Creación de soluciones de un extremo a otro
 
 Para configurar una solución de un extremo a otro controlada por los datos en directo de su entorno, puede conectar su instancia de Azure Digital Twins a otros servicios de Azure para la administración tanto de los dispositivos como de los datos.
 
 En este tutorial:
-* Configurará una instancia de Azure Digital Twins.
-* Obtendrá información acerca del escenario del edificio de ejemplo y creará instancias de los componentes que se han escrito previamente.
-* Usará una aplicación de [Azure Functions](../azure-functions/functions-overview.md) para enrutar los datos de telemetría simulados de un dispositivo de [IoT Hub](../iot-hub/about-iot-hub.md) en las propiedades de gemelos digitales.
-* Propagará los cambios con el **grafo de gemelos**, mediante el procesamiento de las notificaciones de los gemelos digitales con Azure Functions, puntos de conexión y rutas.
+> [!div class="checklist"]
+> * Configurará una instancia de Azure Digital Twins.
+> * Obtendrá información acerca del escenario del edificio de ejemplo y creará instancias de los componentes que se han escrito previamente.
+> * Usará una aplicación de [Azure Functions](../azure-functions/functions-overview.md) para enrutar los datos de telemetría simulados de un dispositivo de [IoT Hub](../iot-hub/about-iot-hub.md) en las propiedades de gemelos digitales.
+> * Propagará los cambios con el **grafo de gemelos**, mediante el procesamiento de las notificaciones de los gemelos digitales con Azure Functions, puntos de conexión y rutas.
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
@@ -365,6 +366,8 @@ Guarde los nombres que dio tanto al tema de Event Grid como al punto de conexió
 
 A continuación, cree una ruta de Azure Digital Twins que envíe eventos al punto de conexión de Azure Digital Twins que acaba de crear.
 
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
+
 ```azurecli
 az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>
 ```
@@ -433,7 +436,7 @@ Esta es una revisión del escenario que se ha creado en este tutorial.
 
 Cuando ya no necesite los recursos creados en este tutorial, siga estos pasos para eliminarlos. 
 
-Con Azure Cloud Shell, puede eliminar todos los recursos de Azure de un grupo mediante el comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). Así se quitan el grupo de recursos, la instancia de Azure Digital Twins, el centro de IoT y el registro del dispositivo del centro, el tema de Event Grid y las suscripciones asociadas, así como ambas aplicaciones de Azure Functions, incluidos los recursos asociados, como el almacenamiento.
+Con [Azure Cloud Shell](https://shell.azure.com), puede eliminar todos los recursos de Azure de un grupo mediante el comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). Así se quitan el grupo de recursos, la instancia de Azure Digital Twins, el centro de IoT y el registro del dispositivo del centro, el tema de Event Grid y las suscripciones asociadas, así como la aplicación de Azure Functions, incluidas las funciones y los recursos asociados, como el almacenamiento.
 
 > [!IMPORTANT]
 > La eliminación de un grupo de recursos es irreversible. El grupo de recursos y todos los recursos contenidos en él se eliminan permanentemente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados. 
@@ -448,14 +451,13 @@ A continuación, use este comando para eliminar el registro de aplicación de Az
 az ad app delete --id <your-application-ID>
 ```
 
-Por último, elimine la carpeta de ejemplo del proyecto que descargó de la máquina local.
+Por último, elimine la carpeta de ejemplo del proyecto que descargó en la máquina local.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha creado un escenario de un extremo a otro que muestra la forma en que los datos de dispositivos activos controlan Azure Digital Twins.
 
 A continuación, consulte la documentación sobre conceptos para más información sobre los elementos con los que ha trabajado en el tutorial:
-* [*Conceptos: Modelos personalizados*](concepts-models.md)
 
-O bien, consulte los artículos de procedimientos para profundizar en los procesos de este tutorial:
-* [*Procedimiento: Uso de la CLI de Azure Digital Twins*](how-to-use-cli.md).
+> [!div class="nextstepaction"]
+> [*Conceptos: Modelos personalizados*](concepts-models.md)

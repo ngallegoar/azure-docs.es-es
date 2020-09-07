@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
-ms.date: 08/18/2020
-ms.openlocfilehash: 1833f0343aa3e41119e215e7ce022f122d13489b
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.date: 08/31/2020
+ms.openlocfilehash: 0d5390beff6c3e0045c6b887f0262a54a737a851
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589510"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181772"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Conmutación por error manual iniciada por el usuario en SQL Managed Instance
 
@@ -36,6 +36,15 @@ Puede considerar la posibilidad de ejecutar una [conmutación por error manual](
 > Asegurarse de que las aplicaciones sean resistentes a la conmutación por error antes de la implementación en producción ayudará a mitigar el riesgo de errores de la aplicación en producción y contribuirá a la disponibilidad de la aplicación para los clientes.
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>Inicio manual de la conmutación por error en SQL Managed Instance
+
+### <a name="rbac-permissions-required"></a>Permisos de RBAC necesarios
+
+El usuario que inicia una conmutación por error debe tener uno de los siguientes roles de RBAC:
+
+- Rol Propietario de la suscripción, o
+- Rol Colaborador de Instancia administrada, o
+- Rol personalizado con el permiso siguiente:
+  - `Microsoft.Sql/managedInstances/failover/action`
 
 ### <a name="using-powershell"></a>Usar PowerShell
 

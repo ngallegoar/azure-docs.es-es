@@ -262,6 +262,8 @@
           href: how-to-connect-health-diagnose-sync-errors.md
         - name: Catálogo de alertas de Azure AD Connect Health
           href: how-to-connect-health-alert-catalog.md
+        - name: "Recuperación de datos de Azure\_AD Connect Health"
+          href: how-to-connect-health-data-retrieval.md
     - name: Administración de Azure AD Connect Sync
       items:
         - name: Almacenamiento provisional y recuperación ante desastres

@@ -5,16 +5,16 @@ description: Explicación de los cambios de la nueva versión de Azure Digital T
 author: baanders
 ms.author: baanders
 ms.date: 3/12/2020
-ms.topic: overview
+ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ad99dc3dc17e81c3b5da144b21519781353baa47
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6d1786766fc61ed0edfdc53295a50ba212818fc0
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826830"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181432"
 ---
-# <a name="how-is-the-new-azure-digital-twins-different-from-the-previous-version-2018"></a>¿En qué se diferencia la nueva versión de Azure Digital Twins de la anterior (2018)?
+# <a name="what-is-the-new-azure-digital-twins-how-is-it-different-from-the-previous-version-2018"></a>¿Qué es la nueva versión de Azure Digital Twins? ¿En qué se diferencia de la versión anterior (2018)?
 
 La primera versión preliminar pública de Azure Digital Twins se publicó en octubre de 2018. Aunque ahora los conceptos básicos de la versión anterior ya se han pasado al nuevo servicio en la versión preliminar pública, buena parte de las interfaces y los detalles de implementación han cambiado para que el servicio sea más flexible y accesible. Estos cambios están motivados por los comentarios de los clientes.
 
@@ -44,5 +44,4 @@ Para obtener una lista de los límites de Azure Digital Twins durante esta versi
 
 A continuación, obtenga más información sobre el trabajo con Azure Digital Twins con el primer tutorial:
 
-> [!div class="nextstepaction"]
-> [*Tutorial: Programación de una aplicación cliente*](tutorial-code.md)
+[*Tutorial: Programación de una aplicación cliente*](tutorial-code.md)

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: 1873cd14883e8b1a5174b8761e4a0bc9ba1ef872
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 1cc7d7755d22568b9b66216709dc0c3765d58657
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641864"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300160"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Inicio rápido: Configuración de las propiedades de una aplicación en el inquilino de Azure Active Directory (Azure AD)
 
@@ -31,7 +31,7 @@ Para configurar las propiedades de una aplicación en el inquilino de Azure AD,
 - Opcional: Haber finalizado el inicio rápido de [Incorporación de una aplicación](add-application-portal.md).
 
 >[!IMPORTANT]
->Para probar los pasos de este inicio rápido, use un entorno que no sea de producción.
+>Use un entorno que no sea de producción para probar los pasos de esta guía de inicio rápido.
 
 ## <a name="configure-app-properties"></a>Configuración de las propiedades de una aplicación
 
@@ -93,6 +93,6 @@ Si no va a continuar con la serie de inicios rápidos, considere la posibilidad 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Pase al siguiente artículo, donde aprenderá a configurar el inicio de sesión único en una aplicación.
+Avance al siguiente artículo para aprender a asignar usuarios a la aplicación.
 > [!div class="nextstepaction"]
-> [Configuración del inicio de sesión único](add-application-portal-setup-sso.md)
+> [Asignación de usuarios a una aplicación](add-application-portal-assign-users.md)

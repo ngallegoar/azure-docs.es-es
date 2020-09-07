@@ -4,12 +4,12 @@ description: En este artículo, encontrará respuestas a preguntas habituales so
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 670314d8703889016431838a9f5b0a6dc56b84b8
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: cf6929b9b926a6e6469f3fa789a19e60d5883d21
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892565"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181500"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Preguntas frecuentes sobre las alertas de supervisión de Azure Backup
 
@@ -19,7 +19,7 @@ En este artículo se responde a preguntas comunes sobre la supervisión y la cre
 
 ### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-log-analytics-la-workspace"></a>¿Cómo se comprueba que los datos de informes han empezado a fluir a un área de trabajo de Log Analytics (LA)?
 
-Vaya al área de trabajo de LA que ha configurado y desplácese hasta el elemento de menú **Logs** (Registros) y ejecute la consulta CoreAzureBackup | take 1. Si observa que se devuelve un registro, significa que los datos han empezado a fluir al área de trabajo. La inserción de datos inicial puede tardar hasta 24 horas.
+Vaya al área de trabajo de LA que ha configurado. Vaya al elemento de menú **Registros** y ejecute la consulta `CoreAzureBackup | take 1`. Si observa que se devuelve un registro, significa que los datos han empezado a fluir al área de trabajo. La inserción de datos inicial puede tardar hasta 24 horas.
 
 ### <a name="what-is-the-frequency-of-data-push-to-an-la-workspace"></a>¿Cuál es la frecuencia de inserción de datos en un área de trabajo de LA?
 
@@ -50,13 +50,13 @@ Si es usuario de [Azure Lighthouse](https://azure.microsoft.com/services/azure-l
 
 ## <a name="recovery-services-vault"></a>Almacén de Recovery Services
 
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>¿Cuánto tarda el estado del trabajo del agente de copia de seguridad de Azure en reflejarse en el portal?
+### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>¿Cuánto tarda el estado del trabajo del agente de Azure Backup en reflejarse en el portal?
 
-Azure Portal puede tardar hasta 15 minutos en reflejar el estado del trabajo del agente de copia de seguridad de Azure.
+Azure Portal puede tardar hasta 15 minutos en reflejar el estado del trabajo del agente de Azure Backup.
 
 ### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Cuando se produce un error en un trabajo de copia de seguridad, ¿cuánto tarda en generarse una alerta?
 
-Se genera una alerta en menos de 20 minutos desde que se produce el error en la copia de seguridad de Azure.
+Se genera una alerta en menos de 20 minutos desde que se produce el error en Azure Backup.
 
 ### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>¿Hay algún caso en el que no se envíe ningún correo electrónico si se configuran las notificaciones?
 

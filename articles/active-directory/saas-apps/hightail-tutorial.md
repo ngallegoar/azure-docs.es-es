@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 3b3f279b28bf78114556623865a9f132174c6e41
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0348e5c773f37606a3975a8e62e556bef291a758
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550551"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297321"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hightail"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Hightail
 
@@ -109,7 +109,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
 > [!NOTE]
-> Antes de configurar el inicio de sesión único en la aplicación Hightail, incluya su dominio de correo electrónico en la lista de permitidos con el equipo Hightail para que todos aquellos que utilicen este dominio puedan emplear la funcionalidad de inicio de sesión único.
+> Antes de configurar el inicio de sesión único en la aplicación Hightail, agregue el dominio de correo electrónico a la lista de permitidos con el equipo Hightail para que todos aquellos que utilicen este dominio puedan emplear la funcionalidad de inicio de sesión único.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 

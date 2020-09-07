@@ -4,12 +4,12 @@ description: En este tutorial aprenderá a hacer una copia de seguridad de las b
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a0b6683183d6bf73b5376c6320106373ffd4ba78
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: eb6b9f4d58a94cc8a4b9f70b5ead7d319a0d51b5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762409"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007594"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Copia de seguridad de las bases de datos de SAP HANA en una máquina virtual de Azure con la CLI de Azure
 
@@ -141,7 +141,7 @@ Name                                  Operation         Status     Item Name   S
 e0f15dae-7cac-4475-a833-f52c50e5b6c3  ConfigureBackup   Completed  hxe         2019-12-03T03:09:210831+00:00  
 ```
 
-El cmdlet [az backup job list](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) enumera todos los trabajos de copia de seguridad (programados o a petición) que se han ejecutado o que se están ejecutando actualmente en la base de datos protegida, además de otras operaciones como el registro, la configuración de la copia de seguridad, la eliminación de datos de la copia de seguridad, etc.
+El cmdlet [az backup job list](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) enumera todos los trabajos de copia de seguridad (programados o a petición) que se han ejecutado o que se están ejecutando actualmente en la base de datos protegida, además de otras operaciones como el registro, la configuración de la copia de seguridad y la eliminación de datos de la copia de seguridad.
 
 >[!NOTE]
 >Azure Backup no se ajusta automáticamente a los cambios del horario de verano cuando realiza la copia de seguridad de una base de datos SAP HANA en una máquina virtual de Azure.

@@ -3,12 +3,12 @@ title: Preparación del servidor DPM para realizar copias de seguridad de las ca
 description: En este artículo, aprenderá a preparar las copias de seguridad de System Center Data Protection Manager (DPM) en Azure con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 96eadb4d600b6aa842cdbded2a906d70f27cf55e
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 4534b75018fb91cedda00b8c1167012858c5e562
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890814"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021041"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparación para realizar copias de seguridad de las cargas de trabajo en Azure con System Center DPM
 
@@ -46,7 +46,7 @@ Componentes | El servidor DPM debe tener instalado Windows PowerShell y .NET F
 Aplicaciones admitidas | [Obtenga información](/system-center/dpm/dpm-protection-matrix) sobre los elementos de los que DPM puede realizar una copia de seguridad.
 Tipos de archivo admitidos | La copia de seguridad de estos tipos de archivos se puede realizar con Azure Backup:<br> <li>Cifrados (solo copias de seguridad completas)<li> Comprimidos (copias de seguridad incrementales compatibles) <li> Dispersos (copias de seguridad incrementales compatibles)<li> Comprimidos y dispersos (tratados como dispersos)
 Tipo de archivo no admitidos | <li>Servidores en sistemas de archivos que distinguen mayúsculas de minúsculas<li> Vínculos físicos (omitidos)<li> Puntos de reanálisis (omitidos)<li> Cifrados y comprimidos (omitidos)<li> Cifrados y dispersos (omitidos)<li> Flujo comprimido<li> Secuencia de análisis
-Almacenamiento local | Cada máquina de la que quiera realizar una copia de seguridad debe tener espacio de almacenamiento local de al menos el 5 % del tamaño de los datos de los que se va a realizar la copia de seguridad. Por ejemplo, realizar una copia de seguridad de 100 GB de datos requiere un mínimo de 5 GB de espacio libre en la ubicación temporal.
+Almacenamiento local | Cada máquina de la que quiera realizar una copia de seguridad debe tener almacenamiento libre local de al menos el 5 % del tamaño de los datos cuya copia se va a hacer. Por ejemplo, realizar una copia de seguridad de 100 GB de datos requiere un mínimo de 5 GB de espacio libre en la ubicación temporal.
 Almacenamiento de almacén | No hay ningún límite en la cantidad de datos de los que puede realizar una copia de seguridad en el almacén de Azure Backup; sin embargo, el tamaño de un origen de datos (por ejemplo, una máquina virtual o una base de datos) no debe superar los 54 400 GB.
 Azure ExpressRoute | Puede realizar una copia de seguridad de los datos mediante Azure ExpressRoute con emparejamiento público (disponible para circuitos antiguos) y emparejamiento de Microsoft. La copia de seguridad por emparejamiento privado no se admite.<br/><br/> **Con el emparejamiento público**: asegúrese de tener acceso a los siguientes dominios y direcciones:<br/><br/>- `http://www.msftncsi.com/ncsi.txt` <br/><br/>- `microsoft.com` <br/><br/>-`.WindowsAzure.com`<br/><br/>-`.microsoftonline.com`<br/><br/>-`.windows.net`<br/><br/> **Con el emparejamiento de Microsoft**, seleccione los siguientes servicios o regiones y los valores de comunidad correspondientes:<br/><br/>- Azure Active Directory (12076:5060)<br/><br/>- Región de Microsoft Azure (según la ubicación del almacén de Recovery Services)<br/><br/>- Azure Storage (según la ubicación del almacén de Recovery Services)<br/><br/>Para más información, consulte los [requisitos de enrutamiento de ExpressRoute](../expressroute/expressroute-routing.md).<br/><br/>**Nota**: El emparejamiento público está en desuso para circuitos nuevos.
 Agente de Azure Backup | Si DPM se ejecuta en System Center 2012 SP1, instale el paquete acumulativo de actualizaciones 2 o posterior para DPM SP1. Esto es necesario para la instalación del agente.<br/><br/> En este artículo se describe cómo implementar la última versión del agente de Azure Backup, también conocido como el agente de Microsoft Azure Recovery Service (MARS). Si tiene una versión anterior implementada, actualice a la última versión para asegurarse de que la copia de seguridad funciona según lo previsto.

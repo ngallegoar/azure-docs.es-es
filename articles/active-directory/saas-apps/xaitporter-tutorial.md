@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: bdea7fc3c295016204a80772bdf367dda7e194fb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 80900f8a63d29e8c36ec190945efc3c44f713a3f
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546311"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296930"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Tutorial: Integración de Azure Active Directory con XaitPorter
 
@@ -112,7 +112,7 @@ Para configurar el inicio de sesión único de Azure AD con XaitPorter, realice 
 
     ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
 
-6. Proporcione la **dirección IP** o la **dirección URL de metadatos de federación de aplicación** al [equipo de soporte técnico de SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/), de modo que XaitPorter pueda garantizar que la dirección IP sea accesible desde su instancia de XaitPorter mediante su inclusión en la lista de permitidos. 
+6. Proporcione la **dirección IP** o la **dirección URL de metadatos de federación de aplicación** al [equipo de soporte técnico de SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/), de modo que XaitPorter pueda garantizar que la dirección IP sea accesible desde la instancia de XaitPorter mediante su inclusión en la lista de aprobados. 
 
 ### <a name="configure-xaitporter-single-sign-on"></a>Configuración del inicio de sesión único de XaitPorter
 
@@ -213,4 +213,3 @@ Al hacer clic en el icono de XaitPorter en el panel de acceso y debería iniciar
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

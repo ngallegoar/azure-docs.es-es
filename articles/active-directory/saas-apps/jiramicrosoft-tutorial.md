@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 08f5829eb624f13be44bba633f3188d8d9876058
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 99f29f884997fbdd4761a5aa2d1f3a8bc15aa797
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547467"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891613"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con JIRA SAML SSO by Microsoft
 
@@ -37,7 +37,7 @@ Use la cuenta de Microsoft Azure Active Directory con el servidor JIRA de Atlass
 Para configurar la integración de Azure AD con JIRA SAML SSO by Microsoft, se necesitan los siguientes elementos:
 
 - Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
-- Se deben instalar y configurar las versiones de 6.4 a 8.11.0 de JIRA Core y Software o las versiones de 3.0 a 4.8.0 de JIRA Service Desk en una versión de Windows de 64 bits.
+- Se deben instalar y configurar las versiones de 6.4 a 8.11.0 de JIRA Core y Software o las versiones 3.0 a 4.11.1 de JIRA Service Desk en una versión de Windows de 64 bits.
 - El servidor JIRA es compatible con HTTPS
 - Tenga en cuenta que las versiones admitidas para el complemento JIRA se mencionan en la sección siguiente.
 - El servidor JIRA es accesible en Internet, especialmente a la página de inicio de sesión de Azure AD para la autenticación y debe poder recibir el token de Azure AD
@@ -59,7 +59,7 @@ Para empezar, necesita los siguientes elementos:
 ## <a name="supported-versions-of-jira"></a>Versiones compatibles de JIRA
 
 * JIRA Core y Software: 6.4 a 8.11.0
-* JIRA Service Desk: de la versión 3.0.0 a la 4.8.0
+* JIRA Service Desk versión 3.0.0 a 4.11.1
 * JIRA también admite 5.2. Para obtener más detalles, haga clic en [Microsoft Azure Active Directory single sign-on for JIRA 5.2](jira52microsoft-tutorial.md) (Inicio de sesión único de Microsoft Azure Active Directory para JIRA 5.2).
 
 > [!NOTE]

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: 9594e1ed14b017591ea2c4ddda59ba61feb81b0c
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 596fc44cb3d449b73b681d17db879746ce3051d3
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272287"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277755"
 ---
 # <a name="enhanced-secure-score-in-azure-security-center"></a>Puntuación de seguridad mejorada de Azure Security Center
 
@@ -45,17 +45,17 @@ La página Puntuación de seguridad de Security Center incluye lo siguiente:
 > Las versiones anteriores de Security Center otorgaban puntos en el nivel de recomendación: cuando se corregía una recomendación para un único recurso, la puntuación de seguridad mejoraba. Actualmente, la puntuación solo mejora si se corrigen *todas* las recomendaciones para un solo recurso de un control. Por tanto, la puntuación solo mejora si mejora la seguridad de un recurso.
 
 
-## <a name="accessing-your-secure-score"></a>Acceso de la puntuación de seguridad
+## <a name="access-your-secure-score"></a>Acceso a la puntuación de seguridad
 
 Encontrará la puntuación de seguridad general, así como la puntuación por suscripción, a través de Azure Portal o mediante programación con la API de REST de Azure Security Center.
 
-### <a name="getting-your-secure-score-from-the-portal"></a>Obtención de la puntuación de seguridad desde el portal
+### <a name="get-your-secure-score-from-the-portal"></a>Obtención de la puntuación de seguridad desde el portal
 
 Security Center muestra la puntuación de forma destacada en el portal: es lo primero que aparece en la página de información general. Si hace clic en la página dedicada de puntuación de seguridad, verá la puntuación desglosada por suscripción. Haga clic en una suscripción única para ver la lista detallada de las recomendaciones prioritarias y del posible impacto que su corrección tendrá en la puntuación de la suscripción.
 
 ![Puntuación de seguridad general como se muestra en el portal](media/secure-score-security-controls/single-secure-score-via-ui.png)
 
-### <a name="getting-your-secure-score-from-the-rest-api"></a>Obtención de la puntuación de seguridad desde la API de REST
+### <a name="get-your-secure-score-from-the-rest-api"></a>Obtención de la puntuación de seguridad desde la API de REST
 
 Ahora puede acceder a la puntuación a través de la [API de puntuación de seguridad](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (actualmente en versión preliminar). Los métodos de API proporcionan la flexibilidad necesaria para consultar los datos y crear su propio mecanismo de creación de informes de las puntuaciones seguras a lo largo del tiempo. Por ejemplo, puede usar la API **Secure Scores** para obtener la puntuación de una suscripción específica. Además, puede usar la API **Secure Score Controls** para mostrar los controles de seguridad y la puntuación actual de las suscripciones.
 
@@ -91,7 +91,7 @@ La puntuación máxima para este control, "Aplicar actualizaciones del sistema",
 |**Puntuación segura**<br>Varias suscripciones|<br>La puntuación actual de todos los recursos de todas las suscripciones se suma y el cálculo es el mismo que para una suscripción única.<br><br>Cuando se ven varias suscripciones, la puntuación de seguridad evalúa todos los recursos de todas las directivas habilitadas y agrupa su impacto combinado en la puntuación máxima de cada control de seguridad.<br>![Puntuación de seguridad de varias suscripciones con todos los controles habilitados](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>La puntuación combinada **no** es un promedio; en vez de eso, es la posición evaluada del estado de todos los recursos de todas las suscripciones.<br>También en este caso, si va a la página de recomendaciones y suma los puntos posibles disponibles, observará que esta es la diferencia entre la puntuación actual (24) y la puntuación máxima disponible (60).|
 ||||
 
-## <a name="improving-your-secure-score"></a>Mejora de la puntuación de seguridad
+## <a name="improve-your-secure-score"></a>Mejora de su puntuación de seguridad
 
 Para mejorar la puntuación de seguridad, corrija las recomendaciones de seguridad de la lista de recomendaciones. Puede corregir cada recomendación manualmente para cada recurso o utilizar la opción **Corrección rápida** (si está disponible) para aplicar rápidamente una corrección de una recomendación a un grupo de recursos. Para más información, consulte [Corrección de recomendaciones](security-center-remediate-recommendations.md).
 

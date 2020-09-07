@@ -4,12 +4,12 @@ description: Instrucciones sobre cómo mover el almacén de Recovery Services en
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 0b06b12c2bb989e4c0fc4e04440fc5f452df2da3
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 69021131f12b57aedcd531997029858b0722933f
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827127"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181517"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Traslado del almacén de Recovery Services entre suscripciones y grupos de recursos de Azure
 
@@ -17,7 +17,7 @@ En este artículo se explica cómo mover un almacén de Recovery Services config
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
-El traslado de recursos para el almacén de Recovery Services se admite en las regiones Este de Australia, Sudeste de Australia, Centro de Canadá, Este de Canadá, Sudeste de Asia, Este de Asia, Centro de EE. UU., Centro-norte de EE. UU., Este de EE. UU., Este de EE. UU. 2, Centro-sur de EE. UU., Centro-oeste de EE. UU., Centro-oeste de EE. UU. 2, Oeste de EE. UU., Oeste de EE. UU. 2, Centro de la India, Sur de la India, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Norte de Europa, Oeste de Europa, Norte de Sudáfrica, Oeste de Sudáfrica, Sur de Reino Unido y Oeste de Reino Unido.
+El traslado de recursos de un almacén de Recovery Services se admite en Este de Australia, Sudeste de Australia, Centro de Canadá, Este de Canadá, Sudeste de Asia, Este de Asia, Centro de EE. UU., Centro-norte de EE. UU., Este de EE. UU., Este de EE. UU. 2, Centro-sur de EE. UU., Centro-oeste de EE. UU., Centro-oeste de EE. UU. 2, Oeste de EE. UU., Oeste de EE. UU. 2, Centro de la India, Sur de la India, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Norte de Europa, Oeste de Europa, Norte de Sudáfrica, Oeste de Sudáfrica, Sur de Reino Unido y Oeste de Reino Unido.
 
 ## <a name="unsupported-regions"></a>Regiones no admitidas
 
@@ -46,7 +46,7 @@ Centro de Francia, Sur de Francia, Nordeste de Alemania, Centro de Alemania, US 
 
 > [!NOTE]
 > No se admite la migración de almacenes de Recovery Services para Azure Backup entre regiones de Azure.<br><br>
-> Si ha configurado alguna máquina virtual (Azure IaaS, Hyper-V, VMware) o máquinas físicas para la recuperación ante desastres mediante **Azure Site Recovery**, se bloqueará la operación de traslado. Si desea mover almacenes para Azure Site Recovery, consulte [este artículo](../site-recovery/move-vaults-across-regions.md) para más información sobre cómo mover los almacenes manualmente.
+> Si ha configurado alguna máquina virtual (IaaS de Azure, Hyper-V, VMware) o máquina física para la recuperación ante desastres mediante **Azure Site Recovery**, se bloquea la operación de traslado. Si desea mover almacenes para Azure Site Recovery, consulte [este artículo](../site-recovery/move-vaults-across-regions.md) para más información sobre cómo mover los almacenes manualmente.
 
 ## <a name="use-azure-portal-to-move-recovery-services-vault-to-different-resource-group"></a>Uso de Azure Portal para trasladar un almacén de Recovery Services a otro grupo de recursos
 

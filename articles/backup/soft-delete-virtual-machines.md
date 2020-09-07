@@ -4,12 +4,12 @@ description: Aprenda sobre la eliminación temporal de máquinas virtuales aumen
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.custom: references_regions
-ms.openlocfilehash: a79f2bf77bcc184db8ac61b51107c1bb4a2a989d
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: a8b70d4c8240d096c19e5a8d7449921557b8896c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88889833"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022248"
 ---
 # <a name="soft-delete-for-virtual-machines"></a>Eliminación temporal de máquinas virtuales
 
@@ -82,7 +82,7 @@ El elemento "DeleteState" del elemento de copia de seguridad cambiará de "NotDe
 
 ### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>Acción de deshacer la operación de eliminación mediante Azure PowerShell
 
-En primer lugar, capture el elemento de copia de seguridad pertinente que se encuentra en estado de eliminación temporal (es decir, que se va a eliminar).
+En primer lugar, capture el elemento de copia de seguridad relevante que se encuentre en estado de eliminación temporal (es decir, a punto de eliminarse).
 
 ```powershell
 

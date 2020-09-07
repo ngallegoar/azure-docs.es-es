@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b88d9132ec1548c9d94fc418af35b55ac2836e96
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 3ea9923dd98a49b1533defa3e95616655b7ea78d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121245"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299310"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: Configuración de una geovalla con Azure Maps
 
@@ -258,15 +258,15 @@ Siga estos pasos para crear una suscripción de eventos para los eventos de entr
 
 5. Repita los pasos 1 a 4 para el punto de conexión de salida de la aplicación lógica que creó en la sección anterior. En el paso 3, asegúrese de elegir `Geofence Exited` como tipo de evento.
 
-## <a name="use-search-geofence-get-api"></a>Uso de Search Geofence Get API
+## <a name="use-spatial-geofence-get-api"></a>Uso de Spatial Geofence Get API
 
-Ahora, usaremos [Search Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) para enviar notificaciones por correo electrónico al responsable de operaciones cuando un miembro del equipo entre o salga de las geovallas.
+Ahora, usaremos [Spatial Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) para enviar notificaciones por correo electrónico a Operations Manager cuando un miembro del equipo entre o salga de las geovallas.
 
 Cada equipo tiene un `deviceId`. En este tutorial, vamos a realizar un seguimiento de un solo equipo, cuyo identificador único es `device_1`.
 
 Para mayor claridad, en el siguiente diagrama se muestran las cinco ubicaciones del equipo a lo largo del tiempo, empezando por la ubicación de *inicio*, que se encuentra fuera de las geovallas. Para los fines de este tutorial, la ubicación de *inicio* no está definida, ya que no se consultará el dispositivo en esa ubicación.
 
-Cuando se realice una consulta a [Search Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) con una ubicación de equipo que indica la entrada o salida de la geovalla inicial, Event Grid llamará al punto de conexión de la aplicación lógica adecuado para enviar una notificación por correo electrónico al responsable de operaciones.
+Cuando se realice una consulta a [Spatial Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) con una ubicación de equipo que indica la entrada o salida de la geovalla inicial, Event Grid llamará al punto de conexión de la aplicación lógica adecuado para enviar una notificación por correo electrónico a Operations Manager.
 
 En cada una de las secciones siguientes se realizan solicitudes HTTP a GET Geofencing API con las cinco coordenadas de ubicación diferentes del equipo.
 

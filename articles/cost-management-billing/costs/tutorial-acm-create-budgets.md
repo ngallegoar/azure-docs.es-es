@@ -9,18 +9,18 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 739d300faf77564891b2b783a3eb1cca50373015
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: fab6422300dd3db7dd0d02055721bd57354668bf
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718360"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322286"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Creación y administración de presupuestos de Azure
 
 Los presupuestos en Cost Management le ayudan a planear y dirigir la presentación de cuentas de la organización. Con presupuestos, puede tener en cuenta los servicios de Azure que consume o a los que se suscribe durante un período específico. Le ayudan a informar a otros usuarios sobre sus gastos a fin de administrar de manera proactiva los costos y supervisar cómo avanza el gasto a lo largo del tiempo. Cuando se superan los umbrales presupuestarios que ha creado, solo se desencadenan las notificaciones. Ninguno de los recursos se ve afectado y no se detiene el consumo. Puede usar los presupuestos para comparar y realizar un seguimiento de gastos para analizar los costos.
 
-Normalmente, la información sobre los costos y el uso está disponible en un plazo de 20 horas. Los presupuestos se evalúan con arreglo a estos costos cada 12 a 14 horas. Normalmente, cuando se alcanza el umbral del presupuesto, las notificaciones por correo electrónico se envían en el plazo de una hora de la evaluación.
+Normalmente, la información sobre los costos y el uso está disponible en un plazo que oscila entre 8 y 24 horas, y los presupuestos se evalúan con arreglo a estos costos cada 12 a 14 horas. Asegúrese de familiarizarse con la información específica de [Actualizaciones de los datos de uso y costo](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data#cost-and-usage-data-updates-and-retention). Normalmente, cuando se alcanza el umbral del presupuesto, las notificaciones por correo electrónico se envían en el plazo de una hora de la evaluación.
 
 Los presupuestos se restablecen automáticamente al final de un período (mensual, trimestral o anualmente) para el mismo importe presupuestario al seleccionar una fecha de expiración futura. Dado que se restablecen con el mismo importe presupuestario, deberá crear presupuestos independientes cuando los importes presupuestarios en moneda difieran para períodos futuros.
 

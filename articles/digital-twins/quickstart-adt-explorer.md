@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/12/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: b199a50443445b983011d755c3ffacaa71131faf
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: bbb1378419c68db07be5ca14ca6834810f2fc9f5
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893978"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055471"
 ---
 # <a name="explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Exploración de un escenario de Azure Digital Twins de ejemplo con Explorador de ADT
 
@@ -26,6 +26,10 @@ La guía de inicio rápido contiene los siguientes pasos principales:
 1. Cargar modelos creados previamente y datos de grafos para construir el escenario de ejemplo.
 1. Explorar el grafo de escenario que se crea.
 1. Realizar cambios en el grafo.
+
+El grafo de ejemplo con el que va a trabajar representa un edificio con dos plantas y dos habitaciones. El grafo será así:
+
+:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Vista de un grafo compuesto por cuatro nodos circulares conectados por flechas. Un círculo con la etiqueta "Floor1" está conectado mediante una flecha con la etiqueta "contains" (contiene) a un círculo con la etiqueta "Room1" y un círculo con la etiqueta "Floor0" está conectado mediante una flecha con la etiqueta "contains" (contiene) a un círculo con la etiqueta "Room0". "Floor1" y "Floor0" no están conectados.":::
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -56,7 +60,7 @@ A continuación, va a preparar la instancia de Azure Digital Twins que creó par
 
 Seleccione *Autenticación* en el menú del registro y presione *+ Agregar una plataforma*.
 
-:::image type="content" source="media/quickstart-adt-explorer/authentication-pre.png" alt-text="Página de Azure Portal de los detalles de autenticación de un registro de aplicaciones. Hay un resaltado alrededor del botón Agregar una plataforma." lightbox="media/quickstart-adt-explorer/authentication-pre.png":::
+:::image type="content" source="media/quickstart-adt-explorer/authentication-pre.png" alt-text="Página de Azure Portal de los detalles de autenticación de un registro de aplicaciones. Hay un resaltado alrededor del botón "Agregar una plataforma"." lightbox="media/quickstart-adt-explorer/authentication-pre.png":::
 
 En la página *Configurar plataformas* que aparece a continuación, seleccione *Web*.
 Rellene los detalles de configuración como se indica a continuación:
@@ -98,7 +102,7 @@ Presione el botón *Sign in* (Iniciar sesión) de la parte superior de la ventan
 Escriba la información importante que recopiló anteriormente en la sección [Requisitos previos](#prerequisites):
 * Id. de aplicación (cliente)
 * Id. de directorio (inquilino)
-* Dirección URL de ADT, con el formato *https://<instance host name>*
+* Dirección URL de ADT, con el formato *https://{nombre de host de la instancia}*
 
 >[!NOTE]
 > Puede volver a visitar o editar esta información en cualquier momento; para ello, seleccione el mismo icono para volver a mostrar el cuadro de inicio de sesión. Mantendrá los valores que ha especificado.
@@ -137,14 +141,14 @@ En el cuadro *MODEL VIEW* (Vista de modelo), presione el icono *Upload a Model* 
 3. Siga el cuadro de diálogo emergente que le pide que inicie sesión en su cuenta de Azure.
 
 >[!NOTE]
->Si aparece el siguiente mensaje de error: :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="Un elemento emergente que muestra Error: Error al recuperar modelos: ClientAuthError: Error al abrir la ventana emergente. Esto puede ocurrir si usa Internet Explorer o si los elementos emergentes están bloqueados en el explorador con el botón Cerrar en la parte inferior" border="false"::: 
+>Si aparece el siguiente mensaje de error: :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="Un elemento emergente que muestra "Error: Error al recuperar modelos: ClientAuthError: Error al abrir la ventana emergente. Esto puede ocurrir si usa Internet Explorer o si los elementos emergentes están bloqueados en el explorador" con el botón Cerrar en la parte inferior" border="false"::: 
 > Intente deshabilitar el bloqueador de elementos emergentes o usar otro explorador.
 
 Explorador de ADT cargará ahora estos archivos de modelo en la instancia de Azure Digital Twins. Deberían aparecer en el cuadro *MODEL VIEW* (Vista de modelo), que muestra los nombres descriptivos y los identificadores de modelo completos. Puede hacer clic en las burbujas de información de la *Vista de modelo* para ver el código DTDL subyacente.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/model-info.png" alt-text="Cuadro de vista de modelos con dos definiciones de modelos en su interior, Floor (dtmi:example:Floor;1) y Room (dtmi:example:Room;1). El icono Ver modelo muestra una letra i en un círculo resaltada para cada modelo." lightbox="media/quickstart-adt-explorer/model-info.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/model-info.png" alt-text="Cuadro de vista de modelos con dos definiciones de modelos en su interior, Floor (dtmi:example:Floor;1) y Room (dtmi:example:Room;1). El icono "Ver modelo" muestra una letra "i" en un círculo resaltada para cada modelo." lightbox="media/quickstart-adt-explorer/model-info.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -170,7 +174,7 @@ En el cuadro *GRAPH VIEW* (Vista de grafo), presione el icono *Import Graph* (Im
 
 :::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="Hay un icono resaltado en el cuadro de texto Vista de grafo. Muestra una flecha que apunta a una nube." lightbox="media/quickstart-adt-explorer/import-graph.png":::
 
-En el cuadro del selector de archivos, vaya de nuevo a la carpeta *client/examples* y elija el archivo de hoja de cálculo _**buildingScenario.xlsx**_. Este archivo contiene una descripción del grafo de ejemplo. Presione OK (Aceptar).
+En el cuadro del selector de archivos, vaya a la carpeta *Azure_Digital_Twins_samples/AdtSampleApp/SampleClientApp* y elija el archivo de hoja de cálculo _**buildingScenario.xlsx**_. Este archivo contiene una descripción del grafo de ejemplo. Presione OK (Aceptar).
 
 Después de unos segundos, Explorador de ADT abrirá un vista de *importación* que muestra una vista previa del grafo que se va a cargar.
 
@@ -188,7 +192,7 @@ Explorador de ADT usará ahora el archivo cargado para crear los gemelos solicit
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="Cuadro de diálogo que indica que el grafo se ha importado correctamente. Indica Importación correcta. 49 gemelos importados. 50 relaciones importadas." lightbox="media/quickstart-adt-explorer/import-success.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="Cuadro de diálogo que indica que el grafo se ha importado correctamente. Indica "Importación correcta. 49 gemelos importados. 50 relaciones importadas."" lightbox="media/quickstart-adt-explorer/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -206,7 +210,7 @@ Se ejecutará la consulta predeterminada para seleccionar y mostrar todos los ge
 
 Ahora puede ver el grafo cargado del escenario de ejemplo:
 
-:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Vista de grafo con un grafo de gemelos en su interior. Un círculo con la etiqueta floor1 está conectado mediante una flecha con la etiqueta contains (contiene) a un círculo con la etiqueta room1; un círculo con la etiqueta floor0 está conectado mediante una flecha con la etiqueta contains (contiene) a un círculo con la etiqueta room0.":::
+:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Vista de grafo con un grafo de gemelos en su interior. Un círculo con la etiqueta "floor1" está conectado mediante una flecha con la etiqueta "contains" (contiene) a un círculo con la etiqueta "room1"; un círculo con la etiqueta "floor0" está conectado mediante una flecha con la etiqueta "contains" (contiene) a un círculo con la etiqueta "room0".":::
 
 Los círculos ("nodos" del grafo) representan los gemelos digitales y las líneas representan las relaciones. Puede ver que el gemelo *Floor0* contiene a *Room0* y que el gemelo *Floor1* contiene a *Room1*.
 
@@ -220,7 +224,7 @@ Estas son las propiedades de *Room0*:
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/properties-room0.png" alt-text="Resaltado del cuadro Explorador de propiedades que muestra las propiedades de Room0, incluidos (entre otros) el campo $dtId con el valor Room0, el campo Temperature con el valor 70 y el campo Humidity con el valor 30." lightbox="media/quickstart-adt-explorer/properties-room0.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/properties-room0.png" alt-text="Resaltado del cuadro Explorador de propiedades que muestra las propiedades de Room0, incluidos (entre otros) el campo $dtId con el valor "Room0", el campo Temperature con el valor 70 y el campo Humidity con el valor 30." lightbox="media/quickstart-adt-explorer/properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -232,7 +236,7 @@ Estas son las propiedades de *Room1*:
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/properties-room1.png" alt-text="Resaltado del cuadro Explorador de propiedades que muestra las propiedades de Room1, incluidos (entre otros) el campo $dtId con el valor Room1, el campo Temperature con el valor 80 y el campo Humidity con el valor 60." lightbox="media/quickstart-adt-explorer/properties-room1.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/properties-room1.png" alt-text="Resaltado del cuadro Explorador de propiedades que muestra las propiedades de Room1, incluidos (entre otros) el campo $dtId con el valor "Room1", el campo Temperature con el valor 80 y el campo Humidity con el valor 60." lightbox="media/quickstart-adt-explorer/properties-room1.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -271,7 +275,7 @@ Las propiedades de esta lista son editables. Seleccione el valor de temperatura 
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/new-properties-room0.png" alt-text="Cuadro Explorador de propiedades que muestra las propiedades de Room0. El valor de temperatura es un cuadro editable que muestra 76 y hay un resaltado alrededor del icono de guardar." lightbox="media/quickstart-adt-explorer/new-properties-room0.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/new-properties-room0.png" alt-text="Cuadro "Explorador de propiedades" que muestra las propiedades de Room0. El valor de temperatura es un cuadro editable que muestra 76 y hay un resaltado alrededor del icono de guardar." lightbox="media/quickstart-adt-explorer/new-properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
