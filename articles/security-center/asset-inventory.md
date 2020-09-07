@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 08/11/2020
 ms.service: security-center
 ms.topic: conceptual
-ms.openlocfilehash: 7fab15ae4e9e58af58a4490beb2d512379976d1c
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: f3a542cd62c3d593dbc0cce7982d47222e9a7c88
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263833"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181113"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Explore y administre los recursos con las herramientas de administración e inventario de recursos.
 
@@ -102,6 +102,9 @@ Con el [lenguaje de consulta de Kusto (KQL)](https://docs.microsoft.com/azure/da
 1. Para usar el filtro **Security findings contain** (Las conclusiones de seguridad contienen), escriba texto libre para el identificador, la comprobación de seguridad o el nombre de CVE de una conclusión de vulnerabilidad para filtrar los recursos afectados:
 
     ![Filtro "Security findings contain" (Las conclusiones de seguridad contienen)](./media/asset-inventory/security-findings-contain-elements.png)
+
+    > [!TIP]
+    > Los filtros **Security findings contain** (Las conclusiones de seguridad contienen) y **Etiquetas** solo aceptan un único valor. Para filtrar por más de uno, use **Agregar filtros**.
 
 1. Para usar el filtro **Plan de tarifa**, seleccione una o varias opciones (gratis, parcial o estándar):
 

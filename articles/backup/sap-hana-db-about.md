@@ -3,12 +3,12 @@ title: Acerca de la copia de seguridad de bases de datos SAP HANA en máquinas v
 description: En este artículo obtendrá información sobre cómo realizar copias de seguridad de bases de datos SAP HANA que se ejecutan en máquinas virtuales de Azure.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: e30507e433ff9a828266c88ca79e576c508edc31
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: e30510817401fd8db23dc9f1d62fab495fac7ab2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757547"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022316"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>Acerca de la copia de seguridad de bases de datos SAP HANA en máquinas virtuales de Azure
 
@@ -69,7 +69,7 @@ Para restaurar una máquina virtual que ejecuta SAP HANA, siga estos pasos:
 
 * [Restaure una nueva máquina virtual desde la copia de seguridad de máquina virtual de Azure](backup-azure-arm-restore-vms.md) desde el punto de recuperación más reciente. También puede crear una nueva máquina virtual vacía y conectar los discos desde el punto de recuperación más reciente.
 * Como no se realizan copias de seguridad de los discos habilitados para el Acelerador de escritura, no se restauran. Cree el área de registro y discos habilitados para el Acelerador de escritura vacíos.
-* Una vez establecidas todas las demás configuraciones (como la dirección IP, el nombre del sistema, etc.), la máquina virtual se establece para recibir datos de base de datos de la copia de seguridad de Azure.
+* Una vez establecidas todas las demás configuraciones (como la dirección IP, el nombre del sistema, etc.), la máquina virtual se establece para recibir datos de base de datos de Azure Backup.
 * Ahora restaure la base de datos en la máquina virtual desde la [copia de seguridad de base de datos de SAP HANA de Azure](sap-hana-db-restore.md#restore-to-a-point-in-time-or-to-a-recovery-point) en el momento deseado.
 
 ## <a name="next-steps"></a>Pasos siguientes

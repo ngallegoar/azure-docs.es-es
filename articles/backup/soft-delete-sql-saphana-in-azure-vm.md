@@ -3,12 +3,12 @@ title: Eliminación temporal de servidores SQL Server en máquinas virtuales de
 description: Obtenga información sobre cómo la eliminación temporal de servidores SQL Server en máquinas virtuales de Azure y de instancias de SAP HANA en cargas de trabajo de máquinas virtuales de Azure consigue que las copias de seguridad sean más seguras.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 4e001ee460d9b7106d928da32b1620fb117c6b5a
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 26525ec758b3a27d6e0e1b9754b11041bd1fa0d2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825178"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022299"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Eliminación temporal de servidores SQL Server en máquinas virtuales de Azure y de instancias de SAP HANA en cargas de trabajo de máquinas virtuales de Azure
 
@@ -109,7 +109,7 @@ El elemento **DeleteState** del elemento de copia de seguridad cambiará de **No
 
 ### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>Acción de deshacer la operación de eliminación mediante Azure PowerShell
 
-En primer lugar, capture el elemento de copia de seguridad pertinente que se encuentra en estado de eliminación temporal (es decir, que se va a eliminar).
+En primer lugar, capture el elemento de copia de seguridad relevante que se encuentre en estado de eliminación temporal (es decir, a punto de eliminarse).
 
 ```powershell
 Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType SQLDataBase -VaultId $myVaultID | Where-Object {$_.DeleteState -eq "ToBeDeleted"}

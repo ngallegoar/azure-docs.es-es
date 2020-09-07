@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/06/2020
+ms.date: 08/26/2020
 ms.author: b-juche
-ms.openlocfilehash: e5d7f30f26be999ae43ce13aa31fc5393d049529
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: fb83b30f0844b9bf0e362e6f1e3a3822ba0044d1
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078961"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950007"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>Cambio dinámico del nivel de servicio de un volumen
 
@@ -53,6 +53,7 @@ La característica para trasladar un volumen a otro grupo de capacidad está act
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange
     ```
+También puede usar los comandos de la CLI de Azure [`az feature register`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-register) y [`az feature show`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-show) para registrar la característica y mostrar el estado de registro. 
 
 ## <a name="move-a-volume-to-another-capacity-pool"></a>Traslado de un volumen a otro grupo de capacidad
 

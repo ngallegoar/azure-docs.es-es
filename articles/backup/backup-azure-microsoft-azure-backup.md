@@ -3,12 +3,12 @@ title: Uso de Azure Backup Server para realizar copias de seguridad de cargas de
 description: En este artículo, aprenderá a preparar su entorno para proteger las cargas de trabajo y hacer copias de seguridad de ellas mediante Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 553073cf70e6806077a4df98e237bbbe0d2bb21a
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 79abf55fdbaae80a84618f6944870131dcd82c89
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892293"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181704"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalación y actualización de Azure Backup Server
 
@@ -24,7 +24,7 @@ ms.locfileid: "88892293"
 En este artículo se explica cómo preparar el entorno para la copia de seguridad de las cargas de trabajo mediante Microsoft Azure Backup Server (MABS). Con Azure Backup Server, puede proteger cargas de trabajo de aplicaciones como máquinas virtuales de Hyper-V, Microsoft SQL Server, SharePoint Server, Microsoft Exchange y clientes Windows desde una única consola.
 
 > [!NOTE]
-> Azure Backup Server ahora puede proteger máquinas virtuales de VMware y proporciona mejores funcionalidades de seguridad. Instale el producto tal y como se explica en las secciones de debajo y el agente de Azure Backup más reciente. Para obtener más información sobre la copia de seguridad de servidores VMware con Azure Backup Server, vea el artículo [Uso de Azure Backup Server para hacer copia de seguridad de un servidor de VMware](backup-azure-backup-server-vmware.md). Para obtener información sobre las funcionalidades de seguridad, consulte la [documentación de características de seguridad de copia de seguridad de Azure](backup-azure-security-feature.md).
+> Azure Backup Server ahora puede proteger máquinas virtuales de VMware y proporciona mejores funcionalidades de seguridad. Instale el producto tal y como se explica en las secciones de debajo y el agente de Azure Backup más reciente. Para obtener más información sobre la copia de seguridad de servidores VMware con Azure Backup Server, vea el artículo [Uso de Azure Backup Server para hacer copia de seguridad de un servidor de VMware](backup-azure-backup-server-vmware.md). Para información sobre las funcionalidades de seguridad, consulte la [documentación sobre las características de seguridad de Azure Backup](backup-azure-security-feature.md).
 >
 >
 
@@ -66,7 +66,7 @@ Puede desduplicar el almacenamiento de DPM con la desduplicación de Windows Ser
 >
 > * Un equipo que se ejecuta como controlador de dominio
 > * Un equipo en el que está instalado el rol del servidor de aplicaciones
-> * Un equipo que sea un grupo de administración de System Center Operations Manager
+> * Un equipo que sea un grupo de administración de System Center Operations Manager
 > * Un equipo en el que se ejecute Exchange Server
 > * Un equipo que sea un nodo de un clúster
 >
@@ -261,25 +261,25 @@ Estos son los pasos en caso de que necesite migrar MABS a un nuevo servidor sin 
 
   > [!IMPORTANT]
   >
-  > * El nombre nuevo del servidor debe ser el mismo que el de la instancia original de Azure Backup Server. No puede cambiar el nombre de la nueva instancia de Azure Backup Server si desea usar el anterior bloque de almacenamiento y base de datos de MABS (DPMDB) para conservar los puntos de recuperación.
-  > * Debe tener una copia de seguridad de la base de datos de MABS (DPMDB). Tendrá que restaurar la base de datos.
+  > * El nuevo nombre del servidor debe ser el mismo que el de la instancia original de Azure Backup Server. No puede cambiar el nombre de la nueva instancia de Azure Backup Server si desea usar el anterior bloque de almacenamiento y base de datos de MABS (DPMDB) para conservar los puntos de recuperación.
+  > * Debe tener una copia de seguridad de la base de datos de MABS (DPMDB). La va a necesitar para restaurar la base de datos.
 
 1. En el panel de información, seleccione los equipos cliente cuyo agente de protección quiere actualizar.
-2. Cierre la instancia original de Azure Backup Server o desconéctela.
-3. Restablezca la cuenta de máquina en Active Directory.
-4. Instale Server 2016 en un equipo nuevo y asígnele el mismo nombre de máquina que la instancia original de Azure Backup Server.
-5. Únase al dominio
-6. Instale Azure Backup Server V3 o versiones posteriores (mueva los discos del grupo de almacenamiento de MABS desde el servidor antiguo e impórtelos).
+2. Apague la instancia original de Azure Backup Server o desconéctela.
+3. Restablezca la cuenta de la máquina en Active Directory.
+4. Instale Server 2016 en un equipo nuevo y asígnele el mismo nombre de equipo que la instancia original de Azure Backup Server.
+5. Únase al dominio.
+6. Instale Azure Backup Server V3 o posterior (mueva los discos del bloque de almacenamiento de MABS desde el servidor antiguo e impórtelos).
 7. Restaure la base de datos de DPM realizada en el paso 1.
 8. Conecte el almacenamiento del servidor de copia de seguridad original al nuevo servidor.
-9. Desde SQL, restaure la base de datos DPM
-10. Desde la línea de comandos de administrador en el nuevo servidor, cambie al directorio de la ubicación de instalación de Microsoft Azure Backup y a la carpeta bin
+9. Desde SQL, restaure la base de datos de DPM.
+10. Ejecute CMD (como administrador) en el nuevo servidor. Vaya a la ubicación de instalación de Microsoft Azure Backup y la carpeta bin.
 
-    Ejemplo de ruta de acceso: C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"
+    Ejemplo de ruta de acceso: `C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"`
 
-11. A copia de seguridad de Azure. Ejecute DPMSYNC -SYNC
+11. Para conectarse a Azure Backup, ejecute `DPMSYNC -SYNC`
 
-    Si ha agregado NUEVOS discos al bloque de almacenamiento DPM en lugar de mover los antiguos, ejecute DPMSYNC -Reallocatereplica
+    Si ha agregado **nuevos** discos al bloque de almacenamiento de DPM en lugar de mover los antiguos, ejecute `DPMSYNC -Reallocatereplica`.
 
 ## <a name="network-connectivity"></a>Conectividad de red
 
@@ -300,7 +300,7 @@ Una vez que conozca el estado de la conectividad y suscripción de Azure, puede 
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recuperación de una pérdida de conectividad
 
-Si tiene un firewall o un proxy que impiden el acceso a Azure, deberá permitir primero las siguientes direcciones de dominio en el perfil del firewall/proxy:
+Si tiene un firewall o un proxy que evitan el acceso a Azure, tiene que permitir las siguientes direcciones de dominio en el perfil del firewall o proxy:
 
 * `http://www.msftncsi.com/ncsi.txt`
 * \*.Microsoft.com

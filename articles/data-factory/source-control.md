@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/30/2020
-ms.openlocfilehash: d171edb23b482ad1871990dcffd979d2125c4406
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 66cc7b0d4f205a93c41f49ecaadac495a98b6da6
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067416"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949140"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Control de código fuente en Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -46,7 +46,7 @@ La siguiente es una lista de algunas de las ventajas que ofrece la integración 
 -   **Mejor rendimiento:** por término medio, una factoría con la integración de Git realiza cargas 10 veces más rápido que una creación en el servicio Data Factory. Esta mejora del rendimiento se debe a que los recursos se descargan mediante Git.
 
 > [!NOTE]
-> La creación directa con el servicio Data Factory está deshabilitada en la experiencia de usuario de Azure Data Factory cuando se configura un repositorio de Git. Se pueden realizar cambios directamente en el servicio mediante PowerShell o un SDK.
+> La creación directa con el servicio Data Factory está deshabilitada en la experiencia de usuario de Azure Data Factory cuando se configura un repositorio de Git. Los cambios realizados a través de PowerShell o un SDK se publican directamente en el servicio Data Factory y no se escriben en Git.
 
 ## <a name="author-with-azure-repos-git-integration"></a>Creación con la integración de Git de Azure Repos
 

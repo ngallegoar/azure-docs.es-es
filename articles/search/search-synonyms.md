@@ -7,13 +7,13 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
-ms.openlocfilehash: dce3c484a16918931df80d5201fad090b2c0cb2e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 08/26/2020
+ms.openlocfilehash: aad953483749d676844221f7e519f50c50b63ad4
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922640"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948647"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Sinónimos de Azure Cognitive Search
 
@@ -92,6 +92,21 @@ La asignación explícita se denota mediante una flecha "=>". Cuando se especifi
 
 ```
 Washington, Wash., WA => WA
+```
+
+Si necesita definir sinónimos que contengan comas, puede usar una barra diagonal inversa como carácter de escape, como en este ejemplo:
+
+```
+WA\, USA, WA, Washington
+```
+
+Dado que la barra diagonal inversa es en sí misma un carácter especial de otros lenguajes como JSON y C#, es probable que tenga que hacer doble escape. Por ejemplo, el JSON enviado la API de REST para la asignación de sinónimos anterior tendría el siguiente aspecto:
+
+```json
+    {
+       "format":"solr",
+       "synonyms": "WA\\, USA, WA, Washington"
+    }
 ```
 
 #### <a name="list-synonym-maps-under-your-service"></a>Enumeración de asignaciones de sinónimos en su servicio

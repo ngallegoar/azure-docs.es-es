@@ -3,16 +3,16 @@ title: Copia de seguridad de archivos en máquinas virtuales de Azure Stack
 description: Use Azure Backup para hacer una copia de seguridad de los archivos y aplicaciones de Azure Stack, así como para restaurarlos, en el entorno de Azure Stack.
 ms.topic: conceptual
 ms.date: 06/05/2018
-ms.openlocfilehash: caac247b5a972c515b4350f1b0c79792bbf75537
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: cae95c10c510969cc0553a54a506789d6be427d7
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825807"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180990"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Copia de seguridad de archivos y aplicaciones en Azure Stack
 
-Puede usar Azure Backup para proteger o realizar copias de seguridad de archivos y aplicaciones en Azure Stack. Para hacer copias de seguridad de archivos y aplicaciones, instale Microsoft Azure Backup Server como una máquina virtual que se ejecuta en Azure Stack. Puede proteger los archivos de cualquier servidor de Azure Stack en la misma red virtual. Una vez que haya instalado Azure Backup Server, agregue discos de Azure para aumentar el almacenamiento local disponible para los datos de copia de seguridad a corto plazo. Azure Backup Server usa almacenamiento de Azure para la retención a largo plazo.
+Puede usar Azure Backup para proteger o realizar copias de seguridad de archivos y aplicaciones en Azure Stack. Para hacer copias de seguridad de archivos y aplicaciones, instale Microsoft Azure Backup Server como una máquina virtual que se ejecuta en Azure Stack. Puede proteger los archivos de cualquier servidor de Azure Stack en la misma red virtual. Una vez que haya instalado Azure Backup Server, agregue discos de Azure para aumentar el almacenamiento local disponible para los datos de copia de seguridad a corto plazo. Azure Backup Server usa almacenamiento de Azure para la retención a largo plazo.
 
 > [!NOTE]
 > Aunque Azure Backup Server y System Center Data Protection Manager (DPM) son similares, el uso de DPM no es compatible con Azure Stack.
