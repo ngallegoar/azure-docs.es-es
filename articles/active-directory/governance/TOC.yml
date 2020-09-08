@@ -31,6 +31,8 @@
           href: manage-user-access-with-access-reviews.md
         - name: Administración de usuarios excluidos del acceso condicional
           href: conditional-access-exclusion.md
+    - name: Examen y eliminación de usuarios de las organizaciones externas
+      href: access-reviews-external-users.md
 - name: Guías paso a paso
   expanded: true
   items:
