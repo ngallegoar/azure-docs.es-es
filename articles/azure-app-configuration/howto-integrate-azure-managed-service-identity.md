@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: b1efeeef09e7c228eb8fc14de52a6beb2e9ffffe
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 0525f305e130247fd88ee2858c79cbfd0a15283e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206834"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400847"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>Uso de identidades administradas para acceder a App Configuration
 
@@ -73,7 +73,7 @@ Para configurar una identidad administrada en el portal, primero crea una aplica
 
     ![Agregar una identidad administrada](./media/add-managed-identity.png)
 
-1. Opcional: Si también desea conceder acceso a Key Vault, siga las instrucciones de [Autenticación de Key Vault con una identidad administrada](https://docs.microsoft.com/azure/key-vault/managed-identity).
+1. Opcional: Si también desea conceder acceso a Key Vault, siga las instrucciones de [Asignación de una directiva de acceso de Key Vault](/azure/key-vault/assign-access-policy-portal).
 
 ## <a name="use-a-managed-identity"></a>Uso de una identidad administrada
 

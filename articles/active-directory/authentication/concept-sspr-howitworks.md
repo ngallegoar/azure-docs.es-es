@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fce07575fe95ffbd4fd906bcde7d76d89e50d48b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 393ed336018c7a0272c15adaa72633abd6b95d2f
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716323"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377206"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funcionamiento: Autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -27,7 +27,7 @@ El autoservicio de restablecimiento de contraseña (SSPR) de Azure Active Dire
 >
 > Si el equipo de TI no ha habilitado la capacidad para restablecer su propia contraseña, póngase en contacto con el departamento de soporte técnico para obtener ayuda adicional.
 
-## <a name="how-does-the-password-reset-portal-work"></a>¿Cómo funciona el portal de restablecimiento de contraseñas?
+## <a name="how-does-the-password-reset-process-work"></a>¿Cómo funciona el proceso de restablecimiento de contraseña?
 
 Un usuario puede restablecer o cambiar su contraseña desde el [portal de SSPR](https://aka.ms/sspr). Primero es necesario que haya registrado los métodos de autenticación que desee utilizar. Cuando un usuario accede al portal de SSPR, la plataforma Azure tiene en cuenta las siguientes cuestiones:
 
@@ -58,6 +58,11 @@ Una vez que el portal de SSPR se muestra en el idioma necesario, se solicita al 
   * Si la escritura diferida de SSPR no se ha implementado y la contraseña del usuario se administra localmente, se solicitará al usuario que se ponga en contacto con el administrador para restablecer la contraseña.
 
 Si todas las comprobaciones anteriores se han completado correctamente, se guiará al usuario a través del proceso de restablecimiento o cambio de contraseña.
+
+> [!NOTE]
+> SSPR puede enviar notificaciones por correo electrónico a los usuarios como parte del proceso de restablecimiento de contraseña. Estos mensajes de correo electrónico se envían mediante el servicio de retransmisión SMTP, que funciona en modo activo/activo en varias regiones.
+>
+> Los servicios de retransmisión SMTP reciben y procesan el cuerpo del correo electrónico, pero no lo almacenan. El cuerpo del correo electrónico de SSPR que podría contener información proporcionada por el cliente no se almacena en los registros del servicio de retransmisión SMTP. Los registros solo contienen metadatos de protocolo.
 
 Para empezar a trabajar con SSPR, complete el siguiente tutorial:
 

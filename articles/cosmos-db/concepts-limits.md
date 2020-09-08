@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: 0ebd3d97c3d7a2218bcfd821e1cc81c6bd74adf6
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.date: 09/02/2020
+ms.openlocfilehash: a6b1bd016248212967a4fe78274d5ba72c5df0fe
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605766"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400320"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cuotas de servicio de Azure Cosmos DB
 
@@ -118,6 +118,7 @@ En función de la API que utilice, un contenedor de Azure Cosmos puede represent
 | Número máximo de rutas de acceso en la directiva de indexación| 100 <sup>*</sup>|
 | Número máximo de claves únicas por contenedor|10 <sup>*</sup>|
 | Número máximo de rutas de acceso por restricción de clave única|16 <sup>*</sup>|
+| Valor máximo de TTL |2147483647|
 
 <sup>*</sup> Para aumentar cualquiera de estos límites por contenedor, puede ponerse en contacto con el equipo de soporte técnico de Azure.
 
@@ -136,6 +137,7 @@ En función de la API que use, un elemento de Azure Cosmos puede representar un 
 | Longitud máxima del nombre de la propiedad | Ningún límite práctico |
 | Longitud máxima del valor de propiedad de la cadena | Ningún límite práctico |
 | Longitud máxima del valor de propiedad numérico | IEEE754 de doble precisión de 64 bits |
+| Valor máximo de TTL |2147483647|
 
 No hay ninguna restricción en las cargas de elementos, como el número de propiedades o la profundidad de anidamiento, salvo las restricciones de longitud en los valores de identificador y clave de partición y la restricción de tamaño general de 2 MB. Es posible que deba configurar la directiva de indexación para contenedores con estructuras de elementos grandes o complejas a fin de reducir el consumo de RU. Consulte [Modelar elementos en Cosmos DB](how-to-model-partition-example.md) para obtener un ejemplo real y los patrones para administrar elementos de gran tamaño.
 

@@ -3,12 +3,12 @@ title: Restauración del estado del sistema a Windows Server
 description: Explicación detallada para restaurar el estado de sistema de Windows Server a partir de una copia de seguridad en Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 9237d3d087da7f9e72813baa0056cd6b70f2c914
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 824ed5e71934af370211bfa8b4c266fe4323b4ad
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892548"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377444"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restauración del estado del sistema a Windows Server
 
@@ -56,7 +56,7 @@ En los pasos siguientes se explica cómo revertir la configuración de Windows S
 
 8. Compruebe los detalles de recuperación en el panel **Confirmación** y seleccione **Recuperar**.
 
-   ![Hacer clic en Recuperar para confirmar la acción de recuperación](./media/backup-azure-restore-system-state/confirm-recovery.png)
+   ![Seleccionar Recuperar para confirmar la acción de recuperación](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
 9. Copie el directorio *WindowsImageBackup* del destino de recuperación en un volumen no crítico del servidor. Normalmente, el volumen del SO Windows es el volumen crítico.
 
@@ -104,7 +104,7 @@ La terminología usada en estos pasos incluye:
 
 11. Compruebe los detalles de recuperación en el panel Confirmación y seleccione **Recuperar**.
 
-    ![Hacer clic en el botón Recuperar para confirmar el proceso de recuperación](./media/backup-azure-restore-system-state/confirm-recovery.png)
+    ![Seleccionar el botón Recuperar para confirmar el proceso de recuperación](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
 12. Copie el directorio *WindowsImageBackup* en un volumen no crítico del servidor (por ejemplo, D:\). Normalmente, el volumen del SO Windows es el volumen crítico.
 

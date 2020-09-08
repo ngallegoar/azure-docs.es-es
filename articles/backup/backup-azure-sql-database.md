@@ -3,12 +3,12 @@ title: Copia de seguridad de bases de datos de SQL Server en Azure
 description: En este artículo se explica cómo realizar una copia de seguridad de SQL Server en Azure. En este tutorial también se explica cómo se realiza la recuperación de SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: d8cdafe215d9271151d8dacee114d40108e907bd
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 3627162ef2f4330a4b6a78625b5e07bdcf56419b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892446"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376543"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Acerca de la copia de seguridad de SQL Server en máquinas virtuales de Azure
 
@@ -66,11 +66,11 @@ Para las demás versiones, realice los pasos siguientes para corregir los permis
 
       ![En el cuadro de diálogo Inicio de sesión - Nuevo, seleccionar Buscar](./media/backup-azure-sql-database/new-login-search.png)
 
-  4. La cuenta de servicio virtual de Windows **NT SERVICE\AzureWLBackupPluginSvc** se creó durante las fases de registro de la máquina virtual y de detección de SQL. Escriba el nombre de la cuenta como se muestra en **Escriba el nombre del objeto que desea seleccionar**. Seleccione **Comprobar nombres** para resolver el nombre. Haga clic en **OK**.
+  4. La cuenta de servicio virtual de Windows **NT SERVICE\AzureWLBackupPluginSvc** se creó durante las fases de registro de la máquina virtual y de detección de SQL. Escriba el nombre de la cuenta como se muestra en **Escriba el nombre del objeto que desea seleccionar**. Seleccione **Comprobar nombres** para resolver el nombre. Seleccione **Aceptar**.
 
       ![Seleccionar Comprobar nombres para resolver el nombre de servicio desconocido](./media/backup-azure-sql-database/check-name.png)
 
-  5. En **Roles de servidor**, asegúrese de que está seleccionado el rol **sysadmin**. Haga clic en **OK**. Ahora deben existir los permisos necesarios.
+  5. En **Roles de servidor**, asegúrese de que está seleccionado el rol **sysadmin**. Seleccione **Aceptar**. Ahora deben existir los permisos necesarios.
 
       ![Asegúrese de que el rol del servidor administrador del sistema está seleccionado](./media/backup-azure-sql-database/sysadmin-server-role.png)
 
@@ -91,23 +91,23 @@ Agregue los inicios de sesión **NT AUTHORITY\SYSTEM** y **Service\AzureWLBackup
 
 1. Vaya a la instancia de SQL Server en el Explorador de objetos.
 2. Vaya a Seguridad -> Inicios de sesión.
-3. Haga clic con el botón derecho en Inicios de sesión y seleccione *Nuevo inicio de sesión...*
+3. Haga clic con el botón derecho en Inicios de sesión y seleccione *Nuevo inicio de sesión*.
 
     ![Nuevo inicio de sesión mediante SSMS](media/backup-azure-sql-database/sql-2k8-new-login-ssms.png)
 
 4. Vaya a la pestaña General y escriba **NT AUTHORITY\SYSTEM** como nombre de inicio de sesión.
 
-    ![nombre de inicio de sesión para SSMS](media/backup-azure-sql-database/sql-2k8-nt-authority-ssms.png)
+    ![Nombre de inicio de sesión para SSMS](media/backup-azure-sql-database/sql-2k8-nt-authority-ssms.png)
 
 5. Vaya a *Roles del servidor* y elija los roles *public* y *sysadmin*.
 
-    ![elegir de roles en SSMS](media/backup-azure-sql-database/sql-2k8-server-roles-ssms.png)
+    ![Elegir de roles en SSMS](media/backup-azure-sql-database/sql-2k8-server-roles-ssms.png)
 
 6. Vaya a *Estado*. En Permiso de conexión al motor de base de datos, seleccione *Conceder* y en Inicio de sesión, seleccione *Habilitado*.
 
     ![Conceder permisos en SSMS](media/backup-azure-sql-database/sql-2k8-grant-permission-ssms.png)
 
-7. Haga clic en Aceptar.
+7. Seleccione Aceptar.
 8. Repita la misma secuencia de pasos (de 1 a 7 arriba) para agregar el inicio de sesión NT Service\AzureWLBackupPluginSvc a la instancia de SQL Server. Si el inicio de sesión ya existe, asegúrese de que tenga el rol de servidor sysadmin y, en Estado, en Permiso de conexión al motor de base de dato, se haya seleccionado Conceder y, en Inicio de sesión, se haya seleccionado Habilitado.
 9. Después de conceder el permiso, seleccione **Re-discover DBs** (Volver a detectar bases de datos) en el portal: Almacén **->** Infraestructura de Backup **->** Workload in Azure VM (Carga de trabajo en la VM de Azure):
 

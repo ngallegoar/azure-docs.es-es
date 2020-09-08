@@ -1,5 +1,5 @@
 ---
-title: Revisión y publicación de una oferta en el marketplace comercial de Microsoft
+title: Procedimiento para revisar y publicar una oferta en el marketplace comercial de Microsoft
 description: Use el centro de partners para enviar su oferta a versión preliminar, obtener una versión preliminar de la oferta y, a continuación, publicarla en el marketplace comercial de Microsoft.
 ms.reviewer: dannyevers
 ms.service: marketplace
@@ -8,60 +8,51 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 08/12/2020
-ms.openlocfilehash: 53e5331ab36d5466bd5cdb495ac505dae29e57bf
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: eff1db3aca2cab77d18698634b84e8e1b1c99f7e
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142305"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375894"
 ---
-# <a name="review-and-publish-an-offer-to-the-commercial-marketplace"></a>Revisión y publicación de una oferta en el marketplace comercial
+# <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Procedimiento para revisar y publicar una oferta en el marketplace comercial
 
-En este artículo se muestra cómo usar el Centro de partners para enviar la oferta a versión preliminar, obtener una versión preliminar de la oferta y, luego, publicarla en el marketplace comercial de Microsoft. También se explica cómo comprobar el estado de la publicación a medida que avanza a través de los pasos de publicación. Ya debe haber creado una oferta que quiera publicar.
+Este artículo le muestra cómo usar el Centro de partners para enviar su oferta a publicación, obtener una versión preliminar de la oferta y, a continuación, publicarla en el marketplace comercial de Microsoft. También se explica cómo comprobar el estado de la publicación a medida que avanza a través de los pasos de publicación. Ya debe haber creado una oferta que quiera publicar.
 
-## <a name="go-to-your-offer-in-the-commercial-marketplace"></a>Ir a la oferta en el marketplace comercial
+## <a name="offer-status"></a>Estado de la oferta
 
-1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home).
-2. En el menú de navegación izquierdo, seleccione **Marketplace comercial** > **Información general**.
-3. En la pestaña de **Información general**, en **Ofertas**, se muestra uno de los siguientes indicadores de estado en la columna de **Estado** de cada oferta.
+Puede revisar el estado de la oferta en la pestaña **Información general** del panel del marketplace comercial en el [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). Se muestra uno de los siguientes indicadores de estado en la columna de **Estado** de cada oferta.
 
-    | Estado | Descripción |
-    | ------------ | ------------- |
-    | Borrador | La oferta se ha creado pero no se va a publicar. |
-    | Publicación en curso | Se está realizando el proceso de publicación para la oferta. |
-    | Atención necesaria | Se ha detectado un problema crítico durante la certificación o durante otra fase de publicación. |
-    | Versión preliminar | Nosotros certificamos la oferta, misma que está en espera de la comprobación final del anunciante. Seleccione **Transmitir** para publicar la oferta en vivo. |
-    | En vivo | La oferta está activa en Marketplace y los clientes la pueden ver y adquirir. |
-    | Detener venta pendiente | El anunciante ha seleccionado "Detener venta" en la oferta o el plan, pero aún no se ha completado la acción. |
-    | No disponible en el marketplace | Una oferta publicada anteriormente se ha quitado del Marketplace. |
-    |||
+| Estado | Descripción |
+| ------------ | ------------- |
+| Borrador | La oferta se ha creado pero no se va a publicar. |
+| Publicación en curso | Se está realizando el proceso de publicación para la oferta. |
+| Atención necesaria | Se ha detectado un problema crítico durante la certificación o durante otra fase de publicación. |
+| Versión preliminar | Nosotros certificamos la oferta, misma que está en espera de la comprobación final del anunciante. Seleccione **Transmitir** para publicar la oferta en vivo. |
+| En vivo | La oferta está activa en Marketplace y los clientes la pueden ver y adquirir. |
+| Detener venta pendiente | El anunciante ha seleccionado "Detener venta" en la oferta o el plan, pero aún no se ha completado la acción. |
+| No disponible en el marketplace | Una oferta publicada anteriormente se ha quitado del Marketplace. |
+|||
 
-4. En la columna de **Alias de la oferta**, seleccione la oferta de la que quiere obtener una versión preliminar y publicarla.
+## <a name="validation-and-publishing-steps"></a>Pasos de validación y publicación
 
-## <a name="submit-your-offer-to-preview"></a>Envío de la oferta para tener una versión preliminar
-
-1. Para enviar la oferta a versión preliminar, seleccione **Revisar y publicar** en la esquina superior derecha del portal. Se abrirá la página **Revisar y publicar**.
-1. Asegúrese de que la columna de **Estado** de cada página indica **Completa**. Los tres estados posibles que se muestran son:
+Cuando esté listo para enviar una oferta para su publicación, seleccione **Revisar y publicar** en la esquina superior derecha del portal. En la página **Revisar y publicar** se muestra el estado de cada página de la oferta, que puede ser uno de los siguientes:
 
    - **No iniciado**: la página está incompleta.
    - **Incompleta**: falta información necesaria en la página o hay errores que deben corregirse. Tendrá que volver a la página anterior y actualizarla.
    - **Completa**: la página está completa. Se han proporcionado todos los datos necesarios y no hay ningún error.
 
-1. Si alguna de las páginas tiene un Estado que no sea **Completa**, en la columna de **Página**, seleccione el nombre de la página, corrija el problema, guarde la página y, a continuación, seleccione **Revisar y publicar** de nuevo para volver a esta página.
-1. Después de completar todas las páginas, en el cuadro de **Notas para la certificación**, proporcione instrucciones de prueba al equipo de certificación para asegurarse de que la aplicación se ha probado correctamente. Proporcione cualquier nota complementaria que resulte útil para entender la aplicación.
-1. Para enviar la oferta para su publicación, seleccione **Publicar**. Aparece la página de **Información general de la oferta** y muestra el estado de la publicación.
+Si alguna de las páginas tiene un estado distinto de **Completo**, debe corregir el problema de la página y, a continuación, volver a la página **Revisar y publicar** para confirmar que el estado es ahora **Completo**. Algunos tipos de oferta requieren pruebas. En este caso, verá un campo **Notas para la certificación** donde deberá proporcionar instrucciones para la realización de pruebas al equipo de certificación, además de todas las notas adicionales que pueden resultar útiles para comprender la aplicación.
 
-## <a name="validation-and-publishing-steps"></a>Pasos de validación y publicación
-
-Después de seleccionar **Publicar**, los procesos de validación y publicación continúan en orden. En esta tabla se muestra el proceso de publicación más común:
+Cuando todas las páginas estén completas y haya escrito las notas de prueba aplicables, seleccione **Publicar** para iniciar los procesos de validación y publicación. Las fases y la secuencia general pueden variar en función del tipo de oferta que esté publicando. En la tabla siguiente se muestra un posible flujo de publicación. Cada una de las fases se explica con más detalle en las secciones siguientes.
 
 | Fase | Qué ocurre |
 | ------------ | ------------- | ------------- |
-| Validación automatizada | Procesamos un conjunto de validaciones automatizadas. |
-| Certificación | Llevamos a cabo validaciones manuales. |
-| Creación de versión preliminar | La página del anuncio de la versión preliminar de la oferta está disponible para cualquiera que tenga el vínculo de versión preliminar. Si su oferta se va a vender a través de Microsoft (transactable), solo la audiencia que haya especificado en la página de **Audiencia de versión preliminar** de su oferta puede comprar y obtener acceso a la oferta para realizar pruebas. |
-| Aprobación del publicador | Le enviaremos un correo electrónico con una solicitud para que pueda obtener una versión preliminar y aprobar su oferta. |
-| Publicar | Ejecutamos una serie de pasos para comprobar que la oferta de versión preliminar se publica en directo en el marketplace comercial. |
+| [Validación automatizada](#automated-validation-phase) | Procesamos un conjunto de validaciones automatizadas. |
+| [Certificación](#certification-phase) | Llevamos a cabo validaciones manuales. |
+| [Creación de versión preliminar](#preview-creation-phase) | La página del anuncio de la versión preliminar de la oferta está disponible para cualquiera que tenga el vínculo de versión preliminar. Si su oferta se va a vender a través de Microsoft (transactable), solo la audiencia que haya especificado en la página de **Audiencia de versión preliminar** de su oferta puede comprar y obtener acceso a la oferta para realizar pruebas. |
+| [Aprobación del publicador](#publisher-sign-off-phase) | Le enviaremos un correo electrónico con una solicitud para que pueda obtener una versión preliminar y aprobar su oferta. |
+| [Publicar](#publish-phase) | Ejecutamos una serie de pasos para comprobar que la oferta de versión preliminar se publica en directo en el marketplace comercial. |
 |||
 
 ## <a name="automated-validation-phase"></a>Fase de validación automatizada
@@ -102,7 +93,7 @@ En cada tipo de oferta se comprueba un conjunto de criterios de aptitud básicos
 
 #### <a name="content-validation"></a>Validación del contenido
 
-Se comprueba la calidad y pertinencia de la información que se introdujo al crear la oferta. Con estas comprobaciones se revisan las entradas de los detalles del anuncio en marketplace, los precios, la disponibilidad, los planes asociados, y demás. Para cumplir los criterios del anuncio de Azure Marketplace y Microsoft AppSource, validamos que la oferta incluya:
+Se comprueba la calidad y pertinencia de la información que se introdujo al crear la oferta. Con estas comprobaciones se revisan las entradas de los detalles del anuncio en marketplace, los precios, la disponibilidad, los planes asociados, y demás. Para cumplir los criterios de anuncios de Microsoft AppSource y Azure Marketplace, validaremos que la oferta incluya:
 
 - un título que describa la oferta con precisión
 - descripciones bien escritas que proporcionen información general detallada y una propuesta de valor
@@ -141,21 +132,18 @@ Cuando la oferta esté lista para su revisión y aprobación, se le enviará un 
 
 En la captura de pantalla siguiente se muestra la página de **Información general de la oferta** para una oferta de SaaS. Los pasos de validación que verá en esta página varían en función del tipo de oferta y de las selecciones realizadas al crear la oferta.
 
-![Muestra la página de Información general de la oferta para una oferta en el Centro de partners. Se muestran los vínculos de versión preliminar y el botón de Transmitir en directo.](./partner-center-portal/media/publish-status-publisher-signoff.png)
+![Muestra la página de Información general de la oferta para una oferta en el Centro de partners. Se muestran los vínculos de versión preliminar y el botón de Transmitir en directo.](./media/publish-status-publisher-signoff.png)
 
-### <a name="to-preview-your-offer-and-sign-off"></a>Para ver la versión preliminar de la oferta y aprobarla, siga estos pasos:
+### <a name="previewing-and-approving-your-offer"></a>Obtención de la versión preliminar y aprobación de la oferta
 
-1. Para obtener una versión preliminar de la oferta en la página **Información general de la oferta**, seleccione el vínculo del botón **Transmitir en directo**.
+> [!IMPORTANT]
+> Para validar el flujo de compra y configuración de un extremo a otro, compre la oferta mientras está en versión preliminar. En primer lugar, informe a Microsoft con una [incidencia de soporte técnico](https://aka.ms/marketplacesupport) para asegurarse de que no se procesarán cargos.
 
-   > [!NOTE]
-   > Habrá un vínculo para la versión preliminar de AppSource, la versión preliminar de Azure Marketplace o ambos según las opciones que elija al crear la oferta. Si elige vender la oferta mediante Microsoft, cualquiera que sea agregado a la audiencia de versión preliminar podrá probar la adquisición y la implementación de esta para asegurarse de que cumple sus requisitos durante esta etapa.
+En la página **Información general de la oferta**, verá vínculos de versión preliminar bajo el botón **Transmitir**. Habrá un vínculo para la versión preliminar de AppSource, la versión preliminar de Azure Marketplace o ambos según las opciones que elija al crear la oferta. Si elige vender la oferta mediante Microsoft, cualquiera que sea agregado a la audiencia de versión preliminar podrá probar la adquisición y la implementación de esta para asegurarse de que cumple sus requisitos durante esta etapa.
 
-1. Si desea realizar cambios después obtener la versión preliminar de la oferta, puede editarla y volver a enviar la publicación para una nueva versión preliminar. Para obtener más información, consulte [Actualización de una oferta existente en el marketplace comercial](./partner-center-portal/update-existing-offer.md).
+Después de aprobar la versión preliminar, seleccione **Transmitir** para publicar su oferta en el marketplace comercial. 
 
-1. Después de aprobar la versión preliminar, para publicar su oferta en el marketplace comercial, seleccione **Transmitir en directo**.
-
-   > [!TIP]
-   > Si la oferta ya está activa y disponible para el público en Marketplace, las actualizaciones que realice no se activarán hasta que seleccione **Transmitir en directo**.
+Si desea realizar cambios después obtener la versión preliminar de la oferta, puede editar y volver a enviar la solicitud de publicación. Si la oferta ya está activa y disponible para el público en el marketplace, las actualizaciones que realice no se activarán hasta que seleccione **Transmitir*. Para obtener más información, consulte [Actualización de una oferta existente en el marketplace comercial](./partner-center-portal/update-existing-offer.md).
 
 ## <a name="publish-phase"></a>Fase de publicación
 
@@ -183,10 +171,6 @@ Ahora que ha decidido publicar la oferta, lo que hará que esté disponible en e
 
 Después de finalizar estas comprobaciones de validación, la oferta estará activa en el marketplace.
 
-### <a name="reporting-usage-of-preview-and-other-internal-usage"></a>Informes de uso de la versión preliminar y otro uso interno
+## <a name="next-steps"></a>Pasos siguientes
 
-Para validar el flujo de compra y configuración de un extremo a otro, compre la oferta mientras está en versión preliminar. En primer lugar, informe a Microsoft con una [incidencia de soporte técnico](https://aka.ms/marketplacesupport) para asegurarse de que no se procesarán cargos.
-
-## <a name="next-step"></a>Paso siguiente
-
-[Acceso a los informes de análisis de marketplace comercial en el Centro de partners](./partner-center-portal/analytics.md)
+[Acceso a los informes de análisis de marketplace comercial en el Centro de partners](partner-center-portal/analytics.md)

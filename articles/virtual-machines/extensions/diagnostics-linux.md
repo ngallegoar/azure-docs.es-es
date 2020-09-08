@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: c03105326b6d189b3c6fde72ff959211b3009517
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 7a0b2afa8b566ec82fc638291c43f3e0419f654c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837047"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400694"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Uso de la extensión Diagnostics de Linux para supervisar métricas y registros
 
@@ -70,7 +70,7 @@ Distribuciones y versiones admitidas:
 * **Versión 2.2.0 o posterior del agente Linux de Azure**. La mayoría de las imágenes de la galería de máquina virtual Linux de Azure incluyen la versión 2.2.7 o posterior. Ejecute `/usr/sbin/waagent -version` para confirmar la versión instalada en la máquina virtual. Si la máquina virtual está ejecutando una versión anterior del agente invitado, siga [estas instrucciones](./update-linux-agent.md) para actualizarla.
 * **Azure CLI**. [Instale el entorno de la CLI de Azure](/cli/azure/install-azure-cli) en la máquina.
 * El comando wget, si aún no lo tiene: Ejecute `sudo apt-get install wget`.
-* Una suscripción a Azure existente con una cuenta de almacenamiento para almacenar los datos.
+* Una suscripción a Azure existente y una cuenta de almacenamiento de uso general existente para almacenar los datos.  Las cuentas de almacenamiento de uso general admiten el almacenamiento en tablas, que es necesario.  Una cuenta de Blob Storage no funcionará.
 
 ### <a name="sample-installation"></a>Instalación de ejemplo
 
@@ -128,7 +128,7 @@ $publicSettings = $publicSettings.Replace('__VM_RESOURCE_ID__', $vm.Id)
 # If you have your own customized public settings, you can inline those rather than using the template above: $publicSettings = '{"ladCfg":  { ... },}'
 
 # Generate a SAS token for the agent to use to authenticate with the storage account
-$sasToken = New-AzStorageAccountSASToken -Service Blob,Table -ResourceType Service,Container,Object -Permission "racwdlup" -Context (Get-AzStorageAccount -ResourceGroupName $storageAccountResourceGroup -AccountName $storageAccountName).Context
+$sasToken = New-AzStorageAccountSASToken -Service Blob,Table -ResourceType Service,Container,Object -Permission "racwdlup" -Context (Get-AzStorageAccount -ResourceGroupName $storageAccountResourceGroup -AccountName $storageAccountName).Context -ExpiryTime $([System.DateTime]::Now.AddYears(10))
 
 # Build the protected settings (storage account SAS token)
 $protectedSettings="{'storageAccountName': '$storageAccountName', 'storageAccountSasToken': '$sasToken'}"

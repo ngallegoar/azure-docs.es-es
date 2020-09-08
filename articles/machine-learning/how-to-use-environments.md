@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 3368a42248e084476eb27318abbcd1ca9fbfdacf
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 11bd5f7397664d183f27337f7ca36d0123ee63f5
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88927551"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397073"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Creación y uso de entornos de software en Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -86,7 +86,6 @@ from azureml.core.environment import Environment
 Environment(name="myenv")
 ```
 
-Si va a definir su propio entorno, tendrá que enumerar `azureml-defaults` con la versión >= 1.0.45 como dependencia PIP. Este paquete contiene la funcionalidad necesaria para hospedar el modelo como un servicio web.
 
 ### <a name="use-conda-and-pip-specification-files"></a>Uso de archivos de especificación de Conda y pip
 
@@ -142,8 +141,6 @@ run = myexp.submit(config=runconfig)
 # Show each step of run 
 run.wait_for_completion(show_output=True)
 ```
-
-Del mismo modo, si usa un objeto [`Estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) para el entrenamiento, puede enviar la instancia del estimador directamente como ejecución sin tener que especificar un entorno. El objeto `Estimator` ya encapsula el entorno y el destino de proceso.
 
 ## <a name="add-packages-to-an-environment"></a>Adición de paquetes a un entorno
 
@@ -364,33 +361,12 @@ run = exp.submit(runconfig)
 
 Si no especifica el entorno en la configuración de ejecución, el servicio crea un entorno predeterminado cuando envía la ejecución.
 
-### <a name="use-an-estimator-for-training"></a>Uso de un estimador para el entrenamiento
-
-Si usa un [estimador](how-to-train-ml-models.md) para el entrenamiento, puede enviar la instancia del estimador directamente. Este ya encapsula el entorno y el destino de proceso.
-
-En el código siguiente se usa un estimador para una ejecución de entrenamiento de nodo único. Se ejecuta en un proceso remoto para un modelo `scikit-learn`. Se supone que ha creado previamente un objeto de destino de proceso, `compute_target`, y un objeto de almacén de objetos, `ds`.
-
-```python
-from azureml.train.estimator import Estimator
-
-script_params = {
-    '--data-folder': ds.as_mount(),
-    '--regularization': 0.8
-}
-
-sk_est = Estimator(source_directory='./my-sklearn-proj',
-                   script_params=script_params,
-                   compute_target=compute_target,
-                   entry_script='train.py',
-                   conda_packages=['scikit-learn'])
-
-# Submit the run 
-run = experiment.submit(sk_est)
-```
-
 ## <a name="use-environments-for-web-service-deployment"></a>Uso de entornos para la implementación de servicios web
 
 Puede usar entornos al implementar el modelo como servicio web. Esta funcionalidad permite un flujo de trabajo conectado y reproducible. En este flujo de trabajo, puede entrenar, probar e implementar el modelo con las mismas bibliotecas tanto en el proceso de entrenamiento como en el proceso de inferencia.
+
+
+Si va a definir su propio entorno para la implementación del servicio web, tendrá que enumerar `azureml-defaults` con la versión >= 1.0.45 como dependencia PIP. Este paquete contiene la funcionalidad necesaria para hospedar el modelo como un servicio web.
 
 Para implementar un servicio web, combine el entorno, el proceso de inferencia, el script de puntuación y el modelo registrado en el objeto de implementación, [`deploy()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-). Para obtener más información, consulte [How and where to deploy models](how-to-deploy-and-where.md) (Cómo y dónde implementar modelos).
 

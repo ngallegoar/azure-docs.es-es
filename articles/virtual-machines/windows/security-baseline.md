@@ -6,13 +6,13 @@ ms.service: virtual-machines-windows
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 4e62fd43c062d9d33292eac36a16d809bc926c98
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 7726a0f1acb8f7fde2b491979d478badeca1b384
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009841"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400388"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Base de referencia de seguridad de Azure para Windows Virtual Machines
 
@@ -913,7 +913,7 @@ En la mayoría de los escenarios, las plantillas de máquina virtual base de Mic
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: Almacene imágenes de sistema operativo personalizadas de forma segura
 
-**Guía**: Si usa imágenes personalizadas (p. ej., un disco duro virtual), use el control de acceso basado en roles de Azure (RBAC de Azure) para asegurarse de que solo los usuarios autorizados pueden acceder a las imágenes.
+**Instrucciones**: si usa imágenes personalizadas (p. ej., un disco duro virtual), use el control de acceso basado en roles de Azure (RBAC de Azure) para asegurarse de que solo los usuarios autorizados pueden acceder a las imágenes.
 
 * [Descripción de Azure RBAC](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 
@@ -973,7 +973,9 @@ En la mayoría de los escenarios, las plantillas de máquina virtual base de Mic
 
 * [Creación de un almacén de claves](../../key-vault/secrets/quick-create-portal.md)
 
-* [Cómo proporcionar la autenticación de Key Vault con una identidad administrada](../../key-vault/general/managed-identity.md)
+* [Autenticación en Key Vault](../../key-vault/general/authentication.md)
+
+* [Asignación de una directiva de acceso de Key Vault](../../key-vault/general/assign-access-policy-portal.md)
 
 **Supervisión de Azure Security Center**: Sí
 

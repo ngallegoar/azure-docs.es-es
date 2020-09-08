@@ -3,12 +3,12 @@ title: Restauración de bases de datos de SQL Server en una máquina virtual de
 description: En este artículo se describe cómo restaurar bases de datos SQL Server que se ejecutan en una máquina virtual de Azure y cuyas copias de seguridad se realizan con Azure Backup.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 682540e498c7531777032b5375f0105c03ce4ec6
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: afb3ef7ac1d161c073ef715a9f7b1ec83bd8410a
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826563"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377988"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restauración de bases de datos SQL Server en máquinas virtuales de Azure
 
@@ -98,7 +98,7 @@ Realice la restauración como sigue:
 
         ![Escribir rutas de acceso de destino](./media/backup-azure-sql-database/target-paths.png)
 
-1. Haga clic en **Aceptar** para desencadenar la restauración. Realice un seguimiento del progreso de la restauración en el área **Notificaciones** o en la visualización **Trabajos de copia de seguridad** del almacén.
+1. Seleccione **Aceptar** para desencadenar la restauración. Realice un seguimiento del progreso de la restauración en el área **Notificaciones** o en la visualización **Trabajos de copia de seguridad** del almacén.
 
     > [!NOTE]
     > La restauración a un momento dado solo está disponible para copias de seguridad de registros de bases de datos con un modelo de recuperación optimizado para cargas masivas y completas de registros.
@@ -161,7 +161,7 @@ Si ha seleccionado **Completo y diferencial** como el tipo de restauración, hag
     ![Elegir un punto de recuperación completo](./media/backup-azure-sql-database/choose-full-recovery-point.png)
 
     >[!NOTE]
-    > De forma predeterminada, se muestran los puntos de recuperación de los 30 últimos días. Para mostrar los puntos de recuperación anteriores a 30 días, haga clic en **Filtrar** y seleccione un intervalo personalizado.
+    > De forma predeterminada, se muestran los puntos de recuperación de los 30 últimos días. Para mostrar los puntos de recuperación anteriores a 30 días, seleccione **Filtrar** y elija un intervalo personalizado.
 
 ### <a name="restore-databases-with-large-number-of-files"></a>Restauración de bases de datos con un gran número de archivos
 

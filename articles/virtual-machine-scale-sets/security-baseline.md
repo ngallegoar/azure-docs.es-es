@@ -6,13 +6,13 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 89da86d753f746774737c248ee318c7a377dd7a0
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: d55e53ba455a4b91b4f57ea08b250320a5467c2b
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007104"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398451"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Línea de base de seguridad de Azure para Virtual Machine Scale Sets
 
@@ -976,7 +976,9 @@ En la mayoría de los escenarios, las plantillas de máquina virtual base de Mic
 
 * [Creación de un almacén de claves](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
 
-* [Cómo proporcionar la autenticación de Key Vault con una identidad administrada](https://docs.microsoft.com/azure/key-vault/managed-identity)
+* [Autenticación en Key Vault](../key-vault/general/authentication.md)
+
+* [Asignación de una directiva de acceso de Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 

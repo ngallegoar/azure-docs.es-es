@@ -3,12 +3,12 @@ title: Configuración de los valores de diagnóstico del almacén a gran escala
 description: Configuración de diagnóstico de Log Analytics de diagnóstico para todos los almacenes de un ámbito determinado mediante Azure Policy
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 17a5ee5a541c3317c9ec9a6cfbed57d85f5116b4
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 25946bb742c7666e7d394477318f647009b2f50e
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892242"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378056"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configuración de los valores de diagnóstico del almacén a gran escala
 

@@ -3,12 +3,12 @@ title: Cifrado de datos de copia de seguridad mediante claves administradas por 
 description: Obtenga información sobre el modo en que Azure Backup le permite cifrar los datos de copia de seguridad mediante claves administradas por el cliente.
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 55b994d287e4e2d3971b43359936815822bc18a4
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 5c0bddc6cdb8ec150a031541ced1abf1ebfb6f0f
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892650"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378294"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Cifrado de datos de copia de seguridad mediante claves administradas por el cliente
 
@@ -66,7 +66,7 @@ Azure Backup usa la identidad administrada asignada por el sistema para autentic
 
     ![Configuración de identidad](./media/encryption-at-rest-with-cmk/managed-identity.png)
 
-1. Cambie el **Estado** a **Activada** y haga clic en **Guardar**.
+1. Cambie el **Estado** a **Activado** y seleccione **Guardar**.
 
 1. Se genera un identificador de objeto, que es la identidad administrada del almacén.
 
@@ -82,13 +82,13 @@ Ahora debe permitir que el almacén de Recovery Services tenga acceso al almacé
 
     ![Asignar permisos de las claves](./media/encryption-at-rest-with-cmk/key-permissions.png)
 
-1. Vaya a **Seleccionar la entidad de seguridad** y busque el almacén en el cuadro de búsqueda con su nombre o identidad administrada. Una vez que se muestra, seleccione el almacén y haga clic en **Seleccionar** en la parte inferior del panel.
+1. Vaya a **Seleccionar la entidad de seguridad** y busque el almacén en el cuadro de búsqueda con su nombre o identidad administrada. Una vez que se muestra, seleccione el almacén y elija **Seleccionar** en la parte inferior del panel.
 
     ![Selección de la entidad de seguridad](./media/encryption-at-rest-with-cmk/select-principal.png)
 
-1. Cuando haya terminado, haga clic en **Agregar** para agregar la nueva directiva de acceso.
+1. A continuación, seleccione **Agregar** para agregar la nueva directiva de acceso.
 
-1. Haga clic en **Guardar** para guardar los cambios realizados en la directiva de acceso de Azure Key Vault.
+1. Seleccione **Guardar** para guardar los cambios realizados en la directiva de acceso de Azure Key Vault.
 
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Habilitación de la eliminación temporal y la protección de purga para Azure Key Vault
 
@@ -148,7 +148,7 @@ Para asignar la clave:
 
     ![Configuración de cifrado](./media/encryption-at-rest-with-cmk/encryption-settings.png)
 
-1. Haga clic en **Actualizar** en **Configuración de cifrado**.
+1. Seleccione **Actualizar** en **Configuración de cifrado**.
 
 1. En el panel Configuración de cifrado, seleccione **Usar su propia clave** y continúe especificando la clave mediante una de las siguientes formas. **Asegúrese de que la clave que desea usar es una clave RSA 2048, que se encuentra en un estado habilitado.**
 
@@ -160,7 +160,7 @@ Para asignar la clave:
 
         ![Selección de clave del almacén de claves](./media/encryption-at-rest-with-cmk/key-vault.png)
 
-1. Haga clic en **Save**(Guardar).
+1. Seleccione **Guardar**.
 
 1. **Seguimiento del progreso de la actualización de la clave de cifrado:** puede realizar un seguimiento del progreso de la asignación de claves mediante el **Registro de actividad** del almacén de Recovery Services. El estado debería cambiar pronto a **Correcto**. El almacén cifrará ahora todos los datos con la clave especificada como KEK.
 
@@ -242,7 +242,7 @@ No, el cifrado de CMK solo se puede habilitar para los nuevos almacenes. Por lo 
 
 No, no deben haberse producido intentos de proteger ningún elemento del almacén en el pasado.
 
-### <a name="i-have-a-vault-that-is-using-cmk-encryption-can-i-later-revert-to-encryption-using-platform-managed-keys-even-if-i-have-backup-items-protected-to-the-vault"></a>Tengo un almacén que usa el cifrado CMK. ¿Puedo revertir más adelante el cifrado mediante claves administradas por la plataforma aunque tenga elementos de copia de seguridad protegidos en el almacén?
+### <a name="i-have-a-vault-thats-using-cmk-encryption-can-i-later-revert-to-encryption-using-platform-managed-keys-even-if-i-have-backup-items-protected-to-the-vault"></a>Tengo un almacén que usa el cifrado CMK. ¿Puedo revertir más adelante el cifrado mediante claves administradas por la plataforma aunque tenga elementos de copia de seguridad protegidos en el almacén?
 
 No, una vez que haya habilitado el cifrado de CMK, no podrá revertir para usar claves administradas por la plataforma. Puede cambiar las claves usadas de acuerdo con sus requisitos.
 

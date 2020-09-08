@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/07/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6045c491ea68d759b2a1739e20aa2f12b8520c87
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: c72ff14246f3f96980fe1de2fdef16794bf23e4e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006492"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399997"
 ---
 # <a name="scenario-route-to-shared-services-vnets"></a>Escenario: Enrutamiento a redes virtuales de servicios compartidos
 
@@ -24,7 +24,7 @@ Para más información sobre el enrutamiento de centros virtuales, vea [Acerca d
 
 ## <a name="design"></a><a name="design"></a>Diseño
 
-Podemos usar una matriz de conectividad para resumir los requisitos de este escenario. En la matriz, cada celda describe si una conexión de Virtual WAN (el lado de origen o "From" del flujo, los encabezados de fila de la tabla) aprende un prefijo de destino (el lado "To" del flujo, los encabezados de columna en cursiva de la tabla) para un flujo de tráfico concreto.
+Podemos usar una matriz de conectividad para resumir los requisitos de este escenario. En la matriz, cada celda describe si una conexión de Virtual WAN (el lado de origen o "From" del flujo, los encabezados de fila de la tabla) aprende un prefijo de destino (el lado "To" del flujo, los encabezados de columna en cursiva de la tabla) para un flujo de tráfico concreto. Una "X" significa que la conectividad la proporciona Virtual WAN:
 
 **Matriz de conectividad**
 
