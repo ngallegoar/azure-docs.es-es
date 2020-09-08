@@ -1,22 +1,22 @@
 ---
 title: Controles de Cumplimiento normativo de Azure Policy para Azure Backup
 description: Enumera los controles de Cumplimiento normativo de Azure Policy disponibles para Azure Backup. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 07/22/2020
+ms.date: 09/04/2020
 ms.topic: sample
 author: dcurwin
 ms.author: dacurwin
 ms.service: backup
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: c30fbf0ffb68c4bf2c594a3ca1009fada99c9346
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 3c36e0733db7920a859aa33e9f4447e6714bf85d
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761838"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89490246"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-backup"></a>Controles de Cumplimiento normativo de Azure Policy para Azure Backup
 
-[Cumplimiento normativo de Azure Policy](../governance/policy/concepts/regulatory-compliance.md) proporciona definiciones de iniciativas creadas y administradas por Microsoft, conocidas como _integraciones_, para los **dominios de cumplimiento** y los **controles de seguridad** relativos a distintos estándares de cumplimiento. En esta página se enumeran los **dominios de cumplimiento** y los **controles de seguridad** para Azure Backup. Para que los recursos de Azure sean conformes con el estándar específico, puede asignar las integraciones a un **control de seguridad** de manera individual.
+[Cumplimiento normativo de Azure Policy](../governance/policy/concepts/regulatory-compliance.md) proporciona definiciones de iniciativas creadas y administradas por Microsoft, conocidas como _integraciones_, para los **dominios de cumplimiento** y los **controles de seguridad** relativos a distintos estándares de cumplimiento. En esta página se enumeran los **dominios de cumplimiento** y los **controles de seguridad** para Azure Backup. Para que los recursos de Azure sean compatibles con el estándar específico, puede asignar las integraciones a un **control de seguridad** de manera individual.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 

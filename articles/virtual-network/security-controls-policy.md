@@ -1,18 +1,18 @@
 ---
 title: Controles de cumplimiento normativo de Azure Policy para Azure Virtual Network
 description: En este artículo se muestran los controles de cumplimiento normativo de Azure Policy disponibles para Azure Virtual Network. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 07/22/2020
+ms.date: 09/04/2020
 ms.topic: sample
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: dcd8740d5ab987e881b610a0509c1fdbb61d34ae
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 3da97d99a592f48fba6aa3763e018aab7d9b9e50
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89380338"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485286"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-virtual-network"></a>Controles de cumplimiento normativo de Azure Policy para Azure Virtual Network
 

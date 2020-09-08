@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 975952a0a084286bdbc19ce02c1192d076cf3600
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8ac69b442b06864fd45561b26909e1247674611a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001406"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458389"
 ---
 # <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Tutorial: Cifrado y descifrado de blobs mediante Azure Key Vault
 
@@ -240,4 +240,4 @@ Para más información sobre el uso de Microsoft Azure Storage con C#, consulte 
 
 Para más información sobre la API de REST de blobs, consulte [API de REST de Blob service](https://msdn.microsoft.com/library/azure/dd135733.aspx).
 
-Para obtener la información más reciente sobre Microsoft Azure Storage, vaya al [blog del equipo de Microsoft Azure Storage](https://blogs.msdn.com/b/windowsazurestorage/).
+Para obtener la información más reciente sobre Microsoft Azure Storage, vaya al [blog del equipo de Microsoft Azure Storage](https://docs.microsoft.com/archive/blogs/windowsazurestorage/).
