@@ -3,12 +3,12 @@ title: 'Introducción a Live Video Analytics en IoT Edge: Azure'
 description: En este inicio rápido se muestran los primeros pasos con Live Video Analytics en IoT Edge. Aprenda a detectar movimiento en transmisiones de vídeo en directo.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 16c3c849e7d936c6e94539176d8f171f52bd15de
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: c7e5efa19c27c3f56f9653ed933c7ad290d18408
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067716"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568054"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Inicio rápido: Introducción: Live Video Analytics on IoT Edge
 
@@ -16,7 +16,8 @@ Este inicio rápido le guiará por los pasos necesarios para empezar a usar Live
 
 Después de completar los pasos de la configuración, podrá ejecutar una secuencia de vídeo en directo simulada mediante un grafo multimedia que detecta e informa de todos los movimientos de esa secuencia. El siguiente diagrama representa gráficamente ese grafo multimedia.
 
-![Live Video Analytics basado en la detección de movimiento](./media/analyze-live-video/motion-detection.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/analyze-live-video/motion-detection.svg" alt-text="Live Video Analytics basado en la detección de movimiento":::
 
 ## <a name="prerequisites"></a>Requisitos previos
 
