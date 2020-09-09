@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 861fcabbfca07cb342fda42ea2425fa290a1598e
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 7448da5149bb859f25de2110aa929a40f872c26b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386459"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378906"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Ejecución de los cuadernos de Jupyter Notebook en el área de trabajo
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -48,7 +48,7 @@ Para crear un nuevo cuaderno:
     :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Crear un nuevo archivo":::
 
 1. Dele un nombre al archivo. 
-1. Para los archivos de Jupyter Notebook, seleccione **Cuaderno de Python** como tipo de archivo.
+1. En el caso de los archivos de Jupyter Notebook, seleccione **Notebook** como tipo de archivo.
 1. Seleccione un directorio de archivos.
 1. Seleccione **Crear**.
 

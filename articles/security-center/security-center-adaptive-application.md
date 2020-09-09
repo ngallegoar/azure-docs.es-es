@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: d4ed88dea0d230fd3488621c217ef9ea086310d5
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 8ee9712c01c8ab6b36f595829c3ccc5ae392ff35
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691486"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276769"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Uso de controles de aplicaciones adaptables para reducir las superficies de ataque de las máquinas
 
@@ -76,7 +76,7 @@ Seleccione la recomendación o abra la página de controles de aplicaciones adap
     - **Recomendadas**: grupos de máquinas que ejecutan de forma sistemática las mismas aplicaciones y no tienen configurada una lista de permitidos. Se recomienda habilitar los controles de aplicaciones adaptables para estos grupos.
     
       > [!TIP]
-      > Si ve un nombre de grupo con el prefijo "REVIEWGROUP", contiene máquinas con una lista de aplicaciones parcialmente coherente. Security Center no puede encontrar un patrón, pero recomienda revisar este grupo para ver si _puede_ definir manualmente algunas reglas de controles de aplicaciones adaptables, como se describe en [Edición de una regla de controles de aplicaciones adaptables de un grupo](#editing-a-groups-adaptive-application-controls-rule).
+      > Si ve un nombre de grupo con el prefijo "REVIEWGROUP", contiene máquinas con una lista de aplicaciones parcialmente coherente. Security Center no puede encontrar un patrón, pero recomienda revisar este grupo para ver si _puede_ definir manualmente algunas reglas de controles de aplicaciones adaptables, como se describe en [Edición de una regla de controles de aplicaciones adaptables de un grupo](#edit-a-groups-adaptive-application-controls-rule).
       >
       > También puede mover máquinas de este grupo a otro, como se describe en [Movimiento de una máquina virtual de un grupo a otro](#move-a-machine-from-one-group-to-another).
 
@@ -115,7 +115,7 @@ Seleccione la recomendación o abra la página de controles de aplicaciones adap
 
 
 
-## <a name="editing-a-groups-adaptive-application-controls-rule"></a>Edición de una regla de controles de aplicaciones adaptables de un grupo
+## <a name="edit-a-groups-adaptive-application-controls-rule"></a>Edición de una regla de controles de aplicaciones adaptables de un grupo
 
 Puede que decida editar la lista de permitidos de un grupo de máquinas debido a cambios conocidos en la organización. 
 
@@ -150,7 +150,7 @@ Para editar las reglas de un grupo de máquinas:
 
 
 
-## <a name="responding-to-the-allowlist-rules-in-your-adaptive-application-control-policy-should-be-updated-recommendation"></a>Respuesta a la recomendación "Allowlist rules in your adaptive application control policy should be updated" (Se deben actualizar las reglas de listas de permitidos de la directiva de control de aplicaciones adaptables)
+## <a name="respond-to-the-allowlist-rules-in-your-adaptive-application-control-policy-should-be-updated-recommendation"></a>Respuesta a la recomendación "Allowlist rules in your adaptive application control policy should be updated" (Se deben actualizar las reglas de listas de permitidos de la directiva de control de aplicaciones adaptables)
 
 Esta recomendación aparece cuando la funcionalidad de aprendizaje automático de Security Center identifica un comportamiento potencialmente legítimo que no se ha permitido anteriormente. La recomendación sugiere nuevas reglas para las definiciones existentes con el fin de reducir el número de alertas de falsos positivos.
 
@@ -167,7 +167,7 @@ Para corregir los problemas:
 
 
 
-## <a name="auditing-alerts-and-violations"></a>Auditoría de alertas e infracciones
+## <a name="audit-alerts-and-violations"></a>Auditoría de alertas e infracciones
 
 1. En el menú de Security Center, seleccione **Controles de aplicaciones adaptables**.
 
@@ -199,7 +199,7 @@ Cuando se mueve una máquina de un grupo a otro, la directiva de control de apli
 
 
 
-## <a name="managing-application-controls-via-the-rest-api"></a>Administración de controles de aplicaciones a través de la API REST 
+## <a name="manage-application-controls-via-the-rest-api"></a>Administración de controles de aplicaciones a través de la API REST 
 
 Para administrar los controles de aplicaciones adaptables mediante programación, use nuestra API REST. 
 

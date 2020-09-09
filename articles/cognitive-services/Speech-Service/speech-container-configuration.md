@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 5c74aa48b18661236eb55278d1e5a05215b2432c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0feeec3b5b87e415f25f4cb75e53d9001b022445
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877582"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319260"
 ---
 # <a name="configure-speech-service-containers"></a>Configuración de contenedores del servicio de voz
 
-Los contenedores de Voz permiten a los clientes compilar una arquitectura de aplicación de voz optimizada para aprovechar las sólidas capacidades de la nube y la localidad del perímetro. Los cuatro contenedores de voz compatibles ahora son **conversión de voz a texto**, **conversión de voz a texto personalizada**, **conversión de texto a voz** y **conversión de texto a voz personalizada**.
+Los contenedores de Voz permiten a los clientes compilar una arquitectura de aplicación de voz optimizada para aprovechar las sólidas capacidades de la nube y la localidad del perímetro. Los cinco contenedores que se admiten ahora son: **conversión de voz en texto**, **conversión de voz en texto personalizada**, **texto a voz**, **texto a voz neuronal** y **conversión de texto a voz personalizada**.
 
 El entorno en tiempo de ejecución del contenedor de **Speech** se configura mediante los argumentos del comando `docker run`. Este contenedor tiene varias opciones de configuración necesarias, así como otras opcionales. Hay disponibles varios [ejemplos](#example-docker-run-commands) del comando. La configuración específica del contenedor es la configuración de facturación.
 
@@ -104,7 +104,7 @@ La configuración de montaje de volumen consta de tres campos `:` de colores sep
 Este comando monta el directorio _C:\input_ de la máquina host en el directorio _/usr/local/models_ de los contenedores.
 
 > [!IMPORTANT]
-> La configuración del montaje de volumen solo se aplica a los contenedores **Conversión de voz a texto personalizada** y **Conversión de texto a voz personalizada**. Los contenedores **Conversión de voz a texto** y **Conversión de texto a voz** estándar no usan los montajes de volumen.
+> La configuración del montaje de volumen solo se aplica a los contenedores **Conversión de voz a texto personalizada** y **Conversión de texto a voz personalizada**. Los contenedores de **conversión de voz en texto**, **texto a voz neuronal** y **texto a voz** no utilizan montajes de volumen.
 
 ## <a name="example-docker-run-commands"></a>Comandos de ejemplo de docker run
 
@@ -224,6 +224,29 @@ docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 -v {VOLUME_MOUNT}:/usr/local/models \
 containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech \
 ModelId={MODEL_ID} \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY} \
+Logging:Console:LogLevel:Default=Information
+```
+
+## <a name="neural-text-to-speech"></a>[Texto a voz neuronal](#tab/ntts)
+
+### <a name="basic-example-for-neural-text-to-speech"></a>Ejemplo básico de Texto a voz neuronal
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
+containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+### <a name="logging-example-for-neural-text-to-speech"></a>Ejemplo de registro de Texto a voz neuronal
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
+containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY} \

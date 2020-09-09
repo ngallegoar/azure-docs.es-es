@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 1cf29438d3785a3406aa8ce3b75929a5d5261121
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 1ad008ff3ef4f29ee358b075802deba7eef919bd
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800377"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322048"
 ---
 # <a name="azure-spring-cloud-faq"></a>Preguntas frecuentes de Azure Spring Cloud
 
@@ -36,14 +36,15 @@ La seguridad y la privacidad se encuentran entre las principales prioridades par
 
 ### <a name="in-which-regions-is-azure-spring-cloud-available"></a>¿En qué regiones está disponible Azure Spring Cloud?
 
-Este de EE. UU., Oeste de EE. UU. 2, Oeste de Europa y Sudeste de Asia.
+Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Centro-sur de EE. UU., Oeste de EE. UU.2, Oeste de Europa, Norte de Europa, Sur de Reino Unido, Sudeste Asiático y Este de Australia.
+
 
 ### <a name="what-are-the-known-limitations-of-azure-spring-cloud"></a>¿Cuáles son las limitaciones conocidas de Azure Spring Cloud?
 
-Durante la versión preliminar, Azure Spring Cloud tiene las siguientes limitaciones conocidas:
-
+Azure Spring Cloud tiene las limitaciones conocidas siguientes:
+    
 * `spring.application.name` se sustituirá por el nombre de la aplicación que se usó para crear cada aplicación.
-* `server.port` tiene como valor predeterminado los puertos 80/443. Si se aplica cualquier otro valor, se reemplazará por 80/443.
+* El valor predeterminado de `server.port` es el puerto 1025. Si se aplica cualquier otro valor, se reemplazará por 1025.
 * Azure Portal y las plantillas de Azure Resource Manager no admiten la carga de paquetes de aplicación. Solo puede cargar paquetes de aplicación al implementar la aplicación a través de la CLI de Azure.
 
 ### <a name="what-pricing-tiers-are-available"></a>¿Qué planes de tarifa están disponibles? 
@@ -58,7 +59,7 @@ Si encuentra algún problema con Azure Spring Cloud, cree una [solicitud de sopo
 
 ### <a name="i-am-a-spring-cloud-developer-but-new-to-azure-what-is-the-quickest-way-for-me-to-learn-how-to-develop-an-azure-spring-cloud-application"></a>Soy un desarrollador de Spring Cloud, pero nunca he usado Azure. ¿Cuál es la forma más rápida de aprender a desarrollar una aplicación de Azure Spring Cloud?
 
-Para conocer la forma más rápida de empezar a trabajar con Azure Spring Cloud, siga las instrucciones de [Inicio rápido: inicio de una aplicación de Azure Spring Cloud mediante Azure Portal](spring-cloud-quickstart-launch-app-portal.md).
+Para conocer la forma más rápida de empezar a trabajar con Azure Spring Cloud, siga las instrucciones de [Inicio rápido: inicio de una aplicación de Azure Spring Cloud mediante Azure Portal](spring-cloud-quickstart.md).
 
 ### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>¿Qué runtime de Java es compatible con Azure Spring Cloud?
 
@@ -88,6 +89,12 @@ Sí.
 ### <a name="when-i-deletemove-an-azure-spring-cloud-service-instance-will-its-extension-resources-be-deletedmoved-as-well"></a>Cuando elimino o traslado una instancia del servicio Azure Spring Cloud, ¿también se eliminarán o trasladarán sus recursos de extensión?
 
 Depende de la lógica de los proveedores de recursos a los que pertenecen los recursos de extensión. Los recursos de extensión de una instancia de `Microsoft.AppPlatform` no pertenecen al mismo espacio de nombres, por lo que el comportamiento varía en función del proveedor de recursos. Por ejemplo, la operación de eliminación o traslado no se aplicará en cascada a los recursos de la **configuración de diagnósticos**. Si se aprovisiona una nueva instancia de Azure Spring Cloud con el mismo id. de recurso que la eliminada o si la instancia de Azure Spring Cloud anterior se vuelve a trasladar, los recursos de la **configuración de diagnósticos** anteriores siguen extendiéndola.
+
+Puede eliminar la configuración de diagnóstico de Spring Cloud mediante la CLI de Azure:
+
+```azurecli
+ az monitor diagnostic-settings delete --name $diagnosticSettingName --resource $azureSpringCloudResourceId
+```
 
 ## <a name="java-runtime-and-os-versions"></a>Runtime de Java y versiones del sistema operativo
 
@@ -145,7 +152,7 @@ No.  Azure Spring Cloud ayuda a desviar la atención del desarrollador de la arq
 
 ### <a name="does-azure-spring-cloud-support-building-containers-from-source"></a>¿Admite Azure Spring Cloud la creación de contenedores desde el origen?
 
-Sí. Para obtener más información, consulte [Inicio de la aplicación Spring Cloud desde el código fuente](spring-cloud-launch-from-source.md).
+Sí. Para obtener más información, consulte [Inicio de la aplicación Spring Cloud desde el código fuente](spring-cloud-quickstart.md).
 
 ### <a name="does-azure-spring-cloud-support-autoscaling-in-app-instances"></a>¿Admite Azure Spring Cloud la escalabilidad automática en instancias de aplicaciones?
 

@@ -8,12 +8,12 @@ ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: a2dff1ea9c830fa48545dc25654cc3c5318c3415
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 20a376d303f90727063f288e239e89ede2a1113c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235917"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89298222"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Uso de Azure Digital Twins para actualizar un plano interior de Azure Maps
 
@@ -60,6 +60,12 @@ Este patrón realiza la lectura directamente desde el gemelo de la sala, en luga
     ```
 
 3. Cree una ruta en Azure Digital Twins para enviar eventos de actualización de gemelos al punto de conexión.
+
+    >[!NOTE]
+    >Actualmente hay un **problema conocido** en Cloud Shell que afecta a estos grupos de comandos: `az dt route`, `az dt model` y `az dt twin`.
+    >
+    >Para resolverlo, ejecute `az login` en Cloud Shell antes de ejecutar el comando, o bien use la [CLI local](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) en lugar de Cloud Shell. Para obtener más información, vea [*Solución de problemas: Problemas conocidos en Azure Digital Twins*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
+
     ```azurecli
     az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```

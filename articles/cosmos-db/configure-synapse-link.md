@@ -4,14 +4,14 @@ description: Obtenga información sobre cómo habilitar Synapse Link para las cu
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 08/31/2020
 ms.author: rosouz
-ms.openlocfilehash: 4c5f812bf1a5a60a6d1344d6a39fbd95898f55fc
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: d77922d5957a0f6602e00621ebbabeaa3f3ac8f9
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815579"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322473"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configuración y uso de Azure Synapse Link para Azure Cosmos DB (versión preliminar)
 
@@ -228,4 +228,4 @@ Para obtener más información, consulte la siguiente documentación:
 
 * [Apache Spark en Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md).
 
-* [SQL sin servidor/a petición en Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md).
+* [Compatibilidad del entorno de ejecución sin servidor de SQL con Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md).

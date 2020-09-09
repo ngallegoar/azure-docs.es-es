@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2020
 ms.author: memildin
-ms.openlocfilehash: 115a01fe0b1edc343ed9efd324c4be3b53251566
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a1184269dec54ad6d70ae763b682e08a67282d9e
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519514"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276548"
 ---
 # <a name="azure-security-center-data-security"></a>Seguridad de datos de Azure Security Center
 Para ayudar a los clientes a evitar, detectar y responder a las amenazas, Azure Security Center recopila y procesa datos relacionados con la seguridad, entre los que se incluyen la información de configuración, los metadatos y los registros de eventos, entre otros. Microsoft se adhiere a instrucciones estrictas de seguridad y cumplimiento de normas, desde la codificación hasta la operación de un servicio.
@@ -65,7 +65,7 @@ Para máquinas virtuales y servidores que se ejecutan en otros entornos, por eje
 
 **Azure Storage Security Center**: la información acerca de las alertas de seguridad, incluidas las alertas de los asociados, se almacena a nivel regional según la ubicación del recurso de Azure, mientras que la información sobre el estado de mantenimiento de seguridad y la recomendación se almacenan centralmente, ya sea en Estados Unidos o en Europa, en función de la ubicación del cliente. Los artefactos de la máquina se almacenan de forma centralizada en la misma región que la máquina virtual.
 
-## <a name="managing-data-collection-from-virtual-machines"></a>Administración de recolección de datos de máquinas virtuales
+## <a name="manage-data-collection-from-virtual-machines"></a>Administración de recopilación de datos de máquinas virtuales
 
 Al habilitar Security Center en Azure, la recopilación de datos se activa para todas las suscripciones de Azure. También se puede activar la recopilación de datos para las suscripciones en la sección "Directivas de seguridad" de Azure Security Center. Cuando se activa la recopilación de datos, Azure Security Center aprovisiona al agente de Log Analytics en todas las máquinas virtuales de Azure compatibles existentes y en las que se crean.
 El agente de Log Analytics busca diversos eventos y configuraciones relacionados con la seguridad y los envía a seguimientos de [Seguimiento de eventos para Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW). Además, el sistema operativo generará eventos del registro de eventos mientras la máquina se ejecute. Estos son algunos ejemplos de dichos datos: tipo y versión del sistema operativo, registros del sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP, usuario conectado e identificador de inquilino. El agente de Log Analytics lee las entradas de los registros de eventos y los seguimientos de ETW, y los copia en las áreas de trabajo para el análisis. El agente de Log Analytics también habilita eventos de creación de procesos y la auditoría de línea de comandos.

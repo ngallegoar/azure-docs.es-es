@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 12/27/2019
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: e1f97fddb07e56946e37c04d9b9685412782c560
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: e2f13cbdca9d6372677bbba24d60f4a73436cfd7
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88659762"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179311"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Creación y administración de áreas de trabajo de Azure Machine Learning en Azure Portal
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -51,7 +51,7 @@ Para crear un área de trabajo, necesita una suscripción de Azure. Si no tiene 
 
     ![Configuración de un área de trabajo](./media/how-to-manage-workspace/select-edition.png)
 
-1. Cuando haya terminado de configurar el área de trabajo, seleccione **Revisar y crear**.
+1. Cuando haya terminado de configurar el área de trabajo, seleccione **Revisar y crear**. También puede usar las secciones [Redes](#networking) y [Opciones avanzadas](#advanced) para configurar otros valores del área de trabajo.
 2. Revise la configuración y realice cualquier cambio o corrección adicional. Cuando esté satisfecho con la configuración, seleccione **Crear**.
 
    > [!Warning] 
@@ -61,15 +61,65 @@ Para crear un área de trabajo, necesita una suscripción de Azure. Si no tiene 
  
  1. Para ver la nueva área de trabajo, seleccione **Ir al recurso**.
 
-### <a name="download-a-configuration-file"></a>Descarga de un archivo de configuración
 
-1. Si va a crear una [instancia de proceso](tutorial-1st-experiment-sdk-setup.md#azure), omita este paso.
+### <a name="networking"></a>Redes
 
-1. Si tiene previsto usar código en el entorno local que haga referencia a esta área de trabajo, seleccione **Descargar config.json** en la sección **Información general** del área de trabajo.  
+> [!IMPORTANT]
+> Para obtener más información sobre el uso de un punto de conexión privado y una red virtual con el área de trabajo, vea [Aislamiento de red y privacidad](how-to-enable-virtual-network.md).
 
-   ![Descargar config.json](./media/how-to-manage-workspace/configure.png)
-   
-   Coloque el archivo en la estructura de directorios que contiene los scripts de Python o las instancias de Jupyter Notebook. Puede estar en el mismo directorio, en un subdirectorio denominado *.azureml* o en un directorio principal. Al crear una instancia de proceso, este archivo se agrega automáticamente al directorio correcto de la máquina virtual.
+1. La configuración de red predeterminada es usar un __Punto de conexión público__, que es accesible en la red pública de Internet. Para limitar el acceso al área de trabajo a una instancia de Azure Virtual Network que ha creado, puede seleccionar __Punto de conexión privado__ (versión preliminar) en __Método de conectividad__ y, después, usar __+ Agregar__ para configurar el punto de conexión.
+
+   > [!IMPORTANT]
+   > El uso de un punto de conexión privado con áreas de trabajo de Azure Machine Learning se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+   :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="Selección del punto de conexión privado":::
+
+1. En el formulario __Crear punto de conexión privado__, establezca la ubicación, el nombre y la red virtual que se va a usar. Si desea usar el punto de conexión con una zona DNS privada, seleccione __Integrar con la zona DNS privada__ y seleccione la zona mediante el campo __Zona DNS privada__. Seleccione __Aceptar__ para crear el punto de conexión. 
+
+   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Creación del punto de conexión privado":::
+
+1. Cuando haya terminado de configurar las redes, puede seleccionar __Revisar y crear__, o bien avanzar hasta la configuración de __Avanzado__ opcional.
+
+    > [!WARNING]
+    > Al crear un punto de conexión privado, se crea una nueva zona DNS privada denominada __privatelink.api.azureml.ms__. Contiene un vínculo a la red virtual. Si crea varias áreas de trabajo con puntos de conexión privados en el mismo grupo de recursos, solo la red virtual del primer punto de conexión privado se puede agregar a la zona DNS. Para agregar entradas para las redes virtuales usadas por áreas de trabajo o puntos de conexión privados adicionales, siga estos pasos:
+    > 
+    > 1. En [Azure Portal](https://portal.azure.com), seleccione el grupo de recursos que contiene el área de trabajo. A continuación, seleccione el recurso de zona DNS privada denominado __privatelink.api.azureml.ms__.
+    > 2. En __Configuración__, seleccione __Vínculos de red virtual__.
+    > 3. Seleccione __Agregar__. En la página __Agregar el vínculo de red virtual__, proporcione un __Nombre de vínculo__ único y, a continuación, seleccione la __Red virtual__ que se va a agregar. Seleccione __Aceptar__ para agregar el vínculo de red.
+    >
+    > Para obtener más información, vea [Configuración de DNS para puntos de conexión privados de Azure](/azure/private-link/private-endpoint-dns).
+
+### <a name="advanced"></a>Avanzado
+
+De forma predeterminada, las métricas y los metadatos del área de trabajo se almacenan en una instancia de Azure Cosmos DB que Microsoft mantiene. Estos datos se cifran con claves administradas por Microsoft. 
+
+Para limitar los datos que Microsoft recopila sobre el área de trabajo, seleccione __High business impact workspace__ (Área de trabajo de alto impacto de negocio).
+
+> [!IMPORTANT]
+> La selección de un alto impacto de negocio solo puede realizarse al crear un área de trabajo. Este valor no se puede cambiar tras la creación del área de trabajo.
+
+Si va a usar la versión __Enterprise__ de Azure Machine Learning, puede proporcionar su propia clave. Así, se crea la instancia de Azure Cosmos DB que almacena las métricas y los metadatos en la suscripción de Azure. Siga estos pasos para usar su propia clave:
+
+> [!IMPORTANT]
+> Antes de seguir estos pasos, debe completar las siguientes acciones:
+>
+> 1. Autorice __Machine Learning App__ (en Administración de identidades y acceso) con permisos de colaborador en la suscripción.
+> 1. Siga los pasos de [Configuración de claves administradas por el cliente](/azure/cosmos-db/how-to-setup-cmk) para:
+>     * Registrar el proveedor de Azure Cosmos DB
+>     * Creación y configuración de una instancia de Azure Key Vault
+>     * Generar una clave
+>
+>     No es necesario crear manualmente la instancia de Azure Cosmos DB; se crea una automáticamente durante la creación del área de trabajo. Esta instancia de Azure Cosmos DB se crea en un grupo de recursos independiente con un nombre basado en este patrón: `<your-resource-group-name>_<GUID>`.
+>
+> Este valor no se puede cambiar tras la creación del área de trabajo. Si elimina la instancia de Azure Cosmos DB que usa el área de trabajo, también debe eliminar el área de trabajo que la está usando.
+
+1. Seleccione __Claves administradas por el cliente__ y, después, seleccione __Hacer clic para seleccionar una clave__.
+
+    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Claves administradas por el cliente":::
+
+1. En el formulario __Seleccionar clave en Azure Key Vault__, seleccione una instancia de Azure Key Vault existente, una clave que contenga y la versión de la clave. Esta clave se usa para cifrar los datos almacenados en Azure Cosmos DB. Por último, use el botón __Seleccionar__ para usar esta clave.
+
+   :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="Seleccione la clave":::
 
 ## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a>Actualización a la edición Enterprise
 
@@ -87,7 +137,17 @@ Puede actualizar el área de trabajo de la edición Basic a la edición Enterpri
 
 
 > [!IMPORTANT]
-> No se puede rebajar un área de trabajo de la edición Enterprise a un área de trabajo de la edición Basic. 
+> No se puede rebajar un área de trabajo de la edición Enterprise a un área de trabajo de la edición Basic.
+
+### <a name="download-a-configuration-file"></a>Descarga de un archivo de configuración
+
+1. Si va a crear una [instancia de proceso](tutorial-1st-experiment-sdk-setup.md#azure), omita este paso.
+
+1. Si tiene previsto usar código en el entorno local que haga referencia a esta área de trabajo, seleccione **Descargar config.json** en la sección **Información general** del área de trabajo.  
+
+   ![Descargar config.json](./media/how-to-manage-workspace/configure.png)
+   
+   Coloque el archivo en la estructura de directorios que contiene los scripts de Python o las instancias de Jupyter Notebook. Puede estar en el mismo directorio, en un subdirectorio denominado *.azureml* o en un directorio principal. Al crear una instancia de proceso, este archivo se agrega automáticamente al directorio correcto de la máquina virtual.
 
 ## <a name="find-a-workspace"></a><a name="view"></a>Buscar un área de trabajo
 

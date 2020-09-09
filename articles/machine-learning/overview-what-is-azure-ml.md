@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 2c043ab535504a02a151d308de0562debdba950a
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 233eb06714dc8ac614cceef157f87d175c3f455b
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145899"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462469"
 ---
 # <a name="what-is-azure-machine-learning"></a>¿Qué es Azure Machine Learning?
 
@@ -69,7 +69,7 @@ También puede [automatizar el entrenamiento y optimización del modelo](tutoria
 
 ## <a name="build-ml-models-in-the-studio"></a>Creación de modelos de Machine Learning en Studio
 
-[Azure Machine Learning Studio](https://www.ml.azure.com) es un portal web de Azure Machine Learning para las opciones de los tipos código bajo y sin código del entrenamiento, la implementación y la administración de recursos. Studio se integra con el SDK de Azure Machine Learning para ofrecer una experiencia sin problemas. Para más información, consulte el artículo en el que se explica [qué es Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md).
+[Azure Machine Learning Studio](https://studio.azureml.net) es un portal web de Azure Machine Learning para las opciones de los tipos código bajo y sin código del entrenamiento, la implementación y la administración de recursos. Studio se integra con el SDK de Azure Machine Learning para ofrecer una experiencia sin problemas. Para más información, consulte el artículo en el que se explica [qué es Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md).
 
 + **Diseñador de Azure Machine Learning (versión preliminar)**
 
@@ -86,7 +86,7 @@ También puede [automatizar el entrenamiento y optimización del modelo](tutoria
 
 + **Y mucho más...**
 
-  Visite Azure Machine Learning Studio en [ml.azure.com](https://www.ml.azure.com). 
+  Visite Azure Machine Learning Studio en [ml.azure.com](https://studio.azureml.net). 
 
 
 ## <a name="mlops-deploy--lifecycle-management"></a>MLOps: Administración de la implementación y del ciclo de vida

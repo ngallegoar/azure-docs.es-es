@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: cf0fec1f081a232abc88941e3dd785fb7617fb57
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 04a3499da15bc226fe2cada2283d7a115036a48c
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387122"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318305"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Cifrado de datos transparente de Azure SQL con una clave administrada por el cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -132,6 +132,11 @@ Una vez restaurado el acceso a la clave, se necesita tiempo para volver a poner 
 - Si se restaura el acceso a la clave en un plazo de ocho horas, la base de datos se restablecerá automáticamente durante la próxima hora.
 
 - Si se restaura el acceso a la clave transcurridas más de ocho horas, no será posible la recuperación automática de la base de datos y será necesario realizar pasos adicionales en el portal para recuperarla manualmente. Esto que puede llevar una cantidad considerable de tiempo en función del tamaño de la base de datos. Una vez que la base de datos vuelva a estar en línea, **se perderán** los ajustes de nivel de servidor configurados previamente, como el [grupo de conmutación por error](auto-failover-group-overview.md), el historial de restauración a un momento dado y las etiquetas. Por lo tanto, se recomienda implementar un sistema de notificación que le permita identificar y resolver los problemas subyacentes de acceso de las claves en un plazo de ocho horas.
+
+A continuación se muestra una vista de los pasos adicionales necesarios en el portal para volver a poner en línea una base de datos que no está accesible.
+
+![Base de datos de TDE BYOK que no está accesible](./media/transparent-data-encryption-byok-overview/customer-managed-tde-inaccessible-database.jpg)
+
 
 ### <a name="accidental-tde-protector-access-revocation"></a>Revocación accidental del acceso al protector de TDE
 

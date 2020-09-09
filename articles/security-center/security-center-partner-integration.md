@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: memildin
-ms.openlocfilehash: dd694fd013069c33e4f3af2c81447e014d41b691
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1af99f6317ac5888478c7df08fcc31478ef1ccef
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519278"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180854"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integración de soluciones de seguridad en Azure Security Center
 Este documento le ayuda a administrar las soluciones de seguridad que ya está conectadas a Azure Security Center y a agregar otras nuevas.
@@ -35,10 +35,7 @@ Actualmente, las soluciones de seguridad integradas incluyen la evaluación de v
 > [!NOTE]
 > Security Center no instala Log Analytics en aplicaciones virtuales de asociados, porque la mayoría de los proveedores de seguridad prohíben que se ejecuten agentes externos en su aplicación.
 
-Para obtener más información sobre la integración de las herramientas de examen de vulnerabilidades de Qualys, incluido un escáner integrado disponible para los clientes del nivel estándar, consulte: 
-
-- [Escáner de vulnerabilidades integrado para máquinas virtuales](built-in-vulnerability-assessment.md).
-- [Implementación de una solución de examen de vulnerabilidades de asociados](partner-vulnerability-assessment.md).
+Para obtener más información sobre la integración de las herramientas de examen de vulnerabilidades de Qualys, incluido un escáner integrado disponible para los clientes del nivel estándar, consulte [Evaluaciones de vulnerabilidades para Azure Virtual Machines](deploy-vulnerability-assessment-vm.md).
 
 Security Center también ofrece análisis de vulnerabilidades para:
 

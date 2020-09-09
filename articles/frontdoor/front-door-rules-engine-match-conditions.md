@@ -3,7 +3,7 @@ title: Condiciones de coincidencia del motor de reglas de Azure Front Door
 description: En este artículo se proporciona una lista de las distintas condiciones de coincidencia disponibles con el motor de reglas de Azure Front Door.
 services: frontdoor
 documentationcenter: ''
-author: megan-beatty
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
-ms.author: mebeatty
-ms.openlocfilehash: 311914078f8169a3b48b5559ed58a690c29be83a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: duau
+ms.openlocfilehash: 99a590fd3adacc9a63c2ec482965ccd9ff162ac3
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512170"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399249"
 ---
 # <a name="azure-front-door-rules-engine-match-conditions"></a>Condiciones de coincidencia del motor de reglas de Azure Front Door
 

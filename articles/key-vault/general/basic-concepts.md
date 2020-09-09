@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7c64835ced558727718690138c3e7a7666cf0809
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: dfb1ca4fc8f550c8ed6955adaca9082f0b6b79e6
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167305"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89379008"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Conceptos básicos de Azure Key Vault
 
@@ -33,7 +33,7 @@ Estos son otros términos importantes:
 
 - **Grupo de recursos**: Un grupo de recursos es un contenedor que almacena los recursos relacionados con una solución de Azure. El grupo de recursos puede incluir todos los recursos de la solución o solo aquellos que se desean administrar como grupo. Para decidir cómo asignar los recursos a los grupos de recursos, tenga en cuenta lo que más conviene a su organización.
 
-- **Entidad de servicio**: Una entidad de servicio de Azure es una identidad de seguridad que usan las aplicaciones, los servicios y las herramientas de automatización que ha creado el usuario para acceder a recursos específicos de Azure. Se puede considerar una "identidad de usuario" (nombre de usuario y contraseña o certificado) con un rol específico y permisos estrechamente controlados. A diferencia de una identidad de usuario general, una entidad de servicio solo necesita poder realizar acciones específicas. Mejora la seguridad si le concede el nivel de permiso mínimo necesario para realizar sus tareas de administración.
+- **Entidad de seguridad**: una entidad de seguridad de Azure es una identidad de seguridad que usan las aplicaciones, los servicios y las herramientas de automatización que ha creado el usuario para acceder a recursos específicos de Azure. Se puede considerar una "identidad de usuario" (nombre de usuario y contraseña o certificado) con un rol específico y permisos estrechamente controlados. A diferencia de una identidad de usuario general, una entidad de seguridad solo necesita poder realizar acciones específicas. Mejora la seguridad si le concede el nivel de permiso mínimo necesario para realizar sus tareas de administración. Una entidad de seguridad que se usa con una aplicación o un servicio se denomina específicamente **entidad de servicio**.
 
 - [Azure Active Directory (Azure AD)](../../active-directory/active-directory-whatis.md): Azure AD es el servicio de Active Directory para un inquilino. Cada directorio tiene uno o varios dominios. Un directorio puede tener varias suscripciones asociadas, pero solo un inquilino.
 
