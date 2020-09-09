@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: efcc4aebf16fccc70af7c77f0e8481d24f13b9cd
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 0e83f63e3c39f2aa20cd46f098185aba523e2478
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935269"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950483"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Características en versión preliminar de Azure Cognitive Search
 
@@ -35,7 +35,7 @@ Se han quitado de la lista las características en versión preliminar que pasan
 |  [**Indexador de Azure Data Lake Storage Gen2**](search-howto-index-azure-data-lake-storage.md) | Origen de datos del indexador | Indiza contenido y metadatos de Azure Data Lake Storage Gen2.| Es necesario [registrarse](https://aka.ms/azure-cognitive-search/indexer-preview) para que se pueda habilitar el soporte técnico para su suscripción en el back-end. Acceda a este origen de datos mediante [Creación de orígenes de datos (REST)](/rest/api/searchservice/create-data-source) con api-version=2020-06-30-Preview o api-version=2019-05-06-Preview. |
 | [**moreLikeThis**](search-more-like-this.md) | Consultar | Busca documentos que sean pertinentes para un documento específico. Esta característica ha aparecido en versiones anteriores. | Agregue este parámetro de consulta mediante [Documentos de búsqueda (REST)](/rest/api/searchservice/search-documents) con api-version=2020-06-30-Preview, 2019-05-06-Preview, 2016-09-01-Preview o 2017-11-11-Preview. |
 
-## <a name="calling-preview-rest-apis"></a>Llamada a las API de REST en versión preliminar
+## <a name="how-to-call-a-preview-rest-api"></a>Llamada a una API REST en versión preliminar
 
 Azure Cognitive Search siempre publica previamente características experimentales primero a través de la API REST y, después, a través de las versiones preliminares del SDK de .NET.
 
@@ -47,12 +47,14 @@ Aunque algunas características en versión preliminar pueden estar disponibles 
 
 + En el caso de las operaciones de administración, la versión preliminar actual es [ **`2019-10-01-Preview`** ](/rest/api/searchmanagement/index-2019-10-01-preview).
 
-Las vistas previas anteriores siguen funcionando, pero quedarán obsoletas con el paso del tiempo. Si el código llama a `api-version=2019-05-06-Preview` o `api-version=2016-09-01-Preview` o `api-version=2017-11-11-Preview`, dichas llamadas siguen siendo válidas. Sin embargo, solo la versión preliminar más reciente se actualiza con mejoras. 
+Las vistas previas anteriores siguen funcionando, pero quedarán obsoletas con el paso del tiempo. Si el código llama a `api-version=2019-05-06-Preview` o `api-version=2016-09-01-Preview` o `api-version=2017-11-11-Preview`, dichas llamadas siguen siendo válidas. Sin embargo, solo la versión preliminar más reciente se actualiza con mejoras.
 
 En la sintaxis de ejemplo siguiente se ilustra una llamada a la versión de API de versión preliminar.
 
 ```HTTP
-GET https://[service name].search.windows.net/indexes/[index name]/docs?search=*&api-version=2020-06-30-Preview
+POST https://[service name].search.windows.net/indexes/hotels-idx/docs/search?api-version=2020-06-30-Preview  
+  Content-Type: application/json  
+  api-key: [admin key]
 ```
 
 El servicio Azure Cognitive Search está disponible en varias versiones. Para obtener más información, consulte [Versiones de API](search-api-versions.md).

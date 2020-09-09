@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 489f0138caa54105cced9c9ef4e8846657d84717
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: c4f3ccce03f91b0567980d55b59bfb15d6985bb7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607130"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299752"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de características para las máquinas
 
@@ -35,7 +35,7 @@ En las dos tablas siguientes se muestran las características de Azure Security 
 |[Alertas de seguridad sin archivos](alerts-reference.md#alerts-windows)|✔|✔|✔|Estándar|
 |[Alertas de seguridad basadas en la red](threat-protection.md#network-layer)|✔|✔|-|Estándar|
 |[Acceso de máquina virtual Just-In-Time](security-center-just-in-time.md)|✔|-|-|Estándar|
-|[Evaluación de vulnerabilidades nativa](built-in-vulnerability-assessment.md)|✔|-|-|Estándar|
+|[Evaluación de vulnerabilidades nativa](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Estándar|
 |[Supervisión de la integridad de los archivos](security-center-file-integrity-monitoring.md)|✔|✔|✔|Estándar|
 |[Controles de aplicación adaptables](security-center-adaptive-application.md)|✔|-|✔|Estándar|
 |[Mapa de red](security-center-network-recommendations.md#network-map)|✔|✔|-|Estándar|
@@ -59,7 +59,7 @@ En las dos tablas siguientes se muestran las características de Azure Security 
 |[Alertas de seguridad sin archivos](alerts-reference.md#alerts-windows)|-|-|-|Estándar|
 |[Alertas de seguridad basadas en la red](threat-protection.md#network-layer)|✔|✔|-|Estándar|
 |[Acceso de máquina virtual Just-In-Time](security-center-just-in-time.md)|✔|-|-|Estándar|
-|[Evaluación de vulnerabilidades nativa](built-in-vulnerability-assessment.md)|✔|-|-|Estándar|
+|[Evaluación de vulnerabilidades nativa](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Estándar|
 |[Supervisión de la integridad de los archivos](security-center-file-integrity-monitoring.md)|✔|✔|✔|Estándar|
 |[Controles de aplicación adaptables](security-center-adaptive-application.md)|✔|-|✔|Estándar|
 |[Mapa de red](security-center-network-recommendations.md#network-map)|✔|✔|-|Estándar|

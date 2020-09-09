@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: memildin
-ms.openlocfilehash: 25b5569c123a4c7376aecd01b8e36f68b0a8e9b5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bd52cb9ba10cbbc7823cf631cea146cdccdad4e1
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519614"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278146"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertas de seguridad en Azure Security Center
 
@@ -23,7 +23,7 @@ En Azure Security Center, existe una amplia variedad de alertas para los numeros
 
 Una serie de medidas de detección avanzadas se ocupan de desencadenar las alertas de seguridad y solo están disponibles en el nivel Estándar de Azure Security Center. Hay una evaluación gratuita disponible. Puede actualizar su versión desde la página **Precios y configuración**. Obtenga más información sobre los [precios de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="responding-to-todays-threats"></a>Respuesta a las amenazas actuales <a name="respond-threats"> </a>
+## <a name="respond-to-todays-threats"></a>Respuesta a las amenazas actuales <a name="respond-threats"> </a>
 
 En los últimos 20 años, las amenazas han cambiado considerablemente. Por lo general, en el pasado, las compañías solo tenían que preocuparse por las alteraciones que atacantes individuales realizaban en sus sitios web, quienes normalmente solo pretendían comprobar “qué es lo que eran capaces de hacer”. Hoy en día, los atacantes son mucho más sofisticados y están más organizados. Normalmente, se mueven por un fin económico o estratégico. También disponen de más recursos, ya que a veces están financiados por estados o por el crimen organizado.
 

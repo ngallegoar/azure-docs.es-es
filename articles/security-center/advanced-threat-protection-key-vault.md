@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 449096590df6145c9f80dcf2c97726931909a2ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7025b091b83a56b7b3df18c3f42cb84b163560bb
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77914813"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277772"
 ---
 # <a name="threat-protection-for-azure-key-vault-preview"></a>Protección contra amenazas para Azure Key Vault (versión preliminar)
 
@@ -21,7 +21,7 @@ Advanced Threat Protection para Azure Key Vault proporciona una capa adicional d
 
 Cuando Security Center detecta una actividad anómala, muestra alertas. También envía por correo electrónico al administrador de la suscripción los detalles de la actividad sospechosa y recomendaciones sobre cómo investigar y corregir las amenazas identificadas.
 
-## <a name="configuring-threat-protection-from-security-center"></a>Configuración de la protección contra amenazas desde Security Center
+## <a name="configure-threat-protection-from-security-center"></a>Configuración de la protección contra amenazas desde Security Center
 
 De forma predeterminada, Advanced Threat Protection está habilitado en todas las cuentas de Key Vault cuando se suscribe al plan de tarifa estándar de Security Center. Para obtener más información, consulte el apartado [Precios](security-center-pricing.md).
 

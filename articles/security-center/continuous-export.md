@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: eb7f642e36bd72f963481cb392d7e3a6c2555816
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 93f7107af18d6720784bd2f249e51a9c96705d3f
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612391"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378583"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Exportación de alertas y recomendaciones de seguridad
 
@@ -36,12 +36,12 @@ Con estas herramientas puede realizar lo siguiente:
 |Estado de la versión:|Disponibilidad general|
 |Precios:|Nivel gratis|
 |Roles y permisos necesarios:|**Rol de administrador de seguridad** en el grupo de recursos (o **Propietario**).<br>También debe tener permisos de escritura para el recurso de destino.|
-|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, otros gobiernos|
+|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov<br>![Sí](./media/icons/yes-icon.png) China Gov (en el centro de eventos), otro Gov|
 |||
 
 
 
-## <a name="setting-up-a-continuous-export"></a>Configuración de una exportación continua
+## <a name="set-up-a-continuous-export"></a>Configuración de una exportación continua
 
 Los pasos siguientes son necesarios si va a configurar una exportación continua a las área de trabajo de Log Analytics o a Azure Event Hubs.
 
@@ -60,7 +60,7 @@ Los pasos siguientes son necesarios si va a configurar una exportación continua
 1. Seleccione **Guardar**.
 
 
-## <a name="setting-up-continuous-export-via-the-rest-api"></a>Configuración de la exportación continua mediante API REST
+## <a name="set-up-continuous-export-via-the-rest-api"></a>Configuración de la exportación continua mediante API REST
 
 La característica de exportación continua se puede configurar y administrar mediante las [API de automatizaciones](https://docs.microsoft.com/rest/api/securitycenter/automations) de Security Center. Use esta API para crear o actualizar automatizaciones para exportarlas a cualquiera de los siguientes destinos posibles:
 
@@ -83,7 +83,7 @@ En la [documentación de la API REST](https://docs.microsoft.com/rest/api/securi
 
 
 
-## <a name="configuring-siem-integration-via-azure-event-hubs"></a>Configuración de la integración de SIEM a través de Azure Event Hubs
+## <a name="configure-siem-integration-via-azure-event-hubs"></a>Configuración de la integración de SIEM mediante Azure Event Hubs
 
 Azure Event Hubs es una excelente solución para consumir mediante programación cualquiera de los datos de streaming. Para las alertas y recomendaciones de Azure Security Center, es la forma preferida de integrarse con un SIEM de terceros.
 

@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 1753373b360a78918682b5f6102dcc896e2d90c3
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: a6e603ad5698e7a6a57799def8a0f2de28e0cada
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652648"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144896"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar un entorno de desarrollo para Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,7 +27,7 @@ En la tabla siguiente se muestra cada entorno de desarrollo que se trata en este
 
 | Entorno | Ventajas | Desventajas |
 | --- | --- | --- |
-| [Instancia de proceso de Azure Machine Learning basado en la nube (versión preliminar)](#compute-instance) | Manera más fácil de empezar. El SDK completo ya está instalado en la máquina virtual del área de trabajo y los tutoriales de cuaderno están clonados previamente y listos para ejecutarse. | Falta de control sobre el entorno de desarrollo y las dependencias. Costo adicional por la máquina virtual Linux (la máquina virtual se puede detener cuando no se use para evitar cargos). Consulte los [detalles de los precios](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). |
+| [Instancia de proceso de Azure Machine Learning basado en la nube](#compute-instance) | Manera más fácil de empezar. El SDK completo ya está instalado en la máquina virtual del área de trabajo y los tutoriales de cuaderno están clonados previamente y listos para ejecutarse. | Falta de control sobre el entorno de desarrollo y las dependencias. Costo adicional por la máquina virtual Linux (la máquina virtual se puede detener cuando no se use para evitar cargos). Consulte los [detalles de los precios](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). |
 | [Entorno local](#local) | Control total del entorno de desarrollo y las dependencias. Funciona con cualquier herramienta de compilación, entorno o IDE de su elección. | Tarda más tiempo en comenzar. Se deben instalar los paquetes de SDK necesarios y también debe instalarse un entorno si aún no tiene uno. |
 | [Azure Databricks](#aml-databricks) | Perfecto para ejecutar flujos de trabajo de aprendizaje automático intensivos y a gran escala en la plataforma escalable de Apache Spark. | Excesivo para aprendizaje automático experimental o experimentos y flujos de trabajo a pequeña escala. Costo adicional por Azure Databricks. Consulte los [detalles de los precios](https://azure.microsoft.com/pricing/details/databricks/). |
 | [Data Science Virtual Machine (DSVM)](#dsvm) | De forma parecida a la instancia de proceso basada en la nube (con Python y el SDK preinstalados), pero con herramientas adicionales de ciencia de datos y aprendizaje automático conocidas instaladas previamente. Fácil de escalar y combinar con otras herramientas y flujos de trabajo personalizados. | Una experiencia de inicio más lenta en comparación con la instancia de proceso basada en la nube. |
@@ -55,7 +55,7 @@ Para instalar el entorno de SDK para el [equipo local](#local), el [servidor de 
 
 ## <a name="your-own-cloud-based-compute-instance"></a><a id="compute-instance"></a>Su propia instancia de proceso basada en la nube
 
-La [instancia de proceso (versión preliminar)](concept-compute-instance.md) de Azure Machine Learning es una estación de trabajo de Azure segura y basada en la nube que proporciona a los científicos de datos un servidor de Jupyter Notebook, JupyterLab y un entorno de ML completamente preparado.
+La [instancia de proceso](concept-compute-instance.md) de Azure Machine Learning es una estación de trabajo de Azure segura y basada en la nube que proporciona a los científicos de datos un servidor de Jupyter Notebook, JupyterLab y un entorno de aprendizaje automático completamente preparado.
 
 No hay nada que instalar o configurar para una instancia de proceso.  Cree una en cualquier momento desde el área de trabajo de Azure Machine Learning. Basta con que proporcione un nombre y especifique un tipo de máquina virtual de Azure. Pruébelo ahora con este [Tutorial: Configuración del entorno y el área de trabajo](tutorial-1st-experiment-sdk-setup.md).
 
@@ -306,10 +306,10 @@ Una vez que se esté ejecutando el clúster, [cree una biblioteca](https://docs.
    |Elementos adicionales del&nbsp;paquete&nbsp;del SDK|Source|Nombre de&nbsp;PyPi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Para Databricks| Cargar un huevo o PyPi de Python | azureml-sdk[databricks]|
-   |Para Databricks con<br> funcionalidades de ML automatizado| Cargar un huevo o PyPi de Python | azureml-sdk[automl]|
+   |Para Databricks con<br> funcionalidades de ML automatizado| Cargar un huevo o PyPi de Python | `azureml-sdk[automl]`|
 
    > [!Warning]
-   > No se pueden instalar otros elementos adicionales del SDK. Elija solo una de las opciones anteriores: [databricks] o [automl].
+   > No se pueden instalar otros elementos adicionales del SDK. Elija solo una de las opciones anteriores [`databricks`] o [`automl`].
 
    * No seleccione **Attach automatically to all clusters** (Asociar automáticamente a todos los clústeres).
    * Seleccione **Asociar** junto al nombre del clúster.

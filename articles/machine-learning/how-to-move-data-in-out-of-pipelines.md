@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 08/20/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: 1b6b5af2e6533c13165ae8253813a52b2c7ad261
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 0b5674831aa09be2954595f851eb1dc93989bf75
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756969"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290691"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Movimiento de datos a los pasos de canalización de Machine Learning (Python) y entre ellos
 
@@ -28,14 +28,13 @@ Este artículo le mostrará cómo realizar los siguientes procedimientos:
 - Usar objetos `Dataset` para los datos ya existentes
 - Acceder a los datos en los pasos
 - Dividir los datos de `Dataset` en subconjuntos, como los subconjuntos de entrenamiento y validación
-- Crear objetos `OutputFileDatasetConfig` para transferir datos al siguiente paso de la canalización
-- Usar objetos `OutputFileDatasetConfig` como entrada para los pasos de la canalización
-- Crear nuevos objetos `Dataset` a partir de los objetos `OutputFileDatasetConfig` que desea conservar
+- Crear objetos `PipelineData` para transferir datos al siguiente paso de la canalización
+- Usar objetos `PipelineData` como entrada para los pasos de la canalización
+- Crear nuevos objetos `Dataset` a partir de los objetos `PipelineData` que desea conservar
 
-> [!NOTE]
->Las clases `OutputFileDatasetConfig` y `OutputTabularDatasetConfig` son una característica en vista previa experimental y pueden cambiar en cualquier momento.
->
->Para obtener más información, vea https://aka.ms/azuremlexperimental.
+> [!TIP]
+> Una experiencia mejorada para pasar datos temporales entre los pasos de la canalización y conservar los datos tras ejecutarse esta se encuentra disponible en las clases de versión preliminar pública, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py) y [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py).  Las clases son características en versión preliminar [experimental](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) y pueden cambiar en cualquier momento.
+
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -151,68 +150,68 @@ ws = run.experiment.workspace
 ds = Dataset.get_by_name(workspace=ws, name='mnist_opendataset')
 ```
 
-## <a name="use-outputfiledatasetconfig-for-intermediate-data"></a>Uso de `OutputFileDatasetConfig` para los datos intermedios
+## <a name="use-pipelinedata-for-intermediate-data"></a>Uso de `PipelineData` para los datos intermedios
 
-Mientras que los objetos `Dataset` representan solo datos persistentes, los objetos [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py) se usan para la salida de datos temporales de los pasos de la canalización **y** los datos de salida persistentes. 
-
- El comportamiento predeterminado del objeto `OutputFileDatasetConfig` consiste en escribir en el almacén de datos predeterminado del área de trabajo. Pase los objetos `OutputFileDatasetConfig` a `PythonScriptStep` con el parámetro `arguments`.
+Mientras que los objetos `Dataset` representan datos persistentes, los objetos [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) se utilizan para los datos temporales que son la salida de los pasos de la canalización. Dado que la duración de un objeto `PipelineData` es mayor que un solo paso de la canalización, los definirá en el script de definición de la canalización. Al crear un objeto `PipelineData`, debe proporcionar un nombre y un almacén de datos en el que vayan a residir los datos. Pase los objetos `PipelineData` al elemento `PythonScriptStep` mediante _ambos_ argumentos, `arguments` y `outputs`:
 
 ```python
-from azureml.data import OutputFileDatasetConfig
-dataprep_output = OutputFileDatasetConfig()
-input_dataset = Dataset.get_by_name(workspace, 'raw_data')
+
+default_datastore = workspace.get_default_datastore()
+dataprep_output = PipelineData("clean_data", datastore=default_datastore)
 
 dataprep_step = PythonScriptStep(
     name="prep_data",
     script_name="dataprep.py",
     compute_target=cluster,
-    arguments=[input_dataset.as_named_input('raw_data').as_mount(), dataprep_output]
-    )
+    arguments=["--output-path", dataprep_output]
+    inputs=[Dataset.get_by_name(workspace, 'raw_data')],
+    outputs=[dataprep_output]
+)
+
 ```
 
-Puede optar por cargar el contenido del objeto `OutputFileDatasetConfig` al final de una ejecución. En ese caso, use la función `as_upload()` junto con el objeto `OutputFileDatasetConfig` y especifique si se sobrescribirán los archivos existentes en el destino. 
+Puede optar por crear el objeto `PipelineData` con un modo de acceso que proporcione una carga inmediata. En ese caso, cuando cree el objeto `PipelineData`, establezca `upload_mode` en `"upload"` y use el argumento `output_path_on_compute` para especificar la ruta de acceso en la que se van a escribir los datos:
 
 ```python
-#get blob datastore already registered with the workspace
-blob_store= ws.datastores['my_blob_store']
-OutputFileDatasetConfig(name="clean_data", destination=blob_store).as_upload(overwrite=False)
+PipelineData("clean_data", datastore=def_blob_store, output_mode="upload", output_path_on_compute="clean_data_output/")
 ```
 
-### <a name="use-outputfiledatasetconfig-as-outputs-of-a-training-step"></a>Uso de `OutputFileDatasetConfig` como salidas de un paso de entrenamiento
+> [!TIP]
+> Una experiencia mejorada para pasar datos intermedios entre los pasos de la canalización se encuentra disponible con la clase de versión preliminar pública, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py). Para obtener un ejemplo de código con `OutputFileDatasetConfig`, obtenga información sobre cómo [compilar una canalización de ML de dos pasos](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
 
-En el elemento `PythonScriptStep` de la canalización, puede recuperar las rutas de acceso de salida disponibles mediante los argumentos del programa. Si este paso es el primero y va a inicializar los datos de salida, debe crear el directorio en la ruta de acceso especificada. Después, puede escribir los archivos que desee incluir en el objeto `OutputFileDatasetConfig`.
+
+### <a name="use-pipelinedata-as-outputs-of-a-training-step"></a>Uso de `PipelineData` como salidas de un paso de entrenamiento
+En el elemento `PythonScriptStep` de la canalización, puede recuperar las rutas de acceso de salida disponibles mediante los argumentos del programa. Si este paso es el primero y va a inicializar los datos de salida, debe crear el directorio en la ruta de acceso especificada. Después, puede escribir los archivos que desee incluir en el objeto `PipelineData`.
 
 ```python
 parser = argparse.ArgumentParser()
 parser.add_argument('--output_path', dest='output_path', required=True)
 args = parser.parse_args()
-
 # Make directory for file
 os.makedirs(os.path.dirname(args.output_path), exist_ok=True)
 with open(args.output_path, 'w') as f:
     f.write("Step 1's output")
 ```
 
-### <a name="read-outputfiledatasetconfig-as-inputs-to-non-initial-steps"></a>Lectura de `OutputFileDatasetConfig` como entradas en pasos no iniciales
+Si ha creado el objeto `PipelineData` con el argumento `is_directory` establecido en `True`, bastará con realizar la llamada a `os.makedirs()` y, a continuación, podrá escribir los archivos que desee en la ruta de acceso. Para más información, consulte la documentación de referencia de [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py).
 
-Después de que el paso de canalización inicial escriba algunos datos en la ruta de acceso de `OutputFileDatasetConfig` y se convierta en una salida de ese paso inicial, se puede usar como entrada para un paso posterior. 
 
-En el siguiente código, 
+### <a name="read-pipelinedata-as-inputs-to-non-initial-steps"></a>Lectura de `PipelineData` como entradas en pasos no iniciales
 
-* `step1_output_data` indica que la salida de PythonScriptStep, `step1`, se escribe en el almacén de datos de ADLS Gen 2 y `my_adlsgen2` en el modo de acceso de carga. Obtenga más información sobre cómo [configurar los permisos de rol](how-to-access-data.md#azure-data-lake-storage-generation-2) para volver a escribir datos en los almacenes de datos de ADLS Gen 2. 
-
-* Una vez que `step1` se haya completado y la salida se haya escrito en el destino indicado por `step1_output_data`, el paso 2 estará listo para usar `step1_output_data` como entrada. 
+Después de que el paso de canalización inicial escriba algunos datos en la ruta de acceso de `PipelineData` y se convierta en una salida de ese paso inicial, se puede usar como entrada para un paso posterior:
 
 ```python
+step1_output_data = PipelineData("processed_data", datastore=def_blob_store, output_mode="upload")
 # get adls gen 2 datastore already registered with the workspace
 datastore = workspace.datastores['my_adlsgen2']
-step1_output_data = OutputFileDatasetConfig(name="processed_data", destination=datastore).as_upload()
 
 step1 = PythonScriptStep(
     name="generate_data",
     script_name="step1.py",
     runconfig = aml_run_config,
-    arguments = ["--output_path", step1_output_data]
+    arguments = ["--output_path", step1_output_data],
+    inputs=[],
+    outputs=[step1_output_data]
 )
 
 step2 = PythonScriptStep(
@@ -220,21 +219,38 @@ step2 = PythonScriptStep(
     script_name="step2.py",
     compute_target=compute,
     runconfig = aml_run_config,
-    arguments = ["--pd", step1_output_data.as_input]
-
+    arguments = ["--pd", step1_output_data],
+    inputs=[step1_output_data]
 )
-
 pipeline = Pipeline(workspace=ws, steps=[step1, step2])
 ```
 
-## <a name="register-outputfiledatasetconfig-objects-for-reuse"></a>Registro de objetos `OutputFileDatasetConfig` para su reutilización
+El valor de una entrada `PipelineData` es la ruta de acceso a la salida anterior. 
 
-Si quiere que `OutputFileDatasetConfig` esté disponible durante más tiempo que la duración del experimento, regístrela en el área de trabajo para compartirla y reutilizarla en los experimentos.
+> [!TIP]
+> Una experiencia mejorada para pasar datos intermedios entre los pasos de la canalización se encuentra disponible con la clase de versión preliminar pública, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py). Para obtener un ejemplo de código con `OutputFileDatasetConfig`, obtenga información sobre cómo [compilar una canalización de ML de dos pasos](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
+
+Si, como se mostró anteriormente, el primer paso escribió un único archivo, consumirlo podría ser algo similar a: 
 
 ```python
-step1_output_ds = step1_output_data.register_on_complete(name='processed_data', 
-                                                         description = 'files from step1`)
+parser = argparse.ArgumentParser()
+parser.add_argument('--pd', dest='pd', required=True)
+args = parser.parse_args()
+with open(args.pd) as f:
+    print(f.read())
 ```
+
+## <a name="convert-pipelinedata-objects-to-datasets"></a>Conversión de objetos `PipelineData` en objetos `Dataset`
+
+Si desea que el objeto `PipelineData` esté disponible durante más tiempo que la duración de una ejecución, use su función `as_dataset()` para convertirlo en un objeto `Dataset`. Después, puede registrar el objeto `Dataset`, convirtiéndolo en un ciudadano de primera clase del área de trabajo. Dado que el objeto `PipelineData` tendrá una ruta de acceso diferente cada vez que se ejecute la canalización, se recomienda establecer `create_new_version` en `True` al registrar un objeto `Dataset` creado a partir de un objeto `PipelineData`.
+
+```python
+step1_output_ds = step1_output_data.as_dataset()
+step1_output_ds.register(name="processed_data", create_new_version=True)
+
+```
+> [!TIP]
+> Una experiencia mejorada para conservar los datos intermedios fuera de las ejecuciones de la canalización se encuentra disponible con la clase de versión preliminar pública, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py). Para obtener un ejemplo de código con `OutputFileDatasetConfig`, obtenga información sobre cómo [compilar una canalización de ML de dos pasos](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
