@@ -12,19 +12,19 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 27d56958120d0eddebe30dc410805909fe507f7c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 526a4f9f5542074107700b54dcf3d2a591b08b70
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319582"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144046"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Dónde guardar y escribir los archivos para los experimentos de Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En este artículo, obtendrá información sobre dónde guardar los archivos de entrada y dónde escribir los archivos de salida de los experimentos para evitar errores de limitación del almacenamiento y la latencia de los experimentos.
 
-Al iniciar las ejecuciones de entrenamiento en un [destino de proceso](how-to-set-up-training-targets.md), están aisladas de los entornos exteriores. El propósito de este diseño es garantizar la reproducibilidad y la portabilidad del experimento. Si ejecuta dos veces el mismo script, en el mismo destino de proceso o en otro, recibirá los mismos resultados. Con este diseño, puede tratar los destinos de proceso como recursos de cálculo sin estado y ninguno de ellos tendrá afinidad con los trabajos que se ejecutan una vez finalizados.
+Al iniciar las ejecuciones de entrenamiento en un [destino de proceso](concept-compute-target.md), están aisladas de los entornos exteriores. El propósito de este diseño es garantizar la reproducibilidad y la portabilidad del experimento. Si ejecuta dos veces el mismo script, en el mismo destino de proceso o en otro, recibirá los mismos resultados. Con este diseño, puede tratar los destinos de proceso como recursos de cálculo sin estado y ninguno de ellos tendrá afinidad con los trabajos que se ejecutan una vez finalizados.
 
 ## <a name="where-to-save-input-files"></a>Dónde guardar los archivos de entrada
 
@@ -79,4 +79,4 @@ Si no necesita un almacén de datos, escriba los archivos en la carpeta `./outpu
 
 * Más información sobre el [acceso a los datos desde almacenes de datos](how-to-access-data.md).
 
-* Más información sobre [cómo configurar los destinos de entrenamiento](how-to-set-up-training-targets.md).
+* Obtenga más información sobre la creación de destinos de proceso con el [SDK para Python](how-to-create-attach-compute-sdk.md) o con [Studio](how-to-create-attach-compute-studio.md).

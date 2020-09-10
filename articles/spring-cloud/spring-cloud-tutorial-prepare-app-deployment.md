@@ -7,20 +7,22 @@ ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: b2ae94da3d9b2dee62bc031c4a32d17b43be00a6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 79d3829eaea15c8e7909b98b83d1327cd90e4544
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021280"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260330"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Preparación de una aplicación Java Spring para su implementación en Azure Spring Cloud
 
 En este tema se muestra cómo preparar una aplicación Java Spring existente para su implementación en Azure Spring Cloud. Si se ha configurado correctamente, Azure Spring Cloud proporciona servicios sólidos para supervisar, escalar y actualizar cualquier aplicación Java Spring Cloud.
 
+Antes de ejecutar este ejemplo, puede probar la [guía de inicio rápido básica](spring-cloud-quickstart.md).
+
 En otros ejemplos se explica cómo implementar una aplicación en Azure Spring Cloud cuando se configura el archivo POM. 
-* [Iniciar la aplicación mediante Azure Portal](spring-cloud-quickstart-launch-app-portal.md)
-* [Iniciar la aplicación mediante la CLI de Azure](spring-cloud-quickstart-launch-app-cli.md)
+* [Inicio de la primera aplicación](spring-cloud-quickstart.md)
+* [Compilación y ejecución de microservicios](spring-cloud-quickstart-sample-app-introduction.md)
 
 En este artículo se explican las dependencias necesarias y cómo agregarlas al archivo POM.
 
@@ -39,8 +41,8 @@ Azure Spring Cloud solo admite aplicaciones de Spring Boot, ya sea la versión 2
 Versión de Spring Boot | Versión de Spring Cloud
 ---|---
 2.1 | Greenwich.RELEASE
-2.2 | Hoxton.RELEASE
-2.3 | Hoxton.SR5
+2.2 | Hoxton.SR8
+2.3 | Hoxton.SR8
 
 ### <a name="dependencies-for-spring-boot-version-21"></a>Dependencias de Spring Boot, versión 2.1
 
@@ -60,7 +62,7 @@ En Spring Boot 2.1, agregue las siguientes dependencias al archivo POM de la apl
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Greenwich.SR4</version>
+                <version>Greenwich.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -86,7 +88,7 @@ En Spring Boot 2.2, agregue las siguientes dependencias al archivo POM de la apl
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR1</version>
+                <version>Hoxton.SR8</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -111,7 +113,7 @@ En Spring Boot 2.3, agregue las siguientes dependencias al archivo POM de la ap
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR5</version>
+                <version>Hoxton.SR8</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -120,49 +122,23 @@ En Spring Boot 2.3, agregue las siguientes dependencias al archivo POM de la ap
 ```
 ## <a name="azure-spring-cloud-client-dependency"></a>Dependencia de cliente de Azure Spring Cloud
 
-Azure Spring Cloud hospeda y administra componentes de Spring Cloud. Entre los componentes se incluyen Spring Cloud Service Registry y Spring Cloud Config Server. Incluya la biblioteca cliente de Azure Spring Cloud en sus dependencias para permitir la comunicación con su instancia de servicio de Azure Spring Cloud.
+Azure Spring Cloud hospeda y administra componentes de Spring Cloud. Entre los componentes se incluyen Spring Cloud Service Registry y Spring Cloud Config Server. Se recomienda usar Spring Boot 2.2 o 2.3. Para Spring Boot 2.1, tendrá que incluir la biblioteca cliente de Azure Spring Cloud en sus dependencias para permitir la comunicación con su instancia de servicio de Azure Spring Cloud.
 
 En la tabla siguiente se enumeran las versiones correctas de Azure Spring Cloud para la aplicación que usa Spring Boot y Spring Cloud.
 
-Versión de Spring Boot | Versión de Spring Cloud | Versión de Azure Spring Cloud
+Versión de Spring Boot | Versión de Spring Cloud | Versión de inicio del cliente de Azure Spring Cloud
 ---|---|---
-2.1 | Greenwich.RELEASE | 2.1
-2.2 | Hoxton.RELEASE | 2.2
-2.3 | Hoxton.SR5 | 2.3
+2.1 | Greenwich.RELEASE | 2.1.2
+2.2 | Hoxton.SR8 | No necesaria
+2.3 | Hoxton.SR8 | No necesaria
 
-Incluya una de las dependencias siguientes en el archivo pom.xml. Seleccione la dependencia cuya versión de Azure Spring Cloud coincida con la suya.
-
-### <a name="dependency-for-azure-spring-cloud-version-21"></a>Dependencia de Azure Spring Cloud, versión 2.1
-
-En Spring Boot 2.1, agregue la siguiente dependencia al archivo POM de la aplicación.
+Incluya la siguiente dependencia en el archivo pom.xml si usa Spring Boot 2.1.
 
 ```xml
 <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
         <version>2.1.2</version>
-</dependency>
-```
-
-### <a name="dependency-for-azure-spring-cloud-version-22"></a>Dependencia de Azure Spring Cloud, versión 2.2
-
-En Spring Boot 2.2, agregue la siguiente dependencia al archivo POM de la aplicación.
-
-```xml
-<dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.2.1</version>
-</dependency>
-```
-
-En Spring Boot 2.3, agregue la siguiente dependencia al archivo POM de la aplicación.
-
-```xml
-<dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.3.0</version>
 </dependency>
 ```
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e2c516371ada59501edd89491a07014ef949eba
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: f0313c27666cda785b24f23436f6ad727f337ca8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604390"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259360"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identidad del dispositivo y virtualización del escritorio
 
@@ -68,7 +68,7 @@ Antes de configurar las identidades de dispositivo en Azure AD para el entorno 
 
 <sup>4</sup> Un entorno de infraestructura de identidad **administrada** representa un entorno con Azure AD como proveedor de identidades implementado mediante la [sincronización de hash de contraseñas (PHS)](../hybrid/whatis-phs.md) o la [autenticación de paso a través (PTA)](../hybrid/how-to-connect-pta.md) con [inicio de sesión único sin interrupciones](../hybrid/how-to-connect-sso.md).
 
-<sup>5</sup> La **compatibilidad sin persistencia con Windows actual** requiere una consideración adicional, tal y como se documenta en la sección de directrices.
+<sup>5</sup> La **compatibilidad sin persistencia con Windows actual** requiere una consideración adicional, tal y como se documenta en la sección de directrices. Para este escenario se requiere Windows 10, 1803, Windows Server 2019 o Windows Server (canal semianual), a partir de la versión 1803.
 
 <sup>6</sup> La **compatibilidad sin persistencia con Windows de nivel inferior** requiere una consideración adicional, tal y como se documenta a continuación en la sección de directrices.
 

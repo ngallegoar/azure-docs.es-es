@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: f611eefc50fede2ef4d738cd5abfd6afcc08b9ff
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 286f813c825bcc05ce8e9fa43df5dc0299625277
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120786"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068480"
 ---
 # <a name="publisher-verification-preview"></a>Comprobación del publicador (versión preliminar)
 
@@ -42,13 +42,13 @@ Hay algunos requisitos previos para la verificación del publicador, algunos de 
 
 -  Un id. de MPN de una cuenta de [Microsoft Partner Network](https://partner.microsoft.com/membership) válida que haya completado el proceso de [verificación](/partner-center/verification-responses). Esta cuenta de MPN debe ser la [cuenta global de asociado (PGA)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) de su organización. 
 
--  Un inquilino de Azure AD con un [dominio personalizado](../fundamentals/add-custom-domain.md) verificado por DNS. El dominio personalizado debe coincidir con el dominio de la dirección de correo electrónico utilizada durante la comprobación en el paso anterior. 
+-  Una aplicación registrada en un inquilino de Azure AD, con un [dominio de publicador](howto-configure-publisher-domain.md) configurado.
 
--  Una aplicación registrada en un inquilino de Azure AD, con un [dominio de publicador](howto-configure-publisher-domain.md) configurado con el mismo dominio que se usó anteriormente. 
+-  El dominio de la dirección de correo electrónico que se usa durante la comprobación de la cuenta MPN debe coincidir con el dominio del publicador que se configuró en la aplicación o con un [dominio personalizado](../fundamentals/add-custom-domain.md) comprobado por DNS que se haya agregado al inquilino de Azure AD. 
 
 -  El usuario que realiza la comprobación debe estar autorizado para realizar cambios en el registro de aplicación en Azure AD y en la cuenta de MPN del Centro de partners. 
 
-    -  En Azure AD, este usuario debe ser el propietario de la aplicación o tener uno de los siguientes [roles](../users-groups-roles/directory-assign-admin-roles.md): Administrador de aplicaciones, administrador de aplicaciones en la nube o administrador global. 
+    -  En Azure AD, este usuario debe ser miembro de alguno de los siguientes [roles](../users-groups-roles/directory-assign-admin-roles.md): Administrador de aplicaciones, administrador de aplicaciones en la nube o administrador global. 
 
     -  En el Centro de partners, este usuario debe tener uno de los siguientes [roles](/partner-center/permissions-overview): Administrador de MPN, administrador de cuentas o administrador global (se trata de un rol compartido que se controla en Azure AD).
     

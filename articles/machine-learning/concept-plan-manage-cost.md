@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 2fc9a1a1c3a08f0530649ae64926c673e2d666e0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3173f81f84463cde488dcbf0242f8d65c5b9c9fe
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012695"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144998"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planeamiento y administración de los costos de Azure Machine Learning
 
@@ -69,7 +69,7 @@ Como los datos cambian constantemente, necesita entrenar y volver a entrenar mod
 
 Los usuarios de Azure Machine Learning pueden usar el clúster de proceso de Azure Machine Learning administrado, también denominado AmlCompute. AmlCompute admite una variedad de opciones de GPU y CPU. Azure Machine Learning hospeda internamente AmlCompute en nombre de su suscripción. Proporciona los mismos niveles empresariales de seguridad, cumplimiento y gobernanza en la escala de nube de IaaS de Azure.
 
-Dado que estos grupos de proceso se encuentran dentro de la infraestructura de IaaS de Azure, puede implementar, escalar y administrar el entrenamiento con los mismos requisitos de seguridad y cumplimiento que el resto de la infraestructura.  Estas implementaciones se producen en su suscripción y obedecen sus reglas de gobernanza. Más información sobre [Proceso de Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute).
+Dado que estos grupos de proceso se encuentran dentro de la infraestructura de IaaS de Azure, puede implementar, escalar y administrar el entrenamiento con los mismos requisitos de seguridad y cumplimiento que el resto de la infraestructura.  Estas implementaciones se producen en su suscripción y obedecen sus reglas de gobernanza. Más información sobre [proceso de Azure Machine Learning](how-to-create-attach-compute-sdk.md#amlcompute).
 
 ## <a name="configure-training-clusters-for-autoscaling"></a>Configuración de clústeres de entrenamiento para el escalado automático
 
@@ -127,4 +127,4 @@ Proceso de Azure Machine Learning admite las instancias reservadas de forma inhe
 Más información sobre:
 * [Administración y aumento de cuotas de recursos](how-to-manage-quotas.md).
 * [Administración de costos con análisis de costos](../cost-management-billing/costs/quick-acm-cost-analysis.md)
-* [Proceso de Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute).
+* Cree procesos de Azure Machine Learning Compute mediante el [SDK](how-to-create-attach-compute-sdk.md#amlcompute) o en [Studio](how-to-create-attach-compute-studio.md#amlcompute).

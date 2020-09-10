@@ -11,17 +11,17 @@ ms.reviewer: sgilley
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: fe7210ad52c756f140144f04e3b747c0bfcd00c3
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 70e965e26d3b82cdc63a3c0e147919b8b40585af
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650322"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146596"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Entrenamiento de modelos con Azure Machine Learning mediante un objeto Estimator
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Con Azure Machine Learning, puede enviar fácilmente el script de entrenamiento a [diversos destinos de proceso](how-to-set-up-training-targets.md#compute-targets-for-training), con un [objeto RunConfiguration](how-to-set-up-training-targets.md#whats-a-run-configuration) y un [objeto ScriptRunConfig](how-to-set-up-training-targets.md#submit). Ese patrón le ofrece mucha flexibilidad y el máximo control.
+Con Azure Machine Learning, puede enviar fácilmente el script de entrenamiento a [diversos destinos de proceso](how-to-set-up-training-targets.md), con un [objeto RunConfiguration](how-to-set-up-training-targets.md#whats-a-run-configuration) y un [objeto ScriptRunConfig](how-to-set-up-training-targets.md#submit). Ese patrón le ofrece mucha flexibilidad y el máximo control.
 
 
 La clase estimador facilita el entrenamiento de modelos con aprendizaje profundo y aprendizaje de refuerzo. Proporciona una abstracción de alto nivel que le permite construir fácilmente la configuración de ejecución. Puede crear y usar un [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) genérico para enviar el script de entrenamiento con cualquier marco de aprendizaje que elija (como scikit-learn) en cualquier destino de proceso: ya sea la máquina local, una sola máquina virtual en Azure o un clúster de GPU en Azure. En las tareas de PyTorch, TensorFlow, Chainer y de aprendizaje de refuerzo, Azure Machine Learning también proporciona los estimadores de [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py), [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) y [aprendizaje de refuerzo](how-to-use-reinforcement-learning.md) para simplificar el uso de estos marcos.
@@ -29,7 +29,7 @@ La clase estimador facilita el entrenamiento de modelos con aprendizaje profundo
 ## <a name="train-with-an-estimator"></a>Entrenamiento con un estimador
 
 Una vez que ha creado el [área de trabajo](concept-workspace.md) y ha configurado el [entorno de desarrollo](how-to-configure-environment.md), el entrenamiento de un modelo en Azure Machine Learning implica los siguientes pasos:  
-1. Creación de un [destino de proceso remoto](how-to-set-up-training-targets.md) (tenga en cuenta que también puede usar el equipo local como destino de proceso)
+1. Creación de un [destino de proceso remoto](how-to-create-attach-compute-sdk.md) (o también puede usar el equipo local como destino de proceso)
 2. Carga de los [datos de aprendizaje](how-to-access-data.md) para el almacén de datos (opcional)
 3. Creación del [script de aprendizaje](tutorial-train-models-with-aml.md#create-a-training-script)
 4. Creación de un objeto `Estimator`
@@ -39,7 +39,7 @@ Este artículo se centra en los pasos 4 y 5. Para obtener información sobre los
 
 ### <a name="single-node-training"></a>Entrenamiento de nodo único
 
-Utilice un objeto `Estimator` para una ejecución de entrenamiento de nodo único en proceso remoto en Azure para un modelo scikit-learn. Debería haber creado ya su objeto de [destino de proceso](how-to-set-up-training-targets.md#amlcompute) `compute_target` y su objeto [FileDataset](how-to-create-register-datasets.md) `ds`.
+Utilice un objeto `Estimator` para una ejecución de entrenamiento de nodo único en proceso remoto en Azure para un modelo scikit-learn. Debería haber creado ya su objeto de [destino de proceso](how-to-create-attach-compute-sdk.md#amlcompute) `compute_target` y su objeto [FileDataset](how-to-create-register-datasets.md) `ds`.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -63,7 +63,7 @@ Parámetro | Descripción
 --|--
 `source_directory`| Directorio local que contiene todo el código necesario para el trabajo de aprendizaje. Esta carpeta se copia desde el equipo local al proceso remoto.
 `script_params`| Diccionario que especifica los argumentos de línea de comandos que se pasan al script de entrenamiento `entry_script`, en forma de pares `<command-line argument, value>`. Para especificar una marca detallada en `script_params`, use `<command-line argument, "">`.
-`compute_target`| El destino de proceso remoto en el que el script de entrenamiento se ejecutará, en este caso, un clúster de Proceso de Azure Machine Learning ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)). (Tenga en cuenta que, aunque el clúster AmlCompute es el destino más usado, también es posible elegir otros tipos de destino, como máquinas virtuales de Azure o incluso el equipo local).
+`compute_target`| El destino de proceso remoto en el que el script de entrenamiento se ejecutará, en este caso, un clúster de Proceso de Azure Machine Learning ([AmlCompute](how-to-create-attach-compute-sdk.md#amlcompute)). (Tenga en cuenta que, aunque el clúster AmlCompute es el destino más usado, también es posible elegir otros tipos de destino, como máquinas virtuales de Azure o incluso el equipo local).
 `entry_script`| Ruta del archivo (relativa al `source_directory`) del script de aprendizaje que se va a ejecutar en el proceso remoto. Este archivo y los archivos adicionales de los que depende deben encontrarse en esta carpeta.
 `conda_packages`| Lista de paquetes de Python para instalarse mediante Conda que necesita el script de aprendizaje.  
 
@@ -93,7 +93,7 @@ Hay dos escenarios de entrenamiento adicionales que puede llevar a cabo con el o
 
 El siguiente código muestra cómo llevar a cabo el entrenamiento distribuido para un modelo Keras. Además, en lugar de usar las imágenes de Azure Machine Learning predeterminadas, especifica una imagen de Docker personalizada de Docker Hub `continuumio/miniconda` para el entrenamiento.
 
-Debería haber creado su objeto de [destino de proceso](how-to-set-up-training-targets.md#amlcompute)`compute_target`. Puede crear el estimador de la siguiente manera:
+Debería haber creado su objeto de [destino de proceso](how-to-create-attach-compute-sdk.md#amlcompute)`compute_target`. Puede crear el estimador de la siguiente manera:
 
 ```Python
 from azureml.train.estimator import Estimator
