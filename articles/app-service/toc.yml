@@ -27,6 +27,8 @@
       href: quickstart-ruby.md
     - name: Sitio HTML estático
       href: quickstart-html.md
+    - name: Plantilla ARM
+      href: quickstart-arm-template.md
     - name: Contenedor personalizado
       href: quickstart-custom-container.md
     - name: Aplicación de varios contenedores

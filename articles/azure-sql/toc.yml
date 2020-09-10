@@ -252,7 +252,7 @@
       items:
         - name: Crear base de datos
           items:
-            - name: Azure Portal
+            - name: Portal de Azure
               href: database/single-database-create-quickstart.md
             - name: Plantilla ARM
               displayName: Resource Manager
@@ -393,7 +393,7 @@
                   href: /sql/azure-data-studio/quickstart-sql-database?toc=%2Fazure%2Fazure-sql%2Ftoc.json
                 - name: SSMS
                   href: database/connect-query-ssms.md
-                - name: Azure Portal
+                - name: Portal de Azure
                   href: database/connect-query-portal.md
                 - name: Código de VS
                   href: database/connect-query-vscode.md
@@ -627,7 +627,7 @@
                       href: database/saas-multitenantdb-tenant-analytics.md
     - name: Ejemplos
       items:
-        - name: CLI de Azure
+        - name: Azure CLI
           href: database/az-cli-script-samples-content-guide.md?tabs=single-database
         - name: Azure PowerShell
           href: database/powershell-script-content-guide.md?tabs=single-database
@@ -902,7 +902,7 @@
           href: managed-instance/user-initiated-failover.md
     - name: Ejemplos
       items:
-        - name: CLI de Azure
+        - name: Azure CLI
           href: database/az-cli-script-samples-content-guide.md?tabs=managed-instance
         - name: Azure PowerShell
           href: database/powershell-script-content-guide.md?tabs=managed-instance
@@ -924,8 +924,6 @@
               href: virtual-machines/windows/doc-changes-updates-release-notes.md
         - name: Guías de inicio rápido
           items:
-            - name: Creación de máquinas virtuales de SQL
-              items: null
             - name: Portal
               href: virtual-machines/windows/sql-vm-create-portal-quickstart.md
             - name: PowerShell
@@ -1032,7 +1030,7 @@
                       href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
                     - name: Configuración manual
                       items:
-                        - name: Prerrequisitos
+                        - name: Requisitos previos
                           href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
                         - name: Tutorial
                           href: virtual-machines/windows/availability-group-manually-configure-tutorial.md

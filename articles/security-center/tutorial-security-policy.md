@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 52488eb43377978d7f936ba0aa452cc872f8d899
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 94a0c0af5071397ee4deb859f8f58f2ed1c73a77
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519361"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277670"
 ---
 # <a name="working-with-security-policies"></a>Uso de directivas de seguridad
 
@@ -40,7 +40,7 @@ Security Center le ofrece las siguientes opciones para trabajar con directivas d
 * **Agregar directivas de cumplimiento normativo**: el panel de cumplimiento normativo de Security Center muestra el estado de todas las evaluaciones del entorno, en el contexto de una normativa o estándar determinado (por ejemplo, Azure CIS, NIST SP 800-53 R4 o SWIFT CSP CSCF-v2020). Para obtener más información, consulte [Mejora del cumplimiento normativo](security-center-compliance-dashboard.md).
 
 
-## <a name="managing-your-security-policies"></a>Administración de las directivas de seguridad
+## <a name="manage-your-security-policies"></a>Administración de las directivas de seguridad
 
 Para ver las directivas de seguridad de Security Center:
 
@@ -54,7 +54,7 @@ Para ver las directivas de seguridad de Security Center:
 
 1. Aparecerá la página de directiva de seguridad de la suscripción o el grupo de administración. Esta muestra las directivas disponibles y asignadas.
 
-   ![pantalla de la directiva](./media/tutorial-security-policy/security-policy-page.png)
+   ![página de directiva](./media/tutorial-security-policy/security-policy-page.png)
 
     > [!NOTE]
     > Si hay una etiqueta "MG Inherited" junto a la directiva predeterminada, significa que la directiva se ha asignado a un grupo de administración y que la ha heredado la suscripción que está viendo.
@@ -111,11 +111,11 @@ Para más información sobre las recomendaciones, consulte [Administración de l
 
 1. Seleccione**Ver directiva efectiva**.
 
-   ![deshabilitar la directiva](./media/tutorial-security-policy/view-effective-policy.png)
+   ![visualización de directiva](./media/tutorial-security-policy/view-effective-policy.png)
 
 1. Seleccione la directiva asignada.
 
-   ![deshabilitar la directiva](./media/tutorial-security-policy/security-policy.png)
+   ![selección de directiva](./media/tutorial-security-policy/security-policy.png)
 
 1. En la sección **PARÁMETROS**, busque la directiva que invoca la recomendación que quiere deshabilitar y, en la lista desplegable, seleccione **Deshabilitado**
 

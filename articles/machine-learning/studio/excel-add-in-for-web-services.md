@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 29fe1a7a05085d8751e249d58b64b31e6ff3dac1
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: fd406535b00ed0e25f44d875ee9b5fe716971bab
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432477"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950058"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Complemento de Excel para servicios web de Azure Machine Learning Studio (clásico)
 
@@ -28,7 +28,10 @@ Excel facilita la llamada a servicios web directamente sin necesidad de escribir
 1. Abra el [archivo de Excel de ejemplo](https://aka.ms/amlexcel-sample-2)que contiene el complemento de Excel y los datos acerca de los pasajeros del Titanic. 
  
     > [!NOTE]
-    > Verá que la lista de los servicios web relacionados en el archivo y en la parte inferior una casilla para "Predicción automática". Si habilita la predicción automática, las predicciones en **todos** los servicios se actualizarán cada vez que haya un cambio en las entradas. Si la desactiva, tendrá que hacer clic en "Predecir todo" para actualizar. Para habilitar la predicción automática en un nivel de servicio, vaya al paso 6.
+    > - Verá que la lista de los servicios web relacionados en el archivo y en la parte inferior una casilla para "Predicción automática". Si habilita la predicción automática, las predicciones en **todos** los servicios se actualizarán cada vez que haya un cambio en las entradas. Si la desactiva, tendrá que hacer clic en "Predecir todo" para actualizar. Para habilitar la predicción automática en un nivel de servicio, vaya al paso 6.
+    > - El complemento Excel para Azure Machine Learning llamará a la tienda de complementos de Office para cargarse. Si su organización veta el acceso a la tienda de complementos de Office, verá un error al cargarlo. En este caso, implemente el complemento Excel para Azure Machine Learning desde el centro de administración de Microsoft 365. Después, invóquelo y agregue el servicio web manualmente pegando la dirección URL y la clave de API.
+
+ 
 
 2. Elija el servicio web haciendo clic en él, "Predictor de supervivientes del Titanic (complemento de Excel de ejemplo) [puntuación]" en este ejemplo.
    
