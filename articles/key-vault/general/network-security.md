@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d416c6fdef85b83d91ca0e341659f87618d268e0
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8617b0b71e58d22ccd2cf753e4ddc862932f68da
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504524"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536062"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configuración de firewalls y redes virtuales de Azure Key Vault
 
-En este artículo se describen las instrucciones paso a paso para configurar los firewalls y las redes virtuales de Azure Key Vault para restringir el acceso al almacén de claves. Los [puntos de conexión de servicio de red virtual para Key Vault](overview-vnet-service-endpoints.md) le permiten restringir el acceso a la red virtual especificada y establecer intervalos de direcciones IPv4 (versión 4 del protocolo de Internet).
+En este artículo se describen las instrucciones paso a paso para configurar los firewalls y las redes virtuales de Azure Key Vault para restringir el acceso al almacén de claves. Los [puntos de conexión de servicio de red virtual para Key Vault](overview-vnet-service-endpoints.md) le permiten restringir el acceso a la red virtual especificada y a un conjunto de rangos de direcciones IPv4 (versión 4 del protocolo de Internet).
 
 > [!IMPORTANT]
 > Una vez que las reglas del firewall están en vigor, los usuarios solo pueden realizar operaciones del [plano de datos](secure-your-key-vault.md#data-plane-access-control) de Key Vault cuando las solicitudes se originan desde redes virtuales o rangos de direcciones IPv4 permitidos. Esto también se aplica al acceso de Key Vault desde Azure Portal. Aunque los usuarios pueden ir a un almacén de claves desde Azure Portal, es posible que no pueda enumerar las claves, los secretos o los certificados si su equipo cliente no está en la lista de dispositivos permitidos. Esto también afecta al selector de Key Vault de otros servicios de Azure. Los usuarios podrían ver la lista de almacenes de claves, pero no enumerar las claves si las reglas del firewall limitan su equipo cliente.
@@ -129,5 +129,5 @@ Estas son las instrucciones para configurar los firewalls y las redes virtuales 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Puntos de conexión de servicio de red virtual para Key Vault](overview-vnet-service-endpoints.md)
-* [Protección del almacén de claves](secure-your-key-vault.md)
+* [Puntos de conexión de servicio de red virtual para Key Vault](overview-vnet-service-endpoints.md)
+* [Protección de Key Vault](secure-your-key-vault.md)
