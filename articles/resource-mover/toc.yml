@@ -1,0 +1,36 @@
+- name: Documentación de Azure Resource Mover
+  href: index.yml
+- name: Información general
+  items:
+    - name: Acerca de Azure Resource Mover
+      href: overview.md
+    - name: Selección de una herramienta para mover recursos
+      href: select-move-tool.md
+    - name: Preguntas frecuentes
+      href: common-questions.md
+- name: Tutoriales
+  items:
+    - name: Traslado de máquinas virtuales de Azure a otra región
+      href: tutorial-move-region-virtual-machines.md
+    - name: Traslado de recursos de SQL a otra región
+      href: tutorial-move-region-sql.md
+- name: Conceptos
+  items:
+    - name: Introducción a los traslados
+      href: about-move-process.md
+    - name: Matriz de compatibilidad para el traslado de región de las máquinas virtuales de Azure
+      href: support-matrix-move-region-azure-vm.md
+    - name: Matriz de compatibilidad para el traslado de región de Azure SQL
+      href: support-matrix-move-region-sql.md
+- name: Guías de procedimientos
+  items:
+    - name: Eliminación de recursos de una colección de desplazamiento
+      href: remove-move-resources.md
+- name: Recursos
+  items:
+    - name: Migración en Cloud Adoption Framework
+      href: /azure/cloud-adoption-framework/migrate/
+    - name: Plantilla de Resource Manager
+      href: /azure/templates/microsoft.migrate/allversions
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'

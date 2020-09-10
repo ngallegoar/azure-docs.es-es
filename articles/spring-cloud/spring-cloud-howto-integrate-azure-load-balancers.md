@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 3a7ed148c4bc8d58b2dcbc344656137a403c62eb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4315427598d004459862bcf12959e22e83c84d5d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037549"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299733"
 ---
 # <a name="integrate-azure-spring-cloud-with-azure-load-balance-solutions"></a>Integración de Azure Spring Cloud con soluciones de equilibrio de carga de Azure
 
@@ -26,7 +26,7 @@ Azure ya proporciona diferentes soluciones de equilibrio de carga. Existen tres 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Azure Spring Cloud: [creación de un servicio Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal)
+* Azure Spring Cloud: [creación de un servicio Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart)
 * Azure Traffic Manager: [creación de una instancia de Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile/)
 * Azure App Gateway: [creación de una instancia de Application Gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
 * Azure Front Door: [creación de una instancia de Front Door](https://docs.microsoft.com/azure/frontdoor/quickstart-create-front-door)
@@ -53,7 +53,7 @@ Para finalizar la configuración:
 
 ## <a name="integrate-azure-spring-cloud-with-azure-app-gateway"></a>Integración de Azure Spring Cloud con Azure App Gateway
 
-Para integrar con el servicio de Azure Spring Cloud, complete las siguientes configuraciones:
+Para la integración con el servicio Azure Spring Cloud, complete las siguientes configuraciones:
 
 ### <a name="configure-backend-pool"></a>Configuración del grupo de back-end
 1. Especifique **Tipo de destino** como *Dirección IP* o *FQDN*.

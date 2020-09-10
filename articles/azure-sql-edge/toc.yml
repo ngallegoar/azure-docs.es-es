@@ -77,3 +77,11 @@
       items:
         - name: Date_Bucket (Transact-SQL)
           href: date-bucket-tsql.md
+        - name: Retención y limpieza de datos
+          items:
+            - name: Introducción a la retención de datos
+              href: data-retention-overview.md
+            - name: Habilitación o deshabilitación de la retención de datos
+              href: data-retention-enable-disable.md
+            - name: Limpieza de la retención de datos
+              href: data-retention-cleanup.md

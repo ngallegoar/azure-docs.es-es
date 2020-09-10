@@ -136,7 +136,11 @@
       items:
         - name: Corrección de recomendaciones
           href: security-center-remediate-recommendations.md
+        - name: Evitar errores de configuración con Aplicar/Denegar
+          displayName: recommendations
+          href: prevent-misconfigurations.md
         - name: Reforzamiento de la posición de seguridad
+          displayName: recommendations
           href: security-center-monitoring.md
         - name: Referencia de lista de recomendaciones
           href: recommendations-reference.md
