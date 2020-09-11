@@ -17,7 +17,7 @@
       items:
         - name: Uso de blobs
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: storage-quickstart-blobs-portal.md
             - name: Explorador de Storage
               href: storage-quickstart-blobs-storage-explorer.md
@@ -310,7 +310,7 @@
               href: storage-blobs-list.md
             - name: Administración de propiedades y metadatos de blobs (.NET)
               href: storage-blob-properties-metadata.md
-            - name: Copia de un BLOB (.NET)
+            - name: Copia de un blob (SDK)
               href: storage-blob-copy.md
         - name: Autorización del acceso a datos de blob
           items:

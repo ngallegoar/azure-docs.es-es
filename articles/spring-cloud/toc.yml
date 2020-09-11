@@ -67,6 +67,8 @@
   items:
     - name: Preparación de una aplicación Java Spring para la implementación
       href: spring-cloud-tutorial-prepare-app-deployment.md
+    - name: Inicio de una aplicación Java desde el código fuente
+      href: spring-cloud-howto-launch-from-source.md
     - name: Configuración de un servidor de configuración
       href: spring-cloud-tutorial-config-server.md
     - name: Habilitación del registro del servicio
