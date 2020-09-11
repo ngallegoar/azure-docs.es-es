@@ -154,7 +154,7 @@ El Explorador de ADT cargará ahora los modelos y el grafo (incluidos los gemelo
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Cuadro de diálogo que indica que el grafo se ha importado correctamente. Indica "Importación correcta. 2 modelos importados. 4 gemelos importados. 2 relaciones importadas."" lightbox="media/how-to-move-regions/import-success.png":::
+        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Cuadro de diálogo que indica que el grafo se ha importado correctamente. Indica Importación correcta. 2 modelos importados. 4 gemelos importados. 2 relaciones importadas." lightbox="media/how-to-move-regions/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -164,11 +164,11 @@ El Explorador de ADT cargará ahora los modelos y el grafo (incluidos los gemelo
 
 Para comprobar que todo se cargó correctamente, presione el botón *Ejecutar consulta* en el cuadro *PROBADOR DE GRAPH* para ejecutar la consulta predeterminada que muestra todos los gemelos y las relaciones del grafo. También se actualizará la lista de modelos en *VISTA DE MODELO*.
 
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Resaltado alrededor del mismo botón "Ejecutar consulta" de antes, cerca de la parte superior de la ventana" lightbox="media/how-to-move-regions/run-query.png":::
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Resaltado alrededor del mismo botón Ejecutar consulta de antes, cerca de la parte superior de la ventana" lightbox="media/how-to-move-regions/run-query.png":::
 
 Verá el grafo con todos sus gemelos y relaciones mostrados en el cuadro *PROBADOR DE GRAPH*. También verá los modelos enumerados en el cuadro *MODELO DE VISTA*.
 
-:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Una vista del Explorador de ADT que muestra 2 modelos resaltados en el cuadro "Vista de modelo" y un grafo resaltado en el cuadro "Probador de Graph"" lightbox="media/how-to-move-regions/post-upload.png":::
+:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Una vista del Explorador de ADT que muestra 2 modelos resaltados en el cuadro Vista de modelo y un grafo resaltado en el cuadro Probador de Graph" lightbox="media/how-to-move-regions/post-upload.png":::
 
 Esto confirma que los modelos, los gemelos y el grafo se han vuelto a cargar en la nueva instancia de la región de destino.
 
