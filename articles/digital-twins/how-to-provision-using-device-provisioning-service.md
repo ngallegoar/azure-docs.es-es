@@ -40,7 +40,7 @@ El simulador de dispositivos se basa en **Node.js**, versión 10.0.x u otra post
 
 En la imagen siguiente se muestra la arquitectura de esta solución mediante Azure Digital Twins con Device Provisioning Service. Muestra el flujo de aprovisionamiento y retirada de dispositivos.
 
-:::image type="content" source="media/how-to-provision-using-dps/flows.png" alt-text="Una vista de un dispositivo y varios servicios de Azure en un escenario completo. Los datos fluyen en ambos sentidos entre un dispositivo termostato y DPS. Los datos también fluyen desde DPS a IoT Hub y a Azure Digital Twins a través de una función de Azure con la etiqueta "Asignación". Los datos de una acción manual de "Eliminar dispositivo" fluyen a través de IoT Hub > Event Hubs > Azure Functions > Azure Digital Twins.":::
+:::image type="content" source="media/how-to-provision-using-dps/flows.png" alt-text="Una vista de un dispositivo y varios servicios de Azure en un escenario completo. Los datos fluyen en ambos sentidos entre un dispositivo termostato y DPS. Los datos también fluyen desde DPS a IoT Hub y a Azure Digital Twins a través de una función de Azure con la etiqueta Asignación. Los datos de una acción manual de Eliminar dispositivo fluyen a través de IoT Hub > Event Hubs > Azure Functions > Azure Digital Twins.":::
 
 Este artículo se divide en dos secciones:
 * [*Aprovisionamiento automático de un dispositivo mediante Device Provisioning Service*](#auto-provision-device-using-device-provisioning-service)
@@ -52,7 +52,7 @@ Para obtener una explicación más detallada de cada paso de la arquitectura, co
 
 En esta sección, va a conectar Device Provisioning Service a Azure Digital Twins para aprovisionar automáticamente los dispositivos a través de la ruta de acceso siguiente. Este es un extracto de la arquitectura completa que se ha mostrado [anteriormente](#solution-architecture).
 
-:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Flujo de aprovisionamiento: un extracto del diagrama de la arquitectura de la solución, con números que etiquetan las secciones del flujo. Los datos fluyen en ambos sentidos entre un dispositivo de termostato y DPS. (1 para dispositivo > DPS y 5 para DPS > dispositivo). Los datos también fluyen desde DPS a IoT Hub (4) y a Azure Digital Twins (3) a través de una función de Azure con la etiqueta "Asignación".":::
+:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Flujo de aprovisionamiento: un extracto del diagrama de la arquitectura de la solución, con números que etiquetan las secciones del flujo. Los datos fluyen en ambos sentidos entre un dispositivo de termostato y DPS. (1 para dispositivo > DPS y 5 para DPS > dispositivo). Los datos también fluyen desde DPS a IoT Hub (4) y a Azure Digital Twins (3) a través de una función de Azure con la etiqueta Asignación.":::
 
 Esta es una descripción del flujo del proceso:
 1. El dispositivo se pone en contacto con el punto de conexión de DPS y pasa la información de identificación para demostrar su identidad.
@@ -304,7 +304,7 @@ Debería ver el gemelo del dispositivo que se encuentra en la instancia de Azure
 
 En esta sección, va a asociar los eventos de ciclo de vida de IoT Hub a Azure Digital Twins para retirar automáticamente los dispositivos a través de la ruta de acceso siguiente. Este es un extracto de la arquitectura completa que se ha mostrado [anteriormente](#solution-architecture).
 
-:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="Flujo de retirada de dispositivo: un extracto del diagrama de la arquitectura de la solución, con números que etiquetan las secciones del flujo. El dispositivo de termostato aparece sin conexiones con los servicios de Azure en el diagrama. Los datos de una acción manual de "Eliminar dispositivo" fluyen a través de IoT Hub (1) > Event Hubs (2) > Azure Functions > Azure Digital Twins (3).":::
+:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="Flujo de retirada de dispositivo: un extracto del diagrama de la arquitectura de la solución, con números que etiquetan las secciones del flujo. El dispositivo de termostato aparece sin conexiones con los servicios de Azure en el diagrama. Los datos de una acción manual de Eliminar dispositivo fluyen a través de IoT Hub (1) > Event Hubs (2) > Azure Functions > Azure Digital Twins (3).":::
 
 Esta es una descripción del flujo del proceso:
 1. Un proceso externo o manual desencadena la eliminación de un dispositivo en IoT Hub.
