@@ -28,8 +28,6 @@
   items:
     - name: Azure PowerShell
       href: sample-powershell.md
-    - name: Registros de Azure Monitor
-      href: log-analytics-samples.md
 - name: Conceptos
   items:
     - name: Características de Azure Firewall
@@ -88,9 +86,11 @@
       href: dns-settings.md
     - name: Supervisión de los registros de diagnóstico
       href: firewall-diagnostics.md
+    - name: Registros de Azure Monitor
+      href: log-analytics-samples.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/ext/azure-firewall/network/firewall
     - name: Azure PowerShell
       href: /powershell/module/az.network/new-azfirewall

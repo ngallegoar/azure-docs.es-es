@@ -535,6 +535,9 @@
       href: reference-pipeline-yaml.md
     - name: Paridad de nubes soberanas
       href: reference-machine-learning-cloud-parity.md
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Notas de la versión
