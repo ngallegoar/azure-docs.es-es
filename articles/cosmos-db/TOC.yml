@@ -10,7 +10,7 @@
     - name: Recursos de Cosmos DB
       expanded: true
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: create-cosmosdb-resources-portal.md
         - name: Plantilla ARM
           displayName: Resource Manager
@@ -967,6 +967,8 @@
         - name: Uso de plantillas de Resource Manager
           href: manage-sql-with-resource-manager.md
           displayName: ARM
+        - name: Movimiento entre regiones
+          href: how-to-move-regions.md
     - name: Distribución global
       items:
         - name: Configuración multimaestra
