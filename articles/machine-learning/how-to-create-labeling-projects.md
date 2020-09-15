@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 1ba293890f6a6fd165e03486d7da375f2ac53ab1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a86a7ee600d7443e5ba8cb4f30db0c48c8170327
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326472"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612167"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creación de un proyecto de etiquetado de datos y exportación de etiquetas 
 
@@ -78,7 +78,7 @@ Para crear un conjunto de datos a partir de los datos que ya ha almacenado en el
 
 1. Seleccione **Crear un conjunto de datos** > **De almacén de datos**.
 1. En **Nombre**, asigne un nombre al conjunto de datos.
-1. Elija **Archivo** como **Tipo de conjunto de datos**.  
+1. Elija **Archivo** como **Tipo de conjunto de datos**.  Solo se admiten tipos de conjunto de datos de archivo.
 1. Seleccione el almacén de datos.
 1. Si los datos están en una subcarpeta del almacenamiento de blobs, elija **Examinar** para seleccionar la ruta de acceso.
     * Anexe "/**" a la ruta de acceso para incluir todos los archivos que haya en las subcarpetas de la ruta de acceso seleccionada.

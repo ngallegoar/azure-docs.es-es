@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2019
+ms.date: 09/06/2020
 ms.author: mlottner
-ms.openlocfilehash: 04505527428a6bb312c6fb7a12c116947fbd7cf6
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: e6ab713715cacc799d2b980c2bce2a2a15b76887
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310854"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505461"
 ---
 # <a name="quickstart-configure-your-iot-solution"></a>Inicio rápido: Configuración de una solución de IoT
 
@@ -45,8 +45,8 @@ Después de definir todas las relaciones de los recursos, Azure Security Center 
 Para agregar un recurso nuevo a la solución de IoT, siga estos pasos:
 
 1. Abra **IoT Hub** en Azure Portal.
-1. Seleccione y abra **Resources** (Recursos) en **Security**  (Seguridad) en el menú izquierdo.
-1. Seleccione **Editar** y elija los grupos de recursos que pertenecen a la solución de IoT.
+1. Seleccione y abra **Configuración** en la sección **Seguridad** del menú de la izquierda y, a continuación, seleccione **Recursos supervisados**.
+1. Seleccione **Editar** y los recursos supervisados que pertenezcan a la solución de IoT.
 1. Haga clic en **Agregar**.
 
 Felicidades. Ha agregado un nuevo grupo de recursos a la solución de IoT.

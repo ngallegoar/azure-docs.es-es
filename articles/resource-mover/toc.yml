@@ -18,9 +18,9 @@
   items:
     - name: Introducción a los traslados
       href: about-move-process.md
-    - name: Matriz de compatibilidad para el traslado de región de las máquinas virtuales de Azure
+    - name: 'Soporte técnico: traslado de máquinas virtuales de Azure entre regiones'
       href: support-matrix-move-region-azure-vm.md
-    - name: Matriz de compatibilidad para el traslado de región de Azure SQL
+    - name: 'Soporte técnico: traslado de Azure SQL entre regiones'
       href: support-matrix-move-region-sql.md
 - name: Guías de procedimientos
   items:
@@ -34,11 +34,11 @@
           href: move-region-within-resource-group.md
     - name: Administración de traslados entre regiones
       items:
-        - name: Modificación de la configuración de destino de un traslado de región
+        - name: Modificación de la configuración de destino
           href: modify-target-settings.md
-        - name: Eliminación de recursos de la colección de un traslado entre regiones
+        - name: Eliminación de recursos de una colección de desplazamiento
           href: remove-move-resources.md
-        - name: Administración de los recursos creados por el proceso de traslado entre regiones
+        - name: Administración de los recursos creados durante el traslado
           href: manage-resources-created-move-process.md
 - name: Recursos
   items:

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 464c0fee31f86ba6ffa1dbecc7b2dd659cd86685
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: c633cc973cb9e4d4f0375dec638e278c48c6709c
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89255535"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500239"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-using-azure-cli-and-python"></a>Implementación de máquinas virtuales en dispositivos Azure Stack Edge con GPU mediante la CLI de Azure y Python
 
@@ -60,13 +60,13 @@ Antes de empezar a crear y administrar una máquina virtual en el dispositivo Az
 
     2. Habilite Proceso en la interfaz de red. Azure Stack Edge crea y administra el conmutador virtual correspondiente a esa interfaz de red.
 
-    Si decide usar otra interfaz de red para Proceso, asegúrese de que:
+    <!--If you decide to use another network interface for compute, make sure that you:
 
-    - Elimine todas las máquinas virtuales que ha implementado mediante Azure Resource Manager.
+    - Delete all the VMs that you have deployed using Azure Resource Manager.
 
-    - Elimine todas las interfaces de red virtual y la red virtual asociada a esta interfaz de red.
+    - Delete all virtual network interfaces and the virtual network associated with this network interface.
 
-    - Ahora puede habilitar otra interfaz de red para Proceso.
+    - You can now enable another network interface for compute.-->
 
 3. Ha creado e instalado todos los certificados en el dispositivo Azure Stack Edge y en el almacén de confianza del cliente. Siga el procedimiento descrito en [Paso 2: Creación e instalación de certificados](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
 
@@ -342,7 +342,8 @@ Antes de empezar a crear y administrar una máquina virtual en el dispositivo Az
    ]
    PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
    ```
-
+   Tome nota de los valores `id` y `tenantId`, ya que se corresponden con el identificador de suscripción y el identificador de inquilino de Azure Resource Manager, respectivamente, y se utilizarán en un paso posterior.
+       
    Es necesario establecer las siguientes variables de entorno para trabajar como una *entidad de servicio*:
 
    ```
@@ -352,7 +353,7 @@ Antes de empezar a crear y administrar una máquina virtual en el dispositivo Az
    $ENV:ARM_SUBSCRIPTION_ID = "A4257FDE-B946-4E01-ADE7-674760B8D1A3"
    ```
 
-   El identificador de inquilino de Azure Resource Manager, el identificador de cliente de Azure Resource Manager y el identificador de suscripción de Azure Resource Manager están codificados de forma rígida y tienen los mismos valores en todos los dispositivos Azure Stack Edge. El secreto del cliente de Azure Resource Manager es la contraseña de Azure Resource Manager que estableció.
+   El identificador de cliente de Azure Resource Manager se codifica de forma rígida. El identificador de suscripción y el identificador de inquilino de Azure Resource Manager están presentes en la salida del comando `az login` que se ejecutó anteriormente. El secreto del cliente de Azure Resource Manager es la contraseña de Azure Resource Manager que estableció.
 
    Para más información, consulte [Contraseña de Azure Resource Manager](azure-stack-edge-j-series-set-azure-resource-manager-password.md).
 

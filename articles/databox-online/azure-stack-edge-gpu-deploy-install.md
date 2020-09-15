@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/29/2020
+ms.date: 09/02/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: e5682d511b20f7b6f4dbfbd7487e39f345b660fa
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 25bdf2fba67b3a2b42a24416a9de692cf3e992dd
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89262862"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421380"
 ---
 # <a name="tutorial-install-azure-stack-edge-with-gpu"></a>Tutorial: Instalación de Azure Stack Edge con GPU
 
@@ -221,6 +221,10 @@ Realice los pasos siguientes para realizar el cableado de los cables de alimenta
 4. Conecte los cables de alimentación a las unidades de distribución de energía (PDU) del bastidor. Asegúrese de que las dos PSU usen tomas de alimentación independientes.
 5. Presione el botón de encendido para encender el dispositivo.
 6. Conecte el PUERTO 1 de la interfaz de red de 1-GbE al equipo que se usa para configurar el dispositivo físico. El PUERTO 1 actúa como la interfaz de administración.
+    
+    > [!NOTE]
+    > Si conecta el equipo directamente al dispositivo (sin pasar por un conmutador), use un cable cruzado o un adaptador Ethernet USB.
+
 7. Conecte uno o varios de los PUERTOS 2, 3, 4, 5 o 6 a la red del centro de datos o Internet.
 
     - Si conecta el PUERTO 2, utilice el cable de red RJ-45 de 1 GbE.
@@ -235,7 +239,7 @@ En este tutorial, ha obtenido información acerca de varios temas relacionados c
 > * Montaje del dispositivo en el bastidor
 > * Cableado del dispositivo
 
-Pase al siguiente tutorial para aprender a conectar, configurar y activar el dispositivo.
+Continúe con el siguiente tutorial para aprender a conectar el dispositivo.
 
 > [!div class="nextstepaction"]
 > [Conexión de Azure Stack Edge](./azure-stack-edge-gpu-deploy-connect.md)

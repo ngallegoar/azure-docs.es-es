@@ -479,7 +479,7 @@
                   items:
                     - name: Desde una máquina virtual
                       href: ../image-version-vm-cli.md
-                    - name: Desde un disco duro virtual o una instantánea
+                    - name: Desde un disco administrado o una instantánea
                       href: ../image-version-snapshot-cli.md
                     - name: Migración desde una imagen administrada
                       href: ../image-version-managed-image-cli.md
@@ -501,7 +501,7 @@
                   items:
                     - name: Desde una máquina virtual
                       href: ../image-version-vm-powershell.md
-                    - name: Desde un disco duro virtual o una instantánea
+                    - name: Desde un disco administrado o una instantánea
                       href: ../image-version-snapshot-powershell.md
                     - name: Migración desde una imagen administrada
                       href: ../image-version-managed-image-powershell.md
@@ -542,14 +542,16 @@
               href: image-builder-overview.md
             - name: Uso de CLI de Azure
               href: image-builder.md
-            - name: 'Creación de una máquina virtual mediante una red virtual: CLI'
+            - name: 'Uso de una red virtual: CLI'
               href: image-builder-vnet.md
-            - name: 'Configuración de permisos: CLI'
-              href: image-builder-permissions-cli.md
-            - name: 'Configuración de permisos: PowerShell'
-              href: image-builder-permissions-powershell.md
             - name: Opciones de redes
               href: image-builder-networking.md
+            - name: Configuración de permisos
+              items:
+                - name: CLI
+                  href: image-builder-permissions-cli.md
+                - name: PowerShell
+                  href: image-builder-permissions-powershell.md
             - name: Tarea de DevOps
               href: image-builder-devops-task.md
             - name: Referencia de plantilla de Resource Manager
@@ -941,7 +943,7 @@
           items:
             - name: Azure CLI
               href: add-disk.md
-            - name: Azure portal
+            - name: Azure Portal
               href: attach-disk-portal.md
         - name: Desconexión de un disco
           href: detach-disk.md

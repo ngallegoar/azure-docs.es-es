@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2019
+ms.date: 09/06/2020
 ms.author: mlottner
-ms.openlocfilehash: 0d3e4ad63baf6883aa8fadaca5b1f2d28fa14881
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 1538143c33991c5dc91a096c7df4297bc18e5af5
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310755"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504050"
 ---
 # <a name="quickstart-onboard-azure-security-center-for-iot-service-in-iot-hub"></a>Inicio rápido: Incorporación del servicio Azure Security Center para IoT en IoT Hub
 
@@ -52,8 +52,8 @@ Para proteger la solución de IoT, se recopilan las direcciones IP de las conexi
 
 Para habilitar o deshabilitar la recopilación de datos de direcciones IP:
 
-1. Abra IoT Hub y seleccione **Información general** en el menú **Seguridad**.
-1. Elija la pantalla **Configuración** y modifique la geolocalización y las opciones de control de IP como desee.
+1. Abra IoT Hub y seleccione **Configuración** en el menú **Seguridad**.
+1. Elija la pantalla **Recopilación de datos** y modifique la geolocalización y las opciones de control de IP como desee.
 
 ### <a name="log-analytics-creation"></a>Creación de Log Analytics
 
@@ -61,8 +61,8 @@ Cuando se activa Azure Security Center para IoT, se crea un área de trabajo de 
 
 Para cambiar la configuración del área de trabajo de Log Analytics:
 
-1. Abra IoT Hub y seleccione **Información general** en el menú **Seguridad**.
-1. Elija la pantalla **Configuración** y modifique la configuración del área de trabajo de Log Analytics que desee.
+1. Abra IoT Hub y seleccione **Configuración** en el menú **Seguridad**.
+1. Elija la pantalla **Recopilación de datos** y modifique la configuración del área de trabajo de Log Analytics que desee.
 
 ### <a name="customize-your-iot-security-solution"></a>Personalización de la solución de seguridad de IoT
 
@@ -70,8 +70,8 @@ De forma predeterminada, al activar la solución Azure Security Center para IoT,
 
 Para activar o desactivar el servicio Azure Security Center para IoT en una instancia de IoT Hub específica:
 
-1. Abra IoT Hub y seleccione **Información general** en el menú **Seguridad**.
-1. Elija la pantalla **Configuración** y modifique la configuración de seguridad de cualquier centro de IoT de la suscripción de Azure como desee.
+1. Abra IoT Hub y seleccione **Configuración** en el menú **Seguridad**.
+1. Elija la pantalla **Recopilación de datos** y modifique la configuración de seguridad de cualquier centro de IoT de la suscripción de Azure como desee.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

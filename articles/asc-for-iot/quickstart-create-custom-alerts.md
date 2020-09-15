@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/27/2020
+ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 8ba81b669c25d91efa8ad1f07b1a7835b42c5cf4
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 7638ad070e8ac8bd99cbfb49b99bbb347a243a21
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310831"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505444"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Inicio rápido: Creación de alertas personalizadas
 
@@ -67,8 +67,8 @@ Use los grupos de seguridad para agrupar los dispositivos en categorías lógica
 
 ## <a name="customize-an-alert"></a>Personalización de una alerta
 
-1. Abra IoT Hub.
-1. Haga clic en **Alertas personalizadas** en la sección **Seguridad**.
+1. Abra IoT Hub y seleccione **Configuración** en el menú **Seguridad**. 
+1. Haga clic en **Alertas personalizadas**.
 1. Elija un grupo de seguridad al que desee aplicar la personalización.
 1. Haga clic en **Add a custom alert** (Agregar una alerta personalizada).
 1. Seleccione una alerta personalizada en la lista desplegable.
