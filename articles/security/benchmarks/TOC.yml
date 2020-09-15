@@ -61,6 +61,8 @@
       href: ../../azure-databricks/security-baseline.md
     - name: Línea de base de seguridad de Azure DNS
       href: ../../dns/security-baseline.md
+    - name: Línea de base de seguridad de Azure DevTest Labs
+      href: ../../devtest-labs/security-baseline.md
     - name: Línea de base de seguridad de Azure Firewall
       href: ../../firewall/security-baseline.md
     - name: Base de referencia de seguridad de Azure Functions
@@ -73,8 +75,14 @@
       href: ../../machine-learning/security-baseline.md
     - name: Base de referencia de seguridad de Azure Policy
       href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
+    - name: Línea de base de seguridad de Azure Private Link
+      href: ../../private-link/security-baseline.md
+    - name: Línea de base de seguridad de IP pública de Azure
+      href: ../../virtual-network/public-ip-security-baseline.md
     - name: Base de referencia de seguridad de Azure Resource Graph
       href: ../../governance/resource-graph/concepts/azure-security-benchmark-baseline.md
+    - name: Línea de base de seguridad de Azure Sentinel
+      href: ../../sentinel/security-baseline.md
     - name: "Base de referencia de seguridad de Azure SQL\_Database"
       href: ../../sql-database/security-baseline.md
     - name: Base de referencia de seguridad de Azure Storage

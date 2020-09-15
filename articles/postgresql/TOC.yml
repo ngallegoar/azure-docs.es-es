@@ -4,6 +4,10 @@
   items:
     - name: ¿Qué es Azure DB para PostgreSQL?
       href: overview.md
+    - name: Actualizaciones del servicio
+      items:
+        - name: El certificado raíz de SSL va a expirar
+          href: concepts-certificate-rotation.md
 - name: Guías de inicio rápido
   expanded: true
   items:

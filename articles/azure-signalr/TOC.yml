@@ -25,6 +25,8 @@
   items:
     - name: Compilación de una aplicación en tiempo real sin servidor con autenticación
       href: signalr-tutorial-authenticate-azure-functions.md
+    - name: Compilación de una aplicación de chat de Blazor Server
+      href: signalr-tutorial-build-blazor-server-chat-app.md
 - name: Ejemplos
   items:
     - name: Ejemplos de código

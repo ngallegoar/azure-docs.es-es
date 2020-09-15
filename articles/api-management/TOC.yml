@@ -11,6 +11,8 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
+    - name: 'Creación de una instancia: CLI'
+      href: get-started-create-service-instance-cli.md
     - name: 'Creación de una instancia: Portal'
       href: get-started-create-service-instance.md
     - name: 'Creación de una instancia: PowerShell'

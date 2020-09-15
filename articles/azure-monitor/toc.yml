@@ -224,12 +224,10 @@
               href: log-query/get-started-queries.md
         - name: Datos de registro
           items:
-            - name: Estructura de datos de registros
-              href: log-query/logs-structure.md
             - name: Ámbito de la consulta
               href: log-query/scope.md
-            - name: Propiedades estándar
-              href: platform/log-standard-properties.md
+            - name: Columnas estándar
+              href: platform/log-standard-columns.md
             - name: Grupos de equipos
               href: platform/computer-groups.md
         - name: Lenguaje de consulta
