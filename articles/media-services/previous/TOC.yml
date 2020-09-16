@@ -7,7 +7,7 @@
       href: scenarios-and-availability.md
     - name: Conceptos
       href: media-services-concepts.md
-- name: Introducción
+- name: Primeros pasos
   items:
     - name: Creación y administración de cuentas
       href: media-services-portal-create-account.md
@@ -318,33 +318,16 @@
               href: hybrid-design-drm-sybsystem.md
             - name: Diseño con DRM múltiple de referencia
               href: media-services-cenc-with-multidrm-access-control.md
-    - name: Analizar
-      href: media-services-analytics-overview.md
-      items:
-        - name: Análisis multimedia mediante Azure Portal
-          href: media-services-portal-analyze.md
-        - name: Proceso con Indexer 2
-          href: media-services-process-content-with-indexer2.md
         - name: Proceso con Indexer
           href: media-services-index-content.md
           items:
             - name: Valor predefinido de tarea
               href: indexer-task-preset.md
-        - name: Proceso con Face Detector
-          href: media-services-face-and-emotion-detection.md
-        - name: Proceso con Motion Detector
-          href: media-services-motion-detection.md
         - name: Proceso con Face Redactor
           href: media-services-face-redaction.md
           items:
             - name: Tutorial de Face Redactor
               href: media-services-redactor-walkthrough.md
-        - name: Proceso con Video Thumbnails
-          href: media-services-video-summarization.md
-        - name: Proceso con OCR
-          href: media-services-video-optical-character-recognition.md
-        - name: Proceso con Content Moderator
-          href: media-services-content-moderation.md
     - name: Configuración de la telemetría
       href: media-services-telemetry-overview.md
       items:
