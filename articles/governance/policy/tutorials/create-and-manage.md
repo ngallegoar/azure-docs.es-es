@@ -40,7 +40,7 @@ El primer paso para aplicar cumplimientos con Azure Policy es asignar una defini
 
 1. Seleccione **Asignar directiva** en la parte superior de la página **Policy - Asignaciones**.
 
-   :::image type="content" source="../media/create-and-manage/select-assign-policy.png" alt-text="Captura de pantalla de la selección del botón "Asignar directiva" en la página Asignaciones." border="false":::
+   :::image type="content" source="../media/create-and-manage/select-assign-policy.png" alt-text="Captura de pantalla de la selección del botón Asignar directiva en la página Asignaciones." border="false":::
 
 1. En la página **Asignar directiva** y en la pestaña **Aspectos básicos**, seleccione los puntos suspensivos y seleccione una suscripción o un grupo de administración como **Ámbito**. Opcionalmente, seleccione un grupo de recursos. Un ámbito determina en qué recursos o agrupación de recursos se implementa la asignación de directiva.
    Luego elija **Seleccionar** en la parte inferior de la página **Ámbito**.
@@ -426,7 +426,7 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 
 1. Busque la definición de directiva **Get Secure** (Estar protegido) que creó anteriormente y selecciónela. Seleccione **Asignar** en la parte superior de la página para abrir la página **Get Secure: Assign initiative** (Estar protegido: asignar iniciativa).
 
-   :::image type="content" source="../media/create-and-manage/assign-definition.png" alt-text="Captura de pantalla del botón "Asignar" en la página de definición de iniciativa." border="false":::
+   :::image type="content" source="../media/create-and-manage/assign-definition.png" alt-text="Captura de pantalla del botón Asignar en la página de definición de iniciativa." border="false":::
 
    También puede hacer clic con el botón derecho en la fila seleccionada o seleccionar los puntos suspensivos al final de la fila de un menú contextual. A continuación, seleccione **Asignar**.
 
