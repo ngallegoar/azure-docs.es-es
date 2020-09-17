@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 94d4a035c95b8eb2a567c71ec2172f55881e8099
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 2d2a520540ad69697da869833d52ab10e63a7730
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89488429"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527197"
 ---
 # <a name="what-is-azure-private-link"></a>¿Qué es Azure Private Link? 
 Azure Private Link le permite acceder a los servicios PaaS de Azure (por ejemplo, Azure Storage y SQL Database) y a los servicios hospedados en Azure que son propiedad de los clientes, o a los servicios de asociados, a través de un [punto de conexión privado](private-endpoint-overview.md) de la red virtual.
@@ -22,8 +22,6 @@ El tráfico entre la red virtual y el servicio viaja por la red troncal de Micro
 
 > [!IMPORTANT]
 > Azure Private Link ya está disponible con carácter general. Tanto el punto de conexión privado como el servicio Private Link (servicio detrás del equilibrador de carga estándar) están disponibles con carácter general. La incorporación de los diferentes Azure PaaS a Azure Private Link se realizará en diferentes programaciones. Compruebe la sección [Disponibilidad](https://docs.microsoft.com/azure/private-link/private-link-overview#availability) que se encuentra más adelante, para conocer el estado preciso de PaaS de Azure en Private Link. Para obtener información sobre las limitaciones conocidas, consulte [Punto de conexión privado](private-endpoint-overview.md#limitations) y [Servicio Private Link](private-link-service-overview.md#limitations). 
-
-![Introducción al punto de conexión privado](media/private-link-overview/private-endpoint.png)
 
 ## <a name="key-benefits"></a>Ventajas principales
 Azure Private Link proporciona las ventajas siguientes:  
@@ -48,7 +46,7 @@ Azure Private Link proporciona las ventajas siguientes:
 | Azure File Sync | Todas las regiones públicas      | |   Disponibilidad general <br/> [Más información](/azure/storage/files/storage-sync-files-networking-endpoints)   |
 | Azure Queue Storage       |  Todas las regiones públicas       |  Se admite en el tipo cuenta de uso general V2 | Disponibilidad general <br/> [Más información](/azure/storage/common/storage-private-endpoints)  |
 | Azure Table storage       |  Todas las regiones públicas       |  Se admite en el tipo cuenta de uso general V2 | Disponibilidad general <br/> [Más información](/azure/storage/common/storage-private-endpoints)  |
-|  Azure SQL Database         | Todas las regiones públicas <br/> Todas las regiones de Azure Government      |  Compatible con la [directiva de conexión](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) de proxy | Disponibilidad general <br/> [Más información](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
+|  Azure SQL Database         | Todas las regiones públicas <br/> Todas las regiones de Azure Government      |  Compatible con la [directiva de conexión](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) de proxy | Disponibilidad general <br/> [Más información](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
 |Azure Synapse Analytics (anteriormente SQL Data Warehouse)| Todas las regiones públicas <br/> Todas las regiones de Azure Government |  Compatible con la [directiva de conexión](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) de proxy |Disponibilidad general <br/> [Más información](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
 |Azure Cosmos DB|  Todas las regiones públicas<br/> Todas las regiones de Azure Government | |Disponibilidad general <br/> [Más información](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
 |  Azure Database for PostgreSQL: servidor único         | Todas las regiones públicas <br/> Todas las regiones de Azure Government     | Compatible con los planes de tarifa De uso general y Optimizada para memoria | Disponibilidad general <br/> [Más información](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |

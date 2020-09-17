@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: 7818754ca335f503c5afdc47d410cfe1d1029ab4
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 66335548381a6f7e3ebf93c97eb212255639644c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434812"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604094"
 ---
 # <a name="quickstart-building-your-first-static-web-app-in-the-azure-portal"></a>Inicio rápido: creación de la primera aplicación web en Azure Portal
 
@@ -65,7 +65,7 @@ Tras iniciar sesión con GitHub, escriba la información del repositorio.
     # <a name="no-framework"></a>[Ningún marco](#tab/vanilla-javascript)
 
     1. Seleccione **Custom** (Personalizado) en la lista desplegable _Build Presets_ (Valores preestablecidos de compilación).
-    1. Borre el valor predeterminado del cuadro _App location_ (Ubicación de la aplicación).
+    1. Deje el valor predeterminado en el cuadro _App location_ (Ubicación de la aplicación).
     1. Borre el valor predeterminado del cuadro _Ubicación de la API_.
     1. Deje el cuadro _App artifact location_ (Ubicación del artefacto de la aplicación) en blanco.
 

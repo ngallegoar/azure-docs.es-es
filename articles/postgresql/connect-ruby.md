@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: 98814060fb9ae669fc4e9a90fcda6319bbfaeacf
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: ede55196793e7eb19a5f64e539ee870ff0fada9d
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182551"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031423"
 ---
 # <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Inicio rápido: Uso de Ruby para conectarse y consultar datos en Azure Database for PostgreSQL: servidor único
 
@@ -43,7 +43,7 @@ Obtenga la información de conexión necesaria para conectarse a Azure Database 
 ## <a name="connect-and-create-a-table"></a>Conexión y creación de una tabla
 Use el código siguiente para conectarse y crear una tabla mediante la instrucción SQL **CREATE TABLE**, seguida de las instrucciones SQL **INSERT INTO** para agregar filas a la tabla.
 
-El código usa un objeto [PG::Connection](https://www.rubydoc.info/gems/pg/PG/Connection) con el constructor [new()](https://www.rubydoc.info/gems/pg/PG%2FConnection:initialize) para conectarse a Azure Database for PostgreSQL. A continuación, realiza una llamada al método [exec()](https://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) para ejecutar los comandos DROP, CREATE TABLE e INSERT INTO. El código comprueba si hay errores mediante la clase [PG::Error](https://www.rubydoc.info/gems/pg/PG/Error). A continuación, llama al método [close()](https://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) para cerrar la conexión antes de terminar.
+El código usa un objeto [PG::Connection](https://www.rubydoc.info/gems/pg/PG/Connection) con el constructor [new()](https://www.rubydoc.info/gems/pg/PG/Connection#initialize-instance_method) para conectarse a Azure Database for PostgreSQL. A continuación, realiza una llamada al método [exec()](https://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) para ejecutar los comandos DROP, CREATE TABLE e INSERT INTO. El código comprueba si hay errores mediante la clase [PG::Error](https://www.rubydoc.info/gems/pg/PG/Error). A continuación, llama al método [close()](https://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) para cerrar la conexión antes de terminar.
 
 Reemplace `host`, `database`, `user` y las cadenas `password` por sus propios valores. 
 
@@ -87,7 +87,7 @@ end
 ## <a name="read-data"></a>Lectura de datos
 Use el código siguiente para conectarse y leer los datos mediante la instrucción SQL **SELECT**. 
 
-El código usa un objeto [PG::Connection](https://www.rubydoc.info/gems/pg/PG/Connection) con el constructor [new()](https://www.rubydoc.info/gems/pg/PG%2FConnection:initialize) para conectarse a Azure Database for PostgreSQL. A continuación, llama al método [exec()](https://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) para ejecutar el comando SELECT, conservando los resultados en un conjunto de resultados. La colección de resultados se repite con el bucle `resultSet.each do`, conservando los valores de fila actuales de la variable `row`. El código comprueba si hay errores mediante la clase [PG::Error](https://www.rubydoc.info/gems/pg/PG/Error). A continuación, llama al método [close()](https://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) para cerrar la conexión antes de terminar.
+El código usa un objeto [PG::Connection](https://www.rubydoc.info/gems/pg/PG/Connection) con el constructor [new()](https://www.rubydoc.info/gems/pg/PG/Connection#initialize-instance_method) para conectarse a Azure Database for PostgreSQL. A continuación, llama al método [exec()](https://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) para ejecutar el comando SELECT, conservando los resultados en un conjunto de resultados. La colección de resultados se repite con el bucle `resultSet.each do`, conservando los valores de fila actuales de la variable `row`. El código comprueba si hay errores mediante la clase [PG::Error](https://www.rubydoc.info/gems/pg/PG/Error). A continuación, llama al método [close()](https://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) para cerrar la conexión antes de terminar.
 
 Reemplace `host`, `database`, `user` y las cadenas `password` por sus propios valores. 
 
@@ -121,7 +121,7 @@ end
 ## <a name="update-data"></a>Actualización de datos
 Use el código siguiente para conectarse y actualizar los datos mediante la instrucción SQL **UPDATE**.
 
-El código usa un objeto [PG::Connection](https://www.rubydoc.info/gems/pg/PG/Connection) con el constructor [new()](https://www.rubydoc.info/gems/pg/PG%2FConnection:initialize) para conectarse a Azure Database for PostgreSQL. A continuación, llama al método [exec()](https://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) para ejecutar el comando UPDATE. El código comprueba si hay errores mediante la clase [PG::Error](https://www.rubydoc.info/gems/pg/PG/Error). A continuación, llama al método [close()](https://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) para cerrar la conexión antes de terminar.
+El código usa un objeto [PG::Connection](https://www.rubydoc.info/gems/pg/PG/Connection) con el constructor [new()](https://www.rubydoc.info/gems/pg/PG/Connection#initialize-instance_method) para conectarse a Azure Database for PostgreSQL. A continuación, llama al método [exec()](https://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) para ejecutar el comando UPDATE. El código comprueba si hay errores mediante la clase [PG::Error](https://www.rubydoc.info/gems/pg/PG/Error). A continuación, llama al método [close()](https://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) para cerrar la conexión antes de terminar.
 
 Reemplace `host`, `database`, `user` y las cadenas `password` por sus propios valores. 
 
@@ -155,7 +155,7 @@ end
 ## <a name="delete-data"></a>Eliminación de datos
 Use el código siguiente para conectarse y leer los datos mediante la instrucción SQL **DELETE**. 
 
-El código usa un objeto [PG::Connection](https://www.rubydoc.info/gems/pg/PG/Connection) con el constructor [new()](https://www.rubydoc.info/gems/pg/PG%2FConnection:initialize) para conectarse a Azure Database for PostgreSQL. A continuación, llama al método [exec()](https://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) para ejecutar el comando UPDATE. El código comprueba si hay errores mediante la clase [PG::Error](https://www.rubydoc.info/gems/pg/PG/Error). A continuación, llama al método [close()](https://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) para cerrar la conexión antes de terminar.
+El código usa un objeto [PG::Connection](https://www.rubydoc.info/gems/pg/PG/Connection) con el constructor [new()](https://www.rubydoc.info/gems/pg/PG/Connection#initialize-instance_method) para conectarse a Azure Database for PostgreSQL. A continuación, llama al método [exec()](https://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) para ejecutar el comando UPDATE. El código comprueba si hay errores mediante la clase [PG::Error](https://www.rubydoc.info/gems/pg/PG/Error). A continuación, llama al método [close()](https://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) para cerrar la conexión antes de terminar.
 
 Reemplace `host`, `database`, `user` y las cadenas `password` por sus propios valores. 
 
