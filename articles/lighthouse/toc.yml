@@ -53,6 +53,9 @@
     - name: Quitar el acceso a una delegación
       displayName: 'delete, undelegate'
       href: ./how-to/remove-delegation.md
+    - name: Integración de Azure Arc
+      displayName: 'server, kubernetes, hybrid, infrastructure'
+      href: ./how-to/manage-hybrid-infrastructure-arc.md
     - name: Integración de Azure Monitor
       items:
         - name: Uso de registros de Azure Monitor a escala
@@ -81,7 +84,7 @@
           href: ./how-to/view-service-provider-activity.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/managedservices
     - name: Azure PowerShell
       href: /powershell/module/az.managedservices#managed_services

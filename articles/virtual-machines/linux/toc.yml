@@ -619,7 +619,7 @@
               href: disk-encryption-troubleshooting.md
             - name: Preguntas frecuentes sobre el cifrado de discos
               href: disk-encryption-faq.md
-            - name: 'Cifrado de discos: versión anterior (AAD)'
+            - name: "Cifrado de disco: versión anterior (Azure\_AD)"
               items:
                 - name: Información general
                   href: disk-encryption-overview-aad.md
@@ -691,7 +691,7 @@
         - name: Uso de Escritorio Remoto
           href: use-remote-desktop.md
         - name: Unión de una máquina virtual a Azure Active Directory
-          displayName: AAD
+          displayName: Azure AD
           items:
             - name: Red Hat Enterprise Linux
               href: ../../active-directory-domain-services/join-rhel-linux-vm.md
@@ -717,7 +717,7 @@
           href: instance-metadata-service.md
         - name: Obtención de métricas de uso con REST
           href: metrics-vm-usage-rest.md
-    - name: Mantenimiento de la plataforma
+    - name: Control de mantenimiento
       items:
         - name: Notificaciones de mantenimiento
           items:
@@ -729,7 +729,7 @@
               href: ../maintenance-notifications-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: PowerShell
               href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-        - name: Control de mantenimiento
+        - name: Mantenimiento de la plataforma
           items:
             - name: Información general
               href: ../maintenance-control.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
@@ -741,6 +741,16 @@
               href: ../maintenance-control-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Eventos programados
           href: scheduled-events.md
+        - name: Actualizaciones de la imagen del sistema operativo del conjunto de escalado de máquinas virtuales
+          items:
+            - name: Actualizaciones automáticas del sistema operativo
+              href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Control de mantenimiento
+              items:
+                - name: Introducción (versión preliminar)
+                  href: ../virtual-machine-scale-sets-maintenance-control.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                - name: PowerShell (versión preliminar)
+                  href: ../virtual-machine-scale-sets-maintenance-control-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Supervisión de máquinas virtuales
       items:
         - name: Agentes
@@ -943,7 +953,7 @@
           items:
             - name: Azure CLI
               href: add-disk.md
-            - name: Azure Portal
+            - name: Azure portal
               href: attach-disk-portal.md
         - name: Desconexión de un disco
           href: detach-disk.md

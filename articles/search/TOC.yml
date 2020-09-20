@@ -3,9 +3,11 @@
 - name: Información general
   expanded: true
   items:
-    - name: ¿Qué es Azure Cognitive Search?
+    - name: ¿Qué es Cognitive Search?
       href: search-what-is-azure-search.md
-    - name: Novedades
+    - name: Características de Cognitive Search
+      href: search-features-list.md
+    - name: Novedades de Cognitive Search
       href: whats-new.md
 - name: Guías de inicio rápido
   items:
@@ -394,7 +396,7 @@
           href: cognitive-search-common-errors-warnings.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/search?view=azure-cli-latest
     - name: Azure PowerShell
       href: /powershell/module/az.search
@@ -413,25 +415,27 @@
     - name: .NET
       items:
         - name: API de búsqueda
-          href: /dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet
+          href: /dotnet/api/overview/azure/search.documents-readme
         - name: API de administración
-          href: /dotnet/api/overview/azure/search/management?view=azure-dotnet
+          href: /dotnet/api/overview/azure/search/management
     - name: Java
       items:
+        - name: API de búsqueda
+          href: /java/api/overview/azure/search-documents-readme
         - name: API de administración
-          href: /java/api/overview/azure/search/management?view=azure-java-stable
+          href: /java/api/overview/azure/search/management
     - name: JavaScript
       items:
         - name: API de búsqueda
-          href: /javascript/api/overview/azure/search-documents-readme?view=azure-node-latest
+          href: /javascript/api/overview/azure/search-documents-readme
         - name: API de administración
-          href: /javascript/api/overview/azure/search/management?view=azure-node-latest
+          href: /javascript/api/overview/azure/search/management
     - name: Python
       items:
         - name: API de búsqueda
-          href: /python/api/overview/azure/search-documents-readme?view=azure-python
+          href: /python/api/overview/azure/search-documents-readme
         - name: API de administración
-          href: /python/api/overview/azure/search/management?view=azure-python
+          href: /python/api/overview/azure/search/management
     - name: Referencia al lenguaje OData
       items:
         - name: Información general

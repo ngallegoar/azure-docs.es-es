@@ -340,8 +340,16 @@
           href: virtual-machine-scale-sets-upgrade-scale-set.md
         - name: Redes para conjuntos de escalado
           href: virtual-machine-scale-sets-networking.md
-        - name: Actualizaciones automáticas del sistema operativo
-          href: virtual-machine-scale-sets-automatic-upgrade.md
+        - name: Actualizaciones de la imagen del sistema operativo
+          items:
+            - name: Actualizaciones automáticas del sistema operativo
+              href: virtual-machine-scale-sets-automatic-upgrade.md
+            - name: Control de mantenimiento
+              items:
+                - name: Introducción (versión preliminar)
+                  href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control.md
+                - name: PowerShell (versión preliminar)
+                  href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-powershell.md
         - name: Reparaciones de instancias automáticas
           href: virtual-machine-scale-sets-automatic-instance-repairs.md
         - name: Protección de instancias

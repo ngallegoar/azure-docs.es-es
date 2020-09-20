@@ -1,14 +1,14 @@
 ---
 title: Índice de ejemplos de planos técnicos
 description: Índice de ejemplos de cumplimiento y estándar para implementar entornos, directivas y las bases de Cloud Adoption Framework con Azure Blueprints.
-ms.date: 09/11/2020
+ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: 7ac95dee88cb244ecb4b60738daae26bb0d8831a
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: def5e51a3db7e0733e0d7e1ef5c6895aedb7128d
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031881"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530988"
 ---
 # <a name="azure-blueprints-samples"></a>Ejemplos de Azure Blueprints
 
@@ -42,7 +42,8 @@ En la tabla siguiente se incluyen vínculos a ejemplos de Azure Blueprints. Cada
 
 ## <a name="samples-strategy"></a>Estrategia de ejemplos
 
-:::image type="content" source="../media/blueprint-samples-strategy.png" alt-text="Estrategia de ejemplos de planos técnicos" border="false":::
+:::image type="complex" source="../media/blueprint-samples-strategy.png" alt-text="Diagrama de dónde encajan los ejemplos de planos técnicos en la complejidad arquitectónica frente a los requisitos de cumplimiento." border="false":::
+   Describe un sistema de coordenadas en el que la complejidad arquitectónica está en el eje X y los requisitos de cumplimiento se encuentran en el eje Y.  Cuando aumenten tanto la complejidad arquitectónica como los requisitos de cumplimiento, adopte ejemplos de planos técnicos estándar en el portal designado en la región E. En el caso de aquellos clientes que sea la primera vez que usan Azure, aproveche los planos técnicos de base y zona de aterrizaje de Cloud Adoption Framework (CAF) designados por las regiones A y B. El espacio restante se atribuye a los planos técnicos personalizados creados por los clientes que son asociados para las regiones C, D y F. :::image-end:::
 
 Los planos técnicos de la zona de aterrizaje de migración de CAF y de la fundación CAF asumen que el cliente prepara una suscripción individual limpia existente para migrar los recursos y cargas de trabajo locales a Azure
 (regiones A y B en la ilustración).  

@@ -10,7 +10,7 @@
     - name: Recursos de Cosmos DB
       expanded: true
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: create-cosmosdb-resources-portal.md
         - name: Plantilla ARM
           displayName: Resource Manager
@@ -1072,6 +1072,8 @@
               href: troubleshoot-not-found.md
             - name: Solucionar del problema de no autorizado
               href: troubleshoot-unauthorized.md
+            - name: Disponibilidad del SDK en entornos multirregionales
+              href: troubleshoot-sdk-availability.md
         - name: .NET
           items:
             - name: Solución general de problemas del SDK de .NET

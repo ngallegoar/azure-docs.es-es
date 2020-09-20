@@ -592,7 +592,7 @@
               href: disk-encryption-troubleshooting.md
             - name: Preguntas frecuentes sobre el cifrado de discos
               href: disk-encryption-faq.md
-            - name: 'Cifrado de discos: versión anterior (AAD)'
+            - name: "Cifrado de disco: versión anterior (Azure\_AD)"
               items:
                 - name: Información general
                   href: disk-encryption-overview-aad.md
@@ -670,7 +670,7 @@
           href: nested-virtualization.md
         - name: Aplicación de revisiones automáticas a los invitados de la máquina virtual (versión preliminar)
           href: automatic-vm-guest-patching.md
-    - name: Mantenimiento de la plataforma
+    - name: Control de mantenimiento
       items:
         - name: Notificaciones de mantenimiento
           items:
@@ -682,7 +682,7 @@
               href: ../maintenance-notifications-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: PowerShell
               href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-        - name: Control de mantenimiento
+        - name: Mantenimiento de la plataforma
           items:
             - name: Información general
               href: ../maintenance-control.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -696,6 +696,16 @@
           href: scheduled-events.md
         - name: Servicio de eventos programados de Windows
           href: scheduled-event-service.md
+        - name: Actualizaciones de la imagen del sistema operativo del conjunto de escalado de máquinas virtuales
+          items:
+            - name: Actualizaciones automáticas del sistema operativo
+              href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Control de mantenimiento
+              items:
+                - name: Introducción (versión preliminar)
+                  href: ../virtual-machine-scale-sets-maintenance-control.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+                - name: PowerShell (versión preliminar)
+                  href: ../virtual-machine-scale-sets-maintenance-control-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Supervisión de máquinas virtuales
       items:
         - name: Agentes
@@ -860,7 +870,7 @@
           items:
             - name: Azure PowerShell
               href: attach-disk-ps.md
-            - name: Azure Portal
+            - name: Azure portal
               href: attach-managed-disk-portal.md
         - name: Desconexión de un disco
           href: detach-disk.md
@@ -932,7 +942,7 @@
           href: ../../virtual-network/quick-create-portal.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
         - name: Apertura de puertos a una máquina virtual
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: nsg-quickstart-portal.md
             - name: Azure PowerShell
               href: nsg-quickstart-powershell.md

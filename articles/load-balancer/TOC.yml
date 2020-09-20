@@ -20,19 +20,11 @@
       href: quickstart-load-balancer-standard-internal-powershell.md
     - name: 'Creación de un equilibrador de carga interno: CLI de Azure'
       href: quickstart-load-balancer-standard-internal-cli.md
+    - name: 'Creación de un equilibrador de carga interno: plantilla de Resource Manager'
+      href: quickstart-load-balancer-standard-internal-template.md
   expanded: true
 - name: Tutoriales
   items:
-    - name: Equilibrador de carga interno
-      items:
-        - name: 'Creación de un equilibrador de carga interno: Azure Portal'
-          href: tutorial-load-balancer-standard-internal-portal.md
-        - name: 'Creación de un equilibrador de carga interno: CLI de Azure'
-          href: load-balancer-get-started-ilb-arm-cli.md
-        - name: 'Creación de un equilibrador de carga interno: Azure PowerShell'
-          href: load-balancer-get-started-ilb-arm-ps.md
-        - name: 'Creación de un equilibrador de carga interno: plantilla de Resource Manager'
-          href: load-balancer-get-started-ilb-arm-template.md
     - name: Equilibrio de carga de máquinas virtuales entre zonas de disponibilidad
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Equilibrio de carga de máquinas virtuales en una zona de disponibilidad específica
