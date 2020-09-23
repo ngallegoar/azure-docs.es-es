@@ -955,6 +955,8 @@
               href: add-disk.md
             - name: Azure portal
               href: attach-disk-portal.md
+        - name: Cambio del nivel del disco
+          href: ../disks-performance-tiers.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Desconexión de un disco
           href: detach-disk.md
         - name: Implementación de discos con plantilla de Resource Manager
@@ -1136,7 +1138,7 @@
               href: ../../site-recovery/migrate-overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/vm
     - name: PowerShell
       href: /powershell/azure/
