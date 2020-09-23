@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: 6fee96354760e448de132f88918e9839c6220af3
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: c8739da859c00a9caf08ac833f7b4ae7ae52e392
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254498"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084318"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Recomendaciones y procedimientos recomendados para Azure Active Directory B2C
 
@@ -56,7 +56,6 @@ Durante la fase de implementación, tenga en cuenta las siguientes recomendacion
 | Más información acerca de cómo solucionar problemas de Azure AD B2C | Obtenga información acerca de cómo [solucionar problemas de las directivas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/troubleshoot-custom-policies?tabs=applications) durante el desarrollo. Obtenga información sobre el aspecto de un flujo de autenticación normal y use herramientas para detectar anomalías y errores. Por ejemplo, use [Application Insights](troubleshoot-with-application-insights.md) para revisar los registros de salida de los recorridos del usuario. |
 | Aprovechamiento de nuestra biblioteca de patrones de directivas personalizadas probadas | Busque [ejemplos](https://github.com/azure-ad-b2c/samples) de varios recorridos del usuario de administración de identidades y acceso de clientes (CIAM) mejorados de Azure AD B2C. |
 
-
 ## <a name="testing"></a>Prueba
 
 Pruebe y automatice la implementación de Azure AD B2C.
@@ -79,11 +78,10 @@ Administre el entorno de Azure AD B2C.
 |--|--|
 | Creación de múltiples entornos | Para facilitar la implementación de las operaciones e implementaciones, cree entornos independientes para desarrollo, pruebas, preproducción y producción. Cree inquilinos de Azure AD B2C para cada uno. |
 | Uso del control de versiones para las directivas personalizadas | Considere la posibilidad de usar GitHub, Azure Repos u otro sistema de control de versiones basado en la nube para las directivas personalizadas de Azure AD B2C. |
-| Uso de Microsoft Graph API para automatizar la administración de los inquilinos de B2C | Microsoft Graph API:<br/>Administre [Identity Experience Framework](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta) (directivas personalizadas).<br/>[Claves](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta)<br/>[Flujos de usuario](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta) |
+| Uso de Microsoft Graph API para automatizar la administración de los inquilinos de B2C | Microsoft Graph API:<br/>Administre [Identity Experience Framework](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta&preserve-view=true) (directivas personalizadas).<br/>[Claves](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta&preserve-view=true)<br/>[Flujos de usuario](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta&preserve-view=true) |
 | Integración con Azure DevOps | Una canalización de [CI/CD](deploy-custom-policies-devops.md) facilita el traslado de código entre distintos entornos y garantiza la preparación de la producción en todo momento.   |
 | Integración con Azure Monitor | Los [eventos de registro de auditoría](view-audit-logs.md) solo se conservan durante siete días. Realice la [integración con Azure Monitor](azure-monitor.md) para conservar los registros para su uso a largo plazo o integrarlos en herramientas de Administración de eventos e información de seguridad (SIEM) de terceros para sacar conclusiones sobre su entorno. |
 | Configuración de supervisión y alertas activas | [Siga el comportamiento del usuario](active-directory-b2c-custom-guide-eventlogger-appins.md) en Azure AD B2C mediante Application Insights. |
-
 
 ## <a name="support-and-status-updates"></a>Actualizaciones de compatibilidad y estado
 

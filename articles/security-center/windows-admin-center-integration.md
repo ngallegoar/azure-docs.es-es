@@ -8,20 +8,20 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: memildin
-ms.openlocfilehash: 90c1132091f543b84fc764522dfa95672f2e2aef
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 36f519ce41ccfbfb48ca696ed2a61c6131a75998
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89277500"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906335"
 ---
 # <a name="protect-windows-admin-center-resources-with-security-center"></a>Protección de los recursos de Windows Admin Center con Security Center
 
 Windows Admin Center es una herramienta de administración para los servidores de Windows. Es una ubicación única para que los administradores del sistema obtengan acceso a la mayoría de las herramientas de administración que se usan con más frecuencia. Desde Windows Admin Center, puede incorporar directamente sus servidores locales en Azure Security Center. Asimismo, puede ver un resumen de las recomendaciones y alertas de seguridad directamente en Windows Admin Center.
 
 > [!NOTE]
-> La suscripción de Azure y el área de trabajo de Log Analytics asociada deben tener habilitado el nivel estándar de Security Center para poder habilitar la integración de Windows Admin Center.
-> El nivel estándar es gratuito durante los primeros 30 días si no lo ha usado previamente en la suscripción y el área de trabajo. Para obtener mas información de precios, consulte la [página de precios](security-center-pricing.md).
+> La suscripción de Azure y el área de trabajo de Log Analytics asociada deben tener habilitado Azure Defender para permitir la integración de Windows Admin Center.
+> Azure Defender es gratuito durante los primeros 30 días si no lo ha usado previamente en la suscripción y el área de trabajo. Para obtener mas información de precios, consulte la [página de precios](security-center-pricing.md).
 >
 
 Cuando haya incorporado correctamente un servidor de Windows Admin Center a Azure Security Center, podrá realizar lo siguiente:
@@ -46,8 +46,8 @@ Al combinar estas dos herramientas, Security Center se convierte en el único pa
 1. Siga las instrucciones para conectar el servidor a Security Center. Una vez que haya escrito los detalles necesarios y los haya confirmado, Security Center realiza los cambios de configuración necesarios para asegurarse de que se cumplen todas las condiciones siguientes:
     * Se registra una puerta de enlace de Azure.
     * El servidor tiene un área de trabajo que notificar y una suscripción asociada.
-    * La solución de Log Analytics de nivel estándar de Security Center está habilitada en el área de trabajo. Esta solución proporciona características de nivel estándar de Security Center para *todos* los servidores y las máquinas virtuales que informan a esta área de trabajo.
-    * El precio del nivel estándar de Security Center para la máquina virtual está habilitado en la suscripción.
+    * La solución Log Analytics de Security Center está habilitada en el área de trabajo. Esta solución proporciona características de Azure Defender para *todos* los servidores y las máquinas virtuales que informan a esta área de trabajo.
+    * Azure Defender para servidores está habilitado en la suscripción.
     * El agente de Log Analytics se instala en el servidor y se configura para que informe al área de trabajo seleccionada. Si el servidor ya informa a otra área de trabajo, se configura para que informe al área de trabajo que se acaba de seleccionar también.
 
     > [!NOTE]
@@ -63,12 +63,8 @@ Una vez incorporada, puede ver las alertas y las recomendaciones directamente en
 ## <a name="view-security-recommendations-and-alerts-for-windows-admin-center-managed-servers-in-security-center"></a>Visualización de las recomendaciones y alertas de seguridad para servidores administrados de Windows Admin Center en Security Center
 Desde Azure Security Center:
 
-* Para ver recomendaciones de seguridad para todos los servidores de Windows Admin Center, abra **Compute & Apps** (Procesos y aplicaciones) y haga clic en la pestaña de **VM y equipos**. Filtre la lista por el recurso "Servidor" tal como se muestra aquí:
-
-    [![Ver las recomendaciones de seguridad para servidores administrados de Windows Admin Center](media/windows-admin-center-integration/viewing-recommendations-wac.png)](media/windows-admin-center-integration/viewing-recommendations-wac.png#lightbox)
+* Para ver recomendaciones de seguridad para todos los servidores de Windows Admin Center, abra el [inventario de recursos](asset-inventory.md) y filtre por el tipo de máquina que quiere investigar. Seleccione la pestaña **Máquinas virtuales y equipos**.
 
 * Para ver las alertas de seguridad de todos los servidores de Windows Admin Center, abra la opción de **alertas de seguridad**. Haga clic en **Filtrar** y asegúrese de que **solo** esté seleccionada la opción "No es de Azure":
 
-    ![Filtrar las alertas de seguridad de los servidores administrados de Windows Admin Center](./media/windows-admin-center-integration/filtering-alerts-to-non-azure.png)
-
-    [![Ver las alertas de seguridad de los servidores administrados de Windows Admin Center](media/windows-admin-center-integration/viewing-alerts-wac.png)](media/windows-admin-center-integration/viewing-alerts-wac.png#lightbox)
+    :::image type="content" source="./media/windows-admin-center-integration/filtering-alerts-by-environment.png" alt-text="Filtrar las alertas de seguridad de los servidores administrados de Windows Admin Center" lightbox="./media/windows-admin-center-integration/filtering-alerts-by-environment.png":::
