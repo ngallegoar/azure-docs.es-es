@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c9fd2df1af3a9f15ca8a53a0094734188dd30bf1
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: d16d14ff51cb9a7e71193d93c6755a8e4cb93ed0
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89380549"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89481416"
 ---
 # <a name="assign-a-key-vault-access-policy-using-the-azure-portal"></a>Asignación de una directiva de acceso de Key Vault mediante Azure Portal
 
@@ -41,7 +41,7 @@ Para más información sobre cómo crear grupos en Azure Active Directory median
 
     ![Selección de la entidad de servicio para la directiva de acceso](../media/authentication/assign-policy-portal-03.png)
 
-    Si usa una identidad administrada para la aplicación, busque y seleccione el nombre de la propia aplicación (para más información sobre la identidad administrada y las entidades de servicio, consulte [Autenticación en Key Vault:Identidad de la aplicación y entidades de servicio](authentication.md#app-identity-and-service-principals)).
+    Si usa una identidad administrada para la aplicación, busque y seleccione el nombre de la propia aplicación (para más información sobre la identidad administrada y las entidades de servicio, consulte [Autenticación en Key Vault:Identidad de la aplicación y entidades de servicio](authentication.md#app-identity-and-security-principals)).
  
 1.  En el panel **Agregar directivas de acceso**, seleccione **Agregar** para guardar la directiva de acceso.
 
