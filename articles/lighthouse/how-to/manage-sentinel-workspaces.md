@@ -3,12 +3,12 @@ title: Administración de áreas de trabajo de Azure Sentinel a gran escala
 description: Obtenga información sobre cómo a administrar de forma eficaz Azure Sentinel en recursos delegados de clientes.
 ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 328c55afc141a7f2efd85104453342b62eae0bb2
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 78896d6458f6b1c40655bc36d2bf63e05ddb0a59
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050818"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019740"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Administración de áreas de trabajo de Azure Sentinel a gran escala
 
@@ -65,7 +65,7 @@ Si va a administrar los recursos de Azure Sentinel para varios clientes, puede v
 
 Los [libros de Azure Monitor en Azure Sentinel](../../sentinel/overview.md#workbooks) le ayudan a visualizar y supervisar los datos de los orígenes de datos conectados para obtener información. Puede usar las plantillas de libro integradas en Azure Sentinel o crear libros personalizados para sus escenarios.
 
-Puede implementar libros en el inquilino de administración y crear paneles a escala para supervisar y consultar datos en los inquilinos de los clientes. Para obtener más información consulte [Supervisión entre áreas de trabajo](../../sentinel/extend-sentinel-across-workspaces-tenants.md#using-cross-workspace-workbooks). Tenga en cuenta que algunas funcionalidades [no son compatibles en varias áreas de trabajo](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces).
+Puede implementar libros en el inquilino de administración y crear paneles a escala para supervisar y consultar datos en los inquilinos de los clientes. Para obtener más información consulte [Supervisión entre áreas de trabajo](../../sentinel/extend-sentinel-across-workspaces-tenants.md#using-cross-workspace-workbooks). 
 
 También puede implementar libros directamente en un inquilino individual que administra para escenarios específicos de ese cliente.
 
@@ -76,8 +76,6 @@ Cree y guarde consultas de Log Analytics para la detección de amenazas de forma
 ## <a name="use-automation-for-cross-workspace-management"></a>Usar la automatización para la administración entre áreas de trabajo
 
 Puede usar automatización para administrar varias áreas de trabajo de Azure Sentinel y configurar [consultas de búsqueda](../../sentinel/hunting.md), guías y libros. Para más información consulte [Administración entre áreas de trabajo con automatización](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-management-using-automation).
-
-Tenga en cuenta que algunas funcionalidades [no son compatibles actualmente en varias áreas de trabajo](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces).
 
 ## <a name="manage-security-of-office-365-environments"></a>Administración de la seguridad de los entornos de Office 365
 
