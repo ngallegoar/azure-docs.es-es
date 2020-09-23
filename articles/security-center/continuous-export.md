@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: 93f7107af18d6720784bd2f249e51a9c96705d3f
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: cf8fdd8d91c035d374277c4752fb761c0c4e72c7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378583"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905621"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Exportación de alertas y recomendaciones de seguridad
 
@@ -33,8 +33,8 @@ Con estas herramientas puede realizar lo siguiente:
 
 |Aspecto|Detalles|
 |----|:----|
-|Estado de la versión:|Disponibilidad general|
-|Precios:|Nivel gratis|
+|Estado de la versión:|Disponible con carácter general|
+|Precios:|Gratuito|
 |Roles y permisos necesarios:|**Rol de administrador de seguridad** en el grupo de recursos (o **Propietario**).<br>También debe tener permisos de escritura para el recurso de destino.|
 |Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) US Gov<br>![Sí](./media/icons/yes-icon.png) China Gov (en el centro de eventos), otro Gov|
 |||
@@ -54,6 +54,18 @@ Los pasos siguientes son necesarios si va a configurar una exportación continua
     [![Opciones de exportación en Azure Security Center](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox): aquí se ven las opciones de exportación. Hay una pestaña para cada destino de exportación disponible. 
 
 1. Seleccione el tipo de datos que quiere exportar y elija los filtros que quiera de cada tipo (por ejemplo, exportar solo alertas de gravedad alta).
+
+1. Opcionalmente, si la selección incluye una de estas cuatro recomendaciones, puede incluir los resultados de la evaluación de vulnerabilidades junto con ellas:
+
+    - Se deben corregir las conclusiones de la evaluación de vulnerabilidades de las bases de datos SQL
+    - Es necesario corregir las conclusiones de la evaluación de vulnerabilidades de los servidores SQL Server en las máquinas (versión preliminar)
+    - Es necesario corregir las vulnerabilidades de las imágenes de Azure Container Registry (con tecnología de Qualys)
+    - Es necesario corregir las vulnerabilidades de las máquinas virtuales
+
+    Para incluir los resultados con estas recomendaciones, habilite la opción de **incluir resultados de seguridad**.
+
+    :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Incluir la alternancia de los resultados de seguridad en la configuración de la exportación continua" :::
+
 
 1. En el área "Destino de exportación", elija dónde quiere guardar los datos. Los datos se pueden guardar en el destino de una suscripción diferente (por ejemplo, en una instancia central del Centro de eventos o en un área de trabajo central de Log Analytics).
 
@@ -77,7 +89,7 @@ La API proporciona funcionalidad adicional que no está disponible en Azure Port
 * **Ámbito más centrado**: la API proporciona un nivel más detallado del ámbito de sus configuraciones de exportación. Cuando se define una exportación con la API, se puede hacer a nivel de grupo de recursos. Si va a usar la página **Exportación continua** en la interfaz de usuario del portal de Security Center, tiene que definirla en el nivel de suscripción.
 
     > [!TIP]
-    > Si ha configurado la exportación múltiple mediante la API o si ha usado parámetros que sol solo de la API, las características adicionales no se mostrarán en la interfaz de usuario de Security Center. En su lugar, habrá un banner que le informará de que existen otras configuraciones.
+    > Si ha configurado la exportación múltiple mediante la API o si ha usado parámetros que son solo de la API, esas características adicionales no se mostrarán en la interfaz de usuario de Security Center. En su lugar, habrá un banner que le informará de que existen otras configuraciones.
 
 En la [documentación de la API REST](https://docs.microsoft.com/rest/api/securitycenter/automations) encontrará más información sobre la API de automatizaciones.
 
@@ -113,11 +125,11 @@ Asimismo, si quiere trasladar los datos exportados continuamente desde el Centro
 
 Si desea analizar datos de Azure Security Center dentro de un área de trabajo de Log Analytics o usar alertas de Azure junto con Security Center, configure la exportación continua a su área de trabajo de Log Analytics.
 
-Para exportar un área de trabajo de Log Analytics, debe tener habilitadas las soluciones de Log Analytics de Security Center en el área de trabajo. Si usa Azure Portal, la solución de nivel gratuito de Security Center se habilita automáticamente al habilitar la exportación continua. Sin embargo, si va a configurar las opciones de exportación continua mediante programación, debe seleccionar manualmente el plan de tarifa gratuito o estándar para el área de trabajo necesaria desde **Precios y configuración**.  
+Para exportar un área de trabajo de Log Analytics, debe tener habilitadas las soluciones de Log Analytics de Security Center en el área de trabajo. Si usa Azure Portal, la solución gratuita de Security Center se habilita automáticamente al habilitar la exportación continua. Sin embargo, si va a configurar las opciones de exportación continua mediante programación, debe activar o desactivar Azure Defender manualmente en la página de **precios y configuración**.
 
 ### <a name="log-analytics-tables-and-schemas"></a>Tablas y esquemas de Log Analytics
 
-Las alertas y recomendaciones de seguridad se almacenan en las tablas *SecurityAlert* y *SecurityRecommendations* respectivamente. El nombre de la solución de Log Analytics que contiene estas tablas cambiará dependiendo de si está en el nivel gratuito o estándar (consulte los [precios](security-center-pricing.md)): Security ("Security and Audit") o SecurityCenterFree.
+Las alertas y recomendaciones de seguridad se almacenan en las tablas *SecurityAlert* y *SecurityRecommendations* respectivamente. El nombre de la solución Log Analytics que contiene estas tablas depende de si tiene habilitado Azure Defender: Security ("Security and Audit") o SecurityCenterFree.
 
 ![Tabla *SecurityAlert* en Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
 

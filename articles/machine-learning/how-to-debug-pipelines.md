@@ -10,17 +10,16 @@ ms.author: laobri
 ms.date: 08/28/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, devx-track-python
-ms.openlocfilehash: 0f051e5b5711cec9fd8e72ec2b84c18f80430a0a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 616cdb1d0940ea6f64c3be3d687adaa9c2a98cc2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018066"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889962"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depuración y solución de problemas de canalizaciones de aprendizaje automático
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-En este artículo aprenderá a resolver los problemas y depurar las [canalizaciones de aprendizaje automático](concept-ml-pipelines.md) con el [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) y el [diseñador de Azure Machine Learning (versión preliminar)](https://docs.microsoft.com/azure/machine-learning/concept-designer). 
+En este artículo se obtiene información sobre cómo depurar y resolver los problemas de las [canalizaciones de aprendizaje automático](concept-ml-pipelines.md) en el [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) y el [diseñador de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-designer). Se proporciona información sobre cómo:
 
 ## <a name="troubleshooting-tips"></a>Sugerencias de solución de problemas
 
@@ -33,7 +32,7 @@ La tabla siguiente contiene problemas comunes que se pueden producir durante el 
 | Errores ambiguos con destinos de proceso | Pruebe a eliminar y volver a crear los destinos de proceso. Volver a crear los destinos de proceso es un proceso rápido y puede resolver algunos problemas transitorios. |
 | La canalización no reutiliza los pasos | La reutilización de pasos está habilitada de forma predeterminada, asegúrese de que no la ha deshabilitado en un paso de la canalización. Si la reutilización está deshabilitada, el parámetro `allow_reuse` del paso se establecerá en `False`. |
 | La canalización se está volviendo a ejecutar innecesariamente | Para asegurarse de que los pasos solo se vuelven a ejecutar cuando sus datos o scripts subyacentes cambian, desacople los directorios de código fuente en cada paso. Si usa el mismo directorio de origen para varios pasos, puede experimentar la repetición innecesaria de ejecuciones. Use el parámetro `source_directory` en un objeto de paso de canalización para apuntar a su directorio aislado para ese paso, y asegúrese de que no está usando la misma ruta de acceso `source_directory` para varios pasos. |
-
+| Paso más lento en los tiempos de entrenamiento u otro comportamiento de bucle | Intente cambiar cualquier escritura de archivo, incluido el registro, de `as_mount()` a `as_upload()`. El modo de **montaje** usa un sistema de archivos virtualizado remoto y carga todo el archivo cada vez que se anexa a este. |
 
 ## <a name="debugging-techniques"></a>Técnicas de depuración
 
@@ -108,31 +107,7 @@ logger.warning("I am an OpenCensus warning statement, find me in Application Ins
 logger.error("I am an OpenCensus error statement with custom dimensions", {'step_id': run.id})
 ``` 
 
-### <a name="finding-and-reading-pipeline-log-files"></a>Búsqueda y lectura de los archivos de registro de canalización
-
-El archivo de registro `70_driver_log.txt` contiene: 
-
-* Todas las instrucciones impresas durante la ejecución del script
-* El seguimiento de la pila para el script 
-
-Para encontrar este y otros archivos de registro en el portal, primero haga clic en la canalización en el área de trabajo.
-
-![Página de lista de ejecuciones de canalización](./media/how-to-debug-pipelines/pipelinerun-01.png)
-
-Vaya a la página de detalles de ejecución de la canalización.
-
-![Página de detalles de ejecución de canalización](./media/how-to-debug-pipelines/pipelinerun-02.png)
-
-Haga clic en el identificador de ejecución del paso específico. Vaya a la pestaña **Registros**. Otros registros incluyen información sobre el proceso de generación de imágenes de entorno y scripts de preparación de pasos.
-
-![Pestaña de registro de la página de detalles de ejecución de canalización](./media/how-to-debug-pipelines/pipelinerun-03.png)
-
-> [!TIP]
-> Las ejecuciones de las *canalizaciones publicadas* están en la pestaña **Puntos de conexión** del área de trabajo del portal. Las ejecuciones de las *canalizaciones no publicadas* se encuentran en **Experimentos** o **Canalizaciones**.
-
-Para obtener más información sobre el seguimiento y registro de un `ParallelRunStep`, consulte [Depuración y solución de problemas de ParallelRunStep](how-to-debug-parallel-run-step.md).
-
-## <a name="logging-in-azure-machine-learning-designer-preview"></a>Inicio de sesión en el diseñador de Azure Machine Learning (versión preliminar)
+## <a name="azure-machine-learning-designer"></a>Diseñador de Azure Machine Learning
 
 En el caso de las canalizaciones creadas en el diseñador, puede encontrar el archivo **70_driver_log** en la página de creación o en la página de detalles de ejecución de la canalización.
 
@@ -148,7 +123,7 @@ Cuando envía una ejecución de canalización y permanece en la página de creac
 1. En el panel derecho del módulo, vaya a la pestaña **Resultados y registros**.
 1. Expanda el panel derecho y seleccione el archivo **70_driver_log. txt** para verlo en el explorador. También puede descargar registros localmente.
 
-    ![Panel de salida expandido en el diseñador](./media/how-to-debug-pipelines/designer-logs.png)
+    ![Panel de salida expandido en el diseñador](./media/how-to-debug-pipelines/designer-logs.png)?view=azure-ml-py&preserve-view=true)?view=azure-ml-py&preserve-view=true)
 
 ### <a name="get-logs-from-pipeline-runs"></a>Obtención de registros desde las ejecuciones de canalización
 
@@ -174,6 +149,6 @@ En algunos casos, es posible que tenga que depurar interactivamente el código d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte la referencia del SDK para encontrar ayuda para los paquetes [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) y [azureml-pipelines-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py).
+* Consulte la referencia del SDK para encontrar ayuda para los paquetes [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py&preserve-view=true) y [azureml-pipelines-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true).
 
 * Vea la lista de [excepciones y códigos de error del diseñador](algorithm-module-reference/designer-error-codes.md).
