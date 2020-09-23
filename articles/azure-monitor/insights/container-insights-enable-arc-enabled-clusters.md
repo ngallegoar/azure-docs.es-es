@@ -3,12 +3,12 @@ title: Configuración de un clúster de Kubernetes habilitado para Azure Arc con
 description: En este artículo se describe cómo configurar la supervisión con Azure Monitor para contenedores en clústeres de Kubernetes habilitados para Azure Arc.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: f8002b20f37ca5149c58ca3e29402916ebbc1333
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 54a8fea6ddb46dc00fff29ad83a2a348d9218380
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092888"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090625"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Habilitación de la supervisión en el clúster de Kubernetes habilitado para Azure Arc
 
@@ -124,7 +124,7 @@ Para habilitar la supervisión del clúster mediante PowerShell o el script de B
 4. Si quiere usar el área de trabajo de Log Analytics de Azure Monitor existente, configure la variable `$logAnalyticsWorkspaceResourceId` con el valor correspondiente que representa el id. de recurso del área de trabajo. De lo contrario, configure la variable en `""` y el script creará un área de trabajo predeterminada en el grupo de recursos predeterminado de la suscripción al clúster, si aún no existe en la región. El área de trabajo predeterminada creada es similar al formato de *DefaultWorkspace-\<SubscriptionID>-\<Region>* .
 
     ```powershell
-    $logAnalyticsWorkspaceResourceId = “/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>”
+    $logAnalyticsWorkspaceResourceId = "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>"
     ```
 
 5. Si el clúster de Kubernetes habilitado para Arc se comunica mediante un servidor proxy, configure la variable `$proxyEndpoint` con la dirección URL del servidor proxy. Si el clúster no se comunica mediante un servidor proxy, no podrá configurar el valor en `""`.  Para más información, consulte [Configuración del punto de conexión proxy](#configure-proxy-endpoint) más adelante en este artículo.
