@@ -11,22 +11,19 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 09dd444d0d7409ca86955d2854aec82f07db0c4d
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 10c0200aae5ffa432c2da037d58d455fc28e8acd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185407"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904967"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Creación, revisión e implementación de modelos de aprendizaje automático automatizado con Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+
 
 En este artículo, aprenderá a crear, explorar e implementar modelos de aprendizaje automático automatizado sin una sola línea de código en Azure Machine Learning Studio.
 
->[!IMPORTANT]
-> La experiencia de aprendizaje automático automatizada de Azure Machine Learning Studio se encuentra en versión preliminar. Es posible que algunas características no se admitan o que tengan funcionalidades limitadas.
-
- El aprendizaje automático automatizado es un proceso en el que se selecciona automáticamente el mejor algoritmo de aprendizaje automático para sus datos específicos. Este proceso le permite generar modelos de aprendizaje automático rápidamente. [Más información sobre el aprendizaje automático automatizado](concept-automated-ml.md).
+El aprendizaje automático automatizado es un proceso en el que se selecciona automáticamente el mejor algoritmo de aprendizaje automático para sus datos específicos. Este proceso le permite generar modelos de aprendizaje automático rápidamente. [Más información sobre el aprendizaje automático automatizado](concept-automated-ml.md).
  
 Para obtener un ejemplo completo, pruebe el [tutorial para crear un modelo de clasificación con la interfaz de ML automatizado de Azure Machine Learning](tutorial-first-experiment-automated-ml.md). 
 
@@ -36,7 +33,7 @@ Si prefiere una experiencia basada en código de Python, [configure sus experime
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Un área de trabajo de Azure Machine Learning con un tipo de **Enterprise Edition**. Consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).  Para actualizar un área de trabajo existente a Enterprise Edition, consulte [Actualización a Enterprise Edition](how-to-manage-workspace.md#upgrade).
+* Un área de trabajo de Azure Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md). 
 
 ## <a name="get-started"></a>Introducción
 
@@ -69,7 +66,7 @@ De lo contrario, verá una lista de los experimentos de aprendizaje automático 
 
     1. Seleccione **Siguiente** para abrir el formulario **Datastore and file selection** (Almacén de datos y selección de archivos). En este formulario, seleccione dónde quiere cargar el conjunto de datos: el contenedor de almacenamiento predeterminado que se crea automáticamente con el área de trabajo, o bien elija un contenedor de almacenamiento que quiera usar para el experimento. 
     
-        1. Si los datos están detrás de una red virtual, debe habilitar la función de **omitir la validación** para asegurarse de que el área de trabajo pueda tener acceso a los datos. Obtenga más información sobre el [aislamiento de red y la privacidad](how-to-enable-virtual-network.md#machine-learning-studio). 
+        1. Si los datos están detrás de una red virtual, debe habilitar la función de **omitir la validación** para asegurarse de que el área de trabajo pueda tener acceso a los datos. Para obtener más información, consulte [Uso de Azure Machine Learning en una red virtual de Azure](how-to-enable-studio-virtual-network.md). 
     
     1. Seleccione **Examinar** para cargar el archivo de datos del conjunto de datos. 
 
@@ -120,7 +117,10 @@ De lo contrario, verá una lista de los experimentos de aprendizaje automático 
 
 1. En el formulario **Task type and settings** (Tipo de tarea y configuración), seleccione el tipo de tarea: clasificación, regresión o previsión. Para más información, vea los [tipos de tareas admitidos](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast).
 
-    1. Para la **clasificación**, también puede habilitar el aprendizaje profundo, que se usa para las características de texto.
+    1. Para **classification** (clasificación), también puede habilitar el aprendizaje profundo.
+    
+        Si el aprendizaje profundo está habilitado, la validación se limita a _train_validation split_. [Obtenga más información sobre las opciones de validación](how-to-configure-cross-validation-data-splits.md).
+
 
     1. Para la **previsión**, puede: 
     
@@ -135,10 +135,10 @@ De lo contrario, verá una lista de los experimentos de aprendizaje automático 
     Configuraciones adicionales|Descripción
     ------|------
     Métrica principal| Métrica principal usada para puntuar el modelo. [Más información sobre las métricas del modelo](how-to-configure-auto-train.md#primary-metric).
-    Explicación del mejor modelo | Seleccione esta opción para habilitar o deshabilitar la visualización de la explicación del mejor modelo recomendado.
-    Blocked algorithms (Algoritmos bloqueados)| Seleccione los algoritmos que desea excluir del trabajo de entrenamiento.
+    Explicación del mejor modelo | Seleccione esta opción para habilitar o deshabilitar la visualización de explicaciones del mejor modelo recomendado. <br> Esta funcionalidad no está disponible actualmente para [algunos algoritmos de previsión](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
+    Blocked algorithms (Algoritmos bloqueados)| Seleccione los algoritmos que desea excluir del trabajo de entrenamiento. <br><br> La opción para permitir los algoritmos solo está disponible para los [experimentos de SDK](how-to-configure-auto-train.md#supported-models). <br> Vea los [modelos admitidos para cada tipo de tarea](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?view=azure-ml-py&preserve-view=true).
     Criterios de exclusión| Cuando se cumple alguno de estos criterios, se detiene el trabajo de entrenamiento. <br> *Tiempo de trabajo de entrenamiento (horas)* : cantidad de tiempo para permitir que el trabajo de entrenamiento se ejecute. <br> *Metric score threshold* (Umbral de puntuación de métrica):  puntuación mínima de métrica para todas las canalizaciones. Esto garantiza que si tiene una métrica objetivo definida que desee alcanzar, no dedicará más tiempo en el trabajo de entrenamiento que el necesario.
-    Validación| Seleccione una de las opciones de validación cruzada en el trabajo de entrenamiento. [Más información sobre la validación cruzada](how-to-configure-cross-validation-data-splits.md#prerequisites).
+    Validación| Seleccione una de las opciones de validación cruzada en el trabajo de entrenamiento. <br> [Más información sobre la validación cruzada](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>La previsión solo admite la validación cruzada de k iteraciones.
     Simultaneidad| *Número máximo de iteraciones simultáneas*: número máximo de canalizaciones (iteraciones) para probar en el trabajo de entrenamiento. El trabajo no ejecutará más iteraciones que el número especificado de ellas.
 
 1. (Opcional) Consulte la configuración de caracterización: Si decide habilitar **Caracterización automática** en el formulario **Ver configuración de caracterización**, se aplican las técnicas de caracterización predeterminadas. En **Ver configuración de caracterización** puede cambiar estos valores predeterminados y personalizarlos según corresponda. Obtenga información sobre cómo [personalizar las caracterizaciones](#customize-featurization). 
@@ -183,7 +183,7 @@ Se incluye | Especifica las columnas que se van a incluir para el entrenamiento.
 Tipo de característica| Cambia el tipo de valor de la columna seleccionada.
 Imputar con| Selecciona el valor con los cuales imputar los valores que faltan en los datos.
 
-![Formulario del tipo de tarea de Azure Machine Learning Studio](media/how-to-use-automated-ml-for-ml-models/custom-featurization.png)
+![Ingeniería de características personalizadas de Azure Machine Learning](media/how-to-use-automated-ml-for-ml-models/custom-featurization.png)
 
 ## <a name="run-experiment-and-view-results"></a>Ejecución del experimento y visualización de los resultados
 
@@ -222,7 +222,7 @@ ML automatizado le ayuda a implementar el modelo sin escribir código:
 
 1. Rellene el panel **Implementar modelo**.
 
-    Campo| Value
+    Campo| Valor
     ----|----
     Nombre| Escriba un nombre único para la implementación.
     Descripción| Escriba una descripción para saber mejor para qué sirve esta implementación.

@@ -1,6 +1,6 @@
 ---
-title: Establecimiento de la contraseña de Azure Resource Manager en el dispositivo Azure Stack Edge con GPU
-description: Describe cómo conectarse a la instancia de Azure Resource Manager que se ejecuta en Azure Stack Edge con GPU mediante Azure PowerShell.
+title: Establecimiento de la contraseña de Azure Resource Manager en el dispositivo Azure Stack Edge Pro con GPU
+description: En este artículo se explica cómo conectarse a la instancia de Azure Resource Manager que se ejecuta en Azure Stack Edge Pro con GPU a través de Azure PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 6a59510b342f7ebd3969a4bb4fcfd75fffd04804
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: df5fea8101834dae089ab97354c438363321a707
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254158"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904485"
 ---
-# <a name="set-azure-resource-manager-password-on-azure-stack-edge-gpu-device"></a>Establecimiento de la contraseña de Azure Resource Manager en el dispositivo Azure Stack Edge con GPU
+# <a name="set-azure-resource-manager-password-on-azure-stack-edge-pro-gpu-device"></a>Establecimiento de la contraseña de Azure Resource Manager en el dispositivo Azure Stack Edge Pro con GPU
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
@@ -122,7 +122,7 @@ El procedimiento para establecer la contraseña puede variar en función de si u
     $pass = ConvertTo-SecureString $password -AsPlainText -Force
     $key = ConvertTo-SecureString $cik -AsPlainText -Force
     ```
-    Use las cadenas seguras generadas anteriormente como parámetros en el cmdlet Set-AzDataBoxEdgeUser para restablecer la contraseña. Use el mismo grupo de recursos que utilizó al crear el recurso de Azure Stack Edge o Data Box Gateway.
+    Use las cadenas seguras generadas anteriormente como parámetros en el cmdlet Set-AzDataBoxEdgeUser para restablecer la contraseña. Use el mismo grupo de recursos que usó al crear el recurso de Azure Stack Edge Pro o Data Box Gateway.
 
     ```azurepowershell
     Set-AzDataBoxEdgeUser -ResourceGroupName $resourceGroup -DeviceName $devicename -Name EdgeARMUser  -Password $pass -EncryptionKey $key

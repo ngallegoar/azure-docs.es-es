@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: c27c5fae45f7cde57f2db12c05107d2b77b90a2c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0af9d6906e038a4b9285a2c302fc0c98345fdbd9
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012388"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023761"
 ---
 # <a name="use-the-session-management-rest-api"></a>Uso de la API REST de administración de sesión
 
@@ -122,7 +122,7 @@ $sessionId = "d31bddca-dab7-498e-9bc9-7594bc12862f"
 Hay algunos comandos para consultar o modificar los parámetros de las sesiones existentes.
 
 > [!CAUTION]
-En el caso de todas las llamadas REST, enviar estos comandos con demasiada frecuencia hará que el servidor se limite y devuelva un error con el tiempo. El código de error en este caso es 429 ("demasiadas solicitudes"). Como regla general, debería haber un retraso de entre **5 y 10 segundos entre las llamadas subsiguientes**.
+> En el caso de todas las llamadas REST, enviar estos comandos con demasiada frecuencia hará que el servidor se limite y devuelva un error con el tiempo. El código de error en este caso es 429 ("demasiadas solicitudes"). Como regla general, debería haber un retraso de entre **5 y 10 segundos entre las llamadas subsiguientes**.
 
 ### <a name="update-session-parameters"></a>Actualización de los parámetros de sesión
 
