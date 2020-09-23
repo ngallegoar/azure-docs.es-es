@@ -1,6 +1,6 @@
 ---
-title: Implementación de un módulo de GPU en un dispositivo de Azure Stack Edge | Microsoft Docs
-description: En este artículo se describe cómo habilitar el proceso y preparar el dispositivo de Azure Stack Edge para el proceso a través de la interfaz de usuario local.
+title: Implementación de un módulo de GPU en un dispositivo Azure Stack Edge Pro | Microsoft Docs
+description: En este artículo se describe cómo habilitar el proceso y preparar el dispositivo Azure Stack Edge Pro para el proceso a través de la interfaz de usuario local.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,23 +8,23 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 5af86001d46bf194c9b61f325052a4cde0d86d5e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 1f16ef0ede25f17acb915a7812ae5b15b45f78a4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254566"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899728"
 ---
-# <a name="deploy-a-gpu-enabled-iot-module-on-azure-stack-edge-gpu-device"></a>Implementación de un módulo de IoT habilitado para GPU en un dispositivo de Azure Stack Edge
+# <a name="deploy-a-gpu-enabled-iot-module-on-azure-stack-edge-pro-gpu-device"></a>Implementación de un módulo de IoT habilitado para GPU en un dispositivo Azure Stack Edge Pro
 
-En este artículo se describe cómo implementar un módulo de IoT Edge habilitado para GPU en un dispositivo de GPU de Azure Stack Edge. 
+En este artículo se describe cómo implementar un módulo de IoT Edge habilitado para GPU en un dispositivo Azure Stack Edge Pro con GPU. 
 
 En este artículo aprenderá a:
-  - Preparar Azure Stack Edge para ejecutar un módulo de GPU
-  - Descargar e instalar código de ejemplo desde un repositorio de Git
-  - Compilar la solución y generar un manifiesto de implementación
-  - Implementar la solución en un dispositivo de Azure Stack Edge
-  - Supervisar la salida del módulo
+  - Preparar Azure Stack Edge Pro para ejecutar un módulo GPU.
+  - Descargar e instalar código de ejemplo desde un repositorio de Git.
+  - Compilar la solución y generar un manifiesto de implementación.
+  - Implementar la solución en un dispositivo Azure Stack Edge Pro.
+  - Supervisar la salida del módulo.
 
 
 ## <a name="about-sample-module"></a>Información sobre el módulo de ejemplo
@@ -35,8 +35,8 @@ El módulo de ejemplo de GPU de este artículo incluye código de ejemplo de pru
 
 Antes de comenzar, asegúrese de que tiene:
 
-- Tiene acceso a un dispositivo de Azure Stack Edge con un nodo habilitado para GPU. Este dispositivo se activa con un recurso en Azure. Consulte [Activación del dispositivo](azure-stack-edge-gpu-deploy-activate.md).
-- Ha configurado el proceso en este dispositivo. Siga los pasos del [Tutorial: Configuración del proceso en un dispositivo de Azure Stack Edge](azure-stack-edge-gpu-deploy-configure-compute.md).
+- Tiene acceso a un dispositivo Azure Stack Edge Pro con un nodo habilitado para GPU. Este dispositivo se activa con un recurso en Azure. Consulte [Activación del dispositivo](azure-stack-edge-gpu-deploy-activate.md).
+- Ha configurado el proceso en este dispositivo. Siga los pasos del [Tutorial: Configuración del proceso en un dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-compute.md).
 - Un registro de Azure Container Registry (ACR). Vaya a la hoja **Claves de acceso** y anote la contraseña, el nombre de usuario y el servidor de inicio de sesión de ACR. Para obtener más información, vaya a [Inicio rápido: Creación de un registro de contenedor privado con Azure Portal](../container-registry/container-registry-get-started-portal.md#create-a-container-registry).
 - Los siguientes recursos de desarrollo en un cliente Windows:
     - [CLI de Azure 2.0 o posterior](https://aka.ms/installazurecliwindows)
@@ -144,9 +144,9 @@ Antes de comenzar, asegúrese de que tiene:
 
 1. En la paleta de comandos de VS Code, ejecute **Azure IoT Hub: Select IoT Hub**.
 
-2. Elija la suscripción y la instancia de IoT Hub que contienen el dispositivo IoT Edge que desea configurar. En este caso, seleccione la suscripción usada para implementar el dispositivo de Azure Stack Edge y seleccione el dispositivo de IoT Edge creado para el dispositivo de Azure Stack Edge. Esto sucede cuando se configura el proceso mediante Azure Portal en los pasos anteriores.
+2. Elija la suscripción y la instancia de IoT Hub que contienen el dispositivo IoT Edge que desea configurar. En este caso, seleccione la suscripción que se ha usado para implementar el dispositivo Azure Stack Edge Pro y seleccione el dispositivo IoT Edge creado para el dispositivo Azure Stack Edge Pro. Esto sucede cuando se configura el proceso mediante Azure Portal en los pasos anteriores.
 
-3. En el explorador de Visual Studio Code, expanda la sección Azure IoT Hub. En **Dispositivos**, debería ver el dispositivo de IoT Edge correspondiente a su dispositivo de Azure Stack Edge. 
+3. En el explorador de Visual Studio Code, expanda la sección Azure IoT Hub. En **Dispositivos**, debería ver el dispositivo IoT Edge correspondiente a su dispositivo Azure Stack Edge Pro. 
 
     1. Seleccione ese dispositivo, haga clic con el botón derecho en **Iniciar la supervisión del punto de conexión de eventos integrado**.
   
@@ -156,7 +156,7 @@ Antes de comenzar, asegúrese de que tiene:
 
         ![Módulo en IoT Hub](media/azure-stack-edge-gpu-deploy-sample-module/module-iot-hub-1.png)  
 
-    3. El terminal de Visual Studio Code también debería mostrar los eventos de IoT Hub como salida de supervisión para el dispositivo de Azure Stack Edge.
+    3. El terminal de Visual Studio Code también debería mostrar los eventos de IoT Hub como salida de supervisión para el dispositivo Azure Stack Edge Pro.
 
         ![Supervisión de la salida](media/azure-stack-edge-gpu-deploy-sample-module/monitor-events-output-1.png) 
 

@@ -7,7 +7,7 @@
       href: scenarios-and-availability.md
     - name: Conceptos
       href: media-services-concepts.md
-- name: Primeros pasos
+- name: Introducción
   items:
     - name: Creación y administración de cuentas
       href: media-services-portal-create-account.md
@@ -323,11 +323,12 @@
           items:
             - name: Valor predefinido de tarea
               href: indexer-task-preset.md
+    - name: Análisis de contenido
+      items:
         - name: Proceso con Face Redactor
           href: media-services-face-redaction.md
-          items:
-            - name: Tutorial de Face Redactor
-              href: media-services-redactor-walkthrough.md
+        - name: Tutorial de Face Redactor
+          href: media-services-redactor-walkthrough.md
     - name: Configuración de la telemetría
       href: media-services-telemetry-overview.md
       items:
