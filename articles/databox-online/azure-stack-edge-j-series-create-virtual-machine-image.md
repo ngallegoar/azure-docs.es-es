@@ -1,6 +1,6 @@
 ---
-title: Creación de imágenes de máquina virtual para el dispositivo Azure Stack Edge con GPU
-description: Describe cómo crear imágenes de máquinas virtuales Linux o Windows para usarlas con el dispositivo Azure Stack Edge con GPU.
+title: Creación de imágenes de máquina virtual para el dispositivo Azure Stack Edge Pro con GPU
+description: En este artículo se explica cómo crear imágenes de máquinas virtuales Linux o Windows para usarlas con el dispositivo Azure Stack Edge Pro con GPU.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,24 +8,24 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: alkohli
-ms.openlocfilehash: fd87cbef4c667d9da1f93b448a2a67e6e90307b7
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 745d0df07b6d0d01acf0d564df8c242e16f3f56d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500290"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890986"
 ---
-# <a name="create-custom-vm-images-for-your-azure-stack-edge-device"></a>Creación de imágenes personalizadas de máquina virtual para el dispositivo Azure Stack Edge
+# <a name="create-custom-vm-images-for-your-azure-stack-edge-pro-device"></a>Creación de imágenes personalizadas de máquina virtual para el dispositivo Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Para implementar máquinas virtuales en el dispositivo Azure Stack Edge, debe ser capaz de crear imágenes personalizadas de máquina virtual que puede usar para crear máquinas virtuales. En este artículo se describen los pasos necesarios para crear imágenes personalizadas de máquinas virtuales Linux o Windows que se pueden usar para implementar máquinas virtuales en el dispositivo Azure Stack Edge.
+Para implementar máquinas virtuales en el dispositivo Azure Stack Edge Pro, debe ser capaz de crear imágenes personalizadas de máquina virtual que puede usar para crear máquinas virtuales. En este artículo se describen los pasos necesarios para crear imágenes personalizadas de máquinas virtuales Linux o Windows que se pueden usar para implementar máquinas virtuales en el dispositivo Azure Stack Edge Pro.
 
 ## <a name="vm-image-workflow"></a>Flujo de trabajo de la imagen de máquina virtual
 
-El flujo de trabajo requiere la creación de una máquina virtual en Azure, la personalización de la máquina virtual, la generalización y la descarga del VHD correspondiente a esa máquina virtual. Este VHD generalizado se carga en Azure Stack Edge, se crea el disco administrado a partir de ese VHD, se crea la imagen a partir del disco administrado y, por último, las máquinas virtuales se crean a partir de esa imagen.   
+El flujo de trabajo requiere la creación de una máquina virtual en Azure, la personalización de la máquina virtual, la generalización y la descarga del VHD correspondiente a esa máquina virtual. Este VHD generalizado se carga en Azure Stack Edge Pro, se crea el disco administrado a partir de ese VHD, se crea la imagen a partir del disco administrado y, por último, las máquinas virtuales se crean a partir de esa imagen.   
 
-Para más información, vaya a [Implementación de una máquina virtual en el dispositivo Azure Stack Edge mediante Azure PowerShell](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).
+Para más información, vaya a [Implementación de una máquina virtual en el dispositivo Azure Stack Edge Pro con Azure PowerShell](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).
 
 
 ## <a name="create-a-windows-custom-vm-image"></a>Creación de una imagen de máquina virtual personalizada con Windows
@@ -44,7 +44,7 @@ Realice los pasos siguientes para crear una imagen de máquina virtual Windows.
    
        También puede consultar [Introducción a Sysprep (preparación del sistema)](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
-Use este VHD para crear e implementar una máquina virtual en el dispositivo Azure Stack Edge.
+Use este VHD para crear e implementar una máquina virtual en el dispositivo Azure Stack Edge Pro.
 
 ## <a name="create-a-linux-custom-vm-image"></a>Crear una imagen de máquina virtual personalizada con Linux
 
@@ -69,7 +69,7 @@ Realice los pasos siguientes para crear una imagen de máquina virtual Linux.
 
 1. [Descargue un disco de sistema operativo existente](../virtual-machines/linux/download-vhd.md).
 
-Use este VHD para crear e implementar una máquina virtual en el dispositivo Azure Stack Edge. Puede usar las dos imágenes de Azure Marketplace siguientes para crear imágenes personalizadas de Linux:
+Use este VHD para crear e implementar una máquina virtual en el dispositivo Azure Stack Edge Pro. Puede usar las dos imágenes de Azure Marketplace siguientes para crear imágenes personalizadas de Linux:
 
 |Nombre del elemento  |Descripción  |Publicador  |
 |---------|---------|---------|
@@ -81,4 +81,4 @@ Para obtener una lista completa de imágenes de Azure Marketplace que podrían f
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Implementación de máquinas virtuales en el dispositivo Azure Stack Edge](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).
+[Implementación de máquinas virtuales en un dispositivo Azure Stack Edge Pro](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md)
