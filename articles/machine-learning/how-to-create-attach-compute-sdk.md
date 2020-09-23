@@ -1,5 +1,5 @@
 ---
-title: Creación de recursos de proceso con el SDK de Python
+title: Creación de un entrenamiento e implementación de los procesos (Python)
 titleSuffix: Azure Machine Learning
 description: Uso del SDK de Python de Azure Machine Learning para crear recursos de proceso de entrenamiento e implementación (destinos de proceso) para el aprendizaje automático
 services: machine-learning
@@ -11,16 +11,14 @@ ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 96aa6839fe51bb8a8c26f411c1a1f9df6b8c5a7f
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: ac440db4c1dbddd317743e2d681a62251624d9bd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147298"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898121"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-with-python-sdk"></a>Creación de destinos de proceso para la implementación y el entrenamiento de modelos con el SDK de Python
-
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En este artículo, se usa el SDK de Python de Azure Machine Learning para crear y administrar destinos de proceso. También puede crear y administrar destinos de proceso con:
 * [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md) 
@@ -31,8 +29,16 @@ En este artículo, se usa el SDK de Python de Azure Machine Learning para crear 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
-* El [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* El [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
 * Un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
+
+## <a name="limitations"></a>Limitaciones
+
+* **No cree varios datos adjuntos simultáneos en el mismo proceso** desde su área de trabajo. Por ejemplo, adjuntar un clúster de Azure Kubernetes Service a un área de trabajo con dos nombres diferentes. Cada adjunto nuevo interrumpirá los adjuntos anteriores existentes.
+
+    Si quiere volver a adjuntar un destino de proceso, por ejemplo, para cambiar la configuración de TLS u otra configuración del clúster, primero debe eliminar los datos adjuntos existentes.
+
+* Algunos de los escenarios que se enumeran en este documento se marcan como __versión preliminar__. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="whats-a-compute-target"></a>¿Qué es un destino de proceso?
 
@@ -55,16 +61,33 @@ Use las secciones siguientes para configurar estos destinos de proceso:
 * [Máquinas virtuales remotas](#vm)
 * [HDInsight de Azure](#hdinsight)
 
+## <a name="compute-targets-for-inference"></a>Destinos de proceso para inferencia
+
+Al realizar la inferencia, Azure Machine Learning crea un contenedor de Docker que hospeda el modelo y los recursos asociados necesarios para utilizarlo. Este contenedor se usa después en uno de los siguientes escenarios de implementación:
+
+* Como __servicio web__ que se usa para la inferencia en tiempo real. Las implementaciones de servicios web usan uno de los siguientes destinos de proceso:
+
+    * [Equipo local](#local)
+    * [Instancia de proceso de Azure Machine Learning](#instance)
+    * [Azure Container Instances](#aci)
+    * [Azure Kubernetes Services](how-to-create-attach-kubernetes.md)
+    * Azure Functions (versión preliminar). La implementación en Azure Functions solo usa Azure Machine Learning para compilar el contenedor de Docker. Desde allí, se implementa mediante Azure Functions. Para obtener más información, consulte [Implementación de un modelo de Machine Learning en Azure Functions (versión preliminar)](how-to-deploy-functions.md).
+
+* Como punto de conexión de __inferencia de lotes__ que se usa para procesar periódicamente lotes de datos. Las inferencias de lotes usan el [clúster de proceso de Azure Machine Learning](#amlcompute).
+
+* A un __dispositivo IoT__ (versión preliminar). La implementación en un dispositivo IoT solo usa Azure Machine Learning para compilar el contenedor de Docker. Desde allí, se implementa mediante Azure IoT Edge. Para más información, consulte [Implementación del módulo IoT Edge (versión preliminar)](/azure/iot-edge/tutorial-deploy-machine-learning).
 
 ## <a name="local-computer"></a><a id="local"></a>Equipo local
 
-Cuando se usa el equipo local para el entrenamiento, no es necesario crear un destino de proceso.  Simplemente [envíe la ejecución de entrenamiento](how-to-set-up-training-targets.md) desde la máquina local.
+Cuando se usa el equipo local para el **entrenamiento**, no es necesario crear un destino de proceso.  Simplemente [envíe la ejecución de entrenamiento](how-to-set-up-training-targets.md) desde la máquina local.
+
+Cuando se usa el equipo local para la **inferencia**, debe tener instalado Docker. Para realizar la implementación, utilice [LocalWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#deploy-configuration-port-none-) para definir el puerto que utilizará el servicio web. A continuación, use el proceso de implementación normal como se describe en [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="azure-machine-learning-compute-cluster"></a><a id="amlcompute"></a>Clúster de Proceso de Azure Machine Learning
 
 El clúster de Proceso de Azure Machine Learning es una infraestructura de proceso administrado que permite al usuario crear fácilmente un proceso de uno o varios nodos. El proceso se crea dentro de la región de su área de trabajo y es un recurso que se puede compartir con otros usuarios del área de trabajo. El proceso se escala verticalmente de forma automática cuando se envía un trabajo y se puede colocar en una instancia de Azure Virtual Network. El proceso se ejecuta en un entorno con contenedores y empaqueta las dependencias del modelo en un [contenedor de Docker](https://www.docker.com/why-docker).
 
-Proceso Azure Machine Learning Compute para distribuir el proceso de entrenamiento en un clúster de nodos de proceso de CPU o GPU de la nube. Para más información sobre los tamaños de máquina virtual que incluyen GPU, consulte [Tamaños de máquinas virtuales optimizadas para GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu). 
+Puede usar Proceso de Azure Machine Learning para distribuir un proceso de entrenamiento o inferencia de lotes en un clúster de nodos de proceso de CPU o GPU en la nube. Para más información sobre los tamaños de máquina virtual que incluyen GPU, consulte [Tamaños de máquinas virtuales optimizadas para GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu). 
 
 Proceso de Azure Machine Learning tiene límites predeterminados, como el número de núcleos que se pueden asignar. Para más información, consulte [Administración y solicitud de cuotas para recursos de Azure](how-to-manage-quotas.md).
 
@@ -87,7 +110,7 @@ Se puede reutilizar una instancia de Proceso de Azure Machine Learning entre tra
 
     O bien puede crear y adjuntar un recurso persistente de Proceso de Azure Machine Learning en [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md#portal-create).
 
-Ahora que ha asociado el proceso, el siguiente paso es [enviar la ejecución de entrenamiento](how-to-set-up-training-targets.md).
+Ahora que ha adjuntado el proceso, el siguiente paso es [enviar la ejecución de entrenamiento](how-to-set-up-training-targets.md) o [ejecutar la inferencia de lotes](how-to-use-parallel-run-step.md).
 
  ### <a name="lower-your-compute-cluster-cost"></a><a id="low-pri-vm"></a> Reducción del costo del clúster de proceso
 
@@ -201,8 +224,15 @@ Las instancias de proceso pueden ejecutar trabajos de manera segura en un [entor
         instance.wait_for_completion(show_output=True)
     ```
 
-Ahora que ha asociado el proceso y ha configurado la ejecución, el siguiente paso es [enviar la ejecución de entrenamiento](how-to-set-up-training-targets.md).
+Ahora que ha adjuntado el proceso y ha configurado la ejecución, el siguiente paso es [enviar la ejecución de entrenamiento](how-to-set-up-training-targets.md) o [implementar un modelo para la inferencia](how-to-deploy-local-container-notebook-vm.md).
 
+## <a name="azure-container-instance"></a><a id="aci"></a>Azure Container Instances
+
+Las instancias de Azure Container Instances (ACI) se crean dinámicamente al implementar un modelo. No se puede crear o adjuntar ACI al área de trabajo de ninguna otra manera. Para más información, consulte [Implementación de un modelo en Azure Container Instances](how-to-deploy-azure-container-instance.md).
+
+## <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
+
+Azure Kubernetes Service (AKS) permite una variedad de opciones de configuración cuando se usa con Azure Machine Learning. Para obtener más información, consulte [Creación y conexión de Azure Kubernetes Service](how-to-create-attach-kubernetes.md).
 
 ## <a name="remote-virtual-machines"></a><a id="vm"></a>Máquinas virtuales remotas
 
@@ -240,6 +270,9 @@ Use Azure Data Science Virtual Machine (DSVM) como máquina virtual de Azure pre
    ```
 
    O bien puede asociar la instancia de DSVM al área de trabajo [mediante Azure Machine Learning Studio](how-to-create-attach-compute-studio.md#attached-compute).
+
+    > [!WARNING]
+    > No cree varios datos adjuntos simultáneos en el mismo DSVM desde su área de trabajo. Cada adjunto nuevo interrumpirá los adjuntos anteriores existentes.
 
 1. **Configurar**: Cree una configuración de ejecución para el destino de proceso de Data Science Virtual Machine. Docker y Conda se utilizan para crear y configurar el entorno de entrenamiento en la DSVM.
 
@@ -285,6 +318,9 @@ Azure HDInsight es una plataforma popular para el análisis de macrodatos. La pl
    ```
 
    O bien puede asociar el clúster de HDInsight al área de trabajo [mediante Azure Machine Learning Studio](how-to-create-attach-compute-studio.md#attached-compute).
+
+    > [!WARNING]
+    > No cree varios datos adjuntos simultáneos en el mismo HDInsight desde su área de trabajo. Cada adjunto nuevo interrumpirá los adjuntos anteriores existentes.
 
 1. **Configurar**: Cree una configuración de ejecución para el destino de proceso de HDI. 
 
@@ -332,6 +368,9 @@ except ComputeTargetException:
 
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
+
+> [!WARNING]
+> No cree varios datos adjuntos simultáneos en la misma instancia de Azure Batch desde su área de trabajo. Cada adjunto nuevo interrumpirá los adjuntos anteriores existentes.
 
 ### <a name="azure-databricks"></a><a id="databricks"></a>Azure Databricks
 
@@ -386,6 +425,9 @@ except ComputeTargetException:
 
 Para consultar un ejemplo más detallado, vea un [cuaderno de ejemplo](https://aka.ms/pl-databricks) en GitHub.
 
+> [!WARNING]
+> No cree varios datos adjuntos simultáneos en la misma instancia de Azure Databricks desde su área de trabajo. Cada adjunto nuevo interrumpirá los adjuntos anteriores existentes.
+
 ### <a name="azure-data-lake-analytics"></a><a id="adla"></a>Azure Data Lake Analytics
 
 Azure Data Lake Analytics es una plataforma de análisis de macrodatos de la nube de Azure. Se puede usar como destino de proceso con una canalización de Azure Machine Learning.
@@ -436,8 +478,11 @@ except ComputeTargetException:
 
 Para consultar un ejemplo más detallado, vea un [cuaderno de ejemplo](https://aka.ms/pl-adla) en GitHub.
 
+> [!WARNING]
+> No cree varios datos adjuntos simultáneos en el mismo ADLA desde su área de trabajo. Cada adjunto nuevo interrumpirá los adjuntos anteriores existentes.
+
 > [!TIP]
-> Las canalizaciones de Azure Machine Learning solo pueden trabajar con datos almacenados en el almacén de datos predeterminado de la cuenta de Data Lake Analytics. Si los datos con los que necesita trabajar están en un almacén no predeterminado, puede usar [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) para copiar los datos antes del entrenamiento.
+> Las canalizaciones de Azure Machine Learning solo pueden trabajar con datos almacenados en el almacén de datos predeterminado de la cuenta de Data Lake Analytics. Si los datos con los que necesita trabajar están en un almacén no predeterminado, puede usar [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py&preserve-view=true) para copiar los datos antes del entrenamiento.
 
 ## <a name="notebook-examples"></a>Ejemplos de cuadernos
 

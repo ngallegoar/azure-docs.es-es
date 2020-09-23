@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: c3abd6a57eac851a5440ecdef6185cb310305434
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 7f10454eff7958f59cf16b19e98918062b2a61a3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146783"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886310"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Funcionamiento de Azure Machine Learning: Arquitectura y conceptos
 
@@ -110,7 +110,7 @@ Para ver configuraciones de ejecución de ejemplo, consulte [Uso de un destino d
 
 ### <a name="estimators"></a>Estimadores
 
-Para facilitar el entrenamiento de modelos con marcos conocidos, la clase Estimator le permite construir fácilmente configuraciones de ejecución. Puede crear y usar un objeto [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) genérico para enviar scripts de entrenamiento que usen cualquier plataforma de aprendizaje que elija, como scikit-learn.
+Para facilitar el entrenamiento de modelos con marcos conocidos, la clase Estimator le permite construir fácilmente configuraciones de ejecución. Puede crear y usar un objeto [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py&preserve-view=true) genérico para enviar scripts de entrenamiento que usen cualquier plataforma de aprendizaje que elija, como scikit-learn.
 
 Para obtener más información acerca de los objetos Estimator, consulte [Entrenamiento de modelos con Azure Machine Learning mediante un objeto Estimator](how-to-train-ml-models.md).
 
@@ -123,7 +123,9 @@ Al enviar una ejecución, Azure Machine Learning comprime el directorio que cont
 
 ### <a name="logging"></a>Registro
 
-Al desarrollar la solución, use el SDK de Python de Azure Machine Learning en el script de Python para registrar las métricas arbitrarias. Después de la ejecución, consulte las métricas para determinar si la ejecución ha generado el modelo que quiere implementar.
+Azure Machine Learning registra automáticamente las métricas de ejecución estándar. Sin embargo, también puede [usar el SDK de Python para registrar métricas arbitrarias](how-to-track-experiments.md).
+
+Hay varias maneras de ver los registros: supervisar el estado de ejecución en tiempo real o ver los resultados después de la finalización. Para obtener más información, consulte [Supervisión y visualización de registros de ejecución de ML](how-to-monitor-view-training-logs.md).
 
 
 > [!NOTE]
@@ -189,6 +191,17 @@ Si ha habilitado el ajuste automático de escala, Azure ajustará automáticamen
 
 Para obtener un ejemplo de implementación de un modelo como servicio web, consulte [Implementación de un modelo de clasificación de imágenes en Azure Container Instances](tutorial-deploy-models-with-aml.md).
 
+#### <a name="real-time-endpoints"></a>Puntos de conexión en tiempo real
+
+Al implementar un modelo entrenado en el diseñador, puede [implementar el modelo como punto de conexión en tiempo real](tutorial-designer-automobile-price-deploy.md). Normalmente, un punto de conexión en tiempo real recibe una única solicitud a través del punto de conexión REST y devuelve una predicción en tiempo real. Esto contrasta con el procesamiento por lotes, que procesa varios valores a la vez y guarda los resultados en un almacén de datos después de la finalización.
+
+#### <a name="pipeline-endpoints"></a>Puntos de conexión de canalización
+
+Los puntos de conexión de canalización permiten llamar a las [canalizaciones de ML](#ml-pipelines) mediante programación a través de un punto de conexión REST. Los puntos de conexión de canalización permiten automatizar los flujos de trabajo de canalización.
+
+Un punto de conexión de canalización es una colección de canalizaciones publicadas. Esta organización lógica le permite administrar y llamar a varias canalizaciones mediante el mismo punto de conexión. Cada canalización publicada en un punto de conexión de canalización tiene versiones. Puede seleccionar una canalización predeterminada para el punto de conexión o especificar una versión en la llamada REST.
+ 
+
 #### <a name="iot-module-endpoints"></a>Puntos de conexión del módulo de IoT
 
 Un punto de conexión del módulo de IoT implementado es un contenedor de Docker que incluye el modelo y el script asociado o la aplicación y las dependencias adicionales. Estos módulos se implementan con Azure IoT Edge en dispositivos Edge.
@@ -212,12 +225,13 @@ Los pasos de canalización se pueden reutilizar y se pueden ejecutar sin volver 
 
 ### <a name="studio"></a>Estudio
 
-[Azure Machine Learning Studio](https://ml.azure.com) proporciona una vista web de todos los artefactos del área de trabajo.  Puede ver los resultados y los detalles de los conjuntos de datos, los experimentos, las canalizaciones, los modelos y los puntos de conexión.  También puede administrar los recursos de proceso y los almacenes de datos en Studio.
+[Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md) proporciona una vista web de todos los artefactos del área de trabajo.  Puede ver los resultados y los detalles de los conjuntos de datos, los experimentos, las canalizaciones, los modelos y los puntos de conexión.  También puede administrar los recursos de proceso y los almacenes de datos en Studio.
 
 Studio también es el lugar desde el que se puede acceder a las herramientas interactivas que forman parte de Azure Machine Learning:
 
-+ [Diseñador de Azure Machine Learning (versión preliminar)](concept-designer.md) para realizar los pasos del flujo de trabajo sin escribir código
++ [Diseñador de Azure Machine Learning](concept-designer.md) para realizar los pasos del flujo de trabajo sin escribir código
 + Experiencia web para el [aprendizaje automático automatizado](concept-automated-ml.md)
++ [Cuadernos de Azure Machine Learning](how-to-run-jupyter-notebooks.md) para escribir y ejecutar su propio código en servidores integrados de Jupyter Notebook.
 + [Proyectos de etiquetado de datos](how-to-create-labeling-projects.md) para crear, administrar y supervisar proyectos para etiquetar los datos
 
 ### <a name="programming-tools"></a>Herramientas de programación
@@ -226,8 +240,9 @@ Studio también es el lugar desde el que se puede acceder a las herramientas int
 > Las herramientas marcadas (versión preliminar) a continuación se encuentran actualmente en versión preliminar pública.
 > Se ofrece la versión preliminar sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-+  Interactúe con el servicio en cualquier entorno de Python con el [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
++  Interactúe con el servicio en cualquier entorno de Python con el [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
 + Interactúe con el servicio en cualquier entorno de R con el [SDK de Azure Machine Learning para R](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (versión preliminar).
++ Use el [diseñador de Azure Machine Learning](concept-designer.md) para seguir los pasos del flujo de trabajo sin escribir código. 
 + Use la [CLI de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) para la automatización.
 + El [Acelerador de soluciones Many Models](https://aka.ms/many-models) (versión preliminar) se basa en Azure Machine Learning y permite entrenar, usar y administrar cientos o incluso miles de modelos de Machine Learning.
 

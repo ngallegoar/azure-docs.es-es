@@ -1,5 +1,5 @@
 ---
-title: Creación de recursos de proceso en Studio
+title: Creación de un entrenamiento e implementación de los procesos (Studio)
 titleSuffix: Azure Machine Learning
 description: Uso de Studio para crear recursos de proceso de entrenamiento e implementación (destinos de proceso) para el aprendizaje automático
 services: machine-learning
@@ -11,15 +11,14 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: 2e32eb9a2a13b8e247388e8da80dd5f5967fdc6d
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 5345fd81e41bbb354e11e1be23329c3130d4d0c2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147287"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898085"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Creación de destinos de proceso para la implementación y el entrenamiento de modelos en Azure Machine Learning Studio
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En este artículo, aprenderá a crear y administrar destinos de proceso en Azure Machine Studio.  También puede crear y administrar destinos de proceso con:
 
@@ -119,6 +118,9 @@ Durante la creación del clúster de proceso o la edición de los detalles del c
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-default.md)]
 
 ### <a name="inference-clusters"></a>Clústeres de inferencia
+
+> [!IMPORTANT]
+> El uso de Azure Kubernetes Service con Azure Machine Learning tiene varias opciones de configuración. Algunos escenarios, como las redes, requieren instalación y configuración adicionales. Para obtener más información sobre el uso de AKS con Azure ML, consulte [Creación y conexión de un clúster de Azure Kubernetes Service](how-to-create-attach-kubernetes.md).
 
 Cree o adjunte un clúster de Azure Kubernetes Service (AKS) para la inferencia a gran escala. Utilice los [pasos anteriores](#portal-create) para crear el clúster de AKS.  Después, rellene el formulario de la manera siguiente:
 

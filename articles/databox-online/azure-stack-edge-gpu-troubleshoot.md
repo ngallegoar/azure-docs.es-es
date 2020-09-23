@@ -1,6 +1,6 @@
 ---
-title: Uso de Azure Portal para solucionar problemas de Azure Stack Edge con GPU | Microsoft Docs
-description: Describe cómo solucionar los problemas de Azure Stack Edge con GPU.
+title: Uso de Azure Portal para solucionar problemas de Azure Stack Edge Pro con GPU | Microsoft Docs
+description: Describe cómo solucionar los problemas de Azure Stack Edge Pro con GPU.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/19/2020
 ms.author: alkohli
-ms.openlocfilehash: 92b82631ca78826dd927c6773c47072038eb4ab1
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 9deb10336d959a3f706cfc0ba970c3b83d5cd0a4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290130"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891547"
 ---
-# <a name="troubleshoot-issues-on-your-azure-stack-edge-gpu-device"></a>Solución de problemas en un dispositivo de Azure Stack Edge con GPU 
+# <a name="troubleshoot-issues-on-your-azure-stack-edge-pro-gpu-device"></a>Solución de problemas en un dispositivo Azure Stack Edge Pro con GPU 
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-En este artículo se describe cómo solucionar los problemas de un dispositivo de Azure Stack Edge con GPU. 
+En este artículo se describe cómo solucionar los problemas de un dispositivo Azure Stack Edge Pro con GPU. 
 
 
 ## <a name="run-diagnostics"></a>Ejecución de diagnósticos
@@ -55,7 +55,7 @@ Siga estos pasos para recopilar un paquete de soporte.
 
 ## <a name="gather-advanced-security-logs"></a>Recopilación de los registros de seguridad avanzada
 
-Los registros de seguridad avanzada pueden ser registros de intrusiones de software o hardware para el dispositivo de Azure Stack Edge.
+Los registros de seguridad avanzada pueden ser registros de intrusiones de software o hardware para un dispositivo Azure Stack Edge Pro.
 
 ### <a name="software-intrusion-logs"></a>Registros de intrusiones de software
 
@@ -67,7 +67,7 @@ Los registros de intrusiones de software o de firewall predeterminados se recopi
 
 - Si no se proporciona ninguna opción de inclusión específica, el registro del firewall se incluye de manera predeterminada en el paquete de soporte técnico.
 
-- En el paquete de soporte, el registro del firewall es `pfirewall.log` y se encuentra en la carpeta raíz. Este es un ejemplo del registro de intrusiones de software para el dispositivo de Azure Stack Edge. 
+- En el paquete de soporte, el registro del firewall es `pfirewall.log` y se encuentra en la carpeta raíz. Este es un ejemplo del registro de intrusiones de software para el dispositivo Azure Stack Edge Pro. 
 
     ```
     #Version: 1.5
@@ -101,7 +101,7 @@ Para detectar cualquier intrusión de hardware en el dispositivo, actualmente se
 
 - Si no se proporciona ninguna opción de inclusión específica, el registro de intrusiones de hardware se incluye de manera predeterminada en el paquete de soporte técnico.
 
-- En el paquete de soporte, el registro de intrusiones de hardware es `HWIntrusion.txt` y se encuentra en la carpeta raíz. Este es un ejemplo del registro de intrusiones de hardware para el dispositivo de Azure Stack Edge. 
+- En el paquete de soporte, el registro de intrusiones de hardware es `HWIntrusion.txt` y se encuentra en la carpeta raíz. Este es un ejemplo del registro de intrusiones de hardware para el dispositivo Azure Stack Edge Pro. 
 
     ```
     09/04/2019 15:51:23 system Critical The chassis is open while the power is off.
@@ -143,7 +143,7 @@ Estos son los errores que pueden aparecer durante la configuración de Azure Res
 | **Problemas o errores** |  **Resolución** | 
 |------------|-----------------|
 |Problemas generales|<li>[Compruebe que el dispositivo de Edge esté configurado correctamente](#verify-the-device-is-configured-properly).<li> [Compruebe que el cliente esté configurado correctamente](#verify-the-client-is-configured-properly).|
-|Add-AzureRmEnvironment: Se produjo un error al enviar la solicitud.<br>At line:1 char:1<br>+ Add-AzureRmEnvironment -Name Az3 -ARMEndpoint "https://management.dbe ...|Este error significa que el dispositivo de Azure Stack Edge no es accesible o no está configurado correctamente. Compruebe que el dispositivo de Edge y el cliente estén configurados correctamente. Para obtener una guía, consulte la fila **Problemas generales** en esta tabla.|
+|Add-AzureRmEnvironment: Se produjo un error al enviar la solicitud.<br>At line:1 char:1<br>+ Add-AzureRmEnvironment -Name Az3 -ARMEndpoint "https://management.dbe ...|Este error significa que no se puede acceder el dispositivo Azure Stack Edge Pro o que no está configurado correctamente. Compruebe que el dispositivo de Edge y el cliente estén configurados correctamente. Para obtener una guía, consulte la fila **Problemas generales** en esta tabla.|
 |El servicio devolvió un error. Consulte InnerException para obtener más información: Se ha cerrado la conexión subyacente: No se ha podido establecer la relación de confianza para el canal seguro SSL/TLS. |   Este error probablemente se deba a que uno o varios pasos de Traiga su propio certificado no se han completado correctamente. Puede encontrar una guía [aquí](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-j-series-connect-resource-manager#step-2-create-and-install-certificates). |
 |La operación devolvió un código de estado no válido "ServiceUnavailable". <br> Response status code does not indicate success: 503 (Servicio no disponible). | Este error puede deberse a cualquiera de las condiciones siguientes.<li>ArmStsPool está en estado detenido.</li><li>Cualquiera de los sitios web de los servicios de token de seguridad o Azure Resource Managers están inactivos.</li><li>El recurso de clúster de Azure Resource Manager está inactivo.</li><br><strong>Nota:</strong> El reinicio del dispositivo podría solucionar el problema, pero debe recopilar el paquete de soporte técnico para que pueda depurarlo aún más.|
 |AADSTS50126: Nombre de usuario o contraseña no válidos.<br>Id. de seguimiento: 29317da9-52fc-4ba0-9778-446ae5625e5a<br>Id. de correlación: 1b9752c4-8cbf-4304-a714-8a16527410f4<br>Marca de tiempo: 2019-11-15 09:21:57Z: Error en el servidor remoto: (400) Solicitud incorrecta.<br>At line:1 char:1 |Este error puede deberse a cualquiera de las condiciones siguientes.<li>Para un nombre de usuario y una contraseña no válidos, compruebe que el cliente haya cambiado la contraseña de Azure Portal siguiendo [estos](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-j-series-set-azure-resource-manager-password) pasos y, a continuación, usando la contraseña correcta.<li>Para un identificador de inquilino no válido, el identificador de inquilino es un GUID fijo y debe establecerse en `c0257de7-538f-415c-993a-1b87a031879d`.</li>|
@@ -182,7 +182,7 @@ Estos son los errores que pueden aparecer durante la configuración de Azure Res
 
 ## <a name="blob-storage-on-device"></a>Almacenamiento de blobs en el dispositivo 
 
-Estos son los errores relacionados con el almacenamiento de blobs en el dispositivo de Azure Stack Edge/Data Box Gateway.
+Estos son los errores relacionados con el almacenamiento de blobs en el dispositivo Azure Stack Edge Pro/Data Box Gateway.
 
 | **Problemas o errores** |  **Resolución** | 
 |--------------------|-----------------|
@@ -197,7 +197,7 @@ Estos son los errores relacionados con el almacenamiento de blobs en el disposit
 |El comando de AzCopy deja de responder durante 20 minutos antes de mostrar este error: `Error parsing source location… The SSL connection could not be established`.|Importe el certificado SSL para el dispositivo en el almacén de certificados del sistema. Para obtener más información, consulte [Descargar certificado](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate).|
 |El valor de uno de los encabezados HTTP no tiene el formato correcto.|Data Box no admite la versión instalada de la biblioteca de Microsoft Azure Storage para Python. Consulte los requisitos de almacenamiento de blobs de Azure Data Box para las versiones compatibles.|
 |… [SSL: CERTIFICATE_VERIFY_FAILED]…| Antes de ejecutar Python, establezca la variable de entorno REQUESTS_CA_BUNDLE a la ruta de acceso del archivo de certificado SSL con codificación Base64, consulte [Descargar certificado](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate). Por ejemplo:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>O bien, agregue el certificado al almacén de certificados del sistema y, a continuación, establezca esta variable de entorno a la ruta de acceso de dicho almacén. Por ejemplo, en Ubuntu:<br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`.|
-|Se agota el tiempo de espera de conexión.|Inicie sesión en Azure Stack Edge y, a continuación, compruebe que esté desbloqueado. Cada vez que se reinicia el dispositivo, permanece bloqueado hasta que alguien inicia sesión.|
+|Se agota el tiempo de espera de conexión.|Inicie sesión en Azure Stack Edge Pro y compruebe que esté desbloqueado. Cada vez que se reinicia el dispositivo, permanece bloqueado hasta que alguien inicia sesión.|
 
 
 ## <a name="next-steps"></a>Pasos siguientes
