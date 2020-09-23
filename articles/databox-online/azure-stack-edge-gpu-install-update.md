@@ -1,6 +1,6 @@
 ---
-title: Instalación de actualizaciones en un dispositivo Azure Stack Edge con GPU | Microsoft Docs
-description: Aprenda a aplicar actualizaciones desde Azure Portal y la interfaz de usuario web local en un dispositivo Azure Stack Edge con GPU y en el clúster de Kubernetes del dispositivo.
+title: Instalación de actualizaciones en un dispositivo Azure Stack Edge Pro con GPU | Microsoft Docs
+description: Se describe cómo aplicar actualizaciones desde Azure Portal y la interfaz de usuario web local en un dispositivo Azure Stack Edge Pro con GPU y en el clúster de Kubernetes del dispositivo
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,21 +8,21 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 6bafeeeda686dafadc3f5104240f8d018de83aeb
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 107485277e28a44841b0d71fef686f0bcbf52216
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268251"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899501"
 ---
-# <a name="update-your-azure-stack-edge-with-gpu"></a>Actualización de Azure Stack Edge con GPU 
+# <a name="update-your-azure-stack-edge-pro-with-gpu"></a>Actualización de Azure Stack Edge Pro con GPU 
 
-En este artículo, se describen los pasos necesarios para instalar actualizaciones en el dispositivo Azure Stack Edge con GPU desde la interfaz de usuario web local y Azure Portal. Para mantener actualizado el dispositivo Azure Stack Edge y el clúster de Kubernetes asociado, es necesario aplicar revisiones y actualizaciones de software. 
+En este artículo, se describen los pasos necesarios para instalar actualizaciones en el dispositivo Azure Stack Edge Pro con GPU desde la interfaz de usuario web local y Azure Portal. Para mantener actualizado el dispositivo Azure Stack Edge Pro y el clúster de Kubernetes asociado, es necesario aplicar correcciones y actualizaciones de software. 
 
 > [!IMPORTANT]
 > - La actualización de **2008** corresponde a la versión **2.1.1328.1904** del software del dispositivo. Para obtener más información sobre esta actualización, vaya a las [Notas de la versión](azure-stack-edge-gpu-2008-release-notes.md).
 >
-> - Tenga en cuenta que al instalar una actualización o revisión, se reiniciará el dispositivo. Esta actualización necesita que se apliquen dos actualizaciones seguidas. Primero deben aplicarse las actualizaciones de software del dispositivo y luego las de Kubernetes. Como Azure Stack Edge es un dispositivo de un solo nodo, cualquier operación de E/S en curso se interrumpirá y el dispositivo registrará un tiempo de inactividad de hasta 30 minutos durante la actualización de software del dispositivo.
+> - Tenga en cuenta que al instalar una actualización o revisión, se reiniciará el dispositivo. Esta actualización necesita que se apliquen dos actualizaciones seguidas. Primero deben aplicarse las actualizaciones de software del dispositivo y luego las de Kubernetes. Como Azure Stack Edge Pro es un dispositivo de un solo nodo, cualquier operación de E/S en curso se interrumpirá y el dispositivo registrará un tiempo de inactividad de hasta 30 minutos durante la actualización de software del dispositivo.
 
 Para instalar actualizaciones en el dispositivo, primero tiene que configurar la ubicación del servidor donde se encuentran las actualizaciones. Una vez configurado el servidor, puede aplicar las actualizaciones utilizando la interfaz de usuario de Azure Portal o la interfaz de usuario web local.
 
@@ -159,9 +159,9 @@ Realice los pasos siguientes para descargar la actualización desde el Catálogo
 
     ![Catálogo de búsqueda](./media/azure-stack-edge-gpu-install-update/download-update-1.png)
 
-2. En el cuadro de búsqueda del Catálogo de Microsoft Update, escriba el número de Knowledge Base (KB) correspondiente a la revisión o los términos de la actualización que quiera descargar. Por ejemplo, escriba **Azure Stack Edge** y haga clic en **Buscar**.
+2. En el cuadro de búsqueda del Catálogo de Microsoft Update, escriba el número de Knowledge Base (KB) correspondiente a la revisión o los términos de la actualización que quiera descargar. Por ejemplo, escriba **Azure Stack Edge Pro** y luego haga clic en **Buscar**.
    
-    La lista de actualizaciones aparece como **Azure Stack Edge 2006**.
+    La lista de actualizaciones aparece como **Azure Stack Edge Pro 2006**.
    
     ![Catálogo de búsqueda](./media/azure-stack-edge-gpu-install-update/download-update-2b.png)
 
@@ -215,4 +215,4 @@ Este procedimiento tarda aproximadamente 20 minutos en completarse. Realice los
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a [administrar el dispositivo Azure Stack Edge](azure-stack-edge-manage-access-power-connectivity-mode.md).
+Más información sobre [administración del dispositivo Azure Stack Edge Pro](azure-stack-edge-manage-access-power-connectivity-mode.md).

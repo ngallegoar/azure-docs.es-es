@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
-ms.openlocfilehash: f68867a7b24e9c5d8dafa0da65209e14eeae5210
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ebc3899c98a09b64443b129dde52cb597fac9eff
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90896475"
+ms.locfileid: "90976647"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Creación de un modelo de clasificación con aprendizaje automático automatizado en Azure Machine Learning
 
@@ -242,7 +242,7 @@ En este tutorial ha usado la interfaz de aprendizaje automático automatizado de
 + Más información acerca del [aprendizaje automático automatizado](concept-automated-ml.md).
 + Para más información sobre las métricas de clasificación y los gráficos, consulte el artículo de [descripción de los resultados de aprendizaje automático automatizado](how-to-understand-automated-ml.md#classification).
 + Más información sobre la [caracterización](how-to-configure-auto-features.md#featurization).
-+ Más información acerca de la [generación de perfiles de datos](how-to-use-automated-ml-for-ml-models.md#profile).
++ Más información acerca de la [generación de perfiles de datos](how-to-connect-data-ui.md#profile).
 
 
 >[!NOTE]

@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs
 ms.date: 08/18/2020
-ms.openlocfilehash: 3c2d13794f2fc3af4541032d1f94967681c0deee
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: a2ab400158f77af7934ca3f9f7c811d5fe2bd340
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078425"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461245"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-resource-manager-template"></a>Creación de una instancia de Azure Cache for Redis mediante una plantilla de Resource Manager
 
@@ -27,7 +27,7 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * **Suscripción de Azure**: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-* **Una cuenta de almacenamiento**: Para crear una cuenta de almacenamiento, consulte [Creación de una cuenta de Azure Storage](/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=template). La cuenta de almacenamiento se utiliza con datos de diagnóstico.
+* **Una cuenta de almacenamiento**: Para crear una cuenta de almacenamiento, consulte [Creación de una cuenta de Azure Storage](/azure/storage/common/storage-account-create?tabs=azure-portal). La cuenta de almacenamiento se utiliza con datos de diagnóstico.
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
@@ -38,7 +38,7 @@ La plantilla usada en este inicio rápido forma parte de las [plantillas de inic
 Los recursos siguientes se definen en la plantilla:
 
 * [Microsoft.Cache/Redis](/azure/templates/microsoft.cache/redis)
-* [Microsoft.Insights/diagnosticSettings](/azure/templates/diagnosticsettings)
+* [Microsoft.Insights/diagnosticSettings](/azure/templates/microsoft.insights/diagnosticsettings)
 
 También hay plantillas de Resource Manager disponibles para el nuevo [nivel Premium](cache-overview.md#service-tiers).
 

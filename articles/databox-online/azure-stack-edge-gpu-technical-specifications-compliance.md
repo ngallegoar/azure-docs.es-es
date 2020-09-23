@@ -1,6 +1,6 @@
 ---
-title: Especificaciones técnicas y cumplimiento de Microsoft Azure Stack Edge con GPU | Microsoft Docs
-description: Conozca las especificaciones técnicas y el cumplimiento de un dispositivo de Azure Stack Edge con GPU.
+title: Especificaciones técnicas y cumplimiento de Microsoft Azure Stack Edge Pro con GPU | Microsoft Docs
+description: Conozca las especificaciones técnicas y el cumplimiento de un dispositivo Azure Stack Edge Pro con GPU
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,20 +8,20 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: alkohli
-ms.openlocfilehash: 3f354655a612d4085b0a0de45ae1a6e5ee097ade
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: b0eaa9778480a6a767a4b37bd92a395d2b1ee6cb
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266670"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899025"
 ---
-# <a name="technical-specifications-and-compliance-for-azure-stack-edge-with-gpu"></a>Especificaciones técnicas y cumplimiento de Azure Stack Edge con GPU 
+# <a name="technical-specifications-and-compliance-for-azure-stack-edge-pro-with-gpu"></a>Especificaciones técnicas y cumplimiento de Azure Stack Edge Pro con GPU 
 
-Los componentes de hardware de Azure Stack Edge con una unidad de procesamiento gráfico (GPU) integrada cumplen con las especificaciones técnicas y los estándares reglamentarios descritos en este artículo. Las especificaciones técnicas describen el hardware, las fuentes de alimentación, la capacidad de almacenamiento, los revestimientos y las normas ambientales.
+Los componentes de hardware de Azure Stack Edge Pro con una unidad de procesamiento gráfico (GPU) integrada cumplen con las especificaciones técnicas y los estándares reglamentarios descritos en este artículo. Las especificaciones técnicas describen el hardware, las fuentes de alimentación, la capacidad de almacenamiento, los revestimientos y las normas ambientales.
 
 ## <a name="compute-and-memory-specifications"></a>Especificaciones de memoria y proceso
 
-El dispositivo de Azure Stack Edge tiene las siguientes especificaciones de proceso y memoria:
+El dispositivo Azure Stack Edge Pro tiene las siguientes especificaciones de proceso y memoria:
 
 | Especificación           | Value                  |
 |-------------------------|----------------------------|
@@ -31,7 +31,7 @@ El dispositivo de Azure Stack Edge tiene las siguientes especificaciones de proc
 
 ## <a name="compute-acceleration-specifications"></a>Especificaciones de aceleración de proceso
 
-Se incluye una unidad de procesamiento gráfico (GPU) en cada dispositivo de Azure Stack Edge que permite escenarios de Kubernetes, aprendizaje profundo y aprendizaje automático.
+En todos los dispositivos Azure Stack Edge Pro se incluye una unidad de procesamiento gráfico (GPU) que habilita escenarios de Kubernetes, aprendizaje profundo y aprendizaje automático.
 
 | Especificación           | Value                  |
 |-------------------------|----------------------------|
@@ -40,7 +40,7 @@ Se incluye una unidad de procesamiento gráfico (GPU) en cada dispositivo de Az
 
 ## <a name="power-supply-unit-specifications"></a>Especificaciones de la fuente de alimentación
 
-El dispositivo de Azure Stack Edge tiene dos fuentes de alimentación de 100-240 V con ventiladores de alto rendimiento. Las dos fuentes de alimentación proporcionan una configuración de alimentación redundante. Si se produce un error en una de ellas, el dispositivo sigue funcionando con normalidad en la otra hasta que se reemplaza el módulo con error. En la tabla siguiente se enumeran las especificaciones técnicas de las fuentes de alimentación.
+El dispositivo Azure Stack Edge Pro tiene dos fuentes de alimentación (PSU) de 100-240 V con ventiladores de alto rendimiento. Las dos fuentes de alimentación proporcionan una configuración de alimentación redundante. Si se produce un error en una de ellas, el dispositivo sigue funcionando con normalidad en la otra hasta que se reemplaza el módulo con error. En la tabla siguiente se enumeran las especificaciones técnicas de las fuentes de alimentación.
 
 | Especificación           | Fuente de alimentación de 750 W                  |
 |-------------------------|----------------------------|
@@ -52,13 +52,13 @@ El dispositivo de Azure Stack Edge tiene dos fuentes de alimentación de 100-240
 
 ## <a name="network-interface-specifications"></a>Especificaciones de la interfaz de red
 
-El dispositivo de Azure Stack Edge tiene seis interfaces de red: PORT1-PORT6.
+Su dispositivo Azure Stack Edge Pro tiene seis interfaces de red, PORT1- PORT6.
 
 | Especificación           | Descripción                 |
 |-------------------------|----------------------------|
 |  Interfaces de red    | **2 interfaces de 1 GbE**: Una interfaz de administración en el puerto 1 se usa para la configuración inicial y es estática de forma predeterminada. Una vez completada la configuración inicial, puede usar la interfaz para los datos con cualquier dirección IP. Sin embargo, tras un restablecimiento, la interfaz vuelve a la dirección IP estática. <br>La otra interfaz del puerto 2 se puede configurar por el usuario, se puede usar para la transferencia de datos y es DHCP de forma predeterminada. <br>**4 interfaces de 25 GbE**: El usuario puede configurar estas interfaces de datos, del puerto 3 al puerto 6, como DHCP (predeterminado) o estáticas. Estas pueden funcionar también como interfaces de 10 GbE.  | 
 
-El dispositivo de Azure Stack Edge tiene el siguiente hardware de red:
+El dispositivo Azure Stack Edge Pro tiene el siguiente hardware de red:
 
 * **Adaptador personalizado Microsoft QLogic Cavium 25 G NDC**: puertos 1 a 4.
 * **Adaptador de red de 4 canales, doble puerto 25G ConnectX de Mellanox**: puertos 5 y 6.
@@ -79,7 +79,7 @@ Para una lista completa de cables, enchufes y transceptores para estas tarjetas 
 
 ## <a name="storage-specifications"></a>Especificaciones de almacenamiento
 
-Los dispositivos de Azure Stack Edge tienen cinco unidades de estado sólido (SSD) DC P4610 de NVMe de 2,5", cada una con una capacidad de 1,6 TB. La unidad de arranque es una unidad de estado sólido SATA de 240 GB. La capacidad total utilizable para el dispositivo es de aproximadamente 8,28 TB. La tabla siguiente contiene la capacidad de almacenamiento del dispositivo.
+Los dispositivos Azure Stack Edge Pro tienen cinco unidades de estado sólido DC P4610 de NVMe de 2,5 pulgadas, cada una con una capacidad de 1,6 TB. La unidad de arranque es una unidad de estado sólido SATA de 240 GB. La capacidad total utilizable para el dispositivo es de aproximadamente 8,28 TB. La tabla siguiente contiene la capacidad de almacenamiento del dispositivo.
 
 |     Especificación                          |     Value             |
 |--------------------------------------------|-----------------------|
@@ -97,7 +97,7 @@ Los dispositivos de Azure Stack Edge tienen cinco unidades de estado sólido (SS
 <!--Remove based on feedback from Ravi
 ## Other hardware specifications
 
-Your Azure Stack Edge device also contains the following hardware:
+Your Azure Stack Edge Pro device also contains the following hardware:
 
 * iDRAC baseboard management
 * Performance fans
@@ -172,4 +172,4 @@ En esta sección se enumeran las especificaciones relacionadas con el entorno de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Implementación de Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md)
+[Implementación de Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md)
