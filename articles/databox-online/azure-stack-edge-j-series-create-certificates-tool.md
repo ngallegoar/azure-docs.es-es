@@ -1,29 +1,29 @@
 ---
 title: Creación de certificados con la herramienta Microsoft Azure Stack Hub Readiness Checker | Microsoft Docs
-description: Describe cómo crear solicitudes de certificado y, a continuación, obtener e instalar certificados en el dispositivo de Azure Stack Edge con GPU mediante la herramienta Azure Stack Hub Readiness Checker.
-services: Azure Stack Edge
+description: Describe cómo crear solicitudes de certificado y, después, obtener e instalar certificados en un dispositivo Azure Stack Edge Pro con GPU mediante la herramienta Azure Stack Hub Readiness Checker.
+services: Azure Stack Edge Pro
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 7a6cf265f0be177aab436d544e694c5d59cfffd5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 544625fe9fd2dbd87ad7330d7277494cbfbe6eb9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267384"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891089"
 ---
-# <a name="create-certificates-for-your-azure-stack-edge-using-azure-stack-hub-readiness-checker-tool"></a>Creación de certificados para Azure Stack Edge con la herramienta Azure Stack Hub Readiness Checker 
+# <a name="create-certificates-for-your-azure-stack-edge-pro-using-azure-stack-hub-readiness-checker-tool"></a>Creación de certificados para Azure Stack Edge Pro con la herramienta Azure Stack Hub Readiness Checker 
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-En este artículo se describe cómo crear certificados para Azure Stack Edge con la herramienta Azure Stack Hub Readiness Checker. 
+En este artículo se describe cómo crear certificados para Azure Stack Edge Pro mediante la herramienta Azure Stack Hub Readiness Checker. 
 
 ## <a name="using-azure-stack-hub-readiness-checker-tool"></a>Uso de la herramienta Azure Stack Hub Readiness Checker
 
-Use la herramienta Azure Stack Hub Readiness Checker para crear solicitudes de firma de certificado (CSR) para la implementación de un dispositivo de Azure Stack Hub. Puede crear estas solicitudes después de hacer un pedido para el dispositivo de Azure Stack Edge y esperar a que llegue el dispositivo. 
+Use la herramienta Azure Stack Hub Readiness Checker para crear solicitudes de firma de certificado (CSR) para la implementación de un dispositivo Azure Stack Edge Pro. Estas solicitudes se pueden crear después de hacer el pedido del dispositivo Azure Stack Edge Pro y esperar a que llegue el dispositivo. 
 
 > [!NOTE]
 > Use esta herramienta solo con fines de prueba o desarrollo, y no para dispositivos de producción. 
@@ -39,10 +39,10 @@ Puede usar la herramienta Azure Stack Hub Readiness Checker (AzsReadinessChecker
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para crear solicitudes de firma de certificado para la implementación de un dispositivo de Azure Stack Edge, asegúrese de lo siguiente: 
+Para crear solicitudes de firma de certificado para la implementación de un dispositivo Azure Stack Edge Pro, asegúrese de lo siguiente: 
 
 - Tiene un cliente que ejecuta Windows 10 o Windows Server 2016 o posterior. 
-- Ha descargado la herramienta Microsoft Azure Stack Hub Readiness Checker 1.2002.1133.85 [de la Galería de PowerShell](https://aka.ms/AzsReadinessChecker) en este sistema. Es posible que tenga que buscar este paquete. Solo esta versión de la herramienta puede crear certificados para dispositivos de Azure Stack Edge.
+- Ha descargado la herramienta Microsoft Azure Stack Hub Readiness Checker 1.2002.1133.85 [de la Galería de PowerShell](https://aka.ms/AzsReadinessChecker) en este sistema. Es posible que tenga que buscar este paquete. Esta versión de la herramienta es la única que puede crear certificados para dispositivos Azure Stack Edge Pro.
 - Tiene la siguiente información para los certificados:
   - Nombre de dispositivo
   - Número de serie del nodo
@@ -50,7 +50,7 @@ Para crear solicitudes de firma de certificado para la implementación de un dis
 
 ## <a name="generate-certificate-signing-requests"></a>Generación de solicitudes de firma de certificado
 
-Siga estos pasos para preparar los certificados de dispositivo de Azure Stack Edge:
+Siga estos pasos para preparar los certificados de dispositivo Azure Stack Edge Pro:
 
 1. Ejecute PowerShell como administrador (5.1 o posterior).
 2. Instale la herramienta Azure Stack Hub Readiness Checker. En el símbolo del sistema de PowerShell, escriba: 
@@ -121,15 +121,15 @@ Siga estos pasos para preparar los certificados de dispositivo de Azure Stack Ed
     También verá una carpeta INF. Contiene un archivo de información de <edge-nombrededispositivo> en texto no cifrado que explica los detalles del certificado.  
 
 
-6. Envíe estos archivos a su entidad de certificación (ya sea interna o pública). Asegúrese de que la entidad de certificación genere certificados con su solicitud generada que cumple los requisitos de certificados de Azure Stack Edge para [certificados de nodos](azure-stack-edge-j-series-manage-certificates.md#node-certificates), [certificados de puntos de conexión](azure-stack-edge-j-series-manage-certificates.md#endpoint-certificates) y [certificados de interfaces de usuario locales](azure-stack-edge-j-series-manage-certificates.md#local-ui-certificates).
+6. Envíe estos archivos a su entidad de certificación (ya sea interna o pública). Asegúrese de que la entidad de certificación genere certificados con su solicitud generada que cumple los requisitos de certificados de Azure Stack Edge Pro para [certificados de nodos](azure-stack-edge-j-series-manage-certificates.md#node-certificates), [certificados de puntos de conexión](azure-stack-edge-j-series-manage-certificates.md#endpoint-certificates) y [certificados de interfaces de usuario locales](azure-stack-edge-j-series-manage-certificates.md#local-ui-certificates).
 
 ## <a name="prepare-certificates-for-deployment"></a>Preparación de los certificados para la implementación
 
-Los archivos de certificado que obtiene de la entidad de certificación deben importarse y exportarse de forma que las propiedades coincidan con los requisitos de certificado del dispositivo de Azure Stack Edge. Complete los pasos siguientes en el mismo sistema donde generó las solicitudes de firma de certificados.
+Los archivos de certificado que obtiene de la entidad de certificación deben importarse y exportarse de forma que las propiedades coincidan con los requisitos de certificado del dispositivo Azure Stack Edge Pro. Complete los pasos siguientes en el mismo sistema donde generó las solicitudes de firma de certificados.
 
-- Para importar los certificados, siga los pasos descritos en [Importación de certificados en los clientes que acceden al dispositivo de Azure Stack Edge](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
+- Para importar los certificados, siga los pasos que se indican en [Importación de certificados en los clientes que acceden al dispositivo Azure Stack Edge Pro](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 
-- Para exportar los certificados, siga los pasos descritos en [Exportación de certificados de los clientes que acceden al dispositivo de Azure Stack Edge](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
+- Para exportar los certificados, siga los pasos que se indican en [Exportación de certificados de los clientes que acceden al dispositivo Azure Stack Edge Pro](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 
 
 ## <a name="validate-certificates"></a>Validación de certificados
@@ -152,4 +152,4 @@ En primer lugar, generará una estructura de carpetas adecuada y colocará los c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Implementación del dispositivo Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md)
+[Implementación de un dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md)

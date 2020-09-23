@@ -1,6 +1,6 @@
 ---
-title: Implementación de VM en el dispositivo Azure Stack Edge con GPU mediante Azure PowerShell
-description: Se describe cómo crear y administrar máquinas virtuales (VM) en un dispositivo Azure Stack Edge con GPU mediante Azure PowerShell.
+title: Implementación de máquinas virtuales en el dispositivo Azure Stack Edge Pro con GPU a través de Azure PowerShell
+description: En este artículo se explica cómo crear y administrar máquinas virtuales en un dispositivo Azure Stack Edge Pro por medio de Azure PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,26 +8,26 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: ab303dd42d9064a9fa1392e27adc361d5b761cf0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5ed6de28f1e1b0545ebd675c30249e2f2b4747e9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89256130"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890651"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-azure-powershell-script"></a>Implementación de VM en el dispositivo Azure Stack Edge con GPU mediante un script de Azure PowerShell
+# <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell-script"></a>Implementación de máquinas virtuales en el dispositivo Azure Stack Edge Pro con GPU por medio de un script de Azure PowerShell
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-En este tutorial se describe cómo crear y administrar una VM en un dispositivo Azure Stack Edge mediante un script de Azure PowerShell.
+En este tutorial se describe cómo crear y administrar una máquina virtual en un dispositivo Azure Stack Edge Pro a través de un script de Azure PowerShell.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de empezar a crear y administrar una máquina virtual en el dispositivo Azure Stack Edge con este script, debe asegurarse de que ha completado los requisitos previos que se indican en los pasos siguientes:
+Antes de empezar a crear y administrar una máquina virtual en el dispositivo Azure Stack Edge Pro con este script, debe asegurarse de que ha completado los requisitos previos que se indican en los pasos siguientes:
 
-### <a name="for-azure-stack-edge-device-via-the-local-web-ui"></a>Para un dispositivo Azure Stack Edge a través de la interfaz de usuario web local
+### <a name="for-azure-stack-edge-pro-device-via-the-local-web-ui"></a>Para un dispositivo Azure Stack Edge Pro a través de la interfaz de usuario web local
 
-1. Ha completado la configuración de red en el dispositivo Azure Stack Edge como se describe en [Paso 1: Configuración del dispositivo Azure Stack Edge](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-device).
+1. Ha completado la configuración de red en el dispositivo Azure Stack Edge Pro como se describe en [Paso 1: configuración de un dispositivo Azure Stack Edge Pro](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
 
 2. Ha habilitado una interfaz de red para proceso. Esta dirección IP de la interfaz de red se utiliza para crear un conmutador virtual para la implementación de la máquina virtual. Los pasos siguientes le guiarán en el proceso:
 
@@ -36,9 +36,9 @@ Antes de empezar a crear y administrar una máquina virtual en el dispositivo Az
         > [!IMPORTANT] 
         > Solo puede configurar un puerto para Proceso.
 
-    2. Habilite Proceso en la interfaz de red. Azure Stack Edge crea y administra el conmutador virtual correspondiente a esa interfaz de red.
+    2. Habilite Proceso en la interfaz de red. Azure Stack Edge Pro crea y administra el conmutador virtual correspondiente a esa interfaz de red.
 
-3. Ha creado e instalado todos los certificados en el dispositivo Azure Stack Edge y en el almacén raíz de confianza del cliente. Siga el procedimiento descrito en [Paso 2: Creación e instalación de certificados](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
+3. Ha creado e instalado todos los certificados en el dispositivo Azure Stack Edge Pro y en el almacén raíz de confianza del cliente. Siga el procedimiento descrito en [Paso 2: Creación e instalación de certificados](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
 
 ### <a name="for-your-windows-client"></a>Para el cliente de Windows
 
