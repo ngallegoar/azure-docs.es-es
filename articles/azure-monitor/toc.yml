@@ -417,7 +417,7 @@
                   items:
                     - name: Máquina virtual
                       href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
-                    - name: Conjunto de escalado de máquinas virtuales
+                    - name: Conjunto de escalado de máquina virtual
                       href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
                     - name: Máquina virtual clásica
                       href: platform/collect-custom-metrics-guestos-vm-classic.md
@@ -469,7 +469,7 @@
           href: platform/autoscale-custom-metric.md
         - name: Escalado de conjuntos de escalado de máquinas virtuales
           href: ../virtual-machine-scale-sets/tutorial-autoscale-powershell.md?toc=/azure/azure-monitor/toc.json
-        - name: Escalado de conjuntos de escalado de máquinas virtuales con plantillas de Resource Manager
+        - name: Escalado de conjuntos de escalado de máquinas virtuales mediante plantillas de Resource Manager
           href: platform/autoscale-virtual-machine-scale-sets.md
         - name: Uso de notificaciones por correo electrónico y webhooks
           href: platform/autoscale-webhook-email.md
@@ -677,7 +677,7 @@
           items:
             - name: Información general
               href: app/codeless-overview.md
-            - name: Máquina virtual y conjunto de escalado de Azure
+            - name: Máquina virtual de Azure y conjunto de escalado de máquinas virtuales
               href: app/azure-vm-vmss-apps.md
             - name: Azure App Service
               displayname: 'App Service, web app, PaaS, Azure web app'
@@ -728,6 +728,8 @@
           href: app/create-new-resource.md
         - name: Creación de un recurso (basado en el área de trabajo)
           href: app/create-workspace-resource.md
+        - name: Migración a un recurso basado en área de trabajo
+          href: app/convert-classic-resource.md
         - name: Panel de la aplicación
           displayname: 'dashboard, Application Insights dashboard'
           href: app/overview-dashboard.md
@@ -1010,8 +1012,6 @@
               href: insights/container-insights-region-mapping.md
         - name: Supervisión del rendimiento
           href: insights/container-insights-analyze.md
-        - name: Supervisión del mantenimiento
-          href: insights/container-insights-health.md
         - name: Supervisión del rendimiento de GPU
           href: insights/container-insights-gpu-monitoring.md
         - name: Supervisión de implementaciones y HPA
@@ -1042,8 +1042,6 @@
           href: insights/container-insights-agent-config.md
         - name: Actualización para habilitar las métricas
           href: insights/container-insights-update-metrics.md
-        - name: Configuración de supervisión de estado
-          href: insights/container-insights-health-monitors-config.md
         - name: Administración de costo y uso
           href: insights/container-insights-cost.md
         - name: Deshabilitar la supervisión
@@ -1062,7 +1060,7 @@
       items:
         - name: Azure Cache for Redis (versión preliminar)
           href: insights/redis-cache-insights-overview.md
-        - name: "Azure Cosmos\_DB"
+        - name: Azure Cosmos DB
           href: insights/cosmosdb-insights-overview.md
         - name: Redes
           href: insights/network-insights-overview.md

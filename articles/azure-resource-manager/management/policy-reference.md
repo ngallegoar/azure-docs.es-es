@@ -1,15 +1,15 @@
 ---
 title: Definiciones de directivas integradas en Azure Resource Manager
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy en Azure Resource Manager. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 09/10/2020
+ms.date: 09/16/2020
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: cce79a4d13accca0069112a25ad416d97d67eaf1
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: c7bca070f8576efc8c5f9d28a04f9d62d10bec04
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90004330"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967172"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-resource-manager"></a>Definiciones integradas de Azure Policy para Azure Resource Manager
 

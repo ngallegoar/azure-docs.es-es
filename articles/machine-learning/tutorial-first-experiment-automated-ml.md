@@ -10,20 +10,17 @@ author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
-ms.openlocfilehash: d11df9bae954dc654e22157639b74e5ca2363494
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f68867a7b24e9c5d8dafa0da65209e14eeae5210
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047869"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896475"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Creación de un modelo de clasificación con aprendizaje automático automatizado en Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-En este tutorial, aprenderá a crear un modelo de clasificación básico sin escribir ninguna línea de código mediante aprendizaje automático automatizado de Azure Machine Learning Studio. Este modelo de clasificación predice si un cliente suscribirá un depósito a plazo fijo con una institución financiera.
 
->[!IMPORTANT]
-> La experiencia de aprendizaje automático automatizado de Azure Machine Learning Studio se encuentra en versión preliminar. Es posible que algunas características no se admitan o que tengan funcionalidades limitadas.
+En este tutorial, aprenderá a crear un modelo de clasificación simple sin escribir ninguna línea de código mediante el aprendizaje automático automatizado de Azure Machine Learning Studio. Este modelo de clasificación predice si un cliente suscribirá un depósito a plazo fijo con una institución financiera.
 
 Con el aprendizaje automático, puede automatizar las tareas que requieren mucho tiempo. El aprendizaje automático recorre en iteración rápidamente muchas combinaciones de algoritmos e hiperparámetros para ayudarle a encontrar el mejor modelo según una métrica de éxito de su elección.
 
@@ -47,9 +44,9 @@ En este tutorial, aprenderá las siguientes tareas:
 
 Un área de trabajo de Azure Machine Learning es un recurso básico de la nube que se usa para experimentar, entrenar e implementar modelos de aprendizaje automático. Vincula la suscripción y el grupo de recursos de Azure con un objeto fácilmente consumido del servicio. 
 
-Cree un área de trabajo de **Enterprise Edition** mediante Azure Portal, una consola basada en web para la administración de recursos de Azure.
+Cree un área de trabajo mediante Azure Portal, una consola basada en web para administrar los recursos de Azure.
 
-[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
+[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT] 
 > Tome nota del **área de trabajo** y de la **suscripción**. Los necesitará para asegurarse de que crea el experimento en el lugar correcto. 
