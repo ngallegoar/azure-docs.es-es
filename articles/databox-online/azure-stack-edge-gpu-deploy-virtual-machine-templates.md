@@ -1,6 +1,6 @@
 ---
-title: Implementación de máquinas virtuales en el dispositivo Azure Stack Edge mediante plantillas
-description: Describe cómo crear y administrar máquinas virtuales en un dispositivo Azure Stack Edge mediante plantillas.
+title: Implementación de máquinas virtuales en el dispositivo Azure Stack Edge Pro mediante plantillas
+description: Describe cómo crear y administrar máquinas virtuales en un dispositivo Azure Stack Edge Pro mediante plantillas.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: alkohli
-ms.openlocfilehash: 5b69d10bc2f3c5ec737e026059c82c3efac681b5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: eeefbcdc080620c60f7cd49b8f749375e23ddd02
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268166"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899708"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-templates"></a>Implementación de máquinas virtuales en el dispositivo Azure Stack Edge con GPU mediante plantillas
+# <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Implementación de máquinas virtuales en el dispositivo Azure Stack Edge Pro con GPU mediante plantillas
 
-En este tutorial se describe cómo crear y administrar una máquina virtual en el dispositivo Azure Stack Edge mediante plantillas. Estas plantillas son archivos JSON (notación de objetos JavaScript) que definen tanto la infraestructura como la configuración de una máquina virtual. En las plantillas se especifican los recursos que se van a implementar y las propiedades de esos recursos.
+En este tutorial se describe cómo crear y administrar una máquina virtual en el dispositivo Azure Stack Edge Pro mediante plantillas. Estas plantillas son archivos JSON (notación de objetos JavaScript) que definen tanto la infraestructura como la configuración de una máquina virtual. En las plantillas se especifican los recursos que se van a implementar y las propiedades de esos recursos.
 
 Las plantillas son flexibles en entornos diferentes, ya que pueden tomar parámetros como entrada en tiempo de ejecución desde un archivo. La estructura de nomenclatura estándar es `TemplateName.json` para la plantilla y `TemplateName.parameters.json` para el archivo de parámetros. Para obtener más información sobre las plantillas de Resource Manager, vaya a [¿Qué son las plantillas de Resource Manager?](../azure-resource-manager/templates/overview.md)
 
@@ -25,7 +25,7 @@ En este tutorial, usaremos plantillas de ejemplo ya escritas para crear recursos
 
 ## <a name="vm-deployment-workflow"></a>Flujo de trabajo de implementación de una máquina virtual
 
-Para implementar máquinas virtuales en varios dispositivos Azure Stack Edge, puede usar un solo disco duro virtual preparado con sysprep para todos los dispositivos, la misma plantilla para la implementación y realizar únicamente pequeños cambios en los parámetros de la plantilla para cada ubicación de implementación (estos cambios podrían hacerse de forma manual, como explicamos aquí, o mediante programación). 
+Para implementar máquinas virtuales de Azure Stack Edge Pro en muchos dispositivos, puede usar un solo disco duro virtual preparado con sysprep para todos los dispositivos, la misma plantilla para la implementación y realizar únicamente pequeños cambios en los parámetros de la plantilla para cada ubicación de implementación (estos cambios podrían hacerse de forma manual, como explicamos aquí, o mediante programación). 
 
 El resumen general del flujo de trabajo de implementación mediante plantillas es el siguiente:
 
@@ -57,13 +57,13 @@ El resumen general del flujo de trabajo de implementación mediante plantillas e
 
 ## <a name="device-prerequisites"></a>Requisitos previos del dispositivo
 
-Configure estos requisitos previos en el dispositivo Azure Stack Edge.
+Configure estos requisitos previos en el dispositivo Azure Stack Edge Pro.
 
 [!INCLUDE [azure-stack-edge-gateway-deploy-virtual-machine-prerequisites](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-prerequisites.md)]
 
 ## <a name="client-prerequisites"></a>Requisitos previos del cliente
 
-Configure estos requisitos previos en el cliente que se usará para acceder al dispositivo Azure Stack Edge.
+Configure estos requisitos previos en el cliente que se usará para acceder al dispositivo Azure Stack Edge Pro.
 
 1. [Descargue el Explorador de Storage](https://azure.microsoft.com/features/storage-explorer/) si lo usa para cargar un disco duro virtual. Si lo prefiere, puede descargar AzCopy para cargar el disco duro virtual. Es posible que tenga que configurar TLS 1.2 en la máquina cliente si ejecuta versiones anteriores de AzCopy. 
 1. [Descargue las plantillas de máquina virtual y los archivos de parámetros](https://aka.ms/ase-vm-templates) en la máquina cliente. Descomprímalos en un directorio que usará como directorio de trabajo.
@@ -108,7 +108,7 @@ New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resou
 ```
 
 > [!NOTE]
-> Con Azure Resource Manager solo se pueden crear cuentas de almacenamiento local, como las cuentas de almacenamiento con redundancia local (Standard_LRS o Premium_LRS). Para crear cuentas de almacenamiento en capas, consulte los pasos descritos en el tema sobre [incorporación y conexión a cuentas de almacenamiento en el dispositivo Azure Stack Edge](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
+> Con Azure Resource Manager solo se pueden crear cuentas de almacenamiento local, como las cuentas de almacenamiento con redundancia local (Standard_LRS o Premium_LRS). Para crear cuentas de almacenamiento en capas, vea los pasos que se describen en el tema sobre [incorporación y conexión a cuentas de almacenamiento en el dispositivo Azure Stack Edge Pro](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
 
 A continuación se muestra una salida de ejemplo.
 
@@ -145,7 +145,7 @@ Asegúrese de que ya ha agregado el identificador URI del blob en el archivo hos
 
 `<Device IP> <storage account name>.blob.<Device name>.<DNS domain>`
 
-En un entorno típico, tendría configurado el DNS para que todas las cuentas de almacenamiento señalasen al dispositivo Azure Stack Edge con una entrada `*.blob.devicename.domainname.com`.
+En un entorno típico, tendría configurado el DNS para que todas las cuentas de almacenamiento señalasen al dispositivo Azure Stack Edge Pro con una entrada `*.blob.devicename.domainname.com`.
 
 ### <a name="optional-install-certificates"></a>(Opcional) Instalación de certificados
 
@@ -215,7 +215,7 @@ Copie las imágenes de disco que se van a usar en los blobs en páginas en la cu
 
 <!--### Use AzCopy for upload
 
-Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you are using with your Azure Stack Edge device.
+Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you are using with your Azure Stack Edge Pro device.
 
 
 ```powershell
@@ -245,11 +245,14 @@ El archivo `CreateImageAndVnet.parameters.json` toma los parámetros siguientes:
 
 ```json
 "parameters": {
+        "osType": {
+              "value": "<Operating system corresponding to the VHD you upload can be Windows or Linux>"
+        },
         "imageName": {
             "value": "<Name for the VM iamge>"
         },
         "imageUri": {
-      "value": "<Path to the VHD that you uploaded in the Storage account>"
+              "value": "<Path to the VHD that you uploaded in the Storage account>"
         },
         "vnetName": {
             "value": "<Name for the virtual network where you will deploy the VM>"
@@ -266,7 +269,7 @@ El archivo `CreateImageAndVnet.parameters.json` toma los parámetros siguientes:
     }
 ```
 
-Edite el archivo `CreateImageAndVnet.parameters.json` e incluya la siguiente información para el dispositivo Azure Stack Edge:
+Edite el archivo `CreateImageAndVnet.parameters.json` para que se incluya la siguiente información para el dispositivo Azure Stack Edge Pro:
 
 1. Proporcione el tipo de sistema operativo correspondiente al disco duro virtual que va a cargar. El tipo de sistema operativo puede ser Windows o Linux.
 
@@ -338,7 +341,7 @@ Edite el archivo `CreateImageAndVnet.parameters.json` e incluya la siguiente inf
 Implemente la plantilla `CreateImageAndVnet.json`. Esta plantilla implementa los recursos de red virtual e imagen que se usarán para crear máquinas virtuales en el paso posterior.
 
 > [!NOTE]
-> Si se produce un error de autenticación al implementar la plantilla, es posible que las credenciales de Azure para esta sesión hayan expirado. Vuelva a ejecutar el comando `login-AzureRM` para conectarse de nuevo a Azure Resource Manager en el dispositivo Azure Stack Edge.
+> Si se produce un error de autenticación al implementar la plantilla, es posible que las credenciales de Azure para esta sesión hayan expirado. Vuelva a ejecutar el comando `login-AzureRM` para conectarse de nuevo a Azure Resource Manager en el dispositivo Azure Stack Edge Pro.
 
 1. Ejecute el siguiente comando: 
     
@@ -434,7 +437,7 @@ Para crear una máquina virtual, use el archivo de parámetros `CreateVM.paramet
         }
 ```    
 
-Asigne los parámetros adecuados en `CreateVM.parameters.json` para el dispositivo Azure Stack Edge.
+Asigne los parámetros adecuados en `CreateVM.parameters.json` para el dispositivo Azure Stack Edge Pro.
 
 1. Proporcione un nombre único, un nombre de interfaz de red y un nombre de ipconfig. 
 1. Escriba un nombre de usuario, una contraseña y un tamaño de máquina virtual admitido.
@@ -501,7 +504,7 @@ Implemente la plantilla de creación de máquinas virtuales `CreateVM.json`. Est
         
         $templateFile = "<Path to CreateVM.json>"
         $templateParameterFile = "<Path to CreateVM.parameters.json>"
-        $RGName = "RG1"
+        $RGName = "<Resource group name>"
              
         New-AzureRmResourceGroupDeployment `
             -ResourceGroupName $RGName `
@@ -547,7 +550,27 @@ Implemente la plantilla de creación de máquinas virtuales `CreateVM.json`. Est
         
         PS C:\07-30-2020>
     ```   
- 
+También puede ejecutar el comando `New-AzureRmResourceGroupDeployment` de forma asincrónica con el parámetro `–AsJob`. Este es un ejemplo de salida cuando el cmdlet se ejecuta en segundo plano. Después, puede consultar el estado del trabajo que se crea mediante el cmdlet `Get-Job` .
+
+    ```powershell   
+    PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment `
+    >>     -ResourceGroupName $RGName `
+    >>     -TemplateFile $templateFile `
+    >>     -TemplateParameterFile $templateParameterFile `
+    >>     -Name "Deployment2" `
+    >>     -AsJob
+     
+    Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+    --     ----            -------------   -----         -----------     --------             -------
+    2      Long Running... AzureLongRun... Running       True            localhost            New-AzureRmResourceGro...
+     
+    PS C:\WINDOWS\system32> Get-Job -Id 2
+     
+    Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+    --     ----            -------------   -----         -----------     --------             -------
+    2      Long Running... AzureLongRun... Completed     True            localhost            New-AzureRmResourceGro...
+    ```
+
 7. Compruebe si la máquina virtual se ha aprovisionado correctamente. Ejecute el siguiente comando:
 
     `Get-AzureRmVm`
@@ -555,11 +578,23 @@ Implemente la plantilla de creación de máquinas virtuales `CreateVM.json`. Est
 
 ## <a name="connect-to-a-vm"></a>Conexión a una máquina virtual
 
+Los pasos para conectarse pueden ser diferentes dependiendo de si se ha creado una máquina virtual Windows o Linux.
+
+### <a name="connect-to-windows-vm"></a>Conexión a una máquina virtual Windows
+
+Siga estos pasos para conectarse a una máquina virtual Windows.
+
 [!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-windows.md)]
+
+### <a name="connect-to-linux-vm"></a>Conexión a una máquina virtual Linux
+
+Siga estos pasos para conectarse a una máquina virtual Linux.
+
+[!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-linux.md)]
 
 <!--## Manage VM
 
-The following section describes some of the common operations around the VM that you will create on your Azure Stack Edge device.
+The following section describes some of the common operations around the VM that you will create on your Azure Stack Edge Pro device.
 
 [!INCLUDE [azure-stack-edge-gateway-manage-vm](../../includes/azure-stack-edge-gateway-manage-vm.md)]-->
 
@@ -574,9 +609,9 @@ No se admiten las extensiones, los conjuntos de escalado, los conjuntos de dispo
 
 <!--## Configure AzCopy
 
-When you install the latest version of AzCopy, you will need to configure AzCopy to ensure that it matches the blob storage REST API version of your Azure Stack Edge device.
+When you install the latest version of AzCopy, you will need to configure AzCopy to ensure that it matches the blob storage REST API version of your Azure Stack Edge Pro device.
 
-On the client used to access your Azure Stack Edge device, set up a global variable to match the blob storage REST API version.
+On the client used to access your Azure Stack Edge Pro device, set up a global variable to match the blob storage REST API version.
 
 ### On Windows client 
 

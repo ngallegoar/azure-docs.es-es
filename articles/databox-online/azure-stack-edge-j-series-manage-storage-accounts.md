@@ -1,6 +1,6 @@
 ---
-title: Administración de cuentas de almacenamiento en Azure Stack Edge con GPU | Microsoft Docs
-description: En este artículo se describe cómo usar Azure Portal para administrar cuentas de almacenamiento en Azure Stack Edge.
+title: Administración de cuentas de almacenamiento en Azure Stack Edge Pro con GPU | Microsoft Docs
+description: En este artículo se explica cómo usar Azure Portal para administrar cuentas de almacenamiento en Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,24 +8,24 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 3b190a108651f4b127c2f009c383613922a59018
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: a239b36a539cf7be3e880512b753d45ae4050bad
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254309"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904545"
 ---
-# <a name="use-the-azure-portal-to-manage-edge-storage-accounts-on-your-azure-stack-edge"></a>Uso de Azure Portal para administrar cuentas de almacenamiento en Azure Stack Edge
+# <a name="use-the-azure-portal-to-manage-edge-storage-accounts-on-your-azure-stack-edge-pro"></a>Uso de Azure Portal para administrar cuentas de almacenamiento en Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-En este artículo se describe cómo administrar cuentas de almacenamiento en Azure Stack Edge. Azure Stack Edge se puede administrar mediante Azure Portal o la interfaz de usuario web local. Use Azure Portal para agregar cuentas de almacenamiento de Edge al dispositivo o eliminarlas.
+En este artículo se explica cómo administrar cuentas de almacenamiento en Azure Stack Edge Pro. Azure Stack Edge Pro se puede administrar con Azure Portal o con la interfaz de usuario web local. Use Azure Portal para agregar cuentas de almacenamiento de Edge al dispositivo o eliminarlas.
 
 ## <a name="about-edge-storage-accounts"></a>Acerca de las cuentas de almacenamiento de Edge
 
-Puede transferir datos desde el dispositivo Azure Stack Edge a través de los protocolos SMB, NFS o REST. Para transferir datos al almacenamiento de blobs mediante las API de REST, debe crear cuentas de almacenamiento de Edge en Azure Stack Edge. 
+Puede transferir datos desde el dispositivo Azure Stack Edge Pro a través de los protocolos SMB, NFS o REST. Para transferir datos al almacenamiento de blobs con las API REST, debe crear cuentas de almacenamiento de Edge en Azure Stack Edge Pro. 
 
-Las cuentas de almacenamiento de Edge que agregue en el dispositivo Azure Stack Edge se asignan a cuentas de Azure Storage. Los datos escritos en las cuentas de almacenamiento de Edge se insertan automáticamente en la nube.
+Las cuentas de almacenamiento de Edge que agregue en el dispositivo Azure Stack Edge Pro se asignan a cuentas de Azure Storage. Los datos escritos en las cuentas de almacenamiento de Edge se insertan automáticamente en la nube.
 
 A continuación, se muestra un diagrama que detalla los dos tipos de cuentas y cómo fluyen los datos desde cada una de estas cuentas a Azure:
 
