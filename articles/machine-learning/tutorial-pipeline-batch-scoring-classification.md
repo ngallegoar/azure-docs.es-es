@@ -11,20 +11,20 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 03/11/2020
 ms.custom: contperfq4, devx-track-python
-ms.openlocfilehash: c981bed2b30f47223a1fd562d4a5d0fff96e3adf
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: b6b4be2eb2cd490d525046541f68a45d87a8e638
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646975"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906683"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutorial: Compilación de una canalización de Azure Machine Learning para la puntuación por lotes
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-En este tutorial avanzado, aprenderá a crear una canalización en Azure Machine Learning para ejecutar un trabajo de puntuación por lotes. Las canalizaciones de Machine Learning optimizan el flujo de trabajo con velocidad, portabilidad y reutilización, con el fin de que pueda centrarse en el aprendizaje automático, en lugar de en la infraestructura y la automatización. Después de compilar y publicar una canalización, configurará un punto de conexión REST para desencadenar la canalización desde cualquier biblioteca HTTP en cualquier plataforma. 
 
-En el ejemplo se usa un modelo de red neuronal convolucional [Inception-V3](https://arxiv.org/abs/1512.00567) entrenado previamente implementado en Tensorflow para clasificar las imágenes sin etiquetar. [Más información sobre las canalizaciones de aprendizaje automático](concept-ml-pipelines.md).
+En este tutorial avanzado, aprenderá a crear una [canalización de Azure Machine Learning](concept-ml-pipelines.md) para ejecutar un trabajo de puntuación por lotes. Las canalizaciones de Machine Learning optimizan el flujo de trabajo con velocidad, portabilidad y reutilización, con el fin de que pueda centrarse en el aprendizaje automático, en lugar de en la infraestructura y la automatización. Después de compilar y publicar una canalización, configurará un punto de conexión REST para desencadenar la canalización desde cualquier biblioteca HTTP en cualquier plataforma. 
+
+En el ejemplo se usa un modelo de red neuronal convolucional [Inception-V3](https://arxiv.org/abs/1512.00567) entrenado previamente implementado en Tensorflow para clasificar las imágenes sin etiquetar. 
 
 En este tutorial, va a completar las siguientes tareas:
 

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 8/10/2020
-ms.openlocfilehash: 85a1f0dcc2e778a09cf0d19b2a85d6faf371f032
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 5b1a5da688b162c85d2be8580e29dc6ee9db6d40
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134534"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906476"
 ---
 # <a name="server-group-size"></a>Tamaño del grupo de servidores
 
@@ -40,9 +40,9 @@ Azure Database for PostgreSQL:Hiperescala (Citus) proporciona escalado de autose
 
 ### <a name="add-worker-nodes"></a>Incorporación de nodos de trabajo
 
-Para agregar nodos, vaya a la pestaña **Configurar** en el grupo de servidores de Hiperescala (Citus).  Arrastre el control deslizante de **Números de nodo de trabajo** para cambiar el valor.
+Para agregar nodos, vaya a la pestaña **Compute + storage** (Proceso y almacenamiento) en el grupo de servidores de Hiperescala (Citus).  Arrastre el control deslizante de **Números de nodo de trabajo** para cambiar el valor.
 
-![Controles deslizantes de recursos](./media/howto-hyperscale-scaling/01-sliders-workers.png)
+:::image type="content" source="./media/howto-hyperscale-scaling/01-sliders-workers.png" alt-text="Controles deslizantes de recursos":::
 
 Haga clic en el botón **Guardar** para que el valor cambiado surta efecto.
 

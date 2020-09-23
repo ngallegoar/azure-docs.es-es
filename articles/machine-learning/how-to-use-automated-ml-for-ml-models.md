@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 10c0200aae5ffa432c2da037d58d455fc28e8acd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3214ce260fa4981b8ac970bdf3520ecd7de59e18
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904967"
+ms.locfileid: "90985578"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Creación, revisión e implementación de modelos de aprendizaje automático automatizado con Azure Machine Learning
 
@@ -86,7 +86,7 @@ De lo contrario, verá una lista de los experimentos de aprendizaje automático 
             
         Seleccione **Siguiente**.
 
-    1. En el formulario **Confirmar detalles** se muestra un resumen de la información que se ha rellenado anteriormente en los formularios **Información básica** y **Settings and preview** (Configuración y vista previa). También tiene la opción de crear un perfil de datos para el conjunto de datos mediante un proceso habilitado para la generación de perfiles. Más información acerca de la [generación de perfiles de datos](#profile).
+    1. En el formulario **Confirmar detalles** se muestra un resumen de la información que se ha rellenado anteriormente en los formularios **Información básica** y **Settings and preview** (Configuración y vista previa). También tiene la opción de crear un perfil de datos para el conjunto de datos mediante un proceso habilitado para la generación de perfiles. Más información acerca de la [generación de perfiles de datos](how-to-connect-data-ui.md#profile).
 
         Seleccione **Next** (Siguiente).
 1. Seleccione el conjunto de datos recién creado cuando aparezca. También puede ver una vista previa del conjunto de datos y las estadísticas de ejemplo. 
@@ -111,7 +111,7 @@ De lo contrario, verá una lista de los experimentos de aprendizaje automático 
     Seleccione **Crear**. La creación de un nuevo proceso puede tardar unos minutos.
 
     >[!NOTE]
-    > Su nombre de proceso indicará si el proceso que selecciona o crea *admite la generación de perfiles* . (Consulte la sección sobre la [generación de perfiles de los datos](#profile) para más detalles ).
+    > Su nombre de proceso indicará si el proceso que selecciona o crea *admite la generación de perfiles* . (Consulte la sección sobre la [generación de perfiles de los datos](how-to-connect-data-ui.md#profile) para más detalles ).
 
     Seleccione **Next** (Siguiente).
 
@@ -144,32 +144,6 @@ De lo contrario, verá una lista de los experimentos de aprendizaje automático 
 1. (Opcional) Consulte la configuración de caracterización: Si decide habilitar **Caracterización automática** en el formulario **Ver configuración de caracterización**, se aplican las técnicas de caracterización predeterminadas. En **Ver configuración de caracterización** puede cambiar estos valores predeterminados y personalizarlos según corresponda. Obtenga información sobre cómo [personalizar las caracterizaciones](#customize-featurization). 
 
     ![Formulario del tipo de tarea de Azure Machine Learning Studio](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
-
-<a name="profile"></a>
-
-## <a name="data-profiling--summary-stats"></a>Perfiles de datos y estadísticas de resumen
-
-Puede obtener una gran variedad de estadísticas de resumen en el conjunto de datos para comprobar si dicho conjunto está listo para ML. Para las columnas no numéricas, solo incluyen estadísticas básicas, como mínimo, máximo y recuento de errores. Para las columnas numéricas, también puede revisar sus momentos estadísticos y los cuantiles estimados. En concreto, nuestro perfil de datos incluye:
-
->[!NOTE]
-> Aparecen entradas en blanco para las características con tipos irrelevantes.
-
-Estadísticas|Descripción
-------|------
-Característica| Nombre de la columna que se está resumiendo.
-Perfil| Visualización en línea según el tipo inferido. Por ejemplo, las cadenas, los tipos booleanos y las fechas tendrán recuentos de valores, mientras que los tipos decimales (valores numéricos) tendrán histogramas aproximados. Esto le permite obtener una descripción rápida de la distribución de los datos.
-Distribución de tipo| Recuento de valor en línea de los tipos dentro de una columna. Los valores Null son su propio tipo, por lo que esta visualizaicón es útil para detectar los valores impares o que faltan.
-Tipo|Tipo inferido de la columna. Los valores posibles incluyen: cadenas, valores booleanos, fechas y decimales.
-Min| Valor mínimo de la columna. Aparecen entradas en blanco para características cuyo tipo no tiene una ordenación inherente (por ejemplo, valores booleanos).
-Max| Valor máximo de la columna. 
-Count| Número total de entradas que faltan y que no faltan en la columna.
-No falta el recuento| Número de entradas de la columna que no faltan. Las cadenas vacías y los errores se tratan como valores, por lo que no contribuirán a la lista "No falta el recuento".
-Cuantiles| Valores aproximados en cada cuantil para proporcionar una idea de la distribución de los datos.
-Media| Media aritmética o promedio de la columna.
-Desviación estándar| Medida de la cantidad de dispersión o variación de los datos de esta columna.
-Variance| Medida de la diferencia de los datos de esta columna con respecto a su valor medio. 
-Asimetría| Medida de la diferencia entre los datos de esta columna y la distribución normal.
-Curtosis| La medida de la cantidad de datos en cola de esta columna se compara con una distribución normal.
 
 ## <a name="customize-featurization"></a>Personalización de la caracterización
 
