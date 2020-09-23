@@ -1,6 +1,6 @@
 ---
-title: Implementación de la aplicación del libro de visitas con PHP en el Kubernetes habilitado para Arc en el dispositivo Azure Stack Edge con GPU | Microsoft Docs
-description: Descripción de la implementación de una aplicación sin estado del libro de visitas con PHP y Redis mediante GitOps en un clúster de Kubernetes habilitado para Arc del dispositivo Azure Stack Edge.
+title: Implementación de una aplicación del libro de visitas PHP en el Kubernetes habilitado para Arc en un dispositivo Azure Stack Edge Pro con GPU | Microsoft Docs
+description: Se describe cómo se implementa una aplicación sin estado de libro de visitas PHP con Redis mediante GitOps en un clúster de Kubernetes habilitado para Arc de un dispositivo Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 7fdd9b8ca0fd62d55f5a9412af9486bfb2b942c1
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 3200cfe290cbba208c61e914b17ffa6cd65e6eee
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319299"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899560"
 ---
-# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-gpu"></a>Implementación de una aplicación sin estado del libro de visitas con PHP y Redis en un clúster de Kubernetes habilitado para Arc del dispositivo Azure Stack Edge con GPU.
+# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Implementación de una aplicación sin estado de libro de visitas PHP con Redis en un clúster de Kubernetes habilitado para Arc en Azure Stack Edge Pro con GPU
 
 En este artículo se muestra cómo compilar e implementar una aplicación web sencilla de varios niveles con Kubernetes y Azure Arc. Este ejemplo consta de los siguientes componentes:
 
@@ -23,9 +23,9 @@ En este artículo se muestra cómo compilar e implementar una aplicación web se
 - Varias instancias de Redis replicadas para atender las lecturas
 - Varias instancias de front-end web
 
-La implementación se realiza mediante GitOps en el clúster de Kubernetes habilitado para Arc en el dispositivo Azure Stack Edge. 
+La implementación se realiza mediante GitOps en el clúster de Kubernetes habilitado para Arc en un dispositivo Azure Stack Edge Pro. 
 
-Este procedimiento está dirigido a los usuarios que han revisado las [cargas de trabajo de Kubernetes en un dispositivo Azure Stack Edge](azure-stack-edge-gpu-kubernetes-workload-management.md) y están familiarizados con los conceptos de [¿Qué es la versión preliminar de Kubernetes habilitado para Azure Arc?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)
+Este procedimiento está dirigido a los usuarios que han examinado las [cargas de trabajo de Kubernetes en un dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-kubernetes-workload-management.md) y están familiarizados con los conceptos de [¿Qué es Kubernetes habilitado para Azure Arc (versión preliminar)?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)
 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -34,30 +34,30 @@ Antes de implementar la aplicación sin estado, asegúrese de que ha completado 
 
 ### <a name="for-device"></a>Para el dispositivo
 
-1. Tiene credenciales de inicio de sesión en un dispositivo Azure Stack Edge de un nodo.
+1. Tiene credenciales de inicio de sesión en un dispositivo Azure Stack Edge Pro de un nodo.
     1. El dispositivo está activado. Consulte [Activación del dispositivo](azure-stack-edge-gpu-deploy-activate.md).
     1. El dispositivo tiene el rol de proceso configurado desde Azure Portal y un clúster de Kubernetes. Consulte [Configuración del proceso](azure-stack-edge-gpu-deploy-configure-compute.md).
 
-1. Ha habilitado Azure Arc en el clúster de Kubernetes existente en el dispositivo y tiene un recurso de Arc de Azure correspondiente en Azure Portal. Para los pasos detallados, consulte [Habilitación de Azure Arc en un dispositivo Azure Stack Edge](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md).
+1. Ha habilitado Azure Arc en el clúster de Kubernetes existente en el dispositivo y tiene un recurso de Arc de Azure correspondiente en Azure Portal. Para conocer los pasos detallados, consulte [Habilitación de Azure Arc en un dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md).
 
 ### <a name="for-client-accessing-the-device"></a>Para el cliente que va a acceder al dispositivo
 
-1. Tiene un sistema cliente de Windows que se usará para acceder al dispositivo Azure Stack Edge.
+1. Tiene un sistema cliente de Windows que se usará para acceder al dispositivo Azure Stack Edge Pro.
   
     - El cliente ejecuta Windows PowerShell 5.0 o una versión posterior. Para descargar la última versión de Windows PowerShell, vaya a [Instalación de Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
     
     - También se puede utilizar cualquier otro cliente con un [sistema operativo compatible](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device). En este artículo, el procedimiento que se describe emplea un cliente Windows. 
     
-1. Ha completado el procedimiento descrito en [Acceso al clúster de Kubernetes en el dispositivo Azure Stack Edge](azure-stack-edge-gpu-create-kubernetes-cluster.md). Ha:
+1. Ha completado el procedimiento descrito en [Acceso al clúster de Kubernetes en el dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-create-kubernetes-cluster.md). Ha:
     
     - Instalado `kubectl` en el cliente  <!--and saved the `kubeconfig` file with the user configuration to C:\\Users\\&lt;username&gt;\\.kube. -->
     
-    - Comprobado que la versión de `kubectl` del cliente es como máximo una versión superior o inferior a la versión maestra de Kubernetes que se ejecuta en el dispositivo Azure Stack Edge. 
+    - Asegúrese de que la versión del cliente de `kubectl` es como máximo una versión superior o inferior a la versión maestra de Kubernetes que se ejecuta en el dispositivo Azure Stack Edge Pro. 
       - Use `kubectl version` para comprobar la versión de kubectl que se ejecuta en el cliente. Anote la versión completa.
-      - En la interfaz de usuario local del dispositivo Azure Stack Edge, vaya a **Información general** y anote el número de software de Kubernetes. 
+      - En la interfaz de usuario local del dispositivo Azure Stack Edge Pro, vaya a **Información general** y anote el número de software de Kubernetes. 
       - Compruebe la compatibilidad entre estas dos versiones con la asignación proporcionada en la versión de Kubernetes admitida <!--insert link-->.
 
-1. Tiene una [configuración de GitOps que puede usar para ejecutar una implementación de Azure Arc](https://github.com/kagoyal/dbehaikudemo). En este ejemplo se usan los siguientes archivos de `yaml` para la implementación en el dispositivo Azure Stack Edge.
+1. Tiene una [configuración de GitOps que puede usar para ejecutar una implementación de Azure Arc](https://github.com/kagoyal/dbehaikudemo). En este ejemplo se usan los siguientes archivos `yaml` para la implementación en un dispositivo Azure Stack Edge Pro.
 
     - `frontend-deployment.yaml`<!-- - The guestbook application has a web frontend serving the HTTP requests written in PHP. It is configured to connect to the redis-master Service for write requests and the redis-slave service for Read requests. This file describes a deployment that runs the frontend of the guestbook application.-->
     - `frontend-service.yaml` <!-- - This allows you to configure an externally visible frontend Service that can be accessed from outside the Kubernetes cluster on your device.-->
@@ -176,4 +176,4 @@ C:\Users\user>
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a [usar el panel de Kubernetes para supervisar las implementaciones en el dispositivo Azure Stack Edge](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
+Aprenda a [usar el panel de Kubernetes para supervisar las implementaciones en un dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
