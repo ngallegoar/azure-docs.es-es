@@ -1,15 +1,15 @@
 ---
 title: Definiciones de directivas integradas para Azure Service Fabric
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para Azure Service Fabric. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 09/10/2020
+ms.date: 09/16/2020
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 82cf204a6799f5169cc097bf578c748cc0e50544
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 215c313e2d1967f3922e060ad18bd2fa083950c0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007594"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978774"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-service-fabric"></a>Definiciones integradas de Azure Policy para Azure Service Fabric
 

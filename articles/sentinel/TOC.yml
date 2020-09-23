@@ -29,6 +29,10 @@
       href: fusion.md
     - name: Extender Azure Sentinel por áreas de trabajo e inquilinos
       href: extend-sentinel-across-workspaces-tenants.md
+    - name: Identificación de amenazas avanzadas con UEBA
+      href: identify-threats-with-entity-behavior-analytics.md
+    - name: Importación de inteligencia sobre amenazas en Azure Sentinel
+      href: import-threat-intelligence.md
     - name: Normalización de los datos en tablas
       href: normalization.md
     - name: Seguridad
@@ -162,6 +166,8 @@
           href: connect-threat-intelligence.md
         - name: Conexión a máquinas virtuales de Azure Stack
           href: connect-azure-stack.md
+    - name: Habilitación del análisis de comportamiento de usuarios y entidades
+      href: enable-entity-behavior-analytics.md
     - name: Trabajo con varios inquilinos (MSSP)
       href: multiple-tenants-service-providers.md
     - name: Trabajo con incidentes en varias áreas de trabajo
