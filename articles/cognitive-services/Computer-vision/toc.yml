@@ -109,6 +109,22 @@
       href: concept-recognizing-text.md
     - name: Detección de contenido para adultos
       href: concept-detecting-adult-content.md
+- name: Inteligencia artificial responsable
+  items:
+    - name: Nota de transparencia
+      items:
+        - name: Introducción al análisis espacial
+          href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview'
+        - name: Características y limitaciones
+          href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/accuracy-and-limitations'
+    - name: 'Cumplimiento, privacidad y seguridad'
+      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/compliance-privacy-security-2'
+    - name: Uso responsable en la implementación de IA
+      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/responsible-use-deployment'
+    - name: Directrices de diseño de divulgación de información
+      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/disclosure-design'
+    - name: Investigación de la información
+      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/research-insights'
 - name: Containers
   items:
     - name: Lectura de contenedor de API
@@ -125,6 +141,20 @@
         - name: Uso de instancias de contenedores
           href: deploy-computer-vision-on-container-instances.md
           displayName: 'container instances, container, containers, images'
+    - name: Contenedor de análisis espacial
+      items:
+        - name: Configuración de la máquina host y ejecución del contenedor
+          href: spatial-analysis-container.md
+        - name: Configuración de operaciones
+          href: spatial-analysis-operations.md
+        - name: Implementación de una aplicación web de recuento de personas
+          href: Spatial-analysis-web-app.md
+        - name: Registro y solución de problemas
+          href: spatial-analysis-logging.md
+        - name: Selección de ubicación de zonas y líneas
+          href: spatial-analysis-zone-line-placement.md
+        - name: Selección de ubicación de la cámara
+          href: spatial-analysis-camera-placement.md
 - name: Guías paso a paso
   items:
     - name: Llamada a Computer Vision API
@@ -133,7 +163,7 @@
       href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
     - name: Azure PowerShell
       href: 'https://aka.ms/azure-powershell-cognitiveservices'
