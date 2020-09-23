@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: 805141dedddcd915d266c9651fc51732fb51e1b0
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 3e1832d656ea2bad772a686e52a357c1daf0ded5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146746"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883199"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>¿Qué son los destinos de proceso en Azure Machine Learning? 
 
@@ -51,7 +51,7 @@ Azure Machine Learning crea y administra un recurso de proceso administrado. Dic
 Puede crear instancias de procesos o clústeres de procesos de Azure Machine Learning con cualquiera de las siguientes opciones:
 * [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md)
 * Azure portal
-* SDK de Python [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) y clases de [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py)
+* SDK de Python [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py&preserve-view=true) y clases de [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py&preserve-view=true)
 * [SDK de R](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (versión preliminar)
 * Plantilla de Resource Manager. Para ver una plantilla de ejemplo, consulte [Creación de una plantilla de proceso de Azure Machine Learning](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute).
 * Extensión de Machine learning [para la CLI de Azure](reference-azure-machine-learning-cli.md#resource-management).  
@@ -68,7 +68,7 @@ Cuando se crean, estos recursos de proceso forman parte automáticamente del ár
 
 
 > [!NOTE]
-> Cuando un clúster de proceso está inactivo, se escala automáticamente a 0 nodos, por lo que no paga cuando no se usa.  Sin embargo, una *instancia* de proceso está siempre activa y no se escala automáticamente.  Debe [detener la instancia de proceso](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) cuando no la esté usando para evitar costos adicionales. 
+> Cuando un clúster de proceso está inactivo, se escala automáticamente a 0 nodos, por lo que no paga cuando no se usa.  Sin embargo, una *instancia* de proceso está siempre activa y no se escala automáticamente.  Debe [detener la instancia de proceso](concept-compute-instance.md#managing-a-compute-instance) cuando no la esté usando para evitar costos adicionales. 
 
 ### <a name="supported-vm-series-and-sizes"></a>Series y tamaños de maquina virtual compatibles
 
