@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: memildin
-ms.openlocfilehash: 1af99f6317ac5888478c7df08fcc31478ef1ccef
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 40b96cac4c9ad638373fbb75f736dc7eded42b43
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180854"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883933"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integración de soluciones de seguridad en Azure Security Center
 Este documento le ayuda a administrar las soluciones de seguridad que ya está conectadas a Azure Security Center y a agregar otras nuevas.
@@ -35,11 +35,11 @@ Actualmente, las soluciones de seguridad integradas incluyen la evaluación de v
 > [!NOTE]
 > Security Center no instala Log Analytics en aplicaciones virtuales de asociados, porque la mayoría de los proveedores de seguridad prohíben que se ejecuten agentes externos en su aplicación.
 
-Para obtener más información sobre la integración de las herramientas de examen de vulnerabilidades de Qualys, incluido un escáner integrado disponible para los clientes del nivel estándar, consulte [Evaluaciones de vulnerabilidades para Azure Virtual Machines](deploy-vulnerability-assessment-vm.md).
+Para más información sobre la integración de las herramientas de examen de vulnerabilidades de Qualys, incluido un examen integrado disponible para los clientes de Azure Defender, consulte [Evaluaciones de vulnerabilidades para Azure Virtual Machines](deploy-vulnerability-assessment-vm.md).
 
 Security Center también ofrece análisis de vulnerabilidades para:
 
-* SQL Database: consulte [Exploración de los informes de evaluación de vulnerabilidades en el panel de evaluación de vulnerabilidades](security-center-iaas-advanced-data.md#explore-vulnerability-assessment-reports).
+* SQL Database: consulte [Exploración de los informes de evaluación de vulnerabilidades en el panel de evaluación de vulnerabilidades](defender-for-sql-usage.md#explore-vulnerability-assessment-reports).
 * Imágenes de Azure Container Registry: consulte [Integración de Azure Container Registry con Security Center (versión preliminar)](azure-container-registry-integration.md).
 
 ## <a name="how-security-solutions-are-integrated"></a>Integración de soluciones de seguridad
@@ -88,7 +88,7 @@ Seleccione **Ver** para más información y opciones adicionales, entre las que 
 Security Center detecta automáticamente las soluciones de seguridad que se ejecutan en Azure, pero que no están conectadas a Security Center y las muestra en la sección **Soluciones detectadas**. Estas soluciones incluyen las de Azure, como [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) y soluciones de asociados.
 
 > [!NOTE]
-> El nivel estándar de Security Center es necesario en el nivel de suscripción de la característica de soluciones detectadas. Para más información sobre los planes de tarifa, consulte [Precios](security-center-pricing.md).
+> Habilite **Azure Defender** en el nivel de suscripción para la característica de soluciones detectadas. Para más información sobre los planes de tarifa, consulte [Precios](security-center-pricing.md).
 >
 
 Seleccione **Conectar** en una solución para integrarla con Security Center y recibir alertas de seguridad.

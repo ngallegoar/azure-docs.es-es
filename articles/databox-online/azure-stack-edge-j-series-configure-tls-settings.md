@@ -1,6 +1,6 @@
 ---
-title: Configuración de TLS 1.2 en los clientes de Windows que acceden al dispositivo Azure Stack Edge con GPU
-description: Descripción de la configuración de TLS 1.2 en los clientes de Windows que acceden al dispositivo Azure Stack Edge con GPU.
+title: Configuración de TLS 1.2 en los clientes de Windows que acceden al dispositivo Azure Stack Edge Pro con GPU
+description: Se describe cómo se configura TLS 1.2 en los clientes de Windows que acceden al dispositivo Azure Stack Edge Pro con GPU.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: bf6b591ef3158a5944b1ebeb37dd0ef5935f7215
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9a6b0910fcfd2a632f2520a2fe683b15592017cf
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268509"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891173"
 ---
-# <a name="configure-tls-12-on-windows-clients-accessing-azure-stack-edge-device"></a>Configuración de TLS 1.2 en los clientes de Windows que acceden al dispositivo Azure Stack Edge
+# <a name="configure-tls-12-on-windows-clients-accessing-azure-stack-edge-pro-device"></a>Configuración de TLS 1.2 en los clientes de Windows que acceden a un dispositivo Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Si usa un cliente de Windows para acceder al dispositivo Azure Stack Edge, debe configurar TLS 1.2 en el cliente. En este artículo se proporcionan recursos e instrucciones para configurar TLS 1.2 en el cliente de Windows. 
+Si usa un cliente de Windows para acceder a un dispositivo Azure Stack Edge Pro, debe configurar TLS 1.2 en el cliente. En este artículo se proporcionan recursos e instrucciones para configurar TLS 1.2 en el cliente de Windows. 
 
 Las instrucciones que se proporcionan aquí se basan en las pruebas realizadas en un cliente que ejecuta Windows Server 2016.
 

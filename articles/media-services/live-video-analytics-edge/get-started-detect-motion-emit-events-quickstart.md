@@ -3,12 +3,12 @@ title: 'Introducción a Live Video Analytics en IoT Edge: Azure'
 description: En este inicio rápido se muestran los primeros pasos con Live Video Analytics en IoT Edge. Aprenda a detectar movimiento en transmisiones de vídeo en directo.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: c7e5efa19c27c3f56f9653ed933c7ad290d18408
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 0d1aaf34ad38b50403a3cbefbc953f9140f2fe82
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89568054"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884940"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Inicio rápido: Introducción: Live Video Analytics on IoT Edge
 
@@ -84,6 +84,9 @@ Siga estas instrucciones para conectarse a su centro de IoT mediante la extensi�
 Si la conexión se realiza correctamente, aparece la lista de dispositivos perimetrales. Debería ver al menos un dispositivo denominado **lva-sample-device**. Ahora puede administrar los dispositivos IoT Edge e interactuar con Azure IoT Hub mediante el menú contextual. Para ver los módulos implementados en el dispositivo perimetral, en **lva-sample-device**, expanda el nodo **Módulos**.
 
 ![Nodo lva-sample-device](./media/quickstarts/lva-sample-device-node.png)
+
+> [!TIP]
+> Si ha [implementado manualmente Live Video Analytics en IoT Edge](deploy-iot-edge-device.md) en un dispositivo perimetral (por ejemplo, un dispositivo ARM64), verá que el módulo se muestra en ese dispositivo, bajo Azure IoT Hub. Puede seleccionar ese módulo y seguir el resto de los pasos siguientes.
 
 ## <a name="use-direct-method-calls"></a>Uso de llamadas de método directo
 
