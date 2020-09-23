@@ -1,6 +1,6 @@
 ---
-title: Usuarios de administración de Azure Stack Edge con GPU | Microsoft Docs
-description: Se describe cómo usar Azure Portal para administrar usuarios en Azure Stack Edge con GPU.
+title: Usuarios de administración de Azure Stack Edge Pro con GPU | Microsoft Docs
+description: En este artículo se explica cómo usar Azure Portal para administrar usuarios en Azure Stack Edge Pro con GPU.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 8400f134c7a2b9da32c04e15e42a54f697b9cea6
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5f7e8c09a09084b28278667cdeaf94f7e38908cd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254192"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904498"
 ---
-# <a name="use-the-azure-portal-to-manage-users-on-your-azure-stack-edge"></a>Uso de Azure Portal para administrar usuarios en Azure Stack Edge
+# <a name="use-the-azure-portal-to-manage-users-on-your-azure-stack-edge-pro"></a>Uso de Azure Portal para administrar usuarios en Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-En este artículo, se explica cómo administrar los usuarios en Azure Stack Edge. Azure Stack Edge se puede administrar mediante Azure Portal o la interfaz de usuario web local. Usar Azure Portal para agregar, modificar o eliminar usuarios.
+En este artículo se explica cómo administrar los usuarios en Azure Stack Edge Pro. Azure Stack Edge Pro se puede administrar con Azure Portal o con la interfaz de usuario web local. Usar Azure Portal para agregar, modificar o eliminar usuarios.
 
 En este artículo aprenderá a:
 

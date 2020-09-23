@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1a426a579fa56fca880eb9689adc2aeb7a21407d
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 9cb1a2074e7ec64ed16f1f7c9a1f70bf2307b5c3
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89301193"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033496"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices-classic-editor"></a>Integración e implementación continuas en dispositivos Azure IoT Edge (editor clásico)
 
@@ -86,7 +86,7 @@ En esta sección, creará una nueva canalización de compilación. Configure la 
 
    * Si quiere compilar los módulos en la plataforma amd64 para contenedores de Windows 1809, deberá [configurar un agente autohospedado en Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
 
-   * Si quiere compilar los módulos en la plataforma arm32v7 o arm64 para contenedores de Linux, deberá [configurar un agente autohospedado en Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-continuous-integration-continuous-deployment-pipeline-with-arm-agent/).
+   * Si quiere compilar los módulos en la plataforma arm32v7 o arm64 para contenedores de Linux, deberá [configurar un agente autohospedado en Linux](https://devblogs.microsoft.com/iotdev/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent).
 
     ![Configuración de la especificación del agente de compilación](./media/how-to-continuous-integration-continuous-deployment-classic/configure-env.png)
 
