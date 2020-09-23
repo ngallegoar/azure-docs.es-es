@@ -10,15 +10,15 @@ ms.author: jordane
 author: jpe316
 ms.date: 06/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: f037ea30a1507d4736db7f837e5286701db030e0
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 794e2c8b436b6a6dfa736bef59eb2ad0bda83bc2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146712"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893132"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Instalación y uso de la extensión de la CLI para Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 La CLI de Azure Machine Learning es una extensión de la [CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), una interfaz de la línea de comandos multiplataforma para la plataforma Azure. Esta extensión proporciona comandos para trabajar con Azure Machine Learning. Permite automatizar las actividades de aprendizaje automático. En esta lista se muestran algunas acciones de ejemplo que puede realizar con la extensión de la CLI:
 
@@ -110,9 +110,6 @@ Los siguientes comandos muestran cómo utilizar la CLI para administrar los recu
     ```azurecli-interactive
     az ml workspace create -w myworkspace -g myresourcegroup
     ```
-
-    > [!TIP]
-    > Este comando crea un área de trabajo de edición básica. Para crear un área de trabajo empresarial, use el modificador `--sku enterprise` con el comando `az ml workspace create`. Para más información sobre las ediciones de Azure Machine Learning, consulte [¿Qué es Azure Machine Learning?](overview-what-is-azure-ml.md#sku).
 
     Para más información, consulte [az ml workspace create](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-create).
 
@@ -246,7 +243,7 @@ Administrar instancias de proceso.  En todos los siguientes ejemplos, el nombre 
     > [!TIP]
     > El comando `az ml folder attach` crea un subdirectorio `.azureml`, que contiene dos archivos runconfig de ejemplo. 
     >
-    > Si tiene un script de Python que crea un objeto de configuración de ejecución mediante programación, puede usar [RunConfig.save()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#save-path-none--name-none--separate-environment-yaml-false-) para guardarlo como un archivo runconfig.
+    > Si tiene un script de Python que crea un objeto de configuración de ejecución mediante programación, puede usar [RunConfig.save()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#&preserve-view=truesave-path-none--name-none--separate-environment-yaml-false-) para guardarlo como un archivo runconfig.
     >
     > El esquema runconfig completo se puede encontrar en este [archivo JSON](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). El esquema se documenta automáticamente mediante la clave `description` de cada objeto. Además, hay enumeraciones de valores posibles y un fragmento de código de plantilla al final.
 
@@ -366,7 +363,7 @@ Los comandos siguientes muestran cómo crear, registrar y enumerar los [entornos
 
 ### <a name="environment-configuration-schema"></a>Esquema de configuración del entorno
 
-Si usa el comando `az ml environment scaffold`, se genera un archivo de plantilla `azureml_environment.json` que puede modificarse y usarse para crear configuraciones de entorno personalizadas con la CLI. El objeto de nivel superior se asigna de forma flexible a la clase [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py) en el SDK de Python. 
+Si usa el comando `az ml environment scaffold`, se genera un archivo de plantilla `azureml_environment.json` que puede modificarse y usarse para crear configuraciones de entorno personalizadas con la CLI. El objeto de nivel superior se asigna de forma flexible a la clase [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py&preserve-view=true) en el SDK de Python. 
 
 ```json
 {
@@ -410,17 +407,17 @@ Si usa el comando `az ml environment scaffold`, se genera un archivo de plantill
 }
 ```
 
-En la tabla que aparece más abajo se detallan todos los campos de nivel superior del archivo JSON, su tipo y su descripción. Si un tipo de objeto está vinculado a una clase del SDK de Python, hay una coincidencia 1:1 débil entre cada campo JSON y el nombre de la variable pública en la clase de Python. En algunos casos, el campo puede asignarse a un argumento de constructor en lugar de a una variable de clase. Por ejemplo, el campo `environmentVariables` se asigna a la variable `environment_variables` en la clase [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py).
+En la tabla que aparece más abajo se detallan todos los campos de nivel superior del archivo JSON, su tipo y su descripción. Si un tipo de objeto está vinculado a una clase del SDK de Python, hay una coincidencia 1:1 débil entre cada campo JSON y el nombre de la variable pública en la clase de Python. En algunos casos, el campo puede asignarse a un argumento de constructor en lugar de a una variable de clase. Por ejemplo, el campo `environmentVariables` se asigna a la variable `environment_variables` en la clase [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py&preserve-view=true).
 
 | Campo JSON | Tipo | Descripción |
 |---|---|---|
 | `name` | `string` | Nombre del entorno. No escriba **Microsoft** o **AzureML** al principio del nombre. |
 | `version` | `string` | Versión del entorno. |
 | `environmentVariables` | `{string: string}` | Mapa hash de nombres y valores de variables de entorno. |
-| `python` | [`PythonSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py) | Objeto que define el entorno de Python y el intérprete que se va a usar en el recurso de proceso de destino. |
-| `docker` | [`DockerSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py) | Sección que define la configuración para personalizar la imagen de Docker compilada según las especificaciones del entorno. |
-| `spark` | [`SparkSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.sparksection?view=azure-ml-py) | Sección que define la configuración de Spark. Solo se usa cuando el marco se establece en PySpark. |
-| `databricks` | [`DatabricksSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.databricks.databrickssection?view=azure-ml-py) | Sección que define la configuración de las dependencias de las bibliotecas de Databricks. |
+| `python` | [`PythonSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py&preserve-view=true) que define el entorno de Python y el intérprete que se va a usar en el recurso de proceso de destino. |
+| `docker` | [`DockerSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py&preserve-view=true) | Sección que define la configuración para personalizar la imagen de Docker compilada según las especificaciones del entorno. |
+| `spark` | [`SparkSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.sparksection?view=azure-ml-py&preserve-view=true) | Sección que define la configuración de Spark. Solo se usa cuando el marco se establece en PySpark. |
+| `databricks` | [`DatabricksSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.databricks.databrickssection?view=azure-ml-py&preserve-view=true) | Sección que define la configuración de las dependencias de las bibliotecas de Databricks. |
 | `inferencingStackVersion` | `string` | Campo que especifica la versión de la pila de inferencia agregada a la imagen. Para evitar agregar una pila de inferencia, deje este campo como `null`. Valor válido: "latest" (más reciente). |
 
 ## <a name="ml-pipeline-management"></a>Administración de canalizaciones de aprendizaje automático
