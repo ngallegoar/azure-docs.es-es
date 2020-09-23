@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 63bc46f679b71f6965cda8f9db800a125683c093
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 605df0f26600f962bda7a0a0def800a91d74b022
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298902"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563002"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configuración de una instancia de Azure Digital Twins y autenticación (con scripts)
 
@@ -38,7 +38,7 @@ En la carpeta de ejemplo descargada, el script de implementación se encuentra e
 
 Estos son los pasos para ejecutar el script de implementación en Cloud Shell.
 1. Vaya a una ventana de [Azure Cloud Shell](https://shell.azure.com/) en el explorador. Inicie sesión con este comando:
-    ```azurecli-interactive
+    ```azurecli
     az login
     ```
     Si la CLI puede abrir el explorador predeterminado, lo hará y cargará una página de inicio de sesión de Azure. En caso contrario, abra una página del explorador en *https://aka.ms/devicelogin* y escriba el código de autorización que se muestra en el terminal.
