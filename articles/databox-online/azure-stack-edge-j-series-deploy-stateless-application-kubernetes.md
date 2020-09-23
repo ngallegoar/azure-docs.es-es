@@ -1,6 +1,6 @@
 ---
-title: Implementación de una aplicación sin estado de Kubernetes en un dispositivo Azure Stack Edge con GPU mediante kubectl| Microsoft Docs
-description: En este artículo, se explica cómo se crea y administra la implementación de una aplicación sin estado de Kubernetes en un dispositivo Microsoft Azure Stack Edge utilizando kubectl.
+title: Implementación de una aplicación sin estado de Kubernetes en un dispositivo Azure Stack Edge Pro con GPU por medio de kubectl | Microsoft Docs
+description: En este artículo se explica cómo crear y administrar una implementación de una aplicación sin estado de Kubernetes en un dispositivo Microsoft Azure Stack Edge Pro con kubectl.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 27502c58481444a9dc14120bf447d4614d051ccc
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 91a2d08bf9eea2f5af0f6893712515cb2feeab8a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268866"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890731"
 ---
-# <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-gpu-device"></a>Implementación de una aplicación sin estado de Kubernetes en un dispositivo Azure Stack Edge con GPU mediante kubectl
+# <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Implementación de una aplicación sin estado de Kubernetes en un dispositivo Azure Stack Edge Pro con GPU por medio de kubectl
 
 En este artículo, se explica cómo se implementa una aplicación sin estado en un clúster de Kubernetes existente utilizando comandos de kubectl. También se describe paso a paso el proceso de creación y configuración de pods en la aplicación sin estado.
 
@@ -23,13 +23,13 @@ En este artículo, se explica cómo se implementa una aplicación sin estado en 
 
 Para poder crear un clúster de Kubernetes y usar la herramienta de línea de comandos `kubectl`, es necesario que compruebe lo siguiente:
 
-- Tiene credenciales de inicio de sesión en un dispositivo Azure Stack Edge de un nodo.
+- Tiene credenciales de inicio de sesión en un dispositivo Azure Stack Edge Pro de un nodo.
 
-- Tiene Windows PowerShell 5.0 o una versión posterior instalado en un sistema cliente de Windows para poder obtener acceso al dispositivo Azure Stack Edge. Puede utilizar también cualquier otro cliente que tenga un sistema operativo compatible. En este artículo, el procedimiento que se describe emplea un cliente Windows. Para descargar la última versión de Windows PowerShell, vaya a [Instalación de Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+- Tiene Windows PowerShell 5.0 o una versión posterior instalado en un sistema cliente de Windows para poder obtener acceso al dispositivo Azure Stack Edge Pro. Puede utilizar también cualquier otro cliente que tenga un sistema operativo compatible. En este artículo, el procedimiento que se describe emplea un cliente Windows. Para descargar la última versión de Windows PowerShell, vaya a [Instalación de Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
 
-- La funcionalidad de proceso debe estar habilitada en el dispositivo Azure Stack Edge. Para habilitar dicha funcionalidad, vaya a la página **Proceso** de la interfaz de usuario local del dispositivo. A continuación, seleccione la interfaz de red que desee habilitar para el proceso. Seleccione **Habilitar**. Al hacerlo, se crea un conmutador virtual para esa interfaz de red en el dispositivo. Para más información, consulte este artículo sobre la [habilitación de la red de proceso en Azure Stack Edge](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
+- La funcionalidad de proceso debe estar habilitada en el dispositivo Azure Stack Edge Pro. Para habilitar dicha funcionalidad, vaya a la página **Proceso** de la interfaz de usuario local del dispositivo. A continuación, seleccione la interfaz de red que desee habilitar para el proceso. Seleccione **Habilitar**. Al hacerlo, se crea un conmutador virtual para esa interfaz de red en el dispositivo. Para más información, vea este artículo sobre la [habilitación de la red de proceso en Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 
-- El dispositivo Azure Stack Edge debe tener un servidor de clústeres de Kubernetes con la versión v1.9 o posterior. Para más información, consulte este artículo sobre la [creación y administración de un clúster de Kubernetes en un dispositivo Microsoft Azure Stack Edge](azure-stack-edge-gpu-create-kubernetes-cluster.md).
+- El dispositivo Azure Stack Edge Pro debe tener un servidor de clústeres de Kubernetes con la versión 1.9 o posterior. Para más información, vea este artículo sobre la [creación y administración de un clúster de Kubernetes en un dispositivo Microsoft Azure Stack Edge Pro](azure-stack-edge-gpu-create-kubernetes-cluster.md).
 
 - Debe tener instalado `kubectl`.
 
@@ -43,7 +43,7 @@ Antes de comenzar, es necesario lo siguiente:
 4. Guardar la configuración de usuario en `C:\Users\<username>\.kube`.
 5. Instalar `kubectl`.
 
-Ahora, puede empezar a ejecutar y administrar implementaciones de aplicaciones sin estado en un dispositivo Azure Stack Edge. Para poder empezar a usar `kubectl`, debe comprobar que tiene la versión de `kubectl` adecuada.
+Ahora, puede empezar a ejecutar y administrar implementaciones de aplicaciones sin estado en un dispositivo Azure Stack Edge Pro. Para poder empezar a usar `kubectl`, debe comprobar que tiene la versión de `kubectl` adecuada.
 
 ### <a name="verify-you-have-the-correct-version-of-kubectl-and-set-up-configuration"></a>Verificación de que la versión de kubectl es la adecuada y establecimiento de la configuración
 
@@ -109,7 +109,7 @@ Un pod es la unidad de ejecución básica de una aplicación de Kubernetes, la u
 
 El tipo de aplicación sin estado que se crea es una implementación de servidor web de Nginx.
 
-Todos los comandos de kubectl que se utilizan para crear y administrar implementaciones de aplicaciones sin estado tienen que especificar el espacio de nombres asociado a la configuración. Este espacio de nombres lo creó mientras estaba conectado al clúster del dispositivo Azure Stack Edge en el tutorial de [creación y administración de un clúster de Kubernetes en un dispositivo Microsoft Azure Stack Edge](azure-stack-edge-gpu-create-kubernetes-cluster.md) mediante `New-HcsKubernetesNamespace`.
+Todos los comandos de kubectl que se utilizan para crear y administrar implementaciones de aplicaciones sin estado tienen que especificar el espacio de nombres asociado a la configuración. Este espacio de nombres lo creó mientras estaba conectado al clúster del dispositivo Azure Stack Edge Pro en el tutorial de [creación y administración de un clúster de Kubernetes en un dispositivo Microsoft Azure Stack Edge Pro](azure-stack-edge-gpu-create-kubernetes-cluster.md) con `New-HcsKubernetesNamespace`.
 
 Para especificar el espacio de nombres en un comando de kubectl, use `kubectl <command> -n <namespace-string>`.
 

@@ -84,7 +84,7 @@
           href: ./how-to/view-service-provider-activity.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/managedservices
     - name: Azure PowerShell
       href: /powershell/module/az.managedservices#managed_services
@@ -101,6 +101,8 @@
     - name: Elementos integrados de Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./samples/policy-reference.md
+    - name: Terraform
+      href: 'https://www.terraform.io/docs/providers/azurerm/r/lighthouse_assignment.html'
 - name: Recursos
   items:
     - name: Preguntas y respuestas de Microsoft para Azure Lighthouse

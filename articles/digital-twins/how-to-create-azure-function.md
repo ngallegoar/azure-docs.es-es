@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6c7c1d09373ac1fb661d28dc4ca201c5d13605ca
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: a0f5a921ad9eba82f27b3a8945643737b6d76030
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89292249"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89614070"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Conexión de aplicaciones de Azure Functions para el procesamiento de datos
 
@@ -58,7 +58,7 @@ Para poder usar el SDK, debe incluir los siguientes paquetes en el proyecto. Pue
     
 Para ello, haga clic con el botón derecho en el proyecto y seleccione _Administrar paquetes NuGet_ en la lista. A continuación, en la ventana que se abre, seleccione la pestaña _Examinar_ y busque los siguientes paquetes. Seleccione _Instalar_ y _acepte_ el contrato de licencia para instalar los paquetes.
 
-* `Azure.DigitalTwins.Core` (versión `1.0.0-preview.2`)
+* `Azure.DigitalTwins.Core`
 * `Azure.Identity` 
 
 Para que la configuración de la canalización de Azure SDK se configure correctamente para Azure Functions, también necesitará los paquetes siguientes. Repita el mismo proceso que antes para instalar todos los paquetes.
@@ -70,7 +70,7 @@ Para que la configuración de la canalización de Azure SDK se configure correct
 
 ```cmd/sh
 dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-dotnet add package Azure.identity --version 1.1.1
+dotnet add package Azure.identity --version 1.2.2
 dotnet add package System.Net.Http
 dotnet add package Azure.Core.Pipeline
 ```
