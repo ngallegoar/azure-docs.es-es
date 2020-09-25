@@ -190,13 +190,13 @@
           items:
             - name: PowerShell
               href: troubleshoot-recovery-disks-windows.md
-            - name: Azure Portal
+            - name: Azure portal
               href: troubleshoot-recovery-disks-portal-windows.md
         - name: Linux
           items:
             - name: CLI
               href: troubleshoot-recovery-disks-linux.md
-            - name: Azure Portal
+            - name: Azure portal
               href: troubleshoot-recovery-disks-portal-linux.md
         - name: Se cambian los nombres de dispositivos
           href: troubleshoot-device-names-problems.md
@@ -234,6 +234,12 @@
           items:
             - name: Cómo usar PerfInsights
               href: how-to-use-perfinsights-linux.md
+- name: Solución de problemas de instancias de Shared Image Gallery
+  items:
+    - name: 'Solución de problemas de Shared Image Gallery: Windows'
+      href: ../windows/troubleshooting-shared-images.md
+    - name: 'Solución de problemas de Shared Image Gallery: Linux'
+      href: ../linux/troubleshooting-shared-images.md
 - name: Problemas de las extensiones de máquina virtual
   items:
     - name: Introducción a las extensiones de Azure

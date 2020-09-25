@@ -13,12 +13,12 @@ metadata:
   ms.date: 09/10/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: ae4e327b7b4d230bd89baccdd27d5ac416ebb6cb
-  ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+  ms.openlocfilehash: aec131b8c7a3e5092b6b090668fb0eb006b079a3
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/15/2020
-  ms.locfileid: "90087956"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90904149"
 highlightedContent:
   items:
   - title: Guía de introducción para desarrolladores de Azure
@@ -36,7 +36,7 @@ highlightedContent:
 productDirectory:
   title: Examen de productos de Azure
   items:
-  - title: Anomaly Detector (versión preliminar)
+  - title: Anomaly Detector
     summary: Incorporación sencilla de funcionalidades de detección de anomalías a las aplicaciones
     imageSrc: https://static.docs.com/ui/media/product/azure/anomaly-detector.svg
     azureCategories:
@@ -144,6 +144,13 @@ productDirectory:
     azureCategories:
     - ai-machine-learning
     url: cognitive-services/bing-web-search/overview.md
+  - title: Communication Services
+    summary: Adición de voz, vídeo y telefonía en tiempo real a las aplicaciones
+    imageSrc: ./media/index/communication-services.svg
+    azureCategories:
+    - web
+    - mobile
+    url: communication-services/overview.md
   - title: Computer Vision
     summary: Sintetizar información accionable de las imágenes
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
@@ -598,7 +605,7 @@ productDirectory:
     - hybrid
     - databases
     url: azure-sql/index.yml
-  - title: Azure SQL Database
+  - title: Azure SQL Database
     summary: SQL administrado e inteligente en la nube
     imageSrc: https://static.docs.com/ui/media/product/azure/sql-database.svg
     azureCategories:
@@ -610,7 +617,7 @@ productDirectory:
     azureCategories:
     - databases
     url: azure-sql/managed-instance/index.yml
-  - title: Azure SQL Edge (versión preliminar)
+  - title: Azure SQL Edge
     summary: Motor de datos con poca superficie de memoria y optimizado para el borde con inteligencia artificial integrada
     imageSrc: https://static.docs.com/ui/media/product/azure/sql-database-edge.svg
     azureCategories:

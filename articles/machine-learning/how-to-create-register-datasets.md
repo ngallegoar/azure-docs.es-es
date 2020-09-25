@@ -12,20 +12,22 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: ccbdc13f7efadff7fc4e101dfd0b736115d5351d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 92394138c5aa20d0abc33387aab1e9c37e6f9cb9
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897922"
+ms.locfileid: "90986383"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Creación de conjuntos de datos de Azure Machine Learning
 
 
 
-En este artículo aprenderá a crear conjuntos de datos de Azure Machine Learning para acceder a los datos de los experimentos locales o remotos. Para comprender el lugar de los almacenes de datos en el flujo de trabajo global de acceso a datos de Azure Machine Learning, consulte el artículo [Acceso seguro a los datos](concept-data.md#data-workflow).
+En este artículo aprenderá a crear conjuntos de datos de Azure Machine Learning para acceder a los datos de los experimentos locales o remotos con el SDK de Python de Azure Machine Learning. Para comprender el lugar de los almacenes de datos en el flujo de trabajo global de acceso a datos de Azure Machine Learning, consulte el artículo [Acceso seguro a los datos](concept-data.md#data-workflow).
 
 Mediante la creación de un conjunto de datos, puede crear una referencia a la ubicación del origen de datos, junto con una copia de sus metadatos. Dado que los datos permanecen en su ubicación existente, no incurre en ningún costo de almacenamiento adicional ni arriesga la integridad de los orígenes de datos. Además, los conjuntos de datos se evalúan de forma diferida, lo que contribuye a la velocidad del rendimiento del flujo de trabajo. Puede crear conjuntos de datos a partir de almacenes de datos, direcciones URL públicas y [Azure Open Datasets](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md).
+
+Para disfrutar de una experiencia de programación con poco código, [cree conjuntos de valores de Azure Machine Learning con Azure Machine Learning Studio.](how-to-connect-data-ui.md#create-datasets).
 
 Con los conjuntos de datos de Azure Machine Learning, puede:
 
@@ -72,15 +74,14 @@ Existen dos tipos de conjuntos de datos, según el modo en que los usuarios los 
 
 Se recomiendan objetos FileDataset para los flujos de trabajo de aprendizaje automático, ya que los archivos de origen pueden estar en cualquier formato, lo que permite una mayor variedad de escenarios de aprendizaje automático, como el de aprendizaje profundo.
 
-Cree un objeto FileDataset con el [SDK de Python](#create-a-filedataset) o [Azure Machine Learning Studio](#create-datasets-in-the-studio).
-
+Cree un objeto FileDataset con el [SDK de Python](#create-a-filedataset) o [Azure Machine Learning Studio](how-to-connect-data-ui.md#create-datasets).
 ### <a name="tabulardataset"></a>TabularDataset
 
 [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) representa los datos en formato tabular mediante el análisis del archivo o la lista de archivos proporcionados. Este modelo de datos le ofrece la posibilidad de materializar los datos en un dataframe de Pandas o Spark para que pueda trabajar con bibliotecas conocidas de entrenamiento y preparación de datos sin tener que salir del cuaderno. Puede crear un objeto `TabularDataset` a partir de archivos .csv, .tsv, .parquet y .jsonl, así como de los [resultados de una consulta SQL](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#&preserve-view=truefrom-sql-query-query--validate-true--set-column-types-none--query-timeout-30-).
 
 Con los objetos TabularDataset, puede especificar una marca de tiempo desde una columna de los datos o desde el lugar en que estén almacenados los datos del patrón de ruta de acceso para habilitar un rasgo de la serie temporal. Esta especificación permite filtrar de forma fácil y eficaz por hora. Para más información, consulte [Demostración de la API relacionada con una serie temporal tabular con datos meteorológicos de NOAA](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb).
 
-Cree un objeto TabularDataset con el [SDK de Python](#create-a-tabulardataset) o [Azure Machine Learning Studio](#create-datasets-in-the-studio).
+Cree un objeto TabularDataset con el [SDK de Python](#create-a-tabulardataset) o [Azure Machine Learning Studio](how-to-connect-data-ui.md#create-datasets).
 
 >[!NOTE]
 > Los flujos de trabajo de AutoML que se generan a través de Azure Machine Learning Studio actualmente solo admiten objetos TabularDataset. 
@@ -91,9 +92,9 @@ Si el área de trabajo está en una red virtual, debe configurar el conjunto de 
 
 <a name="datasets-sdk"></a>
 
-## <a name="create-datasets-via-the-sdk"></a>Creación de conjuntos de datos mediante el SDK
+## <a name="create-datasets"></a>Creación de conjuntos de datos
 
- Para que Azure Machine Learning pueda acceder a los datos, deben crearse conjuntos de datos a partir de las rutas de acceso de los [almacenes de datos de Azure](how-to-access-data.md) o las direcciones URL web públicas. 
+Para que Azure Machine Learning pueda acceder a los datos, deben crearse conjuntos de datos a partir de las rutas de acceso de los [almacenes de datos de Azure](how-to-access-data.md) o las direcciones URL web públicas. 
 
 Para crear conjuntos de datos a partir de un [almacén de datos de Azure](how-to-access-data.md) con el SDK de Python:
 
@@ -220,26 +221,6 @@ titanic_ds = titanic_ds.register(workspace=workspace,
                                  name='titanic_ds',
                                  description='titanic training data')
 ```
-
-<a name="datasets-ui"></a>
-## <a name="create-datasets-in-the-studio"></a>Creación de conjuntos de datos en Studio
-Los siguientes pasos y la animación muestran cómo crear un conjunto de datos en [Azure Machine Learning Studio](https://ml.azure.com).
-
-> [!Note]
-> Los conjuntos de datos creados mediante Azure Machine Learning Studio se registran automáticamente en el área de trabajo.
-
-![Creación de un conjunto de datos con la interfaz de usuario](./media/how-to-create-register-datasets/create-dataset-ui.gif)
-
-Para crear un conjunto de datos en el estudio:
-1. Inicie sesión en https://ml.azure.com.
-1. Seleccione **Conjuntos de datos** en la sección **Recursos** del panel de la izquierda. 
-1. Seleccione **Crear conjunto de datos** para elegir el origen del conjunto de datos. Este origen puede ser archivos locales, un almacén de datos o direcciones URL públicas.
-1. Seleccione **Tabular** o **Archivo** para el tipo de conjunto de datos.
-1. Seleccione **Siguiente** para abrir el formulario **Datastore and file selection** (Almacén de datos y selección de archivos). En este formulario, seleccione dónde desea mantener el conjunto de datos después de su creación, así como los archivos de datos que se usarán para el conjunto de datos. 
-    1. Habilite la omisión de la validación si los datos están en una red virtual. Obtenga más información sobre el [uso de conjuntos de datos y almacenes de datos en una red virtual](how-to-secure-workspace-vnet.md#secure-datastores-and-datasets).
-1. Seleccione **Siguiente** para rellenar los formularios **Settings and preview** (Configuración y versión preliminar) y **Esquema**; se rellenan de forma inteligente en función del tipo de archivo y se puede configurar el conjunto de archivos antes de la creación en estos formularios. 
-1. Seleccione **Siguiente** para revisar el formulario **Confirmar detalles**. Compruebe sus selecciones y cree un perfil de datos opcional para el conjunto de datos. Más información acerca de la [generación de perfiles de datos](how-to-use-automated-ml-for-ml-models.md#profile). 
-1. Seleccione **Crear** para completar la creación del conjunto de datos.
 
 ## <a name="create-datasets-with-azure-open-datasets"></a>Creación de conjuntos de datos con Azure Open Datasets
 

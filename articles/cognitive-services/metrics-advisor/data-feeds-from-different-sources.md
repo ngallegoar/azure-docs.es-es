@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: aahi
-ms.openlocfilehash: 4dc3c46b65bab48b8923af985f0c2c29fcddc53b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f9ab340e73ce8d58da63a0089073ac4770bf2d52
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932047"
+ms.locfileid: "90973382"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Incorporación de fuentes de datos de diferentes orígenes de datos a Metrics Advisor
 
@@ -27,10 +27,10 @@ Use este artículo para encontrar la configuración y los requisitos para conect
 | ---------------------|-------------|
 |**Basic** | Tendrá que ser capaz de proporcionar los parámetros básicos para acceder a los orígenes de datos. Por ejemplo, una cadena de conexión o clave. Los administradores de fuentes de distribución de datos pueden ver estas credenciales. |
 | **AzureManagedIdentity** | [Identidades administradas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para recursos de Azure es una característica de Azure Active Directory. Proporciona a los servicios de Azure una identidad de sistema administrada automáticamente en Azure AD. Puede usar la identidad para autenticarse en cualquier servicio que admita la autenticación de Azure AD.|
-| **AzureSQLConnectionString**| Almacene la cadena de conexión de AzureSQL como una **entidad de autenticación** en Metrics Advisor y úsela directamente cada vez que se incorporen los datos de métricas. Solo los administradores de la entidad de autenticación pueden ver estas credenciales, pero permite que los espectadores autorizados creen fuentes de distribución de datos sin necesidad de conocer los detalles de las credenciales. |
-| **DataLakeGen2SharedKey**| Almacene la clave de cuenta del lago de datos como una **entidad de autenticación** en Metrics Advisor y úsela directamente cada vez que se incorporen los datos de métricas. Solo los administradores de la entidad de autenticación pueden ver estas credenciales, pero permite que los espectadores autorizados creen fuentes de distribución de datos sin necesidad de conocer los detalles de las credenciales.|
-| **ServicePrincipal**| Almacene la entidad de servicio como una **entidad de autenticación** en Metrics Advisor y úsela directamente cada vez que se incorporen los datos de métricas. Solo los administradores de la entidad de autenticación pueden ver las credenciales, pero permite que los espectadores autorizados creen fuentes de distribución de datos sin necesidad de conocer los detalles de las credenciales.|
-| **ServicePrincipalInKeyVault**|Almacene la entidad de servicio en KeyVault como una **entidad de autenticación** en Metrics Advisor y úsela directamente cada vez que se incorporen los datos de métricas. Solo los administradores de la **entidad de autenticación** pueden ver las credenciales, pero también deja que los espectadores puedan crear fuentes de distribución de datos sin necesidad de conocer las credenciales detalladas. |
+| **AzureSQLConnectionString**| Almacene la cadena de conexión de AzureSQL como una **entidad de credencial** en Metrics Advisor y úsela directamente cada vez que se incorporen los datos de métricas. Solo los administradores de la entidad de credencial pueden ver estas credenciales, pero permite que los espectadores autorizados creen fuentes de distribución de datos sin necesidad de conocer los detalles de las credenciales. |
+| **DataLakeGen2SharedKey**| Almacene la clave de cuenta del lago de datos como una **entidad de credencial** en Metrics Advisor y úsela directamente cada vez que se incorporen los datos de métricas. Solo los administradores de la entidad de credencial pueden ver estas credenciales, pero permite que los espectadores autorizados creen fuentes de distribución de datos sin necesidad de conocer los detalles de las credenciales.|
+| **Entidad de servicio**| Almacene la entidad de servicio como una **entidad de credencial** en Metrics Advisor y úsela directamente cada vez que se incorporen los datos de métricas. Solo los administradores de la entidad de credencial pueden ver las credenciales, pero permite que los espectadores autorizados creen fuentes de distribución de datos sin necesidad de conocer los detalles de las credenciales.|
+| **Entidad de servicio de Key Vault**|Almacene la entidad de servicio en KeyVault como una **entidad de credencial** en Metrics Advisor y úsela directamente cada vez que se incorporen los datos de métricas. Solo los administradores de la **entidad de credencial** pueden ver las credenciales, pero también deja que los espectadores puedan crear fuentes de distribución de datos sin necesidad de conocer las credenciales detalladas. |
 
 ## <a name="data-sources-supported-and-corresponding-authentication-types"></a>Orígenes de datos admitidos y tipos de autenticación correspondientes
 
@@ -41,8 +41,8 @@ Use este artículo para encontrar la configuración y los requisitos para conect
 |[**Azure Blob Storage (JSON)** ](#blob) | Básico<br>ManagedIdentity|
 |[**Azure Cosmos DB (SQL)** ](#cosmosdb) | Básico |
 |[**Azure Data Explorer (Kusto)**](#kusto) | Básico<br>ManagedIdentity|
-|[**Azure Data Lake Storage Gen2**](#adl) | Básico<br>DataLakeGen2SharedKey<br>ServicePrincipal<br>ServicePrincipalInKeyVault<br> |
-|[**Azure SQL Database/SQL Server**](#sql) | Básico<br>ManagedIdentity<br>ServicePrincipal<br>ServicePrincipalInKeyVault<br>AzureSQLConnectionString
+|[**Azure Data Lake Storage Gen2**](#adl) | Básico<br>DataLakeGen2SharedKey<br>Entidad de servicio<br>Entidad de servicio de Key Vault<br> |
+|[**Azure SQL Database/SQL Server**](#sql) | Básico<br>ManagedIdentity<br>Entidad de servicio<br>Entidad de servicio de Key Vault<br>AzureSQLConnectionString
 |[**Azure Table Storage**](#table) | Básico | 
 |[**ElasticSearch**](#es) | Básico |
 |[**Solicitud Http**](#http) | Básico | 
@@ -51,7 +51,7 @@ Use este artículo para encontrar la configuración y los requisitos para conect
 |[**MySQL**](#mysql) | Básico |
 |[**PostgreSQL**](#pgsql)| Básico|
 
-Cree una **entidad de autenticación** y úsela para autenticarse en los orígenes de datos. En las secciones siguientes se especifican los parámetros necesarios para la autenticación *básica*. 
+Cree una **entidad de credencial** y úsela para autenticarse en los orígenes de datos. En las secciones siguientes se especifican los parámetros necesarios para la autenticación *básica*. 
 
 ## <a name="span-idappinsightsazure-application-insightsspan"></a><span id="appinsights">Azure Application Insights</span>
 

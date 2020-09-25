@@ -11,16 +11,16 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 07/22/2020
 ms.custom: how-to, contperfq1, devx-track-python
-ms.openlocfilehash: 769b4d364412d3409ef95c4222197fe6f7ce222c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7a785aebc282a871d150f0c9b4cca59d7d03558e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893465"
+ms.locfileid: "90976776"
 ---
 # <a name="connect-to-azure-storage-services"></a>Conexión con los servicios de Azure Storage
 
-En este artículo, aprenderá a **conectarse a los servicios de Azure Storage a través de almacenes de datos de Azure Machine Learning**. Los almacenes de datos se conectan de forma segura a su servicio Azure Storage sin poner en riesgo sus credenciales de autenticación ni la integridad de su origen de datos original. Almacenan información de conexión, como el identificador de suscripción y la autorización de token de su instancia de [Key Vault](https://azure.microsoft.com/services/key-vault/) asociada con el área de trabajo, para que pueda acceder de forma segura al almacenamiento sin tener que codificarlos de forma rígida en los scripts. Puede usar el [SDK de Python de Azure Machine Learning](#python) o [Azure Machine Learning Studio](#studio) para crear y registrar almacenes de datos.
+En este artículo, aprenderá a **conectarse a los servicios de Azure Storage a través de almacenes de datos de Azure Machine Learning**. Los almacenes de datos se conectan de forma segura a su servicio Azure Storage sin poner en riesgo sus credenciales de autenticación ni la integridad de su origen de datos original. Almacenan información de conexión, como el identificador de suscripción y la autorización de token de su instancia de [Key Vault](https://azure.microsoft.com/services/key-vault/) asociada con el área de trabajo, para que pueda acceder de forma segura al almacenamiento sin tener que codificarlos de forma rígida en los scripts. Puede usar el [SDK de Python de Azure Machine Learning](#python) o [Azure Machine Learning Studio](how-to-connect-data-ui.md) para crear y registrar almacenes de datos.
 
 Si prefiere crear y administrar almacenes de datos mediante la extensión Azure Machine Learning para VS Code, visite la [guía paso a paso sobre la administración de recursos de VS Code](how-to-manage-resources-vscode.md#datastores) para más información.
 
@@ -117,7 +117,7 @@ En el caso del almacenamiento de Azure Data Lake Gen 2 y el contenedor de blobs 
 
 <a name="python"></a>
 
-## <a name="create-and-register-datastores-via-the-sdk"></a>Creación y registro de almacenes de datos a través del SDK
+## <a name="create-and-register-datastores"></a>Creación y registro de almacenes de datos
 
 Cuando se registra una solución de Azure Storage como almacén de datos, se crea y registra automáticamente ese almacén de datos en un área de trabajo específica. Revise la sección [Permisos y acceso a Storage](#storage-access-and-permissions) para obtener ayuda sobre los escenarios de red virtual y dónde encontrar las credenciales de autenticación necesarias. 
 
@@ -129,7 +129,7 @@ En esta sección encontrará ejemplos de cómo crear y registrar un almacén de 
 
  A fin de crear almacenes de datos para otros servicios de almacenamiento admitidos, consulte la [documentación de referencia de los métodos `register_azure_*` aplicables](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#&preserve-view=truemethods).
 
-Si prefiere una experiencia de código bajo, consulte la sección sobre cómo [crear almacenes de datos en Azure Machine Learning Studio](#studio).
+Si prefiere una experiencia de código bajo, consulte la sección sobre cómo [conectar almacenes de datos en Azure Machine Learning Studio](how-to-connect-data-ui.md).
 
 > [!NOTE]
 > El nombre del almacén de datos solo puede contener letras minúsculas, dígitos y caracteres de subrayado. 
@@ -199,25 +199,6 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
                                                              client_id=client_id, # client id of service principal
                                                              client_secret=client_secret) # the secret of service principal
 ```
-
-<a name="studio"></a>
-
-
-## <a name="create-datastores-in-the-studio"></a>Creación de almacenes de datos en Studio 
-
-Cree un nuevo almacén de datos en unos cuantos pasos con Azure Machine Learning Studio.
-
-> [!IMPORTANT]
-> Si la cuenta de almacenamiento de datos se encuentra en una red virtual, se necesitan pasos de configuración adicionales para garantizar que Studio tenga acceso a los datos. Consulte [Uso de Azure Machine Learning Studio en una Azure Virtual Network](how-to-enable-studio-virtual-network.md) para asegurarse de que se aplican los pasos de configuración adecuados. 
-
-1. Inicie sesión en [Azure Machine Learning Studio](https://ml.azure.com/).
-1. Seleccione **Almacenes de datos** en el panel izquierdo en **Administrar**.
-1. Seleccione **+ Nuevo almacén de datos**.
-1. Complete el formulario para un nuevo almacén de datos. El formulario se actualiza de forma inteligente según las selecciones de tipo de Azure Storage y de autenticación. Consulte la [sección Permisos y acceso a Storage](#access-validation) para saber dónde encontrar las credenciales de autenticación que necesita para rellenar este formulario.
-
-En el ejemplo siguiente se muestra el aspecto que tendría el formulario al crear un **almacén de Azure Blob**: 
-    
-![Formulario para un nuevo almacén de datos](media/how-to-access-data/new-datastore-form.png)
 
 <a name="train"></a>
 ## <a name="use-data-in-your-datastores"></a>Uso de datos en los almacenes de datos

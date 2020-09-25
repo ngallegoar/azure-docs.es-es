@@ -1,0 +1,269 @@
+---
+title: Creación de un controlador de datos mediante las herramientas de Kubernetes
+description: Creación de un controlador de datos mediante las herramientas de Kubernetes
+services: azure-arc
+ms.service: azure-arc
+ms.subservice: azure-arc-data
+author: twright-msft
+ms.author: twright
+ms.reviewer: mikeray
+ms.date: 09/22/2020
+ms.topic: how-to
+ms.openlocfilehash: a061a460aa3ad1bb794655859300bb34a601c6cc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90932379"
+---
+# <a name="create-azure-arc-data-controller-using-kubernetes-tools"></a>Creación de un controlador de datos de Azure Arc mediante las herramientas de Kubernetes
+
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+## <a name="prerequisites"></a>Requisitos previos
+
+Revise el tema [Creación del controlador de datos de Azure Arc](create-data-controller.md) para obtener información general.
+
+Para crear el controlador de datos de Azure Arc mediante las herramientas de Kubernetes, debe tener instaladas dichas herramientas.  En los ejemplos de este artículo se usará `kubectl`, pero se podrían emplear enfoques similares con otras herramientas de Kubernetes como el panel de Kubernetes, `oc` o `helm` si está familiarizado con esas herramientas y los formatos YAML y JSON de Kubernetes.
+
+[Instalación de la herramienta kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+
+> [!NOTE]
+> Algunos de los pasos para crear el controlador de datos de Azure Arc que se indican a continuación requieren permisos de administrador de clústeres de Kubernetes.  Si no es un administrador de clústeres de Kubernetes, deberá pedirle al administrador de clústeres de Kubernetes que realice estos pasos en su nombre.
+
+## <a name="overview"></a>Información general
+
+Para crear el controlador de datos de Azure Arc, hay que seguir estos pasos generales:
+1. Cree las definiciones de recursos personalizadas para el controlador de datos de Azure Arc, la instancia administrada de Azure SQL e Hiperescala de PostgreSQL. **(Se requieren permisos de administrador de clústeres de Kubernetes)**
+2. Cree un espacio de nombres en el que se generará el controlador de datos. **(Se requieren permisos de administrador de clústeres de Kubernetes)**
+3. Cree el servicio de arranque, incluido el conjunto de réplicas, la cuenta de servicio, el rol y el enlace de rol.
+4. Cree un secreto para el nombre de usuario y la contraseña del administrador del controlador de datos.
+5. Cree el controlador de datos.
+   
+## <a name="create-the-custom-resource-definitions"></a>Creación de las definiciones de recursos personalizadas
+
+Ejecute el siguiente comando para crear las definiciones de recursos personalizadas.  **(Se requieren permisos de administrador de clústeres de Kubernetes)**
+
+```console
+kubectl create -f https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/custom-resource-definitions.yaml
+```
+
+## <a name="create-a-namespace-in-which-the-data-controller-will-be-created"></a>Creación de un espacio de nombres en el que se generará el controlador de datos
+
+Ejecute un comando similar al siguiente para crear un espacio de nombres dedicado en el que se generará el controlador de datos.  En este ejemplo y en el resto de los ejemplos de este artículo se usará un nombre de espacio de nombres de `arc`. Si decide usar otro, utilice el mismo nombre en todos.
+
+```console
+kubectl create namespace arc
+```
+
+Si otras personas que no son administradores de clústeres van a usar este espacio de nombres, se recomienda crear un rol de administrador de espacio de nombres y conceder ese rol a esos usuarios a través de un enlace de rol.  El administrador del espacio de nombres debe tener permisos completos en el espacio de nombres.  A continuación se proporcionará más información sobre cómo proporcionar a los usuarios un acceso más granular basado en roles.
+
+## <a name="create-the-bootstrapper-service"></a>Creación del servicio de arranque
+
+El servicio de arranque controla las solicitudes entrantes para crear, editar y eliminar recursos personalizados, como un controlador de datos, una instancia administrada de SQL o un grupo de servidores de Hiperescala de PostgreSQL.
+
+Ejecute el siguiente comando para crear un servicio de arranque, una cuenta de servicio para el servicio de arranque, y un rol y un enlace de rol para la cuenta de servicio de arranque.
+
+```console
+kubectl create --namespace arc -f https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/bootstrapper.yaml
+```
+
+Compruebe que el pod de arranque se está ejecutando con el siguiente comando.  Es posible que tenga que ejecutarlo varias veces hasta que el estado cambie a `Running`.
+
+```console
+kubectl get pod --namespace arc
+```
+
+El archivo de plantilla bootstrapper.yaml tiene como valor predeterminado extraer la imagen del contenedor de arranque de Microsoft Container Registry (MCR).  Si su entorno no tiene acceso directo a Microsoft Container Registry, puede hacer lo siguiente:
+- Siga los pasos para [extraer las imágenes de contenedor de Microsoft Container Registry y enviarlas a un registro de contenedor privado](offline-deployment.md).
+- [Cree un secreto de extracción de imagen](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-lin) para el registro de contenedor privado.
+- Agregue un secreto de extracción de imagen al contenedor de arranque. Consulte el ejemplo siguiente.
+- Cambie la ubicación de la imagen de arranque. Consulte el ejemplo siguiente.
+
+En el ejemplo siguiente se da por hecho que ha creado un nombre de secreto de extracción de imagen `regcred` como se indica en la documentación de Kubernetes.
+
+```yaml
+#just showing only the relevant part of the bootstrapper.yaml template file here
+containers:
+      - env:
+        - name: ACCEPT_EULA
+          value: "Y"
+        #image: mcr.microsoft.com/arcdata/arc-bootstrapper:public-preview-sep-2020 <-- template value to change
+        image: <your registry DNS name or IP address>/<your repo>/arc-bootstrapper:<your tag>
+        imagePullPolicy: IfNotPresent
+        name: bootstrapper
+        resources: {}
+        securityContext:
+          runAsUser: 21006
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      imagePullSecrets:
+      - name: regcred
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: sa-mssql-controller
+      serviceAccountName: sa-mssql-controller
+      terminationGracePeriodSeconds: 30
+
+```
+
+## <a name="create-a-secret-for-the-data-controller-administrator"></a>Creación de un secreto para el administrador del controlador de datos
+
+El nombre de usuario y la contraseña del administrador del controlador de datos se usan para autenticarse en la API del controlador de datos con el fin de realizar funciones administrativas.  Elija una contraseña segura y compártala solo con aquellos usuarios que necesiten tener privilegios de administrador de clústeres.
+
+Un secreto de Kubernetes se almacena como una cadena codificada en Base64, una para el nombre de usuario y otra para la contraseña.
+
+Puede usar una herramienta en línea para codificar en Base64 el nombre de usuario y la contraseña que desee, o bien puede usar las herramientas integradas de la CLI, en función de la plataforma.
+
+PowerShell
+
+```console
+[Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes('<your string to encode here>'))
+
+#Example
+#[Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes('example'))
+
+```
+
+Linux/macOS
+
+```console
+echo '<your string to encode here>' | base64
+
+#Example
+# echo 'example' | base64
+```
+
+Una vez que haya codificado el nombre de usuario y la contraseña, puede crear un archivo basado en el [archivo de plantilla](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/controller-login-secret.yaml) y reemplazar los valores de nombre de usuario y contraseña por los suyos propios.
+
+Después, ejecute el siguiente comando para crear el secreto.
+
+```console
+kubectl create --namespace arc -f <path to your data controller secret file>
+
+#Example
+kubectl create --namespace arc -f C:\arc-data-services\controller-login-secret.yaml
+```
+
+## <a name="create-the-data-controller"></a>Creación del controlador de datos
+
+Ya puede crear su propio controlador de datos.
+
+En primer lugar, cree una copia del [archivo de plantilla](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/data-controller.yaml) localmente en el equipo para que pueda modificar algunos de los valores de la configuración.
+
+Edite los valores siguientes, según sea necesario:
+
+**OBLIGATORIO**
+- **location**: cámbielo para que sea la ubicación de Azure donde se almacenarán los _metadatos_ sobre el controlador de datos.  Puede ver la lista de ubicaciones de Azure disponibles en el artículo de [información general sobre controladores de datos](create-data-controller.md).
+- **resourceGroup**: el grupo de recursos de Azure donde desea crear el recurso de Azure del controlador de datos en Azure Resource Manager.  Normalmente, este grupo de recursos ya debería existir, pero no se necesita hasta el momento en que se cargan los datos en Azure.
+- **subscription**: el GUID de suscripción de Azure de la suscripción en la que desea crear los recursos de Azure.
+
+**SE RECOMIENDA REVISAR Y POSIBLEMENTE CAMBIAR LOS VALORES PREDETERMINADOS**
+- **storage..className**: la clase de almacenamiento que se va a utilizar para los archivos de registro y datos del controlador de datos.  Si no sabe con seguridad cuáles son las clases de almacenamiento disponibles en el clúster de Kubernetes, puede ejecutar el siguiente comando: `kubectl get storageclass`.  El valor predeterminado es `default`, que da por sentado que hay una clase de almacenamiento que existe y que se denomina `default`, y no que hay una clase de almacenamiento que _es_ la predeterminada.  Nota: Hay dos valores de configuración de className que debe establecer en la clase de almacenamiento deseada: una para los datos y otra para los registros.
+- **serviceType**: cambie el tipo de servicio a `NodePort` si no usa un equilibrador de carga.  Nota: Hay dos valores de configuración de serviceType que deben cambiarse.
+
+**OPCIONAL**
+- **name**: el nombre predeterminado del controlador de datos es `arc`, pero puede cambiarlo si lo desea.
+- **displayName**: establézcalo en el mismo valor que el atributo name situado en la parte superior del archivo.
+- **registry**: Microsoft Container Registry es el valor predeterminado.  Si extrae las imágenes de Microsoft Container Registry y las [inserta en un registro de contenedor privado](offline-deployment.md), escriba aquí la dirección IP o el nombre DNS del registro.
+- **dockerRegistry**: el secreto de extracción de imagen que se va a usar para extraer las imágenes de un registro de contenedor privado, si es necesario.
+- **repository**: el repositorio predeterminado de Microsoft Container Registry es `arcdata`.  Si usa un registro de contenedor privado, escriba la ruta de acceso de la carpeta o repositorio que contiene las imágenes de contenedor de los servicios de datos habilitados para Azure Arc.
+- **imageTag**: la etiqueta de versión más reciente actual está predeterminada en la plantilla, pero puede cambiarla si desea utilizar una versión anterior.
+
+Ejemplo de un archivo YAML de controlador de datos completado:
+```yaml
+apiVersion: arcdata.microsoft.com/v1alpha1
+kind: datacontroller
+metadata:
+  generation: 1
+  name: arc
+spec:
+  credentials:
+    controllerAdmin: controller-login-secret
+    #dockerRegistry: mssql-private-registry - optional if you are using a private container registry that requires authentication using an image pull secret
+    serviceAccount: sa-mssql-controller
+  docker:
+    imagePullPolicy: Always
+    imageTag: public-preview-sep-2020
+    registry: mcr.microsoft.com
+    repository: arcdata
+  security:
+    allowDumps: true
+    allowNodeMetricsCollection: true
+    allowPodMetricsCollection: true
+    allowRunAsRoot: false
+  services:
+  - name: controller
+    port: 30080
+    serviceType: LoadBalancer
+  - name: serviceProxy
+    port: 30777
+    serviceType: LoadBalancer
+  settings:
+    ElasticSearch:
+      vm.max_map_count: "-1"
+    azure:
+      connectionMode: Indirect
+      location: eastus
+      resourceGroup: myresourcegroup
+      subscription: c82c901a-129a-435d-86e4-cc6b294590ae
+    controller:
+      displayName: arc
+      enableBilling: "True"
+      logs.rotation.days: "7"
+      logs.rotation.size: "5000"
+  storage:
+    data:
+      accessMode: ReadWriteOnce
+      className: default
+      size: 15Gi
+    logs:
+      accessMode: ReadWriteOnce
+      className: default
+      size: 10Gi
+```
+
+Guarde el archivo editado en el equipo local y ejecute el siguiente comando para crear el controlador de datos:
+
+```console
+kubectl create --namespace arc -f <path to your data controller file>
+
+#Example
+kubectl create --namespace arc -f C:\arc-data-services\data-controller.yaml
+```
+
+## <a name="monitoring-the-creation-status"></a>Supervisión del estado de creación
+
+La creación del controlador tardará unos minutos en completarse. Puede supervisar el progreso en otra ventana de terminal con los siguientes comandos:
+
+> [!NOTE]
+>  En los siguientes comandos de ejemplo se da por hecho que ha creado un controlador de datos y un espacio de nombres de Kubernetes con el nombre `arc`.  Si ha usado otro nombre de controlador de datos o de espacio de nombres, puede reemplazar `arc` por ese nombre.
+
+```console
+kubectl get datacontroller/arc --namespace arc
+```
+
+```console
+kubectl get pods --namespace arc
+```
+
+También puede comprobar el estado de creación de un pod determinado ejecutando un comando como el siguiente.  Esto es especialmente útil para solucionar problemas.
+
+```console
+kubectl describe po/<pod name> --namespace arc
+
+#Example:
+#kubectl describe po/control-2g7bl --namespace arc
+```
+
+## <a name="troubleshooting-creation-problems"></a>Solución de problemas de creación
+
+Si tiene problemas con la creación, consulte la [guía de solución de problemas](troubleshoot-guide.md).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+La extensión de Azure Arc para Azure Data Studio proporciona otro cuaderno que lo guía por el proceso de instalación de Kubernetes habilitado para Azure Arc, así como de su configuración con el fin de supervisar un repositorio de Git que contenga un archivo YAML de ejemplo de SQL Managed Instance. Cuando todo esté conectado, se implementará una nueva instancia de SQL Managed Instance en el clúster de Kubernetes.
+
+Consulte el cuaderno de **Implementación de una instancia de SQL Managed Instance con Kubernetes y Flux habilitados para Azure Arc** en la extensión de Azure Arc para Azure Data Studio.

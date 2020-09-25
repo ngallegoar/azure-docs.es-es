@@ -7,14 +7,16 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: a1f6d318c123b5907a8c434bb097fb86a351f5d1
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 9e909db0041979eb7bc4fc30bd9551382e83c488
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297542"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892507"
 ---
 # <a name="understand-app-and-deployment-in-azure-spring-cloud"></a>Descripción de la aplicación y la implementación en Azure Spring Cloud
+
+**Este artículo se aplica a:** ✔️ Java ✔️ C#
 
 **Aplicación** e **implementación** son los dos conceptos clave del modelo de recursos de Azure Spring Cloud. En Azure Spring Cloud, una *aplicación* es una abstracción de una aplicación empresarial o de un microservicio.  Una versión de código o binaria implementada como la *aplicación* se ejecuta en una *implementación*.  Las aplicaciones se ejecutan en una *instancia de servicio de Azure Spring Cloud*, o simplemente en una *instancia de servicio*, como se muestra a continuación.
 

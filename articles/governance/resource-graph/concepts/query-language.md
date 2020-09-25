@@ -3,12 +3,12 @@ title: Descripción del lenguaje de consultas
 description: Describe las tablas de Resource Graph y los tipos de datos, los operadores y las funciones de Kusto disponibles que se pueden usar con Azure Resource Graph.
 ms.date: 08/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 965fb6a009306ccebc5daa34ec4ec8d70157e56c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 65304ca1241b2c8a1f9541580e7ee8434dd5b6eb
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299055"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426408"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Información del lenguaje de consulta de Azure Resource Graph
 
@@ -32,6 +32,7 @@ Resource Graph proporciona varias tablas para los datos que almacena sobre los t
 |ResourceContainers |Incluye los datos y los tipos de recursos de suscripción (en versión preliminar: `Microsoft.Resources/subscriptions`) y grupo de recursos (`Microsoft.Resources/subscriptions/resourcegroups`). |
 |AdvisorResources |Incluye recursos _relacionados_ con `Microsoft.Advisor`. |
 |AlertsManagementResources |Incluye recursos _relacionados_ con `Microsoft.AlertsManagement`. |
+|GuestConfigurationResources |Incluye recursos _relacionados_ con `Microsoft.GuestConfiguration`. |
 |HealthResources |Incluye recursos _relacionados_ con `Microsoft.ResourceHealth`. |
 |MaintenanceResources |Incluye recursos _relacionados_ con `Microsoft.Maintenance`. |
 |SecurityResources |Incluye recursos _relacionados_ con `Microsoft.Security`. |

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 43fad8d09c069f5e054634fb46f40e63047d5426
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: bc55ab2697d8278bd975f618d17804499ba0128d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90888291"
+ms.locfileid: "90982081"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Instalación y ejecución de los contenedores de Read (versión preliminar)
 
@@ -170,7 +170,15 @@ Para buscar la cadena de conexión:
 
 El contenedor proporciona varias API de puntos de conexión de predicción de consultas basadas en REST. 
 
-Use el host (`http://localhost:5000`) con las API de contenedor. Puede ver la ruta de acceso de Swagger en `http://localhost:5000/swagger/vision-v3.0-read/swagger.json`.
+# <a name="version-31-preview"></a>[Versión 3.1: versión preliminar](#tab/version-3-1)
+
+Utilice el host, `http://localhost:5000`, con las API de contenedor. Puede ver la ruta de acceso de Swagger en `http://localhost:5000/swagger/vision-v3.0-preview-read/swagger.json`.
+
+# <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
+
+Utilice el host, `http://localhost:5000`, con las API de contenedor. Puede ver la ruta de acceso de Swagger en `http://localhost:5000/swagger/vision-v3.1-preview-read/swagger.json`.
+
+---
 
 ### <a name="asynchronous-read"></a>Lectura asincrónica
 
@@ -335,7 +343,7 @@ Puede usar la siguiente operación para leer sincrónicamente una imagen.
 
 `POST /vision/v3.1/read/syncAnalyze` 
 
-# <a name="version-30"></a>[Versión 3.0](#tab/version-3)
+# <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
 
 `POST /vision/v3.0/read/SyncAnalyze`
 

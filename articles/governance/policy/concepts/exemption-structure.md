@@ -3,12 +3,12 @@ title: Detalles de la estructura de exención de directiva
 description: Aquí se describe la definición de exención de directiva usada por Azure Policy para eximir recursos de la evaluación de iniciativas o definiciones.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: b3e6a6c9bc7993161697187b6131994c1973b49d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1fd14d31824dc86dcd3788607030f28f978f5801
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932124"
+ms.locfileid: "90968050"
 ---
 # <a name="azure-policy-exemption-structure"></a>Estructura de exención de Azure Policy
 
@@ -99,11 +99,12 @@ Este campo debe ser el nombre de la ruta de acceso completa de una asignación d
 
 Si `policyAssignmentId` corresponde a una asignación de iniciativa, se puede usar la propiedad `policyDefinitionReferenceIds` para especificar las definiciones de directiva de la iniciativa en las que el recurso del asunto tiene una exención. Como el recurso puede estar exento de una o varias definiciones de directivas incluidas, esta propiedad es una _matriz_. Los valores deben coincidir con los valores de la definición de iniciativa de los campos `policyDefinitions.policyDefinitionReferenceId`.
 
-## <a name="required-permissions"></a>Permisos necesarios
+## <a name="exemption-category"></a>Categoría de exención
 
-Los permisos RBAC de Azure necesarios para administrar objetos de exención de directiva se encuentran en el grupo de operaciones `Microsoft.Authorization/policyExemptions`. Los roles integrados [Colaborador de la directiva de recursos](../../../role-based-access-control/built-in-roles.md#resource-policy-contributor) y [Administrador de seguridad](../../../role-based-access-control/built-in-roles.md#security-admin) tienen los permisos `read` y `write`, y [Escritor de datos de Policy Insights (versión preliminar)](../../../role-based-access-control/built-in-roles.md#policy-insights-data-writer-preview) tiene el permiso `read`.
+Existen dos categorías de exención y se usan para agrupar las exenciones:
 
-Las exenciones tienen medidas de seguridad adicionales debido al impacto de la concesión de una exención. Además de exigir la operación `Microsoft.Authorization/policyExemptions/write` en la jerarquía de recursos o el recurso individual, el creador de una exención debe tener el verbo `exempt/Action` en la asignación de destino.
+- **Mitigada**: Se concede la exención porque la intención de la directiva se alcanza a través de otro método.
+- **Renuncia**: Se concede la exención porque el estado de no cumplimiento del recurso se acepta temporalmente. Otra razón para usar esta categoría es para una jerarquía de recursos o recursos que se debe excluir de una o más definiciones en una iniciativa, pero no debe excluirse de toda la iniciativa.
 
 ## <a name="expiration"></a>Expiration
 
@@ -111,6 +112,12 @@ Para establecer cuándo una jerarquía de recursos o un recurso individual ya no
 
 > [!NOTE]
 > Las exenciones de directiva no se eliminan cuando se alcanza la fecha `expiresOn`. El objeto se conserva para el mantenimiento de registros, pero ya no se respeta la exención.
+
+## <a name="required-permissions"></a>Permisos necesarios
+
+Los permisos RBAC de Azure necesarios para administrar objetos de exención de directiva se encuentran en el grupo de operaciones `Microsoft.Authorization/policyExemptions`. Los roles integrados [Colaborador de la directiva de recursos](../../../role-based-access-control/built-in-roles.md#resource-policy-contributor) y [Administrador de seguridad](../../../role-based-access-control/built-in-roles.md#security-admin) tienen los permisos `read` y `write`, y [Escritor de datos de Policy Insights (versión preliminar)](../../../role-based-access-control/built-in-roles.md#policy-insights-data-writer-preview) tiene el permiso `read`.
+
+Las exenciones tienen medidas de seguridad adicionales debido al impacto de la concesión de una exención. Además de exigir la operación `Microsoft.Authorization/policyExemptions/write` en la jerarquía de recursos o el recurso individual, el creador de una exención debe tener el verbo `exempt/Action` en la asignación de destino.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
