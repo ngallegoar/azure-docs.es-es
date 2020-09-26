@@ -81,6 +81,8 @@
       items:
         - name: ASP.NET
           href: tutorial-v2-asp-webapp.md
+        - name: Servidor Blazor
+          href: tutorial-blazor-server.md
     - name: Aplicaciones móviles y de escritorio
       items:
         - name: Android
@@ -465,7 +467,7 @@
       items:
         - name: Información general
           href: authentication-national-cloud.md
-        - name: Autenticación
+        - name: Authentication
           href: msal-national-cloud.md
     - name: Aprovisionamiento automático de usuarios (SCIM)
       items:

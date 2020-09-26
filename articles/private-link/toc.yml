@@ -24,6 +24,10 @@
     - name: 'Creación de un servicio Private Link: plantilla de Resource Manager'
       displayName: Resource Manager
       href: create-private-link-service-template.md
+- name: Tutoriales
+  items:
+    - name: Conexión a una cuenta de almacenamiento
+      href: tutorial-private-endpoint-storage-portal.md
 - name: Conceptos
   items:
     - name: Punto de conexión privado
@@ -38,8 +42,6 @@
           href: security-baseline.md
 - name: Procedimientos
   items:
-    - name: Conexión de forma privada a una cuenta de almacenamiento
-      href: create-private-endpoint-storage-portal.md
     - name: "Conexión de forma privada a una cuenta de Cosmos\_DB"
       href: create-private-endpoint-cosmosdb-portal.md
     - name: Conexión privada a una aplicación web
@@ -60,7 +62,7 @@
           href: troubleshoot-private-link-connectivity.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/network
     - name: Azure PowerShell
       href: /powershell/module/az.network
