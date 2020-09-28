@@ -11,16 +11,16 @@
         - name: Introducción
           href: get-started.md
           displayName: 'get, started'
-        - name: 1 Creación de un área de trabajo de Synapse
+        - name: 1 Creación de un área de trabajo
           href: get-started-create-workspace.md
           displayName: 'get, started'
-        - name: 2 Análisis mediante un grupo de SQL
+        - name: 2 Uso de grupos de SQL
           href: get-started-analyze-sql-pool.md
           displayName: 'get, started'
-        - name: 3 Análisis mediante Spark
+        - name: 3 Uso de Spark
           href: get-started-analyze-spark.md
           displayName: 'get, started'
-        - name: 4 Análisis mediante SQL a petición
+        - name: 4 Uso de SQL a petición
           href: get-started-analyze-sql-on-demand.md
           displayName: 'get, started'
         - name: 5 Análisis de los datos de una cuenta de almacenamiento
@@ -84,6 +84,8 @@
   items:
     - name: Ejecución de aplicaciones de Apache Spark
       href: ./spark/intellij-tool-synapse.md
+    - name: Ejecución de PySpark para grupos de Spark
+      href: ./spark/vscode-tool-synapse.md
     - name: Definiciones de trabajos de Spark
       href: ./spark/apache-spark-job-definitions.md
     - name: Power BI Desktop
@@ -210,6 +212,8 @@
               href: ../data-factory/concepts-data-flow-expression-builder.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Lenguaje de expresiones
               href: ../data-factory/data-flow-expression-functions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Diferencias con respecto a Azure Data Factory
+              href: ./data-integration/concepts-data-factory-differences.md
     - name: Spark
       items:
         - name: Información general
@@ -590,7 +594,7 @@
               href: ../data-factory/connector-azure-database-for-postgresql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Azure File Storage
               href: ../data-factory/connector-azure-file-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Azure SQL Database
+            - name: "Azure\_SQL\_Database"
               href: ../data-factory/connector-azure-sql-database.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Instancia administrada de Azure SQL
               href: ../data-factory/connector-azure-sql-database-managed-instance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json

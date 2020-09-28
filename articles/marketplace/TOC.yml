@@ -277,19 +277,19 @@
     - name: Recepción del pago
       items:
         - name: Recepción del pago
-          href: partner-center-portal/get-paid.md
+          href: /partner-center/marketplace-get-paid?context=/azure/marketplace/context/context
         - name: Configuración de la cuenta de pago y los formularios de impuestos
-          href: partner-center-portal/set-up-your-payout-account-tax-forms.md
-        - name: 'Umbrales, métodos y periodos de pago'
-          href: partner-center-portal/payment-thresholds-methods-timeframes.md
-        - name: Introducción a los resúmenes de pagos
-          href: partner-center-portal/payout-summary-overview.md
-        - name: Resúmenes de pagos
-          href: partner-center-portal/payout-summary.md
+          href: /partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context
+        - name: Umbrales y periodos de pago
+          href: /partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context
+        - name: Extractos de pagos
+          href: /partner-center/payout-statement?context=/azure/marketplace/context/context
         - name: Detalles de directiva de pagos
-          href: partner-center-portal/payout-policy-details.md
+          href: /partner-center/payout-policy-details?context=/azure/marketplace/context/context
         - name: Detalles fiscales
-          href: partner-center-portal/tax-details-paid-transactions.md
+          href: /partner-center/tax-details-marketplace?context=/azure/marketplace/context/context
+        - name: Preguntas frecuentes sobre pagos
+          href: /partner-center/payout-faq?context=/azure/marketplace/context/context
     - name: Referencia de CPP API
       items:
         - name: Información general

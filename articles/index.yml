@@ -13,12 +13,12 @@ metadata:
   ms.date: 09/10/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: aec131b8c7a3e5092b6b090668fb0eb006b079a3
-  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.openlocfilehash: 07d167ca046bb4c4a5e5e50cec43c7685fcec8fb
+  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90904149"
+  ms.lasthandoff: 09/25/2020
+  ms.locfileid: "91262015"
 highlightedContent:
   items:
   - title: Guía de introducción para desarrolladores de Azure
@@ -144,8 +144,8 @@ productDirectory:
     azureCategories:
     - ai-machine-learning
     url: cognitive-services/bing-web-search/overview.md
-  - title: Communication Services
-    summary: Adición de voz, vídeo y telefonía en tiempo real a las aplicaciones
+  - title: Azure Communication Services (versión preliminar)
+    summary: Creación de experiencias de comunicación enriquecidas con la misma plataforma segura que usa Microsoft Teams
     imageSrc: ./media/index/communication-services.svg
     azureCategories:
     - web
@@ -605,7 +605,7 @@ productDirectory:
     - hybrid
     - databases
     url: azure-sql/index.yml
-  - title: Azure SQL Database
+  - title: Azure SQL Database
     summary: SQL administrado e inteligente en la nube
     imageSrc: https://static.docs.com/ui/media/product/azure/sql-database.svg
     azureCategories:

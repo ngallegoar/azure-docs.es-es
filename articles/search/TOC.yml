@@ -144,7 +144,7 @@
           href: search-howto-complex-data-types.md
         - name: Modelado de datos relacionales
           href: index-sql-relational-data.md
-    - name: Ingesta de todos los datos
+    - name: Importación de cualquier dato
       items:
         - name: Introducción a la importación de datos
           href: search-what-is-data-import.md
@@ -156,45 +156,19 @@
           href: search-howto-large-index.md
         - name: Manejo de actualizaciones simultáneas
           href: search-howto-concurrency.md
-    - name: Ingesta de datos solo de Azure
+    - name: Importación de datos de Azure (indexadores)
       items:
-        - name: Configuración de indexadores
-          href: search-indexer-overview.md
-        - name: Indexadores de supervisión
-          href: search-howto-monitor-indexers.md
-        - name: Programación de indexadores
-          href: search-howto-schedule-indexers.md
-        - name: Asignación de campos
-          href: search-indexer-field-mappings.md
-        - name: Orígenes de datos
+        - name: Uso de indexadores
           items:
-            - name: Azure Blobs
-              items:
-                - name: Búsqueda de blobs
-                  href: search-blob-storage-integration.md
-                - name: Descripción de blobs con inteligencia artificial
-                  href: search-blob-ai-integration.md
-                - name: Configurador de un indexador de blobs
-                  href: search-howto-indexing-azure-blob-storage.md
-                - name: Indexación de blobs de uno a varios
-                  href: search-howto-index-one-to-many-blobs.md
-                - name: Indexación de blobs CSV
-                  href: search-howto-index-csv-blobs.md
-                - name: Indexación de blobs JSON
-                  href: search-howto-index-json-blobs.md
-            - name: Azure Tables
-              href: search-howto-indexing-azure-tables.md
-            - name: "Azure Cosmos\_DB"
-              href: search-howto-index-cosmosdb.md
-            - name: Azure Data Lake Storage Gen2
-              href: search-howto-index-azure-data-lake-storage.md
-            - name: SQL Database
-              href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-            - name: Instancias administradas de SQL
-              href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
-            - name: VM con SQL Server
-              href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-        - name: Conexión mediante identidades administradas
+            - name: Configuración de indexadores
+              href: search-indexer-overview.md
+            - name: Indexadores de supervisión
+              href: search-howto-monitor-indexers.md
+            - name: Programación de indexadores
+              href: search-howto-schedule-indexers.md
+            - name: Asignación de campos
+              href: search-indexer-field-mappings.md
+        - name: Conexión con identidades administradas
           items:
             - name: Introducción Identidades administradas
               href: search-howto-managed-identities-data-sources.md
@@ -204,6 +178,32 @@
               href: search-howto-managed-identities-cosmos-db.md
             - name: SQL Database
               href: search-howto-managed-identities-sql.md
+        - name: Azure Blobs
+          items:
+            - name: Búsqueda de blobs
+              href: search-blob-storage-integration.md
+            - name: Descripción de blobs con inteligencia artificial
+              href: search-blob-ai-integration.md
+            - name: Configurador de un indexador de blobs
+              href: search-howto-indexing-azure-blob-storage.md
+            - name: Indexación de blobs de uno a varios
+              href: search-howto-index-one-to-many-blobs.md
+            - name: Indexación de blobs CSV
+              href: search-howto-index-csv-blobs.md
+            - name: Indexación de blobs JSON
+              href: search-howto-index-json-blobs.md
+        - name: Azure Tables
+          href: search-howto-indexing-azure-tables.md
+        - name: "Azure Cosmos\_DB"
+          href: search-howto-index-cosmosdb.md
+        - name: Azure Data Lake Storage Gen2
+          href: search-howto-index-azure-data-lake-storage.md
+        - name: Azure SQL Database
+          href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+        - name: Instancias administradas de Azure SQL
+          href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
+        - name: Máquinas virtuales con Azure SQL Server
+          href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
     - name: Uso de aptitudes (IA)
       items:
         - name: Adjuntar un recurso de Cognitive Services

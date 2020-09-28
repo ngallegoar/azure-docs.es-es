@@ -17,7 +17,7 @@
       items:
         - name: Uso de blobs
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: storage-quickstart-blobs-portal.md
             - name: Explorador de Storage
               href: storage-quickstart-blobs-storage-explorer.md
@@ -207,7 +207,7 @@
           href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Búsqueda y comprensión de datos de blobs
           items:
-            - name: Uso de un índice de blobs para administrar y buscar datos de blobs
+            - name: Uso de un índice de blobs para administrar y buscar datos de blob
               href: storage-manage-find-blobs.md
             - name: Uso de la inteligencia artificial para comprender los datos de los blobs
               href: ../../search/search-blob-ai-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -312,6 +312,8 @@
               href: storage-blob-properties-metadata.md
             - name: Copia de un blob (SDK)
               href: storage-blob-copy.md
+            - name: Utilización de un índice de blobs
+              href: storage-blob-index-how-to.md
         - name: Autorización del acceso a datos de blob
           items:
             - name: Opciones de autorización para los usuarios
@@ -460,8 +462,6 @@
           href: storage-custom-domain-name.md
         - name: Enrutamiento de eventos a un punto de conexión personalizado
           href: storage-blob-event-quickstart.md
-        - name: Uso de un índice de blobs
-          href: storage-blob-index-how-to.md
         - name: Transferencia de datos
           items:
             - name: AzCopy

@@ -88,9 +88,11 @@
       href: firewall-diagnostics.md
     - name: Registros de Azure Monitor
       href: log-analytics-samples.md
+    - name: Libro de Azure Firewall
+      href: firewall-workbook.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/ext/azure-firewall/network/firewall
     - name: Azure PowerShell
       href: /powershell/module/az.network/new-azfirewall

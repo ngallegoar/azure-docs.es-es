@@ -1,4 +1,4 @@
-- name: Documentación del servicio Azure IoT Hub Device Provisioning
+- name: Documentación de Azure IoT Hub Device Provisioning Service
   href: index.yml
 - name: Información general
   items:

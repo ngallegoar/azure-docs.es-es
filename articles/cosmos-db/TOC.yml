@@ -10,7 +10,7 @@
     - name: Recursos de Cosmos DB
       expanded: true
       items:
-        - name: Azure portal
+        - name: Azure Portal
           href: create-cosmosdb-resources-portal.md
         - name: Plantilla ARM
           displayName: Resource Manager
@@ -21,6 +21,8 @@
           href: create-sql-api-dotnet.md
         - name: Aplicación Java
           href: create-sql-api-java.md
+        - name: Aplicación Spring Data
+          href: create-sql-api-spring-data.md
         - name: Aplicación Node.js
           href: create-sql-api-nodejs.md
         - name: Aplicación Python
@@ -73,6 +75,8 @@
       href: sql-api-dotnet-v3sdk-samples.md
     - name: Ejemplos de SDK de Java v4
       href: sql-api-java-sdk-samples.md
+    - name: "Ejemplos de Spring Data\_v3"
+      href: sql-api-spring-data-sdk-samples.md
     - name: Ejemplos de Node.js
       href: sql-api-nodejs-samples.md
     - name: Ejemplos de Python
@@ -1074,7 +1078,7 @@
               href: troubleshoot-not-found.md
             - name: Solucionar del problema de no autorizado
               href: troubleshoot-unauthorized.md
-            - name: Disponibilidad del SDK en entornos multirregionales
+            - name: Problemas de disponibilidad en entornos de varias regiones
               href: troubleshoot-sdk-availability.md
         - name: .NET
           items:
@@ -1118,6 +1122,8 @@
           href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Consulta con Azure Synapse Spark
           href: ../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Consulta con Synapse SQL sin servidor
+          href: ../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Uso de Power BI con Synapse Link
           href: synapse-link-power-bi.md
     - name: Análisis integrado con Apache Spark

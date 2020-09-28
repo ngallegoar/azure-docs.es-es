@@ -91,7 +91,7 @@
           items:
             - name: Azure portal
               href: tutorial-design-database-using-portal.md
-            - name: CLI de Azure
+            - name: Azure CLI
               href: tutorial-design-database-using-cli.md
             - name: Azure PowerShell
               href: tutorial-design-database-using-powershell.md
@@ -220,7 +220,7 @@
               displayName: 'manage, reset password, scale'
             - name: Reglas de firewall
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: howto-manage-firewall-using-portal.md
                   displayName: firewall
                 - name: CLI de Azure
@@ -236,10 +236,10 @@
               displayName: 'managed identity, msi'
         - name: Restauración de un servidor
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-restore-server-portal.md
               displayName: 'restore server,backup'
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-restore-server-cli.md
               displayName: 'restore server, backup'
             - name: Azure PowerShell
@@ -264,21 +264,25 @@
               displayName: 'development, redirection , php'
         - name: Configuración de parámetros del servidor
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-server-parameters.md
               displayName: server parameters
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-configure-server-parameters-using-cli.md
               displayName: 'server parameters, cli'
             - name: Azure PowerShell
               href: howto-configure-server-parameters-using-powershell.md
               displayName: 'server parameters, powershell'
+        - name: Detención o inicio de servidor
+          items:
+            - name: Detención o inicio de servidor MySQL
+              href: how-to-stop-start-server.md
         - name: Almacenamiento de crecimiento automático
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-auto-grow-storage-portal.md
               displayName: 'storage, business continuity , downtime, portal'
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-auto-grow-storage-cli.md
               displayName: 'storage, business continuity , downtime, cli'
             - name: Azure PowerShell
@@ -286,18 +290,18 @@
               displayName: 'storage, business continuity , downtime, powershell'
         - name: Registros de consultas lentos
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-configure-server-logs-in-portal.md
               displayName: 'debug, slow query log , performance'
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-configure-server-logs-in-cli.md
               displayName: 'debug, slow query log , performance'
         - name: Registros de auditoría
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-configure-audit-logs-portal.md
               displayName: 'debug, audit log'
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-configure-audit-logs-cli.md
               displayName: 'debug, audit log'
         - name: Supervisión
@@ -340,7 +344,7 @@
               displayName: 'atp, advanced thread, security'
             - name: Virtual Network
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: howto-manage-vnet-using-portal.md
                   displayName: 'vnet, virtual network, service endpoint'
                 - name: CLI de Azure
@@ -372,15 +376,15 @@
               displayName: 'infrastructure encryption, security'
         - name: Denegación del acceso a una red pública
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-deny-public-network-access.md
               displayName: 'security, public access'
         - name: Reinicio del servidor
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-restart-server-portal.md
               displayName: restart
-            - name: CLI de Azure
+            - name: Azure CLI
               href: howto-restart-server-cli.md
               displayName: restart
             - name: Azure PowerShell
@@ -460,7 +464,7 @@
       items:
         - name: Administración de un servicio
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: flexible-server/how-to-manage-server-portal.md
             - name: CLI de Azure
               href: flexible-server/how-to-manage-server-cli.md

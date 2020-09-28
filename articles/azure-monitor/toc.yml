@@ -146,7 +146,7 @@
           href: app/data-retention-privacy.md
     - name: Alertas
       items:
-        - name: Información general
+        - name: Introducción
           href: platform/alerts-overview.md
         - name: Alertas de métricas
           href: platform/alerts-metric-overview.md
@@ -400,7 +400,7 @@
               href: insights/solution-agenthealth.md
         - name: Extensión de Diagnósticos de Azure
           items:
-            - name: Información general
+            - name: Introducción
               href: platform/diagnostics-extension-overview.md
             - name: Windows
               displayname: diagnostics extension
@@ -497,14 +497,16 @@
               href: platform/alerts-troubleshoot-metric.md
         - name: Reglas de alertas de registro
           items:
-            - name: Configuración de alertas en las consultas de análisis
+            - name: Administración de alertas del registro
               href: platform/alerts-log.md
-            - name: Consultas
+            - name: Optimización de consultas de alerta
               href: platform/alerts-log-query.md
-            - name: Acciones de webhook
-              href: platform/alerts-log-webhook.md
+            - name: Uso de la plantilla de Resource Manager
+              href: platform/alerts-log-create-templates.md
             - name: Solución de problemas de alertas del registro
               href: platform/alerts-troubleshoot-log.md
+            - name: Acciones de webhook
+              href: platform/alerts-log-webhook.md
         - name: Reglas de alertas de registro de actividad
           items:
             - name: Alerta de un evento del registro de actividades
@@ -1060,7 +1062,7 @@
       items:
         - name: Azure Cache for Redis (versión preliminar)
           href: insights/redis-cache-insights-overview.md
-        - name: Azure Cosmos DB
+        - name: "Azure Cosmos\_DB"
           href: insights/cosmosdb-insights-overview.md
         - name: Redes
           href: insights/network-insights-overview.md
@@ -1145,6 +1147,8 @@
               href: platform/workbooks-tree-visualizations.md
             - name: Grafo
               href: platform/workbooks-graph-visualizations.md
+            - name: Panal
+              href: platform/workbooks-honey-comb.md
             - name: Barra compuesta
               href: platform/workbooks-composite-bar.md
         - name: Orígenes de datos
@@ -1245,8 +1249,6 @@
           href: app/auto-collect-dependencies.md
         - name: Correlación de telemetría
           href: app/correlation.md
-        - name: Paquetes NuGet
-          href: app/nuget.md
         - name: Compatibilidad con plataformas
           href: app/platforms.md
         - name: Invalidaciones de puntos de conexión
@@ -1324,7 +1326,7 @@
           href: ./platform/classic-api-retirement-metrics-autoscale.md
         - name: Alertas y supervisión clásicas
           href: platform/monitoring-classic-retirement.md
-        - name: Cambio en la preferencia de API de la alerta de registro
+        - name: Cambio a la API de alertas de registro actual
           href: platform/alerts-log-api-switch.md
         - name: Solución de análisis de aplicaciones web
           href: insights/azure-web-apps-analytics.md
