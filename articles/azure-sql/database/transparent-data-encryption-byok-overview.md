@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 04a3499da15bc226fe2cada2283d7a115036a48c
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 4e17af8289c68ded282a9c4a9ca2d400d31ca30d
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89318305"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602676"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Cifrado de datos transparente de Azure SQL con una clave administrada por el cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -93,6 +93,10 @@ Los auditores pueden usar Azure Monitor para revisar los registros de los objeto
 - El estado de la clave debe ser *Habilitada*.
 
 - Si va a importar una clave existente en el almacén de claves, asegúrese de proporcionarla en uno de los formatos de archivo compatibles (.pfx, .byok o .backup).
+
+> [!NOTE]
+> Azure SQL admite ahora el uso de una clave RSA almacenada en un HSM administrado como protector de TDE. Esta característica está en **versión preliminar pública**. HSM administrado de Azure Key Vault es un servicio en la nube totalmente administrado, de alta disponibilidad y de un solo inquilino que cumple los estándares y que le permite proteger las claves criptográficas de las aplicaciones en la nube mediante HSM validados de FIPS 140-2, nivel 3. Obtenga más información sobre [HSM administrados](https://aka.ms/mhsm).
+
 
 ## <a name="recommendations-when-configuring-customer-managed-tde"></a>Recomendaciones para la configuración de TDE administrado por el cliente
 

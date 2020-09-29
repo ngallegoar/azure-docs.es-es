@@ -46,7 +46,7 @@
         - name: Aprovisionamiento para varios inquilinos
           href: how-to-provision-multitenant.md
         - name: Uso de directivas de asignación personalizadas
-          href: how-to-use-custom-allocation-policies.md
+          href: tutorial-custom-allocation-policies.md
 - name: Ejemplos
   items:
     - name: Ejemplo de certificación de dispositivo TPM simulado
@@ -109,6 +109,8 @@
   items:
     - name: Conexión de MXChip IoT DevKit a IoT Hub
       href: how-to-connect-mxchip-iot-devkit.md
+    - name: Aprovisionamiento de dispositivos mediante directivas de asignación personalizada
+      href: how-to-use-custom-allocation-policies.md
     - name: Administración de Device Provisioning Service
       items:
         - name: 'Administración de inscripciones: Portal'

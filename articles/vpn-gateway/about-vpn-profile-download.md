@@ -1,18 +1,18 @@
 ---
 title: 'Azure VPN Gateway: Sobre los perfiles de cliente de P2S VPN'
-description: Esto le ayuda a trabajar con el archivo de perfil del cliente
+description: Use este artículo para encontrar la información que necesita para un perfil de cliente VPN.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 326abaa123ede1fbe371c69fcbed47a310b54511
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 6a09767a7992a5f902adea6f99e937f3fc6fa7fa
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89424844"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985926"
 ---
 # <a name="about-p2s-vpn-client-profiles"></a>Sobre los perfiles de cliente de P2S VPN
 

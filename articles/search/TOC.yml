@@ -162,8 +162,6 @@
       items:
         - name: Uso de indexadores
           items:
-            - name: Configuración de indexadores
-              href: search-indexer-overview.md
             - name: Indexadores de supervisión
               href: search-howto-monitor-indexers.md
             - name: Programación de indexadores
@@ -188,8 +186,12 @@
               href: search-blob-ai-integration.md
             - name: Configurador de un indexador de blobs
               href: search-howto-indexing-azure-blob-storage.md
+            - name: Indexación de blobs cambiados y eliminados
+              href: search-howto-index-changed-deleted-blobs.md
             - name: Indexación de blobs de uno a varios
               href: search-howto-index-one-to-many-blobs.md
+            - name: Indexación de texto sin formato
+              href: search-howto-index-plaintext-blobs.md
             - name: Indexación de blobs CSV
               href: search-howto-index-csv-blobs.md
             - name: Indexación de blobs JSON

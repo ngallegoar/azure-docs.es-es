@@ -3,12 +3,12 @@ title: Diseño de flujos de trabajo de directiva como código
 description: Aprenda a diseñar flujos de trabajo para implementar sus definiciones de Azure Policy como código y validar automáticamente los recursos.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: d46680a9978cd4ec5cdc612a709f031841716749
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: bc7a6d72e344868a799638f724b5c225516b5a32
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047333"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651881"
 ---
 # <a name="design-policy-as-code-workflows"></a>Diseño de flujos de trabajo de directiva como código
 
@@ -43,7 +43,9 @@ Los ejemplos de estos formatos de archivo están disponibles en el [repositorio 
 
 El flujo de trabajo general recomendado de la directiva como código es similar al de este diagrama:
 
-:::image type="content" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Información general del flujo de trabajo de directiva como código" border="false":::
+:::image type="complex" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Diagrama que muestra los cuadros del flujo de trabajo de directiva como código en las fases de creación, pruebas e implementación." border="false":::
+   El diagrama muestra los cuadros del flujo de trabajo de directiva como código. La fase de creación abarca la creación de las definiciones de directiva e iniciativa. La fase de pruebas abarca la asignación con el modo de cumplimiento deshabilitado. Después de comprobar el estado de cumplimiento, se otorgan asignaciones de permisos MSI y se corrigen los recursos.  La fase de implementación abarca la asignación con el modo de cumplimiento habilitado.
+:::image-end:::
 
 ### <a name="create-and-update-policy-definitions"></a>Crear y actualizar definiciones de directivas
 

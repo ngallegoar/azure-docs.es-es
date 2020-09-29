@@ -3,12 +3,12 @@ title: Descripción del funcionamiento de los efectos
 description: Las definiciones de Azure Policy tienen diversos efectos que determinan cómo se administra y notifica el cumplimiento.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7eb1178bbf767f6962c797da4474af81d576545a
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: d2ea27ceda36d2feebcf12cc47ac741093b0729c
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079666"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425541"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprender los efectos de Azure Policy
 
@@ -156,7 +156,8 @@ La propiedad **details** de los efectos de AuditIfNotExists tiene todas las subp
   - Si **details.type** es un tipo de recurso debajo del recurso de condición **if**, la directiva consultará los recursos de este **tipo** que estén dentro del alcance del recurso evaluado. De lo contrario, la directiva realizará consultas dentro del mismo grupo de recursos que el recurso evaluado.
 - **Nombre** (opcional)
   - Especifica el nombre exacto del recurso para coincidir y hace que la directiva recupere un recurso específico en lugar de todos los recursos del tipo especificado.
-  - Cuando los valores de condición para **if.field.type** y **then.details.type** coinciden, entonces el valor **Name** es _necesario_ y debe ser `[field('name')]`. Sin embargo, un efecto [Audit](#audit) debe tenerse en cuenta en su lugar.
+  - Cuando los valores de condición para **if.field.type** y **then.details.type** coinciden, entonces el valor **Name** es _necesario_ y debe ser `[field('name')]`, o `[field('fullName')]` para un recurso secundario.
+    Sin embargo, un efecto [Audit](#audit) debe tenerse en cuenta en su lugar.
 - **ResourceGroupName** (opcional)
   - Permite que la coincidencia del recurso relacionado provenga de un grupo de recursos diferente.
   - No se aplica si **type** es un recurso que estaría debajo del recurso de condición **if**.
@@ -277,7 +278,7 @@ La propiedad **details** del efecto DeployIfNotExists tiene todas las subpropied
   - Comienza tratando de recuperar un recurso debajo del recurso de condición **if** , luego consulta dentro del mismo grupo de recursos que el recurso de condición **if**.
 - **Nombre** (opcional)
   - Especifica el nombre exacto del recurso para coincidir y hace que la directiva recupere un recurso específico en lugar de todos los recursos del tipo especificado.
-  - Cuando los valores de condición para **if.field.type** y **then.details.type** coinciden, entonces el valor **Name** es _necesario_ y debe ser `[field('name')]`.
+  - Cuando los valores de condición para **if.field.type** y **then.details.type** coinciden, entonces el valor **Name** es _necesario_ y debe ser `[field('name')]`, o `[field('fullName')]` para un recurso secundario.
 - **ResourceGroupName** (opcional)
   - Permite que la coincidencia del recurso relacionado provenga de un grupo de recursos diferente.
   - No se aplica si **type** es un recurso que estaría debajo del recurso de condición **if**.

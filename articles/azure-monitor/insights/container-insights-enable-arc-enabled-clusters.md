@@ -3,12 +3,12 @@ title: Configuración de un clúster de Kubernetes habilitado para Azure Arc con
 description: En este artículo se describe cómo configurar la supervisión con Azure Monitor para contenedores en clústeres de Kubernetes habilitados para Azure Arc.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 54a8fea6ddb46dc00fff29ad83a2a348d9218380
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 44512acbd09df449dbba2177bb10f22f480b82d6
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090625"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90977529"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Habilitación de la supervisión en el clúster de Kubernetes habilitado para Azure Arc
 
@@ -63,7 +63,7 @@ Antes de empezar, asegúrese de que dispone de lo siguiente:
     >[!IMPORTANT]
     >La versión de agente mínima admitida para la supervisión de clústeres de Kubernetes habilitados para Arc es ciprod04162020 o posterior.
 
-- [PowerShell Core](/powershell/scripting/install/installing-powershell?view=powershell-6) es necesario si habilita la supervisión con el método de script de PowerShell.
+- [PowerShell Core](/powershell/scripting/install/installing-powershell?view=powershell-6&preserve-view=true) es necesario si habilita la supervisión con el método de script de PowerShell.
 
 - [Bash versión 4](https://www.gnu.org/software/bash/) es necesario si habilita la supervisión con el método de script de Bash.
 
@@ -137,6 +137,33 @@ Para habilitar la supervisión del clúster mediante PowerShell o el script de B
 
 Después de habilitar la supervisión, pueden pasar unos 15 minutos hasta que pueda ver la métrica de estado del clúster.
 
+### <a name="using-service-principal"></a>Uso de una entidad de servicio
+El script *enable-monitoring.ps1* usa el inicio de sesión de dispositivo interactivo. Si prefiere el inicio de sesión no interactivo, puede usar una entidad de servicio existente o crear otra que tenga los permisos necesarios, tal y como se describe en [Requisitos previos](#prerequisites). Para usar la entidad de servicio, tendrá que pasar los parámetros $servicePrincipalClientId, $servicePrincipalClientSecret y $tenantId con los valores de la entidad de servicio que ha pensado usar para el script *enable-monitoring.ps1*.
+
+```powershell
+$subscriptionId = "<subscription Id of the Azure Arc connected cluster resource>"
+$servicePrincipal = New-AzADServicePrincipal -Role Contributor -Scope "/subscriptions/$subscriptionId"
+```
+
+La asignación de roles siguiente solo es aplicable si usa un área de trabajo de Log Analytics existente en una suscripción de Azure diferente a la del recurso de clúster conectado de Arc K8s.
+
+```powershell
+$logAnalyticsWorkspaceResourceId = "<Azure Resource Id of the Log Analytics Workspace>" # format of the Azure Log Analytics workspace should be /subscriptions/<subId>/resourcegroups/<rgName>/providers/microsoft.operationalinsights/workspaces/<workspaceName>
+New-AzRoleAssignment -RoleDefinitionName 'Log Analytics Contributor'  -ObjectId $servicePrincipal.Id -Scope  $logAnalyticsWorkspaceResourceId
+
+$servicePrincipalClientId =  $servicePrincipal.ApplicationId.ToString()
+$servicePrincipalClientSecret = [System.Net.NetworkCredential]::new("", $servicePrincipal.Secret).Password
+$tenantId = (Get-AzSubscription -SubscriptionId $subscriptionId).TenantId
+```
+
+Por ejemplo:
+
+```powershell
+.\enable-monitoring.ps1 -clusterResourceId $azureArcClusterResourceId -servicePrincipalClientId $servicePrincipalClientId -servicePrincipalClientSecret $servicePrincipalClientSecret -tenantId $tenantId -kubeContext $kubeContext -workspaceResourceId $logAnalyticsWorkspaceResourceId -proxyEndpoint $proxyEndpoint
+```
+
+
+
 ## <a name="enable-using-bash-script"></a>Habilitación mediante un script de Bash
 
 Siga estos pasos para habilitar la supervisión mediante el script de Bash proporcionado.
@@ -162,7 +189,7 @@ Siga estos pasos para habilitar la supervisión mediante el script de Bash propo
 4. Si quiere usar el área de trabajo de Log Analytics de Azure Monitor existente, configure la variable `logAnalyticsWorkspaceResourceId` con el valor correspondiente que representa el id. de recurso del área de trabajo. De lo contrario, configure la variable en `""` y el script creará un área de trabajo predeterminada en el grupo de recursos predeterminado de la suscripción al clúster, si aún no existe en la región. El área de trabajo predeterminada creada es similar al formato de *DefaultWorkspace-\<SubscriptionID>-\<Region>* .
 
     ```bash
-    export logAnalyticsWorkspaceResourceId=“/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>”
+    export logAnalyticsWorkspaceResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>"
     ```
 
 5. Si el clúster de Kubernetes habilitado para Arc se comunica mediante un servidor proxy, configure la variable `proxyEndpoint` con la dirección URL del servidor proxy. Si el clúster no se comunica mediante un servidor proxy, no podrá configurar el valor en `""`. Para más información, consulte [Configuración del punto de conexión proxy](#configure-proxy-endpoint) más adelante en este artículo.
@@ -194,6 +221,31 @@ Siga estos pasos para habilitar la supervisión mediante el script de Bash propo
     ```
 
 Después de habilitar la supervisión, pueden pasar unos 15 minutos hasta que pueda ver la métrica de estado del clúster.
+
+### <a name="using-service-principal"></a>Uso de una entidad de servicio
+El script *enable-monitoring.sh* de Bash usa el inicio de sesión de dispositivo interactivo. Si prefiere el inicio de sesión no interactivo, puede usar una entidad de servicio existente o crear otra que tenga los permisos necesarios, tal y como se describe en [Requisitos previos](#prerequisites). Para usar la entidad de servicio, tendrá que pasar los valores --client-id, --client-secret y --tenant-id de la entidad de servicio que ha pensado usar para el script *enable-monitoring.sh* de Bash.
+
+```bash
+subscriptionId="<subscription Id of the Azure Arc connected cluster resource>"
+servicePrincipal=$(az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${subscriptionId}")
+servicePrincipalClientId=$(echo $servicePrincipal | jq -r '.appId')
+```
+
+La asignación de roles siguiente solo es aplicable si usa un área de trabajo de Log Analytics existente en una suscripción de Azure diferente a la del recurso de clúster conectado de Arc K8s.
+
+```bash
+logAnalyticsWorkspaceResourceId="<Azure Resource Id of the Log Analytics Workspace>" # format of the Azure Log Analytics workspace should be /subscriptions/<subId>/resourcegroups/<rgName>/providers/microsoft.operationalinsights/workspaces/<workspaceName>
+az role assignment create --role 'Log Analytics Contributor' --assignee $servicePrincipalClientId --scope $logAnalyticsWorkspaceResourceId
+
+servicePrincipalClientSecret=$(echo $servicePrincipal | jq -r '.password')
+tenantId=$(echo $servicePrincipal | jq -r '.tenant')
+```
+
+Por ejemplo:
+
+```bash
+bash enable-monitoring.sh --resource-id $azureArcClusterResourceId --client-id $servicePrincipalClientId --client-secret $servicePrincipalClientSecret  --tenant-id $tenantId --kube-context $kubeContext  --workspace-id $logAnalyticsWorkspaceResourceId --proxy $proxyEndpoint
+```
 
 ## <a name="configure-proxy-endpoint"></a>Configuración del punto de conexión proxy
 
