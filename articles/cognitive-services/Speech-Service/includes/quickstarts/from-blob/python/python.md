@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 3ca50a9bad36e0174dc4ee0059c9d01fcc18a5f1
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d69cb782b3be7035b7571653dcb434e44d22da93
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400988"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376734"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -17,7 +17,7 @@ Antes de comenzar, compruebe lo siguiente:
 
 > [!div class="checklist"]
 > * [Configuración del entorno de desarrollo y creación de un proyecto vacío](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
-> * [Ha creado un recurso de Voz de Azure](../../../../get-started.md)
+> * [Ha creado un recurso de Voz de Azure](../../../../overview.md#try-the-speech-service-for-free)
 > * [Ha cargado de un archivo de origen en un blob de Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
 ## <a name="download-and-install-the-api-client-library"></a>Descarga e instalación de la biblioteca cliente de API

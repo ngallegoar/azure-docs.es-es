@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/22/2020
-ms.openlocfilehash: 71cf11673756dcefb828ad1fad0412a791b43efd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 268eedf6f9d64d52539e20006322b6b1dd9964e8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945571"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439971"
 ---
 # <a name="azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL con la opción Servidor flexible
 
@@ -49,15 +49,14 @@ Durante los eventos de conmutación por error planeados o no planeados, si el se
 1. Se aprovisiona una nueva máquina virtual Linux de proceso.
 2. El almacenamiento con archivos de datos se asigna a la nueva máquina virtual.
 3. El motor de base de datos PostgreSQL pasa a estar en línea en la nueva máquina virtual.
-4. El servicio de puerta de enlace garantiza una conmutación por error transparente, por lo que no se requiere ningún cambio en la aplicación.
 
 En la imagen siguiente se muestra la transición del error de la máquina virtual y el almacenamiento.
 
- :::image type="content" source="./media/overview/overview-azure-postgres-flex-virtualmachine-storage-failure.png" alt-text="Servidor flexible: errores de almacenamiento y máquinas virtuales":::
+ :::image type="content" source="./media/overview/overview-azure-postgres-flex-virtualmachine.png" alt-text="Servidor flexible: errores de almacenamiento y máquinas virtuales":::
 
 Si está configurada la alta disponibilidad con redundancia de zona, el servicio aprovisiona y mantiene un servidor en espera activa entre zonas de disponibilidad dentro de la misma región de Azure. Los cambios en los datos del servidor de origen se replican sincrónicamente en el servidor en espera para garantizar que no se pierden datos. Con la alta disponibilidad con redundancia de zona, una vez que se desencadena el evento de conmutación por error planeado o sin planear, el servidor en espera se conecta inmediatamente y está disponible para procesar las transacciones entrantes. Esto permite la resistencia del servicio frente a errores en la zona de disponibilidad dentro de una región de Azure que admite varias zonas de disponibilidad, tal como se muestra en la imagen siguiente.
 
- :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Alta disponibilidad con redundancia de zona":::
+ :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Servidor flexible: errores de almacenamiento y máquinas virtuales":::
 
  Consulte el [documento de alta disponibilidad](./concepts-high-availability.md) para obtener más detalles.
 

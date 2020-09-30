@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 11/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 5832920ec491ce9d99219a7a423fcf0e38ba62cc
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 3a3799fc1e931993c00ba497765f4cd3e60d3493
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226452"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376339"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar:
 
 > [!div class="checklist"]
-> * [Ha creado un recurso de Voz de Azure](../../../../get-started.md)
+> * [Ha creado un recurso de Voz de Azure](../../../../overview.md#try-the-speech-service-for-free)
 > * [Ha configurado el entorno de desarrollo](../../../../quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
 > * Asegúrese de que tiene acceso a un micrófono para capturar el audio.
 

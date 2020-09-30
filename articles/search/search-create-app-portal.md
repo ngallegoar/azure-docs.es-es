@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 07/01/2020
-ms.openlocfilehash: 6adbd83ddfbdb82d1054d4e74dd9492d08583ede
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 09/25/2020
+ms.openlocfilehash: b69feec7249c80fc63d803a14f360614bcf880fa
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89292544"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399829"
 ---
 # <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Inicio rápido: Creación de una aplicación de demostración en el portal (Azure Cognitive Search)
 
@@ -35,7 +35,7 @@ Antes de empezar, debe disponer de lo siguiente:
 
   En este inicio rápido se usan el índice y los datos de ejemplo integrados de una inmobiliaria porque tienen imágenes en miniatura (el asistente admite la adición de imágenes a la página de resultados). Para crear el índice que se usa en este ejercicio, ejecute el Asistente para la **importación de datos** y elija el origen de datos *realestate-us-sample*.
 
-  ![página de origen de datos de los datos de ejemplo](media/search-create-app-portal/import-data-realestate.png)
+  :::image type="content" source="media/search-create-app-portal/import-data-realestate.png" alt-text="página de origen de datos de los datos de ejemplo" border="false":::
 
 Cuando el índice esté listo para usarse, continúe con el paso siguiente.
 
@@ -61,7 +61,7 @@ El asistente proporciona un diseño básico para los resultados de búsqueda rep
 
 1. En Descripción, elija un campo que proporcione detalles que puedan ayudar al usuario a decidir si hace clic para ir a ese documento concreto.
 
-   ![Configurar los resultados de los datos de ejemplo](media/search-create-app-portal/configure-results.png)
+   :::image type="content" source="media/search-create-app-portal/configure-results.png" alt-text="página de origen de datos de los datos de ejemplo" border="false":::
 
 ## <a name="add-a-sidebar"></a>Incorporación de una barra lateral
 
@@ -83,7 +83,7 @@ Se habilitan sugerencias en las definiciones de campos concretos. El asistente p
 
 En la siguiente captura de pantalla, se muestran las opciones del asistente, junto con una página de la aplicación. No solo puede ver cómo se usan las selecciones de campo, sino también cómo se usa "Mostrar nombre de campo" para incluir o excluir etiquetas en la sugerencia.
 
-![Configuración de sugerencias de consulta](media/search-create-app-portal/suggestions.png)
+:::image type="content" source="media/search-create-app-portal/suggestions.png" alt-text="página de origen de datos de los datos de ejemplo":::
 
 ## <a name="create-download-and-execute"></a>Creación, descarga y ejecución
 
@@ -95,7 +95,7 @@ En la siguiente captura de pantalla, se muestran las opciones del asistente, jun
 
 El índice subyacente se compone de datos ficticios generados que se han duplicado en los documentos y, en algunas ocasiones, las descripciones no coinciden con la imagen. Si crea una aplicación con sus propios índices el resultado será más coherente.
 
-![Ejecución la aplicación](media/search-create-app-portal/run-app.png)
+:::image type="content" source="media/search-create-app-portal/run-app.png" alt-text="página de origen de datos de los datos de ejemplo":::
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

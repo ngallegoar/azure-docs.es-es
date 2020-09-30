@@ -7,13 +7,13 @@ ms.author: terrychr
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 05/19/2020
-ms.openlocfilehash: b6164ef955ac92a7ef8776e560ea4d3a92abaf8d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: 8bbd0b1979da69e5d4d18009100a7caee5a3d722
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935983"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397409"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Tutorial: Diagnóstico, reparación y confirmación de cambios en el conjunto de aptitudes
 
@@ -59,7 +59,7 @@ Las llamadas de REST requieren la dirección URL del servicio y una clave de acc
 
 1. En **Configuración** > **Claves**, obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
 
-![Obtención de una clave de acceso y un punto de conexión HTTP](media/search-get-started-postman/get-url-key.png "Obtención de una clave de acceso y un punto de conexión HTTP")
+:::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Obtención de una clave de acceso y un punto de conexión HTTP" border="false":::
 
 Todas las solicitudes requieren una clave de API en cada solicitud enviada al servicio. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
 
@@ -78,15 +78,13 @@ En esta sección, se usan Postman y una colección proporcionada para crear el o
 1. Escriba el valor de storageConnectionString de la página de claves de la cuenta de Azure Storage.
 1. Escriba el valor de containerName del contenedor que creó en la cuenta de almacenamiento.
 
-> [!div class="mx-imgBorder"]
-> ![Edición de variables en Postman](media/cognitive-search-debug/postman-enter-variables.png)
+> :::image type="content" source="media/cognitive-search-debug/postman-enter-variables.png" alt-text="Obtención de una clave de acceso y un punto de conexión HTTP":::
 
 La colección contiene cuatro llamadas REST diferentes que se usan para completar esta sección.
 
 La primera llamada crea el origen de datos. `clinical-trials-ds`. La segunda llamada crea el conjunto de aptitudes, `clinical-trials-ss`. La tercera llamada crea el índice, `clinical-trials`. La cuarta y última llamada crea el indexador, `clinical-trials-idxr`. Una vez completadas todas las llamadas de la colección, cierre Postman y vuelva a Azure Portal.
 
-> [!div class="mx-imgBorder"]
-> ![Uso de Postman para crear el origen de datos](media/cognitive-search-debug/postman-create-data-source.png)
+> :::image type="content" source="media/cognitive-search-debug/postman-create-data-source.png" alt-text="Obtención de una clave de acceso y un punto de conexión HTTP":::
 
 ## <a name="check-the-results"></a>Comprobar los resultados
 
@@ -109,8 +107,7 @@ Vuelva a la pantalla de información general del servicio de búsqueda.
 
 ## <a name="start-your-debug-session"></a>Inicio de la sesión de depuración
 
-> [!div class="mx-imgBorder"]
-> ![Inicio de una nueva sesión de depuración](media/cognitive-search-debug/new-debug-session-screen-required.png)
+> :::image type="content" source="media/cognitive-search-debug/new-debug-session-screen-required.png" alt-text="Obtención de una clave de acceso y un punto de conexión HTTP":::
 
 1. Haga clic en la pestaña Sesiones de depuración (versión preliminar).
 1. Seleccione +NewDebugSession.
@@ -123,8 +120,7 @@ Vuelva a la pantalla de información general del servicio de búsqueda.
 > [!Important]
 > Una sesión de depuración solo funciona con un único documento. Se puede seleccionar un documento específico del conjunto de datos. De lo contrario, la sesión se establecerá de forma predeterminada en el primer documento.
 
-> [!div class="mx-imgBorder"]
-> ![Nueva sesión de depuración iniciada](media/cognitive-search-debug/debug-execution-complete1.png)
+> :::image type="content" source="media/cognitive-search-debug/debug-execution-complete1.png" alt-text="Obtención de una clave de acceso y un punto de conexión HTTP":::
 
 Una vez completada la ejecución de la sesión de depuración, la sesión muestra de forma predeterminada la pestaña Enriquecimientos con IA, resaltando el gráfico de aptitudes.
 
@@ -144,8 +140,7 @@ En la pestaña Errores o advertencias, se muestra un error en una operación con
 1. Seleccione el símbolo **</>** al principio de la línea y abra el evaluador de expresiones.
 1. Haga clic en el botón **Evaluar** para confirmar que esta expresión genera un error. Esto confirmará que la propiedad "languageCode" no es una entrada válida.
 
-> [!div class="mx-imgBorder"]
-> ![Evaluador de expresiones](media/cognitive-search-debug/expression-evaluator-language.png)
+> :::image type="content" source="media/cognitive-search-debug/expression-evaluator-language.png" alt-text="Obtención de una clave de acceso y un punto de conexión HTTP":::
 
 Existen dos maneras de investigar este error en la sesión. La primera es examinar de dónde procede la entrada. ¿Qué aptitud de la jerarquía se supone que genera este resultado? En la pestaña Ejecuciones del panel de detalles de la aptitud debe aparecer el origen de la entrada. Si no hay ningún origen, esto indica un error de asignación de campos.
 
@@ -153,30 +148,13 @@ Existen dos maneras de investigar este error en la sesión. La primera es examin
 1. Examine las entradas y busque "languageCode". No hay ningún origen para esta entrada en la lista. 
 1. Cambie el panel izquierdo para mostrar la estructura de datos enriquecidos. No hay ninguna ruta de acceso asignada que se corresponda con "languageCode".
 
-> [!div class="mx-imgBorder"]
-> ![Estructura de datos enriquecidos](media/cognitive-search-debug/enriched-data-structure-language.png)
-
-Hay una ruta de acceso asignada para "language". Por lo tanto, hay un error tipográfico en la configuración de aptitudes. Para corregirlo, se debe actualizar la expresión de la aptitud #1 con la expresión "/document/language".
-
-1. Abra el evaluador de expresiones **</>** para la ruta de acceso "language".
-1. Copie la expresión. Cierre la ventana.
-1. Vaya a la configuración de aptitudes de la aptitud #1 y abra el evaluador de expresiones **</>** para la entrada "languageCode".
-1. Pegue el nuevo valor, "/document/language", en el cuadro Expresión y haga clic en **Evaluar**.
-1. Debe mostrar la entrada correcta "en". Haga clic en Aplicar para actualizar la expresión.
-1. Haga clic en **Guardar** en el panel derecho de detalles de la aptitud.
-1. Haga clic en **Ejecutar** en el menú de la ventana de la sesión. Esto iniciará otra ejecución del conjunto de aptitudes con el documento. 
-
-Una vez finalizada la ejecución de la sesión de depuración, haga clic en la pestaña Errores o advertencias, que mostrará que el error "Enrichment.NerSkillV2.#1" ha desaparecido. Sin embargo, sigue habiendo dos advertencias que indican que el servicio no pudo asignar campos de salida para organizaciones y ubicaciones al índice de búsqueda. Faltan los valores "/document/merged_content/organizations" y "/document/merged_content/locations".
+> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-language.png" alt-text="Obtención de una clave de acceso y un punto de conexión HTTP" y "/document/merged_content/locations".
 
 ## <a name="fix-missing-skill-output-values"></a>Corrección de valores de salida de aptitud que faltan
 
-> [!div class="mx-imgBorder"]
-> ![Errores y advertencias](media/cognitive-search-debug/warnings-missing-value-locations-organizations.png)
+> :::image type="content" source="media/cognitive-search-debug/warnings-missing-value-locations-organizations.png" alt-text="Obtención de una clave de acceso y un punto de conexión HTTP" respectivamente.
 
-Faltan valores de salida de una aptitud. Para identificar la aptitud que tiene el error, vaya a la estructura de datos enriquecidos, busque el nombre del valor y observe su origen. En el caso de valores de organizaciones y ubicaciones que faltan, son salidas de la aptitud #1. Al abrir el evaluador de expresiones </> para cada ruta de acceso, se mostrarán las expresiones enumeradas como "/document/content/organizations" y "/document/content/locations" respectivamente.
-
-> [!div class="mx-imgBorder"]
-> ![Entidad de organizaciones del evaluador de expresiones](media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png)
+> :::image type="content" source="media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png" alt-text="Obtención de una clave de acceso y un punto de conexión HTTP":::
 
 La salida de estas entidades está vacía y no debería ser así. ¿Cuáles son las entradas que producen este resultado?
 
@@ -184,49 +162,25 @@ La salida de estas entidades está vacía y no debería ser así. ¿Cuáles son 
 1. En el panel de detalles de la aptitud de la derecha, seleccione la pestaña **Ejecuciones**.
 1. Abra el evaluador de expresiones **</>** para la entrada "text".
 
-> [!div class="mx-imgBorder"]
-> ![Entrada de aptitud de texto](media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png)
+> :::image type="content" source="media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png" alt-text="Obtención de una clave de acceso y un punto de conexión HTTP":::
 
 El resultado mostrado para esta entrada no parece una entrada de texto. Parece una imagen que está rodeada por líneas nuevas. La falta de texto indica que no se puede identificar ninguna entidad. Al examinar la jerarquía del conjunto de aptitudes, se muestra que la aptitud #6 (OCR) procesa primero el contenido que, a continuación, se pasa a la aptitud #5 (Combinar). 
 
 1. Seleccione la aptitud #5 (Combinar) en el **gráfico de aptitudes**.
 1. Seleccione la pestaña **Ejecuciones** en el panel de detalles de la aptitud de la derecha y abra el evaluador de expresiones **</>** para las salidas "mergedText".
 
-> [!div class="mx-imgBorder"]
-> ![Salida de la aptitud de combinación](media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png)
-
-Aquí el texto se empareja con la imagen. Al examinar la expresión "/document/merged_content", se puede ver el error en las rutas de acceso de las entidades "organizations" y "locations" de la aptitud #1. En lugar de usar "/document/content", debe usar "/document/merged_content" para las entradas de "text".
-
-1. Copie la expresión de la salida "mergedText" y cierre la ventana del evaluador de expresiones.
-1. Seleccione la aptitud #1 en el **gráfico de aptitudes**.
-1. En el panel de detalles de la aptitud de la derecha, seleccione la pestaña **Configuración de las aptitudes**.
-1. Abra el evaluador de expresiones **</>** para la entrada "text".
-1. Pegue la nueva expresión en el cuadro. Haga clic en **Evaluar**.
-1. Se debe mostrar la entrada correcta con el texto agregado. Haga clic en **Aplicar** para actualizar la configuración de las aptitudes.
-1. Haga clic en **Guardar** en el panel derecho de detalles de la aptitud.
-1. Haga clic en **Ejecutar** en el menú de la ventana de sesiones. Esto iniciará otra ejecución del conjunto de aptitudes con el documento.
-
-Una vez finalizada la ejecución del indexador, los errores siguen estando ahí. Vuelva a la aptitud #1 e investigue. La entrada de la aptitud se cambió de "content" a "merged_content". ¿Cuáles son las salidas de estas entidades en la aptitud?
+> :::image type="content" source="media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png" alt-text="Obtención de una clave de acceso y un punto de conexión HTTP" a "merged_content". ¿Cuáles son las salidas de estas entidades en la aptitud?
 
 1. Seleccione la pestaña **Enriquecimientos con IA**.
 1. Seleccione el **gráfico de aptitudes** y haga clic en la aptitud #1.
 1. Navegue por la **configuración de las aptitudes** y busque "outputs".
 1. Abra el evaluador de expresiones **</>** para la entidad "organizations".
 
-> [!div class="mx-imgBorder"]
-> ![Salida para la entidad "organizations"](media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png)
-
-Al evaluar el resultado de la expresión, se obtiene el resultado correcto. La aptitud trabaja para identificar el valor correcto de la entidad "organizations". Sin embargo, la asignación de salida en la ruta de acceso de la entidad sigue produciendo un error. Al comparar la ruta de acceso de salida de la aptitud con la ruta de acceso de salida del error, la aptitud es el objeto primario en una relación jerárquica de las salidas, organizaciones y ubicaciones en el nodo /document/content. Sin embargo, la asignación de campos de salida espera los resultados en el nodo /document/merged_content. En el paso anterior, la entrada cambió de "/document/content" a "/document/merged_content". El contexto de la configuración de aptitudes debe cambiarse para asegurarse de que la salida se genera con el contexto correcto.
-
-1. Seleccione la pestaña **Enriquecimientos con IA**.
-1. Seleccione el **gráfico de aptitudes** y haga clic en la aptitud #1.
-1. Navegue por la **configuración de las aptitudes** y busque "context".
-1. Haga doble clic en el valor de "context" y cámbielo a "/document/merged_content".
+> :::image type="content" source="media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png" alt-text="Obtención de una clave de acceso y un punto de conexión HTTP" y cámbielo a "/document/merged_content".
 1. Haga clic en **Guardar** en el panel derecho de detalles de la aptitud.
 1. Haga clic en **Ejecutar** en el menú de la ventana de sesiones. Esto iniciará otra ejecución del conjunto de aptitudes con el documento.
 
-> [!div class="mx-imgBorder"]
-> ![Corrección de contexto en la configuración de aptitudes](media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png)
+> :::image type="content" source="media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png" alt-text="Obtención de una clave de acceso y un punto de conexión HTTP":::
 
 Todos los errores se han resuelto.
 

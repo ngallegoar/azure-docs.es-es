@@ -4,13 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/12/2020
 ms.author: trbye
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 5d1d7008151ae61a72368d3d8ecfaf545a2080fa
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 4d3db2c10c3fd989ac9737e242e3d6eda517a55f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406184"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377255"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -18,7 +18,7 @@ Antes de comenzar, compruebe lo siguiente:
 
 > [!div class="checklist"]
 > * [Configuración del entorno de desarrollo y creación de un proyecto vacío](../../../../quickstarts/setup-platform.md?tabs=vs&pivots=programmming-language-javascript)
-> * [Ha creado un recurso de Voz de Azure](../../../../get-started.md)
+> * [Ha creado un recurso de Voz de Azure](../../../../overview.md#try-the-speech-service-for-free)
 > * [Ha cargado de un archivo de origen en un blob de Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
 ## <a name="create-a-new-js-file"></a>Ha creado un nuevo archivo JS

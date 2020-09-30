@@ -9,12 +9,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: cffb753d515c4d066c8ce52e7dacebe5a8f6f8ca
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 12b20f7556a460506067305401fb2379678ee58e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682644"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371701"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>API para la automatización de reservas de Azure
 
@@ -88,9 +88,9 @@ Si ve que las reservas de su organización están siendo usadas por debajo de su
 
 Obtenga la lista de todas las reservas a las que un usuario tiene acceso mediante [Reservation - Operation - List API](/rest/api/reserved-vm-instances/reservationorder/list). Para dar acceso a una reserva mediante programación, consulte uno de los siguientes artículos:
 
-- [Administración del acceso mediante RBAC y API REST](../../role-based-access-control/role-assignments-rest.md)
-- [Administración de acceso mediante RBAC y Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-- [Administración de acceso mediante RBAC y la CLI de Azure](../../role-based-access-control/role-assignments-cli.md)
+- [Incorporación o eliminación de asignaciones de roles de Azure mediante la API REST](../../role-based-access-control/role-assignments-rest.md)
+- [Incorporación o eliminación de asignaciones de roles de Azure con Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Incorporación o eliminación de asignaciones de roles de Azure mediante la CLI de Azure](../../role-based-access-control/role-assignments-cli.md)
 
 ## <a name="split-or-merge-reservation"></a>Dividir o combinar una reserva
 

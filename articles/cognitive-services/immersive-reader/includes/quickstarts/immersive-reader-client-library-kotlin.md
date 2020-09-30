@@ -6,16 +6,17 @@ services: cognitive-services
 author: dylankil
 manager: guillasi
 ms.service: cognitive-services
+ms.subservice: immersive-reader
 ms.topic: include
 ms.date: 09/14/2020
 ms.author: dylankil
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 7c368964ca04662c8bf1dfe79db57f81c90f5699
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.custom: devx-track-js
+ms.openlocfilehash: e29aff97d510dfed178e32aa319e5cb51ae9786c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90978331"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376346"
 ---
 [Lector inmersivo](https://www.onenote.com/learningtools) es una herramienta diseñada de manera inclusiva que implementa técnicas demostradas para mejorar la comprensión lectora de nuevos lectores, estudiantes de idiomas y personas con dificultades de aprendizaje, como la dislexia. Puede usar Lector inmersivo en sus aplicaciones para aislar el texto con el fin de mejorar la concentración, mostrar imágenes para palabras de uso frecuente, resaltar partes del texto, leer texto seleccionado en voz alta, traducir palabras y frases en tiempo real y mucho más.
 

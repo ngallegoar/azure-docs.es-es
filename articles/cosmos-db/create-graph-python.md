@@ -1,20 +1,20 @@
 ---
 title: 'Inicio rápido: Table API con Python: Azure Cosmos DB'
 description: Esta guía de inicio rápido muestra cómo usar Gremlin API de Azure Cosmos DB para crear una aplicación de consola con Azure Portal y Python
-author: luisbosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2019
-ms.author: lbosq
+ms.author: jasonh
 ms.custom: devx-track-python
-ms.openlocfilehash: b927a0a64256283536a73002cc5915bcaddd2efc
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 624aa946df5e637c98a11ada3b455c50dec896f5
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873150"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409347"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Inicio rápido: Creación de una base de datos de grafos en Azure Cosmos DB mediante Python y Azure Portal
 
@@ -172,15 +172,15 @@ Una vez que se insertan los vértices y los bordes, ahora puede volver al Explor
 
 1. En la cuenta de Azure Cosmos DB, en Azure Portal, seleccione **Explorador de datos**, expanda **sample-graph**, seleccione **Grafo** y, por último, seleccione **Aplicar filtro**. 
 
-   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png" alt-text="Creación de documentos en el Explorador de datos en Azure Portal":::
+   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png" alt-text="Visualización y copia de una clave de acceso en Azure Portal, página Claves":::
 
 2. En la lista **Resultados**, observe los tres nuevos usuarios agregados al grafo. Puede mover los vértices arrastrando y colocando, acercarse y alejarse desplazando la rueda del mouse y ampliar el tamaño del gráfico con la flecha doble. 
 
-   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-graph-explorer-new.png" alt-text="Nuevos vértices en el grafo del Explorador de datos de Azure Portal":::
+   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-graph-explorer-new.png" alt-text="Visualización y copia de una clave de acceso en Azure Portal, página Claves":::
 
 3. Vamos a agregar algunos usuarios nuevos. Seleccione el botón **Nuevo vértice** para agregar datos al grafo.
 
-   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Creación de documentos en el Explorador de datos en Azure Portal":::
+   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Visualización y copia de una clave de acceso en Azure Portal, página Claves":::
 
 4. Escriba una etiqueta de *persona*.
 
@@ -219,15 +219,15 @@ Una vez que se insertan los vértices y los bordes, ahora puede volver al Explor
 
 12. Ahora podemos conectar a rakesh y ashley. Asegúrese de que **ashley** está seleccionado en la lista **Resultados** y, después, seleccione el botón para editar junto a **Destinos** en la parte inferior derecha. Puede que tenga que ampliar la ventana para ver el área **Propiedades**.
 
-    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Cambio del destino de un vértice en un grafo":::
+    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Visualización y copia de una clave de acceso en Azure Portal, página Claves":::
 
 13. En el cuadro **Destino**, escriba *rakesh*, en el cuadro **Edge label** (Etiqueta de borde), escriba *conoce a* y, a continuación, seleccione la casilla.
 
-    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png" alt-text="Adición de una conexión entre ashley y rakesh en el Explorador de datos":::
+    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png" alt-text="Visualización y copia de una clave de acceso en Azure Portal, página Claves":::
 
 14. Ahora seleccione **rakesh** en la lista de resultados y compruebe que ashley y rakesh están conectados. 
 
-    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-graph-explorer.png" alt-text="Dos vértices conectados en el Explorador de datos":::
+    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-graph-explorer.png" alt-text="Visualización y copia de una clave de acceso en Azure Portal, página Claves":::
 
 Esto completa la parte de la creación de recursos de este tutorial. Puede seguir agregando vértices en el grafo, modificar los vértices existentes o cambiar las consultas. Ahora vamos a revisar las métricas que proporciona Azure Cosmos DB y, a continuación, limpiaremos los recursos. 
 

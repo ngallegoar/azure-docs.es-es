@@ -8,14 +8,14 @@ ms.author: heidist
 ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/23/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 2c97a770dc10168284bebbc038d8c48145c2a385
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.custom: devx-track-js
+ms.openlocfilehash: ab3142426b12f86b9f8afa84ce0ea05fc1939eec
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88917897"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400611"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search en Node.js mediante las API REST
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ Las llamadas al servicio requieren un punto de conexión de URL y una clave de a
 
     Obtenga también la clave de consulta. Es una práctica recomendada emitir solicitudes de consulta con acceso de solo lectura.
 
-![Obtención del nombre del servicio y las claves de consulta y administrador](media/search-get-started-nodejs/service-name-and-keys.png)
+:::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Obtención del nombre del servicio y las claves de consulta y administrador" border="false":::
 
 Todas las solicitudes enviadas al servicio necesitan una clave de API en el encabezado. Una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que la envía y el servicio que se encarga de ella.
 
@@ -473,7 +473,7 @@ Verá una serie de mensajes en los que se describen las acciones realizadas por 
 
 Abra la página **Información general** del servicio de búsqueda en Azure Portal. Seleccione la pestaña **Índices**. Debe ver algo parecido a lo siguiente:
 
-![Captura de pantalla de Azure Portal, información general del servicio de búsqueda, pestaña Índices](media/search-get-started-nodejs/create-index-no-data.png)
+:::image type="content" source="media/search-get-started-nodejs/create-index-no-data.png" alt-text="Obtención del nombre del servicio y las claves de consulta y administrador" border="false":::
 
 En el paso siguiente, agregará datos al índice. 
 

@@ -7,13 +7,13 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/10/2020
-ms.openlocfilehash: a4e686fe7adcc7e990a26484bc5850de977e862a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: 3ecef629e38e2823bea101af47899f9b7d6845f0
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924595"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399846"
 ---
 # <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Tutorial: Creación e implementación de una aptitud personalizada con Azure Machine Learning 
 
@@ -82,8 +82,7 @@ La sección 4 del cuaderno tiene cuatro celdas donde se actualizan el conjunto d
 
 En el portal, vaya al conjunto de aptitudes y seleccione el vínculo de definición del conjunto de aptitudes (JSON). El portal mostrará el archivo JSON del conjunto de aptitudes que se creó en las primeras celdas del cuaderno. A la derecha de la pantalla hay un menú desplegable en el que puede seleccionar la plantilla de definición de aptitudes. Seleccione la plantilla de Azure Machine Learning (AML). Proporcione el nombre del área de trabajo de Azure ML y el punto de conexión del modelo implementado en el clúster de inferencia. La plantilla se actualizará con el URI y la clave del punto de conexión.
 
-> [!div class="mx-imgBorder"]
-> ![Plantilla de definición del conjunto de aptitudes](media/cognitive-search-aml-skill/portal-aml-skillset-definition.png)
+> :::image type="content" source="media/cognitive-search-aml-skill/portal-aml-skillset-definition.png" alt-text="Plantilla de definición del conjunto de aptitudes":::
 
 Copie la plantilla del conjunto de aptitudes de la ventana y péguela en la definición del conjunto de aptitudes de la izquierda. Edite la plantilla para proporcionar los valores que faltan en:
 

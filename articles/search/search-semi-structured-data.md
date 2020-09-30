@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/23/2020
-ms.openlocfilehash: 8a615dc02b78993a18a86def9d8f496ba0bba922
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: f501b9f4215b9eeb48aa8bc80d492d55cf940404
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929710"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397392"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Tutorial: Indexación de blobs JSON de Azure Storage con REST
 
@@ -54,7 +54,7 @@ Si es posible, cree los dos en la misma región y grupo de recursos para la prox
 
 1. Busque *cuenta de almacenamiento* y seleccione la oferta de Cuenta de almacenamiento de Microsoft.
 
-   ![Creación de una cuenta de almacenamiento](media/cognitive-search-tutorial-blob/storage-account.png "Crear cuenta de almacenamiento")
+   :::image type="content" source="media/cognitive-search-tutorial-blob/storage-account.png" alt-text="Creación de una cuenta de almacenamiento" border="false":::
 
 1. En la pestaña Datos básicos, se necesitan los siguientes elementos. Acepte los valores predeterminados para todo lo demás.
 
@@ -76,11 +76,11 @@ Si es posible, cree los dos en la misma región y grupo de recursos para la prox
 
 1. Una vez creado el contenedor, ábralo y seleccione **Cargar** en la barra de comandos.
 
-   ![Carga en la barra de comandos](media/search-semi-structured-data/upload-command-bar.png "Carga en la barra de comandos")
+   :::image type="content" source="media/search-semi-structured-data/upload-command-bar.png" alt-text="Creación de una cuenta de almacenamiento" border="false":::
 
 1. Vaya a la carpeta que contiene los archivos de ejemplo. Selecciónelos todos ellos y haga clic en **Cargar**.
 
-   ![Carga de archivos](media/search-semi-structured-data/clinicalupload.png "Carga de archivos")
+   :::image type="content" source="media/search-semi-structured-data/clinicalupload.png" alt-text="Creación de una cuenta de almacenamiento" border="false":::
 
 Una vez finalizada la carga, los archivos deberían aparecer en su propia subcarpeta dentro del contenedor de datos.
 
@@ -98,7 +98,7 @@ Las llamadas de REST requieren la dirección URL del servicio y una clave de acc
 
 1. En **Configuración** > **Claves**, obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
 
-![Obtención de una clave de acceso y un punto de conexión HTTP](media/search-get-started-postman/get-url-key.png "Obtención de una clave de acceso y un punto de conexión HTTP")
+:::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Creación de una cuenta de almacenamiento" border="false":::
 
 Todas las solicitudes requieren una clave de API en cada solicitud enviada al servicio. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
 
@@ -110,7 +110,7 @@ Los métodos de solicitud para cada llamada de este tutorial son **POST** y **GE
 
 En Headers (Encabezados), establezca "Content-Type" en `application/json` y establezca `api-key` en la clave de API de administración de su servicio Azure Cognitive Search. Una vez que establezca los encabezados, puede usarlos para todas las solicitudes de este ejercicio.
 
-  ![Encabezado y dirección URL de solicitud de Postman](media/search-get-started-postman/postman-url.png "Encabezado y dirección URL de solicitud de Postman")
+  :::image type="content" source="media/search-get-started-postman/postman-url.png" alt-text="Creación de una cuenta de almacenamiento" border="false":::
 
 Los identificadores URI deben especificar un elemento api-version. Además, cada llamada debe devolver el mensaje **201 - Creado**. El elemento api-version disponible con carácter general para el uso de matrices JSON es `2020-06-30`.
 
@@ -315,11 +315,11 @@ Puede empezar a realizar búsquedas en cuanto se cargue el primer documento.
 
 1. Agregue el parámetro de consulta `$select` para limitar los resultados a menos campos: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2020-06-30&$count=true`.  En esta consulta, 100 documentos coinciden, pero de forma predeterminada, Azure Cognitive Search solo devuelve 50 en los resultados.
 
-   ![Consulta con parámetros](media/search-semi-structured-data/lastquery.png "Consulta con parámetros")
+   :::image type="content" source="media/search-semi-structured-data/lastquery.png" alt-text="Creación de una cuenta de almacenamiento" border="false":::
 
 1. Un ejemplo de consulta más compleja incluiría `$filter=MinimumAge ge 30 and MaximumAge lt 75`, que devuelve solo resultados en los que el parámetro MinimumAge es mayor o igual a 30 y el parámetro MaximumAge es menor que 75. Reemplace la expresión `$select` por la expresión `$filter`.
 
-   ![Búsqueda de datos semiestructurados](media/search-semi-structured-data/metadatashort.png)
+   :::image type="content" source="media/search-semi-structured-data/metadatashort.png" alt-text="Creación de una cuenta de almacenamiento" border="false":::
 
 También puede usar operadores lógicos (and, or, not) y operadores de comparación (eq, ne, gt, lt, ge, le). La comparación de cadenas distingue mayúsculas de minúsculas. Para obtener más información y ejemplos, vea [crear una consulta simple](search-query-simple-examples.md).
 

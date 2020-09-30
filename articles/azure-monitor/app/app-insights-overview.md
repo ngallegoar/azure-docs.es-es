@@ -4,12 +4,12 @@ description: Application Performance Management y seguimiento del uso de la apli
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: 4576c8a7657ea3da1f8a732c2efd38302f33300c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f00eea37c43fba10e0a89498dd81366630852db7
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974051"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371390"
 ---
 # <a name="what-is-application-insights"></a>¿Qué es Application Insights?
 Application Insights es una característica de [Azure Monitor](../overview.md) que es un servicio de Application Performance Management (APM) extensible para desarrolladores y profesionales de DevOps. Úselo para supervisar las aplicaciones en directo. Detectará automáticamente anomalías en el rendimiento e incluye eficaces herramientas de análisis que le ayudan a diagnosticar problemas y a saber lo que hacen realmente los usuarios con la aplicación.  Está diseñado para ayudarle a mejorar continuamente el rendimiento y la facilidad de uso. Funciona con diversas aplicaciones y en una amplia variedad de plataformas, como .NET, Node.js, Java y Python, hospedadas en el entorno local, de forma híbrida o en cualquier nube pública. Se integra con el proceso de DevOps y tiene puntos de conexión a numerosas herramientas de desarrollo. Puede supervisar y analizar la telemetría de aplicaciones móviles mediante la integración con Visual Studio App Center.
@@ -122,6 +122,7 @@ Comience en el tiempo de desarrollo con:
 * [Java](./java-get-started.md)
 * [Node.js](./nodejs.md)
 * [Python](./opencensus-python.md)
+* [JavaScript](./javascript.md)
 
 
 ## <a name="support-and-feedback"></a>Soporte y comentarios

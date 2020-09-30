@@ -8,17 +8,17 @@ manager: rkarlin
 ms.assetid: 33f2c9f4-21aa-4f0c-9e5e-4cd1223e39d7
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2020
 ms.author: memildin
-ms.openlocfilehash: d08984165f59f15e9feb739a719d80e7dc3902a4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8a999e2b5706c04b426f758ba46f49fb9f7e3057
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905453"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91438795"
 ---
 # <a name="azure-security-center-data-security"></a>Seguridad de datos de Azure Security Center
 Para ayudar a los clientes a evitar, detectar y responder a las amenazas, Azure Security Center recopila y procesa datos relacionados con la seguridad, entre los que se incluyen la información de configuración, los metadatos y los registros de eventos, entre otros. Microsoft se adhiere a instrucciones estrictas de seguridad y cumplimiento de normas, desde la codificación hasta la operación de un servicio.
@@ -76,7 +76,7 @@ Si no utiliza Azure Defender, también puede deshabilitar la recopilación de da
 
 Los clientes pueden utilizar Security Center en relación con datos de secuencias de datos diferentes, tal y como se muestra a continuación:
 
-* **Actividad de Azure**: todas las alertas de seguridad, solicitudes [Just-In-Time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) de Security Center aprobadas y todas las alertas generadas por [controles de aplicaciones adaptables](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
+* **Actividad de Azure**: todas las alertas de seguridad, solicitudes [Just-In-Time](security-center-just-in-time.md) de Security Center aprobadas y todas las alertas generadas por [controles de aplicaciones adaptables](security-center-adaptive-application.md).
 * **Registros de Azure Monitor**: todas las alertas de seguridad.
 
 
