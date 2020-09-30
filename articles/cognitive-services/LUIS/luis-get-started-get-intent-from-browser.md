@@ -1,14 +1,16 @@
 ---
 title: 'Inicio rápido: Consulta de predicciones con el explorador: LUIS'
 description: En este inicio rápido, usará una aplicación de LUIS disponible públicamente para determinar la intención de un usuario a partir de texto conversacional en un explorador.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 04/21/2020
-ms.openlocfilehash: 24c7a8aca410ad10b8a9299c4bca2f13d0feb780
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: ce7544bee32586aa4cdeeb7f47a84744194db5da
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88246002"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316280"
 ---
 # <a name="quickstart-query-prediction-runtime-with-user-text"></a>Inicio rápido: Consulta del entorno de ejecución de predicción con texto del usuario
 

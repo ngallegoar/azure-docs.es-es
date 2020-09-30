@@ -3,17 +3,17 @@ title: Facturas de inscripciones de Azure Enterprise
 description: En este artículo se explica cómo administrar y actuar en su factura de Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/03/2020
+ms.date: 09/18/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: ca7aaea1e0bac1c00a373c8847623606d629e800
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: fec013395af9aeb3d83f86ab47cc52b3fedd7a1f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442520"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316144"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Facturas de inscripciones de Azure Enterprise
 
@@ -162,20 +162,6 @@ Consulte [Servicios de Azure](https://azure.microsoft.com/services/) y [Precios 
 ### <a name="enterprise-agreement-units-of-measure"></a>Unidades de medida de Contratos Enterprise
 
 Las unidades de medida de los Contratos Enterprise suelen ser diferentes de las que se ven en nuestros otros programas, como el programa del Contrato Microsoft Online Subscription (MOSA). Esta disparidad significa que, para una serie de servicios, se agrega la unidad de medida para proporcionar los precios normalizados. La unidad de medida que se muestra en la vista del resumen de uso de Azure Enterprise Portal siempre es la medida empresarial. En el archivo de Excel [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx), se proporciona una lista completa de las unidades de medida y conversiones actuales de cada servicio.
-
-### <a name="rounding-rules"></a>Reglas de redondeo
-
-Azure Enterprise Portal sigue la lógica de redondeo bancario o redondeo gaussiano del estándar IEEE. Esta lógica redondea los números a la cifra par más cercana para los valores de medio dígito. La lógica de redondeo más habitual de redondeo de mitad hacia arriba siempre redondea los medios dígitos hacia arriba hasta la siguiente cifra más alta. El método de Azure Enterprise Portal proporciona una suma total más precisa sobre el grupo en comparación con la lógica de Excel estándar.
-
-Para ilustrar esto: cuando la primera cifra que se quitará es un 5 y no le sigue ninguna otra cifra o las cifras siguientes son ceros, se redondea a la cifra par más cercana. Por ejemplo: tanto 2,315 como 2,325 redondeados a la centésima más cercana se convierten en 2,32.
-
-Como referencia, en la tabla siguiente se muestran las fórmulas de Excel que puede usar para modelar las reglas de Azure Enterprise Portal para el redondeo y la conversión:
-
-| Escenario | Fórmula de lógica bancaria |
-| --- | --- |
-| Redondeo de uso | =REDOND.MULT({_source_}, 0.0002) |
-| Redondeo de precios (2 decimales) | =REDOND.MULT({_source_}, 0.02) |
-| Redondeo de precios (0 decimales) | =REDOND.MULT({_source_}, 2) |
 
 ### <a name="conversion-between-usage-detail-report-and-the-usage-summary-page"></a>Conversión entre el informe de detalles de uso y la página de resumen de uso
 

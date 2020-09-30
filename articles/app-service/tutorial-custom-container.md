@@ -7,12 +7,12 @@ ms.author: msangapu
 keywords: azure app service, web app, linux, windows, docker, container
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: fdc15ecd79a6672d2a46b4da284533965977d753
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f4b2aea0a6782b5484b2f6d15066d71990348596
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90982877"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312063"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migración de software personalizado a Azure App Service mediante un contenedor personalizado
 
@@ -72,7 +72,7 @@ El proyecto ahora está configurado para ejecutarse en un contenedor de Windows.
 
 Desde el Explorador de soluciones, abra **Dockerfile**.
 
-Tiene que usar una [imagen principal compatible](quickstart-custom-container.md#use-a-different-parent-image). Reemplace la línea `FROM` por el código siguiente para cambiar la imagen primaria:
+Tiene que usar una [imagen principal compatible](configure-custom-container.md#supported-parent-images). Reemplace la línea `FROM` por el código siguiente para cambiar la imagen primaria:
 
 ```dockerfile
 FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
@@ -618,6 +618,8 @@ Los recursos que creó en este artículo pueden incurrir en costos continuos. Pa
 az group delete --name AppSvc-DockerTutorial-rg
 ```
 
+::: zone-end
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 ¿Qué ha aprendido?
@@ -625,9 +627,13 @@ az group delete --name AppSvc-DockerTutorial-rg
 > [!div class="checklist"]
 > * Implementar una imagen personalizada en un registro de contenedor privado
 > * Ejecutar la imagen personalizada en App Service
+::: zone pivot="container-linux"
 > * Actualizar y volver a implementar la imagen
+::: zone-end
 > * Acceso a los registros de diagnóstico
+::: zone pivot="container-linux"
 > * Conexión al contenedor con SSH
+::: zone-end
 
 Vaya al siguiente tutorial para aprender a asignar un nombre DNS personalizado a la aplicación.
 
@@ -639,7 +645,7 @@ O bien, eche un vistazo a otros recursos:
 > [!div class="nextstepaction"]
 > [Configuración de un contenedor personalizado](configure-custom-container.md)
 
+::: zone pivot="container-linux"
 > [!div class="nextstepaction"]
 > [Tutorial: Aplicación de WordPress con varios contenedores](tutorial-multi-container-app.md)
-
 ::: zone-end

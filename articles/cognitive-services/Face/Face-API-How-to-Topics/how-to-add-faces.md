@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 06c353cf5fbd5c2b1058d99e7f91e9fcc3853cb1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 3643fad1c9e821a78df6d78edeede2341ec79ea8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929053"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303768"
 ---
 # <a name="add-faces-to-a-persongroup"></a>Agregar caras a un objeto PersonGroup
 
@@ -138,6 +138,5 @@ Se explicaron y mostraron las siguientes características:
 
 ## <a name="related-topics"></a>Temas relacionados
 
-- [Identificación de caras en imágenes](HowtoIdentifyFacesinImage.md)
 - [Detección de caras en una imagen](HowtoDetectFacesinImage.md)
 - [Uso de la característica a gran escala](how-to-use-large-scale.md)

@@ -2,19 +2,19 @@
 title: Tutorial de desarrollo del módulo C para Windows en Azure IoT Edge | Microsoft Docs
 description: En este tutorial se muestra la creación de un módulo de IoT Edge con código C y su implementación en un dispositivo Windows que ejecuta IoT Edge.
 services: iot-edge
-author: shizn
+author: kgremban
 manager: philmea
-ms.author: xshi
+ms.author: kgremban
 ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 2da31944a58fb3e5834938b7de32348f30ed7e25
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: edfe0a383ab68b640b5bc7e7e0a1fdd038d0fa38
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439810"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318337"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desarrollo de un módulo de IoT Edge en C para dispositivos Windows
 

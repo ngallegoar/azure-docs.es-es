@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: chrwhit
-ms.openlocfilehash: 72bb38b7d9d28366fb75c5656832a1f37c770fd2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c11c2098d30ed6f00d94124fd77c2ebdb6cd2c7a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945994"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303337"
 ---
 Para empezar a usar Azure Communication Services, utilice la biblioteca cliente de SMS de Java de Communication Services para enviar mensajes SMS.
 
@@ -30,7 +30,8 @@ Este inicio rápido supone un pequeño costo en su cuenta de Azure.
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Kit de desarrollo de Java (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true), versión 8 o posterior.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-- Un recurso de Communication Services implementado. [Cree un recurso de Communication Services](../../create-communication-resource.md).
+- Recurso activo de Communication Services y una cadena de conexión. [Cree un recurso de Communication Services](../../create-communication-resource.md).
+- Número de teléfono habilitado para SMS. [Obtención de un número de teléfono](../get-phone-number.md).
 
 ### <a name="prerequisite-check"></a>Comprobación de requisitos previos
 
@@ -162,7 +163,7 @@ System.out.println("MessageId: " + response.getMessageId());
 
 Debe reemplazar `<leased-phone-number>` por un número de teléfono habilitado para SMS asociado al recurso de Communication Services y `<to-phone-number>` por el número de teléfono al que quiere enviar un mensaje. Todos los parámetros de número de teléfono deben cumplir el [estándar E.164](../../../concepts/telephony-sms/plan-solution.md#optional-reading-international-public-telecommunication-numbering-plan-e164).
 
-El parámetro `enableDeliveryReport` es un parámetro opcional que puede usar para configurar los informes de entrega. Resulta útil para los escenarios en los que quiere emitir eventos cuando se entregan mensajes SMS. Consulte el inicio rápido [Control de eventos SMS](../handle-sms-events.md) a fin de configurar los informes de entrega para los mensajes SMS.
+El parámetro `enableDeliveryReport` es un parámetro opcional que puede usar para configurar los informes de entrega. Esto resulta útil para aquellos escenarios en los que desee emitir eventos cuando se entreguen mensajes SMS. Consulte la guía de inicio rápido [Controlar eventos SMS](../handle-sms-events.md) a fin de configurar los informes de entrega para los mensajes SMS.
 
 <!--todo: the signature of the `sendMessage` method changes when configuring delivery reporting. Need to confirm that this is how our client library is to be used.-->
 

@@ -10,13 +10,13 @@ ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: seodec2018, devx-track-javascript
-ms.openlocfilehash: d0ed69aecf03e5c8e3a65e3ac532c02c89b65ba8
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: seodec2018, devx-track-js
+ms.openlocfilehash: 884cc0a88e502b7fe56c6b7eb0f4761fe2f042bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406612"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316671"
 ---
 # <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Inicio rápido: Realizar una búsqueda de noticias mediante Node.js y la API de REST Bing News Search
 
@@ -26,7 +26,7 @@ Aunque esta aplicación está escrita en JavaScript y se ejecuta en Node.js, la 
 
 El código fuente del ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingNewsSearchv7.js).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * La última versión de [Node.js](https://nodejs.org/en/download/).
 * La [biblioteca de solicitudes de JavaScript](https://github.com/request/request).

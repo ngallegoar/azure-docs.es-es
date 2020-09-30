@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: f8c7e2cfb17ca48a67a009f532a9cbb6894cc05d
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: b0908aee6253a3be486f71c245ea1eee2ff8b9bb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442605"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319476"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure Private Link para Azure SQL Database y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -23,28 +23,6 @@ Private Link permite conectarse a varios servicios PaaS en Azure mediante un **p
 
 > [!IMPORTANT]
 > Este tema se aplica tanto a Azure SQL Database como a Azure Synapse Analytics (anteriormente SQL Data Warehouse). Para simplificar, el término "base de datos" hace referencia a las bases de datos de Azure SQL Database y a las de Azure Synapse Analytics. Del mismo modo, todas las referencias a "servidor" indican el [servidor de SQL Server lógico](logical-servers.md) que hospeda Azure SQL Database y Azure Synapse Analytics. Este artículo *no* se aplica a **Instancia administrada de Azure SQL**.
-
-## <a name="data-exfiltration-prevention"></a>Prevención de la filtración de datos
-
-La filtración de datos en Azure SQL Database tiene lugar cuando un usuario autorizado, como un administrador de base de datos, puede extraer datos de un sistema y moverlos a una ubicación o sistema que está fuera de la organización. Por ejemplo, el usuario mueve los datos a una cuenta de almacenamiento propiedad de un tercero.
-
-Piense en un escenario en el que un usuario ejecuta SQL Server Management Studio (SSMS) dentro de una máquina virtual de Azure que se conecta a una base de datos en SQL Database. Esta base de datos se encuentra en el centro de datos de Oeste de EE. UU. En el ejemplo siguiente se muestra cómo limitar el acceso con puntos de conexión públicos en la base de datos SQL mediante controles de acceso a la red.
-
-1. Deshabilite todo el tráfico de los servicios de Azure a la base de datos SQL mediante el punto de conexión público, para lo que debe seleccionar **OFF** (Desactivado) en Allow Azure Services (Permitir servicios de Azure). Asegúrese de que no se permiten direcciones IP en el servidor y en las reglas de firewall en el nivel de base de datos. Para más información, consulte [Controles de acceso a la red de Azure SQL Database y Azure Synapse Analytics](network-access-controls-overview.md).
-1. Solo se permite el tráfico a la base de datos de SQL Database mediante la dirección IP privada de la VM. Para más información, consulte los artículos sobre el [punto de conexión de servicio](vnet-service-endpoint-rule-overview.md) y las [reglas de firewall de la red virtual](firewall-configure.md).
-1. En la máquina virtual de Azure, restrinja el ámbito de la conexión saliente mediante el uso de [grupos de seguridad de red (NSG)](../../virtual-network/manage-network-security-group.md) y etiquetas de servicio, como se indica a continuación
-    - Especifique una regla de NSG para permitir el tráfico en Service Tag = SQL.WestUs (solo se permite la conexión a una base de datos SQL en Oeste de EE. UU.)
-    - Especifique una regla de NSG (con una **prioridad mayor**) para denegar el tráfico a Service Tag = SQL (se deniegan las conexiones a una base de datos SQL en todas las regiones)
-
-Al final de esta configuración, la VM de Azure solo puede conectarse a una base de datos de SQL Database de la región Oeste de EE. UU. Sin embargo, la conectividad no está restringida a una sola base de datos en SQL Database. La VM puede conectarse a cualquier base de datos de la región Oeste de EE. UU., incluidas las bases de datos que no forman parte de la suscripción. Aunque en el escenario anterior se ha reducido el ámbito de la filtración de datos a una región concreta, no se ha eliminado por completo.
-
-Con Private Link, los clientes pueden configurar controles de acceso a la red como grupos de seguridad de red para restringir el acceso al punto de conexión privado. Los recursos PaaS de Azure individuales se asignan a puntos de conexión privados concretos. Un usuario interno malintencionado solo puede acceder al recurso PaaS asignado (por ejemplo, una base de datos en SQL Database), pero no a los demás recursos. 
-
-## <a name="on-premises-connectivity-over-private-peering"></a>Conectividad local a través del emparejamiento privado
-
-Cuando los clientes se conectan al punto de conexión público desde equipos locales, es necesario agregar su dirección IP al firewall basado en IP mediante una [regla de firewall de nivel de servidor](firewall-create-server-level-portal-quickstart.md). Aunque este modelo funciona bien para permitir el acceso a equipos individuales para las cargas de trabajo de desarrollo o de prueba, es difícil de administrar en los entornos de producción.
-
-Con Private Link, los clientes pueden habilitar el acceso entre locales al punto de conexión privado mediante [ExpressRoute](../../expressroute/expressroute-introduction.md), el emparejamiento privado o la tunelización de VPN. Luego, los clientes pueden deshabilitar todo el acceso a través del punto de conexión público y no usar el firewall basado en IP para permitir direcciones IP.
 
 ## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>Configuración de Private Link para Azure SQL Database 
 
@@ -71,6 +49,12 @@ Una vez que el administrador de red crea el punto de conexión privado (PE), el 
 
 1. Después de la aprobación o el rechazo, la lista reflejará el estado apropiado, junto con el texto de respuesta.
 ![Captura de pantalla de todas las conexiones del punto de conexión privado después de la aprobación][5]
+
+## <a name="on-premises-connectivity-over-private-peering"></a>Conectividad local a través del emparejamiento privado
+
+Cuando los clientes se conectan al punto de conexión público desde equipos locales, es necesario agregar su dirección IP al firewall basado en IP mediante una [regla de firewall de nivel de servidor](firewall-create-server-level-portal-quickstart.md). Aunque este modelo funciona bien para permitir el acceso a equipos individuales para las cargas de trabajo de desarrollo o de prueba, es difícil de administrar en los entornos de producción.
+
+Con Private Link, los clientes pueden habilitar el acceso entre locales al punto de conexión privado mediante [ExpressRoute](../../expressroute/expressroute-introduction.md), el emparejamiento privado o la tunelización de VPN. Luego, los clientes pueden deshabilitar todo el acceso a través del punto de conexión público y no usar el firewall basado en IP para permitir direcciones IP.
 
 ## <a name="use-cases-of-private-link-for-azure-sql-database"></a>Casos de uso de Private Link para Azure SQL Database 
 
@@ -154,6 +138,22 @@ Siga los pasos para usar [SSMS para conectarse a SQL Database](connect-query-ssm
 select client_net_address from sys.dm_exec_connections 
 where session_id=@@SPID
 ````
+
+## <a name="data-exfiltration-prevention"></a>Prevención de la filtración de datos
+
+La filtración de datos en Azure SQL Database tiene lugar cuando un usuario autorizado, como un administrador de base de datos, puede extraer datos de un sistema y moverlos a una ubicación o sistema que está fuera de la organización. Por ejemplo, el usuario mueve los datos a una cuenta de almacenamiento propiedad de un tercero.
+
+Piense en un escenario en el que un usuario ejecuta SQL Server Management Studio (SSMS) dentro de una máquina virtual de Azure que se conecta a una base de datos en SQL Database. Esta base de datos se encuentra en el centro de datos de Oeste de EE. UU. En el ejemplo siguiente se muestra cómo limitar el acceso con puntos de conexión públicos en la base de datos SQL mediante controles de acceso a la red.
+
+1. Deshabilite todo el tráfico de los servicios de Azure a la base de datos SQL mediante el punto de conexión público, para lo que debe seleccionar **OFF** (Desactivado) en Allow Azure Services (Permitir servicios de Azure). Asegúrese de que no se permiten direcciones IP en el servidor y en las reglas de firewall en el nivel de base de datos. Para más información, consulte [Controles de acceso a la red de Azure SQL Database y Azure Synapse Analytics](network-access-controls-overview.md).
+1. Solo se permite el tráfico a la base de datos de SQL Database mediante la dirección IP privada de la VM. Para más información, consulte los artículos sobre el [punto de conexión de servicio](vnet-service-endpoint-rule-overview.md) y las [reglas de firewall de la red virtual](firewall-configure.md).
+1. En la máquina virtual de Azure, restrinja el ámbito de la conexión saliente mediante el uso de [grupos de seguridad de red (NSG)](../../virtual-network/manage-network-security-group.md) y etiquetas de servicio, como se indica a continuación
+    - Especifique una regla de NSG para permitir el tráfico en Service Tag = SQL.WestUs (solo se permite la conexión a una base de datos SQL en Oeste de EE. UU.)
+    - Especifique una regla de NSG (con una **prioridad mayor**) para denegar el tráfico a Service Tag = SQL (se deniegan las conexiones a una base de datos SQL en todas las regiones)
+
+Al final de esta configuración, la VM de Azure solo puede conectarse a una base de datos de SQL Database de la región Oeste de EE. UU. Sin embargo, la conectividad no está restringida a una sola base de datos en SQL Database. La VM puede conectarse a cualquier base de datos de la región Oeste de EE. UU., incluidas las bases de datos que no forman parte de la suscripción. Aunque en el escenario anterior se ha reducido el ámbito de la filtración de datos a una región concreta, no se ha eliminado por completo.
+
+Con Private Link, los clientes pueden configurar controles de acceso a la red como grupos de seguridad de red para restringir el acceso al punto de conexión privado. Los recursos PaaS de Azure individuales se asignan a puntos de conexión privados concretos. Un usuario interno malintencionado solo puede acceder al recurso PaaS asignado (por ejemplo, una base de datos en SQL Database), pero no a los demás recursos. 
 
 ## <a name="limitations"></a>Limitaciones 
 Las conexiones a un punto de conexión privado solo admiten**Proxy** como [directiva de conexión](connectivity-architecture.md#connection-policy)
