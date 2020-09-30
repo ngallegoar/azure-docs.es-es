@@ -1,20 +1,20 @@
 ---
 title: Creación de una aplicación .NET Framework o Core para Azure Cosmos DB mediante Gremlin API
 description: En este tema se incluye un ejemplo de código .NET Framework o Core que puede usar para conectarse a Azure Cosmos DB y realizar consultas.
-author: luisbosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/21/2020
-ms.author: lbosq
+ms.author: jasonh
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: f781018fc5fc832be92de34c3ef220517ad28d75
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 72b3f8a4e4a6da434ef20c8e505718ccd3e2deff
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020429"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578398"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Inicio rápido: Compilación de una aplicación .NET Framework o Core mediante la cuenta de Gremlin API de Azure Cosmos DB
 
@@ -110,7 +110,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
    **Punto de conexión de Gremlin**: este valor se usa cuando se conecta a la cuenta de grafos mediante la biblioteca Gremlin.Net.
 
-    :::image type="content" source="./media/create-graph-dotnet/endpoint.png" alt-text="Copiar el punto de conexión":::
+    :::image type="content" source="./media/create-graph-dotnet/endpoint.png" alt-text="Copiar el punto de conexión&quot;:::
 
    Para ejecutar este ejemplo, copie el valor de **Punto de conexión de Gremlin** y elimine el número de puerto del final de manera que el identificador URI se convierta en `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`. El valor del punto de conexión debe parecerse a `testgraphacct.gremlin.cosmosdb.azure.com`.
 
@@ -119,11 +119,11 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 1. Una vez copiados el URI y la CLAVE PRINCIPAL de la cuenta, guárdelos en una variable de entorno nueva en la máquina local que ejecuta la aplicación. Para establecer la variable de entorno, abra una ventana del símbolo del sistema y ejecute el siguiente comando. Asegúrese de reemplazar los valores de <URI_de_la_cuenta_de_Azure_Cosmos> y <CLAVE_PRINCIPAL_de_la_cuenta_de_Azure_Cosmos>.
 
    ```console
-   setx EndpointUrl "<your Azure Cosmos account name>.gremlin.cosmosdb.azure.com"
-   setx PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
+   setx Host &quot;<your Azure Cosmos account name>.gremlin.cosmosdb.azure.com&quot;
+   setx PrimaryKey &quot;<Your_Azure_Cosmos_account_PRIMARY_KEY>&quot;
    ```
 
-1. Abra el archivo *Program.cs* y actualice las variables "base de datos" y "contenedor" con los nombres de la base de datos y el contenedor (que también es el nombre del grafo) creados anteriormente.
+1. Abra el archivo *Program.cs* y actualice las variables &quot;base de datos&quot; y &quot;contenedor" con los nombres de la base de datos y el contenedor (que también es el nombre del grafo) creados anteriormente.
 
     `private static string database = "your-database-name";` `private static string container = "your-container-or-graph-name";`
 
@@ -147,7 +147,20 @@ Ahora puede volver al Explorador de datos en Azure Portal para examinar y consul
 
     Puede acercar o alejar el grafo, expandir el espacio de visualización del grafo, agregar vértices adicionales y mover los vértices sobre la superficie de visualización.
 
-    :::image type="content" source="./media/create-graph-dotnet/graph-explorer.png" alt-text="Visualizar el grafo en el Explorador de datos en Azure Portal":::
+    :::image type="content" source="./media/create-graph-dotnet/graph-explorer.png" alt-text="Copiar el punto de conexión&quot;:::
+
+   Para ejecutar este ejemplo, copie el valor de **Punto de conexión de Gremlin** y elimine el número de puerto del final de manera que el identificador URI se convierta en `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`. El valor del punto de conexión debe parecerse a `testgraphacct.gremlin.cosmosdb.azure.com`.
+
+1. A continuación, vaya a la pestaña **Claves** y copie el valor de **CLAVE PRINCIPAL** de Azure Portal. 
+
+1. Una vez copiados el URI y la CLAVE PRINCIPAL de la cuenta, guárdelos en una variable de entorno nueva en la máquina local que ejecuta la aplicación. Para establecer la variable de entorno, abra una ventana del símbolo del sistema y ejecute el siguiente comando. Asegúrese de reemplazar los valores de <URI_de_la_cuenta_de_Azure_Cosmos> y <CLAVE_PRINCIPAL_de_la_cuenta_de_Azure_Cosmos>.
+
+   ```console
+   setx Host &quot;<your Azure Cosmos account name>.gremlin.cosmosdb.azure.com&quot;
+   setx PrimaryKey &quot;<Your_Azure_Cosmos_account_PRIMARY_KEY>&quot;
+   ```
+
+1. Abra el archivo *Program.cs* y actualice las variables &quot;base de datos&quot; y &quot;contenedor":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Revisión de los SLA en Azure Portal
 
