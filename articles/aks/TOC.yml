@@ -4,6 +4,8 @@
   items:
     - name: Acerca de AKS
       href: intro-kubernetes.md
+    - name: Arquitecturas de las soluciones
+      href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json
 - name: Guías de inicio rápido
   expanded: true
   items:

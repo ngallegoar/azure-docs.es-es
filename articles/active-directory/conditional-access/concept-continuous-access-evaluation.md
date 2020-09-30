@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82e4cf561ced97acfee0953dcc667bbb500f293c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 15f4f5d9eea8f53a894289160df00a1c1d8d8048
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394235"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601765"
 ---
 # <a name="continuous-access-evaluation"></a>Evaluación continua de acceso
 
@@ -48,26 +48,26 @@ La evaluación continua de acceso se implementa mediante la habilitación de ser
 - El administrador revoca explícitamente todos los tokens de actualización de un usuario.
 - Azure AD Identity Protection ha detectado un riesgo de usuario elevado.
 
-Este proceso permite el escenario en el que los usuarios pierden el acceso a los archivos de SharePoint Online, el correo electrónico, el calendario o las tareas de la organización y Teams desde las aplicaciones cliente de O365 en minutos después de uno de estos eventos críticos. 
+Este proceso habilita el escenario en el que los usuarios pierden el acceso a los archivos, el correo electrónico, el calendario o las tareas de SharePoint Online de la organización y Teams desde las aplicaciones cliente de Microsoft 365 en cuestión de minutos después de uno de estos eventos críticos. 
 
 ### <a name="conditional-access-policy-evaluation-preview"></a>Evaluación de directivas de acceso condicional (versión preliminar)
 
 Exchange y SharePoint pueden sincronizar las directivas de acceso condicional principales para que se puedan evaluar dentro del propio servicio.
 
-Este proceso permite el escenario en el que los usuarios pierden el acceso a los archivos, el correo electrónico, el calendario o las tareas de la organización desde las aplicaciones cliente de O365 o SharePoint Online inmediatamente después de un cambio de ubicación de red.
+Este proceso habilita el escenario en el que los usuarios pierden el acceso a los archivos, el correo electrónico, el calendario o las tareas de la organización desde las aplicaciones cliente de Microsoft 365 o SharePoint Online inmediatamente después de un cambio de ubicación de red.
 
 > [!NOTE]
 > No se admiten todas las combinaciones de proveedores de recursos y aplicaciones. Consulte la tabla siguiente. Office hace referencia a Word, Excel y PowerPoint.
 
 | | Outlook Web | Outlook Win32 | Outlook iOS | Outlook Android | Outlook Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| SharePoint Online | Compatible | Compatible | No compatible | No compatible | Compatible |
-| Exchange Online | Compatible | Compatible | Compatible | Compatible | Compatible |
+| **SharePoint Online** | Compatible | Compatible | No compatible | No compatible | Compatible |
+| **Exchange Online** | Compatible | Compatible | Compatible | Compatible | Compatible |
 
 | | Aplicaciones web de Office | Aplicaciones Win32 de Office | Office para iOS | Office para Android | Office para Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| SharePoint Online | Compatible | Compatible | No compatible | Compatible | Compatible |
-| Exchange Online | Compatible | Compatible | No compatible | Compatible | Compatible |
+| **SharePoint Online** | Compatible | Compatible | No compatible | Compatible | Compatible |
+| **Exchange Online** | Compatible | Compatible | No compatible | Compatible | Compatible |
 
 ### <a name="client-side-claim-challenge"></a>Desafío de notificaciones del lado cliente
 
@@ -137,7 +137,7 @@ En esta página, puede limitar opcionalmente los usuarios y grupos que estarán 
 
 ### <a name="supported-location-policies"></a>Directivas de ubicación admitidas
 
-En el caso de CAE, solo tenemos información sobre ubicaciones con nombre basadas en IP. No tenemos información sobre otras opciones de configuración de ubicación, como las [direcciones IP de confianza de MFA](../authentication/howto-mfa-mfasettings.md#trusted-ips) o las ubicaciones basadas en países. Cuando el usuario procede de una dirección IP de confianza de MFA o de ubicaciones de confianza que incluyen las direcciones IP de confianza de MFA o la ubicación de país, CAE no se aplicará después de que el usuario se mueva a otra ubicación. En esos casos, se emitirá un token de CAE de 1 hora sin comprobación de cumplimiento de IP instantánea.
+En el caso de CAE, solo tenemos información sobre ubicaciones con nombre basadas en IP. No tenemos información sobre otras opciones de configuración de ubicación, como las [direcciones IP de confianza de MFA](../authentication/howto-mfa-mfasettings.md#trusted-ips) o las ubicaciones basadas en países. Cuando el usuario procede de una dirección IP de confianza de MFA o de ubicaciones de confianza que incluyen las direcciones IP de confianza de MFA o la ubicación de país, CAE no se aplica después de que el usuario se mueva a otra ubicación. En esos casos, se emitirá un token de CAE de 1 hora sin comprobación de cumplimiento de IP instantánea.
 
 > [!IMPORTANT]
 > Al configurar ubicaciones para la evaluación continua de acceso, use solo la [condición de ubicación de acceso condicional basado en IP](../conditional-access/location-condition.md#preview-features) y configure todas las direcciones IP, **incluidas las IPv4 e IPv6**, que el proveedor de identidades y el proveedor de recursos podrán ver. No use condiciones de ubicación de país o la característica de direcciones IP de confianza que está disponible en la página de configuración del servicio Azure Multi-Factor Authentication.

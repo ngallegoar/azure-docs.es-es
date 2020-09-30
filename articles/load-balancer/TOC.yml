@@ -33,7 +33,7 @@
       href: tutorial-load-balancer-port-forwarding-portal.md
 - name: Ejemplos
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
@@ -69,8 +69,10 @@
       href: load-balancer-tcp-reset.md
     - name: Load Balancer Estándar y zonas de disponibilidad
       href: load-balancer-standard-availability-zones.md
-    - name: Controles de seguridad integrados
-      href: load-balancer-security-controls.md
+    - name: Seguridad
+      items:
+        - name: Línea de base de seguridad
+          href: security-baseline.md
     - name: Administración de grupos de back-end
       href: backend-pool-management.md
     - name: Standard Load Balancer y Virtual Machine Scale Sets
@@ -97,7 +99,7 @@
           href: upgrade-InternalBasic-To-PublicStandard.md
     - name: Creación de Load Balancer público con IPv6
       items:
-        - name: CLI de Azure
+        - name: Azure CLI
           href: 'https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli'
         - name: Azure PowerShell
           href: 'https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell'
@@ -144,7 +146,7 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=load-balancer'
     - name: Azure PowerShell
       href: /powershell/module/az.network
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/network/lb
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.network.models
