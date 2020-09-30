@@ -7,13 +7,13 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 07/14/2020
-ms.openlocfilehash: 6813db0b7416695fb9433a701114f2684dd0e122
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/16/2020
+ms.openlocfilehash: 246cdb458b4529c60f61c3ddcb26280c1e3223af
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88927126"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268373"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Inicio rápido: Creación de un servicio Azure Cognitive Search en el portal
 
@@ -177,3 +177,8 @@ Después de aprovisionar un servicio, puede continuar en el portal para crear el
 
 > [!div class="nextstepaction"]
 > [Inicio rápido: Creación de un índice de Azure Cognitive Search en el portal](search-get-started-portal.md)
+
+¿Quiere optimizar y ahorrar en el gasto en la nube?
+
+> [!div class="nextstepaction"]
+> [Comience a analizar los costos con Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

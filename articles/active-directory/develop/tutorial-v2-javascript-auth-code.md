@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
-ms.custom: aaddev, devx-track-javascript
-ms.openlocfilehash: 4613e22193de8dc374d1a9e1a293c317fb9c1b9b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: aaddev, devx-track-js
+ms.openlocfilehash: 7a136c03db6e27763a22d92d2c335f23c616856e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311556"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256813"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Tutorial: Inicio de sesión de usuarios y llamada a Microsoft Graph API desde una aplicación de página única (SPA) de JavaScript mediante un flujo de código de autorización
 
@@ -619,23 +619,23 @@ Ha completado la creación de la aplicación y ya está listo para iniciar el se
 
 Cuando el explorador haya cargado el archivo *index.html*, seleccione **Iniciar sesión**. Se le pedirá que inicie sesión con el punto de conexión de la plataforma de identidad de Microsoft:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Explorador web que muestra el cuadro de diálogo de inicio de sesión":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Diagrama que muestra el flujo de código de autorización para una aplicación de página única":::
 
 ### <a name="provide-consent-for-application-access"></a>Consentimiento para el acceso a la aplicación
 
 La primera vez que inicie sesión en la aplicación, se le pedirá que le conceda acceso a su perfil e inicie su sesión:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Cuadro de diálogo de contenido que se muestra en el explorador web":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Diagrama que muestra el flujo de código de autorización para una aplicación de página única":::
 
 Si da su consentimiento a los permisos solicitados, las aplicaciones web muestran el nombre de usuario, lo que significa que el inicio de sesión se ha realizado correctamente:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-03-signed-in.png" alt-text="Resultados de un inicio de sesión correcto en el explorador web":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-03-signed-in.png" alt-text="Diagrama que muestra el flujo de código de autorización para una aplicación de página única":::
 
 ### <a name="call-the-graph-api"></a>Llamada a Graph API
 
 Después de iniciar sesión, seleccione **Ver perfil** para ver la información de perfil de usuario devuelta en la respuesta de la llamada a Microsoft Graph API:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-04-see-profile.png" alt-text="Información de perfil de Microsoft Graph que se muestra en el explorador":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-04-see-profile.png" alt-text="Diagrama que muestra el flujo de código de autorización para una aplicación de página única":::
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Más información sobre los ámbitos y permisos delegados
 

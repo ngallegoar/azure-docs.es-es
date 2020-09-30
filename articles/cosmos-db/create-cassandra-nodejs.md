@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 1fa481911be8eb91db498350e57e2ba42e4aedb5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 19039f8b87145d6bbb1a6b3636ea0892b06ccfe8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421015"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253435"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>Inicio rápido: Creación de una aplicación de Cassandra con Node.js SDK y Azure Cosmos DB
 
@@ -212,11 +212,11 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 > 
 > Haga doble clic en el archivo .crt para abrirlo en la pantalla del certificado. 
 >
-> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="Visualizar y comprobar el resultado":::
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="Visualización y copia de los valores de PUNTO DE CONTACTO, NOMBRE DE USUARIO y CONTRASEÑA de la página de la cadena de conexión de Azure Portal":::
 >
 > Pulse Siguiente en el Asistente para certificados. Seleccione X.509 codificado en Base-64 (.CER) y, a continuación, Siguiente.
 >
-> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="Visualizar y comprobar el resultado":::
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="Visualización y copia de los valores de PUNTO DE CONTACTO, NOMBRE DE USUARIO y CONTRASEÑA de la página de la cadena de conexión de Azure Portal":::
 >
 > Seleccione Examinar (para buscar un destino) y escriba un nombre de archivo.
 > Cuando termine, seleccione Siguiente.
@@ -237,13 +237,13 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
 4. Compruebe los resultados previstos desde la línea de comandos.
 
-    :::image type="content" source="./media/create-cassandra-nodejs/output.png" alt-text="Visualizar y comprobar el resultado":::
+    :::image type="content" source="./media/create-cassandra-nodejs/output.png" alt-text="Visualización y copia de los valores de PUNTO DE CONTACTO, NOMBRE DE USUARIO y CONTRASEÑA de la página de la cadena de conexión de Azure Portal":::
 
     Presione CTRL+C para detener la ejecución del programa y cerrar la ventana de la consola. 
 
 5. En Azure Portal abra **Explorador de datos** para consultar, modificar y trabajar con estos nuevos datos. 
 
-    :::image type="content" source="./media/create-cassandra-nodejs/data-explorer.png" alt-text="Visualizar los datos en el Explorador de datos"::: 
+    :::image type="content" source="./media/create-cassandra-nodejs/data-explorer.png" alt-text="Visualización y copia de los valores de PUNTO DE CONTACTO, NOMBRE DE USUARIO y CONTRASEÑA de la página de la cadena de conexión de Azure Portal"::: 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Revisión de los SLA en Azure Portal
 

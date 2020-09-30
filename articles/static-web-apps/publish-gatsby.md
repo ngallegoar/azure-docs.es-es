@@ -7,13 +7,13 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 03e9f99301444032d867bc1c2f854c807380844e
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.custom: devx-track-js
+ms.openlocfilehash: e24a2a19eb39e2c6c7612631ad98f95cb4c5b9ef
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797741"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250171"
 ---
 # <a name="tutorial-publish-a-gatsby-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicación de un sitio de Gatsby en Azure Static Web Apps (versión preliminar)
 
@@ -102,7 +102,7 @@ En los pasos siguientes se muestra cómo crear una aplicación de sitio estátic
 
 1. En _SKU_, seleccione **Gratis**.
 
-   :::image type="content" source="./media/publish-gatsby/basic-app-details.png" alt-text="Detalles rellenados":::
+   :::image type="content" source="./media/publish-gatsby/basic-app-details.png" alt-text="Creación de una aplicación de Static Web Apps (versión preliminar) en el portal":::
 
 1. Haga clic en el botón **Iniciar sesión con GitHub**.
 
@@ -112,7 +112,7 @@ En los pasos siguientes se muestra cómo crear una aplicación de sitio estátic
 
 1. En _Rama_, seleccione **maestra**.
 
-   :::image type="content" source="./media/publish-gatsby/completed-github-info.png" alt-text="Información de GitHub completada":::
+   :::image type="content" source="./media/publish-gatsby/completed-github-info.png" alt-text="Creación de una aplicación de Static Web Apps (versión preliminar) en el portal":::
 
 ### <a name="build"></a>Build
 
@@ -126,7 +126,7 @@ A continuación, agregue los valores de configuración que el proceso de compila
 
    No es necesario un valor para _Ubicación de la API_, ya que por el momento no está implementando una API.
 
-   :::image type="content" source="./media/publish-gatsby/build-details.png" alt-text="Configuración de la compilación":::
+   :::image type="content" source="./media/publish-gatsby/build-details.png" alt-text="Creación de una aplicación de Static Web Apps (versión preliminar) en el portal":::
 
 ### <a name="review-and-create"></a>Revisar y crear
 
@@ -138,7 +138,7 @@ A continuación, agregue los valores de configuración que el proceso de compila
 
 1. En la pantalla del recurso, haga clic en el vínculo _Dirección URL_ para abrir la aplicación implementada. Es posible que tenga que esperar uno o dos minutos para que se complete la Acción de GitHub.
 
-   :::image type="content" source="./media/publish-gatsby/deployed-app.png" alt-text="Aplicación implementada":::
+   :::image type="content" source="./media/publish-gatsby/deployed-app.png" alt-text="Creación de una aplicación de Static Web Apps (versión preliminar) en el portal":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

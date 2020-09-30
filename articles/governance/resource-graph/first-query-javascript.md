@@ -3,13 +3,13 @@ title: 'Inicio rápido: Su primera consulta de JavaScript'
 description: En este inicio rápido, dará los pasos necesarios para habilitar la biblioteca de Resource Graph para JavaScript y ejecutará su primera consulta.
 ms.date: 06/23/2020
 ms.topic: quickstart
-ms.custom: devx-track-javascript
-ms.openlocfilehash: fc9809dbe615950b4f5c9e4dc66cefcd054f5ebf
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: cdc0589829f250851212ad990dde99eb6dcc958f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87415931"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251973"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-javascript"></a>Inicio rápido: Ejecución de la primera consulta de Resource Graph con JavaScript
 
