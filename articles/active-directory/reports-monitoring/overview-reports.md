@@ -13,16 +13,16 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 09/30/2020
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: sarbar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c07500ec432d176b2cf74aa95f0a1c943348f9f
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4f9a51c10a4f390e5627bccf35ab5dc74689e9c6
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229523"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566829"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>¿Qué son los informes de Azure Active Directory?
 
@@ -66,6 +66,12 @@ Los informes de actividad le ayudan a comprender el comportamiento de los usuari
 - **Registros de auditoría**: el [informe de actividad de registros de auditoría](concept-audit-logs.md) le proporciona acceso al historial de todas las tareas llevadas a cabo en el inquilino.
 
 - **Inicios de sesión**: con el [informe de actividad de inicios de sesión](concept-sign-ins.md), puede determinar quién ha realizado las tareas notificadas en el informe de registros de auditoría.
+
+
+
+> [!VIDEO https://www.youtube.com/embed/ACVpH6C_NL8]
+
+
 
 
 ### <a name="audit-logs-report"></a>Informe de registros de auditoría 
