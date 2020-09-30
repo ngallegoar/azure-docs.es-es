@@ -1,6 +1,6 @@
 ---
-title: Creación de una aplicación de supervisión continua de pacientes con Azure IoT Central | Microsoft Docs
-description: Aprenda a crear una aplicación de supervisión continua de pacientes mediante plantillas de aplicación de Azure IoT Central.
+title: 'Tutorial: Creación de una aplicación de supervisión continua de pacientes con Azure IoT Central | Microsoft Docs'
+description: En este tutorial aprenderá a crear una aplicación de supervisión continua de pacientes mediante plantillas de aplicación de Azure IoT Central.
 author: philmea
 ms.author: philmea
 ms.date: 09/24/2019
@@ -8,18 +8,16 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 704c56745ad89e9ed2f79e8a863f1d0bc9845bf9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1967a2fb5adebe01ef4bff8d58f7832bffe95762
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001832"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531277"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Tutorial: Implementación y tutorial de una plantilla de aplicación de supervisión continua de pacientes
 
-
-
-En este tutorial se muestra cómo puede, como creador de soluciones, empezar a implementar una plantilla de aplicación de supervisión continua de pacientes de IoT Central. Aprenderá a implementar la plantilla, qué elementos se incluyen de fábrica y qué puede hacer a continuación.
+En este tutorial se muestra cómo puede, como creador de soluciones, empezar a implementar una plantilla de aplicación de supervisión continua de pacientes de IoT Central. Aprenderá a implementar y usar la plantilla.
 
 En este tutorial, aprenderá a:
 
@@ -29,12 +27,11 @@ En este tutorial, aprenderá a:
 
 ## <a name="create-an-application-template"></a>Elija una plantilla de aplicación.
 
-Vaya al [sitio web del administrador de aplicaciones de Azure IoT Central](https://apps.azureiotcentral.com/). Seleccione **Crear** en la barra de navegación de la izquierda y, a continuación, haga clic en la pestaña **Healthcare** (Asistencia sanitaria). 
+Vaya al [sitio web del administrador de aplicaciones de Azure IoT Central](https://apps.azureiotcentral.com/). Seleccione **Build** (Crear) en la barra de navegación de la izquierda y, a continuación, seleccione la pestaña **Healthcare** (Asistencia sanitaria).
 
->[!div class="mx-imgBorder"] 
->![Administrador de aplicaciones de asistencia sanitaria](media/app-manager-health.png)
+:::image type="content" source="media/app-manager-health.png" alt-text="Plantilla de aplicación de asistencia sanitaria":::
 
-Haga clic en el botón **Crear aplicación** para empezar a crear la aplicación y, a continuación, inicie sesión con una cuenta personal, profesional o educativa de Microsoft. Esto le llevará a la página **Nueva aplicación**.
+Seleccione el botón **Create app** (Crear aplicación) para empezar a crear la aplicación y, a continuación, inicie sesión con una cuenta personal, profesional o educativa de Microsoft. Esto le llevará a la página **Nueva aplicación**.
 
 ![Crear aplicación de asistencia sanitaria](media/app-manager-health-create.png)
 
@@ -52,7 +49,7 @@ Para crear la aplicación:
 
 ### <a name="dashboards"></a>Paneles
 
-Después de implementar la plantilla de la aplicación, irá en primer lugar al **panel de supervisión de pacientes in situ de Lamna**. Lamna Healthcare es un sistema hospitalario ficticio que contiene dos hospitales: de Woodgrove y de Burkville. En este panel del operador del hospital de Woodgrove podrá ver información y telemetría sobre los dispositivos de esta plantilla junto con un conjunto de comandos, trabajos y acciones que puede realizar. Desde el panel se puede:
+Después de implementar la plantilla de la aplicación, irá en primer lugar al **panel de supervisión de pacientes in situ de Lamna**. Lamna Healthcare es un sistema hospitalario ficticio que contiene dos hospitales: de Woodgrove y de Burkville. En el panel del operador del Hospital de Woodgrove, puede:
 
 * Consultar la telemetría de los dispositivos y propiedades como el **nivel de batería** del dispositivo o su estado de **conectividad**.
 
@@ -64,75 +61,69 @@ Después de implementar la plantilla de la aplicación, irá en primer lugar al 
 
 * Cambie el **estado del paciente** del dispositivo para indicar si se está usando para un escenario remoto o con pacientes in situ.
 
->[!div class="mx-imgBorder"] 
->![Pacientes in situ Lamna](media/lamna-in-patient.png)
+:::image type="content" source="media/lamna-in-patient.png" alt-text="Plantilla de aplicación de asistencia sanitaria":::
 
-También puede hacer clic en **Go to remote patient dashboard** (Ir al panel de pacientes remotos) para ver el segundo panel del operador usado para el hospital de Burkville. Este panel contiene un conjunto similar de acciones, telemetría e información. Además, puede ver la utilización de varios dispositivos y tener la capacidad de **actualizar el firmware** en cada uno.
+También puede seleccionar **Go to remote patient dashboard** (Ir al panel de pacientes remotos) para ver el panel del operador del Hospital de Burkville. Este panel contiene un conjunto similar de acciones, telemetría e información. También puede ver varios dispositivos en uso y elegir **actualizar el firmware** de cada uno.
 
->[!div class="mx-imgBorder"] 
->![Lamna remoto](media/lamna-remote.png)
-
-Siempre puede volver a vincular esta documentación en ambos paneles.
+:::image type="content" source="media/lamna-remote.png" alt-text="Plantilla de aplicación de asistencia sanitaria":::
 
 ### <a name="device-templates"></a>Plantillas de dispositivo
 
-Si hace clic en la pestaña **Plantillas de dispositivo**, verá que hay dos tipos de dispositivo diferentes que forman parte de la plantilla:
+Si selecciona **Device templates**, (Plantillas de dispositivo) verá los dos tipos de dispositivo en la plantilla:
 
-* **Smart Vitals Patch** (Revisión inteligente de constantes vitales): Este dispositivo realiza una revisión que mide distintos tipos de constantes vitales. Se puede usar para supervisar pacientes dentro y fuera del hospital. Si hace clic en la plantilla, verá que, además de enviar datos del dispositivo, como el nivel de batería y la temperatura del dispositivo, la revisión también envía datos del estado de los pacientes, como la frecuencia respiratoria y la presión arterial.
+* **Smart Vitals Patch** (Revisión inteligente de constantes vitales): este dispositivo representa un parche que mide varias constantes vitales. Se utiliza para supervisar pacientes dentro y fuera del hospital. Si selecciona la plantilla, verá que, además de enviar datos del dispositivo, como el nivel de batería y la temperatura del dispositivo, el parche también envía datos del estado de los pacientes, como la frecuencia respiratoria y la presión arterial.
 
-* **Smart Knee Brace** (Rodillera inteligente): este dispositivo representa una rodillera que los pacientes pueden usar al recuperarse de una cirugía de reemplazo de una rodilla. Si hace clic en esta plantilla, verá funcionalidades como el intervalo de movimiento y la aceleración, además de los datos del dispositivo.
+* **Smart Knee Brace** (Rodillera inteligente): este dispositivo representa una rodillera que los pacientes utilizan al recuperarse de una cirugía de reemplazo de una rodilla. Si selecciona esta plantilla, verá funcionalidades como los datos del dispositivo, el intervalo de movimiento y la aceleración.
 
->[!div class="mx-imgBorder"] 
->![Plantilla de dispositivo Smart Vitals Patch](media/smart-vitals-device-template.png)
+:::image type="content" source="media/smart-vitals-device-template.png" alt-text="Plantilla de aplicación de asistencia sanitaria":::
 
-### <a name="device-groups"></a>Grupos de dispositivos 
-Los grupos de dispositivos permiten agrupar lógicamente un conjunto de dispositivos para así realizar consultas u operaciones masivas sobre ellos. 
+### <a name="device-groups"></a>Grupos de dispositivos
 
-Si hace clic en la pestaña de grupos de dispositivos, verá que hemos creado algunos grupos de dispositivos predeterminados para cada una de las plantillas de dispositivo de la aplicación. Observe que también hemos creado dos grupos de dispositivos de ejemplo adicionales, denominados "Provision devices" (Aprovisionamiento de dispositivos) y "Devices with outdated firmware" (Dispositivos con firmware sin actualizar). Usaremos estos grupos de dispositivos de ejemplo como entradas para ejecutar algunos [Trabajos](#jobs).
+Utilice grupos de dispositivos para agrupar lógicamente un conjunto de dispositivos para así realizar consultas u operaciones masivas sobre ellos.
+
+Si selecciona la pestaña de grupos de dispositivos, verá un grupo de dispositivos predeterminado para cada plantilla de dispositivo de la aplicación. También se han creado dos grupos de dispositivos de ejemplo adicionales, llamados **Provision devices** (Aprovisionamiento de dispositivos) y **Devices with outdated firmware** (Dispositivos con firmware sin actualizar). Puede usar estos grupos de dispositivos de ejemplo como entradas para ejecutar algunos [Trabajos](#jobs) de la aplicación.
 
 ### <a name="rules"></a>Reglas
 
-Al saltar a la pestaña de reglas, verá tres reglas que existen en la plantilla de aplicación:
+Si selecciona **Rules** (Reglas), verá las tres reglas en la plantilla:
 
-* **Brace temperature high**(Temperatura alta de rodillera): esta regla se desencadena cuando la temperatura del dispositivo de la rodillera es mayor que 35&deg;C en un período de 5 minutos. Puede usar esta regla para avisar al equipo de asistencia sanitaria y al paciente, y enfriar el dispositivo de forma remota.
+* **Brace temperature high**(Temperatura alta de rodillera): esta regla se desencadena cuando la temperatura del dispositivo de la rodillera inteligente es mayor de 95&deg;F en un período de 5 minutos. Utilice esta regla para avisar al equipo de asistencia sanitaria y al paciente, y enfriar el dispositivo de forma remota.
 
-* **Fall detected** (Caída detectada): esta regla se desencadena si se detecta que un paciente se cayó. Puede configurar una acción con el fin de implementar un equipo operativo para ayudar al paciente que se cayera.
+* **Fall detected** (Caída detectada): esta regla se desencadena si se detecta que un paciente ha tenido una caída. Use esta regla para configurar una acción con el fin de implementar un equipo operativo para ayudar al paciente que se ha caído.
 
-* **Patch battery low** (Revisión de poca batería): esta regla se desencadena cuando el nivel de batería del dispositivo desciende por debajo del 10 %. Puede usar esta regla para desencadenar una notificación al paciente para que cargue su dispositivo.
+* **Patch battery low** (Revisión de poca batería): esta regla se desencadena cuando el nivel de batería del dispositivo desciende por debajo del 10 %. Utilice esta regla para desencadenar una notificación al paciente para que cargue su dispositivo.
 
->[!div class="mx-imgBorder"] 
->![Brace temperature high rule](media/brace-temp-rule.png) (Regla de temperatura alta de rodillera)
+:::image type="content" source="media/brace-temp-rule.png" alt-text="Plantilla de aplicación de asistencia sanitaria":::
 
 ### <a name="jobs"></a>Trabajos
 
-Los trabajos le permiten ejecutar operaciones masivas en un conjunto de dispositivos con los [grupos de dispositivos](#device-groups) como entrada. Hemos propagado la plantilla de aplicación con dos trabajos de ejemplo que un operador de solución puede tener que ejecutar en algún momento del ciclo de vida de los dispositivos:
-* **Update knee brace firmware** (Actualización del firmware de la rodillera): Este trabajo buscará dispositivos en el grupo de dispositivos "devices with outdated firmware" (dispositivos con firmware sin actualizar), y ejecutará un comando para actualizar dichos dispositivos a la versión de firmware más reciente de la rodillera. En este trabajo de ejemplo se supone que los dispositivos tienen funcionalidades para recibir un comando "update" y capturar los archivos de firmware directamente de la nube.  
+Los trabajos le permiten ejecutar operaciones masivas en un conjunto de dispositivos mediante el uso de [grupos de dispositivos](#device-groups) como entrada. La plantilla de aplicación tiene dos trabajos de ejemplo que un operador puede ejecutar:
 
-* **Re-provision devices** (Reaprovisionamiento de dispositivos): Si tiene un conjunto de dispositivos que se han devuelto recientemente al hospital y tienen que volver a aprovisionarse para el siguiente conjunto de pacientes, puede ejecutar este trabajo para actualizar de forma masiva los dispositivos para aprovisionar. En este caso, vamos a tomar todos los dispositivos de un grupo de dispositivos denominado "provision device" (aprovisionamiento de dispositivos) y vamos a ejecutar un comando para aprovisionarlos. 
+* **Update knee brace firmware** (Actualización del firmware de la rodillera): este trabajo busca dispositivos en el grupo de dispositivos **Devices with outdated firmware** (Dispositivos con firmware sin actualizar) y ejecuta un comando para actualizar dichos dispositivos a la versión de firmware más reciente. En este trabajo de ejemplo se supone que los dispositivos pueden controlar el comando **update** y recuperar los archivos de firmware desde la nube.  
+
+* **Re-provision devices** (Reaprovisionamiento de dispositivos): Tiene un conjunto de dispositivos que se han devuelto recientemente al hospital. Este trabajo busca dispositivos en el grupo de dispositivos **Provision devices** (Aprovisionamiento de dispositivos) y ejecuta un comando para volver a aprovisionarlos para el siguiente conjunto de pacientes.
 
 ### <a name="devices"></a>Dispositivos
 
-Haga clic en la pestaña **Dispositivos**  y, a continuación, seleccione una instancia de la **Smart Knee Brace** (Rodillera inteligente). Verá que hay tres vistas para explorar la información sobre el dispositivo concreto que ha seleccionado. Estas vistas se crean y publican al compilar la plantilla del dispositivo, lo que significa que serán coherentes en todos los dispositivos que se conecten o simulen.
+Seleccione la pestaña **Devices**  (Dispositivos) y, a continuación, seleccione una instancia del dispositivo **Smart Knee Brace** (Rodillera inteligente). Hay tres vistas para explorar la información sobre el dispositivo específico que ha seleccionado. Estas vistas se crean y publican al crear la plantilla de dispositivo para el dispositivo. Por lo tanto, estas vistas serán coherentes en todos los dispositivos que se conecten o simulen.
 
-La vista **Panel** ofrece información general sobre la telemetría y las propiedades que proceden del dispositivo que está orientada a los operadores.
+La vista **Dashboard** (Panel) ofrece información general sobre la telemetría y las propiedades del dispositivo orientada a los operadores.
 
-La pestaña **Propiedades** le permitirá editar las propiedades de la nube y las propiedades del dispositivo de lectura/escritura.
+La pestaña **Properties** (Propiedades) le permite editar las propiedades de la nube y leer y escribir las propiedades del dispositivo.
 
-La pestaña **Comandos** le permitirá ejecutar los comandos que se hayan modelado como parte de la plantilla del dispositivo.
+La pestaña **Commands** (Comandos) le permite ejecutar comandos en el dispositivo.
 
->[!div class="mx-imgBorder"] 
->![Vistas de la rodillera](media/knee-brace-dashboard.png)
+:::image type="content" source="media/knee-brace-dashboard.png" alt-text="Plantilla de aplicación de asistencia sanitaria":::
 
 ### <a name="data-export"></a>Exportación de datos
 
-La exportación de datos permite exportar los datos del dispositivo de IoT Central de forma continua a otros servicios de Azure, [Azure API for FHIR](concept-continuous-patient-monitoring-architecture.md#export-to-azure-api-for-fhir) entre otros.
+La exportación de datos permite exportar los datos del dispositivo de forma continua a otros servicios de Azure, incluido [Azure API for FHIR](concept-continuous-patient-monitoring-architecture.md#export-to-azure-api-for-fhir).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Si no va a seguir usando esta aplicación, elimine su plantilla. Para ello, vaya a **Administración > Configuración de la aplicación** y haga clic en **Eliminar**.
 
->[!div class="mx-imgBorder"] 
->![Eliminar la aplicación](media/admin-delete.png)
+:::image type="content" source="media/admin-delete.png" alt-text="Plantilla de aplicación de asistencia sanitaria":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

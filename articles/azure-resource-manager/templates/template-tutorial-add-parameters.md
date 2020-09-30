@@ -6,12 +6,12 @@ ms.date: 03/31/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b1454106c4498f4519972633df8a871585d254f1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9e860941c3d782498c12afa12f285f44e7e68f37
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497552"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069448"
 ---
 # <a name="tutorial-add-parameters-to-your-arm-template"></a>Tutorial: Adición de parámetros a la plantilla de Resource Manager
 
@@ -114,7 +114,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Si se ha producido un error en la implementación, use el modificador **debug** con el comando de implementación para mostrar los registros de depuración.  También puede usar el modificador **verbose** para mostrar los registros de depuración completos.
+> Si se produjo un error en la implementación, use el modificador **verbose** para obtener información acerca de los recursos que se están creando. Utilice el modificador **debug** para más información sobre la depuración.
 
 Para observar la flexibilidad de la plantilla, vamos a implementarla de nuevo. Esta vez, establezca el parámetro de SKU en **Standard_GRS**. Puede pasar un nuevo nombre para crear una cuenta de almacenamiento diferente, o bien usar el mismo nombre para actualizar la cuenta de almacenamiento existente. Ambas opciones funcionan.
 

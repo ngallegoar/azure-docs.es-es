@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/15/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 67016d930e2cc40ccf38e89c8dfc7700db7d3109
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7d249005e77328460a0e7152e0a3ff125857534b
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536740"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659482"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-datava-enterprise-service-platform"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Datava Enterprise Service Platform
 
@@ -35,16 +35,16 @@ Para empezar, necesita los siguientes elementos:
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
 * Una suscripción habilitada para el inicio de sesión único (SSO) en Datava Enterprise Service Platform.
 
-> [!NOTE]
-> El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
-
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Datava Enterprise Service Platform admite el SSO iniciado por **SP**.
 * Datava Enterprise Service Platform admite el aprovisionamiento de usuarios **Just-In-Time**.
-* Una vez que haya configurado Datava Enterprise Service Platform, puede aplicar el control de sesión, que protege en tiempo real su organización frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Una vez que haya configurado Datava Enterprise Service Platform, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
 
 ## <a name="adding-datava-enterprise-service-platform-from-the-gallery"></a>Incorporación de Datava Enterprise Service Platform desde la galería
 
@@ -57,7 +57,7 @@ Para configurar la integración de Datava Enterprise Service Platform en Azur
 1. En la sección **Add from the gallery** (Agregar desde la galería), escriba **Datava Enterprise Service Platform** en el cuadro de búsqueda.
 1. Seleccione **Datava Enterprise Service Platform** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-datava-enterprise-service-platform"></a>Configuración y prueba del inicio de sesión único de Azure AD para Datava Enterprise Service Platform
+## <a name="configure-and-test-azure-ad-sso-for-datava-enterprise-service-platform"></a>Configuración y prueba del inicio de sesión único de Azure AD para Datava Enterprise Service Platform
 
 Configure y pruebe el inicio de sesión único de Azure AD con Datava Enterprise Service Platform mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es necesario establecer una vinculación entre un usuario de Azure AD y el usuario correspondiente de Datava Enterprise Service Platform.
 
@@ -84,7 +84,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://go.datava.com/<TENANT_NAME>`
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL:`https://go.datava.com/saml/module.php/saml/sp/saml2-acs.php/azure-sp`
+    b. En el cuadro de texto **URL de respuesta**, escriba la siguiente dirección URL: `https://go.datava.com/saml/module.php/saml/sp/saml2-acs.php/azure-sp`
 
     > [!NOTE]
     > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de atención al cliente de Datava Enterprise Service Platform](mailto:support@datava.com) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -148,5 +148,3 @@ Al hacer clic en el icono de Datava Enterprise Service Platform en el panel d
 - [Prueba de Datava Enterprise Service Platform con Azure AD](https://aad.portal.azure.com/)
 
 - [¿Qué es el control de sesiones en Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [Protección de Datava Enterprise Service Platform con controles y visibilidad avanzados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

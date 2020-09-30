@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 49b7a3700bf497ad868b7c4ab1f0802564b61bf3
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 3a5489241aa15ce105dbe4d89086aff00373ca55
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89652496"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603975"
 ---
 # <a name="tutorial-move-azure-vms-across-regions"></a>Tutorial: Traslado de máquinas virtuales de Azure entre regiones
 
@@ -68,6 +68,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Seleccione los recursos que desea trasladar.
 
 - Se mostrarán todos los tipos de recursos admitidos de los grupos de recursos de la región de origen seleccionada.
+- No se muestran los recursos que ya se han agregado para moverse entre regiones.
 - Los recursos se trasladarán a una región de destino en la misma suscripción que la región de origen. Si desea cambiar la suscripción, puede hacerlo después de trasladar los recursos.
 
 1. En Azure Portal, busque *resource mover*. A continuación, en **Servicios**, seleccione **Azure Resource Mover**.
@@ -80,7 +81,6 @@ Seleccione los recursos que desea trasladar.
 
 3. En **Mover recursos** > **Origen + destino**, seleccione la suscripción y la región de origen.
 4. En **Destino**, seleccione la región a la que desea trasladar las máquinas virtuales. A continuación, haga clic en **Siguiente**.
-5. En **Metadata region** (Región de metadatos), seleccione la ubicación en la que desea almacenar los metadatos de los recursos que va a trasladar. Se creará un grupo de recursos específicamente con esta finalidad. A continuación, haga clic en **Siguiente**.
 
     ![Página para seleccionar las regiones de origen y de destino](./media/tutorial-move-region-virtual-machines/source-target.png)
 
@@ -90,7 +90,7 @@ Seleccione los recursos que desea trasladar.
     ![Página para seleccionar las máquinas virtuales que se van a trasladar](./media/tutorial-move-region-virtual-machines/select-vm.png)
 
 8.  En **Recursos que se van a mover**, haga clic en **Siguiente**.
-9. En **Revisar + agregar**, compruebe la configuración de origen y de destino. Es importante que comprenda que los metadatos de los recursos que se vayan a trasladar se almacenarán en un grupo de recursos creado con esta finalidad en la región de metadatos.
+9. En **Revisar + agregar**, compruebe la configuración de origen y de destino. 
 
     ![Página para revisar la configuración y realizar el traslado de los recursos](./media/tutorial-move-region-virtual-machines/review.png)
 10. Haga clic en **Continuar** para empezar a agregar recursos.
@@ -235,7 +235,8 @@ Si desea completar la operación de traslado, confírmela.
 
 ## <a name="configure-settings-after-the-move"></a>Configuración de parámetros tras el traslado
 
-El servicio Mobility no se desinstala automáticamente de las máquinas virtuales. Puede desinstalarlo manualmente, o bien mantenerlo si tiene previsto trasladar el servidor de nuevo.
+- El servicio Mobility no se desinstala automáticamente de las máquinas virtuales. Puede desinstalarlo manualmente, o bien mantenerlo si tiene previsto trasladar el servidor de nuevo.
+- Modifique las reglas de control de acceso basado en rol (RBAC) de Azure después de la migración.
 
 ## <a name="delete-source-resources-after-commit"></a>Eliminación de los recursos de origen después de la confirmación
 

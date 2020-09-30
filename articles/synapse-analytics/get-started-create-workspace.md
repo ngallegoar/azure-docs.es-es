@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 08/27/2020
-ms.openlocfilehash: 56292d3e8ba4c9ec89d73f10640264c178f8a9a7
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 78ec233e618511c748ed9f51b97161eddc5e8308
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89255025"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707533"
 ---
 # <a name="create-a-synapse-workspace"></a>Creación de un área de trabajo de Synapse
 
@@ -24,18 +24,14 @@ En este tutorial, aprenderá a crear un área de trabajo de Synapse, un grupo de
 
 1. Abra [Azure Portal](https://portal.azure.com) y, en la parte superior, busque **Synapse**.
 1. En los resultados de la búsqueda, en **Servicios**, seleccione **Azure Synapse Analytics (versión preliminar de las áreas de trabajo)** .
-1. Seleccione **Agregar** para crear un área de trabajo con esta configuración:
-
-    |Pestaña|Configuración | Valor sugerido | Descripción |
-    |---|---|---|---|
-    |Aspectos básicos|**Workspace name** (Nombre del área de trabajo)|Puede asignarle un nombre.| En este documento, usaremos **myworkspace**.|
-    |Aspectos básicos|**Región**|Coincidencia de la región de la cuenta de almacenamiento.|
-
+1. Seleccione **Agregar** para crear un área de trabajo.
+1. En **Aspectos básicos**, elija un nombre para el área de trabajo. Para este tutorial usaremos **myworkspace**.
 1. Necesita una cuenta de ADLSGEN2 para crear un área de trabajo. La opción más sencilla para crear una nueva. Si desea volver a usar una existente, deberá realizar alguna configuración adicional. 
 1. OPCIÓN 1 Creación de una nueva cuenta de ADLSGEN2 
-    1. En **Select Data Lake Storage Gen 2** (Seleccionar Data Lake Storage Gen 2), haga clic en **Crear nuevo** y asígnele el nombre **contosolake**.
-    1. En **Select Data Lake Storage Gen 2** (Seleccionar Data Lake Storage Gen 2), haga clic en **Sistema de archivos** y asígnele el nombre **contosolake**.
-1. OPCIÓN 2 Consulte las instrucciones de **Preparación de una cuenta de almacenamiento** en la parte inferior de este documento.
+    1. Vaya a **Select Data Lake Storage Gen 2** (Seleccionar Data Lake Storage Gen 2). 
+    1. Haga clic en **Create New** (Crear nuevo) y asígnele el nombre **contosolake**.
+    1. Haga clic en **File System** (Sistema de archivos) y asígnele el nombre **users**.
+1. OPCIÓN 2 Uso de una cuenta de ADLSGEN2 existente. Consulte las instrucciones de **Preparación de una cuenta de almacenamiento de ADLSGEN2** en la parte inferior de este documento.
 1. El área de trabajo de Azure Synapse usará esta cuenta de almacenamiento como su cuenta de almacenamiento "principal" y el contenedor para almacenar los datos del área de trabajo. El área de trabajo almacena datos en tablas de Apache Spark. Almacena los registros de aplicaciones de Spark en una carpeta denominada **/synapse/workspacename**.
 1. Seleccione **Revisar y crear** > **Crear**. El área de trabajo estará lista en unos minutos.
 
@@ -94,29 +90,23 @@ A diferencia de los otros tipos de grupos, la facturación de SQL on-demand se b
 * SQL on-demand tiene sus propias bases de datos de SQL On-Demand, que existen de forma independiente de cualquier grupo de SQL On-Demand.
 * Un área de trabajo siempre tiene exactamente un grupo de SQL On-Demand denominado **SQL on-demand**.
 
-## <a name="prepare-a-storage-account"></a>Preparación de una cuenta de almacenamiento
+## <a name="preparing-a-adlsgen2-storage-account"></a>Preparación de una cuenta de almacenamiento de ADLSGEN2
+
+### <a name="perform-the-following-steps-before-you-create-your-workspace"></a>Realice los pasos siguientes ANTES de crear el área de trabajo.
 
 1. Abra [Azure Portal](https://portal.azure.com).
-1. Cree una cuenta de almacenamiento con la siguiente configuración:
-
-    |Pestaña|Configuración | Valor sugerido | Descripción |
-    |---|---|---|---|
-    |Aspectos básicos|**Nombre de cuenta de almacenamiento**| Elija cualquier nombre.| En este documento, usaremos el nombre **contosolake**.|
-    |Aspectos básicos|**Tipo de cuenta**| **StorageV2** ||
-    |Aspectos básicos|**Ubicación**|Elija cualquier ubicación.| Se recomienda que el área de trabajo de Azure Synapse Analytics y la cuenta de Azure Data Lake Storage Gen2 se encuentren en la misma región.|
-    |Avanzado|**Data Lake Storage Gen2**|**Enabled**| Azure Synapse solo funciona con cuentas de almacenamiento en las que esté habilitado este valor.|
-    |||||
-
-1. Después de crear la cuenta de almacenamiento, seleccione **Control de acceso (IAM)** en el panel izquierdo. Luego, asigne los siguientes roles o asegúrese de que ya estén asignados:
+1. Vaya a la cuenta de almacenamiento existente.
+1. Seleccione **Access control (IAM)** (Control de acceso [IAM]) en el panel izquierdo. 
+1. Asigne los siguientes roles o asegúrese de que ya estén asignados:
     * Asígnese el rol **Propietario**.
     * Asígnese el rol **Propietario de datos de Storage Blob**.
 1. En el panel izquierdo, seleccione **Contenedores** y cree un contenedor.
-1. Puede asignar cualquier nombre al contenedor. En este documento, llamaremos **users** al contenedor.
+1. Puede asignarle un nombre al contenedor. En este documento, usaremos el nombre **users**.
 1. Acepte el valor predeterminado **Nivel de acceso público** y, después, seleccione **Crear**.
 
-### <a name="configure-access-to-the-storage-account-from-your-workspace"></a>Configuración del acceso a la cuenta de almacenamiento desde el área de trabajo
+### <a name="perform-the-following-steps-after-you-create-your-workspace"></a>Realice los pasos siguientes DESPUÉS de crear el área de trabajo.
 
-Es posible que las identidades administradas del área de trabajo de Azure Synapse ya tengan acceso a la cuenta de almacenamiento. Siga estos pasos para asegurarse:
+Configure el acceso a la cuenta de almacenamiento desde el área de trabajo. Es posible que las identidades administradas del área de trabajo de Azure Synapse ya tengan acceso a la cuenta de almacenamiento. Siga estos pasos para asegurarse:
 
 1. Abra [Azure Portal](https://portal.azure.com) y la cuenta de almacenamiento principal elegida para el área de trabajo.
 1. Seleccione **Control de acceso (IAM)** en el panel izquierdo.

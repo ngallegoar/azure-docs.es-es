@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/20/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: f4a4c38cf079c22dbd2b8eda5e68cc3f147b1fc0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 84db28348baebc4f6b62f9cacb0035b4df1f6145
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535018"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660777"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-meraki-dashboard"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Meraki Dashboard
 
@@ -40,7 +40,10 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * El panel de Meraki Dashboard admite el inicio de sesión único iniciado por **IDP**
-* Una vez configurado Meraki Dashboard, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Una vez que haya configurado Meraki Dashboard, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
 
 ## <a name="adding-meraki-dashboard-from-the-gallery"></a>Incorporación de Meraki Dashboard desde la galería
 
@@ -53,7 +56,7 @@ Para configurar la integración de Meraki Dashboard en Azure AD, deberá agrega
 1. En la sección **Agregar desde la galería**, escriba **Meraki Dashboard** en el cuadro de búsqueda.
 1. Seleccione **Meraki Dashboard** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-meraki-dashboard"></a>Configuración y prueba del inicio de sesión único de Azure AD para Meraki Dashboard
+## <a name="configure-and-test-azure-ad-sso-for-meraki-dashboard"></a>Configuración y prueba del inicio de sesión único de Azure AD para Meraki Dashboard
 
 Configure y pruebe el inicio de sesión único de Azure AD con Meraki Dashboard con un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario correspondiente de Meraki Dashboard.
 
@@ -147,15 +150,15 @@ En esta sección, va a permitir que B.Simon acceda a Meraki Dashboard mediante e
 
 1. Vaya a **Organization** (Organización)  -> **Configuration** (Configuración).
 
-    ![Configuración de Meraki Dashboard](./media/meraki-dashboard-tutorial/configure1.png)
+    ![Pestaña Configuración de Meraki Dashboard](./media/meraki-dashboard-tutorial/configure1.png)
 
 1. En Autenticación, cambie **SAML SSO** (SSO de SAML) a **SAML SSO enabled** (SSO de SAML habilitado).
 
-    ![Configuración de Meraki Dashboard](./media/meraki-dashboard-tutorial/configure2.png)
+    ![Autenticación de Meraki Dashboard](./media/meraki-dashboard-tutorial/configure2.png)
 
 1. Haga clic en **Add a SAML IdP** (Agregar un IdP de SAML).
 
-    ![Configuración de Meraki Dashboard](./media/meraki-dashboard-tutorial/configure3.png)
+    ![Agregación de un IdP de SAML en Meraki Dashboard](./media/meraki-dashboard-tutorial/configure3.png)
 
 1. Pegue el valor de **Thumprint** (Huella digital), que ha copiado de Azure Portal en **X.590 cert SHA1 fingerprint** (Huella digital de SHA1 de certificado X.590). A continuación, haga clic en **Save**(Guardar). Después de guardar, se mostrará la dirección URL del consumidor. Copie el valor de Consumer URL (URL de cliente) y péguelo en el cuadro de texto **URL de respuesta** de la sección **Configuración básica de SAML** en Azure Portal.
 
@@ -167,15 +170,15 @@ En esta sección, va a permitir que B.Simon acceda a Meraki Dashboard mediante e
 
 1. Vaya a **Organization** (Organización)  -> **Administrators** (Administradores).
 
-    ![Configuración de Meraki Dashboard](./media/meraki-dashboard-tutorial/user1.png)
+    ![Administradores de Meraki Dashboard](./media/meraki-dashboard-tutorial/user1.png)
 
 1. En la sección roles de administrador de SAML, haga clic en el botón **Add SAML role** (Agregar rol de SAML).
 
-    ![Configuración de Meraki Dashboard](./media/meraki-dashboard-tutorial/user2.png)
+    ![Botón Add SAML role (Agregar rol de SAML) de Meraki Dashboard](./media/meraki-dashboard-tutorial/user2.png)
 
 1. Escriba el rol **meraki_full_admin**, marque **Organization access** (Acceso de la organización) como **Full** (Completo) y haga clic en **Create role** (Crear rol). Repita el proceso para **meraki_readonly_admin** y, esta vez, marque **Organization access** (Acceso de la organización) como **Read-only** (Solo lectura).
  
-    ![Configuración de Meraki Dashboard](./media/meraki-dashboard-tutorial/user3.png)
+    ![Creación de un usuario de Meraki Dashboard](./media/meraki-dashboard-tutorial/user3.png)
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
@@ -194,6 +197,3 @@ Al hacer clic en el icono de Meraki Dashboard en el Panel de acceso, debería in
 - [Pruebe Meraki Dashboard con Azure AD](https://aad.portal.azure.com/)
 
 - [¿Qué es el control de sesiones en Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [Protección de Meraki Dashboard con controles y visibilidad avanzados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-

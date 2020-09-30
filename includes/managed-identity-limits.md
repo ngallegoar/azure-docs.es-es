@@ -9,14 +9,17 @@ ms.topic: include
 ms.date: 05/31/2018
 ms.author: daveba
 ms.custom: include file
-ms.openlocfilehash: 887646c7e0ae87cd5e290a68ccc43b80dfbb109c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dc7849e52b3e00c87d271ee8aef8788d816dff7a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "67186724"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971023"
 ---
-| Category | Límite |
-| --- | --- |
-| Identidades administradas asignadas por el usuario | <ul><li>Al crear identidades administradas asignadas por el usuario, solo se admiten caracteres alfanuméricos (0-9, a-z, A-Z) y el guion (-). Para que la asignación a una máquina virtual o un conjunto de escalado de máquinas virtuales funcione correctamente, el nombre está limitado a 24 caracteres.</li><li>Si se utiliza la extensión de máquina virtual de identidades administradas, el límite admitido es de 32 identidades administradas asignadas por el usuario. Sin la extensión de máquina virtual de identidades administradas, el límite admitido es de 512 identidades administradas asignadas por el usuario.</li>|
+- Cada identidad administrada cuenta para el límite de cuota de objetos de un inquilino de Azure AD, como se indica en [Restricciones y límites del servicio Azure AD](../articles/active-directory/users-groups-roles/directory-service-limits-restrictions.md).
+-   La velocidad a la que se pueden crear identidades administradas tiene los siguientes límites:
 
+    1. Por inquilino de Azure AD por región de Azure: 200 operaciones de creación en 20 segundos.
+    2. Por suscripción de Azure por región de Azure: 40 operaciones de creación en 20 segundos.
+
+- Al crear identidades administradas asignadas por el usuario, solo se admiten caracteres alfanuméricos (0-9, a-z, A-Z) y el guion (-). Para que la asignación a una máquina virtual o un conjunto de escalado de máquinas virtuales funcione correctamente, el nombre está limitado a 24 caracteres.

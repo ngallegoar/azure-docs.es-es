@@ -2,20 +2,20 @@
 title: 'Tutorial: Uso de un archivo de parámetros para implementar la plantilla'
 description: Use archivos de parámetros que contengan los valores que se usarán para implementar la plantilla de Azure Resource Manager.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 09/10/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bd7917a96550d45b14eb5a5b5cae1ac957aa78b5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: de72f9f32a3b08ad1742ee2055efce5b93cab899
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502807"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069516"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-arm-template"></a>Tutorial: Uso de archivos de parámetros para implementar la plantilla de Resource Manager
 
-En este tutorial, aprenderá a usar [archivos de parámetros](parameter-files.md) para almacenar los valores que se pasan durante la implementación. En los tutoriales anteriores, usó parámetros insertados con el comando de implementación. Este enfoque funcionó para probar la plantilla de Azure Resource Manager, pero al automatizar las implementaciones puede ser más fácil pasar un conjunto de valores del entorno. Los archivos de parámetros facilitan el empaquetado de los valores de los parámetros de un entorno específico. En este tutorial, creará archivos de parámetros para entornos de desarrollo y producción. Su tiempo de realización es de unos **12 minutos**.
+En este tutorial, aprenderá a usar [archivos de parámetros](parameter-files.md) para almacenar los valores que se pasan durante la implementación. En los tutoriales anteriores, usó parámetros insertados con el comando de implementación. Este enfoque funcionó para probar la plantilla de Azure Resource Manager (plantilla de ARM), pero al automatizar las implementaciones puede ser más fácil pasar un conjunto de valores del entorno. Los archivos de parámetros facilitan el empaquetado de los valores de los parámetros de un entorno específico. En este tutorial, creará archivos de parámetros para entornos de desarrollo y producción. Su tiempo de realización es de unos **12 minutos**.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -34,6 +34,12 @@ Esta plantilla funciona bien, pero ahora desea administrar fácilmente los pará
 ## <a name="add-parameter-files"></a>Adición de archivos de parámetros
 
 Los archivos de parámetros son archivos JSON con una estructura similar a la plantilla. En el archivo, proporcione los valores de los parámetros que desea pasar durante la implementación.
+
+Proporcione valores para los parámetros de la plantilla en el archivo de parámetros. El nombre de cada parámetro del archivo de parámetros debe coincidir con el nombre de un parámetro de la plantilla. El nombre no distingue entre mayúsculas y minúsculas, pero para ver fácilmente los valores coincidentes se recomienda que coincida con el uso de mayúsculas y minúsculas de la plantilla.
+
+No es necesario proporcionar un valor para cada parámetro. Si un parámetro no especificado tiene un valor predeterminado, se usa ese valor durante la implementación. Si un parámetro no tiene un valor predeterminado y no se especifica en el archivo de parámetros, se le pedirá que proporcione un valor durante la implementación.
+
+No se puede especificar un nombre de parámetro en el archivo de parámetros que no coincida con un nombre de parámetro en la plantilla. Recibirá un error cuando se proporcionan parámetros desconocidos.
 
 En VS Code, cree un nuevo archivo con el siguiente contenido. Guarde el archivo con el nombre **azuredeploy.parameters.dev.json**.
 
@@ -122,7 +128,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Si se ha producido un error en la implementación, use el modificador **debug** con el comando de implementación para mostrar los registros de depuración.  También puede usar el modificador **verbose** para mostrar los registros de depuración completos.
+> Si se produjo un error en la implementación, use el modificador **verbose** para obtener información acerca de los recursos que se están creando. Utilice el modificador **debug** para más información sobre la depuración.
 
 ## <a name="verify-deployment"></a>Comprobación de la implementación
 

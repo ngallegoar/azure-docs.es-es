@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: da7d56a0fd8571e796567331a7543074f0bf1eda
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 89258b05831170ff502cde80577f3a6851659bf2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84808704"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986324"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registro del tráfico de red de entrada y salida de una máquina virtual mediante Azure Portal
 
@@ -101,7 +101,7 @@ Para iniciar sesión en el flujo de NSG, es necesario recurrir al proveedor **Mi
 4. En la esquina superior izquierda del portal, seleccione **Todos los servicios**. En el cuadro **Filtrar**, escriba *Network Watcher*. Cuando aparezca la opción **Network Watcher** en los resultados de búsqueda, selecciónela.
 5. En **REGISTROS**, seleccione **Registro de flujos de NSG**, tal y como se muestra en la siguiente imagen:
 
-    ![Grupos de seguridad de red](./media/network-watcher-nsg-flow-logging-portal/nsgs.png)
+    ![Captura de pantalla que muestra los registros de flujo de NSG de Network Watcher.](./media/network-watcher-nsg-flow-logging-portal/nsgs.png)
 
 6. En la lista de NSG, seleccione el NSG denominado **myVm-nsg**.
 7. En **Configuración de los registros de flujo**, seleccione **Activada**.

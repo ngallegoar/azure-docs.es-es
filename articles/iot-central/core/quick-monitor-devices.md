@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Supervisión de dispositivos en Azure IoT Central'
-description: Los operadores deben aprender a usar una aplicación de Azure IoT Central para supervisar los dispositivos.
+description: 'Inicio rápido: Como operador, aprenda a usar una aplicación de Azure IoT Central para supervisar los dispositivos.'
 author: dominicbetts
 ms.author: dobett
 ms.date: 02/12/2020
@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 1dec52bbf1435cd7e363edf111f769d3e2cffb6a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: af5683bf253e26ab928e46059f9af9d2ab8af3bd
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80998915"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987341"
 ---
 # <a name="quickstart-use-azure-iot-central-to-monitor-your-devices"></a>Inicio rápido: Uso de Azure IoT Central para supervisar los dispositivos
 

@@ -1,14 +1,14 @@
 ---
 title: Controles del ejemplo de plano técnico de nivel 4 de impacto del DoD
 description: Asignación de controles del ejemplo de plano técnico de nivel 4 de impacto del DoD. Cada control se asigna a una o varias directivas de Azure que ayudan en la evaluación.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: a704731f4fe8e810235507fd84c90b17571a8442
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 9ee3214f8cdacd1d70a59bc5a23e4638cadb579d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923295"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978400"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico de nivel 4 de impacto del DoD
 
@@ -102,11 +102,11 @@ Este plano técnico proporciona definiciones de directivas que contribuirán a g
 Los datos de registro que recopila Azure Monitor se almacenan en un área de trabajo de Log Analytics que permite la configuración y administración centralizados. Este proyecto le ayuda a garantizar que los eventos se registran mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que auditan y exigen la implementación del agente de Log Analytics en máquinas virtuales de Azure.
 
 - \[Versión preliminar\]: Auditoría de la implementación del agente de Log Analytics: la imagen de la VM (SO) no está en la lista
-- \[Versión preliminar\]: Auditoría de la implementación del agente de Log Analytics en VMSS: la imagen de la VM (SO) no está en la lista
+- Auditoría de implementación del agente de Log Analytics en conjuntos de escalado de máquinas virtuales: la imagen de máquina virtual (SO) no está en la lista.
 - \[Versión preliminar\]: Auditar área de trabajo de Log Analytics en la máquina virtual: error de coincidencia del informe
-- \[Versión preliminar\]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Linux
+- Implementar el agente de Log Analytics para conjuntos de escalado de máquinas virtuales Linux
 - \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Linux
-- \[Versión preliminar\]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Windows
+- Implementar el agente de Log Analytics para conjuntos de escalado de máquinas virtuales Windows
 - \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Windows
 
 ## <a name="au-5-response-to-audit-processing-failures"></a>Respuesta a errores de procesamiento de auditoría AU-5
@@ -123,11 +123,11 @@ Este proyecto asigna definiciones de [Azure Policy](../../../policy/overview.md)
 Los datos de registro que recopila Azure Monitor se almacenan en un área de trabajo de Log Analytics que permite el análisis y los informes centralizados. Este proyecto le ayuda a garantizar que los eventos se registran mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que auditan y exigen la implementación del agente de Log Analytics en máquinas virtuales de Azure.
 
 - \[Versión preliminar\]: Auditoría de la implementación del agente de Log Analytics: la imagen de la VM (SO) no está en la lista
-- \[Versión preliminar\]: Auditoría de la implementación del agente de Log Analytics en VMSS: la imagen de la VM (SO) no está en la lista
+- Auditoría de implementación del agente de Log Analytics en conjuntos de escalado de máquinas virtuales: la imagen de máquina virtual (SO) no está en la lista.
 - \[Versión preliminar\]: Auditar área de trabajo de Log Analytics en la máquina virtual: error de coincidencia del informe
-- \[Versión preliminar\]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Linux
+- Implementar el agente de Log Analytics para conjuntos de escalado de máquinas virtuales Linux
 - \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Linux
-- \[Versión preliminar\]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Windows
+- Implementar el agente de Log Analytics para conjuntos de escalado de máquinas virtuales Windows
 - \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Windows
 
 ## <a name="au-6-5-audit-review-analysis-and-reporting--integration--scanning-and-monitoring-capabilities"></a>AU-6 (5) Revisión, análisis e informes de auditoría | Integración y funcionalidades de examen y supervisión
@@ -144,7 +144,7 @@ Este plano técnico proporciona definiciones de directivas que auditan registros
 - Se deben corregir las vulnerabilidades mediante una solución de evaluación de vulnerabilidades
 - Se deben corregir las vulnerabilidades en la configuración de seguridad de los conjuntos de escalado de máquinas virtuales
 - \[Versión preliminar\]: Auditoría de la implementación del agente de Log Analytics: la imagen de la VM (SO) no está en la lista
-- \[Versión preliminar\]: Auditoría de la implementación del agente de Log Analytics en VMSS: la imagen de la VM (SO) no está en la lista
+- Auditoría de implementación del agente de Log Analytics en conjuntos de escalado de máquinas virtuales: la imagen de máquina virtual (SO) no está en la lista.
 
 ## <a name="au-12-audit-generation"></a>Generación de auditoría AU-12
 
@@ -152,11 +152,11 @@ Este plano técnico proporciona definiciones de directivas que auditan y aplican
 Estas definiciones de directiva también auditan la configuración de los registros de diagnóstico para proporcionar información detallada sobre las operaciones realizadas dentro de los recursos de Azure. Además, la auditoría y Advanced Data Security se configuran en los servidores SQL Server.
 
 - \[Versión preliminar\]: Auditoría de la implementación del agente de Log Analytics: la imagen de la VM (SO) no está en la lista
-- \[Versión preliminar\]: Auditoría de la implementación del agente de Log Analytics en VMSS: la imagen de la VM (SO) no está en la lista
+- Auditoría de implementación del agente de Log Analytics en conjuntos de escalado de máquinas virtuales: la imagen de máquina virtual (SO) no está en la lista.
 - \[Versión preliminar\]: Auditar área de trabajo de Log Analytics en la máquina virtual: error de coincidencia del informe
-- \[Versión preliminar\]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Linux
+- Implementar el agente de Log Analytics para conjuntos de escalado de máquinas virtuales Linux
 - \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Linux
-- \[Versión preliminar\]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Windows
+- Implementar el agente de Log Analytics para conjuntos de escalado de máquinas virtuales Windows
 - \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Windows
 - Auditar la configuración de diagnóstico
 - La configuración de seguridad avanzada de datos debe estar habilitada en SQL Server
@@ -336,11 +336,8 @@ Este proyecto ayuda a administrar los errores del sistema de información median
 
 ## <a name="si-02-06-flaw-remediation--removal-of-previous-versions-of-software--firmware"></a>SI-02 (06) Corrección de errores | Eliminación de versiones anteriores de software o firmware
 
-Este plano técnico asigna definiciones de directivas que le ayudan a tener la certeza de que las aplicaciones usan la versión más reciente de .NET Framework, HTTP, Java, PHP, Python y TLS. Este plano técnico también asigna una definición de directiva que garantiza que Kubernetes Services se actualiza a su versión no vulnerable.
+Este plano técnico asigna definiciones de directivas que le ayudan a garantizar que las aplicaciones usan la versión más reciente de HTTP, Java, PHP, Python y TLS. Este plano técnico también asigna una definición de directiva que garantiza que Kubernetes Services se actualiza a su versión no vulnerable.
 
-- Asegúrese de que la versión de .NET Framework es la más reciente si se usa como parte de la aplicación de API.
-- Asegúrese de que la versión de .NET Framework es la más reciente si se usa como parte de la aplicación de funciones.
-- Asegúrese de que la versión de .NET Framework es la más reciente si se usa como parte de la aplicación web.
 - Asegúrese de que la versión de HTTP es la más reciente si se usa para ejecutar la aplicación de API.
 - Asegúrese de que la versión de HTTP es la más reciente si se usa para ejecutar la aplicación de funciones.
 - Asegúrese de que la versión de HTTP es la más reciente si se usa para ejecutar la aplicación web.
@@ -348,7 +345,6 @@ Este plano técnico asigna definiciones de directivas que le ayudan a tener la c
 - Asegúrese de que la versión de Java es la más reciente si se usa como parte de la aplicación de funciones.
 - Asegúrese de que la versión de Java es la más reciente si se usa como parte de la aplicación web.
 - Asegúrese de que la versión de PHP es la más reciente si se usa como parte de la aplicación de API.
-- Asegúrese de que la versión de PHP es la más reciente si se usa como parte de la aplicación de funciones.
 - Asegúrese de que la versión de PHP es la más reciente si se usa como parte de la aplicación web.
 - Asegúrese de que la versión de Python es la más reciente si se usa como parte de la aplicación de API.
 - Asegúrese de que la versión de Python" es la más reciente si se usa como parte de la aplicación de funciones.
@@ -356,7 +352,7 @@ Este plano técnico asigna definiciones de directivas que le ayudan a tener la c
 - La versión más reciente de TLS debe usarse en la aplicación de API.
 - La versión más reciente de TLS debe usarse en la aplicación de funciones.
 - La versión más reciente de TLS debe usarse en la aplicación web.
-- \[Versión preliminar\]: Kubernetes Services se debe actualizar a una versión de Kubernetes no vulnerable.
+- Kubernetes Services se debe actualizar a una versión de Kubernetes no vulnerable.
 
 ## <a name="si-3-malicious-code-protection"></a>Protección frente a código malintencionado SI-3
 
@@ -378,11 +374,11 @@ Este proyecto le ayuda a administrar la protección de los puntos de conexión, 
 Este proyecto le ayuda a supervisar el sistema de auditoría y cumplimiento de seguridad de datos y registro en los recursos de Azure. En concreto, las directivas asignaban la auditoría e implementación del agente de Log Analytics, y mejoraban la configuración de seguridad de las bases de datos SQL, las cuentas de almacenamiento y los recursos de red. Estas funcionalidades pueden ayudarle a detectar los comportamientos anómalos y los indicadores de ataques para que pueda tomar las acciones adecuadas.
 
 - \[Versión preliminar\]: Auditoría de la implementación del agente de Log Analytics: la imagen de la VM (SO) no está en la lista
-- \[Versión preliminar\]: Auditoría de la implementación del agente de Log Analytics en VMSS: la imagen de la VM (SO) no está en la lista
+- Auditoría de implementación del agente de Log Analytics en conjuntos de escalado de máquinas virtuales: la imagen de máquina virtual (SO) no está en la lista.
 - \[Versión preliminar\]: Auditar área de trabajo de Log Analytics en la máquina virtual: error de coincidencia del informe
-- \[Versión preliminar\]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Linux
+- Implementar el agente de Log Analytics para conjuntos de escalado de máquinas virtuales Linux
 - \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Linux
-- \[Versión preliminar\]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Windows
+- Implementar el agente de Log Analytics para conjuntos de escalado de máquinas virtuales Windows
 - \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Windows
 - La seguridad avanzada de datos debe estar habilitada en las instancias administradas
 - La seguridad avanzada de datos debe estar habilitada en los servidores SQL Server

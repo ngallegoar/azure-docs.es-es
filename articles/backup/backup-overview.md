@@ -4,12 +4,12 @@ description: Proporciona información general del servicio Azure Backup, y cómo
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: 9954c8fa6affca7d2c2b73d7176280587d749476
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 72dee7bbcaa730f12af3ee323157fa92f6694603
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017896"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968336"
 ---
 # <a name="what-is-the-azure-backup-service"></a>¿Qué es el servicio Azure Backup?
 
@@ -24,6 +24,7 @@ El servicio Azure Backup proporciona soluciones sencillas, seguras y rentables t
 - **Recursos compartidos Azure Files** - [Copia de seguridad de recursos compartidos de archivos de Azure en una cuenta de almacenamiento](backup-afs.md)
 - **SQL Server en máquinas virtuales de Azure** -  [haga copias de seguridad de las bases de datos de SQL Server que se ejecutan en las máquinas virtuales de Azure](backup-azure-sql-database.md)
 - **Bases de datos de SAP HANA en máquinas virtuales de Azure** - [ haga copias de seguridad de las bases de datos de SAP HANA que se ejecutan en las máquinas virtuales de Azure](backup-azure-sap-hana-database.md)
+- **Servidores de Azure Database for PostgreSQL (versión preliminar)**  -  [Copia de seguridad de bases de datos de Azure Database for PostgreSQL y conservación de estas durante un máximo de 10 años](backup-azure-database-postgresql.md)
 
 ![Información general de Azure Backup](./media/backup-overview/azure-backup-overview.png)
 
@@ -43,8 +44,9 @@ Azure Backup proporciona las siguientes ventajas principales:
 - **Retención de los datos a corto y largo plazo**: puede usar los [almacenes de Recovery Services](backup-azure-recovery-services-vault-overview.md) para la retención de datos tanto a corto como a largo plazo.
 - **Administración de almacenamiento automática**: los entornos híbridos requieren con frecuencia almacenamiento heterogéneo, unos local y otros en la nube. Con Azure Backup, el uso de dispositivos de almacenamiento local no supone ningún costo. Azure Backup asigna y administra automáticamente almacenamiento de copia de seguridad y emplea un modelo de pago por uso. Solo tiene que pagar el almacenamiento que consuma. [Más información](https://azure.microsoft.com/pricing/details/backup) sobre precios.
 - **Varias opciones de almacenamiento**: Azure Backup ofrece dos tipos de replicación para mantener la alta disponibilidad de los datos o del almacenamiento.
-  - El [almacenamiento con redundancia local (LRS)](../storage/common/storage-redundancy.md) replica los datos tres veces (crea tres copias de los datos) en una unidad de escalado de almacenamiento de un centro de datos. Todas las copias de los datos se encuentran en la misma región. LRS es una opción de bajo costo para proteger los datos contra errores de hardware local.
-  - El [almacenamiento con redundancia geográfica (GRS)](../storage/common/storage-redundancy.md) es la opción de replicación predeterminada y recomendada. GRS replica los datos en una región secundaria (a cientos de kilómetros de la ubicación principal de los datos de origen). GRS cuesta más que LRS, pero proporciona un mayor nivel de durabilidad de los datos, aunque se produzca una interrupción regional.
+  - El [almacenamiento con redundancia local (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) replica los datos tres veces (crea tres copias de los datos) en una unidad de escalado de almacenamiento de un centro de datos. Todas las copias de los datos se encuentran en la misma región. LRS es una opción de bajo costo para proteger los datos contra errores de hardware local.
+  - El [almacenamiento con redundancia geográfica (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) es la opción de replicación predeterminada y recomendada. GRS replica los datos en una región secundaria (a cientos de kilómetros de la ubicación principal de los datos de origen). GRS cuesta más que LRS, pero proporciona un mayor nivel de durabilidad de los datos, aunque se produzca una interrupción regional.
+  - El [almacenamiento con redundancia de zona (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replica los datos en [zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), garantizando así la residencia de datos y la resistencia en la misma región. El almacenamiento con redundancia de zona no tiene ningún tiempo de inactividad. Por lo tanto, de las cargas de trabajo críticas que requieren [residencia de datos](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/), y que no deben tener ningún tiempo de inactividad, se pueden realizar copias de seguridad en el almacenamiento con redundancia de zona.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

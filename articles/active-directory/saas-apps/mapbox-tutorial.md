@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/21/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: faedec24bc4b962044d55a47345739592e276b61
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4111752d949b7ed2b0ea14734e5d795564718611
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554777"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661913"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mapbox"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Mapbox
 
@@ -41,6 +41,9 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Mapbox admite el SSO iniciado por **IDP**.
 * Una vez que haya configurado Mapbox, puede aplicar el control de sesión, que protege su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
 
 ## <a name="adding-mapbox-from-the-gallery"></a>Incorporación de Mapbox desde la galería
 
@@ -136,15 +139,15 @@ En esta sección, va a permitir que B.Simon acceda a Mapbox mediante el inicio d
 
 1. Haga clic en la pestaña **Settings** (Configuración).
 
-    ![Configuración de MapBox](./media/mapbox-tutorial/configure1.png)
+    ![Pestaña de configuración de Mapbox](./media/mapbox-tutorial/configure1.png)
 
 1. Haga clic en la pestaña **Security** (Seguridad) en el panel de navegación izquierdo.
 
-    ![Configuración de MapBox](./media/mapbox-tutorial/configure2.png)
+    ![Pestaña de seguridad de Mapbox](./media/mapbox-tutorial/configure2.png)
 
 1. Haga clic en **Edit single sign-on** (Editar inicio de sesión único).
 
-    ![Configuración de MapBox](./media/mapbox-tutorial/configure3.png)
+    ![Edición de inicio de sesión único de Mapbox](./media/mapbox-tutorial/configure3.png)
 
 1. Desplácese hasta el **Step 3: Setup SAML single sign-on for Mapbox** (Paso 3: Configuración del inicio de sesión único de SAML para MapBox) y realice los pasos siguientes:
 

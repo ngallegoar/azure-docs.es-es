@@ -1,25 +1,37 @@
 ---
-title: 'Acerca de las claves de Azure Key Vault: Azure Key Vault'
+title: 'Acerca de las claves: Azure Key Vault'
 description: Información general de los detalles para desarrolladores y la interfaz de REST de Azure Key Vault para claves.
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: amitbapat
+manager: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: overview
-ms.date: 09/04/2019
-ms.author: mbaldwin
-ms.openlocfilehash: b9803726bf3a54eb31d3c2ebaddce11fb96472be
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.date: 09/15/2020
+ms.author: ambapat
+ms.openlocfilehash: 29930a835297b0ddd3a91534dab9ccb6d74896e3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85413730"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967544"
 ---
-# <a name="about-azure-key-vault-keys"></a>Acerca de Azure Key Vault
+# <a name="about-keys"></a>Acerca de las claves
 
-Azure Key Vault admite varios tipos de claves y algoritmos y habilita el uso de módulos de seguridad de hardware (HSM) para claves de alto valor.
+Azure Key Vault proporciona dos tipos de recursos para almacenar y administrar claves criptográficas:
+
+|Tipo de recurso|Métodos de protección de claves|URL base del punto de conexión del plano de datos|
+|--|--|--|
+| **Almacenes** | Protegidas mediante software<br/><br/>y<br/><br/>Protegidas con HSM (con SKU Premium)</li></ul> | https://{vault-name}.vault.azure.net |
+| **Grupos de HSM administrados** | Protegidas con HSM | https://{hsm-name}.managedhsm.azure.net |
+||||
+
+- **Almacenes**: los almacenes proporcionan una solución de administración de claves de bajo costo, fácil de implementar, multiinquilino, resistente a zona (donde esté disponible) y que resulta adecuada para la mayoría de los escenarios de aplicaciones en la nube.
+- **HSM administrados**: HSM administrado proporciona HSM de un solo inquilino, resistentes a zona (donde esté disponible) y de alta disponibilidad para almacenar y administrar las claves criptográficas. Es más adecuado para aplicaciones y escenarios de uso que administran claves de alto valor. También ayuda a cumplir los requisitos de seguridad, cumplimiento normativo y regulación más estrictos. 
+
+> [!NOTE]
+> Los almacenes también le permiten almacenar y administrar varios tipos de objetos como secretos, certificados y claves de cuentas de almacenamiento además de las claves criptográficas.
 
 Las claves criptográficas en Key Vault se representan como objetos de clave web JSON [JWK]. Las especificaciones de notación de objetos JavaScript (JSON) y de firma y cifrado de objetos JavaScript (JOSE) son:
 
@@ -28,30 +40,49 @@ Las claves criptográficas en Key Vault se representan como objetos de clave web
 -   [Algoritmos web JSON (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
 -   [Firma web JSON (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature) 
 
-Las especificaciones de JWK/JWA base también se han ampliado para habilitar los tipos de clave únicos para la implementación de Key Vault. Por ejemplo, la importación de claves mediante empaquetado específico del proveedor de HSM permite el transporte seguro de claves que solo pueden usarse en los HSM de Key Vault. 
+Las especificaciones de JWK/JWA base también se han ampliado para habilitar los tipos de clave únicos para las implementaciones de Azure Key Vault y HSM administrado. 
 
-Azure Key Vault admite las claves protegidas con software y con HSM:
+Las claves protegidas con HSM (también conocidas como claves HSM) se procesan en un HSM (módulo de seguridad de hardware) y siempre permanecen dentro del límite de la protección del mismo. 
 
-- **Claves protegidas con software**: una clave que Key Vault procesa en software, pero que se cifra en reposo con una clave del sistema que se encuentra en un HSM. Los clientes pueden importar una clave RSA o EC existente (curva elíptica) o solicitar que Key Vault genere una.
-- **Claves protegidas con HSM**: una clave que se procesa en un HSM (módulo de seguridad de hardware). Estas claves se protegen en uno de los espacios de seguridad de HSM de Key Vault (hay un espacio de seguridad en cada región geográfica para mantener el aislamiento). Los clientes pueden importar una clave RSA o EC, en un formato protegido con software o bien exportándola desde un dispositivo HSM compatible. Los clientes también pueden solicitar que Key Vault genere una clave. Este tipo de clave agrega el atributo key_hsm al objeto JWK para transportar el material de la clave de HSM.
+- Los almacenes usan HSM validados con **FIPS 140-2 nivel 2** para proteger las claves HSM en la infraestructura de back-end del HSM compartido. 
+- Los grupos de HSM administrados usan módulos HSM validados con **FIPS 140-2 nivel 3** para proteger las claves. Cada grupo de HSM es una instancia aislada de un solo inquilino con su propio [dominio de seguridad](../managed-hsm/security-domain.md) que proporciona un aislamiento criptográfico completo de todos los demás grupos de HSM que comparten la misma infraestructura de hardware.
 
-Para más información acerca de los límites geográficos, consulte [Centro de confianza de Microsoft Azure](https://azure.microsoft.com/support/trust-center/privacy/)  
+Estas claves están protegidas en grupos de HSM de un solo inquilino. Puede importar una clave RSA, EC y simétrica de forma temporal o mediante la exportación desde un dispositivo HSM compatible. También puede generar claves en los grupos de HSM. Al importar claves de HSM mediante claves con el método descrito en la [especificación BYOK (Bring Your Own Key)](../keys/byok-specification.md), se permite el transporte seguro del material del clave a los grupos de HSM administrados. 
 
-## <a name="cryptographic-protection"></a>Protección criptográfica
+Para más información acerca de los límites geográficos, consulte [Centro de confianza de Microsoft Azure](https://azure.microsoft.com/support/trust-center/privacy/)
 
-Key Vault admite solo claves RSA y de curva elíptica. 
+## <a name="key-types-protection-methods-and-algorithms"></a>Tipos de clave, métodos de protección y algoritmos
 
--   **EC**: clave de curva elíptica protegida con software.
--   **EC-HSM**: clave de curva elíptica "fuerte".
--   **RSA**: clave RSA protegida con software.
--   **RSA-HSM**: clave RSA "fuerte".
+Key Vault admite claves RSA, EC y simétricas. 
 
-Key Vault admite claves RSA con tamaños de 2048, 3072 y 4096. Key Vault admite los tipos de claves de curva elíptica p-256, p-384, p-521 y P-256K (SECP256K1).
+### <a name="hsm-protected-keys"></a>Claves protegidas con HSM
 
-Los módulos criptográficos que utiliza Key Vault, sean HSM o software, tienen validación FIPS (Estándar federal de procesamiento de información). No es necesario hacer nada especial para que se ejecute en el modo FIPS. Las claves **creadas** o **importadas** con protección HSM se procesan dentro de un HSM y se validan con FIPS 140-2 Nivel 2. Las claves **creadas** o **importadas** con protección de software se procesan dentro de módulos criptográficos y se validan con FIPS 140-2 Nivel 1.
+|Tipo de clave|Almacenes (solo SKU Premium)|Grupos de HSM administrados|
+|--|--|--|--|
+**EC-HSM**: clave de curva elíptica|HSM validados con FIPS 140-2 nivel 2|HSM validados con FIPS 140-2 nivel 3
+**RSA-HSM**: Clave RSA|HSM validados con FIPS 140-2 nivel 2|HSM validados con FIPS 140-2 nivel 3
+**oct-HSM**: Simétrica|No compatible|HSM validados con FIPS 140-2 nivel 3
+||||
+
+### <a name="software-protected-keys"></a>Claves protegidas con software
+
+|Tipo de clave|Almacenes|Grupos de HSM administrados|
+|--|--|--|--|
+**RSA**: clave RSA "protegida con software"|FIPS 140-2 nivel 1|No compatible
+**EC**: clave de curva elíptica "protegida con software"|FIPS 140-2 nivel 1|No compatible
+||||
+
+### <a name="supported-algorithms"></a>Algoritmos admitidos
+
+|Tipos de clave/tamaños/curvas| Cifrar/Descifrar<br>(Encapsular/Desencapsular) | FIRMAR/VERIFICAR | 
+| --- | --- | --- |
+|EC-P256, EC-P256K, EC-P384, EC-521|N/D|ES256<br>ES256K<br>ES384<br>ES512|
+|RSA 2K, 3K, 4K| RSA1_5<br>RSA-OAEP<br>RSA-OAEP-256|PS256<br>PS384<br>PS512<br>RS256<br>RS384<br>RS512<br>RSNULL| 
+|AES 128-bit, 256-bit| AES-KW<br>AES-GCM<br>AES-CBC| N/D| 
+|||
 
 ###  <a name="ec-algorithms"></a>Algoritmos de EC
- Los identificadores de algoritmo siguientes son compatibles con las claves EC y EC-HSM en Key Vault. 
+ Los identificadores de algoritmo siguientes son compatibles con las claves EC-HSM
 
 #### <a name="curve-types"></a>Tipos de curvas
 
@@ -68,12 +99,13 @@ Los módulos criptográficos que utiliza Key Vault, sean HSM o software, tienen 
 -   **ES512**: se crean claves y códigos hash de ECDSA para SHA-512 creados con la curva P-521. Este algoritmo se describe en [RFC7518](https://tools.ietf.org/html/rfc7518).
 
 ###  <a name="rsa-algorithms"></a>Algoritmos RSA  
- Los siguientes identificadores de algoritmo son compatibles con las claves RSA y RSA-HSM en Key Vault.  
+ Los siguientes identificadores de algoritmo son compatibles con las claves RSA y RSA-HSM  
 
 #### <a name="wrapkeyunwrapkey-encryptdecrypt"></a>WRAPKEY/UNWRAPKEY, ENCRYPT/DECRYPT
 
 -   **RSA1_5**: cifrado de clave RSAES-PKCS1-V1_5 [RFC3447]  
 -   **RSA-OAEP**: RSAES con relleno de cifrado asimétrico óptimo (OAEP) [RFC3447], con los parámetros predeterminados especificados en RFC 3447 en la sección A.2.1. Estos parámetros predeterminados utilizan una función hash de SHA-1 y una función de generación de máscara de MGF1 con SHA-1.  
+-  **RSA-OAEP-256**: RSAES mediante un relleno óptimo de cifrado asimétrico con una función hash de SHA-256 y una función de generación de máscara de MGF1 con SHA-256
 
 #### <a name="signverify"></a>SIGN/VERIFY
 
@@ -83,11 +115,19 @@ Los módulos criptográficos que utiliza Key Vault, sean HSM o software, tienen 
 -   **RS256**: RSASSA-PKCS-v1_5 con SHA-256. El valor de hash proporcionado por la aplicación debe calcularse mediante SHA-256 y debe tener 32 bytes de longitud.  
 -   **RS384**: RSASSA-PKCS-v1_5 con SHA-384. El valor de hash proporcionado por la aplicación debe calcularse mediante SHA-384 y debe tener 48 bytes de longitud.  
 -   **RS512**: RSASSA-PKCS-v1_5 con SHA-512. El valor de hash proporcionado por la aplicación debe calcularse mediante SHA-512 y debe tener 64 bytes de longitud.  
--   **RSNULL**: consulte [RFC2437], un caso de uso especializado para habilitar ciertos escenarios de TLS.  
+-   **RSNULL**: consulte [RFC2437](https://tools.ietf.org/html/rfc2437), un caso de uso especializado para habilitar ciertos escenarios de TLS.  
+
+###  <a name="symmetric-key-algorithms"></a>Algoritmos de clave simétrica
+- **AES-KW**: encapsulado de claves AES ([RFC3394](https://tools.ietf.org/html/rfc3394)).
+- **AES-GCM**: cifrado AES en el modo de contador Galois ([NIST SP800-38d](https://csrc.nist.gov/publications/sp800))
+- **AES-CBC**: cifrado AES en el modo de encadenamiento de bloques de cifrado ([NIST SP800-38a](https://csrc.nist.gov/publications/sp800))
+
+> [!NOTE] 
+> La implementación de AES-GCM actual y las API correspondientes son experimentales. La implementación y las API pueden cambiar considerablemente en las iteraciones futuras. 
 
 ##  <a name="key-operations"></a>Operaciones con claves
 
-Key Vault admite las siguientes operaciones en objetos de clave:  
+El HSM administrado admite las siguientes operaciones en objetos de clave:  
 
 -   **Crear**: permite a un cliente crear una clave en Key Vault. El valor de la clave lo genera y almacena Key Vault y no se entrega al cliente. Las claves asimétricas pueden crearse en Key Vault.  
 -   **Import**: permite a un cliente importar una clave existente en Key Vault. Se pueden importar claves asimétricas en Key Vault mediante una serie de métodos de empaquetado diferentes dentro de una construcción JWK. 
@@ -142,8 +182,8 @@ Para más información sobre otros posibles atributos, vea [Clave web JSON (JWK)
 
 Puede especificar metadatos específicos de la aplicación adicionales en forma de etiquetas. Key Vault admite hasta 15 etiquetas, cada una de las cuales puede tener un nombre de 256 caracteres y un valor de 256 caracteres.  
 
->[!Note]
->Un llamador puede leer las etiquetas si tiene el permiso *list* o *get* para ese tipo de objeto (claves, secretos o certificados).
+> [!NOTE] 
+> El autor de llamada puede leer las etiquetas si tienen el permiso *list* o *get* para esa clave.
 
 ##  <a name="key-access-control"></a>Control de acceso a claves
 
@@ -176,10 +216,10 @@ Se pueden conceder los permisos siguientes, por usuario o por entidad de servici
 Para más información sobre cómo trabajar con claves, consulte las [operaciones con claves en la referencia de la API de REST de Key Vault](/rest/api/keyvault). Para obtener información sobre cómo establecer permisos, vea [Almacenes: crear o actualizar](/rest/api/keyvault/vaults/createorupdate) y [Almacenes: actualizar directiva de acceso](/rest/api/keyvault/vaults/updateaccesspolicy). 
 
 ## <a name="next-steps"></a>Pasos siguientes
-
 - [Acerca de Key Vault](../general/overview.md)
-- [Información acerca de claves, secretos y certificados](../general/about-keys-secrets-certificates.md)
+- [Acerca de HSM administrado](../managed-hsm/overview.md)
 - [Información acerca de los secretos](../secrets/about-secrets.md)
 - [Información acerca de los certificados](../certificates/about-certificates.md)
+- [Introducción a la API REST de Key Vault](../general/about-keys-secrets-certificates.md)
 - [Autenticación, solicitudes y respuestas](../general/authentication-requests-and-responses.md)
 - [Guía del desarrollador de Key Vault](../general/developers-guide.md)

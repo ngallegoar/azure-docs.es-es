@@ -7,12 +7,12 @@ keywords: change, tracking, change tracking, inventory, automation
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 63fe36a51b69648039c3a16be4267fc0c72e8a58
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 05b99c7f010ad307956b70890ee45f649111b373
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185813"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530546"
 ---
 # <a name="troubleshoot-changes-on-an-azure-vm"></a>Solución de problemas asociados a los cambios en una máquina virtual de Azure
 
@@ -220,7 +220,7 @@ Ver los cambios en Azure Portal puede ser útil, pero poder recibir una alerta c
 
 19. En **Crear regla**, seleccione **Asunto de correo electrónico** y, a continuación, elija **Crear regla de alertas**. La regla le indica cuando la implementación de una actualización es correcta y qué máquinas formaron parte de la ejecución de la implementación de actualizaciones. La siguiente imagen es un ejemplo de correo electrónico recibido cuando el servicio W3SVC se detiene.
 
-    ![email](./media/automation-tutorial-troubleshoot-changes/email.png)
+    ![La captura de pantalla muestra una notificación de correo electrónico recibida cuando el servicio W3SVC se detiene.](./media/automation-tutorial-troubleshoot-changes/email.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

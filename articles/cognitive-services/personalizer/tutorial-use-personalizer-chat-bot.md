@@ -4,12 +4,12 @@ description: Personalice un bot de chat de .NET en C# con un bucle de Personaliz
 ms.topic: tutorial
 ms.date: 07/17/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ee037632b068b0d8d2f3ed3b6ea7a83d157c5083
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 2d95a6999186b964e59ff8f287d917b1f93e1813
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935660"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089894"
 ---
 # <a name="tutorial-use-personalizer-in-net-chat-bot"></a>Tutorial: Uso de Personalizer en un bot de chat de .NET
 
@@ -21,7 +21,7 @@ Utilice un bot de chat de .NET en C# con un bucle de Personalizer para proporcio
 > [!div class="checklist"]
 > * Configuración de los recursos de Azure
 > * Configurar y ejecutar un bot
-> * Interactuar con el bot mediante el emulador de bots
+> * Interactuar con el bot mediante Bot Framework Emulator
 > * Comprender dónde y cómo usa el bot Personalizer
 
 
@@ -174,20 +174,20 @@ Deje el sitio web en ejecución, ya que en el tutorial se explica qué está hac
 
 ## <a name="set-up-the-bot-emulator"></a>Configuración del emulador de bot
 
-1. Abra Bot Emulator y seleccione **Open Bot** (Abrir bot).
+1. Abra Bot Framework Emulator y seleccione **Open Bot** (Abrir bot).
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="Captura de la pantalla de inicio del emulador de bot.":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="Captura de pantalla del explorador que muestra el sitio web del bot de chat.":::
 
 
 1. Configure el bot con la siguiente **dirección URL del bot** y seleccione **Connect** (Conectar):
 
     `http://localhost:3978/api/messages`
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-open-bot-settings.png" alt-text="Captura de pantalla de la configuración de bot abierta en el emulador de bot.":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-open-bot-settings.png" alt-text="Captura de pantalla del explorador que muestra el sitio web del bot de chat.":::
 
     El emulador se conecta al bot de chat y muestra el texto informativo, junto con información de registro y depuración que resulta útil para el desarrollo local.
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-bot-conversation-first-turn.png" alt-text="Captura de pantalla del emulador de bot en el primer turno de la conversación.":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-bot-conversation-first-turn.png" alt-text="Captura de pantalla del explorador que muestra el sitio web del bot de chat.":::
 
 ## <a name="use-the-bot-in-the-bot-emulator"></a>Uso del bot en el emulador de bot
 

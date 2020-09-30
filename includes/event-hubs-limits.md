@@ -5,15 +5,15 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 05/22/2019
+ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 333f2317fcc834a10b7336bbda9a43ba16a7ad38
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 8700bbfe697a6b5fb81380831950d704fcb1f5ff
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84317702"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90012846"
 ---
 En las tablas siguientes se enumeran las cuotas y los límites específicos de [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Para más información sobre los precios de Event Hubs, consulte los [precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -39,8 +39,8 @@ Los límites siguientes son comunes en los niveles básico y estándar.
 | Número de grupos de consumidores por centro de eventos |Entidad | &nbsp; |1 |20 |
 | Número de conexiones de AMQP por espacio de nombres |Espacio de nombres |Las solicitudes posteriores de conexiones adicionales se rechazan y el código que llama recibe una excepción. |100 |5\.000|
 | Período de retención máximo de datos de eventos |Entidad | &nbsp; |1 día |1-7 días |
-|Espacio de nombres habilitado para Apache Kafka|Espacio de nombres |Aplicaciones de flujos de espacios de nombres de Event Hubs que usan el protocolo Kafka. |No | Sí |
-|Capturar |Entidad | Cuando está habilitado, microlotes en el mismo flujo. |No |Sí |
+|Espacio de nombres habilitado para Apache Kafka|Espacio de nombres |Aplicaciones de flujos de espacios de nombres de Event Hubs que usan el protocolo Kafka. Para más información, consulte [Uso de Azure Event Hubs desde aplicaciones de Apache Kafka](../articles/event-hubs/event-hubs-for-kafka-ecosystem-overview.md). |No | Sí |
+|Capturar |Entidad | Cuando está habilitado, microlotes en el mismo flujo. Para más información, consulte [Captura de eventos a través de Azure Event Hubs en Azure Blob Storage o Azure Data Lake Storage](../articles/event-hubs/event-hubs-capture-overview.md). |No |Sí |
 
 
 ### <a name="event-hubs-dedicated---quotas-and-limits"></a>Cuotas y límites de Event Hubs dedicado

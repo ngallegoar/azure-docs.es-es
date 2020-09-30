@@ -10,17 +10,19 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: sudbalas
-ms.openlocfilehash: c5509d6a284ab7afe827f67b79b7be027e76f66c
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: bf758a07cff248fc0da3f279e68a14e88797e382
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068853"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984601"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>La eliminación temporal se habilitará en todos los almacenes de claves
 
 > [!WARNING]
 > **Cambio importante**: la posibilidad de rechazar la eliminación temporal quedará en desuso a finales de año y la protección contra la eliminación temporal se activará automáticamente para todos los almacenes de claves.  Los usuarios y administradores de Azure Key Vault deben habilitar la eliminación temporal en sus almacenes de claves de forma inmediata.
+>
+> Para HSM administrado, la eliminación temporal está habilitada de forma predeterminada y no se puede deshabilitar.
 
 Cuando se elimina un secreto de un almacén de claves sin protección contra la eliminación temporal, el secreto se elimina de forma permanente. Los usuarios pueden rechazar la eliminación temporal durante la creación del almacén de claves; no obstante, para proteger los secretos de la eliminación accidental o malintencionada por parte de un usuario, Microsoft pronto habilitará la protección contra la eliminación temporal en **todos** los almacenes de claves y los usuarios ya no tendrán la opción de rechazar ni desactivar la eliminación temporal.
 

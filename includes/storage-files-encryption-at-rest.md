@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ed061234da27716bfcdaf1cc065568908108f90a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 814bf085ca910ef07a13df779eef25e0e6510e57
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77597868"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563467"
 ---
-Todos los datos almacenados en Azure Files se cifran en reposo mediante el cifrado de servicio de almacenamiento (SSE) de Azure. El cifrado del servicio de almacenamiento funciona de forma similar a BitLocker en Windows: los datos se cifran bajo el nivel del sistema de archivos. Dado que los datos se cifran bajo el sistema de archivos del recurso compartido de archivos de Azure, ya que se codifican en el disco, no es necesario tener acceso a la clave subyacente en el cliente para leer o escribir en dicho recurso compartido.
+Todos los datos almacenados en Azure Files se cifran en reposo mediante el cifrado de servicio de almacenamiento (SSE) de Azure. El cifrado del servicio de almacenamiento funciona de forma similar a BitLocker en Windows: los datos se cifran bajo el nivel del sistema de archivos. Dado que los datos se cifran bajo el sistema de archivos del recurso compartido de archivos de Azure, ya que se codifican en el disco, no es necesario tener acceso a la clave subyacente en el cliente para leer o escribir en dicho recurso compartido. El cifrado en reposo se aplica a los protocolos SMB y NFS.
 
 De manera predeterminada, los datos almacenados en Azure Files se cifran con claves administradas por Microsoft. Con las claves administradas por Microsoft, Microsoft mantiene las claves para cifrar o descifrar los datos y es responsable de rotarlas de forma periódica. También puede elegir administrar sus propias claves, lo que le permitirá controlar el proceso de rotación. Si decide cifrar los recursos compartidos de archivos con claves administradas por el cliente, Azure Files está autorizado para tener acceso a las claves con el fin de satisfacer las solicitudes de lectura y escritura de los clientes. Con las claves administradas por el cliente, puede revocar esta autorización en cualquier momento, pero esto significa que el recurso compartido de archivos de Azure ya no será accesible a través de SMB o la API FileREST.
 

@@ -1,6 +1,6 @@
 ---
-title: Incorporación de un dispositivo Azure IoT Edge a Azure IoT Central | Microsoft Docs
-description: Como operador, agregue un dispositivo Azure IoT Edge a la aplicación Azure IoT Central.
+title: 'Tutorial: Incorporación de un dispositivo Azure IoT Edge a Azure IoT Central | Microsoft Docs'
+description: 'Tutorial: Como operador, agregue un dispositivo Azure IoT Edge a la aplicación de Azure IoT Central.'
 author: rangv
 ms.author: rangv
 ms.date: 05/29/2020
@@ -11,12 +11,12 @@ ms.custom:
 - mvc
 - device-developer
 - iot-edge
-ms.openlocfilehash: cc612d5dc21594da855799ed965effeb4b547d00
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 9b4bb462c94ab5a59dbd9d8fdd4cf619e311df56
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018669"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987014"
 ---
 # <a name="tutorial-add-an-azure-iot-edge-device-to-your-azure-iot-central-application"></a>Tutorial: Incorporación de un dispositivo Azure IoT Edge a la aplicación Azure IoT Central
 
@@ -99,7 +99,7 @@ Para agregar las definiciones de telemetría a la plantilla de dispositivo:
 
 La interfaz **Administrar** ahora incluye los tipos de telemetría **machine**, **ambient** y **timeCreated**:
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/manage-interface.png" alt-text="Interfaz con los tipos de telemetría machine y ambient":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/manage-interface.png" alt-text="Plantilla de dispositivo creada a partir de un manifiesto de IoT Edge":::
 
 ### <a name="add-views-to-template"></a>Adición de vistas a la plantilla
 
@@ -115,7 +115,7 @@ La plantilla de dispositivo todavía no tiene una vista que permita al operador 
 
 1. Seleccione **Guardar** para guardar la vista **View IoT Edge device telemetry**.
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/template-telemetry-view.png" alt-text="Plantilla de dispositivo con vista de telemetría":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/template-telemetry-view.png" alt-text="Plantilla de dispositivo creada a partir de un manifiesto de IoT Edge":::
 
 ### <a name="publish-the-template"></a>Publicación de la plantilla
 
@@ -123,7 +123,7 @@ Antes de poder agregar un dispositivo que use la plantilla **Environmental Senso
 
 Vaya a la plantilla **Environmental Sensor Edge Device** y seleccione **Publicar**. En el panel **Publicar esta plantilla de dispositivo en la aplicación**, seleccione **Publicar** para publicar la plantilla:
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/publish-template.png" alt-text="Publicación de la plantilla de dispositivo":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/publish-template.png" alt-text="Plantilla de dispositivo creada a partir de un manifiesto de IoT Edge":::
 
 ## <a name="add-iot-edge-device"></a>Adición de un dispositivo IoT Edge
 
@@ -135,7 +135,7 @@ Ahora que ha publicado la plantilla **Environmental Sensor Edge Device**, puede 
 
 Ahora tiene un nuevo dispositivo con el estado de **Registrado**:
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/new-device.png" alt-text="Nuevo dispositivo registrado":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/new-device.png" alt-text="Plantilla de dispositivo creada a partir de un manifiesto de IoT Edge":::
 
 ### <a name="get-the-device-credentials"></a>Obtención de las credenciales del dispositivo
 
@@ -181,7 +181,7 @@ En la página **Implementación personalizada**:
 
 1. Revise sus opciones y luego seleccione **Crear**:
 
-    :::image type="content" source="media/tutorial-add-edge-as-leaf-device/vm-deployment.png" alt-text="Crear una VM de IoT Edge":::
+    :::image type="content" source="media/tutorial-add-edge-as-leaf-device/vm-deployment.png" alt-text="Plantilla de dispositivo creada a partir de un manifiesto de IoT Edge":::
 
 La implementación tarda un par de minutos en completarse. Una vez finalizada la implementación, vaya al grupo de recursos **central-edge-rg** en Azure Portal.
 
@@ -269,15 +269,15 @@ Para configurar IoT Edge en la VM para que use DPS para registrarse y conectarse
 
 El dispositivo IoT Edge simulado ahora está en ejecución en la máquina virtual. En la aplicación de IoT Central, el estado del dispositivo ahora es de **Aprovisionado** en la página **Dispositivos**:
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/provisioned-device.png" alt-text="Dispositivo IoT Edge aprovisionado":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/provisioned-device.png" alt-text="Plantilla de dispositivo creada a partir de un manifiesto de IoT Edge":::
 
 Puede ver los datos de telemetría del dispositivo en la página **Ver datos de telemetría del dispositivo IoT Edge**:
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/device-telemetry-view.png" alt-text="Telemetría del dispositivo":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/device-telemetry-view.png" alt-text="Plantilla de dispositivo creada a partir de un manifiesto de IoT Edge":::
 
 En la página **Módulos** se muestra el estado de los módulos IoT Edge en el dispositivo:
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/edge-module-status.png" alt-text="Estado de los módulos del dispositivo":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/edge-module-status.png" alt-text="Plantilla de dispositivo creada a partir de un manifiesto de IoT Edge":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -286,14 +286,14 @@ Si tiene previsto seguir trabajando con la VM IoT Edge, puede mantener y reutili
 * Para eliminar la VM IoT Edge y sus recursos asociados, elimine el grupo de recursos **contoso-edge-rg** en Azure Portal.
 * Para eliminar la aplicación IoT Central, vaya a la página **Su aplicación** en la sección **Administración** de la aplicación y seleccione **Eliminar**.
 
+Como desarrollador de soluciones u operador, ahora que ha aprendido a trabajar y a administrar dispositivos IoT Edge en IoT Central, este es el siguiente paso sugerido:
+
+> [!div class="nextstepaction"]
+> [Usar grupos de dispositivos para analizar la telemetría del dispositivo](./tutorial-use-device-groups.md)
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Como desarrollador de dispositivos, ahora que ha aprendido a trabajar y a administrar dispositivos IoT Edge en IoT Central, este es el siguiente paso sugerido:
 
 > [!div class="nextstepaction"]
 > [Desarrollar módulos IoT Edge](../../iot-edge/tutorial-develop-for-linux.md)
-
-Como desarrollador de soluciones u operador, ahora que ha aprendido a trabajar y a administrar dispositivos IoT Edge en IoT Central, este es el siguiente paso sugerido:
-
-> [!div class="nextstepaction"]
-> [Usar grupos de dispositivos para analizar la telemetría del dispositivo](./tutorial-use-device-groups.md)

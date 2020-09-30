@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con Samanage | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Samanage.
+title: 'Tutorial: Integración de Azure Active Directory con SolarWinds Service Desk (anteriormente Samanage) | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y SolarWinds Service Desk.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,20 +11,20 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 56018ff0be07a48cf9448b9b92de5694ebac18bc
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8d4c19e1ce10ed618cda167cd6fa7efedf4111d0
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543540"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707584"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-samanage"></a>Tutorial: integración de Azure Active Directory con Samanage
+# <a name="tutorial-azure-active-directory-integration-with-solarwinds-service-desk-previously-samanage"></a>Tutorial: Integración de Azure Active Directory con SolarWinds Service Desk (anteriormente Samanage)
 
-En este tutorial, obtendrá información sobre cómo integrar Samanage con Azure Active Directory (Azure AD).
-La integración de Samanage con Azure AD proporciona las siguientes ventajas:
+En este tutorial, obtendrá información sobre cómo integrar SolarWinds con Azure Active Directory (Azure AD).
+La integración de SolarWinds con Azure AD le proporciona las siguientes ventajas:
 
-* Puede controlar en Azure AD quién tiene acceso a Samanage.
-* Puede permitir que los usuarios inicien sesión automáticamente en Samanage (inicio de sesión único) con sus cuentas de Azure AD.
+* Controlar en Azure AD quién tiene acceso a SolarWinds.
+* Permitir que los usuarios inicien sesión automáticamente en SolarWinds (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -32,7 +32,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Prerequisites
 
-Para configurar la integración de Azure AD con Samanage, necesita los siguientes elementos:
+Para configurar la integración de Azure AD con SolarWinds Service Desk (anteriormente Samanage), necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
 * Una suscripción habilitada para el inicio de sesión único en Samanage
@@ -41,15 +41,15 @@ Para configurar la integración de Azure AD con Samanage, necesita los siguiente
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Samanage admite el inicio de sesión único iniciado por **SP**.
+* SolarWinds admite inicio de sesión único iniciado por **SP**.
 
-## <a name="adding-samanage-from-the-gallery"></a>Adición de Samanage desde la galería
+## <a name="adding-solarwinds-from-the-gallery"></a>Incorporación de SolarWinds desde la galería
 
-Para configurar la integración de Samanage en Azure AD, deberá agregarlo desde la galería a la lista de aplicaciones SaaS administradas.
+Para configurar la integración de SolarWinds en Azure AD, es preciso agregar SolarWinds desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Samanage desde la galería, siga estos pasos:**
+**Para agregar SolarWinds desde la galería, siga estos pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
+1. En **[Azure Portal](https://portal.azure.com)** , en el panel de navegación izquierdo, seleccione el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -61,31 +61,31 @@ Para configurar la integración de Samanage en Azure AD, deberá agregarlo desde
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Samanage**, seleccione **Samanage** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **SolarWinds**, seleccione **SolarWinds** en el panel de resultados y haga clic en el botón **Agregar** para añadir la aplicación.
 
-     ![Samanage en la lista de resultados](common/search-new-app.png)
+     ![SolarWinds en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, configurará y probará el inicio de sesión único de Azure AD con Samanage con un usuario de prueba llamado **Britta Simon**.
-Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Samanage.
+En esta sección, va a configurar y probar el inicio de sesión único de Azure AD con SolarWinds para un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario correspondiente de SolarWinds.
 
-Para configurar y probar el inicio de sesión único de Azure AD con Samanage, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con SolarWinds, complete los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Samanage](#configure-samanage-single-sign-on)** : para configurar el inicio de sesión único en la aplicación.
+2. **[Configuración del inicio de sesión único de SolarWinds Service Desk](#configure-solarwinds-single-sign-on)** , para definir los valores de Inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba en Samanage](#create-samanage-test-user)** : para tener un homólogo de Britta Simon en Samanage que esté vinculado a la representación de ella en Azure AD.
+5. **[Creación de un usuario de prueba en SolarWinds Service Desk](#create-solarwinds-test-user)** : para tener un homólogo de B.Simon en SolarWinds Service Desk vinculado a la representación de usuario de Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-Para configurar el inicio de sesión único de Azure AD con Samanage, siga estos pasos:
+Para configurar el inicio de sesión único de Azure AD con SolarWinds, siga estos pasos:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Samanage**, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **SolarWinds**, haga clic en **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
@@ -112,7 +112,7 @@ Para configurar el inicio de sesión único de Azure AD con Samanage, siga estos
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-6. En la sección **Set up Samanage** (Configurar Samanage), copie las direcciones URL adecuadas según sus necesidades.
+6. En la sección **Set up SolarWinds** (Configurar SolarWinds), copie las direcciones URL que necesite.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -122,9 +122,11 @@ Para configurar el inicio de sesión único de Azure AD con Samanage, siga estos
 
     c. URL de cierre de sesión
 
-### <a name="configure-samanage-single-sign-on"></a>Configuración del inicio de sesión único en Samanage
+<a name="configure-solarwinds-single-sign-on"></a>
 
-1. En otra ventana del explorador web, inicie sesión en su sitio de la compañía de Samanage como administrador.
+### <a name="configure-solarwinds-service-desk-single-sign-on"></a>Configuración del inicio de sesión único de SolarWinds Service Desk
+
+1. En otra ventana del explorador web, inicie sesión como administrador en el sitio de la empresa SolarWinds.
 
 2. Haga clic en **Dashboard** (Panel) y seleccione **Setup** (Configuración) en el panel de navegación izquierdo.
    
@@ -150,7 +152,7 @@ Para configurar el inicio de sesión único de Azure AD con Samanage, siga estos
  
     f. En el Bloc de notas, abra el certificado codificado en base 64 descargado de Azure Portal, copie su contenido en el Portapapeles y péguelo en el cuadro de texto **Paste your Identity Provider x.509 Certificate below** (Pegue a continuación el certificado x.509 del proveedor de identidades).
  
-    g. Haga clic en **Create users if they do not exist in Samanage**(Crear usuarios si no existen en Samanage).
+    g. Haga clic en **Create users if they do not exist in SolarWinds** (Crear usuarios si no existen en SolarWinds).
  
     h. Haga clic en **Update**(Actualizar).
 
@@ -181,15 +183,13 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, concederá acceso a Britta Simon a Samanage para que use el inicio de sesión único de Azure.
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure al concederle acceso a SolarWinds.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y, luego, **Samanage**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **SolarWinds**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Samanage**.
-
-    ![El vínculo a Samanage en la lista de aplicaciones](common/all-applications.png)
+2. En la lista de aplicaciones, seleccione **SolarWinds**.
 
 3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
@@ -205,20 +205,20 @@ En esta sección, concederá acceso a Britta Simon a Samanage para que use el in
 
 7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="create-samanage-test-user"></a>Creación de un usuario de prueba de Samanage
+### <a name="create-solarwinds-test-user"></a>Creación de un usuario de prueba de SolarWinds
 
-Para permitir que los usuarios de Azure AD inicien sesión en Samanage, tienen que aprovisionarse en Samanage.  
-En el caso de Samanage, el aprovisionamiento es una tarea manual.
+Para permitir que los usuarios de Azure AD inicien sesión en SolarWinds, debe aprovisionarlos en SolarWinds.  
+En el caso de SolarWinds, el aprovisionamiento es una tarea manual.
 
 **Para aprovisionar una cuenta de usuario, realice estos pasos:**
 
-1. Inicie sesión en su sitio de la compañía de Samanage como administrador.
+1. Inicie sesión como administrador en el sitio de la empresa SolarWinds.
 
 2. Haga clic en **Dashboard** (Panel) y seleccione **Setup** (Configuración) en el panel de navegación izquierdo.
    
     ![Configuración](./media/samanage-tutorial/tutorial_samanage_001.png "Configurar")
 
-3. Haga clic en la pestaña **Usuarios** .
+3. Haga clic en la pestaña **Usuarios**.
    
     ![Usuarios](./media/samanage-tutorial/tutorial_samanage_006.png "Usuarios")
 
@@ -231,13 +231,13 @@ En el caso de Samanage, el aprovisionamiento es una tarea manual.
     ![Crear usuario](./media/samanage-tutorial/tutorial_samanage_008.png "Crear usuario")
    
    >[!NOTE]
-   >El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo y seguirá un vínculo para confirmar su cuenta antes de que se active. Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Samanage que proporcione Samanage para aprovisionar cuentas de usuario de Azure Active Directory.
+   >El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo y seguirá un vínculo para confirmar su cuenta antes de que se active. Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de SolarWinds para aprovisionar las cuentas de usuario de Azure Active Directory.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Samanage en el Panel de acceso, debería iniciar sesión automáticamente en la solución Samanage para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de SolarWinds en el Panel de acceso, se debería iniciar sesión automáticamente en la versión de SolarWinds para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

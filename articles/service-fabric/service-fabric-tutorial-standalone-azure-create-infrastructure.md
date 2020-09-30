@@ -4,12 +4,12 @@ description: En este tutorial aprenderá a configurar la infraestructura de una 
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 93a7e2507ab3a467ef83924479872694cae2dd5b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e9f62f944fff331bcf2dad1b380161e563614219
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75614016"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561847"
 ---
 # <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Tutorial: Creación de la infraestructura de una máquina virtual de Azure para hospedar un clúster de Service Fabric
 
@@ -49,7 +49,7 @@ Para completar este tutorial, necesitará una suscripción de Azure.  Si aún no
 
 8. A continuación, establezca el **Grupo de seguridad de red de NIC** en **Avanzado**. Cree un nuevo grupo de seguridad, anote su nombre y cree las siguientes reglas para permitir el tráfico TCP de cualquier origen:
 
-   ![sf-entrante][sf-inbound]
+   ![Captura de pantalla que muestra la creación de reglas para permitir el tráfico TCP entrante.][sf-inbound]
 
    * Puerto `3389`, para RDP e ICMP (conectividad básica).
    * Puertos `19000-19003`, para Service Fabric.
@@ -61,7 +61,7 @@ Para completar este tutorial, necesitará una suscripción de Azure.  Si aún no
 
 9. Agregue otra regla. Establezca el origen como **etiqueta de servicio** y establezca la etiqueta de servicio de origen en **VirtualNetwork**. Service Fabric necesita que los siguientes puertos estén abiertos para la comunicación dentro del clúster: 135,137-139,445,20001-20031,20606-20861.
 
-   ![red-virtual-entrante][vnet-inbound]
+   ![Captura de pantalla que muestra la creación de reglas para permitir el tráfico TCP para un clúster.][vnet-inbound]
 
 10. El resto de las opciones son aceptables en su estado predeterminado. Si quiere, puede revisarlas e iniciar la máquina virtual después.
 

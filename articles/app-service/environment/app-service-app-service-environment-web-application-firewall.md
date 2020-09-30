@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: stefsch
 ms.custom: mvc, seodec18
-ms.openlocfilehash: e40a42afc99d505dc48794d5ad919e4d682b7070
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 354568fa3ab3816b643a8f08305ab55868a9b0b6
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961846"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973706"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Configuración de un firewall de aplicaciones web (WAF) para entornos de App Service
 ## <a name="overview"></a>Información general
@@ -26,7 +26,7 @@ Además de Azure Application Gateway, en el mercado hay otras opciones, como [Ba
 ## <a name="setup"></a>Configurar
 Para este documento, configuraremos el entorno de App Service detrás de varias instancias de carga equilibrada de Barracuda WAF para que únicamente el tráfico del WAF pueda ponerse en contacto con el entorno de App Service y no se pueda acceder a este desde la red perimetral. También dispondremos de Azure Traffic Manager delante de las instancias de Barracuda WAF para equilibrar la carga entre las regiones y los centros de datos de Azure. Un diagrama de alto nivel del programa de instalación tendría el aspecto que se muestra a continuación:
 
-![Architecture][Architecture] 
+![En el diagrama se muestra un servicio Azure Traffic Manager opcional de Azure que se conecta a instancias de firewall de aplicaciones web, que se conectan la red ACL para permitir solo el tráfico desde el firewall en App Service Environment, con una aplicación web, API o móvil para dos regiones.][Architecture] 
 
 > [!NOTE]
 > Con la introducción de [la compatibilidad de ILB con el entorno de App Service](app-service-environment-with-internal-load-balancer.md), puede configurar el ASE para que no pueda accederse a este desde la red perimetral y solo esté disponible en la red privada. 

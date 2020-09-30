@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: c000d48043a46ecdbdfee263cc5c8ce877f66b4b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 30a782c7d7c13eb9c92e4a4bf64e268416a2b382
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923711"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561557"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Programación con las API de Azure Digital Twins
 
@@ -112,7 +112,7 @@ Para autenticarse, necesita tres tipos de información:
 >[!TIP]
 > Si no conoce el *identificador de directorio (inquilino)* , lo puede obtener con la ejecución de este comando en [Azure Cloud Shell](https://shell.azure.com):
 > 
-> ```azurecli-interactive
+> ```azurecli
 > az account show --query tenantId
 > ```
 
@@ -322,12 +322,13 @@ Tenga en cuenta que no se produce ningún error cuando los gemelos se crean la s
 
 A continuación, puede crear **relaciones** entre estos gemelos que ha creado para conectarlos en un **gráfico de gemelos**. Los [gráficos de gemelos](concepts-twins-graph.md) se usan para representar un entorno completo.
 
-Para poder crear relaciones, agregue una instrucción `using` para el tipo base de relación en el SDK (omita este paso si ya se ha agregado).
+Para poder crear relaciones, necesitará el espacio de nombres `Azure.DigitalTwins.Core.Serialization`. Lo agregó al proyecto anteriormente con esta instrucción `using`:
+
 ```csharp
 using Azure.DigitalTwins.Core.Serialization;
 ```
 
-A continuación, agregue un nuevo método estático a la clase `Program`, debajo del método `Main`:
+Agregue un nuevo método estático a la clase `Program`, debajo del método `Main`:
 ```csharp
 public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
 {

@@ -6,12 +6,12 @@ ms.date: 02/05/2019
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 0717a7ac3cc663ff68ba96864aa5d37732337ca5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 948ca820347c7cdcd560ade46e850f66b25bc88e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836743"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987301"
 ---
 # <a name="create-an-azure-automation-runbook"></a>Creación de un runbook de Azure Automation
 
@@ -39,7 +39,7 @@ En primer lugar, cree un runbook. El runbook de ejemplo creado en esta guía de 
 
 1. Haga clic en **Crear**. Se crea el runbook y se abre la página Editar Runbook de PowerShell.
 
-    ![Cree el script de PowerShell en el editor de runbooks](./media/automation-quickstart-create-runbook/automation-edit-runbook-empty.png)
+    :::image type="content" source="./media/automation-quickstart-create-runbook/automation-edit-runbook-empty.png" alt-text="Captura de pantalla de la página Editar Runbook de PowerShell.":::
 
 1. Escriba o copie y pegue el código siguiente en el panel de edición. Crea un parámetro de entrada opcional denominado `Name` con el valor predeterminado `World` y genera una cadena que utiliza este valor de entrada:
 
@@ -55,7 +55,7 @@ En primer lugar, cree un runbook. El runbook de ejemplo creado en esta guía de 
 
 1. Haga clic en **Guardar** para guardar una copia en borrador del runbook.
 
-    ![Cree el script de PowerShell en el editor de runbooks](./media/automation-quickstart-create-runbook/automation-edit-runbook.png)
+    :::image type="content" source="./media/automation-quickstart-create-runbook/automation-edit-runbook.png" alt-text="Captura de pantalla de la página Editar Runbook de PowerShell.":::
 
 ## <a name="test-the-runbook"></a>Probar el runbook
 
@@ -65,13 +65,13 @@ Una vez que se ha creado el runbook, debe probarlo para validar que funciona.
 
 1. Escriba un valor en **Nombre** y haga clic en **Iniciar**. Se inicia el trabajo de prueba y se muestran la salida y el estado del trabajo.
 
-    ![Trabajo de prueba del runbook](./media/automation-quickstart-create-runbook/automation-test-runbook.png)
+    :::image type="content" source="./media/automation-quickstart-create-runbook/automation-test-runbook.png" alt-text="Captura de pantalla de la página Editar Runbook de PowerShell.":::
 
 1. Cierre la página Probar, para lo que debe hacer clic en la **X** de la esquina superior derecha. Seleccione **Aceptar** en el menú emergente que aparece.
 
 1. En la página Editar Runbook de PowerShell, haga clic en **Publicar** para publicar el runbook como la versión oficial del runbook en la cuenta.
 
-   ![Trabajo de prueba del runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png)
+   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png" alt-text="Captura de pantalla de la página Editar Runbook de PowerShell.":::
 
 ## <a name="run-the-runbook"></a>Ejecución del runbook
 
@@ -79,15 +79,15 @@ Una vez publicado el runbook, se muestra la página de información general.
 
 1. En la página de información general del runbook, haga clic en **Iniciar** para abrir la página de configuración Iniciar runbook de este runbook.
 
-   ![Trabajo de prueba del runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-start.png)
+   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-hello-world-runbook-start.png" alt-text="Captura de pantalla de la página Editar Runbook de PowerShell.":::
 
 1. Deje el valor de **Nombre** en blanco para que se use el valor predeterminado y haga clic en **Aceptar**. Se envía el trabajo del runbook y aparece la página Trabajo.
 
-   ![Trabajo de prueba del runbook](./media/automation-quickstart-create-runbook/automation-job-page.png)
+   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-job-page.png" alt-text="Captura de pantalla de la página Editar Runbook de PowerShell.":::
 
 1. Cuando el estado del trabajo sea `Running` o `Completed`, haga clic en **Salida** para abrir el panel Salida y ver la salida del runbook.
 
-   ![Trabajo de prueba del runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
+   :::image type="content" source="./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png" alt-text="Captura de pantalla de la página Editar Runbook de PowerShell.":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 974e45b761fb45e4bc1c451fa6755e16cab49e11
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 25c58f99f56a4328527d1dd970e3ade21eb51819
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76834695"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987166"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Tutorial: Diagnóstico de problemas de comunicación entre redes mediante Azure Portal
 
@@ -73,12 +73,12 @@ Si ya dispone de un monitor de red habilitado en la región Este de EE. UU., vay
 8. Mientras se ejecuta la prueba, la opción **Ejecutando** aparece en la columna **ESTADO DE LA SOLUCIÓN DE PROBLEMAS**, donde se muestra el valor **Sin iniciar** en la imagen anterior. Esta prueba puede tardar varios minutos en ejecutarse.
 9. Compruebe el estado de una prueba completa. En la siguiente imagen se muestran los resultados de estado de una prueba de diagnóstico completada:
 
-    ![Status](./media/diagnose-communication-problem-between-networks/status.png)
+    ![Captura de pantalla que muestra los resultados de estado de una prueba de diagnóstico, incorrecto en este ejemplo, con un resumen y detalles.](./media/diagnose-communication-problem-between-networks/status.png)
 
     Puede ver que la opción **ESTADO DE LA SOLUCIÓN DE PROBLEMAS** tiene el valor **Incorrecto**, así como un **Resumen** y los **Detalles** del problema en la pestaña **Estado**.
 10. Cuando seleccione la pestaña **Acción**, el proceso de diagnóstico de VPN proporciona información adicional. En el ejemplo que se muestra en la siguiente imagen, el proceso de diagnóstico de VPN le indicará que debe comprobar el estado de cada conexión:
 
-    ![Acción](./media/diagnose-communication-problem-between-networks/action.png)
+    ![Captura de pantalla que muestra la pestaña Acción, que proporciona información adicional.](./media/diagnose-communication-problem-between-networks/action.png)
 
 ## <a name="diagnose-a-gateway-connection"></a>Diagnosticar una conexión de puerta de enlace
 
@@ -86,7 +86,7 @@ Una puerta de enlace está conectada a otras redes a través de una conexión de
 
 1. Complete de nuevo el paso 7 denominado [Diagnosticar una puerta de enlace](#diagnose-a-gateway) y, esta vez, seleccione una conexión. En el ejemplo siguiente, se prueba una conexión denominada **VNet1toSite1**:
 
-    ![Conexión](./media/diagnose-communication-problem-between-networks/connection.png)
+    ![Captura de pantalla que muestra cómo iniciar la solución de problemas de una conexión seleccionada.](./media/diagnose-communication-problem-between-networks/connection.png)
 
     La prueba se ejecuta durante varios minutos.
 2. Una vez completada la prueba de la conexión, recibirá resultados similares a los que se muestran en las siguientes imágenes en las fichas **Estado** y **Acción**:

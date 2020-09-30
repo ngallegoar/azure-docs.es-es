@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1934b6256ecf4f35c54bbc2ac497c331b2c5ee89
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f36c80b9d08f2fde07483c1dde3afe99ec9f92d7
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543931"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705629"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configuración de una aplicación OpenID/OAuth desde la galería de aplicaciones de Azure AD
 
@@ -76,13 +76,13 @@ De forma predeterminada, Azure AD promueve las aplicaciones multiinquilino. Es f
 ## <a name="consent-framework"></a>Marco de consentimiento
 
 Puede usar el marco de consentimiento de Azure AD para desarrollar aplicaciones web multiinquilino y aplicaciones de cliente nativo. Estas aplicaciones permiten el inicio de sesión por cuentas de usuario de un inquilino de Azure AD diferente al que ha registrado la aplicación. Es posible que también necesiten acceder a las API web, como:
-- Microsoft Graph API, para acceder a Azure AD, Intune y servicios en Office 365.
+- La API de Microsoft Graph, para acceder a Azure AD, Intune y servicios de Microsoft 365.
 - Otras API de servicios de Microsoft.
 - Sus propias API web.
 
 El marco se basa en que un usuario o un administrador da consentimiento a una aplicación que solicita el registro en su directorio. El registro podría implicar el acceso a datos del directorio. Después de dar su consentimiento, la aplicación cliente puede llamar a Microsoft Graph API en nombre del usuario y usar la información según sea necesario.
 
-[Microsoft Graph API](https://developer.microsoft.com/graph/) proporciona acceso a datos de Office 365, como:
+La [API de Microsoft Graph](https://developer.microsoft.com/graph/) proporciona acceso a datos de Microsoft 365, como:
 
 - Calendarios y mensajes de Exchange.
 - Sitios y listas de SharePoint.
@@ -121,7 +121,7 @@ Los siguientes pasos muestran cómo funciona la experiencia de consentimiento pa
 
 3. Si el usuario no está aún autenticado, el punto de conexión /authorize de Azure AD solicita el inicio de sesión.
 
-    ![Authentication](./media/openidoauth-tutorial/authentication.png)
+    ![Captura de pantalla de la solicitud de inicio de sesión para la cuenta](./media/openidoauth-tutorial/authentication.png)
 
 4. Cuando el usuario inicia sesión, Azure AD determina si se debe mostrar una página de consentimiento al usuario. Esta determinación se basa en que el usuario (o el administrador de la organización) ya concediese el consentimiento de la aplicación.
 

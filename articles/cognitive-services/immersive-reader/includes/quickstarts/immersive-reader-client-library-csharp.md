@@ -7,24 +7,23 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/20/2020
+ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: f3d694a1e1eb368a97d994ebe9885c279ff44463
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: fc3d5237fc795a2a828e886172e5d15acd9a9fb7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505422"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978309"
 ---
-El [Lector inmersivo](https://www.onenote.com/learningtools) es una herramienta diseñada de forma inclusiva que implementa técnicas demostradas para mejorar la comprensión lectora.
+[Lector inmersivo](https://www.onenote.com/learningtools) es una herramienta diseñada de manera inclusiva que implementa técnicas demostradas para mejorar la comprensión lectora de nuevos lectores, estudiantes de idiomas y personas con dificultades de aprendizaje, como la dislexia. Puede usar Lector inmersivo en sus aplicaciones para aislar el texto con el fin de mejorar la concentración, mostrar imágenes para palabras de uso frecuente, resaltar partes del texto, leer texto seleccionado en voz alta, traducir palabras y frases en tiempo real y mucho más.
 
-En este inicio rápido, se va a crear una aplicación web desde cero y se integrará el Lector inmersivo mediante la biblioteca cliente de esta herramienta. Se puede encontrar un completo ejemplo funcional [aquí](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-csharp).
-
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de empezar.
+En este inicio rápido, se va a crear una aplicación web desde cero y se integrará el Lector inmersivo mediante la biblioteca cliente de esta herramienta. Hay disponible un ejemplo funcional completo de esta guía de inicio rápido [en GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-csharp).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
+* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services)
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads)
 * Un recurso del Lector inmersivo configurado para la autenticación de Azure Active Directory. Siga [estas instrucciones](../../how-to-create-immersive-reader.md) para realizar la configuración. Al configurar las propiedades del proyecto de ejemplo, necesitará algunos de los valores creados aquí. Guarde la salida de la sesión en un archivo de texto para futuras referencias.
 
@@ -32,17 +31,17 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Cree un proyecto en Visual Studio mediante la plantilla de aplicación web de ASP.NET Core con Modelo-Vista-Controlador integrado y ASP.NET Core 2.1. Asigne al proyecto el nombre "QuickstartSampleWebApp".
 
-![Nuevo proyecto](../../media/quickstart-csharp/1-createproject.png)
+![Nuevo proyecto: C#](../../media/quickstart-csharp/1-createproject.png)
 
-![Configuración del nuevo proyecto](../../media/quickstart-csharp/2-configureproject.png)
+![Configuración de un nuevo proyecto: C#](../../media/quickstart-csharp/2-configureproject.png)
 
-![Nueva aplicación web de ASP.NET Core](../../media/quickstart-csharp/3-createmvc.png)
+![Nueva aplicación web de ASP.NET Core: C#](../../media/quickstart-csharp/3-createmvc.png)
 
 ## <a name="set-up-authentication"></a>Configuración de la autenticación
 
 ### <a name="configure-authentication-values"></a>Configuración de los valores de autenticación
 
-Haga clic con el botón derecho en el proyecto en el _Explorador de soluciones_ y elija **Administrar secretos de usuario**. Se abrirá un archivo denominado _secrets.json_. Este archivo no está protegido bajo control de código fuente. Obtenga más información [aquí](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows). Reemplace el contenido de _secrets. json_ con lo siguiente, y proporcione los valores especificados al crear el recurso del Lector inmersivo.
+Haga clic con el botón derecho en el proyecto en el _Explorador de soluciones_ y elija **Administrar secretos de usuario**. Se abrirá un archivo denominado _secrets.json_. Este archivo no está protegido bajo control de código fuente. Obtenga más información [aquí](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows&preserve-view=true). Reemplace el contenido de _secrets. json_ con lo siguiente, y proporcione los valores especificados al crear el recurso del Lector inmersivo.
 
 ```json
 {
@@ -53,7 +52,7 @@ Haga clic con el botón derecho en el proyecto en el _Explorador de soluciones_ 
 }
 ```
 
-### <a name="add-the-microsoftidentitymodelclientsactivedirectory-nuget-package"></a>Adición del paquete NuGet Microsoft.IdentityModel.Clients.ActiveDirectory
+### <a name="install-active-directory"></a>Instalación de Active Directory
 
 El código siguiente usa objetos del paquete NuGet **Microsoft.IdentityModel.Clients.ActiveDirectory**, por lo que tendrá que agregar una referencia a ese paquete en el proyecto.
 
@@ -216,7 +215,7 @@ Ahora, vamos a agregar contenido de ejemplo a esta aplicación web. Abra _Views\
 
 Tenga en cuenta que todo el texto tiene un atributo **lang**, que describe los idiomas del texto. Este atributo ayuda al Lector inmersivo a proporcionar características de idioma y gramática pertinentes.
 
-## <a name="add-javascript-to-handle-launching-the-immersive-reader"></a>Incorporación de JavaScript para administrar el inicio del Lector inmersivo
+## <a name="add-javascript-to-handle-launching-immersive-reader"></a>Incorporación de JavaScript para administrar el inicio del Lector inmersivo
 
 La biblioteca del Lector inmersivo proporciona funcionalidades como el inicio del Lector inmersivo y la representación de sus botones. Obtenga más información [aquí](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference).
 
@@ -296,18 +295,14 @@ En la barra de menús, seleccione **Depurar > Iniciar depuración** o presione *
 
 En el explorador, verá:
 
-![Aplicación de ejemplo](../../media/quickstart-csharp/4-buildapp.png)
+![Aplicación de ejemplo: C#](../../media/quickstart-csharp/4-buildapp.png)
 
 ## <a name="launch-the-immersive-reader"></a>Inicio del Lector inmersivo
 
 Al hacer clic en el botón "Lector inmersivo", verá que se inicia dicha herramienta con el contenido de la página.
 
-![Lector inmersivo](../../media/quickstart-csharp/5-viewimmersivereader.png)
+![Lector inmersivo: C#](../../media/quickstart-csharp/5-viewimmersivereader.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte el [inicio rápido de Node.js](../../tutorial-nodejs.md) para ver qué más puede hacer con la biblioteca cliente del Lector inmersivo con Node.js.
-* Consulte el [tutorial de Android](../../tutorial-android.md) para ver qué más puede hacer con el SDK del Lector inmersivo con Java o Kotlin para Android.
-* Consulte el [tutorial de iOS](../../tutorial-ios.md) para ver qué más puede hacer con el SDK del Lector inmersivo con Swift para iOS.
-* Consulte el [tutorial de Python](../../tutorial-python.md) para ver qué más puede hacer con la biblioteca cliente del Lector inmersivo con Python.
 * Explorar el [SDK del Lector inmersivo](https://github.com/microsoft/immersive-reader-sdk) y agregar la [Referencia del SDK del Lector inmersivo](../../reference.md)

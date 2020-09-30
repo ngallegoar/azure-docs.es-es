@@ -6,12 +6,12 @@ ms.author: sudbalas
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 08/25/2020
-ms.openlocfilehash: bfcaf9d4b1d03457f2e4cddd2e0eaf9d9d58eee2
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: f77d197c30d00083b280a97079fe03146fcfeb82
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869191"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061808"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutorial: Configuración y ejecución del proveedor de Azure Key Vault para el controlador Secrets Store CSI en Kubernetes
 
@@ -70,7 +70,7 @@ Complete las secciones "Creación de un grupo de recursos", "Creación de un cl�
     ```azurecli
     kubectl version
     ```
-1. Asegúrese de que la versión de Kubernetes sea la 1.16.0 o posterior. El comando siguiente actualiza tanto el clúster de Kubernetes como el grupo de nodos. El comando puede tardar un par de minutos en ejecutarse. En este ejemplo, el grupo de recursos es *contosoResourceGroup* y el clúster de Kubernetes es *contosoAKSCluster*.
+1. Asegúrese de que la versión de Kubernetes sea la 1.16.0 o posterior. En el caso de los clústeres de Windows, asegúrese de que la versión de Kubernetes es la 1.18.0 o posterior. El comando siguiente actualiza tanto el clúster de Kubernetes como el grupo de nodos. El comando puede tardar un par de minutos en ejecutarse. En este ejemplo, el grupo de recursos es *contosoResourceGroup* y el clúster de Kubernetes es *contosoAKSCluster*.
     ```azurecli
     az aks upgrade --kubernetes-version 1.16.9 --name contosoAKSCluster --resource-group contosoResourceGroup
     ```
@@ -110,18 +110,20 @@ Para crear su propio almacén de claves y establecer los secretos, siga las inst
 
 ## <a name="create-your-own-secretproviderclass-object"></a>Creación de su propio objeto SecretProviderClass
 
-[Use esta plantilla](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/test/bats/tests/azure_v1alpha1_secretproviderclass.yaml) para crear su propio objeto SecretProviderClass personalizado con parámetros específicos del proveedor para el controlador Secrets Store CSI. Este objeto proporcionará acceso de identidad a Key Vault.
+[Use esta plantilla](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/v1alpha1_secretproviderclass_service_principal.yaml) para crear su propio objeto SecretProviderClass personalizado con parámetros específicos del proveedor para el controlador Secrets Store CSI. Este objeto proporcionará acceso de identidad a Key Vault.
 
 En el archivo YAML SecretProviderClass de ejemplo, rellene los parámetros que faltan. Se necesitan los siguientes parámetros:
 
-* **userAssignedIdentityID**: identificador de cliente de la entidad de servicio.
+* **userAssignedIdentityID**: # [Obligatorio] Si usa una entidad de servicio, use el identificador de cliente para especificar la identidad administrada asignada por el usuario que se va a usar. Si usa una identidad asignada por el usuario como identidad administrada de la máquina virtual, especifique el identificador de cliente de la identidad. Si el valor está vacío, se usa de forma predeterminada la identidad asignada por el sistema en la máquina virtual. 
 * **keyvaultName**: nombre del almacén de claves.
 * **objects**: contenedor para todo el contenido secreto que desea montar.
     * **objectName**: nombre del contenido del secreto.
     * **objectType**: tipo de objeto (secreto, clave o certificado).
-* **resourceGroup**: nombre del grupo de recursos.
-* **subscriptionId**: identificador de la suscripción del almacén de claves.
+* **resourceGroup**: nombre del grupo de recursos del almacén de claves # [Obligatorio para versiones < 0.0.4]
+* **subscriptionId**: identificador de suscripción del almacén de claves # [Obligatorio para versiones < 0.0.4]
 * **tenantID**: identificador de inquilino o identificador de directorio del almacén de claves.
+
+La documentación de todos los campos necesarios está disponible aquí: [Vínculo](https://github.com/Azure/secrets-store-csi-driver-provider-azure#create-a-new-azure-key-vault-resource-or-use-an-existing-one)
 
 La plantilla actualizada se muestra en el código siguiente. Descárguela como un archivo YAML y rellene los campos obligatorios. En este ejemplo, el almacén de claves es **contosoKeyVault5**. Tiene dos secretos, **secret1** y **secret2**.
 
@@ -210,6 +212,11 @@ Si usa identidades administradas, asigne roles específicos al clúster de AKS q
 1. Para crear, enumerar o leer una identidad administrada asignada por el usuario, es preciso asignar el rol [Operador de identidades administradas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) al clúster de AKS. Asegúrese de que **$clientId** sea el identificador de cliente del clúster de Kubernetes. Con respecto al ámbito, estará en el servicio de suscripción de Azure, específicamente el grupo de recursos de nodo que se creó al tiempo que el clúster de AKS. Este ámbito garantizará que solo los recursos de ese grupo se vean afectados por los roles asignados a continuación. 
 
     ```azurecli
+    RESOURCE_GROUP=contosoResourceGroup
+    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$RESOURCE_GROUP
+
+    az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$RESOURCE_GROUP
+    
     az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     
     az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
@@ -304,6 +311,8 @@ spec:
         readOnly: true
         volumeAttributes:
           secretProviderClass: azure-kvname
+          nodePublishSecretRef:
+              name: secrets-store-creds 
 ```
 
 Ejecute el siguiente comando para implementar el pod:

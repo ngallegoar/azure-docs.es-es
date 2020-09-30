@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Creación de una instancia de IoT Edge para análisis de vídeo en Azure IoT Central (máquina virtual Linux)'
-description: En este tutorial se muestra cómo crear una instancia de IoT Edge para análisis de vídeo con la plantilla de aplicación de análisis de vídeo con detección de objetos y movimiento.
+description: En este tutorial se muestra cómo crear una instancia de IoT Edge en una máquina virtual Linux para su uso con la plantilla de aplicación de análisis de vídeo con detección de objetos y movimiento.
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 69e5b757036a2d68fa779e3fc232cc42a034e33c
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 0b39ec9c8cb70adac1474b2647ac1c9591b9d5cd
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038086"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526398"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Tutorial: Creación de una instancia de IoT Edge para análisis de vídeo (máquina virtual Linux)
 

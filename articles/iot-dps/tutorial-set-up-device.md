@@ -9,16 +9,16 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 6ff732888e416fcd51216070b3b30ed37b79e92c
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 4a017f4b71a91f580a5281468a3f2bcbf7ba31b1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84687131"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531532"
 ---
 # <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Tutorial: Configuración del dispositivo para el aprovisionamiento mediante el servicio Azure IoT Hub Device Provisioning
 
-En el tutorial anterior, aprendió a configurar el servicio Azure IoT Hub Device Provisioning para aprovisionar automáticamente los dispositivos en su instancia de IoT Hub. Este tutorial muestra cómo configurar el dispositivo durante el proceso de fabricación, lo que permite aprovisionarlo automáticamente con IoT Hub. El dispositivo se aprovisiona en función de su [mecanismo de atestación](concepts-device.md#attestation-mechanism), tras el primer arranque y su conexión al servicio de aprovisionamiento. En este tutorial se describen las tareas siguientes:
+En el tutorial anterior, aprendió a configurar el servicio Azure IoT Hub Device Provisioning para aprovisionar automáticamente los dispositivos en su instancia de IoT Hub. Este tutorial muestra cómo configurar el dispositivo durante el proceso de fabricación, lo que permite aprovisionarlo automáticamente con IoT Hub. El dispositivo se aprovisiona en función de su [mecanismo de atestación](concepts-service.md#attestation-mechanism), tras el primer arranque y su conexión al servicio de aprovisionamiento. En este tutorial se describen las tareas siguientes:
 
 > [!div class="checklist"]
 > * Compilar un SDK de cliente de los servicios Device Provisioning específico de la plataforma
@@ -29,7 +29,7 @@ En este tutorial se presupone que ya ha creado la instancia de Device Provisioni
 
 En este tutorial se usan los [SDK y las bibliotecas de Azure IoT para el repositorio de C](https://github.com/Azure/azure-iot-sdk-c), que contiene el SDK de cliente del servicio Device Provisioning. El SDK proporciona actualmente compatibilidad con TPM y X.509 para los dispositivos que se ejecutan en implementaciones de Windows o Ubuntu. Este tutorial se basa en el uso de un cliente de desarrollo de Windows, que también da por supuesto un conocimiento básico de Visual Studio. 
 
-Si no está familiarizado con el proceso de aprovisionamiento automático, no olvide revisar los [conceptos sobre aprovisionamiento automático](concepts-auto-provisioning.md) antes de continuar. 
+Si no está familiarizado con el proceso de aprovisionamiento automático, revise la información general sobre el [aprovisionamiento](about-iot-dps.md#provisioning-process) antes de continuar. 
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -38,7 +38,7 @@ Si no está familiarizado con el proceso de aprovisionamiento automático, no ol
 
 Los siguientes requisitos previos corresponden a un entorno de desarrollo de Windows. En el caso de Linux o macOS, consulte la sección correspondiente en [Preparación del entorno de desarrollo](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) en la documentación del SDK.
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 con la carga de trabajo ["Desarrollo para el escritorio con C++"](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) habilitada. También se admiten Visual Studio 2015 y Visual Studio 2017.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 con la carga de trabajo ["Desarrollo para el escritorio con C++"](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) habilitada. También se admiten Visual Studio 2015 y Visual Studio 2017.
 
 * Tener instalada la versión más reciente de [Git](https://git-scm.com/download/).
 
@@ -100,9 +100,9 @@ Dependiendo de si ha compilado el SDK para usar la atestación para un dispositi
 
 - Para un dispositivo X.509, deberá obtener los certificados emitidos para los dispositivos. El servicio de aprovisionamiento expone dos tipos de entradas de inscripción que controlan el acceso de los dispositivos mediante el mecanismo de atestación de X.509. Los certificados necesarios dependen de los tipos de inscripción que vaya a usar.
 
-    - Inscripciones individuales: inscripción de un dispositivo individual concreto. Este tipo de entrada de inscripción requiere [certificados de entidad final o de "hoja"](concepts-security.md#end-entity-leaf-certificate).
+    - Inscripciones individuales: inscripción de un dispositivo individual concreto. Este tipo de entrada de inscripción requiere [certificados de entidad final o de "hoja"](concepts-x509-attestation.md#end-entity-leaf-certificate).
     
-    - Grupos de inscripción: este tipo de entrada de inscripción requiere certificados intermedios o de raíz. Para más información, consulte [Control del acceso de dispositivo al servicio de aprovisionamiento con certificados X.509](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+    - Grupos de inscripción: este tipo de entrada de inscripción requiere certificados intermedios o de raíz. Para más información, consulte [Control del acceso de dispositivo al servicio de aprovisionamiento con certificados X.509](concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 ### <a name="simulated-devices"></a>Dispositivos simulados
 

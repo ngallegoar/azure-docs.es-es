@@ -5,14 +5,14 @@ author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: overview
+ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: cb40252460fe62deb94ce495bb41d38c326f10e2
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: a76df67d1ef9d203d5e5d54cb95bb8fc90f70180
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "81001344"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980738"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Tutorial: implementación y recorrido por la plantilla de aplicación del centro de distribución digital
 
@@ -35,7 +35,7 @@ Puede crear una aplicación mediante los pasos siguientes.
 1. Vaya al sitio web del administrador de aplicaciones de Azure IoT Central. Seleccione **Crear** en la barra de navegación de la izquierda y, a continuación, haga clic en la pestaña **Venta al por menor**.
 
     > [!div class="mx-imgBorder"]
-    > ![Centro de distribución digital](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
+    > ![Captura de pantalla que muestra cómo seleccionar la plantilla de aplicación de centro de distribución digital](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
 
 2. Seleccione la pestaña **Venta al por menor** y seleccione **Crear aplicación** en la aplicación **Centro de distribución digital**.
 
@@ -46,10 +46,10 @@ Puede crear una aplicación mediante los pasos siguientes.
    **Crear**: Seleccione Crear en la parte inferior de la página para implementar la aplicación.
 
     > [!div class="mx-imgBorder"]
-    > ![Centro de distribución digital](./media/tutorial-iot-central-ddc/ddc-create.png)
+    > ![Captura de pantalla que muestra cómo crear una aplicación a partir de la plantilla de aplicación de centro de distribución digital](./media/tutorial-iot-central-ddc/ddc-create.png)
 
     > [!div class="mx-imgBorder"]
-    > ![Información de facturación del centro de distribución digital](./media/tutorial-iot-central-ddc/ddc-create-billinginfo.png)
+    > ![Captura de pantalla que muestra las opciones de facturación al crear la aplicación](./media/tutorial-iot-central-ddc/ddc-create-billinginfo.png)
 
 ## <a name="walk-through-the-application-dashboard"></a>Recorrido por el panel de la aplicación 
 
@@ -62,31 +62,31 @@ El panel está organizado lógicamente para mostrar las funcionalidades de admin
    * Administre todas las cámaras que forman parte de la solución. 
 
 > [!div class="mx-imgBorder"]
-> ![Centro de distribución digital](./media/tutorial-iot-central-ddc/ddc-dashboard.png)
+> ![Captura de pantalla que muestra el panel del centro de distribución digital](./media/tutorial-iot-central-ddc/ddc-dashboard.png)
 
 ## <a name="device-template"></a>Plantilla de dispositivo
 
 Haga clic en la pestaña Plantillas de dispositivo y verá el modelo de funcionalidad de la puerta de enlace. Un modelo de funcionalidad está estructurado en torno a dos interfaces diferentes, la **cámara** y la **puerta de enlace de distribución digital**.
 
 > [!div class="mx-imgBorder"]
-> ![Centro de distribución digital](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
+> ![Captura de pantalla que muestra la plantilla de dispositivo de puerta de enlace de distribución digital en la aplicación](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
 
 **Cámara**: esta interfaz organiza todas las funciones de comando específicas de la cámara. 
 
 > [!div class="mx-imgBorder"]
-> ![Centro de distribución digital](./media/tutorial-iot-central-ddc/ddc-camera.png)
+> ![Captura de pantalla que muestra la interfaz de la cámara en la plantilla de dispositivo de puerta de enlace de distribución digital](./media/tutorial-iot-central-ddc/ddc-camera.png)
 
 **Puerta de enlace de distribución digital**: esta interfaz representa todos los datos de telemetría procedentes de la cámara, las propiedades de dispositivos gemelos definidas en la nube y la información de la puerta de enlace.
 
 > [!div class="mx-imgBorder"]
-> ![Centro de distribución digital](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
+> ![Captura de pantalla que muestra la interfaz de la puerta de enlace de distribución digital en la plantilla de dispositivo de puerta de enlace de distribución digital](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
 
 
 ## <a name="gateway-commands"></a>Comandos de puerta de enlace
 Esta interfaz organiza todas las funciones de comando de la puerta de enlace.
 
 > [!div class="mx-imgBorder"]
-> ![Centro de distribución digital](./media/tutorial-iot-central-ddc/ddc-camera.png)
+> ![Captura de pantalla que muestra la interfaz de comandos de puerta de enlace en la plantilla de dispositivo de puerta de enlace de distribución digital](./media/tutorial-iot-central-ddc/ddc-camera.png)
 
 ## <a name="rules"></a>Reglas
 Seleccione la pestaña Reglas para ver dos reglas diferentes que existen en esta plantilla de aplicación. Estas reglas se configuran para enviar notificaciones por correo electrónico a los operadores para realizar más investigaciones.
@@ -96,7 +96,7 @@ Seleccione la pestaña Reglas para ver dos reglas diferentes que existen en esta
 **Large package** (paquete grande): esta regla se desencadenará si la cámara detecta un paquete grande del que no se puede inspeccionar la calidad. 
 
 > [!div class="mx-imgBorder"]
-> ![Centro de distribución digital](./media/tutorial-iot-central-ddc/ddc-rules.png)
+> ![Captura de pantalla que muestra la lista de reglas en la aplicación de centro de distribución digital](./media/tutorial-iot-central-ddc/ddc-rules.png)
 
 ## <a name="jobs"></a>Trabajos
 Seleccione la pestaña Trabajos para ver cinco trabajos diferentes que existen como parte de esta plantilla de aplicación: Puede aprovechar la característica de trabajos para realizar operaciones en toda la solución. Aquí los trabajos del centro de distribución digital usan los comandos de dispositivo y la funcionalidad de gemelo para realizar tareas como las siguientes.
@@ -105,15 +105,17 @@ Seleccione la pestaña Trabajos para ver cinco trabajos diferentes que existen c
    * Modificar el intervalo de los datos de telemetría para administrar la carga de datos.
 
 > [!div class="mx-imgBorder"]
-> ![Centro de distribución digital](./media/tutorial-iot-central-ddc/ddc-jobs.png)
+> ![Captura de pantalla que muestra la lista de trabajos en la aplicación de centro de distribución digital](./media/tutorial-iot-central-ddc/ddc-jobs.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 Si no va a seguir usando esta aplicación, elimine la plantilla de la aplicación. Para ello, vaya a **Administración** > **Configuración de la aplicación** y haga clic en **Eliminar**.
 
 > [!div class="mx-imgBorder"]
-> ![Centro de distribución digital](./media/tutorial-iot-central-ddc/ddc-cleanup.png)
+> ![Captura de pantalla que muestra cómo eliminar la aplicación cuando haya terminado con ella](./media/tutorial-iot-central-ddc/ddc-cleanup.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Más información sobre el [concepto del centro de distribución digital](./architecture-digital-distribution-center.md) de la arquitectura de la solución del centro de distribución digital.
+* Más información sobre la arquitectura de la solución de centro de distribución digital. 
+> [!div class="nextstepaction"]
+> [concepto de centro de distribución digital](./architecture-digital-distribution-center.md)
 * Más información sobre otras [plantillas de venta minorista de IoT Central](./overview-iot-central-retail.md).
 * Para obtener más información acerca de IoT Central, consulte [Introducción a IoT Central](../core/overview-iot-central.md).

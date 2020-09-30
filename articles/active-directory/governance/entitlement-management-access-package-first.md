@@ -16,12 +16,12 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b79a631ba82d0b4a420ef27684e5a62571ddf85a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e58a98f8503c271eec113298a7e7a0cab5e0003e
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034583"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707499"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutorial: Creación del primer paquete de acceso en la administración de derechos de Azure AD
 
@@ -41,6 +41,8 @@ En este tutorial, aprenderá a:
 Para consultar una demostración detallada del proceso de implementación de la administración de derechos de Azure Active Directory, incluida la creación del primer paquete de acceso, vea el siguiente vídeo:
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
+
+También puede crear un paquete de acceso mediante programación con Microsoft Graph. Para ver un tutorial que muestra cómo crear un paquete de acceso mediante programación, consulte la [API de administración de derechos](https://docs.microsoft.com/graph/tutorial-access-package-api?view=graph-rest-beta).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -106,7 +108,7 @@ Un *paquete de acceso* es un conjunto de recursos que un equipo o proyecto neces
 
 9. En el panel Seleccionar grupos, busque y seleccione el grupo **Recursos de marketing** que creó anteriormente.
 
-    De forma predeterminada, verá grupos dentro y fuera del catálogo **General**. Al seleccionar un grupo fuera del catálogo **General**, se agregará a dicho catálogo.
+     De forma predeterminada, verá grupos dentro del catálogo general. Al seleccionar un grupo fuera del catálogo general, que puede ver si activa la casilla **Ver todo**, se agregará al catálogo general.
 
     ![New access package (Nuevo paquete de acceso): pestaña Resource roles (Roles de recursos)](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
 

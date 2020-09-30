@@ -2,16 +2,16 @@
 title: Descarga y notas de la versión del emulador de Azure Cosmos
 description: Obtenga las notas de la versión del emulador de Azure Cosmos para distintas versiones e información de descarga.
 ms.service: cosmos-db
-ms.topic: tutorial
+ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
-ms.date: 06/20/2019
-ms.openlocfilehash: 12e1c79e610526dec11467cc08c753bf90daa095
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 09/21/2020
+ms.openlocfilehash: da17cd1ea6dac52797162e3ac2d733ad1fd50ea1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083464"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988181"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Emulador de Azure Cosmos: notas de la versión e información de descarga.
 
@@ -26,18 +26,25 @@ En este artículo se muestran las notas de la versión del emulador de Azure Cos
 
 ## <a name="release-notes"></a>Notas de la versión
 
-### <a name="2112-07072020"></a>2.11.2 (07/07/2020)
+### <a name="2115-23-august-2020"></a>2.11.5 (23 de agosto 2020)
 
-- Esta versión cambia el modo en que se recopilan los seguimientos de ETL necesarios al solucionar problemas del emulador de Cosmos. Las herramientas en tiempo de ejecución de rendimiento de Windows (WPR) son ahora las predeterminadas para capturar seguimientos basados en ETL; está en desuso la antigua captura basada en LOGMAN. Este cambio es necesario en parte porque las actualizaciones de seguridad más recientes de Windows afectaron de manera inesperada al funcionamiento de LOGMAN cuando se ejecuta mediante el emulador de Cosmos.
+En esta versión se agregan dos nuevas opciones de inicio del emulador de Cosmos: 
 
-### <a name="2111-06102020"></a>2.11.1 (06/10/2020)
+* "/EnablePreview": habilita las características en versión preliminar del emulador. Características en versión preliminar que todavía están en desarrollo y a las que se puede acceder a través de la escritura de ejemplos y de CI.
+* "/EnableAadAuthentication": permite que el emulador acepte tokens de Azure Active Directory personalizados como alternativa a las claves maestras de Azure Cosmos. Esta característica aún está en desarrollo; actualmente no se admiten asignaciones de roles específicas y otros valores de configuración relacionados con los permisos.
 
-- En esta versión se corrigen errores relacionados con el Explorador de datos del emulador. En ciertos casos, cuando se usa el Explorador de datos del emulador mediante un explorador web, no se puede conectar al punto de conexión del emulador Cosmos y todas las acciones relacionadas, como la creación de una base de datos o un contenedor, generarán un error. El segundo problema corregido está relacionado con la creación de un elemento a partir de un archivo JSON mediante la acción de carga del Explorador de datos.
+### <a name="2112-07-july-2020"></a>2.11.2 (7 de julio de 2020)
+
+- Esta versión cambia el modo en que se recopilan los seguimientos de ETL necesarios al solucionar problemas del emulador de Cosmos. Las herramientas del entorno de ejecución de rendimiento de Windows (WPR) son ahora las predeterminadas para capturar seguimientos basados en ETL; está en desuso la antigua captura basada en LOGMAN. Este cambio es necesario en parte porque las actualizaciones de seguridad más recientes de Windows afectaron de manera inesperada al funcionamiento de LOGMAN cuando se ejecuta mediante el emulador de Cosmos.
+
+### <a name="2111-10-june-2020"></a>2.11.1 (10 de junio de 2020)
+
+- En esta versión se corrigen errores relacionados con el Explorador de datos del emulador. En ciertos casos, cuando se usa el Explorador de datos del emulador mediante un explorador web, no se puede conectar al punto de conexión del emulador de Cosmos y todas las acciones relacionadas, como la creación de una base de datos o un contenedor, generarán un error. El segundo problema corregido está relacionado con la creación de un elemento a partir de un archivo JSON mediante la acción de carga del Explorador de datos.
 
 ### <a name="2110"></a>2.11.0
 
 - Esta versión introduce la compatibilidad con el rendimiento aprovisionado de escalado automático. Estas características nuevas incluyen la posibilidad de establecer un nivel de rendimiento aprovisionado máximo personalizado en unidades de solicitud (RU/s), habilitar el escalado automático en los contenedores y bases de datos existentes, así como la compatibilidad con la programación mediante los SDK de Azure Cosmos DB.
-- Se corrige un problema al consultar una gran cantidad de documentos (más de 1 GB) por el que el emulador daba el código de estado de error interno 500.
+- Se corrige un problema al consultar un gran número de documentos (más de 1 GB) por el que el emulador generaba el código de estado de error interno 500.
 
 ### <a name="292"></a>2.9.2
 
@@ -57,7 +64,7 @@ En este artículo se muestran las notas de la versión del emulador de Azure Cos
 
 ### <a name="270"></a>2.7.0
 
-- En esta versión se corrige una regresión que impedía a los usuarios ejecutar consultas en la cuenta de la API de SQL desde el emulador al usar clientes basados en .NET Core o x86 .NET.
+- En esta versión se corrige una regresión, que impedía a los usuarios ejecutar consultas en la cuenta de la API de SQL desde el emulador al usar clientes basados en .NET Core o x86 .NET.
 
 ### <a name="246"></a>2.4.6
 

@@ -1,6 +1,6 @@
 ---
 title: Captura de tokens de firma de acceso compartido en el código | Azure Key Vault
-description: La característica de cuenta de almacenamiento administrado ofrece una integración sin problemas entre Azure Key Vault y una cuenta de almacenamiento de Azure.
+description: La característica de cuenta de almacenamiento administrado ofrece una integración sin problemas entre Azure Key Vault y una cuenta de almacenamiento de Azure. En este ejemplo se usa el SDK de Azure para .NET con el fin de administrar tokens de SAS.
 ms.topic: tutorial
 ms.service: key-vault
 ms.subservice: secrets
@@ -9,53 +9,39 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8ca89d06ea0d5e2396c820b25490b30e25c99f10
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0f81ffb5279e10c71f7d7cccfb6b738bc12e5cf4
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002936"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086783"
 ---
-# <a name="fetch-shared-access-signature-tokens-in-code"></a>Captura de tokens de firma de acceso compartido en el código
+# <a name="create-sas-definition-and-fetch-shared-access-signature-tokens-in-code"></a>Creación de una definición de SAS y captura de tokens de firma de acceso compartido en el código
 
 Puede administrar su cuenta de almacenamiento con los tokens de Firma de acceso compartido (SAS) almacenados en el almacén de claves. Para obtener más información, consulte [Otorgar acceso limitado a recursos de Azure Storage con SAS](../../storage/common/storage-sas-overview.md).
 
-En este artículo se proporcionan ejemplos de código .NET que captura un token de SAS y realiza operaciones con él. Para más información sobre cómo crear y almacenar tokens de SAS, consulte [Administración de claves de cuenta de almacenamiento con Key Vault y la CLI de Azure](overview-storage-keys.md) o [Administración de claves de cuenta de almacenamiento con Key Vault y Azure PowerShell](overview-storage-keys-powershell.md).
+> [!NOTE]
+> Se recomienda usar el [control de acceso basado en rol (RBAC)](../../storage/common/storage-auth-aad.md) para proteger la cuenta de almacenamiento y lograr una mayor seguridad y facilidad de uso mediante la autorización de claves compartidas.
+
+En este artículo se proporcionan ejemplos de código .NET que crea una definición de SAS y captura tokens de SAS. Consulte el ejemplo de [ShareLink](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/share-link/) para obtener información completa, incluido el cliente generado para las cuentas de almacenamiento administradas por Key Vault. Para más información sobre cómo crear y almacenar tokens de SAS, consulte [Administración de claves de cuenta de almacenamiento con Key Vault y la CLI de Azure](overview-storage-keys.md) o [Administración de claves de cuenta de almacenamiento con Key Vault y Azure PowerShell](overview-storage-keys-powershell.md).
 
 ## <a name="code-samples"></a>Ejemplos de código
 
-En este ejemplo, el código captura un token de SAS del almacén de claves, lo usa para crear una nueva cuenta de almacenamiento y crea un nuevo cliente de Blob service.
+En el ejemplo siguiente, vamos a crear una plantilla de SAS:
 
-```cs
-// The shared access signature is stored as a secret in keyvault. 
-// After you get a security token, create a new SecretClient with vault credentials and the key vault URI.
-// The format for the key vault URI (kvuri) is https://<YourKeyVaultName>.vault.azure.net
+:::code language="csharp" source="~/azure-sdk-for-net/sdk/keyvault/samples/sharelink/Program.cs" range="91-97":::
 
-var kv = new SecretClient(new Uri(kvUri), new DefaultAzureCredential());
+Con esta plantilla, se puede crear una definición de SAS mediante el código: 
 
-// Now retrive your storage SAS token from Key Vault using the name of the secret (secretName).
+:::code language="csharp" source="~/azure-sdk-for-net/sdk/keyvault/samples/sharelink/Program.cs" range="137-156":::
 
-KeyVaultSecret secret = client.GetSecret(secretName);
-var sasToken = secret.Value;
+Una vez creada la definición de SAS, puede recuperar los tokens de SAS como secretos mediante un `SecretClient`. Debe anteponer el nombre de la cuenta de almacenamiento al nombre del secreto, separados por un guion:
 
-// Create new storage credentials using the SAS token.
-StorageCredentials accountSAS = new StorageCredentials(sasToken);
+:::code language="csharp" source="~/azure-sdk-for-net/sdk/keyvault/samples/sharelink/Program.cs" range="52-58":::
 
-// Use these credentials and your storage account name to create a Blob service client.
-CloudStorageAccount accountWithSAS = new CloudStorageAccount(accountSAS, "<storage-account>", endpointSuffix: null, useHttps: true);
-CloudBlobClient blobClientWithSAS = accountWithSAS.CreateCloudBlobClient();
-```
+Si el token de la firma de acceso compartido está a punto de expirar, puede volver a capturar el mismo secreto para generar uno nuevo.
 
-Si el token de firma de acceso compartido está a punto de expirar, puede capturar el token de firma de acceso compartido desde el almacén de claves y actualizar el código.
-
-```cs
-// If your shared access signature token is about to expire,
-// get the shared access signature token again from Key Vault and update it.
-KeyVaultSecret secret = client.GetSecret(secretName);
-var sasToken = secret.Value;
-accountSAS.UpdateSASToken(sasToken);
-```
-
+Para obtener una guía sobre cómo usar el token de SAS recuperado de Key Vault para acceder a Azure Storage, consulte cómo [usar una cuenta de SAS para acceder a Blob service](https://docs.microsoft.com/azure/storage/common/storage-account-sas-create-dotnet#use-an-account-sas-from-a-client).
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Aprenda a [Otorgar acceso limitado a recursos de Azure Storage con SAS](../../storage/common/storage-sas-overview.md).

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 24117e914afa0e443ce979ae71eb506156fa11b3
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4fc8a0a4ea5063f52b6f9553018bddddd7bcf312
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830417"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974604"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Tutorial: Uso de Azure Security Center para supervisar las máquinas virtuales Linux
 
@@ -41,7 +41,7 @@ Para acceder a dicho panel, en Azure Portal, en el menú, seleccione **Security 
 
 Security Center no se limita a la detección de datos para proporcionar recomendaciones para solucionar los problemas que identifica. Por ejemplo, si se implementa una máquina virtual sin un grupo de seguridad de red conectado, Security Center mostrará una recomendación con los pasos que se pueden dar para aplicarla. Obtenga la corrección automatizada sin salir del contexto de Security Center.  
 
-![Recomendaciones](./media/tutorial-azure-security/recommendations.png)
+![La captura de pantalla muestra la página Recomendaciones, que incluye descripción, recurso, estado y gravedad de las recomendaciones.](./media/tutorial-azure-security/recommendations.png)
 
 ## <a name="set-up-data-collection"></a>Configuración de una recolección de datos
 

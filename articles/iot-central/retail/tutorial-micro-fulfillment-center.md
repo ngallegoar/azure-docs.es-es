@@ -5,14 +5,14 @@ author: avneet723
 ms.author: avneets
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: overview
+ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: 74deb4253a21445e21f7ef04f53f3bfe3f1fe0d0
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 880d8ee0e6e2b3984f6bea4b994642724085d512
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "81001274"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980539"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Tutorial: Implementación y recorrido por una plantilla de aplicación del centro de micrologística
 
@@ -62,11 +62,11 @@ Desde el panel se puede:
    * Ver el plan de la planta y la ubicación de los operadores robóticos en la estructura logística.
    * Desencadenar comandos, como restablecer el sistema de control, actualizar el firmware del operador y volver a configurar la red.
 
-     ![Captura de pantalla del panel del centro de micrologística de Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
+     ![Captura de pantalla de la mitad superior del panel del centro de micrologística de Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
    * Vea un ejemplo del panel que los operadores pueden usar para supervisar las condiciones del centro logístico. 
    * Supervise el estado de las cargas que se ejecutan en el dispositivo de puerta de enlace del centro logístico.    
 
-     ![Captura de pantalla del panel del centro de micrologística de Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
+     ![Captura de pantalla de la mitad inferior del panel del centro de micrologística de Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
 
 ## <a name="device-template"></a>Plantilla de dispositivo
 Si seleccione la pestaña de plantillas de dispositivos, verá que hay dos tipos de dispositivo diferentes que forman parte de la plantilla: 
@@ -91,6 +91,9 @@ Si no va a seguir usando esta aplicación, elimine la plantilla. Vaya a **Admini
 ![Captura de pantalla de la página de configuración de la aplicación del centro de micrologística](./media/tutorial-micro-fulfillment-center-app/delete.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Más información acerca de la [arquitectura de la solución del centro de micrologística](./architecture-micro-fulfillment-center.md).
-* Más información sobre otras [plantillas para minoristas de Azure IoT Central](./overview-iot-central-retail.md).
-* Lea la [introducción a Azure IoT Central](../preview/overview-iot-central.md).
+
+Más información acerca de
+> [!div class="nextstepaction"]
+> [arquitectura de la solución de centro de micrologística](./architecture-micro-fulfillment-center.md)
+* Más información sobre las [plantillas para minoristas de Azure IoT Central](./overview-iot-central-retail.md).
+* Más información en [Introducción a Azure IoT Central](../preview/overview-iot-central.md).

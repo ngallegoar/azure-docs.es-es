@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: a812155474b244682613b38b9b9379fa6cdcdcd8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 43ba14845765230b9a54c2b34dbc7ccd53af950b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "66117544"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969995"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Tutorial: Detección de anomalías mediante IoT Edge con el acelerador de soluciones de supervisión remota
 
@@ -26,7 +26,7 @@ Contoso desea implementar un módulo de inteligencia perimetral en la bomba de p
 
 El diagrama siguiente muestra los componentes clave en el escenario del tutorial:
 
-![Información general](media/iot-accelerators-remote-monitoring-edge/overview.png)
+![En el diagrama se muestra el conector de la bomba de aceite conectado al módulo de Azure Stream Analytics en IoT Edge en el dispositivo IoT Edge para datos de telemetría y comandos. Los datos de telemetría filtrados van al dispositivo IoT Edge en el acelerador de la solución de supervisión remota en la nube. La nube también contiene la implementación y el paquete. La implementación implementa el entorno de ejecución de IoT Edge en el dispositivo.](media/iot-accelerators-remote-monitoring-edge/overview.png)
 
 En este tutorial, hizo lo siguiente:
 
@@ -64,7 +64,7 @@ Para agregar un dispositivo IoT Edge al acelerador de soluciones de supervisión
 
 En el panel **Nuevo dispositivo**, elija **Dispositivo IoT Edge** y escriba **oil-pump** como identificador de dispositivo. Puede dejar los valores predeterminados para las demás opciones de configuración. A continuación, haga clic en **Aplicar**:
 
-[![Agregar dispositivo de IoT Edge](./media/iot-accelerators-remote-monitoring-edge/addedgedevice-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addedgedevice-expanded.png#lightbox)
+[![Adición de un dispositivo IoT Edge](./media/iot-accelerators-remote-monitoring-edge/addedgedevice-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addedgedevice-expanded.png#lightbox)
 
 Tome nota de la cadena de conexión del dispositivo; la necesitará en la siguiente sección de este tutorial.
 
@@ -78,12 +78,12 @@ Para facilitar la administración de dispositivos IoT Edge en la solución, cree
 
 1. Cree un trabajo para agregar la etiqueta **IsEdge** al dispositivo mediante la siguiente configuración:
 
-    | Configuración | Value |
+    | Configuración | Valor |
     | ------- | ----- |
     | Trabajo     | Etiquetas  |
     | Nombre del trabajo | AddEdgeTag |
     | Clave     | IsOilPump |
-    | Value   | Y     |
+    | Valor   | Y     |
     | Tipo    | Texto  |
 
     [![Agregar etiqueta](./media/iot-accelerators-remote-monitoring-edge/addtag-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addtag-expanded.png#lightbox)
@@ -94,12 +94,12 @@ Para facilitar la administración de dispositivos IoT Edge en la solución, cree
 
 1. Haga clic en **Crear un nuevo grupo de dispositivos**. Cree un nuevo grupo de dispositivos con la siguiente configuración:
 
-    | Configuración | Value |
+    | Configuración | Valor |
     | ------- | ----- |
     | Nombre    | OilPumps |
     | Campo   | Tags.IsOilPump |
     | Operator | = Equals |
-    | Value    | Y |
+    | Valor    | Y |
     | Tipo     | Texto |
 
     [![Crear grupo de dispositivos](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-inline.png)](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-expanded.png#lightbox)
@@ -164,7 +164,7 @@ Puede definir el trabajo de Stream Analytics en el portal antes de empaquetarlo 
     | Subscription | Su suscripción de Azure |
     | Resource group | IoTEdgeDevices |
     | Location | Este de EE. UU. |
-    | Entorno de hospedaje | perimetral |
+    | Entorno de hospedaje | Borde |
     | Unidades de streaming | 1 |
 
 1. Abra el trabajo **EdgeDeviceJob** de Stream Analytics en el portal, haga clic en Entradas, y agregue una entrada de flujo de **Edge Hub** denominada **telemetría**.
@@ -239,7 +239,7 @@ A continuación, puede crear un manifiesto de implementación de IoT Edge que de
 
 1. En la página **Crear implementación > Revisar la implementación**, haga clic en **Enviar**:
 
-    [![Revisar la implementación](./media/iot-accelerators-remote-monitoring-edge/reviewdeployment-inline.png)](./media/iot-accelerators-remote-monitoring-edge/reviewdeployment-expanded.png#lightbox)
+    [![Revisión de la implementación](./media/iot-accelerators-remote-monitoring-edge/reviewdeployment-inline.png)](./media/iot-accelerators-remote-monitoring-edge/reviewdeployment-expanded.png#lightbox)
 
 1. En la página principal de **IoT Edge**, haga clic en **Implementaciones de IoT Edge**. Puede ver que **oil-pump-device** está en la lista de implementaciones.
 
@@ -257,7 +257,7 @@ En esta sección, va a importar el manifiesto de Edge como un paquete en la solu
 
 1. En el panel **Nuevo paquete**, seleccione **Manifiesto de Edge** como tipo de paquete, haga clic en **Examinar** para buscar el archivo **oil-pump-device.json** en la máquina local y haga clic en **Cargar**:
 
-    [![Cargar paquete](./media/iot-accelerators-remote-monitoring-edge/uploadpackage-inline.png)](./media/iot-accelerators-remote-monitoring-edge/uploadpackage-expanded.png#lightbox)
+    [![Carga del paquete](./media/iot-accelerators-remote-monitoring-edge/uploadpackage-inline.png)](./media/iot-accelerators-remote-monitoring-edge/uploadpackage-expanded.png#lightbox)
 
     La lista de paquetes incluye ahora el paquete **oil-pump-device.json**.
 
@@ -273,7 +273,7 @@ Ahora ya está listo para implementar el paquete en el dispositivo.
 
 1. En el panel **Nueva implementación**, cree una implementación con la siguiente configuración:
 
-    | Opción | Value |
+    | Opción | Valor |
     | ------ | ----- |
     | Nombre   | OilPumpDevices |
     | Tipo de paquete | Manifiesto de Edge |
@@ -312,7 +312,7 @@ Si desea notificar a los operadores cuando se alcance el umbral, puede crear una
 1. Vaya a la página **Reglas** y haga clic en **+ Nueva regla**.
 1. Cree una nueva regla con la siguiente configuración:
 
-    | Opción | Value |
+    | Opción | Valor |
     | ------ | ----- |
     | Nombre de la regla | Temperatura de la bomba de petróleo |
     | Descripción | La temperatura de la bomba de petróleo es superior a 300 |
@@ -320,7 +320,7 @@ Si desea notificar a los operadores cuando se alcance el umbral, puede crear una
     | Cálculo | Instantánea |
     | Campo | temperatura |
     | Operator | > |
-    | Value | 300 |
+    | Valor | 300 |
     | Nivel de gravedad | Información |
 
     [![Crear regla](./media/iot-accelerators-remote-monitoring-edge/newrule-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newrule-expanded.png#lightbox)

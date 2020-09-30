@@ -1,5 +1,6 @@
 ---
 title: Traslado de máquinas virtuales a una región de Azure con zonas de disponibilidad mediante Azure Site Recovery
+description: Obtenga información sobre cómo migrar máquinas virtuales a una zona de disponibilidad en otra región con Site Recovery
 services: site-recovery
 author: sideeksh
 ms.service: site-recovery
@@ -7,14 +8,18 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sideeksh
 ms.custom: MVC
-ms.openlocfilehash: c1a552ba634234ac3b4d4a8eec260c739ce0d846
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: fd541e551102b205acff28b6bc06bc88abd14763
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425479"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605114"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Traslado de máquinas virtuales de Azure a zonas de disponibilidad
+
+En este artículo se describe cómo migrar máquinas virtuales de Azure a una zona de disponibilidad de otra región. Si desea cambiar a otra zona de la misma región, [revise este artículo](./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
+
+
 En Azure, Availability Zones ayuda a proteger las aplicaciones y los datos de errores del centro de datos. Cada zona de disponibilidad consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes. Para garantizar la resistencia, hay tres zonas independientes como mínimo en todas las regiones habilitadas. La separación física de Availability Zones dentro de una región ayuda a proteger las aplicaciones y los datos frente a los errores del centro de datos. Con la incorporación de Availability Zones, Azure ofrece un acuerdo de nivel de servicio (SLA) que garantiza un tiempo de actividad de las máquinas virtuales (VM) del 99,99 %. Availability Zones se admite en determinadas regiones, tal como se indica en [Regiones que admiten Availability Zones](../availability-zones/az-region.md).
 
 En un escenario en el que se implementan las máquinas virtuales como de *instancia única* en una región específica y desea mejorar la disponibilidad trasladándolas a una instancia de Availability Zones, puede hacerlo con Azure Site Recovery. Esta acción se puede categorizar aún más al hacer lo siguiente:
@@ -23,7 +28,15 @@ En un escenario en el que se implementan las máquinas virtuales como de *instan
 - Trasladar máquinas virtuales de un conjunto de disponibilidad a Availability Zones en una región de destino
 
 > [!IMPORTANT]
-> Actualmente, Azure Site Recovery permite trasladar máquinas virtuales de una región a otra. Sin embargo, en algunas regiones, solo se admite el movimiento entre zonas dentro de una región. [Más información](./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
+> Para trasladar máquinas virtuales de Azure a una zona de disponibilidad en otra región, ahora se recomienda usar [Azure Resource Mover](../resource-mover/move-region-availability-zone.md). Resource Mover está en versión preliminar pública y proporciona:
+> - Un solo centro para trasladar recursos entre regiones.
+> - Menores tiempo de traslado y complejidad. Todo lo que necesita está en una única ubicación.
+> - Una experiencia sencilla y coherente para trasladar distintos tipos de recursos de Azure.
+> - Una manera fácil de identificar las dependencias entre los recursos que desee trasladar. Esto le ayuda a trasladar los recursos relacionados de forma conjunta, de modo que todo funciona según lo previsto en la región de destino, después del traslado.
+> - La limpieza automática de los recursos de la región de origen, si desea eliminarlos después del traslado.
+> - Pruebas. Puede probar un traslado y, a continuación, descartarlo si no desea completarlo.
+
+
 
 ## <a name="check-prerequisites"></a>Comprobación de los requisitos previos
 

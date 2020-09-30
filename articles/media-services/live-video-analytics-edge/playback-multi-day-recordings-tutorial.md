@@ -3,12 +3,12 @@ title: 'Reproducción de las grabaciones de varios días: Azure'
 description: En este tutorial, obtendrá información sobre cómo usar las API de Azure Media Services para reproducir una grabación continua de vídeo de varios días.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 19a42c61ef250fecce4503d3aed70b36d71ee3cf
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: e01c8603869f17ef2d68a39861f11818a4cea975
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649098"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530580"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Tutorial: Reproducción de las grabaciones de varios días  
 
@@ -72,11 +72,11 @@ Después, en Visual Studio Code, abra src/ams-asset-player. Esta carpeta contie
 
 En Visual Studio Code, puede hacer clic en el icono de ejecución de la izquierda (o Ctrl + Mayús + D) para que se ejecuten las aplicaciones disponibles:
 
-![Ejecute](./media/playback-multi-day-recordings-tutorial/run.png)
+![Captura de pantalla que muestra un menú en Visual Studio Code con el elemento de ejecución seleccionado.](./media/playback-multi-day-recordings-tutorial/run.png)
  
 Seleccione la aplicación del reproductor de recursos de AMS en el cuadro desplegable, como se muestra a continuación, y presione F5 para iniciar la depuración.
 
-![Depurar](./media/playback-multi-day-recordings-tutorial/debug.png)
+![Captura de pantalla que muestra un menú en Visual Studio Code con el reproductor de recursos de AMS seleccionado.](./media/playback-multi-day-recordings-tutorial/debug.png)
 
 La aplicación de ejemplo compilará e iniciará la aplicación predeterminada del explorador y abrirá la página del reproductor de recursos de AMS.
 

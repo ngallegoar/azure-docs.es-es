@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: b63aa2b2d98a12246d0dc2c35e015da872caff28
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4b05bbf818676cc70f485dd94ece79141e8f01a4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83641102"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982858"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Tutorial: Compilación de un demonio multiinquilino que usa el punto de conexión de la plataforma de identidad de Microsoft
 
@@ -41,7 +41,7 @@ El componente "demonio" de este ejemplo es un controlador de API `SyncController
 
 Dado que la aplicación es una aplicación multiinquilino para clientes empresariales de Microsoft, debe proporcionar a los clientes una forma de "registrar" la aplicación o "conectarla" a los datos de la empresa. Durante el flujo de conexión, el administrador de una empresa concede primero los *permisos de aplicación* directamente a la aplicación, de forma que pueda acceder a los datos de la empresa de manera no interactiva, sin la presencia de los usuarios que han iniciado la sesión. La mayoría de la lógica de este ejemplo muestra cómo lograr este flujo de conexión mediante el punto de conexión de [consentimiento del administrador](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) de la plataforma de identidad.
 
-![Topología](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
+![En el diagrama se muestra la aplicación UserSync con tres elementos locales que se conectan a Azure, con la autenticación de punto inicial que adquiere un token de forma interactiva para conectarse a Azure AD, AccountController que obtiene el consentimiento de administrador para conectarse a Azure AD y SyncController que lee al usuario para conectarse a Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
 Para más información sobre los conceptos que se usan en este ejemplo, lea la [documentación del protocolo de credenciales de cliente del punto de conexión de la plataforma de identidad](v2-oauth2-client-creds-grant-flow.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Definición de un nuevo tipo de dispositivo de puerta de enlace en Azure IoT Central | Microsoft Docs
+title: 'Tutorial: Definición de un nuevo tipo de dispositivo de puerta de enlace en Azure IoT Central | Microsoft Docs'
 description: Este tutorial le muestra, como desarrollador, cómo definir un nuevo tipo de dispositivo de puerta de enlace de IoT en la aplicación de Azure IoT Central.
 author: rangv
 ms.author: rangv
@@ -9,14 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 2411eab50cc921a09ba55780b3c6620744a78f3f
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 58e481e34d9f798b73b72b114b071cf035c3319f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758132"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967910"
 ---
-# <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Definición de un nuevo tipo de dispositivo de puerta de enlace de IoT en la aplicación de Azure IoT Central
+# <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definición de un nuevo tipo de dispositivo de puerta de enlace de IoT en la aplicación de Azure IoT Central
 
 *Este artículo se aplica a los generadores de soluciones y a los desarrolladores de dispositivos.*
 
@@ -31,6 +31,9 @@ Además de permitir que los dispositivos de nivel inferior se comuniquen con la 
 * Enviar sus propios datos de telemetría como, por ejemplo, la temperatura.
 * Responder a las actualizaciones de propiedades grabables que realiza un operador. Por ejemplo, un operador podría cambiar el intervalo de envío de datos de telemetría.
 * Responder a comandos como, por ejemplo, el reinicio del dispositivo.
+
+> [!div class="checklist"]
+> Crear plantillas de dispositivo de bajada Crear una plantilla de dispositivo de puerta de enlace Publicar la plantilla de dispositivo Crear los dispositivos simulados
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

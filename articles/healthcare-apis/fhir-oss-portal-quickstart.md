@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 7fa119db0c974c93aff667060d153b21b8de16bb
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 57ab6bca820c4c25a9a56e4a801aa7d917d317ec
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843494"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978579"
 ---
 # <a name="quickstart-deploy-open-source-fhir-server-using-azure-portal"></a>Inicio rápido: Implementación del servidor de FHIR de código abierto mediante Azure Portal
 
@@ -25,17 +25,17 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Vaya a la [página de implementación de GitHub](https://github.com/Microsoft/fhir-server/blob/master/docs/DefaultDeployment.md) y busque los botones "Implementar en Azure":
 
-![Página Implementación de código abierto](media/quickstart-oss-portal/deployment-page-oss.png)
+>[!div class="mx-imgBorder"]
+>![Página Implementación de código abierto](media/quickstart-oss-portal/deployment-page-oss.png)
 
 Haga clic en el botón de implementación y se abrirá Azure Portal.
 
 ## <a name="fill-in-deployment-parameters"></a>Rellenar los parámetros de implementación
 
-Cree un grupo de recursos y asígnele un nombre. El otro único parámetro necesario es un nombre para el servicio.
+Cree un grupo de recursos y asígnele un nombre. Solo otros parámetros obligatorios constituyen un nombre para el servicio y la contraseña de administrador de SQL.
 
-![Parámetros de implementación personalizada](media/quickstart-oss-portal/deployment-custom-parameters.png)
-
-Tenga en cuenta que la implementación extraerá el código fuente directamente del repositorio de código abierto de GitHub. Si ha bifurcado el repositorio, puede apuntar al suyo propio y a una rama específica.
+>[!div class="mx-imgBorder"]
+>![Parámetros de implementación personalizada](media/quickstart-oss-portal/deployment-custom-parameters.png)
 
 Después de rellenar los detalles, puede iniciar la implementación.
 

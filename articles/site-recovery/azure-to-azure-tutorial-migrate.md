@@ -1,6 +1,6 @@
 ---
-title: Traslado de máquinas virtuales de IaaS de Azure a otra región con Azure Site Recovery
-description: Use Azure Site Recovery para mover máquinas virtuales de IaaS de Azure de una región de Azure a otra.
+title: Traslado de máquinas virtuales de Azure a otra región de Azure con Azure Site Recovery
+description: Use Azure Site Recovery para trasladar máquinas virtuales de Azure de una región de Azure a otra.
 services: site-recovery
 author: Sharmistha-Rai
 ms.service: site-recovery
@@ -8,20 +8,20 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sharrai
 ms.custom: MVC
-ms.openlocfilehash: e8f14b86678f7d395f445438d7e869168b13e54b
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: f33d5ff37cbc9923262963b3e59b9266ea6760a6
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425932"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006421"
 ---
-# <a name="move-azure-vms-to-another-region"></a>Traslado de máquinas virtuales de Azure a otra región
+# <a name="move-vms-to-another-azure-region"></a>Traslado de máquinas virtuales a otra región de Azure
 
 Hay varios escenarios en los que puede desear mover las máquinas virtuales de Azure IaaS existentes de una región a otra. Por ejemplo, si desea mejorar la confiabilidad y disponibilidad de las máquinas virtuales existentes, para mejorar la capacidad de administración, o si quiere moverlas por motivos de gobernanza. Para más información, consulte [Introducción al traslado de máquinas virtuales de Azure](azure-to-azure-move-overview.md). 
 
-Puede usar el servicio [Azure Site Recovery](site-recovery-overview.md) para administrar y coordinar la recuperación ante desastres de máquinas locales y máquinas virtuales de Azure para la continuidad empresarial y recuperación ante desastres (BCDR). También puede usar Site Recovery para administrar el movimiento de máquinas virtuales de Azure a una región secundaria.
+Puede usar el servicio [Azure Site Recovery](site-recovery-overview.md) para trasladar máquinas virtuales de Azure a una región secundaria.
 
-En este tutorial, aprenderá lo siguiente:
+En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > 
@@ -30,7 +30,19 @@ En este tutorial, aprenderá lo siguiente:
 > * Copiar los datos y habilitar la replicación
 > * Probar la configuración y realizar el traslado
 > * Eliminar los recursos en la región de origen
-> 
+
+
+> [!IMPORTANT]
+> Para trasladar máquinas virtuales de Azure a otra región, ahora se recomienda usar [Azure Resource Mover](../resource-mover/tutorial-move-region-virtual-machines.md). Resource Mover está en versión preliminar pública y proporciona:
+> - Un solo centro para trasladar recursos entre regiones.
+> - Menores tiempo de traslado y complejidad. Todo lo que necesita está en una única ubicación.
+> - Una experiencia sencilla y coherente para trasladar distintos tipos de recursos de Azure.
+> - Una manera fácil de identificar las dependencias entre los recursos que desee trasladar. Esto le ayuda a trasladar los recursos relacionados de forma conjunta, de modo que todo funciona según lo previsto en la región de destino, después del traslado.
+> - La limpieza automática de los recursos de la región de origen, si desea eliminarlos después del traslado.
+> - Pruebas. Puede probar un traslado y, a continuación, descartarlo si no desea completarlo.
+
+
+
 > [!NOTE]
 > En este tutorial se muestra cómo trasladar las máquinas virtuales de Azure de una región a otra tal cual. Si tiene que mejorar la disponibilidad moviendo las máquinas virtuales en un conjunto de disponibilidad a máquinas virtuales ancladas a la zona en una región distinta, consulte el [tutorial Traslado de máquinas virtuales de Azure a zonas de disponibilidad](move-azure-vms-avset-azone.md).
 

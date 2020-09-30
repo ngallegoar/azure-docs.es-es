@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 38ac4f1bf6a1dd4656b4e7d5783051f3b381940c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d91ada217d54f424803abfeb31dcad237b5fe05c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546821"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979925"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-netweaver"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con SAP NetWeaver
 
@@ -26,9 +26,7 @@ En este tutorial, aprenderá a integrar SAP NetWeaver con Azure Active Directory
 * Permitir que los usuarios inicien sesión automáticamente en SAP NetWeaver con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -38,7 +36,10 @@ Para empezar, necesita los siguientes elementos:
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
-SAP NetWeaver admite tanto **SAML** (**SSO iniciado por el SP**) como **OAuth**. En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba. 
+* SAP NetWeaver admite tanto **SAML** (**SSO iniciado por el SP**) como **OAuth**. En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba. 
+
+> [!NOTE]
+> El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
 
 > [!NOTE]
 > Configure la aplicación en SAML o en OAuth, según el requisito de la organización. 
@@ -47,18 +48,18 @@ SAP NetWeaver admite tanto **SAML** (**SSO iniciado por el SP**) como **OAuth**.
 
 Para configurar la integración de SAP NetWeaver en Azure AD, deberá agregar esta solución desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
 1. En la sección **Agregar desde la galería**, escriba **SAP NetWeaver** en el cuadro de búsqueda.
 1. Seleccione **SAP NetWeaver** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-sap-netweaver"></a>Configuración y prueba del inicio de sesión único de Azure AD para SAP NetWeaver
+## <a name="configure-and-test-azure-ad-sso-for-sap-netweaver"></a>Configuración y prueba del inicio de sesión único de Azure AD para SAP NetWeaver
 
 Configure y pruebe el inicio de sesión único de Azure AD con SAP NetWeaver mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de SAP NetWeaver.
 
-Para configurar y probar el inicio de sesión único de Azure AD con SAP NetWeaver, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con SAP NetWeaver, siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
@@ -99,7 +100,7 @@ Para configurar el inicio de sesión único de Azure AD con SAP NetWeaver, reali
 
     c. Haga doble clic en el cliente pertinente para habilitar la sesión de seguridad HTTP.
 
-    ![Vínculo de descarga del certificado](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_profileparameter.png)
+    ![La sesión de seguridad HTTP ](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_profileparameter.png)
 
     d. Active los siguientes servicios SICF:
     ```
@@ -110,22 +111,22 @@ Para configurar el inicio de sesión único de Azure AD con SAP NetWeaver, reali
     ```
 1. Vaya al código de transacción **SAML2** en el cliente empresarial del sistema SAP [T01/122]. Se abrirá una interfaz de usuario en el explorador. En este ejemplo, se supone a 122 como el cliente empresarial SAP.
 
-    ![Vínculo de descarga del certificado](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_sapbusinessclient.png)
+    ![Código de transacción](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_sapbusinessclient.png)
 
 1. Indique su nombre de usuario y contraseña para ingresar a la interfaz de usuario y haga clic en **Editar**.
 
-    ![Vínculo de descarga del certificado](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_userpwd.png)
+    ![nombre de usuario y contraseña](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_userpwd.png)
 
 1. Reemplace el **nombre del proveedor** de T01122 por `http://T01122` y haga clic en **Guardar**.
 
     > [!NOTE]
     > De forma predeterminada, el nombre de proveedor tiene el formato `<sid><client>`, pero Azure AD espera que el nombre tenga el formato `<protocol>://<name>`. Se recomienda que el nombre del proveedor se mantenga como `https://<sid><client>` para permitir la configuración de varios motores ABAP de SAP NetWeaver en Azure AD.
 
-    ![Vínculo de descarga del certificado](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_providername.png)
+    ![Los numerosos motores de ABAP de SAP NetWeaver](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_providername.png)
 
 1. **Generación de metadatos del proveedor de servicio**: una vez que hemos terminado con la configuración del **proveedor local** y de los **proveedores de confianza** en la interfaz de usuario de SAML 2.0, el siguiente paso sería generar el archivo de metadatos del proveedor de servicios (que contendrá todas las configuraciones, contextos de autenticación y otras configuraciones de SAP). Una vez que se genera este archivo, es necesario cargarlo en Azure AD.
 
-    ![Vínculo de descarga del certificado](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_generatesp.png)
+    ![Generación de metadatos del proveedor de servicios](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_generatesp.png)
 
     a. Vaya a **la pestaña Proveedor local**.
 
@@ -135,7 +136,7 @@ Para configurar el inicio de sesión único de Azure AD con SAP NetWeaver, reali
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **SAP NetWeaver**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de la aplicación **SAP NetWeaver**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, seleccione **SAML**.
 1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
@@ -160,13 +161,13 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. La aplicación SAP NetWeaver espera las aserciones de SAML en un formato específico, lo que requiere que se agreguen asignaciones de atributo personalizadas a la configuración de los atributos del token SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo Atributos de usuario.
 
-    ![imagen](common/edit-attribute.png)
+    ![atributo editar](common/edit-attribute.png)
 
 1. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, configure el atributo Token SAML como muestra la imagen anterior y realice los siguientes pasos:
 
     a. Haga clic en el **icono Editar** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
-    ![imagen](./media/sapnetweaver-tutorial/nameidattribute.png)
+    ![icono editar](./media/sapnetweaver-tutorial/nameidattribute.png)
 
     ![imagen](./media/sapnetweaver-tutorial/nameidattribute1.png)
 
@@ -203,13 +204,7 @@ En esta sección, va a permitir que B.Simon acceda a SAP NetWeaver mediante el i
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
 1. En la lista de aplicaciones, seleccione **SAP NetWeaver**.
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
-    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
 1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-
-    ![Vínculo de Agregar usuario](common/add-assign-user.png)
-
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
@@ -220,81 +215,81 @@ En esta sección, va a permitir que B.Simon acceda a SAP NetWeaver mediante el i
 
 2. Para configurar puntos de conexión para el proveedor de identidades de confianza (Azure AD), vaya a la pestaña **Proveedores de confianza**.
 
-    ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_samlconfig.png)
+    ![Configuración de proveedores de confianza de inicio de sesión único](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_samlconfig.png)
 
 3. Presione **Agregar** y seleccione **Cargar archivo de metadatos** en el menú contextual.
 
-    ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_uploadmetadata.png)
+    ![Configuración de inicio de sesión único 2](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_uploadmetadata.png)
 
 4. Cargue el archivo de metadatos que ha descargado desde Azure Portal.
 
-    ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_metadatafile.png)
+    ![Configuración de inicio de sesión único 3](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_metadatafile.png)
 
 5. En la siguiente pantalla, escriba el nombre de alias. Por ejemplo, aadsts, y presione **Siguiente** para continuar.
 
-    ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_aliasname.png)
+    ![Configuración de inicio de sesión único 4](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_aliasname.png)
 
 6. Asegúrese de que su **algoritmo de síntesis** sea **SHA-256** y no requiera de ningún cambio y presione **Siguiente**.
 
-    ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_identityprovider.png)
+    ![Configurar inicio de sesión único 5](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_identityprovider.png)
 
 7. En **Single Sign-On Endpoints** (Puntos de conexión de inicio de sesión único), utilice **HTTP POST** y haga clic en **Siguiente** para continuar.
 
-    ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_httpredirect.png)
+    ![Configuración de inicio de sesión único 6](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_httpredirect.png)
 
 8. En **Single Logout Endpoints** (Puntos de conexión de cierre de sesión único), seleccione **HTTPRedirect** y haga clic en **Siguiente** para continuar.
 
-    ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_httpredirect1.png)
+    ![Configuración de inicio de sesión único 7](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_httpredirect1.png)
 
 9. En **Artifact Endpoints** (Puntos de conexión de artefacto), presione **Siguiente** para continuar.
 
-    ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_artifactendpoint.png)
+    ![Configuración de inicio de sesión único 8](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_artifactendpoint.png)
 
 10. En **Requisitos de autenticación**, haga clic en **Finalizar**.
 
-    ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_authentication.png)
+    ![Configuración de inicio de sesión único 9](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_authentication.png)
 
 11. Vaya a la pestaña **Proveedor de confianza** > **Federación de identidades** (desde la parte inferior de la pantalla). Haga clic en **Editar**.
 
-    ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_trustedprovider.png)
+    ![Configuración de inicio de sesión único 10](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_trustedprovider.png)
 
 12. Haga clic en **Agregar** bajo la pestaña **Federación de identidades** (ventana de la parte inferior).
 
-    ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_addidentityprovider.png)
+    ![Configuración de inicio de sesión único 11](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_addidentityprovider.png)
 
 13. En la ventana emergente, seleccione **Sin especificar** en **Formatos de NameID admitidos** y haga clic en Aceptar.
 
-    ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameid.png)
+    ![Configuración de inicio de sesión único 12](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameid.png)
 
 14. Tenga en cuenta que los valores **origen del id. de usuario** y **modo de asignación de id. de usuario** determinan el vínculo entre el usuario SAP y la notificación de Azure AD.  
 
-    #### <a name="scenario-sap-user-to-azure-ad-user-mapping"></a>Escenario: Usuario SAP para la asignación de usuario de Azure AD.
+    #### <a name="scenario-sap-user-to-azure-ad-user-mapping"></a>Escenario: usuario SAP para la asignación de usuario de Azure AD.
 
     a. Captura de pantalla de los detalles de NameID de SAP.
 
-    ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/nameiddetails.png)
+    ![Configuración de inicio de sesión único 13](./media/sapnetweaver-tutorial/nameiddetails.png)
 
     b. Captura de pantalla en la que se mencionan las notificaciones necesarias de Azure AD.
 
-    ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/claimsaad1.png)
+    ![Configuración de inicio de sesión único 14](./media/sapnetweaver-tutorial/claimsaad1.png)
 
     #### <a name="scenario-select-sap-user-id-based-on-configured-email-address-in-su01-in-this-case-email-id-should-be-configured-in-su01-for-each-user-who-requires-sso"></a>Escenario: Seleccione el identificador de usuario SAP según la dirección de correo electrónico configurada en SU01. En este caso, el identificador de correo electrónico debe configurarse en su01 para cada usuario que requiera del inicio de sesión único.
 
     a.  Captura de pantalla de los detalles de NameID de SAP.
 
-    ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameiddetails1.png)
+    ![Configuración de inicio de sesión único 15](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameiddetails1.png)
 
     b. Captura de pantalla en la que se mencionan las notificaciones necesarias de Azure AD.
 
-    ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/claimsaad2.png)
+    ![Configuración de inicio de sesión único 16](./media/sapnetweaver-tutorial/claimsaad2.png)
 
 15. Haga clic en **Guardar** y, a continuación, haga clic en **Habilitar** para habilitar el proveedor de identidades.
 
-    ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/configuration1.png)
+    ![Configuración de inicio de sesión único 17](./media/sapnetweaver-tutorial/configuration1.png)
 
 16. Haga clic en **Aceptar** cuando se le solicite.
 
-    ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/configuration2.png)
+    ![Configuración de inicio de sesión único 18](./media/sapnetweaver-tutorial/configuration2.png)
 
     ### <a name="create-sap-netweaver-test-user"></a>Creación de un usuario de prueba de SAP NetWeaver
 
@@ -315,7 +310,7 @@ En esta sección, va a permitir que B.Simon acceda a SAP NetWeaver mediante el i
 
 2. La dirección URL anterior debería dirigirlo a la pantalla que se menciona a continuación. Si puede acceder a la página a continuación, la configuración de SSO de Azure AD se realizó correctamente.
 
-    ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/testingsso.png)
+    ![prueba de inicio de sesión único](./media/sapnetweaver-tutorial/testingsso.png)
 
 3. Si se le solicita el nombre de usuario y contraseña, diagnostique el problema al habilitar el seguimiento mediante la siguiente dirección URL
 
@@ -327,17 +322,17 @@ En esta sección, va a permitir que B.Simon acceda a SAP NetWeaver mediante el i
 
 2. Vaya a SPRO y busque **Activate and Maintain Services** (Activar y mantener servicios).
 
-    ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/oauth01.png)
+    ![Activación y mantenimiento de servicios](./media/sapnetweaver-tutorial/oauth01.png)
 
 3. En este ejemplo, queremos conectar el servicio de OData: `DAAG_MNGGRP` con OAuth para el inicio de sesión único de Azure AD. Use la búsqueda de nombre de servicio técnico para localizar el servicio `DAAG_MNGGRP` y actívelo si no lo está ya (busque el estado `green` en la pestaña ICF Nodes [Nodos de ICF]). Asegúrese de que el alias del sistema (el sistema back-end conectado en el que se ejecuta realmente el servicio) es correcto.
 
-    ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/oauth02.png)
+    ![Servicio OData](./media/sapnetweaver-tutorial/oauth02.png)
 
     * Después, haga clic en el botón **OAuth** en la barra de botones superior y asigne el valor de `scope` (mantenga el nombre predeterminado tal como se ofrece).
 
 4. En nuestro ejemplo, el ámbito es `DAAG_MNGGRP_001`, se genera a partir del nombre del servicio agregando automáticamente un número. Se puede usar el informe `/IWFND/R_OAUTH_SCOPES` para cambiar el nombre del ámbito o crearlo manualmente.
 
-    ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/oauth03.png)
+    ![Configuración de OAuth](./media/sapnetweaver-tutorial/oauth03.png)
 
     > [!NOTE]
     > El mensaje `soft state status is not supported` se puede pasar por alto, no supone ningún problema. Para más detalles, consulte [aquí](https://help.sap.com/doc/saphelp_nw74/7.4.16/1e/c60c33be784846aad62716b4a1df39/content.htm?no_cache=true).
@@ -359,32 +354,26 @@ En esta sección, va a permitir que B.Simon acceda a SAP NetWeaver mediante el i
 
 2. Vaya al código de transacción **SOAUTH2** y proporcione la descripción; después, haga clic en **Next** (Siguiente).
 
-    ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/oauth04.png)
+    ![SOAUTH2](./media/sapnetweaver-tutorial/oauth04.png)
 
-    ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/oauth05.png)
+    ![Id. de cliente de OAuth 2.0](./media/sapnetweaver-tutorial/oauth05.png)
 
 3. En la lista desplegable, seleccione el proveedor de identidades **SAML2 IdP – Azure AD** ya agregado y guarde.
 
-    ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/oauth06.png)
+    ![SAML2 IdP: Azure AD 1](./media/sapnetweaver-tutorial/oauth06.png)
 
-    ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/oauth07.png)
+    ![SAML2 IdP: Azure AD 2](./media/sapnetweaver-tutorial/oauth07.png)
 
-    ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/oauth08.png)
+    ![SAML2 IdP: Azure AD 3](./media/sapnetweaver-tutorial/oauth08.png)
 
 4. Haga clic en **Add** (Agregar) en la asignación de ámbito para agregar el ámbito creado anteriormente: `DAAG_MNGGRP_001`.
 
-    ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/oauth09.png)
+    ![Ámbito](./media/sapnetweaver-tutorial/oauth09.png)
 
-    ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/oauth10.png)
+    ![asignación de ámbito](./media/sapnetweaver-tutorial/oauth10.png)
 
 5. Haga clic en **Finish** (Finalizar).
 
-## <a name="additional-resources"></a>Recursos adicionales
+## <a name="next-steps"></a>Pasos siguientes
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
-- [Pruebe SAP NetWeaver con Azure AD](https://aad.portal.azure.com/).
+Una vez que haya configurado Azure AD SAP NetWeaver, puede aplicar el control de sesión, que protege su organización en tiempo real frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).

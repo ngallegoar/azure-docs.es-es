@@ -3,15 +3,15 @@ title: Grupo de hosts de Windows Virtual Desktop en Azure Portal
 description: Creación de un grupo de hosts de Windows Virtual Desktop con Azure Portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 09/01/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b6d54c226dd3a156ff6164f87fc755aac3dd040c
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: da944f74fd6214e1b69a3ee7d230e72accd4e2e4
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322592"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084369"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Creación de un grupo de hosts con Azure Portal
 
@@ -188,6 +188,13 @@ Para registrar el grupo de aplicaciones de escritorio en un área de trabajo:
      - Un vínculo de descarga de una plantilla de administración de recursos de Azure basada en la configuración.
 
 Y ya está.
+
+## <a name="run-the-azure-resource-manager-template-to-provision-a-new-host-pool"></a>Ejecución de la plantilla de Azure Resource Manager para el aprovisionamiento de un nuevo grupo de hosts
+
+Si prefiere utilizar un proceso automatizado, [descargue nuestra plantilla de Azure Resource Manager](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) para aprovisionar el nuevo grupo de hosts en su lugar.
+
+>[!NOTE]
+>Si utiliza un proceso automatizado para compilar su entorno, necesitará la versión más reciente del archivo JSON de configuración (que se encuentra [aquí](https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts?restype=container&comp=list)).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

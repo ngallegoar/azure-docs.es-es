@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 8b338f25e9771f5947fd494cfb00d0f6cb9ef67a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 897e36a6c5165549d7809512d0298fa2cfed2fa8
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75450831"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606299"
 ---
 1. Seleccione **Conectar sitios de VPN** para abrir la página **Conectar sitios**.
 
-    ![connect](./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png "conectar")
+    ![Captura de pantalla que muestra el panel de Sitios conectados del centro de conectividad virtual listo para una clave precompartida y la configuración asociada.](./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png "conectar")
 
    Rellene los siguientes campos:
 
@@ -28,7 +28,7 @@ ms.locfileid: "75450831"
 2. Seleccione **Conectar**.
 3. En unos minutos, el sitio mostrará la conexión y el estado de conectividad.
 
-   ![status](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
+   ![Captura de pantalla que muestra el estado de una conexión de sitio a sitio VPN y la conectividad.](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
 
    **Estado de la conexión:** Este es el estado del recurso de Azure para la conexión que conecta el sitio VPN a la puerta de enlace de VPN del centro de conectividad de Azure. Una vez que esta operación de plano de control se realiza correctamente, la puerta de enlace de VPN de Azure y el dispositivo VPN local procederán a establecer la conectividad.
 

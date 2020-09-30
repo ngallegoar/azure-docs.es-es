@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-javascript
-ms.openlocfilehash: c83a67f7d524a062485f2c68e0adb7fdd2855a84
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 6025e1c257ad7b94586ceb4f89c02c3a44c59c3e
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462180"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090319"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Tutorial: Implementación de una aplicación en máquinas virtuales Linux de Azure con Azure DevOps Services y Azure Pipelines
 
@@ -147,6 +147,7 @@ Necesitará una canalización de compilación de integración continua (CI) que 
 Seleccione la plantilla **starter** y copie el fragmento de código de YAML siguiente que compila el proyecto de Java y ejecuta las pruebas con Apache Maven:
 
 ```YAML
+jobs:
 - job: Build
   displayName: Build Maven Project
   steps:
@@ -209,7 +210,7 @@ Para más información, siga los pasos descritos en [Compilación de la aplicaci
 
 ## <a name="define-cd-steps-to-deploy-to-the-linux-vm"></a>Definición de los pasos de CD para realizar la implementación en la máquina virtual Linux
 
-1. Edite la canalización anterior e incluya un [trabajo de implementación](/azure/devops/pipelines/process/deployment-jobs); para ello, haga referencia al entorno y a los recursos de la máquina virtual que ha utilizado anteriormente mediante la sintaxis YAML siguiente:
+1. Modifique el archivo YAML de la canalización anterior para incluir un [trabajo de implementación](/azure/devops/pipelines/process/deployment-jobs); para ello, haga referencia al entorno y a los recursos de la máquina virtual que ha utilizado anteriormente mediante la sintaxis YAML siguiente:
 
    ```YAML
    jobs:  
@@ -218,8 +219,7 @@ Para más información, siga los pasos descritos en [Compilación de la aplicaci
      environment:
        name:  <environment name>
        resourceType: VirtualMachine
-       tags: web1
-     strategy:
+       tags: web
    ```
 2. Puede seleccionar conjuntos específicos de máquinas virtuales del entorno para que reciban la implementación mediante la especificación de las **etiquetas** que haya definido para cada una.
 [Aquí](/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) está el esquema de YAML completo para el trabajo de implementación.

@@ -11,12 +11,12 @@ ms.date: 06/10/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: e7dca9224fd213178aa9cee3a284f1eba39fb4fc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8d11fada41d0152b44be6cb0cdef41e68808689b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001180"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967526"
 ---
 # <a name="secure-access-to-application-data"></a>Protección del acceso a los datos de la aplicación
 
@@ -160,7 +160,7 @@ En la tarea anterior se usan las clases, las propiedades y los métodos siguient
 
 El [cifrado de Azure Storage](../common/storage-service-encryption.md) ayuda a proteger los datos mediante el cifrado de los datos en reposo y la administración del cifrado y el descifrado. A todos los datos se les aplica el [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)de 256 bits, uno de los cifrados de bloques más seguros disponibles.
 
-Puede elegir que Microsoft administre las claves de cifrado, o puede traer sus propias claves con las claves administradas por el cliente con Azure Key Vault. Para más información, consulte [Uso de claves administradas por el cliente con Azure Key Vault para administrar el cifrado de Azure Storage](../common/encryption-customer-managed-keys.md).
+Puede elegir que Microsoft administre las claves de cifrado o traer sus propias claves con las claves administradas por el cliente almacenadas en Azure Key Vault o Azure Key Vault Managed Hardware Security Model (HSM) (versión preliminar). Para más información, consulte [Claves administradas por el cliente para el cifrado de Azure Storage](../common/customer-managed-keys-overview.md).
 
 El cifrado de Azure Storage cifra automáticamente los datos de todos los niveles de rendimiento (Estándar y Premium), todos los modelos de implementación (Azure Resource Manager y clásico) y todos los servicios de Azure Storage (Blob, Queue, Table y File).
 

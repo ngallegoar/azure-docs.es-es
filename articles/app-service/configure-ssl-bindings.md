@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 6c3f4cfe7c896b317edc5897098a1c18c98dc826
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: f7301809b3befc41110a32062d6e478c412fa56e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962645"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981123"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Protección de un nombre DNS personalizado con un enlace TLS/SSL en Azure App Service
 
@@ -108,7 +108,7 @@ Puede realizar dos cambios:
 
 En varios exploradores, vaya a `https://<your.custom.domain>` para comprobar que da servicio a la aplicación.
 
-![Navegación en el portal a la aplicación de Azure](./media/configure-ssl-bindings/app-with-custom-ssl.png)
+:::image type="content" source="./media/configure-ssl-bindings/app-with-custom-ssl.png" alt-text="Captura de pantalla que muestra un ejemplo de cómo navegar hasta el dominio personalizado, con la dirección URL de contoso.com resaltada.":::
 
 El código de aplicación puede inspeccionar el protocolo mediante el encabezado "x-appservice-proto". El encabezado tendrá un valor de `http` o `https`. 
 

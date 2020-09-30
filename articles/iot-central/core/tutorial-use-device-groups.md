@@ -1,19 +1,19 @@
 ---
-title: Uso de grupos de dispositivos en una aplicación de Azure IoT Central | Microsoft Docs
-description: Como operador, aprenda a usar grupos de dispositivos para analizar la telemetría de los dispositivos de su aplicación de Azure IoT Central.
+title: 'Tutorial: Uso de grupos de dispositivos en una aplicación de Azure IoT Central | Microsoft Docs'
+description: 'Tutorial: Como operador, aprenda a usar grupos de dispositivos para analizar la telemetría de los dispositivos de la aplicación de Azure IoT Central.'
 author: dominicbetts
 ms.author: dobett
 ms.date: 02/12/2020
-ms.topic: conceptual
+ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: 58fc71ab05c34e8acd252e7a1984c55996d1b3a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3192a9f121d4380a3e681747596fc91997662bf0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80999033"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967936"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry"></a>Tutorial: Uso de grupos de dispositivos para analizar la telemetría de dispositivo
 

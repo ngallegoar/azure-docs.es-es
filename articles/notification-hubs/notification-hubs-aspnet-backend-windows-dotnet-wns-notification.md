@@ -4,25 +4,23 @@ description: Aprenda a enviar notificaciones a usuarios concretos que usen aplic
 documentationcenter: windows
 author: sethmanheim
 manager: femila
-editor: jwargo
 services: notification-hubs
-ms.assetid: 012529f2-fdbc-43c4-8634-2698164b5880
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.custom: mvc, devx-track-csharp
-ms.date: 03/22/2019
+ms.custom: mvc
+ms.date: 08/17/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: 865aaf748fd8fad5f10350cb5b57d31b3eadf7a0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 97a6a45ab01fc113b79a48ba7fcb246d528684be
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018049"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090064"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones a usuarios concretos mediante Azure Notification Hubs
 
@@ -30,7 +28,7 @@ ms.locfileid: "89018049"
 
 ## <a name="overview"></a>Información general
 
-Este tutorial muestra cómo puede utilizar los Centros de notificaciones de Azure para enviar notificaciones de inserción a un usuario de aplicaciones determinado en un dispositivo concreto. Se usa un back-end de WebAPI de ASP.NET para autenticar a los clientes. Cuando el back-end autentica un usuario de la aplicación cliente, agrega automáticamente una etiqueta al registro de notificaciones. El back-end utiliza dicha etiqueta para enviar notificaciones al usuario concreto.
+Este tutorial describe cómo utilizar los Centros de notificaciones de Azure para enviar notificaciones push a un usuario de aplicaciones determinado en un dispositivo concreto. Se usa un back-end de WebAPI de ASP.NET para autenticar a los clientes. Cuando el back-end autentica un usuario de la aplicación cliente, agrega automáticamente una etiqueta al registro de notificaciones. El back-end utiliza dicha etiqueta para enviar notificaciones al usuario concreto.
 
 > [!NOTE]
 > El código completo de este tutorial se puede encontrar en [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
@@ -66,7 +64,7 @@ En esta sección, actualizará el código del proyecto que completó en el [Tuto
 5. En la lista de resultados, haga clic en **System.Net.Http**y haga clic en **Instalar**. Complete la instalación.
 6. Nuevamente en el cuadro **Buscar** de NuGet, escriba **Json.net**. Instale el paquete **Newtonsoft.json** y cierre la ventana Administrador de paquetes NuGet.
 7. En el Explorador de soluciones, en el proyecto **WindowsApp**, haga doble clic en **MainPage.xaml** para abrirlo en el editor de Visual Studio.
-8. En el código XML `MainPage.xaml`, sustituya la sección `<Grid>` por el código siguiente: Este código agrega un cuadro de texto de nombre de usuario y contraseña con el que el usuario se autentica. También agrega cuadros de texto para el mensaje de notificación y la etiqueta de nombre de usuario que debería recibir la notificación:
+8. En el archivo `MainPage.xaml`, reemplace la sección `<Grid>` por el código siguiente: Este código agrega un cuadro de texto de nombre de usuario y contraseña con el que el usuario se autentica. También agrega cuadros de texto para el mensaje de notificación y la etiqueta de nombre de usuario que debería recibir la notificación:
 
     ```xml
     <Grid>
@@ -118,6 +116,7 @@ En esta sección, actualizará el código del proyecto que completó en el [Tuto
         </StackPanel>
     </Grid>
     ```
+
 9. En el Explorador de soluciones, abra el archivo `MainPage.xaml.cs` de los proyectos **(Windows 8.1)** y **(Windows Phone 8.1)** . Agregue las siguientes instrucciones `using` en la parte superior de ambos archivos:
 
     ```csharp
@@ -128,11 +127,13 @@ En esta sección, actualizará el código del proyecto que completó en el [Tuto
     using Windows.UI.Popups;
     using System.Threading.Tasks;
     ```
+
 10. En `MainPage.xaml.cs` del proyecto **WindowsApp**, agregue el siguiente miembro a la clase `MainPage`. Asegúrese de reemplazar `<Enter Your Backend Endpoint>` por el punto de conexión del back-end obtenido anteriormente. Por ejemplo, `http://mybackend.azurewebsites.net`.
 
     ```csharp
     private static string BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
     ```
+
 11. Agregue el código siguiente a la clase MainPage en `MainPage.xaml.cs` para los proyectos **(Windows 8.1)** y **(Windows Phone 8.1)** .
 
     El método `PushClick` es el controlador de clics para el botón **Enviar inserción** . Llama al back-end para desencadenar una notificación a todos los dispositivos con una etiqueta de nombre de usuario que coincida con el parámetro `to_tag` . El mensaje de notificación se envía como contenido JSON en el cuerpo de la solicitud.
@@ -215,13 +216,15 @@ En esta sección, actualizará el código del proyecto que completó en el [Tuto
         ApplicationData.Current.LocalSettings.Values["AuthenticationToken"] = token;
     }
     ```
-12. Abra `App.xaml.cs` y encuentre la llamada a `InitNotificationsAsync()` en el controlador de eventos `OnLaunched()`. Marque como comentario o elimine la llamada a `InitNotificationsAsync()`. El controlador del botón inicializa los registros de notificaciones.
+
+12. Abra `App.xaml.cs` y encuentre la llamada a `InitNotificationsAsync()` en el controlador de eventos `OnLaunched()`. Marque como comentario o elimine la llamada a `InitNotificationsAsync()`. El controlador del botón inicializa los registros de notificaciones:
 
     ```csharp
     protected override void OnLaunched(LaunchActivatedEventArgs e)
     {
         //InitNotificationsAsync();
     ```
+
 13. Haga clic con el botón derecho en el proyecto **WindowsApp**, haga clic en **Agregar** y, después, en **Clase**. Asigne un nombre a la clase `RegisterClient.cs` y, luego, haga clic en **Aceptar** para generar la clase.
 
     Esta clase contiene las llamadas REST requeridas para ponerse en contacto con el back-end de la aplicación con la finalidad de registrarlas para las notificaciones push. También almacena localmente los identificadores *registrationIds* creados por el Centro de notificaciones, como se detalla en la sección [Administración de registros desde un back-end](/previous-versions/azure/azure-services/dn743807(v=azure.100)). Usa un token de autorización almacenado localmente cuando hace clic en el botón **Login and register** (Iniciar sesión y registrarse).
@@ -236,7 +239,8 @@ En esta sección, actualizará el código del proyecto que completó en el [Tuto
     using System.Threading.Tasks;
     using System.Linq;
     ```
-15. Agregue el siguiente código a la definición de clase `RegisterClient` .
+
+15. Agregue el siguiente código a la definición de clase `RegisterClient`:
 
     ```csharp
     private string POST_URL;
@@ -323,6 +327,7 @@ En esta sección, actualizará el código del proyecto que completó en el [Tuto
 
     }
     ```
+
 16. Guarde todos los cambios.
 
 ## <a name="test-the-application"></a>Prueba de la aplicación
@@ -332,8 +337,8 @@ En esta sección, actualizará el código del proyecto que completó en el [Tuto
 3. Haga clic en **Iniciar sesión y registrarse** y compruebe que el cuadro de diálogo se muestre que ha iniciado sesión. Este código también habilita el botón **Send Push** (Enviar inserción).
 
     ![Captura de pantalla de la aplicación Notification Hubs que muestra el nombre de usuario y la contraseña rellenados.][14]
-5. Después, en el campo **Recipient Username Tag** (Etiqueta de nombre de usuario destinatario), especifique el nombre de usuario registrado. Escriba un mensaje de notificación y haga clic en **Enviar inserción**.
-6. Solo los dispositivos que se han registrado con la etiqueta de nombre de usuario coincidente reciben el mensaje de notificación.
+4. Después, en el campo **Recipient Username Tag** (Etiqueta de nombre de usuario destinatario), especifique el nombre de usuario registrado. Escriba un mensaje de notificación y haga clic en **Enviar inserción**.
+5. Solo los dispositivos que se han registrado con la etiqueta de nombre de usuario coincidente reciben el mensaje de notificación.
 
     ![Captura de pantalla de la aplicación Notification Hubs que muestra el mensaje que se ha insertado.][15]
 

@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: integración de un bosque existente y un bosque nuevo en un solo inquilino de Azure AD mediante el aprovisionamiento en la nube de Azure AD Connect.'
-description: tutorial.
+description: Obtenga información sobre cómo agregar el aprovisionamiento en la nube a un entorno de identidad híbrida existente. .
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eba35d6ffb4cbeb25d64d42adb2429636f1d56ce
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 25e70809becd59ceeb3c45867b9e35119df497a3
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228483"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526925"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>Integración de un bosque existente y un nuevo bosque con un único inquilino de Azure AD
 
@@ -43,7 +43,7 @@ En este escenario, hay un bosque existente sincronizado mediante Azure AD Conne
 
      | Número de puerto | Cómo se usa |
      | --- | --- |
-     | **80** | Descarga las listas de revocación de certificados (CRL) al validar el certificado TLS/SSL |
+     | **80** | Descarga las listas de revocación de certificados (CRL) al validar el certificado TLS/SSL. |
      | **443** | Controla toda la comunicación saliente con el servicio |
      | **8080** (opcional) | Si el puerto 443 no está disponible, los agentes notifican su estado cada 10 minutos en el puerto 8080. Este estado se muestra en el portal de Azure AD. |
      

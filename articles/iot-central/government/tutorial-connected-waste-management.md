@@ -7,12 +7,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 274d725a0e7987c8cb15363ba276aec7ebc541d5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 53304f14286577bf0bc25b2a66442286527c5140
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77426367"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972431"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Tutorial: Creación de una aplicación de administración de residuos conectada en IoT Central
 
@@ -131,13 +131,13 @@ Para ver la plantilla de dispositivo, siga estos pasos:
 
 1. Haga clic en **Device templates** (Plantillas de dispositivo) en el panel izquierdo de la aplicación de IoT Central. 
 
-    ![Plantilla de dispositivo](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
+    ![Captura de pantalla que muestra la lista de plantillas de dispositivo de la aplicación](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
 
 2. En la lista de plantillas de dispositivos, verá **Connected Waste Bin**. Para abrirla, haga clic en el nombre.
 
 3. Familiarícese con las funcionalidades de la plantilla de dispositivo. Puede ver que se definen sensores como *Fill level* (Nivel de llenado), *Odor meter* (Medidor de olor), *Weight* (Peso), *Location* (Ubicación), etc.
 
-   ![Plantilla de dispositivo](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
+   ![Captura de pantalla que muestra los detalles de la plantilla de dispositivo del cubo de basura conectado](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
 
    
 
@@ -265,8 +265,9 @@ Si no va a seguir usando esta aplicación, puede eliminarla mediante estos pasos
 1. Abra la pestaña Administration (Administración) en el panel izquierdo de la aplicación de IoT Central.
 2. Seleccione la configuración de la aplicación y haga clic en el botón Eliminar situado en la parte inferior de la página.
 
-  
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información sobre los [conceptos de administración de residuos conectada](./concepts-connectedwastemanagement-architecture.md)
+* Más información acerca de
+ 
+> [!div class="nextstepaction"]
+> [Conceptos de administración de residuos conectados](./concepts-connectedwastemanagement-architecture.md)

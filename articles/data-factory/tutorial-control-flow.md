@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 0330e72ad74726f97bfdfd78ef8d5f9b24a5d172
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 6eaf00679566aa8dfb7a90db95228349c81fcfec
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85513310"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983415"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Actividades de bifurcación y encadenamiento en una canalización de Data Factory
 
@@ -26,7 +26,7 @@ En este tutorial creará una canalización de Data Factory que muestra algunas d
 
 En este gráfico se proporciona información general sobre el escenario:
 
-![Información general](media/tutorial-control-flow/overview.png)
+![En el diagrama se muestra Azure Blob Storage, que es el destino de una copia que, si se ejecuta correctamente, envía un correo electrónico con los detalles o, en caso de error, envía un correo electrónico con los detalles del error.](media/tutorial-control-flow/overview.png)
 
 En el tutorial se muestra cómo realizar las siguientes tareas:
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/15/2020
-ms.author: miguego
-ms.openlocfilehash: 996668751ee93d14b18e399035fd345f32c58fbe
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.date: 09/10/2020
+ms.author: jeedes
+ms.openlocfilehash: a3a5834cd63351b9bf61dc97c8d6e14d430b6284
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552180"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979709"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-sharepoint-on-premises"></a>Tutorial: Integración del inicio de sesión único de Azure Active Directory con SharePoint local
 
@@ -25,8 +25,6 @@ En este tutorial se aprende a integrar SharePoint local con Azure Active Directo
 * Controlar quién tiene acceso a SharePoint local en Azure AD.
 * Permitir que los usuarios inicien sesión automáticamente en SharePoint local con sus cuentas de Azure AD.
 * Administrar las cuentas en Azure Portal.
-
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -45,7 +43,7 @@ Para configurar la integración de SharePoint local en Azure AD, tiene que agreg
 
 Para agregar SharePoint local desde la galería:
 
-1. En [Azure Portal](https://portal.azure.com), en el panel izquierdo, seleccione **Azure Active Directory**.
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**.
 
    > [!NOTE]
    > Si el elemento no está disponible, también puede abrirlo mediante el vínculo **Todos los servicios** en la parte superior del panel izquierdo. En la información general siguiente, el vínculo **Azure Active Directory** está en la sección **Identidad**. También puede buscarlo mediante el cuadro de filtro.
@@ -72,7 +70,7 @@ En esta sección, va a configurar el inicio de sesión único de Azure AD con S
 
 Para configurar y probar el inicio de sesión único de Azure AD con SharePoint local, complete estos bloques de creación:
 
-- [Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on), para permitir que los usuarios utilicen esta característica.
+- [Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso), para permitir que los usuarios puedan utilizar esta característica.
 - [Configuración de SharePoint local](#configure-sharepoint-on-premises), para configurar los valores de inicio de sesión único en la aplicación.
 - [Creación de un usuario de prueba de Azure AD en Azure Portal](#create-an-azure-ad-test-user-in-the-azure-portal), para crear un nuevo usuario en Azure AD para el inicio de sesión único.
 - [Creación de un grupo de seguridad de Azure AD en Azure Portal](#create-an-azure-ad-security-group-in-the-azure-portal), para crear un nuevo grupo de seguridad en Azure AD para el inicio de sesión único.
@@ -81,13 +79,13 @@ Para configurar y probar el inicio de sesión único de Azure AD con SharePoint
 - [Concesión de acceso a una cuenta de invitado a SharePoint local en Azure Portal](#grant-access-to-a-guest-account-to-sharepoint-on-premises-in-the-azure-portal), para conceder permisos a la cuenta de invitado en Azure AD para SharePoint local.
 - [Configuración del proveedor de identidades de confianza para varias aplicaciones web](#configure-the-trusted-identity-provider-for-multiple-web-applications), para usar el mismo proveedor de identidades de confianza para varias aplicaciones web.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 En esta sección va a habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
 Para configurar el inicio de sesión único de Azure AD con SharePoint local:
 
-1. En [Azure Portal](https://portal.azure.com/), seleccione **Azure Active Directory** > **Aplicaciones empresariales**. Seleccione el nombre de la aplicación empresarial creada anteriormente y seleccione **Inicio de sesión único**.
+1. En Azure Portal, seleccione **Azure Active Directory** > **Aplicaciones empresariales**. Seleccione el nombre de la aplicación empresarial creada anteriormente y seleccione **Inicio de sesión único**.
 
 1. En el cuadro de diálogo **Seleccione un método de inicio de sesión único**, seleccione el modo **SAML** para habilitar el inicio de sesión único.
  
@@ -205,7 +203,7 @@ Para corregir esta situación con el selector de personas, hay una solución de 
   > [!NOTE]
   > Sin AzureCP, puede agregar grupos mediante la adición del identificador del grupo de Azure AD, pero este método no es fácil ni confiable para el usuario. Este es su aspecto:
   > 
-  >![Adición de un grupo de Azure AD a un grupo de SharePoint](./media/sharepoint-on-premises-tutorial/adding-group-by-id.png)
+  >![Adición de un grupo de Azure AD a un grupo de SharePoint por ID](./media/sharepoint-on-premises-tutorial/adding-group-by-id.png)
   
 ### <a name="grant-permissions-to-an-azure-ad-group-in-sharepoint-on-premises"></a>Concesión de permisos a un grupo de Azure AD en SharePoint local
 
@@ -244,7 +242,7 @@ Puede conceder acceso al sitio de SharePoint a una cuenta de invitado de una man
 
 1. Cambie la propiedad **Atributo de origen** con el valor **user.localuserprincipalname** y seleccione **Guardar**.
 
-    ![Estado inicial de Atributos y notificaciones de usuario](./media/sharepoint-on-premises-tutorial/manage-claim.png)
+    ![Atributo de origen inicial de los atributos y notificaciones de usuario](./media/sharepoint-on-premises-tutorial/manage-claim.png)
 
 1. Mediante la cinta de opciones, vuelva a **Inicio de sesión basado en SAML**. Ahora, la sección **Atributos y notificaciones de usuario** tiene el siguiente aspecto: 
 
@@ -287,9 +285,6 @@ La configuración funciona para una sola aplicación web, pero se necesitará co
 
 Es posible que tenga otros escenarios en los que quiera conceder acceso a la instancia de SharePoint local para los usuarios internos. En este escenario, debe implementar Microsoft Azure Active Directory Connect para permitir la sincronización de los usuarios locales con Azure AD. Esta configuración se describe en otro artículo.
 
-## <a name="additional-resources"></a>Recursos adicionales
+## <a name="next-steps"></a>Pasos siguientes
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-- [¿Qué es la identidad híbrida con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)
+Una vez configurado la instancia de SharePoint local, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).

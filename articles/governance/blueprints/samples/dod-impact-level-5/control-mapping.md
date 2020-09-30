@@ -1,14 +1,14 @@
 ---
 title: Controles del ejemplo de plano técnico de nivel de impacto 5 del DoD
 description: Asignación de controles del ejemplo de plano técnico de nivel de impacto 5 del DoD. Cada control se asigna a una o varias directivas de Azure que ayudan en la evaluación.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: a7d1439a73cf387cee773d558ced50ce1c07f6dc
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 456560a8042b239a4d53e1c309742650c00bfa6a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921323"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978359"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-5-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico de nivel de impacto 5 del DoD
 
@@ -307,11 +307,8 @@ Este proyecto ayuda a administrar los errores del sistema de información median
 
 ## <a name="si-02-06-flaw-remediation--removal-of-previous-versions-of-software--firmware"></a>SI-02 (06) Corrección de errores | Eliminación de versiones anteriores de software o firmware
 
-Este plano técnico asigna definiciones de directivas que le ayudan a tener la certeza de que las aplicaciones usan la versión más reciente de .NET Framework, HTTP, Java, PHP, Python y TLS. Este plano técnico también asigna una definición de directiva que garantiza que Kubernetes Services se actualiza a su versión no vulnerable.
+Este plano técnico asigna definiciones de directivas que le ayudan a garantizar que las aplicaciones usan la versión más reciente de HTTP, Java, PHP, Python y TLS. Este plano técnico también asigna una definición de directiva que garantiza que Kubernetes Services se actualiza a su versión no vulnerable.
 
-- Asegúrese de que la versión de .NET Framework es la más reciente, si se usa como parte de la aplicación de API.
-- Asegúrese de que la versión de .NET Framework es la más reciente, si se usa como parte de la aplicación de funciones.
-- Asegúrese de que la versión de .NET Framework es la más reciente, si se usa como parte de la aplicación web.
 - Asegúrese de que la versión de HTTP es la más reciente si se usa para ejecutar la aplicación de API.
 - Asegúrese de que la versión de HTTP es la más reciente si se usa para ejecutar la aplicación de funciones.
 - Asegúrese de que la versión de HTTP es la más reciente si se usa para ejecutar la aplicación web.
@@ -319,7 +316,6 @@ Este plano técnico asigna definiciones de directivas que le ayudan a tener la c
 - Asegúrese de que la versión de Java es la más reciente si se usa como parte de la aplicación de funciones.
 - Asegúrese de que la versión de Java es la más reciente si se usa como parte de la aplicación web.
 - Asegúrese de que la versión de PHP es la más reciente si se usa como parte de la aplicación de API.
-- Asegúrese de que la versión de PHP es la más reciente si se usa como parte de la aplicación de funciones.
 - Asegúrese de que la versión de PHP es la más reciente si se usa como parte de la aplicación web.
 - Asegúrese de que la versión de Python es la más reciente si se usa como parte de la aplicación de API.
 - Asegúrese de que la versión de Python" es la más reciente si se usa como parte de la aplicación de funciones.

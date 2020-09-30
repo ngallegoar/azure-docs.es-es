@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-javascript
-ms.openlocfilehash: b33c0b98a39347efeaaabbb86f6ee3e6b5f5d912
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: bc5f10e34b929110763b53fe1016334ce9bfddd6
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288218"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090761"
 ---
 # <a name="migrate-a-web-app-from-google-maps"></a>Migración de una aplicación web desde Google Maps
 
@@ -25,6 +25,13 @@ Si migra una aplicación web existente, compruebe si usa una biblioteca de contr
 - Cesium: un control de mapa 3D para la Web. [Código de ejemplo](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20Cesium%20JS) \| [Documentación](https://cesiumjs.org/)
 - Leaflet: control de mapa 2D ligero para la Web. [Código de ejemplo](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Azure%20Maps%20Raster%20Tiles%20in%20Leaflet%20JS) \| [Documentación](https://leafletjs.com/)
 - OpenLayers: un control de mapa 2D para la Web que admite proyecciones. [Código de ejemplo](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20OpenLayers) \| [Documentación](https://openlayers.org/)
+
+Si desarrolla aplicaciones en un entorno JavaScript, puede que uno de los siguientes proyectos de código abierto resulte útil:
+
+- [ng-azure-maps](https://github.com/arnaudleclerc/ng-azure-maps): contenedor de Angular 10 para Azure Maps.
+- [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components): un componente Blazor de Azure Maps.
+- [Componente React de Azure Maps](https://github.com/WiredSolutions/react-azure-maps): un contenedor de React para el control de Azure Maps.
+- [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps): un componente de Azure Maps para aplicaciones Vue.
 
 ## <a name="key-features-support"></a>Compatibilidad de características clave
 
@@ -44,7 +51,7 @@ En esta tabla se enumeran las principales características de API del SDK de Goo
 | Servicio de codificador geográfico        | ✓                          |
 | Servicio de direcciones      | ✓                          |
 | Servicio de matriz de distancia | ✓                          |
-| Servicio de elevación       | Planeado                    |
+| Servicio de elevación       | Planeado                     |
 
 ## <a name="notable-differences-in-the-web-sdks"></a>Diferencias notables en los SDK web
 
@@ -53,16 +60,36 @@ Las siguientes son algunas de las diferencias principales entre los SDK web de G
 - Además de proporcionar un punto de conexión hospedado para acceder al SDK web de Azure Maps, también hay disponible un paquete NPM. Inserte el paquete del SDK web en las aplicaciones. Para más información, consulte [esta documentación](how-to-use-map-control.md). Este paquete también incluye las definiciones de TypeScript.
 - En primer lugar, debe crear una instancia de la clase Map en Azure Maps. Espere a que se activen los eventos `ready` o `load` de mapa antes de interactuar mediante programación con el mapa. Este orden garantizará que todos los recursos del mapa se hayan cargado y estén listos para su acceso.
 - Ambas plataformas usan un sistema de mosaicos similar para los mapas base. Los mosaicos de Google Maps tienen una dimensión de 256 píxeles; sin embargo, los mosaicos de Azure Maps tienen una dimensión de 512 píxeles. Para obtener la misma vista de mapa en Azure Maps y en Google Maps, reste uno al nivel de zoom de Google Maps en Azure Maps.
-- Las coordenadas de Google Maps se conocen como "latitud,longitud", mientras que Azure Maps usa "longitud,latitud". El formato de Azure Maps cumple el estándar `[x, y]`, que siguen la mayoría de las plataformas de GIS.
-- Las formas del SDK web para Azure Maps se basan en el esquema GeoJSON. Las clases auxiliares se exponen a través del [espacio de nombres *atlas.data*](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data?view=azure-iot-typescript-latest). También está la clase [*atlas.Shape*](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape). Esta clase se puede usar para encapsular objetos GeoJSON y facilitar su actualización y mantenimiento de un modo enlazable a datos.
+- Las coordenadas en Google Maps se conocen como `latitude,longitude`, mientras que Azure Maps usa `longitude,latitude`. El formato de Azure Maps cumple el estándar `[x, y]`, que siguen la mayoría de las plataformas de GIS.
+- Las formas del SDK web para Azure Maps se basan en el esquema GeoJSON. Las clases auxiliares se exponen a través del [espacio de nombres *atlas.data*](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data). También está la clase [*atlas.Shape*](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape). Esta clase se puede usar para encapsular objetos GeoJSON y facilitar su actualización y mantenimiento de un modo enlazable a datos.
 - Las coordenadas en Azure Maps se definen como objetos Position. Una coordenada se especifica como una matriz de números en el formato `[longitude,latitude]`. O bien, se especifica con el nuevo atlas.data.Position(longitud, latitud).
     > [!TIP]
-    > La clase Position tiene un método auxiliar estático para importar las coordenadas que están en formato "latitud, longitud". El método [atlas.data.Position.fromLatLng](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.position?view=azure-iot-typescript-latest) se puede reemplazar a menudo por el método `new google.maps.LatLng` en el código de Google Maps.
-- En lugar de especificar la información de estilo en cada una de las formas que se agregan al mapa, Azure Maps separa los estilos de los datos. Los datos se almacenan en orígenes de datos y se conectan a las capas de representación. El código de Azure Maps usa orígenes de datos para representar los datos. Este enfoque proporciona una ventaja de rendimiento mejorado. Además, muchas capas admiten estilo controlado por datos, en el que se puede agregar lógica de negocios a las opciones de estilo de la capa. Esta compatibilidad cambia el modo en que se representan las formas individuales dentro de una capa en función de las propiedades definidas en la forma.
+    > La clase Position tiene un método auxiliar estático para importar las coordenadas que están en formato "latitud, longitud". El método [atlas.data.Position.fromLatLng](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.position) se puede reemplazar a menudo por el método `new google.maps.LatLng` en el código de Google Maps.
+- En lugar de especificar la información de estilo en cada una de las formas que se agregan al mapa, Azure Maps separa los estilos de los datos. Los datos se almacenan en un origen de datos y se conectan a las capas de representación. El código de Azure Maps usa orígenes de datos para representar los datos. Este enfoque proporciona una ventaja de rendimiento mejorado. Además, muchas capas admiten estilo controlado por datos, en el que se puede agregar lógica de negocios a las opciones de estilo de la capa. Esta compatibilidad cambia el modo en que se representan las formas individuales dentro de una capa en función de las propiedades definidas en la forma.
 
 ## <a name="web-sdk-side-by-side-examples"></a>Ejemplos en paralelo del SDK web
 
 Esta colección tiene ejemplos de código para cada plataforma y cada ejemplo trata un caso de uso común. Está diseñada para ayudarle a migrar la aplicación web desde el SDK de JavaScript de Google Maps V3 al SDK web de Azure Maps. Los ejemplos de código relacionados con aplicaciones web se proporcionan en JavaScript. Sin embargo, Azure Maps también proporciona definiciones de TypeScript como opción adicional mediante un [módulo de NPM](how-to-use-map-control.md).
+
+
+**Temas**
+
+- [Carga de un mapa](#load-a-map)
+- [Localización del mapa](#localizing-the-map)
+- [Establecimiento de la vista del mapa](#setting-the-map-view)
+- [Adición de un marcador](#adding-a-marker)
+- [Adición de un marcador personalizado](#adding-a-custom-marker)
+- [Adición de una polilínea](#adding-a-polyline)
+- [Adición de un polígono](#adding-a-polygon)
+- [Mostrar una ventana de información](#display-an-info-window)
+- [Importación de un archivo GeoJSON](#import-a-geojson-file)- 
+- [Agrupación en clústeres de marcadores](#marker-clustering)
+- [Adición de un mapa térmico](#add-a-heat-map)
+- [Superposición de una capa de mosaicos](#overlay-a-tile-layer)
+- [Mostrar datos del tráfico](#show-traffic-data)
+- [Adición de una superposición de suelo](#add-a-ground-overlay)
+- [Adición de datos KML al mapa](#add-kml-data-to-the-map)
+
 
 ### <a name="load-a-map"></a>Carga de un mapa
 
@@ -410,10 +437,10 @@ En el caso de una capa de símbolos, agregue los datos a un origen de datos. Adj
 - [Datos de punto de clúster](clustering-point-data-web-sdk.md)
 - [Adición de marcadores HTML](map-add-custom-html.md)
 - [Uso de expresiones de estilo controladas por datos](data-driven-style-expressions-web-sdk.md)
-- [Opciones de icono de capa de símbolos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions?view=azure-iot-typescript-latest)
-- [Opción de texto de capa de símbolos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions?view=azure-iot-typescript-latest)
-- [Clase de marcador HTML](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest)
-- [Opciones de marcador HTML](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkeroptions?view=azure-iot-typescript-latest)
+- [Opciones de icono de capa de símbolos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions)
+- [Opción de texto de capa de símbolos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions)
+- [Clase de marcador HTML](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker)
+- [Opciones de marcador HTML](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
 
 ### <a name="adding-a-custom-marker"></a>Adición de un marcador personalizado
 
@@ -421,8 +448,8 @@ Puede utilizar imágenes personalizadas para representar puntos en un mapa. En e
 
 <center>
 
-![imagen de marcador amarillo](media/migrate-google-maps-web-app/ylw_pushpin.png)<br/>
-ylw\_pushpin.png</center>
+![imagen de marcador amarillo](media/migrate-google-maps-web-app/yellow-pushpin.png)<br/>
+yellow-pushpin.png</center>
 
 **Antes: Google Maps**
 
@@ -539,10 +566,10 @@ En Azure Maps, las capas de símbolos también admiten imágenes personalizadas.
 - [Adición de una capa de símbolos](map-add-pin.md)
 - [Adición de marcadores HTML](map-add-custom-html.md)
 - [Uso de expresiones de estilo controladas por datos](data-driven-style-expressions-web-sdk.md)
-- [Opciones de icono de capa de símbolos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions?view=azure-iot-typescript-latest)
-- [Opción de texto de capa de símbolos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions?view=azure-iot-typescript-latest)
-- [Clase de marcador HTML](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest)
-- [Opciones de marcador HTML](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkeroptions?view=azure-iot-typescript-latest)
+- [Opciones de icono de capa de símbolos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions)
+- [Opción de texto de capa de símbolos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions)
+- [Clase de marcador HTML](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker)
+- [Opciones de marcador HTML](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
 
 ### <a name="adding-a-polyline"></a>Adición de una polilínea
 
@@ -622,7 +649,7 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 **Recursos adicionales:**
 
 - [Adición de líneas al mapa](map-add-line-layer.md)
-- [Opciones de capa de línea](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest)
+- [Opciones de capa de línea](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions)
 - [Uso de expresiones de estilo controladas por datos](data-driven-style-expressions-web-sdk.md)
 
 ### <a name="adding-a-polygon"></a>Adición de un polígono
@@ -698,8 +725,8 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 
 - [Adición de un polígono al mapa](map-add-shape.md)
 - [Adición de un círculo al mapa](map-add-shape.md#add-a-circle-to-the-map)
-- [Opciones de capa de símbolos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)
-- [Opciones de capa de línea](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest)
+- [Opciones de capa de símbolos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
+- [Opciones de capa de línea](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions)
 - [Uso de expresiones de estilo controladas por datos](data-driven-style-expressions-web-sdk.md)
 
 ### <a name="display-an-info-window"></a>Mostrar una ventana de información
@@ -772,8 +799,8 @@ map.events.add('click', marker, function () {
 - [Elemento emergente con contenido multimedia](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Popup%20with%20Media%20Content)
 - [Elementos emergentes en formas](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Popups%20on%20Shapes)
 - [Reutilización de un elemento emergente con varias chinchetas](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Reusing%20Popup%20with%20Multiple%20Pins)
-- [Clase de elemento emergente](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
-- [Opciones de elemento emergente](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popupoptions?view=azure-iot-typescript-latest)
+- [Clase de elemento emergente](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup)
+- [Opciones de elemento emergente](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popupoptions)
 
 ### <a name="import-a-geojson-file"></a>Importación de un archivo GeoJSON
 
@@ -1291,8 +1318,8 @@ Cargue los datos de GeoJSON en un origen de datos y conecte el origen de datos a
 **Recursos adicionales:**
 
 - [Adición de una capa de mapa térmico](map-add-heat-map-layer.md)
-- [Clase de capa de mapa térmico](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.heatmaplayer?view=azure-iot-typescript-latest)
-- [Opciones de capa de mapa térmico](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest)
+- [Clase de capa de mapa térmico](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.heatmaplayer)
+- [Opciones de capa de mapa térmico](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
 - [Uso de expresiones de estilo controladas por datos](data-driven-style-expressions-web-sdk.md)
 
 ### <a name="overlay-a-tile-layer"></a>Superposición de una capa de mosaicos
@@ -1345,10 +1372,10 @@ map.layers.add(new atlas.layer.TileLayer({
 **Recursos adicionales:**
 
 - [Adición de capas de mosaicos](map-add-tile-layer.md)
-- [Clase de capa de mosaico](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest)
-- [Opciones de capa de mosaico](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.tilelayeroptions?view=azure-iot-typescript-latest)
+- [Clase de capa de mosaico](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer)
+- [Opciones de capa de mosaico](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.tilelayeroptions)
 
-### <a name="show-traffic"></a>Visualización del tráfico
+### <a name="show-traffic-data"></a>Mostrar datos del tráfico
 
 Los datos de tráfico se pueden superponer en Azure Maps y Google Maps.
 
@@ -1453,7 +1480,7 @@ Al ejecutar este código en un explorador, se mostrará un mapa similar al de la
 Use la clase `atlas.layer.ImageLayer` para superponer las imágenes georreferenciadas. Esta clase requiere una dirección URL para una imagen y un conjunto de coordenadas para las cuatro esquinas de la imagen. La imagen debe estar hospedada en el mismo dominio o tener COR habilitados.
 
 > [!TIP]
-> Si solo tiene información de norte, sur, este, oeste y giro, y no tiene las coordenadas de las esquinas de la imagen, puede usar el método estático [`atlas.layer.ImageLayer.getCoordinatesFromEdges`](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest#getcoordinatesfromedges-number--number--number--number--number-).
+> Si solo tiene información de norte, sur, este, oeste y giro, y no tiene las coordenadas de las esquinas de la imagen, puede usar el método estático [`atlas.layer.ImageLayer.getCoordinatesFromEdges`](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer#getcoordinatesfromedges-number--number--number--number--number-).
 
 ```html
 <!DOCTYPE html>
@@ -1514,11 +1541,11 @@ Use la clase `atlas.layer.ImageLayer` para superponer las imágenes georreferenc
 **Recursos adicionales:**
 
 - [Superposición de una imagen](map-add-image-layer.md)
-- [Clase de capa de imagen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest)
+- [Clase de capa de imagen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer)
 
-## <a name="add-kml-to-the-map"></a>Adición de KML al mapa
+### <a name="add-kml-data-to-the-map"></a>Adición de datos KML al mapa
 
-Tanto Azure como Google Maps pueden importar y representar datos KML, KMZ y GeoRSS en el mapa. Azure Maps también admite GPX, GML, archivos CSV espaciales, GeoJSON, Well Known Text (WKT), Web Mapping Services (WMS), Web Mapping Tile Services (WMTS) y Web Feature Services (WFS). Azure Maps lee los archivos localmente en memoria y, en la mayoría de los casos, puede controlar archivos KML de mayor tamaño. 
+Tanto Azure como Google Maps pueden importar y representar datos KML, KMZ y GeoRSS en el mapa. Azure Maps también admite GPX, GML, archivos CSV espaciales, GeoJSON, Well Known Text (WKT), Web-Mapping Services (WMS), Web-Mapping Tile Services (WMTS) y Web Feature Services (WFS). Azure Maps lee los archivos localmente en memoria y, en la mayoría de los casos, puede controlar archivos KML de mayor tamaño. 
 
 **Antes: Google Maps**
 
@@ -1561,11 +1588,11 @@ Al ejecutar este código en un explorador, se mostrará un mapa similar al de la
 
 <center>
 
-![Superposición de imágenes de Google Maps](media/migrate-google-maps-web-app/google-maps-kml.png)</center>
+![KML de Google Maps](media/migrate-google-maps-web-app/google-maps-kml.png)</center>
 
 **Después: Azure Maps**
 
-En Azure Maps, GeoJSON es el formato de datos principal que se usa en el SDK web, los formatos de datos espaciales adicionales se pueden integrar fácilmente mediante el [módulo de E/S espacial](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/). Este módulo tiene funciones para la lectura y la escritura de datos espaciales y también incluye una capa de datos simple que puede representar fácilmente los datos de cualquiera de estos formatos de datos espaciales. Para leer los datos de un archivo de datos espaciales, simplemente pase una dirección URL o los datos sin procesar como una cadena o un blob a la función `atlas.io.read`. Esto devolverá todos los datos analizados del archivo que se pueden agregar al mapa. KML es un poco más complejo que el formato de datos espaciales, ya que incluye mucha más información de estilo. La clase `SpatialDataLayer` admite la representación de la mayoría de estos estilos; sin embargo, las imágenes de iconos deben cargarse en el mapa antes de cargar los datos de características y las superposiciones en el suelo deben agregarse como capas al mapa por separado. Al cargar datos mediante una dirección URL, debe estar hospedada en un punto de conexión habilitado para CORS o se debe pasar un servicio proxy como una opción en la función de lectura. 
+En Azure Maps, GeoJSON es el formato de datos principal que se usa en el SDK web, los formatos de datos espaciales adicionales se pueden integrar fácilmente mediante el [módulo de E/S espacial](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/). Este módulo tiene funciones para la lectura y la escritura de datos espaciales y también incluye una capa de datos simple que puede representar fácilmente los datos de cualquiera de estos formatos de datos espaciales. Para leer los datos de un archivo de datos espaciales, pase una dirección URL, o bien los datos sin procesar como una cadena o un blob, a la función `atlas.io.read`. Esto devolverá todos los datos analizados del archivo que se pueden agregar al mapa. KML es un poco más complejo que el formato de datos espaciales, ya que incluye mucha más información de estilo. La clase `SpatialDataLayer` admite la representación de la mayoría de estos estilos; sin embargo, las imágenes de iconos deben cargarse en el mapa antes de cargar los datos de características y las superposiciones en el suelo deben agregarse como capas al mapa por separado. Al cargar datos mediante una dirección URL, debe estar hospedada en un punto de conexión habilitado para CORS o se debe pasar un servicio proxy como una opción en la función de lectura. 
 
 ```javascript
 <!DOCTYPE html>
@@ -1658,11 +1685,11 @@ En Azure Maps, GeoJSON es el formato de datos principal que se usa en el SDK web
 
 <center>
 
-![Superposición de imágenes de Azure Maps](media/migrate-google-maps-web-app/azure-maps-kml.png)</center>
+![KML de Azure Maps](media/migrate-google-maps-web-app/azure-maps-kml.png)</center>
 
 **Recursos adicionales:**
 
-- [Función atlas.io.read](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io?view=azure-maps-typescript-latest#read-string---arraybuffer---blob--spatialdatareadoptions-)
+- [Función atlas.io.read](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io#read-string---arraybuffer---blob--spatialdatareadoptions-)
 - [SimpleDataLayer](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.layer.simpledatalayer)
 - [SimpleDataLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.simpledatalayeroptions)
 
@@ -1691,28 +1718,28 @@ En el siguiente apéndice se proporciona una referencia cruzada de las clases qu
 
 | Google Maps   | Azure Maps  |
 |---------------|-------------|
-| `google.maps.Map` | [atlas.Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)  |
-| `google.maps.InfoWindow` | [atlas.Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)  |
+| `google.maps.Map` | [atlas.Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)  |
+| `google.maps.InfoWindow` | [atlas.Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup)  |
 | `google.maps.InfoWindowOptions` | [atlas.PopupOptions](https://docs.microsoft.com/) |
-| `google.maps.LatLng`  | [atlas.data.Position](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.position?view=azure-iot-typescript-latest)  |
-| `google.maps.LatLngBounds` | [atlas.data.BoundingBox](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.boundingbox?view=azure-iot-typescript-latest) |
-| `google.maps.MapOptions`  | [atlas.CameraOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.cameraoptions?view=azure-iot-typescript-latest)<br/>[atlas.CameraBoundsOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.cameraboundsoptions?view=azure-iot-typescript-latest)<br/>[atlas.ServiceOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.serviceoptions?view=azure-iot-typescript-latest)<br/>[atlas.StyleOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions?view=azure-iot-typescript-latest)<br/>[atlas.UserInteractionOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.userinteractionoptions?view=azure-iot-typescript-latest) |
-| `google.maps.Point`  | [atlas.Pixel](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.pixel?view=azure-iot-typescript-latest)   |
+| `google.maps.LatLng`  | [atlas.data.Position](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.position)  |
+| `google.maps.LatLngBounds` | [atlas.data.BoundingBox](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.boundingbox) |
+| `google.maps.MapOptions`  | [atlas.CameraOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.cameraoptions)<br/>[atlas.CameraBoundsOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.cameraboundsoptions)<br/>[atlas.ServiceOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.serviceoptions)<br/>[atlas.StyleOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions)<br/>[atlas.UserInteractionOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.userinteractionoptions) |
+| `google.maps.Point`  | [atlas.Pixel](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.pixel)   |
 
 ## <a name="overlay-classes"></a>Clases de superposición
 
 | Google Maps  | Azure Maps  |
 |--------------|-------------|
-| `google.maps.Marker` | [atlas.HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest)<br/>[atlas.data.Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest)  |
-| `google.maps.MarkerOptions`  | [atlas.HtmlMarkerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkeroptions?view=azure-iot-typescript-latest)<br/>[atlas.layer.SymbolLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)<br/>[atlas.SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest)<br/>[atlas.IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions?view=azure-iot-typescript-latest)<br/>[atlas.TextOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions?view=azure-iot-typescript-latest)<br/>[atlas.layer.BubbleLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest)<br/>[atlas.BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions?view=azure-iot-typescript-latest) |
-| `google.maps.Polygon`  | [atlas.data.Polygon](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon?view=azure-iot-typescript-latest)               |
-| `google.maps.PolygonOptions` |[atlas.layer.PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest)<br/> [atlas.PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)<br/> [atlas.layer.LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest)<br/> [atlas.LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest)|
-| `google.maps.Polyline` | [atlas.data.LineString](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.linestring?view=azure-iot-typescript-latest)         |
-| `google.maps.PolylineOptions` | [atlas.layer.LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-maps-typescript-latest)<br/>[atlas.LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-maps-typescript-latest) |
+| `google.maps.Marker` | [atlas.HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker)<br/>[atlas.data.Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point)  |
+| `google.maps.MarkerOptions`  | [atlas.HtmlMarkerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)<br/>[atlas.layer.SymbolLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer)<br/>[atlas.SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions)<br/>[atlas.IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions)<br/>[atlas.TextOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions)<br/>[atlas.layer.BubbleLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer)<br/>[atlas.BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions) |
+| `google.maps.Polygon`  | [atlas.data.Polygon](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon)               |
+| `google.maps.PolygonOptions` |[atlas.layer.PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer)<br/> [atlas.PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions)<br/> [atlas.layer.LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer)<br/> [atlas.LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions)|
+| `google.maps.Polyline` | [atlas.data.LineString](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.linestring)         |
+| `google.maps.PolylineOptions` | [atlas.layer.LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer)<br/>[atlas.LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions) |
 | `google.maps.Circle`  | Vea [Adición de un círculo al mapa](map-add-shape.md#add-a-circle-to-the-map)                                     |
-| `google.maps.ImageMapType`  | [atlas.TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest)         |
-| `google.maps.ImageMapTypeOptions` | [atlas.TileLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.tilelayeroptions?view=azure-iot-typescript-latest) |
-| `google.maps.GroundOverlay`  | [atlas.layer.ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest)<br/>[atlas.ImageLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.imagelayeroptions?view=azure-iot-typescript-latest) |
+| `google.maps.ImageMapType`  | [atlas.TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer)         |
+| `google.maps.ImageMapTypeOptions` | [atlas.TileLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.tilelayeroptions) |
+| `google.maps.GroundOverlay`  | [atlas.layer.ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer)<br/>[atlas.ImageLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.imagelayeroptions) |
 
 ## <a name="service-classes"></a>Clases de servicio
 
@@ -1720,11 +1747,11 @@ El SDK web de Azure Maps incluye un módulo de servicios que se puede cargar por
 
 | Google Maps | Azure Maps  |
 |-------------|-------------|
-| `google.maps.Geocoder` | [atlas.service.SearchUrl](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl?view=azure-iot-typescript-latest)  |
-| `google.maps.GeocoderRequest`  | [atlas.SearchAddressOptions](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchaddressoptions?view=azure-iot-typescript-latest)<br/>[atlas.SearchAddressRevrseOptions](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchaddressreverseoptions?view=azure-iot-typescript-latest)<br/>[atlas.SearchAddressReverseCrossStreetOptions](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchaddressreversecrossstreetoptions?view=azure-iot-typescript-latest)<br/>[atlas.SearchAddressStructuredOptions](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchaddressstructuredoptions?view=azure-iot-typescript-latest)<br/>[atlas.SearchAlongRouteOptions](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchalongrouteoptions?view=azure-iot-typescript-latest)<br/>[atlas.SearchFuzzyOptions](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchfuzzyoptions?view=azure-iot-typescript-latest)<br/>[atlas.SearchInsideGeometryOptions](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchinsidegeometryoptions?view=azure-iot-typescript-latest)<br/>[atlas.SearchNearbyOptions](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchnearbyoptions?view=azure-iot-typescript-latest)<br/>[atlas.SearchPOIOptions](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchpoioptions?view=azure-iot-typescript-latest)<br/>[atlas.SearchPOICategoryOptions](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchpoicategoryoptions?view=azure-iot-typescript-latest) |
-| `google.maps.DirectionsService`  | [atlas.service.RouteUrl](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-iot-typescript-latest)  |
-| `google.maps.DirectionsRequest`  | [atlas.CalculateRouteDirectionsOptions](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.calculateroutedirectionsoptions?view=azure-iot-typescript-latest) |
-| `google.maps.places.PlacesService` | [atlas.service.SearchUrl](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl?view=azure-iot-typescript-latest)  |
+| `google.maps.Geocoder` | [atlas.service.SearchUrl](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl)  |
+| `google.maps.GeocoderRequest`  | [atlas.SearchAddressOptions](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchaddressoptions)<br/>[atlas.SearchAddressRevrseOptions](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchaddressreverseoptions)<br/>[atlas.SearchAddressReverseCrossStreetOptions](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchaddressreversecrossstreetoptions)<br/>[atlas.SearchAddressStructuredOptions](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchaddressstructuredoptions)<br/>[atlas.SearchAlongRouteOptions](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchalongrouteoptions)<br/>[atlas.SearchFuzzyOptions](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchfuzzyoptions)<br/>[atlas.SearchInsideGeometryOptions](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchinsidegeometryoptions)<br/>[atlas.SearchNearbyOptions](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchnearbyoptions)<br/>[atlas.SearchPOIOptions](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchpoioptions)<br/>[atlas.SearchPOICategoryOptions](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchpoicategoryoptions) |
+| `google.maps.DirectionsService`  | [atlas.service.RouteUrl](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl)  |
+| `google.maps.DirectionsRequest`  | [atlas.CalculateRouteDirectionsOptions](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.calculateroutedirectionsoptions) |
+| `google.maps.places.PlacesService` | [atlas.service.SearchUrl](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl)  |
 
 ## <a name="libraries"></a>Bibliotecas
 
@@ -1733,7 +1760,7 @@ Las bibliotecas agregan funcionalidad adicional al mapa. Muchas de estas bibliot
 | Google Maps           | Azure Maps   |
 |-----------------------|--------------|
 | Biblioteca de dibujo       | [Módulo de herramientas de dibujo](set-drawing-options.md) |
-| Biblioteca de geometría      | [atlas.math](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.math?view=azure-iot-typescript-latest)   |
+| Biblioteca de geometría      | [atlas.math](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.math)   |
 | Biblioteca de visualización | [Capa de mapa térmico](map-add-heat-map-layer.md) |
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -1752,3 +1779,5 @@ Obtenga más información sobre el SDK web de Azure Maps.
 > [!div class="nextstepaction"]
 > [Ejemplos de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)
 
+> [!div class="nextstepaction"]
+> [Documentación de referencia de la API de servicio del SDK web de Azure Maps](https://docs.microsoft.com/javascript/api/azure-maps-control/)

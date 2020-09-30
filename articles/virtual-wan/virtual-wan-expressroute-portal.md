@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 35ca071cd8495611f0f350511ef9406f82c5be23
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b78c2b93a9427105ce2cc0ad8bd5d2b995c834ae
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77209433"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976283"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Tutorial: Creación de una asociación de ExpressRoute mediante Azure Virtual WAN
 
@@ -122,7 +122,7 @@ Para conectar use la clave de autorización y el URI del circuito que se le prop
 
 1. En la página ExpressRoute, haga clic en **Canjear la clave de autorización**
 
-   ![canjear](./media/virtual-wan-expressroute-portal/redeem.png "canjear")
+   ![Captura de pantalla que muestra ExpressRoute en un centro de conectividad virtual con la opción Redeem authorization key (Canjear clave de autorización) seleccionada](./media/virtual-wan-expressroute-portal/redeem.png "canjear")
 2. En la página Canjear l clave de autorización, rellene los valores.
 
    ![canjear los valores de clave](./media/virtual-wan-expressroute-portal/redeemkey2.png "canjear los valores de clave")

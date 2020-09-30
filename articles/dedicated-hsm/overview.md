@@ -1,6 +1,6 @@
 ---
 title: ¿Qué es Dedicated HSM? - Azure Dedicated HSM | Microsoft Docs
-description: La introducción a Azure Dedicated HSM ofrece funcionalidades de almacenamiento de claves en Azure que cumplen con la certificación FIPS 140-2 nivel 3.
+description: Conozca cómo Azure Dedicated HSM ofrece almacenamiento de claves criptográficas en Azure.
 services: dedicated-hsm
 author: msmbaldwin
 manager: rkarlin
@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: dd5ce117645ef2b368bbf8f0e441770d6e746b5b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6eb82400b2f598b4b54da4b238f4bce71d83de6b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "70881080"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970200"
 ---
 # <a name="what-is-azure-dedicated-hsm"></a>¿Qué es Azure Dedicated HSM?
 
@@ -60,7 +60,7 @@ Azure Dedicated HSM es un servicio especializado que permite cumplir los requisi
 
 ### <a name="best-fit"></a>Casos en los que está indicado
 
-Azure Dedicated HSM es el más adecuado para escenarios de "migración mediante lift-and-shift" que requieren un acceso directo y exclusivo a los dispositivos HSM. Algunos ejemplos son:
+Azure Dedicated HSM es el más adecuado para escenarios de "migración mediante lift-and-shift" que requieren un acceso directo y exclusivo a los dispositivos HSM. Entre los ejemplos se incluyen:
 
 - Migración de aplicaciones locales a Azure Virtual Machines
 - Migración de aplicaciones de Amazon AWS EC2 a máquinas virtuales que usan el servicio AWS Cloud HSM Classic (Amazon no ofrece este servicio para los nuevos clientes)

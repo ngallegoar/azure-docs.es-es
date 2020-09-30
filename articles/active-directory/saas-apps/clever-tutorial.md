@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/26/2019
+ms.date: 08/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 4c87ee92a2bc30dc2923127241013601cf3f4419
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bb8eef01e2673c3f84b1678a93b4bd168f1faf63
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88519873"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708128"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-clever"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Clever
 
@@ -40,6 +40,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Clever admite el inicio de sesión único iniciado por **SP**.
+* Una vez que haya configurado Concur, puede aplicar el control de sesión, que protege a su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
@@ -56,7 +57,7 @@ Para configurar la integración de Clever en Azure AD, tendrá que agregar Cleve
 1. Seleccione **Clever** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-clever"></a>Configuración y prueba del inicio de sesión único de Azure AD para Clever
+## <a name="configure-and-test-azure-ad-sso-for-clever"></a>Configuración y prueba del SSO de Azure AD para Clever
 
 Configure y pruebe el inicio de sesión único de Azure AD con Clever mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Clever.
 
@@ -65,8 +66,8 @@ Para configurar y probar el inicio de sesión único de Azure AD con Clever, es
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
-1. **[Configuración del inicio de sesión único en Clever](#configure-clever-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
-    1. **[Creación de un usuario de prueba de Clever](#create-clever-test-user)** , para tener un homólogo de B.Simon en Clever que esté vinculado a la representación de ella en Azure AD.
+1. **[Configuración del inicio de sesión único en Clever](#configure-clever-sso)**, para configurar los valores de inicio de sesión único en la aplicación.
+    1. **[Creación de un usuario de prueba de Clever](#create-clever-test-user)**, para tener un homólogo de B.Simon en Clever que esté vinculado a la representación de ella en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
@@ -83,10 +84,12 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://clever.com/in/<companyname>`
 
-    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://clever.com/oauth/saml/metadata.xml`
+    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba la dirección URL: `https://clever.com/oauth/saml/metadata.xml`.
 
+    c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://clever.com/<companyname>`
+    
     > [!NOTE]
-    > El valor de la dirección URL de inicio de sesión no es real. Actualice el valor con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de Clever](https://clever.com/about/contact/) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    >  Estos valores no son reales. Actualice estos valores con los valores reales de URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Clever](https://clever.com/about/contact/) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 
@@ -131,11 +134,11 @@ En esta sección, va a conceder a B.Simon acceso a Clever utilizando el inicio d
     ![Instant Login (Inicio de sesión instantáneo)](./media/clever-tutorial/ic798984.png "Inicio de sesión instantáneo")
 
     > [!NOTE]
-    > Para poder probar el inicio de sesión único, tendrá que ponerse en contacto con el [equipo de soporte técnico de Clever](https://clever.com/about/contact/) para habilitar el SSO de Office 365 en el back-end.
+    > Para poder probar el inicio de sesión único, tendrá que ponerse en contacto con el [equipo de soporte técnico de Clever](https://clever.com/about/contact/) para habilitar el SSO de Microsoft 365 en el back-end.
 
 1. En la página **Instant Login** (Inicio de sesión instantáneo), realice los pasos siguientes:
  
-    ![Instant Login (Inicio de sesión instantáneo)](./media/clever-tutorial/ic798985.png "Inicio de sesión instantáneo")
+    ![Configuración de SSO en la página de inicio de sesión instantáneo](./media/clever-tutorial/ic798985.png "Inicio de sesión instantáneo")
 
     a. Escriba la **Dirección URL de inicio de sesión**.
 

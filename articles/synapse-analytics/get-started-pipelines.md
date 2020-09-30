@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 5e32a6a9817f2a3176e96e39c5e261875e8f4ed1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 72eea7c46dd005cd16ae5b8f0022c1174dd28f27
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093794"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667474"
 ---
 # <a name="orchestrate-with-pipelines"></a>Organización con canalizaciones
 
@@ -26,7 +26,7 @@ Puede organizar una gran variedad de tareas en Azure Synapse.
 
 1. En Synapse Studio, vaya al centro **Orchestrate** (Organización).
 1. Seleccione **+**  > **Canalización** para crear una canalización.
-1. Vaya al centro **Develop** (Desarrollo) y busque el cuaderno que creó anteriormente.
+1. Vaya al centro de conectividad **Develop** (Desarrollo) y seleccione uno de los cuadernos que creó anteriormente.
 1. Arrastre el cuaderno a la canalización.
 1. En la canalización, seleccione **Agregar desencadenador** > **Nuevo/editar**.
 1. En **Choose trigger** (Elegir desencadenador), seleccione **Nuevo** y, después, en el apartado en que se elige la **periodicidad**, configure el desencadenador para que se ejecute cada hora.

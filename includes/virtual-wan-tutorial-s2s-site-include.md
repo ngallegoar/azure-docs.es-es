@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 06/23/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: bc94f31887526f387413f78fe3270784a4e3bd88
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ba69b94514a0c1b59001011a64a4fb28e5e4a827
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525192"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606519"
 ---
 1. En la página del portal de la WAN virtual, en la sección **Conectividad**, seleccione **Sitios VPN** para abrir la página de sitios VPN.
 2. En la página **Sitios de VPN**, haga clic en **+Crear sitio**.
 
-   ![Conceptos básicos](./media/virtual-wan-tutorial-site-include/basics.png "Aspectos básicos")
+   ![Captura de pantalla que muestra la ventana de sitio a sitio de VPN con el panel Crear un sitio VPN abierto.](./media/virtual-wan-tutorial-site-include/basics.png "Aspectos básicos")
 3. Dentro de la página **Crear un sitio VPN**, en la pestaña **Aspectos básicos** rellene los campos siguientes:
 
     * **Región**: anteriormente se conocía como ubicación. Se trata de la ubicación en la que desea crear este recurso de sitio.
@@ -29,7 +29,7 @@ ms.locfileid: "86525192"
     * **Centros de conectividad**: el centro de conectividad al que desea que se conecte el sitio. Un sitio solo se puede conectar a los centros de conectividad que tienen una instancia de VPN Gateway. Si no puede ver un centro de conectividad, cree primero una puerta de enlace de VPN en ese centro.
 4. Seleccione **Vínculos** para agregar información sobre los vínculos físicos en la rama. Si tiene un dispositivo CPE de asociado de Virtual WAN, consulte con su asociado para ver si esta información se intercambia con Azure como parte de la configuración de carga de información de la rama desde sus sistemas.
 
-   ![vínculos](./media/virtual-wan-tutorial-site-include/links.png "Vínculos")
+   ![Captura de pantalla que muestra el panel Crear un sitio VPN con la pestaña Vínculos seleccionada.](./media/virtual-wan-tutorial-site-include/links.png "Vínculos")
 
     * **Nombre del vínculo**: el nombre que quiera proporcionar para el vínculo físico en el sitio VPN. Ejemplo: mylink1.
     * **Nombre de proveedor**: el nombre del vínculo físico en el sitio VPN. Ejemplo: ATT, Verizon.

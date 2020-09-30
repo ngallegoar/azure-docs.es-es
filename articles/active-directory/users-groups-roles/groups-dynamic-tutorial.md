@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ee5fa52f59ea2ef3332fe66c81c24ff44c64e81
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: cf911a240456871275abbd7f1e7313a1d2289b98
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582881"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054610"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Tutorial: Adición o eliminación automáticas de miembros de grupos
 
-En Azure Active Directory (Azure AD), puede agregar o quitar usuarios de grupos de seguridad o grupos de Office 365 automáticamente, por lo que no siempre tiene que hacerlo manualmente. Cada vez que cambian las propiedades de un usuario o un dispositivo, Azure AD evalúa todas las reglas de grupos dinámicos de la organización de Azure AD, para ver si el cambio hace que se deban agregar o quitar miembros.
+En Azure Active Directory (Azure AD), puede agregar o quitar usuarios de grupos de seguridad o grupos de Microsoft 365 automáticamente, por lo que no siempre tiene que hacerlo de forma manual. Cada vez que cambian las propiedades de un usuario o un dispositivo, Azure AD evalúa todas las reglas de grupos dinámicos de la organización de Azure AD, para ver si el cambio hace que se deban agregar o quitar miembros.
 
 En este tutorial, aprenderá a:
 > [!div class="checklist"]

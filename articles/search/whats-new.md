@@ -6,20 +6,33 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 08/01/2020
+ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 788b3f5e9f4012e418ece691ebb5fbc5d2f866af
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 4526e4916a89b53ae13a31bcdef6cd4715dd7e8c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931852"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979589"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novedades de Azure Cognitive Search
 
 Conozca las novedades del servicio. Marque esta página para mantenerse actualizado con el servicio.
 
 ## <a name="feature-announcements-in-2020"></a>Anuncios de características en 2020
+
+### <a name="september-2020"></a>Septiembre de 2020
+
+Cree una identidad para un servicio de búsqueda en Azure Active Directory y, a continuación, use los permisos de RBAC para conceder los permisos de solo lectura de identidades a los orígenes de datos de Azure. Opcionalmente, elija la funcionalidad [excepción de un servicio de confianza](search-indexer-howto-access-trusted-service-exception.md) si las reglas de IP no son una opción.
+
+
+|Característica&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descripción | Disponibilidad  |
+|------------------------------|----------|-------------|---------------|
+| [Identidad de servicio administrado](search-howto-managed-identities-data-sources.md) | Indexadores, seguridad | Cree una identidad para un servicio de búsqueda en Azure Active Directory y, a continuación, use los permisos de RBAC para conceder acceso a los orígenes de datos de Azure. Este enfoque elimina la necesidad de credenciales en la cadena de conexión. <br><br>Una manera adicional de usar una identidad de servicio administrada es a través de una [excepción de un servicio de confianza](search-indexer-howto-access-trusted-service-exception.md) si las reglas de IP no son una opción. | Disponible con carácter general. Acceda a esta funcionalidad mediante el portal o [Creación de orígenes de datos (REST)](https://docs.microsoft.com/rest/api/searchservice/create-data-source) con api-version=2020-06-30. |
+| [Solicitudes salientes mediante un vínculo privado](search-indexer-howto-access-private.md) | Indexadores, seguridad | Cree un recurso compartido de vínculo privado que los indexadores puedan usar al acceder a los recursos de Azure protegidos con Azure Private Link. Para más información sobre todas las formas en las que puede proteger las conexiones de indexador, consulte [Protección de recursos del indexador mediante las características de seguridad de red de Azure](search-indexer-securing-resources.md). | Disponible con carácter general. Acceda a esta funcionalidad mediante el portal o [Recurso compartido de Private Link](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) con api-version=2020-08-01. |
+| [API REST de administración (2020-08-01)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST | La nueva API REST estable agrega compatibilidad para crear recursos compartidos de Private Link. | Disponible con carácter general. |
+| [API REST de administración (2020-08-01-Preview)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST | Agrega un recurso compartido de Private Link para Azure Functions y Azure SQL para bases de datos MySQL. | Versión preliminar pública. |
+| [SDK 4.0 de .NET de administración](https://docs.microsoft.com/dotnet/api/overview/azure/search/management) | .NET SDK | Actualización del SDK de Azure para el SDK de administración, versión 2020-08-01 de la API REST de destino. | Disponible con carácter general. |
 
 ### <a name="august-2020"></a>Agosto de 2020
 
@@ -31,9 +44,9 @@ Conozca las novedades del servicio. Marque esta página para mantenerse actualiz
 
 |Característica&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descripción | Disponibilidad  |
 |---------|------------------|-------------|---------------|
-| [Biblioteca cliente Azure.Search.Documents](/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) | SDK de Azure para .NET | Una biblioteca cliente de .NET publicada por el equipo de Azure SDK y diseñada para mantener la coherencia con otras bibliotecas cliente de .NET. <br/><br/>La versión 11 va dirigida a Search REST api-version=2020-06-30, pero aún no admite el almacén de conocimiento, tipos geoespaciales o [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder?view=azure-dotnet). <br/><br/>Para más información, consulte [Inicio rápido: Creación de un índice](search-get-started-dotnet.md) y [Actualización a Azure.Search.Documents (v11)](search-dotnet-sdk-migration-version-11.md). | Disponible con carácter general. </br> Instale el [paquete Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/) desde NuGet. |
-| [Biblioteca cliente azure.search.documents](/python/api/overview/azure/search-documents-readme?view=azure-python)  | SDK de Azure para Python| Una biblioteca cliente de Python publicada por el equipo de Azure SDK y diseñada para mantener la coherencia con otras bibliotecas cliente de Python. <br/><br/>La versión 11 va dirigida a Search REST api-version=2020-06-30. | Disponible con carácter general. </br> Instale el [paquete azure-search-documents](https://pypi.org/project/azure-search-documents/) desde PyPI. |
-| [Biblioteca cliente de@azure/search-documents](/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest)  | SDK de Azure para JavaScript | Biblioteca cliente de JavaScript publicada por el equipo de Azure SDK y diseñada para mantener la coherencia con otras bibliotecas cliente de JavaScript. <br/><br/>La versión 11 va dirigida a Search REST api-version=2020-06-30. | Disponible con carácter general. </br> Instale el [paquete @azure/search-documents](https://www.npmjs.com/package/@azure/search-documents) desde npm. |
+| [Biblioteca cliente Azure.Search.Documents](/dotnet/api/overview/azure/search.documents-readme) | SDK de Azure para .NET | Una biblioteca cliente de .NET publicada por el equipo de Azure SDK y diseñada para mantener la coherencia con otras bibliotecas cliente de .NET. <br/><br/>La versión 11 va dirigida a Search REST api-version=2020-06-30, pero aún no admite el almacén de conocimiento, tipos geoespaciales o [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder). <br/><br/>Para más información, consulte [Inicio rápido: Creación de un índice](search-get-started-dotnet.md) y [Actualización a Azure.Search.Documents (v11)](search-dotnet-sdk-migration-version-11.md). | Disponible con carácter general. </br> Instale el [paquete Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/) desde NuGet. |
+| [Biblioteca cliente azure.search.documents](/python/api/overview/azure/search-documents-readme)  | SDK de Azure para Python| Una biblioteca cliente de Python publicada por el equipo de Azure SDK y diseñada para mantener la coherencia con otras bibliotecas cliente de Python. <br/><br/>La versión 11 va dirigida a Search REST api-version=2020-06-30. | Disponible con carácter general. </br> Instale el [paquete azure-search-documents](https://pypi.org/project/azure-search-documents/) desde PyPI. |
+| [Biblioteca cliente de@azure/search-documents](/javascript/api/overview/azure/search-documents-readme)  | SDK de Azure para JavaScript | Biblioteca cliente de JavaScript publicada por el equipo de Azure SDK y diseñada para mantener la coherencia con otras bibliotecas cliente de JavaScript. <br/><br/>La versión 11 va dirigida a Search REST api-version=2020-06-30. | Disponible con carácter general. </br> Instale el [paquete @azure/search-documents](https://www.npmjs.com/package/@azure/search-documents) desde npm. |
 
 ### <a name="june-2020"></a>Junio de 2020
 

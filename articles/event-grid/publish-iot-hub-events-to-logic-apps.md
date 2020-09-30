@@ -2,39 +2,60 @@
 title: 'Tutorial: Uso de eventos de IoT Hub para desencadenar Azure Logic Apps'
 description: En este tutorial se indica cómo usar el servicio de enrutamiento de eventos de Azure Event Grid para crear procesos automatizados que lleven a cabo acciones de Azure Logic Apps basadas en eventos de IoT Hub.
 services: iot-hub, event-grid
-author: robinsh
+author: philmea
 ms.service: iot-hub
 ms.topic: tutorial
-ms.date: 07/07/2020
-ms.author: robinsh
+ms.date: 09/14/2020
+ms.author: philmea
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 35359c63b79d9eea6f8f6ad688bd040428a39eb8
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5092aa0b5b23f04af1f49933bca234815f03f454
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503453"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604602"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Tutorial: Envío de notificaciones por correo electrónico sobre eventos de Azure IoT Hub mediante Event Grid y Logic Apps
 
 Azure Event Grid permite reaccionar a los eventos en IoT Hub mediante el desencadenamiento de acciones en las aplicaciones empresariales de bajada.
 
-En este artículo se ofrece orientación mediante una configuración de ejemplo que usa IoT Hub y Event Grid. Al final, tendrá una aplicación en Azure Logic Apps configurada para enviar una notificación por correo electrónico cada vez que se agregue un dispositivo a la instancia de IoT Hub. 
+En este artículo se ofrece orientación mediante una configuración de ejemplo que usa IoT Hub y Event Grid. Al final, tendrá una aplicación lógica de Azure configurada para enviar una notificación por correo electrónico cada vez que un dispositivo se conecta o se desconecta del centro de IoT. Se puede utilizar Event Grid para recibir notificaciones puntuales sobre la desconexión de los dispositivos críticos. Las métricas y los diagnósticos pueden tardar varios minutos (es decir, 20 o más, sin precisar un número) en aparecer en los registros y las alertas. Esto puede ser inaceptable para la infraestructura crítica.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción de Azure activa. Si no tiene una suscripción, puede crear [una cuenta gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* Una cuenta de correo electrónico de cualquier proveedor de correo electrónico que sea compatible con Azure Logic Apps, como Office 365 Outlook, Outlook.com o Gmail. Esta cuenta de correo electrónico se usa para enviar las notificaciones de eventos. Puede encontrar una lista completa de los conectores de Logic Apps admitidos en [Introducción a los conectores](/connectors/).
+* Una cuenta de correo electrónico de cualquier proveedor de correo electrónico que sea compatible con Azure Logic Apps, como Office 365 Outlook u Outlook.com. Esta cuenta de correo electrónico se usa para enviar las notificaciones de eventos. 
 
-  > [!IMPORTANT]
-  > Antes de usar Gmail, compruebe que tenga una cuenta empresarial de G-Suite (dirección de correo electrónico con un dominio personalizado) o una cuenta de consumidor de Gmail (dirección de correo electrónico con @gmail.com o @googlemail.com). Solo las cuentas empresariales de G-Suite pueden usar el conector de Gmail con otros conectores sin restricciones en las aplicaciones lógicas. Si tiene una cuenta de consumidor de Gmail, puede usar el conector de Gmail solo con servicios específicos aprobados por Google, o puede [crear una aplicación cliente de Google para usarla en la autenticación](/connectors/gmail/#authentication-and-bring-your-own-application). Para más información, consulte [Directivas de privacidad y seguridad de datos de los conectores de Google en Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-* Una instancia de IoT Hub en Azure. Si aún no ha creado ninguna, vea un tutorial en [Introducción a Azure IoT Hub](../iot-hub/quickstart-send-telemetry-dotnet.md).
+## <a name="create-an-iot-hub"></a>Creación de un centro de IoT
+
+Puede crear rápidamente un nuevo centro de IoT mediante el terminal de Azure Cloud Shell en el portal.
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
+
+1. En la parte superior derecha de la página, seleccione el botón Cloud Shell.
+
+   ![Botón Cloud Shell](./media/publish-iot-hub-events-to-logic-apps/portal-cloud-shell.png)
+
+1. Ejecute el comando siguiente para crear un nuevo grupo de recursos:
+
+   ```azurecli
+   az group create --name {your resource group name} --location westus
+   ```
+    
+1. Ejecute el comando siguiente para crear un centro de IoT:
+
+   ```azurecli
+   az iot hub create --name {your iot hub name} --resource-group {your resource group name} --sku S1 
+   ```
+
+1. Minimice el terminal de Cloud Shell. Volverá al shell más adelante en el tutorial.
 
 ## <a name="create-a-logic-app"></a>Creación de una aplicación lógica
 
-En primer lugar, cree una aplicación lógica y agregue un desencadenador de Event Grid que supervise el grupo de recursos de la máquina virtual. 
+A continuación, cree una aplicación lógica y agregue un desencadenador HTTP de Event Grid que procese las solicitudes de IoT Hub. 
 
 ### <a name="create-a-logic-app-resource"></a>Creación de un recurso de aplicación lógica
 
@@ -48,9 +69,11 @@ En primer lugar, cree una aplicación lógica y agregue un desencadenador de Eve
 
    ![Campos para crear una aplicación lógica](./media/publish-iot-hub-events-to-logic-apps/create-logic-app-fields.png)
 
-1. Seleccione **Crear**.
+1. Seleccione **Revisar + crear**.
 
-1. Una vez creado el recurso, vaya a la aplicación lógica. Para ello, seleccione **Grupos de recursos** y, luego, el grupo de recursos que creó para este tutorial. A continuación, busque la aplicación lógica en la lista de recursos y selecciónela. 
+1. Compruebe la configuración y, a continuación, seleccione **Crear**.
+
+1. Cuando se cree el nuevo recurso, seleccione **Ir al recurso**. 
 
 1. En el diseñador de aplicaciones lógicas, desplácese hacia abajo para ver **Plantillas**. Elija **Aplicación lógica en blanco** para que pueda crear la aplicación lógica desde el principio.
 
@@ -60,63 +83,41 @@ Un desencadenador es un evento específico que inicia la aplicación lógica. Pa
 
 1. En la barra de búsqueda de conectores y desencadenadores, escriba **HTTP**.
 
-1. Seleccione **Solicitud: Cuando se recibe una solicitud HTTP** como desencadenador. 
+1. Desplácese por los resultados y seleccione **Solicitud: Cuando se recibe una solicitud HTTP** como desencadenador. 
 
    ![Selección del desencadenador de solicitud HTTP](./media/publish-iot-hub-events-to-logic-apps/http-request-trigger.png)
 
 1. Seleccione **Usar una carga de ejemplo para generar el esquema**. 
 
-   ![Selección del desencadenador de solicitud HTTP](./media/publish-iot-hub-events-to-logic-apps/sample-payload.png)
+   ![Uso de la carga de ejemplo](./media/publish-iot-hub-events-to-logic-apps/sample-payload.png)
 
-1. Pegue el siguiente código JSON de ejemplo en el cuadro de texto y después seleccione **Listo**:
+1. Pegue el código JSON del *esquema del evento dispositivo conectado* en el cuadro de texto y, después, seleccione **Listo**:
 
    ```json
-   [{
-     "id": "56afc886-767b-d359-d59e-0da7877166b2",
-     "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
-     "subject": "devices/LogicAppTestDevice",
-     "eventType": "Microsoft.Devices.DeviceCreated",
-     "eventTime": "2018-01-02T19:17:44.4383997Z",
-     "data": {
-       "twin": {
-         "deviceId": "LogicAppTestDevice",
-         "etag": "AAAAAAAAAAE=",
-         "deviceEtag": "null",
-         "status": "enabled",
-         "statusUpdateTime": "0001-01-01T00:00:00",
-         "connectionState": "Disconnected",
-         "lastActivityTime": "0001-01-01T00:00:00",
-         "cloudToDeviceMessageCount": 0,
-         "authenticationType": "sas",
-         "x509Thumbprint": {
-           "primaryThumbprint": null,
-           "secondaryThumbprint": null
-         },
-         "version": 2,
-         "properties": {
-           "desired": {
-             "$metadata": {
-               "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
-             },
-             "$version": 1
-           },
-           "reported": {
-             "$metadata": {
-               "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
-             },
-             "$version": 1
-           }
-         }
-       },
-       "hubName": "egtesthub1",
-       "deviceId": "LogicAppTestDevice"
-     },
-     "dataVersion": "1",
-     "metadataVersion": "1"
-   }]
+     [{  
+      "id": "f6bbf8f4-d365-520d-a878-17bf7238abd8",
+      "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
+      "subject": "devices/LogicAppTestDevice",
+      "eventType": "Microsoft.Devices.DeviceConnected",
+      "eventTime": "2018-06-02T19:17:44.4383997Z",
+      "data": {
+          "deviceConnectionStateEventInfo": {
+            "sequenceNumber":
+              "000000000000000001D4132452F67CE200000002000000000000000000000001"
+          },
+        "hubName": "egtesthub1",
+        "deviceId": "LogicAppTestDevice",
+        "moduleId" : "DeviceModuleID"
+      }, 
+      "dataVersion": "1",
+      "metadataVersion": "1"
+    }]
    ```
 
-1. Puede recibir una notificación emergente que dice: **Recuerde incluir un encabezado Content-Type establecido en application/json en la solicitud.** Puede ignorar esta sugerencia sin ningún problema y pasar a la sección siguiente. 
+   este evento se publica cuando un dispositivo se conecta a un centro de IoT.
+
+> [!NOTE]
+> Puede recibir una notificación emergente que dice: **Recuerde incluir un encabezado Content-Type establecido en application/json en la solicitud.** Puede ignorar esta sugerencia sin ningún problema y pasar a la sección siguiente. 
 
 ### <a name="create-an-action"></a>Creación de una acción
 
@@ -124,21 +125,21 @@ Las acciones son los pasos que se producen después de que el desencadenador ini
 
 1. Seleccione **Nuevo paso**. Se abrirá una ventana para **elegir una acción**.
 
-1. Busque **Correo electrónico**.
+1. Busque **Outlook**.
 
-1. En función de su proveedor de correo electrónico, busque y seleccione el conector correspondiente. Este tutorial usa **Office 365 Outlook**. Los pasos para otros proveedores de correo electrónico son similares. 
+1. En función de su proveedor de correo electrónico, busque y seleccione el conector correspondiente. Este tutorial usa **Outlook.com**. Los pasos para otros proveedores de correo electrónico son similares. 
 
-   ![Selección del conector del proveedor de correo electrónico](./media/publish-iot-hub-events-to-logic-apps/o365-outlook.png)
+   ![Selección del conector del proveedor de correo electrónico](./media/publish-iot-hub-events-to-logic-apps/outlook-step.png)
 
-1. Seleccione la acción **Enviar un correo electrónico**. 
+1. Seleccione la acción **Enviar correo electrónico (V2)**. 
 
-1. Si se le pide, inicie sesión en la cuenta de correo electrónico. 
+1. Seleccione **Iniciar sesión** e inicie sesión en su cuenta de correo electrónico. Seleccione **Sí** para permitir que la aplicación acceda a su información.
 
-1. Cree la plantilla de correo electrónico. 
+1. Compile su plantilla de correo electrónico. 
 
-   * **Para**: escriba la dirección de correo electrónico en la que desea recibir los correos electrónicos de notificación. Para este tutorial, use una cuenta de correo electrónico a la que pueda acceder para las pruebas. 
+   * **Para**: escriba la dirección de correo electrónico para recibir los correos electrónicos de notificación. En este tutorial, use una cuenta de correo electrónico a la que pueda acceder para realizar pruebas. 
 
-   * **Firmante**: Rellene el texto del asunto. Al hacer clic en el cuadro de texto Asunto, puede seleccionar contenido dinámico para incluirlo. Por ejemplo, en este tutorial se usa `IoT Hub alert: {event Type}`. Si no puede ver el contenido dinámico, seleccione el hipervínculo **Agregar contenido dinámico**: con esto lo puede activar o desactivar.
+   * **Firmante**: Rellene el texto del asunto. Al hacer clic en el cuadro de texto Asunto, puede seleccionar contenido dinámico para incluirlo. Por ejemplo, en este tutorial se usa `IoT Hub alert: {eventType}`. Si no puede ver el contenido dinámico, seleccione el hipervínculo **Agregar contenido dinámico**: con esto lo puede activar o desactivar.
 
    * **Cuerpo**: escriba el texto del correo electrónico. Seleccione las propiedades JSON de la herramienta del selector para incluir contenido dinámico basado en los datos de los eventos. Si no puede ver el contenido dinámico, seleccione el hipervínculo **Agregar contenido dinámico** situado en el cuadro de texto **Cuerpo**. Si no aparecen los campos que desea, haga clic en el signo *más* en la pantalla Contenido dinámico para que se incluyan los campos de la acción anterior.
 
@@ -146,7 +147,7 @@ Las acciones son los pasos que se producen después de que el desencadenador ini
 
    ![Rellenar la información del correo electrónico](./media/publish-iot-hub-events-to-logic-apps/email-content.png)
 
-1. Guarde la aplicación lógica. 
+1. Seleccione **Guardar** en el Diseñador de aplicaciones lógicas.  
 
 ### <a name="copy-the-http-url"></a>Copia de la dirección URL HTTP
 
@@ -166,28 +167,30 @@ En esta sección, va a configurar IoT Hube para publicar eventos cuando se produ
 
 1. En Azure Portal, vaya hasta el centro de IoT. Para ello, seleccione **Grupos de recursos**, a continuación, seleccione el grupo de recursos para este tutorial y, finalmente, seleccione el centro de IoT de la lista de recursos.
 
-2. Seleccione **Eventos**.
+1. Seleccione **Eventos**.
 
    ![Abrir los detalles de Event Grid](./media/publish-iot-hub-events-to-logic-apps/event-grid.png)
 
-3. Seleccione **Suscripción de eventos**. 
+1. Seleccione **Suscripción de eventos**. 
 
    ![Crear una suscripción de eventos](./media/publish-iot-hub-events-to-logic-apps/event-subscription.png)
 
-4. Cree la suscripción de eventos con los siguientes valores: 
+1. Cree la suscripción de eventos con los siguientes valores: 
 
-    1. En la sección **DETALLES DE SUSCRIPCIONES DE EVENTOS**, realice estas tareas:
-        1. Especifique un **nombre** para la suscripción de eventos. 
-        2. Seleccione **Esquema de Event Grid** en **Esquema de eventos**. 
-   2. En la sección **DETALLES DEL TEMA**, realice las siguientes tareas:
-       1. Confirme que en **Tipo de tema** está seleccionado **IoT Hub**. 
-       2. Confirme que el nombre del centro de IoT se establece como valor del campo **Recurso de origen**. 
-       3. Escriba el nombre del **tema del sistema** que se creará. Para obtener información acerca de los temas del sistema, consulte [Introducción a los temas del sistema](system-topics.md).
-   3. En la sección **TIPOS DE EVENTO**, realice las siguientes tareas: 
-        1. En **Filtro para tipos de evento**, desactive todas las opciones excepto **Dispositivo creado**.
+   1. En la sección **Detalles de suscripciones de eventos**:
+      1. Especifique un **nombre** para la suscripción de eventos. 
+      2. Seleccione **Esquema de Event Grid** en **Esquema de eventos**. 
+   2. En la sección **Detalles del tema**:
+      1. Confirme que en **Tipo de tema** está seleccionado **IoT Hub**. 
+      2. Confirme que el nombre del centro de IoT se establece como valor del campo **Recurso de origen**. 
+      3. Escriba el nombre del **tema del sistema** que se creará. Para obtener información acerca de los temas del sistema, consulte [Introducción a los temas del sistema](system-topics.md).
+   3. En la sección **Tipos de evento**:
+      1. Seleccione el desplegable **Filtro para tipos de evento**.
+      1. Anule la selección de las casillas **Dispositivo creado** y **Dispositivo eliminado**, y deje seleccionadas solo las casillas **Dispositivo conectado** y **Dispositivo desconectado**.
 
-           ![Tipos de eventos de suscripción](./media/publish-iot-hub-events-to-logic-apps/subscription-event-types.png)
-   4. En la sección **DETALLES DE PUNTO DE CONEXIÓN**, realice las siguientes tareas: 
+         ![Seleccionar tipos de evento de suscripción](./media/publish-iot-hub-events-to-logic-apps/subscription-event-types.png)
+   
+   4. En la sección **Detalles del punto de conexión**: 
        1. En **Tipo de punto de conexión**, seleccione **Webhook**.
        2. Haga clic en **Seleccionar punto de conexión** y pegue la dirección URL que copió de la aplicación lógica y confirme la selección.
 
@@ -195,60 +198,33 @@ En esta sección, va a configurar IoT Hube para publicar eventos cuando se produ
 
          Una vez realizadas las acciones anteriores, el panel debe tener un aspecto similar al del ejemplo siguiente: 
 
-        ![Formulario de ejemplo de suscripción de eventos](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
+         ![Formulario de ejemplo de suscripción de eventos](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
 
-5. Puede guardar la suscripción de eventos aquí y recibir notificaciones en todos los dispositivos creados en su instancia de IoT Hub. En este tutorial, sin embargo, se van a usar los campos opcionales para filtrar por dispositivos específicos. Seleccione **Filtros** en la parte superior del panel.
+1.  Seleccione **Crear**.
 
-6. Seleccione **Agregar nuevo filtro**. Rellene los campos con estos valores:
+## <a name="simulate-a-new-device-connecting-and-sending-telemetry"></a>Simulación de la conexión de un nuevo dispositivo y del envío de datos de telemetría
 
-   * **Clave**: Seleccione `Subject`.
+Pruebe la aplicación lógica mediante la simulación rápida de una conexión de dispositivo mediante la CLI de Azure. 
 
-   * **Operador**: Seleccione `String begins with`.
+1. Seleccione el botón Cloud Shell para volver a abrir el terminal.
 
-   * **Valor**:  escriba `devices/Building1_` para filtrar por los eventos de dispositivos del edificio 1.
-  
-   Agregue otro filtro con estos valores:
+1. Ejecute el siguiente comando para crear una identidad de dispositivo simulado:
+    
+     ```azurecli 
+    az iot hub device-identity create --device-id simDevice --hub-name {YourIoTHubName}
+    ```
 
-   * **Clave**: Seleccione `Subject`.
+1. Ejecute el siguiente comando para simular la conexión del dispositivo a IoT Hub y el envío de datos de telemetría:
 
-   * **Operador**: Seleccione `String ends with`.
+    ```azurecli
+    az iot device simulate -d simDevice -n {YourIoTHubName}
+    ```
 
-   * **Valor**: escriba `_Temperature` para filtrar por los eventos de dispositivo relacionados con la temperatura.
+1. Cuando el dispositivo simulado se conecta a IoT Hub, recibirá un correo electrónico que le notificará el evento "DeviceConnected".
 
-   La pestaña **Filtros** de la suscripción al evento se debe parecer a esta imagen:
+1. Cuando finaliza la simulación, recibirá un correo electrónico que le notificará el evento "DeviceDisconnected". 
 
-   ![Incorporación de filtros a suscripción al evento](./media/publish-iot-hub-events-to-logic-apps/event-subscription-filters.png)
-
-7. Seleccione **Crear** para guardar la suscripción de eventos.
-
-## <a name="create-a-new-device"></a>Creación de un dispositivo
-
-Pruebe la aplicación lógica mediante la creación de un dispositivo para desencadenar un correo electrónico de notificación de eventos. 
-
-1. En IoT Hub, seleccione **Dispositivos IoT**. 
-
-2. Seleccione **Nuevo**.
-
-3. En **Id. de dispositivo**, escriba `Building1_Floor1_Room1_Light`.
-
-4. Seleccione **Guardar**. 
-
-5. Puede agregar varios dispositivos con distintos identificadores de dispositivo para probar los filtros de suscripción de eventos. Pruebe estos ejemplos: 
-
-   * Building1_Floor1_Room1_Light
-   * Building1_Floor2_Room2_Temperature
-   * Building2_Floor1_Room1_Temperature
-   * Building2_Floor1_Room1_Light
-
-   Si ha agregado los cuatro ejemplos, la lista de dispositivos IoT se parecerá a la siguiente imagen:
-
-   ![Lista de dispositivos de IoT Hub](./media/publish-iot-hub-events-to-logic-apps/iot-hub-device-list.png)
-
-6. Una vez que haya agregado unos cuantos dispositivos a su instancia de IoT Hub, consulte su correo electrónico para ver cuáles desencadenaron la aplicación lógica. 
-
-## <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
-
-En lugar de usar Azure Portal, puede llevar a cabo los pasos de IoT Hub mediante la CLI de Azure. Para más información, consulte las páginas de la CLI de Azure para [crear una suscripción de eventos](/cli/azure/eventgrid/event-subscription) y [crear un dispositivo IoT](/cli/azure/ext/azure-iot/iot/hub/device-identity).
+    ![Correo electrónico de alerta de ejemplo](./media/publish-iot-hub-events-to-logic-apps/alert-mail.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -260,30 +236,10 @@ Para eliminar todos los recursos que ha creado en este tutorial, elimine el grup
 
 2. En la página del grupo de recursos, seleccione **Eliminar grupo de recursos**. Se le pedirá que escriba el nombre del grupo de recursos y, a continuación, podrá eliminarlo. También se quitarán todos los recursos que contiene.
 
-Si no desea quitar todos los recursos, puede administrarlos uno a uno. 
-
-Si no desea perder el trabajo realizado en la aplicación lógica, deshabilítela en lugar de eliminarla. 
-
-1. Vaya a la aplicación lógica.
-
-2. En la hoja **Introducción**, seleccione **Eliminar** o **Deshabilitar**. 
-
-Cada suscripción solo puede tener una instancia de IoT Hub gratuita. Si creó una instancia de IoT Hub gratis para este tutorial, no es necesario eliminarla para evitar cargos.
-
-1. Vaya a su instancia de IoT Hub. 
-
-2. En la página **Introducción**, seleccione **Eliminar**. 
-
-Aunque conserve la instancia de IoT Hub, puede que desee eliminar la suscripción de eventos que creó. 
-
-1. En la instancia de IoT Hub, seleccione **Event Grid**.
-
-2. Seleccione la suscripción de eventos que desea eliminar. 
-
-3. Seleccione **Eliminar**. 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga más información sobre [reacción a eventos de IoT Hub mediante Event Grid para desencadenar acciones](../iot-hub/iot-hub-event-grid.md).
 * [Aprenda a ordenar eventos conectados y desconectados de dispositivos](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
 * Obtenga información sobre qué más puede hacer con [Event Grid](overview.md).
+
+Puede encontrar una lista completa de los conectores de Logic Apps admitidos en [Introducción a los conectores](/connectors/).

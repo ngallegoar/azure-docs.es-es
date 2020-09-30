@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 3fe2fa8b094830e2d15c1cebce782381b4ca7bc7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 93cccb1455f7a228cf40d4948cd8579610230db5
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74975047"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526449"
 ---
 # <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Tutorial: Aprovisionamiento del dispositivo en una instancia de IoT Hub mediante el servicio Azure IoT Hub Device Provisioning
 
@@ -28,12 +28,12 @@ En el tutorial anterior, aprendió a configurar un dispositivo para conectarse a
 
 Antes de continuar, asegúrese de configurar el dispositivo como se describe en el tutorial [Configuración del dispositivo para el aprovisionamiento mediante el servicio Azure IoT Hub Device Provisioning](./tutorial-set-up-device.md).
 
-Si no está familiarizado con el proceso de aprovisionamiento automático, no olvide revisar los [conceptos sobre aprovisionamiento automático](concepts-auto-provisioning.md) antes de continuar.
+Si no está familiarizado con el proceso de aprovisionamiento automático, revise la información general sobre el [aprovisionamiento](about-iot-dps.md#provisioning-process) antes de continuar.
 
 <a id="enrolldevice"></a>
 ## <a name="enroll-the-device"></a>Inscribir el dispositivo
 
-Este paso incluye la incorporación de artefactos de seguridad únicos del dispositivo al servicio Device Provisioning. Estos artefactos de seguridad se basan en el [mecanismo de atestación](concepts-device.md#attestation-mechanism) del dispositivo como se indica a continuación:
+Este paso incluye la incorporación de artefactos de seguridad únicos del dispositivo al servicio Device Provisioning. Estos artefactos de seguridad se basan en el [mecanismo de atestación](concepts-service.md#attestation-mechanism) del dispositivo como se indica a continuación:
 
 - Para dispositivos basados en TPM necesita:
     - La *clave de aprobación* que es exclusiva de cada chip TPM o simulación y que se obtiene del fabricante.  Consulte [Descripción de la clave de aprobación de TPM](https://technet.microsoft.com/library/cc770443.aspx) para más información.
@@ -48,7 +48,7 @@ Este paso incluye la incorporación de artefactos de seguridad únicos del dispo
 
 Hay dos maneras de inscribir el dispositivo en el servicio Device Provisioning:
 
-- **Grupos de inscripción**: esta representa un grupo de dispositivos que comparten un mecanismo de atestación específico. Se recomienda usar un grupo de inscripción para un gran número de dispositivos que compartan la configuración inicial deseada o para dispositivos que vayan todos al mismo inquilino. Para más información sobre la atestación de identidad para grupos de inscripción, consulte [Seguridad](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+- **Grupos de inscripción**: esta representa un grupo de dispositivos que comparten un mecanismo de atestación específico. Se recomienda usar un grupo de inscripción para un gran número de dispositivos que compartan la configuración inicial deseada o para dispositivos que vayan todos al mismo inquilino. Para más información sobre la atestación de identidad para grupos de inscripción, consulte [Seguridad](concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
     [![Agregar inscripción de grupo para la atestación X.509 en el portal](./media/tutorial-provision-device-to-hub/group-enrollment.png)](./media/tutorial-provision-device-to-hub/group-enrollment.png#lightbox)
 

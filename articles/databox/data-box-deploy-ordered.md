@@ -2,18 +2,18 @@
 title: Tutorial para pedir Azure Data Box | Microsoft Docs
 description: En este tutorial obtendrá información sobre Azure Data Box, una solución híbrida que le permite importar datos locales en Azure y cómo pedir Azure Data Box.
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/21/2020
-ms.author: twooley
-ms.openlocfilehash: 2000ecc84a92bef5ad6b80fecde4aee0157e4bc5
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.date: 09/15/2020
+ms.author: alkohli
+ms.openlocfilehash: c2d971c2c9375f58fd5f41a46716fac4bff29f88
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783576"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604315"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Realización de pedidos de Azure Data Box
 
@@ -138,7 +138,7 @@ Antes de comenzar, asegúrese de:
 * Haber instalado Windows PowerShell 6.2.4 o una versión posterior.
 * Haber instalado el módulo de Azure PowerShell (AZ).
 * Haber instalado el módulo de Azure Data Box (Az.DataBox).
-* Haber iniciado sesión en Azure.
+* Inicie sesión en Azure.
 
 #### <a name="install-azure-powershell-and-modules-locally"></a>Instalación de Azure PowerShell y los módulos en la máquina
 
@@ -268,8 +268,21 @@ Para solicitar un dispositivo, realice los pasos siguientes en Azure Portal.
     ![Solicitud de Data Box para disco administrado](media/data-box-deploy-ordered/select-data-box-import-07b.png)
 
     La cuenta de almacenamiento especificada para los discos administrados se usa como una cuenta de almacenamiento provisional. El servicio Data Box carga los discos duros virtuales como blob en páginas en la cuenta de almacenamiento provisional y, a continuación, los convierte en discos administrados y los mueve a los grupos de recursos. Para más información, vea [Comprobación de la carga de datos en Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
+   > [!NOTE]
+   > Si un blob en páginas no se convierte correctamente en un disco administrado, permanece en la cuenta de almacenamiento y se le cobra por el almacenamiento.
 
-    Seleccione **Siguiente: Detalles de contacto** para continuar.
+    Seleccione **Siguiente: Seguridad** para continuar.
+
+1. En **Seguridad**, si quiere habilitar el cifrado doble basado en software, seleccione **Habilitar el cifrado doble para el pedido**. 
+
+   El cifrado basado en software se realiza junto con el cifrado AES de 256 bits de los datos en Data Box.
+
+   > [!NOTE]
+   > La habilitación de esta opción puede hacer que el procesamiento de pedidos y la copia de datos tarden más. Esta opción no se puede cambiar después de crear el pedido.
+
+   ![Pantalla de seguridad para la importación de Data Box, cifrado doble](media/data-box-deploy-ordered/select-data-box-import-07c.png)
+
+   Seleccione **Siguiente: Detalles de contacto** para continuar.
 
 8. En **Detalles de contacto**, seleccione **+ Agregar dirección de envío**.
 

@@ -1,14 +1,14 @@
 ---
 title: Ejemplo de plano técnico de nivel 4 de impacto del DoD
 description: Pasos de implementación para el ejemplo de plano técnico de nivel 4 de impacto del DoD, incluidos los detalles de los parámetros del artefacto de plano técnico.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: bb2599399284b2be5a9a7f88ef1d0244812ec4b2
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 7ab2e5967031b52bcad7c1b6f38b546cb8a7eb86
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044981"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978407"
 ---
 # <a name="deploy-the-dod-impact-level-4-blueprint-sample"></a>Implementación del ejemplo de plano técnico de nivel 4 de impacto del DoD
 
@@ -99,12 +99,12 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 |Implementación de auditorías en servidores SQL Server|Asignación de directiva|Nombre del grupo de recursos para la cuenta de almacenamiento para la auditoría del servidor de SQL|La auditoría escribe eventos de base de datos en un registro de auditoría en la cuenta de Azure Storage (se creará una cuenta de almacenamiento en cada región donde se cree una instancia de SQL Server que compartirán todos los servidores de esa región). Importante: Para el correcto funcionamiento de la auditoría, no elimine ni cambie el nombre del grupo de recursos o de las cuentas de almacenamiento.|
 |Implementación de la configuración de diagnóstico de grupos de seguridad de red|Asignación de directiva|Prefijo de la cuenta de almacenamiento para diagnósticos de grupos de seguridad de red|Este prefijo se combinará con la ubicación del grupo de seguridad de red para formar el nombre de la cuenta de almacenamiento que se creó.|
 |Implementación de la configuración de diagnóstico de grupos de seguridad de red|Asignación de directiva|Nombre del grupo de recursos para la cuenta de almacenamiento para el diagnóstico de grupos de seguridad de red (deben existir)|El grupo de recursos en el que se creará la cuenta de almacenamiento. Este grupo de recursos ya debe existir.|
-|Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Linux|Asignación de directiva|Área de trabajo de Log Analytics para VM Scale Sets (VMSS) para Linux|Si este área de trabajo está fuera del ámbito de la asignación, debe conceder manualmente los permisos de "colaborador de Log Analytics" (o similar) al identificador de la entidad de seguridad de la asignación de la directiva.|
-|Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Linux|Asignación de directiva|Opcional: Lista de imágenes de VM que han admitido el sistema operativo Linux que se agregarán al ámbito.|Se puede usar una matriz vacía para indicar que no hay parámetros opcionales: \[\]|
+|Implementar el agente de Log Analytics para conjuntos de escalado de máquinas virtuales Linux|Asignación de directiva|Área de trabajo de Log Analytics para conjuntos de escalado de máquinas virtuales Linux|Si este área de trabajo está fuera del ámbito de la asignación, debe conceder manualmente los permisos de "colaborador de Log Analytics" (o similar) al identificador de la entidad de seguridad de la asignación de la directiva.|
+|Implementar el agente de Log Analytics para conjuntos de escalado de máquinas virtuales Linux|Asignación de directiva|Opcional: Lista de imágenes de VM que han admitido el sistema operativo Linux que se agregarán al ámbito.|Se puede usar una matriz vacía para indicar que no hay parámetros opcionales: \[\]|
 |Implementar el agente de Log Analytics en máquinas virtuales Linux|Asignación de directiva|Área de trabajo de Log Analytics para máquinas virtuales Linux|Si este área de trabajo está fuera del ámbito de la asignación, debe conceder manualmente los permisos de "colaborador de Log Analytics" (o similar) al identificador de la entidad de seguridad de la asignación de la directiva.|
 |Implementar el agente de Log Analytics en máquinas virtuales Linux|Asignación de directiva|Opcional: Lista de imágenes de VM que han admitido el sistema operativo Linux que se agregarán al ámbito.|Se puede usar una matriz vacía para indicar que no hay parámetros opcionales: \[\]|
-|Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Windows|Asignación de directiva|Área de trabajo de Log Analytics para VM Scale Sets (VMSS) para Windows|Si este área de trabajo está fuera del ámbito de la asignación, debe conceder manualmente los permisos de "colaborador de Log Analytics" (o similar) al identificador de la entidad de seguridad de la asignación de la directiva.|
-|Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Windows|Asignación de directiva|Opcional: Lista de imágenes de VM que han admitido el sistema operativo Windows que se agregarán al ámbito.|Se puede usar una matriz vacía para indicar que no hay parámetros opcionales: \[\]|
+|Implementar el agente de Log Analytics para conjuntos de escalado de máquinas virtuales Windows|Asignación de directiva|Área de trabajo de Log Analytics para conjuntos de escalado de máquinas virtuales Windows|Si este área de trabajo está fuera del ámbito de la asignación, debe conceder manualmente los permisos de "colaborador de Log Analytics" (o similar) al identificador de la entidad de seguridad de la asignación de la directiva.|
+|Implementar el agente de Log Analytics para conjuntos de escalado de máquinas virtuales Windows|Asignación de directiva|Opcional: Lista de imágenes de VM que han admitido el sistema operativo Windows que se agregarán al ámbito.|Se puede usar una matriz vacía para indicar que no hay parámetros opcionales: \[\]|
 |Implementar el agente de Log Analytics en máquinas virtuales Windows|Asignación de directiva|Área de trabajo de Log Analytics para máquinas virtuales Windows|Si este área de trabajo está fuera del ámbito de la asignación, debe conceder manualmente los permisos de "colaborador de Log Analytics" (o similar) al identificador de la entidad de seguridad de la asignación de la directiva.|
 |Implementar el agente de Log Analytics en máquinas virtuales Windows|Asignación de directiva|Opcional: Lista de imágenes de VM que han admitido el sistema operativo Windows que se agregarán al ámbito.|Se puede usar una matriz vacía para indicar que no hay parámetros opcionales: \[\]|
 |\[Versión preliminar\]: Nivel 4 de impacto de DoD|Asignación de directiva|Miembros que se deben incluir en el grupo Administradores local|Lista separada por punto y coma de los miembros que se deben excluir en el grupo Administradores local. Por ejemplo: Administrador; miUsuario1; miUsuario2|

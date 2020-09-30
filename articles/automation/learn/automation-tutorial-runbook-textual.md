@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: dd9aee01edf45f89feb6a6010c8d958511bc3904
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 613ce41820dc5f388af441836bdb4a93e43e5d07
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185405"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987637"
 ---
 # <a name="tutorial-create-a-powershell-workflow-runbook"></a>Tutorial: Creación de un runbook de flujo de trabajo de PowerShell
 
@@ -109,17 +109,17 @@ El runbook que ha creado aún está en modo Borrador. Tiene que publicarlo para 
 
 6. Observe que el estado del trabajo se muestra en **Resumen del trabajo**. Este estado coincide con los estados que vio al probar el runbook.
 
-   ![Resumen del trabajo](../media/automation-tutorial-runbook-textual/job-pane-status-blade-jobsummary.png)
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-jobsummary.png" alt-text="Captura de pantalla del panel de trabajo de runbook que muestra la sección de resumen de trabajo resaltada.":::
 
 7. Cuando el estado del runbook aparezca como Completado, haga clic en **Salida**. Se abre la página Salida, donde puede ver el mensaje `Hello World`.
 
-   ![Resumen del trabajo](../media/automation-tutorial-runbook-textual/job-pane-status-blade-outputtile.png)
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-outputtile.png" alt-text="Captura de pantalla del panel de trabajo de runbook que muestra la sección de resumen de trabajo resaltada.":::
 
 8. Cierre la página Salida.
 
 9. Haga clic en **Todos los registros** para abrir el panel Transmisiones para el trabajo de Runbook. Solo debería ver `Hello World` en el flujo de salida. Tenga en cuenta que el panel Transmisiones puede mostrar otras transmisiones de un trabajo de runbook, como las transmisiones de error y detalladas, si el runbook escribe en ellas.
 
-   ![Resumen del trabajo](../media/automation-tutorial-runbook-textual/job-pane-status-blade-alllogstile.png)
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-alllogstile.png" alt-text="Captura de pantalla del panel de trabajo de runbook que muestra la sección de resumen de trabajo resaltada.":::
 
 10. Cierre el panel Transmisiones y el panel Trabajo para volver a la página de MyFirstRunbook.
 

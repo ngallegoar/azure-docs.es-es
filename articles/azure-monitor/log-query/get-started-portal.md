@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 8917c73474b81ee76e6acdf8c6f274e962ee1215
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: b337065f125d12e309dd1f7fcc56c2af72b1c28c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874238"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088364"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>Tutorial: Introducción a las consultas de Log Analytics
 
@@ -42,7 +42,7 @@ Un *esquema* es una colección de tablas que se agrupan en categorías lógicas.
 
 Las tablas del esquema aparecen en la pestaña **Tablas** del área de trabajo de Log Analytics. Las tablas contienen columnas, cada una con un tipo de datos que muestra el icono situado junto al nombre de la columna. Por ejemplo, la tabla **Eventos** contiene columnas de texto como **Equipo** y columnas numéricas como **EventCategory**.
 
-![Schema](media/get-started-portal/schema.png)
+![La captura de pantalla muestra la página de registros de Azure Portal con una nueva consulta, en la que se resalta el panel Tablas con el equipo y EventCategory resaltados.](media/get-started-portal/schema.png)
 
 ## <a name="write-and-run-basic-queries"></a>Escritura y ejecución de consultas básicas
 
@@ -120,7 +120,7 @@ Para filtrar los resultados de la consulta de `Event` por eventos de **Error** m
    
 1. Seleccione **Filtro**.
    
-   ![Filter](media/get-started-portal/filter.png)
+   ![La captura de pantalla muestra una tabla de resultados con un menú contextual para filtrar los resultados por EventLevelName.](media/get-started-portal/filter.png)
 
 ## <a name="sort-group-and-select-columns"></a>Ordenación, agrupación y selección de columnas
 Para ordenar los resultados de una consulta por una columna específica, como **TimeGenerated [UTC]** , seleccione el encabezado de la columna. Seleccione el encabezado de nuevo para cambiar entre un orden ascendente o descendente.
@@ -129,7 +129,7 @@ Para ordenar los resultados de una consulta por una columna específica, como **
 
 Otra manera de organizar los resultados es por grupos. Para agrupar resultados por una columna específica, arrastre el encabezado de la columna a la barra situada sobre la tabla de resultados con la etiqueta **Drag a column header and drop it here to group by that column** (Arrastrar un encabezado de columna y soltarlo aquí para agrupar por esa columna). Para crear subgrupos, arrastre otras columnas a la barra superior. Puede reorganizar la jerarquía y ordenar los grupos y subgrupos en la barra.
 
-![Grupos](media/get-started-portal/groups.png)
+![Captura de pantalla que muestra los resultados de la consulta con los subgrupos de EventLevelName y Equipo.](media/get-started-portal/groups.png)
 
 Para ocultar o mostrar las columnas de los resultados, seleccione **Columnas** situado encima de la tabla y, a continuación, seleccione o anule la selección de las columnas que desee en la lista desplegable.
 
