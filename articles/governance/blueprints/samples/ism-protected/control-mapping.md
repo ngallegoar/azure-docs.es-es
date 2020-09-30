@@ -1,14 +1,14 @@
 ---
-title: Introducción al ejemplo del plano técnico Australian Government ISM PROTECTED
-description: Introducción al ejemplo del plano técnico Australian Government ISM PROTECTED. Este ejemplo de plano técnico ayuda a los clientes a evaluar determinados controles de ISM PROTECTED.
-ms.date: 08/03/2020
+title: Controles del ejemplo del plano técnico Australian Government ISM PROTECTED
+description: Asignación de controles del ejemplo de plano técnico Australian Government ISM PROTECTED. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
+ms.date: 09/11/2020
 ms.topic: sample
-ms.openlocfilehash: 750cc5551f0bbf05e0da6ad41d46729231243f72
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 605e92b75da1e5363884fc6ef9457251cfbc6e4e
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760437"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030113"
 ---
 # <a name="control-mapping-of-the-australian-government-ism-protected-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico Australian Government ISM PROTECTED
 
@@ -350,6 +350,10 @@ Este plano técnico le ayuda a restringir la ubicación de la implementación de
 ## <a name="next-steps"></a>Pasos siguientes
 
 Artículos adicionales sobre planos técnicos y cómo utilizarlos:
+
+> [!div class="nextstepaction"]
+> [Plano técnico ISM PROTECTED: introducción](./index.md)
+> [Plano técnico ISM PROTECTED: pasos de la implementación](./deploy.md)
 
 - Información acerca del [ciclo de vida del plano técnico](../../concepts/lifecycle.md).
 - Descubra cómo utilizar [parámetros estáticos y dinámicos](../../concepts/parameters.md).
