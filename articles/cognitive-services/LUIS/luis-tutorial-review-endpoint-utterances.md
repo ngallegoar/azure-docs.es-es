@@ -2,14 +2,16 @@
 title: 'Tutorial: Revisión de expresiones de punto de conexión: LUIS'
 description: En este tutorial, va a mejorar las predicciones de las aplicaciones mediante la comprobación o corrección de las expresiones recibidas mediante el punto de conexión HTTPS de LUIS de las que LUIS no está seguro. Algunas expresiones puede que se comprueben para la intención y otras puede que necesiten comprobarse para la entidad.
 services: cognitive-services
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/02/2020
-ms.openlocfilehash: 082e625efeeb4764aaa1ac5101eb2b0013348b19
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: b8f8fa2cd3c9c22187bb95c55d9de2abb2e8caec
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85959061"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324644"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrección de predicciones poco seguras mediante la revisión de las expresiones del punto de conexión
 En este tutorial, va a mejorar las predicciones de las aplicaciones mediante la comprobación o corrección de las expresiones recibidas mediante el punto de conexión HTTPS de LUIS de las que LUIS no está seguro. Debe revisar las expresiones de punto de conexión como una parte convencional del mantenimiento programado de LUIS.
@@ -82,7 +84,7 @@ Revise las expresiones del punto de conexión en busca de una intención alinead
 
 1. En la sección **Build** (Compilar) del portal, seleccione **Review endpoint utterances** (Revisar expresiones del punto de conexión) en el panel de navegación izquierdo. La lista se filtra para la intención **ApplyForJob**.
 
-    :::image type="content" source="./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png" alt-text="Captura de pantalla del botón Review endpoint utterances (Revisar expresiones del punto de conexión) en el panel de navegación izquierdo.":::
+    :::image type="content" source="./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png" alt-text="Cambie de la página Versiones a la página Intenciones.":::
 
     Esta expresión, `I'm looking for a job with Natural Language Processing`, no se encuentra en la intención correcta, _GetJobInformation_. Se ha predecido como _ApplyForJob_ debido a la similitud de los nombres de trabajo y los verbos en los dos intentos.
 

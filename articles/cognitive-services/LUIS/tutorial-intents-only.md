@@ -1,14 +1,16 @@
 ---
 title: 'Tutorial: Predicción de intenciones: LUIS'
 description: Cree una aplicación personalizada que prediga la intención de un usuario en función de la expresión (texto) siguiendo este tutorial.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/05/2020
-ms.openlocfilehash: d0a625708e730094ab4dea8f705852f38ee6e1da
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c4a564834166686e8280f1117269742b489fc62c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85959866"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334759"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Tutorial: Compilación de una aplicación de LUIS para determinar las intenciones del usuario
 

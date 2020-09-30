@@ -7,13 +7,13 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 2eafd2f74ffcf5fe0fe65d04884cfd2d668cdf0b
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.custom: devx-track-js
+ms.openlocfilehash: bc11dd6113bbf5b07e19b83735c83e4895e4a796
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684582"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323603"
 ---
 # <a name="deploy-server-rendered-nuxtjs-websites-on-azure-static-web-apps-preview"></a>Implementación de sitios web de Nuxt.js representados por el servidor en Azure Static Web Apps (versión preliminar)
 
@@ -62,7 +62,7 @@ Vaya a `http://localhost:3000` para abrir la aplicación, donde debería ver el 
 
 Al hacer clic en un marco/biblioteca, debería ver una página de detalles acerca del elemento seleccionado:
 
-:::image type="content" source="media/deploy-nuxtjs/start-nuxtjs-details.png" alt-text="Página de detalles":::
+:::image type="content" source="media/deploy-nuxtjs/start-nuxtjs-details.png" alt-text="Inicio de la aplicación de Nuxt.js":::
 
 ## <a name="generate-a-static-website-from-nuxtjs-build"></a>Generación de un sitio web estático desde la compilación de Nuxt.js
 
@@ -130,7 +130,7 @@ En los pasos siguientes se muestra cómo vincular la aplicación que acaba de in
 1. En la lista desplegable *Región*, elija la región más cercana a usted.
 1. Seleccione **Gratis** en el menú desplegable de SKU.
 
-   :::image type="content" source="media/deploy-nuxtjs/create-static-web-app.png" alt-text="Creación de la aplicación web estática":::
+   :::image type="content" source="media/deploy-nuxtjs/create-static-web-app.png" alt-text="Inicio de la aplicación de Nuxt.js":::
 
 ### <a name="add-a-github-repository"></a>Adición de un repositorio de GitHub
 
@@ -141,7 +141,7 @@ La nueva cuenta de Static Web Apps debe tener acceso al repositorio con la aplic
 1. Busque el nombre del repositorio que creó anteriormente y selecciónelo.
 1. Elija **maestro** como rama en el menú desplegable *Rama*.
 
-   :::image type="content" source="media/deploy-nuxtjs/connect-github.png" alt-text="Conexión a GitHub":::
+   :::image type="content" source="media/deploy-nuxtjs/connect-github.png" alt-text="Inicio de la aplicación de Nuxt.js":::
 
 ### <a name="configure-the-build-process"></a>Configuración del proceso de compilación
 
@@ -149,7 +149,7 @@ Azure Static Web Apps se ha creado para realizar de forma automática tareas com
 
 1. Haga clic en la pestaña **Compilación** para configurar la carpeta de salida estática.
 
-      :::image type="content" source="media/deploy-nuxtjs/build-tab.png" alt-text="Pestaña Compilación":::
+      :::image type="content" source="media/deploy-nuxtjs/build-tab.png" alt-text="Inicio de la aplicación de Nuxt.js":::
 
 1. Escriba **dist** en el cuadro de texto *Ubicación del artefacto de la aplicación*.
 
@@ -178,7 +178,7 @@ Vuelva al terminal y ejecute el siguiente comando: `git pull origin master`.
 
 Vaya al sitio recién implementado y haga clic en uno de los logotipos de marco o biblioteca. En lugar de obtener una página de detalles, aparecerá una página de error 404.
 
-:::image type="content" source="media/deploy-nuxtjs/404-in-production.png" alt-text="404 en rutas dinámicas":::
+:::image type="content" source="media/deploy-nuxtjs/404-in-production.png" alt-text="Inicio de la aplicación de Nuxt.js":::
 
 El motivo es que Nuxt.js generó el sitio estático, pero solo lo hizo para la página principal. Nuxt.js puede generar archivos `.html` estáticos equivalentes para cada archivo de páginas `.vue`, pero hay una excepción. 
 
@@ -215,7 +215,7 @@ Si se trata de una página dinámica, por ejemplo `_id.vue`, no tendrá suficien
 
 2. Envíe los nuevos cambios al repositorio de GitHub y espere unos minutos mientras las Acciones de GitHub compilan de nuevo el sitio. Una vez que se complete la compilación, el error 404 desaparecerá.
 
-   :::image type="content" source="media/deploy-nuxtjs/404-in-production-fixed.png" alt-text="404 en rutas dinámicas corregido":::
+   :::image type="content" source="media/deploy-nuxtjs/404-in-production-fixed.png" alt-text="Inicio de la aplicación de Nuxt.js":::
 
 > [!div class="nextstepaction"]
 > [Configuración de un dominio personalizado](custom-domain.md)

@@ -12,14 +12,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2019
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 53fdea6a52cc02ddc9aaf22574a6bac5f5b7bca6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2eee46f99af247ffd0e11b262ace0a96453270d4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945506"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323681"
 ---
 # <a name="what-is-azure-security-center"></a>¿Qué es el Centro de seguridad de Azure?
 
@@ -67,7 +67,7 @@ En lo que respecta a la seguridad, resulta fundamental saber que las cargas de t
 
 Security Center ayuda a **identificar las suscripciones de shadow IT**. Si echa un vistazo a las suscripciones con la etiqueta **not covered** (no cubierta) en el panel, puede saber de inmediato cuando hay suscripciones recién creadas y asegurarse de que estén cubiertas por las directivas, además de protegidas por Azure Security Center.
 
-:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Panel de directivas de Security Center":::
+:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Página Administración de directivas":::
 
 ### <a name="continuous-assessments"></a>Evaluaciones continuas
 
@@ -75,13 +75,13 @@ Security Center siempre está detectando los recursos nuevos que se implementan 
 
 Para ayudarle a conocer el grado de importancia que tiene cada una de las recomendaciones en su postura global acerca de la seguridad, Security Center agrupa las recomendaciones en controles de seguridad y agrega un valor de **puntuación de la seguridad** a cada control. Esto resulta esencial para permitirle **clasificar por orden de prioridad el trabajo de seguridad**.
 
-:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Puntuación de seguridad de Security Center":::
+:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Página Administración de directivas":::
 
 ### <a name="network-map"></a>Mapa de red
 
 Una de las herramientas más avanzadas que proporciona Security Center para la supervisión continua del estado de la seguridad de la red es el **Mapa de red**. El mapa le permite ver la topología de las cargas de trabajo para que pueda notar si cada nodo está configurado correctamente. Ahora puede ver cómo están conectados los nodos, lo que le permite bloquear las conexiones no deseadas que podrían facilitar que un atacante se deslice por la red.
 
-:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Mapa de red de Security Center":::
+:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Página Administración de directivas":::
 
 
 ### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>Optimice y mejore la seguridad mediante la configuración de controles recomendados
@@ -92,7 +92,7 @@ De este modo, Security Center le permite no solo establecer las directivas de se
 
 Las recomendaciones lo ayudan a disminuir la superficie expuesta a ataques en cada uno de los recursos. Aquí se incluyen las máquinas virtuales de Azure, los servidores que no son de Azure y los servicios de PaaS de Azure, como cuentas de SQL y Storage, etc., donde cada tipo de recurso se evalúa de manera distinta y tiene sus propios estándares.
 
-:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Ejemplo de recomendación de Security Center":::
+:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Página Administración de directivas":::
 
 ## <a name="protect-against-threats"></a>Protección frente a amenazas
 
@@ -100,7 +100,7 @@ La protección contra amenazas de Security Center permite detectar y prevenir la
 
 La protección contra amenazas de Security Center incluye el análisis de la cadena de destrucción de fusión, que correlaciona de manera automática las alertas del entorno en función del análisis de la cadena de destrucción cibernética, para ayudarlo a entender mejor la historia completa de una campaña de ataque, dónde empezó y qué tipo de impacto tuvo en los recursos.
 
-:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Alertas de seguridad":::
+:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Página Administración de directivas":::
 
 ### <a name="integration-with-microsoft-defender-advanced-threat-protection"></a>Integración con Advanced Threat Protection de Microsoft Defender
 

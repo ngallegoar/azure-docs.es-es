@@ -8,18 +8,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 22240c61b2341999528dcb477308990133042fa0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 30c7d525f821b828dcc4c389c32a27123b79a56b
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286849"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360929"
 ---
 # <a name="tutorial-configure-a-sql-server-availability-group-on-azure-virtual-machines-manually"></a>Tutorial: Configuración de un grupo de disponibilidad de SQL Server Always On en Azure Virtual Machines de forma manual
 
@@ -41,13 +41,13 @@ En la tabla siguiente se enumeran los requisitos previos que debe completar ante
 
 | Requisito |Descripción |
 |----- |----- |----- |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)   **Dos instancias de SQL Server** | - En un conjunto de disponibilidad de Azure <br/> - En un solo dominio <br/> - Con la característica Clústeres de conmutación por error instalada |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)   **Windows Server** | Recurso compartido de archivos para testigo de clúster |  
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)   **Cuenta de servicio de SQL Server** | Cuenta de dominio |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)   **Cuenta de servicio del Agente SQL Server** | Cuenta de dominio |  
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)   **Puertos de firewall abiertos** | - SQL Server: **1433** para instancia predeterminada <br/> - Punto de conexión de creación de reflejo de la base de datos: **5022** o cualquier puerto disponible <br/> - Sondeo de estado de la dirección IP del equilibrador de carga del grupo de disponibilidad: **59999** o cualquier puerto disponible <br/> - Sondeo de estado de la dirección IP del equilibrador de carga del núcleo del clúster: **58888** o cualquier puerto disponible |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)   **Agregar la característica Clústeres de conmutación por error** | Ambas instancias de SQL Server necesitan esta característica |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)   **Cuenta de dominio de la instalación** | - Administrador local en cada servidor SQL Server <br/> - Miembro del rol fijo del servidor sysadmin de SQL Server para cada instancia de SQL Server  |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Dos instancias de SQL Server** | - En un conjunto de disponibilidad de Azure <br/> - En un solo dominio <br/> - Con la característica Clústeres de conmutación por error instalada |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Windows Server** | Recurso compartido de archivos para testigo de clúster |  
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Cuenta de servicio de SQL Server** | Cuenta de dominio |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Cuenta de servicio Agente SQL Server** | Cuenta de dominio |  
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Puertos de firewall abiertos** | - SQL Server: **1433** para instancia predeterminada <br/> - Punto de conexión de creación de reflejo de la base de datos: **5022** o cualquier puerto disponible <br/> - Sondeo de estado de la dirección IP del equilibrador de carga del grupo de disponibilidad: **59999** o cualquier puerto disponible <br/> - Sondeo de estado de la dirección IP del equilibrador de carga del núcleo del clúster: **58888** o cualquier puerto disponible |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Agregar característica Clústeres de conmutación por error** | Ambas instancias de SQL Server necesitan esta característica |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Cuenta de dominio de la instalación** | - Administrador local en cada servidor SQL Server <br/> - Miembro del rol fijo del servidor sysadmin de SQL Server para cada instancia de SQL Server  |
 
 
 Antes de comenzar con este tutorial, debe completar los requisitos de [Finalización de requisitos previos para crear grupos de disponibilidad AlwaysOn en Azure Virtual Machines](availability-group-manually-configure-prerequisites-tutorial.md). Si estos requisitos previos ya se han completado, puede ir a [Creación del clúster](#CreateCluster).

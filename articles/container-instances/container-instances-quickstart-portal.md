@@ -3,13 +3,13 @@ title: 'Inicio rápido: implementación de un contenedor de Docker en una instan
 description: En este inicio rápido, usará Azure Portal para implementar rápidamente una aplicación web en contenedores que se ejecuta en una instancia de contenedor aislada de Azure
 ms.topic: quickstart
 ms.date: 08/24/2020
-ms.custom: seodec18, mvc, devx-track-javascript
-ms.openlocfilehash: 0decfdbc468cbf267260ef80634eb8ecb5e710b7
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.custom: seodec18, mvc, devx-track-js
+ms.openlocfilehash: c8477bd91c3a02a2cd02d341c38c16da251902ae
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870820"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324542"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Inicio rápido: Implementación de una instancia de contenedor en Azure mediante Azure Portal
 
@@ -29,7 +29,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita][azure-free-acco
 
 Seleccione **Crear un recurso** > **Contenedores** > **Container Instances**.
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-01.png" alt-text="Comenzar a crear una instancia de contenedor nueva en Azure Portal":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-01.png" alt-text="Aplicación implementada mediante Azure Container Instances vista en el explorador":::
 
 En la página **Aspectos básicos**, escriba los siguientes valores en los cuadros de texto **Grupo de recursos**, **Nombre de contenedor** e **Imagen de contenedor**. Deje los otros valores predeterminados y haga clic en **Aceptar**.
 
@@ -38,25 +38,21 @@ En la página **Aspectos básicos**, escriba los siguientes valores en los cuadr
 * Origen de imagen: **Imágenes de inicio rápido**
 * Imagen de contenedor: `mcr.microsoft.com/azuredocs/aci-helloworld` (Linux)
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-03.png" alt-text="Configuración básica de una instancia de contenedor nueva en Azure Portal":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-03.png" alt-text="Aplicación implementada mediante Azure Container Instances vista en el explorador" (La etiqueta de nombre DNS no está disponible), pruebe otra etiqueta de nombre DNS diferente.
 
-En este inicio rápido, use la configuración predeterminada para implementar la imagen `aci-helloworld` pública de Microsoft. Esta imagen de Linux de ejemplo empaqueta una pequeña aplicación web escrita en Node.js que sirve una página HTML estática. También puede traer sus propias imágenes de contenedor almacenadas en Azure Container Registry, Docker Hub u otros registros.
-
-En la página **Redes**, especifique una **etiqueta de nombre DNS** para el contenedor. El nombre debe ser único dentro de la región de Azure en la que crea la instancia de contenedor. El contenedor estará públicamente accesible en `<dns-name-label>.<region>.azurecontainer.io`. Si recibe un mensaje de error "DNS name label not available" (La etiqueta de nombre DNS no está disponible), pruebe otra etiqueta de nombre DNS diferente.
-
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-04.png" alt-text="Configuración de red para una instancia de contenedor nueva en Azure Portal":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-04.png" alt-text="Aplicación implementada mediante Azure Container Instances vista en el explorador":::
 
 Deje el resto de opciones con sus valores predeterminados y, luego, seleccione **Revisar y crear**.
 
 Cuando se complete la validación, verá un resumen de la configuración del contenedor. Seleccione **Crear** para enviar la solicitud de implementación de contenedor.
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-05.png" alt-text="Resumen de la configuración de una instancia de contenedor nueva en Azure Portal":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-05.png" alt-text="Aplicación implementada mediante Azure Container Instances vista en el explorador":::
 
 Cuando se inicia una implementación, aparece una notificación que indica que la implementación está en curso. Aparecerá otra notificación cuando se haya implementado el grupo de contenedores.
 
 Para abrir la información general del grupo de contenedores, vaya a **Grupos de recursos** > **myresourcegroup** > **mycontainer**. Tome nota del **FQDN** (el nombre de dominio completo) de la instancia de contenedor y también de su **estado**.
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-06.png" alt-text="Información general del grupo de contenedores en Azure Portal":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-06.png" alt-text="Aplicación implementada mediante Azure Container Instances vista en el explorador":::
 
 Cuando el **Estado** sea *En ejecución*, vaya al FQDN del contenedor en el explorador.
 
@@ -70,18 +66,18 @@ Ver los registros de una instancia de contenedor resulta de utilidad al solucion
 
 Para ver los registros del contenedor, en **Configuración**, seleccione **Contenedores** y luego **Registros**. Debería ver la solicitud GET HTTP que se genera cuando se ve la aplicación en el explorador.
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-11.png" alt-text="Registros de contenedor en Azure Portal":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-11.png" alt-text="Aplicación implementada mediante Azure Container Instances vista en el explorador":::
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Cuando haya terminado con el contenedor, seleccione **Introducción** para el contenedor *mycontainer* y luego seleccione **Eliminar**.
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-09.png" alt-text="Eliminación de una instancia de contenedor en Azure Portal]":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-09.png" alt-text="Aplicación implementada mediante Azure Container Instances vista en el explorador":::
 
 Seleccione **Sí** cuando aparezca el cuadro de diálogo de confirmación.
 
-:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-10.png" alt-text="Eliminación de la confirmación de una instancia de contenedor en Azure Portal]":::
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-10.png" alt-text="Aplicación implementada mediante Azure Container Instances vista en el explorador":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

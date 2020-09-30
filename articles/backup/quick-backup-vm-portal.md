@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/12/2020
 ms.custom: mvc
-ms.openlocfilehash: b0060c0aff8293ca5748cf8c055ebb2bbfb596e2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cd0d4928d5cd0eb15f4f1372a0a3417fc85d13bb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017454"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328789"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Copia de seguridad de una máquina virtual en Azure
 
@@ -83,7 +83,7 @@ Si va a continuar con un tutorial sobre copia de seguridad en el que se explique
 6. En la lista, seleccione un grupo de recursos. Si ha usado los comandos del ejemplo de la guía de inicio rápido de máquinas virtuales, el grupo de recursos se denominará *myResourceGroup*.
 7. Seleccione **Eliminar grupo de recursos**. Para confirmar, escriba el nombre del grupo de recursos y seleccione **Eliminar**.
 
-    ![Eliminar el grupo de recursos desde Azure Portal](./media/quick-backup-vm-portal/delete-resource-group.png)
+    ![Eliminar el grupo de recursos desde Azure Portal](./media/quick-backup-vm-portal/delete-resource-group-from-portal.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
