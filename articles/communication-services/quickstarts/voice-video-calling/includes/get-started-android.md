@@ -30,15 +30,15 @@ En este inicio rápido, aprenderá a iniciar una llamada mediante la biblioteca 
 
 En Android Studio, seleccione Start a new Android Studio project (Iniciar un nuevo proyecto de Android Studio).
 
-:::image type="content" source="../media/android/studio-new-project.png" alt-text="Captura de pantalla que muestra el botón "Start a new Android Studio Project" ("Iniciar un nuevo proyecto de Android Studio") seleccionado en Android Studio.":::
+:::image type="content" source="../media/android/studio-new-project.png" alt-text="Captura de pantalla que muestra el botón Start a new Android Studio Project (Iniciar un nuevo proyecto de Android Studio) seleccionado en Android Studio.":::
 
 Seleccione la plantilla de proyecto "Actividad vacía" en "Teléfono y tableta".
 
-:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Captura de pantalla que muestra la opción "Actividad vacía" seleccionada en la pantalla de la plantilla de proyecto.":::
+:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Captura de pantalla que muestra la opción Actividad vacía seleccionada en la pantalla de la plantilla de proyecto.":::
 
 Seleccione la biblioteca cliente mínima de la "API 26: Android 8.0 (Oreo)" o una versión posterior.
 
-:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Captura de pantalla que muestra la opción "Actividad vacía" seleccionada en la pantalla 2 de la plantilla de proyecto.":::
+:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Captura de pantalla que muestra la opción Actividad vacía seleccionada en la pantalla 2 de la plantilla de proyecto.":::
 
 
 ### <a name="install-the-package"></a>Instalar el paquete
