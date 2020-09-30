@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 06/12/2020
+ms.date: 09/25/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 39891b69cdb8e7f392657514d255f5f85b3eba60
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 34265552122c1f8d1bcbbcfe95948683a5750a71
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936034"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531010"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Uso de Python y AI para generar contenido que permita búsquedas desde blobs de Azure
 
@@ -59,7 +59,7 @@ Si es posible, cree los dos en la misma región y grupo de recursos para la prox
 
 1. Busque *cuenta de almacenamiento* y seleccione la oferta de Cuenta de almacenamiento de Microsoft.
 
-   ![Creación de una cuenta de almacenamiento](media/cognitive-search-tutorial-blob/storage-account.png "Crear cuenta de almacenamiento")
+   :::image type="content" source="media/cognitive-search-tutorial-blob/storage-account.png" alt-text="Creación de una cuenta de almacenamiento" border="false":::
 
 1. En la pestaña Datos básicos, se necesitan los siguientes elementos. Acepte los valores predeterminados para todo lo demás.
 
@@ -81,7 +81,7 @@ Si es posible, cree los dos en la misma región y grupo de recursos para la prox
 
 1. Seleccione *cog-search-demo* y haga clic en **Cargar** para abrir la carpeta en la que guardó los archivos de descarga. Seleccione todos los archivos que no sean de imagen. Debería tener 7 archivos. Haga clic en **Aceptar** para empezar a cargar.
 
-   ![Carga de archivos de ejemplo](media/cognitive-search-tutorial-blob/sample-files.png "Carga de archivos de ejemplo")
+   :::image type="content" source="media/cognitive-search-tutorial-blob/sample-files.png" alt-text="Creación de una cuenta de almacenamiento" border="false":::
 
 1. Antes de salir de Azure Storage, obtenga una cadena de conexión para poder formular una conexión en Azure Cognitive Search. 
 
@@ -117,7 +117,7 @@ Al igual que con Azure Blob Storage dedique un momento a recopilar la clave de a
 
    Obtenga también la clave de consulta. Es una práctica recomendada emitir solicitudes de consulta con acceso de solo lectura.
 
-   ![Obtención del nombre del servicio y las claves de consulta y administrador](media/search-get-started-nodejs/service-name-and-keys.png)
+   :::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Creación de una cuenta de almacenamiento" border="false":::
 
 Todas las solicitudes enviadas al servicio necesitan una clave de API en el encabezado. Una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que la envía y el servicio que se encarga de ella.
 
@@ -190,7 +190,7 @@ La solicitud debe devolver un código de estado 201 que confirme el éxito de la
 
 En Azure Portal, en la página del panel de información del servicio de búsqueda, compruebe que cogsrch-py-datasource aparece en la lista **Orígenes de datos**. Haga clic en **Actualizar**  para actualizar la página.
 
-![Icono de orígenes de datos en el portal](./media/cognitive-search-tutorial-blob-python/py-data-source-tile.png "Icono de orígenes de datos en el portal")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-data-source-tile.png" alt-text="Creación de una cuenta de almacenamiento" border="false":::
 
 ### <a name="step-2-create-a-skillset"></a>Paso 2: Creación de un conjunto de aptitudes
 
@@ -303,7 +303,7 @@ Cada aptitud se ejecuta en el contenido del documento. Durante el procesamiento,
 
 A continuación se muestra una representación gráfica del conjunto de aptitudes.
 
-![Descripción de un conjunto de aptitudes](media/cognitive-search-tutorial-blob/skillset.png "Descripción de un conjunto de aptitudes")
+:::image type="content" source="media/cognitive-search-tutorial-blob/skillset.png" alt-text="Creación de una cuenta de almacenamiento" border="false":::
 
 Las salidas se pueden asignar a un índice, usar como entrada para una aptitud de bajada, o ambas cosas como sucede con el código de idioma. En el índice, un código de idioma es útil para el filtrado. Como entrada, el código de idioma se usa en las aptitudes de análisis de texto para informar a las reglas lingüísticas de la separación de palabras.
 
@@ -315,7 +315,7 @@ En esta sección, se define el esquema de índice. Para ello, se especifican los
 
 En este ejercicio se utilizan los siguientes campos y tipos de campos:
 
-| field-names: | id         | content   | languageCode | keyPhrases         | organizations     |
+| field-names: | ID         | content   | languageCode | keyPhrases         | organizations     |
 |--------------|----------|-------|----------|--------------------|-------------------|
 | field-types: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
@@ -472,11 +472,11 @@ pprint(json.dumps(r.json(), indent=1))
 
 En la respuesta, supervise los valores `"status"` y `"endTime"` en `"lastResult"`. Ejecute el script de forma periódica para comprobar el estado. Cuando haya finalizado el indexador el estado se establecerá en "success", se especificará un "endTime", y la respuesta incluirá cualquier error o advertencia que se produjera durante el enriquecimiento.
 
-![Se crea el indexador](./media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png "Se crea el indexador")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png" alt-text="Creación de una cuenta de almacenamiento" border="false":::
 
 Las advertencias son comunes con algunas combinaciones de aptitudes y archivos de origen y no siempre indican un problema. Muchas advertencias son benignas. Por ejemplo, si indexa un archivo JPEG que no tenga texto, se verá la advertencia de esta captura de pantalla.
 
-![Advertencia de ejemplo del indexador](./media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png "Advertencia de ejemplo del indexador")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png" alt-text="Creación de una cuenta de almacenamiento" border="false":::
 
 ## <a name="5---search"></a>5: Búsqueda
 
@@ -493,7 +493,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 Los resultados deben tener un aspecto similar al del siguiente ejemplo. La captura de pantalla muestra solo una parte de la respuesta.
 
-![Índice de consulta para todos los campos](./media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png "Índice de consulta para todos los campos")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png" alt-text="Creación de una cuenta de almacenamiento" border="false":::
 
 La salida es el esquema de índice, con el nombre, el tipo y los atributos de cada campo.
 
@@ -508,7 +508,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 Los resultados deben tener un aspecto similar al del siguiente ejemplo. La captura de pantalla muestra solo una parte de la respuesta.
 
-![Índice de consulta para los contenidos de las organizaciones](./media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png "Consulta del índice para devolver los contenidos de las organizaciones")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png" alt-text="Creación de una cuenta de almacenamiento" border="false":::
 
 Repita el procedimiento con los campos adicionales: `content`, `languageCode`, `keyPhrases` y `organizations` en este ejercicio. Puede devolver varios campos a través de `$select` con una lista delimitada por comas.
 
@@ -522,7 +522,7 @@ En las primeras etapas experimentales de desarrollo, el enfoque más práctico p
 
 También puede usar el portal para eliminar los índices, los indexadores, los orígenes de datos y los conjuntos de aptitudes. Al eliminar el indexador, puede opcionalmente, de forma selectiva elimina el índice, aptitudes y datos de origen al mismo tiempo.
 
-![Eliminación de los objetos de búsqueda](./media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png "Eliminación de objetos de búsqueda en el portal")
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png" alt-text="Creación de una cuenta de almacenamiento" border="false":::
 
 También puede eliminarlos mediante un script. El script siguiente muestra cómo eliminar un conjunto de aptitudes. 
 

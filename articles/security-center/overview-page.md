@@ -4,15 +4,15 @@ description: Obtenga información sobre las características de la página de in
 author: memildin
 ms.author: memildin
 ms.date: 9/12/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 637f7dde63d562f71aa31561a960ed3502a80229
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cc52610eacc3916b7a8978cba17a1db3f3d50686
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90931879"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447682"
 ---
 # <a name="azure-security-centers-overview-page"></a>Página de información general de Azure Security Center
 
@@ -27,7 +27,7 @@ La información general proporciona una vista unificada de la postura de segurid
 
 ## <a name="features-of-the-overview-page"></a>Características de la página de información general
 
-:::image type="content" source="media/overview-page/top-bar-of-overview.png" alt-text="Barra superior de la página de información general de Security Center":::
+:::image type="content" source="media/overview-page/top-bar-of-overview.png" alt-text="Página de información general de Security Center":::
 
 La **barra de menús superior** ofrece:
 - **Suscripciones**: puede ver y filtrar la lista de suscripciones seleccionando este botón. Security Center ajustará la pantalla para reflejar la postura de seguridad de las suscripciones seleccionadas.

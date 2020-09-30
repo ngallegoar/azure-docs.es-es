@@ -10,16 +10,16 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ffcb2c741838b1292eaf0793cd625c99d252068c
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: e1a52a15012e367dc902992f7f7b905fc6c6a5eb
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462078"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541550"
 ---
 # <a name="quickstart-create-a-search-index-using-the-azuresearchdocuments-client-library"></a>Inicio rápido: Creación de un índice de búsqueda mediante la biblioteca cliente Azure.Search.Documents
 
-Use la nueva [biblioteca cliente Azure.Search.Documents (versión 11)](/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) para crear una aplicación de consola de .NET Core en C# que cree, cargue y consulte un índice de búsqueda.
+Use la nueva [biblioteca cliente Azure.Search.Documents (versión 11)](/dotnet/api/overview/azure/search.documents-readme) para crear una aplicación de consola de .NET Core en C# que cree, cargue y consulte un índice de búsqueda.
 
 [Descargue el código fuente](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) para empezar con un proyecto terminado o siga los pasos especificados en este artículo para crear el suyo propio.
 

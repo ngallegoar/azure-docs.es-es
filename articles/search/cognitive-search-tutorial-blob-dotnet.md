@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 09273cf901830e850acca05c57c0b110ffd7e28a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 13e3f5a7d86d2e9b705fbeb104ba4f8eb690cb3a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002869"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534120"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>Tutorial: Contenido de blobs de Azure con capacidad de búsqueda y generado mediante inteligencia artificial con el SDK de .NET
 
@@ -170,7 +170,7 @@ Después, instale el último paquete NuGet `Microsoft.Extensions.Configuration.J
       "AzureBlobConnectionString": "Put your Azure Blob connection string here",
     }
     ```
-    
+
 Agregue la información del servicio de búsqueda y de la cuenta de almacenamiento de blobs. Recuerde que puede obtener esta información en los pasos de aprovisionamiento del servicio indicados en la sección anterior.
 
 En **SearchServiceName**, escriba el nombre corto del servicio y no la dirección URL completa.
@@ -586,11 +586,11 @@ En este ejercicio se utilizan los siguientes campos y tipos de campos:
 
 | Nombres de campo | Tipos de campo |
 | --- | --- |
-| id | Edm.String |
-| content | Edm.String |
-| languageCode | Edm.String |
-| keyPhrases | List<Edm.String> |
-| organizations | List<Edm.String> |
+| `id` | Edm.String |
+| `content` | Edm.String |
+| `languageCode` | Edm.String |
+| `keyPhrases` | List<Edm.String> |
+| `organizations` | List<Edm.String> |
 
 #### <a name="create-demoindex-class"></a>Crear la clase DemoIndex
 
@@ -906,7 +906,7 @@ catch (Exception e)
 }
 ```
 
-Repita el proceso para otros campos: contenido, languageCode, keyPhrases y organizaciones del ejercicio. Puede devolver varios campos a través de la propiedad [Select](/dotnet/api/microsoft.azure.search.models.searchparameters.select?view=azure-dotnet) con una lista delimitada por comas.
+Repita el proceso para otros campos: contenido, languageCode, keyPhrases y organizaciones del ejercicio. Puede devolver varios campos a través de la propiedad [Select](/dotnet/api/microsoft.azure.search.models.searchparameters.select) con una lista delimitada por comas.
 
 <a name="reset"></a>
 

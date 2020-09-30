@@ -1,17 +1,15 @@
 ---
 title: Conmutación por error y escalado de una aplicación de contenedores
 description: En este tutorial, aprenderá a administrar la conmutación por error en una aplicación de contenedores de Azure Service Fabric.  Asimismo, obtenga información sobre cómo escalar los contenedores y servicios en ejecución en un clúster.
-author: suhuruli
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: bef1c42712c881296c5ab7b8096deb50fe94ee55
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f51a195f9ad43c7facb7dc413a4da83fc6b202b7
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75614101"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531401"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Tutorial: Demostración de la conmutación por error y el escalado de servicios de contenedor con Service Fabric
 

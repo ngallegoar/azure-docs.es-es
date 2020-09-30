@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 3/18/2020
-ms.openlocfilehash: 2a44896ff7cabb9e44c02be9f3dba201298d4794
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 51c194ca9b091bc685f293320750da55925ad49d
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903937"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565622"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>¿Qué es Azure Database for MySQL?
 
@@ -58,6 +58,15 @@ Los servidores flexibles son idóneos para
 - Ventanas de mantenimiento administradas
 
 Para obtener información general detallada sobre el modo de implementación de servidor flexible, consulte [Información general de servidor flexible](flexible-server/overview.md).
+
+## <a name="contacts"></a>Contactos
+Para cualquier pregunta o sugerencia que pueda tener con respecto al uso de Azure Database for MySQL, envíe un correo electrónico al equipo de Azure Database for MySQL ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Esta dirección de correo electrónico no es un alias de soporte técnico.
+
+Además, tenga en cuenta los siguientes puntos de contacto según corresponda:
+
+- Para ponerse en contacto con el servicio de soporte técnico de Azure, [presente una incidencia de soporte técnico en Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- Para corregir un problema con la cuenta, envíe una [solicitud de soporte técnico](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) en Azure Portal.
+- Para proporcionar comentarios o solicitar nuevas características, cree una entrada mediante [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

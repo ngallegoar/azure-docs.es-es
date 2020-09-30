@@ -12,14 +12,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/3/2018
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: e51d0bfb79eab4db9bb571cc0f4ee70ada352d92
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b583e3d86ba193a92080f2da9cc0b16d07c5a993
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895767"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447166"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>Inicio rápido: Configuración de Azure Security Center
 
@@ -61,7 +61,7 @@ Para seguir los inicios rápidos y tutoriales de Security Center, debe habilitar
 
 1. En la barra lateral de Security Center, seleccione **Introducción**.
 
-    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Pestaña Actualizar de la página introducción"::: 
+    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Panel de información general de Security Center"::: 
 
     La pestaña **Actualizar** muestra las suscripciones y áreas de trabajo aptas para la incorporación.
 
@@ -82,7 +82,7 @@ Para habilitar el aprovisionamiento automático del agente de Log Analytics:
 1. En la página **Recopilación de datos**, establezca **Aprovisionamiento automático** en **Activado**.
 1. Seleccione **Guardar**.
 
-    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Habilitación del aprovisionamiento automático del agente de Log Analytics":::
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Panel de información general de Security Center":::
 
 >[!TIP]
 > Si es necesario aprovisionar un área de trabajo, la instalación del agente puede tardar hasta 25 minutos.
@@ -109,7 +109,6 @@ En este inicio rápido, habilitó Azure Defender y aprovisionó el agente de Log
 [2]: ./media/security-center-get-started/overview.png
 [4]: ./media/security-center-get-started/get-started.png
 [5]: ./media/security-center-get-started/pricing.png
-[6]: ./media/security-center-get-started/enable-automatic-provisioning.png
 [7]: ./media/security-center-get-started/security-alerts.png
 [8]: ./media/security-center-get-started/recommendations.png
 [9]: ./media/security-center-get-started/select-subscription.png

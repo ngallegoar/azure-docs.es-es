@@ -3,16 +3,16 @@ title: Conexión de la cuentas de GCP a Azure Security Center
 description: Supervisión de los recursos de GCP desde Azure Security Center
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
-ms.topic: how-to
+ms.date: 9/22/2020
+ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d5f478c279eb4c07332d047935f7c5dab89fd4b7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 71f1de7b4ff265a5740181a2bb2032f33a83abe3
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932425"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448995"
 ---
 #  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Conexión de las cuentas de GCP a Azure Security Center
 
@@ -80,7 +80,7 @@ Obtenga más información sobre la [API del centro de comandos de seguridad](htt
     1. Seleccione **AGREGAR**.
     1. En el campo **Nuevos miembros**, pegue el **valor Correo electrónico** que copió anteriormente.
     1. Especifique el rol como **Visor del administrador de Security Center** y, a continuación, seleccione Guardar.
-        :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="Establecimiento de los permisos de GCP pertinentes":::
+        :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="3 proyectos de GCP mostrados en el panel de información general de Security Center":::
 
 
 ### <a name="step-4-create-a-private-key-for-the-dedicated-service-account"></a>Paso 4. Crear una clave privada para la cuenta de servicio dedicada
@@ -107,7 +107,7 @@ Obtenga más información sobre la [API del centro de comandos de seguridad](htt
 Cuando el conector se ha creado correctamente y el centro de comandos de seguridad GCP se ha configurado correctamente:
 
 - El estándar CIS de GCP se mostrará en el panel de cumplimiento de normativas de Security Center.
-- Las recomendaciones de seguridad para sus recursos de GCP aparecerán en el portal de Security Center y en el panel de cumplimiento de normativas entre 5 y 10 minutos después de que finalice la incorporación:   :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resources-in-recommendations.png" alt-text="Recursos y recomendaciones de GCP en la página de recomendaciones de Security Center":::
+- Las recomendaciones de seguridad para sus recursos de GCP aparecerán en el portal de Security Center y en el panel de cumplimiento de normativas entre 5 y 10 minutos después de que finalice la incorporación:   :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resources-in-recommendations.png" alt-text="3 proyectos de GCP mostrados en el panel de información general de Security Center":::
 
 
 ## <a name="monitoring-your-gcp-resources"></a>Supervisión de los recursos de GCP
@@ -116,7 +116,7 @@ Como se mostró anteriormente, en la página de recomendaciones de seguridad de 
 
 Para ver todas las recomendaciones activas de los recursos por tipo de recurso, use la página de inventario de recursos de Security Center y filtre por el tipo de recurso de GCP que le interesa:
 
-:::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="Filtro de tipo de recurso de la página de inventario de recursos que muestra las opciones de GCP"::: 
+:::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="3 proyectos de GCP mostrados en el panel de información general de Security Center"::: 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

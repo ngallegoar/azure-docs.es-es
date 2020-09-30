@@ -1,18 +1,17 @@
 ---
 title: Pasos para importar una aplicación
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: include
 ms.date: 06/22/2020
-ms.author: diberry
-ms.openlocfilehash: 37f1b85b4ce8510d5e288df985a55dba659f0c9b
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: aa0ba1de63cbcf1d9485c71b6bec7a29afb5140f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86035861"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91545121"
 ---
 1. En el [portal de LUIS](https://www.luis.ai), en la página **Mis aplicaciones**, seleccione **+ New app for conversation** (Nueva aplicación para conversación) y, a continuación, **Importar como JSON**. Busque el archivo JSON guardado en el paso anterior. No es necesario cambiar el nombre de la aplicación. Seleccione **Listo**
 
