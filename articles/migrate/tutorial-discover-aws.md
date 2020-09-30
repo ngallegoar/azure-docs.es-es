@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo detectar instancias de AWS con Azu
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: c2d91e0b2c2eaa2df8b01aca60e5a0e18e251fb8
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: e48d123a9317d35cd2bb8e38a29d23cae3b75eb8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603703"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275462"
 ---
 # <a name="tutorial-discover-aws-instances-with-server-assessment"></a>Tutorial: Detección de instancias de AWS con Server Assessment
 
@@ -76,7 +76,18 @@ Configure una cuenta que el dispositivo pueda usar para acceder a las instancias
 
 - En los servidores Windows, configure una cuenta de usuario local en todos los servidores de Windows que desee incluir en la detección. Agregue la cuenta de usuario a estos grupos: Usuarios de escritorio remoto, Usuarios de Monitor de rendimiento y Usuarios del registro de rendimiento.
  - Para los servidores Linux, necesita una cuenta raíz en los servidores Linux que desee detectar.
-
+- Azure Migrate usa la autenticación de contraseña al detectar instancias de AWS. Las instancias de AWS no admiten la autenticación de contraseña de forma predeterminada. Antes de poder detectar la instancia, debe habilitar la autenticación de contraseña.
+    - En el caso de máquinas Windows, permita el puerto WinRM 5985 (HTTP). Esto permite las llamadas remotas de Instrumental de administración de Windows.
+    - Para máquinas Linux:
+        1. Inicie sesión en cada máquina Linux.
+        2. Abra el archivo sshd_config: vi/etc/ssh/sshd_config
+        3. En el archivo, busque la línea **PasswordAuthentication** y cambie el valor a **yes** (sí).
+        4. Guarde el archivo y ciérrelo. Reinicie el servicio ssh.
+    - Si usa un usuario raíz para detectar las máquinas virtuales Linux, asegúrese de que se permite el inicio de sesión raíz en las máquinas virtuales.
+        1. Inicie sesión en cada máquina Linux.
+        2. Abra el archivo sshd_config: vi/etc/ssh/sshd_config
+        3. En el archivo, busque la línea **PermitRootLogin** y cambie el valor a **yes** (sí).
+        4. Guarde el archivo y ciérrelo. Reinicie el servicio ssh.
 
 ## <a name="set-up-a-project"></a>Configuración de un proyecto
 

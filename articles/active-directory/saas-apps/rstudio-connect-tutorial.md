@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 80d444e9887a3aaa48262ccf59350b0108d7d709
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f71a9fa1151a1df2ae04fe47afd6bf36861aa2e5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543642"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273813"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>Tutorial: Integración de Azure Active Directory con RStudio Connect
 
@@ -126,7 +126,7 @@ Para configurar el inicio de sesión único de Azure AD con RStudio Connect, sig
 
 ### <a name="configure-rstudio-connect-single-sign-on"></a>Configuración del inicio de sesión único en RStudio Connect
 
-Para configurar el inicio de sesión único en **RStudio Connect**, necesita usar la **Dirección URL de metadatos de federación de aplicación** y la **Dirección del servidor** utilizadas anteriormente. Esto se hace en el archivo de configuración de RStudio Connect, en `/etc/rstudio-connect.rstudio-connect.gcfg`.
+Para configurar el inicio de sesión único en **RStudio Connect**, necesita usar la **Dirección URL de metadatos de federación de aplicación** y la **Dirección del servidor** utilizadas anteriormente. Esto se hace en el archivo de configuración de RStudio Connect, en `/etc/rstudio-connect/rstudio-connect.gcfg`.
 
 Este es un archivo de configuración de ejemplo:
 

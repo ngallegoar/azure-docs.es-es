@@ -8,14 +8,14 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jopapa
-ms.custom: seodec18, devx-track-javascript
+ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
-ms.openlocfilehash: e9cb30ca64fe697f9b8304f55381709083b8fbd2
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c16d7ccba24680604bc7f083f7242edd53abe102
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424246"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282908"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Creación de una aplicación de Angular con la API de Azure Cosmos DB para MongoDB: Compilación de la interfaz de usuario con Angular
 
@@ -62,7 +62,7 @@ Antes de iniciar esta parte del tutorial, asegúrese de que ha completado los pa
 
 4. En la misma carpeta, abra el archivo **app.module.ts** y observe que se agregó `HeroesComponent` a las declaraciones en la línea 5 y se importó también en la línea 10.
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png" alt-text="Apertura del archivo app-module.ts":::
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png" alt-text="Instalación del componente Hero":::
 
 5. Vuelva al archivo **heroes.component.html** y copie en él este código. El marcador `<div>` es el contenedor de la página completa. Dentro del contenedor hay una lista de héroes que es necesario crear para que, al hacer clic en uno, se pueda seleccionar y editar o eliminar en la interfaz de usuario. A continuación, en el código HTML debemos aplicar algún estilo para que se sepa cuál se ha seleccionado. También hay un área de edición para que pueda agregar un nuevo héroe o editar uno existente. 
 
@@ -394,7 +394,7 @@ Ahora que tenemos el componente, ¿cómo se consigue que se muestre en la pantal
 
 5. Haga clic en el término `Hero` y Visual Studio muestra un icono de bombilla en el lado izquierdo del bloque de código. 
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png" alt-text="Icono de bombilla en Visual Studio Code":::
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png" alt-text="Instalación del componente Hero":::
 
 6. Haga clic en la bombilla y, después, en **Importar Hero desde "/app/hero".** o **Importar Hero desde "./hero".** (El mensaje cambia según la configuración)
 
@@ -490,7 +490,7 @@ Ahora que tenemos el componente, ¿cómo se consigue que se muestre en la pantal
 
 3. Ahora, abra un explorador de Internet y vaya a **localhost:3000** para ver la aplicación que se ejecuta localmente.
 
-     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/azure-cosmos-db-mongodb-mean-app.png" alt-text="Aplicación Hero que se ejecuta de forma local":::
+     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/azure-cosmos-db-mongodb-mean-app.png" alt-text="Instalación del componente Hero":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,14 +9,14 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 432f9a3e6af60beda9dd8a8dd1237cb93cc40639
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 194c2466e29c15ac35cf0bd88b90bf9f816e9035
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084946"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284472"
 ---
 # <a name="use-powershell-to-sync-data-between-sql-database-and-sql-server"></a>Uso de PowerShell para sincronizar datos entre SQL Database y SQL Server
 

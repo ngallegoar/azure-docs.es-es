@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/24/2020
 ms.author: mbaldwin
-ms.openlocfilehash: ec1d02cefcdb443a74fab52496cd9428a852139f
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 0a2c1b39f5688b4fc544e5456666ccb8b4801517
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84169974"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281056"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-the-azure-portal"></a>Inicio rápido: Establecimiento y recuperación de un certificado de Azure Key Vault mediante Azure Portal
 
@@ -45,7 +45,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 Tome nota de las dos propiedades siguientes:
 
 * **Nombre del almacén**: En el ejemplo, es **Example-Vault**. Utilizará este nombre para otros pasos.
-* **URI de almacén**: en el ejemplo es https://example-vault.vault.azure.net/. Las aplicaciones que utilizan el almacén a través de su API de REST deben usar este identificador URI.
+* **URI de almacén**: en el ejemplo es `https://example-vault.vault.azure.net/`. Las aplicaciones que utilizan el almacén a través de su API de REST deben usar este identificador URI.
 
 En este momento, su cuenta de Azure es la única autorizada para realizar operaciones en este nuevo almacén.
 
