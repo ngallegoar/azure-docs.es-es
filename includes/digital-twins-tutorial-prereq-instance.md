@@ -5,18 +5,18 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 5c41f7516cecdb6bbc42a66d118a90986dd7de56
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 302a478dd32c93a555bb17e9d7d0f60bd7859a50
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827367"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292744"
 ---
 ### <a name="prepare-an-azure-digital-twins-instance"></a>Preparación de una instancia de Azure Digital Twins
 
 Para completar este tutorial, necesitará una **instancia de Azure Digital Twins** con la que realizar la programación. Si ya tiene una instancia de Azure Digital Twins configurada del trabajo anterior, puede usarla.
 
-* De lo contrario, **configure una instancia y la autenticación** mediante las instrucciones de [*Procedimientos: Configuración de una instancia y autenticación*](../articles/digital-twins/how-to-set-up-instance-scripted.md). Las instrucciones también contienen pasos para comprobar que ha completado cada paso correctamente y está listo para pasar a usar la nueva instancia.
+* De lo contrario, **configure una instancia y la autenticación** mediante las instrucciones de [*Procedimientos: Configuración de una instancia y autenticación*](../articles/digital-twins/how-to-set-up-instance-portal.md). Las instrucciones también contienen pasos para comprobar que ha completado cada paso correctamente y está listo para pasar a usar la nueva instancia.
 
 En este tutorial, necesitará los valores siguientes que obtuvo al configurar la instancia. Si tiene que volver a recopilar estos valores, use los vínculos siguientes a las secciones correspondientes del artículo de instalación para encontrarlos en [Azure Portal](https://portal.azure.com).
 * El **_nombre_** de la instancia de Azure Digital Twins ([que se encuentra en el portal](../articles/digital-twins/how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))

@@ -9,18 +9,18 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: banders
-ms.openlocfilehash: 0f1b4751ae2448b519387d57e4dbfa1eecf8a576
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8366c0681f1ac29d9e265225dfaeeab44aa4b8ca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984294"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252976"
 ---
 # <a name="add-or-update-a-credit-card-for-azure"></a>Adición o actualización de una tarjeta de crédito para Azure
 
 Este documento se aplica a los clientes que se han suscrito a Azure online con una tarjeta de crédito.
 
-En Azure Portal, no solo puede cambiar el método de pago predeterminado a una nueva tarjeta de crédito, sino también actualizar los detalles de la tarjeta de crédito. Debe ser [administrador de la cuenta](billing-subscription-transfer.md#whoisaa) para realizar estos cambios.
+En Azure Portal, no solo puede cambiar el método de pago predeterminado a una nueva tarjeta de crédito, sino también actualizar los detalles de la tarjeta de crédito. Debe ser [administrador de la cuenta](../understand/subscription-transfer.md#whoisaa) para realizar estos cambios.
 
 Si desea eliminar una tarjeta de crédito, consulte [Eliminación de un método de pago de la facturación de Azure (versión preliminar)](delete-azure-payment-method.md).
 
