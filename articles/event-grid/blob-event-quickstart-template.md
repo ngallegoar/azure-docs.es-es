@@ -3,14 +3,14 @@ title: Envío de eventos de almacenamiento de blobs a un punto de conexión web 
 description: Use Azure Event Grid y una plantilla de Azure Resource Manager para crear una cuenta de almacenamiento de blobs y suscribirse a sus eventos. Envíe los eventos a un webhook.
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 32fc17d1af552afa5a81fbc4a5973d69006742b9
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: fc6216142c6bec99cb12bf4e0bdae920f27f1bf2
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661272"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598354"
 ---
-# <a name="route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>Enrutamiento de eventos de almacenamiento de blobs a un punto de conexión web mediante una plantilla de Resource Manager
+# <a name="quickstart-route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>Inicio rápido: Enrutamiento de eventos de almacenamiento de blobs a un punto de conexión web mediante una plantilla de Resource Manager
 
 Azure Event Grid es un servicio de eventos para la nube. En este artículo, se usará una plantilla de Azure Resource Manager para crear una cuenta de almacenamiento de blobs, suscribirse a eventos de ese almacenamiento de blobs y desencadenar un evento para ver el resultado. Por lo general, se envían eventos a un punto de conexión que procesa los datos del evento y realiza acciones. Sin embargo, para simplificar en este artículo, los eventos se envían a una aplicación web que recopila y muestra los mensajes.
 
