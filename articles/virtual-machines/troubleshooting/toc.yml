@@ -192,13 +192,13 @@
           items:
             - name: PowerShell
               href: troubleshoot-recovery-disks-windows.md
-            - name: Azure portal
+            - name: Azure Portal
               href: troubleshoot-recovery-disks-portal-windows.md
         - name: Linux
           items:
             - name: CLI
               href: troubleshoot-recovery-disks-linux.md
-            - name: Azure portal
+            - name: Azure Portal
               href: troubleshoot-recovery-disks-portal-linux.md
         - name: Se cambian los nombres de dispositivos
           href: troubleshoot-device-names-problems.md
@@ -224,6 +224,8 @@
           href: troubleshoot-performance-virtual-machine-linux-windows.md
         - name: Diagnósticos de rendimiento
           href: performance-diagnostics.md
+        - name: Solución de problemas de uso elevado de CPU en máquinas virtuales Windows de Azure
+          href: troubleshoot-high-cpu-issues-azure-windows-vm.md
     - name: PerfInsights
       items:
         - name: Windows
@@ -232,8 +234,6 @@
               href: how-to-use-perfinsights.md
             - name: Extensión de diagnóstico de rendimiento
               href: performance-diagnostics-vm-extension.md
-            - name: Solución de problemas de uso elevado de CPU en máquinas virtuales Windows de Azure
-              href: troubleshoot-high-cpu-issues-azure-windows-vm.md
         - name: Linux
           items:
             - name: Cómo usar PerfInsights
