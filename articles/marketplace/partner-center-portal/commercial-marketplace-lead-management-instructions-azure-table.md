@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 08/25/2020
-ms.openlocfilehash: db2bae9d9e1c9658937e725a04d919743ff9999e
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 2dca0ae02f2d079e98b51e1222114db1f2104b96
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855779"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030804"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Uso de Azure Table Storage para administrar clientes potenciales de marketplace comercial
 
@@ -38,7 +38,7 @@ Si el sistema de administración de relaciones con clientes (CRM) no es una opci
 
 1. En la página **Inicio** de Azure Portal, seleccione **Ver todos los recursos** para obtener acceso a la cuenta de almacenamiento. También puede seleccionar **Todos los recursos** en la barra de menús izquierda de Azure Portal.
 
-    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png" alt-text="Acceso a la cuenta de Azure Storage.":::
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png" alt-text="Pasos para crear una cuenta de Azure Storage.":::
 
 1. En el panel de la cuenta de almacenamiento, seleccione **Claves de acceso** y copie el valor de la **Cadena de conexión** de la clave. Guarde este valor, ya que es el valor de **Cadena de conexión de cuenta de almacenamiento** que tendrá que proporcionar en el portal de publicación para recibir clientes potenciales de su oferta de Marketplace.
 
@@ -48,7 +48,7 @@ Si el sistema de administración de relaciones con clientes (CRM) no es una opci
     DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.screens.net
     ```
 
-    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Clave de Azure Storage.":::
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Pasos para crear una cuenta de Azure Storage.":::
 
 
 1. En el panel de la cuenta de almacenamiento, seleccione **Tablas** y **+Tabla** para crear una tabla. Escriba el nombre de la tabla y seleccione **Aceptar**. Guarde este valor, ya que lo necesitará si quiere configurar un flujo para recibir notificaciones por correo electrónico cuando reciba clientes potenciales.
@@ -135,7 +135,7 @@ En este ejemplo se crea un flujo que envía automáticamente una notificación p
    En los pasos siguientes, va a configurar la acción que se realizará según el resultado de la condición:
 
    * Si la condición se resuelve como **En caso negativo**, no haga nada.
-   * Si la condición se resuelve como **En caso positivo**, desencadene una acción que se conecte a su cuenta de Office 365 para enviar un correo electrónico.
+   * Si la condición se resuelve como **En caso positivo**, desencadene una acción asociada a la cuenta profesional o educativa para enviar un correo electrónico. 
 
 1. Seleccione **Agregar una acción** en **En caso positivo**.
 
@@ -185,7 +185,7 @@ Cuando esté listo para configurar la información de administración de cliente
 
 1. En la sección **Clientes potenciales**, seleccione **Conectar**.
 
-    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="Clientes potenciales":::
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="Pasos para crear una cuenta de Azure Storage.":::
 
 1. En la ventana emergente **Detalles de la conexión**, seleccione **Azure Table** como **destino de clientes potenciales**. 
      ![Administración de clientes potenciales, detalles de la conexión](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/07/2020
-ms.openlocfilehash: 04f2d11b9fc8bbd61319a057c091cddbf140b9db
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: d509862fe4dafff174ee03c3b5cc887fa9d9ff22
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135543"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086001"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluciones de supervisión en Azure Monitor
 
@@ -26,7 +26,7 @@ La página de **información general** de soluciones de Azure Monitor muestra un
 
 Use los cuadros de lista desplegable en la parte superior de la pantalla para cambiar el área de trabajo o el intervalo de tiempo usado para los iconos. Haga clic en el icono de una solución para abrir la vista que incluye un análisis más detallado de los datos recopilados.
 
-[![Información general](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
+[![Captura de pantalla que muestra el menú de Azure Portal con soluciones seleccionadas y soluciones mostradas en el panel Soluciones.](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
 
 Las soluciones de supervisión pueden contener varios tipos de recursos de Azure; puede ver todos los recursos que incluyen las soluciones igual que cualquier otro recurso. Por ejemplo, las consultas de registro incluidas en la solución se enumeran en **Consultas de solución** de [Explorador de consultas](../log-query/get-started-portal.md#load-queries). Puede usar esas consultas al llevar a cabo análisis ad hoc con [consultas de registro](../log-query/log-query-overview.md).
 
@@ -109,18 +109,18 @@ Los miembros de la comunidad pueden enviar soluciones de administración a las p
     az login
     ```
 
-1. Instale la extensión `log-analytics`
+1. Instale la extensión `log-analytics-solution`
 
-   El comando `log-analytics` es una extensión experimental de la CLI de Azure principal. Obtenga más información sobre las referencias de extensión en [Uso de extensiones con la CLI de Azure](/cli/azure/azure-cli-extensions-overview?).
+   El comando `log-analytics-solution` es una extensión experimental de la CLI de Azure principal. Obtenga más información sobre las referencias de extensión en [Uso de extensiones con la CLI de Azure](/cli/azure/azure-cli-extensions-overview?).
 
    ```azurecli
-   az extension add --name log-analytics
+   az extension add --name log-analytics-solution
    ```
 
    Se espera la advertencia siguiente.
 
    ```output
-   The installed extension `log-analytics` is experimental and not covered by customer support.  Please use with discretion.
+   The installed extension `log-analytics-solution` is experimental and not covered by customer support.  Please use with discretion.
    ```
 
 ### <a name="install-a-solution-with-the-azure-cli"></a>Instalación de una solución con la CLI de Azure
@@ -159,9 +159,8 @@ Todas las soluciones de supervisión requieren un [área de trabajo de Log Analy
 
 * Cada instalación de la solución solo puede utilizar un área de trabajo de Log Analytics y una cuenta de Automation. Puede instalar la solución por separado en varias áreas de trabajo.
 * Si una solución requiere una cuenta de Automation, el área de trabajo de Log Analytics y la cuenta de Automation solución deben estar vinculadas. Un área de trabajo de Log Analytics solo puede estar vinculada a una cuenta de Automation y viceversa.
-* Para vincularse, el área de trabajo Log Analytics y la cuenta de Automation deben estar en la misma suscripción, pero pueden estar en distintos grupos de recursos implementados en la misma región. La excepción es un área de trabajo que se encuentre en la región Este de EE. UU. y una cuenta de Automation del Este de EE. UU. 2.
 
-Al instalar una solución mediante Azure Marketplace, se le pedirá un área de trabajo y una cuenta de Automation. Se creará un vínculo entre ellas, si no están ya vinculadas.
+Al instalar una solución mediante Azure Marketplace, se le piden un área de trabajo y una cuenta de Automation. Se creará un vínculo entre ellas, si no están ya vinculadas.
 
 ### <a name="verify-the-link-between-a-log-analytics-workspace-and-automation-account"></a>Comprobación de un vínculo entre un área de trabajo de Log Analytics y una cuenta de Automation
 

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 5e75f7214e3a9aa5b44a763cc3448583b47185f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed6beec63114f1f157bb24354d77e50ecdaa8255
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253246"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601644"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Preguntas más frecuentes sobre el acceso condicional de Azure Active Directory
 
@@ -59,7 +59,7 @@ Para obtener más información, vea el artículo sobre las [dependencias del acc
 
 Después de habilitar algunas directivas de acceso condicional en el inquilino en Microsoft Teams, es posible que algunas pestañas dejen de funcionar en el cliente de escritorio según lo previsto. Sin embargo, las pestañas afectadas funcionan cuando se usa el cliente web de Microsoft Teams. Las pestañas afectadas pueden incluir Power BI, formularios, VSTS, PowerApps y la lista de SharePoint.
 
-Para ver las pestañas afectadas, debe usar el cliente web de Teams en Edge, Internet Explorer o Chrome con la extensión de cuentas de Windows 10 instalada. Algunas pestañas dependen de la autenticación web, que no funciona en el cliente de escritorio de Microsoft Teams cuando está habilitado el acceso condicional. Microsoft está trabajando con asociados para habilitar estos escenarios. Hasta la fecha, hemos habilitado escenarios relacionados con Planner, OneNote y Stream.
+Para ver las pestañas afectadas, debe usar el cliente web de Teams en Edge, Internet Explorer o Chrome con la extensión de cuentas de Windows 10 instalada. Algunas pestañas dependen de la autenticación web, que no funciona en el cliente de escritorio de Microsoft Teams cuando está habilitado el acceso condicional. Microsoft está trabajando con asociados para habilitar estos escenarios. Hasta la fecha, se han habilitado escenarios relacionados con Planner, OneNote y Stream.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 74fae6a8aa0c59043db0ab816e09b16affb63580
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2e7f441a727bea8d1a5d401fb5e9757dee1044fc
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021840"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613812"
 ---
 # <a name="remote-rendering-sessions"></a>Sesiones de Remote Rendering
 
@@ -31,7 +31,7 @@ Una vez que se haya *conectado* a una sesión activa, las operaciones como [carg
 
 ### <a name="managing-multiple-sessions-simultaneously"></a>Administración de varias sesiones simultáneamente
 
-No es posible por completo *conectarse* a varias sesiones desde un dispositivo. Sin embargo, puede crear, observar y finalizar tantas sesiones como desee desde una sola aplicación. Siempre que la aplicación no esté diseñada para conectarse a una sesión, tampoco es necesario que se ejecute en un dispositivo como HoloLens 2. Un caso de uso para este tipo de implementación puede ser si desea controlar las sesiones a través de un mecanismo central. Por ejemplo, puede compilar una aplicación web, en la que varias tabletas y dispositivos HoloLens pueden iniciar sesión. A continuación, la aplicación puede mostrar opciones en las tabletas, como qué modelo CAD se va a mostrar. Si un usuario realiza una selección, esta información se comunica con todos los dispositivos HoloLens para crear una experiencia compartida.
+No es posible por completo *conectarse* a varias sesiones desde un dispositivo. Sin embargo, puede crear, observar y finalizar tantas sesiones como desee desde una sola aplicación. Siempre que la aplicación no esté diseñada para conectarse a una sesión, tampoco es necesario que se ejecute en un dispositivo como HoloLens 2. Un caso de uso para este tipo de implementación puede ser si desea controlar las sesiones a través de un mecanismo central. Por ejemplo, puede compilar una aplicación web donde pueden iniciar sesión varias tabletas y dispositivos HoloLens. A continuación, la aplicación puede mostrar opciones en las tabletas, como qué modelo CAD se va a mostrar. Si un usuario realiza una selección, esta información se comunica a todos los dispositivos HoloLens para crear una experiencia compartida.
 
 ## <a name="session-phases"></a>Fases de las sesiones
 
@@ -146,6 +146,15 @@ La duración de una máquina virtual no está asociada a la instancia de `AzureF
 El identificador de sesión persistente se puede consultar a través de `AzureSession.SessionUUID()` y almacenarse en caché localmente. Con este identificador, una aplicación puede llamar a `AzureFrontend.OpenSession` para enlazarse a esa sesión.
 
 Cuando el valor de `AzureSession.IsConnected` es true, `AzureSession.Actions` devuelve una instancia de `RemoteManager`, que contiene las funciones para [cargar modelos](models.md), manipular [entidades](entities.md) y [consultar información](../overview/features/spatial-queries.md) sobre la escena representada.
+
+## <a name="api-documentation"></a>Documentación de la API
+
+* [Clase AzureSession de C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.azuresession)
+* [C# AzureFrontend.CreateNewRenderingSessionAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.azurefrontend.createnewrenderingsessionasync)
+* [AzureFrontend.OpenRenderingSession() de C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.azurefrontend.openrenderingsession)
+* [Clase AzureSession de C++](https://docs.microsoft.com/cpp/api/remote-rendering/azuresession)
+* [C++ AzureFrontend::CreateNewRenderingSessionAsync](https://docs.microsoft.com/cpp/api/remote-rendering/azurefrontend#createnewrenderingsessionasync)
+* [AzureFrontend::OpenRenderingSession de C++](https://docs.microsoft.com/cpp/api/remote-rendering/azurefrontend#openrenderingsession)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

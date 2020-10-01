@@ -3,12 +3,12 @@ title: Exportación mediante Stream Analytics desde Azure Application Insights |
 description: Stream Analytics puede transformar, filtrar y enrutar continuamente los datos de que exportan desde Application Insights.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: d90b965ca65af0acf7032067c77591a2ac4d4b02
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e90daf2516b00f7a27ac47e34cfc4ace03fee6e2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324359"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979178"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Uso de Stream Analytics para procesar datos exportados de Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) es la herramienta ideal para procesar los datos [exportados desde Application Insights](export-telemetry.md). Stream Analytics puede extraer datos de una variedad de orígenes. Puede transformar y filtrar los datos y, después, enrutarlos a una variedad de receptores.
@@ -196,7 +196,7 @@ Abra Power BI con su cuenta profesional o educativa y seleccione el conjunto de 
 
 Ahora puede usar este conjunto de datos en informes y paneles de [Power BI](https://powerbi.microsoft.com).
 
-![En Power BI, seleccione el conjunto de datos y los campos.](./media/export-stream-analytics/210.png)
+![Captura de pantalla que muestra un ejemplo de informe procedente de un conjunto de datos de Power BI.](./media/export-stream-analytics/210.png)
 
 ## <a name="no-data"></a>¿No hay datos?
 * Compruebe que [establece el formato de fecha](#set-path-prefix-pattern) correctamente en AAAA-MM-DD (con guiones).

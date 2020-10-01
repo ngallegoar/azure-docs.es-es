@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d00b0558f85e18dfb53736d89fead953cc01ee60
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 957e827e621d07ed9b5533a1607f955f05985d9b
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053174"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004789"
 ---
 # <a name="use-azure-files-with-linux"></a>Uso de Azure Files con Linux
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden montar en distribuciones de Linux mediante el [cliente kernel de SMB](https://wiki.samba.org/index.php/LinuxCIFS). En este artículo se muestran dos maneras de montar un recurso compartido de archivos de Azure: a petición, con el comando `mount` y al inicio, mediante la creación de una entrada en `/etc/fstab`.
@@ -69,7 +69,7 @@ uname -r
 
 * **La versión más reciente de la interfaz de la línea de comandos (CLI).** Para más información sobre cómo instalar la CLI de Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) y seleccione el sistema operativo. Si prefiere usar el módulo de Azure PowerShell en PowerShell 6+, puede hacerlo. Sin embargo, las instrucciones siguientes son para la CLI de Azure.
 
-* **Asegurarse de que el puerto 445 está abierto**: SMB se comunica a través del puerto TCP 445, así que compruebe que el firewall no bloquea el puerto TCP 445 en la máquina cliente.  Remplace **<your-resource-group>** y **<your-storage-account>**
+* **Asegurarse de que el puerto 445 está abierto**: SMB se comunica a través del puerto TCP 445, así que compruebe que el firewall no bloquea el puerto TCP 445 en la máquina cliente.  Reemplace `<your-resource-group>` y `<your-storage-account>` y luego ejecute el siguiente script:
     ```bash
     resourceGroupName="<your-resource-group>"
     storageAccountName="<your-storage-account>"
@@ -114,6 +114,7 @@ Si lo desea, puede montar el mismo recurso compartido de archivos de Azure en va
 1. **Use el comando siguiente para montar el recurso compartido de archivos de Azure**. En el ejemplo siguiente, el valor predeterminado de los permisos de archivo y carpeta de Linux es 0755, que significa lectura, escritura y ejecución para el propietario (según el propietario de Linux de archivo o directorio), lectura y ejecución para los usuarios en el grupo de propietarios y lectura y ejecución para otros en el sistema. Puede usar las opciones de montaje `uid` y `gid` para establecer el identificador de usuario y el identificador de grupo para el montaje. También puede usar `dir_mode` y `file_mode` para establecer permisos personalizados según sea necesario. Para obtener más información sobre cómo establecer permisos, consulte [notación numérica de UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) en Wikipedia. 
 
     ```bash
+    # This command assumes you have logged in with az login
     httpEndpoint=$(az storage account show \
         --resource-group $resourceGroupName \
         --name $storageAccountName \
@@ -176,6 +177,7 @@ Cuando haya terminado de usar el recurso compartido de archivos de Azure, puede 
 1. **Use el siguiente comando para anexar la siguiente línea a `/etc/fstab`** : En el ejemplo siguiente, el valor predeterminado de los permisos de archivo y carpeta de Linux es 0755, que significa lectura, escritura y ejecución para el propietario (según el propietario de Linux de archivo o directorio), lectura y ejecución para los usuarios en el grupo de propietarios y lectura y ejecución para otros en el sistema. Puede usar las opciones de montaje `uid` y `gid` para establecer el identificador de usuario y el identificador de grupo para el montaje. También puede usar `dir_mode` y `file_mode` para establecer permisos personalizados según sea necesario. Para obtener más información sobre cómo establecer permisos, consulte [notación numérica de UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) en Wikipedia.
 
     ```bash
+    # This command assumes you have logged in with az login
     httpEndpoint=$(az storage account show \
         --resource-group $resourceGroupName \
         --name $storageAccountName \

@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: c6f7355b4505324c562ae39b05155a2902da2790
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e79e5e16b300fd02b9c9124f9677747834f22813
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523458"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443150"
 ---
 # <a name="how-to-catalog-big-data-in-azure-data-catalog"></a>Catalogación de macrodatos en Azure Data Catalog
 
@@ -19,7 +19,7 @@ ms.locfileid: "86523458"
 
 **Microsoft Azure Data Catalog** es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección de orígenes de datos empresariales. Ayuda a las personas a detectar, conocer y usar orígenes de datos, y a las organizaciones a obtener un mayor valor de los orígenes de datos existentes, incluyendo los macrodatos.
 
-**Azure Data Catalog** admite el registro de blobs y directorios de blobs de Azure Blob Storage, así como directorios y archivos de Hadoop HDFS. La naturaleza semiestructurada de estos orígenes de datos proporciona gran flexibilidad. Sin embargo, para obtener el máximo partido de su registro en **Azure Data Catalog**, los usuarios deben tener en cuenta cómo se organizan los orígenes de datos.
+**Azure Data Catalog** admite el registro de blobs y directorios de blobs de Azure Storage, así como de directorios y archivos de HDFS de Hadoop. La naturaleza semiestructurada de estos orígenes de datos proporciona gran flexibilidad. Sin embargo, para obtener el máximo partido de su registro en **Azure Data Catalog**, los usuarios deben tener en cuenta cómo se organizan los orígenes de datos.
 
 ## <a name="directories-as-logical-data-sets"></a>Directorios como conjuntos de datos lógicos
 

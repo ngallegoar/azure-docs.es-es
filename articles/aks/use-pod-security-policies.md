@@ -4,17 +4,17 @@ description: Aprenda a controlar las admisiones de pods mediante PodSecurityPoli
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: 3c8ec61666942fc74dcb64c03c0e3f06986e8c37
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: bec9c7b4be5c3c3e334a8e3cb3a8b2e0a7130de3
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987280"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669309"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Versión preliminar: Protección del clúster con directivas de seguridad de pod en Azure Kubernetes Service (AKS)
 
 > [!WARNING]
-> **La característica descrita en este documento, directiva de seguridad de pod (versión preliminar), está programada para quedar en desuso y dejará de estar disponible a partir del 15 de octubre de 2020** en favor de [Azure Policy para AKS](use-pod-security-on-azure-policy.md).
+> **La característica descrita en este documento, directiva de seguridad de pod (versión preliminar), está programada para quedar en desuso y dejará de estar disponible a partir del 1 de febrero de 2021** en favor de [Azure Policy para AKS](use-pod-security-on-azure-policy.md). La fecha de puesta en desuso se ha retrasado desde la anterior, que era el 15 de octubre de 2020.
 >
 > Una vez que la directiva de seguridad de pod (versión preliminar) haya quedado en desuso, deberá deshabilitar la característica en todos los clústeres existentes que la incluyan para realizar futuras actualizaciones de clústeres y seguir recibiendo el soporte técnico de Azure.
 >

@@ -13,12 +13,12 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 46e2563b0d1c26c984616b523a367c8b2cff7aaa
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4020f47184e141a69586fc958f641547d7bde94d
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89026125"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482807"
 ---
 # <a name="configure-an-availability-group-for-sql-server-on-azure-vm-azure-portal---preview"></a>Configuración de un grupo de disponibilidad para SQL Server en máquinas virtuales de Azure (Azure Portal: versión preliminar)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -67,16 +67,14 @@ Si aún no tiene un clúster, créelo mediante Azure Portal con estos pasos:
 
 1. Asigne un nombre al clúster y proporcione una cuenta de almacenamiento para usarla como testigo en la nube. Use una cuenta de almacenamiento existente o seleccione **Crear nueva** para crear una nueva. El nombre de la cuenta de almacenamiento debe tener entre 3 y 24 caracteres, y solo puede contener números y letras minúsculas.
 
-   :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-1.png" alt-text="Asignación de nombre, cuenta de almacenamiento y credenciales al clúster":::
+   :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-1.png" alt-text="Creación de un nuevo clúster mediante la selección de + Nuevo clúster en el portal":::
 
 1. Expanda **Windows Server Failover Cluster credentials** (Credenciales del clúster de conmutación por error de Windows Server) para proporcionar las [credenciales](https://docs.microsoft.com/rest/api/sqlvm/sqlvirtualmachinegroups/createorupdate#wsfcdomainprofile) para la cuenta de servicio de SQL Server, así como las cuentas de operador de clúster y de arranque si son diferentes a la cuenta usada para el servicio de SQL Server. 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-2.png" alt-text="Asignación de credenciales para la cuenta de servicio de SQL, la cuenta de operador de clúster y la cuenta de arranque del clúster":::
+   :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-2.png" alt-text="Creación de un nuevo clúster mediante la selección de + Nuevo clúster en el portal"
+    ```
+    
 
-1. Seleccione las VM con SQL Server que quiere agregar al clúster. Observe si se requiere un reinicio y proceda con precaución. Solo son visibles las máquinas virtuales registradas en el proveedor de recursos de VM con SQL en modo de administración completa y que se encuentran en la misma ubicación, el mismo dominio y la misma red virtual que la VM con SQL Server principal. 
-1. Seleccione **Aplicar** para crear el clúster. 
-
-Puede comprobar el estado de la implementación en el **registro de actividad**, que es accesible desde el icono de campana de la barra de navegación superior. 
 
 ### <a name="onboard-existing-cluster"></a>Incorporación de un clúster existente
 
@@ -89,10 +87,12 @@ Para hacerlo, siga estos pasos:
 1. Seleccione **Alta disponibilidad** en **Configuración**. 
 1. Seleccione **Onboard existing Windows Server Failover Cluster** (Incorporar clúster de conmutación por error existente de Windows Server) para abrir la página **Onboard Windows Server Failover Cluster** (Incorporar clúster de conmutación por error de Windows Server). 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/onboard-existing-cluster.png" alt-text="Incorporación de un clúster existente desde la página Alta disponibilidad del recurso de máquinas virtuales de SQL":::
+   :::image type="content" source="media/availability-group-az-portal-configure/onboard-existing-cluster.png" alt-text="Creación de un nuevo clúster mediante la selección de + Nuevo clúster en el portal":::
 
 1. Revise la configuración del clúster. 
 1. Seleccione **Aplicar** para incorporar el clúster y luego **Sí** en el símbolo del sistema para continuar.
+
+
 
 
 ## <a name="create-availability-group"></a>Crear grupo de disponibilidad
@@ -104,21 +104,21 @@ Una vez creado o incorporado el clúster, cree el grupo de disponibilidad median
 1. Seleccione **Alta disponibilidad** en **Configuración**. 
 1. Seleccione **+ New Always On availability group** (Nuevo grupo de disponibilidad Always On) para abrir la página **Crear grupo de disponibilidad**.
 
-   :::image type="content" source="media/availability-group-az-portal-configure/create-new-availability-group.png" alt-text="Selección de Nuevo grupo de disponibilidad Always On para abrir la página Crear grupo de disponibilidad.":::
+   :::image type="content" source="media/availability-group-az-portal-configure/create-new-availability-group.png" alt-text="Creación de un nuevo clúster mediante la selección de + Nuevo clúster en el portal":::
 
 1. Escriba un nombre para el grupo de disponibilidad. 
 1. Seleccione **Configure listener** (Configurar escucha) para abrir la página **Configure availability group listener** (Configurar escucha de grupo de disponibilidad). 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/create-availability-group.png" alt-text="Asignación de un nombre para el grupo de disponibilidad y configuración de una escucha":::
+   :::image type="content" source="media/availability-group-az-portal-configure/create-availability-group.png" alt-text="Creación de un nuevo clúster mediante la selección de + Nuevo clúster en el portal":::
 
 1. Rellene los valores y use un equilibrador de carga existente o bien seleccione **Crear nuevo** para crear un nuevo equilibrador de carga.  Seleccione **Aplicar** para guardar la configuración y crear la escucha y el equilibrador de carga. 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/configure-new-listener.png" alt-text="Especificación de los valores del formulario para crear la nueva escucha y el equilibrador de carga":::
+   :::image type="content" source="media/availability-group-az-portal-configure/configure-new-listener.png" alt-text="Creación de un nuevo clúster mediante la selección de + Nuevo clúster en el portal":::
 
 1. Seleccione **+ Select replica** (Seleccionar réplica) para abrir la página **Configure availability group replicas** (Configurar réplicas de grupo de disponibilidad).
 1. Seleccione las máquinas virtuales que quiere agregar al grupo de disponibilidad y luego la configuración de grupo de disponibilidad que mejor se adapte a sus necesidades empresariales. Seleccione **Aplicar** para guardar la configuración. 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/add-replicas.png" alt-text="Selección de las máquinas virtuales que se van a agregar al grupo de disponibilidad y configuración de las opciones adecuadas para la empresa":::
+   :::image type="content" source="media/availability-group-az-portal-configure/add-replicas.png" alt-text="Creación de un nuevo clúster mediante la selección de + Nuevo clúster en el portal":::
 
 1. Compruebe la configuración del grupo de disponibilidad y seleccione **Aplicar** para crearlo. 
 
@@ -140,7 +140,7 @@ Para agregar bases de datos al grupo de disponibilidad mediante SQL Server Man
 1. Expanda **Alta disponibilidad de Always On** en el **Explorador de objetos**.
 1. Expanda **Grupos de disponibilidad**, haga clic con el botón derecho en el grupo de disponibilidad y seleccione **Agregar base de datos...**
 
-   :::image type="content" source="media/availability-group-az-portal-configure/add-database.png" alt-text="Clic con el botón derecho en el grupo de disponibilidad en el Explorador de objetos y selección de Agregar base de datos":::
+   :::image type="content" source="media/availability-group-az-portal-configure/add-database.png" alt-text="Creación de un nuevo clúster mediante la selección de + Nuevo clúster en el portal":::
 
 1. Siga los mensajes para seleccionar las bases de datos que quiere agregar al grupo de disponibilidad. 
 1. Seleccione **Aceptar** para guardar la configuración y agregar la base de datos al grupo de disponibilidad. 
@@ -148,7 +148,7 @@ Para agregar bases de datos al grupo de disponibilidad mediante SQL Server Man
 
 Una vez agregadas las bases de datos, puede comprobar el estado del grupo de disponibilidad en Azure Portal: 
 
-:::image type="content" source="media/availability-group-az-portal-configure/healthy-availability-group.png" alt-text="Comprobación del estado del grupo de disponibilidad en la página Alta disponibilidad de Azure Portal después de sincronizar las bases de datos":::
+:::image type="content" source="media/availability-group-az-portal-configure/healthy-availability-group.png" alt-text="Creación de un nuevo clúster mediante la selección de + Nuevo clúster en el portal":::
 
 ## <a name="add-more-vms"></a>Incorporación de más máquinas virtuales
 
@@ -159,7 +159,7 @@ Para agregar más VM con SQL Server al clúster, siga estos pasos:
 1. Seleccione **Alta disponibilidad** en **Configuración**. 
 1. Seleccione **Configure Windows Server Failover Cluster** (Configurar clúster de conmutación por error de Windows Server) para abrir la página **Configure Windows Server Failover Cluster** (Configurar clúster de conmutación por error de Windows Server). 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/configure-existing-cluster.png" alt-text="Selección de Configurar clúster de conmutación por error de Windows Server para agregar máquinas virtuales al clúster.":::
+   :::image type="content" source="media/availability-group-az-portal-configure/configure-existing-cluster.png" alt-text="Creación de un nuevo clúster mediante la selección de + Nuevo clúster en el portal":::
 
 1. Expanda **Windows Server Failover Cluster credentials** (Credenciales del clúster de conmutación por error de Windows Server) y escriba las cuentas usadas para el servicio de SQL Server, el operador de clúster y el arranque del clúster. 
 1. Seleccione las VM con SQL Server que quiere agregar al clúster. 
@@ -173,7 +173,7 @@ Puede comprobar el estado de la implementación en el **registro de actividad**,
 
 Es posible **Add more replicas** (Agregar más réplicas) al grupo de disponibilidad, **Configure the Listener** (Configurar la escucha) o **Delete the Listener** (Eliminar la escucha) en la página **Alta disponibilidad** de Azure Portal si se seleccionan los puntos suspensivos (...) junto al grupo de disponibilidad: 
 
-:::image type="content" source="media/availability-group-az-portal-configure/configure-listener.png" alt-text="Selección de los puntos suspensivos junto al grupo de disponibilidad y de Agregar réplica para agregar más réplicas al grupo de disponibilidad.":::
+:::image type="content" source="media/availability-group-az-portal-configure/configure-listener.png" alt-text="Creación de un nuevo clúster mediante la selección de + Nuevo clúster en el portal":::
 
 ## <a name="remove-cluster"></a>Eliminación del clúster
 
@@ -181,7 +181,7 @@ Quite todas las VM con SQL Server del clúster para destruirlo y luego quite lo
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-En primer lugar, quite todas las VM con SQL Server del clúster. Esto quita físicamente los nodos del clúster y destruye este:  
+En primer lugar, quite todas las VM con SQL Server del clúster. Esto quita físicamente los nodos del clúster y lo destruye:  
 
 ```azurecli-interactive
 # Remove the VM from the cluster metadata
@@ -204,7 +204,7 @@ az sql vm group delete --name <cluster name> Cluster --resource-group <resource 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-En primer lugar, quite todas las VM con SQL Server del clúster. Esto quita físicamente los nodos del clúster y destruye este: 
+En primer lugar, quite todas las VM con SQL Server del clúster. Esto quita físicamente los nodos del clúster y lo destruye: 
 
 ```powershell-interactive
 # Remove the SQL VM from the cluster
@@ -248,7 +248,7 @@ Para ver los registros de la implementación y consultar el historial de impleme
 1. Seleccione la implementación que le interese para obtener más información sobre ella. 
 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/failed-deployment.png" alt-text="Selección de la implementación que interesa para obtener más información." :::
+   :::image type="content" source="media/availability-group-az-portal-configure/failed-deployment.png" alt-text="Creación de un nuevo clúster mediante la selección de + Nuevo clúster en el portal" :::
 
 ### <a name="common-errors"></a>Errores comunes
 

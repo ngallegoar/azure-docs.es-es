@@ -3,12 +3,12 @@ title: Configuración de la supervisión de GPU con Azure Monitor para contenedo
 description: En este artículo se describe cómo puede configurar los clústeres de Kubernetes de supervisión con nodos habilitados para GPU NVIDIA y AMD con Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 958f5ab33edcd280f5673391eba907728f1153c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4c6044d407dc4abd0e69bac0190cc19c901022c3
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80373275"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569703"
 ---
 # <a name="configure-gpu-monitoring-with-azure-monitor-for-containers"></a>Configuración de la supervisión de GPU con Azure Monitor para contenedores
 
@@ -22,7 +22,10 @@ Azure Monitor para contenedores admite la supervisión de clústeres de GPU de l
 
 - [AMD](https://github.com/RadeonOpenCompute/k8s-device-plugin)
 
-Azure Monitor para contenedores inicia automáticamente la supervisión del uso de la GPU en los nodos y pods y áreas de trabajo que solicitan GPU mediante la recopilación de las métricas siguientes a intervalos de 60 s y su almacenamiento en la tabla **InsightMetrics**:
+Azure Monitor para contenedores inicia automáticamente la supervisión del uso de GPU en los nodos y de los pods y las áreas de trabajo que solicitan GPU mediante la recopilación de las métricas siguientes a intervalos de 60 s y su almacenamiento en la tabla **InsightMetrics**.
+
+>[!NOTE]
+>Después de aprovisionar el clúster con nodos de GPU, asegúrese de que el [controlador de GPU](../../aks/gpu-cluster.md) esté instalado como requiere AKS para ejecutar cargas de trabajo de GPU. Azure Monitor para contenedores recopila métricas de GPU a través de los pods del controlador de GPU que se ejecutan en el nodo. 
 
 |Nombre de métrica |Dimensión de métrica (etiquetas) |Descripción |
 |------------|------------------------|------------|

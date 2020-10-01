@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/14/2020
 tags: connectors
-ms.openlocfilehash: 9ed490dba1547db6ec3c0ddcff38aa3e0c393fcf
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 5f6328144760b3c55c55fbef13917359fa9e1a62
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226436"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526760"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Llamada a puntos de conexión de servicio mediante HTTP o HTTPS desde Azure Logic Apps
 
@@ -168,6 +168,14 @@ Este es el mismo ejemplo que muestra la definición de JSON de la acción HTTP e
 }
 ```
 
+## <a name="content-with-applicationx-www-form-urlencoded-type"></a>Contenido con tipo application/x-www-form-urlencoded
+
+Para proporcionar datos form-urlencoded en el cuerpo de una solicitud HTTP, debe especificar que los datos tienen el tipo de contenido `application/x-www-form-urlencoded`. En la acción o el desencadenador HTTP, agregue el encabezado `content-type`. Establezca el valor de encabezado en `application/x-www-form-urlencoded`.
+
+Por ejemplo, imagine que tiene una aplicación lógica que envía una solicitud HTTP POST a un sitio web que admite el tipo `application/x-www-form-urlencoded`. Este es el aspecto de esta acción:
+
+![Captura de pantalla que muestra una solicitud HTTP con el encabezado "content-type" establecido en "application/x-www-form-urlencoded"](./media/connectors-native-http/http-action-urlencoded.png)
+
 <a name="asynchronous-pattern"></a>
 
 ## <a name="asynchronous-request-response-behavior"></a>Comportamiento asincrónico de la solicitud-respuesta
@@ -263,4 +271,3 @@ Para obtener más información acerca de los parámetros de desencadenador y acc
 
 * [Acceso seguro y datos - Acceso para llamadas salientes a otros servicios y sistemas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)
 * [Conectores de Logic Apps](../connectors/apis-list.md)
-

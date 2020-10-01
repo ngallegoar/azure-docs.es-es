@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: b97b373936f9c485eaa96cdd34ed33c49e75ad9a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 09/14/2020
+ms.openlocfilehash: 3f7796dd565238eb853fcea431a6bcb7d18ee05a
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242073"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530240"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Extensiones de PostgreSQL en Azure Database for PostgreSQL: un solo servidor
 PostgreSQL ofrece la capacidad de ampliar la funcionalidad de su base de datos mediante extensiones. Las extensiones agrupan varios objetos SQL relacionados en un solo paquete que se puede cargar o quitar de la base de datos con un solo comando. Después de cargarse en la base de datos, las extensiones funcionan como características integradas.
@@ -228,7 +228,7 @@ En Postgres 11 y versiones posteriores, puede configurar el precalentamiento par
 ## <a name="timescaledb"></a>TimescaleDB
 TimescaleDB es una base de datos de serie temporal que se empaqueta como una extensión para PostgreSQL. TimescaleDB proporciona funciones analíticas orientadas al tiempo, optimizaciones y escala Postgres para las cargas de trabajo de serie temporal.
 
-[Más información sobre TimescaleDB](https://docs.timescale.com/latest), una marca registrada de [Timescale, Inc.](https://www.timescale.com/) Azure Database for PostgreSQL proporciona la versión de código abierto de Timescale. Para obtener información sobre las características de Timescale disponibles en esta versión, consulte [la comparación de productos de Timescale](https://www.timescale.com/products/).
+[Más información sobre TimescaleDB](https://docs.timescale.com/latest), una marca registrada de [Timescale, Inc.](https://www.timescale.com/) Azure Database for PostgreSQL proporciona la [edición Apache-2](https://www.timescale.com/legal/licenses) de TimescaleDB.
 
 ### <a name="installing-timescaledb"></a>Instalación de TimescaleDB
 Para instalar TimescaleDB, tendrá que incluirlo en las bibliotecas de carga previa compartidas del servidor. Si cambia el parámetro `shared_preload_libraries` de Postgres deberá **reiniciar el servidor** para que tenga efecto. Puede cambiar los parámetros mediante [Azure Portal](howto-configure-server-parameters-using-portal.md) o la [CLI de Azure](howto-configure-server-parameters-using-cli.md).

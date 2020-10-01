@@ -3,12 +3,12 @@ title: 'Azure Event Hubs: excepciones'
 description: En este artículo se proporciona una lista de las excepciones de mensajería y acciones sugeridas de Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: a93daa88c468a22838a6f9012f0c4622447f5555
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b3a7023dc44d7280284fec1eccf00a3dbe88b7ec
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512374"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908383"
 ---
 # <a name="event-hubs-messaging-exceptions---net"></a>Excepciones de mensajería de Event Hubs: .NET
 En esta sección se enumeran las excepciones de .NET generadas por API de .NET Framework. 
@@ -19,10 +19,10 @@ Las API de .NET de Event Hubs generan excepciones que pueden dividirse en las si
 
  - Error de codificación de usuario: 
  
-   - [System.ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1)
-   - [System.InvalidOperationException](/dotnet/api/system.invalidoperationexception?view=netcore-3.1)
-   - [System.OperationCanceledException](/dotnet/api/system.operationcanceledexception?view=netcore-3.1)
-   - [System.Runtime.Serialization.SerializationException](/dotnet/api/system.runtime.serialization.serializationexception?view=netcore-3.1)
+   - [System.ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1&preserve-view=true)
+   - [System.InvalidOperationException](/dotnet/api/system.invalidoperationexception?view=netcore-3.1&preserve-view=true)
+   - [System.OperationCanceledException](/dotnet/api/system.operationcanceledexception?view=netcore-3.1&preserve-view=true)
+   - [System.Runtime.Serialization.SerializationException](/dotnet/api/system.runtime.serialization.serializationexception?view=netcore-3.1&preserve-view=true)
    
    Acción general: intente corregir el código antes de continuar.
  
@@ -30,7 +30,7 @@ Las API de .NET de Event Hubs generan excepciones que pueden dividirse en las si
  
    - [Microsoft.ServiceBus.Messaging.MessagingEntityNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagingentitynotfoundexception)
    - [Microsoft.Azure.EventHubs.MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.eventhubs.messagingentitynotfoundexception)
-   - [System.UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1)
+   - [System.UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1&preserve-view=true)
    
    Acción general: revise la configuración y cámbiela si es necesario.
    
@@ -45,7 +45,7 @@ Las API de .NET de Event Hubs generan excepciones que pueden dividirse en las si
  
  - Otras excepciones: 
  
-   - [System.Transactions.TransactionException](/dotnet/api/system.transactions.transactionexception?view=netcore-3.1)
+   - [System.Transactions.TransactionException](/dotnet/api/system.transactions.transactionexception?view=netcore-3.1&preserve-view=true)
    - [System.TimeoutException](#timeoutexception)
    - [Microsoft.ServiceBus.Messaging.MessageLockLostException](/dotnet/api/microsoft.servicebus.messaging.messagelocklostexception)
    - [Microsoft.ServiceBus.Messaging.SessionLockLostException](/dotnet/api/microsoft.servicebus.messaging.sessionlocklostexception)
@@ -57,11 +57,11 @@ En la tabla siguiente se describen los tipos de excepción de mensajería, sus c
 
 | Tipo de excepción | Descripción/causa/ejemplos | Acción sugerida | Nota sobre el reintento automático o inmediato |
 | -------------- | -------------------------- | ---------------- | --------------------------------- |
-| [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1) |El servidor no respondió a la operación solicitada en el tiempo especificado, que está controlado por [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings). Puede que el servidor haya completado la operación solicitada. Esta excepción se puede producir debido a un retraso de red o a otros retrasos de infraestructura. |Compruebe la coherencia del estado del sistema y vuelva a intentarlo si es necesario.<br /> Consulte [TimeoutException](#timeoutexception). | El reintento podría resultar útil en algunos casos; agregue lógica de reintento al código. |
-| [InvalidOperationException](/dotnet/api/system.invalidoperationexception?view=netcore-3.1) |La operación del usuario solicitada no está permitida en el servidor o servicio. Consulte el mensaje de excepción para obtener detalles. Por ejemplo, [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) genera esta excepción si el mensaje se recibió en el modo [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) . | Compruebe el código y la documentación. Asegúrese de que la operación solicitada sea válida. | Los reintentos no funcionan. |
-| [OperationCanceledException](/dotnet/api/system.operationcanceledexception?view=netcore-3.1) | Se realiza un intento para invocar una operación en un objeto que ya se ha cerrado, anulado o eliminado. En raras ocasiones, la transacción de ambiente ya se ha eliminado. | Compruebe el código y asegúrese de que no invoca operaciones de un objeto desechado. | Los reintentos no funcionan. |
-| [UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1) | El objeto [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) no pudo adquirir un token, el token no es válido o no contiene las notificaciones necesarias para realizar la operación. | Asegúrese de que el proveedor de tokens se cree con los valores correctos. Compruebe la configuración de Access Control Service. | El reintento podría resultar útil en algunos casos; agregue lógica de reintento al código. |
-| [ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1)<br /> [ArgumentNullException](/dotnet/api/system.argumentnullexception?view=netcore-3.1)<br />[ArgumentOutOfRangeException](/dotnet/api/system.argumentoutofrangeexception?view=netcore-3.1) | Uno o varios de los argumentos proporcionados para el método no son válidos. El URI proporcionado a [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) o [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) contiene segmentos de ruta de acceso. El esquema de URI proporcionado a [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) o [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) no es válido. El valor de la propiedad es mayor de 32 KB. | Compruebe el código de llamada y asegúrese de que los argumentos sean correctos. | El reintento no le será de ayuda. |
+| [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1&preserve-view=true) |El servidor no respondió a la operación solicitada en el tiempo especificado, que está controlado por [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings). Puede que el servidor haya completado la operación solicitada. Esta excepción se puede producir debido a un retraso de red o a otros retrasos de infraestructura. |Compruebe la coherencia del estado del sistema y vuelva a intentarlo si es necesario.<br /> Consulte [TimeoutException](#timeoutexception). | El reintento podría resultar útil en algunos casos; agregue lógica de reintento al código. |
+| [InvalidOperationException](/dotnet/api/system.invalidoperationexception?view=netcore-3.1&preserve-view=true) |La operación del usuario solicitada no está permitida en el servidor o servicio. Consulte el mensaje de excepción para obtener detalles. Por ejemplo, [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) genera esta excepción si el mensaje se recibió en el modo [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) . | Compruebe el código y la documentación. Asegúrese de que la operación solicitada sea válida. | Los reintentos no funcionan. |
+| [OperationCanceledException](/dotnet/api/system.operationcanceledexception?view=netcore-3.1&preserve-view=true) | Se realiza un intento para invocar una operación en un objeto que ya se ha cerrado, anulado o eliminado. En raras ocasiones, la transacción de ambiente ya se ha eliminado. | Compruebe el código y asegúrese de que no invoca operaciones de un objeto desechado. | Los reintentos no funcionan. |
+| [UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1&preserve-view=true) | El objeto [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) no pudo adquirir un token, el token no es válido o no contiene las notificaciones necesarias para realizar la operación. | Asegúrese de que el proveedor de tokens se cree con los valores correctos. Compruebe la configuración de Access Control Service. | El reintento podría resultar útil en algunos casos; agregue lógica de reintento al código. |
+| [ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1&preserve-view=true)<br /> [ArgumentNullException](/dotnet/api/system.argumentnullexception?view=netcore-3.1&preserve-view=true)<br />[ArgumentOutOfRangeException](/dotnet/api/system.argumentoutofrangeexception?view=netcore-3.1&preserve-view=true) | Uno o varios de los argumentos proporcionados para el método no son válidos. El URI proporcionado a [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) o [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) contiene segmentos de ruta de acceso. El esquema de URI proporcionado a [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) o [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) no es válido. El valor de la propiedad es mayor de 32 KB. | Compruebe el código de llamada y asegúrese de que los argumentos sean correctos. | El reintento no le será de ayuda. |
 | [Microsoft.ServiceBus.Messaging MessagingEntityNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagingentitynotfoundexception) <br /><br/> [Microsoft.Azure.EventHubs MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.eventhubs.messagingentitynotfoundexception) | La entidad asociada a la operación no existe o se eliminó. | Asegúrese de que la entidad exista. | El reintento no le será de ayuda. |
 | [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) | El cliente no puede establecer una conexión al Centro de eventos. |Asegúrese de que el nombre de host proporcionado sea correcto y que este sea accesible. | El reintento podría resultar útil si hay problemas de conectividad intermitente. |
 | [Microsoft.ServiceBus.Messaging ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) <br /> <br/>[Microsoft.Azure.EventHubs ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) | El servicio no puede procesar la solicitud en este momento. | El cliente puede esperar durante un período de tiempo y volver a intentar realizar la operación. <br /> Consulte [ServerBusyException](#serverbusyexception). | El cliente puede volver a intentarlo tras un determinado intervalo de tiempo. Si el reintento genera otra excepción, compruebe el comportamiento de reintento de esa excepción. |
@@ -80,9 +80,12 @@ Esta excepción suceder si ya ha abierto el número máximo de destinatarios (ci
 Event Hubs tiene un límite de 20 grupos de consumidores por Centro de eventos. Cuando intenta crear más, recibe [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception). 
 
 ## <a name="timeoutexception"></a>TimeoutException
-[TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1) indica que la operación iniciada por el usuario está superando el tiempo de espera. 
+[TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1&preserve-view=true) indica que la operación iniciada por el usuario está superando el tiempo de espera. 
 
 Para Event Hubs, el tiempo de espera se especifica como parte de la cadena de conexión o a través de [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.servicebus.servicebusconnectionstringbuilder). El propio mensaje de error puede variar, pero siempre contiene el valor de tiempo de espera especificado para la operación actual. 
+
+Se espera que se produzcan tiempos de espera durante o entre operaciones de mantenimiento, por ejemplo, actualizaciones del servicio de Event Hubs o actualizaciones del sistema operativo en los recursos que ejecutan el servicio. Durante las actualizaciones del sistema operativo, las entidades se mueven y los nodos se actualizan o se reinician, lo que puede provocar tiempos de espera. Para obtener detalles sobre el contrato de nivel de servicio (SLA) del servicio Azure Event Hubs, vea [SLA para Event Hubs](https://azure.microsoft.com/support/legal/sla/event-hubs/). 
+
 
 ### <a name="common-causes"></a>Causas comunes
 Hay dos causas comunes de este error: configuración incorrecta o un error de servicio transitorio.

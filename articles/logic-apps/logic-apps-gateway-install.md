@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: 9e50cdb16ee6acbdb903681984dcfbd7bfe170fa
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: f646af4cad6101e019e58f4f50a40b07aff19461
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386136"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660484"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalación de una puerta de enlace de datos local para Azure Logic Apps
 
@@ -33,7 +33,7 @@ En este artículo se muestra cómo descargar, instalar y configurar la puerta de
   * La cuenta de Azure debe ser una cuenta profesional o educativa, que tiene el siguiente aspecto `username@contoso.com`. No puede usar cuentas de Azure B2B (invitado) o cuentas Microsoft personales, como @hotmail.com o @outlook.com.
 
     > [!NOTE]
-    > Si se suscribió a una oferta de Office 365 y no proporcionó su correo electrónico del trabajo, la dirección de inicio de sesión podría tener un aspecto similar a `username@domain.onmicrosoft.com`. La cuenta se almacena en un inquilino de Azure AD. En la mayoría de los casos, el nombre principal de usuario de la cuenta de Azure AD es el mismo que su dirección de correo electrónico.
+    > Si se ha suscrito a una oferta de Microsoft 365 y no ha proporcionado su correo electrónico del trabajo, la dirección podría tener un aspecto similar a `username@domain.onmicrosoft.com`. La cuenta se almacena en un inquilino de Azure AD. En la mayoría de los casos, el nombre principal de usuario de la cuenta de Azure AD es el mismo que su dirección de correo electrónico.
 
     Para usar una [suscripción estándar de Visual Studio](https://visualstudio.microsoft.com/vs/pricing/) que esté asociada a una cuenta Microsoft, primero [cree un inquilino de Azure AD](../active-directory/develop/quickstart-create-new-tenant.md) o use el directorio predeterminado. Agregue un usuario con contraseña al directorio y conceda acceso a la suscripción de Azure a ese usuario. A continuación, puede iniciar sesión durante la instalación de la puerta de enlace con este nombre de usuario y contraseña.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: ce159bc61a1f21c52b8d182c1248ba1d436462da
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: dbfe18c84217c741f8dd64481901747d068fcdd3
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640521"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604145"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Uso de Azure AD Application Proxy para publicar aplicaciones locales para usuarios remotos
 
@@ -29,7 +29,7 @@ La capacidad de acceder de forma segura a las aplicaciones internas desde fuera 
 
 Muchas organizaciones creen que tienen el control y que están protegidas cuando los recursos se encuentran dentro de los límites de las redes corporativas. Pero en el área de trabajo digital de hoy en día, esa frontera se ha ampliado con dispositivos móviles administrados, así como con recursos y servicios en la nube. Ahora necesita administrar la complejidad de proteger las identidades de los usuarios y los datos almacenados en los dispositivos y aplicaciones.
 
-Quizás ya esté utilizando Azure AD para administrar usuarios en la nube que necesitan acceder a Office 365 y otras aplicaciones SaaS, así como aplicaciones web hospedadas en el entorno local. Si ya tiene Azure AD, puede utilizarlo como un plano de control para permitir un acceso perfecto y seguro a las aplicaciones locales. O, tal vez todavía está contemplando pasarse a la nube. Si es así, puede comenzar su viaje a la nube al implementar Application Proxy y dar el primer paso hacia la construcción de una sólida base de identidad.
+Quizás ya esté usando Azure AD para administrar usuarios en la nube que necesitan acceder a Microsoft 365 y otras aplicaciones SaaS, así como aplicaciones web hospedadas en el entorno local. Si ya tiene Azure AD, puede utilizarlo como un plano de control para permitir un acceso perfecto y seguro a las aplicaciones locales. O, tal vez todavía está contemplando pasarse a la nube. Si es así, puede comenzar su viaje a la nube al implementar Application Proxy y dar el primer paso hacia la construcción de una sólida base de identidad.
 
 Aunque no de manera exhaustiva, en la lista siguiente se muestran algunas de las cosas que puede habilitar al implementar Application Proxy en un escenario de coexistencia híbrida:
 
@@ -53,7 +53,7 @@ Anteriormente, el plano de control para proteger los recursos internos de los at
 * Autenticación de los usuarios a los servidores web en la red perimetral
 * Mantenimiento del acceso de VPN para usuarios remotos con la distribución y configuración del software cliente VPN. Además, el mantenimiento de los servidores unidos al dominio en la red perimetral, que pueden ser vulnerables a ataques del exterior.
 
-En la nube de hoy en día, Azure AD es el más adecuado para controlar quién y qué entra en su red. Azure AD Application Proxy se integra con las tecnologías modernas de autenticación y basadas en la nube, como las aplicaciones SaaS y los proveedores de identidades. Esta integración permite a los usuarios el acceso a las aplicaciones desde cualquier lugar. Application Proxy no solo es más adecuado para el área de trabajo digital actual, sino que es más seguro que las soluciones VPN y de proxy inverso, y más fácil de implementar. Los usuarios remotos pueden tener acceso a sus aplicaciones locales del mismo modo que tienen acceso a Office 365 y otras aplicaciones de SaaS integradas con Azure AD. No es necesario cambiar o actualizar las aplicaciones para trabajar con el Proxy de aplicación. Es más, Application Proxy no necesita que se abran conexiones entrantes a través del firewall. Con Application Proxy, simplemente se configura y se olvida.
+En la nube de hoy en día, Azure AD es el más adecuado para controlar quién y qué entra en su red. Azure AD Application Proxy se integra con las tecnologías modernas de autenticación y basadas en la nube, como las aplicaciones SaaS y los proveedores de identidades. Esta integración permite a los usuarios el acceso a las aplicaciones desde cualquier lugar. Application Proxy no solo es más adecuado para el área de trabajo digital actual, sino que es más seguro que las soluciones VPN y de proxy inverso, y más fácil de implementar. Los usuarios remotos pueden acceder a sus aplicaciones locales del mismo modo en que acceden a Microsoft 365 y otras aplicaciones SaaS integradas con Azure AD. No es necesario cambiar o actualizar las aplicaciones para trabajar con el Proxy de aplicación. Es más, Application Proxy no necesita que se abran conexiones entrantes a través del firewall. Con Application Proxy, simplemente se configura y se olvida.
 
 ## <a name="the-future-of-remote-access"></a>El futuro de acceso remoto
 
@@ -72,7 +72,7 @@ Con Application Proxy, Azure AD realiza el seguimiento de los usuarios que tiene
 
 ### <a name="an-overview-of-how-app-proxy-works"></a>Introducción al funcionamiento de Application Proxy
 
-Application Proxy es un servicio de Azure AD que se configura en Azure Portal. Le permite publicar un punto de conexión de dirección URL de HTTP/HTTPS público externo en Azure Cloud, que se conecta a la dirección URL de un servidor de aplicaciones interno de la organización. Estas aplicaciones web locales pueden integrarse con Azure AD para admitir el inicio de sesión único. Después, los usuarios finales pueden tener acceso a las aplicaciones web locales del mismo modo que tienen acceso a Office 365 y otras aplicaciones SaaS.
+Application Proxy es un servicio de Azure AD que se configura en Azure Portal. Le permite publicar un punto de conexión de dirección URL de HTTP/HTTPS público externo en Azure Cloud, que se conecta a la dirección URL de un servidor de aplicaciones interno de la organización. Estas aplicaciones web locales pueden integrarse con Azure AD para admitir el inicio de sesión único. Después, los usuarios finales pueden acceder a las aplicaciones web locales del mismo modo en que acceden a Microsoft 365 y otras aplicaciones SaaS.
 
 Los componentes de esta característica incluyen el servicio Application Proxy, que se ejecuta en la nube, el conector de Application Proxy, que es un agente ligero que se ejecuta en un servidor local, y Azure AD, que es el proveedor de identidades. Los tres componentes trabajan juntos para proporcionar al usuario una experiencia de inicio de sesión única para acceder a las aplicaciones web locales.
 
@@ -195,8 +195,8 @@ Ya sea que actualmente esté usando Azure AD para administrar usuarios en un esc
 Las organizaciones deben comenzar a sacar partido a Application Proxy hoy mismo para aprovecharse de las ventajas siguientes:
 
 * Publicación de las aplicaciones locales externamente sin la sobrecarga asociada con el mantenimiento de la VPN tradicional u otras soluciones de publicación web locales y el enfoque de red perimetral
-* Inicio de sesión único para todas las aplicaciones, ya sean Office 365 u otras aplicaciones SaaS, incluidas las aplicaciones locales
-* Seguridad a escala de nube donde Azure AD aprovecha la telemetría de Office 365 para evitar el acceso no autorizado
+* Inicio de sesión único para todas las aplicaciones, ya sean Microsoft 365 u otras aplicaciones SaaS, incluidas las aplicaciones locales
+* Seguridad a escala de nube donde Azure AD aprovecha la telemetría de Microsoft 365 para evitar el acceso no autorizado
 * Integración con Intune para garantizar que el tráfico corporativo se ha autenticado
 * Centralización de la administración de las cuentas de usuario
 * Actualizaciones automáticas para asegurarse de que dispone de las últimas revisiones de seguridad

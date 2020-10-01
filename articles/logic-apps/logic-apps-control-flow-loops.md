@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 8a72dff055f2733a07b6da705b66da939ad29bae
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5bd637f4e4a786cd4cba0f70c4b2349e354469fd
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495614"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657466"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Crear bucles que repiten las acciones del flujo de trabajo o procesan matrices en Azure Logic Apps
 
@@ -45,7 +45,7 @@ para hacer referencia a cada elemento de la matriz y procesarlo. Si especifica d
 
 Esta aplicación lógica de ejemplo envía un resumen diario de una fuente RSS de sitio web. La aplicación utiliza un bucle "Foreach" que envía un correo electrónico por cada nuevo elemento.
 
-1. [Cree una aplicación lógica de ejemplo](../logic-apps/quickstart-create-first-logic-app-workflow.md) con una cuenta de Outlook.com o de Office 365 Outlook.
+1. [Cree esta aplicación lógica de ejemplo](../logic-apps/quickstart-create-first-logic-app-workflow.md) con una cuenta de Outlook.com o una cuenta profesional o educativa.
 
 2. Entre el desencadenador RSS y la acción para enviar un correo electrónico, agregue un bucle "Foreach". 
 

@@ -7,19 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 04/15/2020
-ms.openlocfilehash: 81069b0340202a0a481522ef1920806026ebcbe1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 09/04/2020
+ms.openlocfilehash: c52fabcfc2ff22df2de6dd93f2543d625310baef
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119402"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484348"
 ---
 # <a name="publishing-guide-for-container-offers"></a>Guía de publicación para ofertas de contenedor
 
 Las ofertas de contenedor le ayudan a publicar la imagen de contenedor en Azure Marketplace. Use esta guía para comprender los requisitos para esta oferta. 
 
-Las ofertas de contenedor son ofertas de transacciones que se implementan y facturan mediante Azure Marketplace. La llamada a la acción que el usuario ve es "Obtener ahora".
+Las ofertas de contenedor son ofertas de transacciones que se implementan y facturan mediante Azure Marketplace. La opción que el usuario ve es "Obtener ahora".
 
 Use el tipo de oferta *Contenedor* cuando la solución sea una imagen de contenedor de Docker configurada como instancia de servicio de contenedor de Azure basada en Kubernetes. 
 

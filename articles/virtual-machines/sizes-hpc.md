@@ -6,21 +6,23 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 08/01/2020
+ms.date: 09/08/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 8870c83506b1d962b94cd4d671bd3acd3e96c17c
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 2a06c182f1f37942ac0921db254bf63bf177fec2
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905370"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595740"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Tamaños de VM para informática de alto rendimiento
 
 La máquinas virtuales de la serie H de Azure están diseñada para ofrecer rendimiento de primer nivel, escalabilidad de MPI y rentabilidad para diversas cargas de trabajo de HPC del mundo real.
 
-Las máquinas virtuales de la [serie HBv2](hbv2-series.md) cuentan con la característica Mellanox HDR InfiniBand a 200 GB/s, mientras que las máquinas virtuales de las series HB y HC cuentan con la característica MeliBox EDR InfiniBand a 100 GB/s. Cada uno de estos tipos de máquinas virtuales están conectados en un árbol FAT sin bloqueos para un rendimiento de RDMA optimizado y coherente. Las máquinas virtuales HBv2 admiten el enrutamiento adaptativo y el transporte conectado dinámico (DCT, además de los transportes estándar RC y UD). Estas características mejoran el rendimiento, la escalabilidad y la coherencia de las aplicaciones, y se recomienda totalmente su uso.
+Las máquinas virtuales de la [serie HBv2](hbv2-series.md) están optimizadas para aplicaciones controladas por el ancho de banda de memoria, como la dinámica de fluidos, el análisis de elementos finitos y la simulación de yacimientos. Las máquinas virtuales HBv2 cuentan con 120 núcleos de procesador AMD EPYC 7742, 4 GB de RAM por núcleo de CPU y sin multithreading simultáneo. Cada máquina virtual de HBv2 proporciona hasta 340 GB/s de ancho de banda de memoria y hasta 4 teraFLOPS de proceso FP64.
+
+Las máquinas virtuales de la serie HBv2 cuentan con la característica Mellanox HDR InfiniBand a 200 GB/s, mientras que las máquinas virtuales de las series HB y HC cuentan con la característica Mellanox EDR InfiniBand a 100 GB/s. Cada uno de estos tipos de máquinas virtuales están conectados en un árbol FAT sin bloqueos para un rendimiento de RDMA optimizado y coherente. Las máquinas virtuales HBv2 admiten el enrutamiento adaptativo y el transporte conectado dinámico (DCT, además de los transportes estándar RC y UD). Estas características mejoran el rendimiento, la escalabilidad y la coherencia de las aplicaciones, y se recomienda totalmente su uso.
 
 Las máquinas virtuales de la [serie HB](hb-series.md) están optimizadas para aplicaciones que funcionan con ancho de banda de la memoria, como la dinámica de fluidos, el análisis explícito de elementos finitos y los modelos de clima. Las máquinas virtuales HB cuentan con 60 núcleos de procesador AMD EPYC 7551, 4 GB de RAM por núcleo de CPU y no tienen hyperthreading. La plataforma AMD EPYC proporciona un ancho de banda de memoria de más de 260 GB/s.
 
@@ -35,7 +37,7 @@ Las máquinas virtuales de la [serie H](h-series.md) están optimizadas para apl
 
 La mayoría de los tamaños de VM para HPC (HBv2, HB, HC, H16r, H16mr, A8 y A9) incluye una interfaz de red para la conectividad de acceso directo a memoria remota (RDMA). Los tamaños seleccionados de la [serie N](./nc-series.md) designados con la letra "r", (ND40rs_v2, ND24rs, NC24rs_v3, NC24rs_v2 y NC24r) también son compatibles con RDMA. Esta interfaz se agrega a la interfaz de red estándar de Azure disponible en los otros tamaños de máquina virtual.
 
-Esta interfaz permite que las instancias compatibles con RDMA se comuniquen través de una red InfiniBand (IB), que funciona a velocidades HDR en la serie HBv2, a velocidades EDR en las series HB, HC y NDv2, a velocidades FDR en las series H16r y H16mr y en otras máquinas virtuales de la serie N compatibles con RDMA, y a velocidades QDR en máquinas virtuales A8 y A9. Estas funcionalidades RDMA pueden mejorar la escalabilidad y el rendimiento de determinadas aplicaciones de la Interfaz de paso de mensajes (MPI). Para más información acerca de la velocidad, consulte los detalles en las tablas de esta página.
+Esta interfaz permite que las instancias compatibles con RDMA se comuniquen través de una red InfiniBand (IB), que funciona a velocidades HDR en la serie HBv2, a velocidades EDR en las series HB, HC y NDv2, a velocidades FDR en las series H16r y H16mr y en otras máquinas virtuales de la serie N compatibles con RDMA, y a velocidades QDR en máquinas virtuales A8 y A9. Estas funcionalidades RDMA pueden mejorar la escalabilidad y el rendimiento de determinadas aplicaciones de la Interfaz de paso de mensajes (MPI).
 
 > [!NOTE]
 > En Azure HPC, hay dos clases de máquinas virtuales en función de si están habilitadas para SR-IOV de InfiniBand. Actualmente, las máquinas virtuales que tienen habilitada la opción de SR-IOV para InfiniBand son: HBv2, HB, HC, NCv3 y NDv2. El resto de las máquinas virtuales compatibles con InfiniBand no están habilitadas para SR-IOV actualmente.

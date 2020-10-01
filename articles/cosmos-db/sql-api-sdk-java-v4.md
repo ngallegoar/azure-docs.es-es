@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: af0964dceca8b862d0008d878045203983a96bda
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: aabd52d47bfc59de7a1d79bbe5ffbdda90d099bf
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586222"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90060703"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Versión 4 del SDK de Java para la API SQL de Azure Cosmos DB: notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -68,7 +68,20 @@ La versión 4 del SDK de Java de Azure Cosmos DB para Core (SQL) combina una A
 
 ## <a name="release-history"></a>Historial de versiones
 
-### <a name="440-beta1-unreleased"></a>4.4.0-beta.1 (no publicada)
+### <a name="450-beta1-unreleased"></a>4.5.0-beta.1 (no publicada)
+
+### <a name="440-2020-09-12"></a>4.4.0 (12-09-2020)
+#### <a name="key-bug-fixes"></a>Correcciones de errores clave
+* Se ha corregido RequestTimeoutException al habilitar la dependencia `netty-tcnative-boringssl`.
+* Se ha corregido un problema de pérdida de memoria en operaciones `Delete` en modo `GATEWAY`.
+* Se ha corregido una fuga en la creación de instancias de `CosmosClient` cuando el URI del punto de conexión no es válido.
+* Se han mejorado los diagnósticos de `CPU History`.
+
+### <a name="431-2020-08-13"></a>4.3.1 (13-08-2020)
+#### <a name="key-bug-fixes"></a>Correcciones de errores clave
+* Se ha corregido un problema con la consulta `GROUP BY` que provocaba que solo se devolviera una página.
+* Se ha corregido el formato de cadena de agente de usuario para cumplir con las directrices del SDK central.
+* Se ha mejorado la información de diagnóstico para incluir los diagnósticos del plan de consulta.
 
 ### <a name="430-2020-07-29"></a>4.3.0 (2020-07-29)
 #### <a name="new-features"></a>Nuevas características

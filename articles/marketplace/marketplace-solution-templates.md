@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: msjogarrig
 ms.author: jogarrig
 ms.date: 04/22/2020
-ms.openlocfilehash: c66682a7f457612b0ea77b90cc98ec1e6b4a85e9
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: c4be1c7eec9572d284d70823d270dafe5569ab14
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322269"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484228"
 ---
 # <a name="publishing-guide-for-azure-applications-solution-template-offers"></a>Guía de publicación de ofertas de plantillas de solución de aplicaciones de Azure
 
@@ -23,7 +23,7 @@ Use el tipo de oferta de *plantilla de solución* de aplicación de Azure con la
 - La solución requiere la automatización adicional de la implementación y la configuración no solo de una máquina virtual (VM), sino de una combinación de VM, redes y recursos de almacenamiento.
 - Los clientes van a administrar la solución por su cuenta.
 
-La llamada a la acción que un cliente ve para este tipo de oferta es *Obtenerla ahora*.
+La opción que un cliente ve para este tipo de oferta es *Obtener ahora*.
 
 ## <a name="requirements-for-solution-template-offers"></a>Requisitos de las ofertas de plantillas de solución
 

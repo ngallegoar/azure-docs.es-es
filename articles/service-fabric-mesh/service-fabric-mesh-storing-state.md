@@ -5,12 +5,12 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: d56ce811155f7b7f60fa870dbdae2550afab2eac
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 01c54c8baa411e7d57698c626b098dc19e66be4e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246833"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984133"
 ---
 # <a name="state-management-with-service-fabric"></a>Administración del estado con Service Fabric
 
@@ -22,7 +22,7 @@ Con Service Fabric mesh, puede implementar una nueva aplicación fácilmente y c
 
 Los contenedores suelen usar discos temporales. Sin embargo, los discos temporales son efímeros, por lo que puede obtener un nuevo disco temporal y perder la información cuando un contenedor se bloquea. También es difícil compartir información de los discos temporales con otros contenedores. Los volúmenes son directorios que se montan dentro de las instancias de contenedor que puede usar para conservar el estado. Los volúmenes proporcionan almacenamiento de archivos de propósito general y permiten leer y escribir archivos mediante las API de archivos de E/S de disco normal. El recurso de volumen describe cómo montar un directorio y qué almacenamiento de respaldo utilizar. Puede elegir Azure File Storage o un disco de volumen de Service Fabric para almacenar los datos.
 
-![Volúmenes][image3]
+![Diagrama que muestra el servicio, que fluye al volumen, que a su vez fluye al volumen confiable de Service Fabric en un disco local replicado y al volumen de Azure Files en el almacenamiento de red.][image3]
 
 ### <a name="service-fabric-reliable-volume"></a>Volumen confiable de Service Fabric
 

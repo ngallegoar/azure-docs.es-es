@@ -3,12 +3,12 @@ title: Reimplementación de una máquina virtual en un laboratorio de Azure DevT
 description: Obtenga información sobre cómo volver a implementar una máquina virtual (mover de un nodo de Azure a otro) en Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: da0edf13adaa0d7ecd84ee2c190f376c19b398db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a38b112165b893d877733b967c21bb62b20ca2f6
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85480242"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530325"
 ---
 # <a name="redeploy-a-vm-in-a-lab-in-azure-devtest-labs"></a>Reimplementación de una máquina virtual en un laboratorio de Azure DevTest Labs
 Si no puede conectarse a la máquina virtual (VM) de un laboratorio mediante una conexión a escritorio remoto, vuelva a implementar la máquina virtual e intente de nuevo la conexión. Cuando se vuelve a implementar una máquina virtual, DevTest Labs mueve la VM desde el nodo en el que se ejecuta a un nuevo nodo dentro de la infraestructura de Azure. Después, inicia la VM conservando todas las opciones de configuración y los recursos asociados. Gracias a esta característica, se evita perder tiempo en solucionar los problemas relacionados con la conexión al escritorio remoto o con el acceso de la aplicación a las VM basadas en Windows del laboratorio. 
@@ -23,7 +23,7 @@ Para volver a implementar una máquina virtual en un laboratorio de Azure DevTes
 5. En la lista de máquinas virtuales, seleccione una máquina virtual.
 6. En el menú de la izquierda de la página de su máquina virtual, haga clic en la opción **Reimplementar** de **OPERACIONES**.
 
-    ![Volver a implementar](media/devtest-lab-redeploy-vm/redeploy.png)
+    ![Captura de pantalla que muestra la página de la máquina virtual con la opción Reimplementar seleccionada.](media/devtest-lab-redeploy-vm/redeploy.png)
 7. Lea la información en la página y seleccione el botón **Reimplementar**. 9. Compruebe el estado de la operación de reimplementación en la ventana **Notificaciones**.
 
     ![Estado de la reimplementación](media/devtest-lab-redeploy-vm/redeploy-status.png)

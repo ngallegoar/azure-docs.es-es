@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: d2d3c94985f099c7a0ab92efab564415f5cd81bb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3ede38edd9d24114eb4d0939ff9d4586a2d31daa
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095414"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978138"
 ---
 # <a name="azure-time-series-insights-gen2-use-cases"></a>Casos de uso de Azure Time Series Insights Gen2
 
@@ -66,7 +66,7 @@ Existen tres formas principales de interactuar con los datos almacenados en Azur
 
 Use Azure Time Series Insights Gen2 para supervisar el mantenimiento, el uso y el rendimiento del equipo a escala y para medir la eficacia operativa. Igualmente, Azure Time Series Insights Gen2 facilita la administración de cargas de trabajo de IoT diversas e impredecibles, sin sacrificar el rendimiento de la ingesta o de las consultas.
 
-[![Información general](media/v2-update-use-cases/overview.png)](media/v2-update-use-cases/overview.png#lightbox)
+[![Captura de pantalla que muestra los dispositivos IoT, los datos de aplicación, el procesamiento de flujos, la eficiencia operativa, la inteligencia, las conclusiones y el análisis avanzado en Azure Time Series Insights Gen2.](media/v2-update-use-cases/overview.png)](media/v2-update-use-cases/overview.png#lightbox)
 
 La transmisión y el procesamiento continuo de datos provenientes de procesos operativos pueden transformar con éxito cualquier negocio si se combinan con la tecnología o la solución adecuada. A menudo, estas soluciones son una combinación de varios sistemas. Permiten la exploración y el análisis de datos que cambian constantemente, especialmente en el ámbito de IoT, y comparten un patrón común.
 

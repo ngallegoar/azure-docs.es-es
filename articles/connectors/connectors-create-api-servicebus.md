@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 09/14/2020
 tags: connectors
-ms.openlocfilehash: 13732c6d31f19dfb2548154feb8336a1dff3a529
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 2993fc718462d1ac2a9cfd02be5642fb21f86702
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853303"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526534"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Intercambio de mensajes en la nube con Azure Logic Apps y Azure Service Bus
 
@@ -79,7 +79,7 @@ Confirme que la aplicación lógica tiene permiso para acceder al espacio de nom
    Algunos desencadenadores, como **Cuando llegan uno o más mensajes a una cola (autocompletar)** , pueden devolver uno o más mensajes. Cuando se activan estos desencadenadores, devuelven entre uno y el número de mensajes especificados por la propiedad **Recuento máximo de mensajes** del desencadenador.
 
     > [!NOTE]
-    > El desencadenador de autocompletar completa automáticamente un mensaje, pero el completado solo se produce en la siguiente ejecución del desencadenador. Este comportamiento puede afectar al diseño de la aplicación lógica. Por ejemplo, si establece el desencadenador autocompletar para que compruebe los mensajes cada minuto, pero la duración del bloqueo se establece en 30 segundos en el Service Bus, el resultado es un error de "bloqueo expirado" que se produce al completar el mensaje. Debe establecer la duración del bloqueo en un valor que sea mayor que el intervalo de sondeo.
+    > El desencadenador de autocompletar completa automáticamente un mensaje, pero el completado solo se produce en la siguiente ejecución del desencadenador. Este comportamiento puede afectar al diseño de la aplicación lógica. Por ejemplo, evite cambiar la simultaneidad en el desencadenador de Autocompletar, ya que este cambio podría dar lugar a mensajes duplicados si la aplicación lógica entra en un estado limitado. El cambio del control de simultaneidad crea estas condiciones: los desencadenadores limitados se omiten con el código `WorkflowRunInProgress`, no se produce la operación de finalización y la siguiente ejecución del desencadenador se produce después del intervalo de sondeo. Debe establecer la duración del bloqueo de Service Bus en un valor que sea mayor que el intervalo de sondeo. Pero a pesar de esta configuración, el mensaje todavía podría no completarse si la aplicación lógica permanece en un estado limitado en el siguiente intervalo de sondeo.
 
 1. Si el desencadenador se conecta a su espacio de nombres de Service Bus por primera vez, siga estos pasos cuando el Diseñador de aplicación lógica le pida información de conexión.
 
@@ -167,7 +167,7 @@ Al crear una aplicación lógica, puede seleccionar la plantilla **Entrega por o
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-El conector de Service Bus puede guardar hasta 1500 sesiones únicas a la vez de un bus de servicio en la memoria caché del conector. Si el número de sesiones supera este límite, las sesiones antiguas se quitan de la caché. Para más información, consulte [Sesiones de mensajes](../service-bus-messaging/message-sessions.md).
+En Service Bus, el conector de Service Bus puede ahorrar hasta 1500 sesiones únicas a la vez en la memoria caché del conector, por [entidad de mensajería Service Bus, como una suscripción o un tema](../service-bus-messaging/service-bus-queues-topics-subscriptions.md). Si el número de sesiones supera este límite, las sesiones antiguas se quitan de la caché. Para más información, consulte [Sesiones de mensajes](../service-bus-messaging/message-sessions.md).
 
 Para conocer otros detalles técnicos sobre los desencadenadores, las acciones y los límites, que se detallan en la descripción de Swagger del conector, vea la [página de referencia del conector](/connectors/servicebus/). Para más información sobre la mensajería de Azure Service Bus, consulte [Qué es Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md).
 

@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/02/2020
-ms.openlocfilehash: 5a40328274fbc776ea02efa0a86422763794d5be
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.date: 09/04/2020
+ms.openlocfilehash: 5a09105dac89f3dc241140f16f3d4be72cc97493
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378821"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483633"
 ---
 # <a name="azure-ad-and-transactable-saas-offers-in-the-commercial-marketplace"></a>Azure AD y ofertas de SaaS comercializable en el marketplace comercial
 
@@ -25,7 +25,7 @@ Seguir las instrucciones de este artículo le ayudará a certificar su oferta de
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Al [crear la oferta de SaaS](./partner-center-portal/create-new-saas-offer.md) en el Centro de partners, elige entre un conjunto de opciones específicas de llamada a la acción que se mostrarán en la lista de ofertas. Su elección determina cómo se realiza la transacción de la oferta en el marketplace comercial. Las ofertas vendidas a través de Microsoft se denominan ofertas comercializables. Facturamos al cliente en su nombre por todas las ofertas comercializables. Si opta por vender a través de Microsoft y que realicemos las transacciones en su nombre (la opción **Sí**), ha elegido crear una oferta comercializable y este artículo es para usted. Le recomendamos que lo lea en su totalidad.
+Al [crear una oferta de SaaS](./partner-center-portal/create-new-saas-offer.md) en el Centro de partners, puede elegir entre un conjunto de opciones específicas de descripción que se muestran en el listado de ofertas. Su elección determina cómo se realiza la transacción de la oferta en el marketplace comercial. Las ofertas vendidas a través de Microsoft se denominan ofertas comercializables. Facturamos al cliente en su nombre por todas las ofertas comercializables. Si opta por vender a través de Microsoft y que realicemos las transacciones en su nombre (la opción **Sí**), ha elegido crear una oferta comercializable y este artículo es para usted. Le recomendamos que lo lea en su totalidad.
 
 Si decide publicar solo la oferta en el marketplace comercial y procesar las transacciones de forma independiente (la opción **No**), tiene tres opciones para la forma en que los clientes potenciales accederán a su oferta: Obténgalo ahora (de forma gratuita), Evaluación gratuita y Ponerse en contacto conmigo. Si selecciona **Obténgalo ahora (de forma gratuita)** o **Evaluación gratuita**, este artículo no es para usted. En su lugar, consulte [Creación de la página de aterrizaje de su oferta de SaaS gratuita o de prueba en el marketplace comercial](./azure-ad-free-or-trial-landing-page.md) para obtener más información. Si selecciona **Ponerse en contacto conmigo**, no hay responsabilidades directas del editor. Siga creando su oferta en el Centro de partners.
 
@@ -45,7 +45,7 @@ En las secciones siguientes se proporcionan detalles sobre los requisitos de cad
 
 En esta ilustración se muestran los cuatro pasos del proceso para la administración de compras.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-1-4.png" alt-text="Muestra los cuatro pasos del proceso para la administración de compras.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-1-4.png" alt-text="Muestra los pasos del proceso de administración de compras, administración de suscripciones y administración de usuarios opcionales.":::
 
 En esta tabla se proporcionan los detalles de los pasos del proceso de administración de compras.
 
@@ -61,7 +61,7 @@ En esta tabla se proporcionan los detalles de los pasos del proceso de administr
 
 En esta ilustración se muestran los dos pasos del proceso para la administración de suscripciones.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-5-6.png" alt-text="Muestra los dos pasos del proceso para la administración de suscripciones.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-5-6.png" alt-text="Muestra los pasos del proceso de administración de compras, administración de suscripciones y administración de usuarios opcionales.":::
 
 En esta tabla se describen los detalles de los pasos del proceso de administración de suscripciones.
 
@@ -75,7 +75,7 @@ En esta tabla se describen los detalles de los pasos del proceso de administraci
 
 En esta ilustración se muestran los tres pasos del proceso para la administración de usuarios.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-7-9.png" alt-text="Muestra los tres pasos del proceso opcionales para la administración de usuarios.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-7-9.png" alt-text="Muestra los pasos del proceso de administración de compras, administración de suscripciones y administración de usuarios opcionales.":::
 
 Los pasos del 7 al 9 son pasos opcionales del proceso de administración de usuarios. Proporcionan ventajas adicionales para los editores que admiten el inicio de sesión único (SSO) de Azure AD. En esta tabla se describen los detalles de los pasos del proceso de administración de usuarios.
 
