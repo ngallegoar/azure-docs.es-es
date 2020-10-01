@@ -418,6 +418,8 @@
               href: id-tokens.md
             - name: Tokens de acceso
               href: access-tokens.md
+            - name: Configuración de la vigencia de los tokens
+              href: active-directory-configurable-token-lifetimes.md
             - name: Punto de conexión de UserInfo
               href: userinfo.md
             - name: Credenciales de certificados
@@ -522,7 +524,7 @@
         - name: Uso de atributos de extensión de esquema de directorio en notificaciones
           href: active-directory-schema-extensions.md
         - name: Configuración de la vigencia de los tokens
-          href: active-directory-configurable-token-lifetimes.md
+          href: configure-token-lifetimes.md
         - name: Control de los cambios de cookies de SameSite en el explorador Chrome
           href: howto-handle-samesite-cookie-changes-chrome-browser.md
         - name: Control de ITP en Safari
