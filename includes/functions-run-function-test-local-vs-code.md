@@ -2,24 +2,24 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 01/12/2020
+ms.date: 09/28/2020
 ms.author: glenga
-ms.openlocfilehash: 052e0c93732b99efa37b029cad29dc2efded78ee
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 43da0ea4ddfc5410425465d436522523739218fe
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88704461"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91408584"
 ---
 ## <a name="run-the-function-locally"></a>Ejecución local de la función
 
-Visual Studio Code se integra con [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md) para que pueda ejecutar este proyecto en el equipo de desarrollo local antes de publicarlo en Azure.
+Visual Studio Code se integra con [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md) para que pueda ejecutar este proyecto en un equipo de desarrollo local antes de publicarlo en Azure.
 
-1. Para llamar a la función, presione F5 para iniciar el proyecto de aplicación de funciones. La salida de Core Tools aparece en el panel **Terminal**.
+1. Para llamar a la función, presione <kbd>F5</kbd> para iniciar el proyecto de aplicación de funciones. La salida de Core Tools aparece en el panel **Terminal**.
 
-1. Si aún no ha instalado Azure Functions Core Tools, seleccione **Instalar** en el símbolo del sistema. Cuando se instala Core Tools, la aplicación se inicia en el panel **Terminal**. Puede ver el punto de conexión de la dirección URL de la función desencadenada por HTTP que se ejecuta localmente. 
+1. Si aún no ha instalado Azure Functions Core Tools, seleccione **Instalar** en el símbolo del sistema. Cuando se instala Core Tools, la aplicación se inicia en el panel **Terminal**. Puede ver el punto de conexión de la dirección URL de la función desencadenada por HTTP que se ejecuta localmente.
 
-    ![Salida local de Azure](./media/functions-run-function-test-local-vs-code/functions-vscode-f5.png)
+    ![Salida de la función local de VS Code](./media/functions-run-function-test-local-vs-code/functions-vscode-f5.png)
 
 1. Con Core Tools en ejecución, vaya a la siguiente dirección URL para ejecutar una solicitud GET, que incluye la cadena de consulta `?name=Functions`.
 
@@ -27,10 +27,10 @@ Visual Studio Code se integra con [Azure Functions Core Tools](../articles/azur
 
 1. Se devuelve una respuesta, que tiene un aspecto similar al siguiente en un explorador:
 
-    ![Respuesta de localhost de la función en el explorador](./media/functions-run-function-test-local-vs-code/functions-test-local-browser.png)
+    ![Explorador: salida de ejemplo de localhost](./media/functions-run-function-test-local-vs-code/functions-test-local-browser.png)
 
 1. La información sobre la solicitud se muestra en el panel **Terminal**.
 
-    ![Ejecución de función en el panel Terminal](./media/functions-run-function-test-local-vs-code/function-execution-terminal.png)
+    ![Inicio del host de la tarea: salida del terminal de VS Code](./media/functions-run-function-test-local-vs-code/function-execution-terminal.png)
 
-1. Presione Ctrl + C para detener Core Tools y desconectar el depurador.
+1. Presione <kbd>Ctrl + C</kbd> para detener Core Tools y desconectar el depurador.

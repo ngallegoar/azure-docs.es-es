@@ -3,12 +3,12 @@ title: Supervisión de Kubernetes con Azure Monitor para contenedores | Microsof
 description: En este artículo se describe cómo puede ver y analizar el rendimiento de un clúster de Kubernetes con Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: d8b298208794e4ba562a608f22f4d0a539b81b47
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 888853f0e9e7634cafa5e480752371c501376158
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166644"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988132"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Supervisión del rendimiento del clúster de Kubernetes con Azure Monitor para contenedores
 
@@ -161,7 +161,7 @@ Los nodos virtuales de Azure Container Instances que ejecutan el sistema operati
 
 En un nodo expandido, puede explorar en profundidad desde el pod o contenedor que se ejecuta en el nodo hasta el controlador para ver los datos de rendimiento filtrados por ese controlador. Seleccione el valor de la columna **Controladores** del nodo específico.
 
-![Ejemplo de exploración en profundidad del nodo al controlador en la vista de rendimiento](./media/container-insights-analyze/drill-down-node-controller.png)
+![Captura de pantalla que muestra la exploración en profundidad del nodo al controlador en la vista de rendimiento](./media/container-insights-analyze/drill-down-node-controller.png)
 
 Seleccione los controladores o los contenedores en la parte superior de la página para revisar el estado y el uso de recursos de dichos objetos. Para revisar el uso de memoria, en la lista desplegable **Métrica**, seleccione **RSS de memoria** o **Espacio de trabajo de memoria**. **RSS de memoria** solo se admite en Kubernetes versión 1.8, y en las versiones posteriores. En caso contrario, verá los valores de **Min&nbsp;%** (Porcentaje mínimo) como *NaN&nbsp;%* (Porcentaje de NaN), que es un valor de tipo de datos numérico que representa un valor no definido o no representable.
 

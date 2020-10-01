@@ -2,18 +2,18 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 01/12/2020
+ms.date: 09/28/2020
 ms.author: glenga
-ms.openlocfilehash: 2eb8b988d7d65b444fe41ecb21dddfab4ff4cfa1
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 0d83f3a92efe7bddcefdeebb5b6d580caf749206
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125861"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91408591"
 ---
-1. En Visual Studio Code, presione F1 para abrir la paleta de comandos. En la paleta de comandos, busque y seleccione `Azure Functions: Open in portal`.
+1. En Visual Studio Code, presione <kbd>F1</kbd> para abrir la paleta de comandos. En la paleta de comandos, busque y seleccione `Azure Functions: Open in portal`.
 
-1. Elija la aplicación de funciones y presione Entrar. La página de la aplicación de funciones se abre en Azure Portal.
+1. Elija una aplicación de funciones y presione <kbd>Entrar</kbd>. La página de la aplicación de funciones se abre en Azure Portal.
 
 1. En la pestaña **Información general**, seleccione el vínculo con nombre junto a **Grupo de recursos**.
 
