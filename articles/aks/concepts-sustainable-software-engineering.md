@@ -4,18 +4,18 @@ description: Obtenga información sobre ingeniería de software sostenible en Az
 services: container-service
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: bc2240b3cb8508109f6dd25c4c80ff31ba197cfd
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 2457de7bdaa94a6e2269515fafe6689d44960625
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89082618"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984980"
 ---
-# <a name="sustainable-software-engineering-principals-in-azure-kubernetes-service-aks"></a>Entidades de seguridad de ingeniería de software sostenible en Azure Kubernetes Services (AKS)
+# <a name="sustainable-software-engineering-principles-in-azure-kubernetes-service-aks"></a>Principios de ingeniería de software sostenible en Azure Kubernetes Services (AKS)
 
-Las entidades de seguridad de ingeniería de software sostenible son un conjunto de competencias que le ayudarán a definir, crear y ejecutar aplicaciones sostenibles. El objetivo general es reducir la huella de carbono de cada aspecto de la aplicación. El [proyecto Principles.Green][principals-green] tiene una visión general de las entidades de seguridad de ingeniería de software sostenible.
+Los principios de ingeniería de software sostenible son un conjunto de competencias que le ayudarán a definir, crear y ejecutar aplicaciones sostenibles. El objetivo general es reducir la huella de carbono de cada aspecto de la aplicación. El [proyecto Principles.Green][principles-green] tiene una visión general de los principios de ingeniería de software sostenible.
 
-Una idea importante para comprender el diseño de software sostenible es que es un cambio en las prioridades y el enfoque. En muchos casos, el software se diseña y se ejecuta de forma que se centra en el rendimiento rápido y la baja latencia. La ingeniería de software sostenible se centra en reducir las emisiones de carbono tanto como sea posible. En algunos casos, la aplicación de entidades de seguridad de ingeniería de software sostenible puede proporcionar un rendimiento más rápido o una menor latencia, por ejemplo, reduciendo el recorrido total de la red. En otros casos, reducir las emisiones de carbono puede ralentizar el rendimiento o aumentar la latencia, como el retraso de las cargas de trabajo de prioridad baja. Antes de considerar la posibilidad de aplicar entidades de seguridad de ingeniería de software sostenible a la aplicación, revise las prioridades, las necesidades y las ventajas e inconvenientes de la aplicación.
+Una idea importante para comprender el diseño de software sostenible es que es un cambio en las prioridades y el enfoque. En muchos casos, el software se diseña y se ejecuta de forma que se centra en el rendimiento rápido y la baja latencia. La ingeniería de software sostenible se centra en reducir las emisiones de carbono tanto como sea posible. En algunos casos, la aplicación de principios de ingeniería de software sostenible puede proporcionar un rendimiento más rápido o una menor latencia, por ejemplo, reduciendo el recorrido total de la red. En otros casos, reducir las emisiones de carbono puede ralentizar el rendimiento o aumentar la latencia, como el retraso de las cargas de trabajo de prioridad baja. Antes de considerar la posibilidad de aplicar principios de ingeniería de software sostenible a la aplicación, revise las prioridades, las necesidades y las ventajas e inconvenientes de la aplicación.
 
 ## <a name="measure-and-optimize"></a>Medición y optimización
 
@@ -74,4 +74,4 @@ Más información acerca de las siguientes características de AKS mencionadas e
 [node-sizing]: use-multiple-node-pools.md#specify-a-vm-size-for-a-node-pool
 [sustainability-calculator]: https://azure.microsoft.com/blog/microsoft-sustainability-calculator-helps-enterprises-analyze-the-carbon-emissions-of-their-it-infrastructure/
 [system-pools]: use-system-pools.md
-[principals-green]: https://principles.green/
+[principles-green]: https://principles.green/

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.workload: identity
 ms.date: 07/20/2020
 ms.author: chmutali
-ms.openlocfilehash: ea47f8a6fc29571a27f8976bd0ad9bbd30ed0ad9
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 805cdc0713afd43502bb224cce60167adbc418ee
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808463"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969519"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-sap-successfactors"></a>Integración del aprovisionamiento de Azure Active Directory con SAP SuccessFactors 
 
@@ -199,11 +199,11 @@ La conversión de trabajos es el proceso para convertir un empleado a tiempo com
 1. Desplácese hacia abajo y haga clic en **Mostrar opciones avanzadas**.
 1. Haga clic en el vínculo **Revise el esquema aquí** para abrir el editor de esquemas. 
 
-   >![revisar el esquema](media/sap-successfactors-integration-reference/review-schema.png#lightbox)
+   >![Captura de pantalla que muestra el vínculo Revise el esquema aquí que abre el editor de esquemas.](media/sap-successfactors-integration-reference/review-schema.png#lightbox)
 
 1. Haga clic en el vínculo **Descargar** para guardar una copia del esquema antes de editarlo. 
 
-   >![descargar el esquema](media/sap-successfactors-integration-reference/download-schema.png#lightbox)
+   >![Captura de pantalla que muestra el editor de esquemas con la opción Descargar seleccionada para guardar una copia del esquema.](media/sap-successfactors-integration-reference/download-schema.png#lightbox)
 1. En el editor de esquemas, presione las teclas Ctrl+H para abrir el control para buscar y reemplazar.
 1. En el cuadro de texto de búsqueda, copie y pegue el valor. `$.employmentNav.results[0]`.
 1. En el cuadro de texto de reemplazo, copie y pegue el valor. `$.employmentNav.results[?(@.userNav != null)]`. Tome nota del espacio en blanco que rodea al operador `!=`, es importante para el procesamiento correcto de la expresión JSONPath. 

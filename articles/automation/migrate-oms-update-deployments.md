@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9c8238e6e0b52a625c76f79fa0dd5a91dd640fb8
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: dabe914ffd4e84e8ded5c0e3b519036479fe33ec
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447845"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987595"
 ---
 # <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Migración de implementaciones de actualización de registros de Azure Monitor a Azure Portal
 
@@ -33,7 +33,7 @@ El portal de Operations Management Suite (OMS) está quedando [en desuso](../azu
 
 3. En su cuenta de Azure Automation, haga clic en **Update Management**.
 
-    ![Administración de actualizaciones](media/migrate-oms-update-deployments/azure-automation.png)
+    :::image type="content" source="media/migrate-oms-update-deployments/azure-automation.png" alt-text="Captura de pantalla de la página Administración de actualizaciones.":::
 
 4. En Azure Portal, seleccione **Cuentas de Automation** en **Todos los servicios**. 
 
@@ -43,7 +43,7 @@ El portal de Operations Management Suite (OMS) está quedando [en desuso](../azu
 
 Todas las implementaciones de actualizaciones creadas en el portal de OMS tienen una [búsqueda guardada](../azure-monitor/platform/computer-groups.md) que también se conoce como un grupo de equipos, con el mismo nombre que la implementación de actualizaciones existente. La búsqueda guardada incluye la lista de las máquinas que se programaron en la implementación de actualizaciones.
 
-![Administración de actualizaciones](media/migrate-oms-update-deployments/oms-deployment.png)
+:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Captura de pantalla de la página Administración de actualizaciones.":::
 
 Para usar esta búsqueda guardada existente, siga estos pasos:
 

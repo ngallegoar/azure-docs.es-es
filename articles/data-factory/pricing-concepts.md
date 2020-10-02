@@ -9,13 +9,13 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/27/2019
-ms.openlocfilehash: d679dbb7a14767b83d6508e4b1e637584f33210a
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.date: 09/14/2020
+ms.openlocfilehash: a80e0f1b62257fdbce6598c9cc4088701cc2ae9c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949970"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983612"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Descripción de los precios de Data Factory a través de ejemplos
 
@@ -38,7 +38,7 @@ Para lograr el escenario, es preciso crear una canalización con los siguientes 
 
 3. Un desencadenador de programación para ejecutar la canalización cada hora.
 
-   ![Escenario 1](media/pricing-concepts/scenario1.png)
+   ![Diagrama que muestra una canalización con un desencadenador de programación. En la canalización, la actividad de copia fluye hacia un conjunto de datos de entrada, que fluye hacia un servicio vinculado de AWS S3 y la actividad de copia también fluye hacia un conjunto de datos de salida, que fluye hacia un servicio vinculado de Azure Storage.](media/pricing-concepts/scenario1.png)
 
 | **Operaciones** | **Tipos y unidades** |
 | --- | --- |
@@ -69,7 +69,7 @@ Para lograr el escenario, es preciso crear una canalización con los siguientes 
 2. Una actividad de Azure Databricks para la transformación de datos.
 3. Un desencadenador de programación para ejecutar la canalización cada hora.
 
-![Escenario 2](media/pricing-concepts/scenario2.png)
+![Diagrama que muestra una canalización con un desencadenador de programación. En la canalización, la actividad de copia fluye hacia un conjunto de datos de entrada, un conjunto de datos de salida y una actividad de DataBricks, que se ejecuta en Azure Databricks. El conjunto de datos de entrada fluye hacia un servicio vinculado de AWS S3. El conjunto de datos de salida fluye hacia un servicio vinculado de Azure Storage.](media/pricing-concepts/scenario2.png)
 
 | **Operaciones** | **Tipos y unidades** |
 | --- | --- |
@@ -103,7 +103,7 @@ Para lograr el escenario, es preciso crear una canalización con los siguientes 
 3. Una actividad de Azure Databricks para la transformación de datos.
 4. Un desencadenador de programación para ejecutar la canalización cada hora.
 
-![Escenario 3](media/pricing-concepts/scenario3.png)
+![Diagrama que muestra una canalización con un desencadenador de programación. En la canalización, la actividad de copia fluye hacia un conjunto de datos de entrada, un conjunto de datos de salida y una actividad de búsqueda que fluye a una actividad de DataBricks, que se ejecuta en Azure Databricks. El conjunto de datos de entrada fluye hacia un servicio vinculado de AWS S3. El conjunto de datos de salida fluye hacia un servicio vinculado de Azure Storage.](media/pricing-concepts/scenario3.png)
 
 | **Operaciones** | **Tipos y unidades** |
 | --- | --- |
@@ -130,9 +130,13 @@ Para lograr el escenario, es preciso crear una canalización con los siguientes 
 
 ## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>Uso de la depuración del flujo de datos de asignación en un día laboral normal
 
-Como ingeniero de datos, es responsable de diseñar, compilar y probar flujos de datos de asignación cada día. Pongamos por caso que inicia sesión en la interfaz de usuario de ADF por la mañana y habilita el modo de depuración de Data Flow. El TTL predeterminado para las sesiones de depuración es de 60 minutos. Se trabaja a lo largo del día durante 8 horas, por lo que la sesión de depuración no expira nunca. Por lo tanto, el precio del día será:
+Como ingeniero de datos, Sam es responsable de diseñar, compilar y probar flujos de datos de asignación cada día. Sam inicia sesión en la interfaz de usuario de ADF por la mañana y habilita el modo de depuración de Data Flow. El TTL predeterminado para las sesiones de depuración es de 60 minutos. Sam trabaja a lo largo del día durante 8 horas, por lo que la sesión de depuración no expira nunca. Por lo tanto, el precio del día de Sam será:
 
 **8 (horas) x 8 (núcleos optimizados para proceso) x 0,193 USD = 12,35 USD**
+
+Al mismo tiempo, Chris, otro ingeniero de datos, también inicia sesión en la interfaz de usuario del explorador ADF para generar perfiles de datos y trabajar en el diseño ETL. Chris no trabaja en ADF todo el día, como Sam. Chris solo necesita usar el depurador de flujo de datos durante 1 hora en el mismo período y el mismo día que Sam. Estos son los cargos en los que Chris incurre por el uso de la depuración:
+
+**1 (hora) x 8 (núcleos de uso general) x $0,274 = $2,19**
 
 ## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>Transformación de datos del almacén de blobs con flujo de datos de asignación
 

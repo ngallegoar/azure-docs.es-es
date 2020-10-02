@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/24/2020
-ms.openlocfilehash: 871f2b49e2dce9d762ef8a54923da04b0f24e4be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/14/2020
+ms.openlocfilehash: 71f5488b1f689e8892155b013730bcbb3c8e0e35
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81606531"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531963"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>Transformación Agregar en Asignación de Data Flow
 
@@ -29,17 +29,18 @@ Seleccione una columna existente o cree una nueva columna calculada para usarla 
 
 Una cláusula Agrupar por es opcional en una transformación Agregar.
 
-## <a name="aggregate-column"></a>Columna de agregación 
+## <a name="aggregate-columns"></a>Columnas agregadas
 
-Vaya a la pestaña **Agregados** para generar las expresiones de agregación. Puede sobrescribir una columna existente con una agregación, o bien crear un campo nuevo con un nombre nuevo. La expresión de agregación se escribirá en el cuadro de la derecha, junto al selector de nombre de columna. Para editar la expresión, haga clic en el cuadro de texto para abrir el Generador de expresiones. Para incorporar una agregación adicional, mantenga el mouse sobre una expresión existente y haga clic en icono "más" para crear una nueva columna de agregación o un [patrón de columnas](concepts-data-flow-column-pattern.md).
+Vaya a la pestaña **Agregados** para generar las expresiones de agregación. Puede sobrescribir una columna existente con una agregación, o bien crear un campo nuevo con un nombre nuevo. La expresión de agregación se escribirá en el cuadro de la derecha, junto al selector de nombre de columna. Para editar la expresión, haga clic en el cuadro de texto y abra el generador de expresiones. Para agregar más columnas agregadas, haga clic en **Agregar** encima de la lista de columnas o en el icono de signo más junto a una columna agregada existente. Elija **Agregar columna** o **Add column pattern** (Agregar patrón de columna). Cada expresión de agregación debe contener al menos una función de agregado.
 
-Cada expresión de agregación debe contener al menos una función de agregado.
-
-![Configuración de agregado de la transformación Agregar](media/data-flow/agg2.png "Configuración de agregado de la transformación Agregar")
-
+![Configuración de agregación](media/data-flow/aggregate-columns.png "Configuración de agregación")
 
 > [!NOTE]
 > En el modo Depurar, el Generador de expresiones no puede generar vistas previas de los datos con las funciones de agregado. Para ver las vistas previas de los datos para las transformaciones Agregar, cierre el Generador de expresiones y vea los datos a través de la pestaña "Vista previa de los datos".
+
+### <a name="column-patterns"></a>Patrones de columnas
+
+Utilice [patrones de columna](concepts-data-flow-column-pattern.md) para aplicar la misma agregación a un conjunto de columnas. Esto resulta útil si desea que persistan muchas columnas del esquema de entrada, ya que se anulan de manera predeterminada. Use una heurística como `first()` para que las columnas de entrada persistan en la agregación.
 
 ## <a name="reconnect-rows-and-columns"></a>Reconexión de filas y columnas
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: b96b679e967fd898f072b4b1ae195e3dd1061c04
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 3a3f461941bfcd5091ebb14818bac05d6844b3fe
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235706"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706360"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planeamiento de la aplicación de RR. HH. en la nube para el aprovisionamiento de usuarios de Azure Active Directory
 
@@ -50,7 +50,7 @@ La integración de aplicaciones de RR. HH. en la nube con el aprovisionamiento 
 - Necesitan un aprovisionamiento de usuarios directos de la aplicación de RR. HH. en la nube en Active Directory o Azure AD.
 - Necesitan que los usuarios se aprovisionen con los datos obtenidos de la aplicación de RR. HH. en la nube.
 - Necesitan combinar y mover usuarios, y dejar que se sincronicen con uno o varios bosques, dominios o unidades organizativas de Active Directory en función de únicamente la información de cambio detectada en la aplicación de RR. HH. en la nube.
-- Usan Office 365 para el correo electrónico.
+- Use Microsoft 365 para el correo electrónico.
 
 ## <a name="learn"></a>Obtener información
 
@@ -61,14 +61,14 @@ El aprovisionamiento de usuarios crea una base en la gobernanza de identidades e
 En este artículo se usan los términos siguientes:
 
 - **Sistema de origen**: repositorio de usuarios desde el que se aprovisiona Azure AD. Un ejemplo es una aplicación de RR. HH. en la nube, como Workday o SuccessFactors.
-- **Sistema de destino**: repositorio de usuarios en el que aprovisiona Azure AD. Algunos ejemplos son Active Directory, Azure AD, Office 365 u otras aplicaciones SaaS.
+- **Sistema de destino**: repositorio de usuarios en el que aprovisiona Azure AD. Algunos ejemplos son Active Directory, Azure AD, Microsoft 365 u otras aplicaciones SaaS.
 - **Proceso de incorporaciones, cambios y bajas**: término que se usa para nuevas contrataciones, transferencias y bajas mediante una aplicación de RR. HH. en la nube como sistema de registros. El proceso se completa cuando el servicio aprovisiona correctamente los atributos necesarios en el sistema de destino.
 
 ### <a name="key-benefits"></a>Ventajas principales
 
 Esta función de aprovisionamiento de TI controlada por RR. HH. ofrece las siguientes ventajas empresariales importantes:
 
-- **Aumento de la productividad:** ahora puede automatizar la asignación de las cuentas de usuario y las licencias de Office 365, así como proporcionar acceso a los grupos clave. La automatización de las asignaciones proporciona a las nuevas contrataciones acceso inmediato a sus herramientas de trabajo y aumenta la productividad.
+- **Aumento de la productividad:** ahora puede automatizar la asignación de las cuentas de usuario y las licencias de Microsoft 365, así como proporcionar acceso a los grupos clave. La automatización de las asignaciones proporciona a las nuevas contrataciones acceso inmediato a sus herramientas de trabajo y aumenta la productividad.
 - **Administración de riesgos:** para aumentar la seguridad, puede automatizar los cambios en función del estado de los empleados o de las pertenencias a grupos con datos que fluyen desde la aplicación de RR. HH. en la nube. La automatización de los cambios garantiza que las identidades de los usuarios y el acceso a las aplicaciones principales se actualizan automáticamente cuando los usuarios se mueven o salen de la organización.
 - **Control de cumplimiento y gobernanza:** Azure AD admite registros de auditoría nativos de las solicitudes de aprovisionamiento de usuarios que hacen las aplicaciones de los sistemas de origen y de destino. Con la auditoría, puede hacer un seguimiento de quién tiene acceso a las aplicaciones desde una sola pantalla.
 - **Administración del costo:** el aprovisionamiento automático reduce los costos al evitar ineficiencias y errores humanos asociados con el aprovisionamiento manual. Reduce la necesidad de desarrollar soluciones personalizadas de aprovisionamiento de usuarios a lo largo del tiempo mediante plataformas heredadas y obsoletas.

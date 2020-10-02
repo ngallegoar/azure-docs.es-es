@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: 675038189fdc9c9626fee409a90e17341cf9b6cd
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 95edcee32c1917d23e4808e805f947d18d2fa7f4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207364"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986229"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introducción a la solución de problemas de recursos en Azure Network Watcher
 
 Las puertas de enlace de red virtual proporcionan conectividad entre recursos locales y otras redes virtuales dentro de Azure. La supervisión de puertas de enlace y sus conexiones es esencial para garantizar la continuidad de la comunicación. Network Watcher proporciona la funcionalidad para solucionar problemas con las puertas de enlace y las conexiones. Esta funcionalidad puede llamarse mediante el portal, PowerShell, la CLI de Azure o la API de REST. Cuando se llama, Network Watcher diagnostica el estado de la puerta de enlace o la conexión y devuelve los resultados pertinentes. La solicitud es una transacción de larga ejecución. Una vez completado el diagnóstico, se devuelven los resultados.
 
-![portal][2]
+![Captura de pantalla que muestra los diagnósticos de VPN de Network Watcher.][2]
 
 ## <a name="results"></a>Results
 
@@ -105,7 +105,7 @@ Los archivos de registro de la solución de problemas de recursos se guardan en 
 > [!NOTE]
 > En algunos casos, solo se escribe un subconjunto de los archivos de registro en el almacenamiento.
 
-Para más instrucciones acerca de cómo descargar archivos desde cuentas de Azure Storage, consulte [Introducción a Azure Blob Storage mediante .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Otra herramienta que se puede utilizar es el Explorador de Storage. Encontrará más información acerca del Explorador de Storage en el siguiente vínculo: [Explorador de Storage](https://storageexplorer.com/)
+Para instrucciones sobre cómo descargar archivos desde cuentas de Azure Storage, consulte [Introducción a Azure Blob Storage mediante .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Otra herramienta que se puede utilizar es el Explorador de Storage. Encontrará más información acerca del Explorador de Storage en el siguiente vínculo: [Explorador de Storage](https://storageexplorer.com/)
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 

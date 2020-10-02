@@ -3,12 +3,12 @@ title: Actualización de la versión de Azure Service Fabric de un clúster
 description: Actualice el código de Service Fabric o la configuración que ejecuta un clúster de Service Fabric, incluida la configuración del modo de actualización del clúster, la incorporación de puertos de aplicación, las revisiones del sistema operativo, etc. ¿Qué se puede esperar cuando se realizan actualizaciones?
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.openlocfilehash: b0fef612725d606f1415e7e8d004aacee025cedf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 01fe916f0ee78c8481ac6b17b8f7409b47c852ee
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261060"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564294"
 ---
 # <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>Actualización de la versión de Service Fabric de un clúster
 
@@ -28,7 +28,7 @@ Para ello, establezca el modo de actualización en la configuración del clúste
 ## <a name="set-the-upgrade-mode-in-the-azure-portal"></a>Establecimiento del modo de actualización en Azure Portal
 Puede establecer el clúster en Automático o en Manual al crearlo.
 
-![Create_Manualmode][Create_Manualmode]
+![Captura de pantalla en la que se muestra el panel Crear clúster de Service Fabric con la opción 2 Configuración de clúster seleccionada y el panel Configuración de clúster abierto.][Create_Manualmode]
 
 Puede establecer el clúster en Automático o en Manual en un clúster activo, mediante la experiencia de administración. 
 
@@ -39,12 +39,12 @@ Si no se cumplen las directivas de mantenimiento del clúster, la actualización
 
 Una vez que haya solucionado los problemas que provocaron la reversión, debe iniciar la actualización de nuevo, siguiendo los mismos pasos que antes.
 
-![Manage_Automaticmode][Manage_Automaticmode]
+![Captura de pantalla en la que se muestra la ventana Clústeres de Service Fabric con el panel Actualizaciones de tejido abierto y las opciones de actualización resaltadas, como Automática y Manual.][Manage_Automaticmode]
 
 ## <a name="set-the-upgrade-mode-using-a-resource-manager-template"></a>Establecimiento del modo de actualización con una plantilla de Resource Manager
 Agregue la configuración de "upgradeMode" a la definición de recursos de Microsoft.ServiceFabric/clusters y establezca "clusterCodeVersion" en una de las versiones compatibles de Service Fabric como se muestra a continuación y, después, implemente la plantilla. Los valores válidos para "upgradeMode" son "Manual" o "Automático"
 
-![ARMUpgradeMode][ARMUpgradeMode]
+![Captura de pantalla en la que se muestra una plantilla, en la que se ha aplicado sangría al texto no cifrado para reflejar la estructura, y se ha resaltado clusterCodeVersion y upgradeMode.][ARMUpgradeMode]
 
 ### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-a-resource-manager-template"></a>Actualización a una nueva versión en un clúster que está establecido en modo Manual a través de una plantilla de Resource Manager.
 Si el clúster está en modo Manual, para actualizar a una nueva versión, cambie "clusterCodeVersion" a una versión compatible e impleméntela. La implementación de la plantilla hace que se ponga en marcha automáticamente la actualización de Service Fabric. Las directivas de mantenimiento del clúster (una combinación del estado del nodo y el estado de todas las aplicaciones que se ejecutan en el clúster) se cumplen mientras dura la actualización.

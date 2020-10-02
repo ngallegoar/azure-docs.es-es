@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: fd2e4f5c81427413e3f3f3eceaa0cc41a3b9e318
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 202f7fd065641f9921df5237fb83e7900819c8f7
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510368"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563512"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migración desde Linux a una implementación de nube híbrida con Azure File Sync
 
-Azure File Sync funciona en instancias de Windows Server con almacenamiento conectado directamente (DAS). No admite la sincronización hacia y desde Linux o un recurso compartido de Bloque de mensajes del servidor (SMB) remoto.
+Azure File Sync funciona en instancias de Windows Server con almacenamiento conectado directamente (DAS). No admite la sincronización hacia y desde clientes Linux, un recurso compartido de Bloque de mensajes del servidor (SMB) remoto o recursos compartidos de Network File System (NFS).
 
 Como resultado, la transformación de los servicios de archivo en una implementación híbrida realiza una migración a una instancia de Windows Server necesaria. Este artículo le guía a través del planeamiento y la ejecución de este tipo de migración.
 

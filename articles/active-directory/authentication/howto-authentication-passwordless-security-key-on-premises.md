@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f20da2d2ecb4426c0deb1c01591ead5933090f6
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 23ce2f02ef96a88b6bf4471377ce97a529dbd1a9
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717003"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706343"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Habilitar el inicio de sesión con una clave de seguridad sin contraseña en recursos locales con Azure Active Directory (versión preliminar)
 
@@ -46,7 +46,7 @@ Las organizaciones deben completar los pasos de [Habilitar el inicio de sesión 
 
 Las organizaciones también deben cumplir los siguientes requisitos de software.
 
-- Los dispositivos deben ejecutar Windows 10 Insider Build 18945 o una versión posterior.
+- Los dispositivos deben ejecutar Windows 10 versión 2004 o posterior.
 - Debe tener la versión 1.4.32.0 o una versión posterior de [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect).
   - Para más información sobre las opciones de autenticación híbrida de Azure AD disponibles, consulte el artículo sobre cómo [seleccionar el método de autenticación adecuado para la solución de identidad híbrida de Azure Active Directory](../hybrid/choose-ad-authn.md) y cómo [seleccionar el tipo de instalación que se va a usar para Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md).
 - Los controladores de dominio de Windows Server deben tener instaladas las siguientes revisiones:
@@ -57,7 +57,7 @@ Las organizaciones también deben cumplir los siguientes requisitos de software.
 
 El escenario admite el inicio de sesión único (SSO) en los dos escenarios siguientes:
 
-- Recursos de nube como Office 365 y otras aplicaciones habilitadas para SAML.
+- Recursos de nube como Microsoft 365 y otras aplicaciones habilitadas para SAML.
 - Recursos locales y autenticación integrada de Windows en sitios web. Los recursos pueden incluir sitios web y sitios de SharePoint que requieran autenticación de IIS o recursos que usan la autenticación NTLM.
 
 ### <a name="unsupported-scenarios"></a>Escenarios no admitidos

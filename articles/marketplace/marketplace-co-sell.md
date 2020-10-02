@@ -4,59 +4,54 @@ description: El programa de venta conjunta del Centro de partners de Microsoft p
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: palanis-MSFT
-ms.author: palanis
-ms.date: 05/19/2020
-ms.openlocfilehash: 4a7f3b143df4a177bba67d3556d224ec7c806244
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+author: vamahtan
+ms.author: vamahtan
+ms.date: 09/15/2020
+ms.openlocfilehash: 41dd683bb0ff5be4a48cd05f24663dd51c66a15b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260422"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984626"
 ---
 # <a name="co-sell-partner-engagement"></a>Participación de asociados de venta conjunta
 
-Puede usar el programa de venta conjunta de Microsoft para trabajar directamente con Microsoft en oportunidades de venta conjunta. El programa le ayuda a llegar a una gran comunidad de clientes y crear nuevas oportunidades de ventas para acelerar el crecimiento de su negocio.
+Puede usar el programa de venta conjunta para trabajar directamente con los vendedores de Microsoft en las oportunidades de venta conjunta y para desbloquear otras importantes ventajas comerciales y de merchandising de la venta a través del marketplace comercial.
 
-## <a name="co-sell-channels"></a>Canales de venta conjunta
+El programa de venta conjunta está disponible para el **software compilado de su propiedad intelectual (IP), como ofertas repetibles, empaquetadas** y para los **servicios con la tecnología de Microsoft insertada**. La mayoría de los tipos de oferta del programa de venta conjunta también están disponibles en el marketplace comercial. Las ofertas que cumplen los requisitos adicionales pasan a estar **listas para la venta conjunta** o ser de **venta conjunta con incentivos**.
 
-Puede realizar una venta conjunta de sus soluciones a través de tres canales:
+- Las ofertas **listas para la venta conjunta** se exponen a los vendedores de campo de Microsoft. Al trabajar con los vendedores de Microsoft, el programa de venta conjunta le ayuda a llegar a una amplia comunidad de clientes administrados por Microsoft para colaborar en oportunidades de ventas que aceleran el crecimiento de su negocio.
 
-* Directamente a los clientes en Microsoft AppSource o Azure Marketplace.
-* En colaboración con otros asociados.
-* En colaboración con vendedores de Microsoft.
+<ul>
 
-El programa de venta conjunta está disponible para **servicios** con la tecnología de Microsoft insertada y para **soluciones de propiedad intelectual (IP)** empaquetadas y repetibles.
+![Diagrama que muestra cómo se produce la venta conjunta cuando se comparten, aceptan y ganan clientes potenciales en comparación con clientes administrados por Microsoft.](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png)
+</ul>
 
-Algunas soluciones de IP pueden ser aptas para recibir incentivos para vendedores de Microsoft si se venden e implementan correctamente con los equipos de ventas de campo de Microsoft.
+- Las soluciones IP de **venta conjunta con incentivos** pueden obtener incentivos para los vendedores de campo de Microsoft cuando se venden en colaboración con los equipos de ventas de Microsoft, además de las ventajas del marketplace que se enumeran a continuación.</li></ul>
 
-![Diagrama que muestra cómo se produce la venta conjunta cuando se comparten, aceptan y ganan clientes potenciales en comparación con clientes administrados por Microsoft.](./media/marketplace-publishers-guide/marketplace-co-sell.png)
+## <a name="marketplace-benefits-for-incentivized-offers"></a>Ventajas de marketplace para las ofertas con incentivos
 
-## <a name="azure-ip-co-sell-incentivized-offers"></a>Ofertas de venta conjunta con incentivos de IP de Azure
+Las ofertas con el estado de **venta conjunta con incentivos IP de Azure** obtienen estas ventajas adicionales del marketplace:
 
-Las ofertas en el programa de venta conjunta están **listas para la venta conjunta** o tienen **incentivos para la venta conjunta**, en función de los requisitos que cumplan.
-
-Las soluciones de PI de Azure que alcanzan el estado de **incentivos para la venta conjunta** liberan las ventajas siguientes:
-
-* El precio del servicio de marketplace se reduce del 20 al 10 % de las ventas facturadas. Este descuento se aplica a las ofertas de IaaS y SaaS que se venden a través del marketplace comercial de Microsoft. Para obtener más información, consulte [Precios de servicio reducidos](marketplace-commercial-transaction-capabilities-and-considerations.md#reduced-service-fee).
-* Los asociados de Proveedor de soluciones en la nube (CSP) reciben un incentivo de ventas del 10 % para vender sus ofertas de IaaS y SaaS. Obtenga más información sobre CSP en el [programa Proveedor de soluciones en la nube](cloud-solution-providers.md).
-* Las ofertas de incentivos para la venta conjunta de IP de Azure contribuirán para el compromiso de consumo de Azure de los clientes cuando se compren en el marketplace comercial. Los clientes cualificados verán la oferta marcada como **Apto para ventajas de Azure** en las tiendas en línea. Para obtener más información, consulte [Ventaja del compromiso de consumo de Azure](azure-consumption-commitment-benefit.md).
-* Las ofertas reciben un distintivo de soluciones preferidas de Microsoft en las tiendas en línea. El distintivo promueve las ofertas por su calidad, rendimiento y capacidad para satisfacer las necesidades de los clientes de un sector vertical de la industria o área de soluciones determinados. Obtenga más información en [Soluciones preferidas de Microsoft AppSource y Azure Marketplace](preferred-solutions.md).
+* El precio del servicio de marketplace se reduce del 20 al 10 %. Este descuento se aplica a las ofertas de IaaS y SaaS que se venden a través del marketplace comercial. Para obtener más información, consulte [Precios de servicio reducidos](marketplace-commercial-transaction-capabilities-and-considerations.md#reduced-service-fee).
+* Los asociados de Proveedor de soluciones en la nube (CSP) reciben un incentivo del 10 % para vender su oferta de IaaS y SaaS. Para más información acerca del programa CSP, consulte [Programa Proveedor de soluciones en la nube](cloud-solution-providers.md).
+* Las ventas de su oferta a través del marketplace comercial colaborarán en los compromisos de los clientes de consumo de Azure. Los clientes cualificados verán la oferta marcada como **"Apto para ventajas de Azure"** en Azure Portal. Para obtener más información, consulte [Ventaja del compromiso de consumo de Azure](azure-consumption-commitment-benefit.md).
+* La oferta recibirá un distintivo **"Preferred solutions"** (Soluciones preferidas) en los escaparates. El distintivo promueve las ofertas por su calidad, rendimiento y capacidad para satisfacer las necesidades de los clientes de un sector vertical de la industria o área de soluciones determinados. Obtenga más información en [Soluciones preferidas de Microsoft AppSource y Azure Marketplace](preferred-solutions.md).
 
 ## <a name="co-sell-publishing-steps-and-requirements"></a>Pasos y requisitos de publicación de ventas conjuntas
 
-En la tabla siguiente se enumeran los pasos y requisitos necesarios para hacer que su oferta esté lista para la venta conjunta o tenga incentivos para la venta conjunta.
+En la tabla siguiente se enumeran los pasos y requisitos necesarios para hacer que su oferta de marketplace esté lista para la venta conjunta o tenga incentivos para la venta conjunta. No todos los tipos de ofertas del marketplace comercial se pueden configurar todavía para la venta conjunta en el Centro de partners. Puede consultar [Opción de venta conjunta en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell) para la información más reciente. 
 
-|Paso    |Tipo de solución    |Requisitos    |Estado de la venta conjunta    |
+|Paso    |Tipo de oferta    |Requisitos    |Estado de la venta conjunta    |
 |----    |-------------    |------------    |---------------   |
-|<ol><li> Cree un perfil de negocio en el Centro de partners y publique la oferta en el marketplace comercial.</li>|IP y servicios|<ul><li>La oferta cumple los requisitos de publicación del marketplace comercial.</li><li>Tiene un perfil de negocio completo en el Centro de partners.</li>|No está listo|
-|<ol start=2><li>Opcional: Elija participar en el canal de Proveedor de soluciones en la nube.</li>|IP y servicios|<ul><li>La oferta está configurada para revendedores de CSP. Consulte [Programa Proveedor de soluciones en la nube](cloud-solution-providers.md).</li>|No está listo|
-|<ol start=3><li>Envíe los materiales de venta conjunta necesarios.</li>|IP|<ul><li>La oferta tiene un contacto de ventas para cada país apto.</li><li>Lista de materiales necesarios: plantilla de una página del cliente, presentación para el cliente (opcional), dirección URL de la página de aterrizaje de la solución, dirección URL del canal de redes sociales u otros (por ejemplo, un caso práctico).|Listo para la venta conjunta|
-||Servicios|<ul><li>La oferta tiene un contacto de ventas para cada país apto.</li><li>Lista de materiales necesarios: plantilla de una página del cliente, presentación para el cliente (opcional), dirección URL de la página de aterrizaje de la solución, dirección URL del canal de redes sociales u otros (por ejemplo, un caso práctico).</li><li>Competencia Gold activa</li>|Listo para la venta conjunta|
-|<ol start=4lo><li>Califique para los incentivos para vendedores de Microsoft.</li>|Incentivo apto de IP de Azure|<ul><li>En el nivel de organización, cumpla o supere un umbral de 100 000 USD de ACR TTM (últimos 12 meses) o, si la oferta es comercializable, un umbral de ingresos facturados de 100 000 USD. El umbral se puede cumplir a través de una combinación de soluciones de Azure.</li><li>La solución debe integrarse por más del 50 % del código IP repetible en Azure.</li>|Incentivos para la venta conjunta|
-||Incentivo apto para aplicaciones empresariales|<ul><li>Tiene una inscripción activa en el nivel Premium de ISV Connect.</li>|Incentivos para la venta conjunta|
+|<ol start=1><li> Cree una cuenta en el Centro de partners y publique la oferta en el marketplace comercial.</li>|Todo|<li>La oferta cumple los requisitos de publicación del marketplace comercial.</li><li>Tiene un perfil de negocio completo en el Centro de partners.</li>|No está listo|
+|<ol start=2><li>Envíe los materiales de venta conjunta necesarios.</li>|Ofertas IP *con la* [opción de venta conjunta en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|[Cargue los materiales necesarios en el Centro de partners](#how-to-submit-co-sell-materials-in-partner-center): <ul><li>Contacto de ventas para cada país cualificado.</li><li>Lista de materiales: buscapersonas de un cliente, presentación al cliente (opcional), dirección URL de la página de aterrizaje de la solución, dirección URL del canal de redes sociales u otros (por ejemplo, un caso práctico).|Listo para la venta conjunta|
+||Ofertas IP *sin la* [opción de venta conjunta en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|<li>Solicitud de [trabajar con un especialista en la nube](https://partner.microsoft.com/campaigns/ced-nomination-form/) para proporcionar la documentación de venta conjunta necesaria.|Listo para la venta conjunta|
+||Servicios de consultoría|<li>Solicitud de [trabajar con un especialista en la nube](https://partner.microsoft.com/campaigns/ced-nomination-form/) para proporcionar la documentación de venta conjunta necesaria.</li><li>Competencia Gold activa.</li>|Listo para la venta conjunta|
+|<ol start=3><li>Cualificación para los incentivos de venta conjunta IP</li>|Aplicaciones de Azure, contenedores de Azure, módulos de IoT Edge, SaaS, máquinas virtuales|Una vez que esté listo para la venta conjunta, existen dos requisitos adicionales: <ul> Requisito 1: conseguir:<ul><li>*En el nivel de organización:* debe alcanzar o superar los 100 000 USD de Ingresos por consumo de Azure durante los últimos 12 meses.</li><li>*En el nivel de oferta:* unos ingresos facturados acumulados de marketplace de 100 000 USD.</li></ul><br>Requisito 2: más del 50 % de la infraestructura de la oferta debe ejecutarse en Azure:<ul><li>Ofertas de IP *con la* [opción de venta conjunta en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell): debe cargar un diagrama de arquitectura con los documentos de la venta conjunta en el Centro de partners para su revisión.</li><li>Ofertas de IP *sin la* [opción de venta conjunta en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell): debe cargar un diagrama de arquitectura en OCP GTM.|Venta conjunta con incentivos de IP de Azure|
+||Dynamics|<li>Tiene una inscripción activa en el nivel Premium de ISV Connect.</li>|Venta conjunta con incentivos de Business Applications|
 
-## <a name="co-sell-your-offer"></a>Venta conjunta de una oferta
+## <a name="how-to-submit-co-sell-materials-in-partner-center"></a>Envío de materiales de venta conjunta en el Centro de partners
 
 Comience el recorrido de venta conjunta directamente en el Centro de partners a través de los pasos siguientes. Para obtener más información, consulte [Opción de venta conjunta en el Centro de partners](./partner-center-portal/commercial-marketplace-co-sell.md).
 
@@ -86,4 +81,4 @@ Comience el recorrido de venta conjunta directamente en el Centro de partners a 
 
 * Obtenga más información sobre cómo [vender con Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
 * Obtenga más información sobre la [opción de venta conjunta en el Centro de partners](./partner-center-portal/commercial-marketplace-co-sell.md).
-* Lea la [Guía para la participación de asociados de venta conjunta](https://aka.ms/Co-sellPartnerengagementguidepartnerlink) (PDF).
+* Lea el [Cuaderno de estrategias de venta conjunta](https://aka.ms/Co-sellPartnerengagementguidepartnerlink) (PDF).

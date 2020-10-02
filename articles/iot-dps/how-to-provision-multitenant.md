@@ -7,16 +7,16 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: e0dec0a67ed33186797ccec8066aaad89ceb8dcb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bcdda8d1bd08a26dcdbec294be88fd4540670596
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75434753"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531430"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Cómo aprovisionar para el multiinquilinato 
 
-Las directivas de asignación definidas por el servicio de aprovisionamiento admiten una gran variedad de escenarios de asignación. Dos escenarios comunes son:
+En este artículo se muestra cómo aprovisionar de forma segura varios dispositivos de claves simétricas para un grupo de centros de IoT mediante una [directiva de asignación](concepts-service.md#allocation-policy). Las directivas de asignación definidas por el servicio de aprovisionamiento admiten una gran variedad de escenarios de asignación. Dos escenarios comunes son:
 
 * **Geolocalización o geolatencia**: puesto que un dispositivo se mueve entre ubicaciones, la latencia de red se mejora mediante su aprovisionamiento en el centro de IoT más cercano a cada ubicación. En este escenario, se selecciona un grupo de centros de IoT, que abarcan varias regiones, para las inscripciones. La directiva de asignación **Latencia más baja** está seleccionada para estas inscripciones. Esta directiva hace que Device Provisioning Service evalúe la latencia del dispositivo y determine el centro de IoT más cercano del grupo de centros de IOT. 
 
@@ -26,9 +26,9 @@ Es habitual combinar estos dos escenarios. Por ejemplo, una solución de IoT mul
 
 En este artículo, se usa un ejemplo de dispositivo simulado del [SDK de C para Azure IoT](https://github.com/Azure/azure-iot-sdk-c) para demostrar cómo aprovisionar dispositivos en un escenario multiinquilino entre regiones. En este artículo, llevará a cabo los siguientes pasos:
 
-* Usar la CLI de Azure para crear dos centros de IoT regionales (**Oeste de EE. UU.** y **Este de EE. UU.** ).
+* Usar la CLI de Azure para crear dos centros de IoT regionales (**Oeste de EE. UU.** y **Este de EE. UU.**).
 * Crear una inscripción multiinquilino.
-* Usar la CLI de Azure para crear dos máquinas virtuales de Linux regionales para actuar como dispositivos en las mismas regiones (**Oeste de EE. UU.** y **Este de EE. UU.** ).
+* Usar la CLI de Azure para crear dos máquinas virtuales de Linux regionales para actuar como dispositivos en las mismas regiones (**Oeste de EE. UU.** y **Este de EE. UU.**).
 * Configurar el entorno de desarrollo para el SDK de C para Azure IoT en ambas máquinas virtuales de Linux.
 * Simular los dispositivos para ver que están aprovisionados para el mismo inquilino en la región más cercana.
 
@@ -36,7 +36,7 @@ En este artículo, se usa un ejemplo de dispositivo simulado del [SDK de C para 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 * Finalización de la guía de inicio rápido [Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal](./quick-setup-auto-provision.md).
 
@@ -83,7 +83,7 @@ En esta sección, usará Azure Cloud Shell para crear dos centros de IoT regiona
 
 En esta sección, creará un grupo de inscripción para los dispositivos del inquilino.  
 
-Para que sea más sencillo, en este artículo se usa la [atestación de clave simétrica](concepts-symmetric-key-attestation.md) con la inscripción. Con el fin de obtener una solución más segura, considere la posibilidad de usar la [atestación de certificado X.509](concepts-security.md#x509-certificates) con una cadena de confianza.
+Para que sea más sencillo, en este artículo se usa la [atestación de clave simétrica](concepts-symmetric-key-attestation.md) con la inscripción. Con el fin de obtener una solución más segura, considere la posibilidad de usar la [atestación de certificado X.509](concepts-x509-attestation.md) con una cadena de confianza.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra la instancia de Device Provisioning Service.
 
@@ -125,7 +125,7 @@ Para que sea más sencillo, en este artículo se usa la [atestación de clave si
 
 En esta sección, creará dos máquinas virtuales regionales de Linux. Estas máquinas virtuales ejecutarán un ejemplo de simulación de dispositivo de cada región para demostrar el aprovisionamiento de dispositivos de inquilino desde ambas regiones.
 
-Para que la limpieza sea más sencilla, estas máquinas virtuales se agregarán al mismo grupo de recursos que contiene los centros de IoT que se han creado: *contoso-us-resource-group*. En cambio, las máquinas virtuales se ejecutarán en regiones diferentes (**Oeste de EE. UU.** y **Este de EE. UU.** ).
+Para que la limpieza sea más sencilla, estas máquinas virtuales se agregarán al mismo grupo de recursos que contiene los centros de IoT que se han creado: *contoso-us-resource-group*. En cambio, las máquinas virtuales se ejecutarán en regiones diferentes (**Oeste de EE. UU.** y **Este de EE. UU.**).
 
 1. En Azure Cloud Shell, ejecute el siguiente comando para crear una máquina virtual de la región **Este de EE. UU.** después de realizar los siguientes cambios de parámetro en el comando:
 
@@ -191,7 +191,7 @@ Para que la limpieza sea más sencilla, estas máquinas virtuales se agregarán 
 
 En esta sección, clonará el SDK de C para Azure IoT en cada máquina virtual. El SDK contiene un ejemplo que simulará el aprovisionamiento de dispositivos de un inquilino desde cada región.
 
-1. Para cada máquina virtual, instale **CMake**, **g++** , **gcc** y [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) mediante los siguientes comandos:
+1. Para cada máquina virtual, instale **CMake**, **g++**, **gcc** y [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) mediante los siguientes comandos:
 
     ```bash
     sudo apt-get update
@@ -300,7 +300,7 @@ En esta sección, actualizará un ejemplo de aprovisionamiento en el SDK de C pa
 
 El código de ejemplo simula una secuencia de arranque de dispositivo que envía la solicitud de aprovisionamiento a la instancia de Device Provisioning Service. La secuencia de arranque hará que se reconozca y se asigne el dispositivo al centro de IoT más cercano según la latencia.
 
-1. En Azure Portal, seleccione la pestaña **Información general** para su servicio Device Provisioning y anote el valor de **_Ámbito de id_** .
+1. En Azure Portal, seleccione la pestaña **Información general** para su servicio Device Provisioning y anote el valor de **_Ámbito de id_**.
 
     ![Extracción de información del punto de conexión del servicio Device Provisioning desde la hoja del portal](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -412,7 +412,7 @@ Para eliminar el grupo de recursos por nombre:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **Grupos de recursos**.
 
-2. En el cuadro de texto **Filtrar por nombre...** , escriba el nombre del grupo de recursos que contiene los recursos: **contoso-us-resource-group**. 
+2. En el cuadro de texto **Filtrar por nombre...**, escriba el nombre del grupo de recursos que contiene los recursos: **contoso-us-resource-group**. 
 
 3. A la derecha del grupo de recursos de la lista de resultados, haga clic en **...** y, a continuación, en **Eliminar grupo de recursos**.
 

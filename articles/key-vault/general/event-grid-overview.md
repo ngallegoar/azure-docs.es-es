@@ -9,16 +9,16 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cdbd78808d1758b43d2b2fe6e8f7ac03652ff92b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ee38196f0b1a6e00d385dc0d2c88d45a4291d3b
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85296345"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087443"
 ---
-# <a name="monitoring-key-vault-with-azure-event-grid-preview"></a>Supervisión de Key Vault con Azure Event Grid (versión preliminar)
+# <a name="monitoring-key-vault-with-azure-event-grid"></a>Supervisión de Key Vault con Azure Event Grid
 
-La integración de Key Vault con Event Grid se encuentra actualmente en versión preliminar. Permite a los usuarios recibir una notificación cuando cambia el estado de un secreto almacenado en el almacén de claves. Un cambio de estado se define como un secreto que está a punto de expirar (30 días antes de la fecha de expiración), un secreto que ha expirado o un secreto que tiene una nueva versión disponible. Se admiten las notificaciones para los tres tipos de secretos (clave, certificado y secreto).
+La integración de Key Vault con Event Grid permite a los usuarios recibir una notificación cuando cambia el estado de un secreto almacenado en el almacén de claves. Un cambio de estado se define como un secreto que está a punto de expirar (30 días antes de la fecha de expiración), un secreto que ha expirado o un secreto que tiene una nueva versión disponible. Se admiten las notificaciones para los tres tipos de secretos (clave, certificado y secreto).
 
 Las aplicaciones pueden reaccionar a estos eventos mediante las modernas arquitecturas sin servidor y sin necesidad de usar código complejo o servicios de sondeo costosos e ineficaces. Los eventos se insertan mediante [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) en controladores de eventos como [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) o incluso en su propio webhook y solo se paga por lo que se usa. Para información sobre los precios, consulte [Precios de Event Grid](https://azure.microsoft.com/pricing/details/event-grid/).
 
@@ -44,7 +44,7 @@ Las aplicaciones que controlan los eventos de Key Vault deben seguir algunos pro
 
 - [Introducción a Azure Key Vault](overview.md)
 - [Introducción a Azure Event Grid](../../event-grid/overview.md)
-- Procedimientos: [Enrutar eventos de Key Vault eventos al Runbook de Automation (versión preliminar)](event-grid-tutorial.md).
+- Procedimientos: [Enrutar eventos de Key Vault al Runbook de Automation](event-grid-tutorial.md).
 - Procedimientos: [Recibir un correo electrónico al cambiar un secreto del almacén de claves](event-grid-logicapps.md)
-- [Esquema de eventos de Azure Event Grid para Azure Key Vault (versión preliminar)](../../event-grid/event-schema-key-vault.md)
+- [Esquema de eventos Azure Event Grid para Azure Key Vault](../../event-grid/event-schema-key-vault.md)
 - [Información general sobre Azure Automation](../../automation/index.yml)

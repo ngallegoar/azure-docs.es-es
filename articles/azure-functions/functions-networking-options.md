@@ -3,12 +3,13 @@ title: Opciones de redes de Azure Functions
 description: Introducción a todas las opciones de redes disponibles en Azure Functions.
 ms.topic: conceptual
 ms.date: 4/11/2019
-ms.openlocfilehash: 60258ef4aa3bbbbab69acd4f5106c774caa6f46f
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 271730e57a2d7ef8324420744b4bcd088b9809cc
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385949"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530102"
 ---
 # <a name="azure-functions-networking-options"></a>Opciones de redes de Azure Functions
 
@@ -86,7 +87,7 @@ Actualmente, puede usar funciones de desencadenador no HTTP desde una red virtua
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>Plan Premium con desencadenadores de red virtual
 
-Cuando cuenta con un plan Premium, puede conectar funciones de desencadenador no HTTP a los servicios que se ejecutan en una red virtual. Para ello, debe habilitar la compatibilidad con el desencadenador de red virtual para la aplicación de funciones. La configuración de la **compatibilidad con el desencadenador de red virtual** se encuentra en [Azure Portal](https://portal.azure.com), en **Configuración** > **Configuración del runtime de la función**.
+Cuando cuenta con un plan Premium, puede conectar funciones de desencadenador no HTTP a los servicios que se ejecutan en una red virtual. Para ello, debe habilitar la compatibilidad con el desencadenador de red virtual para la aplicación de funciones. La configuración **Supervisión de la escala en tiempo de ejecución** se encuentra en [Azure Portal](https://portal.azure.com), en **Configuración** > **Configuración del tiempo de ejecución de la función**.
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 

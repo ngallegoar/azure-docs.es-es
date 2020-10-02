@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b92bfad99c854f75c945121d352a7122d8c6db89
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 468d21abc861e905472d1d15405b1c8ba9e5be74
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011606"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904885"
 ---
 # <a name="cut-planes"></a>Corte de planos
 
@@ -19,16 +19,6 @@ Un *plano de corte* es una característica visual que recorta los píxeles de un
 En la imagen siguiente se muestra el efecto. La izquierda muestra la malla original, mientras que la derecha puede buscar dentro de la malla:
 
 ![Plano de corte](./media/cutplane-1.png)
-
-## <a name="limitations"></a>Limitaciones
-
-* De momento, Azure Remote Rendering admite un **máximo de ocho planos de corte activos**. Puede crear más componentes de plano de corte, pero, si intenta habilitar más simultáneamente, se omitirá la activación. Deshabilite primero otros planos si quiere cambiar qué componente debe afectar a la escena.
-* Cada plano de corte afecta a todos los objetos representados de forma remota. Actualmente, no hay ninguna manera de excluir objetos específicos ni piezas de malla.
-* Los planos de corte son meramente una característica visual, no afectan al resultado de las [consultas espaciales](spatial-queries.md). Si quiere realizar un trazado de rayos en una malla de corte abierto, puede ajustar el punto inicial del rayo para que esté en el plano de corte. De este modo, el rayo solo puede llegar a los elementos visibles.
-
-## <a name="performance-considerations"></a>Consideraciones de rendimiento
-
-Cada plano de corte activo incurre en un pequeño costo durante la representación. Deshabilite o elimine los planos de corte cuando no sean necesarios.
 
 ## <a name="cutplanecomponent"></a>CutPlaneComponent
 
@@ -56,7 +46,6 @@ void CreateCutPlane(ApiHandle<AzureSession> session, ApiHandle<Entity> ownerEnti
 }
 ```
 
-
 ### <a name="cutplanecomponent-properties"></a>Propiedades de CutPlaneComponent
 
 Las siguientes propiedades se exponen en un componente de plano de corte:
@@ -68,6 +57,45 @@ Las siguientes propiedades se exponen en un componente de plano de corte:
 * `FadeColor` y `FadeLength`:
 
   Si el valor alfa de *FadeColor* es distinto de cero, los píxeles cercanos al plano de corte se atenuarán hacia la parte RGB de FadeColor. La fuerza del canal alfa determina si se desvanece completamente hacia el color de fundido o solo parcialmente. *FadeLength* define con qué distancia se llevará a cabo esta transición.
+
+* `ObjectFilterMask`: Una máscara de bits de filtro que determina qué geometría se ve afectada por el plano de corte. Consulte el párrafo siguiente para obtener información detallada.
+
+### <a name="selective-cut-planes"></a>Planos de corte selectivos
+
+Es posible configurar planos de corte individuales para que solo afecten a una geometría específica. En la imagen siguiente se muestra cómo puede ser esta configuración en la práctica:
+
+![Planos de corte selectivos](./media/selective-cut-planes.png)
+
+El filtrado funciona a través de la **comparación lógica de máscaras de bits** entre una máscara de bits en el lado del plano de corte y una segunda máscara de bits que se establece en la geometría. Si el resultado de una operación `AND` lógica entre las máscaras no es cero, el plano de corte afectará a la geometría.
+
+* La máscara de bits del componente de plano de corte se establece a través de su propiedad `ObjectFilterMask`.
+* La máscara de bits en una subjerarquía de geometría se establece mediante [HierarchicalStateOverrideComponent](override-hierarchical-state.md#features).
+
+Ejemplos:
+
+| Máscara de filtro de plano de corte | Máscara de filtro de geometría  | Resultado del operador `AND` lógico | ¿Afecta el plano de corte a la geometría?  |
+|--------------------|-------------------|-------------------|:----------------------------:|
+| (0000 0001) == 1   | (0000 0001) == 1  | (0000 0001) == 1  | Sí |
+| (1111 0000) == 240 | (0001 0001) == 17 | (0001 0000) == 16 | Sí |
+| (0000 0001) == 1   | (0000 0010) == 2  | (0000 0000) == 0  | No |
+| (0000 0011) == 3   | (0000 1000) == 8  | (0000 0000) == 0  | No |
+
+>[!TIP]
+> Establecer `ObjectFilterMask` de un plano de corte en 0 significa que no afectará a ninguna geometría porque el resultado del operador `AND` lógico nunca puede ser no NULL. El sistema de representación no considerará esos planos en primer lugar, por lo que se trata de un método ligero para deshabilitar los planos de corte individuales. Estos planos de corte tampoco cuentan para el límite de 8 planos activos.
+
+## <a name="limitations"></a>Limitaciones
+
+* Azure Remote Rendering admite un **máximo de ocho planos de corte activos**. Puede crear más componentes de plano de corte, pero, si intenta habilitar más simultáneamente, se omitirá la activación. Deshabilite primero otros planos si quiere cambiar qué componentes deben afectar a la escena.
+* Los planos de corte son meramente una característica visual, no afectan al resultado de las [consultas espaciales](spatial-queries.md). Si quiere realizar un trazado de rayos en una malla de corte abierto, puede ajustar el punto inicial del rayo para que esté en el plano de corte. De este modo, el rayo solo puede llegar a los elementos visibles.
+
+## <a name="performance-considerations"></a>Consideraciones de rendimiento
+
+Cada plano de corte activo incurre en un pequeño costo durante la representación. Deshabilite o elimine los planos de corte cuando no sean necesarios.
+
+## <a name="api-documentation"></a>Documentación de la API
+
+* [Clase CutPlaneComponent de C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.cutplanecomponent)
+* [Clase CutPlaneComponent de C++](https://docs.microsoft.com/cpp/api/remote-rendering/cutplanecomponent)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

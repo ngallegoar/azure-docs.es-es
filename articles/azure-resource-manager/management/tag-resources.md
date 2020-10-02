@@ -4,12 +4,12 @@ description: Muestra cómo aplicar etiquetas para organizar los recursos de Azur
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: daedb5dcd660ec2637557fe5af75db2939318495
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 3ffcb4a0f2f5dc64b165fcdec03f7c3ced258cc1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500000"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086766"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Uso de etiquetas para organizar los recursos de Azure y la jerarquía de administración
 
@@ -307,7 +307,27 @@ az group list --tag Dept=IT
 
 ### <a name="handling-spaces"></a>Control de los espacios
 
-Si los nombres o valores de etiqueta incluyen espacios, debe realizar un par de pasos adicionales. En el ejemplo siguiente se aplican todas las etiquetas de un grupo de recursos a sus recursos cuando las etiquetas pueden contener espacios.
+Si los nombres o valores de etiqueta incluyen espacios, debe realizar un par de pasos adicionales. 
+
+Los parámetros `--tags` de la CLI de Azure pueden aceptar una cadena que conste de una matriz de cadenas. En el ejemplo siguiente se sobrescriben las etiquetas de un grupo de recursos en el que las etiquetas tienen espacios y guiones: 
+
+```azurecli-interactive
+TAGS=("Cost Center=Finance-1222" "Location=West US")
+az group update --name examplegroup --tags "${TAGS[@]}"
+```
+
+Puede usar la misma sintaxis al crear o actualizar un grupo de recursos o recursos con el parámetro `--tags`.
+
+Para actualizar las etiquetas con el parámetro `--set`, debe pasar la clave y el valor como una cadena. En el ejemplo siguiente se anexa una sola etiqueta a un grupo de recursos:
+
+```azurecli-interactive
+TAG="Cost Center='Account-56'"
+az group update --name examplegroup --set tags."$TAG"
+```
+
+En este caso, el valor de la etiqueta se marca con comillas simples porque el valor contiene un guion.
+
+También puede tener que aplicar etiquetas a muchos recursos. En el ejemplo siguiente se aplican todas las etiquetas de un grupo de recursos a sus recursos cuando las etiquetas pueden contener espacios:
 
 ```azurecli-interactive
 jsontags=$(az group show --name examplegroup --query tags -o json)
@@ -579,7 +599,7 @@ Los recursos no heredan las etiquetas aplicadas al grupo de recursos ni a la sus
 
 Puede usar etiquetas a fin de agrupar los datos de facturación. Por ejemplo, si va a ejecutar varias máquinas virtuales para distintas organizaciones, use las etiquetas para agrupar el uso por centro de costo. También puede usar etiquetas para clasificar los costos por entorno de tiempo de ejecución; por ejemplo, el uso de facturación en máquinas virtuales que se ejecutan en el entorno de producción.
 
-Puede recuperar información sobre las etiquetas a través de [Azure Resource Usage API y Rate Card API](../../cost-management-billing/manage/usage-rate-card-overview.md) o mediante el archivo de valores separados por comas (CSV). Puede descargar el archivo de uso del [Centro de cuentas de Azure](https://account.azure.com/Subscriptions) o de Azure Portal. Para más información, consulte [Procedimiento para descargar las datos de uso diario y de factura de Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). Al descargar el archivo de uso del Centro de cuentas de Azure, seleccione **Versión 2**. En los servicios que admiten etiquetas con facturación, las etiquetas aparecen en la columna **Etiquetas**.
+Puede recuperar información sobre las etiquetas a través de [Azure Resource Usage API y Rate Card API](../../cost-management-billing/manage/usage-rate-card-overview.md) o mediante el archivo de valores separados por comas (CSV). Descargue el archivo de uso desde Azure Portal. Para más información, consulte [Procedimiento para descargar las datos de uso diario y de factura de Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). Al descargar el archivo de uso del Centro de cuentas de Azure, seleccione **Versión 2**. En los servicios que admiten etiquetas con facturación, las etiquetas aparecen en la columna **Etiquetas**.
 
 Para las operaciones de API de REST, vea [Referencia de API de REST de facturación de Azure](/rest/api/billing/).
 

@@ -5,12 +5,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 description: Describe los procesos que posibilitan el funcionamiento de Azure Dev Spaces
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: 48bde5f3cc6f397d51a31f80f41ab299ba8866ee
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 81408ed4bbe5322538d893b29c7397104c5b0844
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212534"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981268"
 ---
 # <a name="how-azure-dev-spaces-works"></a>Funcionamiento de Azure Dev Spaces
 
@@ -22,9 +22,9 @@ Azure Dev Spaces le ofrece varias formas de iterar y depurar rápidamente las ap
 
 Azure Dev Spaces reduce el trabajo de tener que desarrollar, probar e iterar la aplicación de Kubernetes en el contexto del clúster de AKS. Esta reducción permite a los desarrolladores centrarse en la lógica de negocios de sus aplicaciones en lugar de tener que configurar los servicios para que se ejecuten en Kubernetes.
 
-### <a name="local-process-with-kubernetes"></a>Proceso local con Kubernetes
+### <a name="bridge-to-kubernetes"></a>Bridge to Kubernetes
 
-Con Proceso local con Kubernetes, puede conectar el equipo de desarrollo al clúster de Kubernetes, lo que le permite ejecutar y depurar código en el equipo de desarrollo como si se estuviera ejecutando en el clúster. Azure Dev Spaces redirige el tráfico entre el clúster conectado al ejecutar un pod en el clúster que actúa como agente remoto para redirigir el tráfico entre el equipo de desarrollo y el clúster. Este redireccionamiento del tráfico permite que el código del equipo de desarrollo y los servicios que se ejecutan en el clúster se comuniquen como si estuvieran en el mismo clúster. Para obtener más información sobre cómo conectar el equipo de desarrollo a un clúster de Kubernetes, vea [Funcionamiento de Proceso local con Kubernetes][how-it-works-local-process-kubernetes].
+Con Bridge to Kubernetes, puede conectar el equipo de desarrollo al clúster de Kubernetes, lo que le permite ejecutar y depurar código en el equipo de desarrollo como si se estuviera ejecutando en el clúster. Bridge to Kubernetes redirige el tráfico entre el clúster conectado al ejecutar un pod en el clúster que actúa como agente remoto para redirigir el tráfico entre el equipo de desarrollo y el clúster. Este redireccionamiento del tráfico permite que el código del equipo de desarrollo y los servicios que se ejecutan en el clúster se comuniquen como si estuvieran en el mismo clúster. Para obtener más información sobre cómo conectar el equipo de desarrollo a un clúster de Kubernetes, vea [Funcionamiento de Bridge to Kubernetes][how-it-works-bridge-to-kubernetes].
 
 ### <a name="run-your-code-in-aks"></a>Ejecución del código en AKS
 
@@ -47,8 +47,8 @@ También puede usar las Acciones de GitHub con Azure Dev Spaces para probar los 
 Para empezar a conectar el equipo de desarrollo local al clúster de AKS, consulte [Conexión del equipo de desarrollo a un clúster de AKS][connect].
 
 
-[connect]: https://code.visualstudio.com/docs/containers/local-process-kubernetes
-[how-it-works-local-process-kubernetes]: /visualstudio/containers/overview-local-process-kubernetes
+[connect]: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
+[how-it-works-bridge-to-kubernetes]: /visualstudio/containers/overview-bridge-to-kubernetes
 [how-it-works-prep]: how-dev-spaces-works-prep.md
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md

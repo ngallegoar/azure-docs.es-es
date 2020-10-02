@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 892bdcc08bd19b92c8b3d32d2954583f80005e87
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: beeb771ea5053dd0ad867a7568aa64bbb2d0b4ed
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022911"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985315"
 ---
 # <a name="configure-the-application-dashboard"></a>Configuración del panel de la aplicación
 
@@ -33,7 +33,7 @@ Después de seleccionar **Editar** o **Nuevo**, el panel se encuentra en modo de
 1. Seleccione uno o más dispositivos en la lista desplegable **Dispositivos** para mostrarlos en el icono. Ahora verá la telemetría, las propiedades y los comandos disponibles de los dispositivos.
 1. Seleccione **Temperatura** en la sección de telemetría y, después, seleccione **Agregar icono**. Ahora el icono se muestra en el panel, donde puede cambiar la visualización y el tamaño, y configurarlo:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Adición de un icono de telemetría de temperatura al panel":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Panel para aplicaciones basadas en la plantilla Aplicación personalizada":::
 
 Cuando haya terminado de agregar y personalizar los iconos en el panel, seleccione **Guardar**.
 
@@ -75,11 +75,23 @@ En el caso de los iconos que muestran valores agregados, seleccione el icono de 
 
 En el caso de los gráficos de líneas, de barras y circulares, puede personalizar el color de los distintos valores de telemetría. Seleccione el icono de paleta situado junto a la telemetría que quiere personalizar:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="Cambio del color de un valor de telemetría":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="Panel para aplicaciones basadas en la plantilla Aplicación personalizada":::
 
 En el caso de los iconos que muestran propiedades de cadena o valores de telemetría, puede elegir cómo mostrar el texto. Por ejemplo, si el dispositivo almacena una dirección URL en una propiedad de cadena, puede mostrarla como un vínculo interactivo. Si la dirección URL hace referencia a una imagen, se puede representar la imagen en un último valor conocido o en el icono de propiedad. Para cambiar cómo se muestra una cadena, en la configuración del icono, seleccione el icono de engranaje situado junto a la propiedad o el tipo de telemetría:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Cambio de la representación de una cadena en un icono":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Panel para aplicaciones basadas en la plantilla Aplicación personalizada":::
+
+Para los iconos de **KPI**, **Último valor conocido** y **Propiedad**, puede usar el formato condicional para personalizar el color del icono en función de su valor actual. Para agregar formato condicional, seleccione **Configurar** en el icono y, a continuación, seleccione el icono de **Formato condicional** situado junto al valor que se va a personalizar:
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="Panel para aplicaciones basadas en la plantilla Aplicación personalizada":::
+
+Agregue las reglas de formato condicional:
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Panel para aplicaciones basadas en la plantilla Aplicación personalizada":::
+
+En la captura de pantalla siguiente se muestra el efecto de la regla de formato condicional:
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Panel para aplicaciones basadas en la plantilla Aplicación personalizada":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

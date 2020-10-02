@@ -7,15 +7,15 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: eca9596666b318b71bb1deec64e3a7d037e8fa0d
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 9bb228c81ee180ec337ce52e3c87a4a9684e158a
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654334"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563699"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Preguntas más frecuentes (P+F) sobre Azure Files
-[Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el [protocolo de bloque de mensajes del servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) estándar. Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en máquinas con Windows Server mediante Azure File Sync para tener un acceso rápido cerca de donde se usan los datos.
+[Azure Files](storage-files-introduction.md) le ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede obtener acceso mediante el protocolo [Bloque de mensajes del servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) estándar y el [protocolo Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (versión preliminar). Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en máquinas con Windows Server mediante Azure File Sync para tener un acceso rápido cerca de donde se usan los datos.
 
 En este artículo se responden las preguntas más frecuentes sobre las características y las funcionalidades de Azure Files, incluido el uso de Azure File Sync con Azure Files. Si no encuentra una respuesta a su pregunta, póngase en contacto con nosotros mediante los siguientes canales (en orden incremental):
 
@@ -31,7 +31,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
 * <a id="file-access-options"></a>
    **¿Cuáles son las diferentes formas de obtener acceso a los archivos de Azure Files?**  
-    Puede montar el recurso compartido de archivos en la máquina local mediante el protocolo SMB 3.0, o bien puede usar herramientas como el [Explorador de Storage](https://storageexplorer.com/) para obtener acceso a los archivos en el recurso compartido de archivos. Desde la aplicación, puede usar las bibliotecas de cliente de almacenamiento, las API de REST, PowerShell o la CLI de Azure para obtener acceso a los archivos en el recurso compartido de archivos de Azure.
+    Los recursos compartidos de archivos SMB se pueden montar en la máquina local mediante el protocolo SMB 3.0, o bien puede usar herramientas como [Explorador de Storage](https://storageexplorer.com/) para obtener acceso a los archivos en el recurso compartido de archivos. Los recursos compartidos de archivos NFS se pueden montar en la máquina local mediante la copia y posterior pegado del script proporcionado por Azure Portal. Desde la aplicación, puede usar las bibliotecas de cliente de almacenamiento, las API de REST, PowerShell o la CLI de Azure para obtener acceso a los archivos en el recurso compartido de archivos de Azure.
 
 * <a id="what-is-afs"></a>
    **¿Qué es Azure File Sync?**  
@@ -43,12 +43,12 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
     
     Azure Blob Storage es útil para aplicaciones de gran escala y nativas de la nube que deben almacenar datos no estructurados. Para maximizar el rendimiento y la escala, Azure Blob Storage es una abstracción de almacenamiento más sencilla que un sistema de archivos verdadero. Solo puede tener acceso a Azure Blob Storage a través de bibliotecas de cliente basadas en REST (o directamente mediante el protocolo basado en REST).
 
-    Azure Files es específicamente un sistema de archivos. Azure Files tiene todos los resúmenes de archivo con los que está familiarizado después de trabajar durante años con sistemas operativos locales. Al igual que Azure Blob Storage, Azure Files ofrece una interfaz de REST y bibliotecas de cliente basadas en REST. A diferencia de Azure Blob Storage, Azure Files ofrece a SMB acceso a recursos compartidos de archivos de Azure. Mediante el uso de SMB, puede montar directamente un recurso compartido de archivos de Azure en Windows, Linux o macOS, ya sea en máquinas virtuales locales como en la nube, sin tener que escribir ningún código ni adjuntar controladores especiales al sistema de archivos. También puede almacenar en caché recursos compartidos de archivos de Azure en servidores de archivos locales mediante el uso de Azure File Sync para tener un acceso rápido cerca de donde se usan los datos. 
+    Azure Files es específicamente un sistema de archivos. Azure Files tiene todos los resúmenes de archivo con los que está familiarizado después de trabajar durante años con sistemas operativos locales. Al igual que Azure Blob Storage, Azure Files ofrece una interfaz de REST y bibliotecas de cliente basadas en REST. A diferencia de Azure Blob Storage, Azure Files ofrece a acceso mediante SMB o NFS a recursos compartidos de archivos de Azure. Los recursos compartidos de archivos se pueden montar directamente en Windows, Linux o macOS, ya sea en máquinas virtuales locales o en la nube, sin tener que escribir ningún código ni adjuntar controladores especiales al sistema de archivos. También puede almacenar en caché recursos compartidos de archivos SMB de Azure en servidores de archivos locales mediante el uso de Azure File Sync para tener un acceso rápido, cerca de donde se usan los datos. 
    
     Para obtener una explicación más detallada sobre las diferencias entre Azure Files y Azure Blob Storage, vea [Introducción a los servicios principales de Azure Storage](../common/storage-introduction.md). Para saber más de Azure Blob Storage, consulte [Introducción a Blob Storage](../blobs/storage-blobs-introduction.md).
 
 * <a id="files-versus-disks"></a> **¿Por qué debo usar un recurso compartido de archivos de Azure en vez de Azure Disks?**  
-    Un disco en Azure Disks no es más que un disco. Para sacar provecho de Azure Disks, tendrá que conectarlo a una máquina virtual que se ejecute en Azure. Azure Disks puede usarse para todo aquello para lo que quiera usar un disco en un servidor local. Puede usarlo como disco del sistema operativo, como espacio de intercambio para un sistema operativo, o como almacenamiento dedicado para una aplicación. Un uso interesante de Azure Disks consiste en crear un servidor de archivos en la nube para usarlo en los mismos lugares en los que usaría un recurso compartido de archivos de Azure. Implementar un servidor de archivos en las máquinas virtuales de Azure es una manera de alto rendimiento de obtener almacenamiento de archivos en Azure cuando necesite opciones de implementación no compatibles actualmente con Azure Files (por ejemplo, la compatibilidad con el protocolo NFS o almacenamiento premium). 
+    Un disco en Azure Disks no es más que un disco. Para sacar provecho de Azure Disks, tendrá que conectarlo a una máquina virtual que se ejecute en Azure. Azure Disks puede usarse para todo aquello para lo que quiera usar un disco en un servidor local. Puede usarlo como disco del sistema operativo, como espacio de intercambio para un sistema operativo, o como almacenamiento dedicado para una aplicación. Un uso interesante de Azure Disks consiste en crear un servidor de archivos en la nube para usarlo en los mismos lugares en los que usaría un recurso compartido de archivos de Azure. Implementar un servidor de archivos en Azure Virtual Machines es una manera de alto rendimiento de obtener almacenamiento de archivos en Azure cuando se necesitan opciones de implementación no compatibles actualmente con Azure Files. 
 
     Pero la ejecución de un servidor de archivos con Azure Disks como almacenamiento back-end suele ser mucho más costosa que el uso de un recurso compartido de archivos de Azure por diversos motivos. En primer lugar, además de pagar por el almacenamiento en disco, también debe pagar por el gasto de ejecutar una o más máquinas virtuales de Azure. En segundo lugar, también debe administrar las máquinas virtuales que se usan para ejecutar el servidor de archivos. Por ejemplo, usted es el responsable de las actualizaciones del sistema operativo. Por último, si finalmente se necesita que los datos se almacenen en la caché local, el usuario tiene la última palabra para configurar y administrar las tecnologías de replicación (como la Replicación del sistema de archivos distribuido, o DFSR) para que esto ocurra.
 
@@ -58,17 +58,18 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
 * <a id="get-started"></a>
    **¿Cómo puedo empezar a usar Azure Files?**  
-   Empezar a trabajar con Azure Files es fácil. En primer lugar, [cree un recurso compartido de archivos](storage-how-to-create-file-share.md) y, después, móntelo en su sistema operativo preferido: 
+   Empezar a trabajar con Azure Files es fácil. En primer lugar, [cree un recurso compartido de archivos SMB](storage-how-to-create-file-share.md) o un [recurso compartido NFS](storage-files-how-to-create-nfs-shares.md) y, a continuación, móntelo en el sistema operativo preferido: 
 
-  * [Montaje en Windows](storage-how-to-use-files-windows.md)
-  * [Montaje en Linux](storage-how-to-use-files-linux.md)
-  * [Montaje en macOS](storage-how-to-use-files-mac.md)
+  * [Montaje de un recurso compartido SMB en Windows](storage-how-to-use-files-windows.md)
+  * [Montaje de un recurso compartido SMB en Linux](storage-how-to-use-files-linux.md)
+  * [Montaje de un recurso compartido SMB en macOS](storage-how-to-use-files-mac.md)
+  * [Montaje de un recurso compartido de archivos NFS](storage-files-how-to-mount-nfs-shares.md)
 
     Para obtener información más detallada sobre cómo implementar un recurso compartido de archivos de Azure para reemplazar los recursos compartidos de archivos de producción en su organización, vea [Planeamiento de una implementación de Azure Files](storage-files-planning.md).
 
 * <a id="redundancy-options"></a>
    **¿Qué opciones de redundancia de almacenamiento son compatibles con Azure Files?**  
-    Actualmente, Azure Files admite el almacenamiento con redundancia local (LRS), el almacenamiento con redundancia de zona (ZRS), el almacenamiento con redundancia geográfica (GRS) y el almacenamiento con redundancia de zona geográfica (GZRS). En un futuro, se admitirá el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS), pero aún no se sabe cuándo estará disponible.
+    Actualmente, Azure Files admite el almacenamiento con redundancia local (LRS), el almacenamiento con redundancia de zona (ZRS), el almacenamiento con redundancia geográfica (GRS) y el almacenamiento con redundancia de zona geográfica (GZRS). El nivel Premium de Azure Files actualmente solo admite LRS y ZRS.
 
 * <a id="tier-options"></a>
    **¿Qué capas de almacenamiento son compatibles con Azure Files?**  
@@ -282,6 +283,23 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
  **¿Hay API REST que admitan las operaciones para obtener, establecer o copiar listas ACL de Windows en directorios o archivos?**
 
     Sí, se admiten las API REST que obtengan, establezcan o copien las listas de control de acceso con formato NTFS para directorios o archivos al usar la API REST de [2019-07-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (o posterior). También se admiten listas ACL de Windows persistentes en herramientas basadas en REST: [AzCopy versión 10.4+](https://github.com/Azure/azure-storage-azcopy/releases).
+
+## <a name="network-file-system"></a>Network File System
+
+* <a id="when-to-use-nfs"></a>
+ **¿Cuándo debo usar NFS en Azure Files?**
+
+    Consulte [Recursos compartidos NFS (versión preliminar)](storage-files-compare-protocols.md#nfs-shares-preview).
+
+* <a id="backup-nfs-data"></a>
+ **¿Cómo hago una copia de seguridad de los datos almacenados en recursos compartidos NFS?**
+
+    La realización de copias de seguridad de los datos en recursos compartidos NFS se puede organizar mediante herramientas conocidas, como rsync, o productos de uno de nuestros asociados para la copia de seguridad. Varios asociados para la copia de seguridad, entre los que se incluyen [CommVault](https://documentation.commvault.com/commvault/v11/article?p=92634.htm), [Veeam](https://www.veeam.com/blog/?p=123438) y [Veritas](https://players.brightcove.net/4396107486001/default_default/index.html?videoId=6189967101001), formaron parte de nuestra versión preliminar inicial y han ampliado sus soluciones para que funcionen con SMB 3.0 y NFS 4.1 para Azure Files.
+
+* <a id="migrate-nfs-data"></a>
+ **¿Puedo migrar datos existentes a un recurso compartido NFS?**
+
+    Dentro de una región, puede usar herramientas estándar como scp, rsync o SSHFS para mover los datos. Dado que se puede tener acceso a NFS de Azure Files desde varias instancias de proceso al mismo tiempo, se pueden mejorar las velocidades de copia con cargas paralelas. Si desea traer datos de fuera de una región, use una VPN o Expressroute para montar en el sistema de archivos desde el centro de datos local.
 
 ## <a name="on-premises-access"></a>Acceso local
 

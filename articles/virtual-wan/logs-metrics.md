@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4ce5bc3b4e5ccd26ec3f6b35c995ebe2274042c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0ff647581447ad4436daf6c8b1d2ecbf817f7f8
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749719"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983638"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Registros y métricas de Azure Virtual WAN
 
@@ -62,11 +62,11 @@ Los siguientes pasos le ayudarán a ubicar y ver las métricas:
 
 3. Seleccione **Métricas**.
 
-   :::image type="content" source="./media/logs-metrics/metrics.png" alt-text="métricas":::
+   :::image type="content" source="./media/logs-metrics/metrics.png" alt-text="Captura de pantalla que muestra el panel VPN de sitio a sitio con la opción Ver en Azure Monitor seleccionada.":::
 
 4. En la página **Métricas**, puede ver las métricas que le interesen.
 
-   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="página Métricas":::
+   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="Captura de pantalla que muestra el panel VPN de sitio a sitio con la opción Ver en Azure Monitor seleccionada.":::
 
 ## <a name="diagnostic-logs"></a><a name="diagnostic"></a>Registros de diagnóstico
 
@@ -93,15 +93,15 @@ Los siguientes pasos le ayudarán a localizar y ver los diagnósticos:
 
 1. En el portal, navegue hasta el recurso de Virtual WAN. En la sección **Información general** de la página Virtual WAN del portal, seleccione **Información esencial** para expandir la vista y obtener la información del grupo de recursos. Copie la información del grupo de recursos.
 
-   :::image type="content" source="./media/logs-metrics/3.png" alt-text="página Métricas":::
+   :::image type="content" source="./media/logs-metrics/3.png" alt-text="Captura de pantalla que muestra el panel VPN de sitio a sitio con la opción Ver en Azure Monitor seleccionada.":::
 
 2. En la sección Supervisión, navegue hasta el grupo de recursos. Seleccione **Configuración de diagnóstico** y, a continuación, especifique la información de recursos. Esta es la información de recursos que copió en el paso 2 de la sección [Visualización de métricas de puerta de enlace](#metrics-steps) anteriormente en este artículo.
 
-   :::image type="content" source="./media/logs-metrics/4.png" alt-text="página Métricas":::
+   :::image type="content" source="./media/logs-metrics/4.png" alt-text="Captura de pantalla que muestra el panel VPN de sitio a sitio con la opción Ver en Azure Monitor seleccionada.":::
 
 3. En la página de resultados, seleccione **+ Agregar configuración de diagnóstico** y, después, seleccione una opción. Puede optar por enviar a Log Analytics, transmitir a un centro de eventos o simplemente archivar en una cuenta de almacenamiento.
 
-   :::image type="content" source="./media/logs-metrics/5.png" alt-text="página Métricas":::
+   :::image type="content" source="./media/logs-metrics/5.png" alt-text="Captura de pantalla que muestra el panel VPN de sitio a sitio con la opción Ver en Azure Monitor seleccionada.":::
 
 ### <a name="log-analytics-sample-query"></a><a name="sample-query"></a>Consulta de ejemplo de Log Analytics
 

@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e84fb04d967311fede3be7f20b45f01fb442e69e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 99e15c6d1ca33623151b7a2d75e3e28878f673ef
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228773"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603601"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de inicio de sesión en el portal de Azure Active Directory
 
@@ -147,13 +147,13 @@ En primer lugar, limite los datos informados a un nivel que le resulte más adec
 |SMTP autenticado| |Utilizado por clientes POP e IMAP para enviar mensajes de correo electrónico.|
 |Detección automática| |Usada por clientes Outlook y EAS para buscar y conectarse a buzones en Exchange Online.|
 |Exchange ActiveSync| |Este filtro muestra todos los intentos de inicio de sesión en los que se ha intentado el protocolo EAS.|
-|Browser|![Comprobar](./media/concept-sign-ins/check.png)|Muestra todos los intentos de inicio de sesión de los usuarios mediante exploradores web.|
-|Exchange ActiveSync| | Muestra todos los intentos de inicio de sesión de los usuarios con aplicaciones cliente que usan Exchange ActiceSync para conectarse a Exchange Online.|
+|Browser|![Marca de verificación](./media/concept-sign-ins/check.png)|Muestra todos los intentos de inicio de sesión de los usuarios mediante exploradores web.|
+|Exchange ActiveSync| | Muestra todos los intentos de inicio de sesión de los usuarios con aplicaciones cliente que usan Exchange ActiveSync para conectarse a Exchange Online.|
 |PowerShell de Exchange Online| |Se usa para conectarse a Exchange Online con PowerShell remoto. Si bloquea la autenticación básica para PowerShell de Exchange Online, debe usar el módulo de PowerShell de Exchange Online para conectarse. Para obtener instrucciones, consulte [Conexión a Exchange Online PowerShell con autenticación multifactor](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
 |Servicios web de Exchange| |Una interfaz de programación que se usa en Outlook, Outlook para Mac y aplicaciones de terceros.|
 |IMAP4| |Un cliente de correo heredado que utiliza IMAP para recuperar el correo electrónico.|
 |MAPI sobre HTTP| |Utilizado por Outlook 2010 y versiones posteriores.|
-|Aplicaciones móviles y aplicaciones de escritorio|![Comprobar](./media/concept-sign-ins/check.png)|Muestra todos los intentos de inicio de sesión de los usuarios que usan aplicaciones móviles y clientes de escritorio.|
+|Aplicaciones móviles y aplicaciones de escritorio|![Marca de verificación azul](./media/concept-sign-ins/check.png)|Muestra todos los intentos de inicio de sesión de los usuarios que usan aplicaciones móviles y clientes de escritorio.|
 |Libreta de direcciones sin conexión| |Una copia de las colecciones de listas de direcciones que Outlook descarga y usa.|
 |Outlook en cualquier lugar (RPC sobre HTTP)| |Utilizado por Outlook 2016 y versiones anteriores.|
 |Servicio Outlook| |Usado por la aplicación de correo electrónico y calendario de Windows 10.|
@@ -269,11 +269,11 @@ Al hacer clic en un día del gráfico de uso de la aplicación, obtendrá una li
 
 La opción **Inicios de sesión** ofrece una descripción completa de todos los eventos de inicio de sesión para sus aplicaciones.
 
-## <a name="office-365-activity-logs"></a>Registros de actividad de Office 365
+## <a name="microsoft-365-activity-logs"></a>Registros de actividad de Microsoft 365
 
-Puede ver los registros de actividad de Office 365 desde el [Centro de administración de Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Tenga en cuenta que la actividad de Office 365 y los registros de actividad de Azure AD comparten una cantidad significativa de los recursos del directorio. Solo el centro de administración de Microsoft 365 proporciona una vista completa de los registros de actividad de Office 365. 
+Puede ver los registros de actividad de Microsoft 365 desde el [Centro de administración de Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Tenga en cuenta que la actividad de Microsoft 365 y los registros de actividad de Azure AD comparten una cantidad significativa de los recursos del directorio. Solo el centro de administración de Microsoft 365 proporciona una vista completa de los registros de actividad de Microsoft 365. 
 
-También puede tener acceso a los registros de actividad de Office 365 mediante programación con las [API de administración de Office 365](/office/office-365-management-api/office-365-management-apis-overview).
+También puede tener acceso a los registros de actividad de Microsoft 365 mediante programación con las [API de administración de Office 365](/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

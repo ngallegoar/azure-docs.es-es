@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: abc625c27617c27a79fe284393cdf7b281973bc4
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: f5bedde9e5e095b1b8637a09263bf18b06bcddea
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299270"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532348"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Baja del servicio Azure IoT Hub Device Provisioning para un dispositivo
 
 La administración adecuada de las credenciales del dispositivo es fundamental para los sistemas de alto perfil como las soluciones de IoT. Un procedimiento recomendado para estos sistemas es tener un plan claro de cómo revocar el acceso de los dispositivos en los casos en que sus credenciales, tanto un token de firmas de acceso compartido (SAS) como un certificado X.509, puedan suponer un riesgo. 
 
-La inscripción en el servicio Device Provisioning habilita el [aprovisionamiento automático](concepts-auto-provisioning.md) en los dispositivos. Al aprovisionar un dispositivo, se registra en IoT Hub, lo cual le permite recibir el estado del [dispositivo gemelo](~/articles/iot-hub/iot-hub-devguide-device-twins.md) inicial y empezar a informar de los datos de telemetría. En este artículo se describe cómo dar de baja un dispositivo de la instancia del servicio de aprovisionamiento y evitar así que se vuelva a aprovisionar en el futuro.
+La inscripción en Device Provisioning Service habilita el [aprovisionamiento](about-iot-dps.md#provisioning-process) de un dispositivo. Al aprovisionar un dispositivo, se registra en IoT Hub, lo cual le permite recibir el estado del [dispositivo gemelo](~/articles/iot-hub/iot-hub-devguide-device-twins.md) inicial y empezar a informar de los datos de telemetría. En este artículo se describe cómo dar de baja un dispositivo de la instancia del servicio de aprovisionamiento y evitar así que se vuelva a aprovisionar en el futuro.
 
 > [!NOTE] 
 > Tenga en cuenta la directiva de reintentos de los dispositivos para los que se revoca el acceso. Por ejemplo, un dispositivo que tiene una directiva de reintentos infinitos puede reintentar continuamente registrarse en el servicio de aprovisionamiento. Esta situación consume recursos del servicio y posiblemente afecta al rendimiento.

@@ -3,12 +3,12 @@ title: Copia de seguridad de máquinas virtuales de Azure en un almacén de Reco
 description: Aquí se describe cómo realizar una copia de seguridad de VM de Azure en un almacén de Recovery Services con Azure Backup
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 29895c0358547679a9db7b2f4da203e2b546d67f
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 28cc995afc131e747314032c1363f73531e6915c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145661"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986502"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services
 
@@ -41,10 +41,11 @@ Además, hay un par de cosas que puede que deba hacer en algunas circunstancias:
 
 ### <a name="modify-storage-replication"></a>Modificar la replicación de almacenamiento
 
-De forma predeterminada, los almacenes usan el [almacenamiento con redundancia geográfica (GRS)](../storage/common/storage-redundancy.md).
+De forma predeterminada, los almacenes usan el [almacenamiento con redundancia geográfica (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage).
 
 * Si el almacén es su mecanismo principal de copia de seguridad, le recomendamos que use GRS.
-* Puede usar el [almacenamiento con redundancia local (LRS) ](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) si busca una opción más barata.
+* Puede usar el [almacenamiento con redundancia local (LRS) ](../storage/common/storage-redundancy.md#locally-redundant-storage) si busca una opción más barata.
+* El [almacenamiento con redundancia de zona (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replica los datos en [zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), garantizando así la residencia de datos y la resistencia en la misma región.
 
 Modifique el tipo de replicación de almacenamiento como se indica a continuación:
 

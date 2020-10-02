@@ -6,15 +6,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f29a7e48fc1872f83b5a6ce127f38c1a559b2691
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 51480a49aab2c1277eeb846c593fcb2bc858d1f0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762324"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983722"
 ---
 # <a name="about-virtual-hub-routing"></a>Acerca del enrutamiento de centros virtuales
 
@@ -55,7 +55,7 @@ Las conexiones propagan dinámicamente las rutas a una tabla de rutas. Con una c
 
 También está disponible una **tabla de rutas None** para cada centro virtual. La propagación a la tabla de rutas None significa que no se requiere la propagación de ninguna ruta desde la conexión. Las conexiones VPN, ExpressRoute y VPN de usuario propagan rutas al mismo conjunto de tablas de rutas.
 
-:::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="Propagación":::
+:::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="Asociación":::
 
 ### <a name="labels"></a><a name="static"></a>Etiquetas
 Las etiquetas proporcionan un mecanismo para agrupar las tablas de rutas de forma lógica. Esto es especialmente útil durante la propagación de rutas desde las conexiones a varias tablas de rutas. Por ejemplo, la tabla de rutas predeterminada tiene una etiqueta integrada denominada "Default". Cuando los usuarios propagan las rutas de conexión a la etiqueta "Default", se aplica automáticamente a todas las tablas de rutas predeterminadas que se encuentran en todos los concentradores de Virtual WAN. 
@@ -87,6 +87,7 @@ Tenga en cuenta lo siguiente al configurar el enrutamiento Virtual WAN:
 * Al usar Azure Firewall en varias regiones, todas las redes virtuales de radios deben estar asociadas a la misma tabla de rutas. Por ejemplo, no es posible tener un subconjunto de redes virtuales que pasen por Azure Firewall mientras otras redes virtuales se saltan Azure Firewall en el mismo centro virtual.
 * Se puede configurar una única dirección IP de próximo salto por cada conexión de red virtual.
 * El centro de conectividad virtual no admite la ruta estática para 0.0.0.0/0 ni la conexión de red virtual del próximo salto (o una IP de un dispositivo en la conexión de red virtual)
+* Toda la información relativa a la ruta 0.0.0.0/0 se confina en la tabla de rutas de un centro local. Esta ruta no se propaga entre centros.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

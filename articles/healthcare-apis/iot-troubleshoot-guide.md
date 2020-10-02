@@ -6,14 +6,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 08/07/2020
+ms.date: 09/16/2020
 ms.author: jasteppe
-ms.openlocfilehash: 088d1e409f14fdba02311d1ff17eb655f6e41ad3
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 64056ef2f63331686553c52040af9e10ee0ac468
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053463"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982982"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Guía de solución de problemas del conector de Azure IoT para FHIR (versión preliminar)
 
@@ -25,6 +25,34 @@ Puede usar las copias del archivo JSON de asignaciones de conversión para edita
 
 > [!TIP]
 > Si va a abrir una [incidencia de soporte técnico de Azure](https://azure.microsoft.com/support/create-ticket/) para el conector de Azure IoT para FHIR, asegúrese de incluir copias de su archivo JSON de asignación de conversión para ayudar con el proceso de solución de problemas.
+
+## <a name="device-and-fhir-conversion-mapping-json-template-validations-for-azure-iot-connector-for-fhir-preview"></a>Validaciones de plantilla JSON de asignación de conversión de dispositivo y FHIR para el conector de Azure IoT para FHIR (versión preliminar)
+En esta sección, obtendrá información sobre el proceso de validación que realiza el conector de Azure IoT para FHIR con el fin de validar las plantillas JSON de asignación de conversión de dispositivo y FHIR antes de permitir que se guarden para su uso.  Estos elementos son necesarios en el archivo JSON de asignación de conversión de dispositivo y FHIR.
+
+**Asignación de dispositivos**
+
+|Elemento|Obligatorio|
+|:-------|:------|
+|TypeName|True|
+|TypeMatchExpression|True|
+|DeviceIdExpression|True|
+|TimestampExpression|True|
+|Values[].ValueName|True|
+|Values[].ValueExpression|True|
+
+> [!NOTE]
+> Values[].ValueName y Values[].ValueExpression
+>
+> Estos elementos solo son necesarios si tiene una entrada de valor en la matriz; es válido no asignar ningún valor. Se usa cuando la telemetría que se envía es un evento. Por ejemplo: Cuando se coloca o se quita un dispositivo IoMT ponible. Los elementos no tienen valores, excepto un nombre que el conector de Azure IoT para FHIR empareja y emite. En la conversión FHIR, el conector de Azure IoT para FHIR lo asigna a un concepto codificable basado en el tipo semántico: no se rellenan los valores reales.
+
+**Asignación de FHIR**
+
+|Elemento|Obligatorio|
+|:------|:-------|
+|TypeName|True|
+
+> [!NOTE]
+> Este es el único elemento de asignación FHIR necesario validado en este momento.
 
 ## <a name="error-messages-and-fixes-for-azure-iot-connector-for-fhir-preview"></a>Mensajes de error y correcciones para el conector de Azure IoT para FHIR (versión preliminar)
 
@@ -42,8 +70,8 @@ Puede usar las copias del archivo JSON de asignaciones de conversión para edita
 
 ##  <a name="why-is-my-azure-iot-connector-for-fhir-preview-data-not-showing-up-in-azure-api-for-fhir"></a>¿Por qué los datos del conector de Azure IoT para FHIR (versión preliminar) no aparecen en Azure API for FHIR?
 
-|Posibles problemas  |Correcciones            |
-|------------------|-----------------|
+|Posibles problemas|Correcciones|
+|----------------|-----|
 |Todavía se están procesando los datos.|Los datos salen hacia Azure API for FHIR en lotes (cada 15 minutos aproximadamente).  Es posible que los datos se sigan procesando y que se necesite un tiempo adicional para que los datos se conserven en Azure API for FHIR.|
 |No se ha configurado el archivo JSON de asignación de conversión del dispositivo.|Configure y guarde el archivo JSON conforme de asignación de conversión de dispositivo.|
 |No se ha configurado el archivo JSON de asignación de conversión de FHIR.|Configure y guarde el archivo JSON conforme de asignación de conversión de FHIR.|
@@ -67,22 +95,22 @@ Las copias de los archivos de asignación deben proporcionarse al servicio de so
 
 1. Seleccione **IoT Connector (preview)** (Conector de IoT [versión preliminar]) en la parte inferior izquierda del panel de recursos de Azure API for FHIR en la sección **Complementos**.
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-main-with-box.png" alt-text="Conector de IoT" lightbox="media/iot-troubleshoot/map-files-main-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-main-with-box.png" alt-text="IoT Connector1" lightbox="media/iot-troubleshoot/map-files-main-with-box.png":::
 
 2. Seleccione el **Conector** del que va a copiar el archivo JSON de asignación de conversión.
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="Conector de IoT" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT Connector1" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
 > [!NOTE]
 > Este proceso también se puede usar para copiar y guardar el contenido del archivo JSON de **Configure FHIR mapping** (Configurar asignación de FHIR).
 
 3. Seleccione **Configure device mapping** (Configurar asignación de dispositivo).
 
-    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="Conector de IoT" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
+    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="IoT Connector1" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
 
 4. Seleccione el contenido del archivo JSON y realice una operación de copia (por ejemplo: seleccione CTRL+C). 
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="Conector de IoT" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT Connector1" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
 
 5. Realice una operación de pegado (por ejemplo: seleccione CTRL+V) en un nuevo archivo dentro de un editor (por ejemplo: Visual Studio Code, Bloc de notas) y guarde el archivo con una extensión *.json.
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 62b60afb7dc4adb70a0963984ee7848ab056e823
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 023864e23c0cd23df0de603e76acac651bd2458e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447824"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987589"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Administración de runbooks en Azure Automation
 
@@ -293,7 +293,7 @@ Este resumen muestra un contador y una representación gráfica del estado de tr
 
 Al hacer clic en el icono aparece la página Trabajos, que incluye una lista resumida de todos los trabajos ejecutados. En esta página se muestra el estado, el nombre del runbook, la hora de inicio y la hora de finalización de cada trabajo.
 
-![Página Trabajos de la cuenta de Automation](./media/manage-runbooks/automation-account-jobs-status-blade.png)
+:::image type="content" source="./media/manage-runbooks/automation-account-jobs-status-blade.png" alt-text="Captura de pantalla de la página Trabajos.":::
 
 Para filtrar la lista de trabajos, puede seleccionar **Filtrar trabajos**. Filtre por un runbook específico, estado de trabajo o una opción de la lista desplegable y proporcione el intervalo de tiempo para la búsqueda.
 
@@ -301,7 +301,7 @@ Para filtrar la lista de trabajos, puede seleccionar **Filtrar trabajos**. Filtr
 
 Como alternativa, puede ver los detalles resumidos de los trabajos de un runbook concreto; para ello, selecciónelo en la página Runbooks de la cuenta de Automation y, después, seleccione **Trabajos**. Esta acción presenta la página Trabajos. Desde aquí, puede hacer clic en un registro del trabajo para ver sus detalles y resultados.
 
-![Página Trabajos de la cuenta de Automation](./media/manage-runbooks/automation-runbook-job-summary-blade.png)
+:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Captura de pantalla de la página Trabajos.":::
 
 ### <a name="retrieve-job-statuses-using-powershell"></a>Recuperación de los estados del trabajo con PowerShell
 

@@ -4,25 +4,32 @@ description: Conozca cómo se planea una implementación de Azure Files. Puede m
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 1/3/2020
+ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: db7ae0bd33bc52f80788db4994dcf2a3ca4d909a
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: bf982b313c99034065aad5f246a69caf665a2657
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705918"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563478"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 [Azure Files](storage-files-introduction.md) se puede implementar de dos formas principales: montando directamente los recursos compartidos de archivos de Azure sin servidor o almacenando en caché recursos compartidos de archivos de Azure localmente mediante Azure File Sync. La opción de implementación que elija cambiará todo aquello que debe tener en cuenta a la hora de planear la implementación. 
 
-- **Montaje directo de un recurso compartido de archivos de Azure**: dado que Azure Files proporciona acceso SMB, puede montar recursos compartidos de archivos de Azure locales o en la nube mediante el cliente SMB estándar disponible en Windows, macOS y Linux. Dado que los recursos compartidos de archivos de Azure no tienen servidor, la implementación en escenarios de producción no requiere la administración de un servidor de archivos o un dispositivo NAS, lo que significa que no tiene que aplicar revisiones de software ni intercambiar discos físicos. 
+- **Montaje directo de un recurso compartido de archivos de Azure**: Dado que Azure Files proporciona acceso mediante Bloque de mensajes del servidor (SMB) o Network File System (NFS), puede montar recursos compartidos de archivos de Azure en el entorno local o en la nube mediante los clientes SMB o NFS estándar disponibles en el sistema operativo. Dado que los recursos compartidos de archivos de Azure no tienen servidor, la implementación en escenarios de producción no requiere la administración de un servidor de archivos o un dispositivo NAS, lo que significa que no tiene que aplicar revisiones de software ni intercambiar discos físicos. 
 
-- **Almacenamiento en caché de recursos compartidos de archivos de Azure localmente con Azure File Sync**: Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma una instancia de Windows Server local (o en la nube) en una caché rápida de su recurso compartido de archivos de Azure. 
+- **Almacenamiento en caché de recursos compartidos de archivos de Azure localmente con Azure File Sync**: Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma una instancia de Windows Server local (o en la nube) en una caché rápida de su recurso compartido de archivos SMB de Azure. 
 
 En este artículo se abordan principalmente las consideraciones de implementación de un recurso compartido de archivos de Azure que se va a montar directamente mediante un cliente local o en la nube. Para planear una implementación de Azure File Sync, consulte [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md).
+
+## <a name="available-protocols"></a>Protocolos disponibles
+
+Azure Files ofrece dos protocolos que se pueden usar al montar recursos compartidos de archivos, SMB y Network File System (NFS). Para más información sobre estos protocolos, consulte [Protocolos de recurso compartido de archivos de Azure](storage-files-compare-protocols.md).
+
+> [!IMPORTANT]
+> La mayor parte del contenido de este artículo solo se aplica a los recursos compartidos SMB. Cualquier cosa que se aplique a los recursos compartidos NFS indicará que es aplicable.
 
 ## <a name="management-concepts"></a>Conceptos de administración
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
@@ -54,7 +61,7 @@ Para desbloquear el acceso al recurso compartido de archivos de Azure, tiene dos
 
 - Acceder a recursos compartidos de archivos de Azure a través de una conexión de ExpressRoute o VPN. Al acceder al recurso compartido de archivos de Azure a través de un túnel de red, puede montar el recurso compartido de archivos de Azure como un recurso compartido de archivos local, ya que el tráfico SMB no atraviesa el límite de la organización.   
 
-Aunque desde una perspectiva técnica es considerablemente más fácil montar los recursos compartidos de archivos de Azure a través del punto de conexión público, esperamos que la mayoría de los clientes opten por montar sus recursos compartidos de archivos de Azure a través de una conexión de ExpressRoute o VPN. Para ello, deberá configurar las opciones siguientes para su entorno:  
+Aunque desde una perspectiva técnica es considerablemente más fácil montar los recursos compartidos de archivos de Azure a través del punto de conexión público, esperamos que la mayoría de los clientes opten por montar sus recursos compartidos de archivos de Azure a través de una conexión de ExpressRoute o VPN. El montaje con estas opciones es posible con ambos recursos compartidos, SMB y NFS. Para ello, deberá configurar las opciones siguientes para su entorno:  
 
 - **Tunelización de red mediante ExpressRoute o una VPN de sitio a sitio o de punto a sitio**: la tunelización en una red virtual permite acceder a recursos compartidos de archivos de Azure desde el entorno local, aunque el puerto 445 esté bloqueado.
 - **Puntos de conexión privados**: los puntos de conexión privados proporcionan a su cuenta de almacenamiento una dirección IP dedicada desde el espacio de direcciones de la red virtual. Esto permite la tunelización de red sin necesidad de abrir redes locales en todos los intervalos de direcciones IP que son propiedad de los clústeres de almacenamiento de Azure. 
@@ -66,6 +73,10 @@ Para planear las redes asociadas a la implementación de un recurso compartido d
 Azure Files admite dos tipos de cifrado diferentes: el cifrado en tránsito, que se relaciona con el cifrado que se usa al montar el recurso compartido de archivos de Azure y acceder a este, y el cifrado en reposo, relacionado con la forma en que se cifran los datos cuando se almacenan en el disco. 
 
 ### <a name="encryption-in-transit"></a>Cifrado en tránsito
+
+> [!IMPORTANT]
+> En esta sección se tratan los detalles del cifrado en tránsito para recursos compartidos SMB. Para más información sobre el cifrado en tránsito con recursos compartidos NFS, consulte [Seguridad](storage-files-compare-protocols.md#security).
+
 De forma predeterminada, todas las cuentas de Azure Storage tienen habilitado el cifrado en tránsito. Esto significa que al montar un recurso compartido de archivos a través de SMB o acceder a él a través del protocolo de FileREST (por ejemplo, a través de Azure Portal, la CLI o PowerShell, o los SDK de Azure), Azure Files solo permitirá la conexión si se realiza con una versión posterior a SMB 3.0 con cifrado o HTTPS. Los clientes que no admiten SMB 3.0, o los clientes que admiten SMB 3.0, pero no al cifrado SMB no podrán montar el recurso compartido de archivos de Azure si está habilitado el cifrado en tránsito. Para obtener más información sobre qué sistemas operativos admiten SMB 3.0 con cifrado, consulte nuestra documentación detallada para [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md) y [Linux](storage-how-to-use-files-linux.md). Todas las versiones actuales de PowerShell, la CLI y los SDK admiten HTTPS.  
 
 Puede deshabilitar el cifrado en tránsito para una cuenta de almacenamiento de Azure. Cuando el cifrado está deshabilitado, Azure Files también permite el uso de SMB 2.1, SMB 3.0 sin cifrado y las llamadas a la API de FileREST sin cifrar a través de HTTP. La razón principal para deshabilitar el cifrado en tránsito es admitir una aplicación heredada que debe ejecutarse en un sistema operativo anterior, como Windows Server 2008 R2 o una distribución de Linux anterior. Azure Files solo permite conexiones SMB 2.1 dentro de la misma región de Azure del recurso compartido de archivos de Azure. Un cliente SMB 2.1 fuera de la región de Azure del recurso compartido de archivos de Azure (por ejemplo, en un entorno local o en una región de Azure diferente) no podrá acceder al recurso compartido de archivos.

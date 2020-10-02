@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14612247d241aed420a76ff40e19d04164cbe150
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: a26a7320cab20c769ddf8dd1f24cd6fda0cc7d64
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049934"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561540"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planeamiento de la implementación del acceso condicional
 
@@ -448,7 +448,7 @@ En caso de que necesite revertir las directivas recién implementadas, use una o
 
 Use las siguientes opciones de administración para controlar y administrar las directivas de CA:
 
-![administración-acceso](media/plan-conditional-access/manage-access.png)
+![Captura de pantalla que muestra las opciones de administración de las directivas de CA, incluidas las ubicaciones con nombre, los controles personalizados, las condiciones de uso, la conectividad VPN y las directivas clásicas seleccionadas.](media/plan-conditional-access/manage-access.png)
 
 
 ### <a name="named-locations"></a>Ubicaciones con nombre

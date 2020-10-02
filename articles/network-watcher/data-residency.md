@@ -1,6 +1,6 @@
 ---
 title: Residencia de datos en Azure Network Watcher | Microsoft Docs
-description: Uso de la residencia de datos en el servicio Network Watcher
+description: Este artículo le ayudará a comprender la residencia de datos para el servicio Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -13,28 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: damendo
-ms.openlocfilehash: dff5519c1b36a0a7738cb2529c2f4460ecf61e48
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 9451b6636f2f87806e3d1e39fec4e9e4d4390485
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117842"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706822"
 ---
 # <a name="data-residency-for-azure-network-watcher"></a>Residencia de datos en Azure Network Watcher
-Azure Network Watcher no almacena los datos de los clientes, excepto para el servicio Connection Monitor (versión preliminar).
+A excepción del servicio Connection Monitor (versión preliminar), Azure Network Watcher no almacena datos de los clientes.
 
 
 ## <a name="connection-monitor-preview-data-residency"></a>Residencia de datos de Connection Monitor (versión preliminar)
-El servicio *Connection Monitor (versión preliminar)* almacena datos de clientes. Network Watcher almacena automáticamente estos datos en una sola región. Por tanto, *Connection Monitor (versión preliminar)* satisface automáticamente los requisitos de residencia de datos en la región, incluidos los que se especifican en el [Centro de confianza](https://azuredatacentermap.azurewebsites.net/).
+El servicio Connection Monitor (versión preliminar) almacena datos de los clientes. Network Watcher almacena automáticamente estos datos en una sola región. Por tanto, Connection Monitor (versión preliminar) satisface automáticamente los requisitos de residencia de datos en la región, incluidos los que se especifican en el [Centro de confianza](https://azuredatacentermap.azurewebsites.net/).
 
 ## <a name="singapore-data-residency"></a>Residencia de datos en Singapur
 
-En Azure, la característica que permite almacenar los datos de clientes en una sola región solo está disponible actualmente en la región de Sudeste Asiático (Singapur) de la geoárea Asia Pacífico. En todas las demás regiones, los datos del cliente se almacenan en la geoárea. Para más información, consulte el [Centro de confianza](https://azuredatacentermap.azurewebsites.net/).
-
-> [!Note]
-> **Antes de la replicación** los clientes tienen la opción de almacenar las direcciones IP del usuario final con su instancia de Network Watcher para que Network Watcher puedan supervisar los cambios de disponibilidad, latencia y topología de red relacionados con las direcciones IP del usuario final. Estas direcciones IP de usuario final se pueden clasificar como datos de clientes. A partir del 15 de julio de 2020, Network Watcher almacena estos datos en una sola región. (Los datos de clientes ya no se replican en HK). Estos datos ya no se replican en HK. Estos datos están y fueron cifrados en reposo.
-> 
-> Si estos datos de clientes se pusieran a disposición de un tercero, el tercero podría conocer la dirección IP, pero no se le concedería acceso a la máquina o al dispositivo asociados con la dirección IP. Network Watcher considera que ningún tercero ha tenido acceso a estos datos de clientes en HK.
+En Azure, la característica que permite almacenar los datos de clientes en una sola región solo está disponible actualmente en la región Sudeste Asiático (Singapur) de la geoárea Asia Pacífico. En todas las demás regiones, los datos del cliente se almacenan en la geoárea. Para más información, consulte el [Centro de confianza](https://azuredatacentermap.azurewebsites.net/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,6 +1,6 @@
 ---
 title: 'Script de PowerShell: Enumerar las invitaciones de Azure Data Share enviadas a un consumidor | Microsoft Docs'
-description: Este script de PowerShell acepta invitaciones de un recurso compartido de datos existente.
+description: Obtenga información sobre cómo este script de PowerShell envía invitaciones a un consumidor y vea un ejemplo del script que puede usar.
 services: data-share
 author: joannapea
 ms.service: data-share
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
-ms.openlocfilehash: 157b844afd9d59b6c03c7ae8585bc2182370d3a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3f0374ba5b98c145359d18143584e23fc543c552
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70307148"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985620"
 ---
 # <a name="use-powershell-to-get-a-data-share-invitation"></a>Uso de PowerShell para obtener una invitación de un recurso compartido de datos
 

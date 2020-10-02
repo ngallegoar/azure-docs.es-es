@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 08/04/2020
-ms.openlocfilehash: 5bd78f2db8ea1f2a26d26269822ec78978a3cfde
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: ce63d86c3256646782775c84636c4d248e0a6735
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553315"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984328"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Tutorial: Migración de SQL Server a una Instancia administrada de Azure SQL en línea mediante DMS
 
@@ -35,7 +35,7 @@ En este tutorial, aprenderá a:
 
 > [!IMPORTANT]
 > Para realizar migraciones en línea de SQL Server a la Instancia administrada de SQL mediante Azure Database Migration Service, debe proporcionar la copia de seguridad completa de la base de datos y las copias de seguridad de registros posteriores del recurso compartido de red SMB que el servicio pueda usar para migrar las bases de datos. Azure Database Migration Service no se inicia copias de seguridad y en su lugar usa las copias de seguridad existentes, que puede que ya tenga como parte de su plan de recuperación ante desastres, para la migración.
-> Asegúrese de que realiza las [copias de seguridad mediante la opción WITH CHECKSUM](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017). Además, asegúrese de que no anexa varias copias de seguridad (es decir, completa y del registro de transacciones) a un único soporte físico de copia de seguridad; realice cada copia de seguridad en un archivo de copia de seguridad independiente. Por último, puede usar copias de seguridad comprimidas para reducir la probabilidad de experimentar posibles problemas asociados con la migración de copias de seguridad de gran tamaño.
+> Asegúrese de que realiza las [copias de seguridad mediante la opción WITH CHECKSUM](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017&preserve-view=true). Además, asegúrese de que no anexa varias copias de seguridad (es decir, completa y del registro de transacciones) a un único soporte físico de copia de seguridad; realice cada copia de seguridad en un archivo de copia de seguridad independiente. Por último, puede usar copias de seguridad comprimidas para reducir la probabilidad de experimentar posibles problemas asociados con la migración de copias de seguridad de gran tamaño.
 
 > [!NOTE]
 > El uso de Azure Database Migration Service para realizar una migración en línea requiere la creación de una instancia basada en el plan de tarifa Premium.
@@ -245,7 +245,7 @@ Después de crear una instancia del servicio, búsquela en Azure Portal, ábrala
 
     Puede ampliar aún más las bases de datos y las categorías de inicio de sesión para supervisar el estado de migración de los respectivos objetos de servidor.
 
-   ![Actividad de migración en curso](media/tutorial-sql-server-to-managed-instance-online/dms-monitor-migration-extend2.png)
+   ![Estado de la actividad de migración](media/tutorial-sql-server-to-managed-instance-online/dms-monitor-migration-extend2.png)
 
 ## <a name="performing-migration-cutover"></a>Realización de la migración total
 
@@ -264,7 +264,7 @@ Una vez restaurada la copia de seguridad de la base de datos completa en la inst
     ![Preparación de la migración completa](media/tutorial-sql-server-to-managed-instance-online/dms-complete-cutover.png)
 
     > [!IMPORTANT]
-    > Después de la migración, la disponibilidad de SQL Managed Instance con un nivel de servicio crítico para la empresa puede tardar mucho más que para uso general, ya que se deben inicializar tres réplicas secundarias para el grupo de alta disponibilidad de AlwaysOn. La duración de esta operación depende del tamaño de los datos. Para obtener más información, consulte [Duración de las operaciones de administración](../azure-sql/managed-instance/management-operations-overview.md#management-operations-duration).
+    > Después de la migración, la disponibilidad de SQL Managed Instance con un nivel de servicio crítico para la empresa puede tardar mucho más que para uso general, ya que se deben inicializar tres réplicas secundarias para el grupo de alta disponibilidad de AlwaysOn. La duración de esta operación depende del tamaño de los datos. Para obtener más información, consulte [Duración de las operaciones de administración](../azure-sql/managed-instance/management-operations-overview.md#duration).
 
 5. Cuando el estado de la migración de la base de datos muestre **Completado**, conecte las aplicaciones a la nueva instancia destino de la Instancia administrada de SQL.
 

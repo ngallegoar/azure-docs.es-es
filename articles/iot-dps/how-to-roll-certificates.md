@@ -7,12 +7,12 @@ ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: c2bbfcb4832adba767750256a25c378356cf4c23
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: fbcb3656bc824e2fd352f92314652bd04167b4d8
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299275"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531413"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Implementación de certificados de dispositivo X.509
 
@@ -20,14 +20,14 @@ Durante el ciclo de vida de la solución de IoT, necesitará implementar certifi
 
 La implementación de certificados es un procedimiento recomendado de seguridad para ayudar a proteger el sistema en caso de una infracción de seguridad. Como parte de la [asunción de la metodología de infracción de seguridad](https://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf), Microsoft recomienda la necesidad de contar con procesos de seguridad reactivos junto con medidas preventivas. La implementación de los certificados de dispositivo se debe incluir como parte de estos procesos de seguridad. La frecuencia con la que implementa los certificados dependerá de las necesidades de seguridad de la solución. Los clientes con soluciones que involucran datos altamente confidenciales pueden implementar el certificado diariamente, mientras que otros usuarios implementan sus certificados cada dos años.
 
-La implementación de certificados de dispositivo implica actualizar el certificado almacenado en el dispositivo y el centro de IoT. Después, el dispositivo puede reaprovisionarse así mismo con el centro de IoT mediante [autoaprovisionamiento](concepts-auto-provisioning.md) normal con Device Provisioning Service.
+La implementación de certificados de dispositivo implica actualizar el certificado almacenado en el dispositivo y el centro de IoT. Después, el dispositivo puede reaprovisionarse así mismo con el centro de IoT mediante el [aprovisionamiento](about-iot-dps.md#provisioning-process) normal con Device Provisioning Service.
 
 
 ## <a name="obtain-new-certificates"></a>Obtención de nuevos certificados
 
 Hay muchas maneras de obtener nuevos certificados para los dispositivos de IoT. Entre ellas se incluyen la obtención de certificados de la fábrica del dispositivo, generar sus propios certificados y hacer que un tercero administre la creación de certificados para usted. 
 
-Los certificados están firmados entre sí para formar una cadena de confianza a partir de un certificado de entidad de certificación raíz para un [certificado de hoja](concepts-security.md#end-entity-leaf-certificate). Un certificado de firma es el certificado que se usa para firmar el certificado de hoja al final de la cadena de confianza. Un certificado de firma puede ser un certificado de entidad de certificación raíz o un certificado intermedio en la cadena de confianza. Para más información, vea [Certificados X.509](concepts-security.md#x509-certificates).
+Los certificados están firmados entre sí para formar una cadena de confianza a partir de un certificado de entidad de certificación raíz para un [certificado de hoja](concepts-x509-attestation.md#end-entity-leaf-certificate). Un certificado de firma es el certificado que se usa para firmar el certificado de hoja al final de la cadena de confianza. Un certificado de firma puede ser un certificado de entidad de certificación raíz o un certificado intermedio en la cadena de confianza. Para más información, vea [Certificados X.509](concepts-x509-attestation.md#x509-certificates).
  
 Hay dos maneras diferentes de obtener un certificado de firma. La primera, que se recomienda para los sistemas de producción, consiste en adquirir un certificado de firma de una entidad de certificación raíz (CA). Esta manera encadena la seguridad a un origen de confianza. 
 
@@ -36,7 +36,7 @@ La segunda consiste en crear sus propios certificados X.509 mediante una herrami
 
 ## <a name="roll-the-certificate-on-the-device"></a>Implementación del certificado en el dispositivo
 
-Los certificados de un dispositivo deben almacenarse siempre en un lugar seguro, como un [módulo de seguridad de hardware (HSM)](concepts-device.md#hardware-security-module). La manera de implementar los certificados de dispositivo dependerá de cómo se crearon e instalaron en los dispositivos en primer lugar. 
+Los certificados de un dispositivo deben almacenarse siempre en un lugar seguro, como un [módulo de seguridad de hardware (HSM)](concepts-service.md#hardware-security-module). La manera de implementar los certificados de dispositivo dependerá de cómo se crearon e instalaron en los dispositivos en primer lugar. 
 
 Si obtuvo los certificados de terceros, debe observar cómo implementan los certificados. El proceso puede estar incluido en sus acuerdos con ellos, o puede ser un servicio independiente que ofrecen. 
 
@@ -75,7 +75,7 @@ Si está implementando certificados en respuesta a una infracción de seguridad,
 
     Estos pasos se deben completar para el certificado principal y secundario, si ambos están en peligro.
 
-    ![Administración de inscripciones individuales](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
+    ![Administración de las inscripciones individuales con una infracción de seguridad](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
 
 3. Una vez que se ha quitado el certificado en peligro del servicio de aprovisionamiento, todavía puede utilizarse para realizar conexiones de dispositivo a IoT Hub, siempre y cuando allí exista un registro para ese dispositivo. Esto se soluciona de dos maneras: 
 
@@ -96,7 +96,7 @@ Posteriormente, cuando se aproxima la expiración del certificado secundario y n
 
 2. Haga clic en **Certificado secundario** y luego haga clic en el icono de carpeta para seleccionar el nuevo certificado que se va a cargar para la entrada de inscripción. Haga clic en **Save**(Guardar).
 
-    ![Administración de las inscripciones individuales mediante el certificado secundario](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
+    ![Administración de las inscripciones individuales mediante la expiración del certificado secundario](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
 
 3. Posteriormente, cuando el certificado principal haya expirado, vuelva y elimine ese certificado principal haciendo clic en el botón **Delete current certificate** (Eliminar certificado actual).
 
@@ -118,7 +118,7 @@ Para actualizar una inscripción de grupo en respuesta a una infracción de segu
 
 5. Haga clic en **Certificado de entidad de certificación** y seleccione el nuevo certificado de entidad de certificación raíz. A continuación, haga clic en **Save**(Guardar). 
 
-    ![Selección del nuevo certificado de entidad de certificación raíz](./media/how-to-roll-certificates/select-new-root-cert.png)
+    ![Selección del nuevo certificado de entidad de certificación raíz para un certificado en peligro](./media/how-to-roll-certificates/select-new-root-cert.png)
 
 6. Una vez que se ha quitado el certificado en peligro del servicio de aprovisionamiento, todavía puede utilizarse para realizar conexiones de dispositivo a IoT Hub, siempre y cuando allí exista un registro para ese dispositivo. Esto se soluciona de dos maneras: 
 
@@ -136,9 +136,9 @@ Para actualizar una inscripción de grupo en respuesta a una infracción de segu
 
 2. Haga clic en **Intermediate Certificate** (Certificado intermedio) y **Delete current certificate** (Eliminar certificado actual). Haga clic en el icono de carpeta para navegar al nuevo certificado intermedio que se va a cargar para el grupo de inscripción. Haga clic en **Guardar** cuando haya terminado. Estos pasos se deben completar para el certificado principal y secundario, si ambos están en peligro.
 
-    Este nuevo certificado intermedio debe firmarse mediante un certificado de entidad de certificación raíz comprobado que ya se haya agregado al servicio de aprovisionamiento. Para más información, vea [Certificados X.509](concepts-security.md#x509-certificates).
+    Este nuevo certificado intermedio debe firmarse mediante un certificado de entidad de certificación raíz comprobado que ya se haya agregado al servicio de aprovisionamiento. Para más información, vea [Certificados X.509](concepts-x509-attestation.md#x509-certificates).
 
-    ![Administración de inscripciones individuales](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
+    ![Administración de las inscripciones individuales para un certificado intermedio en peligro](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
 
 
 3. Una vez que se ha quitado el certificado en peligro del servicio de aprovisionamiento, todavía puede utilizarse para realizar conexiones de dispositivo a IoT Hub, siempre y cuando allí exista un registro para ese dispositivo. Esto se soluciona de dos maneras: 
@@ -164,7 +164,7 @@ Posteriormente, cuando se aproxima la expiración del certificado secundario y n
 
 3. Haga clic en **Certificado de entidad de certificación** y seleccione el nuevo certificado de entidad de certificación raíz en la configuración **Certificado secundario**. A continuación, haga clic en **Save**(Guardar). 
 
-    ![Selección del nuevo certificado de entidad de certificación raíz](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
+    ![Selección del nuevo certificado de entidad de certificación raíz para expiración](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 
 4. Posteriormente, cuando el certificado principal haya expirado, haga clic en la pestaña **Certificados** para la instancia de servicio Device Provisioning. Haga clic en el certificado expirado en la lista y luego en el botón **Eliminar**. Confirme la eliminación escribiendo el nombre del certificado y haga clic en **Aceptar**.
 
@@ -179,9 +179,9 @@ Posteriormente, cuando se aproxima la expiración del certificado secundario y n
 
 2. Haga clic en **Certificado secundario** y luego haga clic en el icono de carpeta para seleccionar el nuevo certificado que se va a cargar para la entrada de inscripción. Haga clic en **Save**(Guardar).
 
-    Este nuevo certificado intermedio debe firmarse mediante un certificado de entidad de certificación raíz comprobado que ya se haya agregado al servicio de aprovisionamiento. Para más información, vea [Certificados X.509](concepts-security.md#x509-certificates).
+    Este nuevo certificado intermedio debe firmarse mediante un certificado de entidad de certificación raíz comprobado que ya se haya agregado al servicio de aprovisionamiento. Para más información, vea [Certificados X.509](concepts-x509-attestation.md#x509-certificates).
 
-   ![Administración de las inscripciones individuales mediante el certificado secundario](./media/how-to-roll-certificates/manage-enrollment-group-secondary-portal.png)
+   ![Administración de las grupos de inscripción mediante la expiración del certificado secundario](./media/how-to-roll-certificates/manage-enrollment-group-secondary-portal.png)
 
 3. Posteriormente, cuando el certificado principal haya expirado, vuelva y elimine ese certificado principal haciendo clic en el botón **Delete current certificate** (Eliminar certificado actual).
 
@@ -208,6 +208,6 @@ Una vez que un certificado se incluye como parte de una entrada de inscripción 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información sobre los certificados X.509 en Device Provisioning Service, consulte [Seguridad](concepts-security.md) 
+- Para más información sobre los certificados X.509 en Device Provisioning Service, consulte [Atestación de certificados X.509](concepts-x509-attestation.md) 
 - Para más información sobre cómo realizar una prueba de posesión de certificados de entidad de certificación X.509 con Azure IoT Hub Device Provisioning Service, consulte [Realización de una prueba de posesión de certificados de entidad de certificación X.509 con el servicio Device Provisioning](how-to-verify-certificates.md)
 - Para obtener información acerca de cómo usar el portal para crear un grupo de inscripción, consulte [Administración de inscripciones de dispositivos con Azure Portal](how-to-manage-enrollments.md).

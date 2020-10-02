@@ -1,176 +1,144 @@
 ---
 title: 'Azure Service Bus: actualización automática de las unidades de mensajería'
-description: En este artículo se muestra cómo puede usar un runbook de Azure Automation para actualizar automáticamente las unidades de mensajería de un espacio de nombres de Service Bus.
+description: En este artículo se muestra cómo puede actualizar automáticamente las unidades de mensajería de un espacio de nombres de Service Bus.
 ms.topic: how-to
-ms.date: 06/23/2020
-ms.openlocfilehash: 52f5b13b482739bfa56ff606f684fd5a9c7d3b6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/15/2020
+ms.openlocfilehash: 0a72cc991e768a7bed01762d984cc56238ae0ad0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341502"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984764"
 ---
 # <a name="automatically-update-messaging-units-of-an-azure-service-bus-namespace"></a>Actualización automática de las unidades de mensajería de un espacio de nombres de Azure Service Bus 
-En este artículo se muestra cómo puede actualizar automáticamente las [unidades de mensajería](service-bus-premium-messaging.md) de un espacio de nombres de Service Bus basado en el uso de recursos (CPU o memoria). 
+Gracias al escalado automático, puede ejecutar la cantidad correcta de recursos para administrar la carga de la aplicación. Permite agregar recursos para controlar el aumento de la carga y ahorrar dinero mediante la eliminación de recursos inactivos. Consulte [Información general sobre el escalado automático en Microsoft Azure](../azure-monitor/platform/autoscale-overview.md) para más información sobre la característica de escalado automático de Azure Monitor. 
 
-En el ejemplo de este artículo se muestra cómo aumentar las unidades de mensajería para un espacio de nombres de Service Bus cuando el uso de CPU del espacio de nombres supera el 75 %. Los pasos generales son los siguientes:
+La mensajería Premium de Service Bus proporciona aislamiento de recursos en el nivel de CPU y memoria para que cada carga de trabajo de cliente se ejecute de forma aislada. Este contenedor de recursos se llama **unidad de mensajería**. Para más información sobre las unidades de mensajería, consulte la [Mensajería Premium de Service Bus](service-bus-premium-messaging.md). 
 
-1. Cree un runbook de Azure Automation con un script de PowerShell que escale verticalmente (aumente) las unidades de mensajería para un espacio de nombres de Service Bus. 
-2. Cree una alerta de uso de CPU en el espacio de nombres de Service Bus que invoque el script de PowerShell cuando el uso de CPU del espacio de nombres supere el 75 %. 
+Mediante el uso de la característica de escalado automático para los espacios de nombres de Service Bus Premium, puede especificar un número mínimo y máximo de [unidades de mensajería](service-bus-premium-messaging.md) y agregar o quitar unidades de mensajería automáticamente en función de un conjunto de reglas. 
+
+Por ejemplo, puede implementar los siguientes escenarios de escalado para los espacios de nombres de Service Bus mediante la característica de escalado automático. 
+
+- Aumento de las unidades de mensajería para un espacio de nombres de Service Bus cuando el uso de CPU del espacio de nombres supera el 75 %. 
+- Disminución de las unidades de mensajería para un espacio de nombres de Service Bus cuando el uso de CPU del espacio de nombres cae por debajo del 25 %. 
+- Uso de más unidades de mensajería durante el horario comercial y menos durante las horas de inactividad. 
+
+En este artículo se muestra cómo puede escalar automáticamente un espacio de nombres de Service Bus (actualizar las [unidades de mensajería](service-bus-premium-messaging.md)) en Azure Portal. 
 
 > [!IMPORTANT]
 > Este artículo se aplica solo al nivel **Premium** de Azure Service Bus. 
 
+## <a name="autoscale-setting-page"></a>Página de configuración del escalado automático
+En primer lugar, siga estos pasos para navegar a la página **Configuración de la escalabilidad automática** de su espacio de nombres de Service Bus.
 
-## <a name="create-a-service-bus-namespace"></a>Creación de un espacio de nombres de Service Bus
-Cree un espacio de nombres de Service Bus del nivel Premier. Siga los pasos del artículo [Creación de un espacio de nombres en Azure Portal](service-bus-quickstart-portal.md#create-a-namespace-in-the-azure-portal) para crear el espacio de nombres. 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
+2. En la barra de búsqueda, escriba **Service Bus**, seleccione **Service Bus** en la lista desplegable y presione **Entrar**. 
+1. Seleccione el **espacio de nombres premium** en la lista de espacios de nombres. 
+1. Cambie a la página **Escala**. 
 
-## <a name="create-an-azure-automation-account"></a>Creación de una cuenta de Azure Automation
-Cree una cuenta de Azure Automation siguiendo las instrucciones del artículo [Creación de una cuenta de Azure Automation](../automation/automation-quickstart-create-account.md). 
+    :::image type="content" source="./media/automate-update-messaging-units/scale-page.png" alt-text="Espacio de nombres de Service Bus: página Escala":::
 
-## <a name="import-azservice-module-from-gallery"></a>Importación del módulo Az.Service de la galería
-Importe los módulos `Az.Accounts` y `Az.ServiceBus` de la galería a la cuenta de Automation. El módulo `Az.ServiceBus` depende del módulo `Az.Accounts`, por lo que debe instalarse primero. 
+## <a name="manual-scale"></a>Escala manual 
+Esta configuración permite establecer un número fijo de unidades de mensajería para el espacio de nombres. 
 
-Para obtener instrucciones paso a paso, consulte [Importación de un módulo desde la galería de módulos](../automation/automation-runbook-gallery.md#import-a-module-from-the-module-gallery-with-the-azure-portal).
+1. En la página **Configuración de la escalabilidad automática**, seleccione **Escala manual** si aún no está seleccionada. 
+1. En la configuración **Unidades de mensajería**, seleccione el número de unidades de mensajería en la lista desplegable.
+1. Seleccione **Guardar** en la barra de herramientas para guardar la configuración. 
 
-## <a name="create-and-publish-a-powershell-runbook"></a>Creación y publicación de un runbook de PowerShell
+    :::image type="content" source="./media/automate-update-messaging-units/manual-scale.png" alt-text="Espacio de nombres de Service Bus: página Escala":::       
 
-1. Para crear un runbook de PowerShell, siga las instrucciones del artículo [Creación de un runbook de PowerShell](../automation/automation-quickstart-create-runbook.md). 
 
-    Este es un script de PowerShell de ejemplo que puede usar para aumentar las unidades de mensajería de un espacio de nombres de Service Bus. Este script de PowerShell en un runbook de Automation aumenta las unidades de mensajería de 1 a 2, de 2 a 4 o de 4 a 8. Los valores permitidos para esta propiedad son 1, 2, 4 y 8. Puede crear otro runbook para reducir las unidades de mensajería.
+## <a name="custom-autoscale---default-condition"></a>Escalado automático personalizado: condición predeterminada
+Puede configurar el escalado automático de unidades de mensajería mediante el uso de condiciones. Esta condición de escalado se ejecuta cuando ninguna de las otras condiciones de escalado coincide. Puede establecer la condición predeterminada de una de las siguientes maneras:
 
-    Los parámetros **namespaceName** y **resourceGroupName** se usan para probar el script por separado del escenario de alertas. 
+- Escalado basado en una métrica (como el uso de CPU o de memoria)
+- Escalado a un número específico de unidades de mensajería
+
+No se puede establecer una programación para el escalado automático en un determinado día o intervalo de fechas para una condición predeterminada. Esta condición de escalado se ejecuta cuando no coincide ninguna de las otras condiciones de escalado con programaciones. 
+
+### <a name="scale-based-on-a-metric"></a>Escalado basado en una métrica
+En el procedimiento siguiente se muestra cómo agregar una condición para aumentar automáticamente las unidades de mensajería (escalar horizontalmente) cuando el uso de CPU es superior al 75 % y reducir las unidades de mensajería (reducir horizontalmente) cuando el uso de CPU es inferior al 25 %. Los incrementos se realizan de 1 a 2, de 2 a 4 y de 4 a 8. De forma similar, los decrementos se realizan de 8 a 4, de 4 a 2 y de 2 a 1. 
+
+1. En la página **Configuración de la escalabilidad automática**, seleccione **Escalabilidad automática personalizada** para la opción **Choose how to scale your resource** (Elija cómo escalar el recurso). 
+1. En la sección **Valor predeterminado** de la página, especifique un **nombre** para la condición predeterminada. Seleccione el icono de **lápiz** para editar el texto. 
+1. Seleccione **Escalado basado en una métrica**, para **Modo de escala**. 
+1. Seleccione **+Agregar una regla**. 
+
+    :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-add-rule-link.png" alt-text="Espacio de nombres de Service Bus: página Escala":::    
+1. En la página **Escalar regla**, siga estos pasos:
+    1. Seleccione una métrica de la lista desplegable **Nombre de métrica**. En este ejemplo, es **CPU**. 
+    1. Seleccione un operador y los valores de umbral. En este ejemplo, son **Mayor que** y **75** para **Umbral de la métrica para desencadenar la acción de escalado**. 
+    1. Seleccione una **operación** en la sección **Acción**. En este ejemplo, se ha establecido en **Aumentar**. 
+    1. Luego, seleccione **Agregar**.
     
-    El parámetro **WebHookData** es para que la alerta pase información como el nombre del grupo de recursos, el nombre del recurso, etc. en tiempo de ejecución. 
+        :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-75.png" alt-text="Espacio de nombres de Service Bus: página Escala":::       
 
-    ```powershell
-    [OutputType("PSAzureOperationResponse")]
-    param
-    (
-        [Parameter (Mandatory=$false)]
-        [object] $WebhookData,
-    
-        [Parameter (Mandatory = $false)]
-        [String] $namespaceName,
-    
-        [Parameter (Mandatory = $false)]
-        [String] $resourceGroupName
-    )
-    
-    
-    if ($WebhookData)
-    {
-        # Get the data object from WebhookData
-        $WebhookBody = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
-    
-        # Get the alert schema ID
-        $schemaId = $WebhookBody.schemaId
+        > [!NOTE]
+        > La característica de escalado automático aumenta las unidades de mensajería del espacio de nombres si el uso total de CPU supera el 75 % en este ejemplo. Los incrementos se realizan de 1 a 2, de 2 a 4 y de 4 a 8. 
+1. Seleccione **+ Agregar una regla** y siga estos pasos en la página **Escalar regla**:
+    1. Seleccione una métrica de la lista desplegable **Nombre de métrica**. En este ejemplo, es **CPU**. 
+    1. Seleccione un operador y los valores de umbral. En este ejemplo, son **Menor que** y **25** para **Umbral de la métrica para desencadenar la acción de escalado**. 
+    1. Seleccione una **operación** en la sección **Acción**. En este ejemplo, se ha establecido en **Disminuir**. 
+    1. Luego, seleccione **Agregar**. 
 
-        # If it's a metric alert
-        if ($schemaId -eq "AzureMonitorMetricAlert") {
+        :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-25.png" alt-text="Espacio de nombres de Service Bus: página Escala":::       
 
-            # Get the resource group name from the alert context
-            $resourceGroupName = $WebhookBody.resourceGroupName
-            
-            # Get the namespace name from the alert context
-            $namespaceName = $WebhookBody.resourceName
-        }
-    }
+        > [!NOTE]
+        > La característica de escalado automático disminuye las unidades de mensajería del espacio de nombres si el uso total de CPU cae por debajo del 25 % en este ejemplo. Los decrementos se realizan de 8 a 4, de 4 a 2 y de 2 a 1. 
+1. Establezca el número **mínimo**, **máximo** y **predeterminado** de unidades de mensajería.
+
+    :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-based.png" alt-text="Espacio de nombres de Service Bus: página Escala":::
+1. Seleccione **Guardar** en la barra de herramientas para guardar la configuración de escalado automático. 
+        
+### <a name="scale-to-specific-number-of-messaging-units"></a>Escalado a un número específico de unidades de mensajería
+Siga estos pasos para configurar la regla con el fin de escalar el espacio de nombres para usar un número específico de unidades de mensajería. De nuevo, se aplica la condición predeterminada cuando no coincide ninguna de las otras condiciones de escalado. 
+
+1. En la página **Configuración de la escalabilidad automática**, seleccione **Escalabilidad automática personalizada** para la opción **Choose how to scale your resource** (Elija cómo escalar el recurso). 
+1. En la sección **Valor predeterminado** de la página, especifique un **nombre** para la condición predeterminada. 
+1. Seleccione **Scale to specific messaging units** (Escalar a un número específico de unidades de mensajería) para **Modo de escala**. 
+1. En **Unidades de mensajería**, seleccione el número predeterminado de unidades de mensajería. 
+
+    :::image type="content" source="./media/automate-update-messaging-units/default-scale-messaging-units.png" alt-text="Espacio de nombres de Service Bus: página Escala":::       
+
+## <a name="custom-autoscale---additional-conditions"></a>Escalado automático personalizado: condiciones adicionales
+En la sección anterior se muestra cómo agregar una condición predeterminada a la configuración de escalado automático. En esta sección se muestra cómo agregar más condiciones a la configuración de escalado automático. Para estas condiciones adicionales no predeterminadas, puede establecer una programación basada en días específicos de la semana o en un intervalo de fechas. 
+
+### <a name="scale-based-on-a-metric"></a>Escalado basado en una métrica
+1. En la página **Configuración de la escalabilidad automática**, seleccione **Escalabilidad automática personalizada** para la opción **Choose how to scale your resource** (Elija cómo escalar el recurso). 
+1. Seleccione **Agregar una condición de escala** en el bloque **Valor predeterminado**. 
+
+    :::image type="content" source="./media/automate-update-messaging-units/add-scale-condition-link.png" alt-text="Espacio de nombres de Service Bus: página Escala":::    
+1. Especifique un **nombre** para la condición. 
+1. Confirme que la opción **Escalado basado en una métrica** está seleccionada. 
+1. Seleccione **+ Agregar una regla** para agregar una regla a fin de aumentar las unidades de mensajería cuando el uso total de CPU supere el 75 %. Siga los pasos de la sección sobre la [condición predeterminada](#custom-autoscale---default-condition). 
+5. Establezca el número **mínimo**, **máximo** y **predeterminado** de unidades de mensajería.
+6. También puede establecer una **programación** en una condición personalizada (pero no en la condición predeterminada). Puede especificar las fechas de inicio y finalización de la condición, o seleccionar días específicos (lunes, martes, etc.) de una semana. 
+    1. Si selecciona **Especifique las fechas de inicio y finalización**, seleccione la **Zona horaria**, la **Fecha y hora de inicio** y la **Fecha y hora de finalización** (como se muestra en la siguiente imagen) para que la condición esté en vigor. 
+
+       :::image type="content" source="./media/automate-update-messaging-units/custom-min-max-default.png" alt-text="Espacio de nombres de Service Bus: página Escala":::
+    1. Si selecciona **Repetir en días específicos**, seleccione los días de la semana, la zona horaria, la hora de inicio y la hora de finalización en que debe aplicarse la condición. 
+
+        :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days.png" alt-text="Espacio de nombres de Service Bus: página Escala":::
+  
+### <a name="scale-to-specific-number-of-messaging-units"></a>Escalado a un número específico de unidades de mensajería
+1. En la página **Configuración de la escalabilidad automática**, seleccione **Escalabilidad automática personalizada** para la opción **Choose how to scale your resource** (Elija cómo escalar el recurso). 
+1. Seleccione **Agregar una condición de escala** en el bloque **Valor predeterminado**. 
+
+    :::image type="content" source="./media/automate-update-messaging-units/add-scale-condition-link.png" alt-text="Espacio de nombres de Service Bus: página Escala":::    
+1. Especifique un **nombre** para la condición. 
+2. Seleccione la opción **Scale to specific messaging units** (Escalar a un número específico de unidades de mensajería) para **Modo de escala**. 
+1. Seleccione el número de **unidades de mensajería** en la lista desplegable. 
+6. Para la **programación**, especifique las fechas de inicio y finalización de la condición, o seleccione días específicos (lunes, martes, etc.) de una semana y las horas. 
+    1. Si selecciona **Especifique las fechas de inicio y finalización**, seleccione la **Zona horaria**, la **Fecha y hora de inicio** y la **Fecha y hora de finalización** para que la condición esté en vigor. 
     
-    # Connect to Azure account
-    $connection = Get-AutomationConnection -Name AzureRunAsConnection
+    :::image type="content" source="./media/automate-update-messaging-units/scale-specific-messaging-units-start-end-dates.png" alt-text="Espacio de nombres de Service Bus: página Escala":::        
+    1. Si selecciona **Repetir en días específicos**, seleccione los días de la semana, la zona horaria, la hora de inicio y la hora de finalización en que debe aplicarse la condición.
     
-    while(!($connectionResult) -And ($logonAttempt -le 10))
-    {
-        $LogonAttempt++
-        # Logging in to Azure...
-        $connectionResult =    Connect-AzAccount `
-                                    -ServicePrincipal `
-                                    -Tenant $connection.TenantID `
-                                    -ApplicationId $connection.ApplicationID `
-                                    -CertificateThumbprint $connection.CertificateThumbprint
-    
-        Start-Sleep -Seconds 30
-    }
-    
-    # Get the current capacity (number of messaging units) of the namespace
-    $sbusns=Get-AzServiceBusNamespace `
-        -Name $namespaceName `
-        -ResourceGroupName $resourceGroupName
-    
-    $currentCapacity = $sbusns.Sku.Capacity
-    
-    # Increase the capacity
-    # Capacity can be one of these values: 1, 2, 4, 8
-    if ($currentCapacity -eq 1) {
-        $newMU = 2
-    }
-    elseif ($currentCapacity -eq 2) {
-        $newMU = 4
-    }
-    elseif ($currentCapacity -eq 4) {
-        $newMU = 8    
-    }
-    else {
-    
-    }
-    
-    # Update the capacity of the namespace
-    Set-AzServiceBusNamespace `
-            -Location eastus `
-            -SkuName Premium `
-            -Name $namespaceName `
-            -SkuCapacity $newMU `
-            -ResourceGroupName $resourceGroupName
+    :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days-2.png" alt-text="Espacio de nombres de Service Bus: página Escala":::
 
-    ```
-2. [Pruebe el libro ](../automation/manage-runbooks.md#test-a-runbook); para ello, especifique los valores de los parámetros **namespaceName** y **resourceGroupName**. Confirme que las unidades de mensajería del espacio de nombres estén actualizadas. 
-3. Después de realizar la prueba correctamente, [publique el libro](..//automation/manage-runbooks.md#publish-a-runbook) de modo que esté disponible para agregarlo como una acción para una alerta en el espacio de nombres más adelante. 
-
-## <a name="create-an-alert-on-the-namespace-to-trigger-the-runbook"></a>Creación de una alerta en el espacio de nombres para desencadenar el runbook
-Consulte el artículo [Uso de una alerta para desencadenar un runbook de Azure Automation](../automation/automation-create-alert-triggered-runbook.md) para configurar una alerta en el espacio de nombres de Service Bus y desencadenar el runbook de Automation que creó. Por ejemplo, puede crear una alerta sobre la métrica del **uso de CPU por espacio de nombres** o del **uso del tamaño de memoria por espacio de nombres**, y agregar una acción para desencadenar el runbook de Automation que creó. Para más información sobre estas métricas, consulte [Métricas de uso de recursos](service-bus-metrics-azure-monitor.md#resource-usage-metrics).
-
-El siguiente procedimiento muestra cómo crear una alerta que desencadene el runbook de Automation cuando el **uso de CPU** del espacio de nombres supere el **75 %** .
-
-1. En la página **Espacio de nombres de Service Bus** del espacio de nombres, seleccione **Alertas** en el menú de la izquierda y, a continuación, seleccione **+ Nueva regla de alerta** en la barra de herramientas. 
-    
-    ![Página Alertas: botón Nueva regla de alerta](./media/automate-update-messaging-units/alerts-page.png)
-2. En la página **Crear regla de alerta**, haga clic en **Seleccionar condición**. 
-
-    ![Página Crear regla de alerta: Seleccionar condición](./media/automate-update-messaging-units/alert-rule-select-condition.png) 
-3. En la página **Configurar lógica de señal**, seleccione **CPU** para la señal. 
-
-    ![Configuración de la lógica de señal: seleccionar CPU](./media/automate-update-messaging-units/configure-signal-logic.png)
-4. Escriba un **valor de umbral** (en este ejemplo, es **75 %** ) y seleccione **Listo**. 
-
-    ![Configuración de la señal de CPU](./media/automate-update-messaging-units/cpu-signal-configuration.png)
-5. Ahora, en la **página Crear alerta**, haga clic en **Seleccionar grupo de acciones**.
-    
-    ![Selección del grupo de acciones](./media/automate-update-messaging-units/select-action-group-button.png)
-6. Seleccione el botón **Crear grupo de acciones** en la barra de herramientas. 
-
-    ![Creación de un botón de grupo de acciones](./media/automate-update-messaging-units/create-action-group-button.png)
-7. En la página **Agregar grupo de acciones**, realice los pasos siguientes:
-    1. Escriba un **nombre** para el grupo de acciones. 
-    2. Escriba un **nombre corto** para el grupo de acciones.
-    3. Seleccione la **suscripción** en la que desee crear este grupo de acciones.
-    4. Seleccione el **grupo de recursos**. 
-    5. En la sección **Acciones**, escriba un **nombre para la acción** y seleccione **Runbook de Automation** en **Tipo de acción**. 
-
-        ![Página Agregar grupo de acciones](./media/automate-update-messaging-units/add-action-group-page.png)
-8. En la página **Configurar Runbook**, siga estos pasos:
-    1. En **Origen de Runbook**, seleccione **Usuario**. 
-    2. En **Suscripción**, seleccione su **suscripción** de Azure que contenga la cuenta de Automation. 
-    3. En la página **Cuenta de Automation**, seleccione su **cuenta de Automation**.
-    4. En **Runbook**, seleccione su runbook. 
-    5. Seleccione **Aceptar** en la página **Configurar Runbook**. 
-        ![Configurar Runbook](./media/automate-update-messaging-units/configure-runbook.png)
-9. Seleccione **Aceptar** en la página **Agregar grupo de acciones**. 
-5. Ahora, en la página **Crear regla de alerta**, escriba un **nombre para la regla** y, a continuación, seleccione **Crear regla de alerta**. 
-    ![Crear regla de alerta](./media/automate-update-messaging-units/create-alert-rule.png)
-
-    > [!NOTE]
-    > Ahora, cuando el uso de CPU del espacio de nombres supera el 75 %, la alerta desencadena el runbook de Automation, que aumenta las unidades de mensajería del espacio de nombres de Service Bus. Del mismo modo, puede crear una alerta para otro runbook de Automation, lo que reduce las unidades de mensajería si el uso de CPU del espacio de nombres desciende por debajo de 25 %. 
+> [!IMPORTANT]
+> Para más información sobre cómo funciona la configuración del escalado automático, especialmente cómo se elige un perfil o condición y se evalúan varias reglas, consulte [Información acerca de la configuración de escalado automático](../azure-monitor/platform/autoscale-understanding-settings.md).          
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener información acerca de las unidades de mensajería, consulte la [mensajería Prémium](service-bus-premium-messaging.md)
+

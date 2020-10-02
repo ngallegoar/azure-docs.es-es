@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: 4882fadcc2f05e4047366d8d097a3918091035bb
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e52bd150f72ba663c504b81832ce83d3e38cbf04
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005319"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986775"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para desarrolladores de aplicaciones para administrar recursos en Azure Kubernetes Services (AKS)
 
@@ -22,7 +22,7 @@ Este artículo de procedimientos recomendados se centra en cómo ejecutar el cl�
 
 > [!div class="checklist"]
 > * Cuáles son los límites y solicitudes de recursos del pod
-> * Formas de desarrollar e implementar aplicaciones con Dev Spaces y Visual Studio Code
+> * Formas de desarrollar e implementar aplicaciones con Bridge to Kubernetes y Visual Studio Code
 > * Cómo usar la herramienta `kube-advisor` para comprobar si existen problemas con las implementaciones
 
 ## <a name="define-pod-resource-requests-and-limits"></a>Definición de los límites y solicitudes de recursos del pod
@@ -74,13 +74,13 @@ Para obtener más información acerca de las asignaciones y medidas de recursos,
 
 ## <a name="develop-and-debug-applications-against-an-aks-cluster"></a>Desarrollo y depuración de aplicaciones en un clúster de AKS
 
-**Guía de procedimientos recomendados**: los equipos de desarrollo deben realizar la implementación y depuración en un clúster de AKS mediante Dev Spaces. Este modelo de desarrollo garantiza el cumplimiento de los requisitos de almacenamiento, red o control de acceso basado en rol antes de implementar la aplicación en el entorno de producción.
+**Guía de procedimientos recomendados**: los equipos de desarrollo deben realizar la implementación y depuración en un clúster de AKS mediante Bridge to Kubernetes.
 
-Con Azure Dev Spaces, desarrolle, depure y pruebe aplicaciones directamente en un clúster de AKS. Los desarrolladores de un equipo colaboran para realizar compilaciones y pruebas a lo largo del ciclo de vida de la aplicación. Puede seguir usando herramientas existentes, como Visual Studio o Visual Studio Code. Se instala una extensión para Dev Spaces que ofrece una opción para ejecutar y depurar la aplicación en un clúster de AKS.
+Con Bridge to Kubernetes, desarrolle, depure y pruebe aplicaciones directamente en un clúster de AKS. Los desarrolladores de un equipo colaboran para realizar compilaciones y pruebas a lo largo del ciclo de vida de la aplicación. Puede seguir usando herramientas existentes, como Visual Studio o Visual Studio Code. Se instala una extensión para Bridge to Kubernetes que permite desarrollar directamente en un clúster de AKS.
 
-Este proceso de desarrollo y pruebas integrado con Dev Spaces reduce la necesidad de entornos de prueba locales, como [minikube][minikube]. En su lugar, desarrolle y haga pruebas con un clúster de AKS. Este clúster se puede proteger y aislar como se indicó en la sección anterior sobre el uso de espacios de nombres para aislar un clúster de forma lógica. Cuando las aplicaciones estén listas para implementarse en producción, podrá implementarlas de forma segura, ya que el desarrollo se realizó totalmente en un clúster de AKS real.
+Este proceso de desarrollo y pruebas integrado con Bridge to Kubernetes reduce la necesidad de entornos de prueba locales, como [minikube][minikube]. En su lugar, desarrolle y haga pruebas con un clúster de AKS. Este clúster se puede proteger y aislar como se indicó en la sección anterior sobre el uso de espacios de nombres para aislar un clúster de forma lógica.
 
-Azure Dev Spaces está pensado para su uso con aplicaciones que se ejecutan en nodos y pods de Linux.
+Bridge to Kubernetes está pensado para su uso con aplicaciones que se ejecutan en nodos y pods de Linux.
 
 ## <a name="use-the-visual-studio-code-extension-for-kubernetes"></a>Uso de la extensión de Visual Studio Code para Kubernetes
 
@@ -106,7 +106,7 @@ Este artículo de procedimientos recomendados se centra en cómo ejecutar el cl�
 
 Para implementar algunos de estos procedimientos recomendados, consulte los artículos siguientes:
 
-* [Desarrollo con Dev Spaces][dev-spaces]
+* [Desarrollo con Bridge to Kubernetes][btk]
 * [Comprobación de problemas con kube-advisor][aks-kubeadvisor]
 
 <!-- EXTERNAL LINKS -->
@@ -117,7 +117,7 @@ Para implementar algunos de estos procedimientos recomendados, consulte los art�
 
 <!-- INTERNAL LINKS -->
 [aks-kubeadvisor]: kube-advisor-tool.md
-[dev-spaces]: /visualstudio/containers/overview-local-process-kubernetes
+[btk]: /visualstudio/containers/overview-bridge-to-kubernetes
 [operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas
 [k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 09/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 9b68d3724c6390fc5d30745924451e27ef9855b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3aa42d6060ecdd93dd97438a025c4f5e4f05ac52
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81417732"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531736"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Formato ORC en Azure Data Factory
 
@@ -82,7 +82,16 @@ En la sección ***\*sink\**** de la actividad de copia se admiten las siguientes
 | Propiedad      | Descripción                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | La propiedad type del origen de la actividad de copia debe establecerse en **OrcSink**. | Sí      |
+| formatSettings | Un grupo de propiedades. Consulte la tabla **Configuración de escritura de ORC** a continuación. |    No      |
 | storeSettings | Un grupo de propiedades sobre cómo escribir datos en un almacén de datos. Cada conector basado en archivos tiene su propia configuración de escritura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia**. | No       |
+
+**Configuración de escritura de ORC** compatible en `formatSettings`:
+
+| Propiedad      | Descripción                                                  | Obligatorio                                              |
+| ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
+| type          | La propiedad type de formatSettings debe establecerse en **OrcWriteSettings**. | Sí                                                   |
+| maxRowsPerFile | Al escribir datos en una carpeta, puede optar por escribir en varios archivos y especificar el número máximo de filas por archivo.  | No |
+| fileNamePrefix | Se aplica cuando se configura `maxRowsPerFile`.<br> Especifique el prefijo de nombre de archivo al escribir datos en varios archivos, lo que da como resultado este patrón: `<fileNamePrefix>_00000.<fileExtension>`. Si no se especifica, el prefijo de nombre de archivo se generará automáticamente. Esta propiedad no se aplica cuando el origen es un almacén basado en archivos o un [almacén de datos habilitado para la opción de partición](copy-activity-performance-features.md).  | No |
 
 ## <a name="using-self-hosted-integration-runtime"></a>Uso del entorno de ejecución de integración autohospedado
 

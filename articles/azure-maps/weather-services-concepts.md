@@ -1,23 +1,23 @@
 ---
-title: Conceptos de servicios meteorológicos | Microsoft Azure Maps
-description: En este artículo, obtendrá información sobre los conceptos que se aplican a los servicios meteorológicos de Microsoft Azure Maps.
+title: Conceptos de servicios meteorológicos en Microsoft Azure Maps
+description: En este artículo, obtendrá información sobre los conceptos que se aplican a los servicios meteorológicos de Microsoft Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/20/2019
+ms.date: 09/10/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e8ecbd50aa4490bde705b386a67b8732bb8c02c9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 4430737814ef904e83b2bf3ce25edf3d44e2668d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132116"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972044"
 ---
 # <a name="weather-services-in-azure-maps"></a>Servicios meteorológicos de Azure Maps
 
-En este artículo se presentan los conceptos que se aplican a los [Servicios meteorológicos de Azure Maps](https://aka.ms/AzureMapsWeatherService). Se recomienda consultar este artículo antes de empezar a usar las API meteorológicas. 
+En este artículo se presentan los conceptos que se aplican a los [Servicios meteorológicos de Azure Maps](https://aka.ms/AzureMapsWeatherService). Se recomienda consultar este artículo antes de empezar a usar las API meteorológicas.
 
 ## <a name="unit-types"></a>Tipos de unidad
 
@@ -472,3 +472,169 @@ A continuación se muestra una paleta de color detallada para iconos de satélit
 |307,57  |#02555555     |
 |308     |#00525252     |
 |308     |#00525252     |
+
+## <a name="index-ids-and-index-groups-ids"></a>Id. de índice e id. de grupos de índices
+
+La [API para obtener índices diarios](https://aka.ms/AzureMapsWeatherDailyIndices) permite a los usuarios restringir los resultados devueltos a tipos de índice o grupos de índices concretos.
+
+A continuación, se muestra una tabla de id. de índice disponibles, sus nombres y un vínculo a sus conjuntos de intervalos. Debajo de esta tabla encontrará una tabla que enumera los distintos grupos de índices.
+
+  Nombre de índice |  ID  | Intervalo de valores
+  -------------------------- |---|-----
+  Dolor de artritis             |21 | [Beneficioso - Riesgo extremo](#beneficial-at-extreme-risk)
+  Asma                     |23|  [Beneficioso - Riesgo extremo](#beneficial-at-extreme-risk)
+  Playa y piscina               |10| [Malo - Excelente 1](#poor-excellent-1)
+  Ciclismo                  |4| [Malo - Excelente 1](#poor-excellent-1)
+  Resfriado común                |25|  [Beneficioso - Riesgo extremo](#beneficial-at-extreme-risk)
+  Compostaje                 |38| [Malo - Excelente 1](#poor-excellent-1)
+  Construcción               |14| [Malo - Excelente 1](#poor-excellent-1)
+  EPOC                       |44|  [Beneficioso - Riesgo extremo](#beneficial-at-extreme-risk)
+  Confort al pasear al perro        |43| [Malo - Excelente 1](#poor-excellent-1)
+  Conducción                    |40|  [Malo - Excelente 2](#poor-excellent-2)
+  Polvo y caspa              |18| [Bajo - Extremo 1](#low-extreme-1)
+  Preparación del campo            |32| [Malo - Excelente 1](#poor-excellent-1)
+  Pesca                    |13| [Malo - Excelente 1](#poor-excellent-1)
+  Retrasos de vuelos              |-3|  [Muy improbable - Muy probable 2](#very-unlikely-very-likely-2)
+  Gripe                        |26|  [Beneficioso - Riesgo extremo](#beneficial-at-extreme-risk)
+  Índice de viajes en avión        |31| [Excelente - Malo](#excellent-poor)
+  Ahorro de combustible               |37| [Malo - Excelente 1](#poor-excellent-1)
+  Condiciones para el golf               |5| [Malo - Excelente 1](#poor-excellent-1)
+  Crecimiento del césped              |33| [Malo - Excelente 1](#poor-excellent-1)
+  Encrespamiento del cabello                 |42| [Improbable - Emergencia](#unlikely-emergency)
+  Fitness para un corazón sano      |16| [Malo - Excelente 1](#poor-excellent-1)
+  Senderismo                     |3| [Malo - Excelente 1](#poor-excellent-1)
+  Eficiencia energética doméstica     |36| [Malo - Excelente 1](#poor-excellent-1)
+  Búsqueda                    | 20| [Malo - Excelente 1](#poor-excellent-1)
+  Actividad en el interior            | -2| [Malo - Excelente 1](#poor-excellent-1)
+  Jogging                    |2| [Malo - Excelente 1](#poor-excellent-1)
+  Vuelo de cometas                |9| [Malo - Excelente 1](#poor-excellent-1)
+  Corte del césped                |28| [Malo - Excelente 1](#poor-excellent-1)
+  Migraña          |27|  [Beneficioso - Riesgo extremo](#beneficial-at-extreme-risk)
+  Autobús escolar de la mañana         |35| [Malo - Excelente 1](#poor-excellent-1)
+  Actividad de mosquitos          |17|[Bajo - Extremo 1](#low-extreme-1)
+  Actividad en el exterior           |29| [Malo - Excelente 1](#poor-excellent-1)
+  Barbacoa en el exterior           |24| [Malo - Excelente 1](#poor-excellent-1)
+  Concierto en el exterior            |8| [Malo - Excelente 1](#poor-excellent-1)
+  En ejecución                    |1|  [Malo - Excelente 1](#poor-excellent-1)
+  Tenis                     |6| [Malo - Excelente 1](#poor-excellent-1)
+  Sed                     |41| [Bajo - Extremo 2](#low-extreme-2)
+  Navegación                    |11| [Malo - Excelente 1](#poor-excellent-1)
+  Compras                   |39| [Malo - Excelente 1](#poor-excellent-1)
+  Sinusitis             |30|  [Beneficioso - Riesgo extremo](#beneficial-at-extreme-risk)
+  Monopatín              | 7| [Malo - Excelente 1](#poor-excellent-1)
+  Condiciones para el esquí                | 15| [Malo - Excelente 1](#poor-excellent-1)
+  Días de nieve                  | 19| [Muy improbable - Muy probable](#very-unlikely-very-likely)
+  Humedad del suelo              | 34| [Malo - Excelente 1](#poor-excellent-1)
+  Contemplación de las estrellas                 | 12| [Malo - Excelente 1](#poor-excellent-1)
+
+A continuación, se muestra la lista de grupos de índices disponibles (indexGroupId):
+
+  ID   | Nombre del grupo | Índices de este grupo |
+  -------- | ------------------|------
+  1       |All | All
+  2       |Dolores y malestares | Dolor de artritis (21) </br> Migraña (27) </br> Sinusitis (30)
+  3       |Respiratorio | Asma (23) </br> Resfriado común (25) </br> Previsión de gripe (26)
+  4       |Jardinería | Preparación del campo (32) </br> Corte del césped (28) </br> Humedad del suelo (34)</br>
+  5       |Medioambiental | Compostaje (38) </br> Eficiencia energética doméstica (36) </br> Ahorro de combustible (37)
+  6       |Vida exterior | Barbacoa en el exterior (24) </br> Actividad de mosquitos (17)
+  7       |Playa y marina | Playa y piscina (10) </br> Pesca (13) </br> Navegación (11)
+  8       |Deportes | Pesca (13) </br> Caza (20) </br> Actividad en el exterior (29)</br>
+  9       |Agricultura |  Preparación del campo (32) </br>  Humedad del suelo (34)
+  10      |Sanidad | Dolor de artritis (21) </br> Asma (23) </br> Resfriado común (25) </br> Polvo y caspa (18) </br> Gripe (26) </br> Fitness para un corazón sano (16) </br> Migraña (27)
+  11      |Exterior | Barbacoa en el exterior (24) </br> Playa y piscina (10) </br> Ciclismo (4) </br> Concierto en el exterior (8) </br>  Preparación del campo (32) </br> Pesca (13) </br> Condiciones para el golf (5) </br> Senderismo (3) </br> Caza (20) </br> Jogging (2) </br> Vuelo de cometas (9) </br> Actividad de mosquitos (17)</br> Corte del césped (28) </br> Actividad en el exterior (29) </br> Correr (1) </br> Navegación (11) </br> Monopatín (7) </br> Condiciones para el esquí (15) </br>  Humedad del suelo (34)</br> Contemplación de las estrellas (12) </br> Tenis (6)
+  12      |Deporte | Ciclismo (4) </br> Condiciones para el golf (5) </br> Senderismo (3) </br>  Jogging (2) </br> Correr (1) </br> Monopatín (7) </br> Condiciones para el esquí (15) </br>Tenis (6)
+  13      |Página principal | Eficiencia energética doméstica (36) </br> Ahorro de combustible (37) </br> Actividad en el interior (-2)
+
+## <a name="daily-index-range-sets"></a>Conjuntos de intervalos de índices diarios
+
+La [API para obtener los índices diarios](https://aka.ms/AzureMapsWeatherDailyIndices) devuelve el valor de intervalo y su nombre de categoría asociado para cada id. de índice. Los conjuntos de intervalos no son los mismos para todos los índices. En las tablas siguientes se muestran los diversos conjuntos de intervalos utilizados por los índices admitidos que aparecen en [Id. de índices e id. de grupos de índices](#index-ids-and-index-groups-ids). Para averiguar qué índices usan los conjuntos de intervalos, vaya a la sección [Id. de índices e id. de grupos de índices](#index-ids-and-index-groups-ids) de este documento.
+
+### <a name="poor-excellent-1"></a>Malo - Excelente 1
+
+  | Nombre de la categoría | Inicio de intervalo | Fin de intervalo |
+  ----------------|--------------|------------
+  Insuficiente              |  0 |                2,99
+  Aceptable              |  3  |               4,99
+  Bueno              |  5  |              6,99
+  Muy bueno         |  7  |               8,99
+  Excelente         |  9  |               10
+
+### <a name="poor-excellent-2"></a>Malo - Excelente 2
+
+ | Nombre de la categoría | Inicio de intervalo | Fin de intervalo |
+  ----------------|--------------|------------
+  Insuficiente           |0              |  3
+  Aceptable           |3,01           |  6
+  Bueno           |6.01           |  7,5
+  Muy bueno      |7,51           |  8,99
+  Excelente      |9              |  10
+
+### <a name="excellent-poor"></a>Excelente - Malo
+
+ | Nombre de la categoría | Inicio de intervalo | Fin de intervalo |
+  ----------------|--------------|------------
+  Excelente      |     0,00        |    1.00
+  Muy bueno        |   1.01          |  3.00
+  Bueno             |   3,01          |  5.00
+  Aceptable             |   5.01          |  7.00
+  Insuficiente             |   7,01          |  10,00
+
+### <a name="low-extreme-1"></a>Bajo - Extremo 1
+
+   | Nombre de la categoría | Inicio de intervalo | Fin de intervalo |
+  ----------------|--------------|------------
+  Bajo                |  0         |        1,99
+  Moderado           |  2         |        3,99
+  Alto               |  4         |        5,99
+  Muy alto          |  6         |        7,99
+  Extremo            |  8         |        10
+
+### <a name="low-extreme-2"></a>Bajo - Extremo 2
+
+   | Nombre de la categoría | Inicio de intervalo | Fin de intervalo |
+  ----------------|--------------|------------
+  Bajo                |  0            |      2,99
+  Moderado           |  3            |      4,99
+  Alto               |  5            |      6,99
+  Muy alto          |  7            |      8,99
+  Extremo            |  9            |      10
+
+### <a name="very-unlikely-very-likely"></a>Muy improbable - Muy probable
+
+ | Nombre de la categoría | Inicio de intervalo | Fin de intervalo |
+  ----------------|--------------|------------
+  Muy improbable      | 0     |           1,99
+  Improbable           | 2     |           3,99
+  Posiblemente           | 4     |           5,99
+  Probablemente             | 6     |           7,99
+  Es muy probable        | 8     |           10
+
+### <a name="very-unlikely-very-likely-2"></a>Muy improbable - Muy probable 2
+
+ | Nombre de la categoría | Inicio de intervalo | Fin de intervalo |
+  ----------------|--------------|------------
+  Muy improbable      |  0,00     |         1.00
+  Improbable           |  1.01     |         3.00
+  Posiblemente           |  3,01     |         5.00
+  Probablemente             |  5.01     |         7.00
+  Es muy probable        |  7,01     |         10,00
+
+### <a name="unlikely-emergency"></a>Improbable - Emergencia
+
+| Nombre de la categoría | Inicio de intervalo | Fin de intervalo |
+  ----------------|--------------|------------
+  Improbable         |  0     |          2,99
+  Watch            |  3     |          4,99
+  Advisory         |  5     |          6,99
+  Advertencia          |  7     |          8,99
+  Emergencia        |  9     |          10
+
+### <a name="beneficial-at-extreme-risk"></a>Beneficioso - Riesgo extremo
+
+| Nombre de la categoría | Inicio de intervalo | Fin de intervalo |
+  ----------------|--------------|------------
+  Beneficioso        |    0        |        1,99
+  Neutra           |    2        |        3,99
+  Riesgo           |    4        |        5,99
+  Riesgo alto      |    6        |        7,99
+  Riesgo extremo   |    8        |        10

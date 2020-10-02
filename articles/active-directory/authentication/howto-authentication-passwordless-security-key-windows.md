@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d70fe8a1fbaee285843bfd76ad2a8076df96b49b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 66283e4965aea9e24da6041133e2d88e95df6755
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717972"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526993"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Habilitar el inicio de sesión con una clave de seguridad sin contraseña en dispositivos Windows 10 con Azure Active Directory (versión preliminar)
 
@@ -32,8 +32,8 @@ Este documento se centra en la habilitación de la autenticación sin contraseñ
 | [Azure Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
 | [Registro de información de seguridad combinado (vista preliminar)](concept-registration-mfa-sspr-combined.md) | X | X |
 | [Claves de seguridad FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatibles | X | X |
-| WebAuthN requiere Windows 10 versión 1809 o superior | X | X |
-| [Los dispositivos unidos a Azure AD](../devices/concept-azure-ad-join.md) requieren Windows 10 versión 1903 o superior | X |   |
+| WebAuthN requiere Windows 10 versión 1903 o superior | X | X |
+| Los [dispositivos unidos a Azure AD](../devices/concept-azure-ad-join.md) requieren Windows 10 versión 1909 o superior | X |   |
 | [Los dispositivos unidos a Azure AD híbrido](../devices/concept-azure-ad-join-hybrid.md) requieren Windows 10 versión 2004 o superior |   | X |
 | Controladores de dominio de Windows Server 2016/2019 totalmente revisados |   | X |
 | [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect), versión 1.4.32.0 o posterior |   | X |
@@ -56,7 +56,7 @@ No se admiten los escenarios siguientes:
 
 ## <a name="prepare-devices-for-preview"></a>Preparar dispositivos para la versión preliminar
 
-Los dispositivos unidos a Azure AD de los que realiza una prueba piloto durante la versión preliminar de características deben ejecutar Windows 10, versión 1809 o posterior. La mejor experiencia se logra con Windows 10 versión 1903 o superior.
+Los dispositivos unidos a Azure AD de los que realiza una prueba piloto durante la versión preliminar de características deben ejecutar Windows 10, versión 1909 o posterior.
 
 Los dispositivos unidos a Azure AD híbrido deben ejecutar Windows 10, versión 2004 o una versión más reciente.
 
@@ -125,7 +125,7 @@ En el caso de los dispositivos no administrados por Intune, se puede instalar un
 1. Consulte [Aplicación de un paquete de aprovisionamiento](/windows/configuration/provisioning-packages/provisioning-apply-package) para aplicar el paquete de aprovisionamiento que ha creado.
 
 > [!NOTE]
-> Los dispositivos que ejecutan Windows 10 versión 1809 también deben habilitar el modo de PC compartido (*EnableSharedPCMode*). Para más información sobre cómo habilitar esta funcionalidad, consulte [Configuración de un equipo compartido o invitado con Windows 10](/windows/configuration/set-up-shared-or-guest-pc).
+> Los dispositivos que ejecutan Windows 10 versión 1903 también deben habilitar el modo de PC compartido (*EnableSharedPCMode*). Para más información sobre cómo habilitar esta funcionalidad, consulte [Configuración de un equipo compartido o invitado con Windows 10](/windows/configuration/set-up-shared-or-guest-pc).
 
 ### <a name="enable-with-group-policy"></a>Habilitación con directiva de grupo
 

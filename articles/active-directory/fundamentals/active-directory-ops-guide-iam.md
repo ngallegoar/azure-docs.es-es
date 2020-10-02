@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: ab4e9f7410954292290b6acf0895197ff013b1d8
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 2312befa5fe534cc2042b7586755ac5322d036db
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321674"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601321"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Guía de referencia de operaciones de administración de identidad y acceso de Azure Active Directory
 
@@ -35,8 +35,8 @@ La administración de Azure Active Directory requiere la ejecución continua de 
 | :- | :- |
 | Definir el proceso de creación de suscripciones de Azure | Varía según la organización |
 | Decidir quién obtiene licencias de Enterprise Mobility + Security | Equipo de operaciones IAM |
-| Decidir quién obtiene licencias de Office 365 | Equipo de productividad |
-| Decidir quién obtiene otras licencias, por ejemplo, Dynamics, VSO | Application Owner |
+| Decidir quién obtiene licencias de Microsoft 365 | Equipo de productividad |
+| Decidir quién obtiene otras licencias, por ejemplo, Dynamics, Visual Studio Codespaces | Application Owner |
 | Asignación de licencias | Equipo de operaciones IAM |
 | Solución de problemas y corrección de errores de asignación de licencias | Equipo de operaciones IAM |
 | Aprovisionar identidades para aplicaciones en Azure AD | Equipo de operaciones IAM |
@@ -140,7 +140,7 @@ El [documentador de configuración de Azure AD Connect](https://github.com/Micro
 
 Azure Active Directory simplifica la administración de licencias a través de la [concesión de licencias basada en grupos](./active-directory-licensing-whatis-azure-portal.md) para los servicios en la nube de Microsoft. De este modo, la administración de identidad y acceso proporciona la infraestructura de grupo y la administración delegada de esos grupos a los equipos adecuados en las organizaciones. Hay varias maneras de configurar la pertenencia a grupos en Azure AD, entre las que se incluyen:
 
-- **Sincronización desde el entorno local**: los grupos pueden provenir de directorios locales, lo que podría ser una buena opción para las organizaciones que han establecido procesos de administración de grupos que se pueden ampliar para asignar licencias en Office 365.
+- **Sincronización desde el entorno local**: los grupos pueden provenir de directorios locales, lo que podría ser una buena opción para las organizaciones que han establecido procesos de administración de grupos que se pueden ampliar para asignar licencias en Microsoft 365.
 
 - **Base en atributos/dinámica**: los grupos se pueden crear en la nube en función de una expresión basada en atributos de usuario, por ejemplo, Departamento igual a "ventas". Azure AD mantiene los miembros del grupo, manteniendo la coherencia con la expresión definida. El uso de este tipo de grupo para la asignación de licencias posibilita una asignación de licencias basada en atributos, que es una buena opción para las organizaciones que tienen una calidad de datos alta en su directorio.
 
@@ -188,7 +188,7 @@ La frecuencia de [sincronización diferencial predeterminada](../hybrid/how-to-c
 
 #### <a name="azure-ad-connect-troubleshooting-recommended-reading"></a>Lectura recomendada para la solución de problemas de Azure AD Connect
 
-- [Preparación de los atributos del directorio para sincronizarlos con Office 365 mediante la herramienta IdFix: Office 365](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix)
+- [Preparación de los atributos del directorio para sincronizarlos con Microsoft 365 mediante la herramienta IdFix](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix)
 - [Azure AD Connect: Solución de errores durante la sincronización](../hybrid/tshoot-connect-sync-errors.md)
 
 ## <a name="summary"></a>Resumen

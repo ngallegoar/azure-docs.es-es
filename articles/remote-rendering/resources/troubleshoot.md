@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 14184c09cc9d5eebab7f33323cd8ce587fdf9e88
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a5b625ea2b5b76d0938ac62be2202127ff0af66e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014598"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982972"
 ---
 # <a name="troubleshoot"></a>Solución de problemas
 
@@ -156,7 +156,8 @@ Azure Remote Rendering se enlaza a la canalización de representación de Unit
 
 ## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>El patrón de tablero de damas se representa después de cargar el modelo
 
-Si la imagen representada tiene el siguiente aspecto: ![Tablero de damas](../reference/media/checkerboard.png) A continuación, el representador alcanza los [límites del polígono para el tamaño de configuración estándar](../reference/vm-sizes.md). Para mitigarlo, cambie al tamaño de configuración **prémium** o reduzca el número de polígonos visibles.
+Si la imagen representada tiene el siguiente aspecto: ![Captura de pantalla que muestra una cuadrícula de cuadrados negros y blancos con un menú herramientas.](../reference/media/checkerboard.png)
+A continuación, el representador alcanza los [límites del polígono para el tamaño de configuración estándar](../reference/vm-sizes.md). Para mitigarlo, cambie al tamaño de configuración **prémium** o reduzca el número de polígonos visibles.
 
 ## <a name="the-rendered-image-in-unity-is-upside-down"></a>La imagen representada en Unity está al revés
 
@@ -216,7 +217,7 @@ Si se han agotado los pasos anteriores y el Z-fighting restante es inaceptable, 
 
 ARR tiene una característica para determinar si las superficies podrían producir Z-fighting: [Resaltado de tablero de damas](../overview/features/z-fighting-mitigation.md). También puede determinar visualmente lo que provoca el Z-fighting. En la primera animación que hay a continuación se muestra un ejemplo de pérdida de precisión de profundidad en la distancia y en la segunda, un ejemplo de superficies prácticamente coplanarias:
 
-![Z-fighting debido a la precisión de profundidad](./media/depth-precision-z-fighting.gif)  ![Z-fighting coplanario](./media/coplanar-z-fighting.gif)
+![Animación que muestra un ejemplo de pérdida de precisión de profundidad en la distancia.](./media/depth-precision-z-fighting.gif)  ![Animación que muestra un ejemplo de superficies prácticamente coplanarias.](./media/coplanar-z-fighting.gif)
 
 Compare estos ejemplos con su Z-fighting para determinar la causa o, si quiere, siga este flujo de trabajo paso a paso:
 

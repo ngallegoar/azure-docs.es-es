@@ -11,16 +11,16 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c4e34c6f13f7013847e99a362716fc9c570cdaf
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 12be5109f339223c11970041922ed2172f67382b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224924"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526908"
 ---
 # <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Habilitación y uso de Azure Multi-Factor Authentication con aplicaciones heredadas mediante contraseñas de aplicación
 
-Algunas aplicaciones, como Office 2010 o versiones anteriores y Apple Mail anterior a iOS 11, no admiten la autenticación multifactor. Las aplicaciones no están configuradas para aceptar un formulario secundario de autenticación o solicitud. Para usar estas aplicaciones de forma segura con Azure Multi-Factor Authentication habilitado para las cuentas de usuario, puede usar contraseñas de aplicación. Estas contraseñas de aplicación reemplazaron la contraseña tradicional para permitir que una aplicación omitiera la autenticación multifactor y funcionara correctamente.
+Algunas aplicaciones anteriores que no son de explorador, como Office 2010 o versiones anteriores y Apple Mail antes de iOS 11, no entienden las pausas o las interrupciones en el proceso de autenticación. Si un usuario tiene habilitada la opción Azure Multi-Factor Authentication e intenta usar una de estas aplicaciones antiguas que no son de explorador, no podrá autenticarse correctamente. Para usar estas aplicaciones de forma segura con Azure Multi-Factor Authentication habilitado para las cuentas de usuario, puede usar contraseñas de aplicación. Estas contraseñas de aplicación reemplazaron la contraseña tradicional para permitir que una aplicación omitiera la autenticación multifactor y funcionara correctamente.
 
 La autenticación moderna se admite en los clientes de Microsoft Office 2013 y versiones posteriores. Los clientes de Office 2013, incluido Outlook, admiten protocolos de autenticación modernos y se pueden habilitar para que funcionen con la comprobación en dos pasos. Después de que se habilite el cliente, las contraseñas de aplicación no le serán necesarias.
 

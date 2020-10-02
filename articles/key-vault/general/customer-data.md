@@ -9,16 +9,16 @@ ms.service: key-vault
 ms.topic: reference
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e7cfc707aa4bccdcd72e45efa3693ebd8f88a211
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 9b320c765b258473acd6fa553831b4f075cca9ba
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88189927"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983241"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Características de datos del cliente de Azure Key Vault
 
-Azure Key Vault recibe los datos del cliente durante la creación o actualización de almacenes, claves, secretos, certificados y cuentas de almacenamiento administradas. Estos datos del cliente se pueden ver directamente en Azure Portal y con la API de REST. Los datos del cliente se pueden editar o eliminar mediante la actualización o eliminación del objeto que los contiene.
+Azure Key Vault recibe los datos del cliente durante la creación o actualización de almacenes, grupos de HSM administrados, claves, secretos, certificados y cuentas de almacenamiento administradas. Estos datos del cliente se pueden ver directamente en Azure Portal y con la API de REST. Los datos del cliente se pueden editar o eliminar mediante la actualización o eliminación del objeto que los contiene.
 
 Los registros de acceso del sistema se generan cuando un usuario o una aplicación acceden a Key Vault. Los clientes tienen a su disposición los registros de acceso detallados en Azure Insights.
 

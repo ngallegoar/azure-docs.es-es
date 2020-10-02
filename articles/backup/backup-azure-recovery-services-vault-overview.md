@@ -1,14 +1,14 @@
 ---
 title: Introducción a los almacenes de Recovery Services
-description: Información general y comparación entre los almacenes de Recovery Services y los de Azure Backup.
+description: Una introducción a los almacenes de Recovery Services.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 6b6550bc8c5221547d55ad1e81a985b8ecd303e0
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: cc09c1ffa84bc66e8fe2c48c80b8aea0977762ba
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88889624"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975153"
 ---
 # <a name="recovery-services-vaults-overview"></a>Introducción a los almacenes de Recovery Services
 
@@ -30,7 +30,7 @@ Un almacén de Recovery Services es una entidad que almacena las copias de segur
 
 - Azure Backup administra automáticamente el almacenamiento para el almacén. Consulte cómo [cambiar la configuración de almacenamiento](./backup-create-rs-vault.md#set-storage-redundancy).
 
-- Para obtener más información acerca de la redundancia de almacenamiento, consulte estos artículos sobre redundancia [geográfica](../storage/common/storage-redundancy.md) y [local](../storage/common/storage-redundancy.md).
+- Para más información sobre la redundancia de almacenamiento, consulte estos artículos sobre redundancia [geográfica](../storage/common/storage-redundancy.md#geo-zone-redundant-storage), [local](../storage/common/storage-redundancy.md#locally-redundant-storage) y [zonal](../storage/common/storage-redundancy.md#zone-redundant-storage).
 
 ## <a name="encryption-settings-in-the-recovery-services-vault"></a>Configuración del cifrado en el almacén de Recovery Services
 

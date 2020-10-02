@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: ea9a0e52ce424459b6c402eb136d06dd370bab7d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fe85dfb39a9787376221cb9beeea11bec35293f4
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548055"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604468"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Tutorial: Configuración de myPolicies para el aprovisionamiento automático de usuarios
 
@@ -101,7 +101,7 @@ En esta sección se le guía por los pasos necesarios para configurar el servici
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
+    ![Pestaña de aprovisionamiento automático](common/provisioning-automatic.png)
 
 5. En la sección **Credenciales de administrador**, escriba `https://<myPoliciesCustomDomain>.mypolicies.com/scim` en **URL de inquilino**, donde `<myPoliciesCustomDomain>` es su dominio personalizado de myPolicies. Puede recuperar el dominio de cliente de myPolicies desde su URL.
 Por ejemplo: `<demo0-qa>`.mypolicies.com.
@@ -122,7 +122,18 @@ Por ejemplo: `<demo0-qa>`.mypolicies.com.
 
 10. Revise los atributos de usuario que se sincronizan entre Azure AD y myPolicies en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de myPolicies con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
-    ![Asignaciones de usuarios de myPolicies](media/mypolicies-provisioning-tutorial/userattribute.png)
+   |Atributo|Tipo|
+   |---|---|
+   |userName|String|
+   |active|Boolean|
+   |emails[type eq "work"].value|String|
+   |name.givenName|String|
+   |name.familyName|String|
+   |name.formatted|String|
+   |externalId|String|
+   |addresses[type eq "work"].country|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referencia|
+
 
 11. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -146,6 +157,10 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 
 * myPolicies siempre requiere **userName**, **email** y **externalId**.
 * myPolicies no admite las eliminaciones permanentes de los atributos de usuario.
+
+## <a name="change-log"></a>Registro de cambios
+
+* 15/09/2020: se agregó compatibilidad con el atributo "country" para los usuarios.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

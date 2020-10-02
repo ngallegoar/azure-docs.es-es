@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/16/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1211245786bbb734e0338be1b79030f5f9552793
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 8649c9faf3905e69232cdc15bbba6607abe3e9c4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266398"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969507"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-azure-powershell"></a>Creación, enumeración y eliminación de una identidad administrada asignada por el usuario con Azure PowerShell
 
@@ -36,12 +36,35 @@ En este artículo, aprenderá a crear, enumerar y eliminar una identidad adminis
 
 - Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#managed-identity-types)** .
 - Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Instale [la versión más reciente de Azure PowerShell](/powershell/azure/install-az-ps) si aún no lo ha hecho.
-- Si ejecuta PowerShell localmente, también necesita realizar las siguientes operaciones: 
-    - Ejecute `Connect-AzAccount` para crear una conexión con Azure.
-    - Instalar la [versión más reciente de PowerShellGet](/powershell/scripting/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
-    - Ejecutar `Install-Module -Name PowerShellGet -AllowPrerelease` para obtener la versión preliminar del módulo `PowerShellGet` (es posible que deba usar `Exit` para salir de la sesión actual de PowerShell después de ejecutar este comando para instalar el módulo `Az.ManagedServiceIdentity`).
-    - Ejecute `Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease` para instalar la versión preliminar del módulo `Az.ManagedServiceIdentity` con el fin de realizar las operaciones de identidad administrada que haya asignado el usuario, y que se indican en este artículo.
+- Para ejecutar los scripts de ejemplo, tiene dos opciones:
+    - Use [Azure Cloud Shell](../../cloud-shell/overview.md), que puede abrir mediante el botón **Probar** en la esquina superior derecha de los bloques de código.
+    - Ejecute los scripts localmente con Azure PowerShell, tal como se describe en la sección siguiente.
+
+### <a name="configure-azure-powershell-locally"></a>Configuración de Azure PowerShell de forma local
+
+Para usar Azure PowerShell de forma local en este artículo (en lugar de usar Cloud Shell), complete los pasos siguientes:
+
+1. Instale [la versión más reciente de Azure PowerShell](/powershell/azure/install-az-ps) si aún no lo ha hecho.
+
+1. Inicie de sesión en Azure:
+
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+
+1. Instalar la [versión más reciente de PowerShellGet](/powershell/scripting/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
+
+    ```azurepowershell
+    Install-Module -Name PowerShellGet -AllowPrerelease
+    ```
+
+    Es posible que necesite `Exit` fuera de la sesión de PowerShell actual después de ejecutar este comando para el paso siguiente.
+
+1. Instale la versión preliminar del módulo `Az.ManagedServiceIdentity` con el fin de realizar las operaciones de identidad administrada que haya asignado el usuario, y que se indican en este artículo.
+
+    ```azurepowershell
+    Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease
+    ```
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Crear una identidad administrada asignada por el usuario
 

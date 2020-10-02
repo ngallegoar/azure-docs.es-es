@@ -1,6 +1,6 @@
 ---
 title: Ocultación de una aplicación empresarial de la experiencia del usuario en Azure AD
-description: Cómo ocultar una aplicación empresarial de la experiencia del usuario en los paneles de acceso de Azure Active Directory o los iniciadores de Office 365.
+description: Cómo ocultar una aplicación empresarial de la experiencia del usuario en los paneles de acceso de Azure Active Directory o los iniciadores de Microsoft 365.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -12,26 +12,26 @@ ms.date: 03/25/2020
 ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d21ba14fba24c9b8e0b460e56b93d0e5212bfb27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23d2d6645bea6e99e9f62e36364adf8816329c26
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367706"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601146"
 ---
 # <a name="hide-enterprise-applications-from-end-users-in-azure-active-directory"></a>Ocultación de aplicaciones empresariales de usuarios finales en Azure Active Directory
 
-Instrucciones sobre cómo ocultar las aplicaciones del panel MyApps o del iniciador de Office 365 de los usuarios finales. Aunque una aplicación se oculte, los usuarios seguirán teniendo los permisos para ella. 
+Instrucciones sobre cómo ocultar las aplicaciones del panel MyApps o del iniciador de Microsoft 365 de los usuarios finales. Aunque una aplicación se oculte, los usuarios seguirán teniendo los permisos para ella. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Se requieren privilegios de administrador de aplicaciones para ocultar una aplicación del panel MyApps y del iniciador de Office 365.
+Se requieren privilegios de administrador de aplicaciones para ocultar una aplicación del panel MyApps y del iniciador de Microsoft 365.
 
-Se requieren privilegios de administrador global para ocultar todas las aplicaciones de Office 365.
+Se requieren privilegios de administrador global para ocultar todas las aplicaciones de Microsoft 365.
 
 
 ## <a name="hide-an-application-from-the-end-user"></a>Ocultar una aplicación al usuario final
-Siga estos pasos para ocultar una aplicación del panel MyApps y del iniciador de aplicaciones de Office 365.
+Siga estos pasos para ocultar una aplicación del panel MyApps y del iniciador de aplicaciones de Microsoft 365.
 
 1.  Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global de su directorio.
 2.  Seleccione **Azure Active Directory**.
@@ -59,9 +59,9 @@ $tags += "HideApp"
 Set-AzureADServicePrincipal -ObjectId $objectId -Tags $tags
 ```
 
-## <a name="hide-office-365-applications-from-the-myapps-panel"></a>Ocultar las aplicaciones de Office 365 del panel MyApps
+## <a name="hide-microsoft-365-applications-from-the-myapps-panel"></a>Ocultación de las aplicaciones de Microsoft 365 del panel MyApps
 
-Siga estos pasos para ocultar todas las aplicaciones de Office 365 del panel MyApps. Las aplicaciones siguen siendo visibles en el portal de Office 365.
+Siga estos pasos para ocultar todas las aplicaciones de Microsoft 365 del panel MyApps. Las aplicaciones siguen siendo visibles en el portal de Office 365.
 
 1.  Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global de su directorio.
 2.  Seleccione **Azure Active Directory**.

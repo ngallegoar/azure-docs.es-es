@@ -1,18 +1,18 @@
 ---
 title: Conflicto de puertos al iniciar servicios en Azure HDInsight
-description: Pasos de solución de problemas y soluciones posibles para problemas que se producen al interactuar con clústeres de Azure HDInsight.
+description: Pasos para solucionar problemas y posibles soluciones para los problemas de conflicto de puertos que se producen al interactuar con clústeres de Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/23/2020
-ms.openlocfilehash: 4cb0d464a82d8da0a09f5391eb1d06dfacd84290
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0d39f31e9d52359d0c91317280a7f8db06c1c1b0
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76776049"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530971"
 ---
 # <a name="scenario-port-conflict-when-starting-services-in-azure-hdinsight"></a>Escenario: Conflicto de puertos al iniciar servicios en Azure HDInsight
 

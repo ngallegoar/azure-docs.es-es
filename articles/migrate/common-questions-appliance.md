@@ -2,13 +2,13 @@
 title: Preguntas más frecuentes sobre el dispositivo de Azure Migrate
 description: Respuestas a preguntas comunes sobre el dispositivo de Azure Migrate.
 ms.topic: conceptual
-ms.date: 06/03/2020
-ms.openlocfilehash: de34bba40b9200c198f3c07262bd6b7a00b62060
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.date: 09/15/2020
+ms.openlocfilehash: 6c1e5099f208788919d27ba3d2b1de296f0d91a6
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050682"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526568"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Dispositivo de Azure Migrate: Preguntas frecuentes
 
@@ -21,7 +21,7 @@ Este artículo contiene respuestas a algunas preguntas frecuentes sobre el dispo
 
 ## <a name="what-is-the-azure-migrate-appliance"></a>¿Qué es el dispositivo de Azure Migrate?
 
-El dispositivo de Azure Migrate es un dispositivo ligero que Azure Migrate: herramienta Server Assessment usa para detectar y evaluar los servidores locales. Azure Migrate: La herramienta Server Assessment también usa el dispositivo para realizar la migración sin agente de máquinas virtuales de VMware locales.
+El dispositivo de Azure Migrate es un dispositivo ligero que Azure Migrate: Server Assessment usa para detectar y evaluar servidores físicos o virtuales en el entorno local o cualquier nube. Azure Migrate: La herramienta Server Assessment también usa el dispositivo para realizar la migración sin agente de máquinas virtuales de VMware locales.
 
 Aquí encontrará más información sobre el dispositivo Azure Migrate:
 
@@ -35,13 +35,14 @@ Aquí encontrará más información sobre el dispositivo Azure Migrate:
 
 El dispositivo se puede implementar así:
 
-- Mediante una plantilla para máquinas virtuales de VMware y máquinas virtuales de Hyper-V (plantilla OVA en el caso de VMware o VHD en el de Hyper-V).
-- Si no desea usar una plantilla o está en Azure Government, puede implementar el dispositivo para VMware o Hyper-V mediante un script de PowerShell.
-- En el caso de los servidores físicos, el dispositivo siempre se implementa mediante un script.
+- Mediante el uso de una plantilla para la detección de máquinas virtuales de VMware (archivo .OVA) y máquinas virtuales de Hyper-V (archivo .VHD) para crear una nueva máquina virtual que hospede el dispositivo.
+- Si no quiere usar una plantilla, puede implementar el dispositivo en una máquina virtual o física existente para detectar las máquinas virtuales de VMware o de Hyper-V mediante un script de instalador de PowerShell, disponible para su descarga en un archivo ZIP desde el portal.
+- En el caso de los servidores físicos o virtuales del entorno local o en cualquier nube, siempre se implementa el dispositivo mediante un script en un servidor existente.
+- Para Azure Government, los tres dispositivos solo se pueden implementar mediante el script de instalador de PowerShell.
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>¿Cómo se conecta el dispositivo a Azure?
 
-El dispositivo puede conectarse a través de Internet, o mediante Azure ExpressRoute.
+El dispositivo puede conectarse a través de Internet, o mediante Azure ExpressRoute. Asegúrese de que estas direcciones [URL](https://docs.microsoft.com/azure/migrate/migrate-appliance#url-access) estén en la lista de permitidos para que el dispositivo se conecte a Azure.
 
 - Para usar Azure ExpressRoute para el tráfico de replicación de Azure Migrate, se requiere del emparejamiento de Microsoft, o de un emparejamiento público existente (el emparejamiento público está en desuso para las creaciones nuevas de ExpressRoute).
 - No se admite la replicación a través de Azure ExpressRoute con (solo) el emparejamiento privado habilitado.
@@ -66,6 +67,7 @@ Consulte los artículos siguientes para obtener información sobre los datos que
 
 - **Máquina virtual de VMware**: [Revisión](migrate-appliance.md#collected-data---vmware) de los datos recopilados.
 - **Máquina virtual de Hyper-V**: [Revisión](migrate-appliance.md#collected-data---hyper-v) de los datos recopilados.
+- **Servidores físicos o virtuales**: [Revisión](migrate-appliance.md#collected-data---physical) de los datos recopilados.
 
 ## <a name="how-is-data-stored"></a>¿Cómo se almacenan los datos?
 
@@ -74,7 +76,7 @@ Los datos que recopila el dispositivo de Azure Migrate se almacenan en la ubicac
 Aquí encontrará más información sobre cómo se almacenan los datos:
 
 - Los datos recopilados se almacenan de forma segura en CosmosDB en una suscripción de Microsoft. Los datos se eliminan cuando se elimina el proyecto de Azure Migrate. Azure Migrate controla el almacenamiento. No se puede elegir una cuenta de almacenamiento especifica para los datos recopilados.
-- Si usa la [visualización de dependencias](concepts-dependency-visualization.md), los datos recopilados se almacenan en los Estados Unidos, en un área de trabajo de Log Analytics creada en su suscripción de Azure. Los datos se eliminan al eliminar el área de trabajo de Log Analytics en su suscripción.
+- Si usa la [visualización de dependencias](concepts-dependency-visualization.md), los datos recopilados se almacenan en un área de trabajo de Azure Log Analytics creada en su suscripción de Azure. Los datos se eliminan al eliminar el área de trabajo de Log Analytics en su suscripción. 
 
 ## <a name="how-much-data-is-uploaded-during-continuous-profiling"></a>¿Qué cantidad de datos se carga en la generación de perfiles continua?
 
@@ -107,8 +109,7 @@ Un proyecto puede tener varios dispositivos conectados. Sin embargo, un disposit
 
 ## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>¿El dispositivo de Azure Migrate o el dispositivo de replicación puede conectarse al mismo vCenter?
 
-Sí. Puede agregar el dispositivo de Azure Migrate (que se usa para la evaluación y la migración de VMware sin agente) y el dispositivo de replicación (que se usa para la migración basada en agente de máquinas virtuales de VMware) al mismo servidor vCenter.
-
+Sí. Puede agregar el dispositivo de Azure Migrate (que se usa para la evaluación y la migración de VMware sin agente) y el dispositivo de replicación (que se usa para la migración basada en agente de máquinas virtuales de VMware) al mismo servidor vCenter. Sin embargo, asegúrese de que no está configurando ambos dispositivos en la misma máquina virtual y que no se admite actualmente.
 
 ## <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>¿Cuántas máquinas virtuales o servidores puedo detectar con un dispositivo?
 
@@ -124,7 +125,9 @@ Si bien, al eliminar el grupo de recursos también se eliminarán otros disposit
 
 ## <a name="can-i-use-the-appliance-with-a-different-subscription-or-project"></a>¿Puedo usar el dispositivo con una suscripción o un proyecto distintos?
 
-Después de usar el dispositivo para iniciar la detección, no puede volver a configurarlo con otra suscripción de Azure, ni puede usarlo en otro proyecto de Azure Migrate. Tampoco puede detectar máquinas virtuales en otra instancia de vCenter Server. Configure un dispositivo nuevo para estas tareas.
+Para usar el dispositivo con una suscripción o un proyecto diferente, debe volver a configurar el dispositivo existente ejecutando el script de instalador de PowerShell para el escenario específico (VMware, Hyper-V o físico) en el equipo del dispositivo. El script limpiará la configuración y los componentes de dispositivo existentes para implementar un nuevo dispositivo. Asegúrese de borrar la memoria caché del explorador antes de empezar a usar el administrador de configuración del dispositivo recién implementado.
+
+Además, no puede volver a usar una clave de proyecto de Azure Migrate existente en un dispositivo que se ha reconfigurado. Asegúrese de generar una nueva clave a partir de la suscripción o el proyecto que desee para completar el registro del dispositivo.
 
 ## <a name="can-i-set-up-the-appliance-on-an-azure-vm"></a>¿Se puede configurar el dispositivo en una máquina virtual de Azure?
 

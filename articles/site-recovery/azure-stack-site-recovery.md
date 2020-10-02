@@ -3,12 +3,12 @@ title: Replicar máquinas virtuales de Azure Stack en Azure con Azure Site Recov
 description: Aprenda a configurar la recuperación ante desastres en Azure para máquinas virtuales de Azure Stack con el servicio Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 873b9c5efc2a89d3cda1bfe14a7518e6786a6870
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 61154e58582a3dcbab0f7ed9542d094be192ae74
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131614"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564316"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicación de máquinas virtuales de Azure Stack en Azure
 
@@ -36,7 +36,7 @@ Con estos pasos completados, puede ejecutar una conmutación por error completa 
 
 ## <a name="architecture"></a>Architecture
 
-![Architecture](./media/azure-stack-site-recovery/architecture.png)
+![Diagrama en el que se muestran almacenes de Recovery Services para dos inquilinos en nubes asociadas a suscripciones de inquilinos en una infraestructura de Azure Stack común.](./media/azure-stack-site-recovery/architecture.png)
 
 **Ubicación** | **Componente** |**Detalles**
 --- | --- | ---

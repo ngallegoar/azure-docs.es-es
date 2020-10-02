@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 1bc3f7887c9d257f5971b867ff9b7b1dd970fa87
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 50f7af3bb1ad543dea0263304b82287225500a21
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179410"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526891"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configuración de Azure Multi-Factor Authentication
 
@@ -31,7 +31,7 @@ Las siguientes configuraciones de Azure Multi-Factor Authentication están dispo
 | [Bloqueo y desbloqueo de usuarios](#block-and-unblock-users) | Impida que usuarios específicos puedan recibir solicitudes de Azure Multi-Factor Authentication. Todos los intentos de autenticación para los usuarios bloqueados se denegarán automáticamente. Los usuarios permanecen bloqueados durante noventa días a partir del momento en que se bloqueen o se desbloquean manualmente. |
 | [Alerta de fraude](#fraud-alert) | Defina configuraciones que permitan a los usuarios notificar solicitudes de comprobación fraudulentas. |
 | [Notificaciones](#notifications) | Permite notificaciones de eventos desde el Servidor MFA. |
-| [Tokens OATH](concept-authentication-methods.md#oath-tokens) | Se usa en entornos de Azure MFA basados en la nube para administrar tokens de OATH para los usuarios. |
+| [Tokens OATH](concept-authentication-oath-tokens.md) | Se usa en entornos de Azure MFA basados en la nube para administrar tokens de OATH para los usuarios. |
 | [Configuración de las llamadas telefónicas](#phone-call-settings) | Configure valores relacionados con llamadas de teléfono y saludos para entornos locales y en la nube. |
 | Proveedores | Se mostrarán los proveedores de autenticación existentes que pueden haberse asociado con su cuenta. A partir del 1 de septiembre de 2018 no se pueden crear nuevos proveedores de autenticación. |
 
@@ -156,7 +156,7 @@ En Estados Unidos, si no ha configurado el identificador del autor de la llamada
 * *+1 (877) 668 6536*
 
 > [!NOTE]
-> A veces, cuando las llamadas de Azure Multi-Factor Authentication se realizan a través de la red telefónica pública, se enrutan a través de un operador que no admite la característica de identificación de llamadas. Por este motivo, los identificadores de llamada no están garantizados, aunque Azure Multi-Factor Authentication los envíe siempre.
+> A veces, cuando las llamadas de Azure Multi-Factor Authentication se realizan a través de la red telefónica pública, se enrutan a través de un operador que no admite la característica de id. de llamada. Por este motivo, los id. de llamada no están garantizados, aunque Azure Multi-Factor Authentication los envíe siempre. Esto se aplica a las llamadas de teléfono y a los mensajes de texto proporcionados por Azure Multi-Factor Authentication. Si tiene que validar que un mensaje de texto procede de Azure Multi-Factor Authentication, consulte [¿Qué códigos cortos de SMS se usan para enviar mensajes?](multi-factor-authentication-faq.md#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users)
 
 Para configurar su propio número de identificador del autor de la llamada, complete los pasos siguientes:
 
@@ -242,7 +242,10 @@ La característica _IP de confianza_ de Azure Multi-Factor Authentication omite 
 
 Si su organización implementa la extensión NPS para proporcionar Multi-Factor Authentication en aplicaciones locales, tenga en cuenta que la dirección IP de origen siempre parecerá ser el servidor NPS a través del que fluye el intento de autenticación.
 
-| Tipo de inquilino de Azure AD | Opciones de la característica IP de confianza | |:--- |:--- |dos pasos | Administrado |**Intervalo específico de direcciones IP**: los administradores pueden especificar un intervalo de direcciones IP que puede omitir la autenticación multifactor para los usuarios que inician sesión desde la intranet de la empresa. Se puede configurar un máximo de 50 intervalos de direcciones IP de confianza.| | Federado |**Todos los usuarios federados**: todos los usuarios federados que inician sesión desde dentro de la organización pueden omitir la autenticación multifactor. Los usuarios omiten la verificación mediante el uso de una notificación que emiten los servicios de federación de Active Directory (AD FS).<br/>**Intervalos específicos de direcciones IP**: los administradores pueden especificar un intervalo de direcciones IP que puede omitir la autenticación multifactor para los usuarios que inician sesión desde la intranet de la empresa. |
+| Tipo de inquilino de Azure AD | Opciones de características de direcciones IP de confianza |
+|:--- |:--- |
+| Administrado |**Intervalos específicos de direcciones IP**: los administradores pueden especificar un intervalo de direcciones IP que puede omitir la autenticación multifactor para los usuarios que inician sesión desde la intranet de la empresa. Se puede configurar un máximo de cincuenta intervalos de direcciones IP de confianza.|
+| Federado |**Todos los usuarios federados**: todos los usuarios federados que inician sesión desde dentro de la organización pueden omitir la autenticación multifactor. Los usuarios omiten la verificación mediante el uso de una notificación que emiten los servicios de federación de Active Directory (AD FS).<br/>**Intervalos específicos de direcciones IP**: los administradores pueden especificar un intervalo de direcciones IP que puede omitir la autenticación multifactor para los usuarios que inician sesión desde la intranet de la empresa. |
 
 La omisión de las direcciones IP de confianza solo funciona desde dentro de la intranet de la empresa. Si selecciona la opción **Todos los usuarios federados** y un usuario inicia sesión desde fuera de la intranet de la empresa, el usuario tendrá que autenticarse mediante la autenticación multifactor. El proceso es el mismo, incluso si el usuario presenta una notificación de AD FS.
 

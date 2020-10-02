@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/21/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2eb2dbc43c59f4f6301c7f5073a73462639d35b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8172e0e208d9a780c7676d7cb0e77dbc1c16f493
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83797173"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606607"
 ---
 ## <a name="1-create-the-azure-ad-tenant"></a><a name="tenant"></a>1. Cree un inquilino Azure AD
 
@@ -77,7 +77,7 @@ Registre el cliente VPN en el inquilino de Azure AD.
 
 6. Seleccione **Aceptar** cuando se le solicite.
 
-    ![Accept](./media/openvpn-azure-ad-tenant-multi-app/accept.jpg)
+    ![Captura de pantalla que muestra una ventana con el mensaje de aceptación de solicitud de permisos para la organización y la información sobre la solicitud.](./media/openvpn-azure-ad-tenant-multi-app/accept.jpg)
 
 7. En Azure AD, en **Aplicaciones empresariales**, verá la **VPN de Azure** en la lista.
 
@@ -118,7 +118,7 @@ En este paso, debe registrar aplicaciones adicionales para varios usuarios y gru
 
     ![VPN de Azure](./media/openvpn-azure-ad-tenant-multi-app/app5.png)
 
-9. En la página **Introducción**, copie el **identificador de aplicación (cliente)** . Necesitará esta información para configurar las puertas de enlace de VPN.
+9. En la página **Introducción**, copie el **identificador de aplicación (cliente)**. Necesitará esta información para configurar las puertas de enlace de VPN.
 
     ![VPN de Azure](./media/openvpn-azure-ad-tenant-multi-app/app6.png)
 

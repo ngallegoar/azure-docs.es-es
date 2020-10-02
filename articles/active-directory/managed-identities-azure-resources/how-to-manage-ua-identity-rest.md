@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/26/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45c8694c90fedccbecee1fee09e7146bf2d0aaa6
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 37fad118fe314b1392c31906a3f0a0989e39d876
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601170"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969397"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Creación, enumeración o eliminación de una identidad administrada asignada por el usuario usando llamadas a la API de REST
 
@@ -34,10 +34,23 @@ En este artículo, aprenderá a crear, enumerar y eliminar una identidad adminis
 
 - Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#managed-identity-types)** .
 - Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Si usa Windows, instale el [subsistema de Windows para Linux](/windows/wsl/about) o [Azure Cloud Shell](../../cloud-shell/overview.md) en Azure Portal.
-- Si utiliza el [subsistema de Windows para Linux](/windows/wsl/about) o un [sistema operativo de distribución de Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest), [instale la consola local de la CLI de Azure](/cli/azure/install-azure-cli).
-- Si utiliza la consola local de la CLI de Azure, inicie sesión en Azure mediante `az login` con una cuenta asociada a la suscripción de Azure de la que desea implementar o recuperar la información de identidad administrada asignada por el usuario.
-- Recupere un token de acceso de portador mediante `az account get-access-token` para realizar las siguientes operaciones de identidad administrada asignada por el usuario.
+- Puede ejecutar todos los comandos de este artículo, ya sea en la nube o localmente:
+    - Para ejecutar en la nube, use [Azure Cloud Shell](../../cloud-shell/overview.md).
+    - Para ejecutar localmente, instale [curl](https://curl.haxx.se/download.html) y la [CLI de Azure](/cli/azure/install-azure-cli).
+
+## <a name="obtain-a-bearer-access-token"></a>Obtención de un token de acceso de portador
+
+1. Si se ejecuta localmente, inicie sesión en Azure a través de la CLI de Azure:
+
+    ```
+    az login
+    ```
+
+1. Obtenga un token de acceso mediante [az account get-access-token](/cli/azure/account#az_account_get_access_token)
+
+    ```azurecli-interactive
+    az account get-access-token
+    ```
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Crear una identidad administrada asignada por el usuario 
 
@@ -91,7 +104,7 @@ GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/
 Para eliminar una identidad administrada asignada por el usuario, la cuenta requiere la asignación del rol [Colaborador de identidades administradas](../../role-based-access-control/built-in-roles.md#managed-identity-contributor).
 
 > [!NOTE]
-> La eliminación de una identidad administrada asignada por el usuario no quitará la referencia de ningún recurso al que se haya asignado. Para quitar una identidad administrada asignada por el usuario desde una máquina virtual mediante CURL, consulte [Eliminar una identidad asignada por el usuario de una máquina virtual de Azure](qs-configure-rest-vm.md#remove-a-user-assigned identity-from-an-azure-vm).
+> La eliminación de una identidad administrada asignada por el usuario no quitará la referencia de ningún recurso al que se haya asignado. Para quitar una identidad administrada asignada por el usuario desde una máquina virtual mediante CURL, consulte [Eliminar una identidad asignada por el usuario de una máquina virtual de Azure](qs-configure-rest-vm.md#remove-a-user-assigned-managed-identity-from-an-azure-vm).
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup

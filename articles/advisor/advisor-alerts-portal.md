@@ -3,12 +3,12 @@ title: Creación de alertas de Azure Advisor para nuevas recomendaciones mediant
 description: Creación de alertas de Azure Advisor para nuevas recomendaciones
 ms.topic: article
 ms.date: 09/09/2019
-ms.openlocfilehash: 0b3984b82cd5265f4940cd88597ccb29d51e1118
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 837f12a12e532902ee76e345afa430f758f79c10
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507223"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973651"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations-using-the-azure-portal"></a>Creación de alertas de Azure Advisor para nuevas recomendaciones mediante Azure Portal 
 
@@ -63,8 +63,7 @@ Para más información sobre los grupos de acciones, consulte [Creación y admin
 
 8. En la sección Detalles de alerta, asigne un nombre y una descripción breve a la alerta. Si desea que la alerta esté habilitada, deje **Habilitar regla tras la creación** establecida en **Sí**. A continuación, seleccione el grupo de recursos en el que se guardará la alerta. Esto no afectará al ámbito de destino de la recomendación. 
 
-    ![Banner de Azure Advisor](./media/advisor-alerts/create8.png)
-
+    :::image type="content" source="./media/advisor-alerts/create8.png" alt-text="Captura de pantalla de la sección de detalles de alertas.":::
 
 
 ## <a name="configure-recommendation-alerts-to-use-a-webhook"></a>Configuración de alertas de recomendación para usar un webhook
@@ -188,11 +187,11 @@ Desde Azure Advisor, puede editar, eliminar o deshabilitar y habilitar las alert
 
 1. En el **portal**, seleccione **Azure Advisor**.
 
-    ![Banner de Azure Advisor](./media/advisor-alerts/create1.png)
+    :::image type="content" source="./media/advisor-alerts/create1.png" alt-text="Captura de pantalla de la sección de detalles de alertas.":::
 
 2. En la sección **Supervisión** del menú de la izquierda, seleccione **Alertas**.
 
-    ![Banner de Azure Advisor](./media/advisor-alerts/create2.png)
+    :::image type="content" source="./media/advisor-alerts/create2.png" alt-text="Captura de pantalla de la sección de detalles de alertas.":::
 
 3. Para editar una alerta, haga clic en el nombre para abrirla y edite los campos que desee.
 

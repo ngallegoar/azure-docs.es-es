@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: ea0970a672ac8fb15c2e7c6bbb65edf33bd25f04
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 40654926b2998b3ba1c4ce1a5607a768f2c32340
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186595"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987277"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Creación de una cuenta independiente de Azure Automation
 
@@ -59,7 +59,7 @@ Para crear una cuenta de Azure Automation en Azure Portal, complete los pasos si
    > [!NOTE]
    > Si ve el mensaje siguiente en el panel Agregar cuenta de Automation, significa que la cuenta no es miembro del rol de administradores ni del rol de coadministrador de la suscripción.
    >
-   > ![Advertencia de Agregar cuenta de Automation](media/automation-create-standalone-account/create-account-without-perms.png)
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-without-perms.png" alt-text="Captura de pantalla de la solicitud &quot;No tiene permisos para crear una cuenta de ejecución en Azure Active Directory&quot;.":::
 
 1. En el panel Agregar cuenta de Automation, en el cuadro **Nombre**, escriba el nombre de la nueva cuenta de Automation. Una vez elegido el nombre, no puede cambiarse. 
 
@@ -74,7 +74,7 @@ Para crear una cuenta de Azure Automation en Azure Portal, complete los pasos si
    > [!NOTE]
    > Si prefiere no crear la cuenta de ejecución y selecciona **No** en **Crear cuenta de ejecución de Azure**, aparecerá un mensaje en el panel Agregar cuenta de Automation. Aunque la cuenta se crea en Azure Portal, no tiene la identidad de autenticación correspondiente en la suscripción del modelo de implementación clásico ni en el servicio de directorio de suscripciones de Resource Manager. Por lo tanto, la cuenta de Automation no tiene acceso a los recursos en su suscripción. Esto evitará que los runbooks que hacen referencia a esta cuenta puedan autenticarse y realizar tareas con los recursos en dichos modelos de suscripción.
    >
-   > ![Advertencia de Agregar cuenta de Automation](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="Captura de pantalla de la solicitud &quot;No tiene permisos para crear una cuenta de ejecución en Azure Active Directory&quot;.":::
    >
    > Si no se crea la entidad de servicio, no se asigna el rol Colaborador.
    >
@@ -105,4 +105,4 @@ Las cuentas de ejecución clásicas ya no se crean de forma predeterminada al cr
 * Para empezar a trabajar con runbooks de PowerShell, vea [Tutorial: Creación de un runbook de PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
 * Para empezar a trabajar con runbooks de flujo de trabajo de PowerShell, consulte [Tutorial: Creación de un runbook de flujo de trabajo de PowerShell](learn/automation-tutorial-runbook-textual.md).
 * Para empezar a trabajar con runbooks de Python 2, vea [Tutorial: Creación de un runbook de Python 2](learn/automation-tutorial-runbook-textual-python2.md).
-* Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation).
