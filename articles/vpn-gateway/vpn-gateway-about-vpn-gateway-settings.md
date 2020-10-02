@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 09/16/2020
 ms.author: cherylmc
-ms.openlocfilehash: cc9cb06c2154202f319d57aa77700a356ffe19c1
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 18367ec163511fac2e90cc5dd0dd0ad6b091afc9
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419578"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976219"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Acerca de la configuración de VPN Gateway
 
@@ -27,8 +27,6 @@ Los valores de este artículo se aplican a las puertas de enlace de VPN (puertas
 * Para las puertas de enlace con redundancia de zona, consulte [Acerca de VPN Gateway](about-zone-redundant-vnet-gateways.md).
 
 * Para Virtual WAN, consulte [Acerca de Virtual WAN](../virtual-wan/virtual-wan-about.md).
-
-
 
 ## <a name="gateway-types"></a><a name="gwtype"></a>Tipos de puerta de enlace
 
@@ -152,9 +150,9 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/2
 
 ## <a name="local-network-gateways"></a><a name="lng"></a>Puertas de enlace de red local
 
- Una puerta de enlace de red local es diferente a una puerta de enlace de red virtual. Al crear una configuración de puerta de enlace de VPN, la puerta de enlace de red local suele representar la ubicación local. En el modelo de implementación clásica, la puerta de enlace de red local se conoce como un sitio local.
+Una puerta de enlace de red local es diferente a una puerta de enlace de red virtual. Al crear una configuración de puerta de enlace de VPN, la puerta de enlace de red local suele representar su red local y el dispositivo VPN correspondiente. En el modelo de implementación clásica, la puerta de enlace de red local se conoce como un sitio local.
 
-Debe asignar un nombre a la puerta de enlace de red local, así como la dirección IP pública del dispositivo VPN local, y especificar los prefijos de dirección que se encuentran en la ubicación local. Azure examina los prefijos de dirección de destino para el tráfico de red, consulta la configuración que especificó para la puerta de enlace de red local y enruta los paquetes según corresponda. También debe especificar puertas de enlace de red local para configuraciones de red virtual a red virtual local que usan una conexión de puerta de enlace de VPN.
+Asigne un nombre a la puerta de enlace de red local, así como la dirección IP pública o el nombre de dominio completo del dispositivo VPN local, y especificar los prefijos de dirección que se encuentran en la ubicación local. Azure examina los prefijos de dirección de destino para el tráfico de red, consulta la configuración que especificó para la puerta de enlace de red local y enruta los paquetes según corresponda. Si usa el Protocolo de puerta de enlace de borde (BGP) en el dispositivo VPN, deberá proporcionar la dirección IP del par BGP del dispositivo VPN y el número de sistema autónomo (ASN) de la red local. También debe especificar puertas de enlace de red local para configuraciones de red virtual a red virtual local que usan una conexión de puerta de enlace de VPN.
 
 En el ejemplo siguiente de PowerShell, se crea una nueva puerta de enlace de red local:
 

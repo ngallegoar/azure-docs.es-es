@@ -1,6 +1,6 @@
 ---
 title: Optimización del rendimiento con vistas materializadas
-description: Recomendaciones y consideraciones que debe conocer al usar vistas materializadas para mejorar el rendimiento de las consultas.
+description: Información sobre recomendaciones y consideraciones que hay que conocer al usar vistas materializadas para mejorar el rendimiento de las consultas.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: e624cf343209af722bfd007bd66a5e48b56eaff2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 7c7109999d478121ba0251de8e7470bc0f38d64c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956396"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984108"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Optimización del rendimiento con vistas materializadas
 
@@ -52,7 +52,7 @@ Una vista materializada diseñada correctamente proporciona las siguientes venta
 
 Las vistas materializadas implementadas en el grupo de SQL también proporcionan las siguientes ventajas adicionales:
 
-En comparación con otros proveedores de almacenamiento de datos, las vistas materializadas implementadas en Azure SQL Data Warehouse también proporcionan las siguientes ventajas adicionales:
+En comparación con otros proveedores de almacenamiento de datos, las vistas materializadas implementadas en Azure Synapse Analytics también proporcionan las siguientes ventajas adicionales:
 
 - Actualización automática y sincrónica de los datos con los cambios de los datos de las tablas base. No se requiere ninguna acción del usuario.
 - Amplia compatibilidad con funciones de agregado. Consulte [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).

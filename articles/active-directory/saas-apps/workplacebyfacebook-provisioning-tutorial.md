@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: ea5a7a0cd89b9aad78ce789517aa8f75767955d8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ae13e062f50e1e8eefeaa886c67c636cf6230c18
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88526406"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973880"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workplace by Facebook para el aprovisionamiento automático de usuarios
 
@@ -89,7 +89,7 @@ El servicio de aprovisionamiento de Azure AD le permite definir quién se aprov
 
 5. En **Credenciales de administrador**, haga clic en **Autorizar**. Se le redirigirá a la página de autorización de Workplace by Facebook. Escriba el nombre de usuario de Workplace by Facebook y haga clic en el botón **Continuar**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Workplace by Facebook. Si la conexión no se establece, asegúrese de que la cuenta de Workplace by Facebook tiene permisos de administrador y vuelva a intentarlo.
 
-    ![Aprovisionamiento](./media/workplacebyfacebook-provisioning-tutorial/provisioning.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo Credenciales de administrador con una opción de autorización.](./media/workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
     ![autorización](./media/workplacebyfacebook-provisioning-tutorial/workplacelogin.png)
 
@@ -125,8 +125,16 @@ El servicio de aprovisionamiento de Azure AD le permite definir quién se aprov
    |phoneNumbers[type eq "fax"].value|String|
    |externalId|String|
    |preferredLanguage|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:scim:schemas:extension:enterprise:1.0.manager|String|
+   |urn:scim:schemas:extension:enterprise:1.0.department|String|
+   |urn:scim:schemas:extension:enterprise:1.0.division|String|
+   |urn:scim:schemas:extension:enterprise:1.0.organization|String|
+   |urn:scim:schemas:extension:enterprise:1.0.costCenter|String|
+   |urn:scim:schemas:extension:enterprise:1.0.employeeNumber|String|
+   |urn:scim:schemas:extension:facebook:auth_method:1.0:auth_method|String|
+   |urn:scim:schemas:extension:facebook:frontline:1.0.is_frontline|Boolean|
+   |urn:scim:schemas:extension:facebook:starttermdates:1.0.startDate|Entero|
+
 
 10. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -153,6 +161,10 @@ Una vez configurado el aprovisionamiento, use los recursos siguientes para super
 
 ## <a name="troubleshooting-tips"></a>Sugerencias de solución de problemas
 *  Si ve que un usuario no se ha creado correctamente y hay un evento de registro de auditoría con el código "1789003", significa que el usuario procede de un dominio sin comprobar.
+
+## <a name="change-log"></a>Registro de cambios
+
+* 10/09/2020: se ha agregado compatibilidad con los atributos empresariales "division", "organization", "costCenter" y "employeeNumber". Se ha agregado compatibilidad con los atributos personalizados "startDate", "auth_method" y "frontline"
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

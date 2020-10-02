@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 08/03/2020
-ms.openlocfilehash: 03bd97e487e28695133d7d69a71c0dbc90d5d605
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: d5db970d4ed3c3988c96a2c0c33775bcbfb00d92
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563983"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986007"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -31,12 +31,13 @@ Estos son los límites de una definición de aplicación lógica:
 | Desencadenadores por flujo de trabajo | 10 | Al trabajar en la vista Código, no en el diseñador |
 | Límite de cambio de ámbito de casos | 25 | |
 | Variables por flujo de trabajo | 250 | |
-| Caracteres por expresión | 8192 | |
-| Tamaño máximo de `trackedProperties` | 16 000 caracteres |
 | Nombre de `action` o `trigger` | 80 caracteres | |
+| Caracteres por expresión | 8192 | |
 | Longitud de `description` | 256 caracteres | |
-| Máximo de `parameters` | 50 | |
-| Máximo de `outputs` | 10 | |
+| Número máximo de `parameters` | 50 | |
+| Número máximo de `outputs` | 10 | |
+| Tamaño máximo de `trackedProperties` | 16 000 caracteres |
+| Acción de código en línea: número máximo de caracteres de código | 1024 caracteres <p>En el caso de un límite de 100 000 caracteres, puede crear las aplicaciones lógicas con Visual Studio Code y con la versión preliminar de la [extensión **Azure Logic Apps**](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md). |
 
 <a name="run-duration-retention-limits"></a>
 
@@ -268,9 +269,9 @@ Para ver las tarifas de precios, consulte los [precios de Logic Apps](https://az
 
 | Punto de conexión en tiempo de ejecución | Gratuito | Básico | Estándar | Notas |
 |------------------|------|-------|----------|-------|
-| Llamadas de lectura cada 5 minutos | 3000 | 30,000 | 60 000 | Este límite se aplica a las llamadas que obtienen las entradas y salidas sin procesar del historial de ejecución de una aplicación lógica. Puede distribuir la carga de trabajo entre varias cuentas según sea necesario. |
-| Invocación de llamadas cada 5 minutos | 3000 | 30,000 | 45 000 | Puede distribuir la carga de trabajo entre varias cuentas según sea necesario. |
-| Seguimiento de llamadas cada 5 minutos | 3000 | 30,000 | 45 000 | Puede distribuir la carga de trabajo entre varias cuentas según sea necesario. |
+| Llamadas de lectura cada 5 minutos | 3,000 | 30,000 | 60 000 | Este límite se aplica a las llamadas que obtienen las entradas y salidas sin procesar del historial de ejecución de una aplicación lógica. Puede distribuir la carga de trabajo entre varias cuentas según sea necesario. |
+| Invocación de llamadas cada 5 minutos | 3,000 | 30,000 | 45 000 | Puede distribuir la carga de trabajo entre varias cuentas según sea necesario. |
+| Seguimiento de llamadas cada 5 minutos | 3,000 | 30,000 | 45 000 | Puede distribuir la carga de trabajo entre varias cuentas según sea necesario. |
 | Bloqueo de llamadas simultáneas | ~1000 | ~1000 | ~1000 | Lo mismo para todas las SKU. Puede reducir el número de solicitudes simultáneas o la duración según sea necesario. |
 ||||
 
@@ -359,6 +360,7 @@ En esta sección se enumeran las direcciones IP entrantes solo para el servicio 
 | Centro-sur de EE. UU. | 13.65.98.39, 13.84.41.46, 13.84.43.45, 40.84.138.132 |
 | Sur de la India | 52.172.9.47, 52.172.49.43, 52.172.51.140, 104.211.225.152 |
 | Sudeste de Asia | 52.163.93.214, 52.187.65.81, 52.187.65.155, 104.215.181.6 |
+| Norte de Suiza | 51.103.128.52, 51.103.132.236, 51.103.134.138, 51.103.136.209 |
 | Centro de Emiratos Árabes Unidos | 20.45.75.193, 20.45.64.29, 20.45.64.87, 20.45.71.213 |
 | Sur de Reino Unido | 51.140.79.109, 51.140.78.71, 51.140.84.39, 51.140.155.81 |
 | Oeste de Reino Unido | 51.141.48.98, 51.141.51.145, 51.141.53.164, 51.141.119.150 |
@@ -420,6 +422,7 @@ En esta sección se enumeran las direcciones IP salientes para el servicio Azure
 | Centro-sur de EE. UU. | 104.210.144.48, 13.65.82.17, 13.66.52.232, 23.100.124.84, 70.37.54.122, 70.37.50.6, 23.100.127.172, 23.101.183.225 | 13.65.86.57, 104.214.19.48 - 104.214.19.63, 104.214.70.191, 52.171.130.92, 13.73.244.224 - 13.73.244.255 |
 | Sur de la India | 52.172.50.24, 52.172.55.231, 52.172.52.0, 104.211.229.115, 104.211.230.129, 104.211.230.126, 104.211.231.39, 104.211.227.229 | 13.71.125.22, 40.78.194.240 - 40.78.194.255, 104.211.227.225, 13.71.127.26 |
 | Sudeste de Asia | 13.76.133.155, 52.163.228.93, 52.163.230.166, 13.76.4.194, 13.67.110.109, 13.67.91.135, 13.76.5.96, 13.67.107.128 | 13.67.8.240 - 13.67.8.255, 13.76.231.68, 52.187.68.19, 52.187.115.69, 13.67.15.32 - 13.67.15.63 |
+| Norte de Suiza | 51.103.137.79, 51.103.135.51, 51.103.139.122, 51.103.134.69, 51.103.138.96, 51.103.138.28, 51.103.136.37, 51.103.136.210 | 51.107.59.16 - 51.107.59.31, 51.107.60.224 - 51.107.60.255, 51.107.86.217, 51.103.142.22 |
 | Centro de Emiratos Árabes Unidos | 20.45.75.200, 20.45.72.72, 20.45.75.236, 20.45.79.239, 20.45.67.170, 20.45.72.54, 20.45.67.134, 20.45.67.135 | 20.45.67.28, 20.45.67.45, 20.37.74.192 - 20.37.74.207, 40.120.8.0 - 40.120.8.31 |
 | Sur de Reino Unido | 51.140.74.14, 51.140.73.85, 51.140.78.44, 51.140.137.190, 51.140.153.135, 51.140.28.225, 51.140.142.28, 51.140.158.24 | 51.140.80.51, 51.140.148.0 - 51.140.148.15, 51.140.61.124, 51.140.74.150, 51.105.77.96 - 51.105.77.127 |
 | Oeste de Reino Unido | 51.141.54.185, 51.141.45.238, 51.141.47.136, 51.141.114.77, 51.141.112.112, 51.141.113.36, 51.141.118.119, 51.141.119.63 | 51.140.211.0 - 51.140.211.15, 51.141.47.105, 51.141.124.13, 51.141.52.185, 51.140.212.224 - 51.140.212.255 |

@@ -16,4 +16,4 @@ ms.locfileid: "87405607"
 
 A continuación, seleccione *Permisos de API* en la barra de menús para comprobar que este registro de aplicaciones contiene permisos de lectura y escritura para Azure Digital Twins. Debería ver una entrada como la siguiente:
 
-:::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/verify-api-permissions.png" alt-text="Vista del portal de los permisos de API para el registro de la aplicación de Azure AD que muestra "Acceso de lectura y escritura" para Azure Digital Twins":::
+:::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/verify-api-permissions.png" alt-text="Vista del portal del manifiesto para el registro de aplicaciones de Azure AD":::

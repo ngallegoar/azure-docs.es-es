@@ -9,14 +9,17 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: ada966cb3c2a08a8a1ed81c3ba18ab9859774b44
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: b80b3cf1712fab17b8f626bae5fef97849e44e20
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394450"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972258"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Acceso a las claves, los certificados y los secretos de Key Vault con un control de acceso basado en rol de Azure (versión preliminar)
+
+> [!NOTE]
+> El proveedor de recursos de Key Vault admite dos tipos de recursos: **almacenes** y **HSM administrados**. El control de acceso descrito en este artículo solo se aplica a los **almacenes**. Para más información sobre el control de acceso para HSM administrado, consulte [Control de acceso de HSM administrado](../managed-hsm/access-control.md).
 
 El control de acceso basado en rol de Azure es un sistema de autorización basado en [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) que proporciona administración de acceso específico a los recursos de Azure.
 

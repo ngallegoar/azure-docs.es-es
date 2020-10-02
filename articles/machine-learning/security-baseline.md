@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4a7132221d2db58e4dea0e41f2761f4f395b9632
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: ffd374f650140b5b65988578756b25f5d0fb21cc
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401408"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657348"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Base de referencia de seguridad de Azure Machine Learning
 
@@ -28,7 +28,7 @@ La base de referencia de seguridad de Azure para Microsoft Azure Machine Learni
 
 Azure Firewall puede usarse para controlar el acceso al área de trabajo de Azure Machine Learning y a la red pública de Internet.
 
-- [Ejecución segura de experimentos y realización de inferencias en una red virtual aislada](how-to-enable-virtual-network.md)
+- [Información general sobre la privacidad y el aislamiento de la red virtual](how-to-network-security-overview.md)
 
 - [Uso de áreas de trabajo detrás de Azure Firewall para Azure Machine Learning](how-to-access-azureml-behind-firewall.md)
 
@@ -58,7 +58,7 @@ Habilite los registros de flujo de los grupos de seguridad de red y envíe los r
 
 - [Uso de TLS para proteger un servicio web con Azure Machine Learning](how-to-secure-web-service.md)
 
-- [Aislamiento de red durante el entrenamiento e inferencia con redes virtuales privadas](how-to-enable-virtual-network.md)
+- [Información general sobre la privacidad y el aislamiento de la red virtual](how-to-network-security-overview.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -94,7 +94,7 @@ Implemente Azure Firewall en cada uno de los límites de red de la organización
 
 **Guía**: Implemente la solución de firewall que prefiera en cada uno de los límites de red de su organización para detectar o bloquear el tráfico malintencionado.
 
-Seleccione una oferta de Azure Marketplace que admita la funcionalidad de IDS/IPS con funcionalidades de inspección de carga.  Cuando la inspección de carga no es requisito, se puede usar la inteligencia sobre amenazas de Azure Firewall. El filtrado basado en inteligencia sobre amenazas de Azure Firewall se usa para alertar o bloquear el tráfico desde y hacia dominios y direcciones IP malintencionados conocidos. La direcciones IP y los dominios proceden de la fuente Inteligencia sobre amenazas de Microsoft.
+Seleccione en Azure Marketplace una oferta que admita la funcionalidad de IDS/IPS con funcionalidades de inspección de carga.  Cuando la inspección de carga no sea un requisito, se puede usar la inteligencia sobre amenazas de Azure Firewall. El filtrado basado en inteligencia sobre amenazas de Azure Firewall se usa para alertar o bloquear el tráfico desde y hacia dominios y direcciones IP malintencionados conocidos. La direcciones IP y los dominios proceden de la fuente Inteligencia sobre amenazas de Microsoft.
 
 - [Implementación de Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -122,7 +122,7 @@ Azure Machine Learning Service documenta una lista de etiquetas de servicio para
 
 - [Más información sobre el uso de etiquetas de servicio](../virtual-network/service-tags-overview.md)
 
-- [Para la red virtual de Azure Machine Learning](how-to-enable-virtual-network.md)
+- [Información general sobre la privacidad y el aislamiento de la red virtual](how-to-network-security-overview.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -326,7 +326,7 @@ Use el módulo de PowerShell de Azure AD para realizar consultas ad hoc a fin d
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3: Use cuentas administrativas dedicadas
 
-**Guía**: Azure Machine Learning incluye tres roles predeterminados cuando se crea un área de trabajo nueva. Cree procedimientos operativos estándar en torno al uso de las cuentas de propietario.
+**Guía**: Azure Machine Learning incluye tres roles predeterminados cuando se crea un área de trabajo, que crean procedimientos operativos estándar en torno al uso de las cuentas de propietario.
 
 También puede habilitar un acceso Just-in-Time a cuentas administrativas mediante Azure AD Privileged Identity Management y Azure Resource Manager. 
 

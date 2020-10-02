@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 45f704afce28967237b2905ef068678ba05ae085
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 4b2d882e6956fa23464e620e9820b0616e13b6f6
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206640"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563094"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Desencadenador de temporizador para Azure Functions 
 
@@ -22,15 +22,15 @@ En este artículo se explica cómo usar desencadenadores de temporizador en Azur
 
 Para información sobre cómo ejecutar manualmente una función desencadenada por un temporizador, consulte [Ejecución manual de una función no desencadenada por HTTP](./functions-manually-run-non-http.md).
 
-## <a name="packages---functions-1x"></a>Paquetes: Functions 1.x
-
-El desencadenador del temporizador se proporciona en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions), versión 2.x. El código fuente del paquete está en el repositorio [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/) de GitHub.
-
-[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
-
 ## <a name="packages---functions-2x-and-higher"></a>Paquetes: Functions 2.x y versiones posteriores
 
 El desencadenador del temporizador se proporciona en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions), versión 3.x. El código fuente del paquete está en el repositorio [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) de GitHub.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
+## <a name="packages---functions-1x"></a>Paquetes: Functions 1.x
+
+El desencadenador del temporizador se proporciona en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions), versión 2.x. El código fuente del paquete está en el repositorio [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/) de GitHub.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -250,6 +250,7 @@ Cuando se invoca una función de desencadenador de temporizador, se pasa a esta 
 
 La propiedad `IsPastDue` es `true` cuando la invocación de función actual es posterior a la programada. Por ejemplo, un reinicio de aplicación de función podría provocar la ausencia de una invocación.
 
+
 ## <a name="ncrontab-expressions"></a>Expresiones NCRONTAB 
 
 Azure Functions usa la biblioteca [NCronTab](https://github.com/atifaziz/NCrontab) para interpretar las expresiones NCRONTAB. Una expresión NCRONTAB es similar a una expresión CRON, excepto en que incluye un sexto campo adicional al comienzo para usarlo con una precisión de segundos:
@@ -282,6 +283,8 @@ Estos son algunos ejemplos de expresiones NCRONTAB que puede usar para el desenc
 |`"0 30 9 * * 1-5"`|A las 9:30 a. m. cada día de la semana|
 |`"0 30 9 * Jan Mon"`|A las 9:30 a. m. todos los lunes en enero|
 
+> [!NOTE]
+> La expresión NCRONTAB requiere el formato de **seis campos**. No se admiten expresiones Cron de cinco campos en Azure.
 
 ### <a name="ncrontab-time-zones"></a>Zonas horarias de NCRONTAB
 

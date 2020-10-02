@@ -3,14 +3,14 @@ title: Introducción a Update Management en Azure Automation
 description: En este artículo se ofrece información general de la característica Update Management que implementa las actualizaciones de las máquinas Windows y Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0fd416c844ac93ffb77eded98448b2e93e9acd30
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 4a753cd139db9dec23c82346704382979aeaa0de
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660915"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976981"
 ---
 # <a name="update-management-overview"></a>Introducción a Update Management
 
@@ -18,8 +18,8 @@ Puede usar Update Management en Azure Automation para administrar las actualizac
 
 Puede habilitar Update Management en máquinas virtuales de las siguientes maneras:
 
-* Desde la [cuenta de Azure Automation](update-mgmt-enable-automation-account.md) para una o varias máquinas de Azure.
-* Manualmente para máquinas que no son de Azure.
+* Desde la [cuenta de Azure Automation](update-mgmt-enable-automation-account.md) para una o varias máquinas de Azure o que no sean de Azure Automation.
+* Manualmente, para máquinas que no sean de Azure, incluidos máquinas o servidores registrados con [servidores habilitados para Azure Arc](../../azure-arc/servers/overview.md) (versión preliminar).
 * Para una sola máquina virtual de Azure, desde la página de la máquina virtual en Azure Portal. Este escenario está disponible para las VM [Linux](../../virtual-machines/linux/tutorial-config-management.md#enable-update-management) y [Windows](../../virtual-machines/windows/tutorial-config-management.md#enable-update-management).
 * Para [varias máquinas virtuales de Azure](update-mgmt-enable-portal.md), selecciónelas en la página Máquinas virtuales de Azure Portal.
 
@@ -31,6 +31,8 @@ Hay disponible una [plantilla de Azure Resource Manager](update-mgmt-enable-temp
 > [!NOTE]
 > No se puede usar una máquina configurada con Update Management para ejecutar scripts personalizados desde Azure Automation. Esta máquina solo puede ejecutar el script de actualización con firma de Microsoft.
 
+Para descargar e instalar automáticamente las revisiones *críticas* y de *seguridad* disponibles en la máquina virtual de Azure, consulte [Revisiones de invitado de máquina virtual automática](../../virtual-machines/windows/automatic-vm-guest-patching.md) para máquinas virtuales Windows.
+
 ## <a name="about-update-management"></a>Acerca de Update Management
 
 Las máquinas administradas por Update Management usan las siguientes configuraciones para realizar valoraciones y actualizar implementaciones:
@@ -40,21 +42,17 @@ Las máquinas administradas por Update Management usan las siguientes configurac
 * Hybrid Runbook Worker de Automation
 * Microsoft Update o Windows Server Update Services (WSUS) para máquinas Windows
 
-El siguiente diagrama muestra cómo Update Management evalúa y aplica las actualizaciones de seguridad a todas las máquinas Windows Server y Linux conectadas de un área de trabajo:
+El siguiente diagrama muestra cómo Update Management evalúa y aplica las actualizaciones de seguridad a todos los servidores Windows Server y Linux conectados de un área de trabajo:
 
 ![Flujo de trabajo de Update Management](./media/update-mgmt-overview/update-mgmt-updateworkflow.png)
 
-Se puede utilizar Update Management para implementar máquinas de forma nativa en varias suscripciones en el mismo inquilino.
+Se puede utilizar Update Management para realizar la implementación de forma nativa en las máquinas de varias suscripciones del mismo inquilino.
 
-Después de publicarse un paquete, la revisión tarda de 2 a 3 horas en aparecer en las máquinas Linux para su evaluación. Para las máquinas Windows, la revisión tarda de 12 a 15 horas en aparecer para su evaluación tras su publicación.
-
-Después de que una máquina completa un examen de cumplimiento de las actualizaciones, el agente reenvía la información de forma masiva a los registros de Azure Monitor. En una máquina Windows, el examen de cumplimiento se ejecuta cada 12 horas de forma predeterminada.
+Después de publicarse un paquete, la revisión tarda de 2 a 3 horas en aparecer en las máquinas Linux para su evaluación. Para las máquinas Windows, la revisión tarda de 12 a 15 horas en aparecer para su evaluación tras su publicación. Después de que una máquina finalice un examen de cumplimiento de actualizaciones, el agente reenvía la información de forma masiva a los registros de Azure Monitor. En una máquina Windows, el examen de cumplimiento se ejecuta cada 12 horas de forma predeterminada. En una máquina Linux, el examen de cumplimiento se realiza cada hora de manera predeterminada. Si se reinicia el agente de Log Analytics, se inicia un examen de cumplimiento al cabo de 15 minutos.
 
 Además del examen programado, el examen de cumplimiento de las actualizaciones se inicia a los 15 minutos del reinicio del agente de Log Analytics, así como antes y después de la instalación de actualizaciones.
 
-En una máquina Linux, el examen de cumplimiento se realiza cada hora de manera predeterminada. Si se reinicia el agente de Log Analytics, se inicia un examen de cumplimiento al cabo de 15 minutos.
-
-Update Management informa del grado de actualización de la máquina en función del origen configurado para la sincronización. Si la máquina Windows está configurada para informar a WSUS, en función de cuándo WSUS se sincronizó por última vez con Microsoft Update, los resultados pueden diferir de lo que se muestra en Microsoft Update. Este comportamiento es el mismo para las máquinas Linux que están configuradas para informar a un repositorio local en lugar de a uno público.
+Update Management informa del grado de actualización de la máquina en función del origen configurado para la sincronización. Si la máquina Windows está configurada para informar a [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) (WSUS), en función de cuándo WSUS se sincronizó por última vez con Microsoft Update, los resultados pueden diferir de lo que se muestra en Microsoft Update. Este comportamiento es el mismo para las máquinas Linux que están configuradas para informar a un repositorio local en lugar de a uno público.
 
 > [!NOTE]
 > Para informar correctamente al servicio, Update Management requiere la habilitación de ciertas direcciones URL y puertos. Para más información sobre estos requisitos, consulte [Configuración de red](../automation-hybrid-runbook-worker.md#network-planning).
@@ -86,7 +84,7 @@ En la tabla siguiente se muestra una lista de sistemas operativos compatibles pa
 |Windows Server 2008 R2 (RTM and SP1 Standard)| Update Management admite evaluaciones y parches para este sistema operativo. [Hybrid Runbook Worker](../automation-windows-hrw-install.md) es compatible con Windows Server 2008 R2. |
 |CentOS 6 (x86/x64) y 7 (x64)      | Los agentes de Linux requieren acceso a un repositorio de actualización. La aplicación de revisiones basada en la clasificación requiere `yum` para devolver los datos de seguridad que CentOS no tiene en sus versiones RTM. Para más información sobre la aplicación de revisiones basadas en clasificaciones en CentOS, consulte [Actualización de clasificaciones en Linux](update-mgmt-view-update-assessments.md#linux).          |
 |Red Hat Enterprise (x86/x64) 6 y 7 (x64)     | Los agentes de Linux requieren acceso a un repositorio de actualización.        |
-|SUSE Linux Enterprise Server 11 (x86/x64) y 12 (x64)     | Los agentes de Linux requieren acceso a un repositorio de actualización.        |
+|SUSE Linux Enterprise Server 12 (x64)     | Los agentes de Linux requieren acceso a un repositorio de actualización.        |
 |Ubuntu 14.04 LTS, 16.04 LTS y 18.04 (x86/x64)      |Los agentes de Linux requieren acceso a un repositorio de actualización.         |
 
 > [!NOTE]
@@ -112,7 +110,7 @@ Los agentes de Windows deben estar configurados para comunicarse con un servidor
 
 Puede usar Update Management con Microsoft Endpoint Configuration Manager. Para más información sobre escenarios de integración, consulte este artículo sobre la [integración de Update Management con Endpoint Configuration Manager de Windows](update-mgmt-mecmintegration.md). El [agente de Log Analytics para Windows](../../azure-monitor/platform/agent-windows.md) es necesario para los servidores Windows administrados por sitios en su entorno de Configuration Manager. 
 
-De forma predeterminada, las VM Windows implementadas desde Azure Marketplace se establecen para recibir actualizaciones automáticas del servicio de Windows Update. Este comportamiento no cambia cuando se agregan VM Windows al área de trabajo. Si no administra activamente las actualizaciones mediante Update Management, se aplica el comportamiento predeterminado (las actualizaciones se aplican automáticamente).
+De forma predeterminada, las máquinas virtuales Windows implementadas desde Azure Marketplace se establecen para recibir actualizaciones automáticas del servicio de Windows Update. Este comportamiento no cambia cuando se agregan VM Windows al área de trabajo. Si no administra activamente las actualizaciones mediante Update Management, se aplica el comportamiento predeterminado (las actualizaciones se aplican automáticamente).
 
 > [!NOTE]
 > Puede modificar la directiva de grupo para que los reinicios de la máquina solo los pueda realizar el usuario, no el sistema. Es posible que las máquinas administradas se bloqueen si Update Management no tiene derechos para reiniciar la máquina sin la intervención manual del usuario. Para obtener más información, consulte el tema sobre la [configuración de la directiva de grupo para actualizaciones automáticas](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates).
@@ -126,7 +124,7 @@ En Linux, la máquina requiere acceso a un repositorio de actualización, privad
 
 Para más información sobre cómo instalar el agente de Log Analytics para Linux y descargar la versión más reciente, consulte [Agente de Log Analytics para Linux](../../azure-monitor/platform/agent-linux.md).
 
-Las VM que se crearon a partir de las imágenes a petición de Red Hat Enterprise Linux (RHEL) que están disponibles en Azure Marketplace están registradas para acceder a la instancia de [Red Hat Update Infrastructure (RHUI)](../../virtual-machines/workloads/redhat/redhat-rhui.md) implementada en Azure. Cualquier otra distribución de Linux se debe actualizar desde el repositorio de archivos en línea de la distribución mediante los métodos que admite esta.
+Las máquinas virtuales que se crearon a partir de las imágenes a petición de Red Hat Enterprise Linux (RHEL) que están disponibles en Azure Marketplace están registradas para acceder a la instancia de [Red Hat Update Infrastructure (RHUI)](../../virtual-machines/workloads/redhat/redhat-rhui.md) implementada en Azure. Cualquier otra distribución de Linux se debe actualizar desde el repositorio de archivos en línea de la distribución mediante los métodos que admite esta.
 
 ## <a name="permissions"></a>Permisos
 
@@ -140,7 +138,7 @@ Update Management usa los recursos descritos en esta sección. Estos recursos se
 
 Después de habilitar Update Management, las máquinas Windows conectadas directamente al área de trabajo de Log Analytics se configuran automáticamente como Hybrid Runbook Worker para admitir los runbooks que admiten a su vez Update Management.
 
-Cada máquina Windows administrada por Update Management se muestra en el panel Grupos de Hybrid Worker como un grupo Hybrid Worker del sistema para la cuenta de Automation. Los grupos usan la convención de nomenclatura `Hostname FQDN_GUID`. No puede usar estos grupos como destino con runbooks de su cuenta. Si lo intenta, se producirá un error. Estos grupos están diseñados únicamente para admitir Update Management.
+Cada máquina Windows administrada por Update Management se muestra en el panel Grupos de Hybrid Worker como un grupo Hybrid Worker del sistema para la cuenta de Automation. Los grupos usan la convención de nomenclatura `Hostname FQDN_GUID`. No puede usar estos grupos como destino con runbooks de su cuenta. Si lo intenta, se producirá un error. Estos grupos están diseñados únicamente para admitir Update Management. Para más información sobre la visualización de la lista de máquinas Windows configuradas como Hybrid Runbook Worker, consulte [Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md#view-hybrid-runbook-workers).
 
 Puede agregar la máquina Windows a un grupo de Hybrid Runbook Worker en la cuenta de Automation para admitir runbooks de Automation si usa la misma cuenta para Update Management y la pertenencia a grupos de Hybrid Runbook Worker. Esta funcionalidad se agregó en la versión 7.2.12024.0 de Hybrid Runbook Worker.
 
@@ -176,7 +174,7 @@ En la tabla siguiente se describen los orígenes conectados compatibles con Upda
 
 Update Management examina los datos de las máquinas administradas con las siguientes reglas. Puede que transcurran entre 30 minutos y 6 horas antes de que se muestren los datos actualizados de las máquinas administradas.
 
-* Cada máquina Windows: Update Management realiza un examen dos veces al día de cada máquina. Cada 15 minutos, consulta la API de Windows para consultar la hora de la última actualización y determinar si ha cambiado el estado. Si el estado ha cambiado, Update Management inicia un examen de cumplimiento.
+* Cada máquina Windows: Update Management realiza un examen dos veces al día de cada máquina.
 
 * Cada máquina Linux: Update Management realiza un examen cada hora.
 
@@ -238,7 +236,7 @@ En Linux, Update Management puede distinguir entre actualizaciones críticas y d
 sudo yum -q --security check-update
 ```
 
-Actualmente no hay ningún método compatible para habilitar la disponibilidad de datos de clasificación nativos en CentOS. En este momento, solo se proporciona soporte técnico a clientes que puedan haber habilitado esta característica por su cuenta.
+Actualmente no hay ningún método compatible para habilitar la disponibilidad de datos de clasificación nativos en CentOS. En este momento, se proporciona soporte técnico limitado a clientes que puedan haber habilitado esta característica por su cuenta.
 
 Para clasificar las actualizaciones de la versión 6 de Red Hat Enterprise, debe instalar el complemento de seguridad de yum. En Red Hat Enterprise Linux 7, el complemento ya forma parte de yum y no es necesario instalar nada. Para más información, consulte el siguiente [artículo de conocimientos](https://access.redhat.com/solutions/10021) de Red Hat.
 
@@ -256,9 +254,10 @@ Hay disponible una [plantilla de Azure Resource Manager](update-mgmt-enable-temp
 
 Estas son las formas en que puede habilitar Update Management y seleccionar las máquinas que se van a administrar:
 
-* [Desde una máquina virtual](update-mgmt-enable-vm.md)
-* [Navegando desde diferentes máquinas](update-mgmt-enable-portal.md)
+* [Desde una máquina virtual de Azure](update-mgmt-enable-vm.md)
+* [Navegando en múltiples máquinas virtuales de Azure](update-mgmt-enable-portal.md)
 * [Desde una cuenta de Azure Automation](update-mgmt-enable-automation-account.md).
+* En el caso de servidores habilitados para Arc (versión preliminar) o máquinas que no sean de Azure, instale el [Agente de Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) y, a continuación, [habilite las máquinas del área de trabajo](update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace) para Update Management.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
