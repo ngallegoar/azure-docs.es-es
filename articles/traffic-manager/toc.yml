@@ -44,6 +44,10 @@
       items:
         - name: Jerarquía de país o región que usa Traffic Manager
           href: traffic-manager-geographic-regions.md
+    - name: Seguridad
+      items:
+        - name: Línea de base de seguridad
+          href: security-baseline.md
     - name: Perfiles anidados del Administrador de tráfico
       href: traffic-manager-nested-profiles.md
     - name: Tipos de punto de conexión

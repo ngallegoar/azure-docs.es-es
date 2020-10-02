@@ -34,6 +34,10 @@
           href: how-to-install.md
         - name: Configuración del aprovisionamiento en la nube
           href: how-to-configure.md
+        - name: Aprovisionamiento a petición
+          href: how-to-on-demand-provision.md
+        - name: Asignación de atributos
+          href: how-to-attribute-mapping.md
         - name: Uso del inicio de sesión único
           href: how-to-sso.md
     - name: Planeamiento y diseño

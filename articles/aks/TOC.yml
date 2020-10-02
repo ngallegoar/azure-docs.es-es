@@ -50,6 +50,8 @@
       href: concepts-identity.md
     - name: Seguridad
       items:
+        - name: Línea de base de seguridad
+          href: security-baseline.md
         - name: Seguridad para aplicaciones y clústeres
           href: concepts-security.md
         - name: Controles de seguridad de Azure Policy
@@ -57,7 +59,7 @@
           href: ./security-controls-policy.md
     - name: Redes
       href: concepts-network.md
-    - name: Storage
+    - name: Almacenamiento
       href: concepts-storage.md
     - name: Escala
       href: concepts-scale.md
