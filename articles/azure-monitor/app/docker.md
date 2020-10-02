@@ -3,12 +3,12 @@ title: Supervisión de aplicaciones de Docker en Azure Application Insights | Mi
 description: En Application Insights, se pueden mostrar los contadores de rendimiento, los eventos y las excepciones de Docker, además de la telemetría de las aplicaciones en contenedor.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 1cbb2968fec68eb750ce3c9b6cac09f23a1d36c5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 272b4e8af7b1ed3d01d8af0979b56954585f795d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324427"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90977587"
 ---
 # <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Supervisar aplicaciones de Docker en Application Insights (en desuso)
 
@@ -71,12 +71,12 @@ Haga clic en el icono de Docker.
 Pronto verá que llegan datos desde la aplicación de Docker, especialmente si tiene otros contenedores que se ejecutan en el motor de Docker.
 
 ### <a name="docker-container-events"></a>Eventos de contenedor Docker
-![ejemplo](./media/docker/13.png)
+![Captura de pantalla que muestra la selección de Buscar, una ventana de resultados de búsqueda de diagnóstico con una flecha que apunta desde un evento personalizado a una ventana con datos personalizados.](./media/docker/13.png)
 
 Para investigar eventos individuales, haga clic en [Buscar](./diagnostic-search.md). Busque y filtre para encontrar los eventos deseados. Haga clic en cualquier evento para más detalles.
 
 ### <a name="exceptions-by-container-name"></a>Excepciones por el nombre del contenedor
-![ejemplo](./media/docker/14.png)
+![Captura de pantalla que muestra la página Explorador de métricas con un gráfico seleccionado y la ventana Detalles del gráfico abierta en el lado derecho.](./media/docker/14.png)
 
 ### <a name="docker-context-added-to-app-telemetry"></a>Contexto de Docker agregado a los datos de telemetría de la aplicación
 Los datos de telemetría de solicitud enviados desde la aplicación instrumentada con el SDK de AI están enriquecidos con la información de contexto de Docker.

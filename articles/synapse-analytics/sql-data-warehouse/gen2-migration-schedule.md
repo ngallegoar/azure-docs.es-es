@@ -12,12 +12,12 @@ ms.topic: article
 ms.subservice: sql-dw
 ms.date: 01/21/2020
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 71219abaf6493d6dce03f05ad0e61fb71bff1745
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eebde4470ba2635a5287cb3b0103fa49e0e243e0
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207726"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441007"
 ---
 # <a name="upgrade-your-sql-pool-to-gen2"></a>Actualice el grupo de SQL a Gen2
 
@@ -133,4 +133,4 @@ Para obtener más información, vea [Actualización a Gen2](upgrade-to-latest-ge
 - [Actualización en contexto y desde un punto de restauración](upgrade-to-latest-generation.md)
 - [Creación de un punto de restauración definido por el usuario](sql-data-warehouse-restore-points.md)
 - [Información sobre cómo restaurar a Gen2](sql-data-warehouse-restore-active-paused-dw.md)
-- [Apertura de una solicitud de soporte técnico de SQL Data Warehouse](https://go.microsoft.com/fwlink/?linkid=857950)
+- [Apertura de una solicitud de soporte técnico de Azure Synapse Analytics](https://go.microsoft.com/fwlink/?linkid=857950)

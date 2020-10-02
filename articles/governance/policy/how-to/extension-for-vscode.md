@@ -3,12 +3,12 @@ title: Extensión de Azure Policy para Visual Studio Code
 description: Obtenga información acerca de cómo usar la extensión de Azure Policy para Visual Studio Code para buscar alias de Azure Resource Manager.
 ms.date: 06/16/2020
 ms.topic: how-to
-ms.openlocfilehash: c91d39414a376b410e52c2ba60ce15ed0c5054f6
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 9b3f27492bee5301e22e83ebf9734afa3de43897
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970763"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648338"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Use la extensión de Azure Policy para Visual Studio Code
 
@@ -52,7 +52,7 @@ Para usuarios de la nube nacional, siga estos pasos para configurar el entorno d
 
 1. Seleccione la nube nacional de la lista:
 
-   :::image type="content" source="../media/extension-for-vscode/set-default-azure-cloud-sign-in.png" alt-text="Establezca el inicio de sesión predeterminado de la nube de Azure para Visual Studio Code" border="false":::
+   :::image type="content" source="../media/extension-for-vscode/set-default-azure-cloud-sign-in.png" alt-text="Captura de pantalla de la selección del inicio de sesión en la nube de Azure nacional para Visual Studio Code." border="false":::
 
 ## <a name="connect-to-an-azure-account"></a>Conexión a la cuenta de Azure
 
@@ -64,13 +64,13 @@ Para evaluar los recursos y los alias de búsqueda, debe conectarse a su cuenta 
 
      En la extensión de Azure Policy, seleccione **Iniciar sesión en Azure**.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Inicio de sesión en la nube de Azure para Visual Studio Code de la extensión de Azure Policy" border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Captura de pantalla de la selección del inicio de sesión en la nube de Azure nacional para Visual Studio Code." border="false":::
 
    - Paleta de comandos
 
      En la barra de menús, vaya a **Vista** > **Paleta de comandos** y escriba **Azure: Sign In** (Iniciar sesión).
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Inicio de sesión en la nube de Azure para Visual Studio Code desde la paleta de comandos" border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Captura de pantalla de la selección del inicio de sesión en la nube de Azure nacional para Visual Studio Code." border="false":::
 
 1. Siga las instrucciones para iniciar sesión en Azure. Una vez establecida la conexión, el nombre de la cuenta de Azure se muestra en la barra de estado en la parte inferior de la ventana de Visual Studio Code.
 
@@ -125,7 +125,7 @@ Cuando se selecciona un recurso, ya sea mediante la interfaz de búsqueda o al s
 
 Una vez que se abre un recurso, al mantener el mouse sobre el nombre o valor de la propiedad del administrador de recursos, se muestra el alias de Azure Policy, si existe uno. En este ejemplo, el recurso es un tipo de recurso `Microsoft.Compute/virtualMachines` y la propiedad **properties. storageProfile.imageReference.offer** se mantiene sobre ella. Al mantener el mouse se muestran los alias que coinciden.
 
-:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="El desplazamiento de la extensión de Azure Policy muestra el alias de propiedad de Resource Manager" border="false":::
+:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Captura de pantalla de la selección del inicio de sesión en la nube de Azure nacional para Visual Studio Code." border="false":::
 
 > [!NOTE]
 > La extensión de VS Code solo expone las propiedades del modo Administrador de recursos y no muestra ninguna propiedad del modo [Proveedor de recursos](../concepts/definition-structure.md#mode).

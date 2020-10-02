@@ -11,12 +11,14 @@ ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 2b1dc7873140f885ec3efac11dec5fbf6aab7aa9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- fasttrack-edit
+- iot
+ms.openlocfilehash: 3e3dd49c622c1a35571fdb53af470789dc9a26bb
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81732578"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462044"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Seguimiento de mensajes del dispositivo a la nube de Azure IoT con seguimiento distribuido (versión preliminar)
 
@@ -307,10 +309,10 @@ Una vez habilitada, la compatibilidad con el seguimiento distribuido para IoT Hu
 
 1. Se genera un mensaje en el dispositivo de IoT.
 1. El dispositivo de IoT decide (con la ayuda de la nube) que este mensaje se debería asignar con un contexto de seguimiento.
-1. El SDK agrega `tracestate` a la propiedad de aplicación del mensaje, que contiene la marca de tiempo de creación del mensaje.
+1. El SDK agrega `tracestate` a la propiedad del mensaje, que contiene la marca de tiempo de creación del mensaje.
 1. El dispositivo de IoT envía el mensaje a IoT Hub.
 1. El mensaje llega a la puerta de enlace de IoT Hub.
-1. IoT Hub busca `tracestate` en las propiedades de la aplicación del mensaje y comprobaciones si tiene el formato correcto.
+1. IoT Hub busca `tracestate` en las propiedades del mensaje y comprobaciones si tiene el formato correcto.
 1. En ese caso, IoT Hub genera un elemento `trace-id` único global para el mensaje y un elemento `span-id` para el "salto" y los anota en los registros de diagnóstico de Azure Monitor en la operación `DiagnosticIoTHubD2C`.
 1. Una vez finalizado el procesamiento del mensaje, IoT Hub genera otro elemento `span-id` y lo registra junto con el elemento `trace-id` existente en la operación `DiagnosticIoTHubIngress`.
 1. Si el enrutamiento está habilitado para el mensaje, IoT Hub lo escribe en el punto de conexión personalizado y registra otro `span-id` con el mismo `trace-id` bajo la categoría `DiagnosticIoTHubEgress`.

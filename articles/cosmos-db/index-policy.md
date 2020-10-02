@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: f723d7ac218869313f02212d27d9f96b74bb7f0f
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: f9e1ff633f70e544a3cde579f1550d3fd708f269
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607513"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089520"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Directivas de indexación en Azure Cosmos DB
 
@@ -81,7 +81,7 @@ Cualquier directiva de indexación tiene que incluir la ruta de acceso raíz `/*
 
 Al incluir y excluir las rutas de acceso, puede encontrar los atributos siguientes:
 
-- `kind` puede ser `range` o `hash`. La funcionalidad de un índice de intervalo proporciona todas las funcionalidades de un índice de hash, por lo que recomendamos usar un índice de intervalo.
+- `kind` puede ser `range` o `hash`. La compatibilidad con índices hash se limita a los filtros de igualdad. La funcionalidad de índices de rangos proporciona toda la funcionalidad de los índices hash, además de una ordenación eficaz, filtros de rango y funciones del sistema. Se recomienda usar siempre un índice de rangos.
 
 - `precision` es un número que se define en el nivel de índice para rutas de acceso incluidas. Un valor de `-1` indica la precisión máxima. Recomendamos que establezca siempre este valor en `-1`.
 

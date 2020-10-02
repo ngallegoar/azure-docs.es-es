@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: a4da74c01f732f3a62d29847d5f61934dede9778
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1364da4849a07100ac28644a51409837012f93cc
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208100"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986211"
 ---
 # <a name="column-level-security"></a>Seguridad de nivel de columna
 
@@ -28,9 +28,9 @@ Desde que se publicó este vídeo, la [seguridad de nivel de fila](/sql/relation
 
 La seguridad de nivel de columna simplifica el diseño y la codificación de la seguridad de la aplicación y esto le permite restringir el acceso a las columnas para proteger información confidencial. Por ejemplo, garantiza que determinados usuarios puedan acceder solo a ciertas columnas de una tabla pertenecientes a su departamento. La lógica de la restricción de acceso está ubicada en el nivel de base de datos en lugar de estar alejado de los datos en otro nivel de aplicación. La base de datos aplica las restricciones de acceso cada vez que se intenta acceder a los datos desde cualquier nivel. Esta restricción hace que la seguridad resulte más sólida y confiable, ya que reduce el área expuesta del sistema de seguridad global. Además, la seguridad de nivel de columna también elimina la necesidad de introducir vistas para filtrar las columnas a fin de imponer restricciones de acceso a los usuarios.
 
-Puede implementar este tipo de seguridad con la instrucción [GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) de T-SQL. Con este mecanismo, se admite tanto la autenticación de SQL como la de Azure Active Directory (AAD).
+Puede implementar este tipo de seguridad con la instrucción [GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) de T-SQL. Con este mecanismo, se admite tanto la autenticación de SQL como la de Azure Active Directory (Azure AD).
 
-![cls](./media/column-level-security/cls.png)
+![En el diagrama se muestra una tabla esquemática con la primera columna encabezada por un candado cerrado, cuyas celdas son de color naranja, mientras que las celdas de las demás columnas son blancas.](./media/column-level-security/cls.png)
 
 ## <a name="syntax"></a>Sintaxis
 

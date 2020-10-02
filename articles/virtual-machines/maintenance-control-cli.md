@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 56f9873828e2f93008498beed986827a01872bf1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 67e33732574d2a6c173675d5adf0a7d1c2050688
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84675866"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528183"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>Control de las actualizaciones con el control de mantenimiento y la CLI de Azure
 
@@ -37,7 +37,7 @@ Copie el identificador de configuración de la salida para usarlo más adelante.
 
 El uso de `--maintenanceScope host` garantiza que la configuración de mantenimiento se utiliza para controlar las actualizaciones del host.
 
-Si intenta crear una configuración con el mismo nombre, pero en una ubicación diferente, obtendrá un error. Los nombres de configuración deben ser únicos dentro de su suscripción.
+Si intenta crear una configuración con el mismo nombre, pero en una ubicación diferente, obtendrá un error. Los nombres de configuración deben ser únicos dentro de su grupo de recursos.
 
 Puede consultar las configuraciones de mantenimiento disponibles mediante `az maintenance configuration list`.
 

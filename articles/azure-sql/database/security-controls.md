@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 97d2cd8e9ba51e4fc6ebab8459b04f4f37e876d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eec032ad56d00778627fc147761f61c03ba8bafd
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668430"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442095"
 ---
 # <a name="security-controls-for-azure-sql-database-and-sql-managed-instance"></a>Controles de seguridad para Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -69,7 +69,7 @@ En este artículo se explican los controles de seguridad integrados en Azure SQL
 | Control de seguridad | Sí/No | Notas|
 |---|---|--|
 | Preventivo: evaluación de vulnerabilidad | Sí | Consulte [El servicio de evaluación de vulnerabilidad de SQL le ayuda a identificar los puntos vulnerables de la base de datos](sql-vulnerability-assessment.md). |
-| Preventivo: detección y clasificación de datos  | Sí | Consulte [Clasificación y detección de datos de Azure SQL Database y Azure SQL Data Warehouse](data-discovery-and-classification-overview.md). |
+| Preventivo: detección y clasificación de datos  | Sí | Consulte [Detección y clasificación de datos de Azure SQL Database y Azure Synapse Analytics](data-discovery-and-classification-overview.md). |
 | Detección: detección de amenazas | Sí | Consulte [Advanced Threat Protection en Azure SQL Database](threat-detection-overview.md). |
 
 ## <a name="next-steps"></a>Pasos siguientes

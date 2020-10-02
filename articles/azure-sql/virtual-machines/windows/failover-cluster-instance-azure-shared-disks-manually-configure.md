@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: ffb739affac68898f6ed5ff1d972d3fd4a70df2f
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: ddd6e08d9be36035b2db02ec5feb3ae4e957ec49
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055267"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604451"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Creación de una FCI con discos compartidos de Azure (SQL Server en VM de Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,13 +33,13 @@ Para más información, consulte la información general de [FCI con SQL Server 
 Antes de completar las instrucciones de este artículo, ya debe tener:
 
 - Suscripción a Azure. Comience a usarla [gratis](https://azure.microsoft.com/free/). 
-- [Dos o más máquinas virtuales de Microsoft Azure preparadas para el Centro-oeste de EE. UU.](failover-cluster-instance-prepare-vm.md) en el mismo [conjunto de disponibilidad](../../../virtual-machines/linux/tutorial-availability-sets.md) y un [grupo de ubicación de proximidad](../../../virtual-machines/windows/co-location.md#proximity-placement-groups), con el conjunto de disponibilidad que se crea con el dominio de error y el dominio de actualización establecidos en **1**. 
+- [Dos o más máquinas virtuales de Azure con Windows](failover-cluster-instance-prepare-vm.md). Se admiten [conjuntos de disponibilidad](../../../virtual-machines/windows/tutorial-availability-sets.md) y [grupos con ubicación por proximidad](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) (PPG). Si utiliza un PPG, todos los nodos deben encontrarse en el mismo grupo.
 - Una cuenta que tenga permisos para crear objetos en máquinas virtuales de Azure y en Active Directory.
 - La versión más reciente de [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
 
 
 ## <a name="add-azure-shared-disk"></a>Adición de un disco compartido de Azure
-Implemente un disco SSD Premium administrado con la característica de disco compartido habilitada. Establezca `maxShares` en **2** para que el disco pueda compartirse en ambos nodos de FCI. 
+Implemente un disco SSD Premium administrado con la característica de disco compartido habilitada. Establezca `maxShares` para que se **alinee con el número de nodos de clúster** a fin de que el disco pueda compartirse en todos los nodos de FCI. 
 
 Agregue un disco compartido de Azure mediante el procedimiento siguiente: 
 
@@ -161,7 +161,7 @@ Para validar el clúster con la interfaz de usuario, realice los pasos siguiente
 
 ## <a name="test-cluster-failover"></a>Conmutación por error del clúster de prueba
 
-Pruebe la conmutación por error del clúster. En **Administrador de clústeres de conmutación por error**, haga clic con el botón derecho en el clúster, seleccione **Más acciones** > **Mover recurso del clúster del recurso principal** > **Seleccionar nodo**, y después, seleccione el otro nodo del clúster. Mueva el recurso de clúster principal a cada nodo del clúster y, después, devuélvalo al nodo principal. Si puede mover correctamente el clúster a cada nodo, está listo para instalar SQL Server.  
+Pruebe la conmutación por error del clúster. En **Administrador de clústeres de conmutación por error**, haga clic con el botón derecho en el clúster y seleccione **Más acciones** > **Mover principales recursos de clúster** > **Seleccionar nodo** y, después, seleccione el otro nodo del clúster. Mueva el recurso de clúster principal a cada nodo del clúster y, después, devuélvalo al nodo principal. Si puede mover correctamente el clúster a cada nodo, está listo para instalar SQL Server.  
 
 :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Prueba de la conmutación por error del clúster moviendo el recurso principal a los demás nodos":::
 
@@ -213,12 +213,11 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Configuración de la conectividad 
 
-Para enrutar el tráfico de forma adecuada al nodo principal actual, configure la opción de conectividad apropiada para su entorno. Puede crear un [equilibrador de carga de Azure](hadr-vnn-azure-load-balancer-configure.md) o bien, si usa SQL Server 2019 y Windows Server 2016 (o posterior), puede obtener una versión preliminar de la característica [nombre de red distribuida](hadr-distributed-network-name-dnn-configure.md) en su lugar. 
+Para enrutar el tráfico de forma adecuada al nodo principal actual, configure la opción de conectividad apropiada para su entorno. Puede crear un [equilibrador de carga de Azure](hadr-vnn-azure-load-balancer-configure.md) o bien, si usa SQL Server 2019 CU2 y Windows Server 2016 (o posterior), puede obtener en su lugar una versión preliminar de la característica [Nombre de red distribuida](hadr-distributed-network-name-dnn-configure.md). 
 
 ## <a name="limitations"></a>Limitaciones
 
-- Solo se admite SQL Server 2019 en Windows Server 2019. 
-- Solo se admite el registro con el proveedor de recursos de VM de SQL en [modo de administración ligero](sql-vm-resource-provider-register.md#management-modes).
+- Solo se admite el registro con el proveedor de recursos de máquina virtual con SQL en [modo de administración ligero](sql-vm-resource-provider-register.md#management-modes).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

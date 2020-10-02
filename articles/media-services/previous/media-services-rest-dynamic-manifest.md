@@ -1,6 +1,6 @@
 ---
 title: Creación de filtros con la API de REST de Azure Media Services | Microsoft Docs
-description: En este tema se describe cómo crear filtros para que su cliente pueda usarlos para el streaming de secciones específicas de una secuencia. Media Services crea manifiestos dinámicos para lograr este streaming selectivo.
+description: En este tema se describe cómo crear filtros para que su cliente pueda usarlos para el streaming de secciones específicas de una secuencia. La API de REST de Media Services crea manifiestos dinámicos para lograr este streaming selectivo.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewr: cenkdin
-ms.openlocfilehash: a77da9726c6c081ba5129b9b8815c3ac560e3b54
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 04a9776ca2686aebbb7668c86f5afcd61f5f9238
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89256861"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530189"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Creación de filtros con la API de REST de Azure Media Services
 

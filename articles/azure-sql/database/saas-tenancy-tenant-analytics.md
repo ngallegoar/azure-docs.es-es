@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: cc748e8a816b944a20a12c8e8e345dca21dfaabd
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 80658839e804112ae9c8a049943bca54441b015b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043519"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437401"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Análisis entre inquilinos mediante datos extraídos: aplicación de un solo inquilino
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ Las aplicaciones SaaS multiinquilino tienen normalmente una gran cantidad de dat
 
 El acceso a los datos para todos los inquilinos es sencillo si todos los datos se encuentran en una única base de datos multiinquilino. Sin embargo, el acceso es más complejo si se distribuyen a escala entre miles de bases de datos potenciales. Una manera de dominar la complejidad y minimizar el impacto de las consultas de análisis sobre datos transaccionales es extraer los datos en un almacén de datos o una base de datos de análisis diseñados específicamente para ello.
 
-En este tutorial se presenta un escenario de análisis completo para la aplicación SaaS Wingtip Tickets. En primer lugar, se usan *Trabajos elásticos* para extraer datos de cada base de datos de inquilino y cargarlos en tabla de almacenamiento provisional en un almacén de análisis. El almacén de análisis podría ser una instancia de SQL Database o de SQL Data Warehouse. Para la extracción de datos a gran escala, se recomienda [Azure Data Factory](../../data-factory/introduction.md).
+En este tutorial se presenta un escenario de análisis completo para la aplicación SaaS Wingtip Tickets. En primer lugar, se usan *Trabajos elásticos* para extraer datos de cada base de datos de inquilino y cargarlos en tabla de almacenamiento provisional en un almacén de análisis. El almacén de análisis podría ser un grupo de SQL o instancia de SQL Database. Para la extracción de datos a gran escala, se recomienda [Azure Data Factory](../../data-factory/introduction.md).
 
 A continuación, los datos agregados se transforman en un conjunto de tablas en un [esquema de estrella](https://www.wikipedia.org/wiki/Star_schema). Las tablas constan de una tabla de hechos central más tablas de dimensiones relacionadas.  Para Wingtip Tickets:
 

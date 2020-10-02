@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: a853a28cf7633b5e81bfec2865cc8dc91f2d2f40
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 59e064dc2b9d33bda966eb50544c8383b0394dd3
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903993"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566609"
 ---
 # <a name="translator-30-translate"></a>Traductor 3.0: Translate
 
@@ -280,7 +280,7 @@ El cuerpo de la respuesta es:
     }
 ]
 ```
-La respuesta es similar a la respuesta del ejemplo anterior. Dado que se solicitó la detección de idioma automática, la respuesta también incluye información sobre el idioma detectado del texto de entrada. 
+La respuesta es similar a la respuesta del ejemplo anterior. Dado que se solicitó la detección de idioma automática, la respuesta también incluye información sobre el idioma detectado del texto de entrada. La detección automática de idioma funciona mejor con texto de entrada más largo.
 
 ### <a name="translate-with-transliteration"></a>Traducción con transliteración
 

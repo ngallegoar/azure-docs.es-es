@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: b9cbb873066131264732d6f46320461bae8c3188
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: a9fe083818c5850ad05556b18911c19fe19e0e72
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84981768"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987387"
 ---
 # <a name="privacy-guidelines-for-voice-assistants-on-windows"></a>Directrices de privacidad para asistentes de voz en Windows
 
@@ -31,7 +31,7 @@ Los desarrolladores que crean asistentes de voz en Windows deben incluir element
 Los usuarios de Windows pueden ver y controlar la disponibilidad de sus aplicaciones de asistente en **`Settings > Privacy > Voice activation`** .
 
  > [!div class="mx-imgBorder"]
- > [![Lista de aplicaciones de privacidad](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png "Una entrada de configuración de privacidad de activación por voz de Windows para una aplicación de asistente")](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png#lightbox)
+ > [![Captura de pantalla que muestra las opciones para controlar la disponibilidad de Cortana. ](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png "Una entrada de configuración de privacidad de activación por voz de Windows para una aplicación de asistente")](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png#lightbox)
 
 Para que se le pueda incluir en esta lista, póngase en contacto con Microsoft en winvoiceassistants@microsoft.com como primer paso. De forma predeterminada, los usuarios deben habilitar de forma explícita la activación por voz de un nuevo asistente en **`Settings > Privacy > Voice Activation`** , mientras que una aplicación puede hacerlo mediante vinculación de protocolo con `ms-settings:privacy-voiceactivation`. Una aplicación permitida aparece en la lista una vez que se ha ejecutado y ha usado las API `Windows.ApplicationModel.ConversationalAgent`. Su configuración de activación por voz se puede modificar una vez que la aplicación ha obtenido consentimiento de micrófono por parte del usuario.
 

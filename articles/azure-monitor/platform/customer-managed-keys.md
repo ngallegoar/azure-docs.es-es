@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 07/05/2020
-ms.openlocfilehash: 9b47326d32b393af5dcf167c373b6873fe39cd7c
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.date: 09/09/2020
+ms.openlocfilehash: 5d44758ebf94c7487935ef47a17ad810dc5cf9f8
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279744"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657300"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Clave administrada por el cliente de Azure Monitor 
 
@@ -21,17 +21,15 @@ Se recomienda revisar la sección [Limitaciones y restricciones](#limitationsand
 
 ## <a name="customer-managed-key-cmk-overview"></a>Información general de la clave administrada por el cliente (CMK)
 
-[El cifrado en reposo](../../security/fundamentals/encryption-atrest.md)  es un requisito común de privacidad y seguridad en las organizaciones. Puede dejar que Azure administre completamente el cifrado en reposo, mientras dispone de varias opciones para administrar minuciosamente el cifrado o las claves de cifrado.
+[El cifrado en reposo](../../security/fundamentals/encryption-atrest.md) es un requisito común de privacidad y seguridad en las organizaciones. Puede dejar que Azure administre completamente el cifrado en reposo, mientras dispone de varias opciones para administrar minuciosamente el cifrado o las claves de cifrado.
 
-Azure Monitor garantiza que todos los datos y las consultas guardadas se cifren en reposo mediante claves administradas por Microsoft (MMK). Azure Monitor también proporciona una opción para el cifrado mediante su propia clave almacenada en [Azure Key Vault](../../key-vault/general/overview.md) a la que se tiene acceso mediante la autenticación de la [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md) asignada por el sistema. Esta clave (CMK) se puede [proteger mediante software o con módulos de seguridad de hardware (HSM)](../../key-vault/general/overview.md).
+Azure Monitor garantiza que todos los datos y las consultas guardadas se cifren en reposo mediante claves administradas por Microsoft (MMK). Azure Monitor también proporciona una opción para el cifrado mediante su propia clave almacenada en [Azure Key Vault](../../key-vault/general/overview.md) a la que se tiene acceso mediante la autenticación de la [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md) asignada por el sistema. Esta clave (CMK) se puede [proteger mediante software o con módulos de seguridad de hardware (HSM)](../../key-vault/general/overview.md). El uso del cifrado de Azure Monitor es idéntico a la forma en que funciona el [cifrado de Azure Storage](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption).
 
-El uso que hace Azure Monitor del cifrado es idéntico al del  [cifrado de Azure Storage](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) .
+La funcionalidad de CMK se proporciona en clústeres de Log Analytics dedicados y le proporciona el control para revocar el acceso a los datos en cualquier momento y protegerlos con el control [Caja de seguridad](#customer-lockbox-preview). Para comprobar que tenemos la capacidad necesaria para el clúster dedicado, es necesario que la suscripción esté en la lista de permitidos de antemano. Use su contacto de Microsoft para obtener la inclusión de la suscripción en la lista de permitidos antes de empezar a configurar CMK.
 
-CMK le permite controlar el acceso a los datos y revocarlos en cualquier momento. Azure Monitor Storage siempre respeta los cambios en los permisos de las claves en el plazo de una hora. Los datos ingeridos en los últimos 14 días también se conservan en la memoria caché activa (respaldada por SSD) para un funcionamiento eficaz del motor de consultas. Estos datos permanecen cifrados con las claves de Microsoft, independientemente de la configuración de CMK, pero el control sobre los datos de SSD se adhiere a [revocación de claves](#cmk-kek-revocation). Estamos trabajando para que los datos de SSD se cifren con CMK en la segunda mitad de 2020.
+El [modelo de precios de los clústeres de Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters) usa reservas de capacidad a partir de un nivel de 1000 GB/día.
 
-La funcionalidad de CMK se proporciona en clústeres de Log Analytics dedicados. Para comprobar que tenemos la capacidad necesaria en la región, es necesario que la suscripción esté en la lista de permitidos de antemano. Use su contacto de Microsoft para obtener la inclusión de la suscripción en la lista de permitidos antes de empezar a configurar CMK.
-
-El  [modelo de precios de los clústeres de Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters)  usa reservas de capacidad a partir de un nivel de 1000 GB/día.
+Los datos ingeridos en los últimos 14 días también se conservan en la memoria caché activa (respaldada por SSD) para un funcionamiento eficaz del motor de consultas. Estos datos permanecen cifrados con las claves de Microsoft, independientemente de la configuración de CMK, pero el control sobre los datos de SSD se adhiere a [revocación de claves](#cmk-kek-revocation). Estamos trabajando para que los datos de SSD se cifren con CMK en la segunda mitad de 2020.
 
 ## <a name="how-cmk-works-in-azure-monitor"></a>Cómo funciona CMK en Azure Monitor
 
@@ -533,6 +531,13 @@ Content-type: application/json
 ```
 
 Después de la configuración, se guardará en el almacenamiento cualquier nueva consulta de alertas.
+
+## <a name="customer-lockbox-preview"></a>Caja de seguridad del cliente (versión preliminar)
+Caja de seguridad le proporciona el control para aprobar o rechazar la solicitud de ingeniero de Microsoft para acceder a los datos durante una solicitud de soporte técnico.
+
+En Azure Monitor, tiene este control sobre los datos en las áreas de trabajo asociadas al clúster dedicado de Log Analytics. El control Caja de seguridad se aplica a los datos almacenados en un clúster dedicado de Log Analytics en el que se mantiene aislado en las cuentas de almacenamiento del clúster en su suscripción protegida de Caja de seguridad.  
+
+Más información sobre [Caja de seguridad del cliente de Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
 
 ## <a name="cmk-management"></a>Administración de CMK
 

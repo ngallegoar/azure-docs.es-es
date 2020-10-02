@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: a6b1bd016248212967a4fe78274d5ba72c5df0fe
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: deda5b9dab416258f9db1c76e9b41f781101e2fd
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400320"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033020"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cuotas de servicio de Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Después de crear una cuenta de Azure Cosmos DB en su suscripción a Azure, pued
 
 Puede aprovisionar el rendimiento en un nivel de contenedor o de base de datos en términos de [unidades de solicitud (RU/s o RU)](request-units.md). En la tabla siguiente se enumeran los límites de almacenamiento y rendimiento por contenedor y base de datos.
 
-| Resource | Límite predeterminado |
+| Recurso | Límite predeterminado |
 | --- | --- |
 | Número máximo de RU por contenedor ([modo aprovisionado de rendimiento dedicado](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 de forma predeterminada. Para aumentarlo, [puede rellenar una incidencia de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). |
 | Número máximo de RU por base de datos ([modo aprovisionado de rendimiento dedicado](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 de forma predeterminada. Para aumentarlo, [puede rellenar una incidencia de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). |
@@ -53,7 +53,7 @@ El rendimiento actual y mínimo de un contenedor o una base de datos se puede re
 
 En resumen, los límites de RU de aprovisionamiento mínimos son los siguientes. 
 
-| Resource | Límite predeterminado |
+| Recurso | Límite predeterminado |
 | --- | --- |
 | Número mínimo de RU por contenedor ([modo aprovisionado de rendimiento dedicado](databases-containers-items.md#azure-cosmos-containers)) | 400 |
 | Número mínimo de RU por base de datos ([modo aprovisionado de rendimiento compartido](databases-containers-items.md#azure-cosmos-containers)) | 400 |
@@ -77,7 +77,7 @@ Cosmos DB admite el escalado elástico de rendimiento (RU) por contenedor o base
 
 Puede [aprovisionar y administrar su cuenta de Azure Cosmos](how-to-manage-database-account.md) mediante Azure Portal, Azure PowerShell, la CLI de Azure y plantillas de Azure Resource Manager. En la tabla siguiente se enumeran los límites por suscripción, cuenta y número de operaciones.
 
-| Resource | Límite predeterminado |
+| Recurso | Límite predeterminado |
 | --- | --- |
 | Número máximo de cuentas de base de datos por suscripción | 50 de forma predeterminada. Para aumentarlo, [puede rellenar una incidencia de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).|
 | Número máximo de conmutaciones por error regionales | 1/hora de forma predeterminada. Para aumentarlo, [puede rellenar una incidencia de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).|
@@ -110,7 +110,7 @@ Cosmos DB crea automáticamente copias de seguridad de los datos a intervalos re
 
 En función de la API que utilice, un contenedor de Azure Cosmos puede representar una colección, una tabla o un grafo. Los contenedores admiten configuraciones para [las restricciones de clave única](unique-keys.md), [los procedimientos almacenados, los desencadenadores y las funciones definidas por el usuario (UDF)](stored-procedures-triggers-udfs.md) y [la directiva de indexación](how-to-manage-indexing-policy.md). En la tabla siguiente se enumeran los límites específicos de las configuraciones dentro de un contenedor. 
 
-| Resource | Límite predeterminado |
+| Recurso | Límite predeterminado |
 | --- | --- |
 | Longitud máxima del nombre de la base de datos o el contenedor | 255 |
 | Procedimientos almacenados máximos por contenedor | 100 <sup>*</sup>|
@@ -126,7 +126,7 @@ En función de la API que utilice, un contenedor de Azure Cosmos puede represent
 
 En función de la API que use, un elemento de Azure Cosmos puede representar un documento en una colección, una fila en una tabla o un nodo o un borde en un grafo. En la tabla siguiente, se muestran los límites por elemento de Cosmos DB. 
 
-| Resource | Límite predeterminado |
+| Recurso | Límite predeterminado |
 | --- | --- |
 | Tamaño máximo de un elemento | 2 MB (longitud en UTF-8 de la representación JSON) |
 | Longitud máxima del valor de la clave de partición | 2048 bytes |
@@ -145,7 +145,7 @@ No hay ninguna restricción en las cargas de elementos, como el número de propi
 
 Azure Cosmos DB admite [operaciones CRUD y de consulta](/rest/api/cosmos-db/) con recursos como contenedores, elementos y bases de datos. También admite [solicitudes de lotes transaccionales](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) con varios elementos con la misma clave de partición en un contenedor.
 
-| Resource | Límite predeterminado |
+| Recurso | Límite predeterminado |
 | --- | --- |
 | Tiempo máximo de ejecución para una sola operación (por ejemplo, la ejecución de un procedimiento almacenado o la recuperación de una página de consulta única)| 5 segundos |
 | Tamaño máximo de la solicitud (por ejemplo, procedimiento almacenado, CRUD)| 2 MB |
@@ -156,20 +156,30 @@ Una vez que una operación como una consulta alcanza el límite del tamaño de r
 
 Cosmos DB utiliza HMAC para la autorización. Puede usar una clave maestra o [tokens de recursos](secure-access-to-data.md) para tener un control de acceso específico a recursos como contenedores, claves de partición o elementos. En la tabla siguiente se enumeran los límites de los tokens de autorización de Cosmos DB.
 
-| Resource | Límite predeterminado |
+| Recurso | Límite predeterminado |
 | --- | --- |
 | Tiempo de expiración máximo del token maestro | 15 minutos  |
 | Tiempo de expiración mínimo del token maestro | 10 min  |
 | Tiempo de expiración máximo del token de recursos | 24 horas de forma predeterminada. Para aumentarlo, [puede rellenar una incidencia de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).|
 | Distorsión máxima del reloj para la autorización del token| 15 minutos |
 
-Cosmos DB admite la ejecución de desencadenadores durante las escrituras. El servicio admite un máximo de un desencadenador previo y un desencadenador posterior por operación de escritura. 
+Cosmos DB admite la ejecución de desencadenadores durante las escrituras. El servicio admite un máximo de un desencadenador previo y un desencadenador posterior por operación de escritura.
+
+## <a name="metadata-request-limits"></a>Límites de solicitudes de metadatos
+
+Azure Cosmos DB mantiene los metadatos del sistema para cada cuenta. Estos metadatos permiten enumerar colecciones, bases de datos, otros recursos de Azure Cosmos DB y sus configuraciones de forma gratuita.
+
+| Recurso | Límite predeterminado |
+| --- | --- |
+|Tasa máxima de creación de colecciones por minuto| 5|
+|Tasa máxima de creación de bases de datos por minuto|   5|
+|Tasa máxima de actualización del rendimiento aprovisionado por minuto| 5|
 
 ## <a name="limits-for-autoscale-provisioned-throughput"></a>Límites del rendimiento aprovisionado de escalabilidad automática
 
 Consulte este artículo sobre [escalabilidad automática](provision-throughput-autoscale.md#autoscale-limits) y las [preguntas frecuentes](autoscale-faq.md#lowering-the-max-rus) para obtener una explicación más detallada de los límites de almacenamiento y rendimiento con escalabilidad automática.
 
-| Resource | Límite predeterminado |
+| Recurso | Límite predeterminado |
 | --- | --- |
 | Número máximo de RU/s a los que el sistema se puede escalar |  `Tmax`, el número máximo de RU/s de escalabilidad automática establecido por el usuario|
 | Número mínimo de RU/s a los que el sistema se puede escalar | `0.1 * Tmax`|
@@ -182,7 +192,7 @@ Consulte este artículo sobre [escalabilidad automática](provision-throughput-a
 
 Cosmos DB admite la consulta de elementos mediante [SQL](how-to-sql-query.md). En la tabla siguiente se describen las restricciones en las instrucciones de consulta, por ejemplo, en relación con el número de cláusulas o la longitud de la consulta.
 
-| Resource | Límite predeterminado |
+| Recurso | Límite predeterminado |
 | --- | --- |
 | Longitud máxima de la consulta SQL| 256 KB |
 | Número máximo de cláusulas JOIN por consulta| 5 <sup>*</sup>|
@@ -200,7 +210,7 @@ Cosmos DB admite el protocolo de conexión de MongoDB para las aplicaciones escr
 
 En la tabla siguiente se enumeran los límites específicos a la compatibilidad con características de MongoDB. Los otros límites de servicio que se mencionan con la API de SQL (básica) también se aplican a la API de MongoDB.
 
-| Resource | Límite predeterminado |
+| Recurso | Límite predeterminado |
 | --- | --- |
 | Tamaño máximo de la memoria de consulta de MongoDB (esta limitación es solo para la versión de servidor 3.2) | 40 MB |
 | Tiempo de ejecución máximo para las operaciones de MongoDB| 30 s |
@@ -212,7 +222,7 @@ En la tabla siguiente se enumeran los límites específicos a la compatibilidad 
 
 En la tabla siguiente se enumeran los límites de la prueba de encontrará en [Pruebe gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/).
 
-| Resource | Límite predeterminado |
+| Recurso | Límite predeterminado |
 | --- | --- |
 | Duración de la prueba | 30 días (se puede solicitar una nueva prueba después de su expiración) <br> Después de la expiración, se elimina la información almacenada. |
 | Número máximo de contenedores por suscripción (API, Gremlin y Table API) | 1 |
@@ -226,7 +236,7 @@ La Prueba de Cosmos DB admite la distribución global solo en las regiones de Ce
 ## <a name="free-tier-account-limits"></a>Límites de cuenta de nivel Gratis
 En la tabla siguiente se enumeran los límites de las [cuentas de nivel Gratis de Azure Cosmos DB](optimize-dev-test.md#azure-cosmos-db-free-tier).
 
-| Resource | Límite predeterminado |
+| Recurso | Límite predeterminado |
 | --- | --- |
 | Número de cuentas de nivel Gratis por suscripción de Azure | 1 |
 | Duración del descuento por nivel Gratis | Vigencia de la cuenta. Debe participar durante la creación de la cuenta. |

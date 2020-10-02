@@ -2,15 +2,15 @@
 title: Solución de problemas de Snapshot Debugger de Azure Application Insights
 description: Este artículo muestra información y los pasos a seguir para la solución de problemas para ayudar a los desarrolladores que tienen dificultades para habilitar o usar Application Insights Snapshot Debugger.
 ms.topic: conceptual
-author: brahmnes
+author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 485f35ed249ab7f6bbb987d8c79afe20287cd25a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 935e1832629827b0286a79ab8ea6d1dfbb143e1c
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671416"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707839"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Solucionar problemas de habilitación de Application Insights Snapshot Debugger o ver instantáneas
 Si habilitó Application Insights Snapshot Debugger para la aplicación, pero no puede ver las instantáneas para las excepciones, puede usar estas instrucciones para solucionar problemas. Puede haber muchas razones diferentes de por qué no se generan las instantáneas. Puede ejecutar la comprobación de estado de instantáneas para identificar algunas de las posibles causas comunes.
@@ -31,6 +31,30 @@ Si no se soluciona el problema, consulte los siguientes pasos de solución de pr
 ## <a name="verify-the-instrumentation-key"></a>Comprobar la clave de instrumentación
 
 Asegúrese de que está usando la clave de instrumentación correcta en la aplicación publicada. Por lo general, la clave de instrumentación se lee desde el archivo ApplicationInsights.config. Compruebe que el valor es igual que la clave de instrumentación para el recurso de Application Insights que ve en el portal.
+
+## <a name="check-ssl-client-settings-aspnet"></a><a id="SSL"></a>Comprobación de la configuración de cliente SSL (ASP.NET)
+
+Si tiene una aplicación ASP.NET hospedada en Azure App Service o en IIS en una máquina virtual, la aplicación podría no conectarse al servicio Snapshot Debugger porque falta un protocolo de seguridad SSL.
+[El punto de conexión de Snapshot Debugger requiere la versión 1.2 de TLS](snapshot-debugger-upgrade.md?toc=/azure/azure-monitor/toc.json). El conjunto de protocolos de seguridad de SSL es una de las peculiaridades habilitadas por el valor targetFramework en la sección system.web de web.config. Si el valor targetFramework de httpRuntime es 4.5.2 o inferior, no se incluye TLS 1.2 de forma predeterminada.
+
+> [!NOTE]
+> El valor targetFramework de httpRuntime es independiente de la plataforma de destino que se usa al compilar la aplicación.
+
+Para comprobar la configuración, abra el archivo web.config y busque la sección system.web. Asegúrese de que `targetFramework` para `httpRuntime` está establecido en 4.6 o superior.
+
+   ```xml
+   <system.web>
+      ...
+      <httpRuntime targetFramework="4.7.2" />
+      ...
+   </system.web>
+   ```
+
+> [!NOTE]
+> Al modificar el valor targetFramework de httpRuntime, se cambian las peculiaridades del entorno de ejecución de la aplicación y se pueden producir otros cambios sutiles en el comportamiento. Asegúrese de probar exhaustivamente la aplicación después de realizar este cambio. Para obtener una lista completa de los cambios de compatibilidad, vea https://docs.microsoft.com/dotnet/framework/migration-guide/application-compatibility#retargeting-changes.
+
+> [!NOTE]
+> Si targetFramework es 4.7 o superior, Windows determina los protocolos disponibles. En Azure App Service, está disponible TLS 1.2. Sin embargo, si usa su propia máquina virtual, es posible que tenga que habilitar TLS 1.2 en el sistema operativo.
 
 ## <a name="preview-versions-of-net-core"></a>Versiones preliminares de .NET Core
 Si la aplicación usa una versión preliminar de .NET Core y Snapshot Debugger se ha habilitado mediante el [panel de Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) del portal, puede que Snapshot Debugger no se inicie. Siga primero las instrucciones del artículo sobre la [Habilitación de Snapshot Debugger para otros entornos](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) para incluir el paquete NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) con la aplicación ***además de*** habilitarlo mediante el [panel de Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).

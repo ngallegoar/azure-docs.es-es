@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: e6fb2f09200e42f7ad7781716bb83ab418134509
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 089c53c72ae2c4cf6216937e8977b64a7abf80fc
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516148"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983205"
 ---
 # <a name="azure-activity-log"></a>Registro de actividad de Azure
 El Registro de actividad es un [registro de plataforma](platform-logs-overview.md) de Azure que proporciona información de los eventos de nivel de suscripción. Esto incluye información como cuándo se modificó un recurso o cuándo se inició una máquina virtual. Puede ver el registro de actividad en Azure Portal o recuperar entradas con PowerShell y la CLI. Para obtener más funciones, debe crear una configuración de diagnóstico para enviar el registro de actividad a los [registros de Azure Monitor](data-platform-logs.md), a Azure Event Hubs para reenviarlo fuera de Azure o a Azure Storage para archivarlo. En este artículo se proporcionan detalles sobre cómo visualizar el registro de actividad y enviarlo a diversos destinos.
@@ -259,7 +259,7 @@ El método heredado para enviar el registro de actividad en un área de trabajo 
 1. En la sección **Orígenes de datos del área de trabajo** del menú del área de trabajo, seleccione **Registro de actividad de Azure**.
 1. Haga clic en la suscripción que desea conectar.
 
-    ![Áreas de trabajo](media/activity-log-collect/workspaces.png)
+    ![Captura de pantalla que muestra el área de trabajo de Log Analytics con un registro de actividad de Azure seleccionado.](media/activity-log-collect/workspaces.png)
 
 1. Haga clic en **Conectar** para conectar el registro de actividad en la suscripción al área de trabajo seleccionada. Si la suscripción ya está conectada a otra área de trabajo, haga clic en **Desconectar** primero para desconectarla.
 

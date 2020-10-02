@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e6b6cebfd146ffe23bdc21751f86c71d14ea875e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 96cd460ddfea863eb27a1087ff59f3b87acf65d8
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002256"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531311"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Escalado y planeamiento de capacidad de Azure Service Fabric
 
@@ -36,6 +36,9 @@ El uso del escalado automático a través de conjuntos de escalado de máquinas 
 
 > [!NOTE]
 > El servicio con estado de Service Fabric fabric:/System/InfastructureService/<NOMBRE_TIPO_NODO> se ejecuta en cada tipo de nodo que tenga durabilidad Silver o superior. Es el único servicio de sistema que es compatible con la ejecución en Azure en cualquiera de los tipos de nodo de clústeres.
+
+> [!IMPORTANT]
+> El escalado automático Service Fabric admite las [configuraciones de escalado](../virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy.md) horizontal del conjunto de escalado de máquinas virtuales `Default` y `NewestVM`.
 
 ## <a name="vertical-scaling-considerations"></a>Consideraciones sobre escalado vertical
 
@@ -168,7 +171,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 > [!NOTE]
 > Al reducir horizontalmente un clúster, verá la instancia quitada del nodo o la máquina virtual mostrada en un estado incorrecto en Service Fabric Explorer. Para obtener una explicación de este comportamiento, consulte [Comportamientos que se pueden observar en Service Fabric Explorer](./service-fabric-cluster-scale-in-out.md#behaviors-you-may-observe-in-service-fabric-explorer). Puede:
-> * Llamar al [comando Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) con el nombre de nodo adecuado.
+> * Llamar al [comando Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps&preserve-view=true) con el nombre de nodo adecuado.
 > * Implementar la [aplicación auxiliar de escalabilidad automática de Service Fabric](https://github.com/Azure/service-fabric-autoscale-helper/) en el clúster. Esta aplicación garantiza que los nodos que se han reducido verticalmente se borran de Service Fabric Explorer.
 
 ## <a name="reliability-levels"></a>Niveles de confiabilidad

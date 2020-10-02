@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/24/2020
-ms.openlocfilehash: 9ffc2af0309f8a682db04b36675a3c29725c44fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 67bb77777ee1052a5429dc4599ed30593b9ae2ac
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324460"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436568"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Eliminación de un protector de Cifrado de datos transparente (TDE) con PowerShell
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -35,7 +35,7 @@ Tenga en cuenta que una vez que el protector de TDE se elimina en Key Vault, en 
 Esta guía de procedimientos explica dos enfoques dependiendo del resultado deseado después de la respuesta a un incidente comprometido:
 
 - Hacer que las bases de datos de Azure SQL Database o Azure Synapse Analytics sean **inaccesibles**.
-- Hacer que las bases de datos de Azure SQL Database o Azure SQL Data Warehouse sean **inaccesibles**.
+- Hacer que las bases de datos de Azure SQL Database o Azure Synapse Analytics (anteriormente SQL Data Warehouse) sean **inaccesibles**.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

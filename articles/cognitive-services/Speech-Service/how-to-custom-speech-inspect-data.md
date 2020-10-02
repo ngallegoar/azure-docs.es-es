@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: erhopf
-ms.openlocfilehash: e871d2c8e0fe00fa7db3144a787447163c82e62d
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: d4da9a819d7aa96992259112c75154b1651341ac
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629032"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604775"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspección de los datos de Habla personalizada
 
@@ -24,9 +24,7 @@ ms.locfileid: "84629032"
 
 Habla personalizada proporciona herramientas que le permiten inspeccionar visualmente la calidad del reconocimiento de un modelo mediante la comparación de los datos de audio con el resultado de reconocimiento correspondiente. Desde el [portal de Habla personalizada](https://speech.microsoft.com/customspeech), puede reproducir el audio cargado y determinar si el resultado de reconocimiento proporcionada es correcto. Esta herramienta le ayuda a inspeccionar la calidad del modelo de conversión de voz a texto de línea de base de Microsoft, a inspeccionar un modelo personalizado entrenado o a comparar la transcripción con dos modelos.
 
-En este documento, aprenderá a inspeccionar visualmente la calidad de un modelo con los datos de entrenamiento cargados previamente.
-
-En esta página, aprenderá a inspeccionar visualmente la calidad del modelo de voz a texto de línea de base de Microsoft o de un modelo personalizado que haya entrenado. Usará los datos que cargó en la pestaña **Data** (Datos) para realizar pruebas.
+En este documento, aprenderá a inspeccionar visualmente la calidad del modelo de conversión de voz en texto de línea de base de Microsoft o de los modelos personalizados que haya entrenado. También aprenderá a usar el editor de transcripciones en línea para crear y perfeccionar conjuntos de datos de audio con etiqueta.
 
 ## <a name="create-a-test"></a>Creación de una prueba
 
@@ -50,6 +48,50 @@ Cuando el estado de la prueba sea _Succeeded_ (Correcto), haga clic en el nombre
 Con el fin de inspeccionar la comparación en paralelo, puede alternar los distintos tipos de error, como inserción, eliminación y sustitución. Al escuchar el audio y comparar los resultados del reconocimiento de cada columna (que muestra la transcripción con la etiqueta humana y los resultados de los dos modelos de conversión de voz a texto), puede decidir qué modelo satisface sus necesidades y dónde hacen falta mejoras.
 
 Las pruebas de modelos en paralelo son útiles para validar qué modelo de reconocimiento de voz es el mejor para una aplicación. Si necesita una medida objetiva de precisión, que necesite la transcripción del audio, siga las instrucciones que encontrará en [Evaluación de la precisión](how-to-custom-speech-evaluate-data.md).
+
+## <a name="online-transcription-editor"></a>Editor de transcripciones en línea
+
+El editor de transcripciones en línea le permite trabajar fácilmente con transcripciones de audio de Habla personalizada. Los casos de uso principales del editor son los siguientes: 
+
+* Solo tiene datos de audio, pero quiere crear conjuntos de datos precisos de audio y transcripción etiquetada por usuarios desde cero para usarlos en el entrenamiento del modelo.
+* Ya tiene conjuntos de datos de audio y transcripción etiquetada por usuarios, pero hay errores o defectos en la transcripción. El editor permite modificar rápidamente las transcripciones para obtener la máxima precisión del entrenamiento.
+
+El único requisito para usar el editor de transcripción es tener datos de audio cargados (ya sea de solo audio o de audio y transcripción).
+
+### <a name="import-datasets-to-editor"></a>Importación de conjuntos de datos al editor
+
+Para importar datos al editor, navegue primero a **Habla personalizada > [su proyecto] > Editor**.
+
+![Pestaña Editor](media/custom-speech/custom-speech-editor-detail.png)
+
+Luego siga estos pasos para importar datos.
+
+1. Hacer clic en **Importar datos**
+1. Crear conjuntos de datos y agregarles una descripción
+1. Seleccionar conjuntos de datos. Se admiten varias selecciones, y solo se pueden seleccionar datos de audio, así como datos de audio y transcripción etiquetada por usuarios.
+1. En el caso de los datos de solo audio, puede usar opcionalmente los modelos predeterminados para generar automáticamente la transcripción de máquina después de importar al editor.
+1. Haga clic en **Importar**
+
+Una vez que los datos se han importado correctamente, puede hacer clic en los conjuntos de datos e iniciar la edición.
+
+> [!TIP]
+> También puede importar conjuntos de datos directamente al editor seleccionando conjuntos de datos y haciendo clic en **Exportar a editor**
+
+### <a name="edit-transcription-by-listening-to-audio"></a>Edición de la transcripción escuchando audio
+
+Una vez que la carga de datos se haya realizado correctamente, haga clic en cada nombre de elemento para ver los detalles de los datos. La página de detalles muestra todos los archivos del conjunto de datos y se puede hacer clic en la expresión que se quiera. Para cada expresión, puede reproducir el audio y examinar las transcripciones, además de editar las transcripciones si encuentra errores de inserción, eliminación o sustitución. Para más información sobre los tipos de error, consulte los [procedimientos de evaluación de datos](how-to-custom-speech-evaluate-data.md).
+
+![Página del editor](media/custom-speech/custom-speech-editor.png)
+
+Si el archivo de audio es largo, se segmenta automáticamente en elementos más pequeños. Puede editarlos uno por uno con los botones **Anterior** y **Siguiente** para pasar de una página a otra. Una vez realizadas las modificaciones, haga clic en el botón **Guardar**.
+
+### <a name="export-datasets-from-the-editor"></a>Exportación de conjuntos de datos desde el editor
+
+Para volver a exportar los conjuntos de datos a la pestaña **Datos**, navegue a la página de detalles de datos y haga clic en el botón **Exportar** para exportar todos los archivos como un nuevo conjunto de datos. También puede filtrar los archivos por hora de última modificación, duraciones de audio, etc., para seleccionar parcialmente los archivos que quiera. 
+
+![Exportar datos](media/custom-speech/custom-speech-editor-export.png)
+
+Los archivos exportados a Datos se utilizarán como un conjunto de datos completamente nuevo y no afectarán a ninguna de las entidades de datos, entrenamiento y prueba existentes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

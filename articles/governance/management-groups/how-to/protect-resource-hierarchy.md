@@ -3,12 +3,12 @@ title: 'Procedimiento para proteger la jerarquía de recursos: Gobernanza en Azu
 description: Obtenga información sobre cómo proteger la jerarquía de recursos con configuraciones de jerarquía que incluyen la configuración del grupo de administración predeterminado.
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: e73a72339b58a30a3fc5b1008ea1b70e449f77c7
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 19d699b54a9979df1030c0f6e294d5a4492f2853
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401700"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469786"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Procedimiento para proteger la jerarquía de recursos
 
@@ -74,7 +74,7 @@ Para volver a establecer el grupo de administración predeterminado en el grupo 
 
 De forma predeterminada, cualquier usuario puede crear grupos de administración dentro de un inquilino. Es posible que los administradores de un inquilino solo quieran proporcionar estos permisos a usuarios específicos para mantener la coherencia y la conformidad en la jerarquía de grupos de administración. Si está habilitada, un usuario requiere la operación `Microsoft.Management/managementGroups/write` en el grupo de administración raíz para crear grupos de administración secundarios.
 
-### <a name="set-default-management-group-in-portal"></a>Configuración del grupo de administración predeterminado en Azure Portal
+### <a name="set-require-authorization-in-portal"></a>Definición de la autorización necesaria en el portal
 
 Para configurar esta opción en Azure Portal, siga estos pasos:
 

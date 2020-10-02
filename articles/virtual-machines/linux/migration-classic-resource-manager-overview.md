@@ -1,6 +1,6 @@
 ---
 title: Información general sobre la migración compatible con la plataforma de recursos de IaaS desde el modelo de implementación clásica a Azure Resource Manager
-description: Este artículo le guía a través de la migración compatible con la plataforma de recursos del modelo clásico a Azure Resource Manager
+description: Realice un recorrido por la migración compatible con la plataforma de recursos del modelo clásico a Azure Resource Manager.
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines-linux
@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: cbcd949f417513d941a54bbeafa57a1df689de99
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 3a9f406692557e996b01711a4b9a8dc98f070a4c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507168"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973370"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-linux"></a>Migración compatible con la plataforma de recursos de IaaS del modelo clásico al de Azure Resource Manager en Linux.
 

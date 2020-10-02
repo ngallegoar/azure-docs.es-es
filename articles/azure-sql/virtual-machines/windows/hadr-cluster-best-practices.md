@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: de773bb2188f09822cae59ce42924a9a49f8087e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 50546a3efc008e074f4e7831d2cc657539b2f98b
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285635"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612331"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Procedimientos recomendados para la configuración de clústeres (SQL Server en máquinas virtuales de Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,26 +35,23 @@ Use una sola NIC por servidor (nodo de clúster) y una sola subred. La red de Az
 
 Aunque un clúster de dos nodos funcionará sin un [recurso de cuórum](/windows-server/storage/storage-spaces/understand-quorum), los clientes deben usar un recurso de quórum para tener soporte técnico de producción. La validación del clúster no aprobará ningún clúster sin un recurso de quórum. 
 
-Técnicamente, un clúster de tres nodos puede sobrevivir a la pérdida de un solo nodo (hasta dos) sin un recurso de quórum. Sin embargo, después de que el clúster esté fuera de servicio en los dos nodos, existe el riesgo de que se ejecute en: 
+Técnicamente, un clúster de tres nodos puede sobrevivir a la pérdida de un solo nodo (hasta dos) sin un recurso de quórum. Pero una vez que el clúster se reduce a dos nodos, existe el riesgo de que los recursos de clúster se desconecten en caso de que se produzca una pérdida de nodo o un error de comunicación para evitar un escenario de cerebro dividido.
 
-- **Partición en el espacio** (cerebro dividido): los nodos del clúster se separan en la red debido a un problema del servidor, la NIC o el conmutador. 
-- **Partición en el tiempo** (amnesia): Un nodo se une o vuelve a unirse al clúster, e intenta reclamar de forma inadecuada la propiedad del grupo de clústeres o de un rol del clúster. 
-
-El recurso de quórum protege el clúster contra cualquiera de estos problemas. 
+La configuración de un recurso de cuórum permitirá que el clúster continúe en línea con un solo nodo en línea.
 
 En la tabla siguiente se enumeran las opciones de cuórum disponibles en el orden de recomendación para uso con una máquina virtual de Azure; el testigo de disco es la opción preferida: 
 
 
 ||[Testigo de disco](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Testigo en la nube](/windows-server/failover-clustering/deploy-cloud-witness)  |[Testigo de recurso compartido de archivos](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
-|**Sistema operativo admitido**| All |Windows Server 2016+| Windows Server 2012+|
+|**Sistema operativo admitido**| All |Windows Server 2016+| All|
 
 
 
 
 ### <a name="disk-witness"></a>Testigo de disco
 
-Se trata de un pequeño disco agrupado en el grupo de almacenamiento disponible del clúster. Este disco presenta una alta disponibilidad y puede conmutar por error entre nodos. Contiene una copia de la base de datos del clúster, con un tamaño predeterminado que suele ser inferior a 1 GB. El testigo de disco es la opción de cuórum preferida para una máquina virtual de Azure, ya que puede resolver el problema de la partición en el tiempo, a diferencia del testigo de nube y el testigo de recurso compartido de archivos. 
+Se trata de un pequeño disco agrupado en el grupo de almacenamiento disponible del clúster. Este disco presenta una alta disponibilidad y puede conmutar por error entre nodos. Contiene una copia de la base de datos del clúster, con un tamaño predeterminado que suele ser inferior a 1 GB. El testigo de disco es la opción de cuórum preferida para cualquier clúster que use discos compartidos de Azure (o cualquier solución de disco compartido como SCSI compartido, iSCSI o SAN de canal de fibra).  Un volumen compartido de clúster no se puede usar como testigo de disco.
 
 Configure un disco compartido de Azure como el testigo de disco. 
 
@@ -95,8 +92,8 @@ En la tabla siguiente se compara la compatibilidad de la conexión de HADR:
 
 | |**Nombre de red virtual (VNN)**  |**Nombre de red distribuida (DNN)**  |
 |---------|---------|---------|
-|**Versión mínima de sistema operativo**| Windows Server 2012 | Windows Server 2016|
-|**Versión de SQL Server mínima** |SQL Server 2012 |SQL Server 2019 CU2|
+|**Versión mínima de sistema operativo**| All | All |
+|**Versión de SQL Server mínima** |All |SQL Server 2019 CU2|
 |**Solución HADR compatible** | Instancia de clúster de conmutación por error <br/> grupo de disponibilidad | Instancia de clúster de conmutación por error|
 
 
@@ -108,9 +105,9 @@ Hay un ligero retraso en la conmutación por error cuando se usa el equilibrador
 
 Para empezar, aprenda a [configurar Azure Load Balancer para una FCI](hadr-vnn-azure-load-balancer-configure.md). 
 
-**Sistema operativo compatible**: Windows Server 2012 y posteriores   
-**Versión de SQL compatible**: SQL Server 2012 y posterior   
-**Solución HADR admitida**: Instancia del clúster de conmutación por error y grupo de disponibilidad 
+**Sistema operativo compatible**: All   
+**Versión de SQL compatible**: All   
+**Solución HADR admitida**: Instancia del clúster de conmutación por error y grupo de disponibilidad   
 
 
 ### <a name="distributed-network-name-dnn"></a>Nombre de red distribuida (DNN)
@@ -138,9 +135,10 @@ Para empezar, aprenda a [configurar un recurso DNN para una FCI](hadr-distribute
 Tenga en cuenta las siguientes limitaciones cuando vaya a trabajar con FCI o con grupos de disponibilidad y SQL Server en Azure Virtual Machines. 
 
 ### <a name="msdtc"></a>MSDTC 
-Azure Virtual Machines admite el Coordinador de transacciones distribuidas de Microsoft (MSDTC) en Windows Server 2019 con almacenamiento en Volúmenes compartidos en clúster (CSV) y [Azure Standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md).
 
-En Azure Virtual Machines, MSDTC no se admite para Windows Server 2016 ni versiones anteriores porque:
+Azure Virtual Machines admite el Coordinador de transacciones distribuidas de Microsoft (MSDTC) en Windows Server 2019 con almacenamiento en Volúmenes compartidos en clúster (CSV) y [Azure Standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md) o en VM con SQL Server que usan discos compartidos de Azure. 
+
+En Azure Virtual Machines, MSDTC no se admite para Windows Server 2016 ni versiones anteriores con Volúmenes compartidos en clúster porque:
 
 - El recurso MSDTC en clúster no puede configurarse para usar almacenamiento compartido. En Windows Server 2016, si crea un recurso MSDTC, no mostrará ningún almacenamiento compartido disponible para su uso, incluso si el almacenamiento está disponible. Este problema se ha corregido en Windows Server 2019.
 - El equilibrador de carga básico no controla los puertos RPC.

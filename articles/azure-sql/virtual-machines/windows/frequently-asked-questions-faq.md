@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: f382e3cf0f5d2d60c2868c6698b1ea901fbac023
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: a5f4ff3dade381cf1a68ac5e9e820be153acf5ee
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121449"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483752"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Preguntas más frecuentes sobre SQL Server en VM de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -164,6 +164,9 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
    Sí. Los medios de instalación de SQL Server están ubicados en una carpeta en la unidad **C** . Ejecute **Setup.exe** desde esa ubicación para agregar instancias de SQL Server nuevas o para cambiar otras características instaladas de SQL Server en la máquina. Tenga en cuenta que algunas características, como Copia de seguridad automatizada, Aplicación de revisión automatizada e integración de Azure Key Vault, solo funcionan con la instancia predeterminada o con una instancia con nombre que se haya configurado correctamente (consulte la pregunta 3). Los clientes que usan el modelo de licencias de [Software Assurance a través de la Ventaja híbrida de Azure](licensing-model-azure-hybrid-benefit-ahb-change.md) o de **pago por uso** pueden instalar varias instancias de SQL Server en la máquina virtual sin incurrir en costos adicionales de licencias. Las instancias de SQL Server adicionales pueden agotar los recursos del sistema a menos que se configuren correctamente. 
 
+1. **¿Cuál es el número máximo de instancias de una máquina virtual?**
+   Las versiones de SQL Server 2012 a SQL Server 2019 pueden admitir [50](/sql/sql-server/editions-and-components-of-sql-server-version-15#RDBMSSP) instancias en un servidor independiente. Este es el mismo límite, independientemente de que sea en el entorno local de Azure. Consulte las [prácticas recomendadas](performance-guidelines-best-practices.md#multiple-instances) para aprender a preparar mejor su entorno. 
+
 1. **¿Puedo desinstalar la instancia predeterminada de SQL Server?**
 
    Sí, pero debe tener en cuenta algunas consideraciones. En primer lugar, es posible que sigan aplicándose cargos por facturación asociada con SQL Server en función del modelo de licencia de la máquina virtual. En segundo lugar, tal como se ha mencionado en la respuesta anterior, hay características que dependen de la [extensión Agente de IaaS de SQL Server](sql-server-iaas-agent-extension-automate-management.md). Si desinstala la instancia predeterminada sin haber eliminado la extensión IaaS, la extensión continuará buscando la instancia predeterminada y puede generar errores de registro de eventos. Estos errores proceden de los dos orígenes siguientes: **Administración de credenciales de Microsoft SQL Server** y **Agente de IaaS de Microsoft SQL Server**. Es posible que uno de los errores sea similar al siguiente:
@@ -179,6 +182,9 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 1. **¿Puedo quitar SQL Server por completo de una máquina virtual con SQL Server?**
 
    Sí, pero se le seguirá cobrando por la máquina virtual con SQL Server, tal y como se describe en [Orientación de precios de SQL Server para máquinas virtuales de Azure](pricing-guidance.md). Si ya no necesita SQL Server, puede implementar una nueva máquina virtual y migrar los datos y aplicaciones a la nueva máquina virtual. Después, puede quitar la máquina virtual de SQL Server.
+
+1. **¿Puedo usar Azure Portal para administrar varias instancias en la misma máquina virtual?**
+   No. La administración desde el portal es una característica proporcionada por el proveedor de recursos de máquina virtual con SQL Server, que se basa en la extensión Agente de IaaS de SQL Server. Como tal, se aplican las mismas limitaciones al proveedor de recursos que a la extensión. El portal solo puede administrar una instancia predeterminada o una instancia con nombre, siempre y cuando se haya configurado correctamente. Para obtener más información, consulte la [extensión Agente de IaaS de SQL Server](sql-server-iaas-agent-extension-automate-management.md). 
    
 ## <a name="updating-and-patching"></a>Actualizaciones y revisiones
 

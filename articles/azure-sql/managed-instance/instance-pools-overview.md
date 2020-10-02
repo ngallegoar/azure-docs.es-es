@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 54eb9b1b28de562395b4926c599bc5cb157fc63b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c49f751bae048d2faf7047e538eebcac5d818b5
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708848"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658732"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>¿Qué es un grupo de Instancia administrada de Azure SQL (versión preliminar)?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -79,6 +79,7 @@ Existen varias limitaciones de recursos con respecto a los grupos de instancias 
 - Además de los límites de nivel de instancia, también hay dos límites impuestos *en el nivel de grupo de instancias*:
   - Tamaño de almacenamiento total por grupo (8 TB).
   - Número total de bases de datos por grupo (100).
+- No se puede establecer el administrador de AAD para las instancias implementadas dentro del grupo de instancias, por lo tanto, no se puede usar la autenticación de AAD.
 
 La asignación de almacenamiento total y el número de bases de datos en todas las instancias tiene que ser inferior o igual que los límites expuestos por los grupos de instancias.
 
@@ -156,5 +157,5 @@ Para información detallada sobre los precios de un grupo de instancias, consult
 - Para más información sobre la configuración de redes virtuales, consulte [Configuración de una red virtual de Instancia administrada de SQL](connectivity-architecture-overview.md).
 - Para ver un inicio rápido en el que se crea una instancia administrada y se restaura una base de datos desde un archivo de copia de seguridad, consulte [Creación de una instancia administrada](instance-create-quickstart.md).
 - Para consultar un tutorial sobre el uso de Azure Database Migration Service para la migración, consulte [Migración de Instancia administrada de SQL mediante Database Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md).
-- Para información acerca de la supervisión avanzada del rendimiento de las bases de datos de Instancia administrada de SQL con inteligencia integrada para la solución de problemas, consulte [Supervisión de Instancia administrada de Azure SQL con Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md).
-- Para obtener información de precios, consulte la página de [precios de Instancia administrada de SQL](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+- Para obtener información sobre la supervisión avanzada del rendimiento de las bases de datos de Instancia administrada de SQL con inteligencia integrada para la solución de problemas, consulte [Supervisión de instancias de Azure SQL Database con Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md).
+- Para obtener información sobre precios, vea la página de [precios de Instancia administrada de SQL](https://azure.microsoft.com/pricing/details/sql-database/managed/).

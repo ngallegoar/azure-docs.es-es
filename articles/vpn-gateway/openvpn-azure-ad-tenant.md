@@ -1,25 +1,25 @@
 ---
 title: 'VPN Gateway: inquilino de Azure AD para las conexiones VPN de punto a sitio: Autenticación de Azure AD'
-description: Puede usar la P2S VPN para conectarse a la red virtual con la autenticación de Azure AD
+description: Aprenda a configurar un inquilino de Azure AD para la autenticación de P2S VPN abierta.
 services: vpn-gateway
-author: kumudD
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/17/2020
+ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: 74999b2bf1a34e3c7b8190dd04206b2b541c465f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 74df878baa6ed4e2ba902a73a7830c0b075c58ce
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087040"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981530"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Creación de un inquilino de Azure Active Directory para conexiones del protocolo P2S OpenVPN
 
 Al conectarse a la red virtual, puede usar la autenticación basada en certificados o la autenticación RADIUS. Sin embargo, cuando use el protocolo de VPN abierto, también puede usar la autenticación de Azure Active Directory. Este artículo le ayuda a configurar un inquilino de Azure AD para la autenticación de P2S VPN abierta.
 
 > [!NOTE]
-> La autenticación de Azure AD solo se admite para las conexiones de protocolo de OpenVPN®.
+> La autenticación de Azure AD solo es compatible con las conexiones del protocolo OpenVPN® y requiere el cliente VPN de Azure, que solo está disponible para Windows 10.
 >
 
 
@@ -85,7 +85,7 @@ Siga los pasos descritos en [este artículo](../active-directory/fundamentals/ad
 
 6. Seleccione **Aceptar** cuando se le solicite.
 
-    ![Accept](./media/openvpn-create-azure-ad-tenant/accept.jpg)
+    ![Captura de pantalla que muestra el mensaje de aceptación de los permisos solicitados para su organización con detalles y la opción Aceptar.](./media/openvpn-create-azure-ad-tenant/accept.jpg)
 
 7. En el Azure AD, en **Aplicaciones empresariales**, verá la **VPN de Azure** en la lista.
 

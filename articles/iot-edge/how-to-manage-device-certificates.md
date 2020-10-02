@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4c49345f7036dfee7d1f37c15a4647202b3e5670
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9e3925d2c14d51785ed4fe00a508ea353490e1cd
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86257831"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669031"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Administración de certificados en un dispositivo IoT Edge
 
@@ -49,7 +49,7 @@ Debe usar una entidad de certificación propia para crear los archivos siguiente
 En este artículo, lo que se denomina *entidad de certificación raíz* no es la entidad de certificación de nivel superior de una organización. Es la entidad de certificación de nivel superior para el escenario de IoT Edge, que el módulo de IoT Edge Hub, los módulos de usuario y los dispositivos de nivel inferior usan para establecer la confianza entre sí.
 
 > [!NOTE]
-> Actualmente, una limitación en libiothsm impide el uso de certificados que expiran el 1 de enero de 2050 o en una fecha posterior.
+> Actualmente, una limitación en libiothsm impide el uso de certificados que expiran el 1 de enero de 2038 o en una fecha posterior.
 
 Para ver un ejemplo de estos certificados, revise los scripts que crean los certificados de demostración en [Administración de certificados de entidad de certificación de prueba para ejemplos y tutoriales](https://github.com/Azure/iotedge/tree/master/tools/CACertificates).
 
@@ -114,7 +114,9 @@ En el caso de estos dos certificados generados automáticamente, tiene la opció
 >[!NOTE]
 >Hay un tercer certificado generado automáticamente que crea el administrador de seguridad de IoT Edge, el **certificado de servidor del centro de IoT Edge**. Este certificado siempre tiene una vigencia de 90 días, pero siempre se renueva automáticamente antes de expirar. El valor **auto_generated_ca_lifetime_days** no afecta a este certificado.
 
-Para configurar la expiración de certificados en un valor distinto a los 90 días predeterminados, agregue el valor en días a la sección **Certificados** del archivo config.yaml.
+Para configurar la expiración de certificados en un valor distinto a los 90 días predeterminados, agregue el valor en días a la sección **Certificados** del archivo **config.yaml**.
+
+Una vez transcurrido el número de días especificado, el demonio de seguridad de IoT Edge debe reiniciarse para volver a generar el certificado de CA del dispositivo; no se renovará automáticamente.
 
 ```yaml
 certificates:
@@ -125,11 +127,9 @@ certificates:
 ```
 
 > [!NOTE]
-> Actualmente, una limitación en libiothsm impide el uso de certificados que expiran el 1 de enero de 2050 o en una fecha posterior.
+> Actualmente, una limitación en libiothsm impide el uso de certificados que expiran el 1 de enero de 2038 o en una fecha posterior.
 
-Si ha proporcionado sus propios certificados de CA del dispositivo, este valor seguirá aplicándose al certificado de CA de carga de trabajo, siempre que el valor de vigencia establecido sea menor que la vigencia del certificado de CA del dispositivo.
-
-Una vez que especifique la marca en el archivo config.yaml, siga los pasos siguientes:
+Una vez que especifique el valor en el archivo config.yaml, siga los pasos siguientes:
 
 1. Elimine el contenido de la carpeta `hsm`.
 

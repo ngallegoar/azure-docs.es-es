@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c097c14406349d973e905fadb806cc159d9b16d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 113c11b749b42bbaf9e5e40cdf63623288997a92
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76722108"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440293"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Desarrollo de Agile de proyectos de ciencia de datos
 
@@ -51,7 +51,7 @@ Las siguientes son las definiciones de los tipos de elementos de trabajo:
   
 - **Tarea**: las tareas son elementos de trabajo asignables que deben realizarse para completar un caso de usuario específico. Por ejemplo, las tareas del caso de usuario *Obtener datos* podrían ser:
   - Obtener credenciales de SQL Server
-  - Cargar datos en SQL Data Warehouse
+  - Carga de datos en Azure Synapse Analytics
   
 - **Error**: los errores son problemas en el código existente o en los documentos que se deben corregir para completar una tarea. Si los errores se deben a que faltan elementos de trabajo, pueden escalarse para convertirlos en casos de usuario o tareas. 
 

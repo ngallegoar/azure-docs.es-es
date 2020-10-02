@@ -3,12 +3,12 @@ title: Cómo detener la supervisión del clúster híbrido de Kubernetes | Micro
 description: En este artículo se describe cómo puede detener la supervisión del clúster híbrido de Kubernetes con Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 8369c82b83cfbaa7128383c6203aaf584916cae9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2754649cd990b015162be158effa2b85aa1fe27e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091205"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986055"
 ---
 # <a name="how-to-stop-monitoring-your-hybrid-cluster"></a>Cómo detener la supervisión del clúster híbrido
 
@@ -84,6 +84,25 @@ El cambio de configuración puede tardar unos minutos en completarse. Dado que H
     .\disable-monitoring.ps1 -clusterResourceId $azureArcClusterResourceId -kubeContext $kubeContext
     ```
 
+#### <a name="using-service-principal"></a>Uso de una entidad de servicio
+El script *disable-monitoring.ps1* usa el inicio de sesión de dispositivo interactivo. Si prefiere el inicio de sesión no interactivo, puede usar una entidad de servicio existente o crear otra que tenga los permisos necesarios, tal y como se describe en [Requisitos previos](container-insights-enable-arc-enabled-clusters.md#prerequisites). Para usar la entidad de servicio, tendrá que pasar los parámetros $servicePrincipalClientId, $servicePrincipalClientSecret y $tenantId con los valores de la entidad de servicio que ha pensado usar para el script enable-monitoring.ps1.
+
+```powershell
+$subscriptionId = "<subscription Id of the Azure Arc connected cluster resource>"
+$servicePrincipal = New-AzADServicePrincipal -Role Contributor -Scope "/subscriptions/$subscriptionId"
+
+$servicePrincipalClientId =  $servicePrincipal.ApplicationId.ToString()
+$servicePrincipalClientSecret = [System.Net.NetworkCredential]::new("", $servicePrincipal.Secret).Password
+$tenantId = (Get-AzSubscription -SubscriptionId $subscriptionId).TenantId
+```
+
+Por ejemplo:
+
+```powershell
+\disable-monitoring.ps1 -clusterResourceId $azureArcClusterResourceId -kubeContext $kubeContext -servicePrincipalClientId $servicePrincipalClientId -servicePrincipalClientSecret $servicePrincipalClientSecret -tenantId $tenantId
+```
+
+
 ### <a name="using-bash"></a>Uso de Bash
 
 1. Descargue y guarde el script que configura el clúster en una carpeta local con el complemento de supervisión mediante el uso de los siguientes comandos:
@@ -117,6 +136,24 @@ El cambio de configuración puede tardar unos minutos en completarse. Dado que H
     ```bash
     bash disable-monitoring.sh --resource-id $azureArcClusterResourceId --kube-context $kubeContext
     ```
+
+#### <a name="using-service-principal"></a>Uso de una entidad de servicio
+El script *disable-monitoring.sh* de Bash usa el inicio de sesión de dispositivo interactivo. Si prefiere el inicio de sesión no interactivo, puede usar una entidad de servicio existente o crear otra que tenga los permisos necesarios, tal y como se describe en [Requisitos previos](container-insights-enable-arc-enabled-clusters.md#prerequisites). Para usar la entidad de servicio, tendrá que pasar los valores --client-id, --client-secret y --tenant-id de la entidad de servicio que ha pensado usar para el script *enable-monitoring.sh* de Bash.
+
+```bash
+subscriptionId="<subscription Id of the Azure Arc connected cluster resource>"
+servicePrincipal=$(az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${subscriptionId}")
+servicePrincipalClientId=$(echo $servicePrincipal | jq -r '.appId')
+
+servicePrincipalClientSecret=$(echo $servicePrincipal | jq -r '.password')
+tenantId=$(echo $servicePrincipal | jq -r '.tenant')
+```
+
+Por ejemplo:
+
+```bash
+bash disable-monitoring.sh --resource-id $azureArcClusterResourceId --kube-context $kubeContext --client-id $servicePrincipalClientId --client-secret $servicePrincipalClientSecret  --tenant-id $tenantId
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

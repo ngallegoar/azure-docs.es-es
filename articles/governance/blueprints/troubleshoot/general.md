@@ -3,12 +3,12 @@ title: Solución de errores comunes
 description: Obtenga información acerca de cómo solucionar problemas al crear, asignar y eliminar planos técnicos, como infracciones de directivas y funciones de parámetros del plano técnico.
 ms.date: 06/29/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: d1dcd88fd6f7a9ab5035a5977ab5d50f3e6caf54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8362e2a22317d73e0fd392bd497cd9f2c5ffe4f
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557505"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651321"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Solución de problemas de errores con instancias de Azure Blueprint
 
@@ -22,9 +22,9 @@ Muchos errores serán el resultado de asignar un plano técnico a un ámbito. Cu
 
 1. En la página de la izquierda seleccione **Planos técnicos asignados** y use el cuadro de búsqueda para filtrar las asignaciones de plano técnico a fin de encontrar las asignaciones con error. También puede ordenar la tabla de asignaciones por la columna **Estado de aprovisionamiento** para ver todas las asignaciones con error agrupadas conjuntamente.
 
-1. Haga clic en el plano técnico con el estado _Error_ o haga clic con el botón derecho y seleccione **Ver los detalles de la asignación**.
+1. Seleccione el plano técnico con el estado _Error_ o haga clic con el botón derecho y seleccione **Ver los detalles de la asignación**.
 
-1. En la parte superior de la página de asignación de planos técnicos, un banner rojo de advertencia indica que la asignación dio un error. Haga clic en cualquier lugar del banner para obtener más detalles.
+1. En la parte superior de la página de asignación de planos técnicos, un banner rojo de advertencia indica que la asignación dio un error. Seleccione cualquier lugar del banner para obtener más detalles.
 
 Es habitual que el error se deba a un artefacto y no al plano técnico en su conjunto. Si un artefacto crea un almacén de claves y Azure Policy impide la creación, se producirá un error en toda la asignación.
 
@@ -32,7 +32,7 @@ Es habitual que el error se deba a un artefacto y no al plano técnico en su con
 
 ### <a name="scenario-policy-violation"></a><a name="policy-violation"></a>Escenario: Infracción de la directiva
 
-#### <a name="issue"></a>Incidencia
+#### <a name="issue"></a>Problema
 
 Se produjo un error en la implementación de la plantilla debido a la infracción de la directiva.
 
@@ -43,13 +43,13 @@ Una directiva puede entrar en conflicto con la implementación por una serie de 
 - El recurso que se crea está restringido por la directiva (normalmente restricciones de SKU o ubicación)
 - La implementación establece campos que están configurados por la directiva (normalmente con etiquetas)
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Cambie el plano técnico para que no entre en conflicto con las directivas en los detalles del error. Si este cambio no es posible, una opción alternativa es hacer que el ámbito de la asignación de directivas cambie para que el plano técnico deje de estar en conflicto con la directiva.
 
 ### <a name="scenario-blueprint-parameter-is-a-function"></a><a name="escape-function-parameter"></a>Escenario: El parámetro de plano técnico es una función
 
-#### <a name="issue"></a>Incidencia
+#### <a name="issue"></a>Problema
 
 Los parámetros de plano técnico que son funciones se procesan antes de que se pasen a los artefactos.
 
@@ -57,7 +57,7 @@ Los parámetros de plano técnico que son funciones se procesan antes de que se 
 
 Pasar un parámetro de plano técnico que usa una función, como `[resourceGroup().tags.myTag]`, a un artefacto genera el resultado procesado de la función que se va a establecer en el artefacto, en lugar de la función dinámica.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Para pasar una función como parámetro, escape la cadena completa con `[`, de modo que el parámetro de plano técnico sea similar a `[[resourceGroup().tags.myTag]`. El carácter de escape hace que los planos técnicos traten el valor como una cadena al procesar el plano técnico. El plano técnico luego coloca la función en el artefacto para que pueda ser dinámico, según lo previsto. Para obtener más información, consulte [Sintaxis y expresiones de las plantillas de Azure Resource Manager](../../../azure-resource-manager/templates/template-expressions.md).
 
@@ -65,7 +65,7 @@ Para pasar una función como parámetro, escape la cadena completa con `[`, de m
 
 ### <a name="scenario-assignment-deletion-timeout"></a><a name="assign-delete-timeout"></a>Escenario: Tiempo de espera de eliminación de asignaciones
 
-#### <a name="issue"></a>Incidencia
+#### <a name="issue"></a>Problema
 
 No se ha completado la eliminación de una asignación de plano técnico.
 
@@ -73,13 +73,13 @@ No se ha completado la eliminación de una asignación de plano técnico.
 
 Una asignación de plano técnico puede quedar atrapada en un estado no terminal cuando se elimina. Este estado se produce cuando los recursos creados por la asignación de plano técnico todavía están pendientes de eliminación o no devuelven un código de estado a Azure Blueprints.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Las asignaciones de plano técnico en un estado no terminal se marcan automáticamente como **Error** después de un tiempo de espera de _6 horas_. Una vez que el tiempo de espera ha ajustado el estado de la asignación de plano técnico, se puede volver a intentar la eliminación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros canales para obtener más soporte técnico:
+Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros canales para obtener ayuda adicional:
 
 - Obtenga respuestas de expertos de Azure en los [foros de Azure](https://azure.microsoft.com/support/forums/).
 - Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport): la cuenta de Microsoft Azure oficial para mejorar la experiencia del cliente, que pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.

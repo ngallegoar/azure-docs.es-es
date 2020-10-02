@@ -6,44 +6,72 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 09/09/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 8916f4b9824f88361fdeb9d866f84adb71e8138e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b056c12f51c6e36a806f2bba0f5efe9ea9498798
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563801"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015643"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Modelo de extracción de la fuente de cambios de Azure Cosmos DB
 
 Con el modelo de extracción de fuente de cambios, puede consumir la fuente de cambios de Azure Cosmos DB a su propio ritmo. Al igual que con el [procesador de fuente de cambios](change-feed-processor.md), puede usar el modelo de extracción de la fuente de cambios para ejecutar en paralelo el procesamiento de los cambios en varios consumidores de fuentes de cambios.
 
 > [!NOTE]
-> El modelo de extracción de la fuente de cambios actualmente se encuentra en [versión preliminar solo para el SDK de .NET para Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.9.0-preview). La versión preliminar todavía no está disponible para otras versiones del SDK.
+> El modelo de extracción de la fuente de cambios actualmente se encuentra en [versión preliminar solo para el SDK de .NET para Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.13.0-preview). La versión preliminar todavía no está disponible para otras versiones del SDK.
+
+## <a name="comparing-with-change-feed-processor"></a>Comparación con el procesador de fuente de cambios
+
+Muchos escenarios pueden procesar la fuente de cambios con el [procesador de fuente de cambios](change-feed-processor.md) o el modelo de extracción. Tanto los tokens de continuación del modelo de extracción como los contenedores de concesión del procesador de la fuente de cambios son "marcadores" del último elemento (o lote de elementos) que se procesó en la fuente de cambios.
+
+Sin embargo, no puede convertir los tokens de continuación en un contenedor de concesión (o viceversa).
+
+> [!NOTE]
+> En la mayoría de los casos, cuando necesite leer de la fuente de cambios, la opción más sencilla será usar el [procesador de la fuente de cambios](change-feed-processor.md).
+
+Plantéese el uso del modelo de extracción en los siguientes escenarios:
+
+- Leer cambios de una clave de partición determinada.
+- Controlar el ritmo con el que el cliente recibe los cambios para procesarlos.
+- Realizar una lectura única de los datos existentes en la fuente de cambios (por ejemplo, para realizar una migración de datos).
+
+Estas son algunas diferencias clave entre el procesador de fuente de cambios y el modelo de extracción:
+
+|Característica  | Procesador de fuente de cambios| Modelo de extracción |
+| --- | --- | --- |
+| Realizar un seguimiento del punto actual en el procesamiento de la fuente de cambios. | Concesión (almacenada en un contenedor de Azure Cosmos DB). | Token de continuación (almacenado en la memoria o guardado manualmente). |
+| Funcionalidad para reproducir los cambios anteriores. | Sí, con el modelo de inserción. | Sí, con el modelo de extracción.|
+| Sondeo para cambios futuros. | Comprueba automáticamente si hay cambios según el `WithPollInterval` especificado por el usuario. | Manual |
+| Procesar cambios de todo un contenedor. | Sí, y se ejecuta en paralelo automáticamente en varios subprocesos o máquinas que consumen el mismo contenedor.| Sí, y se ejecuta en paralelo de forma manual mediante FeedTokens. |
+| Procesar los cambios de una sola clave de partición. | No compatible | Sí|
+| Nivel de compatibilidad | Disponibilidad general | Vista previa |
 
 ## <a name="consuming-an-entire-containers-changes"></a>Consumo de los cambios de todo un contenedor
 
-Puede crear un `FeedIterator` para procesar la fuente de cambios mediante el modelo de extracción. Cuando crea por primera vez un `FeedIterator`, puede especificar un valor `StartTime` opcional en las `ChangeFeedRequestOptions`. Cuando se deja sin especificar, el valor de `StartTime` será la hora actual.
+Puede crear un `FeedIterator` para procesar la fuente de cambios mediante el modelo de extracción. Al crear por primera vez un `FeedIterator`, debe especificar un valor `ChangeFeedStartFrom` requerido que consta tanto de la posición de inicio para leer los cambios como del `FeedRange` deseado. `FeedRange` es un intervalo de valores de claves de partición y especifica los elementos que se leerán de la fuente de cambios con ese `FeedIterator` específico.
+
+También puede especificar `ChangeFeedRequestOptions` para establecer un objeto `PageSizeHint`. `PageSizeHint` es el número máximo de elementos que se devolverán en una sola página.
 
 `FeedIterator` se ofrece en dos variedades. Además de los ejemplos siguientes que devuelven objetos entidad, también puede obtener la respuesta mediante la compatibilidad con `Stream`. Las secuencias le permiten leer datos sin tener que deserializarlos primero, de modo que se ahorran recursos del cliente.
 
 Este es un ejemplo para obtener un `FeedIterator` que devuelve objetos entidad; en este caso, un objeto `User`:
 
 ```csharp
-FeedIterator<User> iteratorWithPOCOS = container.GetChangeFeedIterator<User>();
+FeedIterator<User> InteratorWithPOCOS = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning());
 ```
 
 Este es un ejemplo para obtener un `FeedIterator` que devuelve una `Stream`:
 
 ```csharp
-FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator();
+FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator<User>(ChangeFeedStartFrom.Beginning());
 ```
 
-Con un `FeedIterator`, puede procesar fácilmente la fuente de cambios de todo un contenedor a su ritmo. Este es un ejemplo:
+Si no suministra un `FeedRange` a un objeto `FeedIterator`, puede procesar la fuente de cambios de un contenedor completo a su propio ritmo. A continuación se muestra un ejemplo que empieza a leer todos los cambios a partir de la hora actual:
 
 ```csharp
-FeedIterator<User> iteratorForTheEntireContainer= container.GetChangeFeedIterator<User>();
+FeedIterator iteratorForTheEntireContainer = container.GetChangeFeedStreamIterator<User>(ChangeFeedStartFrom.Now());
 
 while (iteratorForTheEntireContainer.HasMoreResults)
 {
@@ -61,7 +89,7 @@ while (iteratorForTheEntireContainer.HasMoreResults)
 En algunos casos, es posible que solo quiera procesar los cambios de una clave de partición específica. Puede obtener un `FeedIterator` para una clave de partición específica y procesar los cambios de la misma manera en que lo haría para todo un contenedor.
 
 ```csharp
-FeedIterator<User> iteratorForThePartitionKey = container.GetChangeFeedIterator<User>(new PartitionKey("myPartitionKeyValueToRead"));
+FeedIterator<User> iteratorForPartitionKey = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(FeedRange.FromPartitionKey(new PartitionKey("PartitionKeyValue"))));
 
 while (iteratorForThePartitionKey.HasMoreResults)
 {
@@ -86,7 +114,7 @@ IReadOnlyList<FeedRange> ranges = await container.GetFeedRangesAsync();
 
 Al obtener la lista de FeedRanges del contenedor, obtendrá un `FeedRange` por cada [partición física](partition-data.md#physical-partitions).
 
-Con un `FeedRange`, puede crear un `FeedIterator` para ejecutar en paralelo el procesamiento de la fuente de cambios en varios equipos o subprocesos. A diferencia del ejemplo anterior, en el que se mostró cómo obtener un único `FeedIterator` para todo el contenedor, puede usar `FeedRange` para obtener varios FeedIterators que puedan procesar la fuente de cambios en paralelo.
+Con un `FeedRange`, puede crear un `FeedIterator` para ejecutar en paralelo el procesamiento de la fuente de cambios en varios equipos o subprocesos. A diferencia del ejemplo anterior, en el que se mostró cómo obtener un `FeedIterator` para todo el contenedor o una sola clave de partición, puede usar FeedRanges para obtener varios FeedIterators que puedan procesar la fuente de cambios en paralelo.
 
 En caso de que quiera usar FeedRanges, debe tener un proceso de orquestador que obtenga FeedRanges y los distribuya en esas máquinas. Esta distribución puede ser de las siguientes formas:
 
@@ -98,7 +126,7 @@ Este es un ejemplo que muestra cómo leer la fuente de cambios de un contenedor 
 Máquina 1:
 
 ```csharp
-FeedIterator<User> iteratorA = container.GetChangeFeedIterator<User>(ranges[0], new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+FeedIterator<User> iteratorA = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(ranges[0]));
 while (iteratorA.HasMoreResults)
 {
    FeedResponse<User> users = await iteratorA.ReadNextAsync();
@@ -113,7 +141,7 @@ while (iteratorA.HasMoreResults)
 Máquina 2:
 
 ```csharp
-FeedIterator<User> iteratorB = container.GetChangeFeedIterator<User>(ranges[1], new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+FeedIterator<User> iteratorB = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(ranges[1]));
 while (iteratorB.HasMoreResults)
 {
    FeedResponse<User> users = await iteratorB.ReadNextAsync();
@@ -130,7 +158,7 @@ while (iteratorB.HasMoreResults)
 Puede crear un token de continuación para guardar la posición de `FeedIterator`. Un token de continuación es un valor de cadena que realiza un seguimiento de los último cambios que procesó FeedIterator. Esto permite que `FeedIterator` reanude el proceso en este punto más tarde. El código siguiente leerá la fuente de cambios a partir de la creación del contenedor. Cuando ya no haya más cambios disponibles, se conservará un token de continuación para que el consumo de la fuente de cambios se pueda reanudar más tarde.
 
 ```csharp
-FeedIterator<User> iterator = container.GetChangeFeedIterator<User>(ranges[0], new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+FeedIterator<User> iterator = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning());
 
 string continuation = null;
 
@@ -146,32 +174,10 @@ while (iterator.HasMoreResults)
 }
 
 // Some time later
-FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIterator<User>(continuation);
+FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.ContinuationToken(continuation));
 ```
 
 En tanto exista el contenedor de Cosmos, no expirará el token de continuación de FeedIterator.
-
-## <a name="comparing-with-change-feed-processor"></a>Comparación con el procesador de fuente de cambios
-
-Muchos escenarios pueden procesar la fuente de cambios con el [procesador de fuente de cambios](change-feed-processor.md) o el modelo de extracción. Tanto los tokens de continuación del modelo de extracción como los contenedores de concesión del procesador de la fuente de cambios son "marcadores" del último elemento (o lote de elementos) que se procesó en la fuente de cambios.
-Sin embargo, no puede convertir los tokens de continuación en un contenedor de concesión (o viceversa).
-
-Plantéese el uso del modelo de extracción en los siguientes escenarios:
-
-- Leer cambios de una clave de partición determinada.
-- Controlar el ritmo con el que el cliente recibe los cambios para procesarlos.
-- Realizar una lectura única de los datos existentes en la fuente de cambios (por ejemplo, para realizar una migración de datos).
-
-Estas son algunas diferencias clave entre el procesador de fuente de cambios y el modelo de extracción:
-
-|Característica  | Procesador de fuente de cambios| Modelo de extracción |
-| --- | --- | --- |
-| Realizar un seguimiento del punto actual en el procesamiento de la fuente de cambios. | Concesión (almacenada en un contenedor de Azure Cosmos DB). | Token de continuación (almacenado en la memoria o guardado manualmente). |
-| Funcionalidad para reproducir los cambios anteriores. | Sí, con el modelo de inserción. | Sí, con el modelo de extracción.|
-| Sondeo para cambios futuros. | Comprueba automáticamente si hay cambios según el `WithPollInterval` especificado por el usuario. | Manual |
-| Procesar cambios de todo un contenedor. | Sí, y se ejecuta en paralelo automáticamente en varios subprocesos o máquinas que consumen el mismo contenedor.| Sí, y se ejecuta en paralelo de forma manual mediante FeedTokens. |
-| Procesar los cambios de una sola clave de partición. | No compatible | Sí|
-| Nivel de compatibilidad | Disponibilidad general | Versión preliminar |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

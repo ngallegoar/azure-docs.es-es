@@ -1,6 +1,6 @@
 ---
 title: Supervisión de aplicaciones de Apache Spark en Synapse Studio
-description: Use Synapse Studio para supervisar sus aplicaciones de Apache Spark.
+description: Obtenga información sobre cómo supervisar las aplicaciones de Apache Spark mediante Synapse Studio.
 services: synapse-analytics
 author: matt1883
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: b5ad9e6a448747ac8f33829b1137b1af434e7a9c
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 2b8dbd20e79b9a6f48ca2d39079ebb452a3b46b2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385592"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530818"
 ---
 # <a name="use-synapse-studio-preview-to-monitor-your-apache-spark-applications"></a>Uso de Synapse Studio (versión preliminar) para supervisar sus aplicaciones de Apache Spark
 

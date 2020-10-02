@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: 9d7caf332239d364b5bc47b5d58a808ead70395d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: d1d4abbcc0768915d7d2e693cfc76a699ed21a91
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210594"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669623"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Información sobre los certificados de Azure IoT Edge
 
@@ -34,7 +34,7 @@ La ilustración siguiente muestra el uso de certificados de IoT Edge. Puede habe
 ![Diagrama de relaciones típicas de certificado](./media/iot-edge-certs/edgeCerts-general.png)
 
 > [!NOTE]
-> Actualmente, una limitación en libiothsm impide el uso de certificados que expiran el 1 de enero de 2050 o en una fecha posterior. Esta limitación se aplica al certificado de CA del dispositivo, a los certificados del paquete de confianza y a los certificados de identificador de dispositivo usados para los métodos de aprovisionamiento X.509.
+> Actualmente, una limitación en libiothsm impide el uso de certificados que expiran el 1 de enero de 2038 o en una fecha posterior. Esta limitación se aplica al certificado de CA del dispositivo, a los certificados del paquete de confianza y a los certificados de identificador de dispositivo usados para los métodos de aprovisionamiento X.509.
 
 ### <a name="certificate-authority"></a>Entidad de certificación
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: c0f31ddb0e0aeabff06d14d40d254c2577b38b5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ffe3d457d4827250418c9c2d838df35c11e01af7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84906809"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974708"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Creación de campos personalizados en un área de trabajo de Log Analytics en Azure Monitor (versión preliminar)
 
@@ -23,7 +23,7 @@ ms.locfileid: "84906809"
 
 La característica **Campos personalizados** de Azure Monitor le permite ampliar los registros existentes del área de trabajo de Log Analytics agregando sus propios campos de búsqueda.  Los campos personalizados se rellenan automáticamente a partir de los datos extraídos de otras propiedades del mismo registro.
 
-![Información general](media/custom-fields/overview.png)
+![Diagrama que muestra un registro original asociado a un registro modificado en un área de trabajo de Log Analytics con pares de valores de propiedad agregados a la propiedad original en el registro modificado.](media/custom-fields/overview.png)
 
 Por ejemplo, en el registro que se muestra a continuación, hay información útil que está escondida en la descripción del evento. Si estos datos se extraen en una propiedad diferente, estarán disponibles para ciertas acciones, como la ordenación y el filtrado.
 
@@ -81,7 +81,7 @@ La siguiente sección contiene un ejemplo completo que le guiará por el proceso
 
 En primer lugar, escribimos la siguiente consulta para que devuelva todos los eventos del Administrador de control de servicios que tengan el identificador 7036, que es el evento que indica el inicio o la detención de un servicio.
 
-![Consultar](media/custom-fields/query.png)
+![Captura de pantalla que muestra una consulta para un origen y un identificador de evento.](media/custom-fields/query.png)
 
 A continuación, seleccionamos y expandimos cualquier registro con el identificador de evento 7036.
 

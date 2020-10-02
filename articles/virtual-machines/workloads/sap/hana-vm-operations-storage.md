@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2020
+ms.date: 09/03/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8328b961c8166247caaf0b9cd5cc288c420d089e
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 60947a8138972834f30274715226648d1b2360a1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279999"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440701"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA
 
@@ -236,24 +236,28 @@ En esta configuración, puede conservar los volúmenes **/hana/data** y **/hana/
 
 A menudo, las recomendaciones superan los requisitos mínimos de SAP como se indicó anteriormente en este artículo. Las recomendaciones enumeradas son un compromiso entre las recomendaciones de tamaño de SAP y el rendimiento de almacenamiento máximo que proporcionan los diferentes tipos de máquinas virtuales.
 
+> [!NOTE]
+> El disco Ultra de Azure exige un mínimo de 2 IOPS por capacidad de Gigabyte de un disco
+
+
 | SKU de la máquina virtual | RAM | Máx. E/S de VM<br /> Throughput | Volumen /hana/data | Rendimiento de E/S de /hana/data | Operaciones de E/S por segundo en /hana/data | Volumen /hana/log | Rendimiento de E/S de /hana/log | Operaciones de E/S por segundo en /hana/log |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
-| E20ds_v4 | 160 GiB | 480 MB/s | 200 GB | 400 MBps | 2500 | 80 GB | 250 MB | 1800 |
-| E32ds_v4 | 256 GiB | 768 MB/s | 300 GB | 400 MBps | 2500 | 128 GB | 250 MBps | 1800 |
-| E48ds_v4 | 384 GiB | 1152 MB/s | 460 GB | 400 MBps | 3000 | 192 GB | 250 MBps | 1800 |
+| E20ds_v4 | 160 GiB | 480 MB/s | 200 GB | 400 MBps | 2,500 | 80 GB | 250 MB | 1800 |
+| E32ds_v4 | 256 GiB | 768 MB/s | 300 GB | 400 MBps | 2,500 | 128 GB | 250 MBps | 1800 |
+| E48ds_v4 | 384 GiB | 1152 MB/s | 460 GB | 400 MBps | 3,000 | 192 GB | 250 MBps | 1800 |
 | E64ds_v4 | 504 GiB | 1200 MB/s | 610 GB | 400 MBps | 3500 |  256 GB | 250 MBps | 1800 |
 | E64s_v3 | 432 GiB | 1200 MB/s | 610 GB | 400 MBps | 3500 | 220 GB | 250 MB | 1800 |
-| M32ts | 192 GiB | 500 MB/s | 250 GB | 400 MBps | 2500 | 96 GB | 250 MBps  | 1800 |
-| M32ls | 256 GiB | 500 MB/s | 300 GB | 400 MBps | 2500 | 256 GB | 250 MBps  | 1800 |
+| M32ts | 192 GiB | 500 MB/s | 250 GB | 400 MBps | 2,500 | 96 GB | 250 MBps  | 1800 |
+| M32ls | 256 GiB | 500 MB/s | 300 GB | 400 MBps | 2,500 | 256 GB | 250 MBps  | 1800 |
 | M64ls | 512 GB | 1000 MB/s | 620 GB | 400 MBps | 3500 | 256 GB | 250 MBps  | 1800 |
-| M64s | 1000 GiB | 1000 MB/s |  1200 GB | 600 MBps | 5\.000 | 512 GB | 250 MBps  | 2500 |
-| M64ms | 1750 GiB | 1000 MB/s | 2100 GB | 600 MBps | 5\.000 | 512 GB | 250 MBps  | 2500 |
-| M128s | 2000 GiB | 2000 MB/s |2400 GB | 750 Mbps | 7000 | 512 GB | 250 MBps  | 2500 | 
-| M128ms | 3800 GiB | 2000 MB/s | 4800 GB | 750 Mbps |7000 | 512 GB | 250 MBps  | 2500 | 
-| M208s_v2 | 2850 GiB | 1000 MB/s | 3500 GB | 750 Mbps | 7000 | 512 GB | 250 MBps  | 2500 | 
-| M208ms_v2 | 5700 GiB | 1000 MB/s | 7200 GB | 750 Mbps | 7000 | 512 GB | 250 MBps  | 2500 | 
-| M416s_v2 | 5700 GiB | 2000 MB/s | 7200 GB | 1000 MBps | 9000 | 512 GB | 400 MBps  | 4\.000 | 
-| M416ms_v2 | 11 400 GiB | 2000 MB/s | 14 400 GB | 1500 MBps | 9000 | 512 GB | 400 MBps  | 4\.000 |   
+| M64s | 1000 GiB | 1000 MB/s |  1200 GB | 600 MBps | 5\.000 | 512 GB | 250 MBps  | 2,500 |
+| M64ms | 1750 GiB | 1000 MB/s | 2100 GB | 600 MBps | 5\.000 | 512 GB | 250 MBps  | 2,500 |
+| M128s | 2000 GiB | 2000 MB/s |2400 GB | 750 Mbps | 7000 | 512 GB | 250 MBps  | 2,500 | 
+| M128ms | 3800 GiB | 2000 MB/s | 4800 GB | 750 Mbps |9 600 | 512 GB | 250 MBps  | 2,500 | 
+| M208s_v2 | 2850 GiB | 1000 MB/s | 3500 GB | 750 Mbps | 7000 | 512 GB | 250 MBps  | 2,500 | 
+| M208ms_v2 | 5700 GiB | 1000 MB/s | 7200 GB | 750 Mbps | 14 400 | 512 GB | 250 MBps  | 2,500 | 
+| M416s_v2 | 5700 GiB | 2000 MB/s | 7200 GB | 1000 MBps | 14 400 | 512 GB | 400 MBps  | 4\.000 | 
+| M416ms_v2 | 11 400 GiB | 2000 MB/s | 14 400 GB | 1500 MBps | 28,800 | 512 GB | 400 MBps  | 4\.000 |   
 
 **Los valores de la lista están diseñados como punto de partida y deben valorarse según las demandas reales.** La ventaja del disco Ultra de Azure es que los valores de IOPS y de rendimiento se pueden adaptar sin necesidad de apagar la máquina virtual o detener la carga de trabajo que se aplica al sistema.   
 

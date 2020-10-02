@@ -3,12 +3,12 @@ title: Exportación a Power BI desde Azure Application Insights | Microsoft Docs
 description: Las consultas de Analytics se pueden mostrar en Power BI.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 51a553452643fc979846ab4604762f11c5b7ff68
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 804da7d3aaa2fd1b7973a686bc9ca5cb5ee973a2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324376"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979160"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentación de Power BI desde Application Insights
 [Power BI](https://www.powerbi.com/) es un conjunto de herramientas de negocios que pueden ayudar a analizar datos y compartir conocimientos. Cada dispositivo cuenta con paneles que incluyen gran cantidad de datos. Puede combinar datos de varios orígenes, incluidas las consultas de Analytics en [Azure Application Insights](./app-insights-overview.md).
@@ -71,7 +71,7 @@ Instale [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 4. Seleccione elementos de la consulta y elija una visualización de embudo.
 
-   ![Captura de pantalla de opciones de visualización de Power BI Desktop](./media/export-power-bi/selectsequence.png)
+   ![Captura de pantalla que muestra las opciones de visualización de Embudo de Power BI Desktop](./media/export-power-bi/selectsequence.png)
 
 5. Cambie el título para que sea descriptivo y publique el informe en el área de trabajo en la nube de Power BI. 
 
@@ -86,7 +86,7 @@ Esto puede ocurrir si no se ha actualizado el token de actualización. Pruebe es
 
 1. Inicie sesión en Azure Portal y asegúrese de que puede acceder al recurso.
 2. Intente actualizar las credenciales para el panel.
-3. Intente borrar la caché del escritorio de PowerBI.
+3. Intente borrar la caché de la instancia de Power BI Desktop.
 
 
    Si tiene acceso, pero la actualización de las credenciales no funciona, abra una incidencia de soporte técnico.
@@ -121,14 +121,14 @@ Este método crea un panel completo de telemetría. El conjunto de datos inicial
 1. Inicie sesión en [Power BI](https://app.powerbi.com/).
 2. Abra **Obtener datos** ![Captura de pantalla del icono de obtener datos en la esquina inferior izquierda](./media/export-power-bi/001.png), **Servicios**.
 
-    ![Capturas de pantalla de Obtener de un origen de datos de Application Insights](./media/export-power-bi/002.png)
+    ![Captura de pantalla que muestra el botón Obtener de la ventana Servicios.](./media/export-power-bi/002.png)
 
 3. Seleccione **Obtenerla ahora** en Application Insights.
 
    ![Capturas de pantalla de Obtener de un origen de datos de Application Insights](./media/export-power-bi/003.png)
 4. Proporcione los detalles del recurso de Application Insights y luego **inicie sesión**.
 
-    ![Captura de pantalla de Obtener de un origen de datos de Application Insights](./media/export-power-bi/005.png)
+    ![Captura de pantalla que muestra la ventana Conectarse a Application Insights.](./media/export-power-bi/005.png)
 
      Esta información puede encontrarse en el panel Introducción de Application Insights:
 

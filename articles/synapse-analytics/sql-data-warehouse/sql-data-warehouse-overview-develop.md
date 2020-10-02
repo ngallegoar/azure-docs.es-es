@@ -1,6 +1,6 @@
 ---
 title: Recursos para desarrollar un grupo de SQL de Synapse en Azure Synapse Analytics
-description: Conceptos de desarrollo, decisiones de diseño, recomendaciones y técnicas de codificación para SQL Data Warehouse.
+description: Conceptos de desarrollo, decisiones de diseño, recomendaciones y técnicas de codificación para Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: a3c0d7924fb550761d050c9c404b1065c7d3cf72
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95f712f196c37650b52220c9e34f6cb6b50bff23
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85211500"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460616"
 ---
 # <a name="design-decisions-and-coding-techniques-for-a-synapse-sql-pool-in-azure-synapse-analytics"></a>Decisiones de diseño y técnicas de codificación para un grupo de SQL de Synapse en Azure Synapse Analytics 
  En este artículo, encontrará recursos adicionales que le ayudarán a comprender mejor las decisiones de diseño, las recomendaciones y las técnicas de codificación clave para un grupo de SQL en Azure Synapse.
@@ -38,7 +38,7 @@ En los artículos siguientes se abordan técnicas de codificación, sugerencias 
 
 * [procedimientos almacenados](sql-data-warehouse-develop-stored-procedures.md)
 * [etiquetas](sql-data-warehouse-develop-label.md)
-* [vistas](sql-data-warehouse-develop-views.md)
+* [vistas](performance-tuning-materialized-views.md)
 * [tablas temporales](sql-data-warehouse-tables-temporary.md)
 * [SQL dinámico](sql-data-warehouse-develop-dynamic-sql.md)
 * [bucle](sql-data-warehouse-develop-loops.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: b74fd1ad5c3783b2e456fa5f3c24fb8bc7875d4d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 49ab515c265b4b4444e7d4ca5b93c4e898e4cf54
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551329"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527316"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Diseño de la implementación de registros de Azure Monitor
 
@@ -131,7 +131,7 @@ Azure Monitor es un servicio de datos a gran escala que atiende a miles de clien
 
 Cuando se envían datos a un área de trabajo a una velocidad superior al 80 % del umbral configurado en el área de trabajo, se envía un evento a la tabla *Operación* del área de trabajo cada 6 horas mientras se siga superando el umbral. Cuando la velocidad de ingesta del volumen supera el umbral, se quitan algunos datos y se envía un evento a la tabla *Operación* del área de trabajo cada 6 horas mientras se siga superando el umbral. Si la velocidad de ingesta sigue superando el umbral o prevé que lo va a alcanzar pronto, puede abrir una solicitud de soporte técnico para solicitar su aumento. 
 
-Para recibir una notificación tanto si se acerca al límite de ingesta de datos del volumen del área de trabajo como si lo ha alcanzado, cree una [regla de alerta de registro](alerts-log.md) mediante la siguiente consulta cuya base lógica de alerta sea el número de resultados mayores que cero, un período de evaluación de 5 minutos y una frecuencia de 5 minutos.
+Para recibir una notificación tanto si se acerca al límite de ingesta de datos del volumen del área de trabajo como si lo ha alcanzado, cree una [regla de alerta de registro](alerts-log.md) mediante la siguiente consulta cuya base lógica de alerta sea el número de resultados mayores que cero, un período de evaluación de 5 minutos y una frecuencia de 5 minutos.
 
 La velocidad de ingesta del volumen ha alcanzado el 80 % del umbral:
 ```Kusto
@@ -152,9 +152,9 @@ Operation
 
 ![Ejemplo de diseño de contexto del recurso](./media/design-logs-deployment/workspace-design-resource-context-01.png)
 
-En este escenario se trata un diseño de un área de trabajo único de la suscripción de una organización de TI que no está restringido por la soberanía de los datos ni por el cumplimiento normativo, o bien que debe asignarse a las regiones en las que se implementan los recursos. Brinda a los equipos de administración de seguridad y de TI de la organización la posibilidad de sacar provecho de la integración mejorada con la administración del acceso de Azure y un control del acceso más seguro.
+En este escenario se trata un diseño de un área de trabajo único de la suscripción de una organización de TI que no está restringido por la soberanía de los datos ni por el cumplimiento normativo, o bien que debe asignarse a las regiones en las que se implementan los recursos. Brinda a los equipos de administración de seguridad y de TI de la organización la posibilidad de sacar provecho de la integración mejorada con la administración del acceso de Azure y un control de acceso más seguro.
 
-Todos los recursos, las soluciones de supervisión y la información, como Application Insights y Azure Monitor para VM, que dan soporte tanto a la infraestructura como a las aplicaciones que mantienen los diferentes equipos están configurados para reenviar los datos de registro que recopilan al área de trabajo compartida centralizada de las organizaciones de TI. A los usuarios de cada equipo se les concede acceso a los registros de los recursos a los que se les ha dado acceso.
+Todos los recursos, las soluciones de supervisión y la información, como Application Insights y Azure Monitor para VM, que dan soporte tanto a la infraestructura como a las aplicaciones que mantienen los diferentes equipos están configurados para reenviar los datos de registro que recopilan al área de trabajo compartida centralizada de la organización de TI. A los usuarios de cada equipo se les concede acceso a los registros de los recursos a los que se les ha dado acceso.
 
 Una vez que haya implementado la arquitectura del área de trabajo, puede aplicarla a los recursos de Azure con [Azure Policy](../../governance/policy/overview.md). Proporciona una forma de definir directivas y garantizar el cumplimiento de los recursos de Azure para que envíen todos los registros de recursos a un área de trabajo específica. Por ejemplo, en el caso de las máquinas virtuales de Azure o los conjuntos de escalado de máquinas virtuales, puede usar las directivas existentes que evalúan el cumplimiento del área de trabajo y los resultados de los informes, o bien personalizarlas para tomas las medidas necesarias si no lo cumplen.  
 

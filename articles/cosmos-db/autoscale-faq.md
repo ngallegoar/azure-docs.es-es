@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: ca4e79977132586c619f323015f9d915e04707f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e6a502ae7ed71beaeefe603e0810264e62187ba
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449522"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708009"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Preguntas más frecuentes sobre el rendimiento aprovisionado por Escalabilidad automática en Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Los recursos que se crearon con el modelo del nivel anterior se admiten automát
 
 Por ejemplo, si anteriormente seleccionó el nivel que escalaba entre 400 y 4000 RU/s, la base de datos o el contenedor ahora mostrarán que tienen un máximo de 4000 RU/s, que se escalan entre 400 y 4000 RU/s. A partir de aquí, puede cambiar el número máximo de RU/s a un valor personalizado apropiado para su carga de trabajo. 
 
-### <a name="how-quickly-will-autoscale-scale-up-and-down-based-on-spikes-in-traffic"></a>¿Con qué rapidez se escalará y reducirá verticalmente la escalabilidad automática en función de los picos de tráfico?
+### <a name="how-quickly-will-autoscale-scale-up-based-on-spikes-in-traffic"></a>¿Con qué rapidez se escalará verticalmente la escalabilidad automática en función de los picos de tráfico?
 Con la escalabilidad automática, el sistema escala el rendimiento (RU/s) `T` en el intervalo entre `0.1 * Tmax` y `Tmax`, en función del tráfico entrante. Dado que el escalado es automático e instantáneo, puede consumir hasta el valor de `Tmax` aprovisionado en cualquier momento, sin ningún retraso. 
 
 ### <a name="how-do-i-determine-what-rus-the-system-is-currently-scaled-to"></a>¿Cómo puedo determinar a qué número de RU/s está escalado actualmente el sistema?

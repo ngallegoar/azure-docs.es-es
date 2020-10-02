@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: adfd91a3f82a83f6bb5e076247f1539029d5a04e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: eb20fe91a54007f24c56a95e67942728674471ea
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592294"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566643"
 ---
 # <a name="translator-30-detect"></a>Translator 3.0: Detect
 
@@ -67,7 +67,7 @@ Los encabezados de solicitud incluyen lo siguiente:
 
 ## <a name="request-body"></a>Cuerpo de la solicitud
 
-El cuerpo de la solicitud es una matriz JSON. Cada elemento de la matriz es un objeto JSON con una propiedad de cadena denominada `Text`. La detección de idioma se aplica al valor de la propiedad `Text`. Un cuerpo de solicitud de muestra tiene el siguiente aspecto:
+El cuerpo de la solicitud es una matriz JSON. Cada elemento de la matriz es un objeto JSON con una propiedad de cadena denominada `Text`. La detección de idioma se aplica al valor de la propiedad `Text`. La detección automática de idioma funciona mejor con texto de entrada más largo. Un cuerpo de solicitud de muestra tiene el siguiente aspecto:
 
 ```json
 [
@@ -78,7 +78,6 @@ El cuerpo de la solicitud es una matriz JSON. Cada elemento de la matriz es un o
 Se aplican las siguientes limitaciones:
 
 * La matriz puede tener como máximo 100 elementos.
-* El valor de texto de un elemento de la matriz no puede superar los 10 000 caracteres, incluyendo los espacios.
 * El texto completo incluido en la solicitud no puede superar los 50 000 caracteres, incluidos los espacios.
 
 ## <a name="response-body"></a>Response body

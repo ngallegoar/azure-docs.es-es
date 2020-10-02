@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 48e6d8870baad60c79cf392894db8b71003bb875
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: b45cc87c525ab66a3807f71901728e60d086ea74
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276992"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440412"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Ciencia de datos escalables con Azure Data Lake: tutorial completo
 En este tutorial se muestra cómo utilizar Azure Data Lake para realizar las tareas de exploración de datos y clasificación binaria en un ejemplo del conjunto de datos de carreras y tarifas de taxi de la ciudad de Nueva York para predecir si se dará una propina por tarifa. Le guía por los pasos de todo el [proceso de la ciencia de datos en equipos](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), desde la adquisición de los datos al entrenamiento del modelo y, a continuación, a la implementación de un servicio web que publique el modelo.
@@ -34,7 +34,7 @@ Estas tecnologías se utilizan en este tutorial.
 ### <a name="azure-data-lake-analytics"></a>Análisis con Azure Data Lake
 [Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) ofrece todas las funcionalidades necesarias para facilitar a los científicos de datos el almacenamiento de datos de cualquier tamaño, forma y velocidad, y llevar a cabo el procesamiento de datos, análisis avanzado y modelado del aprendizaje automático con alta escalabilidad de una manera rentable.   Se paga por trabajo, solo cuando se procesan los datos. Análisis de Azure Data Lake incluye U-SQL, un lenguaje que mezcla la naturaleza declarativa de SQL con la potencia expresiva de C# para proporcionar una funcionalidad de consulta distribuida escalable. Permite procesar datos sin estructura mediante la aplicación de un esquema al leer, la inserción de lógica personalizada y funciones definidas por el usuario (UDF) e incluye extensibilidad para habilitar un control más preciso sobre la ejecución a escala. Para más información acerca de la filosofía de diseño tras U-SQL, consulte esta [entrada del blog de Visual Studio](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
-Análisis de Data Lake es también una parte fundamental del conjunto de aplicaciones Cortana Analytics y funciona con SQL Data Warehouse, Power BI y Data Factory. Esta combinación proporciona una plataforma completa de análisis avanzado y macrodatos en la nube.
+Data Lake Analytics es también una parte fundamental del conjunto de aplicaciones Cortana Analytics y funciona con Azure Synapse Analytics, Power BI y Data Factory. Esta combinación proporciona una plataforma completa de análisis avanzado y macrodatos en la nube.
 
 Este tutorial comienza con la descripción de la instalación de los requisitos previos y recursos necesarios para completar las tareas del proceso de ciencia de datos. A continuación, se describen los pasos de procesamiento de datos mediante U-SQL y se concluye con una demostración de cómo usar Python y Hive con Azure Machine Learning Studio (clásico) para generar e implementar los modelos predictivos.
 
@@ -756,7 +756,7 @@ Al completar este tutorial, ha creado un entorno de ciencia de datos para genera
 ## <a name="whats-next"></a>¿Qué sigue?
 La ruta de aprendizaje del [proceso de ciencia de datos en equipos (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) proporciona vínculos a temas que describen cada paso del proceso de análisis avanzado. Hay una serie de tutoriales en la página [Tutoriales del proceso de ciencia de datos en equipos](walkthroughs.md) que muestran cómo usar los recursos y servicios en diversos escenarios de análisis predictivo:
 
-* [Proceso de ciencia de datos en equipos en acción: uso de SQL Data Warehouse](sqldw-walkthrough.md)
+* [Proceso de ciencia de datos en equipos en acción: uso de Azure Synapse Analytics](sqldw-walkthrough.md)
 * [Proceso de ciencia de datos en equipos en acción: uso de clústeres de Hadoop de HDInsight](hive-walkthrough.md)
 * [Proceso de ciencia de datos en equipos: uso de SQL Server](sql-walkthrough.md)
 * [Información general sobre el proceso de ciencia de datos con Spark en HDInsight de Azure](spark-overview.md)

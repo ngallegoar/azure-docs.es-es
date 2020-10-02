@@ -12,12 +12,12 @@ ms.reviewer: larryfr
 ms.date: 03/01/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b756e83f1d810007e9e9ef6cf2987c3cf60b7f7d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: ad04566699b2eebb0cbd7a9f242de38bc75e2015
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852861"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986413"
 ---
 # <a name="data-ingestion-with-azure-data-factory"></a>Ingesta de datos con Azure Data Factory
 
@@ -35,7 +35,7 @@ Hay varias técnicas comunes de uso de Azure Data Factory para transformar datos
 
 ## <a name="adf-with-azure-functions"></a>Uso con Azure Functions.
 
-![adf-function](media/how-to-data-ingest-adf/adf-function.png)
+![En el diagrama se muestra una canalización de Azure Data Factory, con Azure Functions y la ejecución de la canalización de ML, y una canalización de Azure Machine Learning, con el entrenamiento del modelo, y cómo interactúan con los datos sin procesar y los datos preparados.](media/how-to-data-ingest-adf/adf-function.png)
 
 Azure Functions permite ejecutar pequeños fragmentos de código (denominados "funciones") sin preocuparse por la infraestructura de la aplicación. En esta opción, los datos se procesan con código Python personalizado encapsulado en una función de Azure Functions. 
 
@@ -51,7 +51,7 @@ La función se invoca con la [actividad de las funciones de Azure en ADF](https:
 
 ## <a name="adf-with-custom-component-activity"></a>ADF con actividad de componentes personalizados
 
-![adf-customcomponent](media/how-to-data-ingest-adf/adf-customcomponent.png)
+![En el diagrama se muestra una canalización de Azure Data Factory, con un componente personalizado y la ejecución de la canalización de ML, y una canalización de Azure Machine Learning, con el entrenamiento del modelo, y cómo interactúan con los datos sin procesar y los datos preparados.](media/how-to-data-ingest-adf/adf-customcomponent.png)
 
 En esta opción, los datos se procesan con código Python personalizado encapsulado en un archivo ejecutable. Se invoca con una [actividad de componente personalizado de ADF](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity). Este enfoque es más adecuado para los datos de gran tamaño que la técnica anterior.
 
@@ -64,7 +64,7 @@ En esta opción, los datos se procesan con código Python personalizado encapsul
 
 ## <a name="adf-with-azure-databricks-python-notebook"></a>ADF con Azure Databricks cuaderno de Python
 
-![adf-databricks](media/how-to-data-ingest-adf/adf-databricks.png)
+![En el diagrama se muestra una canalización de Azure Data Factory, que incluye Python en Azure Databricks y la ejecución de la canalización de ML, y una canalización de Azure Machine Learning, con el entrenamiento del modelo, y cómo interactúan con los datos sin procesar y los datos preparados.](media/how-to-data-ingest-adf/adf-databricks.png)
 
 [Azure Databricks](https://azure.microsoft.com/services/databricks/) es una plataforma de análisis basada en Apache Spark y optimizada para Azure.
 
@@ -82,7 +82,7 @@ En esta técnica, un [cuaderno de Python](https://docs.microsoft.com/azure/data-
 
 ## <a name="consuming-data-in-azure-machine-learning-pipelines"></a>Consumo de datos en canalizaciones de Azure Machine Learning
 
-![aml-dataset](media/how-to-data-ingest-adf/aml-dataset.png)
+![En el diagrama se muestra una canalización de Azure Data Factory y una canalización de Azure Machine Learning, y cómo interactúan con los datos sin procesar y los datos preparados. La canalización de Data Factory suministra datos a la base de datos preparada, que alimenta un almacén de datos, que a su vez suministra conjuntos de datos al área de trabajo de Machine Learning.](media/how-to-data-ingest-adf/aml-dataset.png)
 
 Los datos transformados de la canalización de ADF se guardan en el almacenamiento de datos (como Azure Blob). Azure Machine Learning puede tener acceso a estos datos mediante [almacenes de datos](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores) y [conjuntos de datos](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets).
 

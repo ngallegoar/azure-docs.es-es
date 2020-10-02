@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: de381b4200e2ec3381f452ac0ec32e61a055a6ec
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 70ab387018fc54b4dad9ee911d4c7557e1e7805c
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326178"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030351"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Supervisión de recursos de Azure con Azure Monitor
 Si tiene aplicaciones y procesos empresariales críticos que dependen de recursos de Azure, querrá supervisar esos recursos para su disponibilidad, rendimiento y funcionamiento. En este artículo se describen los datos de supervisión generados por los recursos de Azure y cómo puede usar las características de Azure Monitor para analizar y alertar sobre estos datos.
@@ -20,10 +20,7 @@ Si tiene aplicaciones y procesos empresariales críticos que dependen de recurso
 > Este artículo se aplica a todos los servicios de Azure que usan Azure Monitor. Los recursos de proceso, incluidas las máquinas virtuales y App Service, generan los mismos datos de supervisión que se describen aquí, pero también tienen un sistema operativo invitado que puede generar asimismo registros y métricas. Consulte la documentación de supervisión de estos servicios para más información sobre cómo recopilar y analizar estos datos.
 
 ## <a name="what-is-azure-monitor"></a>¿Qué es Azure Monitor?
-Azure Monitor es un servicio de supervisión de pila completo de Azure, que proporciona un conjunto completo de características para supervisar los recursos de Azure, además de los recursos locales y en otras nubes. La [Plataforma de datos de Azure Monitor](../platform/data-platform.md) recopila datos en [registros](../platform/data-platform-logs.md) y [métricas](../platform/data-platform-metrics.md), donde se pueden analizar conjuntamente con un conjunto completo de herramientas de supervisión, tal como se describe en las secciones siguientes.
-
-- [¿Qué puede hacer con las métricas de Azure Monitor?](../platform/data-platform-metrics.md#what-can-you-do-with-azure-monitor-metrics)
-- [¿Qué puede hacer con los registros de Azure Monitor?](../platform/data-platform-logs.md#what-can-you-do-with-azure-monitor-logs)
+Azure Monitor es un servicio de supervisión de pila completo de Azure, que proporciona un conjunto completo de características para supervisar los recursos de Azure, además de los recursos locales y en otras nubes. La [Plataforma de datos de Azure Monitor](../platform/data-platform.md) recopila datos en [registros](../platform/data-platform-logs.md) y [métricas](../platform/data-platform-metrics.md), donde se pueden analizar conjuntamente con un conjunto completo de herramientas de supervisión. Consulte la lista completa de las aplicaciones y los servicios que se pueden supervisar mediante Azure Monitor en [¿Qué supervisa Azure Monitor?](../monitor-reference.md)
 
 Al crear un recurso de Azure, se habilita Azure Monitor, y se inicia la recopilación de métricas y registros de actividad que puede [ver y analizar en Azure Portal](#monitoring-in-the-azure-portal). Con algunas opciones de configuración, puede recopilar datos de supervisión adicionales y habilitar características adicionales. Consulte [Supervisión de datos](#monitoring-data) a continuación para más información sobre los requisitos de configuración.
 
@@ -100,7 +97,7 @@ Algunos servicios proporcionarán herramientas más allá de las característica
 
 Si un servicio tiene una conclusión de Azure Monitor, puede acceder a ella desde la opción **Supervisión** en el menú de cada recurso. Puede acceder a todas las conclusiones y las soluciones desde el menú de **Azure Monitor**.
 
-![Información detallada](media/monitor-azure-resource/insights.png)
+![Detalles en Azure Portal](media/monitor-azure-resource/insights.png)
 
 ### <a name="metrics"></a>Métricas
 Analice las métricas en Azure Portal mediante el [explorador de métricas](../platform/metrics-getting-started.md), que está disponible en el elemento de menú **Métricas** de la mayoría de los servicios. Esta herramienta permite trabajar con métricas individuales o combinar varias para identificar correlaciones y tendencias. 
@@ -108,7 +105,7 @@ Analice las métricas en Azure Portal mediante el [explorador de métricas](../p
 - Consulte [Introducción al Explorador de métricas de Azure](../platform/metrics-getting-started.md) para más información sobre el Explorador de métricas.
 - Consulte [Características avanzadas del Explorador de métricas de Azure](../platform/metrics-charts.md) para ver características avanzadas del Explorador de métricas, como el uso de varias métricas, y la aplicación de filtros y división.
 
-![Métricas](media/monitor-azure-resource/metrics.png)
+![Explorador de métricas en Azure Portal](media/monitor-azure-resource/metrics.png)
 
 
 ### <a name="activity-log"></a>Registro de actividades 
@@ -129,7 +126,7 @@ Los registros de Azure Monitor consolidan los registros y las métricas de vario
 - Consulte [Modo de recopilación](../platform/resource-logs.md#send-to-log-analytics-workspace) para ver una explicación de cómo se estructuran los datos del registro de recursos en los registros de Azure Monitor.
 - Consulte la documentación de cada servicio de Azure para más información sobre su tabla en los registros de Azure Monitor.
 
-![Registros](media/monitor-azure-resource/logs.png)
+![Log Analytics en Azure Portal](media/monitor-azure-resource/logs.png)
 
 ## <a name="monitoring-from-command-line"></a>Supervisión desde la línea de comandos
 Puede acceder a los datos de supervisión recopilados en el recurso desde una línea de comandos o incluirlos en un script mediante [Azure PowerShell](/powershell/azure/) o la [interfaz de la línea de comandos de Azure](/cli/azure/). 

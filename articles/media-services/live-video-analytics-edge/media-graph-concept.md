@@ -3,12 +3,12 @@ title: Concepto de grafo multimedia en Azure
 description: Un grafo multimedia le permite definir dónde se debe capturar el elemento multimedia, cómo se debe procesar y dónde se deben entregar los resultados. En este artículo se ofrece una descripción detallada del concepto de grafo multimedia.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 6be741ee38cc8f1980fe9aa96883f9aacc1be8e2
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 1e280d6fe8303a85bee41adf83ac54e7c96df304
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048436"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567949"
 ---
 # <a name="media-graph"></a>Grafo multimedia
 
@@ -21,7 +21,8 @@ ms.locfileid: "89048436"
 
 Un grafo multimedia le permite definir dónde se debe capturar el elemento multimedia, cómo se debe procesar y dónde se deben entregar los resultados. Para ello, conecte componentes o nodos de la manera deseada. En el diagrama siguiente se muestra una representación gráfica de un grafo multimedia.  
 
-![Una representación gráfica de un grafo multimedia](./media/media-graph/overview.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/media-graph/media-graph.svg" alt-text="Grafo de elementos multimedia":::
 
 Análisis de vídeos en vivo en IoT Edge admite diferentes tipos de orígenes, procesadores y receptores.
 
@@ -39,7 +40,8 @@ Los valores de los parámetros de la topología se especifican al crear instanci
 
 El ciclo de vida de las topologías de grafos y las instancias de grafos se muestra en el siguiente diagrama de estado.
 
-![Ciclo de vida de la topología de grafo e instancia de grafo](./media/media-graph/graph-topology-lifecycle.svg)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/media-graph/graph-topology-lifecycle.svg" alt-text="Grafo de elementos multimedia":::
 
 Comience por [crear una topología de grafo](direct-methods.md#graphtopologyset). A continuación, para cada fuente de vídeo en directo que desee procesar con esta topología, [cree una instancia de grafo](direct-methods.md#graphinstanceset). 
 
@@ -88,11 +90,11 @@ El nodo del procesador de filtros de velocidad de fotogramas permite muestrear l
 
 #### <a name="http-extension-processor"></a>Procesador de extensiones HTTP
 
-El nodo del procesador de extensiones HTTP permite conectar su propio módulo de IoT Edge a un grafo multimedia. Este nodo adopta los fotogramas de vídeo descodificados como entrada y los retransmite a un punto de conexión de HTTP REST expuesto por el módulo. Este nodo tiene la capacidad de autenticarse con el punto de conexión de REST, si es necesario. Además, el nodo tiene un formateador de imagen integrado para escalar y codificar los fotogramas de vídeo antes de retransmitirlos al punto de conexión de REST. El escalador tiene opciones para conservar, rellenar o ajustar la relación de aspecto de la imagen. El codificador de imágenes admite los formatos JPEG, PNG o BMP.
+El nodo del procesador de extensiones HTTP permite conectar su propio módulo de IoT Edge a un grafo multimedia. Este nodo adopta los fotogramas de vídeo descodificados como entrada y los retransmite a un punto de conexión de HTTP REST expuesto por el módulo. Este nodo tiene la capacidad de autenticarse con el punto de conexión de REST, si es necesario. Además, el nodo tiene un formateador de imagen integrado para escalar y codificar los fotogramas de vídeo antes de retransmitirlos al punto de conexión de REST. El escalador tiene opciones para conservar, rellenar o ajustar la relación de aspecto de la imagen. El codificador de imágenes admite los formatos JPEG, PNG o BMP. Obtenga más información sobre el procesador [aquí](media-graph-extension-concept.md#http-extension-processor).
 
 #### <a name="grpc-extension-processor"></a>Procesador de extensiones gRPC
 
-Este nodo procesador de extensiones gRPC toma los fotogramas de vídeo descodificados como entrada y los retransmite a un punto de conexión [gRPC](terminology.md#grpc) expuesto por el módulo. Además, el nodo tiene un formateador de imagen integrado para escalar y codificar los fotogramas de vídeo antes de retransmitirlos al punto de conexión gRPC. El escalador tiene opciones para conservar, rellenar o ajustar la relación de aspecto de la imagen. El codificador de imágenes admite los formatos jpeg, png o bmp.
+Este nodo procesador de extensiones gRPC toma los fotogramas de vídeo descodificados como entrada y los retransmite a un punto de conexión [gRPC](terminology.md#grpc) expuesto por el módulo. El nodo admite la transferencia de datos mediante [memoria compartida](https://en.wikipedia.org/wiki/Shared_memory) o la incrustación directa del contenido en el cuerpo de los mensajes gRPC. Además, el nodo tiene un formateador de imagen integrado para escalar y codificar los fotogramas de vídeo antes de retransmitirlos al punto de conexión gRPC. El escalador tiene opciones para conservar, rellenar o ajustar la relación de aspecto de la imagen. El codificador de imágenes admite los formatos jpeg, png o bmp. Obtenga más información sobre el procesador [aquí](media-graph-extension-concept.md#grpc-extension-processor).
 
 #### <a name="signal-gate-processor"></a>Procesador de la puerta de señales  
 

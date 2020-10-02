@@ -3,12 +3,12 @@ title: 'Supervisión y registro: Azure'
 description: En este artículo se proporciona información general sobre la supervisión y el registro de Live Video Analytics on IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: e1f31c6bb3ea344286ad9af89417ca9f8fd59527
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ef00517fc61ac532bdd99c1e887dfd93d56a8c4f
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934300"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567561"
 ---
 # <a name="monitoring-and-logging"></a>Supervisión y registro
 
@@ -20,7 +20,8 @@ También encontrará información sobre cómo se pueden controlar los registros 
 
 Live Video Analytics on IoT Edge emite eventos o datos de telemetría según la siguiente taxonomía.
 
-![Esquema de telemetría de Live Video Analytics on IoT Edge](./media/telemetry-schema/taxonomy.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/telemetry-schema/taxonomy.png" alt-text="Taxonomía de eventos&quot;:::
 
 * Operativo: eventos que se generan como parte de las acciones realizadas por un usuario o durante la ejecución de un [gráfico multimedia](media-graph-concept.md).
    
@@ -31,16 +32,16 @@ Live Video Analytics on IoT Edge emite eventos o datos de telemetría según l
       
       ```
       {
-        "body": {
-          "outputType": "assetName",
-          "outputLocation": "sampleAssetFromEVR-LVAEdge-20200512T233309Z"
+        &quot;body&quot;: {
+          &quot;outputType&quot;: &quot;assetName&quot;,
+          &quot;outputLocation&quot;: &quot;sampleAssetFromEVR-LVAEdge-20200512T233309Z&quot;
         },
-        "applicationProperties": {
-          "topic": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/microsoft.media/mediaservices/<ams-account-name>",
-          "subject": "/graphInstances/Sample-Graph-2/sinks/assetSink",
-          "eventType": "Microsoft.Media.Graph.Operational.RecordingStarted",
-          "eventTime": "2020-05-12T23:33:10.392Z",
-          "dataVersion": "1.0"
+        &quot;applicationProperties&quot;: {
+          &quot;topic&quot;: &quot;/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/microsoft.media/mediaservices/<ams-account-name>&quot;,
+          &quot;subject&quot;: &quot;/graphInstances/Sample-Graph-2/sinks/assetSink&quot;,
+          &quot;eventType&quot;: &quot;Microsoft.Media.Graph.Operational.RecordingStarted&quot;,
+          &quot;eventTime&quot;: &quot;2020-05-12T23:33:10.392Z&quot;,
+          &quot;dataVersion&quot;: &quot;1.0"
         }
       }
       ```
@@ -71,6 +72,7 @@ Live Video Analytics on IoT Edge emite eventos o datos de telemetría según l
    * Ejemplos:
       
       Movimiento detectado (abajo), resultado de la inferencia.
+
    ```      
    {
      "body": {
@@ -98,15 +100,19 @@ Live Video Analytics on IoT Edge emite eventos o datos de telemetría según l
      }
    }
    ```
+
 Los eventos emitidos por el módulo se envían al [centro de IoT Edge](../../iot-edge/iot-edge-runtime.md#iot-edge-hub) y, desde allí, se pueden enrutar a otros destinos. 
 
 ### <a name="timestamps-in-analytic-events"></a>Marcas de tiempo de los eventos de análisis
+
 Como se indicó anteriormente, los eventos generados como parte del análisis de vídeo tienen una marca de tiempo asociada. Si [grabó el vídeo en directo](video-recording-concept.md) como parte de la topología de grafos, esta marca de tiempo le ayuda a encontrar dónde se produjo en el vídeo grabado ese evento determinado. A continuación, se muestran las instrucciones para asignar la marca de tiempo de un evento de análisis a la escala de tiempo del vídeo grabado en un [recurso de Azure Media Services](terminology.md#asset).
 
 En primer lugar, extraiga el valor de `eventTime`. Use este valor en un [filtro de intervalo de tiempo](playback-recordings-how-to.md#time-range-filters) para recuperar una parte adecuada de la grabación. Por ejemplo, puede que quiera realizar una captura de vídeo que comience 30 segundos antes de `eventTime` y que termine 30 segundos después. En el ejemplo anterior, donde `eventTime` es 2020-05-12T23:33:09.381 Z, una solicitud de un manifiesto HLS para la ventana de +/-30 segundos sería similar a la siguiente:
+
 ```
 https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2020-05-12T23:32:39Z,endTime=2020-05-12T23:33:39Z).m3u8
 ```
+
 La dirección URL anterior devolvería la conocida como [lista de reproducción maestra](https://developer.apple.com/documentation/http_live_streaming/example_playlists_for_http_live_streaming), que contiene las direcciones URL de las listas de reproducción de elementos multimedia. La lista de reproducción de elementos multimedia contiene entradas como la siguiente:
 
 ```

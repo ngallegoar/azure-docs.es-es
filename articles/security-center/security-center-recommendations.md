@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/29/2019
 ms.author: memildin
-ms.openlocfilehash: 6363100c844d071a3bb47521cec6ff7e988f6af8
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 11043d6686bd762b1c0a9827c7edb2230487cc72
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263242"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595451"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Recomendaciones de seguridad en el Centro de seguridad de Azure 
 En este tema se explica cómo ver y entender las recomendaciones de Azure Security Center para ayudar a proteger los recursos de Azure.
@@ -57,6 +57,7 @@ Security Center analiza el estado de seguridad de los recursos para identificar 
 
     La página incluye:
 
+    - Los botones **Aplicar** y **Denegar** en recomendaciones admitidas (vea [Evitar configuraciones inactivas con las recomendaciones Aplicar o Denegar](prevent-misconfigurations.md))
     - **Indicador de gravedad**
     - **Intervalo de actualización** (si procede) 
     - **Descripción**: una breve descripción del problema
@@ -66,12 +67,21 @@ Security Center analiza el estado de seguridad de los recursos para identificar 
         - **Recursos con estado incorrecto**: recursos que todavía se ven afectados por el problema identificado.
         - **Recursos no aplicables**: recursos para los que la recomendación no puede dar una respuesta definitiva. La pestaña no aplicable también incluye las razones de cada recurso. 
 
-            :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Los recursos no aplicables con motivos":::.
+            :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Página de detalles de recomendación":::.
 
+## <a name="preview-recommendations"></a>Recomendaciones de la versión preliminar
 
+Las recomendaciones marcadas como **Versión preliminar** no se incluyen en los cálculos de la puntuación de seguridad.
+
+Aun así, deben corregirse siempre que sea posible, de tal forma que, cuando finalice el período de versión preliminar, contribuyan a la puntuación.
+
+Un ejemplo de una recomendación en versión preliminar:
+
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Página de detalles de recomendación":::
  
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este documento, se han presentando las recomendaciones de seguridad del Centro de seguridad. Para obtener información sobre cómo corregir las recomendaciones:
 
-* [Recomendaciones de corrección ](security-center-remediate-recommendations.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
+- [Recomendaciones de corrección ](security-center-remediate-recommendations.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
+- [Evitar errores de configuración con las recomendaciones Aplicar o Denegar](prevent-misconfigurations.md).

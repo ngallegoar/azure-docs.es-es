@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 4800234b55507b7c8d8a16d16ce4d2fef3365baa
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 54f99f2f8708fca9c02950a8886a2a9b976a93dd
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829601"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440684"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Solución de problemas de gráficos de métricas
 
@@ -110,7 +110,7 @@ De forma predeterminada, las métricas del SO invitado se almacenan en la cuenta
 
 1. Verifique que la cuenta de almacenamiento no esté protegida por el firewall. Azure Portal necesita acceder a la cuenta de almacenamiento para recuperar los datos de métricas y trazar los gráficos.
 
-1. Use el [explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para validar que las métricas fluyan hacia la cuenta de almacenamiento. Si no se recopilan métricas, siga la [guía de solución de problemas de la extensión de Azure Diagnostics](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
+1. Use el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para validar que las métricas fluyan hacia la cuenta de almacenamiento. Si no se recopilan métricas, siga la [guía de solución de problemas de la extensión de Azure Diagnostics](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

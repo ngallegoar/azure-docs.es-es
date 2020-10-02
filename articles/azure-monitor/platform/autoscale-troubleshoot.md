@@ -4,12 +4,12 @@ description: Seguimiento de problemas con la escalabilidad automática de Azure 
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
-ms.openlocfilehash: 9780cf88070110c4efc13c477d65307aa3985fe5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a29b5d11a6ea06af9d5b6a8b5120c6f0caa6601e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75751339"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979051"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Solución de problemas de escalabilidad automática de Azure
  
@@ -47,7 +47,7 @@ Tenemos una configuración de escalabilidad automática simple para un conjunto 
 
 Vamos a revisar las métricas del servicio de escalabilidad automática.
  
-![Ejemplo de porcentaje de CPU del conjunto de escalado de máquinas virtuales](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-1.png)
+![Captura de pantalla que muestra un ejemplo de porcentaje de CPU del conjunto de escalado de máquinas virtuales.](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-1.png)
 
 ![Ejemplo de porcentaje de CPU del conjunto de escalado de máquinas virtuales](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-2.png)
 
@@ -72,7 +72,7 @@ Si el valor de **Outbound Flow per instance** (Flujo saliente por instancia) es 
 
 En este caso, el valor de métrica observado del motor de escalabilidad automática se calcula como el valor de métrica real dividido por el número de instancias. Si el valor de métrica observado es inferior al umbral, no se inicia ninguna acción de escalabilidad horizontal. 
  
-![Ejemplo de gráficos de métricas de escalabilidad automática del conjunto de escalado de máquinas virtuales](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-1.png)
+![Captura de pantalla que muestra la página del promedio de flujos de salida con un ejemplo de los gráficos de métricas de escalado automático de un conjunto de escalado de máquinas virtuales.](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-1.png)
 
 ![Ejemplo de gráficos de métricas de escalabilidad automática del conjunto de escalado de máquinas virtuales](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-2.png)
 

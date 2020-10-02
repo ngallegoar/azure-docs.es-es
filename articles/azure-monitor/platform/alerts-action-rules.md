@@ -4,12 +4,12 @@ description: Descripción de qué son las reglas de acción en Azure Monitor y c
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 083db4ad046ee586f139309b62eedf0fcc2ffa6a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 723da36093c895a3a4aefbe66c2d8ca2ac0cba32
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045716"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983141"
 ---
 # <a name="action-rules-preview"></a>Reglas de acción (versión preliminar)
 
@@ -44,11 +44,11 @@ Para acceder a la característica, puede seleccionar **Administrar acciones** de
 
 Seleccione **+ Nueva regla de acción**.
 
-![Incorporación de una nueva regla de acción](media/alerts-action-rules/action-rules-new-rule.png)
+![Captura de pantalla que muestra la página Administrar acciones con el botón Nueva regla de acción resaltado.](media/alerts-action-rules/action-rules-new-rule.png)
 
 Como alternativa, también puede crear una regla de acción al configurar una regla de alerta.
 
-![Incorporación de una nueva regla de acción](media/alerts-action-rules/action-rules-alert-rule.png)
+![Captura de pantalla que muestra la página Crear regla con el botón Crear regla de acción resaltado.](media/alerts-action-rules/action-rules-alert-rule.png)
 
 Ahora verá la página de flujo para crear reglas de acción. Configure los elementos siguientes:
 
@@ -255,7 +255,7 @@ az monitor action-rule delete --resource-group MyResourceGroupName --name MyActi
 
 Las alertas de registro creadas con la opción [número de resultados](alerts-unified-log.md) generan una sola instancia de alerta con el resultado de búsqueda completo (que, por ejemplo, podría extenderse a varios equipos). En este escenario, si una regla de acción usa el filtro **Contexto de alerta (carga)** , actuará sobre la instancia de alerta siempre que haya una coincidencia. En el escenario 2, descrito anteriormente, si los resultados de la búsqueda de la alerta de registro generada contienen **Equipo 01** y **Equipo 02**, se suprime toda la notificación. No se ha generado ninguna notificación para **Equipo 02**.
 
-![Reglas de acción y alertas del registro (número de resultados)](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
+![Diagrama que muestra las reglas de acción y las alertas de registros con una sola instancia de alerta resaltada.](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
 Para usar mejor las alertas de registro con las reglas de acción, cree alertas de registro con la opción [unidades métricas](alerts-unified-log.md). Con esta opción, se generan instancias de alerta independientes según el campo de grupo definido. A continuación, en el escenario 2, se generan instancias de alerta independientes para **Equipo 01** y **Equipo 02**. Debido a la regla de acción descrita en el escenario, solo se suprime la notificación de **Equipo 01**. La notificación de **Equipo 02** se sigue activando de forma normal.
 
@@ -272,7 +272,7 @@ Después de definir un ámbito al configurar una regla de acción, puede ver una
 * Un superconjunto: Por ejemplo, la regla de acción que va a definir se encuentra en un grupo de recursos y la regla de acción que se superpone se encuentra en la suscripción que contiene el grupo de recursos.
 * Una intersección: Por ejemplo, la regla de acción que va a definir se encuentra en **VM1** y **VM2**, y la regla de acción que se superpone, en **VM2** y **VM3**.
 
-![Reglas de acción que se superponen](media/alerts-action-rules/action-rules-overlapping.png)
+![Captura de pantalla que muestra la página Nueva regla de acción con las reglas de acción superpuestas que se muestran en las reglas de acción definidas en la misma ventana de ámbito.](media/alerts-action-rules/action-rules-overlapping.png)
 
 ### <a name="while-im-configuring-an-alert-rule-is-it-possible-to-know-if-there-are-already-action-rules-defined-that-might-act-on-the-alert-rule-im-defining"></a>Al configurar una regla de alerta, ¿es posible saber si ya hay definidas reglas de acción que podrían actuar sobre la regla de alerta que voy a definir?
 

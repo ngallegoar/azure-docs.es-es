@@ -8,15 +8,15 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: 2349c92fb74b546eaa929752f3d2343b9c97e6d1
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: c50beef5c9c5dcae7edd487e8bf3d192ba557865
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88011023"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662697"
 ---
 > [!NOTE]
-> Para detectar `PHI` (información de salud protegida), use el parámetro `domain=phi` y la versión del modelo `2020-04-01` o posterior.
+> Para detectar información de salud protegida (PHI), use el parámetro `domain=phi` y la versión del modelo `2020-04-01` o posterior.
 >
 > Por ejemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii?domain=phi&model-version=2020-04-01`
  
@@ -47,17 +47,17 @@ Esta categoría de entidad incluye información de Azure identificable, incluida
 
 | Subcategoría                           | Descripción                                                                 |
 |---------------------------------------|-----------------------------------------------------------------------------|
-| Clave de autorización de Azure DocumentDB             | Clave de autorización para un servidor de Azure DocumentDB.                           |
+| Clave de autorización de Azure DocumentDB             | Clave de autorización para un servidor de Azure Cosmos DB.                           |
 | Cadena de conexión de base de datos de IAAS de Azure y cadena de conexión de Azure SQL | Cadena de conexión de una base de datos de infraestructura como servicio (IaaS) de Azure y una cadena de conexión SQL. |
 | Cadena de conexión de Azure SQL           | Cadena de conexión de una base de datos en Azure SQL Database.                                |
-| Cadena de conexión de Azure IoT           | Cadena de conexión de Azure IoT (Internet de las cosas).                        |
+| Cadena de conexión de Azure IoT           | Cadena de conexión para Azure IoT.                        |
 | Contraseña de configuración de publicación de Azure        | Contraseña para la configuración de publicación de Azure.                                        |
-| Cadena de conexión de Azure Redis Cache   | Cadena de conexión de una instancia de Azure Cache for Redis.                             |
-| SAS de Azure                             | Cadena de conexión de SAS (software como servicio) de Azure Service Bus.                     |
+| Cadena de conexión de Azure Redis Cache   | Cadena de conexión para una instancia de Redis Cache.                             |
+| SAS de Azure                             | Cadena de conexión para software como servicio (SaaS) de Azure.                     |
 | Cadena de conexión de Azure Service Bus   | Cadena de conexión de una instancia de Azure Service Bus.                                 |
 | Clave de la cuenta de Azure Storage             | Clave de una cuenta de Azure Storage.                                   |
 | Clave de la cuenta de Azure Storage (genérica)   | Clave de cuenta genérica para una cuenta de Azure Storage.                           |
-| Cadena de conexión de SQL Server          | Cadena de conexión de una instancia de SQL Server.                                         |
+| Cadena de conexión de SQL Server          | Cadena de conexión para un equipo donde se ejecuta SQL Server.                                         |
 
 ## <a name="identification"></a>Identificación
 

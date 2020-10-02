@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 9cf6fa26cec0abbc52a990d71c1c2fcc5d6023e4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: f59f8af3f9a845f7e8663877f6d806c33b216a41
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612561"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482851"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Configuración de un equilibrador de carga para un grupo de disponibilidad de SQL Server Always On en Azure Virtual Machines
 
@@ -40,7 +40,7 @@ Artículos relacionados:
 
 A lo largo de este artículo, va a crear y configurar un equilibrador de carga en Azure Portal. Una vez hecho esto, configurará el clúster para que utilice la dirección IP del equilibrador de carga para el agente de escucha del grupo de disponibilidad.
 
-## <a name="create-and-configure-the-load-balancer-in-the-azure-portal"></a>Creación y configuración del equilibrador de carga en el Portal de Azure
+## <a name="create--configure-load-balancer"></a>Creación y configuración de un equilibrador de carga 
 
 En esta parte de la tarea, realice los pasos siguientes:
 
@@ -71,7 +71,7 @@ En primer lugar, cree el equilibrador de carga.
    | --- | --- |
    | **Nombre** |Nombre de texto que representa el equilibrador de carga; Por ejemplo, **sqlLB**. |
    | **Tipo** |**Internas**: en la mayoría de las implementaciones se usa un equilibrador de carga interno que permite que las aplicaciones dentro de la misma red virtual se conecten al grupo de disponibilidad.  </br> **Externas**: permite que las aplicaciones se conecten al grupo de disponibilidad mediante una conexión a Internet pública. |
-   | **SKU** |**Estándar**: Es obligatorio si las instancias de SQL se encuentran en un conjunto de disponibilidad diferente al del equilibrador de carga. </br> **Básico**: Opción predeterminada. |
+   | **SKU** |**Básico**: Opción predeterminada. Solo es válido si las instancias de SQL Server están en el mismo conjunto de disponibilidad. </br> **Estándar**: Opción preferida. Válido si las instancias de SQL Server están en el mismo conjunto de disponibilidad. Es obligatorio si las instancias de SQL Server están en distintas zonas de disponibilidad. |
    | **Red virtual** |Seleccione la red virtual en la que se encuentran las instancias de SQL Server. |
    | **Subred** |Seleccione la subred en la que se encuentran las instancias de SQL Server. |
    | **Asignación de dirección IP** |**Estática** |
@@ -116,7 +116,7 @@ Este sondeo establece el modo en que Azure va a comprobar cuál de las instancia
 
 3. Configure el sondeo en la hoja **Agregar sondeo** . Utilice los valores siguientes para configurar el sondeo.
 
-   | Configuración | Value |
+   | Configuración | Valor |
    | --- | --- |
    | **Nombre** |Nombre de texto que representa el sondeo. Por ejemplo, **SQLAlwaysOnEndPointProbe**. |
    | **Protocolo** |**TCP** |
@@ -142,7 +142,7 @@ Las reglas de equilibrio de carga determinan cómo el equilibrador de carga enru
 
 3. Utilice la hoja **Add load balancing rules** (Agregar reglas de equilibrio de carga) para configurar la regla de equilibrio de carga. Use la configuración siguiente: 
 
-   | Configuración | Value |
+   | Configuración | Valor |
    | --- | --- |
    | **Nombre** |Nombre de texto que representa las reglas de equilibrio de carga. Por ejemplo, **SQLAlwaysOnEndPointListener**. |
    | **Protocolo** |**TCP** |
@@ -234,7 +234,7 @@ Para agregar una dirección IP a un equilibrador de carga con Azure Portal, siga
 
 7. Agregue un sondeo de estado mediante las siguientes opciones:
 
-   |Configuración |Value
+   |Configuración |Valor
    |:-----|:----
    |**Nombre** |Un nombre para identificar el sondeo.
    |**Protocolo** |TCP
@@ -248,7 +248,7 @@ Para agregar una dirección IP a un equilibrador de carga con Azure Portal, siga
 
 10. Configure la nueva regla de equilibrio de carga con los siguientes valores:
 
-    |Configuración |Value
+    |Configuración |Valor
     |:-----|:----
     |**Nombre** |Nombre para identificar la regla de equilibrio de carga. 
     |**Frontend IP address** (Dirección IP de front-end) |Seleccione la dirección IP que creó. 
@@ -297,7 +297,7 @@ Si un grupo de disponibilidad forma parte de un grupo de disponibilidad distribu
 
 1. Cree la regla de equilibrio de carga con la configuración siguiente:
 
-   |Configuración |Value
+   |Configuración |Valor
    |:-----|:----
    |**Nombre** |Nombre para identificar la regla de equilibrio de carga para el grupo de disponibilidad distribuido. 
    |**Frontend IP address** (Dirección IP de front-end) |Use la misma dirección IP de front-end que en el grupo de disponibilidad.

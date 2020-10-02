@@ -11,18 +11,18 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d4459547300f5dfc7b7c22d1e531b928a13aa66c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91b6dac5fba4bb8dfd8cf4a3bb4e5952f8388bb5
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213438"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459154"
 ---
 # <a name="using-labels-to-instrument-queries-in-synapse-sql-pool"></a>Uso de etiquetas para instrumentar consultas en el grupo de SQL de Synapse
 
 En este artículo se incluyen sugerencias para desarrollar soluciones que usan etiquetas para instrumentar consultas en el grupo de SQL.
 
-Sugerencias para usar etiquetas para instrumentar las consultas en Azure SQL Data Warehouse para el desarrollo de soluciones.
+Sugerencias para usar etiquetas para instrumentar las consultas en Azure Synapse Analytics para el desarrollo de soluciones.
 
 ## <a name="what-are-labels"></a>¿Qué son las etiquetas?
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: d3937eaa5017ed66641d886ecd45e812f7070b83
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 91094879de1e1762f95d35e22c1ea441e211b99e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566291"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979697"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Trasladar un área de trabajo de Log Analytics a otro grupo de recursos o suscripción
 
@@ -96,7 +96,7 @@ Use el siguiente procedimiento para trasladar su área de trabajo con Azure Port
 4. Seleccione un destino **Suscripción** y **Grupo de recursos**. Si va a trasladar el área de trabajo a otro grupo de recursos de la misma suscripción, no verá la opción **Suscripción**.
 5. Haga clic en **Aceptar** para trasladar el área de trabajo y los recursos seleccionados.
 
-    ![Portal](media/move-workspace/portal.png)
+    ![Captura de pantalla que muestra el panel Información general en el área de trabajo de Log Analytics con opciones para cambiar el nombre del grupo de recursos y la suscripción.](media/move-workspace/portal.png)
 
 ### <a name="powershell"></a>PowerShell
 Para trasladar el área de trabajo con PowerShell, use [Move-AzResource](/powershell/module/AzureRM.Resources/Move-AzureRmResource) como en el ejemplo siguiente:

@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 3e1cfa13a3fd568ab2f1253c015880c57f99ce7e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 83c0fd796b7527c6f5e396a813def984b88ee9ac
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012492"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440361"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Plataformas de datos admitidas en Data Science Virtual Machine
 
@@ -53,7 +53,7 @@ Para ejecutar SQL Server Management Studio, puede buscar "SQL Server Managemen
 
 De manera predeterminada, el servidor de bases de datos con la instancia de base de datos predeterminada se ejecuta automáticamente. Puede usar herramientas como SQL Server Management Studio en la máquina virtual para tener acceso a la base de datos de SQL Server de forma local. Las cuentas locales de administradores tienen acceso de administrador en la base de datos.
 
-Además, DSVM incluye controladores ODBC y JDBC para comunicarse con SQL Server, bases de datos de Azure SQL y Azure SQL Data Warehouse desde aplicaciones escritas en varios lenguajes, como Python y Machine Learning Server.
+Además, DSVM incluye controladores ODBC y JDBC para comunicarse con SQL Server, bases de datos de Azure SQL y Azure Synapse Analytics desde aplicaciones escritas en varios lenguajes, como Python y Machine Learning Server.
 
 ### <a name="how-is-it-configured-and-installed-on-the-dsvm"></a>¿Cómo se configura e instala en DSVM? 
 

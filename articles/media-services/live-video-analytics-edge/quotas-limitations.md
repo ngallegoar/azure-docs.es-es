@@ -1,14 +1,14 @@
 ---
-title: 'Cuotas de Live Video Analytics en IoT Edge: Azure'
+title: 'Cuotas y limitaciones de Live Video Analytics on IoT Edge: Azure'
 description: En este artículo se describen las cuotas y limitaciones de Live Video Analytics en IoT Edge.
 ms.topic: conceptual
 ms.date: 05/22/2020
-ms.openlocfilehash: 32a24079b36655bfdacd25b07d419009f5012507
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: df1978de4ee1bbbe15d0df3b02a70fb51491e9d2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750227"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90529237"
 ---
 # <a name="quotas-and-limitations"></a>Cuotas y limitaciones
 
@@ -65,6 +65,10 @@ En la versión preliminar, Live Video Analytics en IoT Edge no admite lo siguien
 * La capacidad de migrar la cuenta de Media Services de una suscripción a otra sin interrupción.
 * La capacidad de usar más de una cuenta de almacenamiento con la cuenta de Media Services.
 * La capacidad de cambiar de forma dinámica la información de la entidad de servicio en las propiedades deseadas del módulo, sin necesidad de reiniciar.
+
+Solo puede usar cámaras IP que admitan el protocolo RTSP. Puede encontrar cámaras IP compatibles con RTSP en la página de [productos compatibles con ONVIF](https://www.onvif.org/conformant-products). Busque dispositivos que cumplan con los perfiles G, S o T.
+
+Además, debe configurar estas cámaras para usar vídeo H.264 y audio AAC. Actualmente no se admiten otros códecs. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

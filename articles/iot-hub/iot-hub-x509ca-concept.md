@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 3c7e1167b3326620863d35cb2d4b07235cbd5517
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4487772aba22f1ce577e6a0d8263ce1200b6345f
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61320495"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019910"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Explicación de los conceptos de certificados de entidad de certificación X.509 en el sector de IoT
 
@@ -28,6 +28,8 @@ En este artículo se describe:
 * Cómo configurar una cadena de suministro de fabricación para la autenticación basada en entidades de certificación X.509
 
 * Cómo los dispositivos firmados con certificados de entidades de certificación X.509 en IoT Hub
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
 ## <a name="overview"></a>Información general
 
@@ -63,13 +65,13 @@ Los detalles sobre cómo llevar a cabo estos pasos difieren entre los distintos 
 
 ### <a name="purchasing-an-x509-ca-certificate"></a>Compra de un certificado de certificación X.509
 
-Adquirir un certificado de entidad de certificación tiene la ventaja de que una entidad de certificación raíz bien conocida actúa como un tercero de confianza para garantizar la legitimidad de los dispositivos IoT cuando estos se conectan. Company-X elegiría esta opción si pretende que Smart-X-Widget interactúe con productos o servicios de terceros después de la conexión inicial a IoT Hub.
+Adquirir un certificado de entidad de certificación tiene la ventaja de que una entidad de certificación raíz bien conocida actúa como un tercero de confianza para garantizar la legitimidad de los dispositivos IoT cuando estos se conectan. Company-X elegiría esta opción si pretende que Smart-X-Widget interactúe con productos o servicios de terceros después de la conexión inicial a IoT Hub.
 
 Para adquirir un certificado de entidad de certificación X.509, Company-X elegiría un proveedor de servicios de certificados raíz. Una búsqueda en Internet de la frase "CA raíz" ofrecería buenos proveedores potenciales. La entidad de certificación raíz guiará a Company-X en la creación del par de claves pública/privada y en la generación de una solicitud de firma de certificado (CSR) para sus servicios. Una CSR es el proceso formal de aplicación de un certificado de una entidad de certificación. El resultado de esta compra es un certificado que se puede usar como un certificado de entidad. Dada la ubicuidad de los certificados X.509, es probable que se haya dado el formato adecuado al certificado con el estándar RFC 5280 de IETF.
 
 ### <a name="creating-a-self-signed-x509-ca-certificate"></a>Creación de un certificado de entidad de certificación X.509 autofirmado
 
-El proceso para crear un certificado de entidad de certificación X.509 autofirmado es similar a la compra, con la excepción de que implica a un firmante de terceros como la entidad de certificación raíz. En el ejemplo, Company-X firmará su certificado de entidad en lugar de una entidad de certificación raíz. Company-X puede elegir esta opción para realizar pruebas hasta que la empresa esté lista para adquirir un certificado de entidad. Company-X también puede usar un certificado autofirmado de entidad de certificación X.509 en producción, si Smart-X-Widget no está diseñado para conectarse a los servicios de terceros fuera de IoT Hub.
+El proceso para crear un certificado de entidad de certificación X.509 autofirmado es similar a la compra, con la excepción de que implica a un firmante de terceros como la entidad de certificación raíz. En el ejemplo, Company-X firmará su certificado de entidad en lugar de una entidad de certificación raíz. Company-X puede elegir esta opción para realizar pruebas hasta que la empresa esté lista para adquirir un certificado de entidad. Company-X también puede usar un certificado autofirmado de entidad de certificación X.509 en producción, si Smart-X-Widget no está diseñado para conectarse a los servicios de terceros fuera de IoT Hub.
 
 ## <a name="register-the-x509-certificate-to-iot-hub"></a>Registro del certificado X.509 en IoT Hub
 

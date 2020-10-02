@@ -4,12 +4,12 @@ description: Declaración de directiva de retención y privacidad
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: f6fa42d6cc20c4d26caa7f571f13bb3917b2c7c5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a2440379c001c0213145c1c5972cfed8799f4966
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929336"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562798"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recopilación, retención y almacenamiento de datos en Application Insights
 
@@ -128,7 +128,7 @@ Si un cliente necesita para configurar este directorio con requisitos de segurid
 
 `C:\Users\username\AppData\Local\Temp` se utiliza para guardar los datos. Esta ubicación no es configurable desde el directorio de configuración y los permisos para acceder a esta carpeta están restringidos a un usuario determinado con las credenciales necesarias. (Para obtener más información, consulte [Implementación](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72)).
 
-###  <a name="net"></a>.Net
+###  <a name="net"></a>.NET
 
 De forma predeterminada, `ServerTelemetryChannel` usa la carpeta de datos de la aplicación local del usuario actual `%localAppData%\Microsoft\ApplicationInsights` o la carpeta temporal `%TMP%`. (Consulte la [implementación](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) aquí).
 
@@ -153,7 +153,16 @@ Mediante código:
 
 ### <a name="netcore"></a>NetCore
 
-De forma predeterminada, `ServerTelemetryChannel` usa la carpeta de datos de la aplicación local del usuario actual `%localAppData%\Microsoft\ApplicationInsights` o la carpeta temporal `%TMP%`. (Consulte la [implementación](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) aquí). En un entorno Linux, se deshabilitará el almacenamiento local a menos que se especifique una carpeta de almacenamiento.
+De forma predeterminada, `ServerTelemetryChannel` usa la carpeta de datos de la aplicación local del usuario actual `%localAppData%\Microsoft\ApplicationInsights` o la carpeta temporal `%TMP%`. (Consulte la [implementación](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) aquí). 
+
+En un entorno Linux, se deshabilitará el almacenamiento local a menos que se especifique una carpeta de almacenamiento.
+
+> [!NOTE]
+> Con la versión 2.15.0-beta3 y superior, ahora se crea automáticamente almacenamiento local para Linux, Mac y Windows. En el caso de sistemas que no son Windows, el SDK creará automáticamente una carpeta de almacenamiento local basada en la siguiente lógica:
+> - `${TMPDIR}`: si está establecida la variable de entorno `${TMPDIR}`, se usa esta ubicación.
+> - `/var/tmp`: si la ubicación anterior no existe, se prueba `/var/tmp`.
+> - `/tmp`: si las dos ubicaciones anteriores no existen, se prueba `tmp`. 
+> - Si no existe ninguna de esas ubicaciones, no se crea almacenamiento local y todavía se requiere configuración manual. [Consulte aquí para conocer los detalles completos de implementación](https://github.com/microsoft/ApplicationInsights-dotnet/pull/1860).
 
 El fragmento de código siguiente muestra cómo establecer `ServerTelemetryChannel.StorageFolder` en el método `ConfigureServices()` de la clase `Startup.cs`:
 

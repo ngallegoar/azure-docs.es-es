@@ -3,12 +3,12 @@ title: Creación de un rol personalizado de Azure Resource Manager y asignación
 description: En este artículo se proporcionan instrucciones sobre cómo crear un rol personalizado de Azure Resource Manager y asignarlo a una entidad de servicio para Análisis de vídeos en vivo en IoT Edge mediante la CLI de Azure.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: eb4c9a1f90ab50f7070184fc9a394d9e6edb833a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a780ecbbf2530b15984c596281c4aa7e4f5dd520
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043171"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526585"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>Creación de un rol personalizado de Azure Resource Manager y asignación a una entidad de servicio
 
@@ -43,7 +43,7 @@ Si no tiene una cuenta de Media Services, use los pasos siguientes para crear un
 1. Vaya a [Cloud Shell](https://shell.azure.com/).
 1. Seleccione "Bash" como su entorno en la lista desplegable del lado izquierdo de la ventana del shell.
 
-    ![Bash](./media/create-custom-azure-resource-manager-role-how-to/bash.png)
+    ![Captura de pantalla que muestra Bash seleccionado en la ventana de shell.](./media/create-custom-azure-resource-manager-role-how-to/bash.png)
 1. Establezca la suscripción a Azure como la cuenta predeterminada mediante la siguiente plantilla de comandos:
     
     ```

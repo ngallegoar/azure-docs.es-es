@@ -11,20 +11,20 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 76a31b10c15f2dff3d6d9304dcff6d0fb489ea7f
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 827d66b51aa2080c4fb10209439d7781ddf787a7
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210382"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436932"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Uso de reglas y puntos de conexión de servicio de red virtual para servidores de Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Las *reglas de red virtual* son una característica de seguridad del firewall que controla si el servidor de las bases de datos y de los grupos elásticos de [Azure SQL Database](sql-database-paas-overview.md) o de las bases de datos de [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) acepta las comunicaciones que se envían desde subredes específicas de redes virtuales. En este artículo se explica por qué la característica de regla de red virtual es a veces la mejor opción para permitir la comunicación de forma segura con su base de datos de Azure SQL Database y SQL Data Warehouse.
+Las *reglas de red virtual* son una característica de seguridad del firewall que controla si el servidor de las bases de datos y de los grupos elásticos de [Azure SQL Database](sql-database-paas-overview.md) o de las bases de datos de [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) acepta las comunicaciones que se envían desde subredes específicas de redes virtuales. En este artículo se explica por qué la característica de regla de red virtual es a veces la mejor opción para permitir la comunicación de forma segura con su base de datos de Azure SQL Database y Azure Synapse Analytics (anteriormente SQL Data Warehouse).
 
 > [!NOTE]
-> Este tema se aplica tanto a Azure SQL Database como a Azure Synapse Analytics (anteriormente SQL Data Warehouse). Para simplificar, el término "base de datos" hace referencia a las bases de datos de Azure SQL Database y a las de Azure Synapse Analytics. Del mismo modo, todas las referencias a "servidor" indican el [servidor de SQL Server lógico](logical-servers.md) que hospeda Azure SQL Database y Azure Synapse Analytics.
+> Este artículo se aplica a Azure SQL Database y a Azure Synapse Analytics. Para simplificar, el término "base de datos" hace referencia a las bases de datos de Azure SQL Database y a las de Azure Synapse Analytics. Del mismo modo, todas las referencias a "servidor" indican el [servidor de SQL Server lógico](logical-servers.md) que hospeda Azure SQL Database y Azure Synapse Analytics.
 
 Para crear una regla de red virtual, primero debe existir un [punto de conexión de servicio de red virtual][vm-virtual-network-service-endpoints-overview-649d] para la regla a la que hacer referencia.
 
@@ -104,7 +104,7 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Efectos del uso de puntos de conexión de servicio de la red virtual con Azure Storage
 
-Azure Storage ha implementado la misma característica que permite limitar la conectividad con la cuenta de Azure Storage. Si decide usar esta característica con una cuenta de Azure Storage usada por Azure SQL Database, es posible que se produzcan errores. A continuación se muestra una lista de las características de Azure SQL Database y Azure SQL Data Warehouse afectadas por esto, junto a la correspondiente explicación.
+Azure Storage ha implementado la misma característica que permite limitar la conectividad con la cuenta de Azure Storage. Si decide usar esta característica con una cuenta de Azure Storage usada por Azure SQL Database, es posible que se produzcan errores. A continuación se muestra una lista de las características de Azure SQL Database y Azure Synapse Analytics afectadas por esto, junto a la correspondiente explicación.
 
 ### <a name="azure-synapse-polybase-and-copy-statement"></a>PolyBase de Azure Synapse e instrucción COPY
 

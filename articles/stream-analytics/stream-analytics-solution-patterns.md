@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: c3d487c1595a077ac8609813a41d15e28ede0e0b
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: b82dd4ea8a74c51606b7a388b8d6ede07b1057c4
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903330"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461551"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Patrones de soluciones de Azure Stream Analytics
 
@@ -102,7 +102,7 @@ La mayoría actividades ciencia y análisis de datos aún se realiza sin conexi�
 
 ## <a name="use-reference-data-for-enrichment"></a>Uso de datos de referencia para el enriquecimiento
 
-Con frecuencia, el enriquecimiento de datos es un requisito para los motores de ETL. Azure Stream Analytics admite el enriquecimiento de datos con [datos de referencia](stream-analytics-use-reference-data.md) desde SQL Database y Azure Blob Storage. El enriquecimiento de datos se puede realizar para los datos que llegan a Azure Data Lake y SQL Data Warehouse.
+Con frecuencia, el enriquecimiento de datos es un requisito para los motores de ETL. Azure Stream Analytics admite el enriquecimiento de datos con [datos de referencia](stream-analytics-use-reference-data.md) desde SQL Database y Azure Blob Storage. El enriquecimiento de datos se puede realizar para los datos que llegan a Azure Data Lake y Azure Synapse Analytics.
 
 
 ![Análisis sin conexión con enriquecimiento de datos ASA](media/stream-analytics-solution-patterns/offline-analytics-enriched.png)

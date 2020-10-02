@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 195e606a66b1b49821fc1b46381fdc551f142a6a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4c9f74f5a9950a299b34e22c1e86dd91f8c82364
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325532"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983604"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizar datos de Azure Monitor
 En este artículo se proporciona un resumen de los métodos disponibles para visualizar los datos de métricas y de registro almacenados en Azure Monitor.
@@ -21,7 +21,7 @@ Visualizaciones como gráficos y diagramas pueden ayudarlo a analizar los datos 
 ## <a name="workbooks"></a>Workbooks
 Los [libros](./platform/workbooks-overview.md) son documentos interactivos que proporcionan información detallada sobre los datos, la investigación y colaboración en el equipo. Algunos ejemplos de libros útiles son las guías de resolución de problemas y los análisis posteriores a incidentes.
 
-![Libro](media/visualizations/workbook.png)
+![Diagrama que muestra capturas de pantalla de varias páginas de un libro, entre las que se incluyen Análisis de vistas de página, Uso y Tiempo invertido en la página.](media/visualizations/workbook.png)
 
 ### <a name="advantages"></a>Ventajas
 - Es compatible con las métricas y los registros.
@@ -39,7 +39,7 @@ Los [libros](./platform/workbooks-overview.md) son documentos interactivos que p
 ## <a name="azure-dashboards"></a>Paneles de Azure
 Los [paneles de Azure](../azure-portal/azure-portal-dashboards.md) son la tecnología de panel principal de Azure. Son especialmente útiles para proporcionar una hoja de cristal sobre su infraestructura de Azure y servicios, lo que permite identificar rápidamente problemas importantes.
 
-![Panel](media/visualizations/dashboard.png)
+![Captura de pantalla que muestra un ejemplo de un panel de Azure con información personalizable.](media/visualizations/dashboard.png)
 
 Este es un tutorial en vídeo sobre la creación de paneles.
 
@@ -88,7 +88,7 @@ Este es un tutorial en vídeo sobre la creación de paneles.
 ## <a name="grafana"></a>Grafana
 [Grafana](https://grafana.com/) es una plataforma abierta que sobresale en paneles operativos. Resulta especialmente útil para detectar, aislar y priorizar los incidentes operativos. Puede agregar el [complemento de origen de datos de Azure Monitor en Grafana](platform/grafana-plugin.md) a su suscripción de Azure para visualizar los datos de métricas de Azure.
 
-![Grafana](media/visualizations/grafana.png)
+![Captura de pantalla que muestra las visualizaciones de Grafana.](media/visualizations/grafana.png)
 
 ### <a name="advantages"></a>Ventajas
 - Visualizaciones enriquecidas.
@@ -120,7 +120,7 @@ Puede tener acceso a datos de métricas y de registro en Azure Monitor mediante 
 Las [vistas de Azure Monitor](platform/view-designer.md) le permiten crear visualizaciones personalizadas con datos de registro. Las [soluciones de supervisión](insights/solutions.md) las utilizan para presentar los datos recopilados.
 
 
-![Ver](media/visualizations/view.png)
+![Captura de pantalla que muestra un icono de Solución de supervisión de contenedores y la vista detallada de Azure Monitor que se abre al seleccionarlo.](media/visualizations/view.png)
 
 ### <a name="advantages"></a>Ventajas
 - Visualizaciones enriquecidas para datos de registro.

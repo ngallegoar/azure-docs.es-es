@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 10a6c2e4f6f9dcbb29eb16cbfabd8fba31668f06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34a536ea535fa222340bd004253ee54b9c13bea9
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85201640"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441228"
 ---
 # <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Procedimientos recomendados para cargar datos mediante el grupo de SQL de Synapse
 
@@ -175,6 +175,6 @@ No es necesario cambiar nada más en los orígenes de datos externos subyacentes
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información acerca de la instrucción COPY o PolyBase al diseñar un proceso de extracción, carga y transformación (ETL), consulte [Estrategias de carga de datos para el grupo de SQL de Synapse](design-elt-data-loading.md).
+- Para obtener más información sobre la instrucción COPY o PolyBase al diseñar un proceso de extracción, carga y transformación (ETL), consulte [Estrategias de carga de datos para Azure Synapse Analytics](design-elt-data-loading.md).
 - Consulte el tutorial de carga [Uso de la instrucción COPY para cargar datos de Azure Blob Storage a Synapse SQL](load-data-from-azure-blob-storage-using-polybase.md).
 - Para supervisar las cargas de datos, consulte [Supervisión de la carga de trabajo mediante DMV](sql-data-warehouse-manage-monitor.md).

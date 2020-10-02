@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: 6271cb449b6bbc80269dd325bd5acd7edd2e0a6d
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 8e0798f75aaa79031ca7cc03814282daa049fbfe
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88011052"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662896"
 ---
 Esta categoría de entidad incluye información financiera y formas oficiales de identificación. Disponible a partir de la versión del modelo `2019-10-01` A continuación se enumeran los subtipos. 
 
@@ -116,7 +116,7 @@ Francia
 * Carné de identidad nacional de Francia (CNI)
 * Número de pasaporte de Francia
 * Número del seguro social de Francia (INSEE)
-* Número de identificación fiscal de Francia (numéro SPI).
+* Número de identificación fiscal de Francia (numéro SPI)
 * Número de identificación fiscal de Francia
 
 Alemania

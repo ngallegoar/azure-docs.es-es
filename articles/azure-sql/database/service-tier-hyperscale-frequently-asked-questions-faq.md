@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: 359de25d2bdb57ad5c6386586f987942acc120ef
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: be8e38d38408bd7cf11608d71035bd7cf0808b60
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500153"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488973"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Preguntas más frecuentes sobre Hiperescala de Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -114,11 +114,11 @@ Sí, [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-bene
 
 Hiperescala es compatible con todas las cargas de trabajo de SQL Server, pero está optimizado principalmente para OLTP. Puede traer también cargas de trabajo híbridas (HTAP) y analíticas (data mart).
 
-### <a name="how-can-i-choose-between-azure-sql-data-warehouse-and-azure-sql-database-hyperscale"></a>¿Cómo puedo elegir entre Azure SQL Data Warehouse e Hiperescala de Azure SQL Database?
+### <a name="how-can-i-choose-between-azure-synapse-analytics-and-azure-sql-database-hyperscale"></a>¿Cómo puedo elegir entre Azure Synapse Analytics e Hiperescala de Azure SQL Database?
 
 Si actualmente está ejecutando consultas de análisis interactivas mediante SQL°Server como almacenamiento de datos, Hiperescala es una excelente opción porque se pueden hospedar almacenamientos de datos pequeños y medianos (desde unos pocos TB hasta 100 TB) a un menor costo y puede migrar sus cargas de trabajo del almacenamiento de datos de SQL Server a Hiperescala con el mínimo de cambios en el código T-SQL.
 
-Si va a ejecutar análisis de datos a gran escala con consultas complejas y tasas de ingesta sostenidas que superen los 100 MB/s o mediante almacenamiento de datos paralelos (PDW), Teradata o cualquier otro almacenamiento de datos con procesamiento paralelo masivo (MPP), SQL Data Warehouse puede ser la mejor opción.
+Si va a ejecutar análisis de datos a gran escala con consultas complejas y tasas de ingesta sostenidas que superen los 100 MB/s o mediante almacenamiento de datos paralelos (PDW), Teradata o cualquier otro almacenamiento de datos con procesamiento paralelo masivo (MPP), Azure Synapse Analytics (anteriormente, SQL Data Warehouse) puede ser la mejor opción.
   
 ## <a name="hyperscale-compute-questions"></a>Preguntas sobre el proceso de Hiperescala
 
@@ -229,7 +229,7 @@ El tiempo de inactividad para la migración a Hiperescala es igual que el tiempo
 
 Hiperescala es capaz de consumir 100 MB/s de datos nuevos o modificados, pero el tiempo necesario para trasladar los datos a las bases de datos de Azure SQL Database también se ve afectado por el rendimiento de la red disponible, la velocidad de lectura del origen y el objetivo de nivel de servicio de la base de datos de destino.
 
-### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-in-sql-data-warehouse"></a>¿Puedo leer datos de Blob Storage y realizar una carga rápida (como Polybase en SQL Data Warehouse)?
+### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-in-azure-synapse-analytics"></a>¿Puedo leer datos de Blob Storage y realizar una carga rápida (como PolyBase en Azure Synapse Analytics)?
 
 Puede hacer que una aplicación cliente lea datos de Azure Storage y cargue la carga de datos en una base de datos de Hiperescala (al igual que con cualquier otra base de datos de Azure SQL Database). Actualmente, Polybase no se admite en Azure SQL Database. Como alternativa a proporcionar una carga rápida, puede usar [Azure Data Factory ](https://docs.microsoft.com/azure/data-factory/) o usar un trabajo de Spark en [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) con el [conector de Spark para SQL](spark-connector.md). Este conector admite la inserción masiva.
 
@@ -269,7 +269,7 @@ Sí.
 
 ### <a name="what-is-the-recovery-point-objective-rporecovery-time-objective-rto-for-database-restore-in-hyperscale"></a>¿Cuál es el objetivo de punto de recuperación (RPO) y el objetivo de tiempo de recuperación (RTO) para la restauración de base de datos en Hiperescala?
 
-El RPO es 0 minutos. El objetivo de RTO es inferior a 10 minutos, sin importar el tamaño de la base de datos.
+El RPO es 0 minutos. La mayoría de las operaciones de restauración se completan en 60 minutos independientemente del tamaño de la base de datos. El tiempo de restauración puede ser mayor para las bases de datos de mayor tamaño, y si la base de datos ha experimentado una actividad de escritura importante antes y hasta el punto de restauración en el tiempo.
 
 ### <a name="does-database-backup-affect-compute-performance-on-my-primary-or-secondary-replicas"></a>¿La copia de seguridad de bases de datos afecta al rendimiento de proceso en mis réplicas principales o secundarias?
 
@@ -345,9 +345,9 @@ El escalado o la reducción vertical hace que las conexiones existentes se bloqu
 
 Por el usuario final. No es una operación automática.  
 
-### <a name="does-the-size-of-my-tempdb-database-also-grow-as-the-compute-is-scaled-up"></a>¿El tamaño de la base de datos de `tempdb` también aumenta a medida que el proceso se escala verticalmente?
+### <a name="does-the-size-of-my-tempdb-database-and-rbpex-cache-also-grow-as-the-compute-is-scaled-up"></a>¿El tamaño de la base de datos de `tempdb` y el caché de RBPEX también aumenta a medida que el proceso se escala verticalmente?
 
-Sí. La base de datos `tempdb` se escalará verticalmente de forma automática a medida que crezca el proceso.  
+Sí. El tamaño de la base de datos de `tempdb` y la [caché RBPEX](service-tier-hyperscale.md#distributed-functions-architecture) de los nodos de proceso se escalarán verticalmente de forma automática a medida que aumenta el número de núcleos.
 
 ### <a name="can-i-provision-multiple-primary-compute-replicas-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>¿Puedo aprovisionar varias réplicas de proceso principales como un sistema de arquitectura multimaestro en los que los nodos principales pueden impulsar un mayor nivel de simultaneidad?
 
@@ -361,7 +361,7 @@ De manera predeterminada, se crea una réplica secundaria para las bases de dato
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-replicas"></a>¿Cómo me conecto a estas réplicas de proceso secundarias?
 
-Puede conectarse a estas réplicas de proceso adicionales de solo lectura estableciendo el argumento `ApplicationIntent` de la cadena de conexión en `ReadOnly`. Todas las conexiones marcadas con `ReadOnly` se enrutan automáticamente a uno de las réplicas de proceso adicionales de solo lectura.  
+Puede conectarse a estas réplicas de proceso adicionales de solo lectura estableciendo el argumento `ApplicationIntent` de la cadena de conexión en `ReadOnly`. Todas las conexiones marcadas con `ReadOnly` se enrutan automáticamente a uno de las réplicas de proceso adicionales de solo lectura. Para obtener información, consulte [Uso de réplicas de solo lectura para descargar cargas de trabajo de consulta de solo lectura](read-scale-out.md).
 
 ### <a name="how-do-i-validate-if-i-have-successfully-connected-to-secondary-compute-replica-using-ssms-or-other-client-tools"></a>¿Cómo puedo validar si me he conectado correctamente a la réplica de proceso secundaria mediante SSMS u otras herramientas de cliente?
 
@@ -390,7 +390,7 @@ No. Las bases de datos de Hiperescala tienen el almacenamiento compartido, lo qu
 
 ### <a name="how-much-delay-is-there-going-to-be-between-the-primary-and-secondary-compute-replicas"></a>¿Cuánto retraso va a haber entre la réplica de proceso principal y las secundarias?
 
-La latencia de los datos desde el momento en que se confirma una transacción en la réplica principal hasta el momento en que es visible en la secundaria depende de la velocidad de generación de registro actual. La latencia de datos típica es de pocos milisegundos.
+La latencia de los datos desde el momento en que se confirma una transacción en el servidor principal hasta el momento en que se puede leer en una secundaria depende de la velocidad de generación de registros actual, el tamaño de las transacciones, la carga en la réplica y otros factores. La latencia de los datos típica para las transacciones pequeñas es de decenas de milisegundos; sin embargo, no hay límite superior en la latencia de los datos. Los datos de una réplica secundaria determinada siempre son coherentes con las transacciones. Sin embargo, en un momento dado, la latencia de datos puede ser diferente para las distintas réplicas secundarias. Las cargas de trabajo que necesitan leer los datos confirmados inmediatamente deben ejecutarse en la réplica principal.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

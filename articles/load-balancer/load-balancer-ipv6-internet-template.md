@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 65f378f52c464869217084c6f155b9d34c6fc092
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 415c95a441ac0cc6ed2dbf2d6a37f57d7a9e7341
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84803727"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562526"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Implementación de una solución de equilibrador de carga orientado a Internet con IPv6 mediante el uso de una plantilla
 
@@ -38,7 +38,7 @@ Azure Load Balancer es un equilibrador de carga de nivel 4 (TCP y UDP) que distr
 
 En el siguiente diagrama se ilustra la solución de equilibrio de carga que se implementa mediante la plantilla de ejemplo descrita en este artículo.
 
-![Escenario del equilibrador de carga](./media/load-balancer-ipv6-internet-template/lb-ipv6-scenario.png)
+![En el diagrama se muestra un escenario de ejemplo que se usa en este artículo, que incluye un cliente de estación de trabajo conectado a una instancia de Azure Load Balancer a través de Internet, conectado a su vez a dos máquinas virtuales.](./media/load-balancer-ipv6-internet-template/lb-ipv6-scenario.png)
 
 En este escenario creará los siguientes recursos de Azure:
 
@@ -55,43 +55,43 @@ En este artículo se hace referencia a una plantilla publicada en la galería de
 1. Abra Azure Portal e inicie sesión con una cuenta que tenga permisos para crear máquinas virtuales y recursos de red en una suscripción a Azure. Además, salvo que use recursos existentes, la cuenta necesita permiso para crear un grupo de recursos y una cuenta de almacenamiento.
 2. Haga clic en "+Nuevo" desde el menú y, a continuación, escriba "plantilla" en el cuadro de búsqueda. Seleccione "Implementación de plantillas" en los resultados de la búsqueda.
 
-    ![lb-ipv6-portal-step2](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
+    ![Captura de pantalla que muestra Azure Portal con las opciones Nuevo y Template Deployment seleccionadas.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
 
 3. En la hoja Todo, haga clic en "Implementación de plantillas".
 
-    ![lb-ipv6-portal-step3](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
+    ![Captura de pantalla que muestra Template Deployment en Marketplace.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
 
 4. Haga clic en "Crear".
 
-    ![lb-ipv6-portal-step4](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step4.png)
+    ![Captura de pantalla que muestra la descripción de Template Deployment en Marketplace.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step4.png)
 
 5. Haga clic en "Editar plantilla". Elimine el contenido existente y copie y pegue todo el contenido del archivo de plantilla (para incluir la llave de apertura y la de cierre { }) y, a continuación, haga clic en "Guardar".
 
     > [!NOTE]
     > Si usa Microsoft Internet Explorer, al pegar recibirá un cuadro de diálogo pidiéndole que permita el acceso al Portapapeles de Windows. Haga clic en "Permitir acceso".
 
-    ![lb-ipv6-portal-step5](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step5.png)
+    ![Captura de pantalla que muestra el primer paso de una implementación personalizada, que es Editar plantilla.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step5.png)
 
 6. Haga clic en "Editar parámetros". En la hoja Parámetros, especifique los valores según las instrucciones que se proporcionan en la sección Parámetros de plantilla y, a continuación, haga clic en "Guardar" para cerrar la hoja Parámetros. En la hoja Implementación personalizada, seleccione su suscripción, un grupo de recursos existente o cree uno. Si crea un grupo de recursos, seleccione una ubicación para este. A continuación, haga clic en **Términos legales** y después en **Comprar** los términos legales. Azure empieza a implementar los recursos. Tarda varios minutos en implementar todos los recursos.
 
-    ![lb-ipv6-portal-step6](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step6.png)
+    ![Captura de pantalla que muestra los pasos implicados en la implementación personalizada, empezando por la especificación de valores de parámetro de plantilla.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step6.png)
 
     Para obtener más información sobre estos parámetros, consulte la sección [Template parameters and variables](#template-parameters-and-variables) (Variables y parámetros de plantilla) más adelante en este artículo.
 
 7. Para ver los recursos creados por la plantilla, haga clic en Examinar, desplácese hacia abajo en la lista hasta que vea "Grupos de recursos" y, a continuación, haga clic ahí.
 
-    ![lb-ipv6-portal-step7](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step7.png)
+    ![Captura de pantalla que muestra Azure Portal con las opciones Examinar y Grupos de recursos seleccionadas.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step7.png)
 
 8. En la hoja Grupos de recursos, haga clic en el nombre del grupo de recursos que especificó en el paso 6. Verá una lista de todos los recursos que se implementaron. Si todo ha ido bien, debe poner "Correcto" en "Última implementación". Si no es así, asegúrese de que la cuenta que usa tiene permisos para crear los recursos necesarios.
 
-    ![lb-ipv6-portal-step8](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step8.png)
+    ![Captura de pantalla que muestra el estado de la última implementación de un grupo de recursos, en este ejemplo, Correcto.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step8.png)
 
     > [!NOTE]
     > Si examina sus grupos de recursos inmediatamente después de completar el paso 6, "Última implementación" mostrará el estado de "Implementación" mientras se implementan los recursos.
 
 9. Haga clic en "myIPv6PublicIP" en la lista de recursos. Verá que tiene una dirección IPv6 en la dirección IP y que su nombre DNS es el valor que especificó para el parámetro dnsNameforIPv6LbIP en el paso 6. Este recurso es la dirección IPv6 pública y el nombre de host al que pueden tener acceso los clientes de Internet.
 
-    ![lb-ipv6-portal-step9](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step9.png)
+    ![Captura de pantalla que muestra la dirección IPv6 pública.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step9.png)
 
 ## <a name="validate-connectivity"></a>Validar conectividad
 

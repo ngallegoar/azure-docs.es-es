@@ -4,12 +4,12 @@ description: Configure pruebas web en Application Insights. Obtenga alertas si u
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 6f9c5fa691456195943f97419c1175fd5b586878
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a5bee2da5059213e85e03d5a0e4df0ef88c26b03
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87310283"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986024"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Supervisión de la disponibilidad de un sitio web
 
@@ -78,7 +78,7 @@ Los resultados de la prueba de disponibilidad se pueden visualizar con vistas de
 
 Después de unos minutos, haga clic en **Actualizar** para ver los resultados.
 
-![Vista de línea](./media/monitor-web-app-availability/availability-refresh-002.png)
+![Captura de pantalla que muestra la página Disponibilidad con el botón Actualizar resaltado.](./media/monitor-web-app-availability/availability-refresh-002.png)
 
 En la vista de dispersión se muestran ejemplos de los resultados de las pruebas, que incluyen detalles sobre los pasos de las pruebas de diagnóstico. El motor de pruebas almacena los detalles de diagnóstico de las pruebas con errores. En el caso de las pruebas correctas, los detalles de diagnóstico se almacenan para un subconjunto de las ejecuciones. Mantenga el mouse sobre cualquiera de los puntos rojos o verdes para ver la prueba, el nombre de esta y su ubicación.
 

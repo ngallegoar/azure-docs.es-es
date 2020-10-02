@@ -3,12 +3,12 @@ title: Configurar la integración de Prometheus con Azure Monitor para contenedo
 description: En este artículo se describe cómo puede configurar Azure Monitor para que el agente de contenedores extraiga métricas de Prometheus con el clúster de Kubernetes.
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 8c83d962a31150b31f5883150a2f7bd8d4b49183
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: f5a9b364bc3e51307bd44d8338485f482bda6e1e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069431"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971358"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Configuración de la extracción de métricas de Prometheus con Azure Monitor para contenedores
 
@@ -347,7 +347,7 @@ InsightsMetrics
 
 La salida mostrará resultados similares a los siguientes:
 
-![Resultados de la consulta del registro del volumen de ingesta de datos](./media/container-insights-prometheus-integration/log-query-example-usage-03.png)
+![Captura de pantalla que muestra los resultados de la consulta del registro del volumen de ingesta de datos](./media/container-insights-prometheus-integration/log-query-example-usage-03.png)
 
 Para calcular el tamaño de cada una de las métricas en GB en un mes, con el fin de comprender si el volumen de datos ingeridos recibidos en el área de trabajo es alto, se proporciona la siguiente consulta.
 

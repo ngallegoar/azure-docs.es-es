@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: a264e40814952577d3a7db3b36c168dfc396f388
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9339ed7d0ab122420b37a67a96ee0d9d324e2f15
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85249177"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442912"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Análisis entre inquilinos mediante datos extraídos: aplicación multiinquilino
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ Las aplicaciones SaaS que desarrolla tienen acceso a una gran cantidad de datos 
 
 El acceso a los datos para todos los inquilinos es sencillo si todos los datos se encuentran en una única base de datos multiinquilino. Sin embargo, el acceso es más complejo si se distribuyen a escala entre miles de bases de datos. Una forma de reducir la complejidad consiste en extraer los datos en una base de datos de análisis o en un almacenamiento de datos. Después, consulte el almacenamiento de datos para recopilar información de los datos de las entradas de todos los inquilinos.
 
-En este tutorial se presenta un escenario de análisis completo para esta aplicación SaaS de ejemplo. En primer lugar, se usan trabajos elásticos para programar la extracción de datos de cada base de datos de inquilino. Los datos se envían a un almacén de análisis. El almacén de análisis podría ser una instancia de SQL Database o de SQL Data Warehouse. Para la extracción de datos a gran escala, se recomienda [Azure Data Factory](../../data-factory/introduction.md).
+En este tutorial se presenta un escenario de análisis completo para esta aplicación SaaS de ejemplo. En primer lugar, se usan trabajos elásticos para programar la extracción de datos de cada base de datos de inquilino. Los datos se envían a un almacén de análisis. El almacén de análisis puede ser una instancia de SQL Database o de Azure Synapse Analytics (anteriormente SQL Data Warehouse). Para la extracción de datos a gran escala, se recomienda [Azure Data Factory](../../data-factory/introduction.md).
 
 A continuación, los datos agregados se dividen en un conjunto de tablas en un [esquema de estrella](https://www.wikipedia.org/wiki/Star_schema). Las tablas constan de una tabla de hechos central más tablas de dimensiones relacionadas:
 

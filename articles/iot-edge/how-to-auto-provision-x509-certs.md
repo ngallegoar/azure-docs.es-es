@@ -9,16 +9,16 @@ ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c54690645286a4fceb3fd786d85652b1cf77d7aa
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: dbd4a80c0f480e51ce7ec248c3b5d3dc523e9d74
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260026"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530750"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Creación y aprovisionamiento de un dispositivo IoT Edge mediante certificados X.509
 
-Con [Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/index.yml), puede aprovisionar automáticamente los dispositivos IoT Edge mediante certificados X.509. Si no está familiarizado con el proceso de aprovisionamiento automático, revise los [conceptos sobre el aprovisionamiento automático](../iot-dps/concepts-auto-provisioning.md) antes de continuar.
+Con [Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/index.yml), puede aprovisionar automáticamente los dispositivos IoT Edge mediante certificados X.509. Si no está familiarizado con el proceso de aprovisionamiento automático, revise la información general sobre el [aprovisionamiento](../iot-dps/about-iot-dps.md#provisioning-process) antes de continuar.
 
 En este artículo se muestra cómo crear una inscripción de Device Provisioning Service mediante certificados X.509 en un dispositivo IoT Edge con los pasos siguientes:
 
@@ -52,7 +52,7 @@ Necesita los siguientes archivos para configurar el aprovisionamiento automátic
 * Un certificado intermedio o raíz de entidad de certificación de la cadena de certificados de confianza. Este certificado se carga en DPS si crea una inscripción de grupo.
 
 > [!NOTE]
-> Actualmente, una limitación en libiothsm impide el uso de certificados que expiran el 1 de enero de 2050 o en una fecha posterior.
+> Actualmente, una limitación en libiothsm impide el uso de certificados que expiran el 1 de enero de 2038 o en una fecha posterior.
 
 ### <a name="use-test-certificates"></a>Uso de certificados de pruebas
 

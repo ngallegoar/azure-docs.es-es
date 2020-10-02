@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 34a048c702b62caeecaf21e710a9dcd9156e4aea
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 0a5c788b4429b5048a1b94fa8adfb2d9367982da
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87801326"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033479"
 ---
 # <a name="deploy-azure-monitor"></a>Implementación de Azure Monitor
 Habilitar Azure Monitor para supervisar todos los recursos de Azure es una combinación de la configuración de los componentes de Azure Monitor y la configuración de los recursos de Azure para generar datos de supervisión para que Azure Monitor los recopile. En este artículo se describen los diferentes pasos necesarios para realizar una implementación completa de Azure Monitor con una configuración común para supervisar todos los recursos de la suscripción de Azure. Se proporcionan descripciones básicas de cada paso con vínculos a otra documentación para obtener información detallada sobre los requisitos de configuración.
@@ -118,9 +118,9 @@ Consulte [Instalación y configuración de la extensión de Azure Diagnostics (W
 Azure Monitor supervisa las aplicaciones personalizadas con [Application Insights](app/app-insights-overview.md), que debe configurar para cada aplicación que quiera supervisar. El proceso de configuración variará en función del tipo de aplicación que se esté supervisando y del tipo de supervisión que quiera realizar. Los datos recopilados por Application Insights se almacenan en las métricas de Azure Monitor, los registros de Azure Monitor y Azure Blob Storage, en función de la característica. Los datos de rendimiento se almacenan en las métricas de Azure Monitor y los registros de Azure Monitor sin necesidad de configuración adicional.
 
 ### <a name="create-an-application-resource"></a>Creación de un recurso de aplicación
-Debe crear un recurso en Application Insights para cada aplicación que vaya a supervisar. Los datos de registro recopilados por Application Insights se almacenan en los registros de Azure Monitor, pero de forma independiente del área de trabajo de Log Analytics, tal y como se describe en [¿Cómo se estructuran los registros de Azure Monitor?](platform/data-platform-logs.md#how-is-data-in-azure-monitor-logs-structured). Actualmente está en versión preliminar, aunque es la capacidad de almacenar los datos de la aplicación directamente en un área de trabajo de Log Analytics con los demás datos. Esto simplifica la configuración y permite que la aplicación aproveche todas las características de un área de trabajo de Log Analytics.
+Debe crear un recurso en Application Insights para cada aplicación que vaya a supervisar. En las aplicaciones basadas en el área de trabajo, los datos de registro recopilados por Application Insights se almacenan en los registros de Azure Monitor. Los datos de registro de las aplicaciones clásicas se almacenan de forma independiente del área de trabajo de Log Analytics, como se describe en [Estructura de los datos](platform/data-platform-logs.md#structure-of-data).
 
- Al crear la aplicación, debe seleccionar si quiere usar la versión clásica o basada en el área de trabajo (versión preliminar). Consulte [Creación de recursos en Application Insights](app/create-new-resource.md) para crear una aplicación clásica. Consulte [Recursos de Application Insights basados en área de trabajo (versión preliminar)](app/create-workspace-resource.md) para crear una aplicación basada en el área de trabajo.
+ Al crear la aplicación, debe seleccionar si quiere usar la versión clásica o basada en el área de trabajo. Consulte [Creación de recursos en Application Insights](app/create-new-resource.md) para crear una aplicación clásica. Consulte [Recursos de Application Insights basados en área de trabajo (versión preliminar)](app/create-workspace-resource.md) para crear una aplicación basada en el área de trabajo.
 
 ### <a name="configure-codeless-or-code-based-monitoring"></a>Configuración de la supervisión no codificada o basada en código
 Para habilitar la supervisión de una aplicación, debe decidir si utilizará la supervisión sin código o basada en código. El proceso de configuración variará en función de esta decisión y del tipo de aplicación que vaya a supervisar.

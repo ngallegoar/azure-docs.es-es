@@ -3,12 +3,12 @@ title: Configuración del análisis de aplicaciones web para ASP.NET con Azure A
 description: Configure las herramientas de análisis del rendimiento, la disponibilidad y de comportamiento de usuarios para un sitio web de ASP.NET, hospedado localmente o en Azure.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: acfba63cba520631831888a1480929be3b1897f0
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: c07e7c8e7bd710cb591719fe8d53a3bad6ca2ee0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475539"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973788"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configuración de Application Insights para un sitio web de ASP.NET
 
@@ -42,7 +42,7 @@ Pantalla Configuración de Application Insights:
 
 Seleccione **Comenzar**.
 
-![Captura de pantalla de la página Registre la aplicación en Application Insights](./media/asp-net/00004-start-free.png)
+![Captura de pantalla que muestra la página Application Insights y el botón Comenzar.](./media/asp-net/00004-start-free.png)
 
 Si desea establecer el grupo de recursos o la ubicación en que se almacenan los datos, haga clic en **Parámetros de configuración**. Los grupos de recursos se utilizan para controlar el acceso a los datos. Por ejemplo, si tiene varias aplicaciones que forman parte del mismo sistema, puede poner sus datos de Application Insights en el mismo grupo de recursos.
 

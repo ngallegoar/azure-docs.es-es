@@ -1,14 +1,14 @@
 ---
 title: 'Instrucciones de formato de documentos importados: QnA Maker'
-description: Comprenda cómo se usan los tipos de direcciones URL para importar y crear pares de QnA.
+description: Siga estas instrucciones para importar documentos a fin de obtener los mejores resultados de su contenido.
 ms.topic: reference
 ms.date: 04/06/2020
-ms.openlocfilehash: 799e85e2200d3caa29c9b76bc57a62fc883d246d
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: b94c8b3fd4d4c082e0bc49c6bd42d3b37e963988
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804340"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530784"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>Instrucciones de formato para las direcciones URL y los documentos importados
 

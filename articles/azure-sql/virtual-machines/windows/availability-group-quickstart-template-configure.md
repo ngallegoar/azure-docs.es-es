@@ -14,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1359acfb768f7ac2fa3527afd041595d313249d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d1dedfcd4a93446b615d84e86666059fd210c18
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669248"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485760"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Uso de las plantillas de inicio rápido de Azure para configurar un grupo de disponibilidad para SQL Server en una máquina virtual de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -49,7 +49,7 @@ Los siguientes permisos son necesarios para configurar el grupo de disponibilida
 - La cuenta de usuario de dominio que controla SQL Server. 
 
 
-## <a name="step-1-create-the-failover-cluster-and-join-sql-server-vms-to-the-cluster-by-using-a-quickstart-template"></a>Paso 1: Crear el clúster de conmutación por error y unir máquinas virtuales con SQL Server al clúster mediante una plantilla de inicio rápido 
+## <a name="create-cluster"></a>Crear clúster
 Una vez que se han registrado las máquinas virtuales con SQL Server con el nuevo proveedor de recursos de máquina virtual con SQL, puede unirlas a *SqlVirtualMachineGroups*. Este recurso define los metadatos del clúster de conmutación por error de Windows. Los metadatos incluyen la versión, la edición, el nombre de dominio completo, las cuentas de Active Directory para administrar tanto el clúster como SQL Server y la cuenta de almacenamiento como testigo en la nube. 
 
 La adición de las VM con SQL Server al grupo de recursos *SqlVirtualMachineGroups* arranca el servicio de clúster de conmutación por error de Windows para crear el clúster y luego une las máquinas virtuales con SQL Server al clúster. Este paso se automatiza con la plantilla de inicio rápido **101-sql-vm-ag-setup**. Puede implementarlo siguiendo estos pasos:
@@ -83,13 +83,25 @@ La adición de las VM con SQL Server al grupo de recursos *SqlVirtualMachineGrou
 > Las credenciales proporcionadas durante la implementación de la plantilla se almacenan solo mientras dure dicha implementación. Una vez finalizada la implementación, se quitan esas contraseñas. Se le pedirá que las proporcione de nuevo si agrega más máquinas virtuales con SQL Server al clúster. 
 
 
-## <a name="step-2-manually-create-the-availability-group"></a>Paso 2: Crear el grupo de disponibilidad de forma manual 
+
+## <a name="validate-cluster"></a>Validar el clúster 
+
+Para que un clúster de conmutación por error sea compatible con Microsoft, debe pasar la validación del clúster. Conéctese a la máquina virtual mediante el método que prefiera, por ejemplo, Protocolo de escritorio remoto (RDP), y compruebe que el clúster pasa la validación antes de continuar. Si no lo hace, el clúster queda en un estado no admitido. 
+
+Puede validar el clúster mediante el Administrador de clústeres de conmutación por error (FCM) o el siguiente comando de PowerShell:
+
+   ```powershell
+   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+   ```
+
+
+## <a name="create-availability-group"></a>Crear grupo de disponibilidad 
 Cree el grupo de disponibilidad manualmente del modo habitual, ya sea mediante [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio), [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell) o [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql). 
 
 >[!IMPORTANT]
 > *No* cree un cliente de escucha en este momento porque lo hace automáticamente la plantilla de inicio rápido **101-sql-vm-aglistener-setup** en el paso 4. 
 
-## <a name="step-3-manually-create-the-internal-load-balancer"></a>Paso 3: Crear el equilibrador de carga interno de forma manual
+## <a name="create-load-balancer"></a>Creación de un equilibrador de carga
 El cliente de escucha de grupo de disponibilidad Always On requiere una instancia interna de Azure Load Balancer. El equilibrador de carga interno proporciona una dirección IP "flotante" para el cliente de escucha de grupo de disponibilidad, que permite conmutar por error y volver a conectarse de manera más rápida. Si las máquinas virtuales con SQL Server de un grupo de disponibilidad forman parte del mismo conjunto de disponibilidad, puede usar un equilibrador de carga básico. De lo contrario, debe usar uno estándar. 
 
 > [!IMPORTANT]
@@ -103,7 +115,7 @@ Solo tiene que crear el equilibrador de carga interno. En el paso 4, la plantil
 4. En la hoja **Load Balancer**, haga clic en **Crear**.
 5. En el cuadro de diálogo **Crear equilibrador de carga**, configure el equilibrador de carga tal y como se explica a continuación:
 
-   | Configuración | Value |
+   | Configuración | Valor |
    | --- | --- |
    | **Nombre** |Escriba un nombre de texto que represente el equilibrador de carga. Por ejemplo, **sqlLB**. |
    | **Tipo** |**Internas**: en la mayoría de las implementaciones se usa un equilibrador de carga interno que permite que las aplicaciones dentro de la misma red virtual se conecten al grupo de disponibilidad.  </br> **Externas**: permite que las aplicaciones se conecten al grupo de disponibilidad mediante una conexión a Internet pública. |
@@ -122,7 +134,7 @@ Solo tiene que crear el equilibrador de carga interno. En el paso 4, la plantil
 >[!IMPORTANT]
 > El recurso de IP pública de cada máquina virtual con SQL Server debe tener una SKU estándar para que sea compatible con el equilibrador de carga estándar. Para determinar la SKU del recurso de IP pública de la máquina virtual, vaya a **Grupo de recursos**, seleccione su recurso **Dirección IP pública** para la máquina virtual con SQL Server y busque el valor que aparece debajo de **SKU** en el panel **Información general**. 
 
-## <a name="step-4-create-the-availability-group-listener-and-configure-the-internal-load-balancer-by-using-the-quickstart-template"></a>Paso 4: Crear la escucha de grupo de disponibilidad y configurar el equilibrador de carga interno mediante la plantilla de inicio rápido
+## <a name="create-listener"></a>Eliminar el agente de escucha 
 
 Cree la escucha de grupo de disponibilidad y configure el equilibrador de carga interno automáticamente mediante la plantilla de inicio rápido **101-sql-vm-aglistener-setup**. La plantilla aprovisiona el recurso Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/AvailabilityGroupListener. La plantilla de inicio rápido  **101-sql-vm-aglistener-setup** realiza las siguientes acciones mediante el proveedor de recursos de máquina virtual con SQL:
 
@@ -159,9 +171,9 @@ Para configurar el equilibrador de carga interno y crear la escucha de grupo de 
 1. Para supervisar la implementación, seleccione la implementación en el icono de la campana **Notificaciones** del banner de navegación superior o vaya a **Grupo de recursos** en Azure Portal. Seleccione **Implementaciones** en **Configuración** y elija la implementación **Microsoft.Template**. 
 
 >[!NOTE]
->Si la implementación genera errores a mitad del proceso, deberá [quitar el cliente de escucha recién creado](#remove-the-availability-group-listener) de forma manual mediante PowerShell antes de volver a implementar la plantilla de inicio rápido **101-sql-vm-aglistener-setup**. 
+>Si la implementación genera errores a mitad del proceso, deberá [quitar el cliente de escucha recién creado](#remove-listener) de forma manual mediante PowerShell antes de volver a implementar la plantilla de inicio rápido **101-sql-vm-aglistener-setup**. 
 
-## <a name="remove-the-availability-group-listener"></a>Eliminación del cliente de escucha de grupo de disponibilidad
+## <a name="remove-listener"></a>Quitar el agente de escucha
 Si posteriormente necesita quitar la escucha de grupo de disponibilidad configurada por la plantilla, debe pasar por el proveedor de recursos de máquina virtual con SQL. Puesto que el cliente de escucha se registra mediante el proveedor de recursos de máquina virtual con SQL, no basta con eliminarlo mediante SQL Server Management Studio. 
 
 El mejor método consiste en eliminarlo a través del proveedor de recursos de máquina virtual con SQL mediante el siguiente fragmento de código en PowerShell. Al hacerlo, se quitan los metadatos del cliente de escucha de grupo de disponibilidad del proveedor de recursos de máquina virtual con SQL. También elimina físicamente el cliente de escucha de grupo de disponibilidad. 
@@ -175,19 +187,15 @@ Remove-AzResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<r
 ## <a name="common-errors"></a>Errores comunes
 En esta sección se describen algunos problemas conocidos y sus posibles soluciones. 
 
-### <a name="availability-group-listener-for-availability-group-ag-name-already-exists"></a>La escucha de grupo de disponibilidad del grupo de disponibilidad "\<AG-Name>" ya existe
-El grupo de disponibilidad seleccionado que se usa en la plantilla de inicio rápido de Azure para la escucha de grupo de disponibilidad ya contiene un cliente de escucha. Se encuentra físicamente dentro del grupo de disponibilidad, o bien sus metadatos permanecen en el proveedor de recursos de máquina virtual con SQL. Quite la escucha mediante [PowerShell](#remove-the-availability-group-listener) antes de volver a implementar la plantilla de inicio rápido **101-sql-vm-aglistener-setup**. 
+**La escucha de grupo de disponibilidad del grupo de disponibilidad "\<AG-Name>" ya existe** El grupo de disponibilidad seleccionado que se usa en la plantilla de inicio rápido de Azure para la escucha de grupo de disponibilidad ya contiene un cliente de escucha. Se encuentra físicamente dentro del grupo de disponibilidad, o bien sus metadatos permanecen en el proveedor de recursos de máquina virtual con SQL. Quite la escucha mediante [PowerShell](#remove-listener) antes de volver a implementar la plantilla de inicio rápido **101-sql-vm-aglistener-setup**. 
 
-### <a name="connection-only-works-from-primary-replica"></a>La conexión solo funciona desde la réplica principal
-Este comportamiento puede deberse a una implementación incorrecta de la plantilla **101-sql-vm-aglistener-setup** que deja la configuración del equilibrador de carga interno con un estado incoherente. Compruebe que el grupo de servidores back-end muestra el conjunto de disponibilidad y que existen reglas para el sondeo de estado y el equilibrio de carga. Si falta algo, la configuración del equilibrador de carga interno tendrá un estado incoherente. 
+**La conexión solo funciona desde la réplica principal** Este comportamiento puede deberse a una implementación incorrecta de la plantilla **101-sql-vm-aglistener-setup** que deja la configuración del equilibrador de carga interno con un estado incoherente. Compruebe que el grupo de servidores back-end muestra el conjunto de disponibilidad y que existen reglas para el sondeo de estado y el equilibrio de carga. Si falta algo, la configuración del equilibrador de carga interno tendrá un estado incoherente. 
 
-Para resolver este comportamiento, quite el cliente de escucha mediante [PowerShell](#remove-the-availability-group-listener), elimine el equilibrador de carga interno mediante Azure Portal y comience de nuevo en el paso 3. 
+Para resolver este comportamiento, quite el cliente de escucha mediante [PowerShell](#remove-listener), elimine el equilibrador de carga interno mediante Azure Portal y comience de nuevo en el paso 3. 
 
-### <a name="badrequest---only-sql-virtual-machine-list-can-be-updated"></a>BadRequest: solo se puede actualizar la lista de máquinas virtuales de SQL
-Este error puede producirse al implementar la plantilla **101-sql-vm-aglistener-setup** si la escucha se eliminó mediante SQL Server Management Studio (SSMS), pero no se ha eliminado del proveedor de recursos de máquina virtual con SQL. Al eliminar el cliente de escucha a través de SSMS, no se quitan los metadatos del cliente de escucha del proveedor de recursos de máquina virtual con SQL. El cliente de escucha debe eliminarse del proveedor de recursos a través de [PowerShell](#remove-the-availability-group-listener). 
+**BadRequest: solo se puede actualizar la lista de máquinas virtuales de SQL** Este error puede producirse al implementar la plantilla **101-sql-vm-aglistener-setup** si la escucha se eliminó mediante SQL Server Management Studio (SSMS), pero no se ha eliminado del proveedor de recursos de máquina virtual con SQL. Al eliminar el cliente de escucha a través de SSMS, no se quitan los metadatos del cliente de escucha del proveedor de recursos de máquina virtual con SQL. El cliente de escucha debe eliminarse del proveedor de recursos a través de [PowerShell](#remove-listener). 
 
-### <a name="domain-account-does-not-exist"></a>La cuenta de dominio no existe
-Este error puede tener dos causas. O bien la cuenta de dominio especificada no existe o faltan los datos del [nombre principal de usuario (UPN)](/windows/desktop/ad/naming-properties#userprincipalname). La plantilla **101-sql-vm-ag-setup** espera una cuenta de dominio en formato UPN (es decir, user@domain.com), pero es posible que falte en algunas cuentas de dominio. Esto suele suceder cuando un usuario local se ha migrado para que sea la primera cuenta de administrador de dominio cuando el servidor se promovió a un controlador de dominio, o bien cuando se creó un usuario a través de PowerShell. 
+**La cuenta de dominio no existe** Este error puede tener dos causas. O bien la cuenta de dominio especificada no existe o faltan los datos del [nombre principal de usuario (UPN)](/windows/desktop/ad/naming-properties#userprincipalname). La plantilla **101-sql-vm-ag-setup** espera una cuenta de dominio en formato UPN (es decir, user@domain.com), pero es posible que falte en algunas cuentas de dominio. Esto suele suceder cuando un usuario local se ha migrado para que sea la primera cuenta de administrador de dominio cuando el servidor se promovió a un controlador de dominio, o bien cuando se creó un usuario a través de PowerShell. 
 
 Compruebe que la cuenta existe. Si es así, puede que se encuentre en la segunda situación. Para resolver este problema, haga lo siguiente:
 
@@ -202,7 +210,6 @@ Compruebe que la cuenta existe. Si es así, puede que se encuentre en la segunda
 6. Seleccione **Aplicar** para guardar los cambios y cierre el cuadro de diálogo seleccionando **Aceptar**. 
 
 Una vez realizados estos cambios, trate de implementar la plantilla de inicio rápido de Azure una vez más. 
-
 
 
 ## <a name="next-steps"></a>Pasos siguientes

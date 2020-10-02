@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/03/2018
-ms.openlocfilehash: c4c340282becf34ae34bf9e48bceeb86d68f237b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa10f97d0eb2f48e80d20f90a254c44c6e95a8e8
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345332"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436976"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolución de diferencias de Transact-SQL durante la migración a SQL Database
 
@@ -45,7 +45,7 @@ Las instrucciones DDL (lenguaje de definición de datos) principales están disp
 Además de las instrucciones de Transact-SQL relacionadas con las funciones no admitidas descritas en  [Comparación de características de Azure SQL Database](features-comparison.md), no se admiten las instrucciones y grupos de instrucciones siguientes. Por tanto, si la base de datos que se va a migrar usa alguna de las siguientes características, vuelva a diseñar el código de T-SQL para eliminar estas características e instrucciones de T-SQL.
 
 - Intercalación de objetos del sistema
-- Conexión relacionada: instrucciones del punto de conexión. SQL Database no admite la autenticación de Windows, pero admite la autenticación de Azure Active Directory similar. Algunos tipos de autenticación requieren la versión más reciente de SSMS. Para obtener más información, vea [Conexión a SQL Database o a Azure SQL Data Warehouse mediante autenticación de Azure Active Directory](authentication-aad-overview.md).
+- Conexión relacionada: instrucciones del punto de conexión. SQL Database no admite la autenticación de Windows, pero admite la autenticación de Azure Active Directory similar. Algunos tipos de autenticación requieren la versión más reciente de SSMS. Para más información, consulte [Conexión a SQL Database o a Azure Synapse Analytics (anteriormente SQL Data Warehouse) mediante autenticación de Azure Active Directory](authentication-aad-overview.md).
 - Consultas entre bases de datos con tres o cuatro nombres de partes. (Las consultas entre bases de datos de solo lectura se admiten mediante el uso de [consultas de base de datos elástica](elastic-query-overview.md)).
 - Encadenamiento de propiedad entre bases de datos, configuración `TRUSTWORTHY`
 - `EXECUTE AS LOGIN` Use "EXECUTE AS USER" en su lugar.
@@ -82,7 +82,7 @@ Para obtener más información sobre la gramática de Transact-SQL, su uso y eje
 
 ### <a name="about-the-applies-to-tags"></a>Acerca de las etiquetas "Se aplica a"
 
-La referencia de Transact-SQL incluye artículos relacionados con las versiones de SQL Server que abarcan desde la de 2008 hasta la actual. Debajo del título del artículo hay una barra de iconos donde se muestran las cuatro plataformas de SQL Server y se indica la aplicabilidad. Por ejemplo, los grupos de disponibilidad se introdujeron en SQL Server 2012. En el artículo  [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx)  se indica que la instrucción se aplica a **SQL Server (a partir de 2012)** . La instrucción no se aplica a SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse o Almacenamiento de datos paralelos.
+La referencia de Transact-SQL incluye artículos relacionados con las versiones de SQL Server que abarcan desde la de 2008 hasta la actual. Debajo del título del artículo hay una barra de iconos donde se muestran las cuatro plataformas de SQL Server y se indica la aplicabilidad. Por ejemplo, los grupos de disponibilidad se introdujeron en SQL Server 2012. En el artículo  [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx)  se indica que la instrucción se aplica a **SQL Server (a partir de 2012)** . La instrucción no se aplica a SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure Synapse Analytics (anteriormente SQL Data Warehouse) o Almacenamiento de datos paralelos.
 
 En algunos casos, la línea general de un artículo se puede usar en un producto, pero existen diferencias poco significativas entre los productos. Las diferencias se indican en los puntos medios del artículo según corresponda. En algunos casos, la línea general de un artículo se puede usar en un producto, pero existen diferencias poco significativas entre los productos. Las diferencias se indican en los puntos medios del artículo según corresponda. Por ejemplo, el artículo CREATE TRIGGER está disponible en SQL Database. No obstante, la opción **ALL SERVER** para desencadenadores de nivel de servidor indica que no se pueden usar desencadenadores de nivel de servidor en SQL Database. Use desencadenadores de nivel de base de datos en su lugar.
 

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: scottnap
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/21/2020
+ms.date: 09/08/2020
 ms.author: scottnap
-ms.openlocfilehash: 8a22e8f0bde2d13b4055566d96680fadc2db6e11
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4783016e472907392f2d379efa0fed2d90ed21bc
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80337088"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595366"
 ---
 # <a name="working-remotely-network-virtual-appliance-nva-considerations-for-remote-work"></a>Trabajo de forma remota: Consideraciones sobre el trabajo remoto en la aplicación virtual de red (NVA)
 
@@ -52,6 +52,8 @@ Cada solución de NVA tiene sus propias herramientas y recursos para supervisar 
 La mayoría de los asociados de NVA importantes han publicado guías sobre cómo escalar debido al crecimiento inesperado y repentino durante la pandemia de COVID-19. Estos son algunos vínculos útiles a recursos de los asociados.
 
 [Barracuda Enable Work from home while securing your data during COVID-19](https://www.barracuda.com/covid-19/work-from-home "Permita trabajar desde casa a la vez que protege sus datos durante la COVID-19") (Barracuda: Permita trabajar desde casa a la vez que protege sus datos durante la COVID-19)
+
+[Check Point protege los recursos remotos durante la crisis del coronavirus](https://www.checkpoint.com/solutions/secure-remote-workforce-during-coronavirus/ "Protección de los recursos remotos durante la crisis del coronavirus")
 
 [Cisco AnyConnect Implementation and Performance/Scaling Reference for COVID-19 Preparation](https://www.cisco.com/c/en/us/support/docs/security/anyconnect-secure-mobility-client/215331-anyconnect-implementation-and-performanc.html "Cisco: Implementación de AnyConnect y referencia de rendimiento y escalado para la preparación ante la COVID-19") (Cisco: Implementación de AnyConnect y referencia de rendimiento y escalado para la preparación ante la COVID-19)
 

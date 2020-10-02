@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 8bae89e68e5a016dbdc10c763f1ea2daedece3c8
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: c357720c937a5b63944b7fc598eaff428f85bfb6
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605332"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706811"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Alta disponibilidad con Azure Cosmos DB
 
@@ -62,7 +62,7 @@ En los infrecuentes casos en que se produce una interrupción regional, Azure Co
 ### <a name="multi-region-accounts-with-a-single-write-region-read-region-outage"></a>Cuentas de varias regiones con una sola región de escritura (interrupción de la región de lectura)
 
 - Durante una interrupción de la región de lectura, las cuentas de Azure Cosmos mediante un nivel de coherencia o coherencia alta con tres o más regiones de lectura seguirán teniendo una alta disponibilidad para lecturas y escrituras.
-- Las cuentas de Azure Cosmos que usen una coherencia alta con dos o menos regiones de lectura (que incluye la región de lectura y escritura) perderán la disponibilidad de escritura durante una interrupción de la región de lectura, pero mantendrán la disponibilidad de lectura para las demás regiones.
+- Las cuentas de Azure Cosmos que usen una coherencia alta con dos o menos regiones de lectura (que incluye la región de lectura y escritura) perderán la disponibilidad de escritura durante una interrupción de la región de lectura.
 - La región afectada se desconecta automáticamente y se marcará como sin conexión. Los [SDK de Azure Cosmos DB](sql-api-sdk-dotnet.md) redirigirán las llamadas de lectura a la siguiente región disponible en la lista de regiones preferidas.
 - Si ninguna de las regiones de la lista de las regiones preferidas está disponible, las llamadas se devuelven automáticamente a la región actual de escritura.
 - No es necesario realizar ningún cambio en el código de su aplicación para gestionar la interrupción de la región de lectura. Cuando la región de lectura afectada se vuelve a conectar, se sincronizará automáticamente con la región de escritura actual y estará disponible de nuevo para atender las solicitudes de lectura.
@@ -125,7 +125,7 @@ az cosmosdb create \
 
 Puede habilitar Availability Zones mediante Azure Portal al crear una cuenta de Azure Cosmos. Cuando cree una cuenta, asegúrese de habilitar la **Redundancia geográfica** y las **Escrituras en varias regiones**, y elija una región en la que se admita Availability Zones:
 
-:::image type="content" source="./media/high-availability/enable-availability-zones-using-portal.png" alt-text="Habilitación de Availability Zones mediante Azure Portal"::: 
+:::image type="content" source="./media/high-availability/enable-availability-zones-using-portal.png" alt-text="Creación de particiones físicas"::: 
 
 ## <a name="building-highly-available-applications"></a>Compilación de aplicaciones de alta disponibilidad
 

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/18/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a2ba89a9adec5443ed8ae2a10e0230874b571f46
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9abc6574117b194a626c2697f5297a13566e0447
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690245"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89481797"
 ---
 # <a name="performance-guidelines-for-sql-server-on-azure-virtual-machines"></a>Directrices de rendimiento para SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -198,10 +198,23 @@ Si usa Espacios de almacenamiento, al agregar nodos al clúster en la página **
 
 Si utiliza espacios de almacenamiento y no desactiva la casilla **Add all eligible storage to the cluster** (Agregar todo el almacenamiento apto al clúster), Windows separa los discos virtuales durante el proceso de agrupación en clústeres. Como resultado, no aparecen en el Administrador de discos ni el Explorador hasta que se quiten los espacios de almacenamiento del clúster y se vuelvan a asociar mediante PowerShell. Espacios de almacenamiento agrupa varios discos en grupos de almacenamiento. Para obtener más información, consulte el artículo sobre [espacios de almacenamiento](/windows-server/storage/storage-spaces/overview).
 
+## <a name="multiple-instances"></a>Varias instancias 
+
+Tenga en cuenta los procedimientos recomendados siguientes al implementar varias instancias de SQL Server en una sola máquina virtual: 
+
+- Establezca la memoria máxima de servidor para cada instancia de SQL Server y asegúrese de que quede memoria para el sistema operativo. Asegúrese de actualizar las restricciones de memoria para las instancias de SQL Server si cambia la cantidad de memoria que se asigna a la máquina virtual. 
+- Tenga LUN independientes para los datos, los registros y TempDB, ya que todos tienen distintos patrones de carga de trabajo y debe evitar que se afecten entre sí. 
+- Compruebe minuciosamente el entorno con cargas de trabajo intensas para asegurarse de que puede controlar la capacidad de carga de trabajo máxima con sus contratos de nivel de servicio de aplicación. 
+
+Los signos de sistemas sobrecargados pueden incluir, pero no limitarse a los siguientes: agotamiento de subprocesos de trabajo, tiempos de respuesta lentos o memoria del sistema del distribuidor detenida. 
+
+
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre el almacenamiento y el rendimiento, consulte [Instrucciones de configuración del almacenamiento para SQL Server en Azure Virtual Machines](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/).
 
-Para ver las prácticas recomendadas de seguridad, consulte [Consideraciones de seguridad para SQL Server en Azure Virtual Machines](security-considerations-best-practices.md).
+Para ver los procedimientos recomendados de seguridad, consulte [Consideraciones de seguridad para SQL Server en Azure Virtual Machines](security-considerations-best-practices.md).
 
 Revise otros artículos sobre la máquina virtual de SQL Server en [Introducción a SQL Server en Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md). Si tiene alguna pregunta sobre las máquinas virtuales de SQL Server, consulte las [Preguntas más frecuentes](frequently-asked-questions-faq.md).

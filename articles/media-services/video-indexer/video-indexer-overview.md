@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/31/2020
+ms.date: 09/11/2020
 ms.author: juliako
-ms.openlocfilehash: bff99cdd44763c0df6bb5b2dd863b27728c23fcd
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: b327facc2ac9ad64cf5237ecddc3e4024f75daa6
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89318697"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052144"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>¿Qué es Video Indexer de Azure Media Services?
 
@@ -81,7 +81,7 @@ En la siguiente lista se muestra la información que se puede recuperar de los v
 * **Procesamiento de dos canales**: detecta, separa la transcripción y se combina en una única escala de tiempo de forma automática.
 * **Reducción de ruido**: borra el audio telefónico o las grabaciones ruidosas (basado en los filtros de Skype).
 * **Personalización de la transcripción** (CRIS): entrena modelos personalizados de conversión de voz en texto para crear transcripciones específicas del sector. Para más información, consulte [Customize a Language model from the Video Indexer website](customize-language-model-with-website.md) (Personalización de un modelo de lenguaje desde el sitio web de Video Indexer) y [Customize a Language model with the Video Indexer API](customize-language-model-with-api.md) (Personalización de un modelo de lenguaje con Video Indexer API).
-* **Enumeración de altavoz**: asigna y comprende las palabras que transmitió cada altavoz y cuándo.
+* **Enumeración de altavoz**: asigna y comprende las palabras que transmitió cada altavoz y cuándo. Se pueden detectar dieciséis altavoces en un solo archivo de audio.
 * **Estadísticas de altavoz**: Proporciona las estadísticas de las relaciones de voz de los altavoces.
 * **Moderación de contenido textual**: detecta texto explícito en la transcripción de audio.
 * **Efectos de audio**: identifica los efectos de audio, como palmadas, voces y silencios.

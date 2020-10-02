@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: e5862daa21f8bf0075bb1dee567cbe887ec32d72
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 6d77855f095c59b47156af735f4581076ce5a09c
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653280"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611630"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instancias de clúster de conmutación por error con SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -66,7 +66,7 @@ En el resto de esta sección se enumeran las ventajas y las limitaciones de cada
 **Ventajas** 
 - Resulta útil para las aplicaciones que desean migrar a Azure al tiempo que mantienen su arquitectura de alta disponibilidad y recuperación ante desastres (HADR) tal cual. 
 - Puede migrar las aplicaciones en clúster a Azure tal cual gracias a la compatibilidad con las reservas persistentes de SCSI (SCSI PR). 
-- Admite Azure SSD Premium compartido para todas las versiones de SQL Server y Almacenamiento en disco Ultra de Azure compartido para SQL Server 2019. 
+- Admite almacenamiento en disco Ultra de Azure y SSD Premium de Azure.
 - Puede usar un único disco compartido o seccionar varios para crear un grupo de almacenamiento compartido. 
 - Admite FileStream.
 
@@ -153,10 +153,11 @@ Actualmente, las instancias del clúster de conmutación por error de SQL Serve
 
 La extensión completa admite características como la copia de seguridad automatizada, y la aplicación de revisiones y la administración avanzada del portal. Estas características no funcionarán para las VM con SQL Server después de que el agente se vuelva a instalar en modo de administración ligera.
 
-### <a name="msdtc"></a>MSDTC   
-Azure Virtual Machines admite MSDTC en Windows Server 2019 con almacenamiento en volúmenes compartidos en clúster (CSV) y [Azure Standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md).
+### <a name="msdtc"></a>MSDTC 
 
-En Azure Virtual Machines, MSDTC no se admite para Windows Server 2016 o versiones anteriores porque:
+Azure Virtual Machines admite el Coordinador de transacciones distribuidas de Microsoft (MSDTC) en Windows Server 2019 con almacenamiento en Volúmenes compartidos en clúster (CSV) y [Azure Standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md) o en VM con SQL Server que usan discos compartidos de Azure. 
+
+En Azure Virtual Machines, MSDTC no se admite para Windows Server 2016 ni versiones anteriores con Volúmenes compartidos en clúster porque:
 
 - El recurso MSDTC en clúster no puede configurarse para usar almacenamiento compartido. En Windows Server 2016, si crea un recurso MSDTC, no mostrará ningún almacenamiento compartido disponible para su uso, incluso si el almacenamiento está disponible. Este problema se ha corregido en Windows Server 2019.
 - El equilibrador de carga básico no controla los puertos RPC.

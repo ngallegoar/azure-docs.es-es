@@ -9,24 +9,22 @@ ms.subservice: ''
 ms.date: 06/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: fdf3dc56575a45ad0c9e716054184ba2691133ba
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 51422bd47b5bd2d7d5103c154e90eaa910396024
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831709"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661029"
 ---
 # <a name="analyze-complex-data-types-in-azure-synapse-analytics"></a>Análisis de tipos de datos complejos en Azure Synapse Analytics
 
-Este artículo es relevante para archivos y contenedores de Parquet en [Synapse Link para Azure Cosmos DB](.\synapse-link\how-to-connect-synapse-link-cosmos-db.md). Se explica cómo pueden los usuarios usar Spark o SQL para leer o transformar datos con esquemas complejos como matrices o estructuras anidadas. El ejemplo siguiente se realiza con un solo documento, pero se puede escalar con facilidad a miles de millones de documentos con Spark o SQL. En el código incluido en este artículo se usa PySpark (Python).
+Este artículo es adecuado para archivos y contenedores de Parquet en [Azure Synapse Link para Azure Cosmos DB](.\synapse-link\how-to-connect-synapse-link-cosmos-db.md). Puede usar Spark o SQL para leer o transformar datos con esquemas complejos como matrices o estructuras anidadas. El ejemplo siguiente se realiza con un solo documento, pero se puede escalar con facilidad a miles de millones de documentos con Spark o SQL. En el código incluido en este artículo se usa PySpark (Python).
 
 ## <a name="use-case"></a>Caso de uso
 
-Los tipos de datos complejos son cada vez más comunes y representan un desafío para los ingenieros de datos, ya que el análisis de esquemas anidados y matrices tiende a incluir consultas SQL complejas y lentas. Además, puede ser difícil cambiar el nombre o convertir el tipo de datos de las columnas anidadas. También surgen problemas de rendimiento al trabajar con objetos con demasiados niveles de anidamiento.
+Los tipos de datos complejos son cada vez más comunes y representan un desafío para los ingenieros de datos. El análisis de matrices y esquemas anidados puede implicar consultas SQL complejas y lentas. Además, puede ser difícil cambiar el nombre o convertir el tipo de datos de las columnas anidadas. Por otra parte, si está trabajando con objetos profundamente anidados, puede encontrar problemas de rendimiento.
 
-Los ingenieros de datos deben entender cómo procesar de forma eficaz los tipos de datos complejos y hacer que sean fácilmente accesibles para todos.
-
-En el ejemplo siguiente se usa Synapse Spark para leer y transformar objetos en una estructura plana por medio de tramas de datos. Se usa Synapse SQL sin servidor para consultar estos objetos directamente y devolver los resultados como una tabla convencional.
+Los ingenieros de datos deben entender cómo procesar de forma eficaz los tipos de datos complejos y hacer que sean fácilmente accesibles para todos. En el ejemplo siguiente se usa Synapse Spark en Azure Synapse Analytics para leer y transformar objetos en una estructura plana por medio de tramas de datos. Se usa el modelo sin servidor de SQL en Azure Synapse Analytics para consultar estos objetos directamente y devolver los resultados como una tabla convencional.
 
 ## <a name="what-are-arrays-and-nested-structures"></a>¿Qué son las matrices y estructuras anidadas?
 
@@ -72,22 +70,24 @@ El objeto siguiente procede de [Application Insights](https://docs.microsoft.com
 ### <a name="schema-example-of-arrays-and-nested-structures"></a>Ejemplo de esquema de matrices y estructuras anidadas
 Al imprimir el esquema de la trama de datos del objeto (denominado **df**) con el comando `df.printschema`, se ve la siguiente representación:
 
-* El color amarillo representa la estructura anidada
-* El color verde representa una matriz con dos elementos
+* El color amarillo representa las estructuras anidadas.
+* El color verde representa una matriz con dos elementos.
 
-[![Origen del esquema](./media/how-to-complex-schema/schema-origin.png)](./media/how-to-complex-schema/schema-origin.png#lightbox)
+[![Código con resaltado amarillo y verde que muestra el origen del esquema](./media/how-to-complex-schema/schema-origin.png)](./media/how-to-complex-schema/schema-origin.png#lightbox)
 
-**_rid**, **_ts** y **_etag** se han agregado al sistema a medida que el documento se ingería en el almacén transaccional de Azure Cosmos DB.
+`_rid`, `_ts` y `_etag` se han agregado al sistema a medida que el documento se ingería en el almacén transaccional de Azure Cosmos DB.
 
 En la trama de datos anterior solo hay 5 columnas y 1 fila. Después de la transformación, la trama de datos seleccionada tendrá 13 columnas y 2 filas en un formato tabular.
 
-## <a name="flatten-nested-structures-and-explode-arrays-with-apache-spark"></a>Acoplamiento de estructuras anidadas y expansión de matrices con Apache Spark
+## <a name="flatten-nested-structures-and-explode-arrays"></a>Acoplamiento de estructuras anidadas y expansión de matrices
 
-Con Synapse Spark, resulta sencillo transformar estructuras anidadas en columnas y elementos de matriz en varias filas. Los pasos siguientes se pueden usar para la implementación.
+Con Spark en Azure Synapse Analytics, resulta sencillo transformar estructuras anidadas en columnas y elementos de matriz en varias filas. Use los pasos siguientes para la implementación.
 
-[![Pasos de transformaciones de Spark](./media/how-to-complex-schema/spark-transform-steps.png)](./media/how-to-complex-schema/spark-transform-steps.png#lightbox)
+[![Diagrama de flujo que muestra los pasos para las transformaciones de Spark](./media/how-to-complex-schema/spark-transform-steps.png)](./media/how-to-complex-schema/spark-transform-steps.png#lightbox)
 
-**Paso 1**: se define una función para acoplar el esquema anidado. Esta función se puede usar sin cambios. Cree una celda en un [cuaderno de PySpark](quickstart-apache-spark-notebook.md) con la siguiente función:
+### <a name="define-a-function-to-flatten-the-nested-schema"></a>Definición de una función para acoplar el esquema anidado
+
+Puede usar esta función sin cambiar. Cree una celda en un [cuaderno de PySpark](quickstart-apache-spark-notebook.md) con la siguiente función:
 
 ```python
 from pyspark.sql.functions import col
@@ -120,7 +120,9 @@ def flatten_df(nested_df):
     return nested_df.select(columns)
 ```
 
-**Paso 2**: use la función para acoplar el esquema anidado de la trama de datos (**df**) en una nueva trama de datos `df_flat`:
+### <a name="use-the-function-to-flatten-the-nested-schema"></a>Uso de la función para acoplar el esquema anidado
+
+En este paso, se acopla el esquema anidado de la trama de datos (**df**) en una nueva trama de datos (`df_flat`):
 
 ```python
 from pyspark.sql.types import StringType, StructField, StructType
@@ -130,7 +132,9 @@ display(df_flat.limit(10))
 
 La función display debe devolver 10 columnas y 1 fila. La matriz y sus elementos anidados todavía están allí.
 
-**Paso 3**: transforme la matriz `context_custom_dimensions` de la trama de datos `df_flat` en una nueva trama de datos `df_flat_explode`. En el código siguiente también se define la columna que se va a seleccionar:
+### <a name="transform-the-array"></a>Transformación de la matriz
+
+Aquí se transforma la matriz, `context_custom_dimensions`, de la trama de datos `df_flat`, en una nueva trama de datos `df_flat_explode`. En el código siguiente también se define la columna que se va a seleccionar:
 
 ```python
 from pyspark.sql.functions import explode
@@ -144,7 +148,9 @@ display(df_flat_explode.limit(10))
 
 La función display debe devolver 10 columnas y 2 filas. El siguiente paso consiste en acoplar los esquemas anidados con la función definida en el paso 1.
 
-**Paso 4**: use la función para acoplar el esquema anidado de la trama de datos `df_flat_explode` en una nueva trama de datos `df_flat_explode_flat`:
+### <a name="use-the-function-to-flatten-the-nested-schema"></a>Uso de la función para acoplar el esquema anidado
+
+Por último, se usa la función para acoplar el esquema anidado de la trama de datos `df_flat_explode` en una nueva trama de datos `df_flat_explode_flat`:
 ```python
 df_flat_explode_flat = flatten_df(df_flat_explode)
 display(df_flat_explode_flat.limit(10))
@@ -154,26 +160,23 @@ La función display debe mostrar 13 columnas y 2 filas.
 
 La función `printSchema` de la trama de datos `df_flat_explode_flat` devuelve el siguiente resultado:
 
-[![Esquema final](./media/how-to-complex-schema/schema-final.png)](./media/how-to-complex-schema/schema-final.png#lightbox)
+[![Código que muestra el esquema final](./media/how-to-complex-schema/schema-final.png)](./media/how-to-complex-schema/schema-final.png#lightbox)
 
-## <a name="read-arrays-and-nested-structures-directly-with-sql-serverless"></a>Lectura de matrices y estructuras anidadas directamente con SQL sin servidor
+## <a name="read-arrays-and-nested-structures-directly"></a>Lectura de matrices y estructuras anidadas directamente
 
-SQL sin servidor permite la consulta y creación de vistas y tablas en esos objetos.
+Con el modelo sin servidor de SQL, puede consultar y crear vistas y tablas a través de dichos objetos.
 
-En primer lugar, en función de cómo se hayan almacenado los datos, los usuarios deben usar la siguiente taxonomía. Todo lo que aparece en MAYÚSCULAS es específico del caso de uso:
+En primer lugar, en función de cómo se hayan almacenado los datos, los usuarios deben usar la siguiente taxonomía. Todo lo que aparece en mayúsculas es específico del caso de uso:
 
-| BULK              | FORMAT |
-| -------------------- | --- |
-| 'https://ACCOUNTNAME.dfs.core.windows.net/FILESYSTEM/PATH/FINENAME.parquet ' |"Parquet" (ADLSg2)|
-| N'endpoint=https://ACCOUNTNAME.documents-staging.windows-ppe.net:443/;account=ACCOUNTNAME;database=DATABASENAME;collection=COLLECTIONNAME;region=REGIONTOQUERY', SECRET='YOURSECRET' |"CosmosDB" (Synapse Link)|
+| En bloque | Formato |
+| ------ | ------ |
+| 'https://ACCOUNTNAME.dfs.core.windows.net/FILESYSTEM/PATH/FINENAME.parquet' |"Parquet" (ADLSg2)|
+| N'endpoint=https://ACCOUNTNAME.documents-staging.windows-ppe.net:443/;account=ACCOUNTNAME;database=DATABASENAME;collection=COLLECTIONNAME;region=REGIONTOQUERY', SECRET='YOURSECRET' |'CosmosDB' (Azure Synapse Link)|
 
-
-> [!NOTE]
-> SQL sin servidor admite Servicio vinculado de Synapse Link para Azure Cosmos DB y autenticación de paso a través de AAD. La funcionalidad está actualmente en versión preliminar controlada para Synapse Link.
 
 Reemplace cada campo de esta manera:
-* "YOUR BULK ABOVE" = cadena de conexión del origen de datos al que se conecta
-* "YOUR TYPE ABOVE" = formato que usa para conectarse al origen
+* "YOUR BULK ABOVE" es la cadena de conexión del origen de datos al que se conecta.
+* "YOUR TYPE ABOVE" es el formato que usa para conectarse al origen.
 
 ```sql
 select *
@@ -200,20 +203,20 @@ with ( ProfileType varchar(50) '$.customerInfo.ProfileType',
 
 Hay dos tipos distintos de operaciones:
 
-El primer tipo de operación se indica en la siguiente línea de código, que define la columna denominada `contextdataeventTime` que hace referencia al elemento anidado: Context.Data.eventTime 
-```sql
-contextdataeventTime varchar(50) '$.context.data.eventTime'
-```
+- El primer tipo de operación se indica en la siguiente línea de código, que define la columna denominada `contextdataeventTime` que hace referencia al elemento anidado, `Context.Data.eventTime`. 
+  ```sql
+  contextdataeventTime varchar(50) '$.context.data.eventTime'
+  ```
 
-Esta línea definirá la columna denominada contextdataeventTime que hace referencia al elemento anidado: Context>Data>eventTime
+  En esta línea se define la columna denominada `contextdataeventTime` que hace referencia al elemento anidado, `Context>Data>eventTime`.
 
-El segundo tipo de operación usa `cross apply` para crear nuevas filas para cada elemento de la matriz y luego define cada objeto anidado similar a la primera viñeta: 
-```sql
-cross apply openjson (contextcustomdimensions) 
-with ( ProfileType varchar(50) '$.customerInfo.ProfileType', 
-```
+- El segundo tipo de operación utiliza `cross apply` para crear nuevas filas para cada elemento de la matriz. A continuación, define cada objeto anidado. 
+  ```sql
+  cross apply openjson (contextcustomdimensions) 
+  with ( ProfileType varchar(50) '$.customerInfo.ProfileType', 
+  ```
 
-Si la matriz tuviera 5 elementos con 4 estructuras anidadas, SQL sin servidor devolvería 5 filas y 4 columnas. SQL sin servidor puede consultar en contexto, asignar la matriz en 2 filas y, mostrar todas las estructuras anidadas en columnas.
+  Si la matriz tuviera 5 elementos con 4 estructuras anidadas, el modelo sin servidor de SQL devolvería 5 filas y 4 columnas. El modelo sin servidor de SQL sin servidor puede consultar en contexto, asignar la matriz en 2 filas y mostrar todas las estructuras anidadas en columnas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

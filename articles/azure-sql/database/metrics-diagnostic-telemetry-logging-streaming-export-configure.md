@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 04/06/2020
-ms.openlocfilehash: efb99e23466e4615dfa1f4a429addcd8c4ac68f5
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 51d86e51d89bdaf83be4a722d0350b35d2146cff
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085623"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973049"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Configuración de la exportación de streaming de los datos de telemetría de diagnóstico de Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -72,7 +72,7 @@ Esta telemetría de diagnóstico se puede exportar a uno de los siguientes recur
 
 Esta telemetría de diagnóstico transmitida a uno de estos destinos se puede usar para medir el uso de recursos y las estadísticas de ejecución de consultas con el fin de facilitar la supervisión del rendimiento.
 
-![Architecture](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/architecture.png)
+![En el diagrama se muestran muchas bases de datos SQL y bases de datos en instancias administradas que envían datos de telemetría a Azure Diagnostics, que reenvía información a Azure SQL Analytics, Event Hub y Storage.](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/architecture.png)
 
 ## <a name="enable-and-configure-the-streaming-export-of-diagnostic-telemetry"></a>Habilitación y configuración de la exportación de streaming de los datos de telemetría de diagnóstico
 
