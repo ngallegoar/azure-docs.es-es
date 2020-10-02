@@ -4,12 +4,12 @@ description: Crear alertas del registro de actividad mediante Azure Portal, una 
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: b202e3d47b98c5e395b3a8b525b9b8c0a04c0f76
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7914f3ee57d014de2f34fca301b587c6297bebe3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322421"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983098"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Crear, ver y administrar las alertas del registro de actividad mediante Azure Monitor  
 
@@ -111,7 +111,7 @@ Una simple analogía para comprender las condiciones en las que se pueden crear 
 
 1. En Azure Portal, seleccione **Supervisar** > **Alertas**. Seleccione **Administrar reglas de alertas** en la esquina superior izquierda de la ventana.
 
-    ![Administración de reglas de alerta](media/alerts-activity-log/manage-alert-rules.png)
+    ![Captura de pantalla que muestra el registro de actividad con el cuadro de búsqueda resaltado.](media/alerts-activity-log/manage-alert-rules.png)
 
     Aparece la lista de reglas disponibles.
 

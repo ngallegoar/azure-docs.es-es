@@ -16,18 +16,18 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b013c4edcaceeea585494bd8924ccea08aa1d37
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 4a0765f5279eb41324691c431c5973bb55a8b52d
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89277058"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662481"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronización de Azure AD Connect: Sincronización de Azure AD Connect: Extensiones de directorio
 Puede usar extensiones de directorio para ampliar el esquema de Azure Active Directory (Azure AD) con sus propios atributos desde Active Directory local. Esta característica le permite compilar aplicaciones de LOB mediante el consumo de atributos que sigue administrando de forma local. Estos atributos se pueden consumir mediante [extensiones](/graph/extensibility-overview
 ). Puede ver los atributos disponibles mediante el [Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer). También puede usar esta característica para crear grupos dinámicos en Azure AD.
 
-En la actualidad, ninguna carga de trabajo de Office 365 consume estos atributos.
+En la actualidad, ninguna carga de trabajo de Microsoft 365 consume estos atributos.
 
 ## <a name="customize-which-attributes-to-synchronize-with-azure-ad"></a>Personalización de los atributos que se van a sincronizar con Azure AD
 
@@ -73,7 +73,7 @@ Estos atributos ya están disponibles a través de Microsoft Graph API, mediante
 
 ## <a name="use-the-attributes-in-dynamic-groups"></a>Uso de los atributos en grupos dinámicos
 
-Uno de los escenarios más útiles consiste en usar estos atributos en grupos dinámicos de seguridad o de Office 365.
+Uno de los escenarios más útiles consiste en usar estos atributos en grupos dinámicos de seguridad o de Microsoft 365.
 
 1. Cree un grupo en Azure AD. Asígnele un nombre adecuado y asegúrese de que la opción **Tipo de pertenencia** está establecida en **Usuario dinámico**.
 

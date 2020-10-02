@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
-ms.openlocfilehash: fb2eb2d237a1245627bbdb6f4f2eacbb9966a2c6
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: c7e3c9292b53aeb073e11a5293459e39a22ca81d
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421719"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89570086"
 ---
 Si coloca las máquinas virtuales en una sola región, reducirá la distancia física entre las instancias. Además, si las coloca en una sola zona de disponibilidad, estarán todavía más cercanas físicamente. Aun así, a medida que la superficie de Azure crece, una sola zona de disponibilidad puede abarcar varios centros de datos físicos, lo que es posible que provoque una latencia de red que puede afectar al rendimiento de la aplicación. 
 
@@ -34,7 +34,7 @@ Un grupo de selección de ubicación de proximidad es una agrupación lógica qu
 
 Un grupo de selección de ubicación de proximidad es un nuevo tipo de recurso de Azure. Debe crear uno para poder usarlo con otros recursos. Una vez creado, podría usarse con máquinas virtuales, conjuntos de disponibilidad o conjuntos de escalado de máquinas virtuales. Un grupo de selección de ubicación de proximidad se especifica al crear recursos de proceso que proporcionan el identificador de grupo de selección de ubicación de proximidad. 
 
-También puede mover un recurso existente a un grupo de selección de ubicación de proximidad. Al hacerlo, debe detener (desasignar) el recurso en primer lugar, ya que se volverá a implementar posiblemente en otro centro de datos de la región para satisfacer la restricción de colocación. 
+También puede mover un recurso existente a un grupo de selección de ubicación de proximidad. Al hacerlo, en primer lugar debe detener (desasignar) el recurso, ya que es posible que se vuelva a implementar posiblemente en otro centro de datos de la región para satisfacer la restricción de coubicación. 
 
 En el caso de conjuntos de disponibilidad y conjuntos de escalado de máquinas virtuales, debe establecer el grupo de selección de ubicación de proximidad en el nivel de recursos, en lugar de en las máquinas virtuales individuales. 
 

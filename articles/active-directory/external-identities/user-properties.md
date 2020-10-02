@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7271c4de6d5c186c9e561aa37a140eaa04cbc0a
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: b68a4d0c9c33f6a7eb1a2300955e9185bd52d8fb
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87907613"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705476"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propiedades de un usuario de colaboración B2B de Azure Active Directory
 
@@ -104,11 +104,11 @@ Se pueden desactivar las limitaciones predeterminadas para que un usuario invita
 ![Captura de pantalla que muestra la opción de usuarios externos en la configuración del usuario](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>¿Puedo hacer visibles a los usuarios invitados en la lista global de direcciones de Exchange?
-Sí. De forma predeterminada, los objetos de invitado no aparecen en la lista global de direcciones de la organización, pero puede usar Azure Active Directory PowerShell para que figuren. Para obtener más información, consulte **Can I make guest objects visible in the global address list?** (¿Puedo hacer visibles los objetos de invitado de la lista global de direcciones?) en [Manage guest access in Office 365 Groups](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups) (Administrar el acceso de invitados en Grupos de Office 365).
+Sí. De forma predeterminada, los objetos de invitado no aparecen en la lista global de direcciones de la organización, pero puede usar Azure Active Directory PowerShell para que figuren. Para más información, consulte **¿Puedo hacer visibles los objetos de invitado de la lista global de direcciones?** en [Administración del acceso de invitados en grupos de Microsoft 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups).
 
 ## <a name="can-i-update-a-guest-users-email-address"></a>¿Puedo actualizar la dirección de correo electrónico de un usuario invitado?
 
-Si un usuario invitado acepta su invitación y cambia posteriormente su dirección de correo electrónico, el nuevo correo electrónico no se sincroniza automáticamente con el objeto de usuario invitado en el directorio. La propiedad mail se crea a través de [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0). Puede actualizar la propiedad mail en el centro de administración de Exchange o [Exchange Online PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps), y el cambio se reflejará en el objeto de usuario invitado de Azure AD.
+Si un usuario invitado acepta su invitación y cambia posteriormente su dirección de correo electrónico, el nuevo correo electrónico no se sincroniza automáticamente con el objeto de usuario invitado en el directorio. La propiedad mail se crea a través de [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0). Puede actualizar la propiedad de correo electrónico mediante Microsoft Graph API, el centro de administración de Exchange o [PowerShell de Exchange Online](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps). El cambio se reflejará en el objeto de usuario invitado de Azure AD.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

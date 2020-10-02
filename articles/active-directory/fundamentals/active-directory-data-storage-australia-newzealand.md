@@ -1,6 +1,6 @@
 ---
-title: 'Almacenamiento de datos de identidad para clientes australianos: Azure AD'
-description: Obtenga información sobre dónde almacena Azure Active Directory los datos relacionados con la identidad de los clientes australianos.
+title: 'Almacenamiento de datos del cliente para clientes australianos y neozelandeses: Azure AD'
+description: Obtenga información sobre dónde almacena Azure Active Directory los datos relacionados con los clientes australianos y neozelandeses.
 services: active-directory
 author: ajburnle
 manager: daveba
@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 7/21/2020
 ms.custom: it-pro, seodec18, references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: edc53152fe532a071de744db77d5c08d799c445a
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 0bbd31bf47c7ce7ae75a6934da0ea769698ef187
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89318529"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565119"
 ---
 # <a name="customer-data-storage-for-australian-and-new-zealand-customers-in-azure-active-directory"></a>Almacenamiento de datos de clientes australianos y neozelandeses en Azure Active Directory
 
-Azure Active Directory (Azure AD) almacena los datos de los clientes en una ubicación geográfica según el país que se especifique al suscribirse a un servicio en línea de Microsoft. Entre los servicios en línea de Microsoft se incluyen Office 365 y Azure. 
+Azure Active Directory (Azure AD) almacena los datos de los clientes en una ubicación geográfica según el país que se especifique al suscribirse a un servicio en línea de Microsoft. Entre los servicios en línea de Microsoft se incluyen Microsoft 365 y Azure. 
 
 Para obtener información sobre la ubicación de los datos de Azure AD y otros servicios de Microsoft, consulte la sección [Dónde se encuentran sus datos](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) del Centro de confianza de Microsoft.
 

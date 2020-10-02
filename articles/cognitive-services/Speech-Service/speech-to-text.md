@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: conversión de voz a texto, software de conversión de voz en texto
-ms.openlocfilehash: 42696728427c34d5000881af8bbbf97ae2313111
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 804acd17f3df91cc3df949d6d9ccac0450bb225f
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401272"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569227"
 ---
 # <a name="what-is-speech-to-text"></a>¿Qué es la conversión de voz a texto?
 
@@ -34,23 +34,11 @@ Con texto de referencia adicional como entrada, el servicio de conversión de vo
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-## <a name="get-started-with-speech-to-text"></a>Introducción a la conversión de voz a texto
+## <a name="get-started"></a>Introducción
 
-El servicio de conversión de voz a texto está disponible a través del [SDK de voz](speech-sdk.md). Existen varios escenarios comunes disponibles como inicios rápidos, en diferentes lenguajes y plataformas:
+Consulte el [inicio rápido](get-started-speech-to-text.md) para empezar a usar la conversión de voz en texto. El servicio está disponible con el [SDK de voz](speech-sdk.md), la [API REST](rest-speech-to-text.md#pronunciation-assessment-parameters) y la [CLI de voz](spx-overview.md).
 
- - [Inicio rápido: Reconocimiento de voz con entrada de micrófono](quickstarts/speech-to-text-from-microphone.md)
- - [Inicio rápido: Reconocimiento de voz a partir de un archivo](quickstarts/speech-to-text-from-file.md)
- - [Inicio rápido: Reconocimiento de voz almacenada en Blob Storage](quickstarts/from-blob.md)
-
-Si prefiere usar el servicio REST de voz a texto, consulte [API REST](rest-speech-to-text.md).
-
- - [Inicio rápido: Evaluación de la pronunciación con entrada de referencias](rest-speech-to-text.md#pronunciation-assessment-parameters)
-
-## <a name="tutorials-and-sample-code"></a>Tutoriales y ejemplo de código
-
-Una vez que haya tenido la oportunidad de usar el servicio de voz, pruebe nuestro tutorial, que le enseña a reconocer intenciones a partir de contenido de voz mediante el SDK de voz y LUIS.
-
-- [Tutorial: Reconocimiento de intenciones a partir de la voz con el SDK de Voz y LUIS con C#](how-to-recognize-intents-from-speech-csharp.md)
+## <a name="sample-code"></a>Código de ejemplo
 
 Hay un ejemplo de código para el SDK de voz disponible en GitHub. En estos ejemplos se tratan escenarios comunes como la lectura de audio de un archivo o flujo, el reconocimiento continuo y de una sola emisión, y el trabajo con modelos personalizados.
 

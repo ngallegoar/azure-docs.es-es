@@ -6,12 +6,12 @@ ms.author: jumeder
 ms.date: 06/15/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9ee6945cec4c2441334e665947568743aaf29226
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ebde1be459078f4f3473ebc3042d8acebcce910a
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013595"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613737"
 ---
 # <a name="debug-rendering"></a>Representación de la depuración
 
@@ -74,6 +74,10 @@ Sin embargo, los efectos proporcionados no proporcionan ninguna introspección d
 
 * La habilitación de las superposiciones de texto no ocasiona apenas sobrecarga del rendimiento.
 * La habilitación del modo Wireframe conlleva una sobrecarga de rendimiento considerable, aunque puede variar en función de la escena. En el caso de escenas complejas, este modo puede hacer que la velocidad de fotogramas caiga por debajo del objetivo de 60 Hz.
+
+## <a name="api-documentation"></a>Documentación de la API
+
+* [RemoteManager::DebugRenderingSettings() de C++](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#debugrenderingsettings)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

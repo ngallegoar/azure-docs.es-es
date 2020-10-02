@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 8/7/2020
-ms.openlocfilehash: 7697ba514b74935f8da6d71cdfb380e704d66f56
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.date: 9/8/2020
+ms.openlocfilehash: 979976ba88c2acca282a7f8bef4784b9d91ce0aa
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121364"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565096"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sin servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -114,11 +114,12 @@ La pausa automática se desencadena si todas las condiciones siguientes se cumpl
 
 Hay disponible una opción para deshabilitar la pausa automática si se desea.
 
-Las características siguientes no admiten la pausa automática, pero admiten el escalado automático.  Es decir, si se utiliza cualquiera de las siguientes características, la base de datos permanecerá en línea, independientemente de la duración de la inactividad de la base de datos:
+Las características siguientes no admiten la pausa automática, pero admiten el escalado automático.  Si se utiliza cualquiera de las siguientes características, la pausa automática debe estar desactivada y la base de datos permanecerá en línea, independientemente de la duración de la inactividad de la base de datos:
 
 - Replicación geográfica (replicación geográfica activa y grupos de conmutación por error automáticos).
 - Retención de copia de seguridad a largo plazo (LTR).
 - La base de datos de sincronización utilizada en la sincronización de datos SQL.  A diferencia de las bases de datos de sincronización, las bases de datos centrales y miembro admiten las pausas automáticas.
+- Establecimiento de alias de DNS
 - La base de datos de trabajo utilizada en trabajos elásticos (versión preliminar).
 
 Se impide temporalmente la pausa automática durante la implementación de algunas actualizaciones de servicio que requieren que la base de datos esté en línea.  En tales casos, se vuelve a permitir la pausa automática una vez finalizada la actualización del servicio.

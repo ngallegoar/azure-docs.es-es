@@ -2,14 +2,14 @@
 title: Cifrado en reposo con una clave administrada por el cliente
 description: Obtenga información sobre el cifrado en reposo de una instancia de Azure Container Registry y sobre cómo cifrar el registro Premium con una clave administrada por el cliente almacenada en Azure Key Vault
 ms.topic: article
-ms.date: 05/01/2020
+ms.date: 08/26/2020
 ms.custom: ''
-ms.openlocfilehash: 67fb58d0e11709b3d801a81f15d856e9b3db922b
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 0e1810c8e3da334570dd1c4d6adb500e2cfa95e3
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225893"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89487239"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Cifrado del registro con una clave administrada por el cliente
 
@@ -22,10 +22,14 @@ Esta característica está disponible en el nivel de servicio de un registro de 
 
 ## <a name="things-to-know"></a>Cosas que debe saber
 
-* De momento, solo se puede habilitar una clave administrada por el cliente al crear un registro.
-* Después de habilitar una clave administrada por el cliente en un registro, no es posible deshabilitarla.
+* De momento, solo se puede habilitar una clave administrada por el cliente al crear un registro. Al habilitar la clave, se configura una identidad administrada *asignada por el usuario* para acceder al almacén de claves.
+* Después de habilitar el cifrado con una clave administrada por el cliente en un registro, no es posible deshabilitarlo.  
 * [Confianza de contenido](container-registry-content-trust.md) no se admite actualmente en un registro cifrado con una clave administrada por el cliente.
 * En un registro cifrado con una clave administrada por el cliente, los registros de ejecución de [ACR Tasks](container-registry-tasks-overview.md) solo se conservan durante 24 horas. Si necesita conservar los registros durante un período más largo, vea la guía para [exportar y almacenar registros de ejecución de tareas](container-registry-tasks-logs.md#alternative-log-storage).
+
+
+> [!NOTE]
+> Si se restringe el acceso a Azure Key Vault mediante una red virtual con un [firewall de Key Vault](../key-vault/general/network-security.md), se necesitan pasos de configuración adicionales. Después de crear el registro y habilitar la clave administrada por el cliente, configure el acceso a la clave mediante la identidad administrada *asignada por el sistema* del registro y configure este para omitir el firewall de Key Vault. Siga los pasos de este artículo para habilitar el cifrado con una clave administrada por el cliente y, a continuación, consulte la guía de [Escenario avanzado: Firewall de Key Vault](#advanced-scenario-key-vault-firewall) más adelante en este artículo.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -372,7 +376,7 @@ Después de habilitar una clave administrada por el cliente en un registro, pued
 
 ## <a name="rotate-key"></a>Rotación de clave
 
-Gire una clave administrada por el cliente que se use para el cifrado del registro en las directivas de cumplimiento. Cree una nueva clave, o actualice la versión de una clave, y actualice el registro para cifrar los datos mediante la clave. Puede realizar estos pasos con la CLI de Azure o en el portal.
+Gire una clave administrada por el cliente que se use para el cifrado del registro según las directivas de cumplimiento. Cree una nueva clave, o actualice la versión de una clave, y actualice el registro para cifrar los datos mediante la clave. Puede realizar estos pasos con la CLI de Azure o en el portal.
 
 Al girar una clave, normalmente se especifica la misma identidad usada al crear el registro. Opcionalmente, configure una nueva identidad asignada por el usuario para el acceso a la clave o habilite y especifique la identidad asignada por el sistema del registro.
 
@@ -439,9 +443,15 @@ az keyvault delete-policy \
 
 Al revocar la clave realmente, se bloquea el acceso a todos los datos del registro, ya que este no puede acceder a la clave de cifrado. Si se habilita el acceso a la clave o se restaura la clave eliminada, el registro toma la clave para que se pueda acceder de nuevo a los datos cifrados del registro.
 
-## <a name="advanced-scenarios"></a>Escenarios avanzados
+## <a name="advanced-scenario-key-vault-firewall"></a>Escenario avanzado: Firewall de Key Vault
 
-### <a name="system-assigned-identity"></a>Identidad asignada por el sistema
+Si la instancia de Azure Key Vault se implementa en una red virtual con un firewall de Key Vault, siga estos pasos adicionales después de habilitar el cifrado de claves administradas por el cliente en el registro.
+
+1. Configurar el cifrado del registro para usar la identidad asignada por el sistema del registro
+1. Habilitar el registro para omitir el firewall de Key Vault
+1. Rotar la clave administrada por el cliente
+
+### <a name="configure-system-assigned-identity"></a>Configuración de la identidad asignada por el sistema
 
 Puede configurar una identidad administrada asignada por el sistema del registro para acceder al almacén de claves de cifrado. Si no está familiarizado con las diferentes identidades administradas de los recursos de Azure, vea la [Introducción](../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -466,14 +476,18 @@ Para actualizar la configuración de cifrado del registro a fin de usar la ident
 1. En **Configuración**, seleccione **Cifrado** > **Cambiar clave**.
 1. En **Identidad**, seleccione **Asignado por el sistema** y luego **Guardar**.
 
-### <a name="key-vault-firewall"></a>Firewall de Key Vault
+### <a name="enable-key-vault-bypass"></a>Habilitación de la omisión del almacén de claves
 
-Si el almacén de claves de Azure está implementado en una red virtual con un firewall de Key Vault, realice los pasos siguientes:
+Para acceder a un almacén de claves configurado con un firewall de Key Vault, el registro debe omitir el firewall. Configure el almacén de claves para permitir el acceso de cualquier [servicio de confianza](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). Azure Container Registry es uno de los servicios de confianza.
 
-1. Configure el cifrado del registro para usar la identidad asignada por el sistema del registro. Vea la sección anterior.
-2. Configure el almacén de claves para permitir el acceso de cualquier [servicio de confianza](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services).
+1. En el portal, vaya al almacén de claves.
+1. Seleccione **Configuración** > **Redes**.
+1. Confirme, actualice o agregue la configuración de la red virtual. Para conocer los pasos detallados, vea [Configuración de firewalls y redes virtuales de Azure Key Vault](../key-vault/general/network-security.md).
+1. En **¿Quiere permitir que los servicios de confianza de Microsoft puedan omitir este firewall?** , seleccione **Sí**. 
 
-Para conocer los pasos detallados, vea [Configuración de firewalls y redes virtuales de Azure Key Vault](../key-vault/general/network-security.md).
+### <a name="rotate-the-customer-managed-key"></a>Rotar la clave administrada por el cliente
+
+Después de completar los pasos anteriores, gire la clave a una nueva en el almacén de claves detrás de un firewall. Para conocer los pasos, consulte [Rotación de clave](#rotate-key) en este artículo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

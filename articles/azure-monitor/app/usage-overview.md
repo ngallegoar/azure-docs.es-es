@@ -3,12 +3,12 @@ title: Análisis de uso con Azure Application Insights | Microsoft Docs
 description: Entienda a los usuarios y lo qué hacen con la aplicación.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 4ace90b0893eed24227cadcb9a5b9fae7d502ff8
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 4f4954451bfa195b07c580ffa451b8cb333eb32c
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800218"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532110"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Análisis de uso con Application Insights
 
@@ -54,7 +54,7 @@ Descubra cuándo los usuarios utilizan la aplicación, en qué páginas que est�
 
 Los informes Usuarios y sesiones filtran los datos por páginas o eventos personalizados, y los segmentan por propiedades tales como la ubicación, el entorno y la página. También puede agregar sus propios filtros.
 
-![Usuarios](./media/usage-overview/users.png)  
+![Captura de pantalla que muestra la página de información general de usuarios de una empresa ficticia.](./media/usage-overview/users.png)  
 
 La información de la derecha señala patrones de interés en el conjunto de datos.  
 
@@ -71,7 +71,7 @@ Retención lo ayudará a comprender la frecuencia con la que los usuarios vuelve
 - Formular hipótesis basadas en datos de usuarios reales 
 - Determinar si la retención es un problema del producto 
 
-![Retención](./media/usage-overview/retention.png) 
+![Captura de pantalla que muestra la página de información general de retención, que presenta información sobre la frecuencia con la que los usuarios vuelven a usar su aplicación.](./media/usage-overview/retention.png) 
 
 Los controles de retención de la parte superior permiten definir eventos específicos y el intervalo de tiempo para calcular la retención. El gráfico situado en la parte central proporciona una representación visual del porcentaje total de retención por el intervalo de tiempo especificado. El gráfico de la parte inferior representa la retención individual en un periodo determinado. Este nivel de detalle permite entender lo que hacen los usuarios y qué podría afectar al regreso de los usuarios con una granularidad más detallada.  
 
@@ -110,7 +110,7 @@ Obtenga más información sobre los [eventos personalizados](./api-custom-events
 ### <a name="slice-and-dice-events"></a>Eventos de segmentación y desglose
 
 En las herramientas Usuarios, Sesiones y Eventos, puede segmentar y desglosar los eventos personalizados por usuario, nombre del evento y propiedades.
-![Usuarios](./media/usage-overview/users.png)  
+![Captura de pantalla que muestra la página de información general de usuarios de una empresa ficticia.](./media/usage-overview/users.png)  
   
 ## <a name="design-the-telemetry-with-the-app"></a>Diseño de la telemetría con la aplicación
 

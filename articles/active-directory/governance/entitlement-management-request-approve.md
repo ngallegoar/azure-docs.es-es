@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4703a7d1928415d78eae63c42051542b035d3b1a
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: ca42ddbc648f7c342b1cd649c19b77df803257d8
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798365"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979814"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Aprobación o denegación de solicitudes de acceso en la administración de derechos de Azure AD
 
@@ -48,6 +48,22 @@ Si no tiene el correo electrónico, puede encontrar las solicitudes de acceso pe
 1. En el menú izquierdo, haga clic en **Aprobaciones** para ver una lista de las solicitudes de acceso pendientes de aprobación.
 
 1. En la pestaña **Pendientes**, busque la solicitud.
+
+## <a name="view-requestors-answers-to-questions-preview"></a>Visualización de las respuestas del solicitante a las preguntas (versión preliminar)
+
+1. Vaya a la pestaña **Aprobaciones** en Mi acceso.
+
+1. Vaya a la solicitud que le gustaría aprobar y haga clic en **Detalles**. También puede hacer clic en **Aprobar** o **Denegar** si está listo para tomar una decisión.
+
+1. Haga clic en **Detalles de la solicitud**.
+
+     ![Portal Mi acceso: solicitud de acceso, hacer clic en Detalles de la solicitud](./media/entitlement-management-request-approve/requestor-information-request-details.png)
+
+1. La información proporcionada por el solicitante estará en la parte inferior del panel.
+
+     ![Portal Mi acceso: solicitud de acceso](./media/entitlement-management-request-approve/requestor-information-requestor-answers.png)
+
+1. En función de la información proporcionada por el solicitante, puede aprobar o denegar la solicitud. Consulte los pasos de aprobación o denegación de una solicitud para obtener instrucciones.
 
 ## <a name="approve-or-deny-request"></a>Aprobar o denegar una solicitud
 

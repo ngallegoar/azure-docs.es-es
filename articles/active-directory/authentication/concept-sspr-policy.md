@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: b0684735b32e03abe525b19dce6d9d887afe513b
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 4b729e975ddc9c184c1b0f39a6d3be548211cdfc
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194062"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052722"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Restricciones de cuenta y directivas de contraseñas en Azure Active Directory
 
@@ -43,7 +43,7 @@ En la siguiente tabla, se describen las directivas de nombre de usuario que se a
 
 Una directiva de contraseñas se aplica a todas las cuentas de usuario que se crean y administran directamente en Azure AD. Esta directiva de contraseña no se puede modificar, aunque puede [configurar contraseñas prohibidas personalizadas para la protección de contraseñas de Azure AD](tutorial-configure-custom-password-protection.md).
 
-La directiva de contraseñas no se aplica a las cuentas de usuario que se sincronizan desde un entorno de AD DS local mediante Azure AD Connect.
+La directiva de contraseñas no se aplica a las cuentas de usuario que se sincronizan desde un entorno de AD DS local mediante Azure AD Connect a menos que habilite EnforceCloudPasswordPolicyForPasswordSyncedUsers.
 
 Se definen las siguientes opciones de directiva de contraseñas:
 
@@ -108,7 +108,7 @@ Un *administrador global* o un *administrador de usuarios* puede usar el módulo
 
 También puede usar cmdlets de PowerShell para quitar la configuración de no expirar nunca o ver qué contraseñas de usuario están configuradas para que no expiren nunca.
 
-Esta guía se aplica a otros proveedores (como Intune y Office 365) que también dependen de Azure AD para los servicios de identidad y directorio. La expiración de contraseñas es la única parte de la directiva que se puede cambiar.
+Esta guía se aplica a otros proveedores (como Intune y Microsoft 365) que también dependen de Azure AD para los servicios de identidad y directorio. La expiración de contraseñas es la única parte de la directiva que se puede cambiar.
 
 > [!NOTE]
 > Solo las contraseñas de cuentas de usuario que no se sincronizan a través de Azure AD Connect pueden configurarse para que no expiren. Para obtener más información sobre la sincronización de directorios, vea el artículo sobre cómo [conectar AD con Azure AD](../hybrid/whatis-hybrid-identity.md).

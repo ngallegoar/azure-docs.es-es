@@ -9,17 +9,18 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: c432b89574949b31612aeba862ece7687c12dde4
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a1b317b651b0e17c07eb17dbdb8a7c6657d39564
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922844"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971619"
 ---
 # <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Configuración del almacenamiento en caché para el enriquecimiento en Azure Cognitive Search
 
 > [!IMPORTANT] 
-> El enriquecimiento incremental se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Las [versiones de API REST 2019-05-06-Preview y 2020-06-30-Preview](search-api-preview.md) proporcionan esta característica. Por el momento, no hay compatibilidad con el portal ni con .NET SDK.
+> El enriquecimiento incremental se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> [Las versiones preliminares de la API REST](search-api-preview.md) proporcionan esta característica. Por el momento, no hay compatibilidad con el portal ni con .NET SDK.
 
 En este artículo se muestra cómo agregar almacenamiento en caché a una canalización de enriquecimiento para que pueda modificar incrementalmente los pasos sin tener que volver a compilar cada vez. De forma predeterminada, un conjunto de aptitudes no tiene estado y el cambio de cualquier parte de su composición requiere una nueva ejecución completa del indexador. Con el enriquecimiento incremental, el indexador puede determinar qué partes del árbol del documento deben actualizarse en función de los cambios detectados en las definiciones del conjunto de aptitudes o el indexador. La salida procesada existente se conserva y se reutiliza siempre que sea posible. 
 

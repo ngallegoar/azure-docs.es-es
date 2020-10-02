@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c7212157bb7ef541ac1eb1753f46ea6ad434c2ca
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cd255896d57d6bda60ec8874430fa994eae69f40
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013374"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613637"
 ---
 # <a name="server-side-performance-queries"></a>Consultas de rendimiento del lado del servidor
 
@@ -172,6 +172,11 @@ El código anterior rellena la etiqueta de texto con el texto siguiente:
 La API `GetStatsString` da formato a una cadena de todos los valores, pero cada valor único también se puede consultar mediante programación desde la instancia de `ARRServiceStats`.
 
 También hay variantes de los miembros, que agregan los valores a lo largo del tiempo. Vea los miembros con sufijo `*Avg`, `*Max` o `*Total`. El miembro `FramesUsedForAverage` indica el número de fotogramas que se han utilizado para esta agregación.
+
+## <a name="api-documentation"></a>Documentación de la API
+
+* [RemoteManager.QueryServerPerformanceAssessmentAsync() de C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.queryserverperformanceassessmentasync)
+* [RemoteManager::QueryServerPerformanceAssessmentAsync() de C++](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#queryserverperformanceassessmentasync)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,25 +1,22 @@
 ---
-title: Configuración de una conexión a una cuenta de Cosmos DB mediante una identidad administrada (versión preliminar)
+title: Configuración de una conexión a una cuenta de Cosmos DB mediante una identidad administrada
 titleSuffix: Azure Cognitive Search
-description: Aprenda a configurar una conexión de indexador a una cuenta de Cosmos DB mediante una identidad administrada (versión preliminar)
+description: Aprenda a configurar una conexión de indexador a una cuenta de Cosmos DB mediante una identidad administrada.
 manager: luisca
 author: markheff
 ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: df37b7f1c5b1ed35b6c3779eea470b2fb0936ecf
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/22/2020
+ms.openlocfilehash: b295c4f8380d59d8824049e8050605cb66fbae65
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936663"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971657"
 ---
-# <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity-preview"></a>Configuración de una conexión de indexador a una base de datos de Cosmos DB mediante una identidad administrada (versión preliminar)
-
-> [!IMPORTANT] 
-> La compatibilidad con la configuración de una conexión en un origen de datos mediante una identidad administrada se encuentra actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción.
+# <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity"></a>Configuración de una conexión de indexador a una base de datos de Cosmos DB mediante una identidad administrada
 
 En esta página se describe cómo configurar una conexión de indexador a una base de datos de Azure Cosmos DB mediante una identidad administrada en lugar de proporcionar credenciales en la cadena de conexión del objeto de origen de datos.
 
@@ -57,7 +54,7 @@ En este paso, concederá permiso a su servicio de Azure Cognitive Search para le
 
 ### <a name="3---create-the-data-source"></a>3 - Crear el origen de datos
 
-La [API REST](/rest/api/searchservice/create-data-source), Azure Portal y el [SDK de .NET](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) admiten la cadena de conexión de identidad administrada. A continuación se muestra un ejemplo de cómo crear un origen de datos para indexar los datos de Cosmos DB mediante la [API REST](/rest/api/searchservice/create-data-source) y una cadena de conexión de identidad administrada. El formato de la cadena de conexión de identidad administrada es el mismo para la API REST, el SDK de .NET y Azure Portal.
+La [API REST](/rest/api/searchservice/create-data-source), Azure Portal y el [SDK de .NET](/dotnet/api/microsoft.azure.search.models.datasource) admiten la cadena de conexión de identidad administrada. A continuación se muestra un ejemplo de cómo crear un origen de datos para indexar los datos de Cosmos DB mediante la [API REST](/rest/api/searchservice/create-data-source) y una cadena de conexión de identidad administrada. El formato de la cadena de conexión de identidad administrada es el mismo para la API REST, el SDK de .NET y Azure Portal.
 
 Si se utilizan identidades administradas para autenticarse, las **credenciales** no incluirán una clave de cuenta.
 

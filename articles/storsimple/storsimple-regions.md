@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: a2f04d6faa7770eef7768437ae0e624b76713f98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5efb87ad674474b2e21b86b5cdc48785753a51dc
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76275110"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564158"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Regiones disponibles para StorSimple
 
@@ -39,7 +39,7 @@ Una región o ubicación se define cuando se crea por primera vez el servicio Ad
 
 Aquí tiene una lista de las regiones donde el servicio Administrador de dispositivos de StorSimple está disponible para la nube pública de Azure y se puede implementar.
 
-![storsimple-device-manager-service-regions](./media/storsimple-region/storsimple-device-manager-service-regions.png)
+![La captura de pantalla muestra el Administrador de dispositivos de StorSimple con la lista de ubicaciones resaltada.](./media/storsimple-region/storsimple-device-manager-service-regions.png)
 
 Para la nube de Azure Government, el servicio Administrador de dispositivos de StorSimple está disponible en los centros de datos US Gov Iowa y US Gov Virginia
 

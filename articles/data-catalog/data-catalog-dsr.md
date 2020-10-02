@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: ec716924d3cebf8e78b0505b95837b91c568813a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ead1a324d342f818551ac05ac385ba4fa5b8b877
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78898143"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439091"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Orígenes de datos compatibles en Azure Data Catalog
 
@@ -143,7 +143,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
       <td></td>
     </tr>
     <tr>
-      <td>Tabla de Azure SQL Data Warehouse</td>
+      <td>Tabla de Azure Synapse Analytics</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -151,7 +151,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
       <td></td>
     </tr>
     <tr>
-      <td>Vista de Azure SQL Data Warehouse</td>
+      <td>Vista de Azure Synapse Analytics</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -932,7 +932,7 @@ Si desea que un origen de datos concreto sea compatible, sugiéralo (o indique q
       </td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse</td>
+      <td>Azure Synapse Analytics </td>
       <td>Command</td>
       <td>Stored procedure</td>
       <td>
@@ -948,7 +948,7 @@ Si desea que un origen de datos concreto sea compatible, sugiéralo (o indique q
       </td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse</td>
+      <td>Azure Synapse Analytics </td>
       <td>TableValuedFunction</td>
       <td>Table-valued function</td>
       <td>
@@ -964,7 +964,7 @@ Si desea que un origen de datos concreto sea compatible, sugiéralo (o indique q
       </td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse</td>
+      <td>Azure Synapse Analytics </td>
       <td>Container</td>
       <td>Database</td>
       <td>
@@ -978,7 +978,7 @@ Si desea que un origen de datos concreto sea compatible, sugiéralo (o indique q
       </td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse</td>
+      <td>Azure Synapse Analytics </td>
       <td>Table</td>
       <td>Table, view</td>
       <td>

@@ -4,14 +4,14 @@ description: Problemas comunes con las alertas de métricas de Azure Monitor y p
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 08/13/2020
+ms.date: 09/14/2020
 ms.subservice: alerts
-ms.openlocfilehash: 1c1fe613721ea2bc2d4b9665d6da73b094487efc
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: b0e39982b3d62e0ef722a139024b499efc254f5f
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190666"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068769"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solución de problemas en las alertas de métricas de Azure Monitor 
 
@@ -234,7 +234,7 @@ Tenga en cuenta las siguientes restricciones para los nombres de las reglas de a
 - Los nombres de las reglas de alertas de métricas no se pueden cambiar (cambiar su nombre) una vez creadas
 - Los nombres de las reglas de alertas de métricas deben ser únicos dentro de un grupo de recursos
 - Los nombres de las reglas de alertas de métricas no pueden contener los siguientes caracteres: * # & +: < > ? @ % { } \ / 
-- Los nombres de las reglas de alertas de métricas no pueden acabar con el siguiente carácter: .
+- Los nombres de las reglas de alertas de métricas no pueden terminar con un espacio o un punto.
 
 
 ## <a name="restrictions-when-using-dimensions-in-a-metric-alert-rule-with-multiple-conditions"></a>Restricciones al usar dimensiones en una regla de alertas de métricas con varias condiciones

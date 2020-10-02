@@ -1,27 +1,29 @@
 ---
-title: Restauración a un momento dado para blobs en bloques (versión preliminar)
+title: Restauración a un momento dado para blobs en bloques
 titleSuffix: Azure Storage
 description: La restauración a un momento dado para blobs en bloques proporciona protección contra eliminaciones accidentales o daños, ya que le permite restaurar una cuenta de almacenamiento a su estado anterior en un momento dado en el tiempo.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 09/18/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 1187b01fa623264055edecf21ea5c9d35d59a152
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 7fbebf21b79d2a533de0a872dfe6a10bc8f8e7e5
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068309"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987039"
 ---
-# <a name="point-in-time-restore-for-block-blobs-preview"></a>Restauración a un momento dado para blobs en bloques (versión preliminar)
+# <a name="point-in-time-restore-for-block-blobs"></a>Restauración a un momento dado para blobs en bloques
 
 La restauración a un momento dado proporciona protección contra eliminaciones accidentales o daños, ya que le permite restaurar los datos de blobs en bloques a un estado anterior. Asimismo, la restauración a un momento dado resulta útil en escenarios en los que un usuario o una aplicación eliminan datos accidentalmente o donde un error de la aplicación daña los datos. La restauración a un momento dado también permite habilitar escenarios de prueba que requieran revertir un conjunto de datos a un estado conocido antes de ejecutar otras pruebas.
 
-Para obtener información sobre cómo habilitar la restauración a un momento dado para una cuenta de almacenamiento, consulte [Habilitación y administración de la restauración a un momento dado para blobs en bloques (versión preliminar)](point-in-time-restore-manage.md).
+La restauración a un momento dado solo se admite en las cuentas de almacenamiento (V2) de uso general. Solo se pueden restaurar los datos de los niveles de almacenamiento de acceso frecuente y esporádico con la restauración a un momento dado.
+
+Para aprender a habilitar la restauración a un momento dado para una cuenta de almacenamiento, consulte el artículo sobre la [realización de una restauración a un momento dado en los datos de un blob en bloques](point-in-time-restore-manage.md).
 
 ## <a name="how-point-in-time-restore-works"></a>Cómo funciona la restauración a un momento dado
 
@@ -48,17 +50,15 @@ Tenga en cuenta las siguientes limitaciones en las operaciones de restauración:
 > Asimismo, las operaciones de lectura de la ubicación secundaria pueden continuar durante la operación de restauración si la cuenta de almacenamiento tiene replicación geográfica.
 
 > [!CAUTION]
-> La restauración a un momento dado solo admite la restauración de operaciones en blobs en bloques. No se pueden restaurar las operaciones en contenedores. Si elimina un contenedor de la cuenta de almacenamiento mediante una llamada a la operación [Delete Container](/rest/api/storageservices/delete-container) durante la vista previa de la restauración a un momento dado, ese contenedor no se puede restaurar con una operación de restauración. Durante la versión preliminar, en lugar de eliminar un contenedor, elimine los blobs individuales si quiere restaurarlos.
+> La restauración a un momento dado solo admite la restauración de operaciones en blobs en bloques. No se pueden restaurar las operaciones en contenedores. Si elimina un contenedor de la cuenta de almacenamiento llamando a la operación [Eliminar contenedor](/rest/api/storageservices/delete-container), dicho contenedor no se puede restaurar con una operación de restauración. En lugar de eliminar un contenedor, elimine blobs individuales, por si desea restaurarlos.
 
 ### <a name="prerequisites-for-point-in-time-restore"></a>Requisitos previos para la restauración a un momento dado
 
-La restauración a un momento dado requiere que estén habilitadas las siguientes características de Azure Storage:
+La restauración a un momento dado requiere que las siguientes características de Azure Storage se habiliten antes de poder habilitar la restauración a un momento dado:
 
 - [Eliminación temporal](soft-delete-overview.md)
-- [Fuente de cambios (versión preliminar)](storage-blob-change-feed.md)
-- [Control de versiones de blobs y eliminación temporal](versioning-overview.md)
-
-Habilite estas características para la cuenta de almacenamiento antes de habilitar la restauración a un momento dado. Asegúrese de registrarse en la fuente de cambios y las versiones preliminares de los blob antes de habilitarlas.
+- [Fuente de cambios](storage-blob-change-feed.md)
+- [Control de versiones de blobs](versioning-overview.md)
 
 ### <a name="retention-period-for-point-in-time-restore"></a>Período de retención para la restauración a un momento dado
 
@@ -72,83 +72,17 @@ El período de retención de la restauración a un momento dado debe ser al meno
 
 Para iniciar una operación de restauración, un cliente debe tener permisos de escritura en todos los contenedores de la cuenta de almacenamiento. Para conceder permisos para autorizar una operación de restauración con Azure Active Directory (Azure AD), asigne el rol de **Colaborador de la cuenta de almacenamiento** a la entidad de seguridad en el nivel de la cuenta de almacenamiento, el grupo de recursos o la suscripción.
 
-## <a name="about-the-preview"></a>Acerca de la versión preliminar
+## <a name="limitations-and-known-issues"></a>Limitaciones y problemas conocidos
 
-La restauración a un momento dado solo se admite en las cuentas de almacenamiento (V2) de uso general. Solo se pueden restaurar los datos de los niveles de almacenamiento de acceso frecuente y esporádico con la restauración a un momento dado.
+La restauración a un momento dado para los blobs en bloques tiene las siguientes limitaciones y problemas conocidos:
 
-Las siguientes regiones admiten la restauración a un momento dado en la versión preliminar:
-
-- Centro de Canadá
-- Este de Canadá
-- Centro de Francia
-
-La versión preliminar tiene las limitaciones siguientes:
-
-- No se admite la restauración de blobs en bloques premium.
-- No se admite la restauración de blobs en el nivel de archivo. Por ejemplo, si un blob en el nivel de acceso frecuente se movió al nivel de archivo hace dos días y se realiza una operación de restauración a un momento de hace tres días, el blob no se restaura en el nivel de acceso frecuente.
+- Solo los blobs en bloques de una cuenta de almacenamiento estándar de uso general v2 pueden restaurarse como parte de una operación de restauración a un momento dado. Los blobs en anexos, blobs en páginas y blobs en bloques Premium no se restauran. Si ha eliminado un contenedor durante el período de retención, dicho contenedor no se restaurará con la operación de restauración a un momento dado. Para aprender a proteger los contenedores contra la eliminación, consulte [Eliminación temporal de contenedores (versión preliminar)](soft-delete-container-overview.md).
+- Los blobs en bloques de los niveles de acceso frecuente o esporádico se pueden restaurar en una operación de restauración a un momento dado. No se admite la restauración de blobs en blob en bloques en el nivel de archivo. Por ejemplo, si un blob en el nivel de acceso frecuente se movió al nivel de archivo hace dos días y se realiza una operación de restauración a un momento de hace tres días, el blob no se restaura en el nivel de acceso frecuente. Para restaurar un blob archivado, sáquelo antes del nivel de archivo.
+- Si un blob en bloques del intervalo que se va a restaurar tiene una concesión activa, se producirá un error en la operación de restauración a un momento dado. Interrumpa las concesiones activas antes de iniciar la operación de restauración.
 - No se admite la restauración de los espacios de nombres planos y jerárquicos de Azure Data Lake Storage Gen2.
-- No se admite la restauración de cuentas de almacenamiento mediante claves proporcionadas por el cliente.
 
 > [!IMPORTANT]
-> La versión preliminar de la restauración a un momento dado está pensada para usos que no tengan que ver con la producción. En este momento no hay contratos de nivel de servicio de producción disponibles.
-
-### <a name="register-for-the-preview"></a>Registro para obtener la versión preliminar
-
-Para registrarse y obtener la versión preliminar, ejecute estos comandos:
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-```powershell
-# Register for the point-in-time restore preview
-Register-AzProviderFeature -FeatureName RestoreBlobRanges -ProviderNamespace Microsoft.Storage
-
-# Register for change feed (preview)
-Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
-
-# Register for Blob versioning
-Register-AzProviderFeature -FeatureName Versioning -ProviderNamespace Microsoft.Storage
-
-# Refresh the Azure Storage provider namespace
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name RestoreBlobRanges
-az feature register --namespace Microsoft.Storage --name Changefeed
-az feature register --namespace Microsoft.Storage --name Versioning
-az provider register --namespace 'Microsoft.Storage'
-```
-
----
-
-### <a name="check-registration-status"></a>Comprobación del estado de registro
-
-El registro de la restauración a un momento dado es automático y debe tardar menos de 10 minutos. Ejecute los siguientes comandos para comprobar el estado del registro:
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName RestoreBlobRanges
-
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Changefeed
-
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
-```
-
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
-
-```azurecli
-az feature list -o table --query "[?contains(name, 'Microsoft.Storage/RestoreBlobRanges')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Changefeed')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Versioning')].{Name:name,State:properties.state}"
-```
-
----
+> Si restaura blobs en bloques a una fecha anterior al 22 de septiembre de 2020, surtirán efecto las limitaciones en versión preliminar de la restauración a un momento dado. Microsoft recomienda elegir como punto de restauración el 22 de septiembre de 2020, o cualquier fecha posterior, con el fin de aprovechar las ventajas de la característica de restauración a un momento dado disponible con carácter general.
 
 ## <a name="pricing-and-billing"></a>Precios y facturación
 
@@ -157,10 +91,6 @@ La facturación de la restauración a un momento dado depende de la cantidad de 
 Para calcular el costo de una operación de restauración, revise el registro de la fuente de cambios para calcular la cantidad de datos que se modificaron durante el período de restauración. Por ejemplo, si el período de retención de la fuente de cambios es de 30 días y el tamaño de la fuente de cambios es de 10 MB, la restauración a un punto anterior de 10 días costaría aproximadamente un tercio del precio de una cuenta de LRS en esa región. La restauración a un punto que sea de 27 días costaría aproximadamente nueve décimos del precio de la lista.
 
 Para obtener más información sobre los precios de las restauraciones a un momento dado, consulte [Precios de los blobs en bloques](https://azure.microsoft.com/pricing/details/storage/blobs/).
-
-## <a name="ask-questions-or-provide-feedback"></a>Formule preguntas o envíe comentarios
-
-Para formular preguntas sobre la versión preliminar de la restauración a un momento dado o para escribir comentarios, póngase en contacto con Microsoft en pitrdiscussion@microsoft.com.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

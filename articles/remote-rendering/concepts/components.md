@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d957da572bfdd3119dda506ac8f5bb42064d7758
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a488e2499b92b290ad2b55120c3c70a18d45d426
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020310"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613939"
 ---
 # <a name="components"></a>Componentes
 
@@ -53,7 +53,6 @@ lightComponent->Destroy();
 lightComponent = nullptr;
 ```
 
-
 Un componente se asocia a una entidad en el momento de su creación. Después, no se puede pasar a otra entidad. Los componentes se eliminan explícitamente con `Component.Destroy()` o de forma automática cuando se destruye la entidad propietaria del componente.
 
 Solo se puede agregar una instancia de cada tipo de componente a una entidad a la vez.
@@ -61,6 +60,15 @@ Solo se puede agregar una instancia de cada tipo de componente a una entidad a l
 ## <a name="unity-specific"></a>Específicos de Unity
 
 La integración de Unity tiene funciones de extensión adicionales para interactuar con los componentes. Consulte [Componentes y objetos de juegos de Unity](../how-tos/unity/objects-components.md).
+
+## <a name="api-documentation"></a>Documentación de la API
+
+* [ComponentBase de C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.componentbase)
+* [RemoteManager.CreateComponent() de C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.createcomponent)
+* [Entity.FindComponentOfType() de C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.entity.findcomponentoftype)
+* [ComponentBase C++](https://docs.microsoft.com/cpp/api/remote-rendering/componentbase)
+* [RemoteManager::CreateComponent() de C++](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#createcomponent)
+* [Entity::FindComponentOfType() de C++](https://docs.microsoft.com/cpp/api/remote-rendering/entity#findcomponentoftype)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

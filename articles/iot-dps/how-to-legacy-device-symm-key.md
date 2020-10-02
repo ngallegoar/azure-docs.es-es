@@ -1,25 +1,27 @@
 ---
-title: Aprovisionamiento de dispositivos antiguos con claves simétricas en Azure IoT Hub Device Provisioning Service
-description: Uso de claves simétricas para aprovisionar dispositivos antiguos con su instancia de Device Provisioning Service (DPS)
+title: Aprovisionamiento de dispositivos con claves simétricas en Azure IoT Hub Device Provisioning Service
+description: Uso de claves simétricas para aprovisionar dispositivos con su instancia de Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 07/13/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
-ms.openlocfilehash: 4d1a92f3ebf32d2270eb77ec9c79fe860ba090e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+manager: eliotga
+ms.openlocfilehash: f67ed44fffe6bd690d6bd76fcefa19d9ee23e52b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75434708"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90529407"
 ---
-# <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Aprovisionamiento de dispositivos antiguos mediante claves simétricas
+# <a name="how-to-provision-devices-using-symmetric-key-enrollment-groups"></a>Aprovisionamiento de dispositivos mediante grupos de inscripción de clave simétrica
 
-Un problema habitual con muchos dispositivos antiguos es que a menudo tienen una identidad que está compuesta de un solo fragmento de información. Esta información de identidad suele ser una dirección MAC o un número de serie. Puede que los dispositivos antiguos no tengan un certificado, un módulo de plataforma segura o cualquier otra característica de seguridad que se pueda usar para identificar de forma segura al dispositivo. Device Provisioning Service de IoT Hub incluye la atestación de clave simétrica. La atestación de clave simétrica se puede usar para identificar un dispositivo basándose en información como la dirección MAC o un número de serie.
+En este artículo se muestra cómo aprovisionar de forma segura varios dispositivos de claves simétricas para una única instancia de IoT Hub mediante un grupo de inscripción.
 
-Si puede instalar fácilmente un [módulo de seguridad de hardware (HSM)](concepts-security.md#hardware-security-module) y un certificado, ese puede ser un mejor enfoque para identificar y aprovisionar los dispositivos. Esto se debe a que este enfoque le permite omitir la actualización del código implementado en todos los dispositivos y no tendría ninguna clave secreta insertada en la imagen del dispositivo.
+Puede que algunos dispositivos no tengan un certificado, un módulo de plataforma segura o cualquier otra característica de seguridad que se pueda usar para identificar de forma segura al dispositivo. Device Provisioning Service incluye la [atestación de clave simétrica](concepts-symmetric-key-attestation.md). La atestación de clave simétrica se puede usar para identificar un dispositivo basándose en información única, como la dirección MAC o un número de serie.
+
+Si puede instalar fácilmente un [módulo de seguridad de hardware (HSM)](concepts-service.md#hardware-security-module) y un certificado, ese puede ser un mejor enfoque para identificar y aprovisionar los dispositivos. Esto se debe a que este enfoque le permite omitir la actualización del código implementado en todos los dispositivos y no tendría ninguna clave secreta insertada en la imagen del dispositivo.
 
 En este artículo se da por supuesto que ni un HSM ni un certificado son viables. No obstante, se supone que tiene algún método para actualizar el código del dispositivo para que use Device Provisioning Service para aprovisionar estos dispositivos. 
 
@@ -36,18 +38,18 @@ Se definirá un identificador de registro único para cada dispositivo basándos
 
 Un grupo de inscripción que usa [atestación de clave simétrica](concepts-symmetric-key-attestation.md) se creará con Device Provisioning Service. El grupo de inscripción incluirá una clave maestra de grupo. Esa clave maestra se utilizará para obtener un hash de cada identificador de registro único para generar una clave de dispositivo única para cada dispositivo. El dispositivo usará esa clave de dispositivo derivada con su identificador de registro único para realizar la atestación con Device Provisioning Service y su asignación a una instancia de IoT Hub.
 
-El código de dispositivo que se muestra en este artículo seguirá el mismo patrón que el de [Inicio rápido: Aprovisionamiento de un dispositivo simulado con claves simétricas](quick-create-simulated-device-symm-key.md). El código simulará un dispositivo mediante un ejemplo del [SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c). El dispositivo simulado realizará la atestación con un grupo de inscripciones en lugar de con una inscripción individual como se mostró en la guía de inicio rápido.
+El código de dispositivo que se muestra en este artículo seguirá el mismo patrón que el de [Guía de inicio rápido: Aprovisionamiento de un dispositivo simulado con claves simétricas](quick-create-simulated-device-symm-key.md). El código simulará un dispositivo mediante un ejemplo del [SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c). El dispositivo simulado realizará la atestación con un grupo de inscripciones en lugar de con una inscripción individual como se mostró en la guía de inicio rápido.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Finalización de la guía de inicio rápido [Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal](./quick-setup-auto-provision.md).
 
 Los siguientes requisitos previos corresponden a un entorno de desarrollo de Windows. En el caso de Linux o macOS, consulte la sección correspondiente en [Preparación del entorno de desarrollo](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) en la documentación del SDK.
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 con la carga de trabajo ["Desarrollo para el escritorio con C++"](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) habilitada. También se admiten Visual Studio 2015 y Visual Studio 2017.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 con la carga de trabajo ["Desarrollo para el escritorio con C++"](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) habilitada. También se admiten Visual Studio 2015 y Visual Studio 2017.
 
 * Tener instalada la versión más reciente de [Git](https://git-scm.com/download/).
 
@@ -113,15 +115,15 @@ El SDK incluye el código de ejemplo para el dispositivo simulado. Este disposit
 
 3. En **Agregar grupo de inscripciones**, escriba la siguiente información y haga clic en el botón **Guardar**.
 
-   - **Nombre de grupo**: escriba **mylegacydevices**.
+   - **Nombre del grupo**: escriba **mylegacydevices**.
 
-   - **Tipo de atestación**: seleccione **Clave simétrica**.
+   - **Tipo de atestación**: seleccione **clave simétrica**.
 
-   - **Generar claves automáticamente**: Active esta casilla.
+   - **Generar claves automáticamente**: marque esta casilla.
 
-   - **Seleccione cómo desea asignar los dispositivos a los centros**: Seleccione **Configuración estática** para poder realizar la asignación a un centro concreto.
+   - **Seleccione cómo quiere asignar los dispositivos a los centros**: seleccione **Configuración estática** para que pueda asignarlos a un centro específico.
 
-   - **Seleccione los centros de IoT a los que se puede asignar este grupo**: Seleccione uno de los centros.
+   - **Select the IoT hubs this group can be assigned to** (Seleccione los centros de IoT a los que se puede asignar este grupo): seleccione uno de los centros.
 
      ![Agregar grupo de inscripción para la atestación de clave simétrica](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
 
@@ -147,7 +149,8 @@ Cree un identificador de registro único para el dispositivo. Solo se pueden usa
 
 Para generar la clave del dispositivo, use la clave maestra del grupo para calcular un [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) del identificador de registro único del dispositivo y convierta el resultado en formato Base64.
 
-No incluya la clave maestra del grupo en el código del dispositivo.
+> [!WARNING]
+> El código del dispositivo solo debe incluir la clave de dispositivo derivada para el dispositivo individual. No incluya la clave maestra del grupo en el código del dispositivo. Una clave maestra vulnerada puede poner en peligro la seguridad de todos los dispositivos que se autentican con ella.
 
 
 #### <a name="linux-workstations"></a>Estaciones de trabajo de Linux
@@ -205,7 +208,7 @@ En esta sección, actualizará el ejemplo de aprovisionamiento denominado **prov
 
 El código de ejemplo simula una secuencia de arranque de dispositivo que envía la solicitud de aprovisionamiento a la instancia de Device Provisioning Service. La secuencia de arranque hará que se reconozca y se asigne el dispositivo al centro de IoT que configuró en el grupo de inscripción.
 
-1. En Azure Portal, seleccione la pestaña **Información general** para su servicio Device Provisioning y anote el valor de **_Ámbito de id_** .
+1. En Azure Portal, seleccione la pestaña **Información general** para su servicio Device Provisioning y anote el valor de **_Ámbito de id_**.
 
     ![Extracción de información del punto de conexión del servicio Device Provisioning desde la hoja del portal](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -286,7 +289,7 @@ Tenga en cuenta que esto deja la clave de dispositivo derivada incluida como par
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener más información sobre el reaprovisionamiento, consulte [Conceptos sobre el reaprovisionamiento de dispositivos de IoT Hub](concepts-device-reprovision.md). 
-* [Inicio rápido: Aprovisionamiento de un dispositivo simulado con claves simétricas](quick-create-simulated-device-symm-key.md)
+* [Guía de inicio rápido: Aprovisionamiento de un dispositivo simulado con claves simétricas](quick-create-simulated-device-symm-key.md)
 * Para obtener más información sobre el desaprovisionamiento, consulte [Desaprovisionamiento de dispositivos aprovisionados automáticamente](how-to-unprovision-devices.md). 
 
 

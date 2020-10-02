@@ -13,19 +13,19 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/23/2020
-ms.openlocfilehash: 8408025478e2776423b0d1f10cc70828e408f87e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 891d5907ee8c964ebe7e281f6298205712ce1186
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290100"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441177"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autorización del acceso de base de datos a SQL Database, Instancia administrada de SQL y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 En este artículo, aprenderá lo siguiente:
 
-- Las opciones para configurar Azure SQL Database, Instancia administrada de SQL y Azure Synapse Analytics (antes, Azure SQL Data Warehouse) para permitir a los usuarios realizar tareas administrativas y acceder a los datos almacenados en esas bases de datos.
+- Opciones para configurar Azure SQL Database, Azure SQL Managed Instance y Azure Synapse Analytics (anteriormente, SQL Data Warehouse) a fin de permitir a los usuarios realizar tareas administrativas y acceder a los datos almacenados en esas bases de datos.
 - El acceso y autorización después de crear inicialmente un servidor.
 - Cómo agregar inicios de sesión y cuentas de usuario a la base de datos maestra y a las cuentas de usuario y, tras ello, conceder permisos administrativos a esas cuentas.
 - Cómo agregar cuentas de usuario a las bases de datos de usuario, estén asociadas a inicios de sesión o sean cuentas de usuario independientes.

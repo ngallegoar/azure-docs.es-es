@@ -2,18 +2,18 @@
 title: Acerca de las redes en la recuperación ante desastres de máquinas virtuales de Azure con Azure Site Recovery
 description: Proporciona información general de las redes para la replicación de máquinas virtuales de Azure mediante Azure Site Recovery.
 services: site-recovery
-author: sujayt
+author: Harsha-CS
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
-ms.author: sutalasi
-ms.openlocfilehash: f9e2d82130ae188d269847d0e0236ea0e33d00dc
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.author: harshacs
+ms.openlocfilehash: 0a2763beec9fed9025198ca283f7746286875512
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131382"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527384"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Acerca de las redes para la recuperación ante desastres de máquinas virtuales de Azure
 
@@ -35,7 +35,7 @@ Si usa Azure ExpressRoute o una conexión VPN desde su red local a Azure, el ent
 
 ![Entorno de cliente](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
-Normalmente, los clientes protegen sus redes mediante firewalls y grupos de seguridad de red (NSG). Los firewalls usan la inclusión en lista blanca basada en direcciones URL o IP para controlar la conectividad de red. Los NSG proporcionan reglas que usan intervalos de direcciones IP para controlar la conectividad de red.
+Normalmente, los clientes protegen sus redes mediante firewalls y grupos de seguridad de red (NSG). Las etiquetas de servicio se deben usar para controlar la conectividad de red. Los grupos de seguridad de red deben permitir varias etiquetas de servicio para controlar la conectividad saliente.
 
 >[!IMPORTANT]
 > Site Recovery no admite el uso de un proxy autenticado para controlar la conectividad de red y la replicación no se podrá habilitar.
@@ -45,6 +45,8 @@ Normalmente, los clientes protegen sus redes mediante firewalls y grupos de segu
 
 Si usa un proxy de firewall basado en la dirección URL para controlar la conectividad de salida, admita estas direcciones URL de Site Recovery:
 
+>[!NOTE]
+> La lista blanca basadas en direcciones IP no se debe utilizar para controlar la conectividad saliente.
 
 **URL** | **Detalles**
 --- | ---
@@ -64,9 +66,9 @@ Si utiliza un grupo de seguridad de red para controlar la conectividad de salida
     - Permita estas direcciones para que los datos se puedan escribir en la cuenta de almacenamiento en caché, desde la máquina virtual.
 - Cree una regla de grupos de seguridad de red basada en la [etiqueta de servicio de Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) para permitir el acceso a todas las direcciones IP correspondientes a AAD.
 - Cree una regla de NSG basada en una etiqueta de servicio EventsHub para la región de destino, lo que permite el acceso a la supervisión de Site Recovery.
-- Cree una regla de NSG basada en una etiqueta de servicio AzureSiteRecovery para permitir el acceso al servicio Site Recovery en cualquier región.
-- Cree una regla de NSG basada en una etiqueta de servicio de AzureKeyVault. Esto solo es necesario para habilitar la replicación de máquinas virtuales habilitadas para ADE a través del portal.
-- Cree una regla de NSG basada en una etiqueta de servicio de GuestAndHybridManagement. Esto es necesario solo para habilitar la actualización automática del agente de movilidad para un elemento replicado a través del portal.
+- Cree una regla de grupo de seguridad de red basada en una etiqueta de servicio AzureSiteRecovery para permitir el acceso al servicio Site Recovery en cualquier región.
+- Cree una regla de grupo de seguridad de red basada en una etiqueta de servicio AzureKeyVault. Esto solo es necesario para habilitar la replicación de máquinas virtuales habilitadas para ADE a través del portal.
+- Cree una regla de grupo de seguridad de red basada en una etiqueta de servicio GuestAndHybridManagement. Esto es necesario solo para habilitar la actualización automática del agente de movilidad para un elemento replicado a través del portal.
 - Se recomienda crear las reglas de NSG necesarias en un grupo NSG de NSG de prueba y comprobar que no haya ningún problema antes de crear las reglas en un grupo de NSG de producción.
 
 ## <a name="example-nsg-configuration"></a>Configuración de NSG de ejemplo
@@ -86,7 +88,7 @@ En este ejemplo se muestra cómo configurar reglas de NSG para la replicación d
 
       ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
 
-3. De forma similar a las reglas de seguridad anteriores, cree una regla de seguridad HTTPS (443) de salida para ""EventHub.CentralUS" en el NSG que corresponda a la ubicación de destino. Esto permite el acceso a la supervisión de Site Recovery.
+3. De forma parecida a como ha creado las reglas de seguridad anteriores, cree una regla de seguridad HTTPS (443) de salida para ""EventHub.CentralUS" en el NSG que corresponda a la ubicación de destino. Esto permite el acceso a la supervisión de Site Recovery.
 
 4. Cree una regla de seguridad HTTPS (443) de salida para "AzureSiteRecovery" en el NSG. Esto permite el acceso al servicio Site Recovery en cualquier región.
 
@@ -98,7 +100,7 @@ Estas reglas son necesarias para que la replicación se pueda habilitar de la re
 
 2. Cree una regla de seguridad HTTPS (443) de salida para "AzureActiveDirectory" en el NSG.
 
-3. De forma similar a las reglas de seguridad anteriores, cree una regla de seguridad HTTPS (443) de salida para "EventHub.EastUS" en el NSG que corresponda a la ubicación de origen. Esto permite el acceso a la supervisión de Site Recovery.
+3. De forma parecida a como ha creado las reglas de seguridad anteriores, cree una regla de seguridad HTTPS (443) de salida para "EventHub.EastUS" en el NSG que corresponda a la ubicación de origen. Esto permite el acceso a la supervisión de Site Recovery.
 
 4. Cree una regla de seguridad HTTPS (443) de salida para "AzureSiteRecovery" en el NSG. Esto permite el acceso al servicio Site Recovery en cualquier región.
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/22/2020
 ms.author: duau
-ms.openlocfilehash: e783e80a1883f5aea7a266d3ec670ce2a898e735
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: d51f47b73fe572ce81d3e7b54f902f94fcd11b5b
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89392963"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567680"
 ---
 # <a name="using-azure-expressroute-to-create-hybrid-connectivity-to-support-remote-users"></a>Uso de Azure ExpressRoute para crear una conectividad híbrida para admitir usuarios remotos
 
@@ -31,7 +31,7 @@ En este artículo se describe cómo puede aprovechar ExpressRoute, Azure, la red
 * [Aumento del ancho de banda de un circuito ExpressRoute existente](expressroute-howto-circuit-portal-resource-manager.md#modify)
 * [Supervisión, métricas y alertas de ExpressRoute ](expressroute-monitoring-metrics-alerts.md#expressroute-gateway-connections-in-bitsseconds)
 * [Optimización de rutas con ExpressRoute](expressroute-optimize-routing.md)
-* [Azure ExpressRoute para O365](https://docs.microsoft.com/office365/enterprise/azure-expressroute?redirectSourcePath=%252farticle%252f6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)
+* [Azure ExpressRoute para Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
 * [Consideraciones sobre el enrutamiento asimétrico](expressroute-asymmetric-routing.md)
 * [Abrir una solicitud de soporte técnico en Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 

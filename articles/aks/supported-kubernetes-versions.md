@@ -3,19 +3,19 @@ title: Versiones de Kubernetes compatibles en Azure Kubernetes Service
 description: Obtener información sobre la directiva de soporte técnico de la versión de Kubernetes y el ciclo de vida de los clústeres en Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/08/2020
+ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 45c60069c27a2bb9b34cc53eb394bd44a04bd0ba
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: fb5b9c446ea5574970b14c683fac258c17199fef
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144624"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565384"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS)
 
-La Comunidad de Kubernetes libera versiones secundarias aproximadamente cada tres meses. Estas versiones incluyen nuevas características y mejoras. Versiones de revisión son más frecuentes (a veces semanales) y solo están previstas para correcciones de errores críticos en una versión secundaria. Estas versiones de revisión incluyen correcciones para vulnerabilidades de seguridad o errores importantes.
+La Comunidad de Kubernetes libera versiones secundarias aproximadamente cada tres meses. Recientemente, la comunidad de Kubernetes ha [aumentado el período de soporte técnico para cada versión de 9 meses a 12 meses](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/) a partir de la versión 1.19. Estas versiones incluyen nuevas características y mejoras. Las versiones de revisión son más frecuentes (a veces semanales) y están previstas para correcciones de errores críticos en una versión secundaria. Estas versiones de revisión incluyen correcciones para vulnerabilidades de seguridad o errores importantes.
 
 ## <a name="kubernetes-versions"></a>Versiones de Kubernetes
 
@@ -41,8 +41,8 @@ Los usuarios deben querer ejecutar la última versión de revisión de la versi�
 
 AKS define una versión disponible con carácter general, como una versión habilitada en todas las mediciones de SLO o SLA y cuando está disponible en todas las regiones. AKS es compatible con tres versiones secundarias en disponibilidad general de Kubernetes:
 
-* La versión secundaria más reciente en disponibilidad general publicada en AKS (a la que nos referiremos como N). 
-* Dos versiones secundarias anteriores. 
+* La versión secundaria más reciente en disponibilidad general publicada en AKS (a la que nos referiremos como N).
+* Dos versiones secundarias anteriores.
 * Cada versión secundaria compatible también admite un máximo de dos (2) revisiones estables.
 * AKS también puede admitir versiones preliminares que se etiquetan explícitamente y están sujetas a los [términos y condiciones de la versión preliminar][preview-terms].
 
@@ -143,6 +143,10 @@ Para ver el historial de versiones anteriores, consulte [aquí](https://en.wikip
 \* Confirmación de fecha de versión anterior pendiente.
 
 ## <a name="faq"></a>Preguntas más frecuentes
+
+**¿Con qué frecuencia debo planear actualizar las versiones de Kubernetes para mantenerme con soporte técnico?**
+
+A partir de Kubernetes 1.19, la [comunidad de código abierto ha ampliado el soporte técnico a 1 año](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS se compromete a habilitar las revisiones y admitir la coincidencia de los compromisos ascendentes, como mínimo. Esto significa que, a partir de los clústeres de AKS en la versión 1.19, podrá actualizar al menos una vez al año para permanecer en una versión con soporte técnico. En el caso de las versiones 1.18 o anteriores, el período de soporte técnico permanece en 9 meses, lo que requiere una actualización una vez cada 9 meses para permanecer en una versión con soporte técnico. Se recomienda probar con regularidad las nuevas versiones y estar preparado para actualizarse a versiones más recientes para aprovechar las mejoras estables más recientes dentro de Kubernetes.
 
 **¿Qué ocurre cuando un cliente actualiza un clúster de Kubernetes con una versión secundaria que no es compatible?**
 

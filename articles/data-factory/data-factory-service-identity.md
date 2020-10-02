@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 7c1de2b6ef59efdaaed64fcf687fed0c834683c0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 7134fc5d591fffdfb9aea13767e597dddc92b038
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037603"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434952"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidad administrada de Data Factory
 
@@ -32,7 +32,7 @@ Al crear una factoría de datos, se puede crear también una identidad administr
 La identidad administrada de Data Factory ofrece las características siguientes:
 
 - [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md), en cuyo caso la identidad administrada de Data Factory se usa para la autenticación de Azure Key Vault.
-- Conectores incluidos [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md) y [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md).
+- Incorpora conectores, como [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md), and [Azure Synapse Analytics (anteriormente, SQL Data Warehouse)](connector-azure-sql-data-warehouse.md).
 - [Actividad web](control-flow-web-activity.md).
 
 ## <a name="generate-managed-identity"></a>Generar identidad administrada

@@ -6,15 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/02/2020
+ms.date: 09/08/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 3a45f185a20345dac00bd459789afc9d53bd48f7
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.subservice: blobs
+ms.openlocfilehash: 3a585bc2bf3872a21bde9be036628922ee5743fa
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534318"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087361"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configuración de acceso de lectura público anónimo a contenedores y blobs
 
@@ -52,7 +53,10 @@ No permitir el acceso público para la cuenta de almacenamiento impide el acceso
 
 Para permitir o denegar el acceso público a una cuenta de almacenamiento, configure la propiedad **AllowBlobPublicAccess** de la cuenta. Esta propiedad está disponible para todas las cuentas de almacenamiento que se crean con el modelo de implementación de Azure Resource Manager. Para más información, consulte [Introducción a las cuentas de almacenamiento](../common/storage-account-overview.md).
 
-La propiedad **AllowBlobPublicAccess** no se establece de forma predeterminada y no devuelve un valor hasta que se establece de forma explícita. La cuenta de almacenamiento permite el acceso público cuando el valor de la propiedad es **NULL** o **true**.
+> [!NOTE]
+> La propiedad **AllowBlobPublicAccess** no se establece de forma predeterminada y no devuelve un valor hasta que se establece de forma explícita. La cuenta de almacenamiento permite el acceso público cuando el valor de la propiedad es **NULL** o **true**.
+>
+> Actualmente, la propiedad **AllowBlobPublicAccess** solo está disponible para las cuentas de almacenamiento de la nube pública de Azure.
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
@@ -203,7 +207,7 @@ Para actualizar el nivel de acceso público en uno o varios contenedores desde A
 
 Cuando el acceso público no está permitido en la cuenta de almacenamiento, no es posible establecer el nivel de acceso público de ningún contenedor. Si intenta establecer el nivel de acceso público del contenedor, verá que el valor está deshabilitado porque el acceso público no está permitido para la cuenta.
 
-:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Captura de pantalla que muestra que el valor del nivel de acceso público del contenedor está bloqueado cuando no se permite el acceso público":::
+:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Captura de pantalla que muestra cómo permitir o no permitir el acceso público a blobs en una cuenta":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

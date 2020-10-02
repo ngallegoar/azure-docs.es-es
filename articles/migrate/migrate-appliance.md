@@ -1,14 +1,14 @@
 ---
 title: Dispositivo con Azure Migrate
-description: Proporciona información general sobre el dispositivo de Azure Migrate usado en la evaluación y migración del servidor.
+description: Proporciona un resumen de compatibilidad con el dispositivo de Azure Migrate.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: a313d7b964e6ea849acb5b034ed55975b8c5b524
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: e2bd3f2fa40bbf31713393f18a04624d70cbd244
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88927528"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084777"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo con Azure Migrate
 
@@ -71,7 +71,7 @@ En la tabla siguiente se resumen los requisitos del dispositivo de Azure Migrate
 **Script de PowerShell** | Consulte este [artículo](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).<br/><br/> 
 **Software/hardware***   |  El dispositivo debe ejecutarse en una máquina con Windows Server 2016, 16 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco y un conmutador virtual externo.<br/> El dispositivo necesita una dirección IP estática o dinámica y requiere acceso a Internet, ya sea directamente o a través de un proxy.<br/><br/> Si se ejecuta el dispositivo como una máquina virtual de Hyper-V, se necesitan recursos suficientes en el host de Hyper-V para asignar 16 GB de RAM, 8 vCPU, alrededor de 80 GB de espacio de almacenamiento y un conmutador externo para la máquina virtual del dispositivo.<br/><br/> Si ejecuta el dispositivo en una máquina física, asegúrese de que está ejecutando Windows Server 2016 y que cumple los requisitos de hardware. 
 **Requisitos de Hyper-V** | Si se implementa el dispositivo con la plantilla de VHD, la máquina virtual del dispositivo que proporciona Azure Migrate es la versión 5.0 de la máquina virtual de Hyper-V.<br/><br/> El host de Hyper-V debe ejecutarse en Windows Server 2012 R2 o posterior. 
-**Valor del código hash: VHD** | [Compruebe](tutorial-assess-hyper-v.md#verify-security) los valores hash de la plantilla de VHD.
+**Valor del código hash: VHD** | Valores hash de la plantilla de VHD.
 **Valor del código hash: script de PowerShell** | [Compruebe](deploy-appliance-script.md#verify-file-security) los valores hash del script de PowerShell.
 
 
@@ -84,7 +84,7 @@ En la tabla siguiente se resumen los requisitos del dispositivo de Azure Migrate
 **Implementación admitida** | Impleméntelo como una máquina física dedicada o una máquina virtual mediante el script de instalación de PowerShell. El script está disponible para su descarga desde el portal.
 **Compatibilidad con proyectos** |  Un dispositivo solo puede estar asociado a un proyecto. <br/> Se puede asociar cualquier número de dispositivos a un solo proyecto.<br/> 
 **Límites de detección** | Un dispositivo puede detectar hasta 1000 servidores físicos.
-**Script de PowerShell** | Descarga del script (AzureMigrateInstaller.ps1) en una carpeta comprimida desde el portal o desde [aquí](https://go.microsoft.com/fwlink/?linkid=2140334). [Más información](tutorial-assess-physical.md#set-up-the-azure-migrate-appliance).<br/><br/> El tamaño de la descarga es de 85 MB.
+**Script de PowerShell** | Descarga del script (AzureMigrateInstaller.ps1) en una carpeta comprimida desde el portal o desde [aquí](https://go.microsoft.com/fwlink/?linkid=2140334). [Más información](tutorial-discover-physical.md).<br/><br/> El tamaño de la descarga es de 85 MB.
 **Software/hardware** |  El dispositivo debe ejecutarse en una máquina con Windows Server 2016, 16 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco y un conmutador virtual externo.<br/> El dispositivo necesita una dirección IP estática o dinámica y requiere acceso a Internet, ya sea directamente o a través de un proxy.<br/><br/> Si ejecuta el dispositivo en una máquina física, asegúrese de que está ejecutando Windows Server 2016 y que cumple los requisitos de hardware.<br/> No se admite la ejecución del dispositivo en una máquina con Windows Server 2019.
 **Valor del código hash** | [Compruebe](deploy-appliance-script.md#verify-file-security) los valores hash del script de PowerShell.
 
@@ -101,7 +101,7 @@ El dispositivo de Azure Migrate necesita conectividad a Internet.
 **URL** | **Detalles**  
 --- | --- |
 *.portal.azure.com  | Acceda a Azure Portal.
-\* .windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Inicie sesión en la suscripción de Azure.
+\* .windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com | Inicie sesión en la suscripción de Azure.
 *.microsoftonline.com <br/> *.microsoftonline-p.com | Cree aplicaciones de Azure Active Directory (AD) para que el dispositivo se comunique con Azure Migrate.
 management.azure.com | Cree aplicaciones de Azure AD para que el dispositivo se comunique con el servicio Azure Migrate.
 *.services.visualstudio.com | Cargue los registros de aplicaciones que se usan para la supervisión interna.
@@ -121,7 +121,7 @@ download.microsoft.com/download | Permita descargas de Microsoft.
 graph.windows.net | Inicie sesión en la suscripción de Azure.
 login.microsoftonline.us  | Cree aplicaciones de Azure Active Directory (AD) para que el dispositivo se comunique con Azure Migrate.
 management.usgovcloudapi.net | Cree aplicaciones de Azure AD para que el dispositivo se comunique con el servicio Azure Migrate.
-dc.services.visualstudio.com | Cargue los registros de aplicaciones que se usan para la supervisión interna.
+*.services.visualstudio.com | Cargue los registros de aplicaciones que se usan para la supervisión interna.
 *.vault.usgovcloudapi.net | Administre secretos en Azure Key Vault.
 aka.ms/* | Permiso de acceso a vínculos aka. Se usa para las actualizaciones del dispositivo de Azure Migrate.
 download.microsoft.com/download | Permita descargas de Microsoft.

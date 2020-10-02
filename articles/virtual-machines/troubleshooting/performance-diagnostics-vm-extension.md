@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 62a30fada32a23546323dae34f875ab9c7da228c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c570c43560ad865b8bcc5161cbd0c6731ea4a237
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028556"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090659"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extensión de máquina virtual de diagnóstico de rendimiento de Azure para Windows
 
@@ -29,7 +29,15 @@ La extensión de máquina virtual de diagnósticos de rendimiento de Azure ayuda
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Esta extensión se puede instalar en Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 y Windows Server 2016. También se puede instalar en Windows 8.1 y Windows 10.
+Esta extensión se puede instalar en
+* Windows Server 2019
+* Windows Server 2016
+* Windows Server 2012 R2
+* Windows Server 2012
+* Windows Server 2008 R2
+* Windows 10
+* Windows 8.1
+* Windows 8
 
 ## <a name="extension-schema"></a>Esquema de extensión
 El siguiente código JSON muestra el esquema de la extensión de máquina virtual de diagnósticos de rendimiento de Azure. Esta extensión requiere el nombre y la clave de una cuenta de almacenamiento para almacenar el resultado de diagnóstico y el informe. Estos valores son confidenciales. La clave de la cuenta de almacenamiento debe almacenarse en una configuración protegida. Los datos de configuración protegida de la extensión de máquina virtual de Azure están cifrados y solo se descifran en la máquina virtual de destino. Tenga en cuenta que **storageAccountName** y **storageAccountKey** distinguen mayúsculas de minúsculas. Otros parámetros necesarios se enumeran en la sección siguiente.

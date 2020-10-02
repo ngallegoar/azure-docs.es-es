@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8b1440f34feb1cda2661178e520590cb9ec54f1
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 838d2a1dd1c7b89c1f5c9fec6578312107264958
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948409"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602071"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acceso condicional: Aplicaciones o acciones en la nube
 
@@ -55,9 +55,9 @@ Los administradores pueden asignar una directiva de acceso condicional a las sig
 - Microsoft StaffHub
 - Microsoft Stream
 - Equipos de Microsoft
-- Office 365 Exchange Online
-- Office 365 SharePoint Online
-- Yammer para Office 365
+- Exchange Online
+- SharePoint
+- Yammer
 - Office Delve
 - Office Sway
 - Outlook Groups
@@ -69,7 +69,7 @@ Los administradores pueden asignar una directiva de acceso condicional a las sig
 
 ### <a name="office-365-preview"></a>Office 365 (versión preliminar)
 
-Office 365 proporciona servicios de colaboración y productividad basados en la nube, como Exchange, SharePoint y Microsoft Teams. Los servicios en la nube de Office 365 están profundamente integrados para garantizar experiencias de colaboración fluidas. Esta integración puede producir confusión a la hora de crear directivas, ya que algunas aplicaciones, como Microsoft Teams, dependen de otras, como SharePoint o Exchange.
+Microsoft 365 proporciona servicios de colaboración y productividad basados en la nube, como Exchange, SharePoint y Microsoft Teams. Los servicios en la nube de Microsoft 365 están profundamente integrados para garantizar experiencias de colaboración fluidas. Esta integración puede producir confusión a la hora de crear directivas, ya que algunas aplicaciones, como Microsoft Teams, dependen de otras, como SharePoint o Exchange.
 
 La aplicación Office 365 (versión preliminar) permite la segmentación de todos estos servicios a la vez. Se recomienda usar la nueva aplicación Office 365 (versión preliminar) en lugar de aplicaciones en la nube individuales para evitar problemas con las [dependencias de servicio](service-dependencies.md). Trabajar con este grupo de aplicaciones ayuda a evitar problemas que pueden surgir debido a directivas y dependencias incoherentes.
 
@@ -82,10 +82,10 @@ Aplicaciones clave que se incluyen en la aplicación cliente Office 365 (versió
    - Microsoft Stream
    - Microsoft To-Do
    - Equipos de Microsoft
-   - Office 365 Exchange Online
-   - Office 365 SharePoint Online
-   - Búsqueda de Office 365
-   - Yammer para Office 365
+   - Exchange Online
+   - SharePoint Online
+   - Servicio de búsqueda de Microsoft 365
+   - Yammer
    - Office Delve
    - Office en línea
    - Office.com

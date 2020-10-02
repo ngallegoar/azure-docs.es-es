@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/28/2020
 ms.author: apimpm
-ms.openlocfilehash: 6a8c4c3fa2bd73fa689458d6877d09900ea86938
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 068f15cc06a76412836176dc13237741ea14d135
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852164"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89614056"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Introducción al portal para desarrolladores de Azure API Management
 
@@ -73,21 +73,21 @@ En esta sección, respondemos preguntas frecuentes generales sobre el portal par
 
 ### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"></a> ¿Cómo puedo migrar desde la versión preliminar del portal?
 
-Al usar la versión preliminar del portal para desarrolladores, se aprovisiona el contenido de versión preliminar en el servicio de API Management. El contenido predeterminado se ha modificado significativamente en la versión disponible con carácter general para mejorar la experiencia del usuario. También se incluyen nuevos widgets.
+Cuando se inicia por primera vez la versión preliminar del portal para desarrolladores, se aprovisiona el contenido predeterminado de la versión preliminar en el servicio API Management. El contenido predeterminado se ha modificado significativamente en la versión de disponibilidad general. Por ejemplo, la versión preliminar del contenido predeterminado no incluye los botones de OAuth en las páginas de inicio de sesión, usa widgets diferentes para mostrar las API y se basa en funcionalidades limitadas para estructurar las páginas del portal para desarrolladores. Aunque hay diferencias en el contenido, el motor del portal (incluidos los widgets subyacentes) se actualiza automáticamente cada vez que se publica el portal para desarrolladores.
 
-Si usa la versión administrada, restablezca el contenido del portal; para ello, haga clic en **Restablecer contenido** en la sección del menú **Operaciones**. La confirmación de esta operación quitará todo el contenido del portal y aprovisionará el nuevo contenido predeterminado. El motor del portal se ha actualizado automáticamente en el servicio de API Management.
+Si ha personalizado en gran medida el portal en función de la versión preliminar del contenido, puede seguir con su uso tal cual y colocar nuevos widgets manualmente en las páginas del portal. De lo contrario, se recomienda reemplazar el contenido del portal con el nuevo contenido predeterminado.
+
+Para restablecer el contenido en un portal administrado, haga clic en **Restablecer contenido** en la sección **Operaciones** del menú. Esta operación eliminará todo el contenido del portal y aprovisionará el nuevo contenido predeterminado. Perderá todas las personalizaciones y los cambios del portal para desarrolladores. **No es posible deshacer esta acción**.
 
 ![Restablecimiento del contenido del portal](media/api-management-howto-developer-portal/reset-content.png)
 
-Si usa la versión autohospedada, use los archivos `scripts/cleanup.bat` y `scripts/generate.bat` del repositorio de GitHub para quitar el contenido existente y aprovisionar el nuevo. No se olvide de actualizar con antelación el código del portal a la versión más reciente del repositorio de GitHub.
+Si usa la versión autohospedada, ejecute los scripts `scripts.v2/cleanup.bat` y `scripts.v2/generate.bat` del repositorio de GitHub para eliminar el contenido existente y aprovisionar el nuevo. Asegúrese de actualizar con antelación el código del portal a la versión más reciente del repositorio de GitHub.
 
-Si no desea restablecer el contenido del portal, puede usar los widgets más recientes en todas las páginas. Los widgets existentes se han actualizado automáticamente a las últimas versiones.
-
-Si el portal se aprovisionó después del anuncio de disponibilidad general, ya debería ofrecer el nuevo contenido predeterminado. No es necesario que realice ninguna acción.
+Si ha accedido al portal por primera vez después del anuncio de la disponibilidad general en noviembre de 2019, ya debería ofrecer el nuevo contenido predeterminado y no es necesario realizar ninguna otra acción.
 
 ### <a name="does-the-portal-have-all-the-features-of-the-legacy-portal"></a>¿El portal tiene todas las características del portal anterior?
 
-El portal para desarrolladores no es compatible con las *aplicaciones* ni con las *incidencias*.
+El portal para desarrolladores ya no admite *Aplicaciones*, *Problemas*, ni la integración directa con Facebook, Microsoft, Twitter y Google como proveedores de identidades (en su lugar, puede usar Azure AD B2C).
 
 ### <a name="has-the-legacy-portal-been-deprecated"></a>¿El portal heredado quedó en desuso?
 

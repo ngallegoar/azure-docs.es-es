@@ -9,13 +9,13 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: anandsub
-ms.date: 05/15/2020
-ms.openlocfilehash: ac51fd63adcc0328ff67f5fbe13dbfdb768f4bfe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/08/2020
+ms.openlocfilehash: 6f8d74ade382db9bfa28c3ab6f03b95b5ac7947c
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343127"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567133"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Creación visual de Azure Data Factory
 
@@ -39,9 +39,17 @@ La experiencia de creación visual predeterminada funciona directamente con el s
 
 En el caso de los recursos de nivel superior, como canalizaciones, conjuntos de datos y flujos de datos, las propiedades de alto nivel se pueden editar en el panel Propiedades del lado derecho del lienzo. El panel Propiedades contiene propiedades como el nombre, la descripción, las anotaciones y otras propiedades de alto nivel. Los subrecursos, como las actividades de canalización y las transformaciones de flujo de datos, se editan mediante el panel situado en la parte inferior del lienzo. 
 
-![Lienzo de creación](media/author-visually/properties-pane.png)
+![Propiedades, panel](media/author-visually/properties-pane.png)
 
 El panel Propiedades solo se abre de forma predeterminada en la creación de recursos. Para editarlo, haga clic en el icono del panel Propiedades situado en la esquina superior derecha del lienzo.
+
+### <a name="related-resources"></a>Recursos relacionados
+
+En el panel de propiedades, si selecciona la pestaña **Relacionado**, podrá ver los recursos que dependen del recurso seleccionado. Aparecerán todos los recursos que hagan referencia al recurso actual.
+
+![Recursos relacionados](media/author-visually/related-resources.png)
+
+Por ejemplo, en la imagen anterior, hay una canalización y dos flujos de datos que utilizan el conjunto de datos que está seleccionado actualmente.
 
 ## <a name="management-hub"></a>Centro de administración
 

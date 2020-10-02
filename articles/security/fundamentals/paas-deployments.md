@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 9adbe7b03283a00f78222ffdc77dca7aaadcbda0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53a41c3921ee92b1ec79edf95999c97f80cbce45
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461708"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462367"
 ---
 # <a name="securing-paas-deployments"></a>Protección de implementaciones de PaaS
 
@@ -151,10 +151,10 @@ Las pruebas de vulnerabilidad ante datos aleatorios o inesperados son un método
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Este artículo se centra en las ventajas de seguridad que ofrece una implementación de PaaS de Azure y los procedimientos de seguridad recomendados para aplicaciones en la nube. Después, conocerá los procedimientos recomendados para proteger las soluciones móviles y web de PaaS mediante determinados servicios de Azure. Empezaremos con Azure App Service, Azure SQL Database, Azure SQL Data Warehouse y Azure Storage. A medida que estén disponibles los artículos sobre procedimientos recomendados para otros servicios de Azure, se proporcionarán los vínculos correspondientes en la lista siguiente:
+Este artículo se centra en las ventajas de seguridad que ofrece una implementación de PaaS de Azure y los procedimientos de seguridad recomendados para aplicaciones en la nube. Después, conocerá los procedimientos recomendados para proteger las soluciones móviles y web de PaaS mediante determinados servicios de Azure. Empezaremos con Azure App Service, Azure SQL Database, Azure Synapse Analytics y Azure Storage. A medida que estén disponibles los artículos sobre procedimientos recomendados para otros servicios de Azure, se proporcionarán los vínculos correspondientes en la lista siguiente:
 
 - [Azure App Service](paas-applications-using-app-services.md)
-- [Azure SQL Database y Azure SQL Data Warehouse](paas-applications-using-sql.md)
+- [Azure SQL Database y Azure Synapse Analytics](paas-applications-using-sql.md)
 - [Almacenamiento de Azure](paas-applications-using-storage.md)
 - Azure Cache for Redis
 - Azure Service Bus

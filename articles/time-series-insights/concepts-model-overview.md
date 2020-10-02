@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 08/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 18212bf92304e75c702c51ff12628cd670755bb0
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 53db53f60166c3b5afa117a60a99e3429a14576d
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855202"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488565"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Modelo de serie temporal en Azure Time Series Insights Gen2
 
@@ -24,7 +24,7 @@ En este artículo se describen el modelo de serie temporal, las funciones y cóm
 > [!TIP]
 >
 > * Vaya al entorno de la  [demostración Contoso Wind Farm](https://insights.timeseries.azure.com/preview/samples) para obtener un ejemplo activo de modelo de serie temporal.
-> * Aprenda a [trabajar con un modelo de serie temporal](/azure/time-series-insights/how-to-edit-your-model) mediante el explorador de Azure Time Series Insights TSI.
+> * Aprenda a [trabajar con un modelo de serie temporal](/azure/time-series-insights/how-to-edit-your-model) mediante el Explorador de Azure Time Series Insights.
 
 ## <a name="summary"></a>Resumen
 
@@ -75,7 +75,7 @@ Estos componentes se combinan para especificar un modelo de serie temporal y org
 
 [![Gráfico de información general del modelo de serie temporal](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-Un modelo de serie temporal se puede crear y administrar mediante el [explorador de Azure Time Series Insights TSI](/azure/time-series-insights/concepts-model-overview). La configuración del modelo de serie temporal se puede administrar mediante la [API de configuración del modelo](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis).
+Los modelos de serie temporal se pueden crear y administrar a través del [Explorador de Azure Time Series Insights Explorer](/azure/time-series-insights/concepts-model-overview). La configuración del modelo de serie temporal se puede administrar mediante la [API de configuración del modelo](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis).
 
 ## <a name="time-series-model-instances"></a>Instancias del modelo de serie temporal
 
@@ -87,7 +87,7 @@ Las instancias tienen información descriptiva asociada denominada *propiedades 
 
 Los *campos de instancia* son una colección de información descriptiva que puede incluir valores para los niveles de jerarquía, así como el fabricante, el operador, etc.
 
-Después de configurar un origen de evento para el entorno de Azure Time Series Insights Gen2, las instancias se detectan y crean automáticamente en un modelo de serie temporal. Las instancias se pueden crear o actualizar mediante el explorador de Azure Time Series Insights TSI con consultas de modelo de serie temporal.
+Después de configurar un origen de evento para el entorno de Azure Time Series Insights Gen2, las instancias se detectan y crean automáticamente en un modelo de serie temporal. Las instancias se pueden crear o actualizar a través del Explorador de Azure Time Series Insights mediante consultas al modelo de serie temporal.
 
 En la [demostración Contoso Wind Farm](https://insights.timeseries.azure.com/preview/samples) se proporcionan varios ejemplos de instancias activos.
 
@@ -216,7 +216,7 @@ Con los campos de instancia usados en la definición anterior y varias series te
 | ID4 | "building" = "1000", "floor" = "10"  |
 | ID5 | No hay ningún valor establecido en "building", "floor" o "room". |
 
-La series temporales **ID1** e **ID4** se muestran como parte de la jerarquía **H1** en el [explorador de Azure Time Series Insights TSI](time-series-insights-update-explorer.md) porque tienen parámetros *building*, *floor* y *room* totalmente definidos y correctamente ordenados.
+**ID1** e **ID4** de Time Series de muestran como parte de la jerarquía **H1** en el [Explorador de Azure Time Series Insights](time-series-insights-update-explorer.md) porque han definido completamente y ordenado correctamente los parámetros *building*, *floor* y *room*.
 
 Las demás se clasifican como *instancias no primarias* porque no se ajustan a la jerarquía de datos especificada.
 

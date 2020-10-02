@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: fb5ae2408c15baee0f37acaacc780f4d198b1521
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eefd67d4d150c0c8d152002a174c62d31fcb8b5f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738063"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975064"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Uso de capturas de paquetes para realizar la supervisión proactiva de la red con alertas y Azure Functions
 
@@ -30,7 +30,7 @@ Los recursos implementados en Azure se ejecutan las 24 horas, los 7 días de la 
 
 Con Network Watcher, la característica de alertas y las funciones del ecosistema de Azure, puede responder de manera proactiva con los datos y las herramientas para resolver los problemas de su red.
 
-![Escenario][scenario]
+![En el diagrama se muestra la extensión Network Watcher en una máquina virtual que fluye a un error de segmentos TCP enviados > 100, que fluye a Azure Functions, que fluye a Network Watcher que fluye de nuevo a la extensión Network Watcher.][scenario]
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

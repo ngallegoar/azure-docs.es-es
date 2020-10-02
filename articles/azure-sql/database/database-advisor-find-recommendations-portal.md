@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 72f0d361f69232894df3a9131d173411614a2055
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 035b13140ee1fb7a48d0cea9a3611eac145d9f8c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921221"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970688"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Búsqueda y aplicación de recomendaciones de rendimiento
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -35,7 +35,7 @@ Siga los pasos a continuación para buscar recomendaciones de rendimiento en Azu
 
 Las recomendaciones de rendimiento se muestran en una tabla similar a la de la siguiente ilustración:
 
-![Recomendaciones](./media/database-advisor-find-recommendations-portal/recommendations.png)
+![Captura de pantalla que muestra recomendaciones de rendimiento en una tabla con la descripción de la acción y la recomendación.](./media/database-advisor-find-recommendations-portal/recommendations.png)
 
 Las recomendaciones se ordenan en las siguientes categorías, según su impacto potencial sobre el rendimiento:
 

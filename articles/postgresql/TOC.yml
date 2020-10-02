@@ -4,6 +4,8 @@
   items:
     - name: ¿Qué es Azure DB para PostgreSQL?
       href: overview.md
+    - name: ¿Qué opción de implementación de PostgreSQL elegir?
+      href: overview-postgres-choose-server-options.md
     - name: Actualizaciones del servicio
       items:
         - name: El certificado raíz de SSL va a expirar

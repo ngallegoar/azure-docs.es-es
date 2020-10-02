@@ -9,18 +9,19 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: db6dfb36c579f57f9cef66fa00a07b0d1dc2bc03
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 9402b1d38457c979f00d05f56b8ed45d2d37dfca
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929676"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971687"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Indexación de datos de Cosmos DB mediante un indizador en Azure Cognitive Search 
 
 > [!IMPORTANT] 
 > SQL API está disponible con carácter general.
-> MongoDB API, Gremlin API y Cassandra API se encuentran actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para solicitar acceso a las versiones preliminares, rellene [este formulario](https://aka.ms/azure-cognitive-search/indexer-preview). En la [API REST, versión 2020-06-30-Preview](search-api-preview.md) se proporcionan características en vista previa (GB). Actualmente hay compatibilidad limitada con el portal y no la hay con el SDK de .NET.
+> MongoDB API, Gremlin API y Cassandra API se encuentran actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para solicitar acceso a las versiones preliminares, rellene [este formulario](https://aka.ms/azure-cognitive-search/indexer-preview). 
+> Las [versiones preliminares de la API REST](search-api-preview.md) proporcionan estas características. Actualmente hay compatibilidad limitada con el portal y no la hay con el SDK de .NET.
 
 > [!WARNING]
 > Solo las colecciones de Cosmos DB con una [directiva de indexación](/azure/cosmos-db/index-policy) establecida en [Coherente](/azure/cosmos-db/index-policy#indexing-mode) son compatibles con Azure Cognitive Search. La indexación de colecciones con una directiva de indexación diferida no se recomienda y puede dar lugar a la pérdida de datos. No se admiten las colecciones con indexación deshabilitada.
@@ -31,7 +32,7 @@ Como la terminología puede resultar confusa, merece la pena mencionar que la [i
 
 El indexador de Cosmos DB en Azure Cognitive Search puede rastrear [elementos de Azure Cosmos DB](../cosmos-db/databases-containers-items.md#azure-cosmos-items) a los que se ha accedido a través de distintos protocolos. 
 
-+ Para [SQL API](../cosmos-db/sql-query-getting-started.md), que está disponible con carácter general, puede usar el [portal](#cosmos-indexer-portal), la [API REST](/rest/api/searchservice/indexer-operations) o el [SDK de .NET](/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet) para crear el origen de datos y el indexador.
++ Para [SQL API](../cosmos-db/sql-query-getting-started.md), que está disponible con carácter general, puede usar el [portal](#cosmos-indexer-portal), la [API REST](/rest/api/searchservice/indexer-operations) o el [SDK de .NET](/dotnet/api/microsoft.azure.search.models.indexer) para crear el origen de datos y el indexador.
 
 + Para [MongoDB API (versión preliminar)](../cosmos-db/mongodb-introduction.md) puede usar el [portal](#cosmos-indexer-portal) o la [API REST, versión 2020-06-30-Preview](search-api-preview.md) para crear el origen de datos y el indexador.
 
@@ -304,10 +305,10 @@ Para más información sobre cómo definir las programaciones del indexador, con
 
 El SDK de.NET generalmente disponible tiene plena paridad con la API REST disponible con carácter general. Se recomienda que revise la sección anterior de la API REST para obtener información sobre los conceptos, el flujo de trabajo y los requisitos. A continuación, puede consultar la siguiente documentación de referencia de la API de .NET para implementar un indizador JSON en código administrado.
 
-+ [Microsoft.Azure.Search.Models.DataSource](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
-+ [Microsoft.azure.search.models.datasourcetype](/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
-+ [Microsoft.azure.search.models.index](/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
-+ [Microsoft.azure.search.models.indexer](/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
++ [Microsoft.Azure.Search.Models.DataSource](/dotnet/api/microsoft.azure.search.models.datasource)
++ [Microsoft.azure.search.models.datasourcetype](/dotnet/api/microsoft.azure.search.models.datasourcetype)
++ [Microsoft.azure.search.models.index](/dotnet/api/microsoft.azure.search.models.index)
++ [Microsoft.azure.search.models.indexer](/dotnet/api/microsoft.azure.search.models.indexer)
 
 <a name="DataChangeDetectionPolicy"></a>
 

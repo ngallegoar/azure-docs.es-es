@@ -6,16 +6,20 @@ author: lgayhardt
 ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: 464bf650cbcaa99e947a21f5a87a5872f7b11178
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f0583af05ae7d8e365b50610bfb812ac7764f223
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326926"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602472"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Inicio rápido: Introducción a Application Insights en un proyecto web de Java
 
-En este inicio rápido, se usa Application Insights para instrumentar automáticamente solicitudes, realizar un seguimiento de dependencias y recopilar contadores de rendimiento, diagnosticar problemas de rendimiento y excepciones y escribir código para realizar un seguimiento de lo que hacen los usuarios con la aplicación.
+
+> [!IMPORTANT]
+> El enfoque recomendado para supervisar aplicaciones Java es utilizar la instrumentación automática sin cambiar el código. Siga las instrucciones para el [agente de Java 3.0 de Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
+
+En este inicio rápido, se usa el SDK de Application Insights para instrumentar solicitudes, realizar un seguimiento de dependencias y recopilar contadores de rendimiento, diagnosticar problemas de rendimiento y excepciones y escribir código para realizar un seguimiento de lo que hacen los usuarios con la aplicación.
 
 Application Insights es un servicio de análisis extensible para desarrolladores web que ayuda a comprender el rendimiento y el uso de la aplicación activa. Application Insights es compatible con aplicaciones Java que se ejecutan en Linux, Unix o Windows.
 
@@ -193,22 +197,10 @@ Ahora puede publicar la aplicación en el servidor, dejar que la utilicen los us
 
     (Este componente habilita los contadores de rendimiento.)
 
-## <a name="azure-app-service-config-spring-boot"></a>Configuración de Azure App Service (Spring Boot)
+## <a name="azure-app-service-aks-vms-config"></a>Azure App Service, AKS y configuración de máquinas virtuales
 
-Las aplicaciones de Spring Boot que se ejecutan en Windows requieren configuración adicional para ejecutarse en Azure App Services. Modifique **web.config** y agregue la siguiente configuración:
+El mejor enfoque para supervisar las aplicaciones que se ejecutan en cualquiera de los proveedores de recursos de Azure es usar la instrumentación automática de Application Insights mediante el [agente de Java 3.0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-    <system.webServer>
-        <handlers>
-            <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified"/>
-        </handlers>
-        <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" arguments="-Djava.net.preferIPv4Stack=true -Dserver.port=%HTTP_PLATFORM_PORT% -jar &quot;%HOME%\site\wwwroot\AzureWebAppExample-0.0.1-SNAPSHOT.jar&quot;">
-        </httpPlatform>
-    </system.webServer>
-</configuration>
-```
 
 ## <a name="exceptions-and-request-failures"></a>Excepciones y errores de solicitud
 El filtro web de Application Insights recopila automáticamente las excepciones no controladas y las solicitudes con error.

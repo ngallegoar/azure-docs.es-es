@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: mblythe
 ms.custom: accessibility
-ms.openlocfilehash: 63bfb7c92e77c4059a46a83b76b3818fcb6d63be
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 82a6cfc817cefb78c3239349d9ad7ff839a1ecbd
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754195"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090217"
 ---
 # <a name="supported-devices"></a>Dispositivos compatibles
 
@@ -33,7 +33,7 @@ Si necesita administrar los recursos de Azure desde un dispositivo móvil, prueb
 Se recomienda usar el explorador más actualizado compatible con el sistema operativo. Se admiten los siguientes exploradores:
 
 * Microsoft Edge (versión más recientes)
-* Internet Explorer 11
+* Internet Explorer 11 (fin de soporte: 17 de agosto de 2021; consulte nuestra [entrada de blog](https://techcommunity.microsoft.com/t5/microsoft-365-blog/microsoft-365-apps-say-farewell-to-internet-explorer-11-and/ba-p/1591666) para más información).
 * Safari (versión más reciente, solo Mac)
 * Chrome (versión más reciente)
 * Firefox (versión más reciente)

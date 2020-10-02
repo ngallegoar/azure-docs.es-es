@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: b7a2c78238de58ee8851462aa7193121b35f72a9
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 3b87d68fb9b5fa5f5f8dec43c39ea8b7dbf08b93
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588828"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651851"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Preguntas frecuentes sobre la importación de certificados de Azure Key Vault
 
@@ -54,7 +54,7 @@ Para más información sobre las directivas de acceso relacionadas con los certi
 
 ### <a name="how-can-i-resolve-error-type-conflict-when-creating-a-certificate"></a>¿Cómo se resuelve el "Tipo de error: Conflicto al crear un certificado"?
     
-El nombre de cada certificado debe ser único. Un certificado con el mismo nombre que otro podría estar en un estado de eliminación temporal. Además, según la [composición de un certificado](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate) en Azure Key Vault, si hay otra clave o secreto en el almacén de claves con el mismo nombre que el que intenta especificar para el certificado, no se podrá crear el certificado y deberá quitar esa clave o secreto o usar un nombre diferente para él. 
+El nombre de cada certificado debe ser único. Un certificado con el mismo nombre podría estar en un estado de eliminación temporal. Además, según la [composición de un certificado](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate), cuando se crea un certificado, se crea un secreto direccionable con el mismo nombre, por lo que, si hay otra clave o secreto en el almacén de claves con el mismo nombre que el que intenta especificar para el certificado, no se podrá crear este y deberá quitar esa clave o secreto o usar un nombre diferente para él. 
 
 Para más información, consulte [Operación de obtención de certificado eliminado](https://docs.microsoft.com/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate).
 

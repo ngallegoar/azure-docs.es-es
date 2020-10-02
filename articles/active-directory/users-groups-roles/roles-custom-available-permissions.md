@@ -1,6 +1,6 @@
 ---
-title: 'Permisos de rol de administrador personalizado disponibles: Azure AD | Microsoft Docs'
-description: Permisos de rol de administrador personalizado para delegar la administración de identidades.
+title: 'Permisos de rol personalizado para el registro de la aplicación: Azure AD | Microsoft Docs'
+description: Delegue los permisos de rol de administrador personalizado para administrar los registros de aplicaciones.
 services: active-directory
 author: curtand
 manager: daveba
@@ -8,27 +8,27 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c11723efe3fac236fce49c1f92fa338d4e58b59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 624489033097c0da4d85488b7ae376c5e0f3a56b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84732113"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967686"
 ---
-# <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Permisos y subtipos del registro de aplicaciones en Azure Active Directory
+# <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Permisos de los registros de aplicaciones para roles personalizados de Azure Active Directory
 
 Este artículo contiene los permisos del registro de aplicaciones disponibles actualmente para las definiciones de rol personalizado en Azure Active Directory (Azure AD).
 
-## <a name="permissions-for-managing-single-directory-applications"></a>Permisos para administrar aplicaciones de un solo directorio
+## <a name="permissions-for-managing-single-tenant-applications"></a>Permisos para administrar aplicaciones de un solo inquilino
 
-Al elegir los permisos para el rol personalizado, tiene la opción de conceder acceso para administrar únicamente las aplicaciones de un solo directorio. Las aplicaciones de un solo directorio únicamente están disponibles para los usuarios de la organización Azure AD en la que se registra la aplicación. Las aplicaciones de un solo directorio se definen como las que tienen **Tipos de cuenta compatibles** establecidos en "Solo las cuentas de este directorio organizativo". En Graph API, las aplicaciones de un solo directorio tienen la propiedad signInAudience establecida en "AzureADMyOrg".
+Al elegir los permisos para el rol personalizado, tiene la opción de conceder acceso para administrar únicamente las aplicaciones de un solo inquilino. Las aplicaciones de un solo inquilino únicamente están disponibles para los usuarios de la organización Azure AD en la que se registra la aplicación. Las aplicaciones de un solo inquilino se definen como las que tienen la opción **Tipos de cuenta admitidos** establecida en "Solo las cuentas de este directorio organizativo". En Graph API, las aplicaciones de un solo inquilino tienen la propiedad signInAudience establecida en "AzureADMyOrg".
 
-Para conceder acceso para administrar únicamente aplicaciones de un solo directorio, use los permisos siguientes con el subtipo **applications.myOrganization**. Por ejemplo, microsoft.directory/applications.myOrganization/basic/update.
+Para conceder acceso para administrar únicamente aplicaciones de un solo inquilino, use los permisos siguientes con el subtipo **applications.myOrganization**. Por ejemplo, microsoft.directory/applications.myOrganization/basic/update.
 
 Vea la [información general sobre los roles personalizados](roles-custom-overview.md) para una explicación de lo que significa el subtipo de términos generales, el permiso y el conjunto de propiedades. La siguiente información es específica de los registros de aplicaciones.
 
@@ -95,7 +95,7 @@ Concede los mismos permisos que microsoft.directory/applications/standard/read, 
 
 #### <a name="microsoftdirectoryapplicationsallpropertiesupdate"></a>microsoft.directory/applications/allProperties/update
 
-Capacidad de actualizar todas las propiedades de las aplicaciones de un solo directorio y de varios directorios.
+Capacidad de actualizar todas las propiedades de las aplicaciones de un solo inquilino y de varios inquilinos.
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationallpropertiesupdate"></a>microsoft.directory/applications.myOrganization/allProperties/update
 
@@ -103,7 +103,7 @@ Concede los mismos permisos que microsoft.directory/applications/allProperties/u
 
 #### <a name="microsoftdirectoryapplicationsaudienceupdate"></a>microsoft.directory/applications/audience/update
 
-Capacidad de actualizar la propiedad de tipo de cuenta compatible (signInAudience) en aplicaciones de un solo directorio y de varios directorios.
+Capacidad de actualizar la propiedad de tipo de cuenta admitido (signInAudience) en aplicaciones de un solo inquilino y de varios inquilinos.
 
 ![Este permiso concede acceso a la propiedad de tipo de cuenta compatible con el registro de aplicación en la página de autenticación](./media/roles-custom-available-permissions/supported-account-types.png)
 

@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 02/03/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 8507a53959e7d28cbcec2dec6783b2470696d59b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 993e75f6a5a39e076a9e7161b62abba85d9b0eab
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798115"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031099"
 ---
 # <a name="edit-or-revoke-application-permissions-in-the-my-apps-portal"></a>Edición o revocación de permisos de aplicación en el portal Aplicaciones
 
@@ -28,9 +28,9 @@ Cuando se usan aplicaciones organizativas en el portal **Aplicaciones**, a menud
 >[!Important]
 >Este contenido está diseñado para usuarios. Si es administrador, puede encontrar más información acerca de cómo configurar y administrar aplicaciones basadas en la nube en la [Documentación sobre la administración de aplicaciones](../manage-apps/access-panel-collections.md).
 
-## <a name="manage-app-permissions"></a>Administración de permisos de aplicación
+## <a name="manage-app-accounts"></a>Administración de cuentas de aplicaciones
 
-Para ver los permisos que ha consentido usted o el administrador, seleccione **...** al mantener el puntero sobre una aplicación en el portal de **Aplicaciones** y, después, seleccione **Manage your application** (Administrar su aplicación):
+Para ver las aplicaciones que ha consentido usted o el administrador, seleccione **...** mientras mantiene el ratón sobre una aplicación en el portal **Aplicaciones** y, después, seleccione **Administrar la aplicación**:
 
 ![Administración de una aplicación en el portal Aplicaciones](media/my-applications-portal-permissions-saved-accounts/manage-your-application.png)
 

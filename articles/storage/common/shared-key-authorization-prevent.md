@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 3d46df8847a5865c42438ea36245ead0f1e6e528
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 9bf656989dc331fdd4ce044126ea9d0be9414930
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950832"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088806"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedir la autorización con clave compartida para una cuenta de Azure Storage (versión preliminar)
 
@@ -67,7 +67,7 @@ Siga estos pasos para crear una métrica que realice el seguimiento de las solic
 
 Una vez configurada la métrica, las solicitudes a la cuenta de almacenamiento comenzarán a aparecer en el gráfico. En la imagen siguiente se muestran las solicitudes que se autorizaron con la clave compartida o que se realizaron con un token de SAS. Las solicitudes se agregan por día durante los últimos treinta días.
 
-:::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Captura de pantalla que muestra las solicitudes agregadas autorizadas con clave compartida":::
+:::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Captura de pantalla que muestra cómo configurar la métrica para sumar transacciones realizadas con clave compartida o SAS":::
 
 También puede configurar una regla de alerta para recibir una notificación cuando se realice un determinado número de solicitudes autorizadas con clave compartida en la cuenta de almacenamiento. Para más información, vea [Creación, visualización y administración de alertas de métricas mediante Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
@@ -93,7 +93,7 @@ Para registrar datos de Azure Storage con Azure Monitor y analizarlos con Azure 
 1. En **Detalles de la categoría**, en la sección **Registro**, elija **StorageRead**, **StorageWrite**y **StorageDelete** para registrar todas las solicitudes de datos al servicio seleccionado.
 1. En **Detalles del destino**, seleccione **Enviar a Log Analytics**. Seleccione la suscripción y el área de trabajo de Log Analytics que creó anteriormente, como se muestra en la siguiente imagen.
 
-    :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Captura de pantalla que muestra cómo crear una configuración de diagnóstico para el registro de las solicitudes":::
+    :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Captura de pantalla que muestra cómo configurar la métrica para sumar transacciones realizadas con clave compartida o SAS":::
 
 Puede crear una configuración de diagnóstico para cada tipo de recurso de Azure Storage en la cuenta de almacenamiento.
 
@@ -133,7 +133,7 @@ Para denegar la autorización con clave compartida para una cuenta de almacenami
 1. Busque la opción **Configuración** en **Configuración**.
 1. Establezca **Permitir acceso con clave compartida** en **Deshabilitado**.
 
-    :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Captura de pantalla que muestra cómo denegar el acceso con clave compartida para una cuenta":::
+    :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Captura de pantalla que muestra cómo configurar la métrica para sumar transacciones realizadas con clave compartida o SAS":::
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -213,10 +213,10 @@ Algunas herramientas de Azure ofrecen la opción de usar la autorización Azure 
 
 | Herramienta de Azure | Autorización de Azure AD para Azure Storage |
 |-|-|
-| Azure portal | Compatible. Para obtener información sobre cómo autorizar con su cuenta de Azure AD desde Azure Portal, consulte [Elija cómo autorizar el acceso a los datos de blob o de cola en Azure Portal](storage-access-blobs-queues-portal.md). |
+| Azure portal | Compatible. Para obtener información sobre cómo autorizar con su cuenta de Azure AD desde Azure Portal, consulte [Elija cómo autorizar el acceso a los datos de blob en Azure Portal](../blobs/authorize-blob-access-portal.md). |
 | AzCopy | Compatible con el Blob Storage. Para obtener información sobre cómo autorizar operaciones de AzCopy, consulte [Elija cómo autorizar el acceso a los datos de blob o de cola en Azure Portal](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) en la documentación de AzCopy. |
 | Explorador de Azure Storage | Solo compatible con Blob Storage y Azure Data Lake Storage Gen2. El acceso con Azure AD a Queue Storage no se admite. Asegúrese de seleccionar el inquilino de Azure AD correcto. Para más información, consulte [Introducción al Explorador de Storage](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#sign-in-to-azure). |
-| Azure PowerShell | Compatible. Para información sobre cómo autorizar comandos de PowerShell con Azure AD para el acceso a datos de blobs y colas, consulte [Ejecución de comandos de PowerShell con credenciales de Azure AD para acceder a datos de blob o de cola](authorize-active-directory-powershell.md). |
+| Azure PowerShell | Compatible. Para obtener información sobre la forma de autorizar comandos de PowerShell para las operaciones de blobs o colas con Azure AD, consulte los artículos [Ejecución de comandos de PowerShell con credenciales de Azure AD para acceder a datos de blob](../blobs/authorize-active-directory-powershell.md) o [Ejecución de comandos de PowerShell con credenciales de Azure AD para acceder los datos de la cola](../queues/authorize-active-directory-powershell.md). |
 | Azure CLI | Compatible. Para información sobre cómo autorizar comandos de la CLI de Azure con Azure AD para el acceso a datos de blobs y colas, consulte [Elección de cómo autorizar el acceso a los datos de blobs o colas con la CLI de Azure](authorize-data-operations-cli.md). |
 | Azure IoT Hub | Compatible. Para más información, consulte [Compatibilidad de IoT Hub con redes virtuales mediante Private Link e identidad administrada](../../iot-hub/virtual-network-support.md). |
 | Azure Cloud Shell | Azure Cloud Shell es un shell integrado en Azure Portal. Azure Cloud Shell hospeda archivos para la persistencia en un recurso compartido de archivos de Azure en una cuenta de almacenamiento. Estos archivos dejarán de estar accesibles si la autorización con clave compartida se deniega para esa cuenta de almacenamiento. Para más información, consulte [Conexión con el almacenamiento de Microsoft Azure Files](/azure/cloud-shell/overview#connect-your-microsoft-azure-files-storage). <br /><br /> Para ejecutar comandos en Azure Cloud Shell para administrar cuentas de almacenamiento para las que se deniega el acceso con clave compartida, primero debe asegurarse de que se le han concedido los permisos necesarios para estas cuentas mediante el control de acceso basado en rol (RBAC). Para más información, consulte [¿Qué es el control de acceso basado en rol de Azure (RBAC)?](../../role-based-access-control/overview.md) |

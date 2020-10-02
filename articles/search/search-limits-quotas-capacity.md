@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: 62a0b0ec5312b4d00724fe7c13a5e20b5d35e34f
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: b541af5351a0dd98e782c584d869de0d98445b74
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88926871"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462520"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Límites de servicio en Azure Cognitive Search
 
@@ -96,10 +96,26 @@ Los tiempos de ejecución máximos existen para proporcionar equilibrio y estabi
 
 <sup>4</sup> Máximo de 30 habilidades por conjunto de habilidades.
 
-<sup>5</sup> El análisis de imágenes y el enriquecimiento con IA consumen muchos recursos informáticos y una cantidad desproporcionada de la potencia de procesamiento disponible. El tiempo de ejecución de estas cargas de trabajo se ha abreviado para que otros trabajos de la cola tengan más posibilidades de ejecutarse.  
+<sup>5</sup> El análisis de imágenes y el enriquecimiento con IA consumen muchos recursos informáticos y una cantidad desproporcionada de la potencia de procesamiento disponible. El tiempo de ejecución de estas cargas de trabajo se ha abreviado para que otros trabajos de la cola tengan más posibilidades de ejecutarse.
 
 > [!NOTE]
 > Como se indica en el apartado [Límites de índice](#index-limits), los indexadores también aplicarán el límite superior de 3000 elementos en todas las colecciones complejas por documento a partir de la versión de la API de disponibilidad general más reciente que admita tipos complejos (`2019-05-06`) en adelante, lo que significa que si ha creado un indexador con una versión anterior de la API, no estará sujeto a ese límite. Para conservar la máxima compatibilidad, los indexadores que se crearon con una versión anterior de la API y, después, se actualizaron con una versión de la API `2019-05-06`, o posterior, seguirá estando **excluido** de los límites. Los clientes deben ser conscientes del impacto negativo de tener colecciones muy complejas (como se ha indicado anteriormente) y recomendamos encarecidamente que se creen todos los indexadores con la versión de la API de disponibilidad general más reciente.
+
+### <a name="shared-private-link-resource-limits"></a>Límites de recursos compartidos de Private Link
+
+> [!NOTE]
+> Los indexadores pueden acceder a los recursos de forma segura mediante puntos de conexión privados administrados con la [API de recursos compartidos de Private Link](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources), como se describe en esta [guía de procedimientos](search-indexer-howto-access-private.md).
+
+| Resource | Gratuito | Básica | S1 | S2 | S3 | S3 HD | L1 | L2
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Compatibilidad con indexador de puntos de conexión privados | No | Sí | Sí | Sí | Sí | No | Sí | Sí |
+| Compatibilidad con puntos de conexión privados para indexadores con un conjunto de aptitudes<sup>1</sup> | No | No | No | Sí | Sí | No | Sí | Sí |
+| Número máximo de puntos de conexión privados | N/D | 10 o 30 | 100 | 400 | 400 | N/D | 20 | 20 |
+| Número máximo de tipos de recursos distintos<sup>2</sup> | N/D | 4 | 7 | 15 | 15 | N/D | 4 | 4 |
+
+<sup>1</sup> El enriquecimiento con IA y el análisis de imágenes consumen son procesos de computación intensiva que consumen cantidades desproporcionadas de la capacidad de procesamiento disponible. Si para reducir los niveles de servicio de la búsqueda se establece su ejecución en el entorno privado, el rendimiento y la estabilidad del servicio de búsqueda se podrían ver afectados negativamente.
+
+<sup>2</sup> El número de tipos de recursos distintos se calcula como el número de valores de `groupId` únicos utilizados en todos los recursos compartidos de Private Link para un servicio de búsqueda determinado, independientemente del estado del recurso.
 
 ## <a name="synonym-limits"></a>Límites de sinónimos
 
@@ -116,7 +132,7 @@ Cada cliente debe desarrollar las estimaciones de QPS de manera independiente. E
 
 Las estimaciones son más predecibles cuando se calculan en los servicios que se ejecutan en recursos dedicados (niveles Básico y Estándar). Puede calcular el número de QPS con más precisión porque tiene control sobre más parámetros. Para instrucciones sobre cómo realizar una estimación, consulte [Consideraciones sobre el rendimiento y la optimización de Azure Cognitive Search](search-performance-optimization.md).
 
-En el caso de los niveles de Almacenamiento optimizado (L1 y L2), debe esperar un rendimiento más bajo de las consultas y una latencia superior que en los niveles Estándar. 
+En el caso de los niveles de Almacenamiento optimizado (L1 y L2), debe esperar un rendimiento más bajo de las consultas y una latencia superior que en los niveles Estándar.
 
 ## <a name="data-limits-ai-enrichment"></a>Límites de datos (enriquecimiento de inteligencia artificial)
 

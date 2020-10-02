@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8b0f395936c8628ff7b8dab601168538f97ccdb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1a7d29583636879698abc598e1935358796b6062
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74184237"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976000"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualización de datos de supervisión remota con Power BI
 
@@ -45,7 +45,7 @@ En este tutorial se ofrece orientación sobre cómo conectar los datos de la sol
    - URI
    - Clave principal
 
-     ![claves](./media/iot-accelerators-integrate-data-powerbi/keys.png)
+     ![Captura de pantalla que muestra una cuenta de Azure Cosmos DB con el elemento Claves seleccionado.](./media/iot-accelerators-integrate-data-powerbi/keys.png)
 
 ## <a name="setting-up-the-stream-in-power-bi"></a>Configuración del flujo en Power BI
   

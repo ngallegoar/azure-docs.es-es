@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: b4881ee52b39539bfc29f62d7c6773da371a3ea5
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: dda2676f258705ed833068c966bcc57115434b0d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067178"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967218"
 ---
 # <a name="configure-the-model-conversion"></a>Configuración de la conversión de modelos
 
@@ -93,6 +93,12 @@ Si esa suposición no es verdadera para un modelo determinado, este parámetro d
 ### <a name="material-de-duplication"></a>Desduplicación de materiales
 
 * `deduplicateMaterials`: este parámetro habilita o deshabilita la desduplicación automática de materiales que comparten las mismas propiedades y texturas. La desduplicación se produce una vez procesados los reemplazos de material. Esto está habilitada de manera predeterminada.
+
+* Si incluso después de la desduplicación, un modelo tiene más de 65 535 materiales, el servicio intentará combinar los materiales con propiedades similares. Como último recurso, los materiales que superen el límite se reemplazarán por un material de error rojo.
+
+![En la imagen se muestran dos cubos de 68 921 triángulos coloreados.](media/mat-dedup.png?raw=true)
+
+Dos cubos de 68 921 triángulos coloreados. Izquierda: Antes de la desduplicación con 68 921 materiales de color. Derecha: Después de la desduplicación con 64 000 materiales de color. El límite es de 65 535 materiales. (Consulte los [límites](../../reference/limits.md)).
 
 ### <a name="color-space-parameters"></a>Parámetros de espacio de colores
 

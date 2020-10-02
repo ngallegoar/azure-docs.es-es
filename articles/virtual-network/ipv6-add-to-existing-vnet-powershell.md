@@ -1,7 +1,7 @@
 ---
 title: 'Actualización de una aplicación IPv4 a IPv6 en Azure Virtual Network: PowerShell'
 titlesuffix: Azure Virtual Network
-description: En este artículo, se explica cómo se implementan direcciones IPv6 en una aplicación existente en Azure Virtual Network utilizando Azure PowerShell.
+description: En este artículo, se explica cómo se implementan direcciones IPv6 en una aplicación existente en una red virtual de Azure mediante Azure PowerShell.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: f2ff81c1f1989e28fa48e4307a13433a7b98e915
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 9c2ea7cae26ac00c9c647704de8de1f39ebce8f0
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051056"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600847"
 ---
 # <a name="upgrade-an-ipv4-application-to-ipv6-in-azure-virtual-network---powershell"></a>Actualización de una aplicación IPv4 a IPv6 en Azure Virtual Network: PowerShell
 
@@ -27,8 +27,6 @@ En este artículo se muestra cómo agregar conectividad IPv6 a una aplicación I
 - Standard Load Balancer con configuraciones de front-end IPv4 e IPV6
 - Máquinas virtuales con NIC que tienen una configuración IPv4 + IPv6
 - IP pública de IPv6 para que el equilibrador de carga tenga conectividad IPv6 accesible desde Internet
-
-
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -42,17 +40,16 @@ En este artículo se da por supuesto que implementó una instancia de Standard L
 
 Para poder generar la red virtual de doble pila, debe recuperar el grupo de recursos con [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup).
 
-```azurepowershell
- $rg = Get-AzResourceGroup  -ResourceGroupName "myResourceGroupSLB"
+```azurepowershell-interactive
+$rg = Get-AzResourceGroup  -ResourceGroupName "myResourceGroupSLB"
 ```
 
 ## <a name="create-an-ipv6-ip-addresses"></a>Creación de direcciones IP IPv6
 
 Cree una dirección IPv6 pública con [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) para su instancia de Standard Load Balancer. En el ejemplo siguiente, se crea una dirección IP pública IPv6 denominada *PublicIP_v6* en el grupo de recursos *myResourceGroupSLB*:
 
-```azurepowershell
-  
-  $PublicIP_v6 = New-AzPublicIpAddress `
+```azurepowershell-interactive  
+$PublicIP_v6 = New-AzPublicIpAddress `
   -Name "PublicIP_v6" `
   -ResourceGroupName $rg.ResourceGroupName `
   -Location $rg.Location  `
@@ -65,13 +62,15 @@ Cree una dirección IPv6 pública con [New-AzPublicIpAddress](/powershell/module
 
 Recupere la configuración del equilibrador de carga existente y, a continuación, agregue la nueva dirección IP IPv6 mediante [Add-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/Add-AzLoadBalancerFrontendIpConfig) como se indica a continuación:
 
-```azurepowershell
+```azurepowershell-interactive
 # Retrieve the load balancer configuration
 $lb = Get-AzLoadBalancer -ResourceGroupName $rg.ResourceGroupName -Name "MyLoadBalancer"
+
 # Add IPv6 components to the local copy of the load balancer configuration
 $lb | Add-AzLoadBalancerFrontendIpConfig `
   -Name "dsLbFrontEnd_v6" `
   -PublicIpAddress $PublicIP_v6
+
 #Update the running load balancer with the new frontend
 $lb | Set-AzLoadBalancer
 ```
@@ -80,8 +79,9 @@ $lb | Set-AzLoadBalancer
 
 Cree el grupo back-end en la copia local de la configuración del equilibrador de carga y actualice el equilibrador de carga en ejecución con la nueva configuración del grupo back-end como se indica a continuación:
 
-```azurepowershell
+```azurepowershell-interactive
 $lb | Add-AzLoadBalancerBackendAddressPoolConfig -Name "LbBackEndPool_v6"
+
 # Update the running load balancer with the new backend pool
 $lb | Set-AzLoadBalancer
 ```
@@ -89,10 +89,11 @@ $lb | Set-AzLoadBalancer
 ## <a name="configure-load-balancer-rules"></a>Creación de reglas de equilibrador de carga
 Recupere la configuración existente del grupo back-end y front-end de equilibradores de carga y, a continuación, agregue nuevas reglas de equilibrio de carga mediante [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/Add-AzLoadBalancerRuleConfig).
 
-```azurepowershell
+```azurepowershell-interactive
 # Retrieve the updated (live) versions of the frontend and backend pool
 $frontendIPv6 = Get-AzLoadBalancerFrontendIpConfig -Name "dsLbFrontEnd_v6" -LoadBalancer $lb
 $backendPoolv6 = Get-AzLoadBalancerBackendAddressPoolConfig -Name "LbBackEndPool_v6" -LoadBalancer $lb
+
 # Create new LB rule with the frontend and backend
 $lb | Add-AzLoadBalancerRuleConfig `
   -Name "dsLBrule_v6" `
@@ -101,6 +102,7 @@ $lb | Add-AzLoadBalancerRuleConfig `
   -Protocol Tcp `
   -FrontendPort 80 `
   -BackendPort 80
+
 #Finalize all the load balancer updates on the running load balancer
 $lb | Set-AzLoadBalancer
 ```
@@ -108,53 +110,57 @@ $lb | Set-AzLoadBalancer
 
 Agregue intervalos de direcciones IPv6 a la red virtual y a la subred que hospeda las máquinas virtuales como se indica a continuación:
 
-```azurepowershell
+```azurepowershell-interactive
 #Add IPv6 ranges to the VNET and subnet
 #Retreive the VNET object
 $vnet = Get-AzVirtualNetwork  -ResourceGroupName $rg.ResourceGroupName -Name "myVnet" 
+
 #Add IPv6 prefix to the VNET
 $vnet.addressspace.addressprefixes.add("ace:cab:deca::/48")
+
 #Update the running VNET
 $vnet |  Set-AzVirtualNetwork
 
 #Retrieve the subnet object from the local copy of the VNET
 $subnet= $vnet.subnets[0]
+
 #Add IPv6 prefix to the Subnet (subnet of the VNET prefix, of course)
 $subnet.addressprefix.add("ace:cab:deca::/64")
+
 #Update the running VNET with the new subnet configuration
 $vnet |  Set-AzVirtualNetwork
-
 ```
+
 ## <a name="add-ipv6-configuration-to-nic"></a>Incorporación de la configuración IPv6 a NIC
 
 Configuración de todas las NIC de máquina virtual con una dirección IPv6 mediante [Add-AzNetworkInterfaceIpConfig](/powershell/module/az.network/Add-AzNetworkInterfaceIpConfig) como se indica a continuación:
 
-```azurepowershell
-
+```azurepowershell-interactive
 #Retrieve the NIC objects
 $NIC_1 = Get-AzNetworkInterface -Name "myNic1" -ResourceGroupName $rg.ResourceGroupName
 $NIC_2 = Get-AzNetworkInterface -Name "myNic2" -ResourceGroupName $rg.ResourceGroupName
 $NIC_3 = Get-AzNetworkInterface -Name "myNic3" -ResourceGroupName $rg.ResourceGroupName
+
 #Add an IPv6 IPconfig to NIC_1 and update the NIC on the running VM
 $NIC_1 | Add-AzNetworkInterfaceIpConfig -Name MyIPv6Config -Subnet $vnet.Subnets[0]  -PrivateIpAddressVersion IPv6 -LoadBalancerBackendAddressPool $backendPoolv6 
 $NIC_1 | Set-AzNetworkInterface
+
 #Add an IPv6 IPconfig to NIC_2 and update the NIC on the running VM
 $NIC_2 | Add-AzNetworkInterfaceIpConfig -Name MyIPv6Config -Subnet $vnet.Subnets[0]  -PrivateIpAddressVersion IPv6 -LoadBalancerBackendAddressPool $backendPoolv6 
 $NIC_2 | Set-AzNetworkInterface
+
 #Add an IPv6 IPconfig to NIC_3 and update the NIC on the running VM
 $NIC_3 | Add-AzNetworkInterfaceIpConfig -Name MyIPv6Config -Subnet $vnet.Subnets[0]  -PrivateIpAddressVersion IPv6 -LoadBalancerBackendAddressPool $backendPoolv6 
 $NIC_3 | Set-AzNetworkInterface
-
 ```
 
 ## <a name="view-ipv6-dual-stack-virtual-network-in-azure-portal"></a>Visualización de la red virtual de doble pila IPv6 en Azure Portal
+
 Para ver la red virtual de doble pila IPv6 en Azure Portal, siga estos pasos:
 1. En la barra de búsqueda del portal, escriba *myVnet*.
 2. Seleccione **myVnet** cuando aparezca en los resultados de búsqueda. De este modo, se abrirá la **página de información general** de la red virtual de doble pila llamada *myVnet*. En la red virtual de doble pila, se muestran las tres NIC con las configuraciones IPv4 e IPv6 en una subred de pila doble denominada *mySubnet*.
 
   ![Red virtual de doble pila IPv6 de Azure](./media/ipv6-add-to-existing-vnet-powershell/ipv6-dual-stack-vnet.png)
-
-
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

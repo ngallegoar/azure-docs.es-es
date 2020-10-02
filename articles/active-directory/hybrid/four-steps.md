@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b7e394c4227be9ead491fe77457b466b1f62468
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 4543a46c9362ac6d20cc7597de9f59c1a7520163
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279336"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600804"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Cuatro pasos para establecer las bases de una identidad segura con Azure Active Directory
 
@@ -46,7 +46,7 @@ Azure AD permite a los administradores [agregar aplicaciones](../manage-apps/ad
 Una vez que se agregan aplicaciones a la galería de Azure AD, los usuarios pueden ver aquellas que tienen asignadas y buscar y solicitar otras aplicaciones según sea necesario. Azure AD proporciona [varios métodos](../manage-apps/end-user-experiences.md) para que los usuarios accedan a sus aplicaciones:
 
 * Panel de acceso/Aplicaciones
-* Iniciador de aplicaciones de Office 365
+* Iniciador de aplicaciones de Microsoft 365
 * Inicio de sesión directo en aplicaciones federadas
 * Vínculos directos de inicio de sesión
 
@@ -115,7 +115,7 @@ Las organizaciones con una instancia local de Active Directory deben extender s
 
 El método más sencillo y recomendado para permitir la autenticación en la nube para los objetos de directorio local en Azure AD es habilitar la [sincronización de hash de contraseña](./how-to-connect-password-hash-synchronization.md) (PHS). Como alternativa, algunas organizaciones pueden considerar la posibilidad de habilitar la [autenticación de paso a través](./how-to-connect-pta-quick-start.md) (PTA).
 
-Tanto si elige PHS o PTA, no olvide habilitar el [inicio de sesión único de conexión directa](./how-to-connect-sso.md) para permitir que los usuarios accedan a las aplicaciones en la nube sin escribir constantemente su nombre de usuario y contraseña cuando usan dispositivos Windows 7 y 8 en la red de la empresa. Sin el inicio de sesión único, los usuarios deben recordar cada contraseña específica de la aplicación e iniciar sesión en cada aplicación. Igualmente, el personal de TI debe crear y actualizar cuentas de usuario para cada aplicación como, por ejemplo, Office 365, Box y Salesforce. Los usuarios tienen que recordar sus contraseñas, además de dedicar tiempo a iniciar sesión en cada aplicación. Proporcionar un mecanismo estándar de inicio de sesión único para toda la empresa es fundamental para mejorar la experiencia del usuario, reducir el riesgo, generar informes y facilitar el gobierno.
+Tanto si elige PHS o PTA, no olvide habilitar el [inicio de sesión único de conexión directa](./how-to-connect-sso.md) para permitir que los usuarios accedan a las aplicaciones en la nube sin escribir constantemente su nombre de usuario y contraseña cuando usan dispositivos Windows 7 y 8 en la red de la empresa. Sin el inicio de sesión único, los usuarios deben recordar cada contraseña específica de la aplicación e iniciar sesión en cada aplicación. Del mismo modo, el personal de TI necesita crear y actualizar las cuentas de usuario para cada aplicación como, por ejemplo, Microsoft 365, Box y Salesforce. Los usuarios tienen que recordar sus contraseñas, además de dedicar tiempo a iniciar sesión en cada aplicación. Proporcionar un mecanismo estándar de inicio de sesión único para toda la empresa es fundamental para mejorar la experiencia del usuario, reducir el riesgo, generar informes y facilitar el gobierno.
 
 En el caso de las organizaciones que ya usan AD FS u otro proveedor de autenticación local, el hecho de pasarse a Azure AD como proveedor de identidades puede reducir la complejidad y mejorar la disponibilidad. A menos que tenga escenarios específicos para el uso de la federación, se recomienda migrar de la autenticación federada a PHS y SSO de conexión directa o a PTA y SSO de conexión directa para disfrutar de las ventajas de tener una superficie local reducida y la flexibilidad que ofrece la nube con las experiencias de usuario mejoradas. Para más información, consulte [Migración de la federación a la sincronización de hash de contraseña para Azure Active Directory](./plan-migrate-adfs-password-hash-sync.md).
 
@@ -156,7 +156,7 @@ La asignación de usuarios a las aplicaciones se realiza mejor cuando se usan gr
 * Basada en atributos con pertenencia dinámica a grupos
 * Delegación a propietarios de la aplicación
 
-Azure AD le proporciona la capacidad de administrar el acceso a los recursos mediante grupos de seguridad y grupos de Office 365. Estos grupos los puede administrar el propietario de un grupo que pueda aprobar o rechazar solicitudes de pertenencia y delegar el control de la pertenencia a grupos. Esta característica, conocida como [administración de grupos de autoservicio](../users-groups-roles/groups-self-service-management.md), ahorra tiempo al permitir a los propietarios de los grupos que no tienen asignado un rol administrativo crear y administrar los grupos sin depender de los administradores para gestionar sus solicitudes.
+Azure AD le proporciona la capacidad de administrar el acceso a los recursos mediante grupos de seguridad y grupos de Microsoft 365. Estos grupos los puede administrar el propietario de un grupo que pueda aprobar o rechazar solicitudes de pertenencia y delegar el control de la pertenencia a grupos. Esta característica, conocida como [administración de grupos de autoservicio](../users-groups-roles/groups-self-service-management.md), ahorra tiempo al permitir a los propietarios de los grupos que no tienen asignado un rol administrativo crear y administrar los grupos sin depender de los administradores para gestionar sus solicitudes.
 
 ## <a name="step-4---operationalize-your-insights"></a>Paso 4: Operacionalización de las conclusiones
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 06/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3e5f75a5ff9c6baff9bbefea7846ffe78655c6a9
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: cb804b21d6f5312c13bfdbf7b0fc0404961ba1e3
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401765"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005741"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Administración de una cuenta de ejecución de Azure Automation
 
@@ -26,16 +26,16 @@ Azure Automation usa dos tipos de cuentas de ejecución:
 >[!NOTE]
 >Las suscripciones del Proveedor de soluciones en la nube (CSP) de Azure solo admiten el modelo de Azure Resource Manager. Los servicios que no son de Azure Resource Manager no están disponibles en el programa. Cuando se usa una suscripción al programa CSP, no se crea la cuenta de ejecución de Azure clásico, sino la cuenta de ejecución de Azure. Para más información acerca de las suscripciones de CSP, consulte [Servicios disponibles en las suscripciones de CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services).
 
-La entidad de servicio para una cuenta de ejecución no tiene los permisos para leer Azure Active Directory de manera predeterminada. Si quiere agregar permisos para leer o administrar Azure AD, deberá conceder los permisos a la entidad de servicio en **Permisos de API**. Para más información, consulte [Adición de permisos para acceder a las API web](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+La entidad de servicio para una cuenta de ejecución no tiene los permisos para leer Azure Active Directory de manera predeterminada. Si quiere agregar permisos para leer o administrar Azure AD, deberá conceder los permisos a la entidad de servicio en **Permisos de API**. Para más información, consulte [Incorporación de permisos para acceder a la API web](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api).
 
 ### <a name="run-as-account"></a>cuenta de identificación
 
 La cuenta de ejecución administra los recursos del [modelo de implementación de Resource Manager](../azure-resource-manager/management/deployment-models.md). Realiza las tareas que se indican a continuación.
 
 * Crea una aplicación de Azure AD con un certificado autofirmado, crea una cuenta de entidad servicio para la aplicación en Azure AD y asigna el rol Colaborador para esta cuenta en la suscripción actual. Puede cambiar la configuración de certificado a Propietario o a cualquier otro rol. Para más información, consulte [Control de acceso basado en rol en Azure Automation](automation-role-based-access-control.md).
-  
+
 * Crea un recurso de certificado de Automation denominado `AzureRunAsCertificate` en la cuenta de Automation especificada. El recurso de certificado contiene la clave privada del certificado que se usa en la aplicación de Azure AD.
-  
+
 * Crea un recurso de conexión de Automation denominado `AzureRunAsConnection` en la cuenta de Automation especificada. El recurso de conexión contiene el identificador de la aplicación, el identificador del inquilino, el identificador de la suscripción y la huella digital del certificado.
 
 ### <a name="azure-classic-run-as-account"></a>Cuenta de ejecución de Azure clásico
@@ -80,7 +80,7 @@ Para comprobar que se ha corregido la situación causante del mensaje de error:
 
 1. En el panel de Azure Active Directory de Azure Portal, seleccione **Usuarios y grupos**.
 2. Seleccione **Todos los usuarios**.
-3. Elija su nombre y, a continuación, seleccione **Perfil**. 
+3. Elija su nombre y, a continuación, seleccione **Perfil**.
 4. Asegúrese de que el valor del atributo **Tipo de usuario**  en el perfil de usuario no esté establecido en **Invitado**.
 
 ### <a name="get-permissions-to-configure-classic-run-as-accounts"></a><a name="permissions-classic"></a>Obtención de permisos para configurar cuentas de ejecución clásicas
@@ -99,7 +99,7 @@ Realice los pasos que se describen a continuación para actualizar su cuenta de 
 
 4. En el panel izquierdo, seleccione **Cuentas de ejecución** en la sección Configuración de la cuenta.
 
-5. En función de la cuenta que necesite, seleccione **Cuenta de ejecución de Azure** o **Cuenta de ejecución de Azure clásica**. 
+5. En función de la cuenta que necesite, seleccione **Cuenta de ejecución de Azure** o **Cuenta de ejecución de Azure clásica**.
 
 6. En función de la cuenta que le interese, use el panel **Agregar cuenta de ejecución de Azure** o **Agregar cuenta de ejecución de Azure clásico**. Después de revisar la información general, haga clic en **Crear**.
 
@@ -113,7 +113,7 @@ En esta sección se describe cómo eliminar una cuenta de ejecución o una cuent
 
 2. En el panel izquierdo, seleccione **Cuentas de ejecución** en la sección Configuración de la cuenta.
 
-3. En la página de propiedades Cuentas de ejecución, seleccione la cuenta de ejecución o la cuenta de ejecución clásica que quiere eliminar. 
+3. En la página de propiedades Cuentas de ejecución, seleccione la cuenta de ejecución o la cuenta de ejecución clásica que quiere eliminar.
 
 4. En el panel Propiedades de la cuenta seleccionada, haga clic en **Eliminar**.
 
@@ -127,7 +127,7 @@ En esta sección se describe cómo eliminar una cuenta de ejecución o una cuent
 
 ## <a name="renew-a-self-signed-certificate"></a><a name="cert-renewal"></a>Renovación de un certificado autofirmado
 
-El certificado autofirmado que creó para la cuenta de ejecución expira un año después de la fecha de creación. En algún momento antes de que expire su cuenta de ejecución, debe renovar el certificado. Se puede renovar en cualquier momento antes de que expire. 
+El certificado autofirmado que creó para la cuenta de ejecución expira un año después de la fecha de creación. En algún momento antes de que expire su cuenta de ejecución, debe renovar el certificado. Se puede renovar en cualquier momento antes de que expire.
 
 Cuando se renueva el certificado autofirmado, el certificado válido actual se conserva para garantizar que los runbooks que se ponen en la cola o que se ejecutan activamente, y que se autentican con la cuenta de ejecución, no se ven negativamente afectados. El certificado es válido hasta la fecha de expiración.
 
@@ -168,10 +168,10 @@ $roleDefinition.NotActions.Add("Microsoft.Compute/*")
 $roleDefinition | Set-AzRoleDefinition
 ```
 
-Puede determinar si la entidad de servicio que se usa en la cuenta de ejecución está en la definición del rol Colaborador o en una personalizada. 
+Puede determinar si la entidad de servicio que se usa en la cuenta de ejecución está en la definición del rol Colaborador o en una personalizada.
 
 1. Vaya a la cuenta de Automation y seleccione **Cuentas de ejecución** en la sección Configuración de la cuenta.
-2. Seleccione **Cuenta de ejecución de Azure**. 
+2. Seleccione **Cuenta de ejecución de Azure**.
 3. Seleccione **Rol** para localizar la definición de roles que se está usando.
 
 :::image type="content" source="media/manage-runas-account/verify-role.png" alt-text="Compruebe el rol de cuenta de ejecución" lightbox="media/manage-runas-account/verify-role-expanded.png":::.
@@ -207,7 +207,7 @@ Al seleccionar la cuenta de ejecución, el panel de propiedades de la cuenta mue
 The Run As account is incomplete. Either one of these was deleted or not created - Azure Active Directory Application, Service Principal, Role, Automation Certificate asset, Automation Connect asset - or the Thumbprint is not identical between Certificate and Connection. Please delete and then re-create the Run As Account.
 ```
 
-Rápidamente puede resolver estos problemas de la cuenta de ejecución con solo eliminarla cuenta y volver a crearla.
+Para resolver rápidamente estos problemas de la cuenta de ejecución solo tiene que eliminarla y volver a crearla.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

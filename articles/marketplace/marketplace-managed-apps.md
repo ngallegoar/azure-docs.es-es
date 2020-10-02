@@ -6,17 +6,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: msjogarrig
 ms.author: jogarrig
-ms.date: 04/22/2020
-ms.openlocfilehash: 70922b80139015226445ca62026ec6f5a59b751c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 09/04/2020
+ms.openlocfilehash: 10ca7602dd3cf5a80e371ceda845977bcd8f218a
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119827"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484246"
 ---
 # <a name="publishing-guide-for-azure-managed-applications"></a>Guía de publicación de aplicaciones administradas de Azure
 
-Una oferta de *aplicación administrada* de Azure es una manera de publicar una aplicación de Azure en Azure Marketplace. Las aplicaciones administradas son ofertas de transacciones que se implementan y facturan mediante Azure Marketplace. La llamada a la acción que el usuario ve es *Obtener ahora*.
+Una oferta de *aplicación administrada* de Azure es una manera de publicar una aplicación de Azure en Azure Marketplace. Las aplicaciones administradas son ofertas de transacciones que se implementan y facturan mediante Azure Marketplace. La opción de publicación que el usuario ve es *Obtener ahora*.
 
 En este artículo se explican los requisitos para el tipo de oferta de aplicación administrada.
 

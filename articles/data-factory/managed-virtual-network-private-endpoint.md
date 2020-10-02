@@ -9,14 +9,16 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom:
+- seo-lt-2019
+- references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 14a3a76ef4fefb7a33b272b846e1f1cb66644c3e
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 5a40faa1feac20ae096dfe39a5b1d109d4a11d3d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225689"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564005"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Red virtual administrada de Azure Data Factory (versión preliminar)
 
@@ -59,7 +61,7 @@ El punto de conexión privado usa una dirección IP privada en la red virtual ad
 > Se recomienda crear puntos de conexión privados administrados para conectarse a todos los orígenes de datos de Azure. 
  
 > [!WARNING]
-> Si un almacén de datos de PaaS (Blob, ADLS Gen2, SQL DW) tiene un punto de conexión privado ya creado en él, incluso si permite el acceso desde todas las redes, ADF solo podría acceder a dicho almacén mediante un punto de conexión privado administrado. Asegúrese de crear un punto de conexión privado en estos escenarios. 
+> Si un almacén de datos de PaaS (Blob, ADLS Gen2 o Azure Synapse Analytics) tiene un punto de conexión privado que ya se ha creado, aunque permita el acceso desde todas las redes, ADF solo podrá acceder a dicho almacén mediante un punto de conexión privado administrado. Asegúrese de crear un punto de conexión privado en estos escenarios. 
 
 Una conexión de punto de conexión privado se crea en un estado "pendiente" cuando se crea un punto de conexión privado administrado en Azure Data Factory. Se inicia un flujo de trabajo de aprobación. El propietario del recurso de vínculo privado es responsable de aprobar o rechazar la conexión.
 
@@ -83,10 +85,31 @@ Los orígenes de datos siguientes pueden establecer una conexión a través de u
 - Azure CosmosDB SQL
 - Azure Key Vault
 - Servicio Azure Private Link
+- Azure Search
+- Azure Database for MySQL
+- Azure Database for PostgreSQL
+- Azure Database for MariaDB
+
+### <a name="azure-data-factory-managed-virtual-network-is-available-in-the-following-azure-regions"></a>La característica Managed Virtual Network de Azure Data Factory está disponible en las siguientes regiones de Azure:
+- Este de EE. UU.
+- Este de EE. UU. 2
+- Centro-Oeste de EE. UU.
+- Oeste de EE. UU. 2
+- Centro-sur de EE. UU.
+- Centro de EE. UU.
+- Norte de Europa
+- Oeste de Europa
+- Sur de Reino Unido 2
+- Sudeste de Asia
+- Este de Australia
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Comunicaciones salientes a través del punto de conexión público desde la red virtual administrada de ADF
 - Solo se abre el puerto 443 para las comunicaciones salientes.
 - Azure Storage y Azure Data Lake Gen2 no pueden establecer una conexión a través del punto de conexión público desde la red virtual administrada de ADF.
+
+### <a name="linked-service-creation-of-azure-key-vault"></a>Creación de un servicio vinculado para Azure Key Vault 
+- Cuando se crea un servicio vinculado para Azure Key Vault, no existe ninguna referencia a Azure Integration Runtime. Por este motivo, no se puede generar un punto de conexión privado cuando se crea un servicio vinculado para Azure Key Vault. Sin embargo, si se crea un servicio vinculado para almacenes de datos que hace referencia a un servicio vinculado de Azure Key Vault y dicho servicio vinculado hace referencia a Azure Integration Runtime con la característica Managed Virtual Network habilitada, puede crear un punto de conexión privado para el servicio vinculado de Azure Key Vault durante la creación. 
+- La operación **Prueba de conexión** del servicio vinculado de Azure Key Vault solo valida el formato de la dirección URL, pero no realiza ninguna operación de red.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

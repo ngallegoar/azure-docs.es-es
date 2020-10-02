@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 1b0600b164186097bc41a7e4d655e32bb2d0acbd
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: ca8f2e1721c99c79188917e5b44950b8db6895ce
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89318784"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006404"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Capacidades de transacción de marketplace comercial
 
@@ -146,7 +146,7 @@ En este escenario, Microsoft factura 100,00 USD por su licencia de software y p
 
 ### <a name="reduced-service-fee"></a>Reducción de precio en los servicios
 
-Para determinadas ofertas que se publican en el marketplace comercial, Microsoft reducirá sus cuotas del servicio Marketplace del 20 % (tal como se describe en el [contrato para editores de Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560)) al 10 %. Para que su oferta sea apta, Microsoft debe haber designado sus ofertas como incentivadas para realizar una venta conjunta por IP de Azure. Para recibir el precio reducido del servicio Marketplace durante el mes, se deben cumplir los criterios de idoneidad al menos cinco días hábiles antes del final de cada mes natural. La cuota reducida del servicio Marketplace se aplica a SaaS, máquinas virtuales y aplicaciones administradas con incentivos por venta conjunta por IP de Azure, así como a cualquier otra oferta de IaaS en la que se pueda llevar a cabo una transacción cualificada que esté disponible a través del marketplace comercial.
+Para determinadas ofertas que se publican en el marketplace comercial, Microsoft reducirá sus cuotas del servicio Marketplace del 20 % (tal como se describe en el [contrato para editores de Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560)) al 10 %. Para que su oferta sea apta, Microsoft debe haber designado sus ofertas como incentivadas para realizar una venta conjunta por IP de Azure. Para recibir el precio reducido del servicio Marketplace durante el mes, se deben cumplir los criterios de idoneidad al menos cinco días hábiles antes del final de cada mes natural. La cuota reducida del servicio Marketplace se aplica a SaaS, máquinas virtuales y aplicaciones administradas con incentivos por venta conjunta por IP de Azure, así como a cualquier otra oferta de IaaS en la que se pueda llevar a cabo una transacción cualificada que esté disponible a través del marketplace comercial. Las ofertas de SaaS de pago asociadas con una aplicación de Microsoft Teams o al menos con dos complementos de Microsoft 365 (Excel, PowerPoint, Word, Outlook y SharePoint) y publicadas en AppSource también reciben este descuento.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Facturación, pago y cobro al cliente
 

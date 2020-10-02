@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: e65fecb70b7e3adf009396c0daa00fc50b81b519
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: d921bddf90c415cb244e2cc9ad98354392a537ee
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604528"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530172"
 ---
 # <a name="manage-the-mobility-agent"></a>Administrar el agente de movilidad 
 
@@ -26,7 +26,7 @@ Es preciso configurar un agente de movilidad en el servidor cuando se usa Azure 
 ## <a name="update-mobility-service-from-azure-portal"></a>Actualizar Mobility Service desde Azure Portal
 
 1. Antes de empezar, asegúrese de que el servidor de configuración, los servidores de procesos de escalado horizontal y los servidores de destino principales que forman parte de la implementación estén actualizados antes de actualizar Mobility Service en las máquinas protegidas.
-    1. A partir de la [versión 9.36](https://support.microsoft.com/help/4578241/), en el caso de SUSE Linux Enterprise Server 11 SP4, asegúrese de que el instalador más reciente está [disponible en el servidor de configuración y que se realiza la escalabilidad horizontal del servidor de procesos](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-server).
+    1. A partir de la versión 9.36, en el caso de SUSE Linux Enterprise Server 11 SP3, RHEL 5, CentOS 5 y Debian 7, asegúrese de que el instalador más reciente está [disponible en el servidor de configuración y que se realiza la escalabilidad horizontal del servidor de procesos](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server).
 1. En el portal, abra el almacén > **Elementos replicados**.
 1. Si el servidor de configuración es la versión más reciente, verá una notificación que dice "Hay una nueva actualización del agente de replicación de Site Recovery disponible. Haga clic para instalar".
 

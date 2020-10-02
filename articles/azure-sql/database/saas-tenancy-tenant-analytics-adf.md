@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: fff308f241a29cbf40bf2884fc412acf5942497b
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 2f4f81f8159e5800da7dfec58c01f474cb1c0d07
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84036486"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437452"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Exploración del análisis de SaaS con Azure SQL Database, Azure Synapse Analytics, Data Factory y Power BI
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 En este tutorial se le guiará a través de un escenario de análisis completo. El escenario muestra cómo los análisis de datos de los inquilinos facilitan la toma de decisiones inteligentes a los proveedores de software. Con los datos extraídos de cada base de datos de inquilino, utilice los análisis para obtener información del comportamiento del inquilino, incluido el uso de la aplicación SaaS de ejemplo Wingtip Tickets. Este escenario engloba tres pasos:
 
-1. **Extraer datos** de cada base de datos de inquilinos en un almacén de análisis, en este caso, una instancia de SQL Data Warehouse.
+1. **Extraer datos** de cada base de datos de inquilinos en un almacén de análisis, en este caso, un grupo de SQL.
 2. **Optimizar los datos extraídos** para el procesamiento de análisis.
 3. Use las herramientas de **Business Intelligence** para extraer información útil que sirva para tomar decisiones.
 
@@ -45,7 +45,7 @@ Las aplicaciones SaaS pueden contener gran cantidad de datos de inquilino en la 
 
 El acceso a los datos para todos los inquilinos es sencillo si todos los datos se encuentran en una única base de datos multiinquilino. Sin embargo, el acceso es más complejo si se distribuyen a escala entre miles de bases de datos. Una forma de reducir la complejidad consiste en extraer los datos en una base de datos de análisis o en un almacenamiento de datos para la consulta.
 
-En este tutorial se presenta un escenario de análisis completo para la aplicación Wingtip Tickets. En primer lugar, [Azure Data Factory (ADF)](../../data-factory/introduction.md) se utiliza como herramienta de orquestación para extraer los datos de venta de entradas y relacionados de cada base de datos de inquilinos. Estos datos se cargan en tablas de ensayo en un almacenamiento de análisis. El almacén de análisis podría ser una instancia de SQL Database o de SQL Data Warehouse. En este tutorial se usa [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) como almacenamiento de análisis.
+En este tutorial se presenta un escenario de análisis completo para la aplicación Wingtip Tickets. En primer lugar, [Azure Data Factory (ADF)](../../data-factory/introduction.md) se utiliza como herramienta de orquestación para extraer los datos de venta de entradas y relacionados de cada base de datos de inquilinos. Estos datos se cargan en tablas de ensayo en un almacenamiento de análisis. El almacén de análisis podría ser un grupo de SQL o una instancia de SQL Database. En este tutorial se usa [Azure Synapse Analytics (anteriormente, SQL Data Warehouse)](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) como almacén de análisis.
 
 A continuación, los datos extraídos se transforman en un conjunto de tablas en un [esquema de estrella](https://www.wikipedia.org/wiki/Star_schema) y se cargan. Las tablas constan de una tabla de hechos central más tablas de dimensiones relacionadas:
 
@@ -83,11 +83,11 @@ En este tutorial se explora el análisis de los datos de venta de entradas. En e
     - **$DemoScenario** = **1** Purchase tickets for events at all venues
 2. Presione **F5** para ejecutar el script y crear un historial de compra de entradas para todos los lugares. Con 20 inquilinos, el script genera decenas de miles de entradas y puede tardar 10 minutos o más.
 
-### <a name="deploy-sql-data-warehouse-data-factory-and-blob-storage"></a>Implementación de SQL Data Warehouse, Data Factory y Blob Storage
+### <a name="deploy-azure-synapse-analytics-data-factory-and-blob-storage"></a>Implementación de Azure Synapse Analytics, Data Factory y Blob Storage
 
-En la aplicación Wingtip Tickets, los datos transaccionales de los inquilinos se distribuyen en muchas bases de datos. Azure Data Factory (ADF) se usa para coordinar la extracción, la carga y la transformación (ETL) de estos datos en el almacenamiento de datos. Para cargar datos en SQL Data Warehouse de forma más eficaz, ADF extrae los datos en archivos de blob intermedios y usa [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading) para cargar los datos en el almacenamiento de datos.
+En la aplicación Wingtip Tickets, los datos transaccionales de los inquilinos se distribuyen en muchas bases de datos. Azure Data Factory (ADF) se usa para coordinar la extracción, la carga y la transformación (ETL) de estos datos en el almacenamiento de datos. Para cargar datos en Azure Synapse Analytics (anteriormente, SQL Data Warehouse) de forma más eficaz, ADF extrae los datos en archivos de blob intermedios y usa [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading) para cargar los datos en el almacenamiento de datos.
 
-En este paso se implementan los recursos adicionales para el tutorial: una instancia de SQL Data Warehouse denominada _tenantanalytics_, una de Azure Data Factory denominada _dbtodwload-\<user\>_ y una cuenta de almacenamiento de Azure denominada _wingtipstaging\<user\>_ . La cuenta de almacenamiento se usa para almacenar temporalmente los archivos de datos extraídos como blobs antes de que se carguen en el almacenamiento de datos. En este paso también se implementa el esquema de almacenamiento de datos y se definen las canalizaciones de ADF que orquestan el proceso de extracción, carga y transformación.
+En este paso se implementan los recursos adicionales para el tutorial: un grupo de SQL denominado _tenantanalytics_, una instancia de Azure Data Factory denominada _dbtodwload-\<user\>_ y una cuenta de almacenamiento de Azure denominada _wingtipstaging\<user\>_ . La cuenta de almacenamiento se usa para almacenar temporalmente los archivos de datos extraídos como blobs antes de que se carguen en el almacenamiento de datos. En este paso también se implementa el esquema de almacenamiento de datos y se definen las canalizaciones de ADF que orquestan el proceso de extracción, carga y transformación.
 
 1. En PowerShell ISE, abra *…\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* y defina:
     - **$DemoScenario** = **2** Implementación del almacenamiento de datos de análisis de inquilinos, del almacenamiento en blobs y la factoría de datos
@@ -159,7 +159,7 @@ Las tres canalizaciones anidadas son: SQLDBToDW, DBCopy y TableCopy.
 
 **Canalización 3: TableCopy** utiliza los números de versión de fila de SQL Database (_rowversion_) para identificar las filas que se hayan cambiado o actualizado. Esta actividad busca la versión de fila inicial y final para extraer filas de las tablas de origen. La tabla **CopyTracker** que se almacena en cada base de datos de inquilinos realiza un seguimiento de la última fila que se extrajo de cada tabla de origen en cada ejecución. Las filas nuevas o cambiadas se copian en las tablas de almacenamiento provisional correspondientes del almacenamiento de datos: **raw_Tickets**, **raw_Customers**, **raw_Events** y **raw_Venue**. Por último, la última versión de fila se guarda en la tabla **CopyTracker** para usarse como versión de fila inicial para la extracción siguiente.
 
-Hay también tres servicios vinculados con parámetros que vinculan la factoría de datos con las bases de datos de origen de SQL Database, la instancia de SQL Data Warehouse de destino y el almacenamiento de blobs intermedio. En la pestaña **Autor**, haga clic en **Conexiones** para explorar los servicios vinculados, tal como se muestra en la siguiente imagen:
+Hay también tres servicios relacionados con parámetros que vinculan la factoría de datos con las bases de datos de origen de SQL Database, el grupo de SQL de destino y el almacenamiento de blobs intermedio. En la pestaña **Autor**, haga clic en **Conexiones** para explorar los servicios vinculados, tal como se muestra en la siguiente imagen:
 
 ![adf_linkedservices](./media/saas-tenancy-tenant-analytics-adf/linkedservices.JPG)
 
@@ -167,7 +167,7 @@ A los tres servicios vinculados les corresponden tres conjuntos de datos que hac
   
 ### <a name="data-warehouse-pattern-overview"></a>Introducción al patrón de almacenamiento de datos
 
-Azure Synapse (antes Azure SQL Data Warehouse) se utiliza como almacenamiento de análisis que lleva a cabo la agregación con los datos de inquilino. En este ejemplo, se cargan los datos en el almacenamiento de datos con PolyBase. Los datos sin procesar se cargan en tablas de almacenamiento provisional que tienen una columna de identidad para realizar un seguimiento de las filas que se han transformado en tablas con esquema de estrella. La siguiente imagen muestra el patrón de carga: ![loadingpattern](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
+Azure Synapse (anteriormente, SQL Data Warehouse) se utiliza como almacén de análisis que lleva a cabo la agregación con los datos de inquilino. En este ejemplo, se cargan los datos en el almacenamiento de datos con PolyBase. Los datos sin procesar se cargan en tablas de almacenamiento provisional que tienen una columna de identidad para realizar un seguimiento de las filas que se han transformado en tablas con esquema de estrella. La siguiente imagen muestra el patrón de carga: ![loadingpattern](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
 
 En este ejemplo se usan tablas de dimensiones de tipo 1 que varían lentamente. Cada dimensión tiene una clave suplente que se define mediante una columna de identidad. Como procedimiento recomendado, la tabla de dimensiones de fecha se rellena automáticamente para ahorrar tiempo. Para las demás tablas de dimensiones se utiliza una instrucción CREATE TABLE AS SELECT... (CTAS) para crear una tabla temporal con las filas existentes modificadas y sin modificar, junto con las claves suplentes. Esto se realiza con IDENTITY_INSERT=ON. A continuación, las filas nuevas se insertan en la tabla con IDENTITY_INSERT=OFF. Para facilitar la reversión, se cambia el nombre de la tabla de dimensiones existente y se cambia el nombre de la tabla temporal para convertirla en la nueva tabla de dimensiones. Antes de cada ejecución, se elimina la tabla de dimensiones antigua.
 

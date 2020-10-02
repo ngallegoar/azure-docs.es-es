@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 11/04/2019
-ms.openlocfilehash: 5330c751aaa3fcbd5c7fc268e4a4de08d336d474
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/09/2020
+ms.openlocfilehash: 5c24bd80721f626e38dcb886e89231c0b86056df
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82735443"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650959"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Caja de seguridad del cliente de Microsoft Azure
 
@@ -25,6 +25,49 @@ La Caja de seguridad del cliente de Microsoft Azure proporciona una interfaz par
 Este artículo trata sobre cómo se inician, siguen y almacenan las solicitudes de la Caja de seguridad del cliente para revisiones y auditorías posteriores.
 
 La Caja de seguridad del cliente ya está disponible con carácter general y actualmente está habilitada para poder acceder desde el escritorio remoto a las máquinas virtuales.
+
+## <a name="supported-services-and-scenarios-in-preview"></a>Servicios y escenarios admitidos en versión preliminar
+
+Los siguientes servicios están actualmente en versión preliminar para Caja de seguridad del cliente:
+
+- API Management
+- Azure App Service
+- Azure Database for MySQL
+- Azure Databricks
+- Azure Synapse Analytics
+- Cognitive Services
+- Container Registry
+- Azure Data Factory
+- Azure Database for PostgreSQL
+- Azure Kubernetes Service
+- Azure Data Box
+- HDInsight
+- Functions
+- Azure Storage
+- Azure SQL DB
+- Explorador de datos de Azure
+- Máquinas virtuales (que ahora también abarcan el acceso a volcados de memoria y discos administrados)
+- Transferencias de suscripciones de Azure
+
+Para habilitar estas ofertas en versión preliminar de Caja de seguridad del cliente para su organización, regístrese en la [versión preliminar pública de Azure de Caja seguridad del cliente](https://aka.ms/customerlockbox/insiderprogram).
+
+## <a name="supported-services-and-scenarios-in-general-availability"></a>Servicios y escenarios admitidos con disponibilidad general
+
+Los siguientes servicios y escenarios ya están disponibles con carácter general para la Caja de seguridad del cliente.
+
+### <a name="remote-desktop-access-to-virtual-machines"></a>Acceso del escritorio remoto a las máquinas virtuales
+
+La Caja de seguridad del cliente está actualmente habilitada para poder acceder desde el escritorio remoto a las máquinas virtuales. Se admiten las siguientes áreas de trabajo:
+- Plataforma como servicio (PaaS): Azure Cloud Services (rol web y rol de trabajo)
+- Infraestructura como servicio (IaaS): Windows y Linux (solo Azure Resource Manager)
+- Conjunto de escalado de máquinas virtuales: Windows y Linux
+
+> [!NOTE]
+> Las instancias del modelo clásico de IaaS no son compatibles con la Caja de seguridad del cliente. Si tiene cargas de trabajo ejecutándose en instancias del modelo clásico de IaaS, le recomendamos que las migre de los modelos de implementación Classic a Resource Manager. Para obtener más información, consulte [Migración compatible con la plataforma de recursos de IaaS del modelo clásico al de Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)
+
+#### <a name="detailed-audit-logs"></a>Registros de auditoría detallados
+
+En cuanto a los escenarios que usan el acceso al escritorio remoto, puede usar los registros de eventos de Windows para revisar las acciones del ingeniero de Microsoft. Asimismo, puede usar Azure Security Center para recopilar sus registros de eventos y copiar los datos a su área de trabajo para analizarlos. Para obtener más información, consulte [Recolección de datos en Azure Security Center](../../security-center/security-center-enable-data-collection.md).
 
 ## <a name="workflow"></a>Flujo de trabajo
 
@@ -91,40 +134,9 @@ Por ejemplo:
 
 ![Caja de seguridad del cliente de Azure: registros de actividad](./media/customer-lockbox-overview/customer-lockbox-activitylogs.png)
 
-## <a name="supported-services-and-scenarios-in-general-availability"></a>Servicios y escenarios admitidos con disponibilidad general
+## <a name="customer-lockbox-integration-with-azure-security-benchmark"></a>Integración de Caja de seguridad del cliente con la prueba comparativa de seguridad de Azure
 
-Los siguientes servicios y escenarios ya están disponibles con carácter general para la Caja de seguridad del cliente.
-
-### <a name="remote-desktop-access-to-virtual-machines"></a>Acceso del escritorio remoto a las máquinas virtuales
-
-La Caja de seguridad del cliente está actualmente habilitada para poder acceder desde el escritorio remoto a las máquinas virtuales. Se admiten las siguientes áreas de trabajo:
-- Plataforma como servicio (PaaS): Azure Cloud Services (rol web y rol de trabajo)
-- Infraestructura como servicio (IaaS): Windows y Linux (solo Azure Resource Manager)
-- Conjunto de escalado de máquinas virtuales: Windows y Linux
-
-> [!NOTE]
-> Las instancias del modelo clásico de IaaS no son compatibles con la Caja de seguridad del cliente. Si tiene cargas de trabajo ejecutándose en instancias del modelo clásico de IaaS, le recomendamos que las migre de los modelos de implementación Classic a Resource Manager. Para obtener más información, consulte [Migración compatible con la plataforma de recursos de IaaS del modelo clásico al de Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)
-
-#### <a name="detailed-audit-logs"></a>Registros de auditoría detallados
-
-En cuanto a los escenarios que usan el acceso al escritorio remoto, puede usar los registros de eventos de Windows para revisar las acciones del ingeniero de Microsoft. Asimismo, puede usar Azure Security Center para recopilar sus registros de eventos y copiar los datos a su área de trabajo para analizarlos. Para obtener más información, consulte [Recolección de datos en Azure Security Center](../../security-center/security-center-enable-data-collection.md).
-
-## <a name="supported-services-and-scenarios-in-preview"></a>Servicios y escenarios admitidos en versión preliminar
-
-Los siguientes servicios están actualmente en versión preliminar para Caja de seguridad del cliente:
-
-- Azure Storage
-
-- Azure SQL DB
-
-- Explorador de datos de Azure
-
-- Máquinas virtuales (que ahora también abarcan el acceso a volcados de memoria y discos administrados)
-
-- Transferencias de suscripciones de Azure
-
-Para habilitar estas ofertas en versión preliminar de Caja de seguridad del cliente para su organización, regístrese en la [versión preliminar pública de Azure de Caja seguridad del cliente](https://aka.ms/customerlockbox/insiderprogram).
-
+Hemos introducido un nuevo control de línea base ([3.13](../benchmarks/security-control-identity-access-control.md#313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios)) en las pruebas comparativas de seguridad de Azure que cubren la aplicabilidad de Caja de seguridad del cliente. Los clientes ahora pueden aprovechar las pruebas comparativas para revisar la aplicabilidad de Caja de seguridad del cliente para un servicio.
 
 ## <a name="exclusions"></a>Exclusiones
 

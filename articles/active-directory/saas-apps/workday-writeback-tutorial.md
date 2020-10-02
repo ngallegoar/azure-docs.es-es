@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 324d3a21e1694d243f03beca28ac8376bedffa4d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8c76bddc0fae024b0dd2bdd27d6b1e10d71dec71
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88526837"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017479"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Tutorial: Configuración de la escritura diferida de atributos de Azure AD en Workday
 El objetivo de este tutorial es mostrar los pasos que debe realizar para la escritura diferida de atributos de Azure AD en Workday. La aplicación de aprovisionamiento de escritura diferida de Workday admite la asignación de valores a los siguientes atributos de Workday:
@@ -34,7 +34,7 @@ Después de configurar la integración del aprovisionamiento de entrada mediante
 
 Esta solución de aprovisionamiento de usuarios de escritura diferida de Workday resulta adecuada para:
 
-* Organizaciones que usan Office 365 y que desean realizar la escritura diferida de atributos autoritativos administrados por TI (como la dirección de correo electrónico, el nombre de usuario y el número de teléfono) en Workday
+* Organizaciones que usan Microsoft 365 y que desean realizar la escritura diferida de atributos autoritativos administrados por TI (como la dirección de correo electrónico, el nombre de usuario y el número de teléfono) en Workday
 
 ## <a name="configure-integration-system-user-in-workday"></a>Configuración de un usuario de integración en Workday
 

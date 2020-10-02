@@ -4,12 +4,12 @@ description: Aprenda a configurar redes de Azure CNI (avanzadas) en Azure Kubern
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: 0506eb6350358f7256a61c8d6f164b6594d20554
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 58c2c597c7a75c801af91cd735561071250bda2c
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566121"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426153"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configuración de redes de Azure CNI en Azure Kubernetes Service (AKS)
 
@@ -22,7 +22,7 @@ En este artículo se muestra cómo usar las redes de *Azure CNI* para crear y us
 ## <a name="prerequisites"></a>Requisitos previos
 
 * La red virtual del clúster AKS debe permitir la conectividad saliente de Internet.
-* Los clústeres AKS no pueden usar `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16` ni `192.0.2.0/24` para el intervalo de direcciones del servicio Kubernetes.
+* Los clústeres de AKS no pueden usar `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16` ni `192.0.2.0/24` para el intervalo de direcciones del servicio de Kubernetes, el intervalo de direcciones de pod o el intervalo de direcciones de la red virtual del clúster. 
 * La entidad de servicio usada por el clúster de AKS debe tener al menos permisos de [colaborador de la red](../role-based-access-control/built-in-roles.md#network-contributor) en la subred de la red virtual. Si quiere definir un [rol personalizado](../role-based-access-control/custom-roles.md) en lugar de usar el rol integrado de colaborador de red, se requieren los permisos siguientes:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
@@ -52,7 +52,7 @@ El plan de direcciones IP de un clúster AKS consta de una red virtual, al menos
 | Virtual network | El tamaño de Azure Virtual Network puede ser de /8, pero se limita a 65 536 direcciones IP configuradas. Antes de configurar el espacio de direcciones, tenga en cuenta todos sus requisitos de red, incluida la comunicación con los servicios de otras redes virtuales. Por ejemplo, si configura un espacio de direcciones demasiado grande, es posible que surjan problemas de superposición con otros espacios de direcciones dentro de la red.|
 | Subnet | Debe ser lo suficientemente grande como para dar cabida a los nodos, los pods y a todos los recursos de Kubernetes y de Azure que se pueden aprovisionar en el clúster. Por ejemplo, si implementa una instancia de Azure Load Balancer interna, sus direcciones IP de front-end se asignan desde la subred del clúster, no las direcciones IP públicas. El tamaño de la subred también debe tener en cuenta las operaciones de actualización o las necesidades futuras de escalabilidad.<p />Para calcular el tamaño *mínimo* de subred, incluido un nodo adicional para operaciones de actualización: `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Ejemplo de un clúster de 50 nudos: `(51) + (51  * 30 (default)) = 1,581` (/21 o superior)<p/>Ejemplo de un clúster de 50 nodos que también incluye aprovisionamiento para escalar verticalmente 10 nodos adicionales: `(61) + (61 * 30 (default)) = 1,891` (/21 o superior)<p>Si no especifica un número máximo de pods por nodo al crear el clúster, el número máximo de pods por nodo se establece en *30*. El número mínimo de direcciones IP requeridas se basa en ese valor. Si se calculan los requisitos mínimos de dirección IP según otro valor máximo distinto, vea [cómo configurar el número máximo de pods por nodo](#configure-maximum---new-clusters) para establecer este valor cuando se implementa el clúster. |
 | Intervalo de direcciones del servicio de Kubernetes | Este intervalo no lo debe usar ningún elemento de red de esta red virtual o que esté conectado a ella. El CIDR de la dirección del servicio debe ser menor que /12. Puede reutilizar este intervalo en diferentes clústeres de AKS. |
-| Dirección IP del servicio DNS de Kubernetes | Dirección IP del intervalo de direcciones del servicio de Kubernetes que se usará en la detección de servicios de clúster (kube-dns). No use la primera dirección IP en el intervalo de direcciones, como .1. La primera dirección del intervalo de la subred se usa para la dirección *kubernetes.default.svc.cluster.local*. |
+| Dirección IP del servicio DNS de Kubernetes | Dirección IP del intervalo de direcciones del servicio de Kubernetes que se usará en la detección de servicios de clúster. No use la primera dirección IP en el intervalo de direcciones, como .1. La primera dirección del intervalo de la subred se usa para la dirección *kubernetes.default.svc.cluster.local*. |
 | Dirección de puente de Docker | La dirección de red del puente de Docker representa la dirección de red del puente de *docker0* predeterminada presente en todas las instalaciones de Docker. Aunque los pods o los clústeres de AKS no usan el puente de *docker0*, debe configurar esta dirección para seguir admitiendo escenarios como la *compilación de Docker* en el clúster de AKS. Es necesario seleccionar un CIDR para la dirección de red del puente de Docker, ya que, de lo contrario, Docker seleccionará automáticamente una subred que podría entrar en conflicto con otros CIDR. Debe elegir un espacio de direcciones que no entre en conflicto con el resto de los CIDR de las redes, incluidos el CIDR de servicio del clúster y el CIDR del pod. El valor predeterminado es 172.17.0.1/16. Puede reutilizar este intervalo en diferentes clústeres de AKS. |
 
 ## <a name="maximum-pods-per-node"></a>Pods máximos por nodo

@@ -1,29 +1,26 @@
 ---
-title: Procesamiento de la fuente de cambios en Azure Blob Storage (versión preliminar) | Microsoft Docs
+title: Procesamiento de la fuente de cambios en Azure Blob Storage | Microsoft Docs
 description: Obtenga información sobre cómo procesar los registros de fuente de cambios en una aplicación cliente de .NET.
 author: normesta
 ms.author: normesta
-ms.date: 06/18/2020
+ms.date: 09/08/2020
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cc70204a56c3a853c6c6c7f0e1573c71854c0f19
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f0e89fdfba852fc056cf48efd1b92daabb272cf0
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018967"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568258"
 ---
-# <a name="process-change-feed-in-azure-blob-storage-preview"></a>Procesamiento de la fuente de cambios en Azure Blob Storage (versión preliminar)
+# <a name="process-change-feed-in-azure-blob-storage"></a>Procesamiento de la fuente de cambios en Azure Blob Storage
 
 La fuente de cambios proporciona registros de transacciones de todos los cambios que se producen en los blobs y en los metadatos de blobs de la cuenta de almacenamiento. En este artículo se muestra cómo leer los registros de la fuente de cambios con la biblioteca de procesadores de la fuente de cambios de blob.
 
-Para más información sobre la fuente de cambios, consulte [Fuente de cambios en Azure Blob Storage (versión preliminar)](storage-blob-change-feed.md).
-
-> [!NOTE]
-> La fuente de cambios está en versión preliminar pública y se encuentra disponible en regiones limitadas. Para más información sobre esta característica junto con limitaciones y problemas conocidos, consulte [Compatibilidad con la fuente de cambios en Azure Blob Storage](storage-blob-change-feed.md). La biblioteca de procesadores de la fuente de cambios está sujeta a cambios entre este momento y cuando esta biblioteca esté disponible con carácter general.
+Para más información sobre la fuente de cambios, consulte [Fuente de cambios en Azure Blob Storage](storage-blob-change-feed.md).
 
 ## <a name="get-the-blob-change-feed-processor-library"></a>Obtención de la biblioteca de procesadores de la fuente de cambios de blob
 
@@ -219,4 +216,4 @@ La hora de inicio que proporcione se redondea hacia abajo a la hora más cercana
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre los registros de la fuente de cambios. Consulte [Fuente de cambios en Azure Blob Storage (versión preliminar)](storage-blob-change-feed.md)
+Más información sobre los registros de la fuente de cambios. Consulte [Fuente de cambios en Azure Blob Storage](storage-blob-change-feed.md).

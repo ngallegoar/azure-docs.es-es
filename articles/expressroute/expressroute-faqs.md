@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: fe7fd6d7a7511b1b1c6a218878fc185f83b1a2cd
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 6253dd616ca184449f3f144d538c1ed20de54cc2
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89396699"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566427"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -84,7 +84,7 @@ Si el circuito ExpressRoute está habilitado para el emparejamiento de Microsoft
 
 **Se admite:**
 
-* [Office 365](https://aka.ms/ExpressRouteOffice365)
+* [Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
 * Power BI: disponible a través de una comunidad regional de Azure, consulte [aquí](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) información sobre la región de su inquilino de Power BI.
 * Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (comunidad de Servicios globales de Azure)
@@ -158,7 +158,7 @@ Consulte [aquí](https://docs.microsoft.com/azure/expressroute/designing-for-hig
 
 ### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>¿Cómo implementar redundancia en el emparejamiento de Microsoft?
 
-Se recomienda encarecidamente cuando los clientes usan el emparejamiento de Microsoft para acceder a los servicios públicos de Azure como Azure Storage o Azure SQL, así como a los clientes que usan el emparejamiento de Microsoft para Office 365, que implementen varios circuitos de emparejamiento en ubicaciones diferentes para evitar puntos únicos de error. Los clientes pueden anunciar el mismo prefijo en ambos circuitos y usar [la anteposición de AS PATH](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) o anunciar prefijos diferentes para determinar la ruta de acceso del entorno local.
+Se recomienda encarecidamente cuando los clientes usan el emparejamiento de Microsoft para acceder a los servicios públicos de Azure como Azure Storage o Azure SQL, así como a los clientes que usan el emparejamiento de Microsoft para Microsoft 365, que implementen varios circuitos de emparejamiento en ubicaciones diferentes para evitar puntos únicos de error. Los clientes pueden anunciar el mismo prefijo en ambos circuitos y usar [la anteposición de AS PATH](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) o anunciar prefijos diferentes para determinar la ruta de acceso del entorno local.
 
 Consulte [aquí](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) para diseñar para lograr alta disponibilidad.
 
@@ -293,7 +293,7 @@ ExpressRoute Premium es una colección de las siguientes características:
 
 * Aumento del límite de la tabla de enrutamiento de 4000 rutas a 10 000 rutas para el emparejamiento privado.
 * Número aumentado de conexiones de redes virtuales y de ExpressRoute Global Reach que se pueden habilitar en un circuito ExpressRoute (el valor predeterminado es 10). Para más información, consulte la tabla [Límites de ExpressRoute](#limits).
-* Conectividad con Office 365
+* Conectividad con Microsoft 365
 * Conectividad global a través de la red principal de Microsoft. Ahora podrá vincular una red virtual en una región geopolítica con un circuito ExpressRoute en otra región.<br>
     **Ejemplos:**
 
@@ -344,43 +344,43 @@ ExpressRoute Local también tiene los mismos límites de recursos (por ejemplo, 
 ### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>¿Donde está disponible ExpressRoute Local y a qué regiones de Azure se asigna cada ubicación de emparejamiento?
 ExpressRoute Local está disponible en las ubicaciones de emparejamiento donde haya cerca una o dos regiones de Azure. No está disponible en una ubicación de emparejamiento donde no haya ninguna región de Azure en ese estado, provincia, país o región. Vea las asignaciones exactas en [la página de ubicaciones](expressroute-locations-providers.md).  
 
-## <a name="expressroute-for-office-365"></a>ExpressRoute para Office 365
+## <a name="expressroute-for-microsoft-365"></a>ExpressRoute para Microsoft 365
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-### <a name="how-do-i-create-an-expressroute-circuit-to-connect-to-office-365-services"></a>¿Cómo se puede crear un circuito ExpressRoute para conectarse a servicios de Office 365?
+### <a name="how-do-i-create-an-expressroute-circuit-to-connect-to-microsoft-365-services"></a>¿Cómo se puede crear un circuito ExpressRoute para conectarse a servicios de Microsoft 365?
 
 1. Revise la [página de requisitos previos de ExpressRoute](expressroute-prerequisites.md) para asegurarse de que se cumplen los requisitos.
 2. Revise la lista de proveedores de servicios y las ubicaciones en el artículo [Asociados y ubicaciones de ExpressRoute](expressroute-locations.md) para asegurarse de que se cumplen sus necesidades de conectividad.
-3. Planee los requisitos de capacidad revisando [Planificación de red y ajuste de rendimiento de Office 365](https://aka.ms/tune/).
+3. Planee los requisitos de capacidad revisando [Planeamiento de red y ajuste del rendimiento para Microsoft 365](/microsoft-365/enterprise/network-planning-and-performance).
 4. Siga los pasos indicados en los flujos de trabajo para configurar la conectividad: [Flujos de trabajo de ExpressRoute para aprovisionamiento de circuitos y estados de circuitos de ExpressRoute](expressroute-workflows.md).
 
 > [!IMPORTANT]
-> Asegúrese de que habilitó el complemento de ExpressRoute premium al configurar la conectividad con los servicios de Office 365.
+> Asegúrese de que habilitó el complemento de ExpressRoute premium al configurar la conectividad con los servicios de Microsoft 365.
 > 
 > 
 
-### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services"></a>¿Pueden mis circuitos ExpressRoute existentes admitir la conectividad con los servicios de Office 365?
+### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-microsoft-365-services"></a>¿Pueden mis circuitos ExpressRoute existentes admitir la conectividad con los servicios de Microsoft 365?
 
-Sí. El circuito ExpressRoute existente puede configurarse para admitir conectividad con los servicios de Office 365. Asegúrese de que tiene suficiente capacidad para conectarse a servicios de Office 365 y de que habilitó el complemento premium. [Planificación de red y ajuste del rendimiento de Office 365](https://aka.ms/tune/) le ayudará a planificar sus necesidades de conectividad. Además, vea [Creación y modificación de un circuito ExpressRoute](expressroute-howto-circuit-classic.md).
+Sí. El circuito ExpressRoute existente puede configurarse para admitir conectividad con los servicios de Microsoft 365. Asegúrese de que tiene suficiente capacidad para conectarse a servicios de Microsoft 365 y de que habilitó el complemento premium. El artículo [Planeamiento de red y ajuste del rendimiento para Microsoft 365](/microsoft-365/enterprise/network-planning-and-performance) le ayudará a planear sus necesidades de conectividad. Además, vea [Creación y modificación de un circuito ExpressRoute](expressroute-howto-circuit-classic.md).
 
-### <a name="what-office-365-services-can-be-accessed-over-an-expressroute-connection"></a>¿A qué servicios de Office 365 se puede acceder a través de la conexión ExpressRoute?
+### <a name="what-microsoft-365-services-can-be-accessed-over-an-expressroute-connection"></a>¿A qué servicios de Microsoft 365 se puede acceder a través de una conexión ExpressRoute?
 
-Consulte la página [URL de Office 365 e intervalos de direcciones IP](https://aka.ms/o365endpoints) para obtener una lista actualizada de los servicios compatibles con ExpressRoute.
+Consulte la página [Intervalos de direcciones IP y direcciones URL de Microsoft 365](/microsoft-365/enterprise/urls-and-ip-address-ranges) para obtener una lista actualizada de los servicios compatibles con ExpressRoute.
 
-### <a name="how-much-does-expressroute-for-office-365-services-cost"></a>¿Cuánto cuesta ExpressRoute para Office 365?
+### <a name="how-much-does-expressroute-for-microsoft-365-services-cost"></a>¿Cuánto cuesta ExpressRoute para los servicios de Microsoft 365?
 
-Los servicios de Office 365 requieren que el complemento premium esté habilitado. Consulte la [página de detalles de precios](https://azure.microsoft.com/pricing/details/expressroute/) para conocer los costos.
+Los servicios de Microsoft 365 requieren que el complemento premium esté habilitado. Consulte la [página de detalles de precios](https://azure.microsoft.com/pricing/details/expressroute/) para conocer los costos.
 
-### <a name="what-regions-is-expressroute-for-office-365-supported-in"></a>¿En qué regiones es compatible ExpressRoute para Office 365?
+### <a name="what-regions-is-expressroute-for-microsoft-365-supported-in"></a>¿En qué regiones se admite ExpressRoute para Microsoft 365?
 
 Vea [Asociados de ExpressRoute y ubicaciones](expressroute-locations.md) para obtener más información.
 
-### <a name="can-i-access-office-365-over-the-internet-even-if-expressroute-was-configured-for-my-organization"></a>¿Es posible obtener acceso a Office 365 por Internet incluso si ExpressRoute se ha configurado ExpressRoute para mi organización?
+### <a name="can-i-access-microsoft-365-over-the-internet-even-if-expressroute-was-configured-for-my-organization"></a>¿Es posible acceder a Microsoft 365 por Internet incluso si se ha configurado ExpressRoute para mi organización?
 
-Sí. Es posible obtener acceso a los extremos de servicio de Office 365 a través de Internet a pesar de que se haya configurado ExpressRoute para su red. Compruebe con el equipo de red de su organización si la red en la ubicación está configurada para conectarse a servicios de Office 365 a través de ExpressRoute.
+Sí. Es posible acceder a los puntos de conexión de servicio de Microsoft 365 a través de Internet a pesar de que se haya configurado ExpressRoute en su red. Compruebe con el equipo de red de su organización si la red de su ubicación está configurada para conectarse a servicios de Microsoft 365 a través de ExpressRoute.
 
-### <a name="how-can-i-plan-for-high-availability-for-office-365-network-traffic-on-azure-expressroute"></a>¿Cómo planifico la alta disponibilidad para el tráfico de red de Office 365 en Azure ExpressRoute?
+### <a name="how-can-i-plan-for-high-availability-for-microsoft-365-network-traffic-on-azure-expressroute"></a>¿Cómo puedo planear la alta disponibilidad para el tráfico de red de Microsoft 365 en Azure ExpressRoute?
 Consulte la recomendación que aparece en [Alta disponibilidad y conmutación por error con Azure ExpressRoute](https://aka.ms/erhighavailability).
 
 ### <a name="can-i-access-office-365-us-government-community-gcc-services-over-an-azure-us-government-expressroute-circuit"></a>¿Puedo acceder a servicios de Office 365 US Government Community (GCC) a través de un circuito de ExpressRoute de Azure Gobierno de EE. UU.?
@@ -395,11 +395,11 @@ No verá ninguna. Tiene que adjuntar un filtro de ruta para el circuito para ini
 
 ### <a name="i-turned-on-microsoft-peering-and-now-i-am-trying-to-select-exchange-online-but-it-is-giving-me-an-error-that-i-am-not-authorized-to-do-it"></a>He activado el emparejamiento de Microsoft y ahora estoy intentando seleccionar Exchange Online, pero se genera un error que indica que no estoy autorizado para hacerlo.
 
-Cuando se usan filtros de ruta, cualquier cliente puede activar el emparejamiento de Microsoft. Sin embargo, para consumir servicios de Office 365, debe obtener aún una autorización de Office 365.
+Cuando se usan filtros de ruta, cualquier cliente puede activar el emparejamiento de Microsoft. Sin embargo, para consumir servicios de Microsoft 365, debe obtener aún una autorización de Microsoft 365.
 
 ### <a name="i-enabled-microsoft-peering-prior-to-august-1-2017-how-can-i-take-advantage-of-route-filters"></a>He habilitado un emparejamiento de Microsoft antes del 1 de agosto de 2017, ¿cómo puedo aprovechar los filtros de ruta?
 
-El circuito existente continuará anunciando los prefijos para Office 365. Si desea agregar los anuncios de prefijos públicos de Azure en el mismo emparejamiento de Microsoft, puede crear un filtro de ruta, seleccionar los servicios que necesita anunciar (incluidos los servicios de Office 365 que necesita) y asociar el filtro al emparejamiento de Microsoft. Para consultar las instrucciones, vea [Configuración de filtros de ruta para el emparejamiento de Microsoft](how-to-routefilter-powershell.md).
+El circuito existente continuará anunciando los prefijos para Microsoft 365. Si desea agregar los anuncios de prefijos públicos de Azure en el mismo emparejamiento de Microsoft, puede crear un filtro de ruta, seleccionar los servicios que necesita anunciar (incluidos los servicios de Microsoft 365 que necesita) y asociar el filtro al emparejamiento de Microsoft. Para consultar las instrucciones, vea [Configuración de filtros de ruta para el emparejamiento de Microsoft](how-to-routefilter-powershell.md).
 
 ### <a name="i-have-microsoft-peering-at-one-location-now-i-am-trying-to-enable-it-at-another-location-and-i-am-not-seeing-any-prefixes"></a>Tengo un emparejamiento de Microsoft en una ubicación, ahora estoy intentando habilitarlo en otra ubicación y no veo los prefijos.
 

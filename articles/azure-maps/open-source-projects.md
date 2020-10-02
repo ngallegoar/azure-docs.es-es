@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: f24a04db9317083fb47c0956174e649b5bd7ae10
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 94ba4b159e0a7e52603e7c200c11828f996cf6d8
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815698"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090523"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Comunidad de Azure Maps: proyectos de código abierto
 
@@ -29,13 +29,19 @@ A continuación se muestra una lista de algunos de los proyectos y ejemplos más
 | [Bot Framework: aptitud de punto de interés](https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill) | La aptitud Punto de interés proporciona capacidades relacionadas con puntos de interés a un asistente virtual mediante Azure Maps con Azure Bot Service y Bot Framework. |
 | [Ubicación de BotBuilder](https://github.com/Microsoft/BotBuilder-Location) | Un control selector de ubicación de código abierto para Microsoft Bot Framework basado en los servicios REST de Mapas de Bing. |
 
+<a name="open-web-sdk-modules"></a>
+
 **Módulos del SDK web abiertos**
 
 A continuación se muestra una lista de proyectos de código abierto que amplían las funcionalidades del SDK web de Azure Maps.
 
 | Nombre de proyecto | Descripción |
 |-|-|
-| [Módulo de animación de Azure Maps](https://github.com/Azure-Samples/azure-maps-animations)| Una biblioteca enriquecida de animaciones para uso con el SDK web de Azure Maps. |
+| [Módulo de animación de Azure Maps](https://github.com/Azure-Samples/azure-maps-animations) | Una biblioteca enriquecida de animaciones para uso con el SDK web de Azure Maps. |
+| [Módulo de control de geolocalización de Azure Maps](https://github.com/Azure-Samples/azure-maps-geolocation-control) | Módulo del SDK web de Azure Maps que proporciona un control que utiliza la API de geolocalización del explorador para buscar al usuario en el mapa. |
+| [Módulo de control de pantalla completa de Azure Maps](https://github.com/Azure-Samples/azure-maps-fullscreen-control) | Módulo del SDK web de Azure Maps que proporciona un control para mostrar el mapa en modo de pantalla completa. |
+| [Módulo de control de selección de Azure Maps](https://github.com/Azure-Samples/azure-maps-selection-control) | Módulo del SDK web de Azure Maps que proporciona controles para seleccionar datos en un origen de datos mediante herramientas de dibujo o solicitando un polígono de intervalo de ruta. |
+| [Módulo de mapa de sincronización de Azure Maps](https://github.com/Azure-Samples/azure-maps-sync-maps) | Módulo del SDK web de Azure Maps que sincroniza las cámaras de dos o más mapas. |
 | [Módulo de interfaz de usuario de los servicios de Azure Maps](https://github.com/Azure-Samples/azure-maps-services-ui) | Un conjunto de controles de interfaz de usuario web que encapsulan los servicios REST de Azure Maps. |
 
 **Muestras**
@@ -46,7 +52,7 @@ A continuación se muestra una lista de proyectos de código abierto que amplía
 | [Ejemplos de código de Azure Maps Gov en la nube](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Colección de ejemplos de código para usar Azure Maps en la nube de Azure Government. |
 | [Muestras de Azure Maps y Azure Active Directory](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples) | Colección de ejemplos que muestran cómo usar Azure Active Directory con Azure Maps. | 
 | [Ejemplos de Jupyter Notebook en Azure Maps](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook) | Colección de ejemplos de Python con los servicios REST de Azure Maps. |
-| [Control remoto de IoT para .NET UWP en Azure Maps](https://github.com/Azure-Samples/azure-maps-dotnet-webgl-uwp-iot-remote-control) | Se trata de una aplicación de ejemplo que muestra cómo crear un mapa controlado de forma remota con los servicios de Azure Maps y IoT Hub. |
+| [Control remoto de IoT para .NET UWP en Azure Maps](https://github.com/Azure-Samples/azure-maps-dotnet-webgl-uwp-iot-remote-control) | Se trata de una aplicación de ejemplo que muestra cómo crear un mapa controlado de forma remota con los servicios de Azure Maps e IoT Hub. |
 | [Implementación del análisis espacial de IoT mediante Azure Maps](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | El seguimiento y la captura de eventos pertinentes que se producen en el espacio y en el tiempo es un escenario común de IoT. |
 
 **Herramientas y recursos**

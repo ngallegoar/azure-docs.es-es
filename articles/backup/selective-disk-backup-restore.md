@@ -4,12 +4,12 @@ description: En este artículo, se describen la copia de seguridad y la restaura
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: 12b5b4cd35d70d8ebbd6b269e82c46984652bd07
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: fa5ab60481b431971abb1e3fcb5c85492eb5b22a
+ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961999"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89506702"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Copia de seguridad y restauración selectivas de discos para máquinas virtuales de Azure
 
@@ -268,6 +268,10 @@ La configuración de la copia de seguridad selectiva de discos para una máquina
 Al habilitar la copia de seguridad mediante Azure Portal, puede elegir la opción **Backup OS Disk only** (Copia de seguridad solo de disco de SO). Por lo tanto, puede configurar la copia de seguridad de la máquina virtual de Azure con el disco del sistema operativo y excluir todos los discos de datos que tiene conectados.
 
 ![Configuración de la copia de seguridad solo para el disco del sistema operativo](./media/selective-disk-backup-restore/configure-backup-operating-system-disk.png)
+
+## <a name="using-azure-rest-api"></a>Uso de la API REST de Azure
+
+Puede configurar el servicio Backup para máquinas virtuales de Azure con unos cuantos discos seleccionados o puede modificar la protección de una máquina virtual existente para incluir o excluir unos pocos discos, como se documenta [aquí](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup).
 
 ## <a name="selective-disk-restore"></a>Restauración selectiva de discos
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/24/2020
 ms.author: allensu
-ms.openlocfilehash: 738b54d9fcd86313c2581c5d0f055a7cca8230b8
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 4368a025ecc158afa1ee78b8abd86bd6db42ba75
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88706071"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438672"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexiones salientes en Azure
 
@@ -44,7 +44,7 @@ Azure Load Balancer proporciona conectividad saliente mediante varios mecanismos
 
 Azure usa un algoritmo para determinar el número de puertos SNAT asignados previamente disponibles en función del tamaño del grupo de back-end cuando se usa PAT. Para cada dirección IP pública asociada a un equilibrador de carga, hay 64 000 puertos disponibles como puertos SNAT para cada protocolo de transporte IP. Está preasignado el mismo número de puertos SNAT para UDP y TCP respectivamente, y se consumen independiente para cada protocolo de transporte de IP.  Aunque la utilización del puerto SNAT varía en función de que el flujo sea UDP o TCP. Cuando se crean flujos de salida, estos puertos se consumen de forma dinámica (hasta el límite asignado previamente) y se liberan cuando el flujo se cierra o se producen [tiempos de espera de inactividad](../load-balancer/troubleshoot-outbound-connection.md#idletimeout). Solo se consumen puertos si es necesario que los flujos sean únicos.
 
-#### <a name="default-snat-ports-allocated"></a><a name="snatporttable"></a> Puertos SNAT predeterminados asignados
+#### <a name="dynamic-snat-ports-allocated"></a><a name="snatporttable"></a> Puertos SNAT dinámicos asignados
 
 En la tabla siguiente se muestran las asignaciones previas de puertos SNAT para los niveles de tamaño de grupo de servidores back-end:
 

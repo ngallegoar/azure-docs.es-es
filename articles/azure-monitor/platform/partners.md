@@ -4,12 +4,12 @@ description: Obtenga información sobre los asociados de Azure Monitor y sobre c
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: 2e3fae1b942083d78798fccebd7a7f2c58f7659a
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: dbac5f28723b712788df61eda34a0db61b9c5652
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142421"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526483"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integraciones de asociados de Azure Monitor
 
@@ -77,6 +77,8 @@ CloudMonix ofrece servicios de supervisión, automatización y recuperación aut
 Datadog es el servicio de supervisión líder mundial para aplicaciones en la nube. Agrupa datos de servidores, bases de datos, herramientas y servicios para presentar una vista unificada de toda la pila. Estas funcionalidades se proporcionan en una plataforma de análisis de datos basada en SaaS. Este servicio permite a los equipos de desarrollo y operaciones trabajar en colaboración para evitar tiempos de inactividad, resolver problemas de rendimiento y asegurarse de que los ciclos de desarrollo e implementación finalizan a tiempo. Con la integración de Datadog y Azure, puede recopilar y ver las métricas de toda la infraestructura. Correlacione las métricas de máquina virtual con las del nivel de aplicación. Segmente y desglose las métricas mediante cualquier combinación de propiedades y etiquetas personalizadas.
 
 [Vaya a la documentación.][datadog-doc]
+
+Una nueva integración de Azure Marketplace de Datadog está programada para su lanzamiento a comienzos de octubre de 2020. Se agregará un vínculo aquí después del lanzamiento. 
 
 ## <a name="dynatrace"></a>Dynatrace
 
@@ -147,7 +149,7 @@ Más información
 
 ## <a name="moogsoft"></a>Moogsoft
 
-![Moogsoft](./media/partners/moogsoft.png)
+![Logotipo de Moogsoft](./media/partners/moogsoft.png)
 
 Moogsoft AIOps acelera la ágil transformación empresarial.
 

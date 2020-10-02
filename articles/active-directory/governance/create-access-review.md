@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/18/2020
+ms.date: 09/15/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2b3a838e52bb0b9f3a3be7195bd528c08e499c0
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 02d1c40c26dd6b6992d8df85a986b4157a22226a
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783661"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602938"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Creación de una revisión de acceso de los grupos y las aplicaciones en las revisiones de acceso de Azure AD
 
@@ -100,22 +100,31 @@ Para obtener más información, consulte [Requisitos de licencia](access-reviews
 
 1. Para especificar lo que sucede una vez finalizada una revisión, expanda la sección **Configuración de finalización**.
 
-    ![Creación de una revisión de acceso: configuración de finalización](./media/create-access-review/upon-completion-settings.png)
+    ![Creación de una revisión de acceso: configuración de finalización](./media/create-access-review/upon-completion-settings-new.png)
 
-1. Si desea quitar automáticamente el acceso para los usuarios que se han denegado, establezca **Aplicar automáticamente los resultados al recurso** en **Habilitar**. Si desea aplicar manualmente los resultados cuando se complete la revisión, establezca el conmutador en **Deshabilitar**.
+2. Si desea quitar automáticamente el acceso para los usuarios que se han denegado, establezca **Aplicar automáticamente los resultados al recurso** en **Habilitar**. Si desea aplicar manualmente los resultados cuando se complete la revisión, establezca el conmutador en **Deshabilitar**.
 
-1. Use la lista **Si el revisor no responde** para especificar lo que ocurre con los usuarios a los que el revisor no ha revisado dentro del período de revisión. Este valor no afecta a los usuarios que los revisores revisaron manualmente. Si la decisión final del revisor es Denegar, se quitará el acceso del usuario.
+3. Use la lista **Si los revisores no responden** para especificar lo que ocurre con los usuarios a los que el revisor no ha revisado dentro del período de revisión. Este valor no afecta a los usuarios que los revisores revisaron manualmente. Si la decisión final del revisor es Denegar, se quitará el acceso del usuario.
 
     - **Sin cambios**: dejar el acceso del usuario sin cambios
     - **Quitar acceso**: quitar el acceso del usuario
     - **Aprobar acceso**: aprobar el acceso del usuario
     - **Aceptar recomendaciones**: aceptar la recomendación del sistema sobre la denegación o aprobación del acceso continuo del usuario
 
+    ![Creación de una revisión de acceso: configuración avanzada](./media/create-access-review/advanced-settings-preview-new.png)
+
+4. (Versión preliminar) Use la opción Acción que se aplicará a los usuarios denegados para especificar lo que ocurre con los usuarios invitados si se deniegan.
+    - La **opción 1** eliminará el acceso del usuario denegado al grupo o la aplicación que se está revisando,pero aún podrá iniciar sesión en el inquilino. 
+    - La **opción 2** impedirá que los usuarios denegados inicien sesión en el inquilino, independientemente de si tienen acceso a otros recursos. Si se ha producido un error o si un administrador decide volver a habilitar el acceso de un usuario, puede hacerlo en un plazo de 30 días después de que se haya deshabilitado el usuario. Si no se realiza ninguna acción en los usuarios deshabilitados, se eliminarán del inquilino.
+
+Para más información sobre los procedimientos recomendados para eliminar los usuarios invitados que ya no tienen acceso a los recursos de su organización, consulte el artículo titulado [Uso de Azure AD Identity Governance para revisar y eliminar usuarios externos que ya no tienen acceso a los recursos](access-reviews-external-users.md).
+
+>[!NOTE]
+> La opción Acción que se aplicará a los usuarios denegados solo funciona si previamente se ha determinado el ámbito de una revisión a solo los usuarios invitados (consulte el paso 8 de la sección **Creación de una o varias revisiones de acceso**).
+
 ### <a name="advanced-settings"></a>Configuración avanzada
 
 1. Para especificar configuraciones adicionales, expanda la sección **Configuración avanzada**.
-
-    ![Creación de una revisión de acceso: configuración avanzada](./media/create-access-review/advanced-settings-preview.png)
 
 1. Establezca **Mostrar recomendaciones** en **Habilitar** para mostrar las recomendaciones del sistema de los revisores según la información del acceso del usuario.
 

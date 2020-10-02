@@ -1,6 +1,6 @@
 ---
 title: 'Modificación de la configuración del ciclo de vida para un paquete de acceso en la administración de derechos de Azure AD: Azure Active Directory'
-description: Aprenda a modificar la configuración del ciclo de vida de un paquete de acceso en la administración de derechos de Azure Active Directory.
+description: Aprenda a modificar la información del solicitante y la configuración del ciclo de vida de un paquete de acceso en la administración de derechos de Azure Active Directory.
 services: active-directory
 documentationCenter: ''
 author: ajburnle
@@ -16,18 +16,21 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c628c3c1f11cb973176e7a689856b64177036c9
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 4fd119238476b842a4dba1efeec86544ca263920
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798705"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980110"
 ---
 # <a name="change-lifecycle-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Modificación de la configuración del ciclo de vida para un paquete de acceso en la administración de derechos de Azure AD
 
 Como administrador de paquetes de acceso, puede cambiar la configuración del ciclo de vida de un paquete de acceso en cualquier momento si edita una directiva existente. Si cambia la fecha de expiración para una directiva, la fecha de expiración para las solicitudes que ya están aprobadas o en un estado de aprobación pendiente no cambiará.
 
 En este artículo, se explica cómo se puede modificar la configuración del ciclo de vida de un paquete de acceso existente.
+
+## <a name="open-requestor-information"></a>Apertura de la información del solicitante
+Para asegurarse de que los usuarios tienen derecho de acceso a un paquete de acceso, se pueden configurar preguntas personalizadas para pedir a los usuarios que soliciten acceso a determinados paquetes de acceso. Entre las opciones de configuración se incluyen: localización, requerido u opcional y formatos de respuesta de texto y varias opciones. Los solicitantes verán las preguntas cuando solicitan el paquete y los aprobadores ven las respuestas a las preguntas para ayudarles a tomar su decisión. Use los pasos siguientes para configurar las preguntas de un paquete de acceso:
 
 ## <a name="open-lifecycle-settings"></a>Apertura de la configuración del ciclo de vida
 

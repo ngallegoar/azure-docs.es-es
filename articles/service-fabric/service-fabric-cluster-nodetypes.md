@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 4efa8626e80cbd64cd6216faa1869d7210f32cf2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 870467760a2baaa887b06fb8e01335f225f04d6e
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261113"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561897"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipos de nodos y conjuntos de escalado de máquinas virtuales de Azure Service Fabric
 
@@ -32,7 +32,7 @@ Al escalar horizontalmente un conjunto de escalado, se crea una nueva instancia.
 
 Si ha implementado el clúster en Azure Portal o ha usado la plantilla de Azure Resource Manager de ejemplo, obtendrá una lista de todos los recursos en un grupo de recursos. Puede ver los equilibradores de carga de cada conjunto de escalado o tipo de nodo. El nombre del equilibrador de carga usa el formato siguiente: **LB-&lt;nombre del tipo de nodo&gt;** . Por ejemplo: LB-sfcluster4doc-0, tal y como se muestra en la ilustración siguiente:
 
-![Recursos][Resources]
+![La captura de pantalla muestra un grupo de recursos con dos equilibradores de carga resaltados.][Resources]
 
 ## <a name="service-fabric-virtual-machine-extension"></a>Extensión de máquina virtual de Service Fabric
 

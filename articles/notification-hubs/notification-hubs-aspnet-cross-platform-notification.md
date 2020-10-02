@@ -5,30 +5,29 @@ services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 11d2131b-f683-47fd-a691-4cdfc696f62b
+editor: thsomasu
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 09/14/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 10/02/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3acfc9e3a856ec777bfada68d535b6a1e9878a08
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: bf9670ae8fd22342a05f8d506f743c7a5c395e5f
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017930"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088143"
 ---
 # <a name="send-cross-platform-notifications-with-azure-notification-hubs"></a>Envío de notificaciones entre plataformas con Azure Notification Hubs
 
 Este tutorial se basa en el anterior, [Envío de notificaciones a usuarios concretos mediante Azure Notification Hubs]. En ese tutorial se describe cómo insertar notificaciones en todos los dispositivos que están registrados en un usuario autenticado concreto. Ese enfoque requería que varias solicitudes enviaran una notificación a cada plataforma de cliente compatible. Azure Notification Hubs admite plantillas, que le permiten especificar cómo un dispositivo específico desea recibir notificaciones. Este método simplifica el envío de notificaciones entre plataformas.
 
-En este artículo se muestra cómo aprovechar las plantillas para enviar una notificación que se dirige a todas las plataformas. En este artículo se usa una única solicitud para enviar una notificación que no tiene en cuenta la plataforma. Para más información sobre las plantillas, consulte [Introducción a Notification Hubs][Templates].
+En este artículo se muestra cómo aprovechar las plantillas para enviar una notificación que se dirige a todas las plataformas. En este artículo se usa una única solicitud para enviar una notificación que no tiene en cuenta la plataforma. Para más información sobre las plantillas, consulte [Introducción a Notification Hubs][Templates].
 
 > [!IMPORTANT]
 > Windows Phone 8.1 y las versiones anteriores no se admiten en Visual Studio 2019. Para más información, consulte [Compatibilidad y destinatarios de la plataforma de Visual Studio 2019](/visualstudio/releases/2019/compatibility).
@@ -38,9 +37,9 @@ En este artículo se muestra cómo aprovechar las plantillas para enviar una not
 
 ## <a name="send-cross-platform-notifications-using-templates"></a>Envío de notificaciones entre plataformas mediante plantillas
 
-En esta sección se usa el código de ejemplo que se creó en el tutorial [Envío de notificaciones a usuarios concretos mediante Azure Notification Hubs]. Puede descargar el ejemplo de [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
+En esta sección se usa el código de ejemplo que se creó en el tutorial [Envío de notificaciones a usuarios concretos mediante Azure Notification Hubs]. Puede [descargar el ejemplo completo de GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
 
-Para enviar notificaciones multiplataforma mediante plantillas, siga estos pasos:
+Para enviar notificaciones entre plataformas mediante plantillas, haga lo siguiente:
 
 1. En Visual Studio, en el **Explorador de soluciones**, expanda la carpeta **Controladores** y, después, abra el archivo *RegisterController.cs*.
 
@@ -77,7 +76,7 @@ Para enviar notificaciones multiplataforma mediante plantillas, siga estos pasos
 
     Este código llama al método específico de la plataforma para crear un registro de plantilla en lugar de un registro nativo. Como los registros de plantilla se obtienen de registros nativos, no es necesario modificar los registros existentes.
 
-1. En el **Explorador de soluciones**, en la carpeta **Controllers**, abra el archivo *NotificationsController.cs*. Reemplace el método `Post` por el código siguiente:
+1. En el **Explorador de soluciones**, en la carpeta **Controllers**, abra el archivo **NotificationsController.cs**. Reemplace el método `Post` por el código siguiente:
 
     ```csharp
     public async Task<HttpResponseMessage> Post()

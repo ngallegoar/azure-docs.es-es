@@ -1,21 +1,21 @@
 ---
-title: Fuente de cambios en Azure Blob Storage (versión preliminar) | Microsoft Docs
+title: Fuente de cambios en Azure Blob Storage | Microsoft Docs
 description: Obtenga información sobre los registros de fuente de cambios en Azure Blob Storage y cómo usarlos.
 author: normesta
 ms.author: normesta
-ms.date: 11/04/2019
+ms.date: 09/08/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 09a97897ca7e3984c7003c1dbbca65cddaec1ee6
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: c3348356561ea74bb5e0b5bc46fccee1ada82755
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88055436"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568241"
 ---
-# <a name="change-feed-support-in-azure-blob-storage-preview"></a>Compatibilidad con la fuente de cambios en Azure Blob Storage (versión preliminar)
+# <a name="change-feed-support-in-azure-blob-storage"></a>Compatibilidad con la fuente de cambios en Azure Blob Storage
 
 El propósito de la fuente de cambios es proporcionar registros de transacciones de todos los cambios que se producen en los blobs y en los metadatos de blobs de la cuenta de almacenamiento. La fuente de cambios proporciona un registro **ordenado**, **garantizado**, **durable**, **inmutable** y de **solo lectura** de estos cambios. Las aplicaciones cliente pueden leer estos registros en cualquier momento, ya sea en streaming o en modo por lotes. La fuente de cambios le permite compilar soluciones eficaces y escalables que procesan los eventos de cambio que se producen en su cuenta de Blob Storage a un bajo costo.
 
@@ -56,9 +56,6 @@ Estos son algunos aspectos que hay que tener en cuenta al habilitar la fuente de
 
 - Solo en las cuentas de GPv2 y de Blob Storage se puede habilitar la fuente de cambios. Actualmente, no se admiten las cuentas de BlockBlobStorage Premium ni las cuentas habilitadas para el espacio de nombres jerárquico. No se admiten las cuentas de almacenamiento de GPv1, pero se pueden actualizar a GPv2 sin tiempo de inactividad. Consulte [actualización a una cuenta de almacenamiento de GPv2](../common/storage-account-upgrade.md) para más información.
 
-> [!IMPORTANT]
-> La fuente de cambios está en versión preliminar pública y está disponible en las regiones **Centro-oeste de EE. UU.** , **Oeste de EE. UU. 2**, **Centro de Francia**, **Sur de Francia**, **Centro de Canadá** y **Este de Canadá**. Consulte la sección de [condiciones](#conditions) de este artículo. Para inscribirse en la versión preliminar, consulte la sección [Registro de la suscripción](#register) de este artículo. Debe registrar la suscripción para poder habilitar la fuente de cambios en las cuentas de almacenamiento.
-
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Habilite la fuente de cambios en la cuenta de almacenamiento mediante Azure Portal:
@@ -85,10 +82,10 @@ Habilite la fuente de cambios mediante PowerShell:
 
 2. Cierre la consola de PowerShell y vuelva a abrirla.
 
-3. Instale el módulo de versión preliminar **Az.Storage**.
+3. Instale la versión 2.5.0, o cualquier versión posterior del módulo **Az.Storage**.
 
    ```powershell
-   Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.8.1-preview –AllowPrerelease –AllowClobber –Force
+   Install-Module Az.Storage –Repository PSGallery -RequiredVersion 2.5.0 –AllowClobber –Force
    ```
 
 4. Inicie sesión en la suscripción de Azure con el comando `Connect-AzAccount` y siga las instrucciones que aparecen en pantalla para autenticarse.
@@ -289,43 +286,18 @@ Para una descripción de cada propiedad, consulte [Esquema de eventos de Azure E
 
 ```
 
-<a id="register"></a>
-
-## <a name="register-your-subscription-preview"></a>Registro de la suscripción (versión preliminar)
-
-Dado que la fuente de cambios solo está en versión preliminar pública, deberá registrar su suscripción para usar la característica.
-
-### <a name="register-by-using-powershell"></a>Registro mediante PowerShell
-
-En una consola de PowerShell, ejecute estos comandos:
-
-```powershell
-Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-   
-### <a name="register-by-using-azure-cli"></a>Registro mediante la CLI de Azure
-
-En Azure Cloud Shell, ejecute estos comandos:
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name Changefeed
-az provider register --namespace 'Microsoft.Storage'
-```
-
 <a id="conditions"></a>
 
-## <a name="conditions-and-known-issues-preview"></a>Condiciones y problemas conocidos (versión preliminar)
+## <a name="conditions-and-known-issues"></a>Condiciones y problemas conocidos
 
-En esta sección se describen los problemas conocidos y las condiciones de la versión preliminar pública actual de la fuente de cambios. 
-- En el caso de la versión preliminar, primero debe [registrar su suscripción](#register) para poder habilitar la fuente de cambios para la cuenta de almacenamiento en las regiones Centro-oeste de EE. UU., Oeste de EE. UU. 2, Centro de Francia, Sur de Francia, Centro de Canadá y Este de Canadá. 
-- La fuente de cambios solo captura las operaciones de creación, actualización, eliminación y copia. También se capturan los cambios de propiedad y metadatos de blob. Sin embargo, la propiedad de nivel de acceso no se captura actualmente. 
+En esta sección se describen los problemas conocidos y las condiciones de la versión actual de la fuente de cambios. 
+
 - Los registros de eventos de cambio para cualquier cambio único pueden aparecer más de una vez en la fuente de cambios.
 - Todavía no se puede administrar la duración de los archivos de registro de la fuente de cambios estableciendo en ellos la directiva de retención basada en tiempo y no puede eliminar los blobs.
 - La propiedad `url` del archivo de registro siempre está vacía actualmente.
 - La propiedad `LastConsumable` del archivo segment.json no muestra el primer segmento que la fuente de cambios finaliza. Este problema solo se produce una vez finalizado el primer segmento. Todos los segmentos posteriores después de la primera hora se capturan con precisión en la propiedad `LastConsumable`.
 - Actualmente no puede ver el contenedor **$blobchangefeed** cuando llama a ListContainers API y este no aparece en Azure Portal ni en el Explorador de Storage. Puede ver el contenido llamando directamente a la API de ListBlobs en el contenedor de $blobchangefeed.
-- Las cuentas de almacenamiento que han iniciado anteriormente una [conmutación por error de cuenta](../common/storage-disaster-recovery-guidance.md) pueden tener problemas con el archivo de registro que no aparece. Todas las conmutaciones por error futuras de cuentas también pueden afectar al archivo de registro durante la versión preliminar.
+- Las cuentas de almacenamiento que han iniciado anteriormente una [conmutación por error de cuenta](../common/storage-disaster-recovery-guidance.md) pueden tener problemas con el archivo de registro que no aparece. Cualquier conmutación por error de cuentas futuras también puede afectar al archivo de registro.
 
 ## <a name="faq"></a>Preguntas más frecuentes
 

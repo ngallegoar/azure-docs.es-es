@@ -10,6 +10,10 @@
       href: language-support.md
     - name: Regiones admitidas
       href: regions.md
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
+    - name: Cuotas y límites
+      href: speech-services-quotas-and-limits.md
     - name: Novedades de la documentación
       href: whats-new.md
 - name: Voz a texto
@@ -347,6 +351,8 @@
       items:
         - name: ¿Qué es un asistente de voz?
           href: voice-assistants.md
+        - name: Ejemplos del asistente de voz (GitHub)
+          href: 'https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant'
     - name: Comandos personalizados
       items:
         - name: ¿Qué es Comandos personalizados?
@@ -459,11 +465,58 @@
       items:
         - name: API REST de Speaker Recognition
           href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
-- name: Hosting
+- name: Herramientas
   items:
-    - name: Documentación de hospedaje
-      href: index-hosting.yml
-    - name: Guías paso a paso
+    - name: SDK de voz
+      items:
+        - name: Introducción al SDK de Voz
+          href: speech-sdk.md
+        - name: Configuración del SDK de Voz
+          href: quickstarts/setup-platform.md
+        - name: Notas de la versión del SDK de voz
+          href: releasenotes.md
+        - name: Referencia
+          items:
+            - name: C++
+              href: 'https://aka.ms/csspeech/cppref'
+            - name: C#
+              href: 'https://aka.ms/csspeech/csharpref'
+            - name: Java
+              href: 'https://aka.ms/csspeech/javaref'
+            - name: JavaScript
+              href: 'https://aka.ms/csspeech/javascriptref'
+            - name: Objective-C
+              href: 'https://aka.ms/csspeech/objectivecref'
+            - name: Python
+              href: 'https://aka.ms/csspeech/pythonref'
+    - name: CLI de Voz
+      displayName: SPX
+      items:
+        - name: Introducción a la CLI de Voz
+          displayName: What is SPX?
+          href: spx-overview.md
+        - name: Conceptos básicos de la CLI de Voz
+          displayName: SPX basics
+          href: spx-basics.md
+    - name: Speech Studio
+      items:
+        - name: Introducción a Speech Studio
+          href: 'https://speech.microsoft.com'
+        - name: Creación de una aplicación de Comandos personalizada con Speech Studio
+          href: quickstart-custom-speech-commands-create-new.md
+- name: Implementar
+  items:
+    - name: Habilitar registro
+      href: how-to-use-logging.md
+    - name: Seguimiento de uso de la memoria
+      href: how-to-track-speech-sdk-memory-usage.md
+    - name: Configuración de OpenSSL para Linux
+      displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
+      href: how-to-configure-openssl-linux.md
+    - name: Configuración de RHEL/CentOS 7
+      href: how-to-configure-rhel-centos-7.md
+      displayName: 'RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO'
+    - name: Contenedores
       items:
         - name: Instalación y ejecución de contenedores de voz
           displayName: 'containers,install container,run container'
@@ -479,53 +532,8 @@
         - name: Contenedores de voz en instancias de contenedor de Azure
           displayName: 'ACI,azure container instances,container instances,containers'
           href: deploy-speech-on-container-instances.md
-    - name: Recursos
-      items:
         - name: Preguntas frecuentes sobre Containers
           href: speech-container-faq.md
-- name: SDK de voz
-  items:
-    - name: Introducción al SDK de Voz
-      href: speech-sdk.md
-    - name: Configuración del SDK de Voz
-      displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'
-      href: quickstarts/setup-platform.md
-    - name: Guías paso a paso
-      items:
-        - name: Habilitar registro
-          href: how-to-use-logging.md
-        - name: Seguimiento de uso de la memoria
-          href: how-to-track-speech-sdk-memory-usage.md
-        - name: Configuración de OpenSSL para Linux
-          displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
-          href: how-to-configure-openssl-linux.md
-        - name: Configuración de RHEL/CentOS 7
-          href: how-to-configure-rhel-centos-7.md
-          displayName: 'RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentOS'
-    - name: Ejemplos
-      items:
-        - name: Ejemplos del SDK de voz (GitHub)
-          href: 'https://github.com/Azure-Samples/cognitive-services-speech-sdk'
-        - name: Ejemplos del SDK de dispositivos de voz (GitHub)
-          href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
-        - name: Ejemplos del asistente de voz (GitHub)
-          href: 'https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant'
-    - name: Referencia
-      items:
-        - name: C++
-          href: 'https://aka.ms/csspeech/cppref'
-        - name: C#
-          href: 'https://aka.ms/csspeech/csharpref'
-        - name: Java
-          href: 'https://aka.ms/csspeech/javaref'
-        - name: JavaScript
-          href: 'https://aka.ms/csspeech/javascriptref'
-        - name: Objective-C
-          href: 'https://aka.ms/csspeech/objectivecref'
-        - name: Python
-          href: 'https://aka.ms/csspeech/pythonref'
-        - name: Notas de la versión del SDK de voz
-          href: releasenotes.md
 - name: Dispositivos
   items:
     - name: Documentación de dispositivos de voz
@@ -536,6 +544,8 @@
           href: speech-devices-sdk.md
         - name: Obtención del SDK de dispositivos de voz
           href: get-speech-devices-sdk.md
+        - name: Ejemplos del SDK de dispositivos de voz (GitHub)
+          href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
     - name: Hardware
       items:
         - name: Recomendaciones de la matriz de micrófonos
@@ -560,23 +570,6 @@
       items:
         - name: Notas de la versión del SDK de dispositivos de voz
           href: devices-sdk-release-notes.md
-- name: Herramientas
-  items:
-    - name: CLI de Voz
-      displayName: SPX
-      items:
-        - name: ¿Qué es la CLI de Voz?
-          displayName: What is SPX?
-          href: spx-overview.md
-        - name: Conceptos básicos de la CLI de Voz
-          displayName: SPX basics
-          href: spx-basics.md
-    - name: Speech Studio
-      items:
-        - name: ¿Qué es el Speech Studio?
-          href: 'https://speech.microsoft.com'
-        - name: Creación de una aplicación de Comandos personalizada con Speech Studio
-          href: quickstart-custom-speech-commands-create-new.md
 - name: Migración
   items:
     - name: Desde Bing Speech
@@ -595,12 +588,8 @@
     - name: Nubes soberanas
       displayName: 'fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china'
       href: sovereign-clouds.md
-    - name: Precios
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: Calculadora de precios
       href: 'https://azure.microsoft.com/pricing/calculator/#cognitive-services'
-    - name: Cuotas y límites
-      href: speech-services-quotas-and-limits.md
     - name: Cumplimiento normativo
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Cifrado

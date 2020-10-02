@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a51d8c45f652173e5b2b0731d64a8e6f14ee46c7
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: a6013ed47196e2300f56f0066c634da2a64fdee8
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717360"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526874"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Habilitación del autoservicio de restablecimiento de contraseña de Azure Active Directory en la pantalla de inicio de sesión de Windows
 
@@ -40,7 +40,7 @@ Las siguientes limitaciones se aplican al uso de SSPR desde la pantalla de inici
 - Los equipos unidos a Azure AD híbrido deben tener una línea de visión de conectividad de red a un controlador de dominio para usar las nuevas credenciales en caché de contraseña y actualización. Esto significa que los dispositivos deben estar en la red interna de la organización o en una VPN con acceso de red a un controlador de dominio local.
 - Si se usa una imagen, antes de ejecutar sysprep, asegúrese de que se borra la caché web para la cuenta predefinida de administrador antes de realizar el paso de CopyProfile. Puede encontrar más información sobre este paso en el artículo de soporte técnico [Rendimiento deficiente cuando se usa el perfil de usuario predeterminado personalizado](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - Se sabe que los valores siguientes interfieren con la capacidad de usar y restablecer contraseñas en dispositivos con Windows 10:
-    - Si en versiones de Windows 10 anteriores a la 1809 la directiva requiere Ctrl+Alt+Supr, no funcionará **Restablecer contraseña**.
+    - Si en versiones de Windows 10 anteriores a la 1909 la directiva requiere Ctrl+Alt+Supr, no funcionará **Restablecer contraseña**.
     - Si las notificaciones de la pantalla de bloqueo están desactivadas, tampoco funcionará **Restablecer contraseña**.
     - *HideFastUserSwitching* está establecido en habilitado o 1.
     - *DontDisplayLastUserName* está establecido en habilitado o 1.

@@ -4,12 +4,12 @@ description: Realización de correcciones masivas con la corrección rápida en 
 ms.topic: article
 ms.date: 03/13/2020
 ms.author: sagupt
-ms.openlocfilehash: ebd993733c1aca9cd4f7d92f0a75e22d68a87ffe
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a9c86a7ae510d9657f64c71db2aa8c4e3e558f52
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518069"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968582"
 ---
 # <a name="quick-fix-remediation-for-advisor"></a>Corrección rápida para Advisor
 **Corrección rápida** es una forma más rápida y sencilla de corregir las recomendaciones en varios recursos. Proporciona funcionalidades para realizar correcciones masivas de recursos y ayuda a optimizar las suscripciones más rápido gracias a la corrección a escala para los recursos.
@@ -20,13 +20,13 @@ La característica solo está disponible para determinadas recomendaciones a tra
 
 1. En la lista de recomendaciones que tienen la etiqueta **Corrección rápida**, haga clic en la recomendación.
 
-   ![Corrección rápida de Advisor](./media/quick-fix-1.png)
+   :::image type="content" source="./media/quick-fix-1.png" alt-text="{Captura de pantalla de Azure Advisor que muestra las etiquetas de Corrección rápida en las recomendaciones.}":::
    
    *Los precios de la imagen son solo para los fines de este ejemplo*
 
 2. En la página Detalles de la recomendación, verá una lista de los recursos para los que tiene esta recomendación. Seleccione todos los recursos que quiera corregir para la recomendación.
 
-   ![Corrección rápida de Advisor](./media/quick-fix-2.png)
+   :::image type="content" source="./media/quick-fix-2.png" alt-text="{Captura de pantalla de Azure Advisor que muestra las etiquetas de Corrección rápida en las recomendaciones.}":::
    
    *Los precios de la imagen son solo para los fines de este ejemplo*
 

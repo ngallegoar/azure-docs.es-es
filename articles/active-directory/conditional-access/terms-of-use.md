@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 05/29/2019
+ms.date: 09/14/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cead917c6c98d10d3f9e5ebe2f75bd5513574c5
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 19c6bf058af62f830c825eef900bff712ba07181
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948936"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085916"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Términos de uso de Azure Active Directory
 
@@ -264,7 +264,7 @@ Términos de uso por dispositivo tiene las siguientes restricciones:
 
 - Un dispositivo solo puede conectarse a un inquilino.
 - Un usuario debe tener permisos para conectarse a su dispositivo.
-- No se admite la aplicación de inscripción de Intune.
+- No se admite la aplicación de inscripción de Intune. Asegúrese de que se excluye de cualquier directiva de acceso condicional que requiera términos de uso.
 - No se admiten usuarios de Azure AD B2B.
 
 Si el dispositivo del usuario no se une, recibirá un mensaje indicándole que debe conectarse a su dispositivo. Su experiencia dependerá de la plataforma y el software.

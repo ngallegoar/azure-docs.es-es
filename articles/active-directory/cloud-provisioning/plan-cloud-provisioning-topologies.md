@@ -1,6 +1,6 @@
 ---
 title: Topologías y escenarios admitidas para el aprovisionamiento en la nube de Azure AD Connect
-description: En este tema se describen los requisitos previos y los requisitos de hardware del aprovisionamiento en la nube.
+description: Obtenga información sobre diversas topologías locales y de Azure Active Directory (Azure AD) que usan el aprovisionamiento en la nube de Azure AD Connect.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,12 +11,12 @@ ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 386af46bbee623d37bc914d2ee9130c914c6c885
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d442c980ad5bbe3b56eae127b6e9eaeddf380a4e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77620867"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526857"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-supported-topologies-and-scenarios"></a>Topologías y escenarios admitidas para el aprovisionamiento en la nube de Azure AD Connect
 En este artículo se describen diversas topologías locales y de Azure Active Directory (Azure AD) que usan el aprovisionamiento en la nube de Azure AD Connect. En este artículo solo se incluyen las configuraciones y los escenarios admitidos.

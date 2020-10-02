@@ -4,12 +4,12 @@ description: Obtenga recuentos de sesiones y vistas de página, además de datos
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 3acb7379644b5bfcb22ed86b6bde7031095fef24
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 9f335ca6912545b39fb8276f5895f98e653735d0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224860"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89656952"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas web
 
@@ -159,14 +159,14 @@ La mayoría de los campos de configuración tienen un nombre que permite estable
 | accountId | null | Un identificador de cuenta opcional, si su aplicación agrupa a los usuarios en cuentas. Sin espacios, comas, puntos y comas, signos igual o barras verticales. |
 | sessionRenewalMs | 1800000 | Se registra una sesión si el usuario está inactivo durante este período de tiempo en milisegundos. El valor predeterminado es 30 minutos. |
 | sessionExpirationMs | 86400000 | Se registra una sesión si ha continuado durante este período de tiempo en milisegundos. El valor predeterminado es 24 horas. |
-| maxBatchSizeInBytes | 10 000 | Tamaño máximo del lote de telemetría. Si un lote supera este límite, se envía inmediatamente y se inicia un nuevo lote. |
+| maxBatchSizeInBytes | 10000 | Tamaño máximo del lote de telemetría. Si un lote supera este límite, se envía inmediatamente y se inicia un nuevo lote. |
 | maxBatchInterval | 15000 | Cuánto tiempo deben recopilar datos de telemetría en lote antes de enviarlos (milisegundos). |
 | disableExceptionTracking | false | Si es true, las excepciones no se recopilan automáticamente. El valor predeterminado es False. |
 | disableTelemetry | false | Si es true, no se recopila ni se envía la telemetría. El valor predeterminado es False. |
 | enableDebug | false | Si es true, los datos de depuración **internos** se devuelven como una excepción **en lugar de** registrarse, independientemente de la configuración de registro del SDK. El valor predeterminado es False. <br>***Nota:*** Si se habilita este valor, se descartará la telemetría siempre que se produzca un error interno. Esto puede ser útil para identificar rápidamente problemas con la configuración o el uso del SDK. Si no desea perder telemetría durante la depuración, considere la posibilidad de usar `consoleLoggingLevel` o `telemetryLoggingLevel` en lugar de `enableDebug`. |
 | loggingLevelConsole | 0 | Registra errores **internos** de Application Insights en la consola. <br>0: desactivado <br>1: solo errores críticos <br>2: todo (errores y advertencias) |
 | loggingLevelTelemetry | 1 | Envía errores **internos** de Application Insights como telemetría. <br>0: desactivado <br>1: solo errores críticos <br>2: todo (errores y advertencias) |
-| diagnosticLogInterval | 10 000 | (interno) Intervalo de sondeo (en milisegundos) para la cola de registro interno |
+| diagnosticLogInterval | 10000 | (interno) Intervalo de sondeo (en milisegundos) para la cola de registro interno |
 | samplingPercentage | 100 | Porcentaje de eventos que se enviarán. El valor predeterminado es 100, lo que significa que se envían todos los eventos. Establézcalo si desea conservar el límite de datos para aplicaciones a gran escala. |
 | autoTrackPageVisitTime | false | Si es true, en una vista de página, se realiza un seguimiento del tiempo de visualización de la página instrumentada anterior, que se envía como telemetría, y se inicia un nuevo temporizador para la vista de página actual. El valor predeterminado es False. |
 | disableAjaxTracking | false | Si es true, las llamadas Ajax no se recopilan automáticamente. El valor predeterminado es False. |
@@ -204,8 +204,7 @@ La mayoría de los campos de configuración tienen un nombre que permite estable
 
 De forma predeterminada, este SDK **no** controlará el cambio de ruta basado en el estado que se produce en las aplicaciones de página única. Para habilitar el seguimiento automático de cambios de ruta para una aplicación de página única, puede agregar `enableAutoRouteTracking: true` a la configuración de instalación.
 
-Actualmente, ofrecemos un [complemento React](#react-extensions) independiente que puede inicializarse con este SDK. También llevará a cabo el seguimiento de cambios de ruta, así como la recopilación de [otros datos de telemetría específicos de React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md).
-
+Actualmente, ofrecemos un [complemento React](javascript-react-plugin.md) independiente que puede inicializarse con este SDK. También llevará a cabo el seguimiento de cambios de ruta, así como la recopilación de otros datos de telemetría específicos de React.
 > [!NOTE]
 > Use `enableAutoRouteTracking: true` solo si **no** está usando el complemento React. Ambos pueden enviar nuevos valores PageView cuando cambia la ruta. Si ambos están habilitados, es posible que se envíen valores de PageView duplicados.
 
@@ -213,12 +212,13 @@ Actualmente, ofrecemos un [complemento React](#react-extensions) independiente q
 
 Al establecer `autoTrackPageVisitTime: true`, se realiza un seguimiento del tiempo que un usuario permanece en cada página. En cada instancia nueva de PageView, el tiempo que pasó el usuario en la página anterior (*previous*) se envía como una [métrica personalizada](../platform/metrics-custom-overview.md) denominada `PageVisitTime`. Esta métrica personalizada es visible en el [Explorador de métricas](../platform/metrics-getting-started.md) como "Métricas basadas en registros".
 
-## <a name="react-extensions"></a>Extensiones de React
+## <a name="extensions"></a>Extensiones
 
 | Extensiones |
 |---------------|
 | [React](javascript-react-plugin.md)|
 | [React Native](javascript-react-native-plugin.md)|
+| [Angular](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-angularplugin-js) |
 
 ## <a name="correlation"></a>Correlación
 
@@ -315,7 +315,7 @@ Esta versión incluye las características y funcionalidades mínimas, que puede
 
 ## <a name="examples"></a>Ejemplos
 
-Para ver ejemplos ejecutables, consulte [Ejemplos del SDK de Application Insights para JavaScript](https://github.com/topics/applicationinsights-js-demo).
+Para ver ejemplos ejecutables, consulte [Ejemplos del SDK de Application Insights para JavaScript](https://github.com/Azure-Samples?q=applicationinsights-js-demo).
 
 ## <a name="upgrading-from-the-old-version-of-application-insights"></a>Actualizar desde la versión anterior de Application Insights
 

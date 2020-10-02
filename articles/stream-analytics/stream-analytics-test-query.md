@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 04d86b0ef8202c1c544524dd2a7331d521245f12
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: deaa52494fce387bde2b105de7d34e8a4f0c5c2f
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043963"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612152"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Prueba de un trabajo de Azure Stream Analytics en el portal
 
@@ -96,6 +96,21 @@ En lugar de usar datos en vivo, puede usar datos de ejemplo de un archivo local 
    ![Salida seleccionada de Azure Stream Analytics](./media/stream-analytics-test-query/asa-sample-test-selected-output.png)
 
 10. Después de comprobar los resultados mostrados en el explorador, puede **iniciar** el trabajo.
+
+## <a name="limitations"></a>Limitaciones
+
+1.  La directiva de tiempo no se admite en las pruebas del portal:
+
+   * Sin orden: se ordenarán todos los eventos entrantes.
+   * Llegada tardía: no habrá evento de llegada tardía, ya que Stream Analytics solo puede usar los datos existentes para las pruebas.
+   
+2.  No se admite el UDF de C#.
+
+3.  Todas las pruebas se ejecutarán con un trabajo que tiene una unidad de streaming.
+
+4.  El tamaño de tiempo de expiración es un minuto. Por consiguiente, cualquier consulta con un tamaño de ventana superior a un minuto no puede obtener datos.
+
+5.  No se admite el aprendizaje automático.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Compilación de una solución de IoT con Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics): este tutorial le guiará a la hora de compilar una solución de un extremo a otro con un generador de datos que simulará el tráfico en una cabina de peaje.

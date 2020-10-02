@@ -76,6 +76,8 @@
       href: upgrade-virtual-wan.md
     - name: Creación de una aplicación virtual de red en un centro virtual
       href: How-to-nva-hub.md
+    - name: Creación de una conexión de red virtual entre inquilinos
+      href: cross-tenant-vnet.md
     - name: ExpressRoute
       items:
         - name: Creación de una conexión de ExpressRoute

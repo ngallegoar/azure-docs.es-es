@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/23/2019
 ms.author: kenwith
 ms.reviewer: zhchia
-ms.openlocfilehash: 7ffdef43aa0fdcaab9e8ceae519cef9dfe5cdf6e
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 617128640c4f4ae4ce5ac32803e459a9a3eb448f
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235645"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706463"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Habilitar el aprovisionamiento automático de usuarios para aplicaciones multiinquilino
 
@@ -64,7 +64,7 @@ Para poder determinar qué opción de integración debe usar en la aplicación, 
 |---|---|---|---|
 | Administración de usuarios y grupos en Azure AD| √| √| Solo usuario |
 | Administrar usuarios y grupos sincronizados desde la instancia local de Active Directory| √*| √*| Solo usuario* |
-| Acceso a los datos más allá de los usuarios y grupos durante el aprovisionamiento; acceso a los datos de O365 (equipos, SharePoint, correo electrónico, calendario, documentos, etc.)| X+| √| X |
+| Acceso a los datos más allá de los usuarios y grupos durante el aprovisionamiento; acceso a los datos de Microsoft 365 (Teams, SharePoint, correo electrónico, calendario, documentos, etc.)| X+| √| X |
 | Crear, leer y actualizar usuarios en función de las reglas de negocio| √| √| √ |
 | Eliminar usuarios según las reglas de negocio| √| √| X |
 | Administrar el aprovisionamiento automático de usuarios de todas las aplicaciones desde Azure Portal| √| X| √ |
@@ -91,7 +91,7 @@ Para obtener más información sobre cómo usa el servicio de aprovisionamiento 
 
 Cuando usa Microsoft Graph para el aprovisionamiento, tiene acceso a todos los datos de usuario enriquecidos disponibles en Graph. Además de los detalles de los usuarios y grupos, también puede obtener información adicional como los roles del usuario, el administrador y los informes directos, los dispositivos propios y registrados y cientos de otras partes de datos disponibles en [Microsoft Graph](/graph/api/overview?view=graph-rest-1.0). 
 
-Más de 15 millones de organizaciones y el 90 % de las compañías de la lista Fortune 500 usan Azure AD a la vez que se suscriben a servicios en la nube de Microsoft como Office 365, Microsoft Azure, Enterprise Mobility Suite o Microsoft 365. Puede usar Microsoft Graph para integrar su aplicación con flujos de trabajo administrativos, como la incorporación (y finalización de contratos) de empleados, el mantenimiento de los perfiles y muchas cosas más. 
+Más de 15 millones de organizaciones y el 90 % de las compañías de la lista Fortune 500 usan Azure AD a la vez que se suscriben a servicios en la nube de Microsoft como Microsoft 365, Microsoft Azure o Enterprise Mobility Suite. Puede usar Microsoft Graph para integrar su aplicación con flujos de trabajo administrativos, como la incorporación (y finalización de contratos) de empleados, el mantenimiento de los perfiles y muchas cosas más. 
 
 Más información sobre el uso de Microsoft Graph para el aprovisionamiento:
 

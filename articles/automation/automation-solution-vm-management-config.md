@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3fbd6292f654071f74b4dfccc5e4de393ccfff02
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: b0bc23d515bebdd0d943bbad33c5ebba35a35605
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266723"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987213"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Configuración de la solución Start/Stop VMs during off-hours
 
@@ -139,17 +139,17 @@ Para cambiar las notificaciones de correo electrónico después de implementar l
 
 1. En Azure Portal, vaya a **Supervisar** y, a continuación, **Grupos de acciones**. Seleccione el grupo de acciones denominado **StartStop_VM_Notication**.
 
-    ![Página Update Management de Automation](media/automation-solution-vm-management/azure-monitor.png)
+    :::image type="content" source="media/automation-solution-vm-management/azure-monitor.png" alt-text="Captura de pantalla de la página Supervisar: grupos de acciones.":::
 
 2. En la página StartStop_VM_Notification, haga clic en **Editar detalles** en **Detalles**. Se abrirá la página Correo electrónico/SMS/Push/Voz. Actualice la dirección de correo electrónico y haga clic en **Aceptar** para guardar los cambios.
 
-    ![Página Update Management de Automation](media/automation-solution-vm-management/change-email.png)
+    :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Captura de pantalla de la página Supervisar: grupos de acciones.":::
 
     También puede agregar acciones adicionales al grupo de acciones; para más información sobre grupos de acciones, consulte [grupos de acciones](../azure-monitor/platform/action-groups.md)
 
 El siguiente es un correo electrónico de ejemplo que se envía cuando la característica cierra las máquinas virtuales.
 
-![Página Update Management de Automation](media/automation-solution-vm-management/email.png)
+:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="Captura de pantalla de la página Supervisar: grupos de acciones.":::
 
 ## <a name="add-or-exclude-vms"></a><a name="add-exclude-vms"></a>Agregar o excluir máquinas virtuales
 

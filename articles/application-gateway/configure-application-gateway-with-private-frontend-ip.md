@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.author: victorh
-ms.openlocfilehash: c7a0022c5cff405a993f30cdf2ab5900485c84a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64dfe284772faf2a345b7959f1a1bd6f474cd1bf
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808127"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562492"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configuración de una puerta de enlace de aplicaciones con un punto de conexión de equilibrador de carga interno (ILB)
 
@@ -110,7 +110,7 @@ Para ello, puede:
 ### <a name="install-iis"></a>Instalación de IIS
 
 1. Abra Cloud Shell y asegúrese de que está establecido en **PowerShell**.
-    ![private-frontendip-3](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
+    ![Captura de pantalla que muestra una ventana de consola de Azure Cloud Shell abierta que usa PowerShell.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
 2. Ejecute el siguiente comando para instalar IIS en la máquina virtual:
 
    ```azurepowershell
@@ -144,13 +144,13 @@ Para ello, puede:
 2. Seleccione **Grupos de back-end**. Seleccione **appGatewayBackendPool**.
 3. En **Tipo de destino**, seleccione **Máquina virtual** y, en **Destino**, seleccione la vNIC asociada a myVM.
 4. Repita el procedimiento para agregar MyVM2.
-   ![private-frontendip-4](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)
+   ![Captura de pantalla que muestra el panel Editar grupo de back-end con Tipos de destino y Destinos resaltados.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)
 5. Seleccione **Guardar**.
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 
 1. Compruebe la dirección IP de front-end que se ha asignado haciendo clic en la página **Configuraciones de IP de front-end** del portal.
-    ![private-frontendip-5](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
+    ![Captura de pantalla que muestra el panel de configuraciones IP de front-end con el tipo privado resaltado.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
 2. Copie la dirección IP privada y, luego, péguela en la barra de direcciones del explorador en una máquina virtual de la misma red virtual o del entorno local que tenga conectividad a esta red virtual. Luego, intente acceder a Application Gateway.
 
 ## <a name="next-steps"></a>Pasos siguientes

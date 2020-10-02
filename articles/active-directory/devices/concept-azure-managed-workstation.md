@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05a3a8cf14a591dd3037175e4eed5b5bd8d3096c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4298518dae9afdf197321073846fa1ab9262ec0a
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78672659"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601391"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Descripción de las estaciones de trabajo seguras administradas por Azure
 
@@ -64,7 +64,7 @@ Todos los usuarios y operadores se benefician cuando se usa una estación de tra
 * Estación de trabajo altamente confidencial como un terminal de pago SWIFT
 * Estación de trabajo que controla secretos comerciales
 
-Para reducir el riesgo, debe implementar controles de seguridad elevados en las estaciones de trabajo con privilegios elevados que utilizan estas cuentas. Para más información, consulte la [Guía de implementación de características de Azure Active Directory](../fundamentals/active-directory-deployment-checklist-p2.md), el [plan de desarrollo de Office 365](https://aka.ms/o365secroadmap) y la [hoja de ruta de la protección del acceso con privilegios](https://aka.ms/sparoadmap)).
+Para reducir el riesgo, debe implementar controles de seguridad elevados en las estaciones de trabajo con privilegios elevados que utilizan estas cuentas. Para más información, consulte [Guía de implementación de características de Azure Active Directory](../fundamentals/active-directory-deployment-checklist-p2.md), [Hoja de ruta de Microsoft 365](https://aka.ms/o365secroadmap) y [Hoja de ruta de la protección del acceso con privilegios](https://aka.ms/sparoadmap)).
 
 ## <a name="why-use-dedicated-workstations"></a>¿Por qué usar estaciones de trabajo dedicadas?
 
@@ -73,7 +73,7 @@ Aunque es posible agregar seguridad a un dispositivo ya existente, es mejor empe
 El número creciente de vectores de ataque a través de correo electrónico y exploración web hace cada vez más difícil asegurar que un dispositivo es de confianza. En esta guía se supone que una estación de trabajo dedicada está aislada de las operaciones estándar de producción, exploración y correo electrónico. La eliminación de la productividad, la exploración web y el correo electrónico de un dispositivo puede tener un impacto negativo en la productividad. Sin embargo, esta medida de seguridad suele ser aceptable en escenarios en los que las tareas del trabajo no requieren estas operaciones explícitamente y el riesgo de un incidente de seguridad es alto.
 
 > [!NOTE]
-> La exploración web aquí hace referencia a un acceso general a sitios web arbitrarios que pueden constituir una actividad de alto riesgo. Este tipo de exploración es significativamente distinto al uso de un explorador web para acceder a un pequeño número de sitios web administrativos conocidos para servicios como Azure, Office 365, otros proveedores en la nube y aplicaciones SaaS.
+> La exploración web aquí hace referencia a un acceso general a sitios web arbitrarios que pueden constituir una actividad de alto riesgo. Este tipo de exploración es significativamente distinto al uso de un explorador web para acceder a un pequeño número de sitios web administrativos conocidos para servicios como Azure, Microsoft 365, otros proveedores en la nube y aplicaciones SaaS.
 
 Las estrategias de contención refuerzan la seguridad aumentando el número y tipo de controles que impiden a un atacante acceder a recursos confidenciales. El modelo descrito en este artículo utiliza un diseño de privilegios con niveles y restringe los privilegios de administración a dispositivos concretos.
 

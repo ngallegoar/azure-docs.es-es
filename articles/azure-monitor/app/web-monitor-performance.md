@@ -4,12 +4,12 @@ description: Introducción a Application Insights. Analice el uso, la disponibil
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.openlocfilehash: d624286d214a86364fe85192bf5ede885d4b6a78
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f84e1065f93fc2cca950f12d5df537b931faac8d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323458"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987153"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Supervisar el rendimiento de aplicaciones web
 
@@ -112,11 +112,11 @@ Puede usar la experiencia de investigación del rendimiento para revisar las ope
 
 Para obtener una mejor idea de las experiencias de usuario para esta operación, podemos seleccionar un intervalo de tiempo mayor. A continuación, podemos reducir el tiempo a un intervalo concreto en que la operación fue lenta. En el siguiente ejemplo hemos cambiado el valor predeterminado de 24 horas por el de 7 días y hemos ampliado el periodo entre 9:47 y 12:47 del martes 12 y el miércoles 13. La distribución de la duración y el número de seguimientos de Profiler y de ejemplo se han actualizado a la derecha.
 
-![Tres picos de duración para GET Customers/Details en un intervalo de 7 días en un periodo de tiempo](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
+![Captura de pantalla que muestra el rendimiento (vista previa) con tres picos de duración en un intervalo de 7 días con un período de tiempo](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
 
 Para limitar las experiencias lentas, a continuación, ampliamos las duraciones situadas en el percentil entre 95 y 99. Estas representan el 4 % de las interacciones del usuario que eran lentas.
 
-![Tres picos de duración para GET Customers/Details en un intervalo de 7 días en un periodo de tiempo](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
+![Captura de ventana que muestra tres picos de duración para GET Customers/Details en un intervalo de 7 días en un período de tiempo.](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
 
 Ahora podemos observar los ejemplos representativos haciendo clic en el botón Ejemplos o los seguimientos de Profiler haciendo clic en el botón Seguimientos de Profiler. En este ejemplo hay cuatro seguimientos que se han recopilado para obtener clientes y detalles en el periodo de tiempo y el intervalo de duración de interés.
 
@@ -126,7 +126,7 @@ A veces, el problema no estará en el código, sino en una dependencia que invoc
 
 La experiencia de investigación de rendimiento muestra conclusiones significativas a la largo del conjunto de muestra en el que ha decido centrarse. La mejor manera de buscar en todas las informaciones disponibles es cambiar a un intervalo de tiempo de 30 días y, a continuación, seleccionar Información general para ver información de todas las operaciones del mes pasado.
 
-![Tres picos de duración para GET Customers/Details en un intervalo de 7 días en un periodo de tiempo](./media/web-monitor-performance/Performance30DayOveralllnsights.png)
+![Captura de pantalla que muestra el rendimiento (vista previa) con la ventana General abierta y la de Insights seleccionada.](./media/web-monitor-performance/Performance30DayOveralllnsights.png)
 
 
 ## <a name="next-steps"></a><a name="next"></a>Pasos siguientes

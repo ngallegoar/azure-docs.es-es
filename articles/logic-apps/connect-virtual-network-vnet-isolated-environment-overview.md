@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/05/2020
-ms.openlocfilehash: f152283b1280cde2a26569b8acf10738e883e39e
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 86d647a79b7babc2780cb0db904e689f3916673f
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816035"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500392"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acceso a recursos de Azure Virtual Network desde Azure Logic Apps mediante entornos de servicio de integración (ISE)
 
@@ -60,7 +60,7 @@ Cuando se crean y ejecutan aplicaciones lógicas en un ISE, se proporcionan las 
   * Azure Automation, Azure Key Vault, Azure Event Grid y Azure Monitor Logs
   * FTP, SFTP-SSH, Sistema de archivos y SMTP
   * SAP, IBM MQ, IBM DB2 e IBM 3270
-  * SQL Server, Azure SQL Data Warehouse, Azure Cosmos DB
+  * SQL Server, Azure Synapse Analytics, Azure Cosmos DB
   * AS2, X12 y EDIFACT
 
   Con algunas excepciones, si hay un conector ISE disponible para un origen de datos o un sistema local, se puede conectar directamente sin usar la [puerta de enlace de datos local](../logic-apps/logic-apps-gateway-connection.md). Para obtener más información, vea [Acceso a sistemas locales](#on-premises) más adelante en este tema.
@@ -142,7 +142,7 @@ Las aplicaciones lógicas, los desencadenadores y las acciones integrados, y los
 
 ## <a name="integration-accounts-with-ise"></a>Cuentas de integración con ISE
 
-Puede usar cuentas de integración con aplicaciones lógicas dentro de un entorno de servicio de integración (ISE). Sin embargo, esas cuentas de integración deben usar el *mismo ISE* que las aplicaciones lógicas vinculadas. Las aplicaciones lógicas de una instancia de ISE solo pueden hacer referencia a aquellas cuentas de integración que se encuentran en la misma instancia de ISE. Cuando se crea una cuenta de integración, puede seleccionar la instancia de ISE como la ubicación de la cuenta de integración. Para saber cómo funcionan los precios y la facturación de las cuentas de integración con un ISE, consulte [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Para ver las tarifas de precios, consulte los [precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/).
+Puede usar cuentas de integración con aplicaciones lógicas dentro de un entorno de servicio de integración (ISE). Sin embargo, esas cuentas de integración deben usar el *mismo ISE* que las aplicaciones lógicas vinculadas. Las aplicaciones lógicas de una instancia de ISE solo pueden hacer referencia a aquellas cuentas de integración que se encuentran en la misma instancia de ISE. Cuando se crea una cuenta de integración, puede seleccionar la instancia de ISE como la ubicación de la cuenta de integración. Para saber cómo funcionan los precios y la facturación de las cuentas de integración con un ISE, consulte [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Para ver las tarifas de precios, consulte los [precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). Para información sobre los límites, consulte los [límites de la cuenta de integración](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

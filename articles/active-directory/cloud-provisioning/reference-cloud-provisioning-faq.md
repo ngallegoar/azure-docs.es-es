@@ -11,12 +11,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efcf2df4e472d022fcdec0c9b7c69c73192c503f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 622d38e09f65d05d7cba7a34f30a070c27d3fd37
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518477"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658377"
 ---
 # <a name="azure-active-directory-connect-cloud-provisioning-faq"></a>Preguntas frecuentes sobre el aprovisionamiento en la nube de Azure Active Directory Connect
 
@@ -74,7 +74,7 @@ Al eliminar la configuración, el aprovisionamiento en la nube no elimina autom�
 
 **P:  ¿Qué significa que no se admite Exchange híbrido?**
 
-La característica de implementación híbrida de Exchange permite la coexistencia de buzones de Exchange en un entorno local y en Office 365. Azure AD Connect sincroniza un conjunto específico de atributos de Azure AD en su directorio local.  Actualmente, el agente de aprovisionamiento en la nube no vuelve a sincronizar estos atributos en el directorio local y, por tanto, no se admite como reemplazo de Azure AD Connect.
+La característica de implementación híbrida de Exchange permite la coexistencia de buzones de Exchange en un entorno local y en Microsoft 365. Azure AD Connect sincroniza un conjunto específico de atributos de Azure AD en su directorio local.  Actualmente, el agente de aprovisionamiento en la nube no vuelve a sincronizar estos atributos en el directorio local y, por tanto, no se admite como reemplazo de Azure AD Connect.
 
 **P:  ¿Puedo instalar el agente de aprovisionamiento en la nube en Windows Server Core?**
 

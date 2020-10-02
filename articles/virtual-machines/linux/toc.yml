@@ -595,10 +595,6 @@
                   href: ../../bastion/create-host-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Uso de Bastion para conectarse
               href: ../../bastion/bastion-connect-vm-ssh.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-              items:
-                - name: Conexión SSH de Bastion
-            - name: Conexión RDP de Bastion
-              href: ../../bastion/bastion-connect-vm-rdp.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Cifrado
           items:
             - name: Escenarios para el cifrado de discos en Linux
@@ -625,7 +621,7 @@
               href: disk-encryption-troubleshooting.md
             - name: Preguntas frecuentes sobre el cifrado de discos
               href: disk-encryption-faq.md
-            - name: "Cifrado de disco: versión anterior (Azure\_AD)"
+            - name: 'Cifrado de discos: versión anterior'
               items:
                 - name: Información general
                   href: disk-encryption-overview-aad.md
@@ -640,6 +636,7 @@
         - name: Creación de un almacén de claves
           href: key-vault-setup.md
         - name: Creación y uso de claves SSH
+          displayName: ssh keys ssh openssh
           items:
             - name: En Linux o macOS
               href: mac-create-ssh-keys.md
@@ -767,7 +764,7 @@
               href: ../../azure-monitor/faq.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#agents
             - name: Extensión de Diagnósticos de Azure
               items:
-                - name: Introducción
+                - name: Información general
                   href: ../../azure-monitor/platform/diagnostics-extension-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
                 - name: Extensión de Diagnósticos de Linux
                   items:

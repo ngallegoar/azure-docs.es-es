@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d3fbb06355772794fbe3fab5cdf3c8622c2baf4
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 7cb62d3b7ebe3ba6f4551602c7867575e74dca70
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948834"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601527"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Instrucciones: Uso obligatorio de dispositivos administrados para el acceso a aplicaciones en la nube mediante el acceso condicional
 
@@ -98,7 +98,7 @@ Para un dispositivo que está marcado como compatible, puede suponer que:
 
 ### <a name="scenario-require-device-enrollment-for-ios-and-android-devices"></a>Escenario: Exigir la inscripción para dispositivos iOS y Android
 
-En este escenario, Contoso ha decidido que todos los accesos móviles a los recursos de Office 365 deben usar un dispositivo inscrito. Todos sus usuarios ya inician sesión con credenciales de Azure AD y tienen licencias asignadas que incluyen Azure AD Premium P1 o P2 y Microsoft Intune.
+En este escenario, Contoso ha decidido que todos los accesos móviles a los recursos de Microsoft 365 deben usar un dispositivo inscrito. Todos sus usuarios ya inician sesión con credenciales de Azure AD y tienen licencias asignadas que incluyen Azure AD Premium P1 o P2 y Microsoft Intune.
 
 Las organizaciones deben completar los pasos siguientes en orden para exigir el uso de un dispositivo móvil inscrito.
 

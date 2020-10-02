@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/01/2020
+ms.date: 09/16/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3370ea52c5bd189f929c0f81a0aa9b59cc77b97
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 919585d557a668e44f229451ab202fb8bcab9079
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421389"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985141"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Asignación de roles de Azure AD en Privileged Identity Management
 
@@ -75,6 +75,30 @@ Siga estos pasos para hacer que un usuario sea elegible para un rol de administr
 
     ![Nueva asignación: notificación](./media/pim-how-to-add-role-to-user/assignment-notification.png)
 
+## <a name="assign-a-role-with-restricted-scope"></a>Asignación de un rol con ámbito restringido
+
+Para determinados roles, el ámbito de los permisos concedidos se puede restringir a una sola unidad de administración, entidad de servicio o aplicación. Este procedimiento es un ejemplo si se asigna un rol con el ámbito de una unidad administrativa. Para obtener una lista de los roles que admiten la determinación del ámbito mediante una unidad administrativa, consulte [Asignación de roles con ámbito a una unidad administrativa](../users-groups-roles/roles-admin-units-assign-roles.md). Esta característica se está implementando actualmente en las organizaciones de Azure AD.
+
+1. Inicie sesión en el [centro de administración de Azure Active Directory](https://aad.portal.azure.com) con permisos de administrador de roles con privilegios.
+
+1. Seleccione **Azure Active Directory** > **Roles y administradores**.
+
+1. Seleccione el rol **Administrador de usuarios**.
+
+    ![El comando Agregar asignación está disponible cuando se abre un rol en el portal.](./media/pim-how-to-add-role-to-user/add-assignment.png)
+
+1. Seleccione **Agregar asignaciones**.
+
+    ![Cuando un rol admite la restricción de ámbito, puede seleccionar un ámbito.](./media/pim-how-to-add-role-to-user/add-scope.png)
+
+1. En la página **Agregar asignaciones**, puede hacer lo siguiente:
+
+   - Seleccionar el usuario o el grupo que se va a asignar al rol
+   - Seleccionar el ámbito del rol (en este caso, unidades administrativas)
+   - Seleccionar una unidad administrativa para el ámbito
+
+Para más información sobre la creación de unidades administrativas, consulte [Adición y eliminación de unidades administrativas](../users-groups-roles/roles-admin-units-manage.md).
+
 ## <a name="update-or-remove-an-existing-role-assignment"></a>Actualizar o quitar una asignación de roles existente
 
 Siga estos pasos para actualizar o quiotar una asignación de roles existente.
@@ -101,7 +125,7 @@ Siga estos pasos para hacer que un usuario sea elegible para un rol de administr
 
 1. Seleccione **Roles** o **Miembros**.
 
-    ![Roles de Azure AD](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
+    ![Apertura de roles de Azure AD](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
 1. Seleccione **Agregar miembro** para abrir **Agregar miembros administrados**.
 
@@ -111,7 +135,7 @@ Siga estos pasos para hacer que un usuario sea elegible para un rol de administr
 
 1. Seleccione **Seleccionar miembros**, seleccione los usuarios que desea asignar al rol y, a continuación, **Seleccionar**.
 
-    ![Seleccione un rol.](./media/pim-how-to-add-role-to-user/pim-select-members.png)
+    ![Selección de un usuario o un grupo para la asignación](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
 1. En **Agregar miembros administrados**, seleccione **Aceptar** para agregar el usuario al rol.
 
@@ -169,7 +193,7 @@ Siga estos pasos para quitar a un usuario específico de un rol de administrador
 
 1. En el mensaje que le pide confirmación, seleccione **Sí**.
 
-    ![Quitar un rol](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
+    ![Confirmación de la eliminación](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
     La asignación de rol se quita.
 

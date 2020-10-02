@@ -3,20 +3,20 @@ title: Personalización de fuente para usuarios de Windows Virtual Desktop - Azu
 description: Personalización de la fuente para los usuarios de Windows Virtual Desktop con cmdlets de PowerShell.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/29/2019
+ms.date: 09/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1f1779ac27c7e46aa3e608b33e3c006902df8c27
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e47486f29537cb948aaae7cf17e97bae14b60700
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009127"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084301"
 ---
 # <a name="customize-the-feed-for-windows-virtual-desktop-users"></a>Personalización de la fuente para usuarios de Windows Virtual Desktop
 
 >[!IMPORTANT]
->Este contenido se aplica a Windows Virtual Desktop con objetos de Windows Virtual Desktop de Azure Resource Manager. Si usa Windows Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/customize-feed-virtual-desktop-users-2019.md).
+>Este contenido se aplica a Windows Virtual Desktop con objetos de Windows Virtual Desktop para Azure Resource Manager. Si usa Windows Virtual Desktop (clásico) sin objetos para Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/customize-feed-virtual-desktop-users-2019.md).
 
 Puede personalizar la fuente para que RemoteApp y los recursos de escritorio remoto se muestren de manera reconocible para los usuarios.
 
@@ -107,7 +107,7 @@ Para cambiar el nombre para mostrar de un escritorio remoto publicado, establezc
 
 3. En Servicios, seleccione **Windows Virtual Desktop**.
 
-4. En la página Windows Virtual Desktop, seleccione **Grupos de aplicaciones** en el lado izquierdo de la pantalla y, a continuación, seleccione el nombre del grupo de aplicaciones que desea editar.
+4. En la página Windows Virtual Desktop, seleccione **Grupos de aplicaciones** en el lado izquierdo de la pantalla y, a continuación, seleccione el nombre del grupo de aplicaciones que desea editar (por ejemplo, si desea editar el nombre para mostrar del grupo de aplicaciones de escritorio, seleccione el grupo de aplicaciones denominado **Escritorio**.)
 
 5. Seleccione **Aplicaciones** en el menú del lado izquierdo de la pantalla.
 

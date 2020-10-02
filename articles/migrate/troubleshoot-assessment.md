@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: a6a185c61c32636dd0189bc5835f850348b196cd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: afc7e6c1ed41661c835a811a7cbcaa6f7771328e
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020361"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645645"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Solución de problemas de evaluación o visualización de dependencias
 
@@ -147,7 +147,8 @@ Esto puede ocurrir si el servidor físico tiene habilitada la virtualización de
 
 ## <a name="dependency-visualization-in-azure-government"></a>Visualización de dependencias en Azure Government
 
-Azure Migrate depende de Service Map para la funcionalidad de visualización de dependencias. Como Service Map actualmente no está disponible en Azure Government, esta funcionalidad no está disponible en Azure Government.
+El análisis de dependencias basado en agente no está disponible en Azure Government. Use el análisis de dependencias sin agente.
+
 
 ## <a name="dependencies-dont-show-after-agent-install"></a>Las dependencias no se muestran después de la instalación del agente
 
@@ -160,7 +161,7 @@ Para las máquinas virtuales de Windows:
 
     ![Estado de MMA](./media/troubleshoot-assessment/mma-properties.png)
 
-Para las máquinas virtuales Linux, asegúrese de que se hayan completado correctamente los comandos de instalación de MMA y el agente de dependencias.
+Para las máquinas virtuales Linux, asegúrese de que se hayan completado correctamente los comandos de instalación de MMA y el agente de dependencias. Consulte la guía de solución de problemas [aquí](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#post-installation-issues).
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
@@ -181,7 +182,6 @@ En Azure Migrate Server Assessment, puede [visualizar las dependencias para grup
 ## <a name="machines-show-install-agent"></a>Las máquinas muestran "Instalar agente"
 
 Después de migrar las máquinas con la visualización de dependencias habilitada en Azure, es posible que las máquinas muestren la acción "Instalar agente" en lugar de "Ver dependencias" debido al comportamiento siguiente:
-
 
 - Después de la migración a Azure, las máquinas locales están desconectadas y las máquinas virtuales equivalentes trabajan en Azure. Estos equipos adquieren una dirección MAC diferente.
 - Las máquinas también pueden adquirir una dirección IP distinta en función de si el se elige conservar o no la dirección IP local.

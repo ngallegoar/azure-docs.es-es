@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/15/2019
-ms.openlocfilehash: 38ec2d4619f47bf9fc4d1815cb6e9990cef72dcf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 09/14/2020
+ms.openlocfilehash: 2e90a8779322cf8967ca9a194c6cc760f7c8b8f5
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606500"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532022"
 ---
 # <a name="derived-column-transformation-in-mapping-data-flow"></a>Transformación Columna derivada en Asignación de Data Flow
 
@@ -20,25 +20,49 @@ ms.locfileid: "81606500"
 
 Use la transformación Columna derivada para generar nuevas columnas en el flujo de datos o para modificar los campos existentes.
 
-## <a name="derived-column-settings"></a>Configuración de columna derivada
+## <a name="create-and-update-columns"></a>Creación y actualización de columnas
 
-Para reemplazar una columna existente, selecciónela mediante la lista desplegable de la columna. De lo contrario, utilice el campo de selección de columna como un cuadro de texto y escriba el nombre de la nueva columna. Para crear la expresión de la columna derivada, haga clic en el cuadro "Escribir expresión" para abrir el [Generador de expresiones de Data Flow](concepts-data-flow-expression-builder.md).
+Para crear una columna derivada, puede generar una nueva columna o actualizar una existente. En el cuadro de texto **Columna**, especifique la columna que está creando. Para reemplazar una columna existente en el esquema, puede usar la lista desplegable de columnas. Para generar la expresión de la columna derivada, haga clic en el cuadro de texto **Escribir expresión**. Puede empezar a escribir la expresión o abrir el generador de expresiones para crear la lógica.
 
-![Configuración de columna derivada](media/data-flow/dc1.png "Configuración de columna derivada")
+![Configuración de columna derivada](media/data-flow/create-derive-column.png "Configuración de columna derivada")
 
-Para agregar columnas derivadas adicionales, mantenga el mouse sobre una columna derivada existente y haga clic en el icono "más". Elija **Agregar columna** o **Add column pattern** (Agregar patrón de columna). Los patrones de columna pueden resultar útiles si los nombres de columna son variables de los orígenes. Para más información, consulte [Patrones de columna](concepts-data-flow-column-pattern.md).
+Para agregar más columnas derivadas, haga clic en **Agregar** encima de la lista de columnas o en el icono con el signo más situado junto a una columna derivada existente. Elija **Agregar columna** o **Add column pattern** (Agregar patrón de columna).
 
-![Nueva selección de columna derivada](media/data-flow/columnpattern.png "Nueva selección de columna derivada")
+![Nueva selección de columna derivada](media/data-flow/add-derived-column.png "Nueva selección de columna derivada")
 
-## <a name="build-schemas-in-output-schema-pane"></a>Compilación de esquemas en el panel Output Schema (Esquema de salida)
+### <a name="column-patterns"></a>Patrones de columnas
 
-Las columnas que va a modificar y agregar al esquema se muestran en el panel Esquema de salida. Aquí puede compilar de manera interactiva estructuras de datos simples y complejas. Para agregar campos adicionales, seleccione **Agregar columna**. Para crear jerarquías, seleccione **Agregar subcolumna**.
+En aquellos casos en los que el esquema no esté definido explícitamente o en los que desee actualizar en bloque un conjunto de columnas, le vendrá bien crear patrones de columnas. Los patrones de columnas permiten establecer correspondencias utilizando reglas basadas en los metadatos de las columnas y crear columnas derivadas en cada correspondencia. Para más información, vea [cómo se crean patrones de columnas](concepts-data-flow-column-pattern.md#column-patterns-in-derived-column-and-aggregate) en la transformación de columnas derivadas.
 
-![Add subcolumn (Agregar subcolumna)](media/data-flow/addsubcolumn.png "Agregar subcolumna")
+![Patrones de columnas](media/data-flow/column-pattern-derive.png "Patrones de columnas")
+
+## <a name="building-schemas-using-the-expression-builder"></a>Creación de esquemas mediante el generador de expresiones
+
+Si utiliza el [generador de expresiones](concepts-data-flow-expression-builder.md) del flujo de datos de asignación, puede crear, editar y administrar las columnas derivadas en la sección **Columnas derivadas**. Aparecerán todas las columnas que se crearon o modificaron en la transformación. Para elegir de forma interactiva qué columna o patrón está editando, haga clic en el nombre de la columna. Para agregar otra columna, seleccione **Crear nueva** y elija si desea agregar una sola columna o un patrón.
+
+![Creación de una nueva columna](media/data-flow/derive-add-column.png "Creación de una nueva columna")
+
+Si trabaja con columnas complejas, puede crear subcolumnas. Para ello, haga clic en el icono con el signo más situado junto a una columna y seleccione **Add subcolumn** (Agregar subcolumna). Para obtener más información sobre cómo controlar tipos complejos en el flujo de datos, consulte [Control de JSON en un flujo de datos de asignación](format-json.md#mapping-data-flow-properties).
+
+![Add subcolumn (Agregar subcolumna)](media/data-flow/derive-add-subcolumn.png "Agregar subcolumna")
 
 Para obtener más información sobre cómo controlar tipos complejos en el flujo de datos, consulte [Control de JSON en un flujo de datos de asignación](format-json.md#mapping-data-flow-properties).
 
-![Agregar columna compleja](media/data-flow/complexcolumn.png "Add columns (Agregar columnas)")
+![Agregar columna compleja](media/data-flow/derive-complex-column.png "Add columns (Agregar columnas)")
+
+### <a name="locals"></a>Locals
+
+Si varias columnas comparten la misma lógica o si desea compartimentar la lógica, puede crear un conjunto local al transformar una columna derivada. Un conjunto local es un conjunto de la lógica que no se propaga a los elementos de nivel inferior durante la siguiente transformación. Los conjuntos locales pueden crearse en el generador de expresiones; para ello, vaya a **Expression elements** (Elementos de expresión) y seleccione **Locals** (Locales). Seleccione **Create new** (Crear nuevo) para crear un nuevo conjunto local.
+
+![Creación de un conjunto local](media/data-flow/create-local.png "Creación de un conjunto local")
+
+Los conjuntos locales pueden hacer referencia a cualquier elemento de expresión de una columna derivada, como funciones, el esquema de entrada, parámetros y otros conjuntos locales. Cuando se hace referencia a otros conjuntos locales, el orden es importante, ya que el conjunto local al que se hace referencia debe ser "anterior" al actual.
+
+![Creación de un conjunto local 2](media/data-flow/create-local-2.png "Creación de un conjunto local 2")
+
+Para hacer referencia al conjunto local de una columna derivada, haga clic en él en la vista **Expression elements** (Elementos de expresión) o escriba el signo de dos puntos delante del nombre. Por ejemplo, `:local1` haría referencia a un conjunto local llamado local1. Para modificar una definición local, mantenga el mouse sobre ella en la vista de elementos de expresión y haga clic en el icono de lápiz.
+
+![Uso de conjuntos locales](media/data-flow/using-locals.png "Uso de conjuntos locales")
 
 ## <a name="data-flow-script"></a>Script de flujo de datos
 
@@ -63,7 +87,7 @@ El ejemplo siguiente es una columna derivada denominada `CleanData` que toma un 
 
 En la experiencia de usuario de Data Factory, esta transformación es similar a la siguiente imagen:
 
-![Ejemplo de derivación](media/data-flow/derive-script1.png "Ejemplo de derivación")
+![Ejemplo de derivación](media/data-flow/derive-script.png "Ejemplo de derivación")
 
 En el siguiente fragmento de código se muestra el script del flujo de datos para esta transformación:
 

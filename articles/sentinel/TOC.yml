@@ -172,7 +172,7 @@
           href: connect-azure-stack.md
     - name: Habilitación del análisis de comportamiento de usuarios y entidades
       href: enable-entity-behavior-analytics.md
-    - name: Trabajo con varios inquilinos (MSSP)
+    - name: Administración de varios inquilinos (MSSP)
       href: multiple-tenants-service-providers.md
     - name: Trabajo con incidentes en varias áreas de trabajo
       href: multiple-workspace-view.md

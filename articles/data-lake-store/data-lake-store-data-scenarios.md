@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 3d6f3a7a5fafc643b346d3df1306820114827049
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 058862f2b274ef4e956c82fbcc44dec92a270d32
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193672"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441058"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Uso de Azure Data Lake Storage Gen1 para requisitos de macrodatos
 
@@ -130,5 +130,5 @@ Puede usar una combinación de servicios para crear representaciones visuales de
 
 ![Visualización de datos en Data Lake Storage Gen1](./media/data-lake-store-data-scenarios/visualize-data.png "Visualización de datos en Data Lake Storage Gen1")
 
-* Puede comenzar con [Azure Data Factory para mover datos desde Data Lake Storage Gen1 hasta Azure SQL Data Warehouse](../data-factory/copy-activity-overview.md).
-* Después, puede [integrar Power BI con Azure SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) para crear una representación visual de los datos.
+* Puede comenzar con [Azure Data Factory para mover datos desde Data Lake Storage Gen1 hasta Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse)](../data-factory/copy-activity-overview.md).
+* Después, puede [integrar Power BI con Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) para crear una representación visual de los datos.

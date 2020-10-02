@@ -2,7 +2,7 @@
 title: Documentación sobre Azure Cosmos DB
 summary: Azure Cosmos DB es un servicio de base de datos con varios modelos y distribución global de Microsoft para cargas de trabajo de operaciones y análisis. Ofrece características con varios maestros mediante el escalado automático del rendimiento, proceso y almacenamiento.
 metadata:
-  title: Azure Cosmos DB
+  title: Azure Cosmos DB
   description: Azure Cosmos DB es un servicio de base de datos con varios modelos y distribución global de Microsoft para cargas de trabajo de operaciones y análisis. Ofrece características con varios maestros mediante el escalado automático del rendimiento, proceso y almacenamiento.
   services: service
   ms.service: cosmos-db
@@ -11,12 +11,12 @@ metadata:
   author: SnehaGunda
   ms.author: sngun
   ms.date: 09/10/2019
-  ms.openlocfilehash: 8c3330849801e00646af77a3759430035331e953
-  ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+  ms.openlocfilehash: 8f2dea260472da4178173d110c33d2681520cfce
+  ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/09/2020
-  ms.locfileid: "89567153"
+  ms.lasthandoff: 09/30/2020
+  ms.locfileid: "91566727"
 landingContent:
 - title: Información acerca de Azure Cosmos DB
   linkLists:
@@ -60,7 +60,7 @@ landingContent:
       url: regional-presence.md
   - linkListType: how-to-guide
     links:
-    - text: Configuración multimaestra
+    - text: Configuración de escrituras en varias regiones
       url: how-to-multi-master.md
     - text: Configuración de niveles de coherencia
       url: how-to-manage-consistency.md

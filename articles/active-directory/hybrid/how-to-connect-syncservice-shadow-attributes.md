@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c57ab03f72f0f59dd18a873ddc7cd98d3c36ef9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 128303cb51b39db8442fdda71f949db17923bfa2
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356668"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088977"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Atributos paralelos del servicio de sincronización de Azure AD Connect
 La mayoría de los atributos se representan del mismo modo en Azure AD, ya que se encuentran en el Active Directory local. Pero algunos atributos tienen algún tratamiento especial y el valor del atributo en Azure AD puede ser distinto de lo que sincroniza Azure AD Connect.
@@ -32,7 +32,7 @@ Algunos atributos tienen dos representaciones en Azure AD. Se almacenan el valor
 No se pueden ver los atributos paralelos mediante Azure Portal o con PowerShell. Pero entender el concepto le ayudará a solucionar los problemas de determinados escenarios donde el atributo tiene valores diferentes tanto en local como en la nube.
 
 Para comprender mejor el comportamiento, vea este ejemplo de Fabrikam:  
-![Dominios](./media/how-to-connect-syncservice-shadow-attributes/domains.png)  
+![Captura de pantalla que muestra el sufijo UPN de Active Directory para varios ejemplos con un valor de dominio de Azure AD correspondiente de No se ha agregado, No se ha comprobado y Comprobado.](./media/how-to-connect-syncservice-shadow-attributes/domains.png)  
 Tienen varios sufijos UPN en su instancia de Active Directory local, pero solo se ha comprobado uno.
 
 ### <a name="userprincipalname"></a>userPrincipalName

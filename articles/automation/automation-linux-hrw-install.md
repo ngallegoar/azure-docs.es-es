@@ -3,14 +3,14 @@ title: Implementación de una instancia de Hybrid Runbook Worker en Azure Automa
 description: En este artículo se describe cómo instalar Hybrid Runbook Worker de Azure Automation para ejecutar runbooks en máquinas con Linux en su centro de datos local o en su entorno en la nube.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/24/2020
+ms.date: 09/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7f19aec65ed2616d757718116ac948473dd4b0ed
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: fb975305e18315fa8d0a39e4fe0ab6902c98b7e7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448017"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987220"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implementación de Hybrid Runbook Worker en Linux
 
@@ -56,7 +56,7 @@ La característica Hybrid Runbook Worker admite las siguientes distribuciones:
 * Red Hat Enterprise Linux Server 5, 6 y 7 (x86/x64)
 * Debian GNU/Linux 6, 7 y 8 (x86/x64)
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS y 18.04 (x86/x64)
-* SUSE Linux Enterprise Server 11 y 12 (x86/x64)
+* SUSE Linux Enterprise Server 12 (x86/x64)
 
 ### <a name="minimum-requirements"></a>Requisitos mínimos
 
@@ -75,6 +75,12 @@ Estos son los requisitos mínimos de Hybrid Runbook Worker en Linux:
 |PAM | Módulos de autenticación conectables|
 | **Paquete opcional** | **Descripción** | **Versión mínima**|
 | PowerShell Core | Para ejecutar runbooks de PowerShell, es necesario instalar PowerShell Core. Consulte [Instalación de PowerShell Core en Linux](/powershell/scripting/install/installing-powershell-core-on-linux) para obtener información sobre cómo instalarlo. | 6.0.0 |
+
+## <a name="supported-linux-hardening"></a>Protección de Linux admitida
+
+Todavía no se admite lo siguiente:
+
+* CIS
 
 ## <a name="supported-runbook-types"></a>Tipos de runbook admitidos
 

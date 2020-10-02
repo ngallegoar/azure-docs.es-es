@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 5189270a7b9de9ff5a222ad76ce46254ae5d2ee3
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: d839ea042dec2224885f9ba4a0cb6adef5108568
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542966"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458627"
 ---
 # <a name="azure-encryption-overview"></a>Información general del cifrado de Azure
 
@@ -83,7 +83,7 @@ Por último, también puede usar la biblioteca cliente de Azure Storage para Jav
 
 #### <a name="transparent-data-encryption"></a>Cifrado de datos transparente
 
-[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) se utiliza para cifrar archivos de datos de [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md) y [Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) en tiempo real, con una clave de cifrado de base de datos (DEK) que se almacena en el registro de arranque de base de datos para la disponibilidad durante la recuperación.
+[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) se utiliza para cifrar archivos de datos de [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md) y [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) en tiempo real, con una clave de cifrado de base de datos (DEK) que se almacena en el registro de arranque de base de datos para la disponibilidad durante la recuperación.
 
 TDE protege los archivos de registro y los datos con los algoritmos de cifrado de AES y el estándar de cifrado de datos triple (3DES). El cifrado del archivo de base de datos se realiza en el nivel de página. Las páginas en una base de datos cifrada se cifran antes de que se escriban en disco y se descifran cuando se leen en la memoria. TDE ahora está habilitado de forma predeterminada en las bases de datos de Azure SQL recién creadas.
 

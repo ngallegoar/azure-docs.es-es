@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Documentación de la actualización de la versión preliminar de IoT Plug and Play
+title: Documentación sobre IoT Plug and Play
 summary: IoT Plug and Play permite definir un modelo de dispositivo que permita a las soluciones en la nube comprender automáticamente cualquier dispositivo y empezar a interactuar con él.
 metadata:
-  title: Arquitectura de la versión preliminar de IoT Plug and Play
-  description: La versión preliminar de IoT Plug and Play permite a los creadores de soluciones integrar dispositivos en una solución sin necesidad de configuración manual. En este artículo se muestran los principales elementos arquitectónicos que lo hacen posible.
+  title: Arquitectura de IoT Plug and Play
+  description: IoT Plug and Play permite a los creadores de soluciones integrar dispositivos en una solución sin necesidad de configuración manual. En este artículo se muestran los principales elementos arquitectónicos que hacen posible esta tarea.
   services: iot-pnp
   ms.service: iot-pnp
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   ms.author: dobett
   manager: philmea
   ms.date: 10/31/2019
-  ms.openlocfilehash: 6fe77d059974bcc37fb0b0bbc6a171d371a93478
-  ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+  ms.openlocfilehash: 5b01154fa3e5821ca577e4a910facff8d9cb968a
+  ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/28/2020
-  ms.locfileid: "87337371"
+  ms.lasthandoff: 09/30/2020
+  ms.locfileid: "91598041"
 landingContent:
 - title: Acerca de IoT Plug and Play
   linkLists:
@@ -24,8 +24,8 @@ landingContent:
     links:
     - text: ¿Qué es IoT Plug and Play?
       url: overview-iot-plug-and-play.md
-    - text: Actualización de la versión preliminar pública de 2020
-      url: overview-iot-plug-and-play-preview-updates.md
+    - text: Contenido de la versión actual
+      url: overview-iot-plug-and-play-current-release.md
 - title: Creación de dispositivos
   linkLists:
   - linkListType: quickstart
@@ -43,11 +43,13 @@ landingContent:
   - linkListType: concept
     links:
     - text: Guía del desarrollador
-      url: concepts-developer-guide.md
-    - text: Convenciones de IoT Plug and Play
-      url: concepts-convention.md
+      url: concepts-developer-guide-device-csharp.md
     - text: Componentes
       url: concepts-components.md
+    - text: Convenciones de IoT Plug and Play
+      url: concepts-convention.md
+    - text: Puente de IoT Plug and Play
+      url: concepts-iot-pnp-bridge.md
 - title: Creación de soluciones
   linkLists:
   - linkListType: quickstart

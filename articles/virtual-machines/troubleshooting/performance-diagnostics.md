@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: 16be3d1695608165405a3490b686a01ba6a2a62c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 857d49fa579e7ea1a6e2c14ae8198cd8ac4fe228
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70080595"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090642"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnóstico de rendimiento para máquinas virtuales de Azure
 
@@ -33,11 +33,28 @@ Puede ejecutar el diagnóstico de rendimiento directamente desde Azure Portal, d
 
 ### <a name="windows"></a>Windows
 
-Windows 10, Windows 8, Windows 8 Enterprise, Windows 8 Pro, Windows 8.1, Windows Server 2016, Windows Server 2012, Windows Server 2012 Datacenter, Windows Server 2012 R2, Windows Server 2012 R2 Datacenter, Windows Server 2012 R2 Standard, Windows Server 2012 Standard, Windows Server 2008 R2, Windows Server 2008 R2 Datacenter, Windows Server 2008 R2 Enterprise, Windows Server 2008 R2 Foundation, Windows Server 2008 R2 SP1, Windows Server 2008 R2 Standard.
+* Windows Server 2019
+* Windows Server 2016
+* Windows Server 2012 R2
+* Windows Server 2012
+* Windows Server 2008 R2
+* Windows 10
+* Windows 8.1
+* Windows 8
 
 ### <a name="linux"></a>Linux
 
-Oracle Linux Server 6.10 [`*`], 7.3, 7.6, 7.5 (imagen de Marketplace de Oracle-Database-Ee 13.8), CentOS 6.5 [`*`], 7.6, RHEL 7.2, 7.5, 8.0 [`*`], Ubuntu 14.04, 16.04, 18.04, Debian 8, 9, 10 [`*`], SLES 12 SP4 [`*`].
+- Actualmente se admiten las siguientes distribuciones:
+
+    | Distribución               | Versión                                         |
+    |----------------------------|-------------------------------------------------|
+    | Servidor de Oracle Linux        | 6.10 [`*`], 7.3, 7.6, 7.5 |
+    | CentOS                     | 6.5 [`*`], 7.6                                    |
+    | RHEL                       | 7.2, 7.5, 8.0 [`*`]                               |
+    | Ubuntu                     | 14.04, 16.04, 18.04, 20.04                               |
+    | Debian                     | 8, 9, 10 [`*`]                                    |
+    | SLES                       | 12 SP4 [`*`]                                      |
+    |                            |                                                   |
 
 >[!Note]
 >[`*` ] Consulte los [problemas conocidos](how-to-use-perfinsights-linux.md#known-issues).
@@ -79,7 +96,7 @@ Los siguientes escenarios de análisis están disponibles en Azure Portal. Selec
 * **Análisis de rendimiento**  
     Incluye todas las comprobaciones del análisis rápido de rendimiento, y supervisa el alto consumo de recursos. Use esta versión para solucionar problemas de rendimiento generales, como el uso excesivo de la CPU, la memoria y el uso del disco. Este análisis tarda entre 30 segundos y 15 minutos en realizarse, dependiendo de la duración que haya seleccionado. Más información para [Windows](https://aka.ms/perfinsights/vmslow) o [Linux](https://aka.ms/perfinsightslinux/vmslow).
 
-* **Análisis de rendimiento avanzado** `*`  
+* **Análisis avanzado del rendimiento** `*`  
     Incluye todas las comprobaciones en el análisis de rendimiento y recopila uno o varios de los seguimientos, tal como se muestra en las secciones siguientes. Use este escenario para solucionar problemas complejos en los que sea necesario realizar seguimientos adicionales. Si ejecuta este escenario durante períodos más largos, aumentará el tamaño total del resultado del diagnóstico, en función del tamaño de la máquina virtual y las opciones de seguimiento que se hayan seleccionado. Este análisis tarda entre 30 segundos y 15 minutos en ejecutarse, dependiendo de la duración que haya seleccionado. [Más información](https://aka.ms/perfinsights/advanced)
 
 * **Análisis de Azure Files** `*`  
@@ -170,10 +187,10 @@ Puede ver la información de la cuenta de almacenamiento si usa el botón Config
 
 Existen varias formas de compartir el informe de diagnóstico con Microsoft.
 
-**Opción 1:** compartir automáticamente el último informe  
+**Opción 1:** compartir automáticamente el último informe.  
 Al abrir una incidencia de soporte técnico con Microsoft, es importante compartir el informe de diagnóstico de rendimiento. Si optó por compartir esta información con Microsoft mientras ejecuta los diagnósticos (al seleccionar la casilla "**Accedo a compartir la información de diagnóstico con Microsoft**"), Microsoft podrá obtener acceso al informe desde su cuenta de almacenamiento mediante un vínculo SAS, que le llevará al archivo .zip de salida; este archivo se guardará un máximo de 30 días a partir de la fecha de ejecución. Recuerde que solo el último informe está disponible para que el ingeniero del soporte técnico pueda acceder al mismo.
 
-**Opción 2:** generar una Firma de acceso compartido para el archivo comprimido del informe de diagnóstico  
+**Opción 2:** generar una Firma de acceso compartido para el archivo comprimido del informe de diagnóstico.  
 Puede compartir un vínculo al archivo comprimido de informes si usa las firmas de acceso compartido. Para ello, siga estos pasos.
 
 1. En Azure Portal, busque la cuenta de almacenamiento en la que se almacenan los datos de diagnóstico.
@@ -184,7 +201,7 @@ Puede compartir un vínculo al archivo comprimido de informes si usa las firmas 
 1. Haga clic en **Generate blob SAS token and URL** (Generar token SAS de blob y URL).
 1. Copie la **dirección URL del blob SAS** y compártala con el ingeniero del soporte técnico.
 
-**Opción 3:** descargar el informe de la cuenta de almacenamiento
+**Opción 3:** descargar el informe de la cuenta de almacenamiento.
 
 También puede buscar el archivo comprimido del informe de diagnóstico de rendimiento mediante los pasos 1 a 4 de la opción 2. Seleccione la opción para descargar el archivo y compártalo por correo electrónico, o solicite instrucciones al ingeniero del soporte técnico para que cargue el archivo.  
 

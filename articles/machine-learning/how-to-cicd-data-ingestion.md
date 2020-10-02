@@ -12,12 +12,12 @@ author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 7a52dcabb448c39d9ae4e4edb4f5b7f701be6603
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 47b41e807c4d7b9a9fce6591da6655db74f483f3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228892"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971255"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps para una canalización de ingesta de datos
 
@@ -168,11 +168,11 @@ labels = np.array(data['target'])
 
 Este nombre es diferente para los entornos ***Dev***, ***QA***, ***UAT*** y ***PROD***. En una canalización compleja con varias actividades, puede haber varias propiedades personalizadas. Es recomendable recopilar todos esos valores en un solo lugar y definirlos como ***variables*** de canalización:
 
-![adf-variables](media/how-to-cicd-data-ingestion/adf-variables.png)
+![Captura de pantalla que muestra un cuaderno llamado PrepareData y una canalización de ejecución de ML llamada Canalización de ejecución de ML en la parte superior con la pestaña Variables seleccionada debajo con la opción para agregar nuevas variables, cada una con un nombre, un tipo y un valor predeterminado.](media/how-to-cicd-data-ingestion/adf-variables.png)
 
 Las actividades de canalización pueden hacer referencia a las variables de canalización mientras se usan realmente:
 
-![adf-notebook-parameters](media/how-to-cicd-data-ingestion/adf-notebook-parameters.png)
+![Captura de pantalla que muestra un cuaderno llamado PrepareData y una canalización de ejecución de ML llamada Ejecución de canalización de ML en la parte superior con la pestaña Configuración seleccionada debajo.](media/how-to-cicd-data-ingestion/adf-notebook-parameters.png)
 
 El área de trabajo de Azure Data Factory ***no*** expone variables de canalización como parámetros de plantilla de Azure Resource Manager de forma predeterminada. El área de trabajo usa la [plantilla de parametrización predeterminada](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#default-parameterization-template) que dictamina qué propiedades de canalización deben exponerse como parámetros de plantilla de Azure Resource Manager. Para agregar variables de canalización a la lista, actualice la sección `"Microsoft.DataFactory/factories/pipelines"` de la [plantilla de parametrización predeterminada](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#default-parameterization-template) con el siguiente fragmento de código y coloque el archivo JSON resultante en la raíz de la carpeta de origen:
 

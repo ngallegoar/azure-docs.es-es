@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: edb35986fcfc0e8855fa712b519ee7a8ca2f0ed8
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 921a56dca8f1cda67e6f32458914fef4ac2d324c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321963"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601320"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Referencia de la guía de operaciones generales de Azure Active Directory
 
@@ -125,9 +125,9 @@ Si su organización no tiene ningún programa para supervisar los cambios en la 
 
 ### <a name="notifications"></a>Notificaciones
 
-Microsoft envía estas notificaciones por correo electrónico a los administradores, para informarles de los distintos cambios en el servicio, las actualizaciones de configuración necesarias y los errores que requieren la intervención del administrador. Es importante que los clientes escriban sus direcciones de correo electrónico de notificación, para que los mensajes se envíen a los miembros del equipo adecuados y que así puedan confirmar todas las notificaciones y actuar en consecuencia. Le recomendamos agregar varios destinatarios al [Centro de mensajes de Office 365](/office365/admin/manage/message-center) y solicitar que las notificaciones (incluidas las notificaciones de Azure AD Connect Health) se envíen a una lista de distribución o a un buzón compartido. Si solo tiene una cuenta de administrador global con una dirección de correo electrónico, asegúrese de configurar al menos dos cuentas compatibles con ese correo electrónico.
+Microsoft envía estas notificaciones por correo electrónico a los administradores, para informarles de los distintos cambios en el servicio, las actualizaciones de configuración necesarias y los errores que requieren la intervención del administrador. Es importante que los clientes escriban sus direcciones de correo electrónico de notificación, para que los mensajes se envíen a los miembros del equipo adecuados y que así puedan confirmar todas las notificaciones y actuar en consecuencia. Le recomendamos agregar varios destinatarios al [Centro de mensajes](/office365/admin/manage/message-center) y solicitar que las notificaciones (incluidas las notificaciones de Azure AD Connect Health) se envíen a una lista de distribución o a un buzón compartido. Si solo tiene una cuenta de administrador global con una dirección de correo electrónico, asegúrese de configurar al menos dos cuentas compatibles con ese correo electrónico.
 
-Existen dos direcciones de "remitente" que usa Azure AD: <o365mc@email2.microsoft.com>, que envía notificaciones del Centro de mensajes de Office 365 y <azure-noreply@microsoft.com>, que envía notificaciones relacionadas con lo siguiente:
+Existen dos direcciones de "remitente" que usa Azure AD: <o365mc@email2.microsoft.com>, que envía notificaciones del Centro de mensajes y <azure-noreply@microsoft.com>, que envía notificaciones relacionadas con lo siguiente:
 
 - [Revisiones de acceso de Azure AD](../governance/access-reviews-overview.md)
 - [Azure AD Connect Health](../hybrid/how-to-connect-health-operations.md#enable-email-notifications)
@@ -141,14 +141,14 @@ Consulte la tabla siguiente para obtener información sobre el tipo de notificac
 | Origen de la notificación | Qué se envía | Dónde buscar |
 |:-|:-|:-|
 | Contacto técnico | Errores de sincronización | Azure Portal: hoja de propiedades |
-| Centro de mensajes de Office 365 | Avisos de incidentes y degradación de servicios de identidad y servicios back-end de O365 | Portal de Office |
+| Centro de mensajes | Avisos de incidentes y degradación de los servicios de identidad y los servicios de back-end de Microsoft 365 | Portal de Office |
 | Resumen semanal de Identity Protection | Resumen de Identity Protection | Hoja de Azure AD Identity Protection |
 | Azure AD Connect Health | Notificaciones de alerta | Azure Portal: hoja de Azure AD Connect Health |
 | Notificaciones de aplicaciones empresariales | Notificaciones acerca de cuándo expirarán los certificados y aprovisionamiento de errores | Azure Portal: hoja de aplicaciones empresariales (cada aplicación tiene su propia configuración de dirección de correo electrónico) |
 
 #### <a name="notifications-recommended-reading"></a>Lectura recomendada de notificaciones
 
-- [Cambie la dirección de la organización, el contacto técnico y más - Office 365](/office365/admin/manage/change-address-contact-and-more)
+- [Cambio de la dirección de la organización, el contacto técnico y más](/office365/admin/manage/change-address-contact-and-more)
 
 ## <a name="operational-surface-area"></a>Área expuesta operativa
 

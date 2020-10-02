@@ -7,12 +7,12 @@ ms.date: 02/26/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: b008c4ebc83200043d51fc8ef367f1983c549949
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 50e8dfd2998b50bfff7341e49ac4d0770c115166
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74973448"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530869"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Realización de una prueba de posesión de certificados de entidad de certificación X.509 con el servicio Device Provisioning
 
@@ -23,7 +23,7 @@ La prueba de posesión implica los pasos siguientes:
 2. Cree un certificado de verificación X.509 con el código de verificación como asunto y firme el certificado con la clave privada asociada a su certificado de entidad de certificación X.509.
 3. Cargue el certificado de verificación firmado en el servicio. El servicio valida el certificado de verificación con la parte pública del certificado de entidad de certificación que se verifica, lo que demuestra que posee la clave privada del certificado de entidad de certificación.
 
-Los certificados verificados desempeñan un importante papel al usar grupos de inscripción. La verificación de la titularidad del certificado proporciona un nivel de seguridad adicional al garantizar que la persona que carga el certificado está en posesión de su clave privada. La verificación evita que un actor malintencionado que esté examinando su tráfico extraiga un certificado intermedio y lo utilice para crear un grupo de inscripción en su propio servicio de aprovisionamiento, secuestrando así sus dispositivos. Al probar la titularidad de la raíz o un certificado intermedio en una cadena de certificados, demuestra que tiene permiso para generar certificados de hoja para los dispositivos que se registrarán como parte del grupo de inscripción. Por este motivo, la raíz o certificado intermedio configurados en un grupo de inscripción deben ser un certificado verificado o deben acumularse en un certificado verificado en la cadena de certificados que un dispositivo presenta al autenticarse con el servicio. Para más información sobre los grupos de inscripción, consulte [Certificados X.509](concepts-security.md#x509-certificates) y [Control del acceso de dispositivo al servicio de aprovisionamiento con certificados X.509](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+Los certificados verificados desempeñan un importante papel al usar grupos de inscripción. La verificación de la titularidad del certificado proporciona un nivel de seguridad adicional al garantizar que la persona que carga el certificado está en posesión de su clave privada. La verificación evita que un actor malintencionado que esté examinando su tráfico extraiga un certificado intermedio y lo utilice para crear un grupo de inscripción en su propio servicio de aprovisionamiento, secuestrando así sus dispositivos. Al probar la titularidad de la raíz o un certificado intermedio en una cadena de certificados, demuestra que tiene permiso para generar certificados de hoja para los dispositivos que se registrarán como parte del grupo de inscripción. Por este motivo, la raíz o certificado intermedio configurados en un grupo de inscripción deben ser un certificado verificado o deben acumularse en un certificado verificado en la cadena de certificados que un dispositivo presenta al autenticarse con el servicio. Para más información sobre la atestación de certificados X.509, consulte [Certificados X.509](concepts-x509-attestation.md) y [Control del acceso de dispositivo al servicio de aprovisionamiento con certificados X.509](concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 ## <a name="register-the-public-part-of-an-x509-certificate-and-get-a-verification-code"></a>Registro de la parte pública de un certificado X.509 y obtención de un código de verificación
 

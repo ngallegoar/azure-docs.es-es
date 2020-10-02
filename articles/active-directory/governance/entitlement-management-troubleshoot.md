@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e230d3a4029d97a328280f581c126c7ec2d0bdb3
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 296aabdd79e1cd5c37248a0a44d57ebf17a4ea44
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460803"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979424"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Solución de problemas de la administración de derechos de Azure AD
 
@@ -75,7 +75,7 @@ En este artículo se describen algunos elementos que debe comprobar que le ayuda
 
 ### <a name="view-a-requests-delivery-errors"></a>Visualización de errores de entrega de una solicitud
 
-**Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
+**Rol necesario:** Administrador global, Administrador de usuarios, Propietario del catálogo, Administrador de paquetes de acceso o Administrador de asignaciones de paquetes de acceso
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 
@@ -103,7 +103,7 @@ Solo se pueden volver a procesar las solicitudes que tienen el estado **Error en
 
 - Si el error no se corrige durante la ventana de pruebas, el estado de la solicitud puede ser **Error en la entrega** o **Entregado parcialmente**. A continuación, puede usar el botón **Reprocesar**. Tendrá siete días para volver a procesar la solicitud.
 
-**Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
+**Rol necesario:** Administrador global, Administrador de usuarios, Propietario del catálogo, Administrador de paquetes de acceso o Administrador de asignaciones de paquetes de acceso
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 
@@ -121,7 +121,7 @@ Solo se pueden volver a procesar las solicitudes que tienen el estado **Error en
 
 Solo se pueden cancelar las solicitudes pendientes que aún no se hayan entregado o en cuya entrega se hayan producido errores. De lo contrario, el botón **Cancelar** estará atenuado.
 
-**Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
+**Rol necesario:** Administrador global, Administrador de usuarios, Propietario del catálogo, Administrador de paquetes de acceso o Administrador de asignaciones de paquetes de acceso
 
 1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
 

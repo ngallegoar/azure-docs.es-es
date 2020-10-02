@@ -2,13 +2,13 @@
 title: Novedades de Azure Site Recovery
 description: Proporciona un resumen de las nuevas características y las actualizaciones más recientes en el servicio Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 08/20/2020
-ms.openlocfilehash: 837344d10e21d20488760f6d5aa4749c039f9b07
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 09/15/2020
+ms.openlocfilehash: 1bf051afaeb61c80e3708a72a4a0605b68533977
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816956"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527350"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novedades de Site Recovery
 
@@ -22,14 +22,23 @@ En el caso de los componentes de Site Recovery, se admiten las versiones N-4, do
 
 **Actualizar** |  **Instalación unificada** | **Servidor de configuración OVA** | **Agente de Mobility Service** | **Proveedor de Site Recovery** | **Agente de Recovery Services**
 --- | --- | --- | --- | --- | ---
+[Paquete acumulativo 50](https://support.microsoft.com/help/4582666/) | 9.37.5724.1 | 5.1.6347.0 | 9.37.5724.1 | 5.1.6347.0  | 2.0.9192.0
 [Paquete acumulativo 49](https://support.microsoft.com/help/4578241/) | 9.36.5696.1 | 5.1.6315.0 | 9.36.5696.1 | 5.1.6315.0 | 2.0.9188.0
 [Paquete acumulativo 48](https://support.microsoft.com/help/4573888/) | 9.35.5659.1 | 5.1.6200.0 | 9.35.5659.1 | 5.1.6200.0 | 2.0.9186.0
 [Paquete acumulativo 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | Máquinas HyperV - 2.0.9183.0 <br> Máquinas de VMware - 2.0.9177.0
 [Paquete acumulativo 46](https://support.microsoft.com/help/4564347/) | 9.33.5598.1 | 5.1.5900.0 | 9.33.5598.1 | 5.1.5900.0 | 2.0.9175.0
-[Paquete acumulativo 45](https://support.microsoft.com/help/4550047/) | 9.32.5487.1 | 5.1.5400.0 | 9.32.5487.1 | 5.1.5400.0 | 2.0.9165.0
+
 
 [Más información](service-updates-how-to.md) sobre la instalación y el soporte técnico de las actualizaciones.
 
+## <a name="update-september-2020"></a>Actualización (septiembre de 2020)
+
+El [paquete acumulativo de actualizaciones 50](https://support.microsoft.com/help/4582666/update-rollup-50-for-azure-site-recovery) proporciona las siguientes actualizaciones:
+
+**Actualizar** | **Detalles**
+--- | ---
+**Proveedores y agentes** | Actualizaciones de los proveedores y agentes de Site Recovery según se detalla en el paquete acumulativo de actualizaciones.
+**Mejoras y correcciones de problemas** | Un número de correcciones y mejoras (tal como se detalla en el paquete acumulativo).
 
 ## <a name="updates-august-2020"></a>Actualizaciones (agosto de 2020)
 
@@ -40,7 +49,7 @@ El [paquete acumulativo de actualizaciones 49](https://support.microsoft.com/hel
 **Actualizar** | **Detalles**
 --- | ---
 **Proveedores y agentes** | Actualizaciones de los proveedores y agentes de Site Recovery según se detalla en el paquete acumulativo de actualizaciones.
-**Mejoras y correcciones de problemas** | Un número de correcciones y mejoras (tal como se detalla en el paquete acumulativo).
+**Mejoras y correcciones de problemas** | Varias correcciones y mejoras que se detallan en el paquete acumulativo, incluyendo la nueva compatibilidad con Linux del servicio Mobility.
 
 ## <a name="updates-july-2020"></a>Actualizaciones (julio de 2020)
 

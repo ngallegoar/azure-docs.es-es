@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: edf66af2df56785977418a118847991165ab3702
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d291adcf53469825f32b664cb7f4ffdb0bbf244b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84025636"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441024"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Introducción a una aplicación SaaS multiinquilino que usa el patrón de base de datos por inquilino con Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ Al realizar los tutoriales y trabajar con la aplicación, céntrese en la relaci
 
 ## <a name="sql-database-wingtip-saas-tutorials"></a>Tutoriales de SaaS de Wingtip de SQL Database
 
-Después de implementar la aplicación, explore los tutoriales siguientes que se basan en la implementación inicial. En estos tutoriales se exploran patrones comunes de SaaS que aprovechan las ventajas de las características integradas de SQL Database, Azure SQL Data Warehouse y otros servicios de Azure. Los tutoriales incluyen scripts de PowerShell con explicaciones detalladas. Las explicaciones simplifican la comprensión y la implementación de los mismos patrones de administración de SaaS en sus aplicaciones.
+Después de implementar la aplicación, explore los tutoriales siguientes que se basan en la implementación inicial. En estos tutoriales se exploran patrones comunes de SaaS que aprovechan las ventajas de las características integradas de SQL Database, Azure Synapse Analytics (anteriormente, SQL Data Warehouse) y otros servicios de Azure. Los tutoriales incluyen scripts de PowerShell con explicaciones detalladas. Las explicaciones simplifican la comprensión y la implementación de los mismos patrones de administración de SaaS en sus aplicaciones.
 
 
 | Tutorial | Descripción |

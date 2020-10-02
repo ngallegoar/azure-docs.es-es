@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/05/2020
-ms.openlocfilehash: 45cecccd88b0b84b478bc6fc7346cb9ef9c2f454
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: d93ff81bacbb537cc5891e0b869f164e0d6824c6
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846350"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440548"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Características de optimización del rendimiento de la actividad de copia
 
@@ -126,7 +126,7 @@ Cuando especifique un valor para la propiedad `parallelCopies`, tenga en cuenta 
 
 Al copiar datos de un almacén de datos de origen a un almacén de datos receptor, podría elegir usar Almacenamiento de blobs como almacenamiento provisional. El almacenamiento provisional es especialmente útil en los siguientes casos:
 
-- **Desea ingerir datos de varios almacenes de datos en Azure Synapse Analytics (anteriormente SQL Data Warehouse) mediante PolyBase.** Azure Synapse Analytics emplea PolyBase como mecanismo de alto rendimiento para cargar una gran cantidad de datos en Azure Synapse Analytics. Los datos de origen deben estar en Blob Storage o Azure Data Lake Store y deben satisfacer criterios adicionales. Al cargar datos desde un almacén de datos distinto de Blob Storage o Azure Data Lake Store, puede activar la copia de datos mediante Blob Storage de almacenamiento provisional. En ese caso, Azure Data Factory realiza las transformaciones de datos necesarias para garantizar que se cumplen los requisitos de PolyBase. Después, usa PolyBase para cargar datos en Azure Synapse Analytics eficientemente. Para más información, consulte [Uso de PolyBase para cargar datos en Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
+- **Desea ingerir datos de varios almacenes de datos en Azure Synapse Analytics (anteriormente SQL Data Warehouse) mediante PolyBase.** Azure Synapse Analytics emplea PolyBase como mecanismo de alto rendimiento para cargar una gran cantidad de datos en Azure Synapse Analytics. Los datos de origen deben estar en Blob Storage o Azure Data Lake Store y deben satisfacer criterios adicionales. Al cargar datos desde un almacén de datos distinto de Blob Storage o Azure Data Lake Store, puede activar la copia de datos mediante Blob Storage de almacenamiento provisional. En ese caso, Azure Data Factory realiza las transformaciones de datos necesarias para garantizar que se cumplen los requisitos de PolyBase. Después, usa PolyBase para cargar datos en Azure Synapse Analytics eficientemente. Para más información, consulte este artículo sobre el [uso de PolyBase para cargar datos en Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics).
 - **En ocasiones, se tarda un tiempo en realizar un movimiento de datos híbridos (es decir, copiar desde un almacén de datos local a un almacén de datos en la nube) a través de una conexión de red lenta.** Para mejorar el rendimiento se puede usar una copia almacenada provisionalmente para comprimir los datos de forma local, con el fin de que se tarde menos tiempo en mover datos al almacén de datos provisional en la nube. Luego, puede descomprimir los datos en dicho almacén antes de cargarlos en el almacén de datos de destino.
 - **Solo desea abrir los puertos 80 y el 443 en el firewall, a causa de las directivas de TI corporativas**. Por ejemplo, al copiar datos de un almacén de datos local a un receptor de Azure SQL Database o a un receptor de Azure Synapse Analytics, debe activar la comunicación TCP saliente en el puerto 1433 tanto para el firewall de Windows como para el firewall corporativo. En ese escenario, una copia almacenada provisionalmente puede aprovechar la ventaja de IR autohospedado para copiar primero los datos en una instancia provisional de Blob Storage a través de HTTP o HTTPS en el puerto 443. Luego, puede cargar dichos datos en SQL Database o en Azure Synapse Analytics desde la instancia provisional de Blob Storage. En este flujo, no es necesario habilitar el puerto 1433.
 

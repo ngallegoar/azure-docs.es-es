@@ -13,12 +13,12 @@ ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 8c6a9304927f5d4bcad895b725955c522b60207a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9d8bb85aac87503ca641f6633668a6dc582882f
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266243"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056088"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Administración de las contraseñas de aplicaciones para la verificación en dos pasos
 
@@ -44,7 +44,7 @@ Puede crear y eliminar contraseñas de la aplicación, en función de cómo use 
 
 - **Su organización usa la verificación en dos fases y la página de verificación de seguridad adicional.** Si usa una cuenta profesional o educativa (por ejemplo, alain@contoso.com) con la verificación en dos fases en su organización, puede administrar las contraseñas de la aplicación en la [página de comprobación de seguridad adicional](https://account.activedirectory.windowsazure.com/Proofup.aspx). Para obtener instrucciones detalladas, consulte en este artículo la sección sobre [creación y eliminación de contraseñas de aplicaciones mediante la página de comprobación de seguridad adicional](#create-and-delete-app-passwords-from-the-additional-security-verification-page).
 
-- **Su organización usa la verificación en dos fases y el portal de Office 365.** Si usa una cuenta profesional o educativa (por ejemplo, alain@contoso.com), la verificación en dos fases y aplicaciones de Office 365 en su organización, puede administrar las contraseñas de la aplicación en la [página del portal de Office 365](https://www.office.com). Para obtener instrucciones detalladas, consulte en este artículo la sección sobre [creación y eliminación de contraseñas de aplicaciones mediante el portal de Office 365](#create-and-delete-app-passwords-using-the-office-365-portal).
+- **Su organización usa la verificación en dos fases y el portal de Office 365.** Si usa una cuenta profesional o educativa (por ejemplo, alain@contoso.com), la verificación en dos fases y aplicaciones de Microsoft 365 en su organización, puede administrar las contraseñas de la aplicación en la [página del portal de Office 365](https://www.office.com). Para obtener instrucciones detalladas, consulte en este artículo la sección sobre [creación y eliminación de contraseñas de aplicaciones mediante el portal de Office 365](#create-and-delete-app-passwords-using-the-office-365-portal).
 
 - **Está usando la verificación en dos fases con una cuenta Microsoft personal.** Si usa una cuenta Microsoft personal (como, por ejemplo, alain@outlook.com) con la verificación en dos fases, puede administrar las contraseñas de aplicación en la [página de aspectos básicos de seguridad](https://account.microsoft.com/security/). Para obtener instrucciones detalladas, consulte [Uso de contraseñas de aplicaciones con aplicaciones que no admiten la verificación en dos pasos](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-and-two-step-verification).
 
@@ -82,11 +82,11 @@ Puede crear y eliminar contraseñas de la aplicación en la página de **comprob
 
 ## <a name="create-and-delete-app-passwords-using-the-office-365-portal"></a>Creación y eliminación de contraseñas de aplicaciones en el portal de Office 365
 
-Si utiliza la verificación en dos pasos con la cuenta profesional o educativa y sus aplicaciones de Office 365, puede crear y eliminar las contraseñas de aplicaciones mediante el portal de Office 365.
+Si utiliza la verificación en dos pasos con la cuenta profesional o educativa y sus aplicaciones de Microsoft 365, puede crear y eliminar las contraseñas de las aplicaciones mediante el portal de Office 365.
 
 ### <a name="to-create-app-passwords-using-the-office-365-portal"></a>Para crear contraseñas de aplicaciones en el portal de Office 365
 
-1. Inicie sesión en Office 365 y, a continuación, vaya a la página [Mi cuenta](https://portal.office.com), seleccione **Seguridad y privacidad** y, a continuación, expanda **Comprobación de seguridad adicional**.
+1. Inicie sesión en la cuenta profesional o educativa, vaya a la página [Mi cuenta](https://portal.office.com), seleccione **Seguridad y privacidad** y, a continuación, expanda **Comprobación de seguridad adicional**.
 
     ![Portal de Office que muestra la ampliación del área de comprobación de seguridad adicional](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-o365-my-account-page.png)
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2da67b9996156f136aa2eddb8aa3d2b1777a554
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c00c89e5f81bcb142c50e5f3438c1af2d72a9de5
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88794550"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056224"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets de la versión 2 de Azure Active Directory para la administración de grupos
 
@@ -53,7 +53,7 @@ Para comprobar que el módulo esté listo para usar, ejecute el siguiente comand
 Ahora puede empezar a usar los cmdlets del módulo. Para ver una descripción completa de los cmdlets del módulo de Azure AD, consulte la documentación de referencia en línea para obtener [Azure Active Directory PowerShell versión 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
 
 > [!NOTE]
-> Los cmdlets de Azure AD PowerShell no funcionan con el nuevo PowerShell 7, ya que se basa en .NET Core. Somos conscientes de que esto está en proceso de actualización. En este momento, se recomienda usar el módulo de Windows PowerShell 5.x para las operaciones de Azure AD PowerShell. 
+> Los cmdlets de Azure AD PowerShell no funcionan con el nuevo PowerShell 7, ya que se basa en .NET Core. Somos conscientes de que esto está en proceso de actualización. En este momento, se recomienda usar el módulo de Windows PowerShell 5.x para las operaciones de PowerShell de Azure AD. 
 
 
 ## <a name="connect-to-the-directory"></a>Conexión al directorio
@@ -328,13 +328,13 @@ Cuando se crea un grupo, algunos de los puntos de conexión permiten al usuario 
 
 ## <a name="group-writeback-to-on-premises-preview"></a>Escritura diferida de grupos en entornos locales (versión preliminar)
 
-Hoy en día, se siguen administrando muchos grupos en Active Directory local. Para responder a las solicitudes para sincronizar grupos en la nube de nuevo con entornos locales, la característica de escritura diferida de grupos de Office 365 para Azure AD está ahora disponible en versión preliminar.
+Hoy en día, se siguen administrando muchos grupos en Active Directory local. Para responder a las solicitudes para sincronizar los grupos en la nube de nuevo con los entornos locales, la característica de escritura diferida de grupos de Microsoft 365 para Azure AD está ahora disponible en versión preliminar.
 
-Los grupos de Office 365 se crean y administran en la nube. La capacidad de escritura diferida le permite volver a escribir los grupos de Office 365 como grupos de distribución en un bosque de Active Directory con Exchange instalado. Después, los usuarios con buzones de Exchange locales pueden enviar y recibir correos electrónicos de estos grupos. La característica de reescritura de grupos no admite grupos de distribución ni grupos de seguridad de Azure AD.
+Los grupos de Microsoft 365 se crean y administran en la nube. La funcionalidad de escritura diferida le permite volver a escribir los grupos de Microsoft 365 como grupos de distribución en un bosque de Active Directory con Exchange instalado. Después, los usuarios con buzones de Exchange locales pueden enviar y recibir correos electrónicos de estos grupos. La característica de reescritura de grupos no admite grupos de distribución ni grupos de seguridad de Azure AD.
 
 Para obtener más información, consulte la documentación para el [servicio de sincronización de Azure AD Connect](../hybrid/how-to-connect-syncservice-features.md).
 
-La escritura diferida de grupos de Office 365 es una característica en versión preliminar pública de Azure Active Directory (Azure AD) y está disponible con cualquier plan de licencia de Azure AD de pago. Para obtener alguna información legal sobre las versiones preliminares, vea [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+La escritura diferida de grupos de Microsoft 365 es una característica en versión preliminar pública de Azure Active Directory (Azure AD) y está disponible con cualquier plan de licencia de Azure AD de pago. Para obtener alguna información legal sobre las versiones preliminares, vea [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

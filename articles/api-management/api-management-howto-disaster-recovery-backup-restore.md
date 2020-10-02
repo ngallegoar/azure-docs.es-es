@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 826f47115d15b9c46476af711eddc5499afab419
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 489a1afd8e247b69761d521f51e16310176e31f5
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830264"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564090"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Azure API Management
 
@@ -185,6 +185,7 @@ La creación de una copia de seguridad es una operación de larga ejecución que
 -   Configuración de [identidad administrada](api-management-howto-use-managed-service-identity.md).
 -   Configuración de [diagnóstico de Azure Monitor](api-management-howto-use-azure-monitor.md).
 -   Configuración de [protocolos y cifrado](api-management-howto-manage-protocols-ciphers.md).
+-   Contenido del [portal para desarrolladores](api-management-howto-developer-portal.md#is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management).
 
 La frecuencia con la que se crean las copias de seguridad afecta al objetivo de punto de recuperación. Para minimizarlo, se recomienda implementar copias de seguridad habituales y realizar copias de seguridad a petición después de hacer cambios en el servicio API Management.
 
@@ -234,7 +235,7 @@ Consulte los recursos siguientes para ver distintos tutoriales del proceso de co
 
 -   [Replicate Azure API Management Accounts (Réplica de cuentas de Administración de API de Azure)](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 -   [Automating API Management Backup and Restore with Logic Apps](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps) (Automatización de la copia de seguridad y restauración de API Management con Logic Apps)
--   [Azure API Management: Backing Up and Restoring Configuration](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx) (Azure API Management: copia de seguridad y restauración de la configuración)
+-   [Azure API Management: Backing Up and Restoring Configuration](https://docs.microsoft.com/archive/blogs/stuartleeks/azure-api-management-backing-up-and-restoring-configuration) (Azure API Management: copia de seguridad y restauración de la configuración)
     _El enfoque detallado por Stuart no coincide con la orientación oficial, pero es interesante._
 
 [backup an api management service]: #step1

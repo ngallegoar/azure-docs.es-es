@@ -3,12 +3,12 @@ title: Panel de información general de Azure Application Insights | Microsoft D
 description: Supervise las aplicaciones con Azure Application Insights y la funcionalidad del panel de información general.
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 8c8aa4460a545f032eaa60560de00efff27ae1ef
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 714488d88b269f252dfd6677f847db315969a270
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322540"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970618"
 ---
 # <a name="application-insights-overview-dashboard"></a>Panel de información general de Application Insights
 
@@ -36,7 +36,7 @@ El panel de la aplicación aprovecha la tecnología de paneles existente en Azur
 
 Para acceder al panel predeterminado, seleccione _Panel de la aplicación_ en la esquina superior izquierda.
 
-![Vista de panel](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
+![Captura de pantalla que muestra el botón Panel de la aplicación resaltado.](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
 
 Si esta es la primera vez que accede al panel, se iniciará una vista predeterminada:
 

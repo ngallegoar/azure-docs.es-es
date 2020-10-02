@@ -2,19 +2,18 @@
 title: Preguntas más frecuentes (FAQ) sobre Azure Service Bus | Microsoft Docs
 description: En este artículo se responden algunas de las preguntas más frecuentes (P+F) relativas a Azure Service Bus.
 ms.topic: article
-ms.date: 07/15/2020
-ms.openlocfilehash: e098b05dba25a51d5d6ef7c50a1b73730828357a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.date: 09/16/2020
+ms.openlocfilehash: addd629f137c5f638cd32a639f79cdbbafc4a94d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080820"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894519"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Preguntas más frecuentes (FAQ) sobre Azure Service Bus
 
 En este artículo se tratan algunas preguntas frecuentes sobre Microsoft Azure Service Bus. También puede consultar las [Preguntas más frecuentes de soporte técnico de Microsoft Azure](https://azure.microsoft.com/support/faq/) para obtener información general sobre los precios y el soporte técnico de Azure.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general-questions-about-azure-service-bus"></a>Preguntas generales sobre Azure Service Bus
 ### <a name="what-is-azure-service-bus"></a>Qué es Azure Service Bus
@@ -36,6 +35,9 @@ La ordenación no está garantizada al utilizar entidades con particiones. En ca
 
  No se admiten las entidades con particiones en el nivel [SKU Premium](service-bus-premium-messaging.md). 
 
+### <a name="where-does-azure-service-bus-store-customer-data"></a><a name="in-region-data-residency"></a>¿Dónde se almacenan los datos de los clientes en Azure Service Bus?
+Azure Service Bus almacena los datos de los clientes. Service Bus almacena estos datos automáticamente en una sola región, por lo que este servicio satisface los requisitos de residencia de datos de la región, incluidos los especificados en el [centro de confianza](https://azuredatacentermap.azurewebsites.net/).
+
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>¿Qué puertos es necesario abrir en el firewall? 
 Puede usar los siguientes protocolos con Azure Service Bus para enviar y recibir mensajes:
 
@@ -48,7 +50,7 @@ Consulte en la siguiente tabla los puertos de salida que se deben abrir para usa
 | Protocolo | Puertos | Detalles | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 y 5672 | Consulte la [guía del protocolo AMQP](service-bus-amqp-protocol-guide.md) | 
-| SBMP | 9350 a 9354 | Consulte [Modo de conectividad](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
+| SBMP | 9350 a 9354 | Consulte [Modo de conectividad](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet&preserve-view=true) |
 | HTTP, HTTPS | 80, 443 | 
 
 ### <a name="what-ip-addresses-do-i-need-to-add-to-allow-list"></a>¿Qué direcciones IP debo agregar a la lista de permitidas?
@@ -59,9 +61,9 @@ Para buscar las direcciones IP correctas para agregar a la lista de permitidas p
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Anote la dirección IP devuelta en `Non-authoritative answer`. Esta dirección IP es estática. El único momento en que cambiaría es si restaurara el espacio de nombres en un clúster distinto.
+2. Anote la dirección IP devuelta en `Non-authoritative answer`. 
 
-Si usa la redundancia de zona para el espacio de nombres, deberá realizar algunos pasos adicionales: 
+Si usa la **redundancia de zona** para el espacio de nombres, deberá realizar algunos pasos adicionales: 
 
 1. En primer lugar, ejecute nslookup en el espacio de nombres.
 
@@ -76,6 +78,9 @@ Si usa la redundancia de zona para el espacio de nombres, deberá realizar algun
     <name>-s3.cloudapp.net
     ```
 3. Ejecute nslookup para cada uno con los sufijos s1, s2 y s3 para obtener las direcciones IP de las tres instancias que se ejecutan en tres zonas de disponibilidad. 
+
+    > [!NOTE]
+    > La dirección IP devuelta por el comando `nslookup` no es una dirección IP estática. Sin embargo, permanece constante hasta que la implementación subyacente se elimine o se mueva a otro clúster.
 
 ### <a name="where-can-i-find-the-ip-address-of-the-client-sendingreceiving-messages-tofrom-a-namespace"></a>¿Dónde puedo encontrar la dirección IP del cliente que envía o recibe mensajes hacia o desde un espacio de nombres? 
 No registramos las direcciones IP de clientes que envían o reciben mensajes hacia o desde su espacio de nombres. Vuelva a generar las claves para que todos los clientes existentes no puedan autenticarse y revise la configuración de control de acceso basado en roles ([RBAC](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)) para asegurarse de que solo los usuarios o las aplicaciones permitidos tienen acceso al espacio de nombres. 

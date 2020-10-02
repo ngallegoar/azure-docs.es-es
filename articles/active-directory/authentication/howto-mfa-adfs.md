@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dac17c8592530c06dd761914e7f556b35c3674b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: bf57bea87fcb5e1d1f1bde4eada5a79d2fef52c8
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202987"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706326"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Protección de recursos en la nube con Azure Multi-Factor Authentication y AD FS
 
@@ -50,7 +50,7 @@ Para proteger los recursos de la nube, configure una regla de notificaciones par
 
 Las direcciones IP de confianza permiten a los administradores omitir la verificación en dos pasos para una dirección IP específica o para usuarios federados que tienen solicitudes que se originan dentro de su propia intranet. En las secciones siguientes se describe cómo configurar IP fiables de Azure Multi-Factor Authentication con usuarios federados y omitir la verificación en dos pasos cuando una solicitud se origina en una intranet de usuarios federados. Esto se consigue configurando AD FS para usar un paso a través o filtrar una plantilla de notificación entrante con el tipo de notificación dentro de la red corporativa.
 
-En este ejemplo se utiliza Office 365 para las relaciones de confianza para usuario autenticado .
+En este ejemplo se utiliza Microsoft 365 para las relaciones de confianza del usuario de confianza.
 
 ### <a name="configure-the-ad-fs-claims-rules"></a>Configurar las reglas de notificaciones de AD FS
 
@@ -97,4 +97,4 @@ Ahora que las notificaciones están listas, podemos configurar direcciones IP de
 4. En la página Configuración del servicio, en **direcciones IP de confianza**, seleccione **Omitir autenticación multifactor para solicitudes de usuarios federados en mi intranet**.  
 5. Haga clic en **guardar**.
 
-Eso es todo. En este punto, los usuarios federados de Office 365 solo deberán usar MFA cuando una notificación se origine fuera de la intranet corporativa.
+Eso es todo. En este punto, los usuarios federados de Microsoft 365 solo deberán usar MFA cuando una notificación se origine fuera de la intranet corporativa.

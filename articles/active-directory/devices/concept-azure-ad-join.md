@@ -1,6 +1,6 @@
 ---
 title: ¿Qué es un dispositivo unido a Azure AD?
-description: Conozca cómo la administración de identidades de dispositivos puede ayudarle a administrar los dispositivos que acceden a los recursos de su entorno.
+description: Obtenga información sobre los dispositivos unidos a Azure AD y cómo la administración de identidades de dispositivos puede ayudarle a administrar los dispositivos que acceden a los recursos de su entorno.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31374b851d90e43e7380024923c3ad025859b7a0
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 2b7cc0535549f2dbcdef4ab043ee506527fdbc5f
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923737"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601459"
 ---
 # <a name="azure-ad-joined-devices"></a>Dispositivos unidos a Azure AD
 
@@ -58,7 +58,7 @@ Aunque la unión a Azure AD esté pensada principalmente para aquellas organizac
 
 - Quiere realizar la transición a la infraestructura basada en la nube con Azure AD y un sistema MDM, como Intune.
 - No puede usar una unión a un dominio local, por ejemplo, si tiene que controlar dispositivos móviles como tabletas y teléfonos.
-- Los usuarios necesitan acceder sobre todo a Office 365 u otras aplicaciones de SaaS integradas con Azure AD.
+- Los usuarios necesitan acceder sobre todo a Microsoft 365 u otras aplicaciones SaaS integradas con Azure AD.
 - Desea administrar un grupo de usuarios en Azure AD en lugar de en Active Directory. Este escenario se puede aplicar, por ejemplo, a los trabajadores temporales, contratistas o alumnos.
 - Desea proporcionar capacidades de unión a los trabajadores de sucursales remotas con infraestructura local limitada.
 

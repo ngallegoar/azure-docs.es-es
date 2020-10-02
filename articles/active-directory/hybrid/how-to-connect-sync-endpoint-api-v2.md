@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce7041cd74a6bfd3ac736d3ae774324122ed737b
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 1f4eba1b48b651c8efe9e9d737e226727cb244fb
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89277075"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662475"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>API de los puntos de conexión de Azure AD Connect Sync V2 (versión preliminar pública) 
 Microsoft ha implementado un nuevo punto de conexión (API) para Azure AD Connect que mejora el rendimiento de las operaciones del servicio de sincronización para Azure Active Directory. Al usar el nuevo punto de conexión V2, experimentará mejoras de rendimiento notables en la exportación y la importación respecto a Azure AD. Este nuevo punto de conexión admite lo siguiente:
@@ -26,7 +26,7 @@ Microsoft ha implementado un nuevo punto de conexión (API) para Azure AD Conne
  - Mejoras en el rendimiento de la exportación y la importación a Azure AD
  
 > [!NOTE]
-> Actualmente, el nuevo punto de conexión no tiene ningún límite de tamaño de grupo configurado para los grupos de O365 que se vuelven a escribir. Esto puede afectar a las latencias del ciclo de sincronización de Active Directory.  Se recomienda aumentar los tamaños de grupo por incrementos.  
+> Actualmente, el nuevo punto de conexión no tiene ningún límite de tamaño de grupo configurado para los grupos de Microsoft 365 que se escriben de manera diferida. Esto puede afectar a las latencias del ciclo de sincronización de Active Directory. Se recomienda aumentar los tamaños de grupo por incrementos.  
 
 
 ## <a name="pre-requisites"></a>Requisitos previos  
@@ -51,7 +51,7 @@ Los pasos siguientes le guiarán a través de la implementación del punto de co
 
 1. Implemente el punto de conexión V2 en el servidor provisional actual. Este servidor se conoce como **servidor V2** en los pasos siguientes. El servidor activo actual seguirá procesando la carga de trabajo de producción mediante el punto de conexión V1, al que se llamará **servidor V1** a continuación.
 1. Compruebe que el **servidor V2** todavía procesa las importaciones según lo esperado. En esta fase, los grupos grandes no se aprovisionarán en Azure AD o AD local, pero podrá comprobar que la actualización no ha provocado ningún otro impacto inesperado en el proceso de sincronización existente. 
-2. Una vez finalizada la validación, cambie el **servidor V2** para que sea el servidor activo y el **servidor V1** para que sea el servidor provisional. En este momento, los grupos grandes que se encuentran en el ámbito que se va a sincronizar se aprovisionarán en Azure AD, al igual que los grupos unificados grandes de O365 se aprovisionarán en AD, si está habilitada la escritura diferida de grupos.
+2. Una vez finalizada la validación, cambie el **servidor V2** para que sea el servidor activo y el **servidor V1** para que sea el servidor provisional. En este momento, los grupos grandes que se encuentran en el ámbito que se va a sincronizar se aprovisionarán en Azure AD, al igual que los grupos unificados grandes de Microsoft 365 se aprovisionarán en AD, si está habilitada la escritura diferida de grupos.
 3. Compruebe que el **servidor V2** está en ejecución y que procesa los grupos grandes correctamente. Puede optar por permanecer en este paso y supervisar el proceso de sincronización durante un período.
   >[!NOTE]
   > Si necesita volver a la configuración anterior, puede realizar una migración oscilante desde el **servidor V2** al **servidor V1**. Dado que el punto de conexión V1 no admite grupos con más de 50 000 miembros, se eliminarán posteriormente todos los grupos grandes aprovisionados por Azure AD Connect, tanto en Azure AD como en AD local. 
@@ -153,7 +153,7 @@ Durante los próximos aumentos del límite de miembros de grupo en la regla de s
  `Set-ADSyncSchedulerConnectorOverride -FullSyncRequired $false -ConnectorName "<AAD Connector Name>" `
  
 >[!NOTE]
-> Si tiene grupos unificados de O365 con más de 50 000 miembros, los grupos se leerán en Azure AD Connect y, si la escritura diferida de grupos está habilitada, se escribirán en la instancia de AD local. 
+> Si tiene grupos unificados de Microsoft 365 con más de 50 000 miembros, los grupos se leerán en Azure AD Connect y, si la escritura diferida de grupos está habilitada, se escribirán en la instancia de AD local. 
 
 ## <a name="rollback"></a>Reversión 
 Si ha habilitado el punto de conexión V2 y necesita revertirlo, siga estos pasos: 
@@ -181,7 +181,7 @@ Si ha habilitado el punto de conexión V2 y necesita revertirlo, siga estos pas
  `Set-ADSyncScheduler -SyncCycleEnabled $true`
  
 >[!NOTE]
-> Al revertir de los puntos de conexión V2 a V1, los grupos sincronizados con más de 50 000 miembros se eliminarán después de ejecutar una sincronización completa, tanto en el caso de los grupos de AD aprovisionados en Azure AD como de los grupos unificados de O365 aprovisionados en AD. 
+> Al revertir de los puntos de conexión V2 a V1, los grupos sincronizados con más de 50 000 miembros se eliminarán después de ejecutar una sincronización completa, tanto en el caso de los grupos de AD aprovisionados en Azure AD como de los grupos unificados de Microsoft 365 aprovisionados en AD. 
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes  
 **P: ¿Puede un cliente usar esta característica en producción?**   

@@ -3,12 +3,12 @@ title: Bloqueo de recursos
 description: Obtenga más información sobre las opciones de bloqueo de Azure Blueprints para proteger los recursos cuando asigne un plano técnico.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5e60724a276bce94770c5fdc33ee0c8b4e7712fe
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 9d400abce5d428c01b43cdda38a5c6f0df2d4db8
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051509"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651942"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprensión del bloqueo de recursos en planos técnicos de Azure Blueprint
 
@@ -103,7 +103,7 @@ Cuando se quita la asignación, se quitan los bloqueos creados por Azure Bluepri
 
 Una acción denegación [denegar asignaciones](../../../role-based-access-control/deny-assignments.md) de RBAC se aplica a los recursos de artefactos durante la asignación de un plano técnico si la asignación ha seleccionado la opción **Solo lectura** o **No eliminar**. La identidad administrada de la asignación del plano técnico agrega la acción de denegación, y solo la misma identidad administrada puede eliminar los recursos del artefacto. Esta medida de seguridad refuerza el mecanismo de bloqueo y evita que se quite el bloqueo del plano técnico fuera de Azure Blueprints.
 
-:::image type="content" source="../media/resource-locking/blueprint-deny-assignment.png" alt-text="Asignación de denegación de plano técnico en un grupo de recursos" border="false":::
+:::image type="content" source="../media/resource-locking/blueprint-deny-assignment.png" alt-text="Captura de pantalla de la página Control de acceso (I A M) y la pestaña Asignaciones de denegación para un grupo de recursos." border="false":::
 
 Las [propiedades de asignación de denegación](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) de cada modo son las siguientes:
 

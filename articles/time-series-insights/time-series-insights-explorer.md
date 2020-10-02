@@ -12,18 +12,18 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: e78b5118a2525fbf10a3089712f75e44cb7deceb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1bcf8ec2395dbc94154072c1c4d839bf45125a3e
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080699"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89487307"
 ---
 # <a name="azure-time-series-insights-gen1-explorer"></a>Explorador de Azure Time Series Insights Gen1
 
 En este artículo se describen las características y opciones de la [aplicación web del Explorador](https://insights.timeseries.azure.com/) de Azure Time Series Insights Gen1. El Explorador de Azure Time Series Insights demuestra las poderosas funciones de visualización de datos que proporciona el servicio y que son accesibles dentro de su propio entorno.
 
-Azure Time Series Insights es un servicio de análisis, almacenamiento y administración totalmente administrado que facilita el análisis y la exploración de miles de millones de eventos de IoT de forma simultánea. Ofrece una visión global de los datos que permite validar rápidamente la solución de IoT y evitar el costoso tiempo de inactividad de los dispositivos críticos. Puede detectar las tendencias ocultas, descubrir anomalías y realizar análisis de causa principal casi en tiempo real. 
+Azure Time Series Insights es un servicio de análisis, almacenamiento y administración totalmente administrado que facilita el análisis y la exploración de miles de millones de eventos de IoT de forma simultánea. Ofrece una visión global de los datos que permite validar rápidamente la solución de IoT y evitar el costoso tiempo de inactividad de los dispositivos críticos. Puede detectar las tendencias ocultas, descubrir anomalías y realizar análisis de causa principal casi en tiempo real.
 
 > [!TIP]
 > Para obtener una visita guiada a través del entorno de demostración, lea el [Inicio rápido de Azure Time Series Insights](time-series-quickstart.md).
@@ -108,7 +108,7 @@ Minutos después de conectar el origen del evento al entorno de Azure Times Seri
 
 1. Use el **mapa térmico** para detectar rápidamente una serie de datos única o anómala en una consulta determinada. Solo un término de búsqueda se puede visualizar como un mapa térmico.
 
-    [![Gráficos de mapa térmico del Explorador de Gen1](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
+    [![Gráficos de mapa térmico del Explorador de Time Series Insights](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
 
 1. Cuando se exploran eventos seleccionándolos o haciendo clic en ellos con el botón derecho, aparece disponible el panel **EVENTOS**. Aquí, puede revisar todos los eventos sin procesar y exportar los eventos como archivos JSON o CSV. Azure Time Series Insights almacena todos los datos sin procesar.
 

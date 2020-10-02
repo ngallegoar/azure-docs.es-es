@@ -3,12 +3,12 @@ title: Mejora del rendimiento de las aplicaciones de Azure con Advisor
 description: Use recomendaciones sobre rendimiento de Azure Advisor para mejorar la velocidad y la capacidad de respuesta de las aplicaciones empresariales críticas.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 0112e94e7652026e020e99ca82ad757c236a0c53
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 9a8499e85a264488c756a3d497565398f2e1c229
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653314"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651572"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Mejora del rendimiento de las aplicaciones de Azure con Azure Advisor
 
@@ -63,6 +63,8 @@ Advisor identifica las tablas que no tienen [estadísticas de tabla](../synapse-
 
 El análisis de Advisor puede indicar que la aplicación que se conecta al servidor de MySQL puede no administrar las conexiones de forma eficaz. Esta condición puede dar lugar a un consumo innecesario de recursos y a una mayor latencia de la aplicación. Para mejorar la administración de conexiones, se recomienda reducir el número de conexiones de corta duración y eliminar las conexiones innecesarias. Puede llevar a cabo estas mejoras mediante la configuración de un agrupador de conexiones del lado servidor, como ProxySQL.
 
+## <a name="update-your-current-compute-management-sdk-version-to-the-most-recent-version"></a>Actualice la versión actual del SDK de administración de procesos a la versión más reciente.
+Advisor identifica las suscripciones que tienen operaciones que usan versiones obsoletas del SDK de administración de procesos. Esto podría afectar a la seguridad y el rendimiento de las cargas de trabajo y, por lo tanto, Advisor recomienda cambiar a la versión más reciente del SDK de administración de procesos. 
 
 ## <a name="scale-up-to-optimize-cache-utilization-on-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Escalado vertical para optimizar el uso de la memoria caché en las tablas de Azure Synapse Analytics para mejorar el rendimiento de las consultas
 

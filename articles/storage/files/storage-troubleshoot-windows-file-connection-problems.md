@@ -1,22 +1,25 @@
 ---
-title: Solución de problemas de Azure Files en Windows | Microsoft Docs
-description: Solución de problemas de Azure Files en Windows. Vea problemas comunes relacionados con Azure Files al conectarse desde clientes Windows y las posibles soluciones.
+title: Solucione problemas de Azure Files en Windows
+description: Solución de problemas de Azure Files en Windows. Vea problemas comunes relacionados con Azure Files al conectarse desde clientes Windows y las posibles soluciones. Solo para recursos compartidos SMB
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 08/31/2019
+ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 3bd059e59bebe9ae1ecc8f2f00dd63f873e08944
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: a899927166d7e1294ad89d48e5c646e6abb5ed76
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269376"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707618"
 ---
-# <a name="troubleshoot-azure-files-problems-in-windows"></a>Solucione problemas de Azure Files en Windows
+# <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Solución de problemas de Azure Files en Windows (SMB)
 
 En este artículo se enumeran los problemas habituales relacionados con Microsoft Azure Files cuando se conecta desde clientes Windows. También se proporcionan posibles causas de estos problemas y sus resoluciones. Además de los pasos de solución de problemas de este artículo, también puede usar [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows)  para asegurarse de que el entorno de cliente Windows cumpla los requisitos previos. AzFileDiagnostics automatiza la detección de la mayoría de los síntomas que se mencionan en este artículo y le ayuda a configurar su entorno para obtener un rendimiento óptimo. Esta información también se puede encontrar en el [Solucionador de problemas de recursos compartidos de Azure Files](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares), que proporciona los pasos necesarios para ayudarle con problemas relativos a la conexión, asignación o montaje de recursos compartidos de Azure Files.
+
+> [!IMPORTANT]
+> El contenido de este artículo solo se aplica a los recursos compartidos SMB. Para obtener información sobre los recursos compartidos NFS, consulte el artículo sobre la [solución de problemas de los recursos compartidos de archivos NFS de Azure](storage-troubleshooting-files-nfs.md).
 
 <a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Error 5 al montar un recurso compartido de archivos de Azure
@@ -50,7 +53,12 @@ Si los usuarios acceden al recurso compartido de archivos de Azure mediante la a
 
 ### <a name="solution-for-cause-3"></a>Solución para la causa 3
 
-Para actualizar los permisos de nivel de recurso compartido, consulte [Asignar permisos de acceso a una identidad](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable#2-assign-access-permissions-to-an-identity).
+Valide que los permisos están configurados correctamente:
+
+- **Active Directory (AD)** , consulte [Asignación de permisos de nivel de recurso compartido a una identidad](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-assign-permissions).
+
+    Las asignaciones de permisos de nivel de recurso compartido se admiten para grupos y usuarios que se han sincronizado desde Active Directory (AD) a Azure Active Directory (Azure AD) mediante Azure AD Connect.  Confirme que los grupos y usuarios a los que se asignan permisos de nivel de recurso compartido no se admiten en los grupos "solo en la nube".
+- **Azure Active Directory Domain Services (Azure AD DS)** , consulte [Asignación de permisos de acceso a una identidad](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable?tabs=azure-portal#assign-access-permissions-to-an-identity).
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>Error 53, Error 67 o Error 87 al montar o desmontar un recurso compartido de archivos de Azure
@@ -317,18 +325,6 @@ Habilite Azure AD DS en el inquilino de Azure AD de la suscripción donde se 
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
-## <a name="error-system-error-1359-has-occurred-an-internal-error-received-over-smb-access-to-file-shares-with-azure-active-directory-domain-service-azure-ad-ds-authentication-enabled"></a>El error "Error de sistema 1359. Error interno" recibido a través del acceso de SMB a los recursos compartidos de archivos con la autenticación de Azure Active Directory Domain Service (Azure AD DS) habilitada
-
-### <a name="cause"></a>Causa
-
-El error "Error de sistema 1359. Error interno" se produce al intentar conectarse al recurso compartido de archivos con la autenticación de Azure AD DS habilitada en una instancia de Azure AD DS con un nombre DNS de dominio que empieza con un carácter numérico. Por ejemplo, si el nombre DNS del dominio de Azure AD DS es "1domain", recibe este error al intentar montar el recurso compartido de archivos con las credenciales de Azure AD. 
-
-### <a name="solution"></a>Solución
-
-Actualmente, puede considerar la posibilidad de volver a implementar la instancia de Azure AD DS con un nombre DNS de dominio nuevo que se aplique con las reglas siguientes:
-- Los nombres no pueden empezar con un carácter numérico.
-- Los nombres deben tener entre 3 y 63 caracteres de longitud.
-
 ## <a name="unable-to-mount-azure-files-with-ad-credentials"></a>No se puede montar Azure Files con las credenciales de AD 
 
 ### <a name="self-diagnostics-steps"></a>Pasos del diagnóstico automático
@@ -373,6 +369,18 @@ Este error puede producirse si un controlador de dominio que contiene el rol FSM
 ### <a name="error-cannot-bind-positional-parameters-because-no-names-were-given"></a>Error: "No se pueden enlazar los parámetros de posición porque no se proporcionaron nombres".
 
 Lo más probable es que este error se haya desencadenado debido a un error de sintaxis en el comando Join-AzStorageAccountforAuth.  Compruebe si hay errores ortográficos o de sintaxis en el comando y compruebe que está instalada la última versión del módulo AzFilesHybrid (https://github.com/Azure-Samples/azure-files-samples/releases) ).  
+
+## <a name="azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption"></a>Compatibilidad de la autenticación de AD DS local de Azure Files con el cifrado Kerberos AES 256
+
+Hemos presentado la compatibilidad con el cifrado Kerberos AES 256 para la autenticación de AD DS local de Azure Files con el [módulo de AzFilesHybrid v0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases). Si ha habilitado la autenticación de AD DS con una versión del módulo inferior a la 0.2.2, deberá descargar el módulo AzFilesHybrid más reciente (v0.2.2 +) y ejecute el PowerShell siguiente. Si aún no ha habilitado la autenticación de AD DS en su cuenta de almacenamiento, puede seguir esta [guía](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable#option-one-recommended-use-azfileshybrid-powershell-module) para hacerlo. 
+
+```PowerShell
+$ResourceGroupName = "<resource-group-name-here>"
+$StorageAccountName = "<storage-account-name-here>"
+
+Update-AzStorageAccountAuthForAES256 -ResourceGroupName $ResourceGroupName -StorageAccountName $StorageAccountName
+```
+
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 Si sigue necesitando ayuda, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.

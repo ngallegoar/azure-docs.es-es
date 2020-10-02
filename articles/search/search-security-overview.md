@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
-ms.openlocfilehash: c9f0f496bfdb31e0c7cb45a07c87ea238d031e34
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 24e631b3ddb25cc8bed20b432ff2ba31fd331f37
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928775"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979599"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Seguridad en Azure Cognitive Search: información general
 
@@ -94,7 +94,7 @@ Para controlar aún más el acceso al servicio de búsqueda, puede crear reglas 
 
 Puede usar el portal para [configurar el acceso de entrada](service-configure-firewall.md).
 
-Como alternativa, puede usar las API REST de administración. La versión de API 2020-03-13, con el parámetro [IpRule](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule), le permite restringir el acceso a su servicio mediante la identificación (de forma individual o en un intervalo) de las direcciones IP a las que quiera otorgar acceso a su servicio de búsqueda.
+Como alternativa, puede usar las API REST de administración. Desde la versión de API 2020-03-13, con el parámetro [IpRule](/rest/api/searchmanagement/services/createorupdate#iprule), puede restringir el acceso a su servicio mediante la identificación (de forma individual o en un intervalo) de las direcciones IP a las que quiera otorgar acceso a su servicio de búsqueda.
 
 ### <a name="private-endpoint-no-internet-traffic"></a>Punto de conexión privado (sin tráfico de Internet)
 
@@ -123,7 +123,7 @@ Si necesita tener un control por usuario pormenorizado de los resultados de la b
 | Enfoque | Descripción |
 |----------|-------------|
 |[Recorte de seguridad basado en filtros de identidad](search-security-trimming-for-azure-search.md)  | Documenta el flujo de trabajo básico para implementar el control de acceso de identidades de usuario. Trata la incorporación de identificadores de seguridad a un índice y, a continuación, se explica el filtrado por ese campo para no incluir el contenido prohibido en los resultados. |
-|[Recorte de seguridad basado en identidades de Azure Active Directory](search-security-trimming-for-azure-search-with-aad.md)  | En este artículo se amplía el artículo anterior y se proporcionan los pasos necesarios para recuperar identidades de Azure Active Directory (AAD), uno de los [servicios gratuitos](https://azure.microsoft.com/free/) de la plataforma de nube de Azure. |
+|[Recorte de seguridad basado en identidades de Azure Active Directory](search-security-trimming-for-azure-search-with-aad.md)  | En este artículo se amplía el artículo anterior y se proporcionan los pasos necesarios para recuperar identidades de Azure Active Directory (Azure AD), uno de los [servicios gratuitos](https://azure.microsoft.com/free/) de la plataforma de nube de Azure. |
 
 ## <a name="administrative-rights"></a>Derechos administrativos
 

@@ -4,22 +4,23 @@ description: archivo de inclusión
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/22/2020
+ms.date: 09/30/2020
 ms.author: dacoulte
-ms.openlocfilehash: 2707523947cae77dd800dd5f560ebe1c47f3893a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f3f706789e14cb20214bf17fd91f6ec1e503848f
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905987"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91605768"
 ---
-Hay un número máximo de cada tipo de objeto de Azure Policy. Una entrada de _Scope_ significa la suscripción o el [grupo de administración](../articles/governance/management-groups/overview.md).
+Hay un número máximo de cada tipo de objeto de Azure Policy. Para las definiciones, una entrada de _Scope_ significa el [grupo de administración](../articles/governance/management-groups/overview.md) o la suscripción.
+En el caso de las asignaciones y exenciones, una entrada de _Scope_ significa el [grupo de administración](../articles/governance/management-groups/overview.md), la suscripción, el grupo de recursos o el recurso individual.
 
 | Where | Qué | Número máximo |
 |---|---|---|
 | Ámbito | Definiciones de directiva | 500 |
 | Ámbito | Definiciones de iniciativa | 200 |
-| Inquilino | Definiciones de iniciativa | 2500 |
+| Inquilino | Definiciones de iniciativa | 2,500 |
 | Ámbito | Asignaciones de iniciativas o directivas | 200 |
 | Ámbito | Exenciones | 1000 |
 | Definición de directiva | Parámetros | 20 |

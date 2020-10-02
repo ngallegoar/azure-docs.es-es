@@ -112,7 +112,7 @@
           displayName: 'request units, RUs, RU'
           href: scaling-throughput.md
         - name: Tipos de conflicto y directivas de resolución de conflictos
-          displayName: 'last write wins, custom, multi master, multi-master'
+          displayName: 'last write wins, custom, multi-region writes, multi-master'
           href: conflict-resolution-policies.md
         - name: Distribución global en segundo plano
           href: global-dist-under-the-hood.md
@@ -584,7 +584,7 @@
         - name: Cifrado de datos
           href: database-encryption-at-rest.md
         - name: Acceso seguro a datos
-          displayName: 'master key, resource token, users, roles'
+          displayName: 'primary key, resource token, users, roles'
           href: secure-access-to-data.md
         - name: Firewall de dirección IP
           href: firewall-support.md
@@ -977,7 +977,7 @@
           href: how-to-move-regions.md
     - name: Distribución global
       items:
-        - name: Configuración multimaestra
+        - name: Configuración de escrituras en varias regiones
           href: how-to-multi-master.md
         - name: Administración de los niveles de coherencia
           displayName: 'session, consistency prefix, strong, eventual, bounded staleness'

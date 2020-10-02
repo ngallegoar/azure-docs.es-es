@@ -3,13 +3,13 @@ title: 'Conceptos: almacenamiento en Azure Kubernetes Service (AKS)'
 description: Obtenga información sobre el almacenamiento en Azure Kubernetes Service (AKS), incluidos los volúmenes, los volúmenes persistentes, las clases de almacenamiento y las notificaciones
 services: container-service
 ms.topic: conceptual
-ms.date: 03/01/2019
-ms.openlocfilehash: 5cf52cb608061498c8e613a3bf1064997acaa128
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.date: 08/17/2020
+ms.openlocfilehash: 00dee485c7b07ec19bb1399aab9d55b286830871
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406969"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421159"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opciones de almacenamiento de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -32,8 +32,6 @@ Los volúmenes tradicionales para almacenar y recuperar datos se crean como recu
 
 - *Azure Disks* puede usarse para crear un recurso *DataDisk* de Kubernetes. Azure Disks puede usar almacenamiento Premium de Azure, respaldado por SSD de alto rendimiento, o bien almacenamiento estándar de Azure, respaldado por unidades de disco duro normales. Para la mayoría de las cargas de trabajo de producción y desarrollo, utilice el almacenamiento Premium. Los discos de Azure Disks se montan como *ReadWriteOnce*, por lo que solo están disponibles para un único pod. Para los volúmenes de almacenamiento a los que pueden acceder varios pods simultáneamente, use Azure Files.
 - *Azure Files* se puede usar para montar un recurso compartido de SMB 3.0 respaldado por una cuenta de Azure Storage en los pods. Azure Files permite compartir datos entre varios nodos y pods. Los archivos pueden usar almacenamiento Standard de Azure, respaldado por HDD normales o almacenamiento Premium de Azure respaldado por SSD de alto rendimiento.
-> [!NOTE] 
-> Azure Files admite el almacenamiento premium en clústeres de AKS que ejecutan Kubernetes 1.13 o superior.
 
 En Kubernetes, los volúmenes pueden representar más que un disco tradicional donde se puede almacenar y recuperar información. Los volúmenes de Kubernetes pueden utilizarse también como una forma de insertar datos en un pod para su uso en contenedores. Algunos tipos de volumen adicional comunes de Kubernetes son:
 
@@ -55,12 +53,18 @@ Un volumen PersistentVolume puede crearlo *de forma estática* un administrador 
 
 Para definir niveles de almacenamiento diferentes, como Premium y Estándar, puede crear una clase *StorageClass*. La clase StorageClass también define la directiva *reclaimPolicy*. Esta directiva reclaimPolicy controla el comportamiento del recurso de almacenamiento subyacente de Azure cuando se elimina el pod y el volumen persistente puede dejar de ser necesario. El recurso de almacenamiento subyacente se puede eliminar o conservar para su uso con un pod futuro.
 
-En AKS, se crean cuatro instancias de StorageClass iniciales:
+En AKS, se crean cuatro `StorageClasses` iniciales para el clúster mediante los complementos de almacenamiento en árbol:
 
-- *default*: usa el almacenamiento SSD estándar de Azure para crear un disco administrado. La directiva de reclamación indica que el almacenamiento de Azure Disks subyacente se elimina cuando se elimina el volumen persistente que lo utiliza.
-- *managed-premium*: utiliza el almacenamiento Premium de Azure para crear un disco administrado. De nuevo, la directiva de reclamación indica que el almacenamiento de Azure Disks subyacente se elimina cuando se elimina el volumen persistente que lo utiliza.
-- *azurefile*: usa almacenamiento Estándar de Azure para crear un recurso compartido de archivos de Azure. La directiva de reclamación indica que el recurso compartido de archivos de Azure subyacente se elimina cuando se elimina el volumen persistente que lo usa.
-- *azurefile-premium*: usa almacenamiento Premium de Azure para crear un recurso compartido de archivos de Azure. La directiva de reclamación indica que el recurso compartido de archivos de Azure subyacente se elimina cuando se elimina el volumen persistente que lo usa.
+- `default`: usa el almacenamiento SSD estándar de Azure para crear un disco administrado. La directiva de reclamación garantiza que el almacenamiento de Azure Disks subyacente se elimina cuando se elimina el volumen persistente que lo utiliza.
+- `managed-premium`: usa almacenamiento Premium de Azure para crear un disco administrado. De nuevo, la directiva de reclamación garantiza que el almacenamiento de Azure Disks subyacente se elimina cuando se elimina el volumen persistente que lo utiliza.
+- `azurefile`: usa almacenamiento Estándar de Azure para crear un recurso compartido de archivos de Azure. La directiva de reclamación garantiza que el recurso compartido de archivos de Azure subyacente se elimina cuando se elimina el volumen persistente que lo usa.
+- `azurefile-premium`: usa almacenamiento Premium de Azure para crear un recurso compartido de archivos de Azure. La directiva de reclamación garantiza que el recurso compartido de archivos de Azure subyacente se elimina cuando se elimina el volumen persistente que lo usa.
+
+En el caso de los clústeres que usan los nuevos complementos externos de interfaz de almacenamiento de contenedores (CSI) (versión preliminar), se crean las siguientes `StorageClasses` adicionales:
+- `managed-csi`: usa almacenamiento con redundancia local (LRS) SSD Estándar de Azure para crear un disco administrado. La directiva de reclamación garantiza que el almacenamiento de Azure Disks subyacente se elimina cuando se elimina el volumen persistente que lo utiliza. La clase de almacenamiento también configura los volúmenes persistentes para que se puedan expandir, solo es necesario editar la notificación de volumen persistente con el nuevo tamaño.
+- `managed-csi-premium`: usa almacenamiento con redundancia local (LRS) Premium de Azure para crear un disco administrado. De nuevo, la directiva de reclamación garantiza que el almacenamiento de Azure Disks subyacente se elimina cuando se elimina el volumen persistente que lo utiliza. De forma similar, esta clase de almacenamiento permite expandir los volúmenes persistentes.
+- `azurefile-csi`: usa almacenamiento Estándar de Azure para crear un recurso compartido de archivos de Azure. La directiva de reclamación garantiza que el recurso compartido de archivos de Azure subyacente se elimina cuando se elimina el volumen persistente que lo usa.
+- `azurefile-csi-premium`: usa almacenamiento Premium de Azure para crear un recurso compartido de archivos de Azure. La directiva de reclamación garantiza que el recurso compartido de archivos de Azure subyacente se elimina cuando se elimina el volumen persistente que lo usa.
 
 Si no se especifica ninguna clase StorageClass para un volumen persistente, se usa el valor de StorageClass predeterminado. Tenga cuidado cuando solicite volúmenes persistentes y compruebe que usan el almacenamiento adecuado que necesita. Puede crear una clase StorageClass para satisfacer necesidades adicionales mediante `kubectl`. En el siguiente ejemplo se utilizan discos administrados Premium y se especifica que el disco de Azure Disks subyacente debe *conservarse* cuando se elimine el pod:
 

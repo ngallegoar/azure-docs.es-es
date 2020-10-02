@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08d6b12f897b8b7efb150b11ae4b3f5e2440f7c8
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d27cd30d6543d967cca2648597854a06f8ea4eb7
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797996"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053980"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integración de conexiones de cuentas de LinkedIn en Azure Active Directory
 
@@ -29,7 +29,7 @@ Puede permitir que los usuarios de la organización accedan a sus conexiones de 
 >
 > Excepciones:
 >
-> * La opción no está disponible para los clientes que usan Microsoft Cloud for US Government, Microsoft Cloud Germany, o bien Azure y Office 365 operado por 21Vianet en China.
+> * La opción no está disponible para los clientes que usan Microsoft Cloud for US Government, Microsoft Cloud Germany, o bien Azure y Microsoft 365 operado por 21Vianet en China.
 > * La opción está desactivada de forma predeterminada para las organizaciones de Azure AD aprovisionadas en Alemania. Tenga en cuenta que la opción no está disponible para los clientes que usan Microsoft Cloud Germany.
 > * La opción está desactivada de forma predeterminada para las organizaciones aprovisionadas en Francia.
 >
@@ -99,7 +99,7 @@ Para usar el grupo del paso 2 como grupo seleccionado en las conexiones de cuent
    **Enabled** | La opción **Mostrar características de LinkedIn en aplicaciones de Office** de Opciones de Office 2016 está habilitada. Los usuarios de la organización no podrán usar las características de LinkedIn en las aplicaciones de Office 2016.
    **Deshabilitada** | La opción **Mostrar características de LinkedIn en aplicaciones de Office** de Opciones de Office 2016 está deshabilitada y los usuarios finales no pueden cambiarla. Los usuarios de la organización no podrán usar las características de LinkedIn en las aplicaciones de Office 2016.
 
-Esta directiva de grupo afecta solo a las aplicaciones de Office 2016 de los equipos locales. Si los usuarios deshabilitan LinkedIn en sus aplicaciones de Office 2016, pueden seguir viendo las características de LinkedIn en Office 365.
+Esta directiva de grupo afecta solo a las aplicaciones de Office 2016 de los equipos locales. Si los usuarios deshabilitan LinkedIn en sus aplicaciones de Office 2016, pueden seguir viendo las características de LinkedIn en Microsoft 365.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

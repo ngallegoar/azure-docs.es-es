@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/21/2019
-ms.openlocfilehash: aacec8830948e08f66d71da88897670f7ef43788
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/14/2020
+ms.openlocfilehash: c6a2d38644d844cb1231a24465478b7f70a85111
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81606131"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531169"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Uso de patrones de columnas en el flujo de datos de asignación
 
@@ -27,17 +27,17 @@ Los patrones de columna están disponibles actualmente en las transformaciones d
 
 ## <a name="column-patterns-in-derived-column-and-aggregate"></a>Patrones de columna en columna derivada y de agregado
 
-Para agregar un patrón de columna en una columna derivada o en la pestaña Agregados de una transformación de agregado, haga clic en el icono de signo más situado a la derecha de una columna existente. Seleccione **Add column pattern** (Agregar patrón de columna). 
+Para agregar un patrón de columna a una columna derivada, de agregado o de transformación de ventana, haga clic en **Agregar** encima de la lista de columnas o el icono del signo más junto a una columna derivada existente. Seleccione **Add column pattern** (Agregar patrón de columna).
 
-![patrones de columna](media/data-flow/columnpattern.png "Patrones de columnas")
+![patrones de columna](media/data-flow/add-column-pattern.png "Patrones de columnas")
 
 Use el [generador de expresiones](concepts-data-flow-expression-builder.md) para escribir la condición de coincidencia. Cree una expresión booleana que coincida con las columnas en función de los elementos `name`, `type`, `stream` y `position` de la columna. El patrón afectará a cualquier columna, desfasada o definida, donde la condición devuelva true.
 
 Los dos cuadros de expresión situados debajo de la condición de coincidencia especifican los nuevos nombres y valores de las columnas afectadas. Use `$$` para hacer referencia al valor existente del campo coincidente. El cuadro de expresión de la izquierda define el nombre y el cuadro de expresión de la derecha define el valor.
 
-![patrones de columna](media/data-flow/columnpattern2.png "Patrones de columnas")
+![patrones de columna](media/data-flow/edit-column-pattern.png "Patrones de columnas")
 
-El patrón de columna anterior coincide con cada columna de tipo de datos doble y crea una columna de agregado por coincidencia. El nombre de la nueva columna es el nombre de la columna coincidente concatenado con "_total". El valor de la nueva columna es la suma redondeada y agregada del valor doble existente.
+El patrón de columna anterior coincide con cada columna de tipo de datos doble y crea una columna derivada por coincidencia. Al indicar `$$` como campo de nombre de columna, todas las columnas coincidentes se actualizan con el mismo nombre. El valor de cada columna es el valor existente redondeado a dos decimales.
 
 Para comprobar que la condición de coincidencia es correcta, puede validar el esquema de salida de las columnas definidas en la pestaña **Inspeccionar** u obtener una instantánea de los datos en la pestaña **Vista previa de los datos**. 
 

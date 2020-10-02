@@ -1,18 +1,18 @@
 ---
 title: Configuración de inteligencia sobre amenazas de Azure Firewall
-description: El filtrado basado en inteligencia sobre amenazas puede habilitarse para que el firewall alerte y deniegue el tráfico desde y hacia los dominios y las direcciones IP malintencionados.
+description: Obtenga información sobre cómo configurar el filtrado basado en inteligencia sobre amenazas para que una directiva de Azure Firewall envíe una alerta y deniegue el tráfico desde y hacia los dominios y las direcciones IP malintencionados.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 136ceeb271bec29bdbfc4572626936ee67f05556
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a663c5f3bcf3492c4a9bc74fe93c6ed6a86137ee
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85568130"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530648"
 ---
 # <a name="azure-firewall-threat-intelligence-configuration"></a>Configuración de inteligencia sobre amenazas de Azure Firewall
 

@@ -13,12 +13,12 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a74a791c8c6a95c71faf1f4a0ce6eaacd7c68901
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 212ead54f0f8212ae251175d40873e7cec4e0240
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003038"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482681"
 ---
 # <a name="configure-an-availability-group-for-sql-server-on-azure-vm-powershell--az-cli"></a>Configuración de un grupo de disponibilidad para una máquina virtual con SQL Server en Azure (PowerShell y CLI de Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,13 +44,13 @@ Los siguientes permisos de cuenta son necesarios para configurar el grupo de dis
 - Una cuenta de usuario de dominio existente que tenga el permiso **Crear objeto de equipo** en el dominio. Por ejemplo, una cuenta de administrador de dominio normalmente tiene permisos suficientes (como account@domain.com). _Esta cuenta también debe formar parte del grupo de administradores local en cada máquina virtual para crear el clúster._
 - La cuenta de usuario del dominio que controla SQL Server. 
  
-## <a name="create-a-storage-account-as-a-cloud-witness"></a>Crear una cuenta de almacenamiento como testigo en la nube
+## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento 
+
 El clúster necesita una cuenta de almacenamiento para que actúe como el testigo en la nube. Puede usar una cuenta de almacenamiento existente o crear una desde cero. Si quiere utilizar una cuenta de almacenamiento existente, avance a la siguiente sección. 
 
 Con el siguiente fragmento de código se crea una cuenta de almacenamiento: 
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
-
 
 ```azurecli-interactive
 # Create the storage account
@@ -80,7 +80,7 @@ New-AzStorageAccount -ResourceGroupName <resource group name> -Name <name> `
 
 ---
 
-## <a name="define-windows-failover-cluster-metadata"></a>Definir los metadatos del clúster de conmutación por error de Windows
+## <a name="define-cluster-metadata"></a>Definición de metadatos de clúster
 
 El grupo de comandos [az sql vm group](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest) de la CLI de Azure administra los metadatos del servicio Clúster de conmutación por error de Windows Server (WSFC) que hospeda el grupo de disponibilidad. Los metadatos del clúster engloban el dominio de Active Directory, las cuentas de clúster, las cuentas de almacenamiento que se van a usar como testigo en la nube y la versión de SQL Server. Use [az sql vm group create](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest#az-sql-vm-group-create) para definir los metadatos del WSFC de forma que, cuando se agregue la primera máquina virtual con SQL Server, el clúster se cree tal y como esté definido. 
 
@@ -183,6 +183,17 @@ Update-AzSqlVM -ResourceId $sqlvm2.ResourceId -SqlVM $sqlvmconfig2
 ```
 
 ---
+
+
+## <a name="validate-cluster"></a>Validar el clúster 
+
+Para que un clúster de conmutación por error sea compatible con Microsoft, debe superar la validación del clúster. Conéctese a la máquina virtual mediante el método que prefiera, por ejemplo, Protocolo de escritorio remoto (RDP), y asegúrese de que el clúster supera la validación antes de continuar. Si no lo hace, el clúster quedará en un estado no admitido. 
+
+Puede validar el clúster mediante el Administrador de clústeres de conmutación por error (FCM) o el siguiente comando de PowerShell:
+
+   ```powershell
+   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+   ```
 
 ## <a name="create-availability-group"></a>Crear grupo de disponibilidad
 

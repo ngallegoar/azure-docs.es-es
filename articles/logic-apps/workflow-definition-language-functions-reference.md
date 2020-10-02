@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: e4f9fa554a7c0e45abe1e9686605c95bb79d1739
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/04/2020
+ms.openlocfilehash: c8bc9e844687c85255be972011eba03e9c38de48
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932957"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488310"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guía de referencia para usar las funciones en las expresiones para Azure Logic Apps y Power Automate
 
@@ -85,6 +85,7 @@ Para trabajar con cadenas, puede usar estas funciones de cadena y también algun
 | [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Genera un identificador único global (GUID) como una cadena. |
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Devuelve la posición inicial de una subcadena. |
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Devuelve la posición inicial de la última repetición de una subcadena. |
+| [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Devuelve el número de elementos de una cadena o una matriz. |
 | [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Reemplaza una subcadena por la cadena especificada y devuelve la cadena actualizada. |
 | [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Devuelve una matriz que contiene subcadenas, separadas por comas, de una cadena mayor en función de un carácter delimitador especificado en la cadena original. |
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Comprueba si una cadena comienza con una subcadena especificada. |
@@ -3914,8 +3915,7 @@ Y devuelve este resultado: `10`
 
 ### <a name="substring"></a>substring
 
-Devuelve caracteres de una cadena a partir de la posición especificada o índice.
-Los valores de índice comienzan desde el número 0.
+Devuelve caracteres de una cadena a partir de la posición especificada o índice. Los valores de índice comienzan desde el número 0.
 
 ```
 substring('<text>', <startIndex>, <length>)
@@ -3927,6 +3927,10 @@ substring('<text>', <startIndex>, <length>)
 | <*startIndex*> | Sí | Entero | Un número positivo igual o mayor que 0 que desea utilizar como el valor de índice o la posición inicial |
 | <*longitud*> | Sí | Entero | Número positivo de caracteres que desea incluir en la subcadena |
 |||||
+
+> [!NOTE]
+> Asegúrese de que la suma de agregar los valores de parámetro *startIndex* y *length* sea menor que la longitud de la cadena que se proporciona para el parámetro *text*.
+> De lo contrario, recibirá un error, a diferencia de funciones similares en otros lenguajes, donde el resultado es la subcadena de *startIndex* al final de la cadena.
 
 | Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |

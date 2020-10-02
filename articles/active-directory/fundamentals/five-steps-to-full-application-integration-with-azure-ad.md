@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
-ms.openlocfilehash: bbe813b46b41bf0e2b8bf9c6b3fe3e3e843204ed
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 54a1135931c2be9c6b7941c9ff740fd29f855eee
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319753"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601255"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>Cinco pasos para la integración de todas las aplicaciones en Azure AD
 
@@ -70,7 +70,7 @@ Durante el proceso de detección, es posible que haya encontrado aplicaciones si
 
 Hemos publicado una guía para administrar el proceso empresarial de integración de aplicaciones con Azure AD, incluido un [póster](https://aka.ms/AppOnePager) y una [presentación](https://aka.ms/AppGuideline) que puede utilizar para concienciar e interesar a los propietarios de las aplicaciones y del negocio. Puede modificar esos ejemplos con su propia personalización de marca y publicarlos en su organización en el portal de empresa, el boletín u otro medio a medida que vaya completando este proceso.
 
-Un buen punto de partida es evaluar el uso de Servicios de federación de Active Directory (AD FS). Muchas organizaciones usan ADFS para la autenticación con aplicaciones SaaS, aplicaciones de línea de negocio personalizadas, así como aplicaciones basadas en Office 365 y Azure AD:
+Un buen punto de partida es evaluar el uso de Servicios de federación de Active Directory (AD FS). Muchas organizaciones usan ADFS para la autenticación con aplicaciones SaaS, aplicaciones de línea de negocio personalizadas, así como aplicaciones basadas en Microsoft 365 y Azure AD:
 
 ![En el diagrama se muestran aplicaciones locales, aplicaciones de línea de negocio, aplicaciones SaaS y, a través de Azure AD, Office 365, todos conectados por líneas de rayas a Active Directory y a AD FS.](\media\five-steps-to-full-application-integration-with-azure-ad\adfs-integration-1.png)
 
