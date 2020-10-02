@@ -1,18 +1,18 @@
 ---
 title: 'Virtual WAN: inquilino de Azure AD para distintos grupos de usuarios: Autenticación de Azure AD'
-description: Puede usar la P2S VPN para conectarse a la red virtual con la autenticación de Azure AD
+description: Configure un inquilino de Azure AD para la autenticación de OpenVPN de P2S, y cree y registre varias aplicaciones en Azure AD a fin de permitir un acceso diferente a los distintos usuarios y grupos.
 services: virtual-wan
-author: kumudD
+author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 09/22/2020
 ms.author: alzam
-ms.openlocfilehash: 5ca57ccc40669a607cd0541dc738e3a3eacf3e88
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 57fd36366eef284e2975633fbb34549f4316cde6
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507699"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988269"
 ---
 # <a name="create-an-azure-active-directory-ad-tenant-for-p2s-openvpn-protocol-connections"></a>Creación de un inquilino de Azure Active Directory (AD) para conexiones del protocolo P2S OpenVPN
 
