@@ -3,12 +3,12 @@ title: Uso de parámetros para crear planos técnicos dinámicos
 description: Obtenga información sobre los parámetros estáticos y dinámicos y cómo usarlos para crear planos técnicos seguros y dinámicos.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: b9c80a50ebb4be8dc530c73544a704035d777225
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: b6cefe7ec75ec622cb341d8f12edfd9c0cfa66e6
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051566"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651959"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creación de planos técnicos mediante parámetros
 
@@ -61,11 +61,11 @@ Un valor de parámetro definido en la definición de un plano técnico se denomi
 
 1. En los artefactos que se agregaron al plano técnico que tienen opciones de parámetro aparece **X of Y parameters populated** (X de Y parámetros rellenos) en la columna **Parámetros**. Seleccione la fila del artefacto para editar los parámetros de este.
 
-   :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Parámetros de plano técnico en una definición de plano técnico" border="false":::
+   :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Captura de pantalla de una definición de plano técnico y &quot;X of Y parameters populated&quot; (X de Y parámetros rellenos) resaltado." border="false":::
 
-1. En la página **Editar artefacto** aparecen las opciones de valor adecuadas para el artefacto en el que se hace clic. Cada parámetro del artefacto tiene un título, un cuadro de valor y una casilla. Desactive la casilla para hacer que sea un **parámetro estático**. En el ejemplo siguiente, solo la _ubicación_ es un **parámetro estático** ya que está desactivada y la opción _Nombre del grupo de recursos_ está activada.
+1. En la página **Editar artefacto** aparecen las opciones de valor adecuadas para el artefacto seleccionado. Cada parámetro del artefacto tiene un título, un cuadro de valor y una casilla. Desactive la casilla para hacer que sea un **parámetro estático**. En el ejemplo siguiente, solo la _ubicación_ es un **parámetro estático** ya que está desactivada y la opción _Nombre del grupo de recursos_ está activada.
 
-   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Parámetros estáticos de plano técnico en un artefacto de plano técnico" border="false":::
+   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Captura de pantalla de una definición de plano técnico y &quot;X of Y parameters populated&quot; (X de Y parámetros rellenos) resaltado." border="false":::
 
 #### <a name="setting-static-parameters-from-rest-api"></a>Establecimiento de parámetros estáticos desde la API REST
 
@@ -176,7 +176,7 @@ Lo contrario de un parámetro estático es un **parámetro dinámico**. Este par
 
 1. En la página **Asignar plano técnico**, busque la sección **Parámetros del artefacto**. Cada artefacto que tiene al menos un **parámetro dinámico** muestra el artefacto y las opciones de configuración. Proporcione los valores necesarios para los parámetros antes de asignar el plano técnico. En el ejemplo siguiente, _Name_ es un **parámetro dinámico** que se debe definir para completar la asignación del plano técnico.
 
-   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Parámetro dinámico del plano técnico durante la asignación del plano técnico" border="false":::
+   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Captura de pantalla de una definición de plano técnico y &quot;X of Y parameters populated&quot; (X de Y parámetros rellenos) resaltado." border="false":::
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Establecimiento de parámetros dinámicos desde la API REST
 

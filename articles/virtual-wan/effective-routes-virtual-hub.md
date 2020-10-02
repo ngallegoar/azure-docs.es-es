@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/29/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0f5481531d23eeb579dcabe80e028ed7b482b09f
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: ad487aa7492abcf02988c78ccfa2ba7cd4798249
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762273"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983649"
 ---
 # <a name="view-virtual-hub-effective-routes"></a>Visualización de rutas efectivas de centro virtual
 
@@ -50,6 +50,8 @@ Use la barra de desplazamiento de la parte inferior de la tabla para ver la "rut
 * El campo **Propagar ruta predeterminada** se ve en el portal Azure Virtual WAN cuando edita una conexión de red virtual, una conexión VPN o una conexión ExpressRoute. Este campo indica la marca **enableInternetSecurity**, que siempre es "false" de forma predeterminada para las conexiones ExpressRoute y VPN, pero "true" para las conexiones de red virtual.
 
 * Al ver las rutas vigentes en una NIC de máquina virtual, si ve el próximo salto como "Puerta de enlace de red virtual", esto hace referencia al enrutador del centro de conectividad virtual cuando la máquina virtual está en un radio conectado a un centro de conectividad de Virtual WAN.
+
+* Vista de rutas eficaces de una tabla de rutas de centro virtual solo se rellena si el centro virtual tiene al menos un tipo de conexión (VPN/ER/VNET) conectada a él.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

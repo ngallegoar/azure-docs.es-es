@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8328fa9c9e32a22e8e5093aa343f333cd1914ddc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5681228e5da2708912d69f16a4b09a4a93d8bb04
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89026141"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500307"
 ---
 # <a name="supported-authentication-methods"></a>Métodos de autenticación admitidos
 
@@ -43,9 +43,13 @@ Estos son los métodos de inicio de sesión admitidos actualmente:
 >[!NOTE]
 >La tarjeta inteligente y Windows Hello solo pueden usar Kerberos para iniciar sesión. Para iniciar la sesión con Kerberos se necesita una línea de visión al controlador de dominio.
 
+## <a name="hybrid-identity"></a>Identidad híbrida
+
+Windows Virtual Desktop admite [identidades híbridas](../active-directory/hybrid/whatis-hybrid-identity.md) a través de Azure Active Directory (AD), incluidas las federadas mediante Servicios de federación de Active Directory (AD FS). Dado que debe ser posible detectar a los usuarios a través de Azure AD, Windows Virtual Desktop no admite implementaciones de Active Directory independientes con ADFS.
+
 ## <a name="single-sign-on-sso"></a>Inicio de sesión único (SSO)
 
-Windows Virtual Desktop no admite actualmente Servicios de federación de Active Directory (AD FS) (ADFS) para la autenticación o el inicio de sesión único.
+Actualmente Windows Virtual Desktop no admite Servicios de federación de Active Directory (AD FS) para el inicio de sesión único.
 
 La única manera de evitar que le pidan sus credenciales del host de sesión es guardarlas en el cliente. Se recomienda hacer esto solo con dispositivos seguros a fin de evitar que otros usuarios tengan acceso a los recursos.
 

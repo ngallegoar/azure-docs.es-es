@@ -5,16 +5,16 @@ author: sideeksh
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/28/2020
+ms.date: 04/28/2019
 ms.author: sideeksh
-ms.openlocfilehash: a1952f6dccf12de4cb1571dacabecf78c65cd01b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 001ac4918ed5d87bdb801d1bf918a4450e7cf8e0
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021654"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007798"
 ---
-# <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Habilitación de la recuperación ante desastres de zona a zona para máquinas virtuales de Azure
+# <a name="enable-azure-vm-disaster-recovery-between-availability-zones"></a>Habilitación de la recuperación ante desastres de máquinas virtuales de Azure
 
 En este artículo se describe cómo replicar, conmutar por error y conmutar por recuperación máquinas virtuales de Azure de una zona de disponibilidad a otra dentro de la misma región de Azure.
 
@@ -27,6 +27,8 @@ El servicio Site Recovery contribuye a la estrategia de continuidad empresarial 
 
 Las zonas de disponibilidad son ubicaciones físicas exclusivas dentro de una región de Azure. Cada zona tiene uno o varios centros de datos. 
 
+Si desea trasladar las máquinas virtuales a una zona de disponibilidad de otra región, [consulte este artículo](../resource-mover/move-region-availability-zone.md).
+
 ## <a name="using-availability-zones-for-disaster-recovery"></a>Uso de las zona de disponibilidad para la recuperación ante desastres 
 
 Normalmente, las zonas de disponibilidad se usan para implementar VM en una configuración de alta disponibilidad. Puede que se encuentren demasiado cerca entre sí como para servir de solución de recuperación ante desastres en caso de desastre natural.
@@ -37,7 +39,7 @@ Sin embargo, en algunos escenarios, las zonas de disponibilidad pueden aprovecha
 
 - Muchos otros clientes tienen una complicada infraestructura de red y no quieren volver a crearla en una región secundaria debido al costo y la complejidad que esto conlleva. La recuperación ante desastres de zona a zona reduce la complejidad, ya que aprovecha los conceptos de redes redundantes entre las zonas de disponibilidad, lo que hace que la configuración sea mucho más sencilla. Estos clientes prefieren la simplicidad y también pueden usar las zonas de disponibilidad para la recuperación ante desastres.
 
-- En algunas regiones que no tienen una región emparejada dentro de la misma jurisdicción legal (por ejemplo, Sudeste de Asia), la recuperación ante desastres de zona a zona puede servir como solución de facto de recuperación ante desastres, ya que ayuda a garantizar el cumplimiento jurídico, debido a que las aplicaciones y los datos no cruzan las fronteras nacionales. 
+- En algunas regiones que no tienen una región emparejada dentro de la misma jurisdicción legal (por ejemplo, Sudeste de Asia), la recuperación ante desastres de zona a zona puede servir como solución de facto de recuperación ante desastres, ya que ayuda a garantizar el cumplimiento jurídico, porque ni las aplicaciones ni los datos cruzan las fronteras nacionales. 
 
 - La recuperación ante desastres de zona a zona implica la replicación de los datos entre distancias menores en comparación con la recuperación ante desastres de Azure a Azure y, por lo tanto, podrá obtener una menor latencia y, en consecuencia, una reducción en el RPO.
 
@@ -69,8 +71,8 @@ Antes de implementar la recuperación ante desastres de zona en zona para las VM
 |---------|---------|
 |Máquinas virtuales clásicas   |     No compatible    |
 |VM de ARM    |    Compatible    |
-|Azure Disk Encryption v1 (pase doble, con AAD)     |     Compatible |
-|Azure Disk Encryption v2 (pase único, sin AAD)    |    Compatible    |
+|Azure Disk Encryption v1 (pase doble, con Azure Active Directory [Azure AD])     |     Compatible   |
+|Azure Disk Encryption v2 (pase único, sin Azure AD)    |    Compatible    |
 |Discos no administrados    |    No compatible    |
 |Discos administrados    |    Compatible    |
 |Claves administradas por el cliente    |    Compatible    |
@@ -82,7 +84,7 @@ Antes de implementar la recuperación ante desastres de zona en zona para las VM
 
 ### <a name="log-in"></a>Registro
 
-Inicie sesión en Azure Portal.
+Inicie sesión en el Portal de Azure.
 
 ### <a name="enable-replication-for-the-zonal-azure-virtual-machine"></a>Habilite la replicación para la máquina virtual zonal de Azure.
 
@@ -119,7 +121,7 @@ El equipo de Site Recovery y el equipo de administración de la capacidad de Azu
 La recuperación ante desastres de zona a zona admite los mismos sistemas operativos que la recuperación ante desastres de Azure a Azure. Consulte la matriz de compatibilidad [aquí](./azure-to-azure-support-matrix.md).
 
 **5. ¿Pueden los grupos de recursos de origen y de destino ser los mismos?**
-No, debe conmutar por error a otro grupo de recursos.
+No, debe realizar la conmutación por error a otro grupo de recursos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -127,6 +129,6 @@ Los pasos que deben seguirse para ejecutar un simulacro de recuperación ante de
 
 Para realizar un simulacro de recuperación ante desastres, siga los pasos descritos [aquí](./azure-to-azure-tutorial-dr-drill.md).
 
-Para realizar una conmutación por error y volver a proteger las VM de la zona secundaria, siga los pasos descritos [aquí](./azure-to-azure-tutorial-failover-failback.md).
+Para realizar una conmutación por error y volver a proteger las máquinas virtuales de la zona secundaria, siga los pasos descritos [aquí](./azure-to-azure-tutorial-failover-failback.md).
 
 Para conmutar por recuperación a la zona principal, siga los pasos descritos [aquí](./azure-to-azure-tutorial-failback.md).

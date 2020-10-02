@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: b45a0608d78330eafd6afc3656f8a4addbdffd3b
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 178c54b9726f21775603d67cb0911237aa4caf01
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321725"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601371"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guía de referencia de operaciones de administración de autenticación de Azure Active Directory
 
@@ -95,7 +95,7 @@ Las contraseñas por sí mismas no son lo suficientemente seguras para evitar qu
 
 ### <a name="on-premises-outage-authentication-resiliency"></a>Resistencia de la autenticación a las interrupciones locales
 
-Además de las ventajas de la simplicidad y la posibilidad de habilitar la detección de credenciales filtradas, la sincronización de hash de contraseñas (PHS) de Azure AD y Azure MFA permiten a los usuarios obtener acceso a las aplicaciones SaaS y a Office 365 a pesar de las interrupciones locales debido a ciberataques, como [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). También es posible habilitar PHS mientras esté usando la federación. Si habilita PHS, podrá realizar una reserva de autenticación cuando los servicios de federación no estén disponibles.
+Además de las ventajas de la simplicidad y la posibilidad de habilitar la detección de credenciales filtradas, la sincronización de hash de contraseñas (PHS) de Azure AD y Azure MFA permiten a los usuarios obtener acceso a las aplicaciones SaaS y a Microsoft 365 a pesar de las interrupciones locales debido a ciberataques, como [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). También es posible habilitar PHS mientras esté usando la federación. Si habilita PHS, podrá realizar una reserva de autenticación cuando los servicios de federación no estén disponibles.
 
 Si la organización local no tiene una estrategia de resistencia frente a interrupciones o tiene una que no está integrada con Azure AD, debe implementar PHS de Azure AD y definir un plan de recuperación ante desastres que incluya PHS. Si habilita PHS de Azure AD, los usuarios podrán autenticarse en Azure AD si su instancia de Active Directory local no está disponible.
 
@@ -249,7 +249,7 @@ El acceso condicional es una herramienta esencial para mejorar la posición de s
 - Conserve un pequeño conjunto de directivas básicas que se puedan aplicar a varias aplicaciones.
 - Defina grupos de excepciones vacíos y agréguelos a las directivas para tener una estrategia de excepción.
 - Planifique las cuentas de [emergencia ](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency) sin controles MFA.
-- Asegúrese de que proporciona una experiencia coherente entre las aplicaciones cliente de Office 365 (por ejemplo, Teams, OneDrive para la Empresa o Outlook) al implementar el mismo conjunto de controles para servicios como Exchange Online y SharePoint Online.
+- Asegúrese de que proporciona una experiencia coherente entre las aplicaciones cliente de Microsoft 365 (por ejemplo, Teams, OneDrive u Outlook) al implementar el mismo conjunto de controles para servicios como Exchange Online y SharePoint Online.
 - Recuerde que la asignación a directivas debe implementarse a través de grupos, no de personas.
 - Realice revisiones periódicas de los grupos de excepciones que se usan en las directivas para limitar el tiempo que los usuarios no usan la posición de seguridad. Si tiene Azure AD P2, puede usar las revisiones de acceso para automatizar el proceso.
 
@@ -302,7 +302,7 @@ A continuación se muestra una lista de aplicaciones con permisos que es posible
 
 | Resource | Permiso |
 | :- | :- |
-| Office 365 Exchange Online | EAS.AccessAsUser.All |
+| Exchange Online | EAS.AccessAsUser.All |
 | | EWS.AccessAsUser.All |
 | | Mail.Read |
 | Microsoft Graph API | Mail.Read |
@@ -339,7 +339,7 @@ A continuación, se muestra la configuración de usuario y de grupo que se puede
 
 #### <a name="group-settings"></a>Configuración de grupo
 
-**Administración de grupos de autoservicio: los usuarios pueden crear grupos de seguridad o grupos de O365.** Si no hay ninguna iniciativa de autoservicio actual para los grupos en la nube, los clientes pueden decidir desactivarla hasta que estén listos para usar esta funcionalidad.
+**Administración de grupos de autoservicio: los usuarios pueden crear grupos de seguridad o grupos de Microsoft 365.** Si no hay ninguna iniciativa de autoservicio actual para los grupos en la nube, los clientes pueden decidir desactivarla hasta que estén listos para usar esta funcionalidad.
 
 #### <a name="groups-recommended-reading"></a>Lectura recomendada de grupos
 

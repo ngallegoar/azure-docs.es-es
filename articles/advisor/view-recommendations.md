@@ -3,12 +3,12 @@ title: Visualización de recomendaciones de Azure Advisor interesantes para uste
 description: Vea y filtre las recomendaciones de Azure Advisor para reducir el ruido.
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 10d7b16864f8e449dc51e870c5ff9f20d8c0dc87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 43bdaba7d774bba8857a6eb3ef296d7ab8e1c264
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75422367"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986863"
 ---
 # <a name="view-azure-advisor-recommendations-that-matter-to-you"></a>Visualización de recomendaciones de Azure Advisor interesantes para usted
 
@@ -34,7 +34,7 @@ Para realizar cambios en Azure Portal, realice el siguiente procedimiento:
 
 Los valores de configuración siguen estando activos hasta que se cambian. Si desea limitar la vista de recomendaciones para una única visualización, puede usar los menús desplegables proporcionados en la parte superior del panel de Advisor. Desde los paneles Información general, Alta disponibilidad, Seguridad, Rendimiento, Costo y Todas las recomendaciones, puede seleccionar las suscripciones, los tipos de recurso y el estado de las recomendaciones que desee ver.
 
-   ![Menú de filtrado de Advisor](./media/view-recommendations/filtering.png)
+   :::image type="content" source="./media/view-recommendations/filtering.png" alt-text="Captura de pantalla de Azure Advisor que muestra las opciones de filtrado.":::
 
 ## <a name="dismissing-and-postponing-recommendations"></a>Descartar y posponer recomendaciones
 
@@ -47,7 +47,7 @@ Azure Advisor le permite descartar o posponer recomendaciones en un único recur
 1. Seleccione una recomendación de la lista de recomendaciones.
 1. Seleccione Posponer o Descartar para la recomendación que desee posponer o descartar.
 
-     ![Menú de filtrado de Advisor](./media/view-recommendations/postpone-dismiss.png)
+     :::image type="content" source="./media/view-recommendations/postpone-dismiss.png" alt-text="Captura de pantalla de Azure Advisor que muestra las opciones de filtrado.":::
 
 ### <a name="postpone-or-dismiss-a-multiple-recommendations-in-the-azure-portal"></a>Posponer o descartar varias recomendaciones en Azure Portal
 
@@ -57,7 +57,7 @@ Azure Advisor le permite descartar o posponer recomendaciones en un único recur
 1. Active la casilla en la parte izquierda de la fila para todos los recursos para los que desee posponer o descartar la recomendación.
 1. Seleccione **Posponer** o **Descartar** en la parte superior izquierda de la tabla.
 
-     ![Menú de filtrado de Advisor](./media/view-recommendations/postpone-dismiss-multiple.png)
+     :::image type="content" source="./media/view-recommendations/postpone-dismiss-multiple.png" alt-text="Captura de pantalla de Azure Advisor que muestra las opciones de filtrado.":::
 
 > [!NOTE]
 > Necesita el permiso de un colaborador o propietario para descartar o posponer una recomendación. Más información sobre permisos en Azure Advisor.
@@ -73,7 +73,7 @@ Puede activar una recomendación pospuesta o descartada. Esta acción se puede r
 
 1. Cambie el filtro del panel Información general a **Pospuestas**. Advisor le mostrará a continuación las recomendaciones pospuestas o descartadas.
 
-    ![Menú de filtrado de Advisor](./media/view-recommendations/activate-postponed.png)
+    :::image type="content" source="./media/view-recommendations/activate-postponed.png" alt-text="Captura de pantalla de Azure Advisor que muestra las opciones de filtrado.":::
 
 1. Seleccione una categoría para ver recomendaciones **Pospuestas** y **Descartadas**.
 
@@ -81,7 +81,7 @@ Puede activar una recomendación pospuesta o descartada. Esta acción se puede r
 
 1. Haga clic en **Activar** al final de la fila. Una vez que haya hecho clic, la recomendación estará activa para ese recurso y, por lo tanto, se eliminará de la tabla. La recomendación aparecerá ahora en la pestaña **Activo**.
  
-     ![Menú de filtrado de Advisor](./media/view-recommendations/activate-postponed-2.png)
+     :::image type="content" source="./media/view-recommendations/activate-postponed-2.png" alt-text="Captura de pantalla de Azure Advisor que muestra las opciones de filtrado.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

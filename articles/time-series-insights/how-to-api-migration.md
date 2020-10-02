@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.custom: shresha
-ms.openlocfilehash: 784c19844c658af6850c755244314145223c45ef
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: d68323bb72779ec5978c721b5258d4c8a8d4940d
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163958"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650801"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>Migración a las nuevas versiones de API de Azure Time Series Insights Gen2
 
@@ -56,7 +56,7 @@ Para ayudar a los usuarios a migrar sus [variables del modelo de serie temporal]
 
     [![Actualizar variables](media/api-migration/ux-migration-tool-downloaded-types.png)](media/v2-update-overview/overview-one.png#lightbox)
 
-1. Haga clic en **Update saved queries** (Actualizar consultas guardadas). La herramienta le enviará una notificación cuando se hayan actualizado las variables.
+1. Haga clic en **Update saved queries** (Actualizar consultas guardadas). La herramienta le enviará una notificación cuando se hayan actualizado las consultas guardadas.
 
     [![Actualizar consultas guardadas](media/api-migration/ux-migration-tool-updated-variables.png)](media/v2-update-overview/overview-one.png#lightbox)
 

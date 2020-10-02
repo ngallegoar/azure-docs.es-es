@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e210a11dbcde17c8a5dfd16c46c0d3b3d5c6523
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: c1927cc103ba14b4b9b545eca82aee28cd32eeb2
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716340"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052396"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Preguntas frecuentes sobre el autoservicio de restablecimiento de contraseña
 
@@ -104,7 +104,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   > * Compruebe que los datos de autenticación del directorio tengan el formato correcto, por ejemplo: +1 4255551234 o *usuario\@contoso.com*. 
 * **P:  ¿Qué idiomas admite el restablecimiento de contraseña?**
 
-  > **R:** La interfaz de usuario del restablecimiento de contraseña, los mensajes SMS y las llamadas de voz están localizados en los mismos idiomas que admite Office 365.
+  > **R:** La interfaz de usuario del restablecimiento de contraseña, los mensajes SMS y las llamadas de voz están localizados en los mismos idiomas que admite Microsoft 365.
   >
   >
 * **P:  ¿En qué partes de la experiencia de restablecimiento de contraseña aparece mi marca si defino los objetos de personalización de marca de mi organización en la pestaña de configuración del directorio?**

@@ -3,12 +3,12 @@ title: Corrección de recursos no compatibles
 description: En esta guía se explica la corrección de los recursos que no son conformes con las directivas de Azure Policy.
 ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 1274b049d7ce19601968697b22da38f0eb2cb5ff
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 52d8ef6dd66c52edd574b2ccfa51da16623a1afb
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958752"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651357"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corregir los recursos no conformes con Azure Policy
 
@@ -19,7 +19,7 @@ Los recursos que no son conformes con un directiva **deployIfNotExists** o **mod
 Cuando Azure Policy ejecuta la plantilla en la definición de directiva **deployIfNotExists**, lo hace mediante una [identidad administrada](../../../active-directory/managed-identities-azure-resources/overview.md).
 Azure Policy crea una identidad administrada para cada asignación, pero debe proporcionar detalles sobre los roles que se conceden a la identidad administrada. Si faltan roles en la identidad administrada, este error se muestra durante la asignación de la directiva o una iniciativa. Al usar el portal, Azure Policy concede automáticamente a la identidad administrada los roles enumerados cuando se inicia la asignación. La propiedad _location_ de la identidad administrada no afecta a su funcionamiento con Azure Policy.
 
-:::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Identidad administrada - función ausente" border="false":::
+:::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Captura de pantalla de una directiva deployIfNotExists a la que le falta un permiso definido en la identidad administrada." border="false":::
 
 > [!IMPORTANT]
 > Si un recurso modificado por **deployIfNotExists** o por **modify** está fuera del ámbito de la asignación de la directiva o si la plantilla accede a propiedades de recursos situados fuera del ámbito de la asignación de la directiva, debe [concederse manualmente acceso](#manually-configure-the-managed-identity) a la identidad administrada de la asignación o se producirá un error en la implementación de la corrección.
@@ -90,15 +90,15 @@ if ($roleDefinitionIds.Count -gt 0)
 
 ### <a name="grant-defined-roles-through-portal"></a>Conceder roles definidos a través de Azure Portal
 
-Hay dos maneras de conceder a la identidad administrada de una asignación los roles definidos mediante Azure Portal, mediante **Access control (IAM)** o editando la asignación de directiva o iniciativa y haciendo clic en **Guardar**.
+Azure Portal ofrece dos maneras de conceder los roles definidos a la identidad administrada de una asignación: mediante **control de acceso (IAM)** o editando la asignación de directiva o iniciativa y seleccionando **Guardar**.
 
 Para agregar un rol a la identidad administrada de la asignación, siga estos pasos:
 
-1. Inicie el servicio Azure Policy en Azure Portal. Para ello, haga clic en **Todos los servicios** y, a continuación, busque y seleccione **Directiva**.
+1. Inicie el servicio Azure Policy en Azure Portal. Para ello, seleccione **Todos los servicios** y, a continuación, busque y seleccione **Directiva**.
 
 1. Seleccione **Asignaciones** en el panel izquierdo de la página de Azure Policy.
 
-1. Busque la asignación que tiene una identidad administrada y haga clic en el nombre.
+1. Busque la asignación que tiene una identidad administrada y seleccione el nombre.
 
 1. Busque la propiedad **Id. de asignación** en la página Editar. El identificador de asignación será algo como:
 
@@ -110,10 +110,10 @@ Para agregar un rol a la identidad administrada de la asignación, siga estos pa
 
 1. Navegue hasta el contenedor primario del recurso o recursos (grupo de recursos, suscripción, grupo de administración) al que se debe agregar manualmente la definición de función.
 
-1. Haga clic en el vínculo **Control de acceso (IAM)** en la página de recursos y haga clic en **+ Agregar asignación de rol** en la parte superior de la página de control de acceso.
+1. Seleccione el vínculo **Control de acceso (IAM)** en la página de recursos y luego **+ Agregar asignación de rol** en la parte superior de la página de control de acceso.
 
 1. Seleccione el rol adecuado que coincide con un **roleDefinitionIds** de la definición de la directiva.
-   Deje **Asignar acceso a** con el valor predeterminado de “Usuario de Azure AD, grupo o aplicación”. En el cuadro **Seleccionar**, pegue o escriba la parte del identificador del recurso de asignación que buscó anteriormente. Una vez finalizada la búsqueda, haga clic en el objeto con el mismo nombre que el identificador seleccionado y haga clic en **Guardar**.
+   Deje **Asignar acceso a** con el valor predeterminado de “Usuario de Azure AD, grupo o aplicación”. En el cuadro **Seleccionar**, pegue o escriba la parte del identificador del recurso de asignación que buscó anteriormente. Una vez finalizada la búsqueda, seleccione el objeto con el mismo nombre que el identificador seleccionado y elija **Guardar**.
 
 ## <a name="create-a-remediation-task"></a>Crear una tarea de corrección
 
@@ -123,32 +123,32 @@ Durante la evaluación, la asignación de directiva con los efectos **deployIfNo
 
 Para crear un **tarea de corrección**, siga estos pasos:
 
-1. Inicie el servicio Azure Policy en Azure Portal. Para ello, haga clic en **Todos los servicios** y, a continuación, busque y seleccione **Directiva**.
+1. Inicie el servicio Azure Policy en Azure Portal. Para ello, seleccione **Todos los servicios** y, a continuación, busque y seleccione **Directiva**.
 
-   :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="Búsqueda de la directiva en todos los servicios" border="false":::
+   :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="Captura de pantalla de una directiva deployIfNotExists a la que le falta un permiso definido en la identidad administrada." border="false":::
 
 1. Seleccione **Corrección** en el lado izquierdo de la página Azure Policy.
 
-   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="Seleccione Corrección en la página Directiva" border="false":::
+   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="Captura de pantalla de una directiva deployIfNotExists a la que le falta un permiso definido en la identidad administrada." border="false":::
 
-1. Todas las asignaciones de directiva de **deployIfNotExists** y **modify** con recursos no conformes se incluyen en la pestaña y la tabla de datos **Directivas que se van a corregir**. Haga clic en una directiva con recursos que no son conformes. Se abre la página **Nueva tarea de corrección**.
+1. Todas las asignaciones de directiva de **deployIfNotExists** y **modify** con recursos no conformes se incluyen en la pestaña y la tabla de datos **Directivas que se van a corregir**. Seleccione una directiva con recursos que no son conformes. Se abre la página **Nueva tarea de corrección**.
 
    > [!NOTE]
-   > Una forma alternativa de abrir la página **Tareas de corrección** consiste en buscar y hacer clic en la directiva desde la página **Cumplimiento** y después hacer clic en el botón **Crear tarea de corrección**.
+   > Una forma alternativa de abrir la página de **tarea de corrección** consiste en buscar y seleccionar la directiva desde la página **Cumplimiento** y después seleccionar el botón **Crear tarea de corrección**.
 
 1. En la página **Nueva tarea de corrección**, filtre los recursos para corregir mediante la elipse **Ámbito** para seleccionar los recursos secundarios a partir de los cuales se asignó la directiva (incluidos los objetos de recursos individuales). Además, utilice la lista desplegable **Ubicaciones** para filtrar más los recursos. Solo los recursos enumerados en la tabla se corregirán.
 
-   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="Corrección: seleccione los recursos que quiere corregir" border="false":::
+   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="Captura de pantalla de una directiva deployIfNotExists a la que le falta un permiso definido en la identidad administrada." border="false":::
 
-1. Inicie la tarea de corrección cuando se hayan filtrado los recursos, para ello, haga clic en **Corregir**. Se abre la página de cumplimiento de directivas en la pestaña **Tareas de corrección** para mostrar el estado del progreso de las tareas. Las implementaciones que ha creado la tarea de corrección se inician inmediatamente.
+1. Inicie la tarea de corrección cuando se hayan filtrado los recursos; para ello, seleccione **Corregir**. Se abre la página de cumplimiento de directivas en la pestaña **Tareas de corrección** para mostrar el estado del progreso de las tareas. Las implementaciones que ha creado la tarea de corrección se inician inmediatamente.
 
-   :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Corrección: progreso de las tareas de corrección" border="false":::
+   :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Captura de pantalla de una directiva deployIfNotExists a la que le falta un permiso definido en la identidad administrada." border="false":::
 
-1. Haga clic en el **tarea de corrección** en la página de cumplimiento de directiva para obtener detalles sobre el progreso. El filtro usado en la tarea se muestra junto con una lista de los recursos que se van a corregir.
+1. Seleccione la **tarea de corrección** en la página de cumplimiento de directivas para obtener detalles sobre el progreso. El filtro usado en la tarea se muestra junto con una lista de los recursos que se van a corregir.
 
-1. En la página **Tarea de corrección**, haga clic con el botón derecho en un recurso para ver el recurso o la implementación de la tarea de corrección. Al final de la fila, haga clic en **Eventos relacionados** para ver detalles, como un mensaje de error.
+1. En la página **Tarea de corrección**, haga clic con el botón derecho en un recurso para ver el recurso o la implementación de la tarea de corrección. Al final de la fila, seleccione **Eventos relacionados** para ver detalles, como un mensaje de error.
 
-   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Corrección: menú contextual de tarea de recurso" border="false":::
+   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Captura de pantalla de una directiva deployIfNotExists a la que le falta un permiso definido en la identidad administrada." border="false":::
 
 Los recursos implementados mediante una **tarea de corrección** se agregan a la pestaña **Recursos implementados** en la página de cumplimiento de la directiva.
 

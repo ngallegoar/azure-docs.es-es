@@ -4,12 +4,12 @@ description: Copia de seguridad y restauración de bases de datos SQL en Azure V
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: b355aaa465132e86c636c68552f3d650b51b08f1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 37e2336b262311ea00e833ad91fe5e8c5c1ddf1e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004993"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975182"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Copia de seguridad y restauración de bases de datos SQL en máquinas virtuales de Azure con PowerShell
 
@@ -102,7 +102,7 @@ El almacén de Recovery Services es un recurso de Resource Manager, por lo que d
 
 3. Especifique el tipo de redundancia para el almacenamiento.
 
-    * Puede usar [almacenamiento con redundancia local](../storage/common/storage-redundancy.md) o [almacenamiento con redundancia geográfica](../storage/common/storage-redundancy.md).
+    * Puede usar [almacenamiento con redundancia local](../storage/common/storage-redundancy.md#locally-redundant-storage), [almacenamiento con redundancia geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage) o [almacenamiento con redundancia de zona](../storage/common/storage-redundancy.md#zone-redundant-storage).
     * En el siguiente ejemplo se establece la opción **-BackupStorageRedundancy** para el cmdlet [Set-AzRecoveryServicesBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) para **testvault** se establece en **GeoRedundant**.
 
     ```powershell

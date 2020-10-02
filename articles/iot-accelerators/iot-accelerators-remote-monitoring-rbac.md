@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: b32e0a60e099b5ad184f8919be3f93646c3a68b3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 817bc7624bb3a6b69d56265e40681287b7fc09fa
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018151"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969588"
 ---
 # <a name="configure-role-based-access-control-in-the-remote-monitoring-solution-accelerator"></a>Configuración del control de acceso basado en rol en el acelerador de soluciones de supervisión remota
 
@@ -62,7 +62,7 @@ Como propietario de la aplicación de Azure Active Directory, puede usar Azure P
 
 1. Compruebe que es propietario de la aplicación; para ello, haga clic en la aplicación y, luego, en **Propietarios**. En la siguiente captura de pantalla, **Contoso admin** es propietario de la aplicación **contoso-rm4**:
 
-    ![Propietarios](media/iot-accelerators-remote-monitoring-rbac/owners.png)
+    ![Captura de pantalla que muestra la opción Administrar propietarios seleccionada, con los propietarios de la aplicación contoso r m 4.](media/iot-accelerators-remote-monitoring-rbac/owners.png)
 
     Si no es un propietario, debe pedir a un propietario existente que lo agregue a la lista. Solo los propietarios pueden asignar roles de aplicación como **Administrador** o **Solo lectura** a otros usuarios.
 

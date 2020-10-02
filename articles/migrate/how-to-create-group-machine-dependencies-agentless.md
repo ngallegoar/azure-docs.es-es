@@ -3,12 +3,12 @@ title: Configuración del análisis de dependencias sin agente en Azure Migrate 
 description: Configure el análisis de dependencias sin agente en Azure Migrate Server Assessment.
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: dc2ea0656198927cc8ae58533d296a2bedc37c13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e6e562a18fa2ee0b89416ea67cc15394e760ada
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84771383"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536445"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Análisis de las dependencias de la máquina (sin agente)
 
@@ -25,14 +25,14 @@ En este artículo se describe cómo configurar el análisis de dependencias sin 
 
 - En la vista de análisis de dependencias, actualmente no se puede agregar o quitar un servidor de un grupo.
 - Actualmente, no existe ningún mapa de dependencias disponible para un grupo de servidores.
-- Los datos de dependencias no se pueden descargar en formato tabular.
+- La recopilación de datos de dependencia se puede configurar simultáneamente para 400 servidores. Se puede analizar un número mayor de servidores mediante la secuenciación en lotes de 400.
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
 - [Revise](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) los sistemas los operativos compatibles y los permisos necesarios.
 - Asegúrese de lo siguiente:
     - Tener un proyecto de Azure Migrate. Si no lo tiene, es el momento de [crearlo](how-to-add-tool-first-time.md).
-    - Compruebe que ha [agregado ](how-to-assess.md) la herramienta Azure Migrate:Server Assessment al proyecto.
+    - Compruebe que ha [agregado ](how-to-assess.md) la herramienta Azure Migrate:Server Assessment al proyecto.
     - Configure un [dispositivo Azure Migrate](migrate-appliance.md) para detectar las máquinas locales. [Configuración de un dispositivo](how-to-set-up-appliance-vmware.md) para VM de VMware. El dispositivo detecta máquinas locales, y envía metadatos y datos de rendimiento a Azure Migrate: Server Assessment.
 - Compruebe que una versión de las herramientas de VMware posterior a 10.2 está instalada en cada VM que se quiera analizar.
 

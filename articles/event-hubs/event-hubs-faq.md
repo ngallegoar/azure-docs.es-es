@@ -2,13 +2,13 @@
 title: Preguntas más frecuentes sobre Azure Event Hubs | Microsoft Docs
 description: En este artículo se proporciona una lista de las preguntas más frecuentes (P+F) acerca de Azure Event Hubs y sus respuestas.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 9995588e618679ae38a11aff26485d1ba0b60688
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 09/16/2020
+ms.openlocfilehash: b852af961327fbecb773c0608dfb823093e17267
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89288974"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883393"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Preguntas frecuentes sobre Event Hubs
 
@@ -55,6 +55,9 @@ Puede configurar el período de retención de los datos capturados en su cuenta 
 ### <a name="how-do-i-monitor-my-event-hubs"></a>¿Cómo puedo supervisar mi instancia de Event Hubs?
 Event Hubs emite métricas exhaustivas que proporcionan el estado de los recursos a [Azure Monitor](../azure-monitor/overview.md). También permite evaluar el estado general del servicio Event Hubs, no solo en el nivel de espacio de nombres, sino también en el nivel de entidad. Obtenga información sobre la supervisión que se ofrece para [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
 
+### <a name="where-does-azure-event-hubs-store-customer-data"></a><a name="in-region-data-residency"></a>¿Dónde se almacenan los datos de los clientes en Azure Event Hubs?
+Azure Event Hubs almacena datos de los clientes. Event Hubs almacena estos datos automáticamente en una sola región, por lo que este servicio satisface los requisitos de residencia de datos de la región, incluidos los especificados en el [centro de confianza](https://azuredatacentermap.azurewebsites.net/).
+
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>¿Qué puertos es necesario abrir en el firewall? 
 Puede usar los siguientes protocolos con Azure Service Bus para enviar y recibir mensajes:
 
@@ -78,9 +81,9 @@ Para buscar las direcciones IP correctas para agregar a la lista de permitidas p
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Anote la dirección IP devuelta en `Non-authoritative answer`. El único momento en que cambiaría es si restaurara el espacio de nombres en un clúster distinto.
+2. Anote la dirección IP devuelta en `Non-authoritative answer`. 
 
-Si usa la redundancia de zona para el espacio de nombres, deberá realizar algunos pasos adicionales: 
+Si usa la **redundancia de zona** para el espacio de nombres, deberá realizar algunos pasos adicionales: 
 
 1. En primer lugar, ejecute nslookup en el espacio de nombres.
 
@@ -94,9 +97,12 @@ Si usa la redundancia de zona para el espacio de nombres, deberá realizar algun
     <name>-s2.cloudapp.net
     <name>-s3.cloudapp.net
     ```
+
+    > [!NOTE]
+    > La dirección IP devuelta por el comando `nslookup` no es una dirección IP estática. Sin embargo, permanece constante hasta que la implementación subyacente se elimine o se mueva a otro clúster.
 3. Ejecute nslookup para cada uno con los sufijos s1, s2 y s3 para obtener las direcciones IP de las tres instancias que se ejecutan en tres zonas de disponibilidad. 
 
-### <a name="where-can-i-find-client-ip-sending-or-receiving-msgs-to-my-namespace"></a>¿Dónde puedo encontrar la IP de cliente que envía o recibe mensajes en mi espacio de nombres?
+### <a name="where-can-i-find-client-ip-sending-or-receiving-messages-to-my-namespace"></a>¿Dónde puedo encontrar la IP de cliente que envía o recibe mensajes en mi espacio de nombres?
 En primer lugar, habilite el [filtrado de IP](event-hubs-ip-filtering.md) en el espacio de nombres. 
 
 A continuación, habilite los registros de diagnóstico para [eventos de conexión de red virtual de Event Hubs](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) siguiendo las instrucciones indicadas en [Habilitar registros de diagnóstico](event-hubs-diagnostic-logs.md#enable-diagnostic-logs). Verá la dirección IP para la que se deniega la conexión.

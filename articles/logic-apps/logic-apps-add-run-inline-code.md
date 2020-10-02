@@ -7,12 +7,12 @@ ms.reviewer: deli, logicappspm
 ms.topic: article
 ms.date: 05/14/2019
 ms.custom: devx-track-javascript
-ms.openlocfilehash: a1c3828a4b1899ff4b22c0a9520f676add21fe02
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a1fca14035dd4a9af00ecfb8d1d01dc27ab0b8d0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420131"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658175"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Adición y ejecución de fragmentos de código mediante código en línea en Azure Logic Apps
 
@@ -29,7 +29,7 @@ Si desea ejecutar un fragmento de código dentro de su aplicación lógica, pued
 
 Esta acción ejecuta el fragmento de código y devuelve el resultado de ese fragmento como un token denominado **Result**, que puede usar en las acciones posteriores en la aplicación lógica. Para otros escenarios en los que desee crear una función para el código, intente [crear y llamar a una función de Azure](../logic-apps/logic-apps-azure-functions.md) en la aplicación lógica.
 
-En este artículo, la aplicación lógica de ejemplo se desencadena cuando llegaun nuevo correo electrónico a una cuenta de Office 365 Outlook. El fragmento de código extrae y devuelve todas las direcciones de correo electrónico que aparecen en el cuerpo del correo electrónico.
+En este artículo, la aplicación lógica de ejemplo se desencadena cuando un nuevo correo electrónico llega a una cuenta profesional o educativa. El fragmento de código extrae y devuelve todas las direcciones de correo electrónico que aparecen en el cuerpo del correo electrónico.
 
 ![Información general de ejemplo](./media/logic-apps-add-run-inline-code/inline-code-example-overview.png)
 

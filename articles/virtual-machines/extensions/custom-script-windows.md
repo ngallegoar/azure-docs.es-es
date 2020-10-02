@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/31/2020
 ms.author: robreed
-ms.openlocfilehash: 5b7793d70e49b6b760bfba5186b53fb8b31ed16b
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: e50c0b0fcb883b43650a5d99cea5aa39bae1cd94
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297933"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426272"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensión de la secuencia de comandos personalizada para Windows
 
@@ -60,6 +60,7 @@ Si el script se encuentra en un servidor local, puede que aún necesite abrir pu
 * Los scripts tienen permitido un plazo de 90 minutos para ejecutarse; todo lo que dure más provocará un error de aprovisionamiento de la extensión.
 * No incluya reinicios en el script, ya que esta acción provocará errores con otras extensiones que se instalen. Después del reinicio, la extensión no continuará después del reinicio.
 * Si tiene un script que provoca un reinicio, instala aplicaciones y ejecuta scripts, puede programar el reinicio con una tarea programada de Windows o usar herramientas como las extensiones DSC, Chef o Puppet.
+* No se recomienda ejecutar un script que provoque la detención o actualización del agente de máquina virtual. Esto puede llevar a la extensión a un estado de transición, lo que da lugar a un tiempo de espera.
 * La extensión solo ejecutará un script una vez. Si quiere ejecutar un script en cada inicio, debe usar la extensión para crear una tarea programada de Windows.
 * Si quiere programar cuándo se ejecutará un script, debe usar la extensión para crear una tarea programada de Windows.
 * Cuando el script se esté ejecutando, solo verá un estado de extensión "en transición" desde Azure Portal o la CLI. Si quiere recibir actualizaciones de estado más frecuentes de un script en ejecución, debe crear su propia solución.

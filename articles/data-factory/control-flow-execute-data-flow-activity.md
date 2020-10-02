@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 04/30/2020
-ms.openlocfilehash: 1004f7fcc8ff93a170b724a6d8b1c2216b9c39b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5593b0d633b133c8a8295634b674218d5e6c6daf
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84726980"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485044"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Actividad de Data Flow en Azure Data Factory
 
@@ -60,8 +60,8 @@ dataflow | Referencia al flujo de datos que se está ejecutando. | DataFlowRefer
 integrationRuntime | Entorno de proceso en el que se ejecuta el flujo de datos. Si no se especifica, se usará la resolución automática del entorno de Azure Integration Runtime. | IntegrationRuntimeReference | No
 compute.coreCount | Número de núcleos utilizados en el clúster de Spark. Solo se puede especificar si se usa la resolución automática de Azure Integration Runtime | 8, 16, 32, 48, 80, 144, 272 | No
 compute.computeType | Tipo de proceso utilizado en el clúster de Spark. Solo se puede especificar si se usa la resolución automática de Azure Integration Runtime | "General", "ComputeOptimized", "MemoryOptimized" | No
-staging.linkedService | Si usa un origen o un receptor de Azure SQL Data Warehouse, es la cuenta de almacenamiento que se utiliza como almacenamiento provisional de PolyBase. | LinkedServiceReference | Solo si el flujo de datos lee o escribe en una instancia de Azure SQL Data Warehouse.
-staging.folderPath | Si usa un origen o un receptor de Azure SQL Data Warehouse, es la ruta de la carpeta de la cuenta de almacenamiento de blobs que se utiliza como almacenamiento provisional de PolyBase. | String | Solo si el flujo de datos lee o escribe en una instancia de Azure SQL Data Warehouse.
+staging.linkedService | Si utiliza un origen o un receptor de Azure Synapse Analytics, la cuenta de almacenamiento se utilizará como almacenamiento provisional de PolyBase. | LinkedServiceReference | Solo si el flujo de datos lee o escribe en una instancia de Azure Synapse Analytics.
+staging.folderPath | Si usa un origen o un receptor de Azure Synapse Analytics, es la ruta de la carpeta de la cuenta de almacenamiento de blobs que se utiliza como almacenamiento provisional de PolyBase. | String | Solo si el flujo de datos lee o escribe en una instancia de Azure Synapse Analytics.
 
 ![Ejecución de flujo de datos](media/data-flow/activity-data-flow.png "Ejecución de flujo de datos")
 
@@ -86,7 +86,7 @@ En el caso de las ejecuciones de canalización, el clúster que se utiliza es de
 
 ### <a name="polybase"></a>PolyBase
 
-Si utiliza Azure SQL Data Warehouse como origen o receptor, debe elegir una ubicación de almacenamiento provisional para la carga por lotes de PolyBase. PolyBase utiliza la carga por lotes en lugar de cargar los datos fila a fila. PolyBase reduce considerablemente el tiempo de carga en Azure SQL Data Warehouse.
+Si utiliza un origen o un receptor de Azure Synapse Analytics (anteriormente, SQL Data Warehouse), debe elegir una ubicación de almacenamiento provisional para la carga por lotes de PolyBase. PolyBase utiliza la carga por lotes en lugar de cargar los datos fila a fila. PolyBase reduce considerablemente el tiempo de carga en Azure Synapse Analytics.
 
 ## <a name="parameterizing-data-flows"></a>Flujos de datos con parámetros
 

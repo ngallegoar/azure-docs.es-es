@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: e8aa5515bf8ae8e842a98656167f4198ac652981
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 87d455a77096a2ae9339c578f3405c629d79fa76
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642391"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603346"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planeación de una implementación de inicio de sesión único
 
@@ -28,7 +28,7 @@ El Inicio de sesión único (SSO) significa acceder a todas las aplicaciones y l
 
 El inicio de sesión único (SSO) agrega seguridad y comodidad cuando los usuarios inician sesión en aplicaciones en Azure Active Directory (Azure AD). 
 
-Muchas organizaciones confían en las aplicaciones de software como servicio (SaaS), como Office 365, Box y Salesforce, para la productividad del usuario final. Tradicionalmente, el personal de TI tenía que crear y actualizar individualmente las cuentas de usuario en cada aplicación SaaS, y los usuarios tenían que recordar una contraseña para cada una.
+Muchas organizaciones confían en las aplicaciones de software como servicio (SaaS), como Microsoft 365, Box y Salesforce, para la productividad del usuario final. Tradicionalmente, el personal de TI tenía que crear y actualizar individualmente las cuentas de usuario en cada aplicación SaaS, y los usuarios tenían que recordar una contraseña para cada una.
 
 Azure Marketplace tiene más de 3000 aplicaciones con conexiones de inicio de sesión único previamente integradas, lo que facilita su integración en el inquilino.
 

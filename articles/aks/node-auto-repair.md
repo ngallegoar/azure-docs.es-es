@@ -3,21 +3,17 @@ title: Reparación automática de nodos de Azure Kubernetes Service (AKS)
 description: Obtenga información sobre la funcionalidad de reparación automática de nodos y cómo AKS corrige los nodos de trabajo interrumpidos.
 services: container-service
 ms.topic: conceptual
-ms.date: 06/02/2020
-ms.openlocfilehash: 7fcb7b380f3694aaf34328019c3e09f5157c9e64
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.date: 08/24/2020
+ms.openlocfilehash: 781a1ffebb40b0cce9f18699d308db90633e8626
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542049"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89490112"
 ---
 # <a name="azure-kubernetes-service-aks-node-auto-repair"></a>Reparación automática de nodos de Azure Kubernetes Service (AKS)
 
-AKS comprueba de forma continua el estado de mantenimiento de los nodos de trabajo y, si son incorrectos, los repara automáticamente. Este documento informa a los operadores sobre cómo se comporta la funcionalidad de reparación automática del nodo. Además de las reparaciones de AKS, la plataforma de VM de Azure [realiza el mantenimiento en máquinas virtuales][vm-updates] que también experimentan problemas. AKS y las VM de Azure trabajan de forma conjunta para minimizar las interrupciones del servicio de los clústeres.
-
-## <a name="limitations"></a>Limitaciones
-
-* En la actualidad, no se admiten los grupos de nodos de Windows.
+AKS comprueba de forma continua el estado de mantenimiento de los nodos de trabajo y, si son incorrectos, los repara automáticamente. Este documento informa a los operadores sobre cómo se comporta la funcionalidad de reparación automática del nodo para nodos Windows y Linux. Además de las reparaciones de AKS, la plataforma de VM de Azure [realiza el mantenimiento en máquinas virtuales][vm-updates] que también experimentan problemas. AKS y las VM de Azure trabajan de forma conjunta para minimizar las interrupciones del servicio de los clústeres.
 
 ## <a name="how-aks-checks-for-unhealthy-nodes"></a>Comprobaciones de nodos en mal estado en AKS
 
@@ -37,9 +33,13 @@ kubectl get nodes
 > [!Note]
 > AKS inicia las operaciones de reparación con la cuenta de usuario **aks-remediator**.
 
-Si se determina que un nodo es incorrecto de acuerdo con las reglas anteriores y se mantiene en este estado durante 10 minutos consecutivos, AKS reinicia el nodo. Si los nodos siguen siendo incorrectos después de la operación de reparación inicial, los ingenieros de AKS investigan las correcciones adicionales.
-  
-Si hay varios nodos incorrectos durante una comprobación de estado, cada nodo se repara individualmente antes de que comience otra reparación.
+Si un nodo es incorrecto de acuerdo con las reglas anteriores y se mantiene en este estado durante 10 minutos consecutivos, se realizan las siguientes acciones.
+
+1. Reinicio del nodo
+1. Si el reinicio no se realiza correctamente, restablezca la imagen inicial del nodo.
+1. Si la nueva imagen no se ha realizado correctamente, cree y vuelva a restablecer la imagen de un nuevo nodo.
+
+Si ninguna de las acciones se realiza correctamente, los ingenieros de AKS investigarán las correcciones adicionales. Si hay varios nodos incorrectos durante una comprobación de estado, cada nodo se repara individualmente antes de que comience otra reparación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

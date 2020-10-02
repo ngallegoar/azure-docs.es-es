@@ -10,18 +10,18 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
-ms.date: 06/26/2020
-ms.openlocfilehash: cf9f48b0907d3bfe1d07dcffcc0d0b9534f74c83
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.date: 09/03/2020
+ms.openlocfilehash: 2e7c931d6d99187b4ee7985be19374048c226312
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135895"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442222"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Uso de réplicas de solo lectura para descargar cargas de trabajo de consulta de solo lectura
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Como parte de la [arquitectura de alta disponibilidad](high-availability-sla.md#premium-and-business-critical-service-tier-availability), cada base de datos e instancia administrada del nivel de servicio Premium y Crítico para la empresa se aprovisiona automáticamente con una réplica principal de lectura y escritura y varias réplicas secundarias de solo lectura. Las réplicas secundarias se aprovisionan con el mismo tamaño de proceso que la réplica principal. La característica *Escalado horizontal de lectura* le permite descargar las cargas de trabajo de solo lectura usando la capacidad de proceso de una de las réplicas de solo lectura, en lugar de ejecutarlas en la réplica de lectura y escritura. De este modo, algunas cargas de trabajo de solo lectura se pueden aislar de las cargas de trabajo principales de lectura y escritura sin que su rendimiento se vea afectado. La característica está diseñada para las aplicaciones que contienen cargas de solo lectura separadas de forma lógica; por ejemplo, análisis. En los niveles de servicio Premium y Crítico para la empresa, las aplicaciones podrían obtener ventajas de rendimiento gracias a esta capacidad sin costo adicional.
+Como parte de la [arquitectura de alta disponibilidad](high-availability-sla.md#premium-and-business-critical-service-tier-availability), cada base de datos única, base de datos de grupos elásticos e instancia administrada del nivel de servicio Premium y Crítico para la empresa se aprovisiona automáticamente con una réplica principal de lectura y escritura y varias réplicas secundarias de solo lectura. Las réplicas secundarias se aprovisionan con el mismo tamaño de proceso que la réplica principal. La característica *Escalado horizontal de lectura* le permite descargar las cargas de trabajo de solo lectura usando la capacidad de proceso de una de las réplicas de solo lectura, en lugar de ejecutarlas en la réplica de lectura y escritura. De este modo, algunas cargas de trabajo de solo lectura se pueden aislar de las cargas de trabajo principales de lectura y escritura sin que su rendimiento se vea afectado. La característica está diseñada para las aplicaciones que contienen cargas de solo lectura separadas de forma lógica; por ejemplo, análisis. En los niveles de servicio Premium y Crítico para la empresa, las aplicaciones podrían obtener ventajas de rendimiento gracias a esta capacidad sin costo adicional.
 
 La característica *Escalado horizontal de lectura* también está disponible en el nivel de servicio Hiperescala cuando se crea al menos una réplica secundaria. Se pueden usar varias réplicas secundarias para el equilibrio de carga de las cargas de trabajo de solo lectura que requieren más recursos de los disponibles en una réplica secundaria.
 

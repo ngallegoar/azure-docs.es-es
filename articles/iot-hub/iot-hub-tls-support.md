@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 06/18/2020
+ms.date: 09/01/2020
 ms.author: jlian
-ms.openlocfilehash: 8c52037684215d1672ed813389d0bbace9a03e42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08ecb766a1a9bd7ff75bf97647be811577212eb5
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080619"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006047"
 ---
 # <a name="tls-support-in-iot-hub"></a>Compatibilidad con TLS en IoT Hub
 
@@ -22,7 +22,7 @@ TLS 1.0 y 1.1 se consideran versiones heredadas y está previsto que dejen de 
 
 ## <a name="tls-12-enforcement-available-in-select-regions"></a>Aplicación TLS 1.2 disponible en regiones seleccionadas
 
-Para mayor seguridad, configure IoT Hub para que *solo* permita conexiones de clientes que usen la versión 1.2 de TLS y para que exija el uso de [cifrados recomendados](#recommended-ciphers). Esta característica solo se admite en estas regiones:
+Para mayor seguridad, configure IoT Hub para que *solo* permita conexiones de clientes que usen la versión 1.2 de TLS y para que exija el uso de [conjuntos de cifrado](#cipher-suites). Esta característica solo se admite en estas regiones:
 
 * Este de EE. UU.
 * Centro-sur de EE. UU.
@@ -55,23 +55,23 @@ Para ello, aprovisione un nuevo recurso de IoT Hub en cualquiera de las regione
 }
 ```
 
-El recurso de IoT Hub creado con esta configuración rechazará los clientes de servicios y dispositivos que intenten conectarse mediante las versiones 1.0 y 1.1 de TLS. Del mismo modo, se rechazará el protocolo de enlace TLS si el mensaje HELLO del cliente no incluye ninguno de los [cifrados recomendados](#recommended-ciphers).
+El recurso de IoT Hub creado con esta configuración rechazará los clientes de servicios y dispositivos que intenten conectarse mediante las versiones 1.0 y 1.1 de TLS. Del mismo modo, se rechazará el protocolo de enlace TLS si el mensaje `ClientHello` no incluye ninguno de los [cifrados recomendados](#cipher-suites).
 
 > [!NOTE]
-> La propiedad `minTlsVersion` es de solo lectura y no se puede cambiar una vez creado el recurso de IoT Hub. Por lo tanto, es esencial que compruebe y valide de antemano que *todos* los dispositivos y servicios de IoT son compatibles con TLS 1.2 y con los [cifrados recomendados](#recommended-ciphers).
+> La propiedad `minTlsVersion` es de solo lectura y no se puede cambiar una vez creado el recurso de IoT Hub. Por lo tanto, es esencial que compruebe y valide de antemano que *todos* los dispositivos y servicios de IoT son compatibles con TLS 1.2 y con los [cifrados recomendados](#cipher-suites).
 > 
 > En caso de conmutaciones por error, la propiedad `minTlsVersion` de su IoT Hub seguirá siendo efectiva en la región con emparejamiento geográfico.
 
-## <a name="recommended-ciphers"></a>Cifrados recomendados
+## <a name="cipher-suites"></a>Conjuntos de cifrado
 
-Los recursos de IoT Hub que están configurados para aceptar solo TLS 1.2 también exigirán el uso de estos cifrados recomendados:
+Los recursos de IoT Hub que están configurados para aceptar solo TLS 1.2 también exigirán el uso de estos conjuntos de cifrado recomendados:
 
 * `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
 * `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
 * `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`
 * `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`
 
-En el caso de los recursos de IoT Hub que no están configurados para exigir TLS 1.2, este protocolo seguirá funcionando con los siguientes cifrados:
+En el caso de los recursos de IoT Hub que no están configurados para exigir TLS 1.2, este protocolo seguirá funcionando con los siguientes conjuntos de cifrado:
 
 * `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`
 * `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`
@@ -85,6 +85,8 @@ En el caso de los recursos de IoT Hub que no están configurados para exigir TLS
 * `TLS_RSA_WITH_AES_256_CBC_SHA`
 * `TLS_RSA_WITH_AES_128_CBC_SHA`
 * `TLS_RSA_WITH_3DES_EDE_CBC_SHA`
+
+Un cliente puede sugerir una lista de conjuntos de cifrado mayores para usar durante el mensaje `ClientHello`. Sin embargo, es posible que no se admitan algunos de los recursos de IoT Hub (por ejemplo, `ECDHE-ECDSA-AES256-GCM-SHA384`). En este caso, IoT Hub intentará seguir las preferencias del cliente, pero finalmente negociará el conjunto de cifrado con `ServerHello`.
 
 ## <a name="use-tls-12-in-your-iot-hub-sdks"></a>Uso de TLS 1.2 en los SDK de IoT Hub
 
@@ -102,3 +104,7 @@ Use los vínculos enumerados abajo para configurar TLS 1.2 y los cifrados permi
 ## <a name="use-tls-12-in-your-iot-edge-setup"></a>Uso de TLS 1.2 en la configuración de IoT Edge
 
 Los dispositivos de IoT Edge se pueden configurar para que usen TLS 1.2 al comunicarse con IoT Hub. Para más información sobre cómo hacerlo, vea la [página de documentación de IoT Edge](https://github.com/Azure/iotedge/blob/master/edge-modules/edgehub-proxy/README.md).
+
+## <a name="device-authentication"></a>Autenticación de dispositivos
+
+Después de un protocolo de enlace de TLS correcto, IoT Hub puede autenticar un dispositivo mediante una clave simétrica o un certificado X.509. En el caso de la autenticación basada en certificados, puede tratarse de cualquier certificado X.509, incluido ECC. IoT Hub valida el certificado con la huella digital o la entidad de certificación (CA) que proporcione. IoT Hub todavía no admite la autenticación mutua basada en X.509 (mTLS). Para obtener más información, consulte [Certificados X.509 compatibles](iot-hub-devguide-security.md#supported-x509-certificates).
