@@ -449,12 +449,6 @@
               href: windows-voice-assistants-best-practices.md
             - name: Ejemplos y preguntas frecuentes
               href: windows-voice-assistants-faq.md
-    - name: Palabra clave personalizada
-      items:
-        - name: Introducción a las palabras clave personalizadas
-          href: custom-keyword-overview.md
-        - name: Conceptos básicos de las palabras clave personalizadas
-          href: custom-keyword-basics.md
 - name: Speaker Recognition
   items:
     - name: Introducción a Speaker Recognition
@@ -465,6 +459,12 @@
       items:
         - name: API REST de Speaker Recognition
           href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
+- name: Palabra clave personalizada
+  items:
+    - name: Introducción a las palabras clave personalizadas
+      href: custom-keyword-overview.md
+    - name: Conceptos básicos de las palabras clave personalizadas
+      href: custom-keyword-basics.md
 - name: Herramientas
   items:
     - name: SDK de voz
