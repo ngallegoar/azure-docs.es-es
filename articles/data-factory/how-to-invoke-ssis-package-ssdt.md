@@ -11,13 +11,13 @@ author: swinarko
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 08/10/2020
-ms.openlocfilehash: 006b7db9f63f5ba74fee936383206b18c42aa038
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.date: 09/06/2020
+ms.openlocfilehash: fb5b5cb0ac4a9ace7b5de5e92308da58fd2b1fec
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041874"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504951"
 ---
 # <a name="execute-ssis-packages-in-azure-from-ssdt"></a>Ejecución de paquetes SSIS en Azure desde SSDT
 
@@ -57,7 +57,7 @@ En el caso de los proyectos existentes de SSIS, puede habilitarlos con Azure si 
 
    ![Selección de la configuración de Visual Studio](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-select-visual-studio-configurations.png)
 
-3. Habilitar para Azure los proyectos de SSIS existentes requiere que establezca la versión del servidor de destino para que sea la más reciente admitida por Azure-SSIS IR. Actualmente, Azure-SSIS IR tiene un nivel de compatibilidad predeterminado de 140, que es igual a **SQL Server 2017**. Asegúrese de que los paquetes no contengan componentes adicionales que no se admitan en SQL Server 2017. Asegúrese también de que todos los componentes adicionales compatibles también se hayan instalado en Azure-SSIS IR a través de las configuraciones personalizadas, consulte [Personalización de Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup). Seleccione el botón **Siguiente** para continuar.
+3. Habilitar para Azure los proyectos de SSIS existentes requiere que establezca la versión del servidor de destino para que sea la más reciente admitida por Azure-SSIS IR. Azure-SSIS IR actualmente está basado en **SQL Server 2017**. Asegúrese de que los paquetes no contengan componentes adicionales que no se admitan en SQL Server 2017. Asegúrese también de que todos los componentes adicionales compatibles también se hayan instalado en Azure-SSIS IR a través de las configuraciones personalizadas, consulte [Personalización de Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup). Seleccione el botón **Siguiente** para continuar.
 
    ![Cambio de la versión del servidor de destino](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-switch-target-server-version-step.png)
 

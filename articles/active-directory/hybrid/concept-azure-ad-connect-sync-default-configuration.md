@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2886b842aab81732beec0fdd7957aab8e2b4f5e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3853d0e5754f368043414ea4eaade8c4adf179e9
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76548873"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661855"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronización de Azure AD Connect: Introducción a la configuración predeterminada
 En este artículo se explican las reglas de configuración rápida. Se documentan las reglas y cómo afectan a la configuración. Este artículo lo guía en la configuración predeterminada de la sincronización de Azure AD Connect. El objetivo es que el lector comprenda cómo funciona el modelo de configuración, denominado "aprovisionamiento declarativo", en un ejemplo real. En este artículo se supone que ya instaló y configuró Azure AD Connect Sync mediante el asistente para instalación.
@@ -223,7 +223,7 @@ Ahora conocemos lo suficiente de las reglas de sincronización para poder compre
 | Nombre | Comentario |
 |:--- |:--- |
 | In from AD – User Join |Regla para unir objetos del espacio del conector con el metaverso. |
-| In from AD – UserAccount Enabled |Atributos necesarios para iniciar sesión en Azure AD y Office 365. Estos atributos deben ser de la cuenta habilitada. |
+| In from AD – UserAccount Enabled |Atributos necesarios para iniciar sesión en Azure AD y Microsoft 365. Estos atributos deben ser de la cuenta habilitada. |
 | In from AD – User Common from Exchange |Atributos encontrados en la lista global de direcciones Suponemos que la calidad de los datos es mejor en el bosque donde encontramos el buzón del usuario. |
 | In from AD – User Common |Atributos encontrados en la lista global de direcciones En caso de que no encontremos un buzón, cualquier otro objeto unido puede aportar el valor de atributo. |
 | In from AD – User Exchange |Solo existirá si se detecta Exchange. Hará fluir todos los atributos de Exchange de la infraestructura. |

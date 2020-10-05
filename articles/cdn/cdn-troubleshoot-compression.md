@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 53db148eac0d56e53bb96e0597ad53d3183d86e9
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: f49af1488a0c044639a72fc2ea52ba0a47727a24
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192520"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433677"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Solución de problemas de compresión de archivos de red CDN
 Este artículo le ayudará a solucionar los problemas con la [compresión de archivos de red CDN](cdn-improve-performance.md).
@@ -111,8 +111,8 @@ Con las herramientas para desarrolladores de su explorador, compruebe los encabe
 
 Para que un archivo sea apto para la compresión, debe cumplir los siguientes requisitos de tamaño:
 
-* Mayor que 128 bytes.
-* Menor que 1 MB.
+* Mayor que 128 bytes (longitud del contenido: 128)
+* Menor que 3 MB
 
 ### <a name="check-the-request-at-the-origin-server-for-a-via-header"></a>Compruebe la solicitud en el servidor de origen para un encabezado **Mediante**
 El encabezado **Mediante** HTTP indica al servidor web que un servidor proxy pasará la solicitud.  De forma predeterminada, los servidores web de Microsoft IIS no comprimen las respuestas si la solicitud contiene un encabezado **Mediante** .  Para anular este comportamiento, haga lo siguiente:

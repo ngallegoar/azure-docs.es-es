@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 07/08/2020
+ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: a632e753426def52bb260d7bf01875ec24e2ea9e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 2a40e908677a173862ad715f7024865ff728d0b9
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200137"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053460"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Solucionar problemas relacionados con Azure Data Box y Azure Data Box Heavy
 
@@ -112,13 +112,17 @@ Estos son errores relacionados con datos que superan el tamaño de datos permiti
 
 ### <a name="error_container_or_share_capacity_exceeded"></a>ERROR_CONTAINER_OR_SHARE_CAPACITY_EXCEEDED
 
-**Descripción del error:** Un recurso compartido de archivos de Azure limita un recurso compartido a 5 TB de datos. Se ha superado este límite para algunos recursos compartidos.
+**Descripción del error:** el recurso compartido de archivos de Azure limita a un recurso compartido a 5 TiB de datos, y los recursos compartidos de archivos de gran tamaño no están habilitados en la cuenta de almacenamiento. Se superó este límite para algunos recursos compartidos.
 
 **Resolución sugerida:** En la página **Conectar y copiar** de la interfaz de usuario de web local, descargue y revise los archivos de error.
 
-Busque las carpetas que tienen este problema en los registros de error y asegúrese de que los archivos en esa carpeta tengan menos de 5 TB.
-
-
+- Busque las carpetas que tienen este problema en los registros de error y asegúrese de que los archivos en esa carpeta tengan menos de 5 TiB.
+- El límite de 5 TiB no se aplica a una cuenta de almacenamiento que permita los recursos compartidos de archivos de gran tamaño. Sin embargo, debe tener configurados algunos recursos compartidos de gran tamaño al realizar el pedido. 
+  - Póngase en contacto con el [Soporte técnico de Microsoft](data-box-disk-contact-microsoft-support.md) y solicite una nueva etiqueta de envío.
+  - [Habilite recursos compartidos de archivos de gran tamaño en la cuenta de almacenamiento.](../storage/files/storage-files-how-to-create-large-file-share.md#enable-large-files-shares-on-an-existing-account)
+  - [Expanda los recursos compartidos de archivos de la cuenta de almacenamiento](../storage/files/storage-files-how-to-create-large-file-share.md#expand-existing-file-shares) y establezca la cuota en 100 TiB.
+  
+  
 ## <a name="object-or-file-size-limit-errors"></a>Errores de límite de tamaño de objeto o archivo
 
 Estos son errores relacionados con datos que superan el tamaño máximo del objeto o el archivo que se permite en Azure. 

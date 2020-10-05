@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: e4ee6abe7481fef4d56c980da80e319624975384
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a1fedb637bee9d98fb09d8fc3fa133b2992ce86e
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021320"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613671"
 ---
 # <a name="pbr-materials"></a>Materiales de PBR
 
@@ -55,7 +55,7 @@ La idea principal de la representación basada en la física es usar las propied
 
   Si se proporcionan un valor de metalness y un mapa de metalness, el valor final será el producto de ambos.
 
-  ![metalness y roughness](./media/metalness-roughness.png)
+  ![Esferas representadas con distintos valores de metal y rugosidad](./media/metalness-roughness.png)
 
   En la imagen anterior, la esfera de la esquina inferior derecha es similar a un material de metal real y la parte inferior izquierda parece cerámica o plástico. El color de albedo también cambia según las propiedades físicas. Con una rugosidad mayor, el material pierde la nitidez de la reflexión.
 
@@ -63,13 +63,13 @@ La idea principal de la representación basada en la física es usar las propied
 
 * **occlusionMap** y **aoScale:** la [oclusión ambiente](https://en.wikipedia.org/wiki/Ambient_occlusion) permite que los objetos con grietas parezcan más realistas al agregar sombras a las áreas ocluidas. Los valores de oclusión van de `0.0` a `1.0`, donde `0.0` significa oscuridad (oclusión) y `1.0` significa que no hay ninguna oclusión. Si se proporciona una textura 2D como un mapa de oclusión, el efecto se habilita y *aoScale* actúa como un multiplicador.
 
-  ![Mapa de oclusión](./media/boom-box-ao2.gif)
+  ![Objeto representado con y sin oclusión ambiental](./media/boom-box-ao2.gif)
 
 * **transparent**: para los materiales de PBR, solo existe una opción de transparencia (habilitada o deshabilitada). La opacidad se define mediante el canal alfa del color de albedo. Cuando está habilitada, se invoca una canalización de representación más compleja para dibujar superficies semitransparentes. Azure Remote Rendering implementa la [transparencia independiente del orden](https://en.wikipedia.org/wiki/Order-independent_transparency) (OIT) real.
 
   La representación de geometría transparente es costosa. Si solo necesita orificios en una superficie, por ejemplo para las hojas de un árbol, es mejor usar el recorte alfa en su lugar.
 
-  ![Transparencia](./media/transparency.png) Observe en la imagen anterior que la esfera más a la derecha es completamente transparente, pero la reflexión sigue siendo visible.
+  ![Esferas representadas con una transparencia de cero a completamente transparentes](./media/transparency.png) Observe en la imagen anterior que la esfera más a la derecha es completamente transparente, pero la reflexión sigue siendo visible.
 
   > [!IMPORTANT]
   > Si se prevé cambiar un material de opaco a transparente en tiempo de ejecución, el representador debe utilizar el [modo de representación](../../concepts/rendering-modes.md) *TileBasedComposition*. Esta limitación no se aplica a los materiales que se convierten, como los materiales transparentes con los que se empieza.
@@ -80,6 +80,13 @@ Azure Remote Rendering usa el BRDF de microfaceta Cook-Torrance con GGX NDF, Sch
 
  Una alternativa al modelo de PBR *Metalness-Roughness* que se usa en Azure Remote Rendering es el modelo de PBR *Specular-Glossiness*. Este modelo puede representar una gama más amplia de materiales. Sin embargo, es más caro y normalmente no funciona bien para los casos en tiempo real.
 No siempre es posible realizar la conversión de *Specular-Glossiness* a *Metalness-Roughness*, ya que existen pares de valores *(Diffuse, Specular)* que no se pueden convertir a *(BaseColor, Metalness)* . La conversión en la otra dirección es más sencilla y más precisa, ya que todos los pares de *(BaseColor, Metalness)* se corresponden con los pares *(Diffuse, Specular)* bien definidos.
+
+## <a name="api-documentation"></a>Documentación de la API
+
+* [Clase PbrMaterial de C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pbrmaterial)
+* [RemoteManager.CreateMaterial() de C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
+* [Clase PbrMaterial de C++](https://docs.microsoft.com/cpp/api/remote-rendering/pbrmaterial)
+* [RemoteManager::CreateMaterial() de C++](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#creatematerial)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

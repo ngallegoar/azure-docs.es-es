@@ -8,12 +8,12 @@ ms.subservice: enterprise
 ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: banders
-ms.openlocfilehash: c4d328d2e2ef562813bcb529c104b3559f03066e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 140fc450623f0dcb6c7cf1bf08a8cfc43b094763
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442435"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371905"
 ---
 # <a name="azure-enterprise-transfers"></a>Transferencias de Azure Enterprise
 
@@ -101,13 +101,13 @@ El portal del Contrato Enterprise de Azure puede transferir suscripciones de un 
 
 Si se transfiere una suscripción de Azure a una cuenta que se encuentra en el mismo inquilino de Azure Active Directory, todos los usuarios, grupos y entidades de servicio que tenían [control de acceso basado en rol de Azure (Azure RBAC)](../../role-based-access-control/overview.md) para administrar recursos mantendrán su acceso.
 
-Para ver los usuarios con acceso RBAC a la suscripción:
+Para ver los usuarios con acceso Azure RBAC a la suscripción:
 
 1. En Azure Portal, abra **Suscripciones**.
 2. Seleccione la suscripción que desee ver y, después, seleccione **Control de acceso (IAM)** .
-3. Seleccione **Asignaciones de roles**. La página de asignación de roles enumera todos los usuarios que tienen acceso RBAC a la suscripción.
+3. Seleccione **Asignaciones de roles**. La página de asignaciones de roles enumera todos los usuarios que tienen acceso Azure RBAC a la suscripción.
 
-Si transfiere la suscripción a una cuenta en otro inquilino de Azure AD, todos los usuarios, grupos y entidades de servicio que tenían [RBAC](../../role-based-access-control/overview.md) para administrar recursos _perderán_ el acceso. Aunque el acceso con RBAC no está presente, el acceso a la suscripción puede estar disponible mediante mecanismos de seguridad, entre los que se incluyen:
+Si transfiere la suscripción a una cuenta en otro inquilino de Azure AD, todos los usuarios, grupos y entidades de servicio que tenían [Azure RBAC](../../role-based-access-control/overview.md) para administrar recursos _perderán_ el acceso. Aunque el acceso Azure RBAC no está presente, el acceso a la suscripción puede estar disponible mediante mecanismos de seguridad, entre los que se incluyen:
 
 - Certificados de administración que conceden al usuario derechos administrativos a los recursos de la suscripción. Para obtener más información, consulte [Crear y cargar un certificado de administración para Azure](../../cloud-services/cloud-services-certs-create.md).
 - Claves de acceso para servicios como Almacenamiento. Para más información, vea [Introducción a las cuentas de Azure Storage](../../storage/common/storage-account-overview.md).

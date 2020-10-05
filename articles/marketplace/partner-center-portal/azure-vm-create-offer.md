@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 08/07/2020
-ms.openlocfilehash: 33b3dcdc4fbcf08114f6ba6d63bb949250380d63
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: b9bacb352b3559c33a4a2ef92dc0c3af6ebbc7d6
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816531"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029709"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Creación de una oferta de máquina virtual de Azure en Azure Marketplace
 
@@ -27,7 +27,7 @@ Antes de comenzar, debe [crear una cuenta de marketplace comercial en el Centro 
 Al publicar las ofertas en Azure Marketplace, puede:
 
 - Promocionar la empresa con ayuda de la marca de Microsoft.
-- Llegar a más de 100 millones de usuarios de Office 365 y Dynamics 365, y a más de 200 000 organizaciones.
+- Llegar a más de 100 millones de usuarios de Microsoft 365 y Dynamics 365, y a más de 200 000 organizaciones.
 - Obtenga clientes potenciales de alta calidad de estos marketplaces.
 - Promocionar sus servicios por parte de los equipos de ventas de campo y televenta de Microsoft.
 
@@ -162,7 +162,7 @@ Debe proporcionar los términos y condiciones de la oferta a los clientes. Tiene
 
        a. Escriba sus propios términos de modificación en el cuadro **Custom amendment terms** (Términos de modificación personalizados). Puede escribir un número ilimitado de caracteres. Solo los clientes de los identificadores de inquilino que se especifiquen para estos términos personalizados los verán en el flujo de compra de la oferta en Azure Portal.
 
-       b. (Obligatorio) Proporcione los **identificador de inquilino**. Cada modificación personalizada puede tener como destino hasta 20 identificadores de inquilino. Si agrega una modificación personalizada, debe proporcionar al menos un identificador de inquilino, que identifica al cliente en Azure. El cliente puede encontrarlo para usted en Azure seleccionando **Azure Active Directory** > **Propiedades**. El valor del identificador de directorio es el identificador de inquilino (por ejemplo, 50c464d3-4930-494c-963c-1e951d15360e). También puede buscar el identificador de inquilino de la organización del cliente mediante su dirección web de nombre de dominio en [What is my Microsoft Azure and Office 365 tenant ID?](https://www.whatismytenantid.com/) (¿Cuál es mi identificador de inquilino de Microsoft Azure y Office 365?).
+       b. (Obligatorio) Proporcione los **identificador de inquilino**. Cada modificación personalizada puede tener como destino hasta 20 identificadores de inquilino. Si agrega una modificación personalizada, debe proporcionar al menos un identificador de inquilino, que identifica al cliente en Azure. El cliente puede encontrarlo para usted en Azure seleccionando **Azure Active Directory** > **Propiedades**. El valor del identificador de directorio es el identificador de inquilino (por ejemplo, 50c464d3-4930-494c-963c-1e951d15360e). También puede buscar el id. de inquilino de la organización del cliente mediante su dirección web de nombre de dominio en [What is my Microsoft Azure and Microsoft 365 tenant ID?](https://www.whatismytenantid.com/) (¿Cuál es mi identificador de inquilino de Microsoft Azure y Microsoft 365?).
 
        c. (Opcional) Proporcione una **Descripción** detallada del identificador de inquilino que le ayude a identificar al cliente al que está destinada la modificación.
 
@@ -547,7 +547,7 @@ Este es un ejemplo de cómo aparece la información de la oferta en Azure Market
 
 <br>Este es un ejemplo de cómo aparece la información de la oferta en los resultados de la búsqueda de Azure Marketplace:
 
-:::image type="content" source="media/example-azure-marketplace-virtual-machine-search-results.png" alt-text="Ilustración de cómo aparece esta oferta en los resultados de la búsqueda de Azure Marketplace.":::
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-search-results.png" alt-text="Ilustración de cómo aparece esta oferta en Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descripciones destacadas
 
@@ -558,7 +558,7 @@ Este es un ejemplo de cómo aparece la información de la oferta en Azure Market
 
 <br>Este es un ejemplo de los detalles del plan de Azure Marketplace:
 
-:::image type="content" source="media/example-azure-marketplace-virtual-machine-plan-details.png" alt-text="Ilustración de los detalles del plan de Azure Marketplace.":::
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-plan-details.png" alt-text="Ilustración de cómo aparece esta oferta en Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descripciones destacadas
 
@@ -568,7 +568,7 @@ Este es un ejemplo de cómo aparece la información de la oferta en Azure Market
 
 <br>Este es un ejemplo de cómo aparece la información de la oferta en Azure Portal:
 
-:::image type="content" source="media/example-azure-portal-virtual-machine-offer.png" alt-text="Ilustración de cómo aparece esta oferta en Azure Portal.":::
+:::image type="content" source="media/example-azure-portal-virtual-machine-offer.png" alt-text="Ilustración de cómo aparece esta oferta en Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descripciones destacadas
 
@@ -579,7 +579,7 @@ Este es un ejemplo de cómo aparece la información de la oferta en Azure Market
 
 <br>Este es un ejemplo de cómo aparece la información de la oferta en los resultados de la búsqueda de Azure Portal:
 
-:::image type="content" source="media/example-azure-portal-virtual-machine-search-results.png" alt-text="Ilustración de cómo aparece esta oferta en los resultados de la búsqueda de Azure Portal.":::
+:::image type="content" source="media/example-azure-portal-virtual-machine-search-results.png" alt-text="Ilustración de cómo aparece esta oferta en Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descripciones destacadas
 
@@ -589,7 +589,7 @@ Este es un ejemplo de cómo aparece la información de la oferta en Azure Market
 
 <br>Este es un ejemplo de los detalles del plan en Azure Portal:
 
-:::image type="content" source="media/example-azure-portal-virtual-machine-plan-details.png" alt-text="Ilustración de los detalles del plan en Azure Portal.":::
+:::image type="content" source="media/example-azure-portal-virtual-machine-plan-details.png" alt-text="Ilustración de cómo aparece esta oferta en Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descripciones destacadas
 

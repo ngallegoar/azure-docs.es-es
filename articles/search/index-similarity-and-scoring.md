@@ -7,13 +7,13 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 300da87ecff13fc160ec08684cf1d032f9a19f71
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/08/2020
+ms.openlocfilehash: d980764b7151183b61657434afa6c472e5058d18
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924493"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662260"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Similitud y puntuación en Azure Cognitive Search
 
@@ -40,7 +40,7 @@ Un perfil de puntuación es parte de la definición del índice que se compone d
 
 ## <a name="scoring-statistics-and-sticky-sessions"></a>Estadísticas de puntuación y sesiones permanentes
 
-Para ofrecer escalabilidad, Azure Cognitive Search distribuye cada índice horizontalmente a través de un proceso de particionamiento, lo que significa que las partes de un índice están físicamente separadas.
+Para ofrecer escalabilidad, Azure Cognitive Search distribuye cada índice horizontalmente a través de un proceso de particionamiento, lo que significa que [las partes de un índice están físicamente separadas](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards).
 
 De forma predeterminada, la puntuación de un documento se calcula en función de las propiedades estadísticas de los datos *de una partición*. Este enfoque no suele ser un problema para una gran corpus de datos y proporciona un mejor rendimiento que el cálculo de la puntuación basado en la información de todas las particiones. Dicho esto, el uso de esta optimización del rendimiento puede provocar que dos documentos muy similares (o incluso idénticos) terminen con puntuaciones de relevancia diferentes si acaban en diferentes particiones.
 

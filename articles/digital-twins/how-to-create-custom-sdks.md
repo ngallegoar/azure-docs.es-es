@@ -8,16 +8,16 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 3cf14ce3e8ef9b1d783191fe6c01c5e311d57786
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: c562708dcf554afc8dfe4acf6b525db1db677f40
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855952"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89564909"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Creación de SDK personalizados para Azure Digital Twins con AutoRest
 
-En este momento, el único SDK de plano de datos publicado para interactuar con las API de Azure Digital Twins es para .NET (C#). Puede leer sobre el SDK de .NET y las API en general, en [*Procedimiento: las API y los SDK de Azure Digital Twins*](how-to-use-apis-sdks.md). Si está trabajando en otro lenguaje, este artículo le mostrará cómo generar su propio SDK de plano de datos en el lenguaje de su elección mediante AutoRest.
+En este momento, los únicos SDK de plano de datos publicados para interactuar con las API de Azure Digital Twins son para .NET (C#) y JavaScript. Puede leer sobre estos SDK en general, en [*Procedimiento: las API y los SDK de Azure Digital Twins*](how-to-use-apis-sdks.md). Si está trabajando en otro lenguaje, este artículo le mostrará cómo generar su propio SDK de plano de datos en el lenguaje de su elección mediante AutoRest.
 
 >[!NOTE]
 > También puede usar AutoRest para generar un SDK de plano de control si lo desea. Para ello, complete los pasos descritos en este artículo con el [archivo Swagger (OpenAPI) del plano de control](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview) en lugar del plano de datos.

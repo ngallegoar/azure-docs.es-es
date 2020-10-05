@@ -8,13 +8,13 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: a16a83408587a1b99485140174c45e457ac820f8
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.date: 08/31/2020
+ms.openlocfilehash: 9564611ee37c2aa2f104bbb14096a3b2f45fb7cd
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855098"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485376"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Orígenes de eventos de Azure Time Series Insights Gen2
 
@@ -64,7 +64,7 @@ Actualmente no se admite el uso de la canalización de streaming para importar d
 
 ## <a name="event-source-timestamp"></a>Marca de tiempo de origen del evento
 
-Al configurar un origen de eventos, se le pedirá que proporcione una propiedad de identificador de marca de tiempo. La propiedad de marca de tiempo se usa para seguir eventos a lo largo del tiempo, este es el tiempo que se usará como $event.$ts en las [API de consulta](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute) y la serie de gráficos en el Explorador de Azure Time Series Insights TSI. Si no se proporcionan propiedades en el momento de la creación o si la propiedad Marca de tiempo no se encuentra en un evento, la instancia de IoT Hub del evento o los centros de eventos en cola se utilizarán como predeterminados. Los valores de propiedad de marca de tiempo se almacenan en UTC.
+Al configurar un origen de eventos, se le pedirá que proporcione una propiedad de identificador de marca de tiempo. La propiedad de marca de tiempo se usa para seguir eventos a lo largo del tiempo, este es el tiempo que se usará como $event.$ts en las [API de consulta](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute) y la serie de gráficos en el Explorador de Azure Time Series Insights. Si no se proporcionan propiedades en el momento de la creación o si la propiedad Marca de tiempo no se encuentra en un evento, la instancia de IoT Hub del evento o los centros de eventos en cola se utilizarán como predeterminados. Los valores de propiedad de marca de tiempo se almacenan en UTC.
 
 En general, los usuarios elegirán personalizar la propiedad de marca de tiempo y usar el tiempo cuando el sensor o la etiqueta generaron la lectura, en lugar de usar el tiempo en cola estándar del centro. Esto es particularmente necesario cuando los dispositivos experimentan una pérdida intermitente de conectividad y un lote de mensajes retrasados se reenvía a Azure Time Series Insights Gen2.
 

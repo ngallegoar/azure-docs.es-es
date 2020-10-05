@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: b18e08f93df143f9844fe774eee59452978d7437
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 42d9c2b4b1edac62449fa4120463a384400d6d27
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686401"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360706"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Cuentas de facturación y ámbitos en Azure Portal
 
@@ -80,11 +80,11 @@ Un ámbito es un nodo dentro de una cuenta de facturación que los usuarios util
 
 2. Busque **Administración de costos + facturación**.
 
-   ![Captura de pantalla que muestra la búsqueda en Azure Portal](./media/view-all-accounts/billing-search-cost-management-billing.png)
+   ![Captura de pantalla que muestra la búsqueda en Azure Portal de Cost Management + Billing.](./media/view-all-accounts/billing-search-cost-management-billing.png)
 
 3. En la página de información general, seleccione **Switch scope** (Cambiar ámbito).
 
-   ![Captura de pantalla que muestra los ámbitos de facturación](./media/view-all-accounts/overview-select-scopes.png)
+   ![Captura de pantalla que muestra los ámbitos de facturación.](./media/view-all-accounts/overview-select-scopes.png)
 
    > [!Note]
     >
@@ -92,7 +92,7 @@ Un ámbito es un nodo dentro de una cuenta de facturación que los usuarios util
 
 4. Seleccione un ámbito para ver los detalles.
 
-   ![Captura de pantalla que muestra los ámbitos de facturación](./media/view-all-accounts/list-of-scopes.png)
+   ![Captura de pantalla que muestra los ámbitos de facturación, que puede seleccionar para obtener más información.](./media/view-all-accounts/list-of-scopes.png)
 
 ## <a name="check-the-type-of-your-account"></a>Comprobación del tipo de la cuenta
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-account-type.md)]

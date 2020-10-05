@@ -1,6 +1,6 @@
 ---
 title: Varios dominios de Azure AD Connect
-description: En este documento se describe cómo instalar y configurar varios dominios de nivel superior con O365 y Azure AD.
+description: En este documento se describe cómo instalar y configurar varios dominios de nivel superior con Microsoft 365 y Azure AD.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,15 +16,15 @@ ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1607bf1cd6f25f56c6819a2ea3194244e10df8dd
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: f913199e0c0ed438d4b95b879d4defc072c615aa
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89277544"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662445"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Compatibilidad con varios dominios para la federación con Azure AD
-La siguiente documentación proporciona una guía sobre cómo usar varios dominios y subdominios de nivel superior al federarse con Office 365 o con dominios de Azure AD.
+La siguiente documentación proporciona una guía sobre cómo usar varios dominios y subdominios de nivel superior al federarse con Microsoft 365 o con dominios de Azure AD.
 
 ## <a name="multiple-top-level-domain-support"></a>Compatibilidad con varios dominios de nivel superior
 La federación de varios dominios de nivel superior con Azure AD requiere una configuración adicional que no es necesaria al federarse con un dominio de nivel superior.
@@ -42,7 +42,7 @@ Puede ver el valor de IssuerUri con el comando `Get-MsolDomainFederationSettings
 
 Se produce un problema cuando se quiere agregar más de un dominio de nivel superior.  Por ejemplo, supongamos que ha configurado la federación entre Azure AD y el entorno local.  Para este documento, el dominio, se utiliza bmcontoso.com.  Ahora se ha agregado un segundo dominio de nivel superior, bmfabrikam.com.
 
-![Dominios](./media/how-to-connect-install-multiple-domains/domains.png)
+![Captura de pantalla que muestra varios dominios de nivel superior](./media/how-to-connect-install-multiple-domains/domains.png)
 
 Cuando se intenta convertir el dominio bmfabrikam.com en federado, se recibe un error.  Esto se debe a que Azure AD tiene una restricción que no permite que la propiedad IssuerUri tenga el mismo valor para más de un dominio.  
 
@@ -67,7 +67,7 @@ Si examina la configuración del nuevo dominio bmfabrikam.com, observará lo sig
 
 Otra cosa que hace `-SupportMultipleDomain` es garantizar que el sistema de AD FS incluya el valor Issuer apropiado en los tokens emitidos para Azure AD. Este valor se establece tomando la parte de dominio del UPN de los usuarios y la establece como dominio en IssuerUri, es decir, https://{upn suffix}/adfs/services/trust.
 
-Por lo tanto, durante la autenticación en Azure AD u Office 365, el elemento IssuerUri del token del usuario se usa para buscar el dominio en Azure AD.  Si no se encuentra una coincidencia, se producirá un error en la autenticación.
+Por lo tanto, durante la autenticación en Azure AD o Microsoft 365, se usa el elemento IssuerUri del token del usuario para buscar el dominio en Azure AD. Si no se encuentra una coincidencia, se producirá un error en la autenticación.
 
 Por ejemplo, si el UPN de un usuario es bsimon@bmcontoso.com, la propiedad IssuerUri del token que emite AD FS se establecerá en `http://bmcontoso.com/adfs/services/trust`. Este elemento coincidirá con la configuración de Azure AD y la autenticación se realizará correctamente.
 

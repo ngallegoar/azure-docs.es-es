@@ -3,12 +3,12 @@ title: Compatibilidad para la evaluación de servidores físicos en Azure Migrat
 description: Obtenga información sobre la compatibilidad para la evaluación de servidores físicos con la herramienta Server Assessment de Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 2b96bff7468f0705f2b80f60dcd5248960495f16
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: dffa95fe717f8588f56b9dee60ede8bbf44aceb9
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640130"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660346"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Matriz de compatibilidad para la evaluación de servidores físicos 
 
@@ -35,7 +35,7 @@ Para evaluar los servidores físicos, cree un proyecto de Azure Migrate y, a con
 | :-------------------       | :------------------- |
 | **Implementación de servidor físico**       | El servidor físico puede ser independiente o implementarse en un clúster. |
 | **Permisos**           | **Windows:** Use una cuenta de dominio para máquinas unidas a un dominio y una cuenta local para las máquinas no unidas a un dominio. Debe agregar la cuenta de usuario a estos grupos: Usuarios de administración remota, Usuarios de Monitor de rendimiento y Usuarios del registro de rendimiento. <br/><br/> **Linux:** Necesita una cuenta raíz en los servidores Linux que desee detectar. <br/> Como alternativa, asegúrese de que se establecen las funcionalidades necesarias mediante los siguientes comandos. <br/> setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br/> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk (if /usr/sbin/fdisk is not present) <br/> setcap "cap_dac_override, cap_dac_read_search, cap_fowner,cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap=+eip" /sbin/lvm <br/> setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode <br/> chmod a+r /sys/class/dmi/id/product_uuid
-| **Sistema operativo** | Todos los sistemas operativos excepto Windows Server 2003 y SUSE Linux se pueden evaluar para la migración. |
+| **Sistema operativo** | Todos los sistemas operativos Windows y Linux se pueden evaluar para la migración. |
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisitos del dispositivo de Azure Migrate

@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 09/14/2020
 ms.author: jingwang
-ms.openlocfilehash: dd5e116f0c6844abeffc27820da03462c6e1cbbc
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 368b8d614ca77692e08a3cbe38132f5aff4eab91
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718210"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061162"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Formato Excel en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -36,7 +36,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 | firstRowAsHeader | Especifica si se debe tratar la primera fila del rango o la hoja de cálculo determinados como una línea de encabezado con nombres de columnas.<br>Los valores permitidos son **true** y **false** (predeterminado). | No       |
 | nullValue        | Especifica la representación de cadena del valor null. <br>El valor predeterminado es una **cadena vacía**. | No       |
 | compression | Grupo de propiedades para configurar la compresión de archivo. Configure esta sección si desea realizar la compresión o descompresión durante la ejecución de la actividad. | No |
-| type<br/>(*en `compression`* ) | El códec de compresión usado para leer y escribir archivos JSON. <br>Los valores permitidos son **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **snappy** o **lz4** para usar al guardar el archivo. La opción predeterminada no se comprime.<br>**Tenga en cuenta** que actualmente la actividad de copia no admite "snappy" ni "lz4", y que el flujo de datos de asignación no admite "ZipDeflate".<br>**Tenga en cuenta** que cuando utilice la actividad de copia para descomprimir archivos **ZipDeflate** y escribir en el almacén de datos de receptores basado en archivos, los archivos se extraerán a la carpeta `<path specified in dataset>/<folder named as source zip file>/`. | No.  |
+| type<br/>(*en `compression`* ) | El códec de compresión usado para leer y escribir archivos JSON. <br>Los valores permitidos son **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **TarGzip**, **snappy** o **lz4**. La opción predeterminada no se comprime.<br>**Tenga en cuenta** que actualmente la actividad de copia no admite "snappy" ni "lz4", y que el flujo de datos de asignación no admite "ZipDeflate".<br>**Tenga en cuenta** que cuando utilice la actividad de copia para descomprimir archivos **ZipDeflate** y escribir en el almacén de datos de receptores basado en archivos, los archivos se extraerán a la carpeta `<path specified in dataset>/<folder named as source zip file>/`. | No.  |
 | level<br/>(*en `compression`* ) | La razón de compresión. <br>Los valores permitidos son **Optimal** o **Fastest**.<br>- **Fastest:** la operación de compresión debe completarse tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima.<br>- **Optimal**: la operación de compresión se debe comprimir óptimamente, incluso si tarda más tiempo en completarse. Para más información, consulte el tema [Nivel de compresión](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | No       |
 
 A continuación, se muestra un ejemplo de un conjunto de datos de Excel en Azure Blob Storage:

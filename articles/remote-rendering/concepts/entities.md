@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 20de83e190a419b95c99c1c1238eb931910feb82
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1c49c7bfaa7714dda902d05537fbe3d8a55d5abe
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020293"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613919"
 ---
 # <a name="entities"></a>Entidades
 
@@ -21,7 +21,7 @@ Una *entidad* representa un objeto movible en el espacio y es el bloque de creac
 
 Las entidades tienen una transformación definida por una posición, rotación y escala. Por sí mismas, las entidades no tienen ninguna funcionalidad observable. En su lugar, el comportamiento se agrega a través de los componentes, que están asociados a las entidades. Por ejemplo, al adjuntar un elemento [CutPlaneComponent](../overview/features/cut-planes.md), se creará un plano de corte en la posición de la entidad.
 
-El aspecto más importante de la propia entidad es la jerarquía y la transformación jerárquica resultante. Por ejemplo, cuando se asocian varias entidades como elementos secundarios a una entidad primaria compartida, todas estas entidades se pueden mover, girar y reducir horizontalmente al unísono cambiando la transformación de la entidad primaria.
+El aspecto más importante de la propia entidad es la jerarquía y la transformación jerárquica resultante. Por ejemplo, cuando se asocian varias entidades como elementos secundarios a una entidad primaria compartida, todas estas entidades se pueden mover, girar y reducir horizontalmente al unísono cambiando la transformación de la entidad primaria. Además, se puede usar el estado `enabled` de la entidad para desactivar la visibilidad y las respuestas para las proyecciones de rayo de un subgráfico completo de la jerarquía.
 
 Una entidad es propiedad exclusiva de su elemento primario, lo que significa que cuando el elemento primario se destruye con `Entity.Destroy()`, lo mismo ocurre con sus elementos secundarios y todos los [componentes](components.md) conectados. Por lo tanto, para quitar un modelo de la escena se realiza una llamada a `Destroy` en el nodo raíz de un modelo, devuelto por `AzureSession.Actions.LoadModelAsync()` o su variante `AzureSession.Actions.LoadModelFromSASAsync()` de SAS.
 
@@ -95,7 +95,6 @@ Double3 translation = entity->GetPosition();
 Quaternion rotation = entity->GetRotation();
 ```
 
-
 ### <a name="querying-spatial-bounds"></a>Consulta de enlaces espaciales
 
 Las consultas de límites son llamadas asincrónicas que operan en una jerarquía de objetos completa, utilizando una entidad como raíz. Vea el capítulo dedicado acerca de los [Límites de objetos](object-bounds.md).
@@ -137,6 +136,13 @@ metaDataQuery->Completed([](const ApiHandle<MetadataQueryAsync>& query)
 ```
 
 La consulta se realizará correctamente incluso si el objeto no contiene metadatos.
+
+## <a name="api-documentation"></a>Documentación de la API
+
+* [Clase Entity de C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.entity)
+* [RemoteManager.CreateEntity() de C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.createentity)
+* [Clase Entity de C++](https://docs.microsoft.com/cpp/api/remote-rendering/entity)
+* [RemoteManager::CreateEntity() de C++](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#createentity)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

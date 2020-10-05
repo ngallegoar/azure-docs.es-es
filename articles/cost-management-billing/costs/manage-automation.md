@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: eb6ed73305d55b4f76464a4567c6b53715b10c3a
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 2bf28384ae672440a18331cad8ac95f6ea051b85
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526653"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372194"
 ---
 # <a name="manage-costs-with-automation"></a>Administración de costos con Automation
 
@@ -234,7 +234,7 @@ Hay muchas formas de configurar presupuestos en el entorno de Azure. Para hacerl
 - **Período de tiempo**: representa el plazo de validez de un presupuesto. El presupuesto supervisa activamente y le alerta solo mientras sigue siendo válido.
 - **Notificaciones**
   - Correos electrónicos de contacto: las direcciones de correo electrónico reciben alertas cuando un presupuesto acumula costos y supera los umbrales definidos.
-  - Roles de contacto: todos los usuarios que tienen un rol de Azure RBAC que coincida en el ámbito dado reciben alertas por correo electrónico con esta opción. Por ejemplo, los propietarios de suscripciones podrían recibir una alerta de un presupuesto creado en el ámbito de la suscripción.
+  - Roles de contacto: todos los usuarios que tienen un rol de Azure que coincida en el ámbito dado reciben alertas por correo electrónico con esta opción. Por ejemplo, los propietarios de suscripciones podrían recibir una alerta de un presupuesto creado en el ámbito de la suscripción.
   - Grupos de contactos: el presupuesto llama a los grupos de acciones configurados cuando se supera un umbral de alerta.
 - **Filtros de dimensión de costo** : el mismo filtro que puede realizar en Análisis de costos o en Query API también se puede realizar en el presupuesto. Este filtro se usa para reducir el rango de costos que se supervisan con el presupuesto.
 

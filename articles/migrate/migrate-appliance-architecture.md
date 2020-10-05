@@ -3,12 +3,12 @@ title: Arquitectura del dispositivo de Azure Migrate
 description: Proporciona información general sobre el dispositivo de Azure Migrate usado en la evaluación y migración del servidor.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: a83e044acc329572a5f3bfd4856f90379319ba1d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 623790568fb8d86d8065711439f148211fc7fd6b
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919750"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514581"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Arquitectura del dispositivo de Azure Migrate
 
@@ -62,15 +62,15 @@ Los datos recopilados por el cliente para todos los escenarios de implementació
 
 ## <a name="discovery-and-collection-process"></a>Proceso de detección y recopilación
 
-![Architecture](./media/migrate-appliance-architecture/architecture.png)
+![Architecture](./media/migrate-appliance-architecture/architecture1.png)
 
 El dispositivo se comunica con instancias de vCenter Server y hosts o clústeres de Hyper-V mediante el siguiente proceso.
 
 1. **Inicio de la detección**:
-    - Cuando inicia la detección en el dispositivo de Hyper-V, se comunica con los hosts de Hyper-V en los puertos 5985 (HTTP) y 5986 (HTTPS) de WinRM.
+    - Cuando inicia la detección en el dispositivo de Hyper-V, se comunica con los hosts de Hyper-V en el puerto 5985 (HTTP) de WinRM.
     - Al iniciar la detección en el dispositivo de VMware, se comunica con vCenter Server en el puerto TCP 443 de forma predeterminada. Si vCenter Server escucha en otro puerto, puede configurarlo en la aplicación web del dispositivo.
 2. **Recopilación de metadatos y datos de rendimiento**:
-    - El dispositivo usa una sesión del Modelo de información común (CIM) para recopilar datos de VM de Hyper-V del host de Hyper-V en los puertos 5985 y 5986.
+    - El dispositivo usa una sesión del Modelo de información común (CIM) para recopilar datos de VM de Hyper-V del host de Hyper-V en el puerto 5985.
     - De forma predeterminada, el dispositivo se comunica con el puerto 443 para recopilar datos de VM de VMware de vCenter Server.
 3. **Envío de datos**: El dispositivo envía los datos recopilados a Azure Migrate Server Assessment y Azure Migrate Server Migration a través del puerto SSL 443. El dispositivo puede conectarse a Azure a través de Internet, o puede usar ExpressRoute con emparejamiento público o de Microsoft.
     - Para los datos de rendimiento, el dispositivo recopila los datos de uso en tiempo real.
@@ -81,17 +81,12 @@ El dispositivo se comunica con instancias de vCenter Server y hosts o clústeres
     - Para Server Migration, el dispositivo empieza a recopilar datos de VM y los replica en Azure.
 4. **Evaluación y migración**: Ahora puede crear evaluaciones a partir de los metadatos recopilados por el dispositivo mediante Azure Migrate Server Assessment. Además, también puede empezar a migrar VM de VMware mediante Azure Migrate Server Migration para orquestar la replicación de VM sin agente.
 
-
-
-
-
 ## <a name="appliance-upgrades"></a>Actualizaciones del dispositivo
 
 El dispositivo se actualiza a medida que se actualizan los agentes de Azure Migrate que se ejecutan en el dispositivo. Esto sucede automáticamente porque la actualización automática está habilitada en el dispositivo de forma predeterminada. Puede cambiar esta configuración predeterminada para actualizar los agentes manualmente.
 
 Para desactivar la actualización automática en el registro, establezca la clave "AutoUpdate" que se encuentra en HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\AzureAppliance en 0 (DWORD).
 
- 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

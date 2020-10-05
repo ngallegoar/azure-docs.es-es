@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f2c8dbebce685eea67672a2b8c93d51e356ac69c
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: deffa5c75cbde4f9d95be549844478d4de87a685
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226060"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069635"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementación de Azure File Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -157,7 +157,7 @@ Para implementar un servicio de sincronización de almacenamiento, vaya a [Azure
 
 En el panel que se abre, escriba la siguiente información:
 
-- **Name**: Un nombre único (por suscripción) para el servicio de sincronización de almacenamiento.
+- **Name**: un nombre único (por región) para el servicio de sincronización de almacenamiento.
 - **Suscripción**: la suscripción en la que quiere crear el servicio de sincronización de almacenamiento. Según la estrategia de configuración de la organización, puede tener acceso a una o más suscripciones. Una suscripción de Azure es el contenedor más básico para la facturación de cada servicio en la nube (como Azure Files).
 - **Grupo de recursos**: un grupo de recursos es un grupo lógico de recursos de Azure, como una cuenta de almacenamiento o un servicio de sincronización de almacenamiento. Puede crear un nuevo grupo de recursos o seleccionar uno existente para Azure File Sync. (Se recomienda usar los grupos de recursos como contenedores para aislar los recursos de manera lógica para su organización, como la agrupación de recursos de RR. HH. o recursos de un proyecto específico).
 - **Ubicación**: la región en la que quiere implementar Azure File Sync. Solo las regiones admitidas están disponibles en esta lista.
@@ -403,6 +403,9 @@ az storagesync sync-group cloud-endpoint create --resource-group myResourceGroup
 
 ## <a name="create-a-server-endpoint"></a>Creación de un punto de conexión de servidor
 Un punto de conexión de servidor representa una ubicación específica en un servidor registrado, como una carpeta en un volumen de servidor. Un punto de conexión de servidor debe ser una ruta de acceso en un servidor registrado (en lugar de un recurso compartido montado) y para usar niveles de nube, la ruta de acceso debe estar en un volumen que no sea del sistema. No se admite el almacenamiento conectado a la red (NAS).
+
+> [!NOTE]
+> No se admite el cambio de la ruta de acceso o letra de unidad después de establecer un punto de conexión de servidor en un volumen. Asegúrese de que está usando una ruta de acceso final en el servidor registrado.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Para agregar un punto de conexión de servidor, vaya al grupo de sincronización recién creado y seleccione **Agregar punto de conexión del servidor**.

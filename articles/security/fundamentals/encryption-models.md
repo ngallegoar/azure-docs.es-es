@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/13/2020
+ms.date: 09/09/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 51d7cb32ef2d1d7750a0bb53cfa3ccc111bd1302
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 836e01d3cd8fb25dda1616803d8b6f3e9ff4e06f
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89143740"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645753"
 ---
 # <a name="data-encryption-models"></a>Modelos de cifrado de datos
 
@@ -157,7 +157,7 @@ Los servicios de Azure que admiten cada modelo de cifrado:
 | QnA Maker                        | Sí                | Sí                | -                  |
 | Speech Services                  | Sí                | Sí                | -                  |
 | Translator Text                  | Sí                | Sí                | -                  |
-| Power BI                         | Sí                | Versión preliminar, RSA de 2048 bits | -                  |
+| Power BI                         | Sí                | Sí, RSA de 4096 bits  | -                  |
 | **Analytics**                    |                    |                    |                    |
 | Azure Stream Analytics           | Sí                | N/D\*              | -                  |
 | Event Hubs                       | Sí                | Sí                | -                  |

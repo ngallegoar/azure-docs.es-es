@@ -1,6 +1,6 @@
 ---
 title: Actividad de procedimiento almacenado de SQL Server
-description: Sepa cómo usar la actividad de procedimiento almacenado de SQL Server para invocar un procedimiento almacenado en una base de datos de Azure SQL o un almacenamiento de Azure SQL Data Warehouse desde una canalización de Data Factory.
+description: Obtenga información sobre cómo usar la actividad de procedimiento almacenado de SQL Server para invocar un procedimiento almacenado en una base de datos de Azure SQL o una instancia de Azure Synapse Analytics desde una canalización de Data Factory.
 services: data-factory
 documentationcenter: ''
 ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
@@ -12,12 +12,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: b348f3f3684d580ca84eed9b9a094717c12cf849
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c64c40e96c0ff5864e5b9c9d34bad896c0b03d91
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85319091"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441704"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Actividad de procedimiento almacenado de SQL Server
 > [!div class="op_single_selector" title1="Actividades de transformación"]
@@ -41,13 +41,13 @@ Las actividades de transformación en una [canalización](data-factory-create-pi
 Puede usar la actividad de procedimiento almacenado para invocar un procedimiento almacenado en uno de los siguientes almacenes de datos de la empresa o en una máquina virtual (VM) de Azure:
 
 - Azure SQL Database
-- Azure SQL Data Warehouse
+- Azure Synapse Analytics (anteriormente SQL Data Warehouse)
 - Base de datos de SQL Server. Si se usa SQL Server, se debe instalar la puerta de enlace de administración de datos en el mismo equipo que hospeda la base de datos o en un equipo independiente que tenga acceso a la base de datos. La puerta de enlace de administración de datos es un componente que conecta orígenes de datos locales o en la máquina virtual de Azure con servicios en la nube de forma segura y administrada. Consulte el artículo [Data Management Gateway](data-factory-data-management-gateway.md) para obtener detalles.
 
 > [!IMPORTANT]
-> Al copiar datos en Azure SQL Database o SQL Server, se puede configurar **SqlSink** en la actividad de copia para invocar un procedimiento almacenado mediante la propiedad **sqlWriterStoredProcedureName**. Para más información, consulte [Invocación del procedimiento almacenado desde la actividad de copia en Azure Data Factory](data-factory-invoke-stored-procedure-from-copy-activity.md). Para más información sobre la propiedad, consulte los artículos sobre los conectores siguientes: [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties). No se admite la invocación de un procedimiento almacenado al copiar datos en Azure SQL Data Warehouse mediante una actividad de copia. Sin embargo, puede usar la actividad de procedimiento almacenado para invocar un procedimiento almacenado en un SQL Data Warehouse.
+> Al copiar datos en Azure SQL Database o SQL Server, se puede configurar **SqlSink** en la actividad de copia para invocar un procedimiento almacenado mediante la propiedad **sqlWriterStoredProcedureName**. Para más información, consulte [Invocación del procedimiento almacenado desde la actividad de copia en Azure Data Factory](data-factory-invoke-stored-procedure-from-copy-activity.md). Para más información sobre la propiedad, consulte los artículos sobre los conectores siguientes: [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties). No se admite la invocación de un procedimiento almacenado al copiar datos en Azure Synapse Analytics mediante una actividad de copia. Pero se puede usar la actividad de procedimiento almacenado para invocar un procedimiento almacenado de Azure Synapse Analytics.
 >
-> Al copiar datos de Azure SQL Database, SQL Server o Azure SQL Data Warehouse, se puede configurar **SqlSource** en la actividad de copia para invocar un procedimiento almacenado de lectura de datos mediante la propiedad **sqlReaderStoredProcedureName**. Para más información, consulte los artículos sobre los conectores siguientes: [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)
+> Al copiar datos de Azure SQL Database, SQL Server o Azure Synapse Analytics, se puede configurar **SqlSource** en la actividad de copia para invocar un procedimiento almacenado de lectura de datos desde la base de datos de origen mediante la propiedad **sqlReaderStoredProcedureName**. Para más información, consulte los artículos sobre los conectores siguientes: [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)
 
 El siguiente procedimiento usa la actividad del procedimiento almacenado en una canalización para invocar un procedimiento almacenado en Azure SQL Database.
 
@@ -70,7 +70,7 @@ El siguiente procedimiento usa la actividad del procedimiento almacenado en una 
     
     ![Datos de muestra](./media/data-factory-stored-proc-activity/sample-data.png)
 
-    En este ejemplo, el procedimiento almacenado está en una base de datos de Azure SQL Database. Si el procedimiento almacenado está en un Azure SQL Data Warehouse y una base de datos de SQL Server, el enfoque es similar. Para una base de datos de SQL Server, debe instalar una [Puerta de enlace de administración de datos](data-factory-data-management-gateway.md).
+    En este ejemplo, el procedimiento almacenado está en una base de datos de Azure SQL Database. Si el procedimiento almacenado está en Azure Synapse Analytics y una base de datos de SQL Server, el enfoque es similar. Para una base de datos de SQL Server, debe instalar una [Puerta de enlace de administración de datos](data-factory-data-management-gateway.md).
 2. Cree el siguiente **procedimiento almacenado**, que inserta datos en **sampletable**.
 
     ```SQL
@@ -90,10 +90,10 @@ El siguiente procedimiento usa la actividad del procedimiento almacenado en una 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. En el menú de la izquierda, haga clic en **NUEVO**, en **Inteligencia y análisis** y en **Data Factory**.
 
-    ![Nueva factoría de datos](media/data-factory-stored-proc-activity/new-data-factory.png)
+    ![Nueva factoría de datos 1](media/data-factory-stored-proc-activity/new-data-factory.png)
 3. En la hoja **Nueva factoría de datos**, escriba **SProcDF** para el nombre. Los nombres de Azure Data Factory son **únicos globalmente**. Es necesario agregar su nombre como prefijo al nombre de la factoría de datos para permitir la creación correcta de la factoría.
 
-   ![Nueva factoría de datos](media/data-factory-stored-proc-activity/new-data-factory-blade.png)
+   ![Nueva factoría de datos 2](media/data-factory-stored-proc-activity/new-data-factory-blade.png)
 4. Seleccione la **suscripción de Azure**.
 5. Para el **grupo de recursos**, realice uno de los siguientes pasos:
    1. Haga clic en **Crear nuevo** y escriba un nombre para el grupo de recursos.
@@ -111,7 +111,7 @@ Después de crear la factoría de datos, cree un servicio vinculado de Azure SQL
 1. En la hoja **Crear e implementar**, haga clic en la hoja **Data Factory** para que **SProcDF** inicie Data Factory Editor.
 2. Haga clic en **Nuevo almacén de datos** en la barra de comandos y elija **Azure SQL Database**. Debería ver el script JSON para crear un servicio vinculado SQL de Azure en el editor.
 
-   ![Nuevo almacén de datos](media/data-factory-stored-proc-activity/new-data-store.png)
+   ![Nuevo almacén de datos 1](media/data-factory-stored-proc-activity/new-data-store.png)
 3. Realice los siguientes cambios en el script JSON:
 
    1. Reemplace `<servername>` por el nombre del servidor.
@@ -119,17 +119,17 @@ Después de crear la factoría de datos, cree un servicio vinculado de Azure SQL
    3. Reemplace `<username@servername>` por la cuenta de usuario que tiene acceso a la base de datos.
    4. Reemplace `<password>` por la contraseña de la cuenta de usuario.
 
-      ![Nuevo almacén de datos](media/data-factory-stored-proc-activity/azure-sql-linked-service.png)
+      ![Nuevo almacén de datos 2](media/data-factory-stored-proc-activity/azure-sql-linked-service.png)
 4. Para implementar el servicio vinculado, haga clic en **Implementar** en la barra de comandos. Confirme que AzureSqlLinkedService aparece en la vista de árbol a la izquierda.
 
-    ![vista de árbol con servicios vinculados](media/data-factory-stored-proc-activity/tree-view.png)
+    ![vista de árbol con servicios vinculados 1](media/data-factory-stored-proc-activity/tree-view.png)
 
 ### <a name="create-an-output-dataset"></a>Crear un conjunto de datos de salida
-Debe especificar un conjunto de datos de salida para una actividad de procedimiento almacenado aunque el procedimiento almacenado no genere ningún dato. Esto se debe a que se trata del conjunto de datos de salida que determina la programación de la actividad (frecuencia con que se ejecuta la actividad: cada hora, diariamente, etc.). El conjunto de datos de salida debe utilizar un **servicio vinculado** que haga referencia a una base de datos de Azure SQL, una base de datos de almacenamiento de Azure SQL o una base de datos de SQL Server donde desee que el procedimiento almacenado se ejecute. El conjunto de datos de salida puede usarse como una forma de pasar el resultado del procedimiento almacenado para su posterior procesamiento por otra actividad ([encadenamiento de actividades](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)) en la canalización. Sin embargo, Data Factory no escribe automáticamente la salida de un procedimiento almacenado en este conjunto de datos. Es el procedimiento almacenado el que escribe en una tabla SQL a la que apunta el conjunto de datos de salida. En algunos casos, el conjunto de datos de salida puede ser un **conjunto de datos ficticio** (un conjunto de datos que apunta a una tabla que no contiene realmente la salida del procedimiento almacenado). Este conjunto de datos ficticio solo se usa para especificar la programación de la ejecución de la actividad de procedimiento almacenado.
+Debe especificar un conjunto de datos de salida para una actividad de procedimiento almacenado aunque el procedimiento almacenado no genere ningún dato. Esto se debe a que se trata del conjunto de datos de salida que determina la programación de la actividad (frecuencia con que se ejecuta la actividad: cada hora, diariamente, etc.). El conjunto de datos de salida debe usar un **servicio vinculado** que haga referencia a una base de datos de Azure SQL, una instancia de Azure Synapse Analytics o una base de datos de SQL Server en la que quiera que el procedimiento almacenado se ejecute. El conjunto de datos de salida puede usarse como una forma de pasar el resultado del procedimiento almacenado para su posterior procesamiento por otra actividad ([encadenamiento de actividades](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)) en la canalización. Sin embargo, Data Factory no escribe automáticamente la salida de un procedimiento almacenado en este conjunto de datos. Es el procedimiento almacenado el que escribe en una tabla SQL a la que apunta el conjunto de datos de salida. En algunos casos, el conjunto de datos de salida puede ser un **conjunto de datos ficticio** (un conjunto de datos que apunta a una tabla que no contiene realmente la salida del procedimiento almacenado). Este conjunto de datos ficticio solo se usa para especificar la programación de la ejecución de la actividad de procedimiento almacenado.
 
 1. Haga clic en **... Más** en la barra de herramientas, haga clic en **Nuevo conjunto de datos** y en **Azure SQL**. Haga clic en **Nuevo conjunto de datos** en la barra de comandos y seleccione **Azure SQL**.
 
-    ![vista de árbol con servicios vinculados](media/data-factory-stored-proc-activity/new-dataset.png)
+    ![vista de árbol con servicios vinculados 2](media/data-factory-stored-proc-activity/new-dataset.png)
 2. Copie y pegue el siguiente script JSON en el editor de JSON.
 
     ```JSON
@@ -200,13 +200,13 @@ Tenga en cuenta las siguientes propiedades:
 ### <a name="monitor-the-pipeline"></a>Supervisar la canalización
 1. Haga clic en el botón **X** para cerrar las hojas del Editor de Data Factory y volver a la hoja de Data Factory. A continuación, haga clic en **Diagrama**.
 
-    ![icono Diagrama](media/data-factory-stored-proc-activity/data-factory-diagram-tile.png)
+    ![Icono Diagrama 1](media/data-factory-stored-proc-activity/data-factory-diagram-tile.png)
 2. En la **Vista de diagrama**, se ve información general de las canalizaciones y los conjuntos de datos empleados en este tutorial.
 
-    ![icono Diagrama](media/data-factory-stored-proc-activity/data-factory-diagram-view.png)
+    ![Icono Diagrama 2](media/data-factory-stored-proc-activity/data-factory-diagram-view.png)
 3. En la Vista de diagrama, haga doble clic en el conjunto de datos `sprocsampleout`. Verá los segmentos con estado Listo. Debería haber cinco segmentos, porque se genera un segmento para cada hora entre la hora de inicio y de finalización del código JSON.
 
-    ![icono Diagrama](media/data-factory-stored-proc-activity/data-factory-slices.png)
+    ![Icono Diagrama 3](media/data-factory-stored-proc-activity/data-factory-slices.png)
 4. Cuando un segmento tiene el estado **Listo**, ejecute una consulta `select * from sampletable` en la base de datos para comprobar que el procedimiento almacenado insertó los datos en la tabla.
 
    ![Datos de salida](./media/data-factory-stored-proc-activity/output.png)
@@ -277,7 +277,7 @@ De manera similar, para vincular la actividad de procedimiento almacenado con **
 > [!IMPORTANT]
 > Al copiar datos en Azure SQL Database o SQL Server, se puede configurar **SqlSink** en la actividad de copia para invocar un procedimiento almacenado mediante la propiedad **sqlWriterStoredProcedureName**. Para más información, consulte [Invocación del procedimiento almacenado desde la actividad de copia en Azure Data Factory](data-factory-invoke-stored-procedure-from-copy-activity.md). Para más información sobre la propiedad, consulte los artículos sobre los conectores siguientes: [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties).
 > 
-> Al copiar datos de Azure SQL Database, SQL Server o Azure SQL Data Warehouse, se puede configurar **SqlSource** en la actividad de copia para invocar un procedimiento almacenado de lectura de datos mediante la propiedad **sqlReaderStoredProcedureName**. Para más información, consulte los artículos sobre los conectores siguientes: [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)
+> Al copiar datos de Azure SQL Database, SQL Server o Azure Synapse Analytics, se puede configurar **SqlSource** en la actividad de copia para invocar un procedimiento almacenado de lectura de datos desde la base de datos de origen mediante la propiedad **sqlReaderStoredProcedureName**. Para más información, consulte los artículos sobre los conectores siguientes: [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)
 
 ## <a name="json-format"></a>Formato JSON
 Este es el formato JSON para definir una actividad de procedimiento almacenado:
@@ -309,8 +309,8 @@ En la tabla siguiente se describen estas propiedades JSON:
 | description |Texto que describe para qué se usa la actividad. |No |
 | type | Se debe establecer en: **SqlServerStoredProcedure** | Sí |
 | inputs | Opcional. Si especifica un conjunto de datos de entrada, debe estar disponible (en estado "Listo") para que se ejecute la actividad de procedimiento almacenado. El conjunto de datos de entrada no se puede usar en el procedimiento almacenado como parámetro. Solo se utiliza para comprobar la dependencia antes de iniciar la actividad de procedimiento almacenado. |No |
-| outputs | Debe especificar un conjunto de datos para una actividad de procedimiento almacenado. El conjunto de datos de salida especifica la **programación** para la actividad de procedimiento almacenada (por hora, semanal, mensual, etc.). <br/><br/>El conjunto de datos de salida debe utilizar un **servicio vinculado** que haga referencia a una base de datos de Azure SQL, una base de datos de almacenamiento de Azure SQL o una base de datos de SQL Server donde desee que el procedimiento almacenado se ejecute. <br/><br/>El conjunto de datos de salida puede usarse como una forma de pasar el resultado del procedimiento almacenado para su posterior procesamiento por otra actividad ([encadenamiento de actividades](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)) en la canalización. Sin embargo, Data Factory no escribe automáticamente la salida de un procedimiento almacenado en este conjunto de datos. Es el procedimiento almacenado el que escribe en una tabla SQL a la que apunta el conjunto de datos de salida. <br/><br/>En algunos casos, el conjunto de datos de salida puede ser un **conjunto de datos ficticio**, que solo se utilice para especificar la programación para ejecutar la actividad de procedimiento almacenado. |Sí |
-| storedProcedureName |Especifique el nombre del procedimiento almacenado en Azure SQL Database, Azure SQL Data Warehouse o SQL Server que se representa mediante el servicio vinculado que usa la tabla de salida. |Sí |
+| outputs | Debe especificar un conjunto de datos para una actividad de procedimiento almacenado. El conjunto de datos de salida especifica la **programación** para la actividad de procedimiento almacenada (por hora, semanal, mensual, etc.). <br/><br/>El conjunto de datos de salida debe usar un **servicio vinculado** que haga referencia a una base de datos de Azure SQL, una instancia de Azure Synapse Analytics o una base de datos de SQL Server en la que quiera que el procedimiento almacenado se ejecute. <br/><br/>El conjunto de datos de salida puede usarse como una forma de pasar el resultado del procedimiento almacenado para su posterior procesamiento por otra actividad ([encadenamiento de actividades](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)) en la canalización. Sin embargo, Data Factory no escribe automáticamente la salida de un procedimiento almacenado en este conjunto de datos. Es el procedimiento almacenado el que escribe en una tabla SQL a la que apunta el conjunto de datos de salida. <br/><br/>En algunos casos, el conjunto de datos de salida puede ser un **conjunto de datos ficticio**, que solo se utilice para especificar la programación para ejecutar la actividad de procedimiento almacenado. |Sí |
+| storedProcedureName |Especifique el nombre del procedimiento almacenado en Azure SQL Database, Azure Synapse Analytics o SQL Server que se representa mediante el servicio vinculado que usa la tabla de salida. |Sí |
 | storedProcedureParameters |Especifique valores para los parámetros del procedimiento almacenado. Si necesita pasar null para un parámetro, use la sintaxis: "param1": null (todo en minúsculas). Vea el ejemplo siguiente para aprender el uso de esta propiedad. |No |
 
 ## <a name="passing-a-static-value"></a>Pasar un valor estático

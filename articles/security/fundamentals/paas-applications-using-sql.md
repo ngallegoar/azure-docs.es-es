@@ -1,6 +1,6 @@
 ---
 title: Protección de bases de datos de PaaS en Azure | Microsoft Docs
-description: 'Obtenga información sobre los procedimientos recomendados de seguridad de Azure SQL Database y SQL Data Warehouse para proteger las aplicaciones web y móviles PaaS. '
+description: 'Obtenga información sobre los procedimientos recomendados de seguridad de Azure SQL Database y Azure Synapse Analytics para proteger las aplicaciones web y móviles PaaS. '
 services: security
 documentationcenter: na
 author: techlake
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 9c821a8898b61517dd5d6c872c8516bad6db6968
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a02b2157209b5f47ac7ffbde4e15f3e7df1c258b
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84012966"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462537"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Procedimientos recomendados para proteger bases de datos PaaS en Azure
 
-En este artículo se presenta una colección de procedimientos recomendados de seguridad de [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md) y [SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) para proteger las aplicaciones web y móviles de plataforma como servicio (PaaS). Estos procedimientos recomendados proceden de nuestra experiencia con Azure y las experiencias de clientes como usted.
+En este artículo se presenta una colección de procedimientos recomendados de seguridad de [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md) y [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) para proteger las aplicaciones web y móviles de plataforma como servicio (PaaS). Estos procedimientos recomendados proceden de nuestra experiencia con Azure y las experiencias de clientes como usted.
 
-Azure SQL Database y SQL Data Warehouse proporcionan un servicio de base de datos relacional para aplicaciones basadas en Internet. Se van a considerar los servicios que ayudan a proteger las aplicaciones y los datos al utilizar Azure SQL Database y SQL Data Warehouse en una implementación de PaaS:
+Azure SQL Database y Azure Synapse Analytics proporcionan un servicio de base de datos relacional para aplicaciones basadas en Internet. Se van a considerar los servicios que ayudan a proteger las aplicaciones y los datos al usar Azure SQL Database y Azure Synapse Analytics en una implementación de PaaS:
 
 - Autenticación de Azure Active Directory (en lugar de la autenticación de SQL Server)
 - Firewall de Azure SQL
@@ -40,7 +40,7 @@ Azure SQL Database puede configurarse para usar uno de los dos tipos de autentic
 
 - **Autenticación de Azure Active Directory** usa las identidades administradas por Azure Active Directory y es compatible con dominios administrados e integrados. Para usar la autenticación de Azure Active Directory, debe crear otro administrador de servidor llamado "administrador de Azure AD" con permiso para administrar usuarios y grupos de Azure AD. Este administrador también puede realizar todas las operaciones de un administrador de servidor normal.
 
-La [autenticación de Azure Active Directory](../../active-directory/develop/authentication-scenarios.md) es un mecanismo de conexión a Azure SQL Database y SQL Data Warehouse mediante identidades de Azure Active Directory (AD). Azure AD proporciona una alternativa a la autenticación de SQL Server, por lo que puede detener la proliferación de identidades de usuario entre los servidores de base de datos. La autenticación de Azure AD permite administrar centralmente las identidades de los usuarios de la base de datos y otros servicios de Microsoft en una ubicación central. La administración de identificadores central ofrece una ubicación única para administrar usuarios de base de datos y simplifica la administración de permisos.  
+La [autenticación de Azure Active Directory](../../active-directory/develop/authentication-scenarios.md) es un mecanismo de conexión a Azure SQL Database y Azure Synapse Analytics mediante identidades de Azure Active Directory (Azure AD). Azure AD proporciona una alternativa a la autenticación de SQL Server, por lo que puede detener la proliferación de identidades de usuario entre los servidores de base de datos. La autenticación de Azure AD permite administrar centralmente las identidades de los usuarios de la base de datos y otros servicios de Microsoft en una ubicación central. La administración de identificadores central ofrece una ubicación única para administrar usuarios de base de datos y simplifica la administración de permisos.  
 
 ### <a name="benefits-of-using-azure-ad-instead-of-sql-authentication"></a>Ventajas de usar la autenticación de Azure AD en lugar de la autenticación de SQL
 
@@ -50,12 +50,12 @@ La [autenticación de Azure Active Directory](../../active-directory/develop/aut
 - Usa usuarios de base de datos independiente para autenticar las identidades en el nivel de base de datos.
 - Admite la autenticación basada en token para las aplicaciones que se conectan a SQL Database.
 - Admite la federación de dominios con Servicios de federación de Active Directory (ADFS) o la autenticación nativa de usuario y contraseña para una instancia de Azure Active Directory local sin sincronización de dominios.
-- Admite conexiones de SQL Server Management Studio que usan la autenticación universal de Active Directory, lo cual incluye [Multi-Factor Authentication (MFA)](/azure/active-directory/authentication/multi-factor-authentication). MFA incluye una sólida autenticación con una gama de sencillas opciones de comprobación: llamada de teléfono, mensaje de texto, tarjetas inteligentes con PIN o notificación de aplicación móvil. Para más información, vea [Autenticación universal con SQL Database y SQL Data Warehouse (compatibilidad de SSMS con MFA)](../../azure-sql/database/authentication-mfa-ssms-overview.md).
+- Admite conexiones de SQL Server Management Studio que usan la autenticación universal de Active Directory, lo cual incluye [Multi-Factor Authentication (MFA)](/azure/active-directory/authentication/multi-factor-authentication). MFA incluye una sólida autenticación con una gama de sencillas opciones de comprobación: llamada de teléfono, mensaje de texto, tarjetas inteligentes con PIN o notificación de aplicación móvil. Para más información, consulte [Autenticación universal con SQL Database y Azure Synapse Analytics](../../azure-sql/database/authentication-mfa-ssms-overview.md).
 
 Para obtener más información sobre la autenticación de Azure AD, vea:
 
-- [Uso de la autenticación de Azure Active Directory para autenticación con SQL Database, Instancia administrada o SQL Data Warehouse](../../azure-sql/database/authentication-aad-overview.md)
-- [Autenticación a Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-authentication.md)
+- [Uso de la autenticación de Azure Active Directory para autenticación con SQL Database, Instancia administrada o Azure Synapse Analytics](../../azure-sql/database/authentication-aad-overview.md)
+- [Autenticación en Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-authentication.md)
 - [Compatibilidad de la autenticación basada en tokens para Azure SQL Database mediante la autenticación de Azure AD](../../azure-sql/database/authentication-aad-overview.md)
 
 > [!NOTE]
@@ -69,12 +69,12 @@ Las restricciones de direcciones IP de origen predeterminadas de SQL Database pe
 
 Para obtener más información sobre las restricciones de IP y el firewall de Azure SQL, vea:
 
-- [Control de acceso a Azure SQL Database y SQL Data Warehouse](../../azure-sql/database/logins-create-manage.md)
-- [Reglas de firewall de Azure SQL Database y SQL Data Warehouse](../../azure-sql/database/firewall-configure.md)
+- [Control de acceso a Azure SQL Database y Azure Synapse Analytics](../../azure-sql/database/logins-create-manage.md)
+- [Reglas de firewall de Azure SQL Database y Azure Synapse Analytics](../../azure-sql/database/firewall-configure.md)
 
 ## <a name="encrypt-data-at-rest"></a>Cifrado de datos en reposo
 
-[Cifrado de datos transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) está habilitado de forma predeterminada. TDE cifra de forma transparente los archivos de datos y de registro de SQL Server, Azure SQL Database y Azure SQL Data Warehouse. TDE protege contra un posible peligro de acceso directo a los archivos o las copias de seguridad. Esto le permite cifrar los datos en reposo sin cambiar las aplicaciones existentes. TDE siempre debería permanecer habilitado, si bien esto no impedirá que un atacante use la ruta de acceso normal. TDE ofrece la posibilidad de cumplir muchas leyes, normativas y directrices establecidas en diversos sectores.
+[Cifrado de datos transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) está habilitado de forma predeterminada. TDE cifra de forma transparente los archivos de datos y de registro de SQL Server, Azure SQL Database y Azure Synapse Analytics. TDE protege contra un posible peligro de acceso directo a los archivos o las copias de seguridad. Esto le permite cifrar los datos en reposo sin cambiar las aplicaciones existentes. TDE siempre debería permanecer habilitado, si bien esto no impedirá que un atacante use la ruta de acceso normal. TDE ofrece la posibilidad de cumplir muchas leyes, normativas y directrices establecidas en diversos sectores.
 
 Azure SQL administra los problemas relacionados con las claves para TDE. Al igual que con TDE, debe tener especial cuidado en el entorno local para garantizar la capacidad de recuperación y al mover las bases de datos. En escenarios más complejos, las claves se pueden administrar explícitamente en Azure Key Vault mediante la administración extensible de claves. Vea [Habilitar TDE en SQL Server con EKM](/sql/relational-databases/security/encryption/enable-tde-on-sql-server-using-ekm). Esto también permite la funcionalidad Bring Your Own Key (BYOK), que incorpora Azure Key Vault.
 
@@ -86,7 +86,7 @@ Puede tomar precauciones adicionales con las que proteger aún más la base de d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo se presenta una colección de procedimientos recomendados de seguridad de SQL Database y SQL Data Warehouse para proteger las aplicaciones web y móviles PaaS. Para obtener más información sobre cómo proteger las implementaciones de PaaS, vea:
+En este artículo se presenta una colección de procedimientos recomendados de seguridad de SQL Database y Azure Synapse Analytics para proteger las aplicaciones web y móviles PaaS. Para obtener más información sobre cómo proteger las implementaciones de PaaS, vea:
 
 - [Protección de implementaciones de PaaS](paas-deployments.md)
 - [Protección de aplicaciones web y móviles PaaS con Azure App Services](paas-applications-using-app-services.md)

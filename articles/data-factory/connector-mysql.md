@@ -9,16 +9,17 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 09/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 9fbf4062304dda7112e89ecd4abd5288533f28ff
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 16f7a1481b15f280995bb71fa9e30ed3a129ab6d
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83635790"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612633"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copia de datos desde MySQL mediante Azure Data Factory
+
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-onprem-mysql-connector.md)
 > * [Versión actual](connector-mysql.md)
@@ -66,7 +67,9 @@ Una cadena de conexión típica es `Server=<server>;Port=<port>;Database=<databa
 
 | Propiedad | Descripción | Opciones | Obligatorio |
 |:--- |:--- |:--- |:--- |
-| SSLMode | Esta opción especifica si el controlador utiliza cifrado TLS y comprobación durante la conexión a MySQL. Por ejemplo, `SSLMode=<0/1/2/3/4>`| DISABLED (0) / PREFERRED (1) **(valor predeterminado)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | No |
+| SSLMode | Esta opción especifica si el controlador utiliza cifrado TLS y comprobación durante la conexión a MySQL. Por ejemplo, `SSLMode=<0/1/2/3/4>`.| DISABLED (0) / PREFERRED (1) **(valor predeterminado)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | No |
+| SSLCert | Ruta de acceso completa y nombre de un archivo .pem que contiene el certificado SSL usado para verificar la identidad del cliente. <br/> Para especificar una clave privada para el cifrado de este certificado antes de enviarlo al servidor, use la propiedad `SSLKey`.| | Sí, si se usa la comprobación SSL bidireccional. |
+| SSLKey | Ruta de acceso completa y nombre de un archivo que contiene la clave privada usada para cifrar el certificado del lado cliente durante la comprobación de SSL bidireccional.|  | Sí, si se usa la comprobación SSL bidireccional. |
 | UseSystemTrustStore | Esta opción concreta si se usa un certificado de entidad de certificación del almacén de confianza del sistema o de un archivo PEM especificado. Por ejemplo, `UseSystemTrustStore=<0/1>;`| Habilitado (1) / Deshabilitado (0) **(valor predeterminado)** | No |
 
 **Ejemplo**:

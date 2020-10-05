@@ -6,16 +6,16 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
-ms.openlocfilehash: be7736d0c90d1c384e15e8c7dee29d016b052dbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3e317a87ba888fac3c069cc5327bd89c859e9de
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559446"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514244"
 ---
 # <a name="upstream-settings"></a>Configuración ascendente
 
-La característica ascendente a Azure SignalR Service enviar mensajes y eventos de conexión a un conjunto de puntos de conexión en el modo sin servidor. Puede usar la característica ascendente para invocar un método de centro de conectividad desde clientes en modo sin servidor y permitir que los puntos de conexión reciban una notificación cuando las conexiones de cliente se conecten o desconecten.
+La característica ascendente es una característica en vista previa (GB) que permite a Azure SignalR Service enviar mensajes y eventos de conexión a un conjunto de puntos de conexión en el modo sin servidor. Puede usar la característica ascendente para invocar un método de centro de conectividad desde clientes en modo sin servidor y permitir que los puntos de conexión reciban una notificación cuando las conexiones de cliente se conecten o desconecten.
 
 > [!NOTE]
 > Solo el modo sin servidor puede establecer la configuración ascendente.
@@ -59,6 +59,10 @@ Puede establecer reglas para *reglas de centro*, *reglas de categoría* y *regla
 - Use un asterisco (*) para asociar con cualquier evento.
 - Use una coma (,) para combinar varios eventos. Por ejemplo, `connected, disconnected` asocia los eventos conectados y desconectados.
 - Use el nombre de evento completo para que se asocie con el evento. Por ejemplo, `connected` asocia el evento conectado.
+
+> [!NOTE]
+> Si usa Azure Functions y el [desencadenador de SignalR](../azure-functions/functions-bindings-signalr-service-trigger.md), dicho desencadenador expondrá un punto de conexión único con el siguiente formato: `https://<APP_NAME>.azurewebsites.net/runtime/webhooks/signalr?code=<API_KEY>`.
+> Solo puede configurar la plantilla de dirección URL para esta URL.
 
 ### <a name="authentication-settings"></a>Configuración de autenticación
 

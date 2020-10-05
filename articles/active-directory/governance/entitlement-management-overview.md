@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 09/08/2020
+ms.date: 09/30/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: 2ce5f0c9b340e1b81fcf002ee70e7ec1cc74d38c
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: f8bf2a1bb4892637ac504d5920754fc412691a4a
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594329"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597390"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>¿Qué es la administración de derechos de Azure AD?
 
@@ -79,6 +79,7 @@ También puede controlar el acceso a otros recursos que dependen de los grupos d
 
 - Puede conceder licencias a los usuarios para Microsoft 365 mediante un grupo de seguridad de Azure AD en un paquete de acceso y la configuración de [licencias basadas en grupos](../users-groups-roles/licensing-groups-assign.md) para ese grupo.
 - Puede dar acceso a los usuarios para administrar los recursos de Azure mediante un grupo de seguridad de Azure AD en un paquete de acceso y la creación de una [asignación de roles de Azure](../../role-based-access-control/role-assignments-portal.md) para ese grupo.
+- Puede conceder a los usuarios acceso para administrar los roles de Azure AD mediante el uso de grupos asignables a roles de Azure AD en un paquete de acceso y la [asignación de un rol de Azure AD a ese grupo](../users-groups-roles/roles-groups-assign-role.md).
 
 ## <a name="how-do-i-control-who-gets-access"></a>¿Cómo se controla quién tiene acceso?
 

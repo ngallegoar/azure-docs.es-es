@@ -1,24 +1,26 @@
 ---
-title: 'Inicio rápido: Etiquetado de formularios, entrenamiento de un modelo y análisis de un formulario mediante la herramienta de etiquetado de ejemplo: Form Recognizer'
+title: 'Inicio rápido: Etiquetado de formularios, entrenamiento de un modelo y análisis de formularios mediante la herramienta de etiquetado de ejemplo: Form Recognizer'
 titleSuffix: Azure Cognitive Services
-description: En este inicio rápido, utilizará la herramienta de etiquetado de ejemplo Form Recognizer para etiquetar manualmente documentos de formularios. A continuación, entrenará un modelo personalizado con los documentos etiquetados y lo empleará para extraer pares clave-valor.
+description: En este inicio rápido, utilizará la herramienta de etiquetado de ejemplo Form Recognizer para etiquetar manualmente documentos de formularios. A continuación, entrenará un modelo personalizado de procesamiento de documentos con los documentos etiquetados y lo empleará para extraer pares clave-valor.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 08/25/2020
+ms.date: 09/30/2020
 ms.author: pafarley
-ms.openlocfilehash: e231bb7919f25210d7e5a2adff49dede6f0349a9
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.custom: cog-serv-seo-aug-2020
+keywords: procesamiento de documentos
+ms.openlocfilehash: 6b641df00d4b4981aa47f314f8e575a9cbcccbba
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89418966"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597735"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entrenamiento de un modelo de Form Recognizer con etiquetas mediante la herramienta de etiquetado de ejemplo
 
-En este inicio rápido, usará la API REST de Form Recognizer con la herramienta de etiquetado de ejemplo para entrenar un modelo personalizado con datos etiquetados manualmente. Consulte la sección [Entrenamiento con etiquetas](../overview.md#train-with-labels) de la introducción para más información acerca de esta característica.
+En este inicio rápido, usará la API de REST de Form Recognizer con la herramienta de etiquetado de ejemplo para entrenar un modelo personalizado de procesamiento de documentos con datos etiquetados manualmente. Consulte la sección [Entrenamiento con etiquetas](../overview.md#train-with-labels) de la introducción para más información sobre el entrenamiento con Form Recognizer.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
@@ -137,7 +139,7 @@ En la herramienta de etiquetado de ejemplo, los proyectos almacenan las configur
 * **Clave de API**: la clave de suscripción de Form Recognizer.
 * **Descripción** (opcional): descripción del proyecto.
 
-:::image type="content" source="../media/label-tool/new-project.png" alt-text="Página Nuevo proyecto en la herramienta de etiquetado de ejemplo.":::
+:::image type="content" source="../media/label-tool/new-project.png" alt-text="Configuración de la conexión de la herramienta de etiquetado de ejemplo.":::
 
 ## <a name="label-your-forms"></a>Etiquetado de formularios
 
@@ -153,7 +155,7 @@ Haga clic en **Run OCR on all files** (Ejecutar OCR en todos los archivos) en el
 
 También se mostrarán las tablas que se hayan extraído automáticamente. Haga clic en el icono de tabla o cuadrícula en la parte izquierda del documento para ver la tabla extraída. En esta guía de inicio rápido, dado que el contenido de la tabla se extrae automáticamente, este no se etiquetará, sino que se basará en la extracción automatizada.
 
-:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Visualización de tablas mediante la herramienta de etiquetado de ejemplo.":::
+:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Configuración de la conexión de la herramienta de etiquetado de ejemplo.":::
 
 ### <a name="apply-labels-to-text"></a>Aplicación de etiquetas a texto
 
@@ -199,7 +201,7 @@ A continuación, creará etiquetas y las aplicará a los elementos de texto que 
 
 ---
 
-:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Ventana principal del editor de la herramienta de etiquetado de ejemplo.":::
+:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Configuración de la conexión de la herramienta de etiquetado de ejemplo.":::
 
 
 Siga los pasos anteriores para etiquetar al menos cinco de sus formularios.
@@ -254,7 +256,7 @@ Haga clic en el icono Train (Entrenar) en el panel izquierdo para abrir la pági
 * La lista de etiquetas y la precisión estimada por etiqueta.
 
 
-:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Vista de entrenamiento.":::
+:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Configuración de la conexión de la herramienta de etiquetado de ejemplo.":::
 
 Una vez finalizado el entrenamiento, examine el valor de **Precisión media**. Si es bajo, debe agregar más documentos de entrada y repetir los pasos anteriores. Los documentos que ya ha etiquetado permanecerán en el índice del proyecto.
 
@@ -273,7 +275,7 @@ Con el modelo Compose, puede crear hasta 100 modelos en un único identificador 
 
 Para crear modelos en la herramienta de etiquetado de ejemplo, haga clic en el icono de composición de modelo (flecha de combinación) de la izquierda. A la izquierda, seleccione los modelos que desee unir. Los modelos con el icono de flechas ya son modelos compuestos. Haga clic en el botón "Compose" (Redactar). En el elemento emergente, asigne un nombre al nuevo modelo compuesto y haga clic en "Compose" (Redactar). Una vez finalizada la operación, el nuevo modelo compuesto debe aparecer en la lista. 
 
-:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Vista de experiencia de usuario para la creación de modelos.":::
+:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Configuración de la conexión de la herramienta de etiquetado de ejemplo.":::
 
 ---
 
@@ -306,7 +308,10 @@ Por último, vaya a la página principal (icono de casa) y haga clic en Open Clo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha aprendido a utilizar la herramienta de etiquetado de ejemplo de Form Recognizer para entrenar un modelo con datos etiquetados manualmente. Si desea integrar la herramienta de etiquetado en su propia aplicación, use las API REST que se ocupan del entrenamiento de datos etiquetados.
+En este inicio rápido, ha aprendido a utilizar la herramienta de etiquetado de ejemplo de Form Recognizer para entrenar un modelo con datos etiquetados manualmente. Si quiere crear su propia utilidad para etiquetar los datos de entrenamiento, use las API de REST que se ocupan del entrenamiento con datos etiquetados.
 
 > [!div class="nextstepaction"]
 > [Entrenamiento con etiquetas mediante Python](./python-labeled-data.md)
+
+* [¿Qué es Form Recognizer?](../overview.md)
+* [Inicios rápidos de la biblioteca cliente de Form Recognizer](client-library.md)

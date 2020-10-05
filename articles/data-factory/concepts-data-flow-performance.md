@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
-ms.openlocfilehash: cf91dd0b7f16bf0dcd3d84da1b942b2353ec5bd0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 51d9880c654a6ecabbbab294016293113bffb655
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212044"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434238"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la asignación de instancias de Data Flow
 
@@ -126,7 +126,7 @@ El precio de los flujos de datos se calcula en horas de núcleo virtual, por lo 
 
 ### <a name="time-to-live"></a>Período de vida
 
-De forma predeterminada, cada actividad de flujo de datos pone en marcha un nuevo clúster en función de la configuración de IR. El clúster tarda unos minutos en iniciar su actividad y el procesamiento de datos no puede iniciarse hasta que se complete. Si las canalizaciones contienen varios **flujos de datos** secuenciales, puede habilitar un valor de período de vida (TTL). Si se especifica un valor de período de vida, el clúster se mantiene activo durante un determinado período de tiempo después de que se complete la ejecución. Si un nuevo trabajo comienza a usar el IR durante el tiempo de TTL, volverá a usar el clúster existente y el tiempo de inicio de actividad será de segundos en lugar de minutos. Una vez completado el segundo trabajo, el clúster permanecerá activo de nuevo durante el tiempo de TTL.
+De forma predeterminada, cada actividad de flujo de datos pone en marcha un nuevo clúster en función de la configuración de IR. El clúster tarda unos minutos en iniciar su actividad y el procesamiento de datos no puede iniciarse hasta que se complete. Si las canalizaciones contienen varios **flujos de datos** secuenciales, puede habilitar un valor de período de vida (TTL). Si se especifica un valor de período de vida, el clúster se mantiene activo durante un determinado período de tiempo después de que se complete la ejecución. Si un nuevo trabajo comienza a usar el IR durante el tiempo de TTL, volverá a usar el clúster existente y el tiempo de inicio de actividad se reducirá drásticamente. Una vez completado el segundo trabajo, el clúster permanecerá activo de nuevo durante el tiempo de TTL.
 
 Solo se puede ejecutar un trabajo en un único clúster cada vez. Si hay un clúster disponible, pero se inician dos flujos de datos, solo uno usará el clúster activo. El segundo trabajo pondrá en marcha su propio clúster aislado.
 

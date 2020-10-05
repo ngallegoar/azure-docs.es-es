@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 09/03/2020
 ms.author: victorh
-ms.openlocfilehash: 602671f1052de2d9446f32946271cea2f9995044
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 43755b312a64c429b38a07c8c4fad8c85b08342a
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87412956"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437860"
 ---
 # <a name="use-azure-firewall-to-protect-azure-kubernetes-service-aks-deployments"></a>Uso de Azure Firewall para proteger las implementaciones de Azure Kubernetes Service (AKS)
 
@@ -47,7 +47,13 @@ Azure Firewall proporciona una etiqueta FQDN AKS para simplificar la configuraci
    - TCP [*IPAddrOfYourAPIServer*]:443 es necesario si tiene una aplicación que debe comunicarse con el servidor de API. Este cambio se puede establecer después de crear el clúster.
    - Puerto TCP 9000 y puerto UDP 1194 para el pod de la parte delantera del túnel para comunicarse con el extremo de túnel en el servidor de la API.
 
-      Para información más concreta, vea las direcciones *.hcp.<location>.azmk8s.io* en la tabla siguiente.
+      Para información más concreta, consulte el sitio *.hcp.<location>.azmk8s.io* y las direcciones en la tabla siguiente:
+
+   | Punto de conexión de destino                                                             | Protocolo | Port    | Uso  |
+   |----------------------------------------------------------------------------------|----------|---------|------|
+   | **`*:1194`** <br/> *O* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:1194`** <br/> *O* <br/> [CIDR regionales](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:1194`** <br/> *O* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Para la comunicación segura por túnel entre los nodos y el plano de control. |
+   | **`*:9000`** <br/> *O* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:9000`** <br/> *O* <br/> [CIDR regionales](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:9000`** <br/> *O* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Para la comunicación segura por túnel entre los nodos y el plano de control. |
+
    - Puerto UDP 123 para la sincronización de hora del protocolo de tiempo de red (NTP) (nodos de Linux).
    - También se requiere el puerto UDP 53 para DNS si tiene pods que acceden directamente al servidor de API.
 

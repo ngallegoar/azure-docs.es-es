@@ -3,12 +3,12 @@ title: Compatibilidad para la evaluación de VMware en Azure Migrate
 description: Obtenga información sobre la compatibilidad de la evaluación de máquinas virtuales de VMware con la herramienta Server Assessment de Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 3d975b35ff5db9bf77ed33e040eb49b6b15f3cf9
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 6716bea08347783d8c5728a4e346ffab8ea60a07
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89277789"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660272"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de compatibilidad para la evaluación de VMware 
 
@@ -89,7 +89,7 @@ El [análisis de dependencias](concepts-dependency-visualization.md) le ayuda a 
 **Credenciales de vCenter Server** | La visualización de dependencias necesita una cuenta de vCenter Server con acceso de solo lectura, así como privilegios habilitados para Máquinas virtuales > Operaciones de invitado.
 **Permisos de máquina virtual Windows** |  Para el análisis de dependencias, el dispositivo de Azure Migrate necesita una cuenta de administrador local o de dominio para acceder a las máquinas virtuales Windows.
 **Máquinas virtuales Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7
-**Cuenta de Linux** | Para el análisis de dependencias, el dispositivo de Azure Migrate necesita una cuenta de usuario con privilegio de usuario raíz en las máquinas Linux.<br/><br/> Como alternativa, la cuenta de usuario necesita estos permisos en los archivos/bin/netstat y /bin/ls: CAP_DAC_READ_SEARCH y CAP_SYS_PTRACE.
+**Cuenta de Linux** | Para el análisis de dependencias, el dispositivo de Azure Migrate necesita una cuenta de usuario con privilegio de usuario raíz en las máquinas Linux.<br/><br/> Como alternativa, la cuenta de usuario necesita estos permisos en los archivos/bin/netstat y /bin/ls: CAP_DAC_READ_SEARCH y CAP_SYS_PTRACE. Establezca estas funciones con los siguientes comandos: <br/> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls <br/> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat
 **Agentes necesarios** | No se requiere ningún agente en las máquinas que desea analizar.
 **Herramientas de VMware** | Se debe instalar y ejecutar una versión de las herramientas de VMware posterior a 10.2 en cada máquina virtual que se quiera analizar.
 

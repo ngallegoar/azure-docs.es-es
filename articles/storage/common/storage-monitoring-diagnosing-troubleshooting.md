@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 93015427dddfe2b311783c20587792e34c098ce8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 79e108303575d5a9969e04f01bdeb126bf078762
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011045"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031490"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -134,7 +134,7 @@ Las métricas de Storage solo almacenan las métricas de capacidad de Blob servi
 >
 >
 
-Para que le resulte más fácil estimar el tamaño de diversos objetos de almacenamiento, como los BLOB, consulte la entrada de blog sobre facturación del [Azure Storage: ancho de banda, transacciones y capacidad](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
+Para que le resulte más fácil estimar el tamaño de diversos objetos de almacenamiento, como los BLOB, consulte la entrada de blog sobre facturación del [Azure Storage: ancho de banda, transacciones y capacidad](https://docs.microsoft.com/archive/blogs/patrick_butler_monterde/azure-storage-understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity).
 
 ### <a name="monitoring-availability"></a><a name="monitoring-availability"></a>Supervisión de la disponibilidad
 Debe supervisar la disponibilidad de los servicios de almacenamiento de la cuenta de almacenamiento. Para ello, supervise el valor de la columna **Availability** (Disponibilidad) en las tablas de métricas horarias o por minuto: **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**. La columna **Availability** (Disponibilidad) contiene un valor de porcentaje que indica la disponibilidad del servicio o de la operación de API representada por la fila (**RowKey** señala si la fila contiene métricas del servicio completo o de una operación de API específica).
@@ -220,7 +220,7 @@ La biblioteca de cliente de Almacenamiento para .NET le permite recopilar datos 
 Puede capturar el tráfico entre el cliente y el servidor para proporcionar información detallada sobre los datos que están intercambiando el cliente y el servidor y sobre las condiciones de la red subyacente. Algunas herramientas útiles de redes son:
 
 * [Fiddler](https://www.telerik.com/fiddler) es un proxy de depuración web gratuito que permite examinar los encabezados y los datos de carga útil de los mensajes de solicitud y respuesta HTTP y HTTPS. Para más información, consulte el [Apéndice 1: Uso de Fiddler para capturar tráfico HTTP y HTTPS](#appendix-1).
-* [Microsoft Network Monitor (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) y [Wireshark](https://www.wireshark.org/) son analizadores de protocolos de red gratuitos que le permiten ver información detallada del paquete de una amplia variedad de protocolos de red. Para más información sobre Wireshark, consulte el "[Apéndice 2: Uso de Wireshark para capturar tráfico de red](#appendix-2)".
+* [Microsoft Network Monitor (Netmon)](https://cnet-downloads.com/network-monitor) y [Wireshark](https://www.wireshark.org/) son analizadores de protocolos de red gratuitos que le permiten ver información detallada del paquete de una amplia variedad de protocolos de red. Para más información sobre Wireshark, consulte el "[Apéndice 2: Uso de Wireshark para capturar tráfico de red](#appendix-2)".
 * El Analizador de mensajes de Microsoft es una herramienta de Microsoft que sustituye a Netmon y que, además de capturar los datos de los paquetes de red, lo ayuda a ver y analizar los datos de registro capturados con otras herramientas. Para más información, consulte el "[Apéndice 3: Uso de Microsoft Message Analyzer para capturar tráfico de red](#appendix-3)".
 * Si quiere realizar una prueba de conectividad básica para comprobar que el equipo cliente puede conectarse al servicio de almacenamiento de Azure a través de la red, no puede hacerlo con la herramienta de **ping** estándar que hay en el cliente. Sin embargo, puede usar la herramienta [**tcping**](https://www.elifulkerson.com/projects/tcping.php) para comprobar la conectividad.
 
@@ -617,9 +617,9 @@ Los detalles de la excepción del cliente incluyen el identificador de solicitud
 
 Además, el registro del lado servidor incluye otra entrada con el mismo valor de **client-request-id** (813ea74f…) correspondiente a una operación de eliminación realizada correctamente con la misma entidad y del mismo cliente. Esta operación de eliminación correcta tuvo lugar justo antes de la solicitud de eliminación que no se realizó correctamente.
 
-El motivo más probable de este escenario es que el cliente envió una solicitud de eliminación de la entidad al servicio Tabla, que se llevó a cabo correctamente, pero no recibió ninguna confirmación del servidor (tal vez, debido a un problema de red temporal). Entonces, el cliente reintentó automáticamente la operación (con el mismo **client-request-id**), y este reintento no se realizó correctamente porque la entidad ya estaba eliminada.
+El motivo más probable de este escenario es que el cliente envió una solicitud de eliminación de la entidad a Table service, que se llevó a cabo correctamente, pero no recibió ninguna confirmación del servidor (tal vez, debido a un problema de red temporal). Entonces, el cliente reintentó automáticamente la operación (con el mismo **client-request-id**), y este reintento no se realizó correctamente porque la entidad ya estaba eliminada.
 
-Si este problema se produce a menudo, debe investigar por qué el cliente no recibe correctamente las confirmaciones del servicio Tabla. Si el problema es intermitente, debe interceptar el error “HTTP (404) No encontrado” y registrarlo en el cliente, pero permitir que el cliente continúe.
+Si este problema se produce a menudo, debe investigar por qué el cliente no recibe correctamente las confirmaciones del Table service. Si el problema es intermitente, debe interceptar el error “HTTP (404) No encontrado” y registrarlo en el cliente, pero permitir que el cliente continúe.
 
 ### <a name="the-client-is-receiving-http-409-conflict-messages"></a><a name="the-client-is-receiving-409-messages"></a>El cliente recibe mensajes HTTP 409 (conflicto)
 En la tabla siguiente se muestra un extracto del registro del servidor de dos operaciones de cliente: **DeleteIfExists** seguido inmediatamente de **CreateIfNotExists** con el mismo nombre de contenedor de blobs. Cada operación de cliente hace que se envíen dos solicitudes al servidor: primero, una solicitud **GetContainerProperties** para comprobar si existe el contenedor y, luego, la solicitud **DeleteContainer** o **CreateContainer**.
@@ -777,7 +777,7 @@ El seguimiento de **Proxy web** integrado en el Analizador de mensajes de Micros
 #### <a name="diagnosing-network-issues-using-microsoft-message-analyzer"></a>Diagnóstico de problemas de red con el Analizador de mensajes de Microsoft
 Además de usar el seguimiento de **Proxy web** del Analizador de mensajes de Microsoft para capturar detalles del tráfico HTTP/HTTPs entre la aplicación cliente y el servicio de almacenamiento, también puede utilizar el seguimiento del **Nivel de vínculo local** para capturar la información de los paquetes de red. Esto le permite capturar datos similares a los que puede capturar con Wireshark y diagnosticar problemas de red como, por ejemplo, paquetes descartados.
 
-A continuación se muestra un ejemplo de seguimiento del **Nivel de vínculo local** con algunos mensajes de **Información** en la columna **DiagnosisTypes**. Al hacer clic en un icono de la columna **DiagnosisTypes** , se muestran los detalles del mensaje. En este ejemplo, el servidor retransmitió el mensaje número 305 porque no recibió una confirmación del cliente:
+A continuación se muestra un ejemplo de seguimiento del **Nivel de vínculo local** con algunos mensajes de **Información** en la columna **DiagnosisTypes**. Al hacer clic en un icono de la columna **DiagnosisTypes** , se muestran los detalles del mensaje. En este ejemplo, el servidor retransmitió el mensaje número 305 porque no recibió una confirmación del cliente:
 
 ![Captura de pantalla que muestra un ejemplo de seguimiento del Nivel de vínculo local con algunos mensajes informativos en la columna DiagnosisTypes][9]
 

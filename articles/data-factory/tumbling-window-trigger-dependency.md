@@ -2,21 +2,21 @@
 title: Creación de dependencias en un desencadenador de ventana de saltos de tamaño constante
 description: Aprenda a crear dependencia en un desencadenador de ventana de saltos de tamaño constante en Azure Data Factory.
 services: data-factory
-ms.author: daperlov
-author: djpmsft
-manager: anandsub
+ms.author: chez
+author: chez-charlie
+manager: weetok
 ms.service: data-factory
 ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/29/2019
-ms.openlocfilehash: 3b417e7c4589f3a4214400a877812d196a63349b
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.date: 09/03/2020
+ms.openlocfilehash: 4a99865e13e029dcea478cf6085d71c465918b14
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82870039"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421852"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Creación de una dependencia de un desencadenador de ventana de saltos de tamaño constante
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -33,7 +33,7 @@ Puede ver una demostración de cómo crear canalizaciones dependientes en Azure 
 
 Para crear una dependencia en un desencadenador, seleccione **Desencadenador > Avanzado > Nuevo**, y luego elija el desencadenador del que se va a depender con el desplazamiento y tamaño adecuados. Seleccione **Finalizar** y publique los cambios de la factoría de datos para que las dependencias surta efecto.
 
-![Creación de dependencias](media/tumbling-window-trigger-dependency/tumbling-window-dependency01.png "Creación de dependencias")
+![Creación de dependencias](media/tumbling-window-trigger-dependency/tumbling-window-dependency-01.png "Creación de dependencias")
 
 ## <a name="tumbling-window-dependency-properties"></a>Propiedades de dependencia de ventana de saltos de tamaño constante
 
@@ -133,41 +133,53 @@ A continuación se muestran las ilustraciones de los escenarios y el uso de las 
 
 ### <a name="dependency-offset"></a>Desplazamiento de la dependencia
 
-![Ejemplo de desplazamiento](media/tumbling-window-trigger-dependency/tumbling-window-dependency02.png "Ejemplo de desplazamiento")
+![Ejemplo de desplazamiento](media/tumbling-window-trigger-dependency/tumbling-window-dependency-02.png "Ejemplo de desplazamiento")
 
 ### <a name="dependency-size"></a>Tamaño de la dependencia
 
-![Ejemplo de tamaño](media/tumbling-window-trigger-dependency/tumbling-window-dependency03.png "Ejemplo de tamaño")
+![Ejemplo de tamaño](media/tumbling-window-trigger-dependency/tumbling-window-dependency-03.png "Ejemplo de tamaño")
 
 ### <a name="self-dependency"></a>Autodependencia
 
-![Autodependencia](media/tumbling-window-trigger-dependency/tumbling-window-dependency04.png "Autodependencia")
+![Autodependencia](media/tumbling-window-trigger-dependency/tumbling-window-dependency-04.png "Autodependencia")
 
 ### <a name="dependency-on-another-tumbling-window-trigger"></a>Dependencia de otro desencadenador de ventana de saltos de tamaño constante
 
 Un trabajo de procesamiento de datos de telemetría diario que dependa de otro trabajo diario que agregue la salida de los últimos siete días de salida y genere secuencias de ventana gradual de siete días:
 
-![Ejemplo de dependencia](media/tumbling-window-trigger-dependency/tumbling-window-dependency05.png "Ejemplo de dependencia")
+![Ejemplo de dependencia](media/tumbling-window-trigger-dependency/tumbling-window-dependency-05.png "Ejemplo de dependencia")
 
 ### <a name="dependency-on-itself"></a>Dependencia de sí mismo
 
 Un trabajo diario sin interrupciones en los flujos de salida del trabajo:
 
-![Ejemplo de autodependencia](media/tumbling-window-trigger-dependency/tumbling-window-dependency06.png "Ejemplo de autodependencia")
+![Ejemplo de autodependencia](media/tumbling-window-trigger-dependency/tumbling-window-dependency-06.png "Ejemplo de autodependencia")
 
 ## <a name="monitor-dependencies"></a>Supervisión de dependencias
 
-Puede supervisar la cadena de dependencias y las ventanas correspondientes desde la página de supervisión de ejecución del desencadenador. Vaya a  **Supervisión > Trigger Runs (Ejecuciones de desencadenador)** . En la columna de acciones, puede volver a ejecutar el desencadenador o ver sus dependencias.
+Puede supervisar la cadena de dependencias y las ventanas correspondientes desde la página de supervisión de ejecución del desencadenador. Vaya a  **Supervisión > Trigger Runs (Ejecuciones de desencadenador)** . Si un desencadenador de ventana de saltos de tamaño constante tiene dependencias, el nombre del desencadenador llevará un hipervínculo a la vista de supervisión de dependencias.  
 
-![Supervisión de las ejecuciones del desencadenador](media/tumbling-window-trigger-dependency/tumbling-window-dependency07.png "Supervisión de las ejecuciones del desencadenador")
+![Supervisión de las ejecuciones del desencadenador](media/tumbling-window-trigger-dependency/tumbling-window-dependency-07.png "Supervisión de ejecuciones de desencadenador: entradas en la vista de dependencias de ventana de saltos de tamaño constante")
 
-Si hace clic en "View Trigger Dependencies" (Ver dependencias de desencadenador), puede ver el estado de las dependencias. Si se produce un error en uno de los desencadenadores de dependencia, debe volver a ejecutarlo correctamente para que se ejecute el desencadenador dependiente. Un desencadenador de ventana de saltos de tamaño constante esperará las dependencias durante siete días antes de que se agote el tiempo de espera.
+Haga clic en el nombre del desencadenador para ver sus dependencias. En el panel derecho se muestra información detallada sobre la ejecución del desencadenador, como el identificador RunID, la ventana de tiempo, el estado, etc.
 
-![Supervisión de dependencias](media/tumbling-window-trigger-dependency/tumbling-window-dependency08.png "Supervisión de dependencias")
+![Vista de lista de la supervisión de dependencias](media/tumbling-window-trigger-dependency/tumbling-window-dependency-08.png "Vista de lista de la supervisión de dependencias")
+
+Puede ver el estado de las dependencias y las ventanas de cada desencadenador dependiente. Si se produce un error en uno de los desencadenadores de dependencias, debe volver a ejecutarlo correctamente para que se ejecute el desencadenador dependiente.
+
+Un desencadenador de ventana de saltos de tamaño constante esperará las dependencias durante _siete días_ antes de que se agote el tiempo de espera. Pasados los siete días, se producirá un error en la ejecución del desencadenador.
 
 Para ver una vista más clara de la programación de dependencia del desencadenador, seleccione la vista Gantt.
 
-![Supervisión de dependencias](media/tumbling-window-trigger-dependency/tumbling-window-dependency09.png "Supervisión de dependencias")
+![Gráfico de Gantt de la supervisión de dependencias](media/tumbling-window-trigger-dependency/tumbling-window-dependency-09.png "Vista de gráfico de Gantt de la supervisión de dependencias")
+
+Los cuadros transparentes muestran las ventanas de dependencia de cada desencadenador dependiente descendiente, mientras que los cuadros de color sólido que aparecen encima muestran las ventanas de ejecución individuales. A continuación se muestran algunas sugerencias para interpretar la vista del gráfico de Gantt:
+
+* El cuadro transparente se representa en azul cuando las ventanas dependientes están en estado pendiente o en ejecución
+* Una vez que todas las ventanas se hayan realizado correctamente para un desencadenador dependiente, el cuadro transparente se volverá verde
+* El cuadro transparente se representa en rojo cuando se produce un error en una ventana dependiente. Busque un cuadro rojo sólido para identificar un error de ejecución de ventana
+
+Para volver a ejecutar una ventana en la vista del gráfico de Gantt, seleccione el cuadro de color sólido de la ventana y aparecerá un panel de acciones con los detalles y las opciones para volver a ejecutar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

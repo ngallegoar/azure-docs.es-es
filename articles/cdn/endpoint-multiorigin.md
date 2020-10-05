@@ -1,21 +1,21 @@
 ---
-title: Punto de conexión con varios orígenes de Azure CDN
+title: Punto de conexión con varios orígenes de Azure CDN (versión preliminar)
 description: Empiece a trabajar con el punto de conexión con varios orígenes de Azure CDN.
 services: cdn
 author: asudbring
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 8/20/2020
+ms.date: 9/06/2020
 ms.author: allensu
-ms.openlocfilehash: c7e6733079dbd867255e604f6f8d4459f647cc93
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: f9293206526778f8c3de8a368a1916a2cb3f88c2
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870477"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504680"
 ---
-# <a name="azure-cdn-endpoint-multi-origin"></a>Punto de conexión con varios orígenes de Azure CDN
+# <a name="azure-cdn-endpoint-multi-origin-preview"></a>Punto de conexión con varios orígenes de Azure CDN (versión preliminar)
 
 La compatibilidad con varios orígenes elimina el tiempo de inactividad y crea redundancia global. 
 
@@ -25,6 +25,10 @@ Configure uno o más grupos de origen y elija un grupo de origen predeterminado.
 
 > [!NOTE]
 > Actualmente, esta característica solo está disponible en Azure CDN de Microsoft. 
+
+> [!IMPORTANT]
+> Punto de conexión con varios orígenes de Azure CDN está actualmente en versión preliminar pública.
+> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="create-the-origin-group"></a>Creación del grupo de origen
 
@@ -38,7 +42,7 @@ Configure uno o más grupos de origen y elija un grupo de origen predeterminado.
 
 4. Para habilitar el uso de varios orígenes, necesita al menos un grupo de origen. Seleccione **Create Origin Group** (Crear grupo de origen):
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-2.png" alt-text="Configuración de origen" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-2.png" alt-text="Punto de conexión de CDN" border="true":::
 
 5. En la configuración de **Add Origin Group** (Agregar grupo de origen), escriba o seleccione la siguiente información:
 
@@ -52,7 +56,7 @@ Configure uno o más grupos de origen y elija un grupo de origen predeterminado.
    | Método de sondeo      | Seleccione **Head** o **Get**.                                           |
    | Grupo de origen predeterminado | Active la casilla para establecer como grupo de origen predeterminado.
     
-   :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-3.png" alt-text="Add origin group" border="true"::: (Agregar grupo de origen)
+   :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-3.png" alt-text="Punto de conexión de CDN" border="true"::: (Agregar grupo de origen)
 
 6. Seleccione **Agregar**.
 
@@ -60,11 +64,11 @@ Configure uno o más grupos de origen y elija un grupo de origen predeterminado.
 
 1. En la configuración de origen del punto de conexión, seleccione **+ Create Origin** (+ Crear origen):
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-5.png" alt-text="Create origin" border="true"::: (Crear origen)
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-5.png" alt-text="Punto de conexión de CDN" border="true"::: (Crear origen)
 
 2. Escriba o seleccione la siguiente información en la configuración de **Add Origin** (Agregar origen):
 
-   | Configuración           | Value                                                                 |
+   | Configuración           | Valor                                                                 |
    |-------------------|-----------------------------------------------------------------------|
    | Nombre        | Escriba un nombre para el origen.        |
    | Tipo de origen | Seleccione **Almacenamiento**, **Servicio en la nube**, **Aplicación web** u **Origen personalizado**.                                   |
@@ -78,13 +82,13 @@ Configure uno o más grupos de origen y elija un grupo de origen predeterminado.
     > [!NOTE]
     > Cuando se crea un origen en un grupo de origen, se le debe asignar una prioridad y un peso. Si un grupo de origen solo tiene un origen, la prioridad y el peso predeterminados se establecen en 1. El tráfico se enruta a los orígenes de prioridad más alta si el origen es correcto. Si se determina que un origen es incorrecto, las conexiones se desvían a otro origen en orden de prioridad. Si dos orígenes tienen la misma prioridad, el tráfico se distribuye según el peso especificado para el origen. 
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-6.png" alt-text="Add additional origin" border="true"::: (Agregar otro origen)
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-6.png" alt-text="Punto de conexión de CDN" border="true"::: (Agregar otro origen)
 
 3. Seleccione **Agregar**.
 
 4. Seleccione **Configure origin** (Configurar origen) para establecer la ruta de acceso de origen para todos los orígenes:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-7.png" alt-text="Configuración de la ruta de acceso de origen" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-7.png" alt-text="Punto de conexión de CDN" border="true":::
 
 5. Seleccione **Aceptar**.
 
@@ -94,27 +98,27 @@ Una vez que tenga varios orígenes y un grupo de origen, puede agregar o quitar 
 
 1. En la configuración de origen del punto de conexión de Azure CDN, seleccione el nombre del grupo de origen que desea configurar:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-8.png" alt-text="Configuración de las opciones de orígenes y del grupo de origen" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-8.png" alt-text="Punto de conexión de CDN" border="true":::
 
 2. En **Update Origin Group** (Actualizar el grupo de origen), seleccione **+ Select Origin** (+ Seleccionar origen):
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-9.png" alt-text="Update Origin Group" border="true"::: (Actualizar grupo de origen)
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-9.png" alt-text="Punto de conexión de CDN" border="true"::: (Actualizar grupo de origen)
 
 4. Seleccione el origen que se va a agregar al grupo en el cuadro desplegable y elija **Aceptar**.
 
 5. Compruebe que el origen se ha agregado al grupo y, a continuación, seleccione **Guardar**:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-10.png" alt-text="Verificación de origen adicional agregado al grupo" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-10.png" alt-text="Punto de conexión de CDN" border="true":::
 
 ## <a name="remove-origin-from-origin-group"></a>Eliminación de un origen del grupo de origen
 
 1. En la configuración de origen del punto de conexión de Azure CDN, seleccione el nombre del grupo de origen:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-8.png" alt-text="Eliminación del origen del grupo" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-8.png" alt-text="Punto de conexión de CDN" border="true":::
 
 2. Para quitar un origen del grupo de origen, seleccione el icono de la papelera situado junto al origen y elija **Guardar**:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-11.png" alt-text="Origen de eliminación de la actualización del grupo de origen" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-11.png" alt-text="Punto de conexión de CDN" border="true":::
 
 ## <a name="override-origin-group-with-rules-engine"></a>Invalidación del grupo de origen mediante el motor de reglas
 
@@ -124,7 +128,7 @@ Distribuya el tráfico a un grupo diferente en función de la dirección URL de 
 
 1. En el punto de conexión de CDN, seleccione **Motor de reglas** en **Configuración**:
 
-:::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-12.png" alt-text="Motor de reglas" border="true":::
+:::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-12.png" alt-text="Punto de conexión de CDN" border="true":::
 
 2. Seleccione **+ Add rule** (+ Agregar regla).
 
@@ -140,7 +144,7 @@ Distribuya el tráfico a un grupo diferente en función de la dirección URL de 
 
 8. En **Origin group** (Grupo de origen), seleccione el grupo origen en el cuadro desplegable.
 
-:::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-13.png" alt-text="Condiciones del motor de reglas" border="true":::
+:::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-13.png" alt-text="Punto de conexión de CDN" border="true":::
 
 Para todas las solicitudes entrantes si la ruta de acceso URL contiene **/images**, la solicitud se asignará al grupo de origen en la sección de acciones **(myorigingroup)** . 
 

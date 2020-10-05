@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Configuración de la ubicación de datos preferida para los recursos de Office 365'
-description: Describe cómo poner los recursos de usuario de Office 365 cerca del usuario con la sincronización de Azure Active Directory Connect.
+title: 'Azure AD Connect: Configuración de la ubicación de datos preferida para los recursos de Microsoft 365'
+description: Describe cómo poner los recursos de usuario de Microsoft 365 cerca del usuario con la sincronización de Azure Active Directory Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,29 +16,29 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebd71eae77c75d490585c27d7bc04c069d006009
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 4ad2bf071d4aa5b49541c710ef9b0793a1076ea9
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398540"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662511"
 ---
-# <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronización de Azure Active Directory Connect: Configuración de la ubicación de datos preferida para los recursos de Office 365
-El objetivo de este tema es guiarle por la configuración del atributo de la ubicación de datos preferida en la sincronización de Azure Active Directory (Azure AD) Connect. Cuando alguien usa las funcionalidades multigeográficas de Office 365, este atributo se usa para designar la ubicación geográfica de los datos de Office 365 del usuario. (Los términos *región* y *geoárea* se usan indistintamente).
+# <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Sincronización de Azure Active Directory Connect: Configuración de la ubicación de datos preferida para los recursos de Microsoft 365
+El objetivo de este tema es guiarle por la configuración del atributo de la ubicación de datos preferida en la sincronización de Azure Active Directory (Azure AD) Connect. Cuando alguien usa las funcionalidades multigeográficas de Microsoft 365, este atributo se usa para designar la ubicación geográfica de los datos de Microsoft 365 del usuario. (Los términos *región* y *geoárea* se usan indistintamente).
 
 ## <a name="enable-synchronization-of-preferred-data-location"></a>Habilitación de la sincronización de la ubicación de datos preferida
-De forma predeterminada, los recursos de Office 365 para los usuarios se encuentran en la misma zona geográfica que el inquilino de Azure AD. For example, if your tenant is located in Norteamérica, then the users' Exchange mailboxes are also located in North America. Esto podría no ser adecuado para una organización multinacional.
+De manera predeterminada, los recursos de Microsoft 365 para los usuarios se encuentran en la misma zona geográfica que el inquilino de Azure AD. For example, if your tenant is located in Norteamérica, then the users' Exchange mailboxes are also located in North America. Esto podría no ser adecuado para una organización multinacional.
 
-Es posible definir la geoárea de un usuario si se establece el atributo **preferredDataLocation**. Puede tener los recursos de Office 365 del usuario, como el buzón de correo y OneDrive, en la misma geoárea que el usuario y, aún así, tener un inquilino para toda la organización.
+Es posible definir la geoárea de un usuario si se establece el atributo **preferredDataLocation**. Puede tener los recursos de Microsoft 365 del usuario, como el buzón de correo y OneDrive, en la misma geoárea que el usuario y, aún así, tener un inquilino para toda la organización.
 
 > [!IMPORTANT]
-> La replicación geográfica múltiple está disponible actualmente para los clientes con un Contrato Enterprise y un mínimo de 250 suscripciones a los servicios de Office 365. Póngase en contacto con su representante de Microsoft para más información.
+> La replicación geográfica múltiple está disponible actualmente para los clientes con un Contrato Enterprise y un mínimo de 250 suscripciones a los servicios de Microsoft 365. Póngase en contacto con su representante de Microsoft para más información.
 >
 >
 
-Puede encontrar una lista de todas las geoáreas de Office 365 en [¿Dónde se encuentran tus datos?](https://aka.ms/datamaps)
+Puede encontrar una lista de todas las geoáreas de Microsoft 365 en [¿Dónde se encuentran los datos?](https://aka.ms/datamaps)
 
-Las zonas geográficas de Office 365 disponibles para la funcionalidad multigeográfica son:
+Las zonas geográficas de Microsoft 365 disponibles para la replicación geográfica múltiple son:
 
 | Geoárea | Valor de preferredDataLocation |
 | --- | --- |
@@ -58,7 +58,7 @@ Las zonas geográficas de Office 365 disponibles para la funcionalidad multigeog
 
 * Si una geoárea no aparece en esta tabla, por ejemplo, Sudamérica, no se puede usar con la funcionalidad multigeográfica.
 
-* No todas las cargas de trabajo de Office 365 admiten la configuración de la geoárea de un usuario.
+* No todas las cargas de trabajo de Microsoft 365 admiten la configuración de la geoárea de un usuario.
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Compatibilidad de Azure AD Connect con la sincronización
 
@@ -67,7 +67,7 @@ Azure AD Connect es compatible con la sincronización del atributo **preferredDa
 * El esquema del tipo de objeto **User** en el conector de Azure AD se extiende para incluir el atributo **preferredDataLocation**. El atributo es del tipo "cadena de un solo valor".
 * El esquema del tipo de objeto **Person** en el metaverso se extiende para incluir el atributo **preferredDataLocation**. El atributo es del tipo "cadena de un solo valor".
 
-De manera predeterminada, el atributo **preferredDataLocation** no está habilitado para la sincronización. Esta característica está diseñada para organizaciones grandes. El esquema de Active Directory en Windows Server 2019 tiene un atributo **msDS-preferredDataLocation** que debe usar con este fin. Si no ha actualizado el esquema de Active Directory y no puede hacerlo, debe identificar un atributo para que contenga la geoárea de Office 365 para los usuarios. Esto será diferente para cada organización.
+De manera predeterminada, el atributo **preferredDataLocation** no está habilitado para la sincronización. Esta característica está diseñada para organizaciones grandes. El esquema de Active Directory en Windows Server 2019 tiene un atributo **msDS-preferredDataLocation** que debe usar con este fin. Si no ha actualizado el esquema de Active Directory y no puede hacerlo, debe identificar un atributo para que contenga la geoárea de Microsoft 365 para los usuarios. Esto será diferente para cada organización.
 
 > [!IMPORTANT]
 > Azure AD permite que el atributo **preferredDataLocation** de los **objetos User de la nube** se configure directamente con Azure AD PowerShell. Para configurar este atributo en los **objetos User sincronizado**, debe usar Azure AD Connect.
@@ -264,7 +264,7 @@ Suponiendo que el inquilino se haya marcado para que pueda usar esta caracterís
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre las funcionalidades multigeográficas de Office 365:
+Más información sobre las funcionalidades multigeográficas de Microsoft 365:
 
 * [Sesiones sobre funcionalidades multigeográficas en Ignite](https://aka.ms/MultiGeoIgnite)
 * [Funcionalidades multigeográficas en OneDrive](https://aka.ms/OneDriveMultiGeo)

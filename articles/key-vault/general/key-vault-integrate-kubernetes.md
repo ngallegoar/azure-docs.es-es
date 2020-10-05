@@ -5,13 +5,13 @@ author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.service: key-vault
 ms.topic: tutorial
-ms.date: 08/25/2020
-ms.openlocfilehash: f77d197c30d00083b280a97079fe03146fcfeb82
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.date: 09/25/2020
+ms.openlocfilehash: ca075414b234b65f15b82847a112104f6fbe3cc1
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061808"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597886"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutorial: Configuración y ejecución del proveedor de Azure Key Vault para el controlador Secrets Store CSI en Kubernetes
 
@@ -114,7 +114,7 @@ Para crear su propio almacén de claves y establecer los secretos, siga las inst
 
 En el archivo YAML SecretProviderClass de ejemplo, rellene los parámetros que faltan. Se necesitan los siguientes parámetros:
 
-* **userAssignedIdentityID**: # [Obligatorio] Si usa una entidad de servicio, use el identificador de cliente para especificar la identidad administrada asignada por el usuario que se va a usar. Si usa una identidad asignada por el usuario como identidad administrada de la máquina virtual, especifique el identificador de cliente de la identidad. Si el valor está vacío, se usa de forma predeterminada la identidad asignada por el sistema en la máquina virtual. 
+* **userAssignedIdentityID**: # [Obligatorio] Si usa una entidad de servicio, use el id. de cliente para especificar la identidad administrada asignada por el usuario que se va a usar. Si usa una identidad asignada por el usuario como identidad administrada de la máquina virtual, especifique el id. de cliente de la identidad. Si el valor está vacío, se usa de forma predeterminada la identidad asignada por el sistema en la máquina virtual. 
 * **keyvaultName**: nombre del almacén de claves.
 * **objects**: contenedor para todo el contenido secreto que desea montar.
     * **objectName**: nombre del contenido del secreto.

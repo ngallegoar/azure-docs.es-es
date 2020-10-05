@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: duau
-ms.openlocfilehash: aa3465940088d3a66f23dfd5d58a6ec3fd3053de
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: ee96abb51e03fb1dc567b66d180cb520de299d95
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89397719"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566541"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Enrutamiento asimétrico con varias rutas de acceso de red
 En este artículo se explica cómo el tráfico de red de reenvío y de retorno puede tomar distintas rutas cuando hay varias rutas de acceso disponibles entre el origen y el destino de la red.
@@ -64,5 +64,5 @@ Otra manera de resolver los problemas de enrutamiento asimétrico es mediante SN
 ![Configuración de red con NAT basada en origen](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 
 ## <a name="asymmetric-routing-detection"></a>Detección de enrutamiento asimétrico
-Traceroute es la mejor manera de asegurarse de que el tráfico de la red recorra la ruta de acceso prevista. Si espera que el tráfico del servidor SMTP local a Microsoft tome la ruta de acceso de Internet, realice el traceroute previsto del servidor SMTP a Office 365. El resultado validará que el tráfico sale de hecho de la red hacia Internet y no hacia ExpressRoute.
+Traceroute es la mejor manera de asegurarse de que el tráfico de la red recorra la ruta de acceso prevista. Si espera que el tráfico del servidor SMTP local a Microsoft tome la ruta de acceso de Internet, realice el traceroute previsto del servidor SMTP a Microsoft 365. El resultado validará que el tráfico sale de hecho de la red hacia Internet y no hacia ExpressRoute.
 

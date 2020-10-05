@@ -1,7 +1,7 @@
 ---
 title: 'Azure AD Connect: administración y personalización de AD FS | Microsoft Docs'
 description: Administración de AD FS con Azure AD Connect y personalización del inicio de sesión de AD FS del usuario con Azure AD Connect y PowerShell.
-keywords: AD FS, ADFS, administración de AD FS, AAD Connect, Connect, inicio de sesión, personalización de AD FS, reparación de la confianza, Office 365, federación, usuario de confianza
+keywords: AD FS, ADFS, administración de AD FS, AAD Connect, Connect, inicio de sesión, personalización de AD FS, reparación de la confianza, M365, federación, usuario de confianza
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -18,12 +18,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72339d9ce492446d05f23b63ac2d0a1c2d62f766
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: dadffd6fe3e6b438b21900f957f0d4ef71bb23cb
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276786"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661265"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Administre y personalice Servicios de federación de Active Directory con Azure AD Connect
 En este artículo se describe cómo administrar y personalizar Servicios de federación de Active Directory (AD FS) con Azure Active Directory (Azure AD) Connect. También se incluyen otras tareas comunes de AD FS que podría tener que hacer para configurar completamente una granja de servidores de AD FS.
@@ -31,7 +31,7 @@ En este artículo se describe cómo administrar y personalizar Servicios de fede
 | Tema | Qué trata |
 |:--- |:--- |
 | **Administración de AD FS** | |
-| [Reparación de la confianza](#repairthetrust) |Cómo reparar la confianza de federación con Office 365. |
+| [Reparación de la confianza](#repairthetrust) |Cómo reparar la confianza de federación con Microsoft 365. |
 | [Federación con Azure AD mediante un identificador de inicio de sesión alternativo](#alternateid) | Configuración de la federación con un identificador de inicio de sesión alternativo  |
 | [Adición de un servidor de AD FS](#addadfsserver) |Cómo expandir una granja de servidores de AD FS con un servidor de AD FS adicional. |
 | [Incorporación de un servidor proxy de aplicación web de AD FS](#addwapserver) |Cómo expandir una granja de servidores de AD FS con un servidor proxy de aplicación web (WAP) adicional. |

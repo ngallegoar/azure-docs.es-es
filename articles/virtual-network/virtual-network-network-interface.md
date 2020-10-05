@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/22/2020
 ms.author: kumud
-ms.openlocfilehash: 1eb32fe4950a3a27ec97026b9170d08996de0c89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 99905e58cbcd9d0a5c5397aee125675a70e799fe
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707436"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657970"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Creación, cambio o eliminación de una interfaz de red
 
@@ -83,7 +83,7 @@ Puede ver y cambiar la mayoría de las opciones de una interfaz de red después 
 3. Se muestran los elementos siguientes para la interfaz de red seleccionada:
    - **Información general:** proporciona información acerca de la interfaz de red, como las direcciones IP asignadas a ella, la red o subred virtual a la que está asignada la interfaz de red y la máquina virtual a la que está asociada la interfaz de red (si está asociada a una). La siguiente imagen muestra la configuración de información general de una interfaz de red llamada **mywebserver256**: ![Información general acerca de interfaz de red](./media/virtual-network-network-interface/nic-overview.png)
 
-     Una interfaz de red se puede mover a un grupo de recursos o una suscripción diferentes; para ello, es preciso seleccionar (**cambiar**) junto a **Grupo de recursos** o **Nombre de la suscripción**. Si mueve la interfaz de red, debe mover con ella todos sus recursos relacionados. Por ejemplo, si la interfaz de red está asociada a una máquina virtual, también debe mover la máquina virtual y otros recursos relacionados con ella. Para trasladar una interfaz de red, consulte [cómo mover recursos a un nuevo grupo de recursos o suscripción](../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fvirtual-network%2ftoc.json#use-the-portal). En el artículo se enumeran los requisitos previos y se indica cómo trasladar recursos mediante Azure Portal, PowerShell y la CLI de Azure.
+     Una interfaz de red se puede mover a un grupo de recursos o una suscripción diferentes; para ello, es preciso seleccionar (**cambiar**) junto a **Grupo de recursos** o **Nombre de la suscripción**. Si traslada la interfaz de red a una nueva suscripción, debe trasladar con ella todos sus recursos relacionados. Por ejemplo, si la interfaz de red está asociada a una máquina virtual, también debe mover la máquina virtual y otros recursos relacionados con ella. Para trasladar una interfaz de red, consulte [cómo mover recursos a un nuevo grupo de recursos o suscripción](../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fvirtual-network%2ftoc.json#use-the-portal). En el artículo se enumeran los requisitos previos y se indica cómo trasladar recursos mediante Azure Portal, PowerShell y la CLI de Azure.
    - **Configuraciones IP:** las direcciones IPv4 e IPv6 públicas y privadas asignadas a las configuraciones IP se enumeran aquí. Si se asigna una dirección IPv6 a una configuración de IP, la dirección no se muestra. Para más información sobre las configuraciones de IP y cómo agregar y quitar direcciones IP, consulte [cómo configurar direcciones IP para una interfaz de red de Azure](virtual-network-network-interface-addresses.md). El reenvío de IP y la asignación de subred también se configuran en esta sección. Para más información sobre estos valores de configuración, consulte [Habilitación o deshabilitación del reenvío IP](#enable-or-disable-ip-forwarding) y [Cambio de la asignación de subred](#change-subnet-assignment).
    - **Servidores DNS:** puede especificar a qué servidor DNS asignarán una interfaz de red los servidores DHCP de Azure. La configuración de la red virtual puede heredar la configuración de la red virtual a la que está asignada la interfaz de red, o tener una configuración personalizada que reemplaza la configuración de la red virtual a la que está asignada. Para modificar lo que se muestra, consulte [Cambio de los servidores DNS](#change-dns-servers).
    - **Grupo de seguridad de red (NSG):** muestra el grupo de seguridad de red asociado a la interfaz de red (en caso de haberlos). Un grupo de seguridad de red contiene reglas de entrada y salida para filtrar el tráfico de red de la interfaz de red. Si hay un grupo de seguridad de red asociado a la interfaz de red, se muestra el nombre del grupo de seguridad de red asociado. Para modificar lo que se muestra, consulte [Associate or dissociate a network security group](#associate-or-dissociate-a-network-security-group) (Asociar o desasociar un grupo de seguridad de red).

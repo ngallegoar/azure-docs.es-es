@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 9f5e69a609931f4f8ead62f4d5c5ba2a1064a6ea
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6424fc0ff49566fad949b3fba4718acb2bad4cd3
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683018"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362785"
 ---
 # <a name="organize-costs-by-customizing-your-billing-account"></a>Organización de costos mediante la personalización de la cuenta de facturación
 
@@ -53,19 +53,19 @@ En esta sección se describen escenarios comunes para la organización de los co
 |---------|---------|
 |José se suscribe a Azure y necesita obtener una sola factura mensual. | Un perfil de facturación y una sección de factura. Esta estructura se configura automáticamente para José cuando se suscribe a Azure y no requiere ningún paso adicional. |
 
-![Gráfico de información para un escenario de facturación simple](./media/mca-section-invoice/organize-billing-scenario1.png)
+![Gráfico de información para un escenario de una sola facturación.](./media/mca-section-invoice/organize-billing-scenario1.png)
 
 |Escenario  |Estructura  |
 |---------|---------|
 |Contoso es una pequeña organización que necesita una sola factura mensual, pero agrupa los costos por sus departamentos (de marketing e ingeniería).  | Un perfil de facturación para Contoso y una sección de factura para los departamentos de marketing e ingeniería. |
 
-![Gráfico de información para un escenario de facturación simple](./media/mca-section-invoice/organize-billing-scenario2.png)
+![Gráfico de información para un escenario de varias facturaciones.](./media/mca-section-invoice/organize-billing-scenario2.png)
 
 |Escenario  |Estructura  |
 |---------|---------|
 |Fabrikam es una organización mediana que necesita facturas independientes para sus departamentos de ingeniería y marketing. En cuanto al departamento de ingeniería, quiere agrupar los costos por los entornos de producción y desarrollo.  | Un perfil de facturación para los departamentos de marketing e ingeniería. Para el departamento de ingeniería, una sección de factura para el entorno de producción y desarrollo. |
 
-![Gráfico de información para un escenario de facturación simple](./media/mca-section-invoice/organize-billing-scenario3.png)
+![Gráfico de información para un escenario de varias facturaciones, con facturación independiente para los entornos de producción y de desarrollo.](./media/mca-section-invoice/organize-billing-scenario3.png)
 
 ## <a name="create-a-new-invoice-section"></a>Creación de una sección de factura
 
@@ -79,7 +79,7 @@ Para crear una sección de factura, debe ser **propietario del perfil de factura
 
 3. Seleccione **Perfiles de facturación** en el panel izquierdo. En la lista, seleccione un perfil de facturación. La nueva sección se mostrará en la factura del perfil de facturación seleccionado.
 
-   [![Captura de pantalla que muestra la lista de perfiles de facturación](./media/mca-section-invoice/mca-select-profile.png)](./media/mca-section-invoice/mca-select-profile-zoomed-in.png#lightbox)
+   [![Captura de pantalla que muestra la lista de perfiles de facturación.](./media/mca-section-invoice/mca-select-profile.png)](./media/mca-section-invoice/mca-select-profile-zoomed-in.png#lightbox)
 
 4. Seleccione **Secciones de factura** en el panel izquierdo y, a continuación, **Agregar** en la parte superior de la página.
 
@@ -107,7 +107,7 @@ Para crear un perfil de facturación, debe ser **propietario de la cuenta de fac
 
 3. Seleccione **Perfiles de facturación** en el panel izquierdo y, a continuación, **Agregar** en la parte superior de la página.
 
-   [![Captura de pantalla que muestra la lista de perfiles de facturación](./media/mca-section-invoice/mca-list-profiles.png)](./media/mca-section-invoice/mca-list-profiles-zoomed-in.png#lightbox)
+   [![Captura de pantalla que muestra la lista de perfiles de facturación con la opción Agregar seleccionada.](./media/mca-section-invoice/mca-list-profiles.png)](./media/mca-section-invoice/mca-list-profiles-zoomed-in.png#lightbox)
 
     > [!Note]
     >
@@ -136,15 +136,15 @@ Una vez que haya personalizado su cuenta de facturación en función de sus nece
 
 2. Busque **Suscripciones**.
 
-   [![Captura de pantalla que muestra la búsqueda de suscripciones en el portal](./media/mca-section-invoice/search-subscriptions.png)](./media/mca-section-invoice/search-subscriptions.png#lightbox)
+   [![Captura de pantalla que muestra la búsqueda de suscripciones en Azure Portal.](./media/mca-section-invoice/search-subscriptions.png)](./media/mca-section-invoice/search-subscriptions.png#lightbox)
 
 3. Seleccione **Agregar** en la parte superior de la página.
 
-   ![Captura de pantalla que muestra el botón Agregar en la vista Suscripciones](./media/mca-section-invoice/subscription-add.png)
+   ![Captura de pantalla que muestra el botón Agregar en la vista Suscripciones para una nueva suscripción.](./media/mca-section-invoice/subscription-add.png)
 
 4. Si tiene acceso a varias cuentas de facturación, seleccione la cuenta de facturación de su Contrato de cliente de Microsoft.
 
-   ![Captura de pantalla que muestra el botón Agregar en la vista Suscripciones](./media/mca-section-invoice/mca-create-azure-subscription.png)
+   ![Captura de pantalla que muestra la página de creación de suscripción.](./media/mca-section-invoice/mca-create-azure-subscription.png)
 
 5. Seleccione el perfil de facturación que se facturará por el uso de la suscripción. Los cargos por uso de Azure y otras compras de esta suscripción se facturarán a la factura del perfil de facturación seleccionado.
 
@@ -166,7 +166,7 @@ Si tiene suscripciones a Azure existentes u otros productos, como Azure Marketpl
 
 2. Busque **Administración de costos + facturación**.
 
-   ![Captura de pantalla que muestra la búsqueda de suscripciones en el portal](./media/mca-section-invoice/search-cmb.png)
+   ![Captura de pantalla que muestra la búsqueda en Azure Portal de Cost Management + Billing.](./media/mca-section-invoice/search-cmb.png)
 
 3. Para vincular una suscripción a una nueva sección de factura, seleccione **Suscripciones a Azure** en el lado izquierdo de la pantalla. En el caso de otros productos como Azure Marketplace y recursos de origen de la aplicación, seleccione **Cargos periódicos**.
 

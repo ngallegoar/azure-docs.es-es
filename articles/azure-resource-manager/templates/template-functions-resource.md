@@ -2,13 +2,13 @@
 title: 'Funciones de plantillas: recursos'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para recuperar valores sobre recursos.
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.openlocfilehash: 5a685255385d54fa21d672d0267fb4ad5ff5037b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.date: 09/03/2020
+ms.openlocfilehash: 3f916be4431aa6b2b100967465450447ecc1d626
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378430"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468681"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funciones de recursos para plantillas de ARM
 
@@ -101,6 +101,12 @@ En el ejemplo siguiente se devuelve el identificador de recurso para el bloqueo 
     }
 }
 ```
+
+Una definición de directiva personalizada implementada en un grupo de administración se implementa como recurso de extensión. Para crear y asignar una directiva, implemente la siguiente plantilla en un grupo de administración.
+
+:::code language="json" source="~/quickstart-templates/managementgroup-deployments/mg-policy/azuredeploy.json":::
+
+Las definiciones de directivas integradas son recursos del nivel de inquilino. Para obtener un ejemplo de implementación de una definición de directiva integrada, consulte [tenantResourceId](#tenantresourceid).
 
 <a id="listkeys"></a>
 <a id="list"></a>
@@ -845,23 +851,27 @@ Cuando la plantilla se implementa en el ámbito de un grupo de recursos, el iden
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-Cuando se usa en una [implementación de nivel de suscripción](deploy-to-subscription.md), el identificador de recurso se devuelve en el formato siguiente:
+Puede usar la función resourceId para otros ámbitos de implementación, pero cambia el formato del id.
+
+Si usa resourceId durante la implementación en una suscripción, el id. de recurso se devuelve en el formato siguiente:
 
 ```json
 /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-Cuando se usa en una [implementación de nivel de grupo de administración](deploy-to-management-group.md), el identificador de recurso se devuelve en el formato siguiente:
+Si usa resourceId durante la implementación en un grupo de administración o inquilino, el id. de recurso se devuelve en el formato siguiente:
 
 ```json
 /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-Para obtener el identificador en otros formatos, vea:
+Para evitar confusiones, no se recomienda usar resourceId al trabajar con recursos implementados en la suscripción, el grupo de administración o el inquilino. En su lugar, use la función de id. que se diseñó para el ámbito.
 
-* [extensionResourceId](#extensionresourceid)
-* [subscriptionResourceId](#subscriptionresourceid)
-* [tenantResourceId](#tenantresourceid)
+En el caso de los [recursos del nivel de suscripción](deploy-to-subscription.md), use la función [subscriptionResourceId()](#subscriptionresourceid).
+
+En el caso de los [recursos del nivel de grupo de administración](deploy-to-management-group.md), use la función [extensionResourceId](#extensionresourceid) para hacer referencia a un recurso que se implementa como extensión de un grupo de administración. Por ejemplo, las definiciones de directivas personalizadas que se implementan en un grupo de administración son extensiones del grupo de administración. Use la función [tenantResourceId](#tenantresourceid) para hacer referencia a los recursos que se implementan en el inquilino, pero están disponibles en el grupo de administración. Por ejemplo, las definiciones de directivas integradas se implementan como recursos de nivel de inquilino.
+
+En el caso de los [recursos de nivel de inquilino](deploy-to-tenant.md), use la función [tenantResourceId](#tenantresourceid). Use tenantResourceId para las definiciones de directiva integradas, ya que se implementan en el nivel de inquilino.
 
 ### <a name="remarks"></a>Observaciones
 
@@ -1124,6 +1134,44 @@ El identificador se devuelve con el formato siguiente:
 ### <a name="remarks"></a>Observaciones
 
 Esta función se usa para obtener el identificador de recurso de un recurso que se implementa en el inquilino. El identificador devuelto difiere de los valores devueltos por otras funciones de identificador de recurso en que no incluye los valores de un grupo de recursos o una suscripción.
+
+### <a name="tenantresourceid-example"></a>Ejemplo de tenantResourceId
+
+Las definiciones de directivas integradas son recursos del nivel de inquilino. Para implementar una asignación de directiva que hace referencia a una definición de directiva integrada, use la función tenantResourceId.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "policyAssignmentName": {
+      "type": "string",
+      "defaultValue": "[guid(parameters('policyDefinitionID'), resourceGroup().name)]",
+      "metadata": {
+        "description": "Specifies the name of the policy assignment, can be used defined or an idempotent name as the defaultValue provides."
+      }
+    },
+    "policyDefinitionID": {
+      "type": "string",
+      "defaultValue": "0a914e76-4921-4c19-b460-a2d36003525a",
+      "metadata": {
+        "description": "Specifies the ID of the policy definition or policy set definition being assigned."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyAssignments",
+      "name": "[parameters('policyAssignmentName')]",
+      "apiVersion": "2019-09-01",
+      "properties": {
+        "scope": "[subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)]",
+        "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
+      }
+    }
+  ]
+}
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

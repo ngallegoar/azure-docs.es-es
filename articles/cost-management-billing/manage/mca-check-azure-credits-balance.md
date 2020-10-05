@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: banders
-ms.openlocfilehash: 334193f64c49b546bab5f44840df5b3f59e32c4f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: ebe750440528e40feaf0b4700c018a612b482e34
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690585"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447632"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Seguimiento del saldo del crédito de Azure para el contrato de cliente de Microsoft
 
@@ -35,11 +35,11 @@ Este artículo se aplica a una cuenta de facturación para un contrato de client
 
 2. Busque **Administración de costos + facturación**.
 
-    ![Captura de pantalla que muestra la búsqueda en el portal para la administración de cosos y facturación](./media/mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
+    ![Captura de pantalla que muestra la búsqueda en el portal de Cost Management + Billing.](./media/mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
 3. En la página de ámbitos de facturación, seleccione la cuenta de facturación para la que desea realizar el seguimiento del saldo de crédito. La cuenta de facturación será del tipo **Contrato de cliente de Microsoft**.
 
-    ![Captura de pantalla que muestra la búsqueda en el portal para la administración de cosos y facturación](./media/mca-check-azure-credits-balance/list-of-scopes.png)
+    ![Captura de pantalla que muestra los ámbitos de facturación.](./media/mca-check-azure-credits-balance/list-of-scopes.png)
 
     > [!NOTE]
     >
@@ -47,7 +47,7 @@ Este artículo se aplica a una cuenta de facturación para un contrato de client
 
 3. Seleccione **Métodos de pago** en el lado izquierdo y, a continuación, seleccione **Créditos de Azure**.
 
-   ![Captura de pantalla del saldo de crédito para un perfil de facturación](./media/mca-check-azure-credits-balance/mca-payment-methods.png)
+   ![Captura de pantalla de los saldos estimados y actuales.](./media/mca-check-azure-credits-balance/mca-payment-methods.png)
 
 4. La página Créditos de Azure incluye las siguientes secciones:
 

@@ -1,6 +1,6 @@
 ---
 title: 'Administración de las organizaciones desde el portal Mi cuenta: Azure AD'
-description: Procedimientos para ver y dejar las organizaciones conectadas a su cuenta profesional o educativa desde la página Organizaciones del portal Mi cuenta.
+description: Procedimientos para ver y abandonar las organizaciones a las que tiene acceso desde la página Organizaciones del portal Mi cuenta.
 services: active-directory
 author: curtand
 manager: daveba
@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/29/2020
+ms.date: 09/10/2020
 ms.author: curtand
-ms.openlocfilehash: bb0f0b93f3890a06f4ecbdc6cf39a173ea048940
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 8b8abe60503c68f06a97782ea09d418ebf659216
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798183"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005078"
 ---
-# <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Administración de las organizaciones conectadas desde la página Organizaciones
+# <a name="manage-organizations-you-have-access-to-in-the-my-account-portal"></a>Administración de organizaciones a las que tiene acceso en el portal Mi cuenta
 
-La página **Organizaciones** del portal **Mi cuenta** le ayuda a administrar las organizaciones (normalmente, el nombre de su organización) conectadas a su cuenta profesional o educativa. Hay dos tipos de organizaciones que se muestran en la página **Organizaciones**:
+La página **Organizaciones** del portal **Mi cuenta** le ayuda a administrar las organizaciones (normalmente, el nombre de su organización) a las que tiene acceso. Hay dos tipos de organizaciones que se muestran en la página **Organizaciones**:
 
 - **Organización principal.** La organización principal es la organización propietaria de la cuenta profesional o educativa. No puede abandonar la organización principal.
 
@@ -30,7 +30,7 @@ La página **Organizaciones** del portal **Mi cuenta** le ayuda a administrar la
 - **Otras organizaciones.** Las otras organizaciones son cualquier grupo en el que haya iniciado sesión anteriormente con la cuenta profesional o educativa. Puede salir de cualquiera de estas organizaciones en cualquier momento.
 
 >[!Important]
->Este artículo está destinado a los usuarios que intentan actualizar la información de la organización conectada a una cuenta profesional o educativa. Si es un administrador que busca información acerca de la administración de grupos y usuarios para los empleados y otros usuarios, consulte [Documentación de la administración de usuarios empresariales (Azure AD)](../users-groups-roles/index.yml).
+>Este artículo está destinado a los usuarios que intentan actualizar la información de la organización a la que accede una cuenta profesional o educativa. Si es un administrador que busca información acerca de la administración de grupos y usuarios para los empleados y otros usuarios, consulte [Documentación de la administración de usuarios empresariales (Azure AD)](../users-groups-roles/index.yml).
 
 ## <a name="view-your-organizations"></a>Visualización de las organizaciones
 
@@ -44,7 +44,7 @@ La página **Organizaciones** del portal **Mi cuenta** le ayuda a administrar la
 
     ![Página Organizaciones](media/my-account-portal/my-account-portal-organization-page.png)
 
-4. Revise las otras organizaciones asociadas, asegurándose de que reconoce todas las organizaciones conectadas a la cuenta.
+4. Revise las otras organizaciones, asegurándose de que reconoce todas las organizaciones a las que tiene acceso.
 
 ## <a name="leave-an-organization"></a>Salir de una organización
 

@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 08/03/2020
-ms.openlocfilehash: 655caa05eff16bcf3e598dccd3c9845928b2fcff
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.date: 09/04/2020
+ms.openlocfilehash: b01b482b967ba6db90aa80ba537457597fb91046
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378838"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488616"
 ---
 # <a name="build-the-landing-page-for-your-free-or-trial-saas-offer-in-the-commercial-marketplace"></a>Creación de la página de aterrizaje de su oferta de SaaS gratuita o de evaluación en el marketplace comercial
 
@@ -27,7 +27,7 @@ El propósito de la página de aterrizaje es simplemente recibir al usuario para
 
 Dado que la información necesaria para activar la suscripción es limitada y la proporcionan Azure AD y Microsoft Graph, no debería haber ninguna necesidad de solicitar información que requiera más que el consentimiento básico. Si necesita detalles de usuario que requieran un consentimiento adicional para la aplicación, debe solicitar esta información una vez completada la activación de la suscripción. Esto permite la activación de la suscripción sin problemas para el usuario y reduce el riesgo de abandono.
 
-La página de aterrizaje incluye normalmente la siguiente información y llamadas a la acción:
+La página de aterrizaje incluye normalmente la siguiente información y opciones de anuncio:
 
 - Presente el nombre y los detalles de la evaluación gratuita o la suscripción gratuita. Por ejemplo, especifique los límites de uso o la duración de una evaluación.
 - Presente los detalles de la cuenta del usuario, incluidos el nombre y los apellidos, la organización y el correo electrónico.

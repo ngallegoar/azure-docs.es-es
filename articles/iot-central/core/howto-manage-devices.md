@@ -8,18 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8725a822c575ce80b9810d56bfd072241ded4c86
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ee9552b251cbc8cca1891de043ee79682e7b2d6c
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80157949"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017105"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Administración de dispositivos en la aplicación de Azure IoT Central
 
-
-
-En este artículo se describe cómo administrar dispositivos en la aplicación de Azure IoT Central como operador. Como operador, puede hacer lo siguiente:
+En este artículo se describe cómo puede administrar dispositivos en la aplicación de Azure IoT Central como operador. Como operador, puede hacer lo siguiente:
 
 - Usar la página **Devices** (Dispositivos) para ver, agregar y eliminar los dispositivos conectados a una aplicación de Azure IoT Central.
 - Mantener un inventario actualizado de los dispositivos.

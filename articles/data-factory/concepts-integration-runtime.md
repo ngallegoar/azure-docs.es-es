@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: e8e900e410f1a41c8c98f5cec00631cfb5f275de
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 03b8deaa700d15a20571a8ec5f389c252c32eed2
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407700"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485726"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime en Azure Data Factory 
 
@@ -143,7 +143,7 @@ Si opta por usar la resolución automática de Azure IR en redes públicas, que 
   - Cuando copie datos en Salesforce cuya región no se puede detectar, la actividad de copia se ejecuta en IR en la región Este de EE. UU.
 
   >[!TIP] 
-  >Si tiene requisitos estrictos de cumplimiento de datos y debe garantizar que los datos no salen de una determinada región geográfica, puede crear explícitamente una instancia de Azure IR en una determinada región y dirigir el servicio vinculado a esta instancia de IR con la propiedad ConnectVia. Por ejemplo, si desea copiar datos de un blob de la región Sur de Reino Unido en SQL DW de esa misma región y desea garantizar que los datos no salen del Reino Unido, cree una instancia de Azure IR en Reino Unido y vincule ambos servicios vinculados a ella.
+  >Si tiene requisitos estrictos de cumplimiento de datos y debe garantizar que los datos no salen de una determinada región geográfica, puede crear explícitamente una instancia de Azure IR en una determinada región y dirigir el servicio vinculado a esta instancia de IR con la propiedad ConnectVia. Por ejemplo, si quiere copiar datos de un blob de la región Sur de Reino Unido en Azure Synapse Analytics de esa misma región y quiere garantizar que los datos no salen del Reino Unido, cree una instancia de Azure IR en Reino Unido y vincule ambos servicios vinculados a ella.
 
 - Para la ejecución de las actividades de Búsqueda, Obtener metadatos o Eliminar (también conocidas como actividades de canalización), la distribución de actividades de transformación (también conocidas como actividades externas) y las operaciones de creación (probar conexión, examinar lista de carpetas y lista de tablas, obtener una vista previa de datos), ADF usa IR en la región de la factoría de datos.
 

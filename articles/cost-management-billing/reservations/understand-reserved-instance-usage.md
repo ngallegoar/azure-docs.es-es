@@ -9,12 +9,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: b1b5a344da20bff31f85a2d3cb20a0a35e4c4bde
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2b00c90abce915ae6fd645cbcce3536870609558
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681930"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447891"
 ---
 # <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Descripción del uso de reservas para su suscripción individual de pago por uso
 
@@ -74,7 +74,7 @@ Imagine que ejecuta una instancia de SQL Database Gen 4 en la región Este de EE
 
 Filtre por el nombre del medidor **Uso de instancias reservadas** y elija la **categoría de medición** necesaria: Azure SQL Database o Azure Cosmos DB. Verá algo parecido a la siguiente captura de pantalla:
 
-![Archivo CSV para la capacidad reservada de SQL Database](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
+![Captura de pantalla que muestra una entrada de categoría de medición.](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
 
 La línea **Uso de instancias reservadas** tiene el número total de horas básicas cubiertas por la reserva. La tasa es 0 $ para esta línea, ya que la reserva cubría el costo.
 
@@ -82,7 +82,7 @@ La línea **Uso de instancias reservadas** tiene el número total de horas bási
 
 Filtre por **Información adicional** y escriba su **Identificador de reserva**. En la siguiente captura de pantalla se muestran los campos relacionados con la reserva de capacidad reservada de SQL Database.
 
-![Archivo CSV para la capacidad reservada de SQL Database](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
+![Captura de pantalla que muestra los detalles de un archivo CSV para la capacidad reservada.](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
 
 1. El valor **ReservationId** del campo **Información adicional** es la reserva de capacidad reservada de SQL Database que se aplica al recursos de SQL Database.
 2. **ConsumptionMeter** es el identificador del medidor del recurso de SQL Database.

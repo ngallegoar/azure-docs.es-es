@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: afa95609e0bcb879b6ad4b3b50b5dff5feb9a9f7
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 5498fd83efa0fa52f5f0861588eaa8cdeb0953ac
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682797"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371803"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurar la cuenta de facturación para un contrato de cliente de Microsoft
 
@@ -132,7 +132,7 @@ Los servicios de Azure de la suscripción se siguen ejecutando sin ninguna inter
 
 ### <a name="user-access-to-azure-resources"></a>Acceso de usuarios a los recursos de Azure
 
-El acceso a los recursos de Azure que se configuró con Azure RBAC (control de acceso basado en rol) no se ve afectado durante la transición.
+El acceso a los recursos de Azure que se configuró con el control de acceso basado en rol (Azure RBAC) no se ve afectado durante la transición.
 
 ### <a name="azure-reservations"></a>Reservas de Azure
 
@@ -225,7 +225,7 @@ Las reservas de Azure en la inscripción del Contrato Enterprise se trasladarán
 
 4. Seleccione **Control de acceso (IAM)** en el lado izquierdo.
 
-   ![Captura de pantalla que muestra el acceso de los administradores de Enterprise después de la transición](./media/mca-setup-account/mca-ea-admins-ba-access-post-transition.png)
+   ![Captura de pantalla que muestra el acceso de los administradores de Enterprise enumerados como propietarios de la cuenta de facturación después de la transición.](./media/mca-setup-account/mca-ea-admins-ba-access-post-transition.png)
 
 Los administradores de Enterprise se muestran como propietarios de cuentas de facturación mientras que los administradores de Enterprise con permisos de solo lectura aparecen como lectores de cuentas de facturación. Si cree que falta acceso para algún administrador de Enterprise, puede concederle acceso en Azure Portal. Para más información, consulte [Administración de roles de facturación en Azure Portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
@@ -241,7 +241,7 @@ Los administradores de Enterprise se muestran como propietarios de cuentas de fa
 
 4. Seleccione **Control de acceso (IAM)** en el lado izquierdo.
 
-   ![Captura de pantalla que muestra el acceso de los administradores de Enterprise después de la transición](./media/mca-setup-account/mca-ea-admins-bp-access-post-transition.png)
+   ![Captura de pantalla que muestra el acceso de los administradores de Enterprise que se enumeran como propietarios del perfil de facturación después de la transición.](./media/mca-setup-account/mca-ea-admins-bp-access-post-transition.png)
 
 Los administradores de Enterprise se muestran como propietarios de perfiles de facturación mientras que los administradores de Enterprise con permisos de solo lectura se enumeran como lectores de perfil de facturación. Si cree que falta acceso para algún administrador de Enterprise, puede concederle acceso en Azure Portal. Para más información, consulte [Administración de roles de facturación en Azure Portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 

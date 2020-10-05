@@ -1,6 +1,6 @@
 ---
 title: Entornos de proceso compatibles con Azure Data Factory
-description: Obtenga información sobre los entornos de proceso que puede usar en las canalizaciones de Azure Data Factory (como Azure HDInsight) para transformar o procesar datos.
+description: Entornos de proceso que se pueden usar con las canalizaciones de Azure Data Factory (como Azure HDInsight) para transformar o procesar datos.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -10,12 +10,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.date: 05/08/2019
-ms.openlocfilehash: 98f3c96fe1d1e8dd0f73d0441db8319fc2241cd7
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 3d8e667cd96cc6d7091682a4530633588591d3a4
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563745"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483196"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
 
@@ -33,7 +33,7 @@ En la tabla siguiente se proporciona una lista de entornos de proceso compatible
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Ejecución de canalización de Azure Machine Learning](transform-data-machine-learning-service.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Ejecución de canalización de Azure Machine Learning](transform-data-machine-learning-service.md) |
 | [Análisis con Azure Data Lake](#azure-data-lake-analytics-linked-service) | [U-SQL de análisis con Data Lake](transform-data-using-data-lake-analytics.md) |
-| [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Procedimiento almacenado](transform-data-using-stored-procedure.md) |
+| [Azure SQL](#azure-sql-database-linked-service), [Azure Synapse Analytics (antes SQL Data Warehouse)](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Procedimiento almacenado](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
 | [Función de Azure](#azure-function-linked-service)         | [Actividad de función de Azure](control-flow-azure-function-activity.md)
 >  
@@ -265,7 +265,7 @@ Este tipo de configuración se admite para los entornos de procesos siguientes:
 * Azure Batch
 * Azure Machine Learning
 * Análisis con Azure Data Lake
-* Azure SQL DB, Azure SQL DW, SQL Server
+* Azure SQL Database, Azure Synapse Analytics, SQL Server
 
 ## <a name="azure-hdinsight-linked-service"></a>Servicio vinculado de HDInsight de Azure
 Puede crear un servicio vinculado de HDInsight de Azure para registrar su propio clúster de HDInsight con la Factoría de datos.
@@ -562,9 +562,9 @@ Puede crear un **servicio vinculado de Azure Databricks** para registrar el áre
 
 Cree un servicio vinculado de Azure SQL y úselo con la [actividad de procedimiento almacenado](transform-data-using-stored-procedure.md) para invocar un procedimiento almacenado desde una canalización de Factoría de datos. Vea el artículo [Conector SQL de Azure](connector-azure-sql-database.md#linked-service-properties) para más información sobre este servicio vinculado.
 
-## <a name="azure-sql-data-warehouse-linked-service"></a>Servicio vinculado de Azure SQL Data Warehouse
+## <a name="azure-synapse-analytics-linked-service"></a>Servicio vinculado Azure Synapse Analytics
 
-Cree un servicio vinculado de SQL Data Warehouse y úselo con la [actividad de procedimiento almacenado](transform-data-using-stored-procedure.md) para invocar un procedimiento almacenado desde una canalización de Data Factory. Consulte el artículo sobre el [conector de Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#linked-service-properties) para más información acerca de este servicio vinculado.
+Cree un servicio vinculado de Azure Synapse Analytics (antes SQL Data Warehouse) y úselo con la [actividad de procedimiento almacenado](transform-data-using-stored-procedure.md) para invocar un procedimiento almacenado desde una canalización de Data Factory. Consulte el artículo sobre el [conector de Azure Synapse Analytics (antes SQL Data Warehouse)](connector-azure-sql-data-warehouse.md#linked-service-properties) para más información acerca de este servicio vinculado.
 
 ## <a name="sql-server-linked-service"></a>Servicio vinculado de SQL Server
 

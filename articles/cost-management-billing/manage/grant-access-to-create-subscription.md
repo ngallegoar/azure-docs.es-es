@@ -8,12 +8,12 @@ ms.reviewer: amberb
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: banders
-ms.openlocfilehash: b154d723e82d02ea864459ef65eb5c05c14ae336
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 661b088d024a6da631fa06fbd97131091b9f650b
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88943188"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371888"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Concesión de acceso para crear suscripciones de Azure Enterprise (versión preliminar)
 
@@ -23,11 +23,11 @@ Como cliente de Azure del [Contrato Enterprise (EA)](https://azure.microsoft.com
 
 ## <a name="grant-access"></a>Conceder acceso
 
-Para [crear suscripciones en una cuenta de inscripción](programmatically-create-subscription.md), los usuarios deben contar con el [rol de propietario de RBAC](../../role-based-access-control/built-in-roles.md#owner) en esa cuenta. Puede conceder a un usuario o a un grupo de usuarios el rol de propietario de RBAC en una cuenta de inscripción si sigue estos pasos:
+Para [crear suscripciones en una cuenta de inscripción](programmatically-create-subscription.md), los usuarios deben contar con el [rol de propietario](../../role-based-access-control/built-in-roles.md#owner) de Azure RBAC en esa cuenta. Puede conceder a un usuario o a un grupo de usuarios el rol de propietario de Azure RBAC en una cuenta de inscripción si sigue estos pasos:
 
 1. Obtenga el id. de objeto de la cuenta de inscripción a la que quiere conceder acceso
 
-    Para conceder a otros usuarios el rol de propietario de RBAC en una cuenta de inscripción, debe ser propietario de la cuenta o un propietario de RBAC de la cuenta.
+    Para conceder a otros usuarios el rol de propietario de Azure RBAC en una cuenta de inscripción, debe ser propietario de la cuenta o un propietario de Azure RBAC de la cuenta.
 
     # <a name="rest"></a>[REST](#tab/rest)
 
@@ -62,7 +62,7 @@ Para [crear suscripciones en una cuenta de inscripción](programmatically-create
     }
     ```
 
-    Use la propiedad `principalName` para identificar la cuenta a la que quiere conceder acceso al propietario de RBAC. Copie el elemento `name` de esa cuenta. Por ejemplo, si quisiera conceder acceso al propietario de RBAC a la cuenta de inscripción SignUpEngineering@contoso.com, copiaría ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Es el identificador de objeto de la cuenta de inscripción. Pegue este valor en algún lugar para poder usarlo en el paso siguiente como `enrollmentAccountObjectId`.
+    Use la propiedad `principalName` para identificar la cuenta para la que quiere conceder acceso al propietario de Azure RBAC. Copie el elemento `name` de esa cuenta. Por ejemplo, si quisiera conceder acceso al propietario de Azure RBAC a la cuenta de inscripción SignUpEngineering@contoso.com, copiaría ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Es el identificador de objeto de la cuenta de inscripción. Pegue este valor en algún lugar para poder usarlo en el paso siguiente como `enrollmentAccountObjectId`.
 
     # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -80,7 +80,7 @@ Para [crear suscripciones en una cuenta de inscripción](programmatically-create
     4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
     ```
 
-    Use la propiedad `principalName` para identificar la cuenta a la que quiere conceder acceso al propietario de RBAC. Copie el elemento `ObjectId` de esa cuenta. Por ejemplo, si quisiera conceder acceso al propietario de RBAC a la cuenta de inscripción SignUpEngineering@contoso.com, copiaría ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Pegue este identificador de objeto en alguna parte para poder usarlo en el paso siguiente como `enrollmentAccountObjectId`.
+    Use la propiedad `principalName` para identificar la cuenta para la que quiere conceder acceso al propietario de Azure RBAC. Copie el elemento `ObjectId` de esa cuenta. Por ejemplo, si quisiera conceder acceso al propietario de Azure RBAC a la cuenta de inscripción SignUpEngineering@contoso.com, copiaría ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Pegue este identificador de objeto en alguna parte para poder usarlo en el paso siguiente como `enrollmentAccountObjectId`.
 
     # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -111,18 +111,18 @@ Para [crear suscripciones en una cuenta de inscripción](programmatically-create
 
     ---
 
-    Use la propiedad `principalName` para identificar la cuenta a la que quiere conceder acceso al propietario de RBAC. Copie el elemento `name` de esa cuenta. Por ejemplo, si quisiera conceder acceso al propietario de RBAC a la cuenta de inscripción SignUpEngineering@contoso.com, copiaría ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Es el identificador de objeto de la cuenta de inscripción. Pegue este valor en algún lugar para poder usarlo en el paso siguiente como `enrollmentAccountObjectId`.
+    Use la propiedad `principalName` para identificar la cuenta para la que quiere conceder acceso al propietario de Azure RBAC. Copie el elemento `name` de esa cuenta. Por ejemplo, si quisiera conceder acceso al propietario de Azure RBAC a la cuenta de inscripción SignUpEngineering@contoso.com, copiaría ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Es el identificador de objeto de la cuenta de inscripción. Pegue este valor en algún lugar para poder usarlo en el paso siguiente como `enrollmentAccountObjectId`.
 
-1. <a id="userObjectId"></a>Obtenga el id. del usuario o grupo al que quiere conceder el rol de propietario de RBAC
+1. <a id="userObjectId"></a>Obtenga el id. del usuario o grupo al que quiere conceder el rol de propietario de Azure RBAC
 
     1. En Azure Portal, busque **Azure Active Directory**.
     1. Si desea conceder acceso a un usuario, seleccione **Usuarios** en el menú de la izquierda. Para conceder acceso a un grupo, seleccione **Grupos**.
-    1. Seleccione el usuario o grupo al que quiere asignar el rol de propietario de RBAC.
+    1. Seleccione el usuario o grupo al que quiere asignar el rol de propietario de Azure RBAC.
     1. Si ha seleccionado un usuario, encontrará el id. de objeto en la página de perfil. Si ha seleccionado un grupo, el identificador de objeto estará en la página introducción. Copie el valor de **ObjectID** seleccionando el icono de la derecha del cuadro de texto. Péguelo en algún lugar para poder usarlo en el paso siguiente como `userObjectId`.
 
-1. Conceda al usuario o grupo el rol de propietario de RBAC en la cuenta de inscripción
+1. Conceda al usuario o grupo el rol de propietario de Azure RBAC en la cuenta de inscripción
 
-    Con los valores que recopiló en los dos primeros pasos, conceda al usuario o grupo el rol de propietario de RBAC en la cuenta de inscripción.
+    Con los valores que recopiló en los dos primeros pasos, conceda al usuario o grupo el rol de propietario de Azure RBAC en la cuenta de inscripción.
 
     # <a name="rest"></a>[REST](#tab/rest-2)
 
@@ -174,7 +174,7 @@ Para [crear suscripciones en una cuenta de inscripción](programmatically-create
     az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
     ```
 
-    Cuando un usuario se convierte en propietario de RBAC de su cuenta de inscripción, puede [crear suscripciones en ella mediante programación](programmatically-create-subscription.md). Una suscripción creada por un usuario delegado aún tiene el propietario de cuenta original como administrador de servicios, pero también tiene el usuario delegado como propietario de RBAC de forma predeterminada.
+    Cuando un usuario se convierte en propietario de Azure RBAC de su cuenta de inscripción, puede [crear suscripciones en ella mediante programación](programmatically-create-subscription.md). Una suscripción creada por un usuario delegado aún tiene el propietario de cuenta original como administrador de servicios, pero también tiene el usuario delegado como propietario de Azure RBAC de forma predeterminada.
 
     ---
 

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecfc532ea859c78b72a15dc85e0d3fc740ffe19a
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 6f3918016e35029ea6cc1b60d407ad475b35895b
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797549"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565471"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Incorporación o eliminación de un grupo de otro grupo con Azure Active Directory
 En este artículo encontrará ayuda para agregar y quitar un grupo de otro grupo con Azure Active Directory.
@@ -30,7 +30,7 @@ En este artículo encontrará ayuda para agregar y quitar un grupo de otro grupo
 Puede agregar un grupo de seguridad existente a otro grupo de seguridad existente (lo que también se conoce como grupos anidados), y crear un grupo de miembros (subgrupo) y un grupo principal. El grupo miembro hereda los atributos y las propiedades del grupo primario, lo que le ahorra tiempo de configuración.
 
 >[!Important]
->En este momento, no se admite:<ul><li>Agregar grupos a un grupo sincronizado con Active Directory local.</li><li>Agregar grupos de seguridad a grupos de Office 365.</li><li>Agregar grupos de Office 365 a grupos de seguridad u otros grupos de Office 365.</li><li>Asignar aplicaciones a grupos anidados.</li><li>Aplicar licencias a grupos anidados.</li><li>Agregar grupos de distribución en escenarios de anidamiento.</li></ul>
+>En este momento, no se admite:<ul><li>Agregar grupos a un grupo sincronizado con Active Directory local.</li><li>Agregar grupos de seguridad a grupos de Microsoft 365.</li><li>Agregar grupos de Microsoft 365 a grupos de seguridad u otros grupos de Microsoft 365.</li><li>Asignar aplicaciones a grupos anidados.</li><li>Aplicar licencias a grupos anidados.</li><li>Agregar grupos de distribución en escenarios de anidamiento.</li></ul>
 
 ### <a name="to-add-a-group-as-a-member-of-another-group"></a>Para agregar un grupo como miembro de otro grupo, siga estos pasos:
 

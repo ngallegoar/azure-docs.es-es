@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f2a871e409761116182f67eb877f3727038fe0dc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 39e3b41d49ad06e5dbe5164809a6743da8dedae5
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013646"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613748"
 ---
 # <a name="sky-reflections"></a>Reflejos del cielo
 
@@ -28,8 +28,8 @@ En las imágenes siguientes se muestran los resultados de las distintas superfic
 
 | Rugosidad  | 0                                        | 0,25                                          | 0.5                                          | 0,75                                          | 1                                          |
 |:----------:|:----------------------------------------:|:---------------------------------------------:|:--------------------------------------------:|:---------------------------------------------:|:------------------------------------------:|
-| No metal  | ![Dielectric0](media/dielectric-0.png)   | ![GreenPointPark](media/dielectric-0.25.png)  | ![GreenPointPark](media/dielectric-0.5.png)  | ![GreenPointPark](media/dielectric-0.75.png)  | ![GreenPointPark](media/dielectric-1.png)  |
-| Metal      | ![GreenPointPark](media/metallic-0.png)  | ![GreenPointPark](media/metallic-0.25.png)    | ![GreenPointPark](media/metallic-0.5.png)    | ![GreenPointPark](media/metallic-0.75.png)    | ![GreenPointPark](media/metallic-1.png)    |
+| No metal  | ![Dielectric, rugosidad=0](media/dielectric-0.png)   | ![Dielectric, rugosidad=0,25](media/dielectric-0.25.png)  | ![Dielectric, rugosidad=0,5](media/dielectric-0.5.png)  | ![Dielectric, rugosidad=0,75](media/dielectric-0.75.png)  | ![Dielectric, rugosidad=1](media/dielectric-1.png)  |
+| Metal      | ![Metal, rugosidad=0](media/metallic-0.png)  | ![Metal, rugosidad=0,25](media/metallic-0.25.png)    | ![Metal, rugosidad=0,5](media/metallic-0.5.png)    | ![Metal, rugosidad=0,75](media/metallic-0.75.png)    | ![Metal, rugosidad=1](media/metallic-1.png)    |
 
 Para más información sobre el modelo de iluminación, vea el capítulo de [materiales](../../concepts/materials.md).
 
@@ -84,7 +84,7 @@ void ChangeEnvironmentMap(ApiHandle<AzureSession> session)
             }
             else
             {
-                printf("Texture loading failed!");
+                printf("Texture loading failed!\n");
             }
         });
 }
@@ -121,20 +121,25 @@ Azure Remote Rendering proporciona una serie de mapas de entorno integrados que 
 
 |Identificador                         | Descripción                                              | Ilustración                                                      |
 |-----------------------------------|:---------------------------------------------------------|:-----------------------------------------------------------------:|
-|builtin://Autoshop                 | Diversas iluminación base de interior brillante y bandas de luz    | ![Autoshop](media/autoshop.png)
-|builtin://BoilerRoom               | Configuración de luz interior brillante, varias luces de ventana      | ![BoilerRoom](media/boiler-room.png)
-|builtin://ColorfulStudio           | Iluminación de variaciones de color en la opción de iluminación media de interior  | ![ColorfulStudio](media/colorful-studio.png)
-|builtin://Hangar                   | Iluminación ambiental de sala moderadamente brillante                     | ![SmallHangar](media/hangar.png)
-|builtin://IndustrialPipeAndValve   | Configuración interior de DIM con contraste claro-oscuro              | ![IndustrialPipeAndValve](media/industrial-pipe-and-valve.png)
-|builtin://Lebombo                  | Iluminación de sala ambiental diurna, iluminación de área de ventana brillante     | ![Lebombo](media/lebombo.png)
-|builtin://SataraNight              | Cielo nocturno oscuro y suelo con muchas luces circundantes   | ![SataraNight](media/satara-night.png)
-|builtin://SunnyVondelpark          | Luz solar brillante y contraste de sombra                      | ![SunnyVondelpark](media/sunny-vondelpark.png)
-|builtin://Syferfontein             | Iluminación de cielo clara con iluminación de suelo moderada            | ![Syferfontein](media/syferfontein.png)
-|builtin://TearsOfSteelBridge       | Tono y sombreado de variación moderada                         | ![TearsOfSteelBridge](media/tears-of-steel-bridge.png)
-|builtin://VeniceSunset             | Luz de puesta de sol que se aproxima a la del anochecer                    | ![VeniceSunset](media/venice-sunset.png)
-|builtin://WhippleCreekRegionalPark | Suelo atenuado con tonos de luz verde, blanco y brillante | ![WhippleCreekRegionalPark](media/whipple-creek-regional-park.png)
-|builtin://WinterRiver              | Día con luz de tierra en ambiente brillante                 | ![WinterRiver](media/winter-river.png)
-|builtin://DefaultSky               | Igual que TearsOfSteelBridge                               | ![DefaultSky](media/tears-of-steel-bridge.png)
+|builtin://Autoshop                 | Diversas iluminación base de interior brillante y bandas de luz    | ![Skybox Autoshop usado para iluminar un objeto](media/autoshop.png)
+|builtin://BoilerRoom               | Configuración de luz interior brillante, varias luces de ventana      | ![Skybox BoilerRoom usado para iluminar un objeto](media/boiler-room.png)
+|builtin://ColorfulStudio           | Iluminación de variaciones de color en la opción de iluminación media de interior  | ![Skybox ColorfulStudio usado para iluminar un objeto](media/colorful-studio.png)
+|builtin://Hangar                   | Iluminación ambiental de sala moderadamente brillante                     | ![Skybox SmallHangar usado para iluminar un objeto](media/hangar.png)
+|builtin://IndustrialPipeAndValve   | Configuración interior de DIM con contraste claro-oscuro              | ![Skybox IndustrialPipeAndValve usado para iluminar un objeto](media/industrial-pipe-and-valve.png)
+|builtin://Lebombo                  | Iluminación de sala ambiental diurna, iluminación de área de ventana brillante     | ![Skybox Lebombo usado para iluminar un objeto](media/lebombo.png)
+|builtin://SataraNight              | Cielo nocturno oscuro y suelo con muchas luces circundantes   | ![Skybox SataraNight usado para iluminar un objeto](media/satara-night.png)
+|builtin://SunnyVondelpark          | Luz solar brillante y contraste de sombra                      | ![Skybox SunnyVondelpark usado para iluminar un objeto](media/sunny-vondelpark.png)
+|builtin://Syferfontein             | Iluminación de cielo clara con iluminación de suelo moderada            | ![Skybox Syferfontein usado para iluminar un objeto](media/syferfontein.png)
+|builtin://TearsOfSteelBridge       | Tono y sombreado de variación moderada                         | ![Skybox TearsOfSteelBridge usado para iluminar un objeto](media/tears-of-steel-bridge.png)
+|builtin://VeniceSunset             | Luz de puesta de sol que se aproxima a la del anochecer                    | ![Skybox VeniceSunset usado para iluminar un objeto](media/venice-sunset.png)
+|builtin://WhippleCreekRegionalPark | Suelo atenuado con tonos de luz verde, blanco y brillante | ![Skybox WhippleCreekRegionalPark usado para iluminar un objeto](media/whipple-creek-regional-park.png)
+|builtin://WinterRiver              | Día con luz de tierra en ambiente brillante                 | ![Skybox WinterRiver usado para iluminar un objeto](media/winter-river.png)
+|builtin://DefaultSky               | Igual que TearsOfSteelBridge                               | ![Skybox DefaultSky usado para iluminar un objeto](media/tears-of-steel-bridge.png)
+
+## <a name="api-documentation"></a>Documentación de la API
+
+* [Propiedad RemoteManager.SkyReflectionSettings de C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.skyreflectionsettings)
+* [RemoteManager::SkyReflectionSettings() de C++](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#skyreflectionsettings)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

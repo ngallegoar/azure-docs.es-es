@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 4adb3bb1408357d40e3869c2a0d251b11d015195
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 619dec1b2246b7e74b058e570df4021888196b0c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689531"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447539"
 ---
 # <a name="tutorial-review-your-microsoft-customer-agreement-invoice"></a>Tutorial: Revisión de la factura relativa al Contrato de cliente de Microsoft
 
@@ -47,7 +47,7 @@ Compruebe el tipo de contrato para determinar si tienen acceso a una cuenta de f
 
 En Azure portal, escriba *administración de costos + facturación* en el cuadro de búsqueda y seleccione **Administración de costos + facturación**.
 
-![Captura de pantalla que muestra la búsqueda en Azure Portal de Administración de costos + facturación](./media/review-customer-agreement-bill/billing-search-cost-management-billing.png)
+![Captura de pantalla que muestra la búsqueda en Azure Portal de Cost Management + Billing.](./media/review-customer-agreement-bill/billing-search-cost-management-billing.png)
 
 Si tiene acceso a un solo ámbito de facturación, seleccione **Propiedades** en el lado izquierdo. Tiene acceso a una cuenta de facturación para un contrato de cliente de Microsoft si el tipo de cuenta de facturación es **Contrato de cliente de Microsoft**.
 
@@ -106,7 +106,7 @@ Seleccione la pestaña **Resumen** en la parte superior de la pantalla.
 
 La sección de cargos muestra los cargos del mes hasta la fecha y del mes pasado.
 
-![Captura de pantalla que muestra la búsqueda en Azure Portal de Administración de costos + facturación](./media/review-customer-agreement-bill/mca-billing-profile-summary.png)
+![Captura de pantalla que muestra un resumen del perfil de facturación.](./media/review-customer-agreement-bill/mca-billing-profile-summary.png)
 
 Los cargos del mes hasta la fecha son los cargos pendientes para el mes actual y se facturan cuando se genera la factura para el mes. Si la factura del mes pasado todavía no se ha generado, entonces los cargos del mes pasado también están pendientes y aparecerán en la próxima factura.
 
@@ -138,7 +138,7 @@ Seleccione **Todas las suscripciones** en el lado izquierdo de la página.
 
 La página de suscripciones a Azure muestra los cargos del mes actual y del último mes para cada suscripción en el perfil de facturación. Los cargos del mes hasta la fecha son los cargos pendientes para el mes actual y se facturan cuando se genera la factura para el mes. Si la factura del mes pasado todavía no se ha generado, entonces los cargos del mes pasado también están pendientes.
 
-![Captura de pantalla que muestra la lista de suscripciones a Azure para el perfil de facturación](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list.png)
+![Captura de pantalla que muestra las suscripciones con cargos de mes hasta la fecha y cargos del último mes.](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list.png)
 
 ## <a name="analyze-your-azure-usage-charges"></a>Análisis de los cargos por uso de Azure
 
@@ -172,7 +172,7 @@ Puede filtrar el archivo .csv de cargos y de uso de Azure para conciliar los car
 
 En la imagen siguiente se muestra la lista de suscripciones en Azure Portal.
 
-![Captura de pantalla que muestra la lista de suscripciones a Azure para el perfil de facturación](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list-highlighted.png)
+![Captura de pantalla que muestra la lista de suscripciones en Azure Portal con una suscripción a la que se ha llamado.](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list-highlighted.png)
 
 Filtre la columna **subscriptionName** en el archivo CSV de cargos y de uso de Azure para **WA_Subscription** con el fin de ver los cargos de uso detallados de WA_Subscription.
 

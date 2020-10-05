@@ -4,12 +4,12 @@ description: Obtenga más información sobre la compatibilidad para la migració
 ms.topic: conceptual
 ms.custom: fasttrack-edit
 ms.date: 06/14/2020
-ms.openlocfilehash: 30c96b11fb15ca1783b6ffc574d9d258dff9da06
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 2e71ab5cd934f2fe931cd901d425061455cc9f0e
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051141"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89535455"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Matriz de compatibilidad para la migración de servidores físicos
 
@@ -45,7 +45,7 @@ En la tabla se resume la compatibilidad de los servidores físicos que desea mig
 **Servicio de movilidad** | El agente del servicio Mobility se debe instalar en cada máquina que quiera migrar.
 **Arranque UEFI** | La máquina migrada en Azure se convertirá automáticamente en una máquina virtual de Azure de arranque del BIOS. Solo se admite un servidor que ejecute Windows Server 2012 o una versión posterior.<br/><br/> El disco del sistema operativo debe tener hasta cuatro particiones y los volúmenes deben formatearse con NTFS.
 **UEFI: arranque seguro**         | No se admiten para la migración.
-**Disco de destino** | Las máquinas solo se pueden migrar a discos administrados (HDD Estándar, SSD Premium) en Azure.
+**Disco de destino** | Las máquinas solo se pueden migrar a discos administrados (HDD Estándar, SSD estándar, SSD Premium) en Azure.
 **Tamaño del disco** | Disco de sistema operativo de 2 TB y 8 TB para los discos de datos.
 **Límites del disco** |  Hasta 63 discos por máquina.
 **Discos/volúmenes cifrados** |  Las máquinas con volúmenes o discos cifrados no se admiten para la migración.

@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/01/2020
+ms.date: 09/02/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16b2ab39e9bcd6dff44387edc60be9bfc649f224
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a15024362b31d49e51b291c10401bbf2965f1d82
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229878"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469871"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Informes de aprovisionamiento en el portal de Azure Active Directory (versión preliminar)
 
@@ -99,7 +99,7 @@ En la vista predeterminada, puede seleccionar los siguientes filtros:
 - Acción
 
 
-![Filter](./media/concept-provisioning-logs/default-filter.png "Filter")
+![Agregar filtros](./media/concept-provisioning-logs/default-filter.png "Filter")
 
 El filtro **Identidad** le permite especificar el nombre o la identidad que le interesa. Esta identidad podría ser un usuario, un grupo, un rol u otro objeto. Puede buscar por nombre o por identificador de objeto. El identificador varía según el escenario. Por ejemplo, al aprovisionar un objeto de Azure AD en SalesForce, el identificador de origen es el identificador de objeto del usuario en Azure AD, mientras que el identificador de destino es el identificador del usuario en Salesforce. Al aprovisionar de Workday a Active Directory, el identificador de origen es el identificador de empleado del trabajador de Workday. Tenga en cuenta que el nombre del usuario puede no estar siempre presente en la columna de identidad. Siempre habrá un identificador. 
 
@@ -175,7 +175,7 @@ Los detalles se agrupan en función de las categorías siguientes:
 - Resumen
 
 
-![Filter](./media/concept-provisioning-logs/provisioning-tabs.png "Pestañas")
+![Detalles de aprovisionamiento](./media/concept-provisioning-logs/provisioning-tabs.png "Pestañas")
 
 
 
@@ -190,7 +190,7 @@ En la pestaña **Pasos** se describen los pasos necesarios para aprovisionar un 
 
 
 
-![Filter](./media/concept-provisioning-logs/steps.png "Filter")
+![Pasos](./media/concept-provisioning-logs/steps.png "Filter")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Solución de problemas y recomendaciones
@@ -214,11 +214,13 @@ En la pestaña **Resumen** se proporciona información general sobre lo que suce
 
 - Puede usar el atributo Id. de cambio como identificador único. Esto es útil, por ejemplo, al hablar con el soporte técnico del producto.
 
-- Actualmente no hay ninguna opción para descargar los datos de aprovisionamiento.
+- Actualmente no hay ninguna opción para descargar los datos de aprovisionamiento como un archivo CSV, aunque puede exportar los datos mediante [Microsoft Graph](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http).
 
 - Actualmente no se presta soporte técnico para el análisis de registros.
 
 - Es posible que vea eventos omitidos para los usuarios que no estén en el ámbito. Esto es normal, especialmente cuando el ámbito de sincronización se establece en todos los usuarios y grupos. Nuestro servicio evaluará todos los objetos del inquilino, incluso los que estén fuera del ámbito. 
+
+- Los registros de aprovisionamiento no están disponibles actualmente en la nube de administración pública. Si no puede acceder a los registros de aprovisionamiento, use los registros de auditoría como una solución temporal.  
 
 ## <a name="error-codes"></a>Códigos de error
 
@@ -244,6 +246,7 @@ Use la tabla siguiente para entender mejor cómo resolver los errores que puede 
 |DuplicateSourceEntries | No se pudo completar la operación porque se encontró más de un usuario con los atributos coincidentes configurados. Quite el usuario duplicado o vuelva a configurar las asignaciones de atributos como se describe [aquí](../app-provisioning/customize-application-attributes.md).|
 |ImportSkipped | Cuando se evalúa a cada usuario, se intenta importar al usuario desde el sistema de origen. Este error suele producirse cuando al usuario que se importará le falta la propiedad coincidente definida en las asignaciones de atributos. Sin un valor presente en el objeto user para el atributo coincidente, no se pueden evaluar los cambios de ámbito, coincidencia o exportación. Tenga en cuenta que la presencia de este error no indica que el usuario está en el ámbito, ya que aún no se ha evaluado su ámbito.|
 |EntrySynchronizationSkipped | El servicio de aprovisionamiento ha consultado correctamente el sistema de origen y ha identificado al usuario. No se realizó ninguna acción adicional en el usuario y se omitió. La omisión podría deberse a que el usuario está fuera del ámbito, o a que ya existe en el sistema de destino sin necesidad de realizar más cambios.|
+|SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| Al realizar una solicitud GET para recuperar un usuario o grupo, se recibieron varios usuarios o grupos en la respuesta. Se espera solo un usuario o grupo en la respuesta. Si, [por ejemplo](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#get-group), se realiza una solicitud GET para recuperar un grupo y se proporciona un filtro para excluir miembros y el punto de conexión SCIM devuelve a esos miembros, se producirá este error.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

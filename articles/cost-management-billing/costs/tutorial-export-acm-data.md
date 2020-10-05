@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: c0fcc9d5753ce90365829fba658031e633819513
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6ef5a457bac7b384dc1b4349b1782a752c41ea26
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683273"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447614"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Creación y administración de datos exportados
 
@@ -91,9 +91,9 @@ No se admiten las exportaciones de grupos de administración de otros tipos de s
 
 1. Si aún no ha creado un grupo de administración, hágalo y asígnele suscripciones.
 1. En análisis de costos, establezca el ámbito en el grupo de administración y seleccione **Select this management group** (Seleccionar este grupo de administración).  
-    :::image type="content" source="./media/tutorial-export-acm-data/management-group-scope.png" alt-text="Ejemplo en el que se muestra la opción Select this management group (Seleccionar este grupo de administración)" lightbox="./media/tutorial-export-acm-data/management-group-scope.png":::
+    :::image type="content" source="./media/tutorial-export-acm-data/management-group-scope.png" alt-text="Ejemplo de exportación nueva" lightbox="./media/tutorial-export-acm-data/management-group-scope.png":::
 1. Cree una exportación en el ámbito para obtener datos de administración de costos para las suscripciones en el grupo de administración.  
-    :::image type="content" source="./media/tutorial-export-acm-data/new-export-management-group-scope.png" alt-text="Ejemplo en el que se muestra la opción de crear una exportación con un ámbito de grupo de administración":::
+    :::image type="content" source="./media/tutorial-export-acm-data/new-export-management-group-scope.png" alt-text="Ejemplo de exportación nueva":::
 
 ## <a name="verify-that-data-is-collected"></a>Comprobación de que se han recopilado los datos
 
@@ -128,11 +128,11 @@ También puede descargar el archivo CSV exportado en Azure Portal. En los pasos 
 
 Para ver el historial de ejecución de una exportación programada, seleccione cualquier exportación individual en la página de la lista de exportaciones. Esta página también proporciona acceso rápido para ver el tiempo de ejecución de las exportaciones anteriores y la próxima vez que se va a ejecutar la exportación. En este ejemplo se muestra el historial de ejecución.
 
-:::image type="content" source="./media/tutorial-export-acm-data/run-history.png" alt-text="Ejemplo que muestra el historial de ejecución de una exportación":::
+:::image type="content" source="./media/tutorial-export-acm-data/run-history.png" alt-text="Ejemplo de exportación nueva":::
 
 Seleccione una exportación para ver su historial de ejecución.
 
-:::image type="content" source="./media/tutorial-export-acm-data/single-export-run-history.png" alt-text="Ejemplo que muestra el historial de ejecución de una exportación":::
+:::image type="content" source="./media/tutorial-export-acm-data/single-export-run-history.png" alt-text="Ejemplo de exportación nueva":::
 
 ## <a name="access-exported-data-from-other-systems"></a>Acceso a los datos exportados desde otros sistemas
 

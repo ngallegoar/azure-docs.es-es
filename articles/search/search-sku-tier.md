@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: ac08f2cee19b2d8860323c48d89205d5ca939157
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: c09c5b33f7960ffebfdfc8005537e75a249b8d99
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922810"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661091"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Selección de un plan de tarifa de Azure Cognitive Search
 
@@ -39,7 +39,7 @@ La mayoría de las características están disponibles en todos los niveles, inc
 
 Los niveles se diferencian por:
 
-+ Cantidad de índices e indizadores que se pueden crear
++ Cantidad de índices e indizadores (límites máximos)
 + Tamaño y velocidad de particiones (almacenamiento físico)
 
 El nivel que se seleccione determina la tasa facturable. En la siguiente captura de pantalla de Azure Portal se muestran los niveles disponibles, menos los precios (que puede encontrar en el portal y en la [página de precios](https://azure.microsoft.com/pricing/details/search/). **Gratis**, **Básico** y **Estándar** son los niveles más comunes.

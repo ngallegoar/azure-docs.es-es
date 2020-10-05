@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 32a6284c7766f3b5d9413a76056dc915a8ac93dc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 550be6c10402398b62af307281660b93981a0df3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686809"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308969"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>Reactivación de una suscripción deshabilitada de Azure
 
@@ -32,7 +32,7 @@ Las suscripciones de Azure con crédito como la evaluación gratuita y Visual St
 > [!NOTE]
 > Si tiene una suscripción de evaluación gratuita y quita el límite de gasto, la suscripción se convierte en una suscripción individual con tarifas de pago por uso al final de dicha evaluación. El crédito restante se conserva durante los 30 días posteriores a la creación de la suscripción. También tendrá acceso a servicios gratuitos durante 12 meses.
 
-Para supervisar y administrar la actividad de facturación de Azure, vea [Prevención de cargos inesperados con la administración de costos y facturación de Azure](getting-started.md).
+Para supervisar y administrar la actividad de facturación de Azure, consulte [Planificación para administrar costos de Azure](../understand/plan-manage-costs.md).
 
 
 ## <a name="your-bill-is-past-due"></a>Su factura está vencida
@@ -60,4 +60,4 @@ Para otros tipos de suscripción, [póngase en contacto con soporte técnico](ht
 Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Obtenga información sobre cómo [supervisar y administrar la actividad de facturación de Azure](getting-started.md).
+- Información sobre la [Planificación para administrar costos de Azure](../understand/plan-manage-costs.md).

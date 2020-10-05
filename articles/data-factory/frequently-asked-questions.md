@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: b8bd471c5fd5346fcc7e95b9afb49e833e7c6384
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 2d2c4145ab0a070e4cb20d89b8a0d3973b23d9ed
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84187290"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440514"
 ---
 # <a name="azure-data-factory-faq"></a>Preguntas más frecuentes de Azure Data Factory
 
@@ -190,7 +190,7 @@ Cuando Microsoft facilita ayuda o soluciona problemas con los flujos de datos, p
 
 ### <a name="how-do-i-access-data-by-using-the-other-90-dataset-types-in-data-factory"></a>¿Cómo accedo a los datos con los otros 90 tipos de conjunto de datos en Data Factory?
 
-Actualmente, la característica de flujo de datos de asignación permite los archivos de texto delimitados, Azure SQL Database, Azure SQL Data Warehouse desde Azure Blob Storage o Azure Data Lake Storage Gen2 y los archivos Parquet desde Blob Storage o Data Lake Storage Gen2 de forma nativa para el origen y el receptor. 
+Actualmente, la característica de flujo de datos de asignación permite los archivos de texto delimitados de Azure SQL Database, Azure Synapse Analytics (antes SQL Data Warehouse) desde Azure Blob Storage o Azure Data Lake Storage Gen2, y los archivos Parquet desde Blob Storage o Data Lake Storage Gen2 de forma nativa para el origen y el receptor. 
 
 Utilice la actividad de copia para almacenar provisionalmente los datos desde cualquiera de los demás conectores y, a continuación, ejecutar una actividad de Data Flow para transformar los datos después de haberlos almacenado provisionalmente. Por ejemplo, la canalización se copiará en primer lugar al almacenamiento de blobs y, a continuación, una actividad de Data Flow utilizará un conjunto de datos del origen para transformar los datos.
 

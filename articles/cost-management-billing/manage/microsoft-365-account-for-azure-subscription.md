@@ -9,16 +9,16 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 5fef68c9de4dae8063799255fcc7d68ff6b1e6b8
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: eb266680cc514b1e2d70e510ed65e9a7790c0260
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684854"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370341"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-microsoft-365-account"></a>Regístrese para obtener una suscripción a Azure con su cuenta de Microsoft 365
 
-Si tiene una suscripción a Microsoft 365, puede usar su cuenta de Microsoft 365 para crear una suscripción a Azure. Inicie sesión en [Azure Portal](https://portal.azure.com/) con su nombre de usuario y contraseña de Microsoft 365. Si desea configurar máquinas virtuales o usar otros servicios de Azure, debe suscribirse a una suscripción de Azure. Puede compartir su suscripción de Azure con otras personas y [usar el control de acceso basado en rol para administrar el acceso tanto a su suscripción como a sus recursos de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+Si tiene una suscripción a Microsoft 365, puede usar su cuenta de Microsoft 365 para crear una suscripción a Azure. Inicie sesión en [Azure Portal](https://portal.azure.com/) con su nombre de usuario y contraseña de Microsoft 365. Si desea configurar máquinas virtuales o usar otros servicios de Azure, debe suscribirse a una suscripción de Azure. Puede compartir su suscripción de Azure con otras personas y [usar el control de acceso basado en rol (Azure RBAC) para administrar el acceso tanto a su suscripción como a sus recursos de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 Si ya tiene una cuenta de Microsoft 365 y una suscripción a Azure, consulte [Asociación de un inquilino de Microsoft 365 a una suscripción a Azure](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -57,4 +57,4 @@ Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técni
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Comparta su suscripción a Azure con otras personas y [use el control de acceso basado en roles para administrar el acceso a su suscripción de Azure y a sus recursos](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+- Comparta su suscripción de Azure con otras personas y [use el control de acceso basado en rol (Azure RBAC) para administrar el acceso tanto a su suscripción como a sus recursos de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).

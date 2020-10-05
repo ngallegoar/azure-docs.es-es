@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 6dfced457f6840294700fb998c93cf2ab993024c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: b1f261d3d777ccf19cea84e77ef83eb45ecc2065
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683545"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372262"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introducción a Azure Cost Management para los asociados
 
@@ -22,7 +22,7 @@ Azure Cost Management está disponible de forma nativa para los asociados direct
 
 En el caso de los asociados directos y los proveedores indirectos, tanto el administrador global como los agentes del administrador pueden acceder a Cost Management en el inquilino del asociado y administrar los costos a los precios de la factura.
 
-Tanto los revendedores como los clientes pueden acceder a Cost Management en el inquilino del cliente y ver los costos de las suscripciones, donde los costos se calculan y se muestran a precios para minoristas. Sin embargo, deben tener acceso de RBAC a la suscripción en el inquilino del cliente para ver los costos. El proveedor debe habilitar la directiva de visibilidad de costos para el inquilino del cliente.
+Tanto los revendedores como los clientes pueden acceder a Cost Management en el inquilino del cliente y ver los costos de las suscripciones, donde los costos se calculan y se muestran a precios para minoristas. Sin embargo, deben tener acceso Azure RBAC a la suscripción en el inquilino del cliente para ver los costos. El proveedor debe habilitar la directiva de visibilidad de costos para el inquilino del cliente.
 
 Los clientes pueden usar las características de Cost Management cuando su asociado de CSP lo permita.
 
@@ -55,13 +55,13 @@ Azure Cost Management requiere acceso de lectura a la cuenta de facturación o s
 
 Para más información sobre cómo permitir y asignar el acceso a Azure Cost Management para una cuenta de facturación, consulte [Asignar roles y permisos de usuarios](/partner-center/permissions-overview). Los roles de **administrador global** y **agente de administración** pueden administrar los costos de una cuenta de facturación.
 
-Para acceder a Azure Cost Management en el ámbito de la suscripción, cualquier usuario con acceso de RBAC a una suscripción puede ver los costos en las tarifas comerciales (pago por uso). Sin embargo, la [directiva de visibilidad de costos para el inquilino del cliente](#enable-the-policy-to-view-azure-usage-charges) debe estar habilitada. Para ver una lista completa de tipos de cuenta admitidos, consulte [Descripción de los datos de Cost Management](understand-cost-mgt-data.md).
+Para acceder a Azure Cost Management en el ámbito de la suscripción, cualquier usuario con acceso Azure RBAC a una suscripción puede ver los costos en las tarifas comerciales (pago por uso). Sin embargo, la [directiva de visibilidad de costos para el inquilino del cliente](#enable-the-policy-to-view-azure-usage-charges) debe estar habilitada. Para ver una lista completa de tipos de cuenta admitidos, consulte [Descripción de los datos de Cost Management](understand-cost-mgt-data.md).
 
 ## <a name="how-cost-management-uses-scopes"></a>Uso de los ámbitos por parte de Cost Management
 
-En los ámbitos es donde puede administrar los datos de facturación, tener roles específicos para pagos, ver facturas y realizar la administración de cuentas generales. Los roles de cuenta y facturación se administran de forma independiente de los ámbitos que se usan en la administración de recursos, que emplean RBAC. Para distinguir claramente la finalidad de los distintos ámbitos, incluidas las diferencias en el control de acceso, se hace referencia a ellos como ámbitos de facturación y ámbitos de RBAC, respectivamente.
+En los ámbitos es donde puede administrar los datos de facturación, tener roles específicos para pagos, ver facturas y realizar la administración de cuentas generales. Los roles de cuenta y facturación se administran de forma independiente de los ámbitos que se usan en la administración de recursos, que emplean Azure RBAC. Para distinguir claramente la intención de los distintos ámbitos, incluidas las diferencias en el control de acceso, se hace referencia a ellos como ámbitos de facturación y ámbitos de Azure RBAC, respectivamente.
 
-Para comprender los ámbitos de facturación y los ámbitos de RBAC y cómo funciona la administración de costos con los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
+Para comprender los ámbitos de facturación y los ámbitos de Azure RBAC y cómo funciona la administración de costos con los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
 
 ## <a name="manage-costs-with-partner-tenant-billing-scopes"></a>Administración de costos con ámbitos de facturación de inquilinos de asociados
 
@@ -116,9 +116,9 @@ Solo los usuarios con los roles de **administrador global** y **agente de admini
 
 ## <a name="enable-cost-management-for-customer-tenant-subscriptions"></a>Habilitación de la administración de costos para las suscripciones de inquilino de clientes
 
-Los asociados pueden permitir el acceso a Cost Management una vez que los clientes se incorporan a un contrato de cliente de Microsoft. Luego, los asociados pueden habilitar una directiva que permite a los clientes ver sus costos para los servicios consumidos por Azure calculados con las tarifas minoristas de pago por uso. Los costos muestran el uso consumido en los ámbitos de suscripción y grupos de recursos de RBAC en la moneda de facturación del cliente.
+Los asociados pueden permitir el acceso a Cost Management una vez que los clientes se incorporan a un contrato de cliente de Microsoft. Luego, los asociados pueden habilitar una directiva que permite a los clientes ver sus costos para los servicios consumidos por Azure calculados con las tarifas minoristas de pago por uso. Los costos muestran el uso consumido en los ámbitos de suscripción y grupos de recursos de Azure RBAC en la moneda de facturación del cliente.
 
-Cuando el asociado habilita la directiva de visibilidad de costos, cualquier usuario con acceso de Azure Resource Manager a la suscripción puede administrar y analizar los costos según las tarifas de pago por uso. De hecho, los revendedores y los clientes que tienen el acceso RBAC adecuado a las suscripciones de Azure pueden ver los costos.
+Cuando el asociado habilita la directiva de visibilidad de costos, cualquier usuario con acceso de Azure Resource Manager a la suscripción puede administrar y analizar los costos según las tarifas de pago por uso. De hecho, los revendedores y los clientes que tienen el acceso Azure RBAC adecuado a las suscripciones de Azure pueden ver los costos.
 
 Independientemente de la directiva, los administradores globales y los agentes de los administradores del proveedor pueden ver los costos de la suscripción si tienen acceso a la suscripción y al grupo de recursos.
 
@@ -149,9 +149,9 @@ Para ver los costos de una suscripción, abra **Cost Management + Facturación**
 
 [![Visualizar el análisis de costos como cliente](./media/get-started-partners/subscription-costs.png)](./media/get-started-partners/subscription-costs.png#lightbox)
 
-Los ámbitos RBAC de grupo de recursos y suscripción tienen a su disposición análisis de costos, presupuestos y alertas según los costos basados en la tarifa de pago por uso.
+En los ámbitos RBAC de grupo de recursos y suscripción están disponibles el análisis de costos, los presupuestos y las alertas según los costos basados en la tarifa de pago por uso.
 
-Las vistas amortizadas y los costos reales de las instancias reservadas de los ámbitos RBAC muestran cero cargos. Los costos de las instancias reservadas solo se muestran en los ámbitos de facturación en los que se realizaron las compras.
+Las vistas amortizadas y los costos reales de las instancias reservadas de los ámbitos Azure RBAC muestran cero cargos. Los costos de las instancias reservadas solo se muestran en los ámbitos de facturación en los que se realizaron las compras.
 
 Los precios de minoristas que se usan para calcular los costos que se muestran en la vista son los mismos que se muestran en la calculadora de precios de Azure para todos los clientes. Los costos que se muestran no incluyen los descuentos o créditos que el pueda tener el asociado, como créditos obtenidos de asociados, descuentos por nivel y descuentos de servicio global.
 
@@ -159,7 +159,7 @@ Los precios de minoristas que se usan para calcular los costos que se muestran e
 
 Los asociados con acceso a los ámbitos de facturación en el inquilino del asociado pueden explorar y analizar los costos facturados del análisis de costos de los clientes y centrarse en un cliente o una factura específicos. En la vista de [análisis de costos](quick-acm-cost-analysis.md), también puede [guardar las vistas](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) y exportar datos a archivos [CSV y PNG](quick-acm-cost-analysis.md#download-usage-data).
 
-Los usuarios de RBAC con acceso a la suscripción en el inquilino del cliente también pueden analizar los costos comerciales de las suscripciones en el inquilino del cliente, guardar vistas y exportar datos a archivos CSV y PNG.
+Los usuarios de Azure RBAC con acceso a la suscripción en el inquilino del cliente también pueden analizar los costos comerciales de las suscripciones en el inquilino del cliente, guardar vistas y exportar datos a archivos CSV y PNG.
 
 Puede usar características de filtro y agrupar por en el análisis de costos para analizar los costos por varios campos. Los campos específicos del asociado se muestran en la sección siguiente.
 
@@ -223,8 +223,8 @@ Los siguientes campos de datos se encuentran en los archivos de detalles de uso 
 | costinBillingCurrency | Costo combinado o ampliado en la moneda facturada. | N/D |
 | costinPricingCurrency | Costo combinado o ampliado antes de impuestos en la moneda de los precios para poner en correlación con estos. | N/D |
 | **costinUSD** | Costo combinado o ampliado estimado antes de impuestos en USD. | N/D |
-| **paygCostInBillingCurrency** | Muestra los costos si los precios están en los precios minoristas. Muestra los precios de pago por uso en la moneda de facturación. Solo está disponible en los ámbitos de RBAC. | N/D |
-| **paygCostInUSD** | Muestra los costos si los precios están en los precios minoristas. Muestra los precios de pago por uso en USD. Solo está disponible en los ámbitos de RBAC. | N/D |
+| **paygCostInBillingCurrency** | Muestra los costos si los precios están en los precios minoristas. Muestra los precios de pago por uso en la moneda de facturación. Solo está disponible en los ámbitos de Azure RBAC. | N/D |
+| **paygCostInUSD** | Muestra los costos si los precios están en los precios minoristas. Muestra los precios de pago por uso en USD. Solo está disponible en los ámbitos de Azure RBAC. | N/D |
 | exchangeRate | Tipo de cambio que se usa para convertir la moneda de los precios a la moneda de facturación. | Se conoce como PCToBCExchangeRate en el Centro de partners. Moneda de los precios para el tipo de cambio de la moneda de facturación.|
 | exchangeRateDate | Fecha del tipo de cambio que se usa para convertir la moneda de los precios a la moneda de facturación. | Se conoce como PCToBCExchangeRateDat en el Centro de partners. Moneda de los precios para la fecha del tipo de cambio de la moneda de facturación.|
 | isAzureCreditEligible | Indica si el costo es válido para el pago mediante créditos de Azure. | N/D |
@@ -262,7 +262,7 @@ También puede agrupar y filtrar por la propiedad **PartnerEarnedCreditApplied**
 
 Los asociados con acceso a los ámbitos de facturación de un inquilino de asociado pueden exportar sus datos de costo y uso a un blob de Azure Storage. El blob debe estar en una suscripción del inquilino del asociado que no sea una suscripción de servicio compartido o una suscripción de cliente. Para habilitar la exportación de datos de costos, se recomienda configurar una suscripción de pago por uso independiente en el inquilino de asociado para hospedar los datos de costos exportados. La cuenta de almacenamiento de exportación se crea en el blob de Azure Storage hospedado en la suscripción de pago por uso. En función del ámbito en el que el asociado crea la exportación, los datos asociados se exportan automáticamente a la cuenta de almacenamiento de forma periódica.
 
-Los usuarios con acceso de RBAC a la suscripción también pueden exportar los datos de costo a un blob de almacenamiento de Azure hospedado en cualquier suscripción del inquilino del cliente.
+Los usuarios con acceso Azure RBAC a la suscripción también pueden exportar los datos de costos a un blob de Azure Storage hospedado en cualquier suscripción del inquilino del cliente.
 
 ### <a name="create-an-export-in-a-partner-tenant-or-customer-tenant"></a>Creación de una exportación en un inquilino de asociado o de cliente
 
@@ -276,7 +276,7 @@ A continuación, seleccione **Agregar** y escriba el nombre y seleccione un tipo
 
 Cuando cree una exportación en el inquilino de asociado, seleccione la suscripción de pago por uso en el inquilino de asociado. Cree una cuenta de Azure Storage con esa suscripción.
 
-En el caso de los usuarios de RBAC en el inquilino del cliente, seleccione una suscripción en el inquilino del cliente. Cree una cuenta de Azure Storage con la suscripción.
+En el caso de los usuarios de Azure RBAC en el inquilino del cliente, seleccione una suscripción en el inquilino del cliente. Cree una cuenta de Azure Storage con la suscripción.
 
 Revise el contenido y, luego seleccione **Crear** para programar una exportación.
 

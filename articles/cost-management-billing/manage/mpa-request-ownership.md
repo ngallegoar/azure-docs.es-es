@@ -1,6 +1,6 @@
 ---
 title: Obtención de la propiedad de la facturación de las suscripciones a Azure para Microsoft Partner Agreement (MPA)
-description: Aprenda a solicitar la propiedad de la facturación de las suscripciones a Azure de otros usuarios.
+description: Obtenga información sobre cómo solicitar la propiedad de la facturación de las suscripciones a Azure de otros usuarios para Microsoft Partner Agreement (MPA).
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: eef36726db735cfdd42f5a103073303cf3b3a632
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: bb2a58b76445f2cfd14a905de1fb66dbff3eee7e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684956"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371021"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Obtención de la propiedad de la facturación de las suscripciones a Azure para la cuenta de MPA
 
@@ -35,7 +35,7 @@ Este artículo se aplica a las cuentas de facturación de Microsoft Partner Agre
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con las credenciales del agente de administrador de CSP en el inquilino de CSP.
 1. Busque **Administración de costos + facturación**.  
-    ![Captura de pantalla que muestra la búsqueda en Azure Portal de Administración de costos + facturación](./media/mpa-request-ownership/search-cmb.png)
+    ![Captura de pantalla que muestra la búsqueda en Azure Portal de Cost Management + Billing para solicitar la propiedad de la facturación.](./media/mpa-request-ownership/search-cmb.png)
 1. Seleccione **Clientes** en la parte izquierda y, a continuación, un cliente de la lista.  
     [![Captura de pantalla que muestra la selección de clientes](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
 1. Seleccione **Solicitudes de transferencia** en el lado inferior izquierdo y, luego, **Agregar una nueva solicitud**.  
@@ -56,7 +56,7 @@ Este artículo se aplica a las cuentas de facturación de Microsoft Partner Agre
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Busque **Administración de costos + facturación**.  
-    ![Captura de pantalla que muestra la búsqueda en Azure Portal de Administración de costos + facturación](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
+    ![Captura de pantalla que muestra la búsqueda en Azure Portal de Cost Management + Billing para solicitar el estado de transferencia.](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
 1. Seleccione **Clientes** en el lado izquierdo.  
     [![Captura de pantalla que muestra la selección de clientes](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
 1. Seleccione en la lista el cliente para el que envío la solicitud de transferencia.
@@ -127,7 +127,7 @@ Las reservas de Azure no se mueven automáticamente con las suscripciones. Se pu
 
 ### <a name="access-to-azure-services"></a>Acceso a servicios de Azure
 
-El acceso de los usuarios, grupos o entidades de servicio existentes que se asignó mediante [Azure RBAC (control de acceso basado en rol)](../../role-based-access-control/overview.md)no se ve afectado durante la transición. El asociado no obtendrá ningún nuevo acceso RBAC a las suscripciones.
+El acceso de los usuarios, grupos o entidades de servicio existentes que se asignó mediante el [control de acceso basado en rol (Azure RBAC)](../../role-based-access-control/overview.md) no se ve afectado durante la transición. El asociado no obtendrá ningún nuevo acceso de Azure RBAC a las suscripciones.
 
 Los asociados deben trabajar con el cliente para obtener acceso a las suscripciones. Los asociados deben tener incidencias de soporte técnico abiertas de acceso de [Administración en nombre de - AOBO ](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) o [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/concepts/cloud-solution-provider).
 
@@ -174,4 +174,4 @@ Si necesita ayuda, [póngase en contacto con soporte técnico](https://portal.az
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Se le transfiere la propiedad de la facturación de las suscripciones a Azure. Realice un seguimiento de los cargos de estas suscripciones en [Azure Portal](https://portal.azure.com).
-* Trabaje con el cliente para obtener acceso a las suscripciones a Azure transferidas. [Administración del acceso a los recursos de Azure mediante RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+* Trabaje con el cliente para obtener acceso a las suscripciones a Azure transferidas. [Incorporación o eliminación de asignaciones de roles de Azure mediante Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).

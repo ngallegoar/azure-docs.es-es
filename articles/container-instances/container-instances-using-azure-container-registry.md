@@ -4,14 +4,13 @@ description: Obtenga información acerca de cómo implementar contenedores en Az
 services: container-instances
 ms.topic: article
 ms.date: 07/02/2020
-ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 0a997733e015a9f65b59ffc99cc137dae3d2d62a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: eeafc58a1f61ed0439fb29fb08e4ce8c5dd4350c
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927443"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657003"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implementación en Azure Container Instances desde Azure Container Registry
 
@@ -31,6 +30,9 @@ Azure Container Registry ofrece [opciones de autenticación](../container-regist
 
 > [!NOTE]
 > No se puede autenticar en Azure Container Registry para extraer imágenes durante la implementación del grupo de contenedores mediante una [identidad administrada](container-instances-managed-identity.md) configurada en el mismo grupo de contenedores.
+
+> [!NOTE]
+> En este momento, no puede extraer imágenes de [Azure Container Registry](../container-registry/container-registry-vnet.md) implementadas en una instancia de Azure Virtual Network.
 
 En la siguiente sección, cree un almacén de claves de Azure y una entidad de servicio, y almacene las credenciales de la entidad de servicio en el almacén. 
 

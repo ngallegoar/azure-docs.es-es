@@ -2,13 +2,13 @@
 title: Introducción a ACR Tasks
 description: Una introducción a ACR Tasks, un conjunto de características de Azure Container Registry que proporciona compilaciones de imágenes de contenedor, administración y aplicación de revisiones automatizadas y seguras en la nube.
 ms.topic: article
-ms.date: 01/22/2020
-ms.openlocfilehash: 4fda57c1d7c866f2e6f72b04d75e53f91e995baf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 08/12/2020
+ms.openlocfilehash: 24cc0415fe8756e900a8ea0ce7039f6b4710cf6f
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79087276"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488650"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatización de compilaciones y mantenimiento de imágenes de contenedor con ACR Tasks
 
@@ -100,7 +100,7 @@ Aprenda más sobre las tareas de varios pasos en [Ejecución de tareas de varios
 
 ## <a name="context-locations"></a>Ubicaciones de contexto
 
-En la tabla siguiente se muestran algunos ejemplos de ubicaciones de contexto admitidas en ACR Tasks:
+En la tabla siguiente se muestran ejemplos de ubicaciones de contexto admitidas en ACR Tasks:
 
 | Ubicación de contexto | Descripción | Ejemplo |
 | ---------------- | ----------- | ------- |
@@ -111,6 +111,7 @@ En la tabla siguiente se muestran algunos ejemplos de ubicaciones de contexto ad
 | Confirmación de GitHub | Confirmación específica en un repositorio de GitHub público o privado. En el ejemplo se muestra la combinación de un valor hash de confirmación (SHA) y una especificación de subcarpeta. | `https://github.com/gituser/myapp-repo.git#git-commit-hash:myfolder` |
 | Subcarpeta de Azure DevOps | Archivos en una subcarpeta en un repositorio de Azure público o privado. En el ejemplo se muestra la combinación de una rama y una especificación de subcarpeta. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
 | Tarball remoto | Archivos en un archivo comprimido en un servidor web remoto. | `http://remoteserver/myapp.tar.gz` |
+| Artefacto en el registro de contenedor | Los archivos de [artefactos OCI](container-registry-oci-artifacts.md) en un repositorio del registro de contenedor. | `oci://myregistry.azurecr.io/myartifact:mytag` |
 
 > [!NOTE]
 > Al usar un repositorio de Git privado como contexto para una tarea, debe proporcionar un token de acceso personal (PAT).

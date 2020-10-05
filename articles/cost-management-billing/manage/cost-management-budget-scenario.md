@@ -9,12 +9,12 @@ ms.subservice: cost-management
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 7bed8cc55e0880d88df22ca32bc5886e22022cbc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 50451acdbd1c88b6ae703ed25de9cee1f3e48216
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690194"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446449"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Administración de costos con Azure Budgets
 
@@ -152,7 +152,7 @@ Use una instrucción condicional para comprobar si la cantidad del umbral alcanz
 1. Seleccione **Aceptar** para establecer la expresión.
 1. Seleccione **es mayor o igual que** en el cuadro de lista desplegable de la **Condición**.
 1. En el cuadro **Elegir un valor** de la condición, escriba `.8`.  
-    ![Azure : aplicación lógica, expresión de punto flotante con un valor](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-12.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo Condición con valores seleccionados.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-12.png)
 1. Seleccione **Agregar** > **Agregar fila** dentro del cuadro Condición, para agregar una parte adicional de la condición.
 1. En **Condición**, seleccione el cuadro de texto que contiene `Choose a value`.
 1. Seleccione **Expresión** en la parte superior de la lista y escriba la siguiente expresión en el editor de expresiones: `float()`
@@ -160,7 +160,7 @@ Use una instrucción condicional para comprobar si la cantidad del umbral alcanz
 1. Seleccione **Aceptar** para establecer la expresión.
 1. Seleccione **es menor que** en el cuadro de lista desplegable de la **Condición**.
 1. En el cuadro **Elegir un valor** de la condición, escriba `1`.  
-    ![Azure: aplicación lógica, expresión de punto flotante con un valor](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-13.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo Condición con dos condiciones.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-13.png)
 1. En el cuadro **If true** (si es verdad), seleccione **Agregar una acción**. Agregará una acción HTTP POST que apagará las máquinas virtuales opcionales.  
     ![Azure: aplicación lógica, agregar una acción](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-14.png)
 1. Escriba **HTTP** para buscar la acción HTTP y seleccione la acción **HTTP-HTTP**.  
@@ -183,7 +183,7 @@ Use una instrucción condicional para comprobar si la cantidad del umbral alcanz
 Use una instrucción condicional para comprobar si la cantidad de umbral ha alcanzado o superado el 100 % del valor de presupuesto. Si se ha alcanzado la cantidad de este umbral, envíe una solicitud HTTP POST con el webhook denominado **Completo**. Así se apagará el resto de máquinas virtuales.
 
 1. Seleccione **Nuevo paso** > **Agregar una condición**.  
-    ![Azure: aplicación lógica, agregar acción](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-20.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo If true con Agregar una acción realzado.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-20.png)
 1. En el cuadro **Condición**, seleccione el cuadro de texto que contiene `Choose a value` para mostrar una lista de los valores disponibles.
 1. Seleccione **Expresión** en la parte superior de la lista y escriba la siguiente expresión en el editor de expresiones: `float()`
 1. Seleccione **Contenido dinámico**, coloque el cursor dentro del paréntesis () y seleccione **NotificationThresholdAmount** en la lista para rellenar la expresión completa.
@@ -194,11 +194,11 @@ Use una instrucción condicional para comprobar si la cantidad de umbral ha alca
 1. En el cuadro **Elegir un valor** de la condición, escriba `1`.  
     ![Azure: aplicación lógica, establecer valor de condición](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-21.png)
 1. En el cuadro **If true** (si es verdad), seleccione **Agregar una acción**. Agregará una acción HTTP POST que apagará el resto de máquinas virtuales.  
-    ![Azure: aplicación lógica, agregar una acción](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-22.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo If true, donde puede agregar una acción HTTP POST.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-22.png)
 1. Escriba **HTTP** para buscar la acción HTTP y seleccione la acción **HTTP-HTTP**.
 1. Seleccione **Post** como valor de **Método**.
 1. Escriba la dirección URL del webhook denominado **Completo** que creó anteriormente en este tutorial como el valor de **Uri**.  
-    ![Azure: aplicación lógica, agregar una acción](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-23.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo HTTP, donde puede especificar el valor de dirección URL.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-23.png)
 1. Seleccione **Agregar una acción** en el cuadro **If true**. Agregará una acción de correo electrónico que enviará un correo electrónico notificando al destinatario que el resto de máquinas virtuales se han apagado.
 1. Busque "enviar correo electrónico" y seleccione una acción *enviar correo electrónico* en función del servicio de correo electrónico que use.
 1. Agregue el texto de **Para**, **Asunto** y **Cuerpo** para el correo electrónico que informa al destinatario que las máquinas virtuales opcionales se han apagado. Use el contenido dinámico de **BudgetName** y **NotificationThresholdAmount** para rellenar los campos de asunto y cuerpo.  

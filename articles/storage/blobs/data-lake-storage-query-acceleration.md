@@ -1,26 +1,23 @@
 ---
-title: Aceleración de consultas de Azure Data Lake Storage (versión preliminar)
-description: La aceleración de consultas (versión preliminar) es una nueva capacidad de Azure Data Lake Storage que permite a las aplicaciones y los marcos de análisis optimizar considerablemente el procesamiento de datos mediante la recuperación únicamente de los datos necesarios para una operación de procesamiento.
+title: Aceleración de consultas de Azure Data Lake Storage
+description: La aceleración de consultas permite a las aplicaciones y los marcos de análisis optimizar considerablemente el procesamiento de datos mediante la recuperación únicamente de los datos necesarios para una operación de procesamiento.
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.date: 04/21/2020
+ms.date: 09/09/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 42eec4a0796a7f07c7e7d1c35571d9d4ddcf69d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ae92828f08ae4abf9cc28f18872cca27ce747be4
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176709"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657635"
 ---
-# <a name="azure-data-lake-storage-query-acceleration-preview"></a>Aceleración de consultas de Azure Data Lake Storage (versión preliminar)
+# <a name="azure-data-lake-storage-query-acceleration"></a>Aceleración de consultas de Azure Data Lake Storage
 
-La aceleración de consultas (versión preliminar) es una nueva capacidad de Azure Data Lake Storage que permite a las aplicaciones y los marcos de análisis optimizar considerablemente el procesamiento de datos mediante la recuperación únicamente de los datos necesarios para una operación determinada. Esto reduce el tiempo y la capacidad de procesamiento necesarios para obtener información fundamental sobre los datos almacenados.
-
-> [!NOTE]
-> La característica de aceleración de consultas está en versión preliminar pública y está disponible en las regiones Centro de Canadá y Centro de Francia. Para conocer las limitaciones, consulte el artículo [Problemas conocidos](data-lake-storage-known-issues.md). Para inscribirse en la versión preliminar, visite [este formulario](https://aka.ms/adls/qa-preview-signup).  
+La aceleración de consultas permite a las aplicaciones y los marcos de análisis optimizar considerablemente el procesamiento de datos mediante la recuperación de solo los datos necesarios para realizar una operación determinada. Esto reduce el tiempo y la capacidad de procesamiento necesarios para obtener información fundamental sobre los datos almacenados.
 
 ## <a name="overview"></a>Información general
 
@@ -32,7 +29,7 @@ La característica de aceleración de consultas no se limita a Data Lake Storage
 
 Para obtener un ejemplo de cómo usar la aceleración de consultas en una aplicación cliente, consulte [Filtro de datos mediante la aceleración de consultas de Azure Data Lake Storage](data-lake-storage-query-acceleration-how-to.md).
 
-## <a name="data-flow"></a>flujo de datos
+## <a name="data-flow"></a>Flujo de datos
 
 En el diagrama siguiente se muestra cómo una aplicación típica utiliza la aceleración de consultas para procesar los datos.
 
@@ -77,8 +74,7 @@ A pesar del cambio en el modelo de facturación, el modelo de precios de la acel
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Formulario de inscripción para la aceleración de consultas](https://aka.ms/adls/qa-preview-signup)    
-- [Filtro de datos mediante la aceleración de consultas de Azure Data Lake Storage (versión preliminar)](data-lake-storage-query-acceleration-how-to.md)
-- [Referencia del lenguaje SQL de aceleración de consultas (versión preliminar)](query-acceleration-sql-reference.md)
+- [Filtro de datos mediante la aceleración de consultas de Azure Data Lake Storage](data-lake-storage-query-acceleration-how-to.md)
+- [Referencia del lenguaje SQL de aceleración de consultas](query-acceleration-sql-reference.md)
 
 

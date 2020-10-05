@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
-ms.openlocfilehash: ddc70ccbbb5c964f16b078470517ce667bc878f1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: bf22e20a6c6187677f000e0c50ac64582233c3cd
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082648"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019672"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Configuración de la programación de aplicación de revisiones del SO para clústeres de HDInsight basado en Linux
 
@@ -32,11 +32,16 @@ HDInsight permite realizar tareas comunes en el clúster, como instalar revision
 
 Realice la revisión en un entorno que no sea de producción representativo antes de la implementación en producción. Desarrolle un plan para probar adecuadamente el sistema antes de la revisión real.
 
-De vez en cuando, desde una sesión de SSH con el clúster, puede que reciba un mensaje que indica que hay una actualización disponible. El mensaje puede parecerse a este:
+De vez en cuando, desde una sesión de SSH con el clúster, puede que reciba un mensaje que indica que hay actualizaciones de seguridad disponibles. El mensaje puede parecerse a este:
 
 ```
-New release '18.04.3 LTS' available.
-Run 'do-release-upgrade' to upgrade it
+89 packages can be updated.
+82 updates are security updates.
+
+*** System restart required ***
+
+Welcome to Spark on HDInsight.
+
 ```
 
 La revisión es opcional y según su criterio.
@@ -64,6 +69,9 @@ El script `install-updates-schedule-reboots` acepta dos parámetros numéricos, 
 
 > [!NOTE]
 > Debe marcar un script como persistente después de aplicarlo a un clúster existente. De lo contrario, en todos los nodos que se creen mediante operaciones de escalado se usará la programación de aplicación de revisión predeterminada. Si aplica el script como parte del proceso de creación del clúster, se marcará como persistente de forma automática.
+
+> [!NOTE]
+> La opción Reinicio programado realiza un reinicio automático gradual de los nodos de clúster con revisiones durante un período de 12 a 24 horas y tiene en cuenta las consideraciones de alta disponibilidad, dominio de actualización y dominio de error. El reinicio programado no termina las cargas de trabajo en ejecución, pero puede quitar provisionalmente la capacidad del clúster cuando los nodos no están disponibles, lo que produce tiempos de procesamiento más largos. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

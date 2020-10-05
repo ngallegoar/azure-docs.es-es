@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/14/2018
-ms.openlocfilehash: 46e81242c1fba463f547015a244650ae6e574580
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: be3b82765f2f5268a75147e8e1ef6de34aeb8ff2
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629089"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441075"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Copia masiva desde una base de datos con una tabla de control
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Para copiar datos desde un almacenamiento de datos como Oracle Server, Netezza, Teradata o SQL Server en Azure SQL Data Warehouse, tiene que cargar enormes cantidades de datos de varias tablas. Normalmente, los datos se tienen que dividir aún más en cada tabla para poder cargar filas con varios subprocesos en paralelo desde una única tabla. En este artículo se describe una plantilla para utilizarla en estos escenarios.
+Para copiar datos desde un almacenamiento de datos como Oracle Server, Netezza, Teradata o SQL Server en Azure Synapse Analytics (antes Azure SQL Data Warehouse), tiene que cargar enormes cantidades de datos de varias tablas. Normalmente, los datos se tienen que dividir aún más en cada tabla para poder cargar filas con varios subprocesos en paralelo desde una única tabla. En este artículo se describe una plantilla para utilizarla en estos escenarios.
 
- >Nota: Si desea copiar datos desde un número reducido de tablas con un volumen de datos relativamente pequeño en SQL Data Warehouse, es más eficaz utilizar la [herramienta Copiar datos de Azure Data Factory](copy-data-tool.md). La plantilla que se describe en este artículo es más de lo que necesita para esa situación.
+ >Nota: Si quiere copiar datos desde un número reducido de tablas con un volumen de datos relativamente pequeño en Azure Synapse Analytics, resulta más eficaz usar la [herramienta Copiar datos de Azure Data Factory](copy-data-tool.md). La plantilla que se describe en este artículo es más de lo que necesita para esa situación.
 
 ## <a name="about-this-solution-template"></a>Acerca de esta plantilla de solución
 
@@ -44,7 +44,7 @@ La plantilla define los parámetros siguientes:
 - *Data_Destination_Container* es la ruta de acceso de la carpeta raíz del lugar donde los datos se copian en el almacén de destino. 
 - *Data_Destination_Directory* es la ruta de acceso del directorio en la raíz donde los datos se copian en el almacén de destino. 
 
-Los tres últimos parámetros, que definen la ruta de acceso en el almacén de destino, solo están visibles si el destino que elige es almacenamiento basado en archivos. Si elige "Azure Synapse Analytics (antes, SQL DW)" como almacén de destino, estos parámetros no son necesarios. Pero los nombres de tabla y el esquema en SQL Data Warehouse deben ser iguales que los de la base de datos de origen.
+Los tres últimos parámetros, que definen la ruta de acceso en el almacén de destino, solo están visibles si el destino que elige es almacenamiento basado en archivos. Si elige "Azure Synapse Analytics (antes, SQL DW)" como almacén de destino, estos parámetros no son necesarios. Pero los nombres de tabla y el esquema en Azure Synapse Analytics deben ser iguales que los de la base de datos de origen.
 
 ## <a name="how-to-use-this-solution-template"></a>Uso de esta plantilla de solución
 
@@ -94,7 +94,7 @@ Los tres últimos parámetros, que definen la ruta de acceso en el almacén de d
 
     ![Revisión del resultado](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
 
-9. (Opcional) Si elige "Azure Synapse Analytics (antes, SQL DW)" como destino de datos, debe escribir una conexión a una instancia de Azure Blob Storage como almacenamiento provisional, porque así lo requiere SQL Data Warehouse Polybase. La plantilla generará automáticamente una ruta de acceso de contenedor para Blob Storage. Consulte si el contenedor se ha creado después de la ejecución de la canalización.
+9. (Opcional) Si elige "Azure Synapse Analytics (antes SQL DW)" como destino de datos, debe escribir una conexión a una instancia de Azure Blob Storage como almacenamiento provisional, porque así lo requiere Polybase de Azure Synapse Analytics. La plantilla generará automáticamente una ruta de acceso de contenedor para Blob Storage. Consulte si el contenedor se ha creado después de la ejecución de la canalización.
     
     ![Configuración de PolyBase](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
        

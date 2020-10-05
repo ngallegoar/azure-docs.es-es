@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0711c25187a15c48e1e9b19b7c99b1e528c7b199
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 515cfd5267917f88131571adcb1bea0db274157c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89393554"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437945"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Línea de referencia de seguridad de Azure para Azure Data Factory
 
@@ -418,7 +418,7 @@ Si ejecuta Integration Runtime en una máquina virtual de Azure, las cuentas de 
 
 ### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3.7: Registro y alerta de actividades sospechosas desde cuentas administrativas
 
-**Guía**: Use los informes de seguridad de Azure Active Directory para la generación de registros y alertas cuando se producen actividades sospechosas o no seguras en el entorno. Use Azure Security Center para supervisar la actividad de identidad y acceso.
+**Instrucciones**: Use los informes de seguridad de Azure Active Directory para la generación de registros y alertas cuando se producen actividades sospechosas o no seguras en el entorno. Use Azure Security Center para supervisar la actividad de identidad y acceso.
 
 Si ejecuta Integration Runtime en una máquina virtual (VM) de Azure, también puede incorporar la máquina virtual a Azure Sentinel. Microsoft Azure Sentinel es una solución de administración de eventos de información de seguridad (SIEM) y respuesta automatizada de orquestación de seguridad (SOAR) que es escalable y nativa de la nube. Azure Sentinel ofrece análisis de seguridad inteligente e inteligencia frente a amenazas en toda la empresa, de forma que proporciona una única solución para la detección de alertas, la visibilidad de amenazas, la búsqueda proactiva y la respuesta a amenazas.
 
@@ -578,7 +578,7 @@ Si está disponible una instancia de Private Link, use puntos de conexión priva
 
 **Guía**: Si el almacén de datos en la nube es compatible con HTTPS o TLS, todas las transferencias de datos entre los servicios de movimiento de datos de Data Factory y un almacén de datos en la nube se realizan a través del canal seguro HTTPS o TLS. La versión de TLS usada es la 1.2.
 
-Todas las conexiones a Azure SQL Database y Azure SQL Data Warehouse requieren cifrado (SSL/TLS) siempre que haya datos en tránsito hacia y desde la base de datos. Al crear una canalización con JSON, agregue la propiedad encryption y establézcala en true en la cadena de conexión. Para Azure Storage, puede usar HTTPS en la cadena de conexión.
+Todas las conexiones a Azure SQL Database y Azure Synapse Analytics (antes SQL Data Warehouse) requieren cifrado (SSL/TLS) siempre que haya datos en tránsito hacia y desde la base de datos. Al crear una canalización con JSON, agregue la propiedad encryption y establézcala en true en la cadena de conexión. Para Azure Storage, puede usar HTTPS en la cadena de conexión.
 
 * [Descripción del cifrado en tránsito en Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
 

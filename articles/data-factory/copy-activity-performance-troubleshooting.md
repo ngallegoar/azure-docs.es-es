@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: d339e68dcf49c74c508029fda3e7eb548ec92588
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d464124c6841cb2e3186d521b93d7ae08f94c9e9
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770986"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440531"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Solución de problemas de rendimiento de la actividad de copia
 
@@ -179,7 +179,7 @@ Estas son algunas referencias para la supervisión y la optimización del rendim
 * Azure Blob Storage: [Objetivos de escalabilidad y rendimiento de Blob Storage](../storage/blobs/scalability-targets.md) y [Lista de comprobación de escalabilidad y rendimiento para Blob Storage](../storage/blobs/storage-performance-checklist.md).
 * Azure Table Storage: [Objetivos de escalabilidad y rendimiento de Blob Storage](../storage/tables/scalability-targets.md) y [Lista de comprobación de rendimiento y de escalabilidad para Table Storage](../storage/tables/storage-performance-checklist.md).
 * Azure SQL Database: puede [supervisar el rendimiento](../sql-database/sql-database-single-database-monitor.md) y comprobar el porcentaje de la unidad de transacción de base de datos (DTU).
-* Azure SQL Data Warehouse: su funcionalidad se mide en unidades de Data Warehouse (DWU). Consulte [Administración de la potencia de proceso en Azure SQL Data Warehouse (información general)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
+* Azure Synapse Analytics (antes SQL Data Warehouse): su funcionalidad se mide en unidades de Data Warehouse (DWU). Consulte [Administración de la potencia de proceso en Azure Synapse Analytics (introducción)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB: [Niveles de rendimiento en Azure Cosmos DB](../cosmos-db/performance-levels.md).
 * SQL Server: [Supervisión y optimización del rendimiento](https://msdn.microsoft.com/library/ms189081.aspx)
 * Servidor de archivos local: [Performance tuning for file servers](https://msdn.microsoft.com/library/dn567661.aspx) (Ajuste del rendimiento para los servidores de archivos).

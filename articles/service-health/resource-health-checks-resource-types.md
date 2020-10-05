@@ -3,12 +3,12 @@ title: Tipos de recursos que compatibles con Azure Resource Health | Microsoft D
 description: Tipos de recursos que se admiten a través de Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: d797b9fb9b843f114e01820fa666e56749c7983f
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 9aedc115a29f11d4d54715d51bb6231ea1ea9e03
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230167"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660655"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos y comprobaciones de estado en Azure Resource Health
 A continuación se muestra una lista completa de todas las comprobaciones que se ejecutan a través de Resource Health por tipos de recursos.
@@ -51,7 +51,7 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 ## <a name="microsoftclassiccomputedomainnames"></a>Microsoft.classiccompute/domainnames
 |Comprobaciones ejecutadas|
 |---|
-|<ul><li>¿La implementación de la ranura de producción es correcta en todas las instancias de rol?</li><li>¿El rol es correcto en todas sus instancias de máquina virtual?</li><li>¿Cuál es el estado de mantenimiento de cada máquina virtual dentro de un rol de un servicio en la nube?</li><li>¿Se cambió el estado de la máquina virtual debido a una operación iniciada por el cliente o plataforma?</li><li>¿Se ha completado el arranque del SO invitado?</li><li>¿Hay mantenimiento planeado en curso?</li><li>¿Se degrada el hardware del host y se prevé que produzca un error pronto?</li></ul>|
+|<ul><li>¿La implementación de la ranura de producción es correcta en todas las instancias de rol?</li><li>¿El rol es correcto en todas sus instancias de máquina virtual?</li><li>¿Cuál es el estado de mantenimiento de cada máquina virtual dentro de un rol de un servicio en la nube?</li><li>¿Se cambió el estado de la máquina virtual debido a una operación iniciada por el cliente o plataforma?</li><li>¿Se ha completado el arranque del SO invitado?</li><li>¿Hay mantenimiento planeado en curso?</li><li>¿Se degrada el hardware del host y se prevé que produzca un error pronto?</li><li>[Más información](https://docs.microsoft.com/azure/cloud-services/resource-health-for-cloud-services) sobre comprobaciones ejecutadas</li></ul>|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.cognitiveservices/accounts
 |Comprobaciones ejecutadas|

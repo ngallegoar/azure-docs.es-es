@@ -6,24 +6,24 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 07/30/2020
-ms.openlocfilehash: 4a27ace4e45d00a2fbb35b9e0e3e9b7c03383681
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.date: 09/04/2020
+ms.openlocfilehash: 4acdd8bfd567a317b954d58629468fa8cd929669
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705884"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032391"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar la opción de publicación
 
 La opción de publicación que elige para su oferta está relacionada directamente con los requisitos de idoneidad y las ventajas de GTM de Marketplace comercial. Y, aún más importante, la selección de la opción de publicación y el tipo de oferta definen cómo interactúan los usuarios con su oferta de Marketplace comercial.
 
-Para configurar su oferta, debe comprender los siguientes conceptos clave de marketplace comercial: las opciones de publicación, la configuración y los tipos de oferta, y las llamadas a la acción que rigen cómo y dónde se presenta la oferta en las tiendas en línea de marketplace comercial.
+Para configurar su oferta, debe comprender los siguientes conceptos clave del marketplace comercial: las opciones de publicación, la configuración y los tipos de oferta, y las opciones de descripción que rigen cómo y dónde se presenta la oferta en las tiendas en línea del marketplace comercial.
 
 En este artículo, aprenderá lo siguiente:
 
 - Cómo determinar la tienda en línea adecuada para su solución.
-- Qué opciones de publicación y llamadas a la acción están disponibles en cada tienda en línea.
+- Qué opciones de publicación y descripción están disponibles en cada tienda en línea.
 - Qué tipos de ofertas están disponibles para cada opción de publicación.
 
 ## <a name="commercial-marketplace-publishing-options"></a>Opciones de publicación de Marketplace comercial
@@ -45,7 +45,7 @@ En la tabla siguiente se muestran las opciones de publicación de los tipos de o
 
 &#42;Las ofertas de transacción de aplicación SaaS en Microsoft AppSource actualmente son con tarjeta de crédito.
 
-&#42;&#42; Las ofertas de Microsoft 365 se instalan gratis y se pueden monetizar a través de una oferta de SaaS como servicio de licencia. Para más información, consulte el artículo sobre cómo [monetizar el complemento de Office 365 a través de Marketplace comercial de Microsoft](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
+&#42;&#42; Las ofertas de Microsoft 365 se instalan gratis y se pueden monetizar a través de una oferta de SaaS como servicio de licencia. Para más información, consulte el artículo sobre cómo [monetizar el complemento de Microsoft 365 a través del marketplace comercial de Microsoft](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
 ## <a name="choose-a-listing-option"></a>Selección de una opción de publicación
 
@@ -53,30 +53,30 @@ Las opciones de publicación disponibles ofrecen distintos compromisos para los 
 
 | **Opción de publicación**    | **Descripción**  |
 | :------------------- | :-------------------|
-| **Lista** | Lista sencilla de la aplicación o servicio que permite a los usuarios de Marketplace comercial solicitarle que se conecte con el cliente a través de la llamada a la acción **Ponerse en contacto conmigo**. |
-| **Versión de prueba** | Use Marketplace comercial para mejorar la detectabilidad y automatizar el aprovisionamiento de la experiencia de evaluación de la solución, permitiendo a los usuarios potenciales usar su experiencia dentro de la aplicación de Microsoft, SaaS o IaaS sin ningún costo extra durante un tiempo limitado antes de comprarla. Las llamadas a la acción que se usan para la opción de publicación de prueba son: **Evaluación gratuita** o **Versión de prueba**. |
-| **BYOL** | Use Marketplace comercial para mejorar la detectabilidad y automatizar el aprovisionamiento de su solución, así como para completar la transacción financiera por separado. Los tipos de ofertas BYOL son ideales para las migraciones desde el entorno local a la nube. La llamada a la acción es **Obténgalo ahora**.
-| **Transacción** | Las ofertas de Transact se venden a través de Marketplace comercial. Microsoft es responsable de la facturación y el cobro. La llamada a la acción es **Obténgalo ahora**.|
+| **Lista** | Descripción sencilla de la aplicación o servicio que permite a los usuarios del marketplace comercial solicitarle que se conecte con el cliente a través de las opciones de descripción para **Ponerse en contacto conmigo**. |
+| **Versión de prueba** | Use Marketplace comercial para mejorar la detectabilidad y automatizar el aprovisionamiento de la experiencia de evaluación de la solución, permitiendo a los usuarios potenciales usar su experiencia dentro de la aplicación de Microsoft, SaaS o IaaS sin ningún costo extra durante un tiempo limitado antes de comprarla. Las opciones de descripción que se usan para la opción de publicación de prueba son: **Evaluación gratuita** o **Versión de prueba**. |
+| **BYOL** | Use Marketplace comercial para mejorar la detectabilidad y automatizar el aprovisionamiento de su solución, así como para completar la transacción financiera por separado. Los tipos de ofertas BYOL son ideales para las migraciones desde el entorno local a la nube. La opción de descripción es **Obtenerlo ahora**.
+| **Transacción** | Las ofertas de Transact se venden a través de Marketplace comercial. Microsoft es responsable de la facturación y el cobro. La opción de descripción es **Obtenerlo ahora**.|
 
 > [!Note]
 > Cuando se usa la opción de publicación de transacciones, es importante comprender las consideraciones sobre precios, facturación y pago antes de seleccionar un tipo de oferta y crear la oferta. Para más información, revise el artículo sobre las [funcionalidades de transacción de Marketplace comercial](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 ## <a name="selecting-an-online-store"></a>Selección de una tienda en línea
 
-Cada tienda en línea cumple con los requisitos únicos del cliente y apunta a públicos específicos. El tipo de oferta, las funcionalidades de transacción y la categoría determinarán dónde se publicará la oferta. Las categorías y subcategorías se asignan a cada tienda en línea en función del público de destino:
+Cada tienda en línea cumple diferentes requisitos del cliente para las soluciones empresariales y de TI. El tipo de oferta, las funcionalidades de transacción y la categoría determinarán dónde se publicará la oferta. Las categorías y subcategorías se asignan a cada tienda en línea en función del tipo de solución publicada:
 
-**Microsoft AppSource** se dirige a los usuarios empresariales que buscan soluciones de línea de negocio o del sector y servicios de consultoría para Dynamics 365, Microsoft 365 y Power Platform.
+**Microsoft AppSource** ofrece soluciones empresariales, como soluciones del sector y servicios de consultoría, para Dynamics 365, Microsoft 365 y Power Platform.
 
-**Azure Marketplace** se dirige a los profesionales de TI y a los desarrolladores que buscan soluciones creadas para o en Azure, así como servicios de consultoría que aceleran su uso de Azure.
+**Azure Marketplace** ofrece soluciones de TI creadas para Azure o en dicha plataforma, así como servicios de consultoría que agilizan cómo tus clientes usan Azure.
 
-Seleccione la categoría y la subcategoría que mejor se adapte al público de destino. Por ejemplo, un firewall de aplicaciones web debe publicarse en Azure Marketplace, en la categoría de seguridad, ya que el público previsto son profesionales de TI. En su lugar, se debe publicar una aplicación de administración de contratos en AppSource en la categoría de ventas, ya que el público previsto son usuarios empresariales. La selección de una categoría o subcategoría incorrecta puede hacer que la oferta se publique en la tienda en línea equivocada.
+Seleccione la categoría y la subcategoría que mejor coincida con el tipo de solución. Por ejemplo, un firewall de aplicaciones web es una solución de TI que debe publicarse en Azure Marketplace, en la categoría de seguridad. Una aplicación de administración de contratos es una solución empresarial que debe publicarse en AppSource, en la categoría de ventas. La selección de una categoría o subcategoría incorrecta puede hacer que la oferta se publique en la tienda en línea equivocada.
 
 ### <a name="publishing-to-both-online-stores-saas-offers-only"></a>Publicación en ambas tiendas en línea (solo ofertas de SaaS)
 
-Las ofertas de SaaS pueden publicarse en Azure Marketplace o AppSource. Si su oferta de SaaS está diseñada para *ambos* públicos, técnico (Azure Marketplace) y empresarial (AppSource), seleccione una categoría o subcategoría aplicable a cada tienda en línea. Las ofertas publicadas en ambas tiendas en línea deben tener una propuesta de valor que se extienda a los profesionales de TI *y* a los usuarios empresariales.
+Las ofertas de SaaS pueden publicarse en Azure Marketplace o AppSource. Si la oferta de SaaS se encuentra en *ambas* categorías; es decir, es una solución de TI (Azure Marketplace) y una solución empresarial (AppSource), seleccione una categoría o una subcategoría aplicable a cada tienda en línea. Las ofertas publicadas en ambas tiendas en línea deben tener una propuesta de valor como solución de TI *y* como solución empresarial.
 
 > [!IMPORTANT]
-> Las ofertas de SaaS con facturación de uso medido están disponibles a través de Azure Marketplace y Azure Portal. Las ofertas de SaaS con planes privados exclusivamente están disponibles en Azure Portal.
+> Las ofertas de SaaS con [facturación medida](partner-center-portal/saas-metered-billing.md) están disponibles a través de Azure Marketplace y Azure Portal. Las ofertas de SaaS con planes privados exclusivamente están disponibles en Azure Portal.
 
 | Facturación de uso medido | Plan público | Plan privado | Disponible en: |
 |---|---|---|---|
@@ -91,15 +91,13 @@ Por ejemplo, una oferta con facturación de uso medido y un plan privado solo (n
 
 ### <a name="categories"></a>Categorías
 
-Las categorías y subcategorías se asignan a cada tienda en línea en función del público de destino. Seleccione las categorías y subcategorías que mejor se adapten a su oferta y a la audiencia prevista. Puede seleccionar:
+Las categorías y subcategorías se asignan a cada tienda en línea en función del tipo de solución. Seleccione las categorías y subcategorías que mejor se adapten a su solución. Puede seleccionar:
 
-- Al menos una categoría, hasta un máximo de dos. Tiene la opción de elegir una categoría principal y una secundaria.
+- Al menos una categoría, hasta un máximo de dos. Puede elegir una categoría principal y una secundaria.
 - Hasta dos subcategorías para cada categoría principal o secundaria. Si no selecciona ninguna subcategoría, la oferta se podrá detectar en la categoría seleccionada.
 
 [!INCLUDE [categories and subcategories](./includes/categories.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Una vez que decida una opción de publicación, estará listo para [seleccionar el tipo de oferta](./publisher-guide-by-offer-type.md) que se usará para presentar la oferta.
-- Revise los requisitos de idoneidad de las opciones de publicación por tipo de oferta para finalizar la selección y la configuración de la oferta.
-- Revise los patrones de publicación por tienda en línea para ver ejemplos de cómo la solución se asigna a un tipo de oferta y configuración.
+- Una vez que elija una opción de publicación, revise la [guía de publicación por tipo de oferta](./publisher-guide-by-offer-type.md).

@@ -2,13 +2,13 @@
 title: Colas y temas de Service Bus como controladores de eventos para eventos de Azure Event Grid
 description: Aquí se describe cómo puede usar las colas y temas de Service Bus como controladores de eventos para eventos de Azure Event Grid.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: c573f7ee088fe1d88f832623891377d4fd50bd4b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 09/03/2020
+ms.openlocfilehash: 9edf9ebd66eca2f1a6749d40ee22437bf17e55c4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105700"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440803"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Colas y temas de Service Bus como controladores de eventos para eventos de Azure Event Grid
 Un controlador de eventos es el lugar al que se envía el evento. El controlador realiza alguna acción adicional para procesar el evento. Varios servicios de Azure se configuran automáticamente para controlar eventos y **Azure Service Bus** es uno de ellos. 
@@ -62,9 +62,9 @@ Si utiliza un **tema o cola de Service Bus** como controlador de eventos para ev
 | aeg-data-version | <p>Versión de datos del evento.</p><p>Ejemplo: "1".</p><p>Esta propiedad representa la versión de los datos en el **esquema de eventos de Event Grid** y la no se aplica en el **esquema de eventos en la nube**.</p> |
 
 ## <a name="message-headers"></a>Encabezados de mensaje
-Cuando se envía un evento a una cola o un tema de Service Bus como un mensaje asincrónico, el valor de `messageid` del mensaje asincrónico es el **id. del evento**.
+Cuando se envía un evento a una cola o tema de Service Bus como un mensaje asincrónico, el valor de `messageid` del mensaje asincrónico es un id. de sistema interno.
 
-El id. de evento se mantendrá cuando se vuelva a entregar el evento, para que pueda evitar entregas duplicadas; para ello, active la **detección de duplicados** en la entidad de Service Bus. Le recomendamos que habilite la duración de la detección de duplicados en la entidad Service Bus para que sea el período de vida (TTL) del evento o la duración máxima de reintentos, lo que sea más largo.
+El id. de sistema interno del mensaje se mantendrá cuando se vuelva a entregar el evento, para que pueda evitar entregas duplicadas; para ello, active la **detección de duplicados** en la entidad de Service Bus. Le recomendamos que habilite la duración de la detección de duplicados en la entidad Service Bus para que sea el período de vida (TTL) del evento o la duración máxima de reintentos, lo que sea más largo.
 
 ## <a name="rest-examples-for-put"></a>Ejemplos de REST (para PUT)
 

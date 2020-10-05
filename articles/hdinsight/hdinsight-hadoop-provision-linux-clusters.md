@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 08/06/2020
-ms.openlocfilehash: f9c5b8ae16cb43576d788f72478e2cfba521a736
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: b7757b5204c9b3b32145667367a71a9acc42c230
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749872"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434663"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configuración de clústeres en HDInsight con Apache Hadoop, Apache Spark, Apache Kafka, etc.
 
@@ -139,7 +139,7 @@ Durante la configuración se especifica un contenedor de blobs de una cuenta de 
 
 ### <a name="metastore-settings"></a>Configuración de metastores
 
-Puede crear tiendas de metadatos opcionales de Hive o Apache Oozie. Pero no todos los tipos de clúster admiten las tiendas de metadatos; además, Azure SQL Data Warehouse no es compatible con ellas.
+Puede crear tiendas de metadatos opcionales de Hive o Apache Oozie. Pero no todos los tipos de clúster admiten las tiendas de metadatos; además, Azure Synapse Analytics no es compatible con ellas.
 
 Para más información, consulte [Use external metadata stores in Azure HDInsight](./hdinsight-use-external-metadata-stores.md) (Uso de almacenes externos de metadatos en Azure HDInsight).
 

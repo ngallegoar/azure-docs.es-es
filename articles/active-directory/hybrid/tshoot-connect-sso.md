@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6afba520db399cc4eb99c8716540886cc88f6ae7
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: bdaa84d54bbd5558c995014aa4621b0051a36e97
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89275885"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016272"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solución de problemas de inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -29,7 +29,7 @@ Este artículo sirve de ayuda para encontrar información sobre cómo solucionar
 - En algunos casos, el proceso para habilitar el inicio de sesión único de conexión directa puede tardar hasta 30 minutos.
 - Si deshabilita y vuelve a habilitar Inicio de sesión único de conexión directa en el inquilino, los usuarios no podrán tener la experiencia de inicio de sesión único hasta que sus vales de Kerberos en caché, que normalmente son válidos durante diez horas, hayan expirado.
 - Si el inicio de sesión único de conexión directa se realiza correctamente, el usuario no tiene la oportunidad de seleccionar **Mantener la sesión iniciada**. Debido a este comportamiento, los [escenarios de asignación de SharePoint y OneDrive](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec) no funcionan.
-- Se admiten los clientes Win32 de Office 365 (Outlook, Word, Excel, etc.) con las versiones 16.0.8730 y posteriores mediante un flujo no interactivo. No se admiten otras versiones; en estas, para iniciar sesión, los usuarios escribirán sus nombres de usuario, pero no las contraseñas. En OneDrive, tendrá que activar la [función de configuración silenciosa de OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) para disfrutar de una experiencia de inicio de sesión silenciosa.
+- Se admiten los clientes Win32 de Microsoft 365 (Outlook, Word, Excel, etc.) con las versiones 16.0.8730 y posteriores mediante un flujo no interactivo. No se admiten otras versiones; en estas, para iniciar sesión, los usuarios escribirán sus nombres de usuario, pero no las contraseñas. En OneDrive, tendrá que activar la [función de configuración silenciosa de OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) para disfrutar de una experiencia de inicio de sesión silenciosa.
 - SSO de conexión directa no funciona en modo de exploración privada en Firefox.
 - El inicio de sesión único de conexión directa no funciona en Internet Explorer cuando está activado el modo de protección mejorada.
 - El inicio de sesión único de conexión directa no funciona en exploradores móviles en iOS y Android.

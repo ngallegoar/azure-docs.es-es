@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3959fc7df78a5c1f255f7551a018eec6b7279eb1
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 690dead3cb0059dd1b20ff042a93c36d674e62d2
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717445"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052688"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>¿Cómo funciona la escritura diferida del autoservicio de restablecimiento de contraseña en Azure Active Directory?
 
@@ -37,7 +37,7 @@ La escritura diferida de contraseñas ofrece las siguientes características:
 
 * **Aplicación de directivas de contraseñas de Active Directory Domain Services local (AD DS)** : cuando un usuario restablece su contraseña, se comprueba que cumple la directiva de AD DS local antes de confirmarla en ese directorio. En esta revisión se incluye la comprobación del historial, la complejidad, la antigüedad, los filtros de contraseñas y otras restricciones de contraseña que se hayan definido en AD DS.
 * **Comentarios sin retraso**: La escritura diferida de contraseñas es una operación sincrónica. Si, por algún motivo, la contraseña no cumple la directiva o no se puede restablecer o modificar, los usuarios reciben una notificación inmediata.
-* **Permite el cambio de contraseña en el panel de acceso y Office 365**: cuando los usuarios federados o con sincronización de hash de contraseña modifican las contraseñas expiradas o no expiradas, estas se vuelven a escribir en AD DS.
+* **Permite el cambio de contraseña en el panel de acceso y Microsoft 365**: cuando los usuarios federados o con sincronización de hash de contraseña modifican las contraseñas expiradas o no expiradas, estas se vuelven a escribir en AD DS.
 * **Admite la escritura diferida de contraseñas cuando un administrador las restablece desde Azure Portal**: siempre que un administrador restablece la contraseña de un usuario en [Azure Portal](https://portal.azure.com) y se trata de un usuario federado o con sincronización de hash de contraseña, la contraseña se vuelve a escribir en el entorno local. Esta funcionalidad no se admite actualmente en el Portal de administración de Office.
 * **No requiere ninguna regla de firewall de entrada**: la escritura diferida de contraseñas usa una retransmisión de Azure Service Bus como canal de comunicación subyacente. Toda la comunicación es de salida a través del puerto 443.
 

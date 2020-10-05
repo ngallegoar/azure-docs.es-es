@@ -7,19 +7,24 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d8f01d0b9ba3394d33b9bd6e9f0b3f13fff2f844
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1b7127fd4807e1ddd3d5181d73c7f8e77f10cf77
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021381"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055992"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>Configuración de la conectividad SSL en la aplicación para conectarse de forma segura a Azure Database for MariaDB
 Azure Database for MariaDB permite conectar el servidor de Azure Database for MariaDB con aplicaciones cliente mediante Capa de sockets seguros (SSL). Aplicar conexiones SSL entre el servidor de base de datos y las aplicaciones cliente ayuda a proteger contra los ataques de tipo "man in the middle" mediante el cifrado del flujo de datos entre el servidor y la aplicación.
 
 ## <a name="obtain-ssl-certificate"></a>Obtención de un certificado SSL
+
+
 Descargue de [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) el certificado necesario para comunicarse a través de SSL con el servidor de Azure Database for MariaDB y guarde el archivo de certificado en la unidad local (por ejemplo, en este tutorial se usa c:\ssl).
 **Para Microsoft Internet Explorer y Microsoft Edge:** una vez finalizada la descarga, cambie el nombre del certificado a BaltimoreCyberTrustRoot.crt.pem.
+
+> [!IMPORTANT] 
+> El certificado raíz de SSL se ha establecido para que expire a partir del 26 de octubre de 2020 (26/10/2020). Actualice la aplicación para que use el [nuevo certificado](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). Para más información, consulte el artículo sobre las [actualizaciones de certificados planeadas](concepts-certificate-rotation.md).
 
 Consulte estos vínculos para obtener los certificados de los servidores en nubes soberanas: [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure China](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) y [Azure Alemania](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
 
@@ -49,9 +54,10 @@ mysql.exe -h mydemoserver.mariadb.database.azure.com -u Username@mydemoserver -p
 > Es posible que, cuando utilice la interfaz de la línea de comandos de MySQL en Windows, aparezca un error `SSL connection error: Certificate signature check failed`. Si esto sucede, reemplace los parámetros `--ssl-mode=REQUIRED --ssl-ca={filepath}` por `--ssl`.
 
 ## <a name="enforcing-ssl-connections-in-azure"></a>Aplicación de conexiones SSL en Azure 
+
 ### <a name="using-the-azure-portal"></a>Uso de Azure Portal
 Mediante Azure Portal, vaya al servidor de Azure Database for MariaDB y haga clic en **Seguridad de conexión**. Use el botón de alternancia para habilitar o deshabilitar la opción **Aplicar conexión SSL** y después haga clic en **Guardar**. Microsoft recomienda habilitar siempre la opción **Aplicar conexión SSL** para mejorar la seguridad.
-![enable-ssl](./media/howto-configure-ssl/enable-ssl.png)
+![habilite SSL para el servidor MariaDB](./media/howto-configure-ssl/enable-ssl.png)
 
 ### <a name="using-azure-cli"></a>Uso de la CLI de Azure
 Puede habilitar o deshabilitar el parámetro **ssl-enforcement** con los valores Enabled o Disabled, respectivamente, en CLI de Azure.

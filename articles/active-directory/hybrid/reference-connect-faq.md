@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe4350a721b025858493739e78011458f89f33ee
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 7f6c75337c27e14fb77161cf641cde0a582901e7
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276344"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90014640"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Preguntas más frecuentes sobre Azure Active Directory Connect
 
@@ -139,10 +139,10 @@ No, Azure AD Connect no admite entornos puros de IPv6.
 No, no se admite el uso de Azure AD Connect sobre NAT. 
 
 ## <a name="federation"></a>Federación
-**P: ¿Qué debo hacer si recibo un correo electrónico que me pide que renueve el certificado de Office 365?**  
+**P: ¿Qué debo hacer si recibo un correo electrónico que me pide que renueve el certificado de Microsoft 365?**  
 Para obtener instrucciones acerca de cómo renovar el certificado, consulte el artículo sobre la [renovación de certificados](how-to-connect-fed-o365-certs.md).
 
-**P: Tengo establecido "Actualizar automáticamente usuario confianza" para el usuario de confianza de Office 365. ¿Es necesario realizar alguna acción cuando se implemente automáticamente mi certificado de firma de tokens?**  
+**P: Tengo establecido "Actualizar automáticamente usuario confianza" para el usuario de confianza de Microsoft 365. ¿Es necesario realizar alguna acción cuando se implemente automáticamente mi certificado de firma de tokens?**  
 Siga las instrucciones que se describen en el artículo sobre la [renovación de certificados](how-to-connect-fed-o365-certs.md).
 
 ## <a name="environment"></a>Entorno
@@ -155,14 +155,14 @@ No.  No se admiten.
 **P. Si he deshabilitado un dispositivo sincronizado (por ejemplo, HAADJ) en Azure Portal, ¿por qué se vuelve a habilitar?**<br>
 Los dispositivos sincronizados se pueden crear o controlar en el entorno local. Si un dispositivo sincronizado está habilitado en el entorno local, es posible que se vuelva a habilitar en Azure Portal incluso si un administrador lo deshabilitó anteriormente. Para deshabilitar un dispositivo sincronizado, use Active Directory local para deshabilitar la cuenta de equipo.
 
-**P. Si bloqueo el inicio de sesión de usuario en el portal de Office 365 o Azure AD para los usuarios sincronizados, ¿por qué se desbloquea al iniciar sesión de nuevo?**<br>
+**P. Si bloqueo el inicio de sesión de usuario en el portal de Microsoft 365 o Azure AD para los usuarios sincronizados, ¿por qué se desbloquea al iniciar sesión de nuevo?**<br>
 Los usuarios sincronizados se pueden crear o controlar en el entorno local. Si la cuenta está habilitada en el entorno local, puede desbloquear el bloque de inicio de sesión colocado por el administrador.
 
 ## <a name="identity-data"></a>Datos de identidad
 **P: ¿Por qué el atributo userPrincipalName (UPN) de Azure AD no coincide con el UPN local?**  
 Para obtener más información, consulte estos artículos:
 
-* [Usernames in Office 365, Azure, or Intune don't match the on-premises UPN or alternate login ID](https://support.microsoft.com/kb/2523192) (Los nombres de usuario de Office 365, Azure o Intune no coinciden con el UPN local o la id. de inicio de sesión alternativo)
+* [Los nombres de usuario de Microsoft 365, Azure o Intune no coinciden con el UPN local o la id. de inicio de sesión alternativo](https://support.microsoft.com/kb/2523192)
 * [Changes aren't synced by the Azure Active Directory sync tool after you change the UPN of a user account to use a different federated domain](https://support.microsoft.com/kb/2669550) (La herramienta de sincronización de Azure Active Directory no sincroniza los cambios después de cambiar el UPN de una cuenta de usuario para usar otro dominio federado)
 
 También puede configurar Azure AD para permitir que el motor de sincronización actualice el UPN, como se describe en [Características del servicio de sincronización de Azure AD Connect](how-to-connect-syncservice-features.md).
@@ -253,10 +253,10 @@ Sí, la actualización automática también actualiza Azure AD Connect Health.
 Sí, puede actualizar automáticamente un servidor de Azure AD Connect que se encuentre en modo de almacenamiento provisional.
 
 **P: Si la actualización automática genera algún error y mi servidor de Azure AD Connect no se inicia, ¿qué debo hacer?**  
-En raras ocasiones, el servicio Azure AD Connect no se inicia después de realizar la actualización. En esos casos, reiniciar el servidor suele corregir el problema. Si el servicio Azure AD Connect sigue sin iniciarse, abra un vale de soporte. Para obtener más información, consulte [Create a service request to contact Office 365 support](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support) (Crear una solicitud de servicio para ponerse en contacto con el soporte técnico de Office 365). 
+En raras ocasiones, el servicio Azure AD Connect no se inicia después de realizar la actualización. En esos casos, reiniciar el servidor suele corregir el problema. Si el servicio Azure AD Connect sigue sin iniciarse, abra un vale de soporte. Para obtener más información, consulte [Creación de una solicitud de servicio para ponerse en contacto con el soporte técnico de Microsoft 365](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support). 
 
 **P: No estoy seguro de los riesgos derivados de la actualización a una versión más reciente de Azure AD Connect. ¿Puede llamarme para ayudarme con la actualización?**  
-Si necesita ayuda para actualizar a una versión más reciente de Azure AD Connect, abra un vale de soporte; en [Create a service request to contact Office 365 support](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support) (Crear una solicitud de servicio para ponerse en contacto con el soporte técnico de Office 365).
+Si necesita ayuda para actualizar a una versión más reciente de Azure AD Connect, abra una incidencia de soporte técnico en [Creación de una solicitud de servicio para ponerse en contacto con el soporte técnico de Microsoft 365](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support).
 
 ## <a name="operational-best-practice"></a>Prácticas recomendadas de uso    
 A continuación se muestran algunos procedimientos recomendados que debe implementar al sincronizar entre Windows Server Active Directory y Azure Active Directory.

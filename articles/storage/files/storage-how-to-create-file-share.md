@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 236134887728ebc3dd4d03fa4c9d9d450b39eac2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 728db85e7b5afab676612d908e2ba420c7582194
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930679"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645572"
 ---
 # <a name="create-an-azure-file-share"></a>Creación de un recurso compartido de archivos de Azure
 Para crear un recurso compartido de archivos de Azure, debe responder a tres preguntas sobre cómo lo usará:
@@ -231,7 +231,7 @@ Se producirá un error en este comando si la cuenta de almacenamiento está incl
 > El nombre del recurso compartido de archivos debe estar en minúsculas. Para obtener detalles completos sobre cómo asignar un nombre a recursos compartidos y archivos, consulte  [Asignación de nombres y referencia a recursos compartidos, directorios, archivos y metadatos](https://msdn.microsoft.com/library/azure/dn167011.aspx).
 
 ### <a name="create-a-hot-or-cool-file-share"></a>Creación de un recurso compartido de archivos de acceso frecuente o esporádico
-Un recurso compartido de archivos de una **cuenta de almacenamiento de uso general v2 (GPv2)** puede contener recursos compartidos de archivos de acceso frecuente o esporádico u optimizados para transacciones (o una combinación de ellos). Los recursos compartidos optimizados para transacciones están disponibles en todas las regiones de Azure, pero los recursos compartidos de archivos de acceso frecuente y esporádico solo están disponibles [en un subconjunto de regiones](storage-files-planning.md#storage-tiers). Puede crear un recurso compartido de archivos de acceso frecuente o esporádico mediante el módulo en versión preliminar de Azure PowerShell o la CLI de Azure. 
+Una **cuenta de almacenamiento de uso general v2 (GPv2)** puede contener recursos compartidos de archivos de acceso frecuente o esporádico u optimizados para transacciones (o una combinación de todos). Los recursos compartidos optimizados para transacciones están disponibles en todas las regiones de Azure, pero los recursos compartidos de archivos de acceso frecuente y esporádico solo están disponibles [en un subconjunto de regiones](storage-files-planning.md#storage-tiers). Puede crear un recurso compartido de archivos de acceso frecuente o esporádico mediante el módulo en versión preliminar de Azure PowerShell o la CLI de Azure. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Azure Portal no admite todavía la creación de recursos compartidos de archivos de acceso frecuente y esporádico, o el traslado de los recursos compartidos de archivos optimizados para transacciones existentes a acceso frecuente o esporádico. Consulte las instrucciones para crear un recurso compartido de archivos con PowerShell o la CLI de Azure.

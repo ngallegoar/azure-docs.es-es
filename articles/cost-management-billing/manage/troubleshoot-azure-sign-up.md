@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 08/20/2020
 ms.author: v-miegge
-ms.openlocfilehash: 86f9f92810cff241f816dadfc6e1e8ca120f1f4a
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 3e611e25288d52b0be93c76e8a3a28ce6d7d5088
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686656"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326613"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Solución de problemas al registrar una cuenta nueva en Azure Portal o en el centro de cuentas de Azure
 
@@ -131,7 +131,7 @@ Utilice los pasos siguientes para actualizar la configuración de las cookies de
 
 ### <a name="i-saw-a-charge-on-my-free-trial-account"></a>Hay un cargo reflejado en mi cuenta de evaluación gratuita
 
-Es posible que vea reflejado un pequeño cargo de verificación temporal en la tarjeta de crédito después de registrarse, que desaparecerá en un plazo de entre tres y cinco días. Si le preocupan los costos de administración, lea más información en la página sobre [prevención de costos inesperados](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started).
+Es posible que vea reflejado un pequeño cargo de verificación temporal en la tarjeta de crédito después de registrarse, que desaparecerá en un plazo de entre tres y cinco días. Si le preocupan los costos de administración, lea más información sobre el [análisis de costos inesperados](../understand/analyze-unexpected-charges.md).
 
 ## <a name="agreement"></a>Contrato
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 27073cb7cbd78183e519290c676c2499700b0cca
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: cc44f05491cc17adb9ca51963d09667400fa1ff6
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442554"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371922"
 ---
 # <a name="azure-ea-portal-administration"></a>Administración del portal del Contrato Enterprise de Azure
 
@@ -175,7 +175,7 @@ En este documento se responden las preguntas más frecuentes relacionadas con la
 
 ### <a name="how-many-azure-account-owners-can-you-have-per-subscription"></a>¿Cuántos propietarios de cuenta de Azure se pueden tener por suscripción?
 
-Solo se permite un propietario de cuenta por suscripción.  Se pueden agregar roles adicionales mediante el acceso basado en rol o (Access Control (IAM)) en la pestaña de suscripción, en la esquina superior izquierda de la página de [Azure Portal](https://portal.azure.com).
+Solo se permite un propietario de cuenta por suscripción.  Se pueden agregar roles adicionales mediante el acceso basado en rol de Azure (Azure RBAC) en la pestaña de suscripción, en la esquina superior izquierda de la página de [Azure Portal](https://portal.azure.com).
 
 ### <a name="can-an-azure-account-owner-be-listed-under-more-than-one-department"></a>¿Puede un propietario de cuenta de Azure aparecer en más de un departamento?
 
@@ -191,7 +191,7 @@ Un propietario de cuenta de Azure puede crear y administrar un número ilimitado
 
 ### <a name="how-can-i-accessview-all-my-organizations-subscriptions"></a>¿Cómo puedo acceder o ver todas las suscripciones de mi organización?
 
-En la actualidad, esto debe realizarse mediante una directiva; es decir, es necesario requerir que, para cada suscripción creada, su cuenta se agregue a un rol de suscripción mediante el acceso basado en rol.
+En la actualidad, esto debe realizarse mediante una directiva; es decir, es necesario requerir que, para cada suscripción creada, su cuenta se agregue a un rol de suscripción mediante el acceso basado en rol de Azure (Azure RBAC).
 
 ### <a name="where-do-i-go-to-create-a-subscription"></a>¿Dónde puedo crear una suscripción?
 

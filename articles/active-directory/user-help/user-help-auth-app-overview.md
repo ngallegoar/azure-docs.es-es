@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
-ms.openlocfilehash: 7d630fac1f848e691ddb96dc47596a2e9927309f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 7f4c09a32794e13b0e0041ee916401b714d8509e
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799441"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055238"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>¿Qué es la aplicación Microsoft Authenticator?
 
@@ -41,8 +41,8 @@ Puede usar la aplicación Microsoft Authenticator de varias formas, por ejemplo:
 | ----|-----------|
 | Comprobación en dos fases | Un proceso de comprobación que requiere que se usen específicamente únicamente dos factores de comprobación, como por ejemplo una contraseña y un PIN. La aplicación Microsoft Authenticator admite tanto la comprobación en dos fases estándar como el inicio de sesión sin contraseña. |
 | Multi-Factor Authentication (MFA) | Toda comprobación en dos fases es una autenticación multifactor, que requiere que use *al menos* dos factores de comprobación, según los requisitos de su organización. |
-| Cuenta Microsoft (también denominada MSA) | Cree sus propias cuentas personales para poder acceder a los productos y servicios en la nube de Microsoft orientados al consumidor, como Outlook, OneDrive, Xbox LIVE u Office 365. Su cuenta Microsoft se crean y almacenan en el sistema de cuentas de identidad de consumidor de Microsoft que ejecuta Microsoft. |
-| Cuenta profesional o educativa | Su organización crea una cuenta profesional o educativa (como alain@contoso.com) para permitirle acceder a recursos internos y potencialmente restringidos, como Microsoft Azure, Windows Intune y Office 365. |
+| Cuenta Microsoft (también denominada MSA) | Cree sus propias cuentas personales para poder acceder a los productos y servicios en la nube de Microsoft orientados al consumidor, como Outlook, OneDrive, Xbox LIVE o Microsoft 365. Su cuenta Microsoft se crean y almacenan en el sistema de cuentas de identidad de consumidor de Microsoft que ejecuta Microsoft. |
+| Cuenta profesional o educativa | Su organización crea una cuenta profesional o educativa (como alain@contoso.com) para permitirle acceder a recursos internos y potencialmente restringidos, como Microsoft Azure, Windows Intune y Microsoft 365. |
 | Código de verificación | El código de seis dígitos que aparece en la aplicación autenticadora en cada cuenta agregada. El código de verificación cambia cada 30 segundos para impedir que se pueda usar el mismo código varias veces. Esto también se denomina código de acceso de un solo uso (OTP). |
 
 ## <a name="how-two-factor-verification-works-with-the-app"></a>Funcionamiento de la comprobación en dos fases con la aplicación

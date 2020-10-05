@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
-ms.openlocfilehash: 6496e5c953b3dd5e387a79906b22645ba4a24b4f
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 458336f27f01cfb0d127b96cd3df6aa40f8db0b3
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84019986"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440565"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Consideraciones de seguridad para el movimiento de datos en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -51,7 +51,7 @@ Si está interesado en el cumplimiento de Azure y en cómo Azure protege su prop
 
 En este artículo, revisamos las consideraciones de seguridad en los dos escenarios de movimiento de datos siguientes: 
 
-- **Escenario de nube**: en este escenario, el origen y el destino son públicamente accesibles a través de Internet. Por ejemplo, los servicios de almacenamiento administrado en la nube, como Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, los servicios de SaaS como Salesforce y los protocolos de web, como FTP y OData. Encuentre una lista completa de orígenes de datos admitidos en [formatos y almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats).
+- **Escenario de nube**: en este escenario, el origen y el destino son públicamente accesibles a través de Internet. Por ejemplo, los servicios de almacenamiento administrado en la nube, como Azure Storage, Azure Synapse Analytics (antes SQL Data Warehouse), Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, los servicios de SaaS como Salesforce y los protocolos de web, como FTP y OData. Encuentre una lista completa de orígenes de datos admitidos en [formatos y almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats).
 - **Escenario híbrido**: en este escenario, el origen o el destino están detrás de un firewall o dentro de una red corporativa local. O bien el almacén de datos está en una red privada o en una red virtual (que suele ser el origen) y no se puede acceder a él públicamente. Los servidores de base de datos hospedados en máquinas virtuales también se incluyen en este escenario.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -67,7 +67,7 @@ En este artículo, revisamos las consideraciones de seguridad en los dos escenar
 Si el almacén de datos en la nube es compatible con HTTPS o TLS, todas las transferencias de datos entre los servicios de movimiento de datos de Data Factory y un almacén de datos en la nube se realizan a través del canal seguro HTTPS o TLS.
 
 > [!NOTE]
-> Todas las conexiones a Azure SQL Database y Azure SQL Data Warehouse requieren cifrado (SSL/TLS) siempre que haya datos en tránsito hacia y desde la base de datos. Al crear una canalización con JSON, agregue la propiedad encryption y establézcala en **true** en la cadena de conexión. Para Azure Storage, puede usar **HTTPS** en la cadena de conexión.
+> Todas las conexiones a Azure SQL Database y Azure Synapse Analytics requieren cifrado (SSL/TLS) que haya datos en tránsito hacia y desde la base de datos. Al crear una canalización con JSON, agregue la propiedad encryption y establézcala en **true** en la cadena de conexión. Para Azure Storage, puede usar **HTTPS** en la cadena de conexión.
 
 > [!NOTE]
 > Para habilitar el cifrado en tránsito al mover los datos desde Oracle, aplique alguna de las opciones siguientes:
@@ -80,8 +80,8 @@ Si el almacén de datos en la nube es compatible con HTTPS o TLS, todas las tran
 ### <a name="data-encryption-at-rest"></a>Cifrado de datos en reposo
 Algunos almacenes de datos admiten el cifrado de datos en reposo. Se recomienda habilitar el mecanismo de cifrado de datos para estos almacenes. 
 
-#### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
-El Cifrado de datos transparente (TDE) de Azure SQL Data Warehouse ayuda a proteger frente a las amenazas de actividad malintencionada al realizar el cifrado y el descifrado en tiempo real de los datos en reposo. Este comportamiento es transparente para el cliente. Para más información, consulte [Proteger una base de datos en SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
+#### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
+El Cifrado de datos transparente (TDE) de Azure Synapse Analytics ayuda a protegerse frente a la amenaza de actividad malintencionada al realizar el cifrado y descifrado en tiempo real de los datos en reposo. Este comportamiento es transparente para el cliente. Para obtener más información, consulte [Protección de una base de datos en Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 Azure SQL Database admite también el Cifrado de datos transparente (TDE), que ayuda a proteger frente a la amenaza de actividad malintencionada al realizar el cifrado y descifrado en tiempo real de los datos sin que haya que efectuar cambios en la aplicación. Este comportamiento es transparente para el cliente. Para más información, consulte [Cifrado de datos transparente para SQL Database y Data Warehouse](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
@@ -156,7 +156,7 @@ Las siguientes imágenes muestran el uso del entorno de ejecución de integraci�
 ### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-addresses"></a><a name="firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway"></a> Configuraciones de firewall y configuración de direcciones IP permitidas
 
 > [!NOTE] 
-> Puede que tenga que administrar puertos o configurar la lista de admitidos en los dominios a nivel del firewall corporativo, en función de lo que requiera cada origen de datos. En esta tabla, Azure SQL Database, Azure SQL Data Warehouse y Azure Data Lake Store solo se usan a modo de ejemplo.
+> Puede que tenga que administrar puertos o configurar la lista de admitidos en los dominios a nivel del firewall corporativo, en función de lo que requiera cada origen de datos. En esta tabla, Azure SQL Database, Azure Synapse Analytics y Azure Data Lake Store solo se usan a modo de ejemplo.
 
 > [!NOTE] 
 > Para obtener detalles sobre las estrategias de acceso a datos a través de Azure Data Factory, consulte [este artículo](https://docs.microsoft.com/azure/data-factory/data-access-strategies#data-access-strategies-through-azure-data-factory).
@@ -169,7 +169,7 @@ En la tabla siguiente se proporcionan el puerto de salida y los requisitos de do
 [!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
 
 > [!NOTE] 
-> Puede que tenga que administrar puertos o configurar la lista de admitidos en los dominios a nivel del firewall corporativo, en función de lo que requiera cada origen de datos. En esta tabla, Azure SQL Database, Azure SQL Data Warehouse y Azure Data Lake Store solo se usan a modo de ejemplo.   
+> Puede que tenga que administrar puertos o configurar la lista de admitidos en los dominios a nivel del firewall corporativo, en función de lo que requiera cada origen de datos. En esta tabla, Azure SQL Database, Azure Synapse Analytics y Azure Data Lake Store solo se usan a modo de ejemplo.   
 
 En la tabla siguiente, se proporcionan los requisitos del puerto de entrada para el Firewall de Windows.
 
@@ -185,7 +185,7 @@ Algunos almacenes de datos de la nube también requieren que permita la direcci�
 Los siguientes almacenes de datos en la nube requieren que permita la dirección IP de la máquina el entorno de ejecución de integración autohospedado. De forma predeterminada, es posible que algunos de estos almacenes de datos no necesiten lista de admitidas. 
 
 - [Azure SQL Database](../azure-sql/database/firewall-configure.md) 
-- [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
+- [Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
@@ -198,7 +198,7 @@ Sí. Más detalles [aquí](https://azure.microsoft.com/blog/sharing-a-self-hoste
 
 **¿Cuáles son los requisitos de puerto para que el entorno de ejecución de integración autohospedado funcione?**
 
-Integration Runtime autohospedado establece conexiones basadas en HTTP para acceder a Internet. El puerto de salida 443 debe estar abierto para que el entorno de ejecución de integración autohospedado establezca la conexión. Abra el puerto de entrada 8060 solo en la máquina (no en el firewall corporativo) para la aplicación de administración de credenciales. Si se utiliza Azure SQL Database o Azure SQL Data Warehouse como origen o destino, tendrá que abrir también el puerto 1433. Para más información, consulte la sección [Configuraciones de firewall y configuración de la lista de permitidos para direcciones IP](#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway). 
+Integration Runtime autohospedado establece conexiones basadas en HTTP para acceder a Internet. El puerto de salida 443 debe estar abierto para que el entorno de ejecución de integración autohospedado establezca la conexión. Abra el puerto de entrada 8060 solo en la máquina (no en el firewall corporativo) para la aplicación de administración de credenciales. Si se utiliza Azure SQL Database o Azure Synapse Analytics como origen o destino, tendrá que abrir también el puerto 1433. Para más información, consulte la sección [Configuraciones de firewall y configuración de la lista de permitidos para direcciones IP](#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway). 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

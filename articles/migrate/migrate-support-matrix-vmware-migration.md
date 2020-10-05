@@ -3,12 +3,12 @@ title: Compatibilidad con la migración de VMware en Azure Migrate
 description: Aprenda sobre la compatibilidad con la migración de máquinas virtuales de VMware en Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 4c9ae6a5c3ed0d38b6abc952458422c7789fef8f
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 430b491780e10840274f16315b159a8095c11889
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051124"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612523"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de compatibilidad para la migración de VMware
 
@@ -41,7 +41,7 @@ En la tabla se resumen los requisitos del hipervisor de VMware.
 --- | ---
 **VMware vCenter Server** | Versión 5.5, 6.0, 6.5 o 6.7.
 **Host ESXI de VMware vSphere** | Versión 5.5, 6.0, 6.5 o 6.7.
-**Permisos de vCenter Server** | La migración sin agentes utiliza el [dispositivo de Azure Migrate](migrate-appliance.md). El dispositivo necesita estos permisos en vCenter Server:<br/><br/> - **Datastore.Browse**: Permite examinar los archivos de registro de máquina virtual para solucionar problemas de creación y eliminación de instantáneas.<br/><br/> - **Datastore.LowLevelFileOperations**: Permite operaciones de lectura, escritura, eliminación y cambio de nombre en el explorador del almacén de datos para solucionar problemas de creación y eliminación de instantáneas.<br/><br/> - **VirtualMachine.Configuration.DiskChangeTracking**: Permite habilitar o deshabilitar el seguimiento de cambios de los discos de máquina virtual para extraer los bloques de datos cambiados entre instantáneas.<br/><br/> - **VirtualMachine.Configuration.DiskLease**: Permite operaciones de concesión de discos para una máquina virtual, para leer el disco mediante el kit de desarrollo de discos virtuales de VMware vSphere (VDDK).<br/><br/> - **VirtualMachine.Provisioning.DiskAccess**: (específicamente para vSphere 6.0 y versiones posteriores) permite abrir un disco en una máquina virtual para obtener acceso de lectura aleatorio en el disco mediante VDDK.<br/><br/> - **VirtualMachine.Provisioning.ReadOnlyDiskAccess**: Permite abrir un disco en una máquina virtual para leerlo mediante VDDK.<br/><br/> - **VirtualMachine.Provisioning.DiskRandomAccess**: Permite abrir un disco en una máquina virtual para leerlo mediante VDDK.<br/><br/> - **VirtualMachine.Provisioning.VirtualMachineDownload**: Permite operaciones de lectura en los archivos asociados con una máquina virtual, para descargar los registros y solucionar problemas si se produce un error.<br/><br/> - **VirtualMachine.SnapshotManagement.\*** : Permite la creación y la administración de instantáneas de máquina virtual para la replicación.<br/><br/> - **Virtual Machine.Interaction.Power Off**: Permite apagar la máquina virtual durante la migración a Azure.
+**Permisos de vCenter Server** | La migración sin agentes utiliza el [dispositivo de Azure Migrate](migrate-appliance.md). El dispositivo necesita estos permisos en vCenter Server:<br/><br/> - **Datastore.Browse**: Permite examinar los archivos de registro de máquina virtual para solucionar problemas de creación y eliminación de instantáneas.<br/><br/> - **Datastore.FileManagement**: Permite operaciones de lectura, escritura, eliminación y cambio de nombre en el explorador del almacén de datos para solucionar problemas de creación y eliminación de instantáneas.<br/><br/> - **VirtualMachine.Config.ChangeTracking**: Permite habilitar o deshabilitar el seguimiento de cambios de los discos de máquina virtual para extraer los bloques de datos cambiados entre instantáneas.<br/><br/> - **VirtualMachine.Config.DiskLease**: Permite operaciones de concesión de discos para una máquina virtual, para leer el disco mediante el kit de desarrollo de discos virtuales de VMware vSphere (VDDK).<br/><br/> - **VirtualMachine.Provisioning.DiskAccess**: (específicamente para vSphere 6.0 y versiones posteriores) permite abrir un disco en una máquina virtual para obtener acceso de lectura aleatorio en el disco mediante VDDK.<br/><br/> - **VirtualMachine.Provisioning.DiskRandomRead**: Permite abrir un disco en una máquina virtual para leerlo mediante VDDK.<br/><br/> - **VirtualMachine.Provisioning.DiskRandomAccess**: Permite abrir un disco en una máquina virtual para leerlo mediante VDDK.<br/><br/> - **VirtualMachine.Provisioning.GetVmFiles**: Permite operaciones de lectura en los archivos asociados con una máquina virtual, para descargar los registros y solucionar problemas si se produce un error.<br/><br/> - **VirtualMachine.State.\*** : Permite la creación y la administración de instantáneas de máquina virtual para la replicación.<br/><br/> - **Virtual Machine.Interact.PowerOff**: Permite apagar la máquina virtual durante la migración a Azure.
 
 
 
@@ -68,7 +68,7 @@ En la tabla se resumen los requisitos de migración sin agente para las VM de VM
 **Storage vMotion** | No compatible. La replicación no funcionará si una máquina virtual usa Storage vMotion.
 **NIC en equipo** | No compatible.
 **IPv6** | No compatible.
-**Disco de destino** | Las máquinas virtuales solo se pueden migrar a discos administrados (HDD Estándar, SSD Premium) en Azure.
+**Disco de destino** | Las VM solo se pueden migrar a discos administrados (HDD Estándar, SSD estándar, SSD Premium) en Azure.
 **Replicación simultánea** | 300 máquinas virtuales por vCenter Server. Si tiene más, mígrelas en lotes de 300.
 
 
@@ -118,7 +118,7 @@ En la tabla se resume la compatibilidad de las máquinas virtuales de VMware con
 **Servicio de movilidad** | El agente del servicio de movilidad se debe instalar en cada máquina virtual que quiera migrar.
 **Arranque UEFI** | Compatible.
 **UEFI: arranque seguro**         | No se admiten para la migración.
-**Disco de destino** | Las máquinas virtuales solo se pueden migrar a discos administrados (HDD Estándar, SSD Premium) en Azure.
+**Disco de destino** | Las VM solo se pueden migrar a discos administrados (HDD Estándar, SSD estándar, SSD Premium) en Azure.
 **Tamaño del disco** | Disco de sistema operativo de 2 TB y 8 TB para los discos de datos.
 **Límites del disco** |  Hasta 63 discos por máquina virtual.
 **Discos/volúmenes cifrados** | Las máquinas virtuales con volúmenes o discos cifrados no se admiten para la migración.

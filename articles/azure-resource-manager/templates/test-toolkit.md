@@ -2,19 +2,19 @@
 title: Kit de herramientas para pruebas de plantillas de ARM
 description: Describe cómo ejecutar el kit de herramientas para pruebas de la plantilla de ARM en su plantilla. El kit de herramientas le permite ver si ha implementado los procedimientos recomendados.
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 7b88096dfdd1c7fb3e2671a369132e75a8885b8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73f6db8cbd5e4d7a0670c394f6af338aae8e9e79
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255835"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439567"
 ---
 # <a name="use-arm-template-test-toolkit"></a>Uso del kit de herramientas para pruebas de plantillas de ARM
 
-El [kit de herramientas para pruebas de plantillas de ARM](https://aka.ms/arm-ttk) comprueba si la plantilla usa los procedimientos recomendados. Cuando la plantilla no es compatible con los procedimientos recomendados, devuelve una lista de advertencias con los cambios sugeridos. Con el kit de herramientas para pruebas, puede obtener información sobre cómo evitar los problemas comunes en el desarrollo de plantillas.
+El [kit de herramientas para pruebas de plantillas de Resource Manager](https://aka.ms/arm-ttk) comprueba si la plantilla usa los procedimientos recomendados. Cuando la plantilla no es compatible con los procedimientos recomendados, devuelve una lista de advertencias con los cambios sugeridos. Con el kit de herramientas para pruebas, puede obtener información sobre cómo evitar los problemas comunes en el desarrollo de plantillas.
 
 El kit de herramientas para pruebas proporciona un [conjunto de pruebas predeterminadas](test-cases.md). Estas pruebas son recomendaciones, pero no requisitos. Puede decidir qué pruebas son adecuadas para sus objetivos y personalizar qué pruebas se ejecutan.
 
@@ -22,53 +22,103 @@ En este artículo se describe cómo ejecutar el kit de herramientas para pruebas
 
 El kit de herramientas es un conjunto de scripts de PowerShell que se puede ejecutar desde un comando de PowerShell o la CLI.
 
-## <a name="download-test-toolkit"></a>Descarga del kit de herramientas para pruebas
+## <a name="install-on-windows"></a>Instalar en Windows
 
-Para usar el kit de herramientas para pruebas, puede bifurcar y clonar el [repositorio](https://aka.ms/arm-ttk) que contiene los scripts o [descargar el archivo ZIP más reciente](https://aka.ms/arm-ttk-latest).
+1. Si aún no tiene PowerShell, [instale PowerShell en Windows](/powershell/scripting/install/installing-powershell-core-on-windows).
 
-En función de la directiva de ejecución del equipo en el que se ejecuta el script, es posible que reciba un error sobre la ejecución de scripts desde Internet. Debe cambiar la [directiva de ejecución](/powershell/module/microsoft.powershell.core/about/about_execution_policies) o [desbloquear los archivos del script](/powershell/module/microsoft.powershell.utility/unblock-file).
+1. [Descargue el archivo ZIP más reciente](https://aka.ms/arm-ttk-latest) para el kit de herramientas de pruebas y extráigalo.
 
-## <a name="run-on-powershell"></a>Ejecución en PowerShell
+1. Inicie PowerShell.
 
-Antes de ejecutar las pruebas, importe el módulo.
+1. Navegue hasta la carpeta en la que extrajo el kit de herramientas de pruebas. Dentro de esa carpeta, vaya a la carpeta **arm-ttk**.
 
-```powershell
-Import-Module .\arm-ttk.psd1 # from the same directory as .\arm-ttk.psd1
-```
+1. Si la [directiva de ejecución](/powershell/module/microsoft.powershell.core/about/about_execution_policies) bloquea los scripts de Internet, debe desbloquear los archivos de script. Asegúrese de que se encuentra en la carpeta **arm-ttk**.
 
-Para ejecutar las pruebas en **PowerShell**, use el comando siguiente:
+   ```powershell
+   Get-ChildItem *.ps1, *.psd1, *.ps1xml, *.psm1 -Recurse | Unblock-File
+   ```
 
-```powershell
-Test-AzTemplate -TemplatePath $TemplateFolder
-```
+1. Importe el módulo.
 
-## <a name="run-on-linux"></a>Ejecución en Linux
+   ```powershell
+   Import-Module .\arm-ttk.psd1
+   ```
 
-Antes de ejecutar las pruebas, instale [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-linux).
+1. Para ejecutar las pruebas, use el siguiente comando:
 
-Para ejecutar las pruebas en Bash en **Linux**, use el comando siguiente:
+   ```powershell
+   Test-AzTemplate -TemplatePath \path\to\template
+   ```
 
-```bash
-Test-AzTemplate.sh -TemplatePath $TemplateFolder
-```
+## <a name="install-on-linux"></a>Instalar en Linux
 
-También puede ejecutar la prueba en pwsh.exe.
+1. Si aún no tiene PowerShell, [instale PowerShell en Linux](/powershell/scripting/install/installing-powershell-core-on-linux).
 
-## <a name="run-on-macos"></a>Ejecución en macOS
+1. [Descargue el archivo ZIP más reciente](https://aka.ms/arm-ttk-latest) para el kit de herramientas de pruebas y extráigalo.
 
-Antes de ejecutar las pruebas, instale [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-macos). 
+1. Inicie PowerShell.
 
-Instale `coreutils`:
+   ```bash
+   pwsh
+   ```
 
-```bash
-brew install coreutils
-```
+1. Navegue hasta la carpeta en la que extrajo el kit de herramientas de pruebas. Dentro de esa carpeta, vaya a la carpeta **arm-ttk**.
 
-Para ejecutar las pruebas en **macOS**, use el comando siguiente:
+1. Si la [directiva de ejecución](/powershell/module/microsoft.powershell.core/about/about_execution_policies) bloquea los scripts de Internet, debe desbloquear los archivos de script. Asegúrese de que se encuentra en la carpeta **arm-ttk**.
 
-```bash
-Test-AzTemplate.sh -TemplatePath $TemplateFolder
-```
+   ```powershell
+   Get-ChildItem *.ps1, *.psd1, *.ps1xml, *.psm1 -Recurse | Unblock-File
+   ```
+
+1. Importe el módulo.
+
+   ```powershell
+   Import-Module ./arm-ttk.psd1
+   ```
+
+1. Para ejecutar las pruebas, use el siguiente comando:
+
+   ```powershell
+   Test-AzTemplate -TemplatePath /path/to/template
+   ```
+
+## <a name="install-on-macos"></a>Instalación en macOS
+
+1. Si aún no tiene PowerShell, [instale PowerShell en macOS](/powershell/scripting/install/installing-powershell-core-on-macos).
+
+1. Instale `coreutils`:
+
+   ```bash
+   brew install coreutils
+   ```
+
+1. [Descargue el archivo ZIP más reciente](https://aka.ms/arm-ttk-latest) para el kit de herramientas de pruebas y extráigalo.
+
+1. Inicie PowerShell.
+
+   ```bash
+   pwsh
+   ```
+
+1. Navegue hasta la carpeta en la que extrajo el kit de herramientas de pruebas. Dentro de esa carpeta, vaya a la carpeta **arm-ttk**.
+
+1. Si la [directiva de ejecución](/powershell/module/microsoft.powershell.core/about/about_execution_policies) bloquea los scripts de Internet, debe desbloquear los archivos de script. Asegúrese de que se encuentra en la carpeta **arm-ttk**.
+
+   ```powershell
+   Get-ChildItem *.ps1, *.psd1, *.ps1xml, *.psm1 -Recurse | Unblock-File
+   ```
+
+1. Importe el módulo.
+
+   ```powershell
+   Import-Module ./arm-ttk.psd1
+   ```
+
+1. Para ejecutar las pruebas, use el siguiente comando:
+
+   ```powershell
+   Test-AzTemplate -TemplatePath /path/to/template
+   ```
 
 ## <a name="result-format"></a>Formato de resultado
 

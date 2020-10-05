@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0019f7d8195dc39127b992a31ebd8c33e55452f6
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 9d5ffaf996f51348334f4adeeae150db9eb0defa
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179358"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052671"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Optimice los mensajes de reautenticación y comprenda la duración de la sesión para Azure Multi-Factor Authentication.
 
@@ -36,7 +36,7 @@ Para ofrecer a los usuarios el equilibrio adecuado entre seguridad y facilidad d
     * Habilite el inicio de sesión único (SSO) en todas las aplicaciones mediante [dispositivos administrados](../devices/overview.md) o [SSO de conexión directa](../hybrid/how-to-connect-sso.md).
     * Si se requiere la reautenticación, use una [directiva de frecuencia de inicio de sesión](../conditional-access/howto-conditional-access-session-lifetime.md) de acceso condicional.
     * Para los usuarios que inician sesión desde dispositivos no administrados o escenarios de dispositivos móviles, use el acceso condicional para habilitar sesiones persistentes del explorador y directivas de frecuencia de inicio de sesión.
-* Si tiene licencias de aplicaciones de Office 365 o el nivel de Azure AD gratuito:
+* Si tiene licencias de aplicaciones de Microsoft 365 o el nivel de Azure AD gratuito:
     * Habilite el inicio de sesión único (SSO) en todas las aplicaciones mediante [dispositivos administrados](../devices/overview.md) o [SSO de conexión directa](../hybrid/how-to-connect-sso.md).
     * Mantenga habilitada la opción *Remain signed-in* (Permanecer conectado) y guíe a los usuarios para que la acepten.
 * Para escenarios con dispositivos móviles, asegúrese de que los usuarios utilizan la aplicación Microsoft Authenticator. Esta aplicación se usa como agente para otras aplicaciones federadas de Azure AD y reduce los avisos de autenticación en el dispositivo.
@@ -123,13 +123,13 @@ Para configurar directivas de acceso condicional para la frecuencia de inicio de
 
 Para revisar la vigencia de los tokens, [use Azure AD PowerShell para consultar las directivas de Azure AD](../develop/active-directory-configurable-token-lifetimes.md#prerequisites). Deshabilite las directivas que haya implementado.
 
-Si hay más de una opción de configuración habilitada en el inquilino, se recomienda actualizar la configuración en función de las licencias disponibles. Por ejemplo, si tiene licencias Premium de Azure AD, solo debe usar la directiva de acceso condicional de *Frecuencia de inicio de sesión* y *Sesión del explorador persistente*. Si tiene aplicaciones de Office 365 o licencias de Azure AD gratuitas, debe usar la configuración *Remain signed-in* (Permanecer conectado).
+Si hay más de una opción de configuración habilitada en el inquilino, se recomienda actualizar la configuración en función de las licencias disponibles. Por ejemplo, si tiene licencias Premium de Azure AD, solo debe usar la directiva de acceso condicional de *Frecuencia de inicio de sesión* y *Sesión del explorador persistente*. Si tiene aplicaciones de Microsoft 365 o licencias de Azure AD gratuitas, debe usar la configuración *Remain signed-in* (Permanecer conectado).
 
 Si ha habilitado la vigencia de tokens configurable, esta funcionalidad se quitará pronto. Planee una migración a una directiva de acceso condicional.
 
 En la tabla siguiente se resumen las recomendaciones basadas en licencias:
 
-|              | Azure AD gratuito y aplicaciones de Office 365 | Azure AD Premium |
+|              | Aplicaciones de Azure AD Free y Microsoft 365 | Azure AD Premium |
 |------------------------------|-----------------------------------|------------------|
 | **SSO**                      | [Unión a Azure AD](../devices/concept-azure-ad-join.md) o [Unión a Azure AD híbrido](../devices/concept-azure-ad-join-hybrid.md), o [SSO de conexión directa](../hybrid/how-to-connect-sso.md) para dispositivos no administrados. | Unión a Azure AD<br />Unión a Azure AD híbrido |
 | **Configuración de la reautenticación** | Permanecer conectado                  | Uso de directivas de acceso condicional para la frecuencia de inicio de sesión y la sesión del explorador persistente |

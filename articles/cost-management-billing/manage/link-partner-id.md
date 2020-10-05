@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: dc4d319e0e6b55af8af460fa8a56b9ef24a53341
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 03953e210f1c4caf1541db272ce4c02c271dafaa
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89487358"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371837"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Vinculación de un Id. de partner a cuentas de Azure
 
@@ -151,9 +151,9 @@ Los informes de rendimiento del producto en la nube están disponibles para los 
 
 No puede ver al cliente en los informes por los siguientes motivos
 
-1. La cuenta de usuario vinculada no tiene el tipo de acceso [Acceso basado en rol](https://docs.microsoft.com/azure/role-based-access-control/overview) en ningún recurso o suscripción de Azure del cliente.
+1. La cuenta de usuario vinculada no tiene el [control de acceso basado en rol (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) en ningún recurso o suscripción de Azure del cliente.
 
-2. La suscripción de Azure donde el usuario tiene el tipo de acceso [Acceso basado en rol](https://docs.microsoft.com/azure/role-based-access-control/overview) no tiene ningún uso.
+2. La suscripción de Azure donde el usuario tiene el [control de acceso basado en rol (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) no tiene ningún uso.
 
 **¿Funciona el identificador de asociado del vínculo con Azure Stack?**
 

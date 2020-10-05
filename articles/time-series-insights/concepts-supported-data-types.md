@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 08/31/2020
-ms.openlocfilehash: 4e6586453469797458bc60fc7499a45a9aad9b9b
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 9dbc66e3331325e9b79d0434fb452d01d69d550a
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226750"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482596"
 ---
 # <a name="supported-data-types"></a>Tipos de datos admitidos
 
@@ -27,10 +27,10 @@ En la tabla siguiente se enumeran los tipos de datos admitidos por Azure Time Se
 | **double** | Un número de 64 bits de precisión doble  | `"value": 31.0482941` | `$event.value.Double` o `$event['value'].Double` |  `value_double`
 | **long** | Un entero de 64 bits con signo  | `"value" : 31` | `$event.value.Long` o `$event['value'].Long` |  `value_long`
 | **string** | Los valores de texto, deben constar de UTF8 válidos. Las cadenas NULL y vacías se tratan de la misma forma. |  `"site": "DIM_MLGGG"`| `$event.site.String` o `$event['site'].String`| `site_string`
-| **dynamic** | Tipo complejo (no primitivo) que consta de una matriz o un contenedor de propiedades (diccionario). Actualmente, solo se almacenarán como dinámicas las matrices JSON de string de elementos primitivos o las matrices de objetos que no contienen el identificador de TS o las propiedades de marca de tiempo. Consulte este [artículo](./concepts-json-flattening-escaping-rules.md) para comprender cómo se aplanarán los objetos y se podrán expandir las matrices. Solo se puede tener acceso a las propiedades de carga almacenadas como este tipo si se selecciona `Explore Events` en el explorador de TSI para ver eventos sin procesar, o a través de la API de consulta [`GetEvents`](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) para el análisis del lado cliente. |  `"values": "[197, 194, 189, 188]"` | Todavía no se admite la referencia a tipos dinámicos en una expresión de serie temporal. | `values_dynamic`
+| **dynamic** | Tipo complejo (no primitivo) que consta de una matriz o un contenedor de propiedades (diccionario). Actualmente, solo se almacenarán como dinámicas las matrices JSON de string de elementos primitivos o las matrices de objetos que no contienen el identificador de TS o las propiedades de marca de tiempo. Consulte este [artículo](./concepts-json-flattening-escaping-rules.md) para comprender cómo se aplanarán los objetos y se podrán expandir las matrices. Solo se puede tener acceso a las propiedades de carga almacenadas como este tipo si se selecciona `Explore Events` en el Explorador de Time Series Insights para ver eventos sin procesar, o a través de la API de consulta [`GetEvents`](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) para el análisis del lado cliente. |  `"values": "[197, 194, 189, 188]"` | Todavía no se admite la referencia a tipos dinámicos en una expresión de serie temporal. | `values_dynamic`
 
 > [!NOTE]
-> Se admiten valores enteros de 64 bits, pero el número más grande que el Explorador de Azure Time Series Insights puede expresar con seguridad es 9 007 199 254 740 991 (2^53-1) debido a las limitaciones de JavaScript. Si trabaja con números en el modelo de datos anterior, puede reducir el tamaño creando una [variable de modelo de serie temporal](/concepts-variables#numeric-variables) y [convirtiendo](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#conversion-functions) el valor.
+> Se admiten valores enteros de 64 bits, pero el número más grande que el Explorador de Azure Time Series Insights puede expresar con seguridad es 9 007 199 254 740 991 (2^53-1) debido a las limitaciones de JavaScript. Si trabaja con números en el modelo de datos anterior, puede reducir el tamaño creando una [variable de modelo de serie temporal](/azure/time-series-insights/concepts-variables#numeric-variables) y [convirtiendo](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#conversion-functions) el valor.
 
 > [!NOTE]
 > El tipo **Cadena** no admite valores NULL:

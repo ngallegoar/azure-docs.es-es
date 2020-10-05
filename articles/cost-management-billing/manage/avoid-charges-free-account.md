@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: f81c33f3b49352933801c8b89a2c3a1787c2356a
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 203a3b93f200a54ec40c96ee79c7fc822fac140b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682933"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270617"
 ---
 # <a name="avoid-charges-with-your-azure-free-account"></a>Evitar cargos en su cuenta gratuita de Azure
 
@@ -31,7 +31,7 @@ Obtiene una cantidad limitada de servicios gratuitos cada mes con su cuenta grat
 
 ## <a name="you-used-some-services-that-arent-free"></a>Ha usado algunos servicios que no son gratuitos
 
-Una vez que haya actualizado la cuenta, se le cobran tarifas de pago por uso por la utilización de servicios, las cuales no se incluyen de forma gratuita con su cuenta gratuita de Azure. Para más información sobre los servicios que incluye la cuenta gratuita, consulte [Preguntas más frecuentes sobre la cuenta gratuita de Azure](https://azure.microsoft.com/free/free-account-faq/). El uso de los servicios se puede comprobar en Azure Portal. Para más información, consulte [Visite el portal con regularidad para conocer el análisis de costos y la tasa de evolución](getting-started.md#costs).
+Una vez que haya actualizado la cuenta, se le cobran tarifas de pago por uso por la utilización de servicios, las cuales no se incluyen de forma gratuita con su cuenta gratuita de Azure. Para más información sobre los servicios que incluye la cuenta gratuita, consulte [Preguntas más frecuentes sobre la cuenta gratuita de Azure](https://azure.microsoft.com/free/free-account-faq/). El uso de los servicios se puede comprobar en Azure Portal. Para más información, consulte [Prevención y análisis de cargos inesperados](../understand/analyze-unexpected-charges.md).
 
 ## <a name="you-reached-the-end-of-your-free-12-months"></a>Se ha llegado al final de los 12 meses gratuitos
 
