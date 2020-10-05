@@ -11,16 +11,16 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: caf0fdf5fd167987ea0fd7111a05b04bd5bf848f
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 6a1acdbeb29091bae0be214b740023f13928506a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279795"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319850"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Planeamiento y solución de problemas de los cambios de nombre principal de usuario en Azure Active Directory
 
-Un nombre principal de usuario (UPN) es un atributo que es un estándar de comunicación de Internet para las cuentas de usuario. Un UPN consta de un prefijo de UPN (el nombre de la cuenta de usuario) y un sufijo de UPN (un nombre de dominio DNS). El prefijo se une al sufijo mediante el símbolo "@". Por ejemplo, someone@example.com. Un UPN debe ser único entre todos los objetos de entidad de seguridad dentro de un bosque de directorio. 
+Un nombre principal de usuario (UPN) es un atributo que es un estándar de comunicación de Internet para las cuentas de usuario. Un UPN consta de un prefijo de UPN (el nombre de la cuenta de usuario) y un sufijo de UPN (un nombre de dominio DNS). El prefijo se une al sufijo mediante el símbolo "\@". Por ejemplo, someone@example.com. Un UPN debe ser único entre todos los objetos de entidad de seguridad dentro de un bosque de directorio. 
 
 **En este artículo se presupone que usa UPN como el identificador de usuario. Aquí se habla del planeamiento de los cambios de UPN y de la recuperación a partir de los problemas que puedan aparecer debido a los cambios de UPN.**
 
@@ -94,7 +94,7 @@ Consulte los problemas conocidos y sus soluciones que aparecen en este documento
 
 Cuando sincronice las cuentas de usuario de Active Directory a Azure AD, asegúrese de que los UPN de Active Directory se asignen a los dominios comprobados de Azure AD.
 
-![Captura de pantalla de los dominios comprobados](./media/howto-troubleshoot-upn-changes/verified-domains.png)
+![Captura de pantalla que muestra ejemplos de UPN asignados a dominios de Azure AD comprobados.](./media/howto-troubleshoot-upn-changes/verified-domains.png)
 
 Si el valor del atributo userPrincipalName no corresponde a un dominio comprobado de Azure AD, el proceso de sincronización reemplaza el sufijo con un valor predeterminado .onmicrosoft.com.
 
@@ -237,7 +237,7 @@ El usuario debe seleccionar el menú desplegable de la cuenta habilitada para el
 ## <a name="security-key-fido2-known-issues-and-workarounds"></a>Problemas conocidos y soluciones alternativas para la clave de seguridad (FIDO2)
 
 **Problemas conocidos** <br>
-Cuando varios usuarios se registran en la misma clave, la pantalla de inicio de sesión muestra una página de selección de cuenta en la que aparece el UPN antiguo. Los cambios de UPN no afectan los inicios de sesión mediante claves de seguridad.  
+Cuando varios usuarios se registran en la misma clave, la pantalla de inicio de sesión muestra una página de selección de cuenta en la que aparece el UPN antiguo. Los cambios de UPN no afectan a los inicios de sesión mediante claves de seguridad.  
 
 **Solución alternativa**<br>
 Para quitar las referencias a los UPN anteriores, los usuarios deben [restablecer la clave de seguridad y volver a registrarse](../authentication/howto-authentication-passwordless-security-key.md#known-issues).
