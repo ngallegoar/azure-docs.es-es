@@ -1,6 +1,6 @@
 ---
 title: Asignación de un rol a un grupo mediante Privileged Identity Management en Azure AD | Microsoft Docs
-description: Versión preliminar de los roles personalizados de Azure AD para delegar la administración de identidades. Administre roles de Azure en Azure Portal, PowerShell o Graph API.
+description: Obtenga información sobre cómo puede asignar un rol de Azure Active Directory (Azure AD) a un grupo mediante Azure AD Privileged Identity Management (PIM).
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 343da87048cf43c04a137376e9a7f24270ce729a
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: b297ee3d03d61b654e2b7fffa17141a1fd5268f3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475899"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971172"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>Asignación de un rol a un grupo mediante Privileged Identity Management
 

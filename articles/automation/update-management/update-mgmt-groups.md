@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 20e6d26808964c8e697c694bd796af2851e7ca48
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 61339a22fc3823325ff5356112c2df8a800010a0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449784"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985192"
 ---
 # <a name="use-dynamic-groups-with-update-management"></a>Uso de grupos dinámicos con Update Management
 
@@ -45,7 +45,7 @@ Para obtener una vista previa de los resultados de un grupo dinámico, haga clic
 
 Un grupo dinámico para máquinas que no son de Azure usa búsquedas guardadas, que también se denominan grupos de equipos. Para aprender a crear una búsqueda guardada, consulte [Creación de un grupo de equipos](../../azure-monitor/platform/computer-groups.md#creating-a-computer-group). Una vez creada la búsqueda guardada, puede seleccionarla en la lista de búsquedas guardadas en **Update Management** en Azure Portal. Haga clic en **Vista previa** para obtener una vista previa de los equipos de la búsqueda guardada.
 
-![Selección de grupos](./media/update-mgmt-groups/select-groups-2.png)
+![Captura de pantalla que muestra la página Seleccionar grupos para No Azure (versión preliminar) y el panel de vista previa en el lado derecho.](./media/update-mgmt-groups/select-groups-2.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

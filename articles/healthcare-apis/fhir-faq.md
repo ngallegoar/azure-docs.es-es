@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 252abcac6e9e39930593c1b110bf6d55ffdfc33f
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 36945d998bf00d7b229b5ae3cce1958953ade601
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843528"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978619"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Preguntas más frecuentes sobre Azure API for FHIR
 
@@ -48,6 +48,23 @@ Desde el punto de vista del desarrollo, cada característica se implementa prime
 
 SMART (Substitutable Medical Applications and Reusable Technology) on FHIR es un conjunto de especificaciones de código abierto para integrar aplicaciones de asociados con servidores de FHIR y otros sistemas de TI sanitarios, como los registros sanitarios electrónicos y los intercambios de información sanitaria. Al crear una aplicación SMART on FHIR, puede garantizar que una gran cantidad de sistemas diferentes pueden acceder a la aplicación y aprovecharla.
 Autenticación y Azure API for FHIR. Para obtener más información acerca de SMART, visite [SMART Health IT](https://smarthealthit.org/).
+
+### <a name="can-i-create-a-custom-fhir-resource"></a>¿Puedo crear un recurso personalizado de FHIR?
+
+No se permiten recursos de FHIR personalizados. Si necesita un recurso FHIR personalizado, puede crear un recurso personalizado sobre el [recurso básico](http://www.hl7.org/fhir/basic.html) con extensiones. 
+
+### <a name="are-extensions-supported-on-azure-api-for-fhir"></a>¿Se admiten las [extensiones](https://www.hl7.org/fhir/extensibility.html) en Azure API for FHIR?
+
+Está permitido cargar datos JSON de FHIR válidos en el servidor. Si desea almacenar la definición de la estructura que define la extensión, puede guardarla como un recurso de definición de estructura. Actualmente, no se puede buscar en las extensiones.
+
+### <a name="what-is-the-limit-on-_count"></a>¿Cuál es el límite en recuento?
+
+El límite actual del recuento es 100.
+
+### <a name="are-there-any-limitations-on-the-group-export-functionality"></a>¿Hay alguna limitación en la funcionalidad de exportación de grupos?
+
+Para la exportación de grupos, solo se exportan las referencias incluidas del grupo, no todas las características del [recurso de grupo](https://www.hl7.org/fhir/group.html).
+
 
 ## <a name="azure-iot-connector-for-fhir-preview"></a>Conector de Azure IoT para FHIR (versión preliminar)
 

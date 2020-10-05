@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: 0c9844d5e3f65dba5e51170367cfd16715a08883
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 433ff5498baeb4c31473e43fc4a5d24f4ba9fd1c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763472"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605165"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Configuración del consentimiento de los usuarios finales a las aplicaciones
 
@@ -32,7 +32,7 @@ Para controlar en qué casos los usuarios pueden dar su consentimiento a las apl
 
 * **Deshabilitar el consentimiento del usuario**: los usuarios no pueden conceder permisos a las aplicaciones. Los usuarios pueden seguir iniciando sesión en las aplicaciones a las que dieron su consentimiento previamente o que los administradores autorizaron en su nombre, pero estos no podrán dar su consentimiento por sí solos a nuevos permisos ni a nuevas aplicaciones. Solo los usuarios a los que se haya concedido un rol de directorio que incluye el permiso para conceder consentimiento podrán autorizar nuevos permisos o nuevas aplicaciones.
 
-* **Los usuarios pueden dar su consentimiento a las aplicaciones de publicadores comprobados, pero solo para los permisos que seleccione (versión preliminar)** : los usuarios solo pueden dar su consentimiento a las aplicaciones publicadas por un [publicador comprobado](../develop/publisher-verification-overview.md) y a las aplicaciones que están registradas en el inquilino. Los usuarios solo pueden dar su consentimiento a los permisos clasificados como "bajo impacto".
+* **Los usuarios pueden dar su consentimiento a las aplicaciones de publicadores comprobados, pero solo para los permisos que seleccione (versión preliminar)** : los usuarios solo pueden dar su consentimiento a las aplicaciones publicadas por un [publicador comprobado](../develop/publisher-verification-overview.md) y a las aplicaciones que están registradas en el inquilino. Los usuarios solo pueden dar su consentimiento a los permisos clasificados como "bajo impacto", también denominados de "bajo riesgo". Lo que se considera de bajo riesgo para una organización, como una aplicación que ve una dirección de correo electrónico de usuario, podría considerarse de alto riesgo para otra organización. Por este motivo, el administrador del inquilino establece los permisos de "bajo riesgo".
 
   Asegúrese de [clasificar los permisos](#configure-permission-classifications-preview) para seleccionar aquellos a los que los usuarios pueden dar su consentimiento.
 
@@ -56,7 +56,7 @@ Para configurar el consentimiento del usuario en Azure Portal:
 
 ### <a name="configure-user-consent-settings-using-powershell"></a>Configuración del consentimiento del usuario con PowerShell
 
-Puede usar el módulo de versión preliminar de Azure AD PowerShell, [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview), para elegir qué directiva de consentimiento rige el consentimiento del usuario para las aplicaciones.
+Puede usar el módulo de versión preliminar de Azure AD PowerShell, [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true), para elegir qué directiva de consentimiento rige el consentimiento del usuario para las aplicaciones.
 
 * **Deshabilitar el consentimiento del usuario**: para deshabilitar el consentimiento del usuario, establezca las directivas de consentimiento que rigen el consentimiento del usuario para que estén vacías.
 
@@ -102,14 +102,14 @@ Las clasificaciones de permisos permiten identificar el impacto que tienen los d
 
 En este ejemplo, hemos clasificado el conjunto mínimo de permisos necesarios para el inicio de sesión único:
 
-:::image type="content" source="media/configure-user-consent/permission-classifications.png" alt-text="Clasificaciones de permisos":::
+:::image type="content" source="media/configure-user-consent/permission-classifications.png" alt-text="Configuración del consentimiento del usuario":::
 
 > [!TIP]
 > En el caso de Microsoft Graph API, los permisos mínimos necesarios para realizar el inicio de sesión único básico son `openid`, `profile`, `User.Read` y `offline_access`. Con estos permisos, una aplicación puede leer los detalles del perfil del usuario que ha iniciado sesión y puede mantener este acceso incluso cuando el usuario ya no usa la aplicación.
 
 ### <a name="classify-permissions-using-powershell"></a>Clasificación de permisos con PowerShell
 
-Puede usar el módulo de versión preliminar de Azure AD PowerShell más reciente, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview), para clasificar los permisos. Las clasificaciones de permisos se configuran en el objeto **ServicePrincipal** de la API que publica los permisos.
+Puede usar el módulo de versión preliminar de Azure AD PowerShell más reciente, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), para clasificar los permisos. Las clasificaciones de permisos se configuran en el objeto **ServicePrincipal** de la API que publica los permisos.
 
 #### <a name="to-read-the-current-permission-classifications-for-an-api"></a>Para leer las clasificaciones de permisos actuales para una API:
 
@@ -192,13 +192,13 @@ Puede configurar qué usuarios pueden dar su consentimiento a las aplicaciones q
 
 En este ejemplo, todos los propietarios de grupos pueden dar su consentimiento a las aplicaciones que acceden a los datos de sus grupos:
 
-:::image type="content" source="media/configure-user-consent/group-owner-consent.png" alt-text="Configuración del consentimiento del propietario del grupo":::
+:::image type="content" source="media/configure-user-consent/group-owner-consent.png" alt-text="Configuración del consentimiento del usuario":::
 
 ### <a name="configure-group-owner-consent-using-powershell"></a>Configuración del consentimiento del propietario del grupo con PowerShell
 
-Puede usar el módulo en versión preliminar de Azure AD PowerShell, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview), para deshabilitar o habilitar la capacidad de los usuarios de dar su consentimiento a las aplicaciones que acceden a los datos de la organización.
+Puede usar el módulo en versión preliminar de Azure AD PowerShell, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), para deshabilitar o habilitar la capacidad de los usuarios de dar su consentimiento a las aplicaciones que acceden a los datos de la organización.
 
-1. Asegúrese de que usa el módulo [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview). Este paso es importante si ha instalado el módulo [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0) y el módulo [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview).
+1. Asegúrese de que usa el módulo [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true). Este paso es importante si ha instalado el módulo [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) y el módulo [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true).
 
     ```powershell
     Remove-Module AzureAD
@@ -280,7 +280,7 @@ En este caso, también se registrará un evento de auditoría con la categoría 
 
 ### <a name="disable-or-re-enable-risk-based-step-up-consent-using-powershell"></a>Deshabilitación o nueva habilitación del consentimiento activo en función del riesgo con PowerShell
 
-Puede usar el módulo en versión preliminar de PowerShell de Azure AD, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview), para deshabilitar el paso activo del consentimiento de administrador requerido en los casos en los que Microsoft detecta el riesgo o para volver a habilitarlo si estaba deshabilitado anteriormente.
+Puede usar el módulo en versión preliminar de PowerShell de Azure AD, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), para deshabilitar el paso activo del consentimiento de administrador requerido en los casos en los que Microsoft detecta el riesgo o para volver a habilitarlo si estaba deshabilitado anteriormente.
 
 Para ello, siga los mismos pasos descritos anteriormente para [configurar el consentimiento del propietario del grupo mediante PowerShell](#configure-group-owner-consent-using-powershell), pero sustituyendo un valor de configuración diferente. Hay tres diferencias en los pasos: 
 

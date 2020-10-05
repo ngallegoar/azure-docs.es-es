@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: duau
-ms.openlocfilehash: 6566d70413ec287a58f5d02764d6ec34f9cdce15
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 471895f1a615770521584a627e6bca850b87d0ac
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400677"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462639"
 ---
 # <a name="how-traffic-manager-works"></a>Funcionamiento de Traffic Manager
 
@@ -62,8 +62,8 @@ Continuando a partir del ejemplo anterior, cuando un cliente solicita la página
     - El estado actual de cada punto de conexión, según lo determinado por las comprobaciones de estado de Traffic Manager. Para más información, consulte [Acerca de la supervisión de Traffic Manager](traffic-manager-monitoring.md).
     - El método de enrutamiento de tráfico elegido. Para más información, consulte [Métodos de enrutamiento de Traffic Manager](traffic-manager-routing-methods.md).
 
-5. El punto de conexión elegido se devuelve como otro registro CNAME de DNS. En este caso, supongamos que contoso-us.cloudapp.net se devuelve.
-6. A continuación, el servicio DNS recursivo busca los servidores DNS para el dominio "cloudapp.net". Se pone en contacto con estos servidores DNS para solicitar el registro DNS "contoso-us.cloudapp.net". Se devuelve un registro "A" de DNS que contiene la dirección IP del punto de conexión de servicio basado en Estados Unidos.
+5. El punto de conexión elegido se devuelve como otro registro CNAME de DNS. En este caso, supongamos que contoso-eu.cloudapp.net se devuelve.
+6. A continuación, el servicio DNS recursivo busca los servidores DNS para el dominio "cloudapp.net". Se pone en contacto con estos servidores DNS para solicitar el registro DNS "contoso-eu.cloudapp.net". Se devuelve un registro "A" de DNS que contiene la dirección IP del punto de conexión de servicio basado en Europa.
 7. El servicio DNS recursivo consolida los resultados y devuelve una única respuesta DNS al cliente.
 8. El cliente recibe los resultados DNS y se conecta a la dirección IP especificada. El cliente se conecta al punto de conexión de servicio de la aplicación directamente, no mediante Traffic Manager. Puesto que es un punto de conexión HTTPS, el cliente lleva a cabo el protocolo de enlace SSL/TLS necesario y, a continuación, realiza una solicitud GET de HTTP para la página "/login.aspx".
 

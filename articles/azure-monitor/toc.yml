@@ -117,15 +117,10 @@
       items:
         - name: Información general
           href: platform/data-platform.md
-        - name: Ubicaciones de datos
-          href: platform/data-locations.md
-        - name: Métricas
-          href: platform/data-platform-metrics.md
         - name: Registros
           href: platform/data-platform-logs.md
-        - name: Tiempo de ingesta de datos de registro
-          displayname: latency
-          href: platform/data-ingestion-time.md
+        - name: Métricas
+          href: platform/data-platform-metrics.md
         - name: Transmisión de datos a Event Hubs
           href: platform/stream-monitoring-data-event-hubs.md
     - name: Información detallada
@@ -146,7 +141,7 @@
           href: app/data-retention-privacy.md
     - name: Alertas
       items:
-        - name: Introducción
+        - name: Información general
           href: platform/alerts-overview.md
         - name: Alertas de métricas
           href: platform/alerts-metric-overview.md
@@ -209,39 +204,42 @@
           href: platform/diagnostic-settings.md
     - name: Log Analytics
       items:
-        - name: Introducción a las consultas de registros
-          displayname: 'log query, log queries, query, queries'
+        - name: Información general
+          displayname: 'Log Analytics, log query, log queries, query, queries'
           href: log-query/log-query-overview.md
+        - name: Tutorial
+          displayname: 'Log Analytics workspace, log query, log queries, query, queries'
+          href: log-query/get-started-portal.md
+        - name: Ámbito de la consulta
+          href: log-query/scope.md
         - name: Experiencia de registros simplificada
           href: log-query/simple-logs.md
-        - name: Consultas del registro de auditoría
-          href: log-query/query-audit.md
-        - name: Tutoriales
+        - name: Consultas de registros
           items:
-            - name: Tutorial de Log Analytics
-              href: log-query/get-started-portal.md
-            - name: Tutorial de consultas de registros
-              href: log-query/get-started-queries.md
-        - name: Datos de registro
-          items:
-            - name: Ámbito de la consulta
-              href: log-query/scope.md
             - name: Columnas estándar
               href: platform/log-standard-columns.md
+            - name: Auditoría de consultas
+              href: log-query/query-audit.md
+            - name: Optimización de consultas
+              href: log-query/query-optimization.md
+            - name: Functions
+              href: log-query/functions.md
+            - name: Análisis de datos de texto
+              href: log-query/parse-text.md
+            - name: Consultas de ejemplo
+              href: log-query/saved-queries.md
             - name: Grupos de equipos
               href: platform/computer-groups.md
         - name: Lenguaje de consulta
           items:
-            - name: Documentación sobre lenguaje de consulta
-              href: log-query/query-language.md
-            - name: Diferencias entre los lenguajes
+            - name: Referencia de KQL
+              href: /azure/data-explorer/kusto/query/
+            - name: Diferencia con respecto a Azure Data Explorer
               href: log-query/data-explorer-difference.md
-            - name: Operadores útiles
-              href: log-query/useful-operators.md
-            - name: Functions
-              href: log-query/functions.md
-            - name: Transición desde la búsqueda de registros
-              href: log-query/log-search-transition.md
+            - name: Ejemplos
+              href: log-query/examples.md
+            - name: Ejemplos de análisis inteligente
+              href: log-query/smart-analytics.md
             - name: Lecciones
               items:
                 - name: Operaciones de cadena
@@ -268,9 +266,9 @@
                   href: log-query/sql-cheatsheet.md
                 - name: Splunk
                   href: log-query/splunk-cheatsheet.md
-        - name: Entre recursos
+        - name: Consultas entre recursos
           items:
-            - name: Consultas entre recursos
+            - name: Información general
               href: log-query/cross-workspace-query.md
             - name: expresión de aplicación
               href: log-query/app-expression.md
@@ -280,32 +278,25 @@
               href: log-query/resource-expression.md
             - name: Unificación de los recursos de datos de la aplicación
               href: log-query/unify-app-resource-data.md
-        - name: Ejemplos y guía
-          items:
-            - name: Consultas de ejemplo
-              href: log-query/saved-queries.md
-            - name: Ejemplos de consultas de registro
-              href: log-query/examples.md
-            - name: Ejemplos de análisis inteligente
-              href: log-query/smart-analytics.md
-            - name: Optimización de consultas
-              href: log-query/query-optimization.md
-            - name: Análisis de datos de texto
-              href: log-query/parse-text.md
         - name: Áreas de trabajo y clústeres
           items:
             - name: Diseño de una implementación de área de trabajo
               href: platform/design-logs-deployment.md
             - name: Crear un área de trabajo
               items:
-                - name: Usar Azure Portal
+                - name: Azure Portal
                   href: learn/quick-create-workspace.md
-                - name: Uso de CLI de Azure
+                - name: Azure CLI
                   href: learn/quick-create-workspace-cli.md
-                - name: Uso de PowerShell
+                - name: PowerShell
                   href: platform/powershell-workspace-configuration.md
+                - name: Plantilla de Resource Manager
+                  href: platform/template-workspace-configuration.md
             - name: Eliminación y recuperación de áreas de trabajo
               href: platform/delete-workspace.md
+            - name: Administración del acceso
+              displayName: Log Analytics workspace
+              href: platform/manage-access.md
             - name: Desplazamiento de un área de trabajo
               href: platform/move-workspace.md
             - name: Diseño de proveedores de servicios
@@ -328,6 +319,9 @@
       items:
         - name: Reglas de recopilación de datos
           href: platform/data-collection-rule-overview.md
+        - name: Tiempo de ingesta de datos de registro
+          displayname: latency
+          href: platform/data-ingestion-time.md
         - name: Orígenes de datos de agentes
           items:
             - name: Información general
@@ -402,7 +396,7 @@
               href: insights/solution-agenthealth.md
         - name: Extensión de Diagnósticos de Azure
           items:
-            - name: Introducción
+            - name: Información general
               href: platform/diagnostics-extension-overview.md
             - name: Windows
               displayname: diagnostics extension
@@ -1064,7 +1058,7 @@
       items:
         - name: Azure Cache for Redis (versión preliminar)
           href: insights/redis-cache-insights-overview.md
-        - name: Azure Cosmos DB
+        - name: "Azure Cosmos\_DB"
           href: insights/cosmosdb-insights-overview.md
         - name: Redes
           href: insights/network-insights-overview.md
@@ -1167,12 +1161,18 @@
               href: platform/workbooks-time.md
             - name: Parámetros de texto
               href: platform/workbooks-text.md
+            - name: Parámetros de recursos
+              href: platform/workbooks-resources.md
         - name: Configuración
           items:
             - name: Control de acceso
               href: platform/workbooks-access-control.md
             - name: Implementación con Azure Resource Manager
               href: platform/workbooks-automate.md
+            - name: Grupos
+              href: platform/workbooks-groups.md
+            - name: Transformación de datos JSON con JSONPath
+              href: platform/workbooks-jsonpath.md
             - name: Traslado de libros a otra región
               href: platform/workbooks-move-region.md
             - name: Traslado de plantillas de libros a otra región

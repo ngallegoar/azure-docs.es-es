@@ -3,14 +3,14 @@ title: Ejecución de cargas de trabajo en máquinas virtuales rentables de prior
 description: Aprenda a aprovisionar máquinas virtuales de prioridad baja para reducir el costo de las cargas de trabajo de Azure Batch.
 author: mscurrell
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 09/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: e33119213d4ae28347334e60923d5ba222cd3a66
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: bd5b73cf55110985a2e7eecbc161c77ca6d645cb
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816701"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568462"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Uso de máquinas virtuales de prioridad baja con Batch
 
@@ -18,7 +18,7 @@ Azure Batch ofrece máquinas virtuales (VM) de prioridad baja para reducir el co
 
 Las máquinas virtuales de prioridad baja aprovechan la capacidad sobrante en Azure. Al especificar máquinas virtuales de prioridad baja en sus grupos, Azure Batch puede usar este excedente cuando esté disponible.
 
-El inconveniente del uso de máquinas virtuales de prioridad baja es que esas máquinas virtuales pueden no estar disponibles para su asignación o pueden reemplazarse en cualquier momento, según la capacidad disponible. Por este motivo, estas máquinas son las más adecuadas para determinados tipos de cargas de trabajo. Use máquinas virtuales de prioridad baja para cargas de trabajo de procesamiento por lotes y asincrónicas en las que el tiempo de finalización del trabajo sea flexible y el trabajo se distribuya entre muchas máquinas virtuales.
+El inconveniente del uso de máquinas virtuales de prioridad baja es que esas máquinas virtuales pueden no estar siempre disponibles para su asignación o pueden reemplazarse en cualquier momento, según la capacidad disponible. Por este motivo, estas máquinas son las más adecuadas para determinados tipos de cargas de trabajo. Use máquinas virtuales de prioridad baja para cargas de trabajo de procesamiento por lotes y asincrónicas en las que el tiempo de finalización del trabajo sea flexible y el trabajo se distribuya entre muchas máquinas virtuales.
 
 Las máquinas virtuales de prioridad baja se ofrecen a un precio considerablemente reducido en comparación con las máquinas virtuales dedicadas. Para más información sobre precios, consulte [Precios de Batch](https://azure.microsoft.com/pricing/details/batch/).
 
@@ -123,7 +123,7 @@ Los nodos de grupo tienen una propiedad que indica si el nodo es una máquina vi
 bool? isNodeDedicated = poolNode.IsDedicated;
 ```
 
-Cuando se reemplazan uno o varios nodos de un grupo, la operación de enumeración de nodos sigue devolviendo esos nodos. El número actual de nodos de prioridad baja no varía, pero esos nodos tienen su estado establecido en el estado **Reemplazado**. Batch intenta encontrar máquinas virtuales de reemplazo y, si tiene éxito, los nodos pasan a los estados **Creando** y luego **Iniciando** antes de estar disponibles para la ejecución de tareas, igual que los nuevos nodos.
+En el caso de los grupos de configuración de máquinas virtuales, cuando se reemplazan uno o varios nodos, la operación de enumeración de nodos sigue devolviendo esos nodos. El número actual de nodos de prioridad baja no varía, pero esos nodos tienen su estado establecido en el estado **Reemplazado**. Batch intenta encontrar máquinas virtuales de reemplazo y, si tiene éxito, los nodos pasan a los estados **Creando** y luego **Iniciando** antes de estar disponibles para la ejecución de tareas, igual que los nuevos nodos.
 
 ## <a name="scale-a-pool-containing-low-priority-vms"></a>Escalado de un grupo que contiene máquinas virtuales de prioridad baja
 
@@ -155,10 +155,11 @@ Los trabajos y las tareas requieren muy poca configuración adicional para los n
 
 ## <a name="handling-preemption"></a>Control de reemplazos
 
-En ocasiones las máquinas virtuales se pueden reemplazar; cuando esto sucede, Batch hace lo siguiente:
+En ocasiones, es posible que las máquinas virtuales se reemplacen. Cuando esto suceda, las tareas que se estuvieran ejecutando en las máquinas virtuales del nodo reemplazado se pondrían de nuevo en cola y se volverían a ejecutar.
+
+En el caso de los grupos de configuración de máquinas virtuales, Batch también realiza lo siguiente:
 
 -   Las máquinas virtuales reemplazadas tienen su estado actualizado a **Reemplazada**.
--   Si las tareas se estuvieran ejecutando en las máquinas virtuales del nodo reemplazado, esas tareas se pondrían de nuevo en cola y se volverían a ejecutar.
 -   La máquina virtual se elimina de manera eficaz, lo que hace que se pierdan los datos almacenados localmente en ella.
 -   El grupo intenta continuamente alcanzar el número objetivo de nodos de prioridad baja disponibles. Cuando se encuentra la capacidad de reemplazo, los nodos mantienen sus identificaciones, pero se reinicializan, pasando por los estados**Creando** e **Iniciando** antes de que estén disponibles para la programación de tareas.
 -   Los recuentos de reemplazos están disponibles como una métrica en el portal de Azure.
@@ -168,7 +169,7 @@ En ocasiones las máquinas virtuales se pueden reemplazar; cuando esto sucede, B
 Hay nuevas métricas disponibles en [Azure Portal ](https://portal.azure.com) para los nodos de baja prioridad. Estas son las métricas:
 
 - Recuento de nodos de baja prioridad
-- Recuento de núcleos de baja prioridad 
+- Recuento de núcleos de baja prioridad
 - Recuento de nodos con prioridad
 
 Para ver métricas en Azure Portal:
@@ -177,10 +178,10 @@ Para ver métricas en Azure Portal:
 2. Seleccione **Métricas** en la sección **Supervisión**.
 3. Seleccione las métricas que desea en la lista **Métricas disponibles**.
 
-![Métricas para nodos de baja prioridad](media/batch-low-pri-vms/low-pri-metrics.png)
+![Captura de pantalla que muestra la selección de métricas para los nodos de prioridad baja.](media/batch-low-pri-vms/low-pri-metrics.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Conozca el [flujo de trabajo y los recursos principales del servicio Batch](batch-service-workflow-features.md), como grupos, nodos, trabajos y tareas.
-* Obtenga información acerca de las [API y herramientas de Batch](batch-apis-tools.md) disponibles para la creación de soluciones de Batch.
-* Comience a planear la migración de máquinas virtuales de prioridad baja a máquinas virtuales de Spot. Si usa máquinas virtuales de prioridad baja con grupos de **configuración del servicio en la nube**, planee cambiar a grupos de **configuración de máquina virtual**.
+- Conozca el [flujo de trabajo y los recursos principales del servicio Batch](batch-service-workflow-features.md), como grupos, nodos, trabajos y tareas.
+- Obtenga información acerca de las [API y herramientas de Batch](batch-apis-tools.md) disponibles para la creación de soluciones de Batch.
+- Comience a planear la migración de máquinas virtuales de prioridad baja a máquinas virtuales de Spot. Si usa máquinas virtuales de prioridad baja con grupos de **configuración del servicio en la nube**, planee cambiar a grupos de **configuración de máquina virtual**.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 218a3ad04d4f7366604784e06c558a9c568ad77e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b4ee17ba6587c38efb6da15117a5c55dc5abb873
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88528070"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979719"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutorial: Configuración de ServiceNow para el aprovisionamiento automático de usuarios
 
@@ -101,7 +101,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 5. En la sección **Credenciales de administrador**, escriba sus credenciales de administrador y su nombre de usuario de ServiceNow. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a ServiceNow. Si la conexión no se establece, asegúrese de que la cuenta de ServiceNow tiene permisos de administrador e inténtelo de nuevo.
 
-    ![Aprovisionamiento](./media/servicenow-provisioning-tutorial/provisioning.png)
+    ![Captura de pantalla que muestra la página de aprovisionamiento del servicio, donde puede especificar las credenciales de administrador.](./media/servicenow-provisioning-tutorial/provisioning.png)
 
 6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que deba recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 

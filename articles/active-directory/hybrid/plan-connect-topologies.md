@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 062b2cac093c3049f65dd485e280776602c06e4b
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 7616ceed812b21f471609d95f59a0d0270dd7f52
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279727"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658502"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologías de Azure AD Connect
 En este artículo se describen diversas topologías locales y de Azure Active Directory (Azure AD) que usan Azure AD Connect Sync como solución de integración de claves. En este artículo se describen tanto las configuraciones admitidas como las no admitidas.
@@ -117,15 +117,15 @@ En una topología de bosque de cuenta-recurso, tiene uno o más bosques de *cuen
 
 En este escenario uno (o más) bosques de recursos confían en todos los bosques de cuentas. Normalmente, el bosque de recursos tiene un esquema de Active Directory extendido con Exchange y Lync. Todos los servicios de Exchange y Lync, así como otros servicios compartidos, se encuentran en este bosque. Los usuarios tienen una cuenta de usuario deshabilitada en este bosque y el buzón está vinculado al bosque de cuenta.
 
-## <a name="office-365-and-topology-considerations"></a>Consideraciones sobre la topología y Office 365
-Algunas cargas de trabajo de Office 365 presentan ciertas restricciones en cuanto a las topologías compatibles:
+## <a name="microsoft-365-and-topology-considerations"></a>Consideraciones sobre la topología y Microsoft 365
+Algunas cargas de trabajo de Microsoft 365 presentan ciertas restricciones en cuanto a las topologías compatibles:
 
 | Carga de trabajo | Restricciones |
 | --------- | --------- |
 | Exchange Online | Para más información sobre las topologías híbridas que se admiten en Exchange Online, consulte [Implementaciones híbridas con varios bosques de Active Directory](/Exchange/hybrid-deployment/hybrid-with-multiple-forests). |
 | Skype Empresarial | Cuando se usan varios bosques locales, solo se admite la topología de bosque de cuenta-recurso. Para más información, consulte los [requisitos de entorno de Skype para Business Server 2015](/skypeforbusiness/plan-your-deployment/requirements-for-your-environment/environmental-requirements). |
 
-Si su organización es más grande, debería considerar la posibilidad de utilizar la característica [Office 365 PreferredDataLocation](how-to-connect-sync-feature-preferreddatalocation.md). Esta característica le permite definir en qué región del centro de datos se encuentran los recursos del usuario.
+Si su organización es más grande, debería considerar la posibilidad de utilizar la característica [Microsoft 365 PreferredDataLocation](how-to-connect-sync-feature-preferreddatalocation.md). Esta característica le permite definir en qué región del centro de datos se encuentran los recursos del usuario.
 
 ## <a name="staging-server"></a>Servidor provisional
 ![Servidor de ensayo en una topología](./media/plan-connect-topologies/MultiForestStaging.png)

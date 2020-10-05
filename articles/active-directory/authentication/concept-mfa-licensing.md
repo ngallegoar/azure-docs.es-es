@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e294aa2580dd9f0cceb539a2696e7ebbf08c4afe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 829a82cb94e5c2a7e7cbc9190047c368299612cd
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051014"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052756"
 ---
 # <a name="features-and-licenses-for-azure-multi-factor-authentication"></a>Características y licencias de Azure Multi-Factor Authentication
 
@@ -41,7 +41,7 @@ La licencia de Azure Multi-Factor Authentication se puede conseguir de varias ma
 
 En la tabla siguiente se proporciona una lista de las características que están disponibles en las distintas versiones de Azure Multi-Factor Authentication. Planee sus necesidades de protección para la autenticación de usuarios y, a continuación, determine qué enfoque cumple esos requisitos. Por ejemplo, aunque Azure AD Free aporte valores predeterminados de seguridad que proporcionan Azure Multi-Factor Authentication, en la solicitud de autenticación solo se puede usar la aplicación de autenticación para dispositivos móviles, no una llamada telefónica ni un SMS. Este enfoque puede ser una limitación si no se puede garantizar que la aplicación de autenticación para dispositivos móviles esté instalada en el dispositivo personal de un usuario.
 
-| Característica | Azure AD Free: valores predeterminados de seguridad | Azure AD Free: administradores globales de Azure AD | Aplicaciones de Office 365 | Azure AD Premium (P1 o P2) |
+| Característica | Azure AD Free: valores predeterminados de seguridad | Azure AD Free: administradores globales de Azure AD | Aplicaciones de Microsoft 365 | Azure AD Premium (P1 o P2) |
 | --- |:---:|:---:|:---:|:---:|
 | Protección de cuentas de administración de inquilinos de Azure AD con MFA | ● | ● (solo cuentas de *administrador global de Azure AD*) | ● | ● |
 | Aplicación móvil como segundo factor | ● | ● | ● | ● |
@@ -58,7 +58,7 @@ En la tabla siguiente se proporciona una lista de las características que está
 
 ## <a name="purchase-and-enable-azure-multi-factor-authentication"></a>Compra y habilitación de Azure Multi-Factor Authentication
 
-Para usar Azure Multi-Factor Authentication, regístrese o compre un nivel de Azure AD válido. Azure AD está disponible en cuatro ediciones: Gratis, aplicaciones de Office 365, Premium P1 y Premium P2.
+Para usar Azure Multi-Factor Authentication, regístrese o compre un nivel de Azure AD válido. Azure AD está disponible en cuatro ediciones: Gratis, aplicaciones de Microsoft 365, Premium P1 y Premium P2.
 
 La edición Free se incluye con una suscripción de Azure. Consulte la [sección siguiente](#azure-ad-free-tier) para obtener información sobre cómo usar los valores predeterminados de seguridad o cómo proteger las cuentas con el rol de *administrador global de Azure AD*.
 

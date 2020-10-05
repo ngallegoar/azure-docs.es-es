@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 07210350826001bd3e0be6e04be211c9de43695a
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 91fa6a8da555d0b0cc79b262a83306c1f72aa68a
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82997873"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567102"
 ---
 # <a name="enterprise-security-package-for-azure-hdinsight"></a>Enterprise Security Package para Azure HDInsight
 
@@ -20,7 +20,7 @@ Enterprise Security es un paquete opcional que puede agregar en su clúster de H
 
 * Integración con Active Directory para autenticación.
 
-    En el pasado, se creaban clústeres de HDInsight con el usuario administrador local y el usuario de SSH local. El usuario administrador local podía acceder a todos los archivos, carpetas, tablas y columnas.  Con Enterprise Security Package, puede habilitar el control de acceso basado en rol mediante la integración de HDInsight con Active Directory, lo que incluye Active Directory local, Azure Active Directory Domain Services o Active Directory en la máquina virtual de IaaS. El administrador de dominio del clúster puede conceder a los usuarios permiso para utilizar sus propias credenciales corporativas (dominio) de nombre de usuario y contraseña.
+    En el pasado, se creaban clústeres de HDInsight con el usuario administrador local y el usuario de SSH local. El usuario administrador local podía acceder a todos los archivos, carpetas, tablas y columnas.  Con Enterprise Security Package, puede habilitar el control de acceso basado en rol mediante la integración de HDInsight con Azure Active Directory Domain Services.
 
     Para más información, consulte:
 

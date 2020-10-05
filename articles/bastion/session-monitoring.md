@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 05/21/2020
 ms.author: charwen
-ms.openlocfilehash: 5974ebe7960eec1ca3bb8610f66061395fea64d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: beb4f8fc5b9e22bc3e2bdd4732c8321dfcd70780
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744109"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980731"
 ---
 # <a name="session-monitoring-and-management-for-azure-bastion"></a>Supervisión y administración de sesiones de Azure Bastion
 
@@ -22,13 +22,13 @@ Cuando el servicio Bastion se aprovisiona e implementa en la red virtual, puede 
 
 1. En [Azure Portal](https://portal.azure.com), navegue hasta el recurso de Azure Bastion y seleccione **Sesiones** en la página de Azure Bastion.
 
-   ![sesiones](./media/session-monitoring/sessions.png)
+   ![Captura de pantalla que muestra la configuración del menú de Azure Portal con Sesiones seleccionado.](./media/session-monitoring/sessions.png)
 2. En el lado derecho de la página **Sesiones**, puede ver las sesiones remotas en curso.
 
    ![ver sesión](./media/session-monitoring/view-session.png)
 3. Seleccione **Actualizar** para ver la lista actualizada de sesiones remotas. Al seleccionar Actualizar, Azure Bastion capturará la información de supervisión más reciente y la actualizará en el portal.
 
-   ![actualizar](./media/session-monitoring/refresh.png)
+   ![Captura de pantalla que muestra una sesión que usa Azure Bastion con la opción de actualización resaltada.](./media/session-monitoring/refresh.png)
 
 
 ## <a name="delete-or-force-disconnect-an-ongoing-remote-session"></a><a name="view"></a>Eliminar o forzar la desconexión de una sesión remota en curso
@@ -37,16 +37,16 @@ Puede seleccionar un conjunto de sesiones y forzar su desconexión. Los siguient
 
 1. Navegue hasta el recurso de Azure Bastion y seleccione **Sesiones** en la página de Azure Bastion.
 
-   ![navegar](./media/session-monitoring/navigate.png)
+   ![Captura de pantalla que muestra Azure Portal con Sesiones seleccionado bajo Configuración.](./media/session-monitoring/navigate.png)
 2. Después de seleccionar Sesiones, verá una lista de sesiones remotas.
 
    ![lista de sesiones](./media/session-monitoring/list.png)
 3. Seleccione una sesión remota específica, seleccione los tres puntos en el extremo derecho de la fila de sesión y, a continuación, seleccione **Eliminar**.
 
-   ![delete](./media/session-monitoring/delete.png)
+   ![Captura de pantalla que muestra Azure Portal con una sesión con el icono Eliminar seleccionado.](./media/session-monitoring/delete.png)
 4. Al seleccionar Eliminar, la sesión remota se desconectará y el usuario recibirá un mensaje que diga "Ha sido desconectado" en la sesión remota.
 
-   ![desconexión](./media/session-monitoring/disconnect.png)
+   ![Captura de pantalla que muestra un mensaje que confirma que se ha desconectado.](./media/session-monitoring/disconnect.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

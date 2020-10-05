@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: f60fba6a0b3a4d891fe19b7d75ab9c9fde278629
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: cc697cd78e929b62f951014f760d644552fa082c
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89393809"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650999"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilidad geográfica y compatibilidad con monedas para marketplace comercial
 
@@ -177,7 +177,7 @@ Todos los tipos de ofertas de pago ofrecen la opción de introducir los precios 
 Para ajustar el precio antes de publicar una oferta, solo es necesario exportar la hoja de cálculo de precios, modificarla y cargarla con los cambios.
 
 > [!NOTE]
-> Después de que se publica un precio para un mercado en el plan, no se puede cambiar más adelante. Asegúrese de que los precios sean correctos antes de publicarlos; para ello, exporte la hoja de cálculo de precios y revise los precios en cada mercado.
+> Después de que se publica un precio para un mercado en el plan, no se puede cambiar. Asegúrese de que los precios sean correctos antes de publicarlos; para ello, exporte la hoja de cálculo de precios y revise los precios en cada mercado.
 
 El precio de una oferta siempre se muestra a los clientes en su moneda local. El precio que seleccione en Centro de partners se convertirá a la moneda local de los clientes según el tipo de cambio en el momento en que haya guardado el precio dentro de Centro de partners. El precio que se muestra a los clientes en las tiendas en línea no cambia, a menos que vuelva a publicar la oferta.
 
@@ -185,6 +185,8 @@ Microsoft recibe los pagos de los clientes en su moneda local y le paga a usted 
 
 > [!NOTE]
 > Microsoft convierte los precios de las ofertas mediante el tipo de cambio de Microsoft Treasury.
+
+[![El flujo de conversión de divisa.](media/marketplace-geo-availability-currencies/currency-exchange-flow.png)](media/marketplace-geo-availability-currencies/currency-exchange-flow.png#lightbox)
 
 ## <a name="retrieving-currency-information-by-api"></a>Recuperación de la información de moneda mediante API
 

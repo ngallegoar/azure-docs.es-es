@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/20/2020
+ms.date: 09/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 16fdc38d6235ddd0f72c7a35a3d71973ce01a4be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7417e2d39371066a5c5e8576040cbe22e7632043
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203221"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562883"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Acerca de los perfiles técnicos en las directivas personalizadas de Azure Active Directory B2C
 
@@ -32,6 +32,7 @@ Un perfil técnico posibilita estos tipos de escenarios:
 - [Azure Active Directory](active-directory-technical-profile.md): proporciona compatibilidad para la administración de usuarios de Azure Active Directory B2C.
 - [Azure Multi-Factor Authentication](multi-factor-auth-technical-profile.md): proporciona compatibilidad para verificar un número de teléfono mediante Azure Multi-Factor Authentication (MFA). 
 - [Transformación de notificaciones](claims-transformation-technical-profile.md): llamada a transformaciones de notificaciones de salida para manipular los valores de notificaciones, validar las notificaciones o establecer valores predeterminados para un conjunto de notificaciones de salida.
+- [Sugerencia de token de identificador](id-token-hint.md): valida la firma, el nombre del emisor y la audiencia del token JWT `id_token_hint` y extrae la notificación del token de entrada.
 - [Emisor de tokens de JWT](jwt-issuer-technical-profile.md): emite un token de JWT que se devuelve a la aplicación de usuario de confianza.
 - [OAuth1](oauth1-technical-profile.md) : federación con cualquier proveedor de identidades del protocolo OAuth 1.0.
 - [OAuth2](oauth2-technical-profile.md) : federación con cualquier proveedor de identidades del protocolo OAuth 2.0.
@@ -50,7 +51,7 @@ Todos los tipos de perfiles técnicos comparten el mismo concepto. El usuario en
 
 ![Diagrama que ilustra el flujo de perfil técnico](./media/technical-profiles-overview/technical-profile-idp-saml-flow.png)
 
-1. **Administración de la sesión de inicio de sesión único (SSO)** : restaura el estado de la sesión del perfil técnico mediante la [administración de la sesión de inicio de sesión único](custom-policy-reference-sso.md).
+1. **Administración de la sesión de inicio de sesión único (SSO)**: restaura el estado de la sesión del perfil técnico mediante la [administración de la sesión de inicio de sesión único](custom-policy-reference-sso.md).
 1. **Tranformación de las notificaciones de entrada**: las notificaciones de entrada de cada [transformación de notificaciones](claimstransformations.md) de entrada se toman del contenedor de notificaciones.  Las notificaciones de salida de una transformación de notificaciones de entrada pueden ser notificaciones de entrada de una transformación de notificaciones de entrada subsiguiente.
 1. **Notificaciones de entrada**: las notificaciones se toman del contenedor de notificaciones y se usan para el perfil técnico. Por ejemplo, un [perfil técnico autoafirmado](self-asserted-technical-profile.md) usa las notificaciones de entrada para rellenar previamente las notificaciones de salida que proporciona el usuario. Un perfil técnico de la API REST usa las notificaciones de entrada para enviar los parámetros de entrada al punto de conexión de la API REST. Azure Active Directory usa la notificación de entrada como un identificador único para leer, actualizar o eliminar una cuenta.
 1. **Ejecución de perfil técnico**: el perfil técnico intercambia las notificaciones con la entidad configurada. Por ejemplo:
@@ -61,7 +62,7 @@ Todos los tipos de perfiles técnicos comparten el mismo concepto. El usuario en
 1. **Perfiles técnicos de validación**: un [perfil técnico autoafirmado](self-asserted-technical-profile.md), puede llamar a [perfiles técnicos de validación](validation-technical-profile.md). El perfil técnico de validación valida los datos perfilados por el usuario y devuelve un mensaje de error o de ejecución correcta, con o sin notificaciones de salida. Por ejemplo, antes de que Azure AD B2C cree una nueva cuenta, comprueba si el usuario ya existe en los servicios de directorio. Puede llamar a un perfil técnico de la API REST para agregar su propia lógica de negocios.<p>El ámbito de las notificaciones de salida de un perfil técnico de validación se limita al perfil técnico que invoca el perfil técnico de validación y otros perfiles técnicos de validación del mismo perfil técnico. Si desea usar las notificaciones de salida en el siguiente paso de orquestación, deberá agregar las notificaciones de salida al perfil técnico que invoca el perfil técnico de validación.
 1. **Notificaciones de salida**: las notificaciones se devuelven al contenedor de notificaciones. Puede usar dichas notificaciones en el siguiente paso de orquestación o en las transformaciones de notificaciones de salida.
 1. **Transformaciones de notificaciones de salida**: las notificaciones de entrada de cada [transformación de notificaciones](claimstransformations.md) de salida se toman del contenedor de notificaciones. Las notificaciones de salida del perfil técnico de los pasos anteriores pueden ser notificaciones de entrada de una transformación de notificaciones de salida. Después de la ejecución, las notificaciones de salida se vuelven a poner en el contenedor de notificaciones. Las notificaciones de salida de una transformación de notificaciones de salida pueden ser también notificaciones de entrada de una transformación de notificaciones de salida subsiguiente.
-1. **Administración de la sesión de inicio de sesión único (SSO)** : conserva los datos del perfil técnico en la sesión mediante la [administración de la sesión de inicio de sesión único](custom-policy-reference-sso.md).
+1. **Administración de la sesión de inicio de sesión único (SSO)**: conserva los datos del perfil técnico en la sesión mediante la [administración de la sesión de inicio de sesión único](custom-policy-reference-sso.md).
 
 
 ## <a name="technical-profile-inclusion"></a>Inclusión del perfil técnico

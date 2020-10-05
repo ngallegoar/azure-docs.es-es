@@ -1,14 +1,14 @@
 ---
 title: Cifrado del origen de la aplicación en reposo
-description: Cifre los datos de la aplicación en Azure Storage e impleméntelos como un archivo de paquete.
+description: Aprenda a cifrar los datos de la aplicación en Azure Storage e impleméntelos como un archivo de paquete.
 ms.topic: article
 ms.date: 03/06/2020
-ms.openlocfilehash: 7e5e809fe8b670ae6ec5bfd15e54f9a8019e76d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 62bb1e51bada155b98fe46740662b86b753d44fa
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79408750"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978475"
 ---
 # <a name="encryption-at-rest-using-customer-managed-keys"></a>Cifrado en reposo con claves administradas por el cliente
 

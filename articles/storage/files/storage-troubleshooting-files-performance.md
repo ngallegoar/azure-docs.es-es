@@ -4,15 +4,15 @@ description: Solución de problemas de rendimiento conocidos con los recursos co
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 08/24/2020
+ms.date: 09/15/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: fe1460d4353addff1b8e3095cfe06c1fcb3b7bd0
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 7afaa057ecc94cf67d4fd5b041d95210fcf26717
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782377"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707601"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Solucionar problemas de rendimiento de Azure Files
 
@@ -200,6 +200,36 @@ Latencia mayor a la esperada al acceder a Azure Files para cargas de trabajo int
 11. Haga clic en **Seleccionar el grupo de acciones** para agregar un **grupo de acciones** (correo electrónico, SMS, etc.) a la alerta, para lo que puede seleccionar un grupo de acciones existente o crear uno nuevo.
 12. Rellene los **detalles de la alerta**, como el **nombre de la regla de alertas**, la **descripción** y la **gravedad**.
 13. Haga clic en **Crear regla de alerta** para crear la alerta.
+
+Para obtener más información sobre cómo configurar alertas en Azure Monitor, consulte [Introducción sobre las alertas en Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+
+## <a name="how-to-create-alerts-if-a-premium-file-share-is-trending-towards-being-throttled"></a>Cómo crear alertas si un recurso compartido de archivos Premium tiene tendencia al límite
+
+1. Vaya a la **cuenta de almacenamiento** en **Azure Portal**.
+2. En la sección Supervisión, haga clic en **Alertas** y, después, haga clic en **+ Nueva regla de alertas**.
+3. Haga clic en **Editar recurso**, seleccione el **tipo de recurso de archivo** para la cuenta de almacenamiento y, a continuación, haga clic en **Listo**. Por ejemplo, si el nombre de la cuenta de almacenamiento es contoso, seleccione el recurso contoso/archivo.
+4. Haga clic en **Seleccionar condición** para agregar una condición.
+5. Verá una lista de señales admitidas para la cuenta de almacenamiento, seleccione la métrica **Salida**.
+
+  > [!NOTE]
+  > Tendrá que crear tres alertas independientes para recibir alertas cuando la entrada, la salida o las transacciones superen la cantidad establecida en el umbral. Esto se debe a que una alerta solo se activa cuando se cumplen todas las condiciones. Por lo tanto, si pone todas las condiciones en una alerta, solo se le avisaría si la entrada, la salida y las transacciones superaran sus cantidades establecidas en el umbral.
+
+6. Desplácese hacia abajo. Haga clic en la lista desplegable **Nombre de la dimensión** y seleccione **Recurso compartido de archivos**.
+7. Haga clic en la lista desplegable **Valores de dimensión** y seleccione los recursos compartidos de archivos en los que desea generar alertas.
+8. Defina los **parámetros de alerta** (umbral, operador, granularidad de agregación y frecuencia de evaluación) y haga clic en **Listo**.
+
+  > [!NOTE]
+  > Las métricas de salida, entrada y transacciones son por minuto, aunque se ha aprovisionado la salida, la entrada y la IOPS por segundo. (hablar acerca de la granularidad de la agregación: por minuto = más ruido, por eso elegir otra) Por lo tanto, por ejemplo, si la salida aprovisionada es 90 MiB/segundo y desea que el umbral sea el 80 % de la salida aprovisionada, debe seleccionar los siguientes parámetros de alerta: 75497472 para el **valor de umbral**, mayor o igual a para **operador** y promedio para **tipo de agregación**. Dependiendo del ruido que desee que tenga la alerta, puede elegir qué valores seleccionar para la granularidad de agregación y la frecuencia de evaluación. Por ejemplo, si quiero que mi alerta examine el promedio de entrada en el período de tiempo de una hora y quiero que mi regla de alerta se ejecute cada hora, seleccionaría 1 hora para la **granularidad de agregación** y 1 hora para la **frecuencia de evaluación**.
+
+9. Haga clic en **Seleccionar el grupo de acciones** para agregar un **grupo de acciones** (correo electrónico, SMS, etc.) a la alerta, para lo que puede seleccionar un grupo de acciones existente o crear uno nuevo.
+10. Rellene los **detalles de la alerta**, como el **nombre de la regla de alertas**, la **descripción** y la **gravedad**.
+11. Haga clic en **Crear regla de alerta** para crear la alerta.
+
+  > [!NOTE]
+  > Para recibir una notificación si el recurso compartido de archivos prémium está cerca del límite debido a la entrada aprovisionada, siga los mismos pasos, excepto en el paso 5, donde debe seleccionar esta vez la métrica **Entrada**.
+
+  > [!NOTE]
+  > Para recibir una notificación si el recurso compartido de archivos prémium está cerca del límite debido a la IOPS aprovisionada, tendrá que realizar algunos cambios. En el paso 5, seleccione la métrica **Transacciones** en su lugar. Además, en el paso 10, la única opción para **Tipo de agregación** es total. Por lo tanto, el valor de umbral dependerá de la granularidad de agregación seleccionada. Por ejemplo, si desea que el umbral sea el 80 % de la IOPS de línea de base aprovisionada y seleccionó 1 hora para la **granularidad de agregación**, el **valor de umbral** sería su IOPS de línea base (en bytes) x 0,8 x 3600. Además de estos cambios, siga los mismos pasos indicados anteriormente. 
 
 Para obtener más información sobre cómo configurar alertas en Azure Monitor, consulte [Introducción sobre las alertas en Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 

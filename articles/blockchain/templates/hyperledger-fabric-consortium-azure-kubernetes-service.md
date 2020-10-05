@@ -1,17 +1,17 @@
 ---
-title: Consorcio Hyperledger Fabric en Azure Kubernetes Service (AKS)
+title: Implementación del consorcio Hyperledger Fabric en Azure Kubernetes Service
 description: Implementación y configuración de una red del consorcio de Hyperledger Fabric en Azure Kubernetes Service
 ms.date: 08/06/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: d23a0120aafb4dc3e6952b40959a20f9a3456614
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 081c7a10ee091f573e8f999c94588ef85c784f74
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226884"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651568"
 ---
-# <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Consorcio Hyperledger Fabric en Azure Kubernetes Service (AKS)
+# <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Implementación del consorcio Hyperledger Fabric en Azure Kubernetes Service
 
 Puede usar la plantilla de Hyperledger Fabric en Azure Kubernetes Service (AKS) para implementar y configurar una red del consorcio de Hyperledger Fabric en Azure.
 

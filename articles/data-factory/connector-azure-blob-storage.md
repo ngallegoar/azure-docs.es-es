@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/31/2020
-ms.openlocfilehash: 34ddea1445ef8a8eb8554add3ee8920078a6e573
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.date: 09/10/2020
+ms.openlocfilehash: 883c88386e4796f8d0cd2631b7754c06ce13d141
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182575"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657272"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure Blob Storage mediante Azure Data Factory
 
@@ -67,7 +67,7 @@ El conector de Blob Storage admite los siguientes tipos de autenticación. Consu
 - [Identidades administradas para la autenticación del recurso de Azure](#managed-identity)
 
 >[!NOTE]
->Cuando use PolyBase para cargar datos en SQL Data Warehouse, si la instancia de origen o almacenamiento provisional de Blob Storage está configurada con un punto de conexión de Azure Virtual Network, deberá usar la autenticación de identidad administrada como requiere PolyBase. También debe usar el entorno de ejecución de integración autohospedado, con la versión 3.18 o posterior. Consulte la sección sobre [autenticación de identidad administrada](#managed-identity) para conocer más requisitos previos de configuración.
+>Cuando use PolyBase para cargar datos en Azure Synapse Analytics (anteriormente SQL Data Warehouse), si la instancia de origen o almacenamiento provisional de Blob Storage está configurada con un punto de conexión de Azure Virtual Network, deberá usar la autenticación de identidad administrada como requiere PolyBase. También debe usar el entorno de ejecución de integración autohospedado, con la versión 3.18 o posterior. Consulte la sección sobre [autenticación de identidad administrada](#managed-identity) para conocer más requisitos previos de configuración.
 
 >[!NOTE]
 >Las actividades de Azure HDInsights y Azure Machine Learning solo admiten la autenticación que usa las claves de cuenta de Azure Blob Storage.
@@ -234,6 +234,7 @@ Estas propiedades son compatibles con un servicio vinculado de Azure Blob Storag
 |:--- |:--- |:--- |
 | type | La propiedad **type** debe establecerse en **AzureBlobStorage**. |Sí |
 | serviceEndpoint | Especifique el punto de conexión de servicio de Azure Blob Storage con el patrón `https://<accountName>.blob.core.windows.net/`. |Sí |
+| accountKind | Especifique el tipo de la cuenta de almacenamiento. Los valores permitidos son: **Storage** (v1 de uso general), **StorageV2** (v2 de uso general), **BlobStorage** o **BlockBlobStorage**. <br/> Cuando se usa el servicio vinculado de blob de Azure en el flujo de datos, la autenticación de identidad administrada o de entidad de servicio no se admite cuando el tipo de cuenta está definido como vacío o "almacenamiento". Especifique el tipo de cuenta adecuado, elija una autenticación diferente o actualice la cuenta de almacenamiento a uso general v2. |No |
 | servicePrincipalId | Especifique el id. de cliente de la aplicación. | Sí |
 | servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. | Sí |
 | tenant | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarlo, mantenga el mouse en la esquina superior derecha de Azure Portal. | Sí |
@@ -252,6 +253,7 @@ Estas propiedades son compatibles con un servicio vinculado de Azure Blob Storag
         "type": "AzureBlobStorage",
         "typeProperties": {            
             "serviceEndpoint": "https://<accountName>.blob.core.windows.net/",
+            "accountKind": "StorageV2",
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
                 "type": "SecureString",
@@ -281,7 +283,7 @@ Para obtener información general sobre la autenticación de Azure Storage, cons
     - **Como receptor**, en el **Control de acceso (IAM)** , conceda al menos el rol **Colaborador de datos de blobs de almacenamiento**.
 
 >[!IMPORTANT]
->Si usa PolyBase para cargar datos desde Blob Storage (como origen o como almacenamiento provisional) en SQL Data Warehouse, cuando use la autenticación de identidad administrada para Blob Storage, asegúrese de seguir los pasos 1 y 2 de [esta guía](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). En estos pasos se registrará el servidor con Azure AD y se asignará el rol Colaborador de datos de Storage Blob en el servidor. Data Factory controla el resto. Si ha configurado la instancia de Blob Storage con un punto de conexión de Azure Virtual Network, para usar PolyBase para cargar datos desde este deberá usar la autenticación de identidad administrada como requiere PolyBase.
+>Si usa PolyBase para cargar datos desde Blob Storage (como origen o como almacenamiento provisional) en Azure Synapse Analytics (anteriormente SQL Data Warehouse), cuando use la autenticación de identidad administrada para Blob Storage, asegúrese de seguir los pasos 1 y 2 de [esta guía](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). En estos pasos se registrará el servidor con Azure AD y se asignará el rol Colaborador de datos de Storage Blob en el servidor. Data Factory controla el resto. Si ha configurado la instancia de Blob Storage con un punto de conexión de Azure Virtual Network, para usar PolyBase para cargar datos desde este deberá usar la autenticación de identidad administrada como requiere PolyBase.
 
 Estas propiedades son compatibles con un servicio vinculado de Azure Blob Storage:
 
@@ -289,6 +291,7 @@ Estas propiedades son compatibles con un servicio vinculado de Azure Blob Storag
 |:--- |:--- |:--- |
 | type | La propiedad **type** debe establecerse en **AzureBlobStorage**. |Sí |
 | serviceEndpoint | Especifique el punto de conexión de servicio de Azure Blob Storage con el patrón `https://<accountName>.blob.core.windows.net/`. |Sí |
+| accountKind | Especifique el tipo de la cuenta de almacenamiento. Los valores permitidos son: **Storage** (v1 de uso general), **StorageV2** (v2 de uso general), **BlobStorage** o **BlockBlobStorage**. <br/> Cuando se usa el servicio vinculado de blob de Azure en el flujo de datos, la autenticación de identidad administrada o de entidad de servicio no se admite cuando el tipo de cuenta está definido como vacío o "almacenamiento". Especifique el tipo de cuenta adecuado, elija una autenticación diferente o actualice la cuenta de almacenamiento a uso general v2. |No |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Se puede usar Azure Integration Runtime o un entorno de ejecución de integración autohospedado (si el almacén de datos está en una red privada). Si no se especifica esta propiedad, el servicio usa el valor predeterminado de Azure Integration Runtime. |No |
 
 > [!NOTE]
@@ -302,7 +305,8 @@ Estas propiedades son compatibles con un servicio vinculado de Azure Blob Storag
     "properties": {
         "type": "AzureBlobStorage",
         "typeProperties": {            
-            "serviceEndpoint": "https://<accountName>.blob.core.windows.net/"
+            "serviceEndpoint": "https://<accountName>.blob.core.windows.net/",
+            "accountKind": "StorageV2" 
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",

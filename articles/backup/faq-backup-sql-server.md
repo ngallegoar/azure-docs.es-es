@@ -4,12 +4,12 @@ description: Busque las respuestas a preguntas habituales sobre la copia de segu
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: c1efbc44ae1e4bea96c063e4dc734f1cc53a42ac
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 9c6e99b81ce10cfabd4109bb18376b2579edef20
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180106"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500341"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Preguntas más frecuentes sobre las bases de datos de SQL Server que se ejecutan en una copia de seguridad de máquina virtual de Azure
 
@@ -72,7 +72,7 @@ No. Los trabajos de copia de seguridad correctos no generan alertas. Las alertas
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>¿Se pueden ver los trabajos de copia de seguridad programados en el menú de Trabajos de copia de seguridad?
 
-En el menú de **Trabajo de copia de seguridad** solo se mostrarán los trabajos de copia de seguridad a petición. Para el trabajo programado, utilice la [Supervisión mediante Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
+El menú **Trabajo de Backup** muestra todas las operaciones programadas y a petición, excepto las copias de seguridad de registros programadas, ya que pueden ser muy frecuentes. Para los trabajos de registro programados, utilice [Supervisión a escala mediante Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="are-future-databases-automatically-added-for-backup"></a>¿Las bases de datos futuras se agregan automáticamente para copia de seguridad?
 

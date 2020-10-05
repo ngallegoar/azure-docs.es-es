@@ -4,12 +4,12 @@ description: Conmutación por error de máquinas virtuales y servidores físicos
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
-ms.openlocfilehash: bebc4cd56f248d09579dcde2fc234f63dd65a09f
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: d2f7fed25955d6a34c6162b87b82bfae5e58ff41
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309975"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563988"
 ---
 # <a name="run-a-failover-from-on-premises-to-azure"></a>Ejecutar una conmutación por error del entorno local a Azure
 
@@ -46,7 +46,7 @@ Ejecute la conmutación por error del plan de recuperación como sigue:
 1. En el almacén de Site Recovery, seleccione **Planes de recuperación** > *recoveryplan_name*.
 2. Haga clic en **Conmutación por error**.
 
-    ![Conmutación por error](./media/site-recovery-failover/Failover.png)
+    ![Captura de pantalla que muestra el panel ADRP con Conmutación por error seleccionado en el menú Más.](./media/site-recovery-failover/Failover.png)
 
 3. En **Conmutación por error** > **Dirección de conmutación por error**, deje la opción predeterminada si va a replicar en Azure.
 4. En **Conmutación por error**, seleccione un **punto de recuperación** en el que realizar la conmutación por error.

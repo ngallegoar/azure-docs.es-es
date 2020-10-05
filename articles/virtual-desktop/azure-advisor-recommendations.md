@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b14dd4aa44620f2b13891a18fc473acbcb0f3245
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 760e0212d2d863e6b869c23c2e523a0e056a28ed
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89082697"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033037"
 ---
 # <a name="how-to-resolve-azure-advisor-recommendations"></a>Cómo resolver recomendaciones de Azure Advisor
 
@@ -34,7 +34,7 @@ Para habilitar el entorno de validación, siga estos pasos:
 
 2. A continuación, seleccione el grupo host que desea cambiar de un entorno de producción a uno de validación.
 
-3. En el grupo host, seleccione la pestaña **Propiedades** en la columna del lado derecho de la pantalla. A continuación, desplácese hacia abajo hasta que vea "Entorno de validación". Seleccione **Sí** y luego **Aplicar**.
+3. En el grupo de hosts, seleccione **Propiedades** en la columna izquierda. A continuación, desplácese hacia abajo hasta que vea "Entorno de validación". Seleccione **Sí** y luego **Aplicar**.
 
 >[!div class="mx-imgBorder"]
 >![Captura de pantalla del menú Propiedades. "Entorno de validación" está resaltado en rojo y se selecciona la burbuja "Sí".](media/validation-yes.png)

@@ -3,15 +3,15 @@ title: 'Equilibrio de carga del grupo de hosts de Windows Virtual Desktop: Azure
 description: Obtenga información sobre los métodos de equilibrio de carga del grupo de hosts para un entorno de Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 09/04/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ee8cb5f2297851d2c2b2f34be3d90573fdcf2530
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 2b977d64dea1cef3b8142758e57d91e92e5bcc02
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007444"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461126"
 ---
 # <a name="host-pool-load-balancing-methods"></a>Métodos de equilibrio de carga para un grupo host
 
@@ -34,7 +34,7 @@ Cada grupo de hosts solo puede configurar un tipo de equilibrio de carga especí
 
 El método de equilibrio de carga en amplitud permite distribuir las conexiones de usuario para optimizar este escenario. Este método es ideal para las organizaciones que desean proporcionar la mejor experiencia a los usuarios se conectan a su entorno de escritorio virtual agrupado.
 
-El método en amplitud consulta primero los hosts de sesión que permiten nuevas conexiones. Luego, selecciona el host de sesión con el menor número de sesiones. Si hay un empate, el método selecciona el primer host de sesión de la consulta.
+El método en amplitud consulta primero los hosts de sesión que permiten nuevas conexiones. Después, el método selecciona un host de sesión aleatoriamente de la mitad del conjunto de hosts de sesión con el menor número de sesiones. Por ejemplo, si hay nueve máquinas con las sesiones 11, 12, 13, 14, 15, 16, 17, 18 y 19, una nueva sesión que cree no irá automáticamente a la primera máquina. En su lugar, puede ir a cualquiera de las cinco primeras máquinas con el menor número de sesiones (11, 12, 13, 14 y 15).
 
 ## <a name="depth-first-load-balancing-method"></a>Método de equilibrio de carga en profundidad
 

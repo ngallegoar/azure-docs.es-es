@@ -7,16 +7,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: 274b587d96a1a5eb3cb0896d3b150b17b2b3820e
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 25e38beb561ee954db2987643775f3a3c6e05737
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300957"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89668777"
 ---
-# <a name="encryption-in-transit-for-azure-hdinsight"></a>Cifrado en tránsito para Azure HDInsight
+# <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Cifrado IPSec en tránsito para Azure HDInsight
 
-En este artículo se describe la implementación del cifrado en tránsito para todas las comunicaciones entre los nodos de clúster de Azure HDInsight.
+En este artículo se describe la implementación del cifrado en tránsito para la comunicación entre los nodos de clúster de Azure HDInsight.
 
 > [!Note]
 > Actualmente, el cifrado en tránsito está habilitado para las siguientes regiones: Este de EE. UU., Centro-sur de EE. UU. y Oeste de EE. UU 2. 
@@ -27,7 +27,7 @@ Azure HDInsight ofrece una variedad de características de seguridad para proteg
 
 El cifrado en reposo se realiza mediante el cifrado del lado servidor en las cuentas de almacenamiento de Azure, así como el cifrado de disco en las VM de Azure que forman parte del clúster de HDInsight.
 
-El cifrado de datos en tránsito en HDInsight se consigue con la [Seguridad de la capa de transporte (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security) y el [Protocolo de seguridad de Internet (IPSec)](https://en.wikipedia.org/wiki/IPsec). IPSec está habilitado entre todos los nodos principales, de trabajo, perimetrales y de Zookeeper. No está habilitado para el tráfico entre nodos de puerta de enlace (VM Windows) y otros nodos de Linux en el clúster.
+El cifrado de datos en tránsito en HDInsight se consigue con la [Seguridad de la capa de transporte (TLS)](https://docs.microsoft.com/azure/hdinsight/transport-layer-security) para acceder a las puertas de enlace de clúster y con el [Protocolo de seguridad de Internet (IPSec)](https://en.wikipedia.org/wiki/IPsec) entre nodos del clúster. IPSec se puede habilitar opcionalmente entre todos los nodos principales, de trabajo, perimetrales y de Zookeeper. No está habilitado para el tráfico entre nodos de puerta de enlace o de [agente de identidad](https://docs.microsoft.com/azure/hdinsight/domain-joined/identity-broker), que son máquinas virtuales basadas en Windows y otros nodos basados en Linux en el clúster.
 
 ## <a name="enable-encryption-in-transit"></a>Habilitar el cifrado en tránsito
 
@@ -42,7 +42,7 @@ Para crear un nuevo clúster con el cifrado en tránsito habilitado mediante Azu
 
 1. En la pestaña **Seguridad y redes**, haga clic en la casilla **Habilitar el cifrado en tránsito**.
 
-    :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Creación del clúster: habilitar el cifrado en tránsito.":::
+    :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Creación del clúster: pestaña Seguridad y redes.":::
 
 ### <a name="create-a-cluster-with-encryption-in-transit-enabled-through-the-azure-cli"></a>Cree un clúster con el cifrado en tránsito habilitado mediante la CLI de Azure
 

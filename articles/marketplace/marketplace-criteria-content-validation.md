@@ -1,22 +1,22 @@
 ---
 title: Requisitos para el anuncio de servicios y ofertas de Azure Marketplace
-description: En este artículo se explican los requisitos y las directrices para anunciar nuevas ofertas y servicios en Azure Marketplace.
+description: En este artículo se explican los requisitos y las directrices para anunciar nuevas ofertas, servicios y otras soluciones de TI en Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: keferna
 ms.author: keferna
-ms.date: 07/14/2020
-ms.openlocfilehash: 2f472f15f5f15fb48563aba90df273e31bb1b665
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 09/04/2020
+ms.openlocfilehash: 51f226443e6f21b6c333cacf6c88f0d00208f5f2
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88812876"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484279"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Instrucciones de descripción de Azure Marketplace
 
-En este artículo se explican los requisitos y las directrices para anunciar nuevas ofertas y servicios en Azure Marketplace. Todas las ofertas deben cumplir los requisitos que se enumeran en la sección [Requisitos de descripción para todas las ofertas](#listing-requirements-for-all-offers). Use los vínculos de la derecha para ir a requisitos y listas de comprobación para tipos de aplicación específicos.
+En este artículo se explican los requisitos y las directrices para anunciar nuevas ofertas y servicios en Azure Marketplace. Todas las ofertas deben cumplir los [requisitos de lista](#listing-requirements-for-all-offers) que se enumeran a continuación. Use los vínculos de la derecha para ir a requisitos y listas de comprobación para tipos de aplicación específicos.
 
 ## <a name="listing-requirements-for-all-offers"></a>Requisitos de descripción para todas las ofertas
 
@@ -29,7 +29,7 @@ En este artículo se explican los requisitos y las directrices para anunciar nue
 | 5 | Categorías y sectores | <ul><li>Las categorías y subcategorías deben coincidir con las capacidades de oferta </li><li>No seleccione categorías ni subcategorías que no se ajusten a las capacidades de la oferta. </li></ul> | <ul><li>Seleccione un máximo de dos categorías, incluidas una categoría principal y una secundaria (opcional).</li><li>Seleccione hasta dos subcategorías para cada categoría principal o secundaria. Si no se selecciona ninguna subcategoría, la oferta se podrá detectar en la categoría seleccionada.</li></ul> |
 | 6 | Imágenes | <ul><li>Los requisitos de imagen se enumeran en el Centro de partners.</li><li>El texto incluido en la captura de pantalla es legible y la imagen es clara. | La oferta de solución se entiende fácilmente de un vistazo. |
 | 7 | Vídeos | <ul><li>No se necesita ningún vídeo, pero, si se proporciona, debe reproducirse sin errores.</li><li>Si se proporciona, no puede hacer referencia a empresas de la competencia *salvo* que se muestre una solución de migración. |<ul><li>Idealmente, la longitud es de 3 minutos o más.</li><li>La oferta de solución se entiende fácilmente mediante contenido de vídeo.</li><li>Proporciona una demostración de las funcionalidades de la solución. |
-| 8 | Estado de la descripción (llamada a la acción) | <ul><li>Se debe etiquetar con uno de los tipos siguientes: <ul><li>*Ponerse en contacto conmigo*</li><li>*Prueba*/*Obtener prueba ahora*/*Iniciar prueba*/*Versión de prueba*</li><li>*Comprar ahora*/*Obtener ahora*</li></ul></ul> | El cliente puede entender fácilmente cuáles son los próximos pasos: <ol><li>Evaluar la versión de prueba.</li><li>Comprar ahora.</li><li>Ponerse en contacto por correo o teléfono para organizar una prueba de concepto (POC), evaluación o sesión informativa.</li></ol> | 
+| 8 | Mostrar estado (opciones de lista) | <ul><li>Se debe etiquetar con uno de los tipos siguientes: <ul><li>*Ponerse en contacto conmigo*</li><li>*Prueba*/*Obtener prueba ahora*/*Iniciar prueba*/*Versión de prueba*</li><li>*Comprar ahora*/*Obtener ahora*</li></ul></ul> | El cliente puede entender fácilmente cuáles son los próximos pasos: <ol><li>Evaluar la versión de prueba.</li><li>Comprar ahora.</li><li>Ponerse en contacto por correo o teléfono para organizar una prueba de concepto (POC), evaluación o sesión informativa.</li></ol> | 
 | 9 | Precio de la solución | Debe tener una pestaña o información de precios en la moneda local del asociado que ofrece la solución. | Debe haber varias opciones de facturación con niveles de precios para que los clientes puedan escoger entre varias opciones. |
 | 10 | Más información | Los vínculos de la parte inferior (en la descripción, no los vínculos de Azure Marketplace de la izquierda) llevan a información adicional sobre la solución, están disponibles de forma pública y se muestran correctamente. |    Los vínculos llevan a elementos específicos (por ejemplo, páginas de especificaciones en el sitio de asociado) y no solo a la página principal del asociado | 
 | 11 | Ayuda y soporte técnico de la solución | Vínculo a al menos uno de los siguientes: <ul><li>Números de teléfono</li><li>Soporte técnico por correo</li><li>Agentes de chat</li><li>Foros de la comunidad |<ul><li>Se enumeran todos los métodos de soporte técnico.</li><li>El soporte técnico de pago se ofrece de forma gratuita durante el *período de prueba* o la *versión de prueba*. |
@@ -40,7 +40,7 @@ En este artículo se explican los requisitos y las directrices para anunciar nue
 
 | No. | Elemento de descripción | Requisito base | Requisito óptimo | 
 |:--- |:--- |:--- |:--- |
-|  | Estado de la descripción (llamada a la acción) | El vínculo debe llevar a una experiencia de *prueba* dirigida por el usuario. | También hay otras llamadas a la acción (por ejemplo, *Comprar ahora*) disponibles. | 
+|  | Estado de la lista (opción de lista) | El vínculo debe llevar a una experiencia de *prueba* dirigida por el usuario. | También están disponibles otras opciones de lista (por ejemplo, *Comprar ahora*). | 
 |||
 
 ## <a name="saas-application-requirements"></a>Requisitos de la aplicación SaaS
@@ -78,7 +78,7 @@ En este artículo se explican los requisitos y las directrices para anunciar nue
 | 2 | Descripción de la oferta  |<ul><li>Asegure el uso adecuado de los [nombres de productos de Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/en-us.aspx).</li><li>Las ofertas marcadas como *Precio: estimado* deben tener una nota, ya sea en la parte superior o inferior, para explicar la variabilidad (distancia al cliente, número de servidores que se migran, etc.)</li><li>Cada tipo de oferta tiene los siguientes requisitos de descripción: <ul><li>Los resúmenes necesitan al menos cuatro o cinco viñetas, con información acerca de los temas que se deben cubrir.</li><li>Todos los talleres necesitan una agenda.</li><li>Todas las agendas deben dividirse por día o por semana, según la duración del taller.</li><li>Las ofertas de evaluación, prueba de concepto, talleres que no sean de entrenamiento, e implementación necesitan entregas.</li><li>Los talleres de entrenamiento no necesitan entregas, pero sí una agenda más detallada con los temas que se van a tratar.</li></ul></ul> | <ul><li>Cualquier oferta tiene una agenda y entregas.</li><li>La oferta incluye un párrafo con el contexto sobre la compañía que proporciona el servicio en la sección superior.</li><li>La oferta incluye un párrafo sobre el valor del propio servicio como una sección superior. |
 | 3 | Formato de Markdown  | Todas las ofertas deben usar el formato de Markdown para que la oferta se represente correctamente cuando se convierta a HTML.  |  |
 | 4 | Categorías y sectores | Las categorías no son relevantes. |  | 
-| 5 | Estado de la descripción (llamada a la acción) | Se mostrará automáticamente como *Póngase en contacto conmigo*. |  | 
+| 5 | Estado de la lista (opción de lista) | Se mostrará automáticamente como *Póngase en contacto conmigo*. |  | 
 | 6 | Ayuda y soporte técnico de la solución  | No se requiere ayuda ni soporte técnico.  | | 
 | 7 | Términos de uso y directiva de privacidad disponibles  |  No se necesitan directivas ni términos.  | | 
 | 8 | Tipos de servicio | Asegúrese de que el tipo de servicio coincida con el título. | |

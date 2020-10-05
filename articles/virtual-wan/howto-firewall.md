@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 05/21/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: f20ed76a72eecce59a7b8795a42b033230a2f7e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 577340e485550e84941a33d82b58aa6ff1c933d3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753682"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983663"
 ---
 # <a name="configure-azure-firewall-in-a-virtual-wan-hub"></a>Configuración de Azure Firewall en un centro de Virtual WAN
 
@@ -32,20 +32,20 @@ Para crear una nueva WAN virtual y un nuevo centro, siga los pasos que se descri
 
 En la página **Información general** de la WAN virtual se muestra una lista de los centros de conectividad virtuales y los centros protegidos. En la ilustración siguiente se muestra una WAN virtual sin centros protegidos.
 
-[ ![Información general](./media/howto-firewall/overview.png)](./media/howto-firewall/overview.png#lightbox)
+[ ![Captura de pantalla que muestra la página de información general de una instancia de Virtual WAN con una lista de centros virtuales.](./media/howto-firewall/overview.png)](./media/howto-firewall/overview.png#lightbox)
 
 ## <a name="convert-to-secured-hub"></a>Convertir en centro protegido
 
 1. En la página **Información general** de la WAN virtual, seleccione el centro que desea convertir en un centro protegido. En la página del centro virtual, verá dos opciones para implementar Azure Firewall en este centro. Seleccione cualquiera de las opciones.
 
-   [ ![Seguridad](./media/howto-firewall/security.png)](./media/howto-firewall/security.png#lightbox)
+   [ ![Captura de pantalla que muestra la página de información general de la instancia de Virtual WAN, donde puede seleccionar Convertir en centro seguro o Azure Firewall.](./media/howto-firewall/security.png)](./media/howto-firewall/security.png#lightbox)
 
 1. Después de seleccionar una de las opciones, verá la página **Convertir en centro seguro**. Seleccione el centro que desea convertir y, a continuación, seleccione **Siguiente: Azure Firewall** en la parte inferior de la página.
 
    [ ![Seleccionar centro](./media/howto-firewall/select-hub.png)](./media/howto-firewall/select-hub.png#lightbox)
 1. Después de completar el flujo de trabajo, seleccione **Confirmar**.
 
-   [ ![Confirmar](./media/howto-firewall/confirm.png)](./media/howto-firewall/confirm.png#lightbox)
+   [ ![Captura de pantalla que muestra el panel Convertir en centro seguro con la opción Confirmar seleccionada.](./media/howto-firewall/confirm.png)](./media/howto-firewall/confirm.png#lightbox)
 
 1. Una vez que el centro se ha convertido en un centro protegido, puede verlo en la página de **Información general** de la WAN virtual.
 

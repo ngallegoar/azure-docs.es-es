@@ -4,14 +4,14 @@ description: Inserción y extracción de artefactos de Open Container Initiative
 author: SteveLasker
 manager: gwallace
 ms.topic: article
-ms.date: 03/11/2020
+ms.date: 08/12/2020
 ms.author: stevelas
-ms.openlocfilehash: 2c6b66b635a2513ccc19e0352414d18d8389fef1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c95766cc12b281521fa52ab113fadd4321d0815
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79371059"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485010"
 ---
 # <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Inserción y extracción de un artefacto de OCI con un registro de contenedor de Azure
 
@@ -148,6 +148,36 @@ Para eliminar el artefacto del registro de contenedor de Azure, use el comando [
 az acr repository delete \
     --name myregistry \
     --image samples/artifact:1.0
+```
+
+## <a name="example-build-docker-image-from-oci-artifact"></a>Ejemplo: Compilación de una imagen de Docker desde el artefacto de OCI
+
+El código fuente y los archivos binarios para compilar una imagen de contenedor se pueden almacenar como artefactos de OCI en el registro de contenedor de Azure. Puede hacer referencia a un artefacto de origen como el contexto de compilación para una [tarea de ACR](container-registry-tasks-overview.md). En este ejemplo se muestra cómo almacenar un Dockerfile como un artefacto de OCI y luego hacer referencia al artefacto para compilar una imagen de contenedor.
+
+Por ejemplo, cree un Dockerfile de una línea:
+
+```bash
+echo "FROM hello-world" > hello-world.dockerfile
+```
+
+Inicie sesión en el registro de contenedor de destino.
+
+```azurecli
+az login
+az acr login --name myregistry
+```
+
+Cree e inserte un nuevo artefacto de OCI en el registro de destino mediante el comando `oras push`. En este ejemplo se establece el tipo de medio predeterminado para el artefacto.
+
+```bash
+oras push myregistry.azurecr.io/hello-world:1.0 hello-world.dockerfile
+```
+
+Ejecute el comando [az acr build](/cli/azure/acr#az-acr-build) para compilar la imagen de Hola mundo con el nuevo artefacto como contexto de compilación:
+
+```azurecli
+az acr build --registry myregistry --file hello-world.dockerfile \
+  oci://myregistry.azurecr.io/hello-world:1.0
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

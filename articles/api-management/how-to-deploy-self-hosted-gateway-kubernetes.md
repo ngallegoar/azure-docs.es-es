@@ -9,12 +9,12 @@ ms.workload: mobile
 ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
-ms.openlocfilehash: abcda4ea4b14f058325318661daa574494268780
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 023c2c89b90d6ddc71abc95db325dcdeb7684a2d
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056375"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500137"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Implementación de una puerta de enlace autohospedada en Kubernetes
 
@@ -63,7 +63,7 @@ En este artículo se describen los pasos para implementar un componente de puert
 ## <a name="production-deployment-considerations"></a>Consideraciones de implementación en producción
 
 ### <a name="access-token"></a>Access token
-Sin un token de acceso válido, una puerta de enlace autohospedada no puede tener acceso a los datos de configuración del punto de conexión del servicio API Management asociado ni descargarlos. El token de acceso puede ser válido durante 30 días como máximo. Se debe regenerar y el clúster se debe configurar con un token nuevo, ya sea manualmente o mediante automatización antes de que expire. 
+Sin un token de acceso válido, una puerta de enlace autohospedada no puede tener acceso a los datos de configuración del punto de conexión del servicio API Management asociado ni descargarlos. El token de acceso puede ser válido durante 30 días como máximo. Se debe regenerar y el clúster se debe configurar con un token nuevo, ya sea manualmente o mediante automatización antes de que expire.
 
 Al automatizar la actualización de tokens, use esta [operación de la API de administración](/rest/api/apimanagement/2019-12-01/gateway/generatetoken) para generar un nuevo token. Para obtener información sobre la administración de secretos de Kubernetes, consulte el [sitio web de Kubernetes](https://kubernetes.io/docs/concepts/configuration/secret).
 
@@ -106,6 +106,9 @@ La resolución de nombres DNS desempeña un rol fundamental en la capacidad de u
 El archivo YAML proporcionado en Azure Portal aplica la directiva [ClusterFirst](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) predeterminada. Esta directiva hace que las solicitudes de resolución de nombres que el DNS del clúster no resuelve se reenvíen al servidor DNS ascendente heredado del nodo.
 
 Para obtener información acerca de la resolución de nombres en Kubernetes, consulte el [sitio web de Kubernetes](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service). Considere la posibilidad de personalizar la [directiva de DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) o la [configuración de DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-config) según corresponda para su configuración.
+
+### <a name="external-traffic-policy"></a>Directiva de tráfico externo
+El archivo YAML proporcionado en Azure Portal establece el campo `externalTrafficPolicy` en el objeto [Servicio](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/#service-v1-core) en `Local`. Esto conserva la dirección IP del autor de la llamada (accesible en el [contexto de la solicitud](api-management-policy-expressions.md#ContextVariables)) y deshabilita el equilibrio de carga entre nodos, lo que elimina los saltos de red causados por él. Tenga en cuenta que esta configuración puede provocar una distribución asimétrica del tráfico en implementaciones con un número desigual de pods de puerta de enlace por nodo.
 
 ### <a name="custom-domain-names-and-ssl-certificates"></a>Nombres de dominio personalizados y certificados SSL
 

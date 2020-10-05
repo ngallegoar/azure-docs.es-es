@@ -8,12 +8,12 @@ ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: contperfq1
-ms.openlocfilehash: f87d8c32902cfcde3207909da16fae17cc6ff68f
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: f64e3459863cc7b7ffddfae824f9c4012802a457
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294176"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500324"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Habilitación de la autenticación de Azure Active Directory Domain Services en Azure Files
 
@@ -59,7 +59,7 @@ Antes de habilitar Azure AD a través de SMB para recursos compartido de archiv
 
 ## <a name="regional-availability"></a>Disponibilidad regional
 
-La autenticación de Azure Files con Azure AD DS está disponible en [todas las regiones públicas de Azure](https://azure.microsoft.com/global-infrastructure/locations/).
+La autenticación de Azure Files con Azure AD DS está disponible en [todas las regiones públicas y las de Azure Government](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## <a name="overview-of-the-workflow"></a>Información general del flujo de trabajo
 

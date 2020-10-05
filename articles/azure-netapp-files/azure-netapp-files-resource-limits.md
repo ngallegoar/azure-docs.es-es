@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 9/16/2020
 ms.author: b-juche
-ms.openlocfilehash: 9facbc1629b8e1330c6bbafb4444d5bfc237d16f
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 870863cc0b1a98aa0efe671da4a8f6a5bb7f53aa
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752299"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708111"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Límites de recursos para Azure NetApp Files
 
@@ -44,7 +44,8 @@ En la tabla siguiente se describen los límites de recursos de Azure NetApp File
 |  Tamaño máximo de un único volumen     |    100 TiB    |    No    |
 |  Tamaño máximo de un archivo individual     |    16 TiB    |    No    |    
 |  Tamaño máximo de los metadatos de directorio en un solo directorio      |    320 MB    |    No    |    
-|  Número máximo de archivos ([maxfiles](#maxfiles)) por volumen     |    100 millones    |    Sí    |    
+|  Número máximo de archivos ([maxfiles](#maxfiles)) por volumen     |    100 millones    |    Sí    |   
+|  Número de volúmenes de protección de datos de replicación entre regiones (volúmenes de destino)     |    5    |    Sí    |     
 
 Para más información, consulte [Preguntas más frecuentes sobre la administración de la capacidad](azure-netapp-files-faqs.md#capacity-management-faqs).
 
@@ -56,11 +57,11 @@ El servicio ajusta dinámicamente el límite de maxfiles de un volumen en funci�
 
 |    Tamaño del volumen (cuota)     |  Reajuste automático del límite de maxfiles    |
 |----------------------------|-------------------|
-|    < 1 TiB                 |    20 millones     |
-|    > = 1 TiB, pero < 2 TiB    |    40 millones     |
-|    > = 2 TiB, pero < 3 TiB    |    60 millones     |
-|    > = 3 TiB, pero < 4 TiB    |    80 millones     |
-|    >= 4 TiB                |    100 millones    |
+|    <= 1 TiB                |    20 millones     |
+|    > 1 TiB, pero <= 2 TiB    |    40 millones     |
+|    > 2 TiB, pero <= 3 TiB    |    60 millones     |
+|    > 3 TiB, pero <= 4 TiB    |    80 millones     |
+|    > 4 TiB                 |    100 millones    |
 
 Si ya ha asignado al menos 4 TiB de cuota para un volumen, puede iniciar una [solicitud de soporte](#limit_increase) para aumentar el límite de maxfiles más allá de 100 millones.
 
@@ -80,12 +81,13 @@ Desde el plano de navegación de Azure Portal:
 4. Haga clic en la pestaña Detalles:
     1. En el cuadro Descripción, proporcione la siguiente información para el tipo de recurso correspondiente:
 
-        |  Resource  |    Recursos primarios      |    Nuevos límites solicitados     |    Motivo de aumento de cuota       |
+        |  Recurso  |    Recursos primarios      |    Nuevos límites solicitados     |    Motivo de aumento de cuota       |
         |----------------|------------------------------|---------------------------------|------------------------------------------|
         |  Cuenta |  *Subscription ID*   |  *Nuevo número máximo de **cuentas** solicitado*    |  *¿Qué escenario o caso de uso motivó la solicitud?*  |
-        |  grupo    |  *Identificador de suscripción y URI de la cuenta*  |  *Nuevo número máximo de **grupos** solicitado*   |  *¿Qué escenario o caso de uso motivó la solicitud?*  |
-        |  Volumen  |  *Identificador de suscripción, URI y URI de grupo*   |  *Nuevo número máximo de **volúmenes** solicitado*     |  *¿Qué escenario o caso de uso motivó la solicitud?*  |
-        |  Maxfiles  |  *Id. de suscripción, URI de cuenta, URI de grupo, URI de volumen*   |  *Nuevo número máximo de **maxfiles** solicitado*     |  *¿Qué escenario o caso de uso motivó la solicitud?*  |    
+        |  grupo    |  *Identificador de suscripción, URI de la cuenta de NetApp*  |  *Nuevo número máximo de **grupos** solicitado*   |  *¿Qué escenario o caso de uso motivó la solicitud?*  |
+        |  Volumen  |  *Identificador de suscripción, URI de la cuenta de NetApp, URI del grupo de capacidad*   |  *Nuevo número máximo de **volúmenes** solicitado*     |  *¿Qué escenario o caso de uso motivó la solicitud?*  |
+        |  Maxfiles  |  *Identificador de suscripción, URI de la cuenta de NetApp, URI del grupo de capacidad, URI del volumen*   |  *Nuevo número máximo de **maxfiles** solicitado*     |  *¿Qué escenario o caso de uso motivó la solicitud?*  |    
+        |  Volúmenes de protección de datos de replicación entre regiones  |  *Identificador de suscripción, URI de la cuenta de NetApp de destino, URI del grupo de capacidad de destino, URI de la cuenta de NetApp de origen, URI del grupo de capacidad de origen, URI del volumen de origen*   |  *Se ha solicitado un nuevo número máximo de **volúmenes de protección de datos de replicación entre regiones (volúmenes de destino)***     |  *¿Qué escenario o caso de uso motivó la solicitud?*  |    
 
     2. Especifique admite el método de soporte técnico adecuado y proporcione la información del contrato.
 

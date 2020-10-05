@@ -11,21 +11,21 @@ ms.date: 06/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e49516647a4783fb27bf1be1cee60a3274fc040
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: e2e24246c749978cd2bbb5b3d0821eea6d7dfb4b
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279854"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660879"
 ---
 # <a name="azure-ad-connect-group-writeback"></a>Escritura diferida de grupos en Azure AD Connect
 
-La escritura diferida de grupos permite a los clientes aprovechar los grupos en la nube para sus necesidades híbridas. Si utiliza la característica Grupos de Office 365, estos grupos pueden estar representados en su instancia de Active Directory local. Esta opción **solo** está disponible si dispone de Exchange en su Active Directory local.
+La escritura diferida de grupos permite a los clientes aprovechar los grupos en la nube para sus necesidades híbridas. Si utiliza la característica Grupos de Microsoft 365, estos grupos pueden estar representados en su instancia de Active Directory local. Esta opción **solo** está disponible si dispone de Exchange en su Active Directory local.
 
 ## <a name="pre-requisites"></a>Requisitos previos
 Se deben cumplir los siguientes requisitos previos para habilitar la escritura diferida de grupos.
 - Licencias de Azure Active Directory Premium para su inquilino.
-- Una implementación híbrida configurada entre la organización de Exchange local y Office 365, así como la comprobación de que funciona correctamente.
+- Una implementación híbrida configurada entre la organización de Exchange local y Microsoft 365, así como la comprobación de que funciona correctamente.
 - Instalación de una versión compatible de Exchange local
 - Configuración del inicio de sesión único con Azure Active Directory Connect 
 
@@ -37,7 +37,7 @@ Para habilitar la escritura diferida de grupos, siga estos pasos:
 3. En la página **Conectarse a Azure AD**, escriba sus credenciales. Haga clic en **Next**.
 4. En la página **Características opcionales**, compruebe que las opciones que configuró anteriormente sigan estando seleccionadas.
 5. Seleccione **Reescritura de grupos** y, a continuación, haga clic en **Siguiente**.
-6. En la página **Escritura diferida**, seleccione una unidad organizativa (UO) de Active Directory para almacenar los objetos que se sincronizan entre Office 365 y la organización local. A continuación, haga clic en **Siguiente**.
+6. En la página **Escritura diferida**, seleccione una unidad organizativa (UO) de Active Directory para almacenar los objetos que se sincronizan entre Microsoft 365 y la organización local. A continuación, haga clic en **Siguiente**.
 7. En la página **Listo para configurar**, haga clic en **Configurar**.
 8. Una vez completado el asistente, haga clic en **Salir** en la página Configuración completada.
 9. Abra Windows PowerShell como administrador en el servidor de Azure Active Directory Connect y ejecute los siguientes comandos.

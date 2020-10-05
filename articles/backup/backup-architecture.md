@@ -3,12 +3,12 @@ title: Introducción a la arquitectura
 description: Proporciona información general sobre la arquitectura, los componentes y los procesos usados por el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 1081de6b467b896bd8cc62b84c9a67c329b11e02
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: e70fe13e895315763ae305b48a72d688f09931f0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824039"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986493"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitectura y componentes de Azure Backup
 
@@ -35,18 +35,22 @@ Obtenga información sobre los [elementos de lo que puede hacer una copia de seg
 
 ## <a name="where-is-data-backed-up"></a>¿Dónde están los datos de copia de seguridad?
 
-Azure Backup almacena los datos de copia de seguridad en un almacén de Recovery Services. Un almacén es una entidad de almacenamiento en línea de Azure que se usa para contener datos, como copias de seguridad, puntos de recuperación y directivas de copia de seguridad.
+Azure Backup almacena datos de copia de seguridad en almacenes: almacenes de Recovery Services y de Backup. Un almacén es una entidad de almacenamiento en línea de Azure que se usa para contener datos, como copias de seguridad, puntos de recuperación y directivas de copia de seguridad.
 
-Los almacenes de Recovery Services tienen las siguientes características:
+Los almacenes tienen las siguientes características:
 
 - Los almacenes facilitan la tarea de organizar los datos de copia de seguridad, al mismo tiempo que reducen al mínimo su sobrecarga administrativa.
-- En cada suscripción de Azure, puede crear hasta 500 almacenes.
 - Puede supervisar elementos de copia de seguridad de un almacén, como las máquinas virtuales de Azure y las máquinas locales.
 - Puede administrar el acceso al almacén con el [control de acceso basado en rol de Azure (RBAC de Azure)](../role-based-access-control/role-assignments-portal.md).
 - Especificará cómo se replican los datos en el almacén para la redundancia:
-  - **Almacenamiento con redundancia local (LRS)** : Para protegerse frente a los errores de un centro de datos, puede usar LRS. LRS replica los datos en una unidad de escalado de almacenamiento. [Más información](../storage/common/storage-redundancy.md).
-  - **Almacenamiento con redundancia geográfica (GRS)** : Para protegerse contra las interrupciones de toda la región, puede usar GRS. GRS replica los datos en una región secundaria. [Más información](../storage/common/storage-redundancy.md).
+  - **Almacenamiento con redundancia local (LRS)** : Para protegerse frente a los errores de un centro de datos, puede usar LRS. LRS replica los datos en una unidad de escalado de almacenamiento. [Más información](../storage/common/storage-redundancy.md#locally-redundant-storage).
+  - **Almacenamiento con redundancia geográfica (GRS)** : Para protegerse contra las interrupciones de toda la región, puede usar GRS. GRS replica los datos en una región secundaria. [Más información](../storage/common/storage-redundancy.md#geo-redundant-storage).
+  - **Almacenamiento con redundancia de zona (ZRS)** replica los datos en [zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), lo que garantiza la residencia y la resistencia de los datos en la misma región. [Más información](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - De forma predeterminada, los almacenes de Recovery Services usan GRS.
+
+Los almacenes de Recovery Services incluyen las siguientes características adicionales:
+
+- En cada suscripción de Azure, puede crear hasta 500 almacenes.
 
 ## <a name="backup-agents"></a>Agentes de copia de seguridad
 

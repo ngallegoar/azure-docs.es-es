@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd3361657406f2ece6a48b74d3ca6ee3d9ed68ca
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 244456298e9a85f7cf7a5bdc175f1df5397ca207
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89277364"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662149"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Guía de instalación de Azure AD Connect y Azure AD Connect Health
 
@@ -124,7 +124,7 @@ Si no se configuró el servidor de AD FS para actualizar automáticamente los ce
 |Todos los artículos de AD FS | [Azure AD Connect y la federación](how-to-connect-fed-whatis.md)|
 |Configuración de AD FS con subdominios | [Compatibilidad con varios dominios para la federación con Azure AD](how-to-connect-install-multiple-domains.md)|
 |Administrar una granja de servidores de AD FS | [Administración y personalización de AD FS con Azure AD Connect](how-to-connect-fed-management.md)|
-|Actualización manual de certificados de federación | [Renovación de certificados de federación para Office 365 y Azure AD](how-to-connect-fed-o365-certs.md)|
+|Actualización manual de certificados de federación | [Renovación de certificados de federación para Microsoft 365 y Azure AD](how-to-connect-fed-o365-certs.md)|
 
 
 ## <a name="get-started-with-azure-ad-connect-health"></a>Introducción a Azure AD Connect Health

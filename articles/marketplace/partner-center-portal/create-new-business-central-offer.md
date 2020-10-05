@@ -3,16 +3,16 @@ title: 'Creación de una oferta de Dynamics 365 Business Central: marketplace c
 description: Conozca los pasos y las consideraciones para crear una oferta de Dynamics 365 Business Central en el marketplace comercial de Microsoft del Centro de partners. Puede mostrar o vender su oferta en Azure Marketplace o a través del programa Proveedor de soluciones en la nube (CSP).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: 4226f9cc45589b8c555d3d54918e31a04acbfc6b
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 1e2af29779c93175ccc4c7f6964862b79febd8e6
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817058"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527095"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Creación de una oferta de Dynamics 365 Business Central
 
@@ -71,9 +71,7 @@ Recopile información de contacto de los clientes mediante la conexión de su si
 
 ### <a name="test-drive"></a>Versión de prueba
 
-Una versión de prueba es una excelente manera de presentar la oferta a clientes potenciales, ya que se les brinda la oportunidad de «probar antes de comprar», lo que aumenta la conversión y la generación de clientes potenciales altamente cualificados. Para obtener más información, comience con [Qué es la versión de prueba](../what-is-test-drive.md).
-
-Para habilitar una versión de prueba durante un período de tiempo determinado, seleccione la casilla **Habilitar una versión de prueba**. Para eliminar la versión de prueba de la oferta, desactive esta casilla.
+En este punto, las ofertas de Dynamics 365 Business Central no admiten la versión de prueba. Para eliminar la versión de prueba de la oferta, desactive la casilla **Habilitar una versión de prueba**.
 
 ### <a name="customer-leads"></a>Clientes potenciales
 

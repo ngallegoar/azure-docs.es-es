@@ -4,21 +4,21 @@ description: Aprenda a escalar una instancia de Azure SignalR Service para agr
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 12/11/2019
+ms.date: 9/9/2020
 ms.author: zhshang
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bd112526c7b36d5636d5d85c66b25b6310d35d1e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bb01f2f96e5db4c94e759b114818360e6084255f
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500494"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595774"
 ---
 # <a name="how-to-scale-an-azure-signalr-service-instance"></a>Cómo escalar una instancia de Azure SignalR Service?
 En este artículo se muestra cómo escalar la instancia de Azure SignalR Service. Existen dos escenarios de escalado: escalado vertical y escalado horizontal.
 
 * [Escalado vertical](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Obtenga más unidades, conexiones, mensajes y otras funciones. Puede escalar verticalmente cambiando el plan de tarifa de Gratis a Estándar.
-* [Escalado horizontal](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Aumento del número de unidades de SignalR. Puede escalar horizontalmente hasta un máximo de 100 unidades.
+* [Escalado horizontal](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Aumento del número de unidades de SignalR. Puede escalar horizontalmente hasta un máximo de 100 unidades. Hay opciones de unidad limitadas para seleccionar para la escala: 1, 2, 5, 10, 20, 50 y 100 unidades para una sola instancia de SignalR Service.
 
 La configuración de escala tarda unos minutos en aplicarse. En raras ocasiones, puede tardar unos 30 minutos en aplicarse. No hay que modificar el código ni volver a implementar la aplicación de servidor.
 

@@ -5,15 +5,15 @@ services: data-factory
 author: ceespino
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/02/2020
+ms.date: 09/03/2020
 ms.author: ceespino
 ms.reviewer: daperlov
-ms.openlocfilehash: e0c5ab4f6d36a24ff9f59ec373291e00669e1e92
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 9f23155df6d9e63448b35974c331bf78c3e5f90c
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320126"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426236"
 ---
 # <a name="troubleshoot-azure-data-factory-ux-issues"></a>Solución de problemas con la experiencia de usuario de Azure Data Factory
 
@@ -100,6 +100,16 @@ Si ve una respuesta DNS normal, póngase en contacto con el equipo de soporte t�
 Si esto es todo lo que puede ver, esto normalmente significa que hay algún problema con el servidor DNS al resolver el nombre DNS. Normalmente, el cambio de ISP (proveedor de servicios de Internet) o del DNS (por ejemplo, a Google DNS 8.8.8.8) podría ser una posible solución. Si el problema persiste, podría probar con **nslookup datafactory.azure.com** y **nslookup azure.com** para ver en qué nivel se produjo el error en la resolución de DNS y enviar toda la información al equipo de soporte técnico de TI local o a su ISP para solucionar el problema. Si considera que el problema está todavía en Microsoft, abra una incidencia de soporte técnico con el **identificador de actividad** del mensaje de error de la experiencia de usuario de ADF.
 
 ![Respuesta del comando 2](media/data-factory-ux-troubleshoot-guide/command-response-2.png)
+
+## <a name="change-linked-service-type-in-datasets"></a>Cambio del tipo de servicio vinculado en conjuntos de datos
+
+El conjunto de datos con formato de archivo se puede usar con todos los conectores basados en archivo; por ejemplo, puede configurar un conjunto de datos de Parquet en blobs de Azure o Azure Data Lake Storage Gen2. Tenga en cuenta que cada conector admite un conjunto diferente de configuración relacionada con el almacén de datos en la actividad y con un modelo de aplicación distinto. 
+
+En la interfaz de usuario de creación de ADF, cuando se utiliza un conjunto de datos con formato de archivo en una actividad (incluidas las actividades Copia, Búsqueda, GetMetadata y Eliminar), y en el conjunto de archivos que desea apuntar a un servicio vinculado de tipo diferente del actual (por ejemplo, cambiar de sistema de archivos a ADLS Gen2), verá el siguiente mensaje de advertencia. Para asegurarse de que se trata de un cambio limpio, según su consentimiento, las canalizaciones y las actividades, que hacen referencia a este conjunto de datos, se modificarán para usar el nuevo tipo también, y cualquier configuración del almacén de datos existente, que es incompatible con el nuevo tipo, se borrará cuando ya no se aplique.
+
+Para obtener más información sobre la configuración del almacén de datos admitida para cada conector, puede ir al artículo del conector correspondiente -> propiedades de la actividad de copia para ver la lista de propiedades detallada. Consulte [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) y [SFTP](connector-sftp.md).
+
+![Mensaje de advertencia](media/data-factory-ux-troubleshoot-guide/warning-message.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

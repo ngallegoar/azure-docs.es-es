@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: 17dcaee4f9cd4d889e585394362695ab31f0d012
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: a4db09c81efcd342d149cb95286aa6ee9cac93a6
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079741"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595791"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Administración de clústeres de HDInsight con Enterprise Security Package
 
@@ -47,7 +47,7 @@ Puede vincular un clúster normal mediante un nombre de usuario administrado de 
 
 Enterprise Security Package (conocido anteriormente como HDInsight Premium) proporciona acceso multiusuario al clúster, donde Active Directory realiza la autenticación con Apache Ranger y ACL de Storage (ADLS ACL). La autorización proporciona límites de seguridad entre varios usuarios y permite que solo los usuarios con privilegios tengan acceso a los datos en función de las directivas de autorización.
 
-El aislamiento de usuarios y la seguridad son importantes para un clúster de HDInsight con Enterprise Security Package. Para cumplir estos requisitos, se bloquea el acceso de SSH al clúster con Enterprise Security Package. En la tabla siguiente se muestran los métodos de acceso recomendados para cada tipo de clúster:
+El aislamiento de usuarios y la seguridad son importantes para un clúster de HDInsight con Enterprise Security Package. Para cumplir estos requisitos, se admite el acceso de SSH al clúster con Enterprise Security Package para el usuario local seleccionado en el momento de creación del clúster, así como los usuarios disponibles en AAD-DS (es decir, Kerberos). En la tabla siguiente se muestran los métodos de acceso recomendados para cada tipo de clúster:
 
 |Carga de trabajo|Escenario|Método de acceso|
 |--------|--------|-------------|

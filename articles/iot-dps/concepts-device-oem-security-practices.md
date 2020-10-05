@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 ms.custom: iot-p0-scenario, iot-devices-deviceOEM
 ms.reviewer: nberdy
-ms.openlocfilehash: 3854f353e4ea0b78c0162681e0b89d37419105d8
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 788738082cbf9995fb2f7282bc3f574903275528
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529519"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527214"
 ---
 # <a name="security-practices-for-azure-iot-device-manufacturers"></a>Procedimientos de seguridad para los fabricantes de dispositivos Azure IoT
 A medida que más fabricantes lanzan dispositivos IoT, resulta útil identificar una guía en torno a los procedimientos comunes. En este artículo se resumen los procedimientos de seguridad recomendados que se deben tener en cuenta al fabricar dispositivos para su uso con Azure IoT Device Provisioning Service (DPS).  
@@ -182,7 +182,7 @@ Un dispositivo puede permanecer en un almacén de 6 a 12 meses antes de su imple
 #### <a name="step-5-device-is-installed-into-the-location"></a>Paso 5: El dispositivo está instalado en la ubicación
 Una vez que el dispositivo llega a su ubicación final, pasa por el aprovisionamiento automatizado con DPS.
 
-Para más información, consulte [Conceptos de aprovisionamiento automático](concepts-auto-provisioning.md) y [Atestación de TPM](concepts-tpm-attestation.md). 
+Para más información, vea [Aprovisionamiento](about-iot-dps.md#provisioning-process) y [Atestación de TPM](concepts-tpm-attestation.md). 
 
 ## <a name="resources"></a>Recursos
 

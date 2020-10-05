@@ -3,12 +3,12 @@ title: Guía y procedimientos recomendados
 description: Descubra los procedimientos recomendados y las instrucciones para realizar copias de seguridad en la nube de las cargas de trabajo locales y en la nube.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: db6eec5351a9015b136226610d2bb3deb8bdc651
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f999c568dda6eae60f3060cc4672eccaf06541c1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000369"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985515"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Copia de seguridad en la nube de cargas de trabajo locales y en la nube
 
@@ -48,7 +48,7 @@ Azure Backup permite proteger los datos de diversas cargas de trabajo (locales y
 
 ### <a name="management-plane"></a>Plano de administración
 
-* **Control de acceso**: el almacén de Recovery Services proporciona las funcionalidades de administración y es accesible a través de Azure Portal, el SDK, la CLI e incluso las API REST. También supone un límite para RBAC, lo que le ofrece la opción de restringir el acceso a las copias de seguridad solo a los administradores de copias de seguridad autorizados.
+* **Control de acceso**: los almacenes (almacenes de Recovery Services y de Backup) proporcionan las funcionalidades de administración y son accesibles a través de Azure Portal, el centro de copias de seguridad, los paneles de almacén, el SDK, la CLI e incluso las API de REST. También supone un límite para RBAC, lo que le ofrece la opción de restringir el acceso a las copias de seguridad solo a los administradores de copias de seguridad autorizados.
 
 * **Administración de directivas**: las directivas de Azure Backup dentro de cada almacén definen cuándo se deben desencadenar las copias de seguridad y cuánto tiempo deben conservarse. También puede administrar estas directivas y aplicarlas en varios elementos.
 
@@ -58,7 +58,7 @@ Azure Backup permite proteger los datos de diversas cargas de trabajo (locales y
 
 ## <a name="vault-considerations"></a>Consideraciones sobre el almacén
 
-Azure Backup usa almacenes de Recovery Services para organizar y administrar las copias de seguridad, y para almacenar los datos con copia de seguridad realizada. Un diseño de almacén eficaz ayuda a las organizaciones a establecer una estructura para organizar y administrar los recursos de copia de seguridad de Azure que se adapte a sus prioridades empresariales. A la hora de crear un almacén, tenga en cuenta las siguientes directrices:  
+Azure Backup usa almacenes (almacenes de Recovery Services y de Backup) y para organizar y administrar las copias de seguridad, y para almacenar los datos con copia de seguridad realizada. Un diseño de almacén eficaz ayuda a las organizaciones a establecer una estructura para organizar y administrar los recursos de copia de seguridad de Azure que se adapte a sus prioridades empresariales. A la hora de crear un almacén, tenga en cuenta las siguientes directrices:  
 
 ### <a name="align-to-subscription-design-strategy"></a>Alineación con la estrategia de diseño de suscripciones
 
@@ -71,7 +71,8 @@ Puede usar un solo almacén o varios almacenes para organizar y administrar la c
 * Si todas las cargas de trabajo se administran mediante una sola suscripción y un único recurso, puede usar un solo almacén para supervisar y administrar su copia de seguridad.
 
 * Si las cargas de trabajo se distribuyen entre las suscripciones, puede crear varios almacenes, uno o varios por suscripción.
-  * Para simplificar la supervisión de las actividades operativas en todos los almacenes, suscripciones e inquilinos, puede utilizar el Explorador de Backup e informes. [Consulte más información aquí](monitor-azure-backup-with-backup-explorer.md) para obtener una vista agregada.
+  * El centro de copia de seguridad permite tener un solo panel para administrar todas las tareas relacionadas con Backup. [Obtenga más información aquí]().
+  * Puede personalizar las vistas con plantillas de libro. Explorador de Backup es una plantilla de este tipo para las máquinas virtuales de Azure. [Obtenga más información aquí](monitor-azure-backup-with-backup-explorer.md).
   * Si necesita una directiva coherente entre almacenes, puede usar Azure Policy para propagar la directiva de copia de seguridad en varios almacenes. Puede escribir una [definición de Azure Policy](../governance/policy/concepts/definition-structure.md) personalizada que use el efecto ["deployIfNotExists"](../governance/policy/concepts/effects.md#deployifnotexists) para propagar una directiva de copia de seguridad en varios almacenes. Después puede [asignar](../governance/policy/assign-policy-portal.md) esta definición de Azure Policy a un ámbito determinado (suscripción o grupo de recursos), para que se implemente un recurso de "directiva de copia de seguridad" en todos los almacenes de Recovery Services incluidos en el ámbito de la asignación de Azure Policy. El usuario debe especificar la configuración de la directiva de copia de seguridad (como la frecuencia de copia de seguridad, la retención, etc.) como parámetros de la asignación de Azure Policy.
 
 * A medida que crezca la superficie de la organización, es posible que desee trasladar las cargas de trabajo entre las suscripciones por las siguientes razones: alinear por directiva de copia de seguridad, consolidar almacenes, aceptar una menor redundancia para ahorrar costos (pasar de GRS a LRS).  Azure Backup admite el traslado de un almacén de Recovery Services entre suscripciones de Azure o a otro grupo de recursos dentro de la misma suscripción. [Obtenga más información aquí](backup-azure-move-recovery-services-vault.md).

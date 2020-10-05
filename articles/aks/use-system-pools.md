@@ -6,16 +6,16 @@ ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e068984e02a468169f286ab5b783e531a54bd6ed
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 2cb6ed265d3e94c2c162381dfb80ba0c5427a71f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949786"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888958"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Administración de grupos de nodos del sistema en Azure Kubernetes Service (AKS)
 
-En Azure Kubernetes Service, los nodos de la misma configuración se agrupan en *grupos de nodos*. Los grupos de nodos contienen las máquinas virtuales subyacentes que ejecutan las aplicaciones. Los grupos de nodos del sistema y los grupos de nodos del usuario son dos modos de grupos de nodos diferentes para los clústeres de AKS. Los grupos de nodos del sistema tienen el propósito principal de hospedar los pods críticos del sistema, como CoreDNS y tunnelfront. Los grupos de nodos de usuario tienen el propósito principal de hospedar los pods de aplicación. Sin embargo, se pueden programar pods de aplicación en grupos de nodos del sistema si quiere tener solo un grupo en el clúster de AKS. Cada clúster de AKS debe contener al menos un grupo de nodos del sistema con al menos un nodo.
+En Azure Kubernetes Service, los nodos de la misma configuración se agrupan en *grupos de nodos*. Los grupos de nodos contienen las máquinas virtuales subyacentes que ejecutan las aplicaciones. Los grupos de nodos del sistema y los grupos de nodos del usuario son dos modos de grupos de nodos diferentes para los clústeres de AKS. Los grupos de nodos del sistema tienen el propósito principal de hospedar los pods críticos del sistema, como `CoreDNS` y `metrics-server`. Los grupos de nodos de usuario tienen el propósito principal de hospedar los pods de aplicación. Sin embargo, se pueden programar pods de aplicación en grupos de nodos del sistema si quiere tener solo un grupo en el clúster de AKS. Cada clúster de AKS debe contener al menos un grupo de nodos del sistema con al menos un nodo.
 
 > [!Important]
 > Si ejecuta un único grupo de nodos del sistema para el clúster de AKS en un entorno de producción, se recomienda usar al menos tres nodos para el grupo de nodos.
@@ -46,6 +46,7 @@ Los grupos de nodos del sistema tienen las siguientes restricciones:
 * Los grupos de nodos del sistema requieren una SKU de máquina virtual de 2 vCPUs y 4 GB de memoria como mínimo.
 * Los grupos de nodos del sistema deben admitir al menos 30 pods como se indica en la [fórmula del valor mínimo y máximo de los pods][maximum-pods].
 * Los grupos de nodos de zona requieren grupos de nodos del usuario.
+* La adición de un grupo de nodos del sistema adicional o el cambio del grupo de nodos que es un grupo de nodos del sistema *NO* moverá automáticamente los pods del sistema. Los pods del sistema pueden continuar ejecutándose en el mismo grupo de nodos, incluso si se cambia a un grupo de nodos de usuario. Si elimina o reduce verticalmente un grupo de nodos que ejecuta pods del sistema que anteriormente era un grupo de nodos del sistema, esos pods del sistema se implementan de nuevo con la programación preferida en el nuevo grupo de nodos del sistema.
 
 Puede hacer las siguientes operaciones con los grupos de nodos:
 
@@ -163,7 +164,7 @@ az aks nodepool update -g myResourceGroup --cluster-name myAKSCluster -n mynodep
 > [!Note]
 > Para usar grupos de nodos del sistema en clústeres de AKS con una versión de API anterior a 2020-03-02, agregue un nuevo grupo de nodos del sistema y, a continuación, elimine el grupo de nodos predeterminado original.
 
-Anteriormente no podía eliminar el grupo de nodos del sistema que constituía el grupo de nodos predeterminado inicial de un clúster de AKS. Ahora dispone de la opción de eliminar cualquier grupo de nodos de los clústeres. Dado que los clústeres de AKS requieren al menos un grupo de nodos del sistema, debe contar con al menos dos grupos de nodos del sistema en el clúster de AKS antes de poder eliminar uno de ellos.
+Debe contar con al menos dos grupos de nodos del sistema en el clúster de AKS antes de poder eliminar uno de ellos.
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster -n mynodepool

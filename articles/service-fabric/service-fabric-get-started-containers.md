@@ -4,12 +4,12 @@ description: Cree la primera aplicación contenedora en Windows en Azure Service
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 6303e37eaa8fa7ad45677d551b89337d20b1b604
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e8c3a0d60e10b1cf1f8a827cec8fcc25f3d33b05
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844446"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564328"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Cree la primera aplicación contenedora en Service Fabric en Windows
 
@@ -290,7 +290,7 @@ A partir de la última versión de actualización, v6.4, tiene la opción de esp
 
 La instrucción **HEALTHCHECK** que apunta a la comprobación real que se lleva a cabo para supervisar el mantenimiento del contenedor debe estar presente en el archivo de Docker que se usa al generar la imagen de contenedor.
 
-![HealthCheckHealthy][3]
+![Captura de pantalla que muestra los detalles del paquete de servicio implementado NodeServicePackage.][3]
 
 ![HealthCheckUnhealthyApp][4]
 

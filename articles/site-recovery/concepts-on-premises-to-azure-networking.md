@@ -1,18 +1,18 @@
 ---
 title: Conexión a máquinas virtuales de Azure tras la conmutación por error con Azure Site Recovery
 description: Se describe cómo conectarse en Azure a las máquinas virtuales de Azure tras la conmutación por error desde un entorno local con Azure Site Recovery
-author: mayurigupta13
+author: Harsha-CS
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
-ms.author: mayg
-ms.openlocfilehash: 33dafaff396ce378dfa9eab0158e1b2fd9c10da6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: harshacs
+ms.openlocfilehash: 123a68885346062b9e8a53b8d5066204b6b20f5e
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770499"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568785"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Conexión a las máquinas virtuales de Azure tras la conmutación por error desde un entorno local 
 
@@ -107,8 +107,8 @@ Veamos un ejemplo.
     - 192.168.2.0/24
     - 192.168.3.0/24
 - Sus aplicaciones que se ejecutan en Azure se encuentran en la red virtual de Azure **Azure Network** en dos subredes:
-- 172.16.1.0/24
-- 172.16.2.0/24
+    - 172.16.1.0/24
+    - 172.16.2.0/24
 
 Para conservar las direcciones, esto es lo que hacen.
 

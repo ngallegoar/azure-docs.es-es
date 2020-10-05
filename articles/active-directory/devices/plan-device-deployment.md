@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f17f6fd881243d91428c6025fd63469a38afa0f
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 60d3e3c174ad9a3372df084cac9eb67270779298
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268815"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563903"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planeación de la implementación de dispositivos de Azure Active Directory
 
@@ -105,24 +105,24 @@ Los dispositivos iOS y Android solo se pueden registrar en Azure AD. En la tabl
 | Consideración | Registrado en Azure AD| Unión a Azure AD| Unión a Azure AD híbrido |
 | - | - | - | - |
 | **Sistemas operativos cliente**| | |  |
-| Dispositivos Windows 10| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
-| Dispositivos Windows de nivel inferior (Windows 8.1 o Windows 7)| | | ![check](./media/plan-device-deployment/check.png) |
+| Dispositivos Windows 10| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png) |
+| Dispositivos Windows de nivel inferior (Windows 8.1 o Windows 7)| | | ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png) |
 |**Opciones de inicio de sesión**| | |  |
-| Credenciales locales del usuario final| ![check](./media/plan-device-deployment/check.png)| |  |
-| Contraseña| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
-| PIN del dispositivo| ![check](./media/plan-device-deployment/check.png)| |  |
-| Windows Hello| ![check](./media/plan-device-deployment/check.png)| |  |
-| Windows Hello para empresas| | ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
-| Claves de seguridad de FIDO 2.0| | ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
-| Aplicación Microsoft Authenticator (sin contraseña)| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
+| Credenciales locales del usuario final| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)| |  |
+| Contraseña| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png) |
+| PIN del dispositivo| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)| |  |
+| Windows Hello| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)| |  |
+| Windows Hello para empresas| | ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png) |
+| Claves de seguridad de FIDO 2.0| | ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png) |
+| Aplicación Microsoft Authenticator (sin contraseña)| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png) |
 |**Principales funcionalidades**| | |  |
-| SSO a los recursos en la nube| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
-| Inicio de sesión único en recursos locales| | ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
-| Acceso condicional <br> (Requiere que los dispositivos estén marcados como conformes) <br> (Debe administrarse con MDM)| ![check](./media/plan-device-deployment/check.png) | ![check](./media/plan-device-deployment/check.png)|![check](./media/plan-device-deployment/check.png) |
-Acceso condicional <br>(Requiere dispositivos con unión a Azure AD híbrido)| | | ![check](./media/plan-device-deployment/check.png)
-| Autoservicio de restablecimiento de contraseña desde la pantalla de inicio de sesión de Windows| | ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
-| Restablecimiento del PIN de Windows Hello| | ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
-| Enterprise State Roaming entre dispositivos| | ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
+| SSO a los recursos en la nube| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png) |
+| Inicio de sesión único en recursos locales| | ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png) |
+| Acceso condicional <br> (Requiere que los dispositivos estén marcados como conformes) <br> (Debe administrarse con MDM)| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png) | ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)|![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png) |
+Acceso condicional <br>(Requiere dispositivos con unión a Azure AD híbrido)| | | ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)
+| Autoservicio de restablecimiento de contraseña desde la pantalla de inicio de sesión de Windows| | ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png) |
+| Restablecimiento del PIN de Windows Hello| | ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png) |
+| Enterprise State Roaming entre dispositivos| | ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png) |
 
 
 ## <a name="azure-ad-registration"></a>Registro en Azure AD 
@@ -239,9 +239,9 @@ Revise las plataformas admitidas y no admitidas para los dispositivos integrados
 
 | Herramientas de administración de dispositivos| Registrado en Azure AD| Unión a Azure AD| Unión a Azure AD híbrido|
 | - | - | - | - |
-| [Administración de dispositivos móviles (MDM)](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Ejemplo: Microsoft Intune| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)|  |
-| [Administración conjunta con Microsoft Intune y Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 y versiones posteriores)| | ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)|  |
-| [Directiva de grupo](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Solo Windows)| | | ![check](./media/plan-device-deployment/check.png)|  |
+| [Administración de dispositivos móviles (MDM)](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Ejemplo: Microsoft Intune| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)|  |
+| [Administración conjunta con Microsoft Intune y Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 y versiones posteriores)| | ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)| ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)|  |
+| [Directiva de grupo](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Solo Windows)| | | ![Marca de verificación para estos valores.](./media/plan-device-deployment/check.png)|  |
 
 
 

@@ -3,12 +3,12 @@ title: Administración de directivas de laboratorio en Azure DevTest Labs | Micr
 description: Obtenga información acerca de cómo definir directivas de laboratorio como tamaños de máquina virtual, máximo de máquinas virtuales por usuario y automatización de apagado.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: ab2e2b1905a515d3a85339099f02d93d8e5c0424
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a7ada980b2a251b8164f2e1a20f65da54c89ba72
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290422"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530359"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Administración de todas las directivas para un laboratorio de Azure DevTest Labs
 
@@ -105,7 +105,7 @@ La directiva de inicio automático le permite especificar cuándo se deben inici
 
 1. En el panel **Configuration and policies** (Configuración y directivas) del laboratorio, seleccione **Autostart** (Inicio automático).
    
-    ![Inicio automático](./media/devtest-lab-set-lab-policy/auto-start.png)
+    ![Captura de pantalla en la que se muestran las opciones de inicio automático de una máquina virtual.](./media/devtest-lab-set-lab-policy/auto-start.png)
 
 2. Seleccione **Activado** para habilitar esta directiva, y **Desactivado** para deshabilitarla.
 

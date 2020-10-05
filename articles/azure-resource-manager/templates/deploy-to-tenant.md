@@ -2,13 +2,13 @@
 title: Implementación de recursos en el inquilino
 description: Se describe cómo implementar recursos en el ámbito de un inquilino en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 08/06/2020
-ms.openlocfilehash: 2f5249eb54a62e4df082a18b22625bb93a0f09f8
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 09/04/2020
+ms.openlocfilehash: 9b653f3fd4ed66f23521ea3ec8f9972e3b6cc09c
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002763"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468562"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Creación de recursos en el nivel de inquilino
 
@@ -151,7 +151,7 @@ Para establecer como destino un grupo de administración dentro del inquilino, a
             "properties": {
                 "mode": "Incremental",
                 "template": {
-                    nested-template
+                    nested-template-with-resources-in-mg
                 }
             }
         }
@@ -167,7 +167,9 @@ En las implementaciones de nivel de inquilino, hay algunas consideraciones impor
 * La función [resourceGroup()](template-functions-resource.md#resourcegroup)**no** se admite.
 * La función [subscription()](template-functions-resource.md#subscription)**no** se admite.
 * Se admiten las funciones [reference()](template-functions-resource.md#reference) y [list()](template-functions-resource.md#list).
-* Use la función [tenantResourceId()](template-functions-resource.md#tenantresourceid) para obtener el identificador de recurso de los recursos que se implementan en el nivel de inquilino.
+* No use [resourceId()](template-functions-resource.md#resourceid) para obtener el identificador de los recursos implementados en el nivel de inquilino.
+
+  En su lugar, use la función [tenantResourceId()](template-functions-resource.md#tenantresourceid).
 
   Por ejemplo, para obtener el identificador de recurso de una definición de directiva, utilice:
 

@@ -1,51 +1,64 @@
 ---
-title: Grafos de flujo de datos
-description: Cómo trabajar con gráficos de flujo de datos de factoría de datos
+title: Administración del grafo de flujo de datos de asignación
+description: Cómo administrar y editar de forma eficaz el grafo de flujo de datos de asignación
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/04/2019
-ms.openlocfilehash: 0d357c4c671070a5c5e9d4587e2f90b6628996f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/02/2020
+ms.openlocfilehash: 0cdad47123d69ca7cee468c5bb0cea3268d73bfe
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81605353"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420118"
 ---
-# <a name="mapping-data-flow-graphs"></a>Asignar gráficos de flujo de datos
+# <a name="managing-the-mapping-data-flow-graph"></a>Administración del grafo de flujo de datos de asignación
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-La superficie de diseño de flujo de datos de asignación es una superficie de "construcción" en la que se crean flujos de datos de arriba abajo, de izquierda a derecha. Hay un cuadro de herramientas asociado a cada transformación con el símbolo de más (+). Concéntrese en su lógica de negocios, en lugar de en conectar los nodos a través de los extremos de un entorno de DAG de forma libre.
+Los flujos de datos de asignación se crean mediante una superficie de diseño conocida como el grafo de flujo de datos. En el grafo, la lógica de transformación se crea de izquierda a derecha y los flujos de datos adicionales se agregan de arriba a abajo. Para agregar una nueva transformación, seleccione el signo más situado en la parte inferior derecha de una transformación existente.
 
-A continuación se muestran mecanismos integrados para administrar el gráfico de flujo de datos.
+![Lienzo](media/data-flow/canvas2.png "Lienzo")
 
-## <a name="move-nodes"></a>Traslado de nodos
+A medida que los flujos de datos se hagan más complejos, use los mecanismos siguientes para navegar y administrar eficazmente el grafo de flujo de datos. 
 
-![Opciones de la transformación Agregar](media/data-flow/agghead.png "encabezado de agregador")
+## <a name="moving-transformations"></a>Traslado de transformaciones
 
-Sin un paradigma de arrastrar y colocar, la manera de "desplazar" un nodo de transformación es cambiar el flujo entrante. En su lugar, para mover las transformaciones cambiará el "flujo de entrada".
+En los flujos de datos de asignación, un conjunto de lógica de transformación conectada se conoce como **flujo**. El campo **Incoming stream** (Flujo entrante) determina qué flujo de datos está alimentando la transformación actual. Cada transformación tiene uno o dos flujos entrantes según su función y representa un flujo de salida. El esquema de salida de los flujos entrantes determina los metadatos de columna a los que puede hacer referencia la transformación actual.
 
-## <a name="streams-of-data-inside-of-data-flow"></a>Flujos de datos dentro de Data Flow
+![Traslado de nodo](media/data-flow/move-nodes.png "trasladar nodo")
 
-En Azure Data Factory Data Flow, las secuencias representan el flujo de datos. En el panel de configuración de la transformación, verá el campo "Incoming Stream" (Flujo de entrada). En se indica cuál es el flujo de datos de entrada que alimenta la transformación. Puede cambiar la ubicación física del nodo de la transformación en el gráfico. Para ello, solo es preciso hacer clic en el nombre del flujo de entrada y seleccionar otro flujo de datos. A continuación, tanto la transformación actual como todas las transformaciones posteriores de esa secuencia, se moverán a la nueva ubicación.
-
-Si va a mover una transformación con una o varias transformaciones posteriores, la nueva ubicación del flujo de datos se conectará mediante una nueva rama.
-
-Si no hay transformaciones posteriores al nodo que ha seleccionado, la primera será la única que se moverá a la nueva ubicación.
+A diferencia del lienzo de canalización, las transformaciones de flujo de datos no se editan con un modelo de arrastrar y colocar. Para cambiar el flujo entrante o "trasladar" una transformación, elija otro valor en la lista desplegable **Incoming stream** (Flujo entrante). Al hacer esto, todas las transformaciones descendentes se trasladarán a lo largo de la transformación editada. El gráfico se actualizará automáticamente para mostrar el nuevo flujo lógico. Si cambia el flujo entrante a una transformación que ya tenga una transformación descendente, se creará una nueva rama o flujo de datos paralelo. Obtenga más información sobre [nuevas ramas en un flujo de datos de asignación](data-flow-new-branch.md).
 
 ## <a name="hide-graph-and-show-graph"></a>Ocultar gráfico y mostrar gráfico
 
-Hay un botón en el extremo derecho del panel de configuración inferior, donde puede expandir el panel inferior a pantalla completa al trabajar en configuraciones de transformación. Esto le permitirá usar los botones "anterior" y "siguiente" para navegar por las configuraciones del gráfico. Para volver a la vista de gráfico, haga clic en el botón bajar y vuelva a la pantalla de división.
+Al editar la transformación, puede expandir el panel de configuración para ocupar todo el lienzo, ocultando el gráfico. Haga clic en el botón de contenido adicional orientado hacia arriba situado en el lado derecho del lienzo.
 
-## <a name="search-graph"></a>Buscar gráfico
+![Ocultar gráfico](media/data-flow/hide-graph.png "ocultar grafo")
 
-Puede buscar el gráfico con el botón buscar en la superficie de diseño.
+Cuando el grafo está oculto, puede desplazarse por las transformaciones dentro de un flujo haciendo clic en **Siguiente** o **Anterior**. Haga clic en el botón de contenido adicional orientado hacia abajo para mostrar el grafo.
 
-![Búsqueda](media/data-flow/search001.png "Buscar gráfico")
+![Mostrar grafo](media/data-flow/show-graph.png "mostrar grafo")
+
+## <a name="searching-for-transformations"></a>Búsqueda de transformaciones
+
+Para encontrar rápidamente una transformación en el gráfico, haga clic en el icono **Búsqueda** situado sobre la configuración de zoom.
+
+![Búsqueda](media/data-flow/search-1.png "Buscar gráfico")
+
+Puede buscar por nombre de transformación o descripción para encontrar una transformación.
+
+![Búsqueda](media/data-flow/search-2.png "Buscar gráfico")
+
+## <a name="hide-reference-nodes"></a>Ocultación de nodos de referencia
+
+Si el flujo de datos tiene cualquier transformación de combinación, búsqueda, existencia o unión, el flujo de datos muestra nodos de referencia a todos los flujos entrantes. Si desea minimizar la cantidad de espacio vertical utilizado, puede minimizar los nodos de referencia. Para ello, haga clic con el botón derecho en el lienzo y seleccione **Hide reference nodes** (Ocultar nodos de referencia).
+
+![Ocultar nodos de referencia](media/data-flow/hide-reference-nodes.png "Ocultación de nodos de referencia")
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de completar el diseño de Data Flow, active el botón de depuración y pruébelo en modo de depuración, ya sea directamente en el [diseñador del flujo de datos](concepts-data-flow-debug-mode.md) o en la [depuración de canalización](control-flow-execute-data-flow-activity.md).
+Después de completar la lógica de flujo de datos, active el [modo de depuración](concepts-data-flow-debug-mode.md) y pruébelo en una vista previa de los datos.

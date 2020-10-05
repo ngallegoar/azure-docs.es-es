@@ -1,14 +1,14 @@
 ---
 title: Restauración de bases de datos de SQL Server en una máquina virtual de Azure
-description: En este artículo se describe cómo restaurar bases de datos SQL Server que se ejecutan en una máquina virtual de Azure y cuyas copias de seguridad se realizan con Azure Backup.
+description: En este artículo se describe cómo restaurar bases de datos SQL Server que se ejecutan en una máquina virtual de Azure y cuyas copias de seguridad se realizan con Azure Backup. También puede usar la restauración entre regiones para restaurar las bases de datos en una región secundaria.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: afb3ef7ac1d161c073ef715a9f7b1ec83bd8410a
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 0d6feb512ab4ebcc5b5eaffafe607602fc552984
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377988"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985415"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restauración de bases de datos SQL Server en máquinas virtuales de Azure
 
@@ -30,7 +30,7 @@ Antes de restaurar una base de datos, tenga en cuenta lo siguiente:
 - Puede restaurar la base de datos en una instancia de SQL Server en la misma región de Azure.
 - El servidor de destino debe estar registrado como origen en el mismo almacén.
 - Para restaurar una base de datos cifrada TDE en otra de SQL Server, primero debe [restaurar el certificado en el servidor de destino](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
-- Las bases de datos habilitadas para [CDC](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-ver15) deben restaurarse con la opción [Restaurar como archivos](#restore-as-files).
+- Las bases de datos habilitadas para [CDC](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) deben restaurarse con la opción [Restaurar como archivos](#restore-as-files).
 - Antes de realizar una restauración de la base de datos "maestra", inicie la instancia de SQL Server en modo de usuario único con la opción de inicio **-m AzureWorkloadBackup**.
   - El valor de **-m** es el nombre del cliente.
   - Solo el nombre de cliente especificado puede abrir la conexión.
@@ -168,6 +168,51 @@ Si ha seleccionado **Completo y diferencial** como el tipo de restauración, hag
 Si el tamaño de la cadena total de archivos en una base de datos es mayor que un [determinado límite](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), Azure Backup almacena la lista de archivos de la base de datos en un componente pit diferente, de modo que no podrá definir la ruta de la restauración de destino durante la operación de restauración. En su lugar, los archivos se restaurarán en la ruta predeterminada SQL.
 
   ![Restauración de bases de datos con archivos de gran tamaño](./media/backup-azure-sql-database/restore-large-files.jpg)
+
+## <a name="cross-region-restore"></a>Restauración entre regiones
+
+Restauración entre regiones (CRR), una de las opciones de restauración, le permite restaurar bases de datos SQL hospedadas en máquinas virtuales de Azure en una región secundaria, que es una región emparejada de Azure.
+
+Para incorporar la característica durante la versión preliminar, lea la [sección Antes de comenzar](./backup-create-rs-vault.md#set-cross-region-restore).
+
+Para ver si la opción CRR está habilitada, siga las instrucciones de [Configuración de la restauración entre regiones](backup-create-rs-vault.md#configure-cross-region-restore).
+
+### <a name="view-backup-items-in-secondary-region"></a>Ver los elementos de copia de seguridad de la región secundaria
+
+Si la opción CRR está habilitada, puede ver los elementos de copia de seguridad de la región secundaria.
+
+1. En el portal, vaya a **Almacén de Recovery Services** > **Elementos de copia de seguridad**.
+1. Seleccione **Región secundaria** para ver los elementos de la región secundaria.
+
+>[!NOTE]
+>En la lista solo se mostrarán los tipos de administración de copia de seguridad que admiten la característica CRR. Actualmente, solo se admite la restauración de datos de regiones secundarias en una región secundaria.
+
+![Elementos de copia de seguridad en la región secundaria](./media/backup-azure-sql-database/backup-items-secondary-region.png)
+
+![Bases de datos en la región secundaria](./media/backup-azure-sql-database/databases-secondary-region.png)
+
+### <a name="restore-in-secondary-region"></a>Restauración en la región secundaria
+
+La experiencia del usuario de restauración de la región secundaria será similar a la de restauración de la región primaria. Al configurar los detalles en el panel Restaurar configuración para configurar la restauración, se le pedirá que proporcione solo los parámetros de la región secundaria.
+
+![¿Dónde y cómo se realiza la restauración?](./media/backup-azure-sql-database/restore-secondary-region.png)
+
+>[!NOTE]
+>La red virtual de la región secundaria debe asignarse de forma única y no se puede usar para otras máquinas virtuales de ese grupo de recursos.
+
+![Notificación de desencadenador de restauración en curso](./media/backup-azure-arm-restore-vms/restorenotifications.png)
+
+>[!NOTE]
+>
+>- Una vez que se desencadena la restauración y se ha iniciado la fase de transferencia de datos, no se puede cancelar el trabajo de restauración.
+>- Los roles de Azure necesarios para restaurar en la región secundaria son los mismos que los de la región primaria.
+
+### <a name="monitoring-secondary-region-restore-jobs"></a>Supervisión de trabajos de restauración en la región secundaria
+
+1. En el portal, vaya a **Almacén de Recovery Services** > **Trabajos de copia de seguridad**.
+1. Seleccione **Región secundaria** para ver los elementos de la región secundaria.
+
+    ![Trabajos de copia de seguridad filtrados](./media/backup-azure-sql-database/backup-jobs-secondary-region.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

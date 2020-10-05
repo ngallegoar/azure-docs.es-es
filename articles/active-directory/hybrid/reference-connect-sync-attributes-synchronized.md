@@ -16,29 +16,29 @@ ms.date: 04/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b00037704558d0029223b3c99154d0d60757612f
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 9411c22183620f883b4d2819eb3078e49837e578
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279438"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016085"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronización de Azure AD Connect: Atributos sincronizados con Azure Active Directory
 En este tema se enumeran los atributos que se sincronizan mediante la sincronización de Azure AD Connect.  
 Los atributos se agrupan por la aplicación de Azure AD relacionada.
 
 ## <a name="attributes-to-synchronize"></a>Atributos que sincronizar
-Una pregunta frecuente es *qué es la lista de atributos mínimos que sincronizar*. El método predeterminado y recomendado consiste en mantener los atributos predeterminados para poder crear una lista global de direcciones completa en la nube y obtener todas las características en cargas de trabajo de Office 365. En algunos casos, la organización no quiere que se sincronicen ciertos atributos en la nube porque contienen datos confidenciales o PII (información de identificación personal), como en el ejemplo siguiente:  
+Una pregunta frecuente es *qué es la lista de atributos mínimos que sincronizar*. El método predeterminado y recomendado consiste en mantener los atributos predeterminados para poder crear una lista global de direcciones completa en la nube y obtener todas las características en cargas de trabajo de Microsoft 365. En algunos casos, la organización no quiere que se sincronicen ciertos atributos en la nube porque contienen datos personales confidenciales, como en el ejemplo siguiente:  
 ![Atributos incorrectos](./media/reference-connect-sync-attributes-synchronized/badextensionattribute.png)
 
-En este caso, comience con la lista de atributos de este tema e identifique aquellos que podrían contener datos confidenciales o PII y que, por tanto, no se pueden sincronizar. Después, anule la selección de ellos durante la instalación con el [filtrado de atributos y aplicaciones de Azure AD](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering).
+En este caso, comience con la lista de atributos de este tema e identifique aquellos que podrían contener datos personales y que, por tanto, no se pueden sincronizar. Después, anule la selección de ellos durante la instalación con el [filtrado de atributos y aplicaciones de Azure AD](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering).
 
 > [!WARNING]
 > Al anular la selección de atributos, debe tener cuidado y solo hacerlo con aquellos que sean imposibles de sincronizar. Anular la selección de otros atributos podría afectar negativamente a las características.
 >
 >
 
-## <a name="office-365-proplus"></a>Office 365 ProPlus
+## <a name="microsoft-365-apps-for-enterprise"></a>Aplicaciones de Microsoft 365 para empresas
 | Nombre del atributo | Usuario | Comentario |
 | --- |:---:| --- |
 | accountEnabled |X |Define si se habilita una cuenta. |
@@ -375,7 +375,7 @@ Este grupo es un conjunto de atributos que se usan como atributos mínimos neces
 * Yammer (solo se consume User)
 * [Escenarios híbridos de colaboración entre organizaciones negocio a negocio (B2B) ofrecidos por recursos como SharePoint](https://go.microsoft.com/fwlink/?LinkId=747036)
 
-Este grupo es un conjunto de atributos que se pueden usar si no se emplea el directorio de Azure AD para admitir Office 365, Dynamics o Intune. Tiene un pequeño conjunto de atributos principales. Tenga en cuenta que, en algunas aplicaciones de terceros, el inicio de sesión único o el aprovisionamiento requieren la configuración de la sincronización de atributos además de los atributos que se describen aquí. Los requisitos de la aplicación se describen en el [tutorial de aplicaciones SaaS](../saas-apps/tutorial-list.md) para cada aplicación.
+Este grupo es un conjunto de atributos que se pueden usar si no se emplea el directorio de Azure AD para admitir Microsoft 365, Dynamics o Intune. Tiene un pequeño conjunto de atributos principales. Tenga en cuenta que, en algunas aplicaciones de terceros, el inicio de sesión único o el aprovisionamiento requieren la configuración de la sincronización de atributos además de los atributos que se describen aquí. Los requisitos de la aplicación se describen en el [tutorial de aplicaciones SaaS](../saas-apps/tutorial-list.md) para cada aplicación.
 
 | Nombre del atributo | Usuario | Contacto | Grupo | Comentario |
 | --- |:---:|:---:|:---:| --- |

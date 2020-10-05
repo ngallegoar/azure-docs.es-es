@@ -12,12 +12,12 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea7f2fbd910f574a6486f1db2eaa9b99a4e3ca3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07c1405482f107e370327ffbc049c77f483c29bd
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357875"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662567"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Sincronización de Azure AD Connect: cambio en la configuración predeterminada
 El objetivo de este artículo es guiarle para realizar cambios en la configuración predeterminada de la sincronización de Azure Active Directory (Azure AD) Connect. Proporciona las instrucciones para algunos escenarios comunes. Con este conocimiento, podrá realizar cambios sencillos en su propia configuración en función de sus propias reglas de negocio.
@@ -113,7 +113,7 @@ Si todo es como se esperaba, vuelva a habilitar el programador. En PowerShell, e
 La sección anterior describe cómo realizar cambios en un flujo de atributo. En esta sección, se proporcionan algunos ejemplos adicionales. Los pasos para crear la regla de sincronización están abreviados, pero encontrará los pasos completos en la sección anterior.
 
 ### <a name="use-an-attribute-other-than-the-default"></a>Uso de otro atributo distinto al valor predeterminado
-En este escenario de Fabrikam hay un bosque donde se usa el alfabeto local en el nombre, el apellido y el nombre para mostrar que se hayan especificado. La representación de caracteres latinos de estos atributos se encuentra en los atributos de extensión. Al generar una lista global de direcciones en Azure AD y Office 365, la organización quiere usar en su lugar estos atributos.
+En este escenario de Fabrikam hay un bosque donde se usa el alfabeto local en el nombre, el apellido y el nombre para mostrar que se hayan especificado. La representación de caracteres latinos de estos atributos se encuentra en los atributos de extensión. Al generar una lista global de direcciones en Azure AD y Microsoft 365, la organización quiere usar en su lugar estos atributos.
 
 Con una configuración predeterminada, un objeto del bosque local tiene el siguiente aspecto:  
 ![Flujo de atributos 1](./media/how-to-connect-sync-change-the-configuration/attributeflowjp1.png)

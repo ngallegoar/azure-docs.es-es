@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: af935aeaaeee11ab50b327b7f7b5b77246cb974b
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: e6b12c2bac4a9732f868f6a6ac3491ef993f54c3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566053"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976560"
 ---
 # <a name="limitations"></a>Limitaciones
 
@@ -28,7 +28,7 @@ Algunas características tienen limitaciones de tamaño, recuento u otras.
 
 ## <a name="geometry"></a>Geometría
 
-* Número total de materiales permitidos en un recurso: 65 535.
+* Número total de materiales permitidos en un recurso: 65 535. Consulte [Desduplicación de materiales](../how-tos/conversion/configure-model-conversion.md#material-de-duplication) para obtener más información.
 * Dimensión máxima de una sola textura: 16 384 x 16 384. El proceso de conversión reducirá la escala de las texturas de origen más grandes.
 
 ## <a name="overall-number-of-polygons"></a>Número total de polígonos

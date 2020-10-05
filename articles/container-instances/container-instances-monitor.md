@@ -3,12 +3,12 @@ title: Supervisión de instancias de contenedor
 description: Aprenda a supervisar el consumo de los recursos de computación, como la CPU y la memoria, en los contenedores de Azure Container Instances.
 ms.topic: article
 ms.date: 04/24/2019
-ms.openlocfilehash: e8d41e419abe43530186e256ac6253e2d4783f9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b10c370b599233d00b2b4a65268f6c61a11cbd5c
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116374"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526704"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Supervisión de los recursos de los contenedores en Azure Container Instances
 
@@ -44,7 +44,7 @@ En un grupo de contenedores que contenga varios contenedores, utilice una [dimen
 1. En la página **Información general** página, seleccione uno de los gráficos de métricas, como **CPU**. 
 1. Seleccione el botón **Apply splitting** (Aplicar división) y, después, seleccione **Nombre del contenedor**.
 
-![dimensión][dimension]
+![Captura de pantalla en la que se muestran las métricas de una instancia de contenedor con las opciones Aplicar división y Nombre de contenedor seleccionadas.][dimension]
 
 ## <a name="get-metrics---azure-cli"></a>Obtención de métricas mediante la CLI de Azure
 

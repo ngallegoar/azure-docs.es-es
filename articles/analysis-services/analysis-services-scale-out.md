@@ -4,15 +4,15 @@ description: Replique servidores de Azure Analysis Services con la escalabilidad
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/10/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ceed2a287fb210a421972e9c9f9e6c77c6cb1879
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 33f42b1d01bd0a39a268d9425a8406f976534634
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716935"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007713"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escalabilidad horizontal de Azure Analysis Services
 
@@ -41,6 +41,8 @@ Al realizar una operación de escalado horizontal posterior, por ejemplo, aument
 * Realice una sincronización *antes de la operación de escalado horizontal* para evitar la hidratación redundante de las réplicas agregadas. No se permiten operaciones de escalado horizontal y sincronización simultáneas que se ejecuten al mismo tiempo.
 
 * Al automatizar las operaciones de procesamiento *y* escalado horizontal, es importante procesar primero los datos en el servidor principal, luego realizar una sincronización y, por último, realizar la operación de escalado horizontal. Esta secuencia garantiza un impacto mínimo en los recursos de memoria y QPU.
+
+* Durante las operaciones de escalabilidad horizontal, todos los servidores del grupo de consultas, incluido el servidor principal, están sin conexión temporalmente.
 
 * Se permite la sincronización aun cuando no haya réplicas en el grupo de consultas. Si va a escalar horizontalmente de cero a una o más réplicas con nuevos datos de una operación de procesamiento en el servidor principal, primero realice la sincronización sin réplicas en el grupo de consultas y luego escale horizontalmente. La sincronización antes del escalado horizontal evita la hidratación redundante de las réplicas recién agregadas.
 
@@ -114,7 +116,7 @@ Las operaciones de sincronización deben realizarse manualmente o mediante la AP
 
 En **Información general** > modelo > **Sincronizar el modelo**.
 
-![Control deslizante de escalabilidad horizontal](media/analysis-services-scale-out/aas-scale-out-sync.png)
+![Icono Sincronizar](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### <a name="rest-api"></a>API DE REST
 

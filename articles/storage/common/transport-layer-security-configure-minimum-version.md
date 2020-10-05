@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 09/10/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 2439bec08c16ce109b271844dc72b8fd2569aa07
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 4c88791815d248cc20546d7942e7b0f107071186
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755915"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018584"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Aplicación de una versión mínima necesaria de Seguridad de la capa de transporte (TLS) para las solicitudes a una cuenta de almacenamiento
 
@@ -69,7 +69,7 @@ StorageBlobLogs
 
 Los resultados muestran el número de solicitudes realizadas con cada versión de TLS:
 
-:::image type="content" source="media/transport-layer-security-configure-minimum-version/log-analytics-query-version.png" alt-text="Captura de pantalla que muestra los resultados de la consulta de Log Analytics para devolver la versión de TLS":::
+:::image type="content" source="media/transport-layer-security-configure-minimum-version/log-analytics-query-version.png" alt-text="Captura de pantalla que muestra cómo crear una configuración de diagnóstico para el registro de las solicitudes":::
 
 ### <a name="query-logged-requests-by-caller-ip-address-and-user-agent-header"></a>Consulta de solicitudes registradas por dirección IP del autor de la llamada y por encabezado del agente de usuario
 
@@ -92,21 +92,25 @@ Si está seguro de que el tráfico de los clientes que usan versiones anteriores
 Para configurar la versión mínima de TLS para una cuenta de almacenamiento, establezca la versión **MinimumTlsVersion** de la cuenta. Esta propiedad está disponible para todas las cuentas de almacenamiento que se crean con el modelo de implementación de Azure Resource Manager. Para más información sobre el modelo de implementación de Azure Resource Manager, consulte [Introducción a las cuentas de almacenamiento](storage-account-overview.md).
 
 > [!NOTE]
-> La propiedad **minimumTlsVersion** no se establece de forma predeterminada y no devuelve un valor hasta que se establece de forma explícita. La cuenta de almacenamiento permite las solicitudes enviadas con la versión 1.0 o posterior de TLS si el valor de la propiedad es **NULL**.
+> Actualmente, la propiedad **MinimumTlsVersion** solo está disponible para las cuentas de almacenamiento de la nube pública de Azure.
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
-Para configurar la versión mínima de TLS de una cuenta de almacenamiento con Azure Portal, siga estos pasos:
+Al crear una cuenta de almacenamiento con Azure Portal, la versión mínima de TLS se establece en 1.2 de forma predeterminada.
+
+Para configurar la versión mínima de TLS de una cuenta de almacenamiento existente con Azure Portal, siga estos pasos:
 
 1. Vaya a la cuenta de almacenamiento en Azure Portal.
 1. Seleccione el valor de **Configuración**.
 1. En **Versión mínima de TLS**, use la lista desplegable para seleccionar la versión mínima de TLS necesaria para acceder a los datos de esta cuenta de almacenamiento, tal como se muestra en la siguiente imagen.
 
-    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Captura de pantalla que muestra cómo configurar la versión mínima de TLS en Azure Portal":::
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Captura de pantalla que muestra cómo crear una configuración de diagnóstico para el registro de las solicitudes":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Para configurar la versión mínima de TLS de una cuenta de almacenamiento con PowerShell, instale [Azure PowerShell, versión 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) o posterior. A continuación, configure la propiedad **MinimumTLSVersion** en una cuenta de almacenamiento nueva o existente. Los valores válidos para **MinimumTLSVersion** son `TLS1_0`, `TLS1_1` y `TLS1_2`.
+
+La propiedad **MinimumTlsVersion** no se establece de forma predeterminada al crear una cuenta de almacenamiento con PowerShell. Esta propiedad no devuelve ningún valor hasta que se establece explícitamente. La cuenta de almacenamiento permite las solicitudes enviadas con la versión 1.0 o posterior de TLS si el valor de la propiedad es **NULL**.
 
 En el ejemplo siguiente se crea una cuenta de almacenamiento y se establece la propiedad **MinimumTLSVersion** en TLS 1.1 y, a continuación, se actualiza la cuenta y se establece **MinimumTLSVersion** en TLS 1.2. En este ejemplo también se recupera el valor de propiedad en cada caso. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores:
 
@@ -116,18 +120,18 @@ $accountName = "<storage-account>"
 $location = "<location>"
 
 # Create a storage account with MinimumTlsVersion set to TLS 1.1.
-New-AzStorageAccount -ResourceGroupName $rgName \
-    -AccountName $accountName \
-    -Location $location \
-    -SkuName Standard_GRS \
+New-AzStorageAccount -ResourceGroupName $rgName `
+    -AccountName $accountName `
+    -Location $location `
+    -SkuName Standard_GRS `
     -MinimumTlsVersion TLS1_1
 
 # Read the MinimumTlsVersion property.
 (Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).MinimumTlsVersion
 
 # Update the MinimumTlsVersion version for the storage account to TLS 1.2.
-Set-AzStorageAccount -ResourceGroupName $rgName \
-    -AccountName $accountName \
+Set-AzStorageAccount -ResourceGroupName $rgName `
+    -AccountName $accountName `
     -MinimumTlsVersion TLS1_2
 
 # Read the MinimumTlsVersion property.
@@ -137,6 +141,8 @@ Set-AzStorageAccount -ResourceGroupName $rgName \
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Para configurar la versión mínima de TLS de una cuenta de almacenamiento con la CLI de Azure, instale la CLI de Azure, versión 2.9.0 o posterior. Para más información, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). A continuación, configure la propiedad **MinimumTLSVersion** en una cuenta de almacenamiento nueva o existente. Los valores válidos para **MinimumTLSVersion** son `TLS1_0`, `TLS1_1` y `TLS1_2`.
+
+La propiedad **minimumTlsVersion** no se establece de forma predeterminada cuando se crea una cuenta de almacenamiento con la CLI de Azure. Esta propiedad no devuelve ningún valor hasta que se establece explícitamente. La cuenta de almacenamiento permite las solicitudes enviadas con la versión 1.0 o posterior de TLS si el valor de la propiedad es **NULL**.
 
 En el ejemplo siguiente se crea una cuenta de almacenamiento y se establece **MinimumTLSVersion** en TLS 1.1. A continuación, se actualiza la cuenta y se establece la propiedad **MinimumTLSVersion** en TLS 1.2. En este ejemplo también se recupera el valor de propiedad en cada caso. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores:
 
@@ -301,7 +307,7 @@ Para ver el informe de cumplimiento en Azure Portal, siga estos pasos:
 1. Filtre los resultados por el nombre de la asignación de directiva que creó en el paso anterior. El informe muestra el número de recursos que no cumplen con la directiva.
 1. Puede explorar en profundidad el informe para obtener más detalles, incluida una lista de cuentas de almacenamiento que no cumplen los requisitos.
 
-    :::image type="content" source="media/transport-layer-security-configure-minimum-version/compliance-report-policy-portal.png" alt-text="Captura de pantalla que muestra el informe de cumplimiento de la directiva de auditoría para la versión mínima de TLS":::
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/compliance-report-policy-portal.png" alt-text="Captura de pantalla que muestra cómo crear una configuración de diagnóstico para el registro de las solicitudes":::
 
 ## <a name="use-azure-policy-to-enforce-the-minimum-tls-version"></a>Uso de Azure Policy para aplicar la versión mínima de TLS
 
@@ -337,7 +343,7 @@ Después de crear la directiva con el efecto de denegación y asignarla a un ám
 
 En la siguiente imagen se muestra el error que se produce si se intenta crear una cuenta de almacenamiento con una versión mínima de TLS establecida en TLS 1.0 (la versión predeterminada para una nueva cuenta) cuando una directiva con un efecto de denegación requiere que la versión mínima de TLS se establezca en TLS 1.2.
 
-:::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Captura de pantalla que muestra el error que se produce al crear una cuenta de almacenamiento que infringe la directiva":::
+:::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Captura de pantalla que muestra cómo crear una configuración de diagnóstico para el registro de las solicitudes":::
 
 ## <a name="network-considerations"></a>Consideraciones sobre la red
 

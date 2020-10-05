@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: b160f0aa50c30f7856bc09b88b3eb305f32d6f98
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 0aa0393544f5744c6aaf428ca4b4c27922a0c287
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961931"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987842"
 ---
 # <a name="back-up-your-app-in-azure"></a>Realizar una copia de seguridad de la aplicación en Azure
 La característica Copia de seguridad y restauración de [Azure App Service](overview.md) le permite crear fácilmente las copias de seguridad de la aplicación manualmente o con base en una programación. Puede configurar las copias de seguridad de modo que se conserven durante un período de tiempo indefinido. Puede restaurar la aplicación a una instantánea de un estado anterior sobrescribiendo la aplicación existente o restaurando en otra aplicación.
@@ -60,7 +60,7 @@ Las siguientes soluciones de base de datos son compatibles con la característic
     > [!NOTE]
     > Si ve el mensaje siguiente, haga clic en él para actualizar su plan de App Service antes de continuar con las copias de seguridad.
     > Vea [Escalado vertical de aplicaciones en Azure](manage-scale-up.md) para obtener más información.
-    > ![Selección de la cuenta de almacenamiento](./media/manage-backup/upgrade-plan.png)
+    > :::image type="content" source="./media/manage-backup/upgrade-plan.png" alt-text="Captura de pantalla de un banner con un mensaje para actualizar el plan de App Service para tener acceso a la característica Copia de seguridad y restauración.":::
     > 
     > 
 
@@ -70,13 +70,13 @@ Las siguientes soluciones de base de datos son compatibles con la característic
 
 3. En la página **Configuración de copia de seguridad**, haga clic en **Almacenamiento no configurado** para configurar una cuenta de almacenamiento.
 
-    ![Selección de la cuenta de almacenamiento](./media/manage-backup/configure-storage.png)
+    :::image type="content" source="./media/manage-backup/configure-storage.png" alt-text="Captura de pantalla de un banner con un mensaje para actualizar el plan de App Service para tener acceso a la característica Copia de seguridad y restauración.":::
 
 4. Elija el destino de copia de seguridad; para ello, seleccione una **Cuenta de almacenamiento** y un **Contenedor**. La cuenta de almacenamiento debe pertenecer a la misma suscripción que la aplicación de la que quiere realizar una copia de seguridad. Si lo desea, puede crear una nueva cuenta de almacenamiento o un nuevo contenedor en las páginas correspondientes. Cuando haya terminado, haga clic en **Seleccionar**.
 
 5. En la página **Configuración de copia de seguridad** que sigue abierta, puede configurar **Copia de seguridad de la base de datos**, seleccionar las bases de datos que desee incluir en las copias de seguridad (SQL Database o MySQL) y después haga clic en **Aceptar**.
 
-    ![Selección de la cuenta de almacenamiento](./media/manage-backup/configure-database.png)
+    :::image type="content" source="./media/manage-backup/configure-database.png" alt-text="Captura de pantalla de un banner con un mensaje para actualizar el plan de App Service para tener acceso a la característica Copia de seguridad y restauración.":::
 
     > [!NOTE]
     > Para que una base de datos aparezca en esta lista, su cadena de conexión debe existir en la sección **Cadenas de conexión** de la página **Configuración de la aplicación** de la aplicación. 

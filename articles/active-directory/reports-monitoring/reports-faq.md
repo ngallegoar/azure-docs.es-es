@@ -16,12 +16,12 @@ ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 352b4d46e1693580c386f11f7f4d949740f90cc6
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 1984e2f0bb55115c7d700b91f564d9f01c145151
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231051"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015337"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Preguntas frecuentes en torno a los informes de Azure Active Directory
 
@@ -37,7 +37,7 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 
 **P: Actualmente uso las API de punto de conexión `https://graph.windows.net/<tenant-name>/reports/`para extraer informes de seguridad de Azure AD (tipos específicos de detecciones, como credenciales perdidas o inicios de sesión desde direcciones IP anónimas) en nuestros sistemas de informes mediante programación. ¿A cuál debo cambiar?**
 
-**R:** Puede usar la  [API de detecciones de riesgo de Identity Protection](../identity-protection/howto-identity-protection-graph-api.md)  para acceder a las detecciones de seguridad mediante Microsoft Graph. Este nuevo formato proporciona mayor flexibilidad en el modo en que permite consultar los datos, con filtrado avanzado, selección de campos y mucho más, y normaliza las detecciones de riesgo en un tipo para facilitar la integración en SIEM y otras herramientas de recolección de datos. Dado que los datos están en un formato diferente, no puede sustituir una nueva consulta para las consultas anteriores. Sin embargo, [la nueva API utiliza Microsoft Graph](/graph/api/resources/identityriskevent?view=graph-rest-beta), que es el estándar de Microsoft para estas API como Office 365 o Azure AD. Así, el trabajo necesario puede dilatar sus inversiones actuales en Microsoft Graph o ayudarle a comenzar la transición a esta nueva plataforma estándar.
+**R:** Puede usar la  [API de detecciones de riesgo de Identity Protection](../identity-protection/howto-identity-protection-graph-api.md)  para acceder a las detecciones de seguridad mediante Microsoft Graph. Este nuevo formato proporciona mayor flexibilidad en el modo en que permite consultar los datos, con filtrado avanzado, selección de campos y mucho más, y normaliza las detecciones de riesgo en un tipo para facilitar la integración en SIEM y otras herramientas de recolección de datos. Dado que los datos están en un formato diferente, no puede sustituir una nueva consulta para las consultas anteriores. Sin embargo, [la nueva API utiliza Microsoft Graph](/graph/api/resources/identityriskevent?view=graph-rest-beta), que es el estándar de Microsoft para estas API como Microsoft 365 o Azure AD. Así, el trabajo necesario puede dilatar sus inversiones actuales en Microsoft Graph o ayudarle a comenzar la transición a esta nueva plataforma estándar.
 
 ---
 
@@ -81,15 +81,15 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 
 ---
 
-**P: ¿Puedo obtener información del registro de actividad de Office 365 a través de Azure Portal?**
+**P: ¿Puedo obtener información del registro de actividad de Microsoft 365 a través de Azure Portal?**
 
-**R:** Aunque los registros de actividad de Office 365 y de Azure AD comparten muchos de los recursos del directorio, si desea obtener una vista completa de los registros de actividad de Office 365, debe ir al [Centro de administración de Microsoft 365](https://admin.microsoft.com) para obtener la información del registro de actividad de Office 365.
+**R:** Aunque los registros de actividad de Microsoft 365 y de Azure AD comparten muchos de los recursos del directorio, si desea obtener una vista completa de los registros de actividad de Microsoft 365, debe ir al [Centro de administración de Microsoft 365](https://admin.microsoft.com) para obtener la información del registro de actividad de Office 365.
 
 ---
 
-**P: ¿Qué API utilizo para obtener información sobre los registros de actividad de Office 365?**
+**P: ¿Qué API utilizo para obtener información sobre los registros de actividad de Microsoft 365?**
 
-**R:** Use las [API de Administración de Office 365](/office/office-365-management-api/office-365-management-apis-overview) para acceder a los registros de actividad de Office 365 a través de una API.
+**R:** Use las [API de Administración de Microsoft 365](/office/office-365-management-api/office-365-management-apis-overview) para acceder a los registros de actividad de Microsoft 365 a través de una API.
 
 ---
 

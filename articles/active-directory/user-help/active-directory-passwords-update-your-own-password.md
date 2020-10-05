@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 05/28/2020
+ms.date: 09/10/2020
 ms.author: curtand
-ms.openlocfilehash: b83cdf0b069eac2e46cfdd54edc11a1aa5a41075
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c2bf4d5facc96a0876d4321a61ed6f414dfd78da
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799050"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029552"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Restablecimiento de la contraseña profesional o educativa con la información de seguridad
 
@@ -107,7 +107,7 @@ Después de restablecer la contraseña, puede que reciba un correo electrónico 
 
 ## <a name="how-to-change-your-password"></a>Cambio de la contraseña
 
-Si desea cambiar la contraseña, puede hacerlo mediante el portal de Office 365, el panel de acceso de Azure o la página de inicio de sesión de Windows 10.
+Si quiere cambiar la contraseña, puede hacerlo mediante el portal de Office 365, el portal Aplicaciones o la página de inicio de sesión de Windows 10.
 
 ### <a name="to-change-your-password-using-the-office-365-portal"></a>Para cambiar la contraseña desde el portal de Office 365
 
@@ -121,11 +121,11 @@ Use este método si normalmente accede a las aplicaciones mediante el Portal de 
 
 4. Escriba la contraseña anterior, establezca la nueva contraseña y confírmela, y luego seleccione **Enviar**.
 
-### <a name="to-change-your-password-from-the-azure-access-panel"></a>Para cambiar la contraseña en el panel de acceso de Azure
+### <a name="to-change-your-password-from-the-my-apps-portal"></a>Para cambiar la contraseña desde el portal Aplicaciones:
 
-Use este método si normalmente accede a las aplicaciones mediante el panel de acceso de Azure (MyApps):
+Use este método si normalmente accede a las aplicaciones desde el portal Aplicaciones:
 
-1. Inicie sesión en el [panel de acceso de Azure](https://myapps.microsoft.com/) usando su contraseña existente.
+1. Inicie sesión en el [portal Aplicaciones](https://myapps.microsoft.com/) usando su contraseña existente.
 
 2. Seleccione el perfil que se encuentra en la parte superior derecha y luego elija **Perfil**.
 

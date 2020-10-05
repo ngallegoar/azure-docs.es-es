@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/21/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: de495d18220500e5aa5653e89776c2634d5b1c85
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: fbc2aba21212a83bd73d5664f4fe288017954c0d
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719159"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084216"
 ---
 # <a name="add-language-packs-to-a-windows-10-multi-session-image"></a>Adición de paquetes de idioma a una imagen multisesión de Windows 10
 
@@ -30,7 +30,7 @@ Necesita lo siguiente para personalizar las imágenes multisesión de Windows 1
 
 - Una máquina virtual (VM) de Azure con Windows 10 Enterprise multisesión, versión 1903 o posterior.
 
-- El archivo ISO del idioma y el disco 1 de características a petición para la versión del sistema operativo que usa la imagen. Puedes descargarlas aquí: 
+- El archivo ISO de idioma, el disco 1 de características a petición (FOD) y el código ISO de aplicaciones de bandeja de entrada de la versión del sistema operativo que usa la imagen. Puedes descargarlas aquí: 
      
      - ISO del idioma:
         - [Archivo ISO del paquete de idioma de Windows 10, versión 1903 o 1909](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
@@ -39,6 +39,10 @@ Necesita lo siguiente para personalizar las imágenes multisesión de Windows 1
      - Archivo ISO del disco 1 de característica previa petición:
         - [Archivo ISO del disco 1 de característica previa petición de Windows 10, versión 1903 o 1909](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
         - [Archivo ISO del disco 1 de característica previa petición de Windows 10, versión 2004](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
+        
+     - Archivo ISO de aplicaciones de bandeja de entrada:
+        - [Archivo ISO de aplicaciones de bandeja de entrada de Windows 10, versión 1903 o 1909](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_InboxApps.iso)
+        - [Archivo ISO de aplicaciones de bandeja de entrada de Windows 10, versión 2004](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_InboxApps.iso)
 
 - Un recurso compartido de Azure Files o un recurso compartido de archivos en una máquina virtual del servidor de archivos de Windows
 
@@ -47,15 +51,16 @@ Necesita lo siguiente para personalizar las imágenes multisesión de Windows 1
 
 ## <a name="create-a-content-repository-for-language-packages-and-features-on-demand"></a>Creación de un repositorio de contenido para paquetes de idioma y características previa petición
 
-Para crear el repositorio de contenido para los paquetes de idioma y las características previa petición:
+Para crear el repositorio de contenido para los paquetes de idioma y las características a petición y un repositorio para los paquetes de aplicaciones de bandeja de entrada:
 
-1. En una máquina virtual de Azure, descargue el archivo ISO multilingüe de Windows 10 y las características previa petición para Windows 10 Enterprise multisesión, versión 1903, 1909 y 2004 de los vínculos en la sección [Requisitos previos](#prerequisites).
+1. En una máquina virtual de Azure, descargue el archivo ISO multilingüe de Windows 10, las características a petición y las aplicaciones de bandeja de entrada para las imágenes multisesión de Windows 10 Enterprise, versión 1903/1909 y 2004, de los vínculos de la sección [Requisitos previos](#prerequisites).
 
 2. Abra y monte los archivos ISO en la máquina virtual.
 
 3. Vaya al ISO del paquete de idioma y copie el contenido de las carpetas **LocalExperiencePacks** y **x64\\langpacks** y, a continuación, péguelo en el recurso compartido de archivos.
 
 4. Vaya al **archivo ISO de característica previa petición**, copie todo su contenido y péguelo en el recurso compartido de archivos.
+5. Vaya a la carpeta **amd64fre** en el archivo ISO de aplicaciones de bandeja de entrada y copie el contenido del repositorio para las aplicaciones de bandeja de entrada que ha preparado.
 
      >[!NOTE]
      > Si está trabajando con un almacenamiento limitado, debe copiar solo los archivos de los idiomas que sepa que los usuarios necesitan. Puede diferenciar los archivos al observar los códigos de idioma en los nombres de archivo. Por ejemplo, el archivo del francés tiene el código "fr-FR" en el nombre. Para obtener una lista completa de los códigos de idioma de todos los idiomas disponibles, consulte [Paquetes de idioma disponibles para Windows](/windows-hardware/manufacture/desktop/available-language-packs-for-windows).
@@ -66,7 +71,7 @@ Para crear el repositorio de contenido para los paquetes de idioma y las caracte
      > [!div class="mx-imgBorder"]
      > ![Un ejemplo de los paquetes de idioma del japonés con la etiqueta de idioma "Jpan" en el nombre de los archivos.](media/language-pack-example.png)
 
-5. Establezca los permisos en el recurso compartido del repositorio de contenido de idioma para que tenga acceso de lectura desde la máquina virtual que usará para crear la imagen personalizada.
+6. Establezca los permisos en el recurso compartido del repositorio de contenido de idioma para que tenga acceso de lectura desde la máquina virtual que usará para crear la imagen personalizada.
 
 ## <a name="create-a-custom-windows-10-enterprise-multi-session-image-manually"></a>Creación manual de una imagen multisesión de Windows 10 Enterprise personalizada
 
@@ -75,7 +80,7 @@ Para crear manualmente una imagen multisesión de Windows 10 Enterprise persona
 1. Implemente una máquina virtual de Azure y, luego, vaya a la galería de Azure y seleccione la versión actual de Windows 10 Enterprise multisesión que está usando.
 2. Una vez que haya implementado la máquina virtual, conéctese a ella mediante RDP como administrador local.
 3. Asegúrese de que la máquina virtual tiene todas las actualizaciones de Windows más recientes. Descargue las actualizaciones y reinicie la máquina virtual, si es necesario.
-4. Conéctese al repositorio del recurso compartido del paquete de idioma y característica previa anticipación y móntelo en una letra de unidad (por ejemplo, la unidad E).
+4. Conéctese al repositorio de recursos compartidos de archivos del paquete de idioma, las características a petición y las aplicaciones de bandeja de entrada y móntelo en una letra de unidad (por ejemplo, la unidad E).
 
 ## <a name="create-a-custom-windows-10-enterprise-multi-session-image-automatically"></a>Creación automática de una imagen multisesión de Windows 10 Enterprise personalizada
 
@@ -161,6 +166,56 @@ El script puede tardar unos minutos, en función del número de idiomas que nece
 
 Una vez finalizada la ejecución del script, asegúrese de que los paquetes de idioma se hayan instalado correctamente; para ello, vaya a **Inicio** > **Configuración** > **Hora e idioma** > **Idioma**. Si los archivos de idioma se encuentran ahí, todo está listo.
 
+Después de agregar idiomas adicionales a la imagen de Windows, también es necesario actualizar las aplicaciones de bandeja de entrada para admitir los idiomas agregados. Para ello, se pueden actualizar las aplicaciones preinstaladas con el contenido del archivo ISO de aplicaciones de bandeja de entrada. Para realizar esta actualización en un entorno desconectado (no es posible el acceso a Internet desde la máquina virtual), puede usar el siguiente ejemplo de script de PowerShell para automatizar el proceso.
+
+```powershell
+#########################################
+## Update Inbox Apps for Multi Language##
+#########################################
+##Set Inbox App Package Content Stores##
+[string]$InboxApps = "F:\"
+##Update Inbox Store Apps##
+$AllAppx = Get-Item $inboxapps\*.appx | Select-Object name
+$AllAppxBundles = Get-Item $inboxapps\*.appxbundle | Select-Object name
+$allAppxXML = Get-Item $inboxapps\*.xml | Select-Object name
+foreach ($Appx in $AllAppx) {
+    $appname = $appx.name.substring(0,$Appx.name.length-5)
+    $appnamexml = $appname + ".xml"
+    $pathappx = $InboxApps + "\" + $appx.Name
+    $pathxml = $InboxApps + "\" + $appnamexml
+    
+    if($allAppxXML.name.Contains($appnamexml)){
+    
+    Write-Host "Handeling with xml $appname"  
+  
+    Add-AppxProvisionedPackage -Online -PackagePath $pathappx -LicensePath $pathxml
+    } else {
+      
+      Write-Host "Handeling without xml $appname"
+      
+      Add-AppxProvisionedPackage -Online -PackagePath $pathappx -skiplicense
+    }
+}
+foreach ($Appx in $AllAppxBundles) {
+    $appname = $appx.name.substring(0,$Appx.name.length-11)
+    $appnamexml = $appname + ".xml"
+    $pathappx = $InboxApps + "\" + $appx.Name
+    $pathxml = $InboxApps + "\" + $appnamexml
+    
+    if($allAppxXML.name.Contains($appnamexml)){
+    Write-Host "Handeling with xml $appname"
+    
+    Add-AppxProvisionedPackage -Online -PackagePath $pathappx -LicensePath $pathxml
+    } else {
+       Write-Host "Handeling without xml $appname"
+      Add-AppxProvisionedPackage -Online -PackagePath $pathappx -skiplicense
+    }
+}
+```
+
+>[!IMPORTANT]
+>Las aplicaciones de bandeja de entrada incluidas en el archivo ISO no son las versiones más recientes de las aplicaciones de Windows preinstaladas. Para obtener la versión más reciente de todas las aplicaciones, debe actualizar las aplicaciones mediante la aplicación de la Tienda Windows y realizar una búsqueda manual de actualizaciones después de haber instalado los idiomas adicionales.
+
 Cuando haya terminado, asegúrese de desconectar el recurso compartido.
 
 ## <a name="finish-customizing-your-image"></a>Finalización de la personalización de la imagen
@@ -177,15 +232,15 @@ Para ejecutar sysprep, haga lo siguiente:
      C:\Windows\System32\Sysprep\sysprep.exe /oobe /generalize /shutdown
      ```
 
-2. Apague la máquina virtual, captúrela en una imagen administrada siguiendo las instrucciones de [Captura de una imagen administrada de una máquina virtual generalizada en Azure](../virtual-machines/windows/capture-image-resource.md).
+2. Detenga la máquina virtual y captúrela en una imagen administrada siguiendo las instrucciones que se indican en [Creación de una imagen administrada de una máquina virtual generalizada en Azure](../virtual-machines/windows/capture-image-resource.md).
 
 3. Ahora puede usar la imagen personalizada para implementar un grupo de hosts de Windows Virtual Desktop. Para aprender a implementar un grupo de hosts, consulte [Tutorial: Creación de un grupo de hosts con Azure Portal](create-host-pools-azure-marketplace.md).
 
 ## <a name="enable-languages-in-windows-settings-app"></a>Habilitación de idiomas en la aplicación de configuración de Windows
 
-Por último, deberá agregar el idioma a la lista de idiomas de cada usuario para que pueda seleccionar su idioma preferido en el menú Configuración.
+Por último, después de implementar el grupo de hosts, deberá agregar el idioma a la lista de idiomas de cada usuario para que puedan seleccionar su idioma preferido en el menú Configuración.
 
-Para asegurarse de que los usuarios pueden seleccionar los idiomas que ha instalado, inicie sesión como un usuario y, después, ejecute el siguiente cmdlet de PowerShell para agregar los paquetes de idioma instalados al menú Idiomas. También puede configurar este script como una tarea automatizada que se activa cuando el usuario inicia sesión en su sesión.
+Para asegurarse de que los usuarios pueden seleccionar los idiomas que ha instalado, inicie sesión como un usuario y, después, ejecute el siguiente cmdlet de PowerShell para agregar los paquetes de idioma instalados al menú Idiomas. También puede configurar este script como una tarea automatizada o un script de inicio de sesión que se activan cuando el usuario inicia sesión.
 
 ```powershell
 $LanguageList = Get-WinUserLanguageList

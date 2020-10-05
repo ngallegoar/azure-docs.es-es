@@ -10,13 +10,13 @@ manager: anandsub
 ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/30/2020
-ms.openlocfilehash: 66cc7b0d4f205a93c41f49ecaadac495a98b6da6
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.date: 09/08/2020
+ms.openlocfilehash: 2f4e0728a863521f772f4d1c9531b07f427bfb3e
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949140"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595105"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Control de código fuente en Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -242,13 +242,13 @@ A continuación, se muestran algunos ejemplos de situaciones que pueden provocar
 
 ## <a name="switch-to-a-different-git-repository"></a>Cambio a un repositorio de Git diferente
 
-Para cambiar a un repositorio de Git, haga clic en el icono de **configuración del repositorio de Git** situado en la esquina superior derecha de la página de información general de Data Factory. Si no ve el icono, borre la caché del explorador local. Seleccione el icono para quitar la asociación con el repositorio actual.
+Para cambiar a un repositorio de Git diferente, vaya a la página de configuración de Git en el centro de administración en **Control de código fuente**. Seleccione **Desconectar**. 
 
-![Icono de Git](media/author-visually/remove-repo.png)
+![Icono de Git](media/author-visually/remove-repository.png)
 
-Cuando aparezca el panel de configuración del repositorio, seleccione **Remove Git** (Quitar Git). Escriba el nombre de la factoría de datos y haga clic en **Confirm** (Confirmar) para quitar el repositorio de Git asociado a la factoría de datos.
+Escriba el nombre de la factoría de datos y haga clic en **Confirm** (Confirmar) para quitar el repositorio de Git asociado a la factoría de datos.
 
-![Elimine la asociación con el repositorio de Git actual.](media/author-visually/remove-repo2.png)
+![Elimine la asociación con el repositorio de Git actual.](media/author-visually/remove-repository-2.png)
 
 Después de quitar la asociación con el repositorio actual, puede configurar las opciones de Git para usar un repositorio diferente y, luego, importar los recursos existentes de Data Factory en el nuevo repositorio.
 

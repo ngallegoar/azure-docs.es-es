@@ -3,12 +3,12 @@ title: Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)
 description: Encuentre respuestas a algunas de las preguntas comunes sobre Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 7a56756855319ee72bd5b3dc60ad1ae440afd7fe
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 4150f850263aed7b8aa4317028386dc285f06ade
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927154"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905345"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)
 
@@ -174,6 +174,10 @@ Confirme que la entidad de servicio no ha expirado.  Consulte: [Entidad de servi
 ## <a name="my-cluster-was-working-but-suddenly-cannot-provision-loadbalancers-mount-pvcs-etc"></a>Mi clúster estaba funcionando, pero, de repente, no puede aprovisionar LoadBalancers, montar PVC, etc. 
 
 Confirme que la entidad de servicio no ha expirado.  Consulte: [Entidad de servicio de AKS](./kubernetes-service-principal.md) y [Credenciales de actualización de AKS](./update-credentials.md).
+
+## <a name="can-i-scale-my-aks-cluster-to-zero"></a>¿Puedo escalar el clúster de AKS a cero?
+Puede [detener completamente un clúster de AKS en ejecución](start-stop-cluster.md), lo que ahorrará los costos de proceso respectivos. Además, también puede optar por [escalar o escalar automáticamente todos los grupos de nodos `User` o algunos específicos](scale-cluster.md#scale-user-node-pools-to-0) a 0, manteniendo solo la configuración necesaria del clúster.
+No se puede escalar directamente [grupos de nodos del sistema](use-system-pools.md) a 0.
 
 ## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>¿Puedo usar las API del conjunto de escalado de máquinas virtuales para escalar manualmente?
 

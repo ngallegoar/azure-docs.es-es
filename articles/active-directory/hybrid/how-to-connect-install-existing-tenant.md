@@ -16,12 +16,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 582ec01a7a843358bef749aec693a59f88a1d655
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 9398fc9ee61bed41cd1e8c227fc4b4068e4b3e69
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640657"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662245"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existing-tenant"></a>Azure AD Connect: Si tiene un inquilino existente
 En la mayoría de los temas sobre cómo usar Azure AD Connect se da por supuesto que empieza con un nuevo inquilino de Azure AD sin objetos ni usuarios. Sin embargo, si ha empezado con un inquilino de Azure AD, rellenado con usuarios y otros objetos, y ahora desea utilizar Connect, eche un vistazo a este tema.
@@ -41,7 +41,7 @@ La coincidencia solo se evalúa para los nuevos objetos procedentes de Connect. 
 Si Azure AD encuentra un objeto cuyos valores de atributo son los mismos que los de uno procedente de Connect y que ya se encuentra en Azure AD, el objeto de Azure AD pasa a ser propiedad de Connect. El objeto administrado previamente en la nube se marca como administrado en local. Todos los atributos de Azure AD con un valor en AD local se sobrescriben con el valor local. La excepción es cuando un atributo tiene un valor **NULL** local. En este caso, el valor sigue estando en Azure AD, pero solo podrá cambiarlo en local.
 
 > [!WARNING]
-> Puesto que todos los atributos de Azure AD se van a sobrescribir por el valor local, asegúrese de que dispone de datos en buen estado en un entorno local. Por ejemplo, si solo tiene una dirección de correo electrónico administrada en Office 365 y no se mantiene actualizada en AD DS local, se pierden todos los valores de Azure AD u Office 365 que no se encuentren en AD DS.
+> Puesto que todos los atributos de Azure AD se van a sobrescribir por el valor local, asegúrese de que dispone de datos en buen estado en un entorno local. Por ejemplo, si solo tiene una dirección de correo electrónico administrada en Microsoft 365 y no se mantiene actualizada en AD DS local, se pierden todos los valores de Azure AD u Microsoft 365 que no se encuentren en AD DS.
 
 > [!IMPORTANT]
 > Si usa la sincronización de contraseñas, que siempre se utiliza en la configuración rápida, la contraseña de Azure AD se sobrescribe por la de AD local. Si los usuarios se usan para administrar contraseñas diferentes, tendrá que informarles de que deben usar la contraseña local tras instalar Connect.

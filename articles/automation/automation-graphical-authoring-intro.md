@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: c5d611ddffedc2f69cfc4f2b5600a158b0be9680
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 161272fe35ee9ea1e0880b991273e5d1a79eafb4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186340"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987326"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Control de errores en runbooks gráficos de Azure Automation
 
@@ -61,7 +61,7 @@ Seleccione una actividad en el lienzo para configurar sus propiedades y parámet
 
 Un conjunto de parámetros define los parámetros obligatorios y opcionales que aceptan los valores de un cmdlet determinado. Todos los cmdlets tienen, al menos, un conjunto de parámetros y algunos tienen varios. Si un cmdlet tiene varios conjuntos de parámetros, debe seleccionar cuál va a usar para poder configurar los parámetros. Puede cambiar el conjunto de parámetros que una actividad usa mediante la selección de **Conjunto de parámetros** y luego de otro conjunto. En este caso, se pierden todos los valores de parámetro que ya había configurado.
 
-En el ejemplo siguiente, el cmdlet [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0) tiene tres conjuntos de parámetros. En el ejemplo se utiliza un conjunto denominado **ListVirtualMachineInResourceGroupParamSet**, con un único parámetro opcional, para devolver todas las máquinas virtuales de un grupo de recursos. En el ejemplo también se usa el conjunto de parámetros **GetVirtualMachineInResourceGroupParamSet** para especificar la máquina virtual que se va a devolver. Este conjunto tiene dos parámetros obligatorios y un parámetro opcional.
+En el ejemplo siguiente, el cmdlet [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0&preserve-view=true) tiene tres conjuntos de parámetros. En el ejemplo se utiliza un conjunto denominado **ListVirtualMachineInResourceGroupParamSet**, con un único parámetro opcional, para devolver todas las máquinas virtuales de un grupo de recursos. En el ejemplo también se usa el conjunto de parámetros **GetVirtualMachineInResourceGroupParamSet** para especificar la máquina virtual que se va a devolver. Este conjunto tiene dos parámetros obligatorios y un parámetro opcional.
 
 ![Conjunto de parámetros](media/automation-graphical-authoring-intro/get-azvm-parameter-sets.png)
 
@@ -91,11 +91,11 @@ La funcionalidad de reintento permite que una actividad se ejecute varias veces 
 
 Cuando se habilita el reintento de una actividad, puede establecer un retraso y una condición. El retraso es el tiempo (medido en segundos o minutos) que el runbook espera antes de volver a ejecutar la actividad. Si no se especifica un retraso, la actividad se ejecuta de nuevo inmediatamente después de completarse.
 
-![Retraso de reintento de actividades](media/automation-graphical-authoring-intro/retry-delay.png)
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-delay.png" alt-text="Captura de pantalla de la configuración de la característica Habilitar reintento.":::
 
 La condición de reintento es una expresión de PowerShell que se evalúa después de cada vez que se ejecuta la actividad. Si la expresión se resuelve en True, la actividad se vuelve a ejecutar. Si la expresión se resuelve en False, la actividad no se vuelve a ejecutar y el runbook pasa a la actividad siguiente.
 
-![Retraso de reintento de actividades](media/automation-graphical-authoring-intro/retry-condition.png)
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="Captura de pantalla de la configuración de la característica Habilitar reintento.":::
 
 La condición de reintento puede utilizar una variable denominada `RetryData` que proporciona acceso a información sobre los reintentos de actividad. Esta variable tiene las propiedades de la tabla siguiente:
 
@@ -435,4 +435,4 @@ Tiene la opción de revertir a la versión publicada de un runbook. Esta operaci
 * Para empezar a trabajar con runbooks de PowerShell, vea el [Tutorial: Crear un runbook gráfico](learn/automation-tutorial-runbook-graphical.md).
 * Para más información sobre los tipos de runbook, sus ventajas y sus limitaciones, consulte [Tipos de runbooks de Azure Automation](automation-runbook-types.md).
 * Para comprender cómo se realiza la autenticación con la cuenta de ejecución de Automation, consulte [Cuentas de ejecución](automation-security-overview.md#run-as-account).
-* Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation).

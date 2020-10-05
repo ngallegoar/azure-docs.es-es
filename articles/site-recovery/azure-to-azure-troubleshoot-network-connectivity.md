@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: afa2cbdb7b0703f9fc0b419442570744c6fefae1
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 6adfd9bc778318b406d5ce27cadccdad02d73d69
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049696"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437469"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Solución de problemas de conectividad de red de máquinas virtuales de Azure en Azure
 
@@ -74,14 +74,11 @@ En este ejemplo se muestra cómo configurar reglas de NSG para la replicación d
 
 1. Cree una regla de seguridad para el tráfico HTTPS de salida para el grupo de seguridad de red, tal como se muestra en la captura de pantalla siguiente. En este ejemplo se usa la **etiqueta de servicio de destino**: _Storage.EastUS_ y los **intervalos de puertos de destino**: _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="storage-tag":::
+     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="com-error":::
 
 1. Cree una regla de seguridad para el tráfico HTTPS de salida para el grupo de seguridad de red, tal como se muestra en la captura de pantalla siguiente. En este ejemplo se usa la **etiqueta de servicio de destino**: _AzureActiveDirectory_ y los **intervalos de puertos de destino**: _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="aad-tag":::
-
-1. De forma similar a las reglas de seguridad anteriores, cree una regla de seguridad HTTPS (443) de salida para ""EventHub.CentralUS" en el NSG que corresponda a la ubicación de destino. Esto permite el acceso a la supervisión de Site Recovery.
-1. Cree una regla de seguridad HTTPS (443) de salida para "AzureSiteRecovery" en el NSG. Esto permite el acceso al servicio Site Recovery en cualquier región.
+     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="com-error" en el NSG. Esto permite el acceso al servicio Site Recovery en cualquier región.
 
 #### <a name="nsg-rules---central-us"></a>Reglas de NSG: centro de EE. UU.
 
@@ -108,7 +105,7 @@ No se puede establecer una conexión con los puntos de conexión del servicio Az
 
 #### <a name="resolution"></a>Solución
 
-Azure Site Recovery necesita tener acceso a [intervalos de IP de Site Recovery](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) en función de la región. Asegúrese de que los intervalos IP están accesibles desde la máquina virtual.
+Si usa una regla de grupo de seguridad de red (NSG) de Azure o proxy de Firewall para controlar la conectividad de red saliente en el equipo, hay varias etiquetas de servicio que deben permitirse. [Más información](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
 
 ### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Problema 4: Error de replicación de Azure a Azure cuando el tráfico de red pasa por el servidor proxy local (151072)
 

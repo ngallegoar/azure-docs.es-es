@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dbe3af30963791891f0ceee4e18c34e078c0ac7a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0e217676f5e1f4dcba24917cb140d9d4d8fcc422
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013187"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024373"
 ---
 # <a name="z-fighting-mitigation"></a>Mitigación de Z-fighting
 
@@ -21,9 +21,9 @@ Cuando se superponen dos superficies, no queda claro cuál se debe representar e
 
 |Situación                        | Resultado                               |
 |---------------------------------|:-------------------------------------|
-|Z-fighting normal               |![Z-fighting](./media/zfighting-0.png)|
-|Mitigación de Z-fighting habilitada    |![Z-fighting](./media/zfighting-1.png)|
-|Resaltado de tablero de damas habilitado|![Z-fighting](./media/zfighting-2.png)|
+|Z-fighting normal               |![No hay ninguna prioridad determinista entre los cuádruplos rojo y verde](./media/zfighting-0.png)|
+|Mitigación de Z-fighting habilitada    |![El cuádruplo rojo tiene prioridad](./media/zfighting-1.png)|
+|Resaltado de tablero de damas habilitado|![Prioridad de alternancia entre cuádruplos rojos y verdes en un patrón de tablero de ajedrez](./media/zfighting-2.png)|
 
 El código siguiente habilita la mitigación de Z-fighting:
 
@@ -53,7 +53,6 @@ void EnableZFightingMitigation(ApiHandle<AzureSession> session, bool highlight)
 }
 ```
 
-
 > [!NOTE]
 > la mitigación de Z-fighting es una configuración global que afecta a todas las mallas representadas.
 
@@ -76,6 +75,11 @@ La mitigación de Z-fighting proporcionada es un intento de mejora. No hay ningu
 
 * La habilitación de la mitigación de Z-fighting no ocasiona apenas sobrecarga del rendimiento.
 * Además, la habilitación de la superposición de Z-fighting conlleva una sobrecarga de rendimiento considerable, aunque puede variar en función de la escena.
+
+## <a name="api-documentation"></a>Documentación de la API
+
+* [Propiedad RemoteManager.ZFightingMitigationSettings de C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.zfightingmitigationsettings)
+* [RemoteManager::ZFightingMitigationSettings() de C++](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#zfightingmitigationsettings)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

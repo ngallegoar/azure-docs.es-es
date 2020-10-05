@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 08/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: a0f1e7789c0cebdd1cb5b22f21151020a0be09c9
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: c05de0462dde2b09e0e01919dfc691a85df153fa
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855108"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483276"
 ---
 # <a name="data-storage"></a>Almacenamiento de datos
 
@@ -24,7 +24,7 @@ Cuando se crea un entorno de Azure Time Series Insights Gen2, se crean también 
 * Un entorno de Azure Time Series Insights Gen2 que se puede configurar para el almacenamiento de datos intermedio.
 * Una cuenta de Azure Storage para el almacenamiento de datos en frío.
 
-Los datos del almacenamiento intermedio solo están disponibles a través de las [API Time Series Query](./time-series-insights-update-tsq.md) y el [explorador de Azure Time Series Insights TSI](./time-series-insights-update-explorer.md). El almacén intermedio contendrá datos recientes dentro del [período de retención](./time-series-insights-update-plan.md#the-preview-environment) seleccionado al crear el entorno de Azure Time Series Insights Gen2.
+Los datos del almacenamiento intermedio solo están disponibles a través de las [API Time Series Query](./time-series-insights-update-tsq.md) y el [explorador de Azure Time Series Insights](./time-series-insights-update-explorer.md). El almacén intermedio contendrá datos recientes dentro del [período de retención](./time-series-insights-update-plan.md#the-preview-environment) seleccionado al crear el entorno de Azure Time Series Insights Gen2.
 
 Azure Time Series Insights Gen2 guarda los datos del almacenamiento en reposo en Azure Blob Storage con el [formato de archivo de Parquet](#parquet-file-format-and-folder-structure). Azure Time Series Insights Gen2 administra estos datos del almacenamiento en reposo de forma exclusiva, aunque están disponibles para leerse directamente como archivos estándar de Parquet.
 
@@ -58,7 +58,7 @@ Para garantizar el rendimiento de las consultas y la disponibilidad de los datos
 
 #### <a name="accessing-cold-store-data"></a>Acceso a datos de almacenamiento en reposo
 
-Además de acceder a los datos desde el [explorador de Azure Time Series Insights TSI ](./time-series-insights-update-explorer.md) y las [API Time Series Query](./time-series-insights-update-tsq.md), puede que también desee acceder a los datos directamente desde los archivos Parquet almacenados en el almacenamiento en reposo. Por ejemplo, puede leer, transformar y limpiar los datos en un cuaderno de Jupyter y luego usarlo para entrenar el modelo de Azure Machine Learning en el mismo flujo de trabajo de Spark.
+Además de acceder a los datos desde el [explorador de Azure Time Series Insights](./time-series-insights-update-explorer.md) y las [API Time Series Query](./time-series-insights-update-tsq.md), puede que también desee acceder a los datos directamente desde los archivos Parquet almacenados en el almacenamiento en reposo. Por ejemplo, puede leer, transformar y limpiar los datos en un cuaderno de Jupyter y luego usarlo para entrenar el modelo de Azure Machine Learning en el mismo flujo de trabajo de Spark.
 
 Para acceder a los datos directamente desde su cuenta de Azure Storage, necesita acceso de lectura a la cuenta usada para almacenar los datos de Azure Time Series Insights Gen2. A continuación, puede leer los datos seleccionados en función de la hora de creación del archivo de Parquet que se encuentra en la carpeta `PT=Time` que se describe a continuación en la sección [Formato de archivo de Parquet](#parquet-file-format-and-folder-structure).  Para más información sobre cómo habilitar el acceso de lectura a su cuenta de almacenamiento, consulte [Administración del acceso a los recursos de la cuenta de almacenamiento](../storage/blobs/storage-manage-access-to-resources.md).
 

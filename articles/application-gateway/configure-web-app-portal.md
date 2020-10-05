@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: absha
-ms.openlocfilehash: 1109dae90790c9667b3c60afb6416c20061a95fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbaad0f6639d65d88da6847886d3aa3d39b93e82
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808108"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563760"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configuración de App Service con Application Gateway
 
@@ -23,10 +23,8 @@ Application Gateway proporciona un modificador llamado `Pick host name from back
 
 En este artículo aprenderá a:
 
-> [!div class="checklist"]
->
-> - Crear un grupo de back-end y agregarle un App Service.
-> - Crear una configuración HTTP y un sondeo personalizado con los modificadores "Seleccionar nombre de host" habilitados.
+- Crear un grupo de back-end y agregarle un App Service.
+- Crear una configuración HTTP y un sondeo personalizado con los modificadores "Seleccionar nombre de host" habilitados.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -69,9 +67,9 @@ En este artículo aprenderá a:
 
 5. Haga clic en **Aceptar** para crear la configuración HTTP.
 
-   ![HTTP-setting1](./media/configure-web-app-portal/http-setting1.png)
+   ![Captura de pantalla en la que se muestra el panel Agregar configuración HTTP con las opciones Uso para App Service y Aceptar seleccionadas.](./media/configure-web-app-portal/http-setting1.png)
 
-   ![HTTP-setting2](./media/configure-web-app-portal/http-setting2.png)
+   ![Captura de pantalla en la que se muestra un sondeo de estado con la opción Pick host name form backend (Seleccionar configuración HTTP de back-end del formulario de nombre de host) seleccionada.](./media/configure-web-app-portal/http-setting2.png)
 
 
 
@@ -87,7 +85,7 @@ En este artículo aprenderá a:
 
 5. Haga clic en **Aceptar** para guardar esta regla.
 
-   ![Regla](./media/configure-web-app-portal/rule.png)
+   ![Captura de pantalla en la que se muestra el panel Agregar regla básica con las opciones Cliente de escucha, Grupo de back-end y Configuración HTTP resaltadas.](./media/configure-web-app-portal/rule.png)
 
 ## <a name="additional-configuration-in-case-of-redirection-to-app-services-relative-path"></a>Configuración adicional en caso de redireccionamiento a la ruta de acceso relativa del servicio de aplicaciones
 

@@ -69,6 +69,8 @@
       href: load-balancer-tcp-reset.md
     - name: Load Balancer Estándar y zonas de disponibilidad
       href: load-balancer-standard-availability-zones.md
+    - name: Configuración de IP flotante
+      href: load-balancer-floating-ip.md
     - name: Seguridad
       items:
         - name: Línea de base de seguridad

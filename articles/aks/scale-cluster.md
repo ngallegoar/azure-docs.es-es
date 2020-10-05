@@ -2,16 +2,14 @@
 title: Escalado de un clúster de Azure Kubernetes Service (AKS)
 description: Obtenga información sobre cómo escalar el número de nodos en un clúster de Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
 ms.topic: article
-ms.date: 05/31/2019
-ms.author: iainfou
-ms.openlocfilehash: 55d7a00a0a8c0b655f06810f8bcea7126bb9167f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 09/16/2020
+ms.openlocfilehash: d5686a74ffe138af51d2319c839a3a5c5887f992
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79368424"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902942"
 ---
 # <a name="scale-the-node-count-in-an-azure-kubernetes-service-aks-cluster"></a>Escalación del número de nodos en un clúster de Azure Kubernetes Service (AKS)
 
@@ -41,7 +39,7 @@ La salida de ejemplo siguiente muestra que el *nombre* es *nodepool1*:
 ]
 ```
 
-Use el comando[az aks scale][az-aks-scale] para escalar los nodos de clúster. En el siguiente ejemplo, se escala un clúster denominado *myAKSCluster* en un único nodo. Proporcione su propio valor para *--nodepool-name* del comando anterior, como *nodepool1*:
+Use el comando[az aks scale][az-aks-scale] para escalar los nodos de clúster. En el siguiente ejemplo, se escala un clúster denominado *myAKSCluster* en un único nodo. Proporcione su propio valor para `--nodepool-name` del comando anterior, como *nodepool1*:
 
 ```azurecli-interactive
 az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 1 --nodepool-name <your node pool name>
@@ -69,6 +67,20 @@ La siguiente salida de ejemplo muestra que el clúster ha escalado correctamente
 }
 ```
 
+
+## <a name="scale-user-node-pools-to-0"></a>Escalado de grupos de nodos de `User` a 0
+
+A diferencia de los grupos de nodos de `System`que siempre requieren nodos en ejecución, los grupos de nodos de `User` permiten escalar a 0. Para obtener más información sobre las diferencias entre los grupos de nodos de sistema y de usuario, consulte [Grupos de nodos del sistema y del usuario](use-system-pools.md).
+
+Para escalar un grupo de usuarios a 0, puede usar [az aks nodepool scale][az-aks-nodepool-scale] como alternativa al comando anterior `az aks scale` y establecer 0 como recuento de nodos.
+
+
+```azurecli-interactive
+az aks nodepool scale --name <your node pool name> --cluster-name myAKSCluster --resource-group myResourceGroup  --node-count 0 
+```
+
+También puede escalar automáticamente grupos de nodos de `User` a 0 nodos; para ello, establezca el parámetro `--min-count` del [escalador automático del clúster](cluster-autoscaler.md) en 0.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo, escaló manualmente un clúster de AKS para aumentar o disminuir el número de nodos. También puede usar el [escalador automático del clúster][cluster-autoscaler] para escalar automáticamente el clúster.
@@ -81,3 +93,4 @@ En este artículo, escaló manualmente un clúster de AKS para aumentar o dismin
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-aks-scale]: /cli/azure/aks#az-aks-scale
 [cluster-autoscaler]: cluster-autoscaler.md
+[az-aks-nodepool-scale]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-scale&preserve-view=true

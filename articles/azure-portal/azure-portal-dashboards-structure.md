@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 12/20/2019
 ms.author: mblythe
-ms.openlocfilehash: ad0d3a1bf2c293039df3bba3aa18da7d6e7dd0a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b77c9cfd6e4d1721839acb9db5469b5f0ac73a48
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81459226"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561608"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>La estructura de los paneles de Azure
 Este documento le guía a través de la estructura de un panel de Azure con el panel siguiente como ejemplo:
@@ -329,7 +329,7 @@ La propiedad __position__ contiene información sobre el tamaño y la ubicación
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
-![grid-units](./media/azure-portal-dashboards-structure/grid-units.png)
+![La captura de pantalla muestra un primer plano de la cuadrícula, con una unidad de cuadrícula cuadrada resaltada.](./media/azure-portal-dashboards-structure/grid-units.png)
 
 ### <a name="the-metadata-object"></a>El objeto metadata
 Cada elemento tiene una propiedad metadata, un objeto solo tiene una propiedad necesaria que se llama __type__. Esta cadena indica al portal qué icono debe mostrar. El panel de ejemplo utiliza estos tipos de iconos:

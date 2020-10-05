@@ -9,12 +9,12 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 07/21/2020
 tags: connectors
-ms.openlocfilehash: a0f6af706a81db537b9ed66dc49996282c4dbbaa
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4afd6f0cc3b4b5e135d80b420d8260c50d9ca46c
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833902"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488854"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Conexión a sistemas SAP desde Azure Logic Apps
 
@@ -124,7 +124,7 @@ Estos requisitos previos se aplican cuando las aplicaciones lógicas se ejecutan
 
 ### <a name="sap-client-library-prerequisites"></a>Requisitos previos de la biblioteca de cliente de SAP
 
-* Instale la versión más reciente: [SAP Connector (NCo 3.0) para Microsoft .NET 3.0.22.0 compilado con .NET Framework 4.0  - Windows de 64 bits (x64)](https://softwaredownloads.sap.com/file/0020000001000932019). Las versiones anteriores pueden dar lugar a problemas de compatibilidad. Para más información, vea [Versiones de la biblioteca de cliente de SAP](#sap-library-versions).
+* Instale la versión más reciente: [SAP Connector (NCo 3.0) para Microsoft .NET 3.0.22.0 compilado con .NET Framework 4.0  - Windows de 64 bits (x64)](https://support.sap.com/en/product/connectors/msnet.html). Las versiones anteriores pueden dar lugar a problemas de compatibilidad. Para más información, vea [Versiones de la biblioteca de cliente de SAP](#sap-library-versions).
 
 * De forma predeterminada, el instalador de SAP coloca los archivos de ensamblado en la carpeta de instalación predeterminada. Debe copiar estos archivos de ensamblado en otra ubicación, en función del escenario que se indica aquí:
 
@@ -396,7 +396,7 @@ En este ejemplo se usa una aplicación lógica que se desencadena cuando la apli
 
    Si lo prefiere, puede especificar una acción manualmente:
 
-   ![Introducción manual de una acción de SAP](media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png)
+   ![Escribir manualmente la acción de SAP que desea usar](media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png)
 
    Este es un ejemplo que muestra la apariencia de la acción cuando se configura el desencadenador para recibir varios mensajes.
 

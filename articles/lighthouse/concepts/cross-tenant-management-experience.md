@@ -1,14 +1,14 @@
 ---
 title: Experiencias de administración entre inquilinos
 description: La administración de recursos delegados de Azure habilita una experiencia de administración entre inquilinos.
-ms.date: 08/12/2020
+ms.date: 09/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 41e93f2a6a9fb21720dd2348dd611160b05b65c0
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 1ec2beeef86478e36fe3809e8dabcd40333c098a
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146919"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602394"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiencias de administración entre inquilinos
 
@@ -48,13 +48,13 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 
 [Azure Arc](../../azure-arc/index.yml):
 
-- Administración de servidores híbridos a gran escala: [Azure Arc para servidores (versión preliminar)](../../azure-arc/servers/overview.md):
-  - [Conecte máquinas con Windows Server o Linux fuera de Azure](../../azure-arc/servers/onboard-portal.md) a suscripciones o grupos de recursos delegados en Azure
+- Administración de servidores híbridos a gran escala con [servidores habilitados para Azure Arc (versión preliminar)](../../azure-arc/servers/overview.md):
+  - [Administre máquinas con Windows Server o Linux fuera de Azure conectadas](../../azure-arc/servers/onboard-portal.md) a suscripciones o grupos de recursos delegados en Azure.
   - Administre las máquinas conectadas mediante construcciones de Azure, como Azure Policy y etiquetado
   - Asegúrese de que se aplica el mismo conjunto de directivas a los entornos híbridos de los clientes
   - Use Azure Security Center para supervisar el cumplimiento en todos los entornos híbridos de los clientes
 - Administración de clústeres híbridos de Kubernetes a gran escala: [Azure Arc habilitado para Kubernetes (versión preliminar)](../../azure-arc/kubernetes/overview.md):
-  - [Conecte un clúster de Kubernetes a Azure Arc](../../azure-arc/kubernetes/connect-cluster.md) a suscripciones o grupos de recursos delegados en Azure
+  - [Administre clústeres de Kubernetes conectados](../../azure-arc/kubernetes/connect-cluster.md) a suscripciones o grupos de recursos delegados en Azure.
   - [Use GitOps](../../azure-arc/kubernetes/use-gitops-connected-cluster.md) para los clústeres conectados
   - Aplique directivas en los clústeres conectados
 
@@ -64,7 +64,7 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 
 [Azure Backup](../../backup/index.yml):
 
-- haga una copia de seguridad y restaure los datos de los inquilinos de clientes
+- Realice una copia de seguridad de los datos de clientes y restáurelos [desde cargas de trabajo locales, máquinas virtuales de Azure, recursos compartidos de archivos de Azure y mucho más](../..//backup/backup-overview.md#what-can-i-back-up).
 - Use el [Explorador de copia de seguridad](../../backup/monitor-azure-backup-with-backup-explorer.md) para ayudar a ver la información operativa de los elementos de copia de seguridad (incluidos los recursos de Azure que todavía no están configurados para la copia de seguridad) y la información de supervisión (trabajos y alertas) de las suscripciones delegadas. El Explorador de Backup solo está disponible actualmente para los datos de máquinas virtuales de Azure.
 - Use [informes de copia de seguridad](../../backup/configure-reports.md) a través de suscripciones delegadas para realizar un seguimiento de tendencias históricas, analizar el consumo de almacenamiento de copia de seguridad y auditar copias de seguridad y restauraciones.
 
@@ -82,6 +82,7 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 - Ver los detalles del registro de actividad para las suscripciones delegadas
 - Log analytics: consulte datos de áreas de trabajo remotas en varios inquilinos
 - Cree alertas en inquilinos de cliente que desencadenen la automatización, como los runbooks de Azure Automation o Azure Functions, en el inquilino que realiza la administración a través de webhooks
+- Cree una configuración de diagnóstico en inquilinos de cliente para enviar registros de recursos a áreas de trabajo en el inquilino de administración.
 - Para las cargas de trabajo de SAP, [supervise las métricas de soluciones de SAP con una vista agregada a través de los inquilinos del cliente](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293).
 
 [Redes de Azure](../../networking/networking-overview.md):

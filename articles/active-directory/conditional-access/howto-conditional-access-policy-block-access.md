@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d05aaa7a6bd48c92e863d38dcee9f0bf925bafa
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 68ab302e5c24835174d03b3579c9ec587bfd9006
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049271"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601595"
 ---
 # <a name="conditional-access-block-access"></a>Acceso condicional: Bloquear acceso
 
@@ -40,7 +40,7 @@ Las directivas de acceso condicional son herramientas eficaces, por lo que se re
 
 Los pasos siguientes le ayudarán a crear directivas de acceso condicional para bloquear el acceso a todas las aplicaciones excepto [Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) si los usuarios no están en una red de confianza. Estas directivas se colocan inicialmente en [modo de solo informe](howto-conditional-access-insights-reporting.md), para que los administradores puedan determinar el impacto que tendrán en los usuarios existentes. Cuando los administradores consideren que las directivas se aplican de la forma prevista, pueden cambiarlas a **Activadas**.
 
-La primera directiva bloquea el acceso a todas las aplicaciones (menos las de Office 365) si no se encuentran en una ubicación de confianza.
+La primera directiva bloquea el acceso a todas las aplicaciones (menos las de Microsoft 365) si no se encuentran en una ubicación de confianza.
 
 1. Inicie sesión en **Azure Portal** como administrador global, administrador de seguridad o administrador de acceso condicional.
 1. Vaya a **Azure Active Directory** > **Seguridad** > **Acceso condicional**.
@@ -64,7 +64,7 @@ La primera directiva bloquea el acceso a todas las aplicaciones (menos las de Of
 1. Confirme la configuración y establezca **Habilitar directiva** en **Solo informe**.
 1. Seleccione **Crear** para crear la directiva.
 
-A continuación se crea una segunda directiva para requerir la autenticación multifactor o un dispositivo compatible para los usuarios de Office 365.
+A continuación se crea una segunda directiva para requerir la autenticación multifactor o un dispositivo compatible para los usuarios de Microsoft 365.
 
 1. Seleccione **Nueva directiva**.
 1. Asigne un nombre a la directiva. Se recomienda que las organizaciones creen un estándar significativo para los nombres de sus directivas.

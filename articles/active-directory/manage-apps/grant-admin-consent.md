@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 713b4ed2559e3cd16943af92e68818047e249ef4
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 96b4cb6f751a5d2bc4259117007b3abec2e0598d
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501021"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069584"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Concesión del consentimiento del administrador para todo el inquilino a una aplicación
 
@@ -32,15 +32,12 @@ Para conceder el consentimiento del administrador para todo el inquilino, debe i
 > [!IMPORTANT]
 > Cuando a una aplicación se le concede consentimiento del administrador para todo el inquilino, todos los usuarios podrán iniciar sesión en la aplicación a menos que se haya configurado para requerir la asignación de usuarios. Para restringir qué usuarios pueden iniciar sesión en una aplicación, debe requerir la asignación de usuarios y, luego, asignar usuarios o grupos a la aplicación. Para más información, consulte [Métodos para asignar usuarios y grupos](methods-for-assigning-users-and-groups.md).
 >
-> El rol de administrador global es necesario para proporcionar el consentimiento del administrador para Microsoft Graph API.
->
-
+> El rol de administrador global es necesario para proporcionar el consentimiento del administrador para los permisos de aplicación en Microsoft Graph API.
 
 > [!WARNING]
 > La concesión del consentimiento del administrador para todo el inquilino a una aplicación concederá acceso a la aplicación y al publicador de la aplicación a los datos de la organización. Antes de conceder el consentimiento, revise con atención los permisos que solicita la aplicación.
 >
-> El rol de administrador global es necesario para proporcionar el consentimiento del administrador para Microsoft Graph API.
->
+> El rol de administrador global es necesario para proporcionar el consentimiento del administrador para los permisos de aplicación en Microsoft Graph API.
 
 ## <a name="grant-admin-consent-from-the-azure-portal"></a>Concesión del consentimiento del administrador desde Azure Portal
 
@@ -57,6 +54,9 @@ Para conceder el consentimiento del administrador para todo el inquilino a una d
 5. Revise cuidadosamente los permisos que requiere la aplicación.
 6. Si está de acuerdo con los permisos que requiere la aplicación, conceda el consentimiento. En caso contrario, haga clic en **Cancelar** o cierre la ventana.
 
+> [!WARNING]
+> La concesión del consentimiento de administrador para todo el inquilino a través de **aplicaciones empresariales** revocará todos los permisos concedidos previamente para todo el inquilino. Los permisos concedidos previamente por los usuarios en su propio nombre no se verán afectados. 
+
 ### <a name="grant-admin-consent-in-app-registrations"></a>Concesión del consentimiento del administrador en Registros de aplicaciones
 
 Para las aplicaciones desarrolladas por la organización, o bien las que se hayan registrado directamente en el inquilino de Azure AD, también puede conceder el consentimiento del administrador para todo el inquilino desde **Registros de aplicaciones** en Azure Portal.
@@ -69,6 +69,9 @@ Para conceder el consentimiento del administrador para todo el inquilino desde *
 4. Seleccione **Permisos de API** y, después, haga clic en **Conceder consentimiento del administrador**.
 5. Revise cuidadosamente los permisos que requiere la aplicación.
 6. Si está de acuerdo con los permisos que requiere la aplicación, conceda el consentimiento. En caso contrario, haga clic en **Cancelar** o cierre la ventana.
+
+> [!WARNING]
+> La concesión del consentimiento de administrador para todo el inquilino a través de **registros de aplicaciones** revocará todos los permisos concedidos previamente para todo el inquilino. Los permisos concedidos previamente por los usuarios en su propio nombre no se verán afectados. 
 
 ## <a name="construct-the-url-for-granting-tenant-wide-admin-consent"></a>Construcción de la dirección URL para conceder el consentimiento del administrador para todo el inquilino
 
@@ -86,6 +89,9 @@ donde:
 * `{tenant-id}` es el identificador de inquilino de la organización o cualquier nombre de dominio comprobado.
 
 Como siempre, antes de conceder el consentimiento, revise con atención los permisos que solicita la aplicación.
+
+> [!WARNING]
+> La concesión del consentimiento de administrador para todo el inquilino a través de esta dirección URL revocará todos los permisos concedidos previamente para todo el inquilino. Los permisos concedidos previamente por los usuarios en su propio nombre no se verán afectados. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

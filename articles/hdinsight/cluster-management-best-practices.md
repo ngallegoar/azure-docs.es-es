@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 3010c1d597907e7d5c7f82c8b42721dc1f934f6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd79568944d81e267a45287104bd0fa9698df2fb
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74781860"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648693"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>Procedimientos recomendados de administración de clústeres de HDInsight
 
@@ -62,6 +62,8 @@ Aprenda los procedimientos recomendados para la administración de clústeres de
 | Escala manual | [Escala de clústeres de Azure HDInsight](./hdinsight-scaling-best-practices.md) |
 | Supervisión con Ambari| [Supervisión del rendimiento de un clúster en Azure HDInsight](./hdinsight-key-scenarios-to-monitor.md) |
 | Supervisión con registros de Azure Monitor | [Uso de los registros de Azure Monitor para supervisar clústeres de HDInsight](./hdinsight-hadoop-oms-log-analytics-tutorial.md) |
+| Problemas de servicio, mantenimiento planeado y advertencias de estado y seguridad | [Suscripción a alertas de estado de servicio específicas de la suscripción](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal) |
+
 
 ## <a name="how-do-i-check-on-deleted-hdinsight-clusters"></a>¿Cómo se comprueban los clústeres de HDInsight eliminados?
 
@@ -76,5 +78,5 @@ AzureActivity
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Planeamiento de capacidad de clústeres de HDInsight](./hdinsight-capacity-planning.md)
+* [Planeamiento de la capacidad de los clústeres de HDInsight](./hdinsight-capacity-planning.md)
 * [¿Cuáles son las configuraciones de nodos predeterminadas y recomendadas para Azure HDInsight?](./hdinsight-supported-node-configuration.md)

@@ -3,16 +3,16 @@ title: Copia de seguridad de máquinas virtuales de VMware con Azure Backup Serv
 description: En este artículo, aprenderá a usar Azure Backup Server para realizar una copia de seguridad de las máquinas virtuales de VMware que se ejecutan en un servidor de VMWare vCenter y ESXi.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: e18b5c51446446103a91ef7d6a00277c2b41db77
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: db5e5c4bdac64e2faf5babb107ecec61a02d6468
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017573"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069839"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Copia de seguridad de máquinas virtuales de VMware con Azure Backup Server
 
-En este artículo se explica cómo realizar copias de seguridad de máquinas virtuales de VMware que se ejecutan en hosts de VMware ESXi o vCenter Server en Azure con Azure Backup Server.
+En este artículo se explica cómo realizar copias de seguridad de máquinas virtuales de VMware que se ejecutan en hosts de VMware ESXi o vCenter Server en Azure con Azure Backup Server (MABS).
 
 En este artículo se explica lo siguiente:
 
@@ -21,6 +21,31 @@ En este artículo se explica lo siguiente:
 - Agregar las credenciales de la cuenta Azure Backup.
 - Agregar el servidor de vCenter o ESXi a Azure Backup Server.
 - Configurar un grupo de protección que contenga las máquinas virtuales de VMware de las que desea realizar copias de seguridad, y especificar la configuración de copia de seguridad y programarla.
+
+## <a name="supported-vmware-features"></a>Características admitidas de VMware
+
+MABS ofrece las características siguientes en el momento de crear copias de seguridad de las máquinas virtuales de VMware:
+
+- Copia de seguridad sin agente: MABS no requiere que se instale un agente en el servidor vCenter o ESXi para crear una copia de seguridad de la máquina virtual. En su lugar, solo proporcione la dirección IP o el nombre de dominio completo (FQDN) y las credenciales de inicio de sesión que se usan para autenticar el servidor VMware con MABS.
+- Copia de seguridad integrada en la nube: MABS protege las cargas de trabajo en disco y en la nube. El flujo de trabajo de la copia de seguridad y recuperación de MABS ayuda a administrar la retención a largo plazo y la copia de seguridad fuera del sitio.
+- Detección y protección de máquinas virtuales administradas por vCenter: MABS detecta y protege las máquinas virtuales implementadas en un servidor VMware (vCenter Server o servidor ESXi). Cuando aumente el tamaño de la implementación, use vCenter para administrar el entorno de VMware. MABS también detecta las máquinas virtuales que administra vCenter, lo que le permite proteger implementaciones de gran tamaño.
+- Protección automática en el nivel de carpeta: vCenter permite organizar las máquinas virtuales en las carpetas de VM. MABS detecta estas carpetas y permite proteger las máquinas virtuales en el nivel de carpeta, incluidas todas las carpetas. Al proteger las carpetas, MABS no solo protege las máquinas virtuales que se encuentran en esa carpeta, sino también todas las máquinas virtuales que se agreguen después. MABS detecta las máquinas virtuales nuevas a diario y las protege de manera automática. A medida que organiza las máquinas virtuales en carpetas recursivas, MABS detecta y protege automáticamente las máquinas virtuales nuevas que se implementan en estas carpetas.
+- MABS protege las máquinas virtuales almacenadas en un disco local, un sistema de archivos de red (NFS) o el almacenamiento de clúster.
+- MABS protege las máquinas virtuales que se migran para el equilibrio de carga: a medida que las máquinas virtuales se migran para el equilibrio de carga, MABS detecta automáticamente su protección y continúa con ella.
+- MABS puede recuperar archivos o carpetas de una máquina virtual Windows sin tener que recuperar toda la VM, lo que permite recuperar más rápido los archivos necesarios.
+
+## <a name="prerequisites-and-limitations"></a>Requisitos previos y limitaciones
+
+Antes de comenzar a crear la copia de seguridad de una máquina virtual, revise la lista limitaciones y requisitos previos siguiente.
+
+- Si ha usado MABS para proteger un servidor vCenter (que se ejecuta en Windows) como un servidor Windows Server con el FQDN del servidor, no puede proteger ese servidor vCenter como un servidor de VMware mediante el FQDN del servidor.
+  - Puede usar la dirección IP estática de vCenter Server como solución alternativa.
+  - Si desea usar el FQDN, debe detener la protección como un servidor Windows Server, quitar el agente de protección y, a continuación, agregarlo como un servidor de VMware mediante el FQDN.
+- Si usa vCenter para administrar los servidores ESXi del entorno, agregue vCenter (no ESXi) al grupo de protección de MABS.
+- No puede crear copias de seguridad de las instantáneas de usuario antes de la primera copia de seguridad de MABS. Una vez que MABS completa la primera copia de seguridad, puede crear copias de seguridad de las instantáneas de usuario.
+- MABS no puede proteger las máquinas virtuales VMware con discos de acceso directo y asignaciones de dispositivos físicos sin formato (pRDM).
+- MABS no puede detectar ni proteger vApps de VMware.
+- MABS no puede proteger máquinas virtuales VMware con instantáneas existentes.
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
@@ -392,7 +417,7 @@ Para modificar el número de trabajos, utilice la clave del Registro como se mue
 
 Para realizar una copia de seguridad de vSphere 6.7, siga estos pasos:
 
-- Habilite TLS 1.2 en el servidor DPM.
+- Habilitar TLS 1.2 en el servidor de MABS
 
 >[!NOTE]
 >En VMWare 6.7 y versiones posteriores se ha habilitado TLS como protocolo de comunicación.

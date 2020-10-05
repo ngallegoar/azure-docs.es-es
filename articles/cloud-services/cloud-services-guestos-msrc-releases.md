@@ -12,19 +12,74 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 8/17/2020
 ms.author: yohaddad
-ms.openlocfilehash: 5e5bcef36bb283b8b3f2b67578e0f3118302d936
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: bb2b9da291bf75542c942d785d995018b597f742
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510171"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024305"
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se realizan para la [familia][family-explain] determinada en la que se introdujeron.
 
-## <a name="august-2020-guest-os"></a>SO invitado de agosto de 2020
+## <a name="september-2020-guest-os"></a>SO invitado de septiembre de 2020
 >[!NOTE]
->El sistema operativo invitado de agosto se está implementando actualmente en las máquinas virtuales del servicio en la nube que están configuradas para las actualizaciones automáticas. Una vez completada la implementación, esta versión estará disponible para las actualizaciones manuales mediante Azure Portal y los archivos de configuración. Las revisiones siguientes se incluyen en el sistema operativo invitado de agosto. Esta lista está sujeta a cambios.
+>El sistema operativo invitado de septiembre se está implementando actualmente en las máquinas virtuales del servicio en la nube que están configuradas para las actualizaciones automáticas. Una vez completada la implementación, esta versión estará disponible para las actualizaciones manuales mediante Azure Portal y los archivos de configuración. Se incluyen las siguientes revisiones en el sistema operativo invitado de septiembre. Esta lista está sujeta a cambios.
+
+
+| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+|  Versión 20-09 |  [4577010]  |  Internet Explorer | 2.102, 3.89, 4.82 | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4561600]  |  Actualización de Flash | 3.89, 4.82, 5.47, 6.23 | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4577015]  |  Actualización acumulativa más reciente (LCU) | 5,47 | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4570333]  |  Actualización acumulativa más reciente (LCU) | 6.23 | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4570673]  |  Actualización de la pila de servicio | 2.102 | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4577051]  |  Acumulación mensual | 2.102 | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4569767]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | 2.102 | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4569780]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | 2.102 | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4566426]  |  Actualización de la pila de servicio | 3.89 | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4577038]  |  Acumulación mensual | 3.89 | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4569765]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | 3.89 | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4569779]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | 3.89 | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4566425]  |  Actualización de la pila de servicio | 2.102 | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4577066]  |  Acumulación mensual | 2.102 | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4569768]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | 2.102 | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4569778]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | 2.102 | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4578013]  |  Actualización de seguridad | 2.102 | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4576750]  |  Actualización de la pila de servicio | 5,47 | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4576479]  |  Acumulación de seguridad y calidad de .NET Framework 4.8 | 5,47 | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4494175]  |  Microcódigo | 5,47 | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4570332]  |  Actualización de la pila de servicio | 6.23 | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4570720]  |  Actualización acumulativa de .NET Framework 3.5 y 4.7.2 | 6.23 | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4576483]  |  Acumulación de seguridad y calidad de .NET Framework 4.8 | 6.23 | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4494174]  |  Microcódigo | 6.23 | 8 de septiembre de 2020 |
+
+[4577010]: https://support.microsoft.com/kb/4577010
+[4561600]: https://support.microsoft.com/kb/4561600
+[4577015]: https://support.microsoft.com/kb/4577015
+[4570333]: https://support.microsoft.com/kb/4570333
+[4570673]: https://support.microsoft.com/kb/4570673
+[4577051]: https://support.microsoft.com/kb/4577051
+[4569767]: https://support.microsoft.com/kb/4569767
+[4569780]: https://support.microsoft.com/kb/4569780
+[4566426]: https://support.microsoft.com/kb/4566426
+[4577038]: https://support.microsoft.com/kb/4577038
+[4569765]: https://support.microsoft.com/kb/4569765
+[4569779]: https://support.microsoft.com/kb/4569779
+[4566425]: https://support.microsoft.com/kb/4566425
+[4577066]: https://support.microsoft.com/kb/4577066
+[4569768]: https://support.microsoft.com/kb/4569768
+[4569778]: https://support.microsoft.com/kb/4569778
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4576479]: https://support.microsoft.com/kb/4576479
+[4494175]: https://support.microsoft.com/kb/4494175
+[4570332]: https://support.microsoft.com/kb/4570332
+[4570720]: https://support.microsoft.com/kb/4570720
+[4576483]: https://support.microsoft.com/kb/4576483
+[4494174]: https://support.microsoft.com/kb/4494174
+
+## <a name="august-2020-guest-os"></a>SO invitado de agosto de 2020
 
 
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |

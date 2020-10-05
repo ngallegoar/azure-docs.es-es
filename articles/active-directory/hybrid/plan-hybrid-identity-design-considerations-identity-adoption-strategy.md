@@ -1,6 +1,6 @@
 ---
 title: 'Diseño de identidades híbridas: estrategia de adopción en Azure | Microsoft Docs'
-description: Con el control de acceso condicional, Azure Active Directory comprueba las condiciones específicas que se eligen al autenticar al usuario y antes de permitirle acceso a la aplicación. Si se cumplen las condiciones, el usuario queda autenticado y se le permite el acceso a la aplicación.
+description: Con el control de acceso condicional, Azure AD comprueba las condiciones específicas que se eligen al autenticar el usuario y antes de permitirle acceso a la aplicación.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7263d6a73a78b4b804cddd77f979898008ebadd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1608039b051cb17684ca77cf7f00c705c9a8e7b5
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555383"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659525"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definición de una estrategia de adopción de identidad híbrida
 En esta tarea, define la estrategia de adopción de identidades híbridas para que una solución de identidad híbrida cumpla los requisitos empresariales que se trataron en:
@@ -32,7 +32,7 @@ En esta tarea, define la estrategia de adopción de identidades híbridas para q
 * [Determinación de los requisitos de autenticación multifactor](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## <a name="define-business-needs-strategy"></a>Definición de una estrategia de necesidades empresariales
-La primera tarea consiste en determinar las necesidades empresariales de las organizaciones.  Dicha tarea puede ser muy amplia y se puede producir un arrastramiento del alcance si no se tiene cuidado.  Al principio debe ser simple, pero recuerde siempre planear un diseño que permita y facilite la realización de cambios en el futuro.  Independientemente de que sea un diseño sencillo o extremadamente complejo, Azure Active Directory es la plataforma de Microsoft Identity que admite Office 365, Microsoft Online Services y aplicaciones habilitadas para la nube.
+La primera tarea consiste en determinar las necesidades empresariales de las organizaciones.  Dicha tarea puede ser muy amplia y se puede producir un arrastramiento del alcance si no se tiene cuidado.  Al principio debe ser simple, pero recuerde siempre planear un diseño que permita y facilite la realización de cambios en el futuro.  Independientemente de que sea un diseño sencillo o extremadamente complejo, Azure Active Directory es la plataforma de Microsoft Identity que admite Microsoft 365, Microsoft Online Services y aplicaciones habilitadas para la nube.
 
 ## <a name="define-an-integration-strategy"></a>Definición de una estrategia de integración
 Microsoft tiene tres escenarios de integración principales que son las identidades de nube, las identidades sincronizadas y las identidades federadas.  Debe planear la adopción de una de estas estrategias de integración.  La estrategia que elija puede variar y las decisiones que tome a la hora de elegir una de ellas pueden incluir: el tipo de experiencia de usuario que se desea proporcionar, si se tiene una infraestructura existente y cuál es el más rentable.  
@@ -171,7 +171,7 @@ Los siguientes elementos no se admiten y no deben elegirse como implementación:
 * Los directorios de Azure AD están aislados por diseño. No se admite el cambio de la configuración de Azure AD Connect Sync para leer datos de otro directorio de Azure AD en un intento por crear una GAL común y unificada entre los directorios. Tampoco se admite la exportación de usuarios como contactos a otro directorio AD local mediante Azure AD Connect Sync.
 
 > [!NOTE]
-> Si una organización restringe la conexión de equipos de la red a Internet, este artículo muestra los puntos de conexión (FQDN, intervalos de direcciones IPv4 e IPv6) que se deben incluir en las lista de permitidos salientes y en la zona de sitios de confianza de Internet Explorer de los equipos cliente para asegurarse de que los equipos pueden usar Office 365 correctamente. Para obtener más información, consulte [URL de Office 365 e intervalos de direcciones IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
+> Si una organización restringe la conexión de equipos de la red a Internet, este artículo muestra los puntos de conexión (FQDN, intervalos de direcciones IPv4 e IPv6) que se deben incluir en las lista de permitidos salientes y en la zona de sitios de confianza de Internet Explorer de los equipos cliente para asegurarse de que los equipos pueden usar Microsoft 365 correctamente. Para obtener más información, consulte [URL de Office 365 e intervalos de direcciones IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
 > 
 > 
 

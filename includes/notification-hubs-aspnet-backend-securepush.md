@@ -1,21 +1,21 @@
 ---
 author: sethmanheim
-ms.service: service-bus
+ms.service: notification-hubs
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 09/14/2020
 ms.author: sethm
-ms.openlocfilehash: 7fd161c90234d45a6751f173ba3685ee8c392c87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb3c95b74128f1da7b29a290e17fefe21987dd76
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74260877"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089959"
 ---
 ## <a name="webapi-project"></a>Proyecto WebAPI
 
 1. En Visual Studio, abra el proyecto **AppBackend** que creó en el tutorial **Notificación a usuarios** .
 2. En Notifications.cs, reemplace toda la clase **Notifications** por el código siguiente. Asegúrese de sustituir los marcadores de posición por su cadena de conexión (con acceso total) para el Centro de notificaciones y el nombre del centro. Puede obtener estos valores en [Azure Portal](https://portal.azure.com). Este módulo representa ahora las diferentes notificaciones seguras que se enviarán. En una implementación completa, las notificaciones se almacenarán en una base de datos; en este caso, vamos a almacenarlas en la memoria para simplificar el proceso.
-   
+
    ```csharp
     public class Notification
     {
@@ -56,8 +56,8 @@ ms.locfileid: "74260877"
     }
     ```
 
-1. En NotificationsController.cs, reemplace el código dentro de la definición de clase **NotificationsController** por el código siguiente. Este componente dota al dispositivo de una ruta para recuperar la notificación de forma segura, y además ofrece una manera (para los fines de este tutorial) de desencadenar una inserción segura en sus dispositivos. Tenga en cuenta que al enviar la notificación al Centro de notificaciones, enviamos una notificación sin procesar solo con el identificador de la notificación (no el mensaje real):
-   
+3. En NotificationsController.cs, reemplace el código dentro de la definición de clase **NotificationsController** por el código siguiente. Este componente dota al dispositivo de una ruta para recuperar la notificación de forma segura, y además ofrece una manera (para los fines de este tutorial) de desencadenar una inserción segura en sus dispositivos. Tenga en cuenta que al enviar la notificación al Centro de notificaciones, enviamos una notificación sin procesar solo con el identificador de la notificación (no el mensaje real):
+
    ```csharp
     public NotificationsController()
     {

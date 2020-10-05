@@ -3,12 +3,12 @@ title: Configuración del firewall de IP para el espacio de nombres de Azure Rel
 description: En este artículo se describe el uso de las reglas de firewall para permitir las conexiones desde direcciones IP específicas a espacios de nombres de Azure Relay.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e47c5071a5fc7207d4eabc162fcb24ab6ad57d28
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 250158aff2ceb89e2823b711717f1d3a1cad438c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141863"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976015"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Configuración del firewall de IP para un espacio de nombres de Azure Relay
 De forma predeterminada, se puede acceder en Internet a los espacios de nombres de Relay, siempre que la solicitud tenga una autenticación y una autorización válidas. Con el firewall de IP, puede restringirlo aún más a solo un conjunto de direcciones o intervalos de direcciones IPv4 en notación [CIDR (Enrutamiento de interdominios sin clases)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -29,7 +29,7 @@ En esta sección se muestra cómo usar Azure Portal para crear reglas de firewal
 1. Vaya a su **espacio de nombres de Relay** en [Azure Portal](https://portal.azure.com).
 2. En el menú de la izquierda, seleccione la opción **Redes**. Si selecciona la opción **Todas las redes** en la sección **Permitir el acceso desde**, el espacio de nombres de Relay acepta conexiones de cualquier dirección IP. Esta configuración equivale a una regla que acepta el intervalo de direcciones IP 0.0.0.0/0. 
 
-    ![Firewall: opción Todas las redes seleccionada](./media/ip-firewall/all-networks-selected.png)
+    ![Captura de pantalla muestra la página Redes con la opción Todas las redes seleccionada.](./media/ip-firewall/all-networks-selected.png)
 1. Para restringir el acceso a únicamente algunas redes y direcciones IP, seleccione la opción **Redes seleccionadas**. En la sección **Firewall**, haga lo siguiente:
     1. Seleccione la opción **Agregar la dirección IP del cliente** para dar acceso a esa IP de cliente actual al espacio de nombres. 
     2. En **Intervalo de direcciones**, escriba una dirección IPv4 específica o un intervalo de direcciones IPv4 en notación CIDR. 

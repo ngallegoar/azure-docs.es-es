@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: fec959ee34f9491b6510390d4b390e652690897e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 351c7e21bfe59b22f451adddad8fed220c218358
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547093"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983118"
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Tutorial: Configuración de Jive para aprovisionar usuarios automáticamente
 
@@ -63,7 +63,7 @@ Como parte de este procedimiento, es necesario proporcionar un token de segurida
 
 1. Establezca el **modo de aprovisionamiento** en **Automático**. 
 
-    ![Aprovisionamiento](./media/jive-provisioning-tutorial/provisioning.png)
+    ![Captura de pantalla que muestra la página de aprovisionamiento de espacio aislado de Jive, con el modo de aprovisionamiento establecido en automático y otros valores que se pueden establecer.](./media/jive-provisioning-tutorial/provisioning.png)
 
 1. En la sección **Credenciales de administrador**, proporcione los siguientes valores de configuración:
    

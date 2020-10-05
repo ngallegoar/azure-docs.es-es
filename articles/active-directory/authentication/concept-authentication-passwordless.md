@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef1148555706ff04c58733b66f4784da71849ce8
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: fdac9562ed9a83f49e074e7abd790e8e2819d6aa
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226682"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527027"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opciones de autenticación sin contraseña de Azure Active Directory
 
@@ -45,7 +45,7 @@ En los pasos siguientes se muestra cómo funciona el proceso de inicio de sesió
 ![Diagrama que describe los pasos necesarios para el inicio de sesión de un usuario con Windows Hello para empresas](./media/concept-authentication-passwordless/windows-hello-flow.png)
 
 1. Un usuario inicia sesión en Windows mediante gestos de PIN o de información biométrica. El gesto desbloquea la clave privada de Windows Hello para empresas y se envía al proveedor de compatibilidad para seguridad de la autenticación en la nube, conocido como el *proveedor de punto de acceso de nube*.
-1. El proveedor de punto de acceso de nube solicita un valor nonce a Azure AD.
+1. El proveedor de CloudAP solicita una clave nonce (un número arbitrario aleatorio que se puede usar una sola vez) de Azure AD.
 1. Azure AD devuelve un valor nonce que es válido durante 5 minutos.
 1. El proveedor de punto de acceso de nube firma el valor nonce con la clave privada del usuario y devuelve el valor nonce firmado a Azure AD.
 1. Azure AD valida el valor nonce firmado con la clave pública del usuario registrada de forma segura en la firma del valor nonce. Después de validar la firma, Azure AD valida el valor nonce firmado devuelto. Tras validar el valor nonce, Azure AD crea un token de actualización principal (PRT) con la clave de sesión que se ha cifrado con la clave de transporte del dispositivo y lo devuelve al proveedor de punto de acceso de nube.
@@ -82,11 +82,15 @@ Para empezar a trabajar con el inicio de sesión sin contraseña, complete el pr
 
 ## <a name="fido2-security-keys"></a>Claves de seguridad FIDO2
 
+FIDO (Fast IDentity Online) Alliance ayuda a promover los estándares de autenticación abiertos y a reducir el uso de contraseñas como forma de autenticación. FIDO2 es el estándar más reciente que incorpora el estándar de autenticación web (WebAuthn).
+
 Las claves de seguridad FIDO2 son un método de autenticación sin contraseña basado en estándares que no permite la suplantación de identidad y que puede venir en cualquier factor de forma. Fast Identity Online (FIDO) es un estándar abierto para la autenticación sin contraseña. FIDO permite a los usuarios y a las organizaciones aprovechar el estándar para iniciar sesión en sus recursos sin un nombre de usuario o una contraseña mediante una clave de seguridad externa o una clave de plataforma integrada en un dispositivo.
 
-Los empleados pueden usar claves de seguridad para iniciar sesión en sus dispositivos Windows 10 unidos a Azure AD o Azure AD híbrido y lograr el inicio de sesión único en sus recursos de nube y locales. Los usuarios también pueden iniciar sesión en exploradores compatibles. Las claves de seguridad FIDO2 son una excelente opción para las empresas que son muy conscientes de la seguridad o tienen escenarios o empleados que no quieren o no pueden usar su teléfono como un segundo factor.
+Los usuarios pueden registrarse y luego seleccionar una llave de seguridad de FIDO2 en la interfaz de inicio de sesión como medio principal de autenticación. Estas llaves de seguridad de FIDO2 suelen ser dispositivos USB, pero también pueden usar Bluetooth o NFC. Con un dispositivo de hardware que controla la autenticación, se aumenta la seguridad de una cuenta, ya que no hay ninguna contraseña que pueda quedar expuesta ni adivinarse.
 
-Actualmente, el inicio de sesión con las claves de seguridad FIDO2 en Azure AD se encuentran en versión preliminar.
+Las claves de seguridad FIDO2 se pueden usar para iniciar sesión en sus dispositivos Windows 10 unidos a Azure AD o Azure AD híbrido y lograr el inicio de sesión único en sus recursos de nube y locales. Los usuarios también pueden iniciar sesión en exploradores compatibles. Las claves de seguridad FIDO2 son una excelente opción para las empresas que son muy conscientes de la seguridad o tienen escenarios o empleados que no quieren o no pueden usar su teléfono como un segundo factor.
+
+Actualmente, el inicio de sesión con las claves de seguridad FIDO2 en Azure AD se encuentran en versión preliminar. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Inicio de sesión en Microsoft Edge con una clave de seguridad](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -141,7 +145,6 @@ Para empezar a usar las claves de seguridad FIDO2, realice el procedimiento sigu
 > [!div class="nextstepaction"]
 > [Habilitar el inicio de sesión con claves de seguridad FIDO2 sin contraseña](howto-authentication-passwordless-security-key.md)
 
-
 ## <a name="what-scenarios-work-with-the-preview"></a>¿Qué escenarios funcionan con la versión preliminar?
 
 Las características de inicio de sesión sin contraseña de Azure AD se encuentran actualmente en versión preliminar. Se aplican las siguientes consideraciones:
@@ -161,7 +164,7 @@ Estos son algunos de los factores que se deben tener en cuenta al elegir la tecn
 
 ||**Windows Hello para empresas**|**Inicio de sesión sin contraseña con la aplicación Microsoft Authenticator**|**Llaves de seguridad FIDO2**|
 |:-|:-|:-|:-|
-|**Requisito previo**| Windows 10, versión 1809 o posterior<br>Azure Active Directory| Aplicación Microsoft Authenticator<br>Teléfono (dispositivos iOS y Android que ejecutan Android 6.0 o posterior)|Windows 10, versión 1809 o posterior<br>Azure Active Directory|
+|**Requisito previo**| Windows 10, versión 1809 o posterior<br>Azure Active Directory| Aplicación Microsoft Authenticator<br>Teléfono (dispositivos iOS y Android que ejecutan Android 6.0 o posterior)|Windows 10, versión 1903 o posterior<br>Azure Active Directory|
 |**Modo**|Plataforma|Software|Hardware|
 |**Sistemas y dispositivos**|PC con un módulo de plataforma segura (TPM) integrado<br>Reconocimiento de PIN e información biométrica |PIN y reconocimiento biométrico en el teléfono|Dispositivos de seguridad FIDO2 que son compatibles con Microsoft|
 |**Experiencia del usuario**|Inicie sesión con un PIN o mediante reconocimiento biométrico (facial, iris o huella digital) con dispositivos Windows.<br>La autenticación de Windows Hello está vinculada al dispositivo; el usuario necesita el dispositivo y un componente de inicio de sesión, como un PIN o un factor biométrico, para acceder a los recursos corporativos.|Inicio de sesión con un teléfono móvil con la huella digital, el reconocimiento facial o del iris, o bien con un PIN.<br>Los usuarios inician sesión en su cuenta profesional o personal desde su PC o teléfono móvil.|Inicio de sesión con el dispositivo de seguridad FIDO2 (información biométrica, PIN y NFC)<br>El usuario puede acceder al dispositivo según los controles de la organización y autenticarse con un PIN, información biométrica mediante dispositivos como llaves de seguridad USB, y por medio de tarjetas inteligentes, llaves o dispositivos ponibles habilitados para NFC.|

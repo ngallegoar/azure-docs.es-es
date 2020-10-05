@@ -4,12 +4,12 @@ description: En este artículo se aprende a configurar, iniciar y administrar la
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: aa072cb48e12ac89af3be28a9633a82b50122275
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 42af6ae69699be7eefac0aca2bcd22b1e25720b2
+ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006302"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89506634"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Copia de seguridad de una máquina virtual de Azure mediante Azure Backup a través de la API REST
 
@@ -274,6 +274,35 @@ Una vez completada la operación, devuelve 200 (OK) con el contenido del element
 
 Así se confirma que la protección está habilitada para la máquina virtual y la primera copia de seguridad se desencadenará según la programación de la directiva.
 
+### <a name="excluding-disks-in-azure-vm-backup"></a>Exclusión de discos en copia de seguridad de VM de Azure
+
+Azure Backup también proporciona una forma de realizar una copia de seguridad selectiva de un subconjunto de discos en la máquina virtual de Azure. [Aquí](selective-disk-backup-restore.md) se proporcionan más detalles. Si desea realizar una copia de seguridad selectiva de algunos discos durante la habilitación de la protección, el siguiente fragmento de código debe ser el [cuerpo de la solicitud durante dicha habilitación](#example-request-body).
+
+```json
+{
+"properties": {
+    "protectedItemType": "Microsoft.Compute/virtualMachines",
+    "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+    "policyId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupPolicies/DefaultPolicy",
+    "extendedProperties":  {
+      "diskExclusionProperties":{
+          "diskLunList":[0,1],
+          "isInclusionList":true
+        }
+    }
+}
+}
+```
+
+En el cuerpo de la solicitud anterior, se proporciona la lista de discos de los que se va a hacer una copia de seguridad en la sección propiedades extendidas.
+
+|Propiedad  |Valor  |
+|---------|---------|
+|diskLunList     | La lista LUN de discos es una lista de *LUN de discos de datos*. **Siempre se hace una copia de seguridad del disco del sistema operativo y no es necesario que se mencione**.        |
+|IsInclusionList     | Debe ser **true** para que los LUN se incluyan durante la copia de seguridad. Si es **falso**, se excluirán los LUN mencionados anteriormente.         |
+
+Por lo tanto, si el requisito es hacer una copia de seguridad solo del disco del sistema operativo, se deben excluir _todos_ los discos de datos. Una manera más sencilla es decir que no se deben incluir discos de datos. Por lo tanto, la lista de LUN de disco estará vacía y **IsInclusionList** será **true**. Del mismo modo, piense en cuál es la forma más sencilla de seleccionar un subconjunto: algunos discos se deben excluir o incluir siempre. Elija la lista de LUN y el valor de variable booleana en consecuencia.
+
 ## <a name="trigger-an-on-demand-backup-for-a-protected-azure-vm"></a>Desencadenar una copia de seguridad a petición para una máquina virtual de Azure protegida
 
 Una vez que una máquina virtual de Azure está configurada para la copia de seguridad, las copias de seguridad se realizan según la programación de la directiva. Puede esperar a la primera copia de seguridad programada o desencadenar una copia de seguridad a petición en cualquier momento. La retención de las copias de seguridad a petición es independiente de la retención de copias de seguridad que marca la directiva y se puede especificar para una determinada fecha y hora. Si no se especifica, se supone que son 30 días a partir del momento en que se desencadene la copia de seguridad a petición.
@@ -389,7 +418,7 @@ Puesto que el trabajo de copia de seguridad es una operación de larga duración
 
 Para cambiar la directiva con la que la máquina virtual se protege, puede usar el mismo formato que para [habilitar la protección](#enabling-protection-for-the-azure-vm). Basta con que proporcione el identificador de la nueva directiva en [el cuerpo de solicitud](#example-request-body) y envíe la solicitud. Por ejemplo: para cambiar la directiva testVM de "DefaultPolicy" a "ProdPolicy", especifique el identificador "ProdPolicy" en el cuerpo de la solicitud.
 
-```http
+```json
 {
   "properties": {
     "protectedItemType": "Microsoft.Compute/virtualMachines",
@@ -400,6 +429,15 @@ Para cambiar la directiva con la que la máquina virtual se protege, puede usar 
 ```
 
 La respuesta seguirá el mismo formato que se mencionó [para habilitar la protección](#responses-to-create-protected-item-operation).
+
+#### <a name="excluding-disks-during-azure-vm-protection"></a>Exclusión de discos durante la protección de máquinas virtuales de Azure
+
+Si ya se ha realizado una copia de seguridad de la máquina virtual de Azure, puede especificar la lista de discos de los que se va a hacer una copia de seguridad o que se van a excluir cambiando la directiva de protección. Solo tiene que preparar la solicitud de la misma forma que lo hace al [excluir los discos durante la habilitación de la protección](#excluding-disks-in-azure-vm-backup).
+
+> [!IMPORTANT]
+> El cuerpo de la solicitud anterior siempre es la copia final de los discos de datos que se van a excluir o incluir. Esto no se *agrega* a la configuración anterior. Por ejemplo: Si primero actualiza la protección como "excluir disco de datos 1" y luego repite con "excluir disco de datos 2",  *solo se excluye el disco de datos 2* en las copias de seguridad posteriores y se incluirá el disco de datos 1. Esta es siempre la lista final que se incluirá o excluirá en las copias de seguridad posteriores.
+
+Para obtener la lista actual de los discos que se excluyen o incluyen, obtenga la información de los elementos protegidos tal como se mencionó [aquí](https://docs.microsoft.com/rest/api/backup/protecteditems/get). La respuesta proporcionará la lista de LUN de discos de datos e indicará si están incluidos o excluidos.
 
 ### <a name="stop-protection-but-retain-existing-data"></a>Detener la protección, pero conservar los datos existentes
 

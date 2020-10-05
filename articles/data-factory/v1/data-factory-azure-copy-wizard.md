@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fa9786f31e1cf9ee15afdc03d289a04198836133
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 2dfb5876922fd53c372afe82ecdfa843179fb135
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086847"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439017"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Asistente para copia de Azure Data Factory
 > [!NOTE]
@@ -49,7 +49,7 @@ Puede obtener una vista previa de la parte de los datos del origen de datos sele
 En algunos casos, es posible que el esquema de datos de entrada no coincida con el esquema de datos de salida. En este escenario, es preciso asignar columnas del esquema de origen a columnas del esquema de destino.
 
 > [!TIP]
-> Al copiar datos desde SQL Server o Azure SQL Database en SQL Data Warehouse, si la tabla no se encuentra en el almacén de destino, Data Factory podrá crear la tabla automáticamente mediante el esquema del origen. Obtenga más información en [Movimiento de datos hacia y desde SQL Data Warehouse mediante Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
+> Al copiar datos desde SQL Server o Azure SQL Database en Azure Synapse Analytics (anteriormente SQL Data Warehouse), si la tabla no se encuentra en el almacén de destino, Data Factory podrá crear la tabla automáticamente mediante el esquema del origen. Obtenga más información en [Movimiento de datos hacia y desde Azure Synapse Analytics mediante Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
 >
 
 Use una lista desplegable para seleccionar una columna del esquema de origen para asignar a una columna en el esquema de destino. El Asistente para copia intenta entender el patrón para la asignación de columnas. Se aplica el mismo patrón para el resto de las columnas, por lo que no debe seleccionar cada una de las columnas individualmente para completar la asignación de esquema. Si lo prefiere, puede invalidar estas asignaciones mediante el uso de las listas desplegables para asignar las columnas una por una. El patrón se vuelve más preciso a medida que asigna más columnas. El Asistente para copia actualiza el patrón constantemente y, en última instancia, alcanza el patrón correcto para la asignación de columnas que desea conseguir.     

@@ -3,17 +3,17 @@ title: Uso de un panel para un laboratorio educativo en Azure Lab Services | M
 description: Obtenga información sobre cómo usar un panel para un laboratorio educativo en Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4e59917aa385a344d79a62441e208df970f42285
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 607a3e7faaae65adb67afc0ab0ffd5698adf4655
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444325"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528268"
 ---
 # <a name="dashboard-for-classroom-labs"></a>Panel para laboratorios educativos
 En este artículo se describe la vista de panel de un laboratorio educativo en Azure Lab Services. 
 
-![Panel](./media/use-dashboard/dashboard.png)
+![Captura de pantalla en la que se muestra la vista de panel de un laboratorio educativo en Azure Lab Services.](./media/use-dashboard/dashboard.png)
 
 ## <a name="costs-and-billing-tile"></a>Icono de costos y facturación
 En este icono se proporcionan los siguientes detalles de la estimación de costos:

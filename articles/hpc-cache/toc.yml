@@ -18,6 +18,8 @@
       items:
         - name: Incorporación de destinos de almacenamiento
           href: hpc-cache-add-storage.md
+        - name: Adición de rutas de acceso del espacio de nombres
+          href: add-namespace-paths.md
         - name: Movimiento de datos a destinos de almacenamiento (si es necesario)
           items:
             - name: Carga previa de la nueva instancia de Blob Storage
@@ -42,8 +44,6 @@
   items:
     - name: Azure CLI
       href: /cli/azure/ext/hpc-cache/hpc-cache
-    - name: Azure PowerShell
-      href: /powershell/module/Az.HPCCache
 - name: Recursos
   items:
     - name: Abrir una incidencia de soporte técnico

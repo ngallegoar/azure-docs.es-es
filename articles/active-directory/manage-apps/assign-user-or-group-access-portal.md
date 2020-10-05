@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: a8509797e78b70a60ffad4ba01d5a936f8b76f97
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: f49377743521e27c2312e95491762ca48d8448c4
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322303"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604332"
 ---
 # <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Administración de la asignación de usuarios para una aplicación en Azure Active Directory
 
@@ -28,7 +28,7 @@ De cara a tener un mayor control, se pueden configurar algunos tipos de aplicaci
 > Cuando se asigna un grupo a una aplicación, solo tendrán acceso los usuarios del grupo. La asignación no se aplica en cascada a los grupos anidados.
 
 > [!NOTE]
-> La asignación basada en grupos requiere Azure Active Directory Premium P1 o P2. La asignación basada en grupo se admite en grupos de seguridad únicamente. Actualmente no se admiten las pertenencias a grupos anidados y los grupos de Office 365. Para conocer más requisitos de licencia de las características abordadas en este artículo, vea la [página de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory). 
+> La asignación basada en grupos requiere Azure Active Directory Premium P1 o P2. La asignación basada en grupo se admite en grupos de seguridad únicamente. Actualmente no se admiten las pertenencias a grupos anidados y los grupos de Microsoft 365. Para conocer más requisitos de licencia de las características abordadas en este artículo, vea la [página de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory). 
 
 ## <a name="configure-an-application-to-require-user-assignment"></a>Configuración de una aplicación para que requiera la asignación de usuarios
 
@@ -55,7 +55,10 @@ Para requerir la asignación de usuarios en una aplicación:
 6. Seleccione el botón **Guardar** de la parte superior de la pantalla.
 
 ## <a name="assign-or-unassign-users-and-groups-for-an-app-using-the-azure-portal"></a>Asignación o desasignación de usuarios y grupos para una aplicación mediante Azure Portal
-Para obtener información sobre cómo asignar o desasignar un usuario o grupo mediante Azure Portal, consulte la [serie de inicios rápidos de Administración de aplicaciones](add-application-portal-assign-users.md). 
+Para obtener información sobre cómo asignar o desasignar un usuario o grupo mediante Azure Portal, consulte la [serie de inicios rápidos de Administración de aplicaciones](add-application-portal-assign-users.md).
+
+## <a name="assign-or-unassign-users-and-groups-for-an-app-using-the-graph-api"></a>Asignación o desasignación de usuarios y grupos para una aplicación mediante Graph API
+Puede usar Graph API para asignar o desasignar usuarios y grupos para una aplicación. Para más información, consulte [Asignaciones de roles de aplicación](https://docs.microsoft.com/graph/api/resources/approleassignment).
 
 ## <a name="assign-users-and-groups-to-an-app-using-powershell"></a>Asignación de usuarios y grupos a una aplicación mediante PowerShell
 1. Abra un símbolo del sistema de Windows PowerShell con privilegios elevados.

@@ -13,12 +13,12 @@ ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e2c09bcd43b08778324a32cc052fad5b85714c4
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 15bcb0f7ca30c343072da396abeac8d08dee03a9
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279591"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087016"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Factores que influyen en el rendimiento de Azure AD Connect
 
@@ -41,7 +41,7 @@ El propósito de este documento es describir los factores que afectan al rendimi
 
 En el siguiente diagrama se muestra una arquitectura de alto nivel del motor de aprovisionamiento que se conecta a un único bosque, aunque también se admiten varios bosques. Esta arquitectura muestra cómo interactúan entre sí los distintos componentes.
 
-![AzureADConnentInternal](media/plan-connect-performance-factors/AzureADConnentInternal.png)
+![Diagrama en el que se muestra cómo interactúan los directorios conectados y el motor de aprovisionamiento de Azure AD Connect, incluidos el espacio del conector y los componentes de metaverso en una base de datos SQL. ](media/plan-connect-performance-factors/AzureADConnentInternal.png)
 
 El motor de aprovisionamiento se conecta a cada bosque de Active Directory y a Azure AD. El proceso de lectura de la información de cada directorio se llama Importar. Exportar hace referencia a la actualización de los directorios desde el motor de aprovisionamiento. La sincronización evalúa las reglas de cómo los objetos fluirán en el motor de aprovisionamiento. Para obtener más información, puede consultar [Azure AD Connect Sync: Descripción de la arquitectura](./concept-azure-ad-connect-sync-architecture.md).
 

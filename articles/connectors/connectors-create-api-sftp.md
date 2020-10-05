@@ -1,21 +1,22 @@
 ---
-title: Conexión con una cuenta SFTP
-description: Automatice las tareas y los procesos que supervisan, crean, administran, envían y reciben archivos en un servidor SFTP mediante SSH con Azure Logic Apps.
+title: Conexión con una cuenta SFTP (en desuso)
+description: Automatice tareas y procesos que supervisan, crean, administran, envían y reciben archivos en un servidor SFTP mediante Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
-ms.reviewer: divswa, klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: d0da98070fa8da5403677e1a67bda75456c74d80
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ROBOTS: NOINDEX
+ms.openlocfilehash: cd2f8ce45ef9270866941cdedb7c768529c3175f
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74789280"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033309"
 ---
-# <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Supervisión, creación y administración de archivos SFTP mediante Azure Logic Apps
+# <a name="monitor-create-and-manage-sftp-files-in-azure-logic-apps"></a>Supervisión, creación y administración de archivos SFTP en Azure Logic Apps
 
 > [!IMPORTANT]
 > Use el [conector SFTP-SSH](../connectors/connectors-sftp-ssh.md), ya que el conector SFTP está en desuso. Ya no puede seleccionar desencadenadores y acciones de SFTP en el diseñador de aplicación lógica.
@@ -116,7 +117,7 @@ Esta acción obtiene el contenido de un archivo en un servidor SFTP. Por ejemplo
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para obtener detalles técnicos acerca de desencadenadores, acciones y límites, que se describen en la descripción de OpenAPI (antes Swagger) del conector, consulte la [página de referencia](/connectors/sftpconnector/) del conector.
+Para obtener detalles técnicos acerca de desencadenadores, acciones y límites, que se describen en la descripción de OpenAPI (antes Swagger) del conector, consulte la [página de referencia](/azure/data-factory/connector-sftp) del conector.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -2,14 +2,14 @@
 title: Uso de Shared Image Gallery para crear un grupo de imágenes personalizadas
 description: Los grupos de imágenes personalizadas son una manera eficaz de configurar los nodos de proceso para ejecutar las cargas de trabajo de Batch.
 ms.topic: conceptual
-ms.date: 07/01/2020
+ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: aad8b279ce821496d4c947bc7f9c707243468f07
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 31fcbff50a2a66aec1643f1bac351e0401205861
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852419"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605199"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Uso de Shared Image Gallery para crear un grupo de imágenes personalizadas
 
@@ -43,7 +43,9 @@ El uso de una imagen de Shared Image configurada para su escenario puede proporc
 - **Una imagen de Shared Image Gallery**. Para crear una imagen de Shared Image Gallery, debe tener o crear un recurso de imagen administrada. La imagen debe crearse desde instantáneas del disco del sistema operativo de la máquina virtual y, opcionalmente, de sus discos de datos conectados.
 
 > [!NOTE]
-> La imagen de Shared Image debe estar en la misma suscripción que la cuenta de Batch. La imagen puede estar en distintas regiones, siempre que tenga réplicas en la misma región que la cuenta de Batch.
+> Si la imagen compartida no está en la misma suscripción que la cuenta de Batch, debe [registrar el proveedor de recursos Microsoft.Batch](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) para esa suscripción. Las dos suscripciones deben estar en el mismo inquilino de Azure AD.
+>
+> La imagen puede estar en distintas regiones, siempre que tenga réplicas en la misma región que la cuenta de Batch.
 
 Si usa una aplicación de Azure AD para crear un grupo de imágenes personalizadas con una imagen de Shared Image Gallery, se debe haber concedido a la aplicación un [rol integrado de Azure](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) que le proporcione acceso a Shared Image. Para conceder este acceso en Azure Portal, navegue a la imagen compartida, seleccione **Control de acceso (IAM)** y agregue una asignación de roles para la aplicación.
 

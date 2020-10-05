@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/27/2020
-ms.openlocfilehash: 2503c26ac0348739bbf117c3538af797833ce8b8
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: f9dc11bd046bdc3a8913b4b05f1b68b84c9736c4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857646"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438473"
 ---
 # <a name="transformation-with-azure-databricks"></a>Transformación con Azure Databricks
 
@@ -28,7 +28,7 @@ En este tutorial, creará una canalización de un extremo a otro que contenga la
 
 - **Copy Data**: duplica el conjunto de datos de origen en el almacenamiento receptor, que se monta como DBFS en el cuaderno de Azure Databricks. De esta manera, Spark puede consumirlo directamente.
 
-- **Notebook**: desencadena el cuaderno de Databricks que transforma el conjunto de datos. También agrega el conjunto de datos a una carpeta procesada o a Azure SQL Data Warehouse.
+- **Notebook**: desencadena el cuaderno de Databricks que transforma el conjunto de datos. También agrega el conjunto de datos a una carpeta procesada o a Azure Synapse Analytics (anteriormente SQL Data Warehouse).
 
 Por motivos de simplicidad, la plantilla de este tutorial no crea un desencadenador programado. Puede agregar uno si es necesario.
 

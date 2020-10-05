@@ -3,12 +3,12 @@ title: Preparación del servidor DPM para realizar copias de seguridad de las ca
 description: En este artículo, aprenderá a preparar las copias de seguridad de System Center Data Protection Manager (DPM) en Azure con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 4534b75018fb91cedda00b8c1167012858c5e562
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0089c3d86eb36b82287570ecdfd6e8c782e6fb8a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021041"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975458"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparación para realizar copias de seguridad de las cargas de trabajo en Azure con System Center DPM
 
@@ -61,7 +61,7 @@ Puede elegir entre almacenamiento con redundancia geográfica y almacenamiento c
 
 - De forma predeterminada, el almacén tiene almacenamiento con redundancia geográfica.
 - Si el almacén es su copia de seguridad principal, deje la opción establecida como almacenamiento con redundancia geográfica. Si desea una opción más económica que no sea tan duradera, use el siguiente procedimiento para configurar el almacenamiento con redundancia local.
-- Obtenga información sobre [Azure Storage](../storage/common/storage-redundancy.md), y las opciones de almacenamiento con [redundancia geográfica](../storage/common/storage-redundancy.md) y [redundancia local](../storage/common/storage-redundancy.md).
+- Obtenga información sobre [Azure Storage](../storage/common/storage-redundancy.md) y las opciones de almacenamiento con [redundancia geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage), [redundancia local](../storage/common/storage-redundancy.md#locally-redundant-storage) y [redundancia de zona](../storage/common/storage-redundancy.md#zone-redundant-storage).
 - Modifique la configuración de almacenamiento antes de la copia de seguridad inicial. Si ya ha realizado la copia de seguridad de un elemento, detenga la copia de seguridad en el almacén antes de modificar la configuración de almacenamiento.
 
 Para editar la configuración de replicación de almacenamiento:
@@ -165,7 +165,7 @@ Todas las máquinas cuya copia de seguridad se realiza con Azure Backup deben te
 
 7. Seleccione **Registrar** para registrar el servidor DPM en el almacén.
 
-Una vez que el servidor se ha registrado correctamente en el almacén, ya está listo para iniciar la copia de seguridad en Microsoft Azure. Deberá configurar el grupo de protección en la consola de DPM para realizar copias de seguridad de las cargas de trabajo en Azure. [Obtenga información](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) sobre cómo implementar grupos de protección.
+Una vez que el servidor se ha registrado correctamente en el almacén, ya está listo para iniciar la copia de seguridad en Microsoft Azure. Deberá configurar el grupo de protección en la consola de DPM para realizar copias de seguridad de las cargas de trabajo en Azure. [Obtenga información](/system-center/dpm/create-dpm-protection-groups) sobre cómo implementar grupos de protección.
 
 ## <a name="troubleshoot-vault-credentials"></a>Solución de problemas de las credenciales del almacén
 

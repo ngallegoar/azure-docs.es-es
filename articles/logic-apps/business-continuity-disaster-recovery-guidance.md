@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: cc55b24c4852028eb1244e97b48415ba08420e20
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0a36cb468ebcb77c0614bffd0afc392df3655c20
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066533"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658202"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Continuidad empresarial y recuperación ante desastres para Azure Logic Apps
 
@@ -69,7 +69,7 @@ En este ejemplo se muestran las instancias de aplicación lógica principal y se
 
 ## <a name="connections-to-resources"></a>Conexiones a recursos
 
-Azure Logic Apps proporciona [acciones y desencadenadores integrados además de cientos de conectores administrados](../connectors/apis-list.md) que la aplicación lógica puede usar para trabajar con otras aplicaciones, servicios, sistemas y recursos, como cuentas de Azure Storage, bases de datos de SQL Server, cuentas de correo electrónico de Office 365 Outlook, etc. Si la aplicación lógica necesita acceder a estos recursos, debe crear conexiones que autentiquen el acceso a estos recursos. Cada conexión es un recurso de Azure independiente que existe en una ubicación específica y que los recursos de otras ubicaciones no pueden usar.
+Azure Logic Apps proporciona [acciones y desencadenadores integrados además de cientos de conectores administrados](../connectors/apis-list.md) que la aplicación lógica puede usar para trabajar con otras aplicaciones, servicios, sistemas y recursos, como cuentas de Azure Storage, bases de datos de SQL Server, cuentas de correo electrónico profesionales o educativas, etc. Si la aplicación lógica necesita acceder a estos recursos, debe crear conexiones que autentiquen el acceso a estos recursos. Cada conexión es un recurso de Azure independiente que existe en una ubicación específica y que los recursos de otras ubicaciones no pueden usar.
 
 En la estrategia de recuperación ante desastres, tenga en cuenta las ubicaciones en las que existen los recursos dependientes en relación con las instancias de la aplicación lógica:
 

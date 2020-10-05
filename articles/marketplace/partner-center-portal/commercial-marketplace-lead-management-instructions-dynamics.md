@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 03/30/2020
-ms.openlocfilehash: 92f4bde31af2a7bb4c658141964f238a8c077eef
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 31dba5489db3778d738fc2856cf6aacfd6987711
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120388"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030759"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Configuración de la administración de clientes potenciales para Dynamics 365 Customer Engagement
 
@@ -27,7 +27,7 @@ Para completar los pasos de este artículo, se necesitan los siguientes permisos
 
 * Derechos de administrador de la instancia de Dynamics 365 Customer Engagement para poder instalar una solución.
 * Derechos de administrador de inquilinos para crear una cuenta de servicio para el servicio de clientes potenciales que se usa para enviar clientes potenciales de las ofertas de marketplace comercial.
-* Acceso al portal de administración de Office 365.
+* Acceda al portal de administración.
 * Acceso a Azure Portal.
 
 ## <a name="install-the-solution"></a>Instalar la solución

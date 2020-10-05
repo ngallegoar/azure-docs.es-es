@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1387c8525ec14b1db330252b78474bba66db8b5b
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: f137b61f36ee425bdfecf3135370fded04242335
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276140"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658751"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Guía de inicio rápido
 
@@ -53,7 +53,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos:
     
 * **Habilitación de la autenticación moderna**: para que esta característica funcione, es preciso que habilite la [autenticación moderna](/office365/enterprise/modern-auth-for-office-2013-and-2016) en el inquilino.
 
-* **Uso de las versiones más recientes de los clientes de Office 365**: para obtener una experiencia de inicio de sesión silenciosa con clientes de Office 365 (Outlook, Word, Excel, etc.), los usuarios deben usar las versiones 16.0.8730.xxxx o superiores.
+* **Uso de las versiones más recientes de los clientes de Microsoft 365**: para obtener una experiencia de inicio de sesión silenciosa con clientes de Microsoft 365 (Outlook, Word, Excel, etc.), los usuarios deben usar las versiones 16.0.8730.xxxx o superiores.
 
 ## <a name="step-2-enable-the-feature"></a>Paso 2: Habilitar la característica
 

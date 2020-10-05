@@ -16,20 +16,20 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1879df40122549ddc4c57557017fa2c84c883368
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 0852171544f179315535d234f5a2680d918e7d85
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88061513"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084845"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronización de Azure AD Connect: Configuración del filtrado
-Con el filtrado puede controlar qué objetos aparecen en Azure Active Directory (Azure AD) desde el directorio local. La configuración predeterminada aceptará todos los objetos en todos los dominios de los bosques configurados. Por lo general, esta configuración es la recomendada. Los usuarios con cargas de trabajo de Office 365, como Exchange Online y Skype Empresarial, se benefician de una lista global de direcciones completa para poder enviar correo electrónico y llamar a todos los integrantes. Con la configuración predeterminada, obtendrían la misma experiencia que con una implementación local de Exchange o Lync.
+Con el filtrado puede controlar qué objetos aparecen en Azure Active Directory (Azure AD) desde el directorio local. La configuración predeterminada aceptará todos los objetos en todos los dominios de los bosques configurados. Por lo general, esta configuración es la recomendada. Los usuarios con cargas de trabajo de Microsoft 365, como Exchange Online y Skype Empresarial, se benefician de una lista global de direcciones completa para poder enviar correo electrónico y llamar a todos los integrantes. Con la configuración predeterminada, obtendrían la misma experiencia que con una implementación local de Exchange o Lync.
 
 Sin embargo, en algunos casos se necesitan algunos cambios en la configuración predeterminada. Estos son algunos ejemplos:
 
 * Quiere usar la [topología de varios directorios de Azure AD](plan-connect-topologies.md#each-object-only-once-in-an-azure-ad-tenant). Después, necesita aplicar un filtro para controlar qué objetos se sincronizan en un directorio determinado de Azure AD.
-* Va a ejecutar un piloto para Azure u Office 365 y desea solo un subconjunto de usuarios en Azure AD. En el pequeño proyecto piloto, no es necesaria una lista global de direcciones completa para demostrar la funcionalidad.
+* Va a ejecutar un piloto para Azure o Microsoft 365 y desea solo un subconjunto de usuarios en Azure AD. En el pequeño proyecto piloto, no es necesaria una lista global de direcciones completa para demostrar la funcionalidad.
 * Tiene numerosas cuentas de servicio y otras de carácter no personal que no desea en Azure AD.
 * Por motivos de cumplimiento, no elimina ninguna cuenta de usuario local. Solo las deshabilita. Pero solo quiere encontrar las cuentas activas en Azure AD.
 
@@ -217,7 +217,7 @@ El filtrado entrante utiliza la configuración predeterminada en la que los obje
 En el filtrado entrante se utilizará el **ámbito** para determinar qué objetos se sincronizan y cuáles no. Aquí realizará ajustes para satisfacer los requisitos de su organización. El módulo de ámbito cuenta con un **grupo** y una **cláusula** para determinar cuándo una regla de sincronización está dentro de él. Un grupo contiene una o varias cláusulas. Existe un operador lógico AND entre varias cláusulas y un operador lógico OR entre varios grupos.
 
 Veamos un ejemplo:  
-![Ámbito](./media/how-to-connect-sync-configure-filtering/scope.png)  
+![Una captura de pantalla en la que se muestra un ejemplo de cómo agregar filtros de ámbito](./media/how-to-connect-sync-configure-filtering/scope.png).  
 Se debe leer como **(departamento = TI) O BIEN (departamento = Ventas Y c = Estados Unidos)** .
 
 En los ejemplos y los pasos siguientes, usaremos el objeto de usuario como ejemplo, pero esto sirve para todo tipo de objetos.
@@ -275,7 +275,7 @@ En este ejemplo, se cambia el filtrado de manera que se sincronicen solo los usu
 1. Inicie sesión en el servidor donde se ejecuta la sincronización de Azure AD Connect con una cuenta que pertenezca al grupo de seguridad **ADSyncAdmins** .
 2. Inicie el **Synchronization Rules Editor** (Editor de reglas de sincronización) del menú **Inicio**.
 3. En **Rules Type** (Tipo de reglas), haga clic en **Saliente**.
-4. Según la versión de Connect que utilice, o bien busque la regla denominada **Out to AAD – User Join** (Salida a AAD - Unión de usuario) o la regla **Out a AAD - User Join SOAInAD** (Salida a AAD - SOAInAD de unión de usuario) y haga clic en **Editar**.
+4. Según la versión de Connect que utilice, o bien busque la regla denominada **Out to Azure AD – User Join** (Salida a Azure AD - Unión de usuario) o la regla **Out to Azure AD - User Join SOAInAD** (Salida a Azure AD - SOAInAD de unión de usuario) y haga clic en **Editar**.
 5. En el elemento emergente, responda **Sí** para crear una copia de la regla.
 6. En la página **Descripción**, cambie la **Precedencia** a un valor sin usar, como 50.
 7. Haga clic en **Scoping filter** (Filtro de ámbito) en el panel de navegación izquierdo y haga clic en **Agregar cláusula**. En **Atributo**, seleccione **mail**. En **Operador**, seleccione **ENDSWITH**. En **Valor**, escriba **\@contoso.com** y haga clic en **Agregar cláusula**. En **Atributo**, seleccione **userPrincipalName**. En **Operador**, seleccione **ENDSWITH**. En **Valor**, escriba **\@contoso.com**.
@@ -300,7 +300,7 @@ Después de la sincronización, todos los cambios se almacenan provisionalmente 
 
 1. Inicie un símbolo del sistema y vaya a `%ProgramFiles%\Microsoft Azure AD Sync\bin`.
 2. Ejecute `csexport "Name of Connector" %temp%\export.xml /f:x`.  
-   El nombre del conector puede encontrarse en el servicio de sincronización. Tendrá un nombre similar a contoso.com – AAD en Azure AD.
+   El nombre del conector puede encontrarse en el servicio de sincronización. Para Azure AD, tendrá un nombre similar a "contoso.com – Azure AD".
 3. Ejecute `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`.
 4. Ahora tiene un archivo en %temp% denominado export.csv que se puede examinar en Microsoft Excel. Este archivo contiene todos los cambios que se van a exportar.
 5. Realice los cambios necesarios en los datos o la configuración y ejecute estos pasos de nuevo (importación y sincronización y comprobación) hasta que los cambios que se vayan a exportar sean los previstos.
