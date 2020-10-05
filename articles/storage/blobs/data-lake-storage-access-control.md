@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 9edf348c856de5c75c95d8a8f1957dcf73fc8ec1
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: fa6a226926439e30b9ca51c75743ce35915ffd85
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030493"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017241"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Control de acceso en Azure Data Lake Storage Gen2
 
@@ -256,7 +256,7 @@ El valor de umask para Azure Data Lake Storage Gen2 es una constante establecida
 | umask.owning_group  |    0         |   `---`      | En el caso del grupo propietario, copie la ACL predeterminada del elemento principal en la ACL de acceso del elemento secundario. | 
 | umask.other         |    7         |   `RWX`      | En el caso de otro, quite todos los permisos en la ACL de acceso del elemento secundario. |
 
-El valor de umask usado por Azure Data Lake Storage Gen2 significa realmente que el valor de **otro** nunca se transmite de forma predeterminada en los nuevos objetos secundarios, independientemente de lo que indique la ACL predeterminada. 
+El valor de umask usado por Azure Data Lake Storage Gen2 significa realmente que el valor de **otro** nunca se transmite de forma predeterminada en los nuevos elementos secundarios, a no ser que se defina una lista ACL predeterminada en el directorio principal. En ese caso, el valor de umask se omite de manera efectiva y los permisos definidos por la lista ACL predeterminada se aplican al elemento secundario. 
 
 El siguiente pseudocódigo muestra cómo se aplica umask al crear las ACL de un elemento secundario.
 

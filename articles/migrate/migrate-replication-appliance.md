@@ -3,12 +3,12 @@ title: Dispositivo de replicación con Azure Migrate
 description: Obtenga más información sobre el dispositivo de replicación de Azure Migrate para la migración de VMware basada en agente.
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 8149613effc4519638cc9b80f7894874ef3eafe3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: af9e45e47c2f0645d81a571161f15f7d69cfec61
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122105"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532127"
 ---
 # <a name="replication-appliance"></a>Dispositivo de replicación
 
@@ -129,7 +129,7 @@ Servidor de proceso | El servidor de procesos recibe los datos de la replicació
     - El servidor de procesos recibe los datos de la replicación, los optimiza, los cifra y los envía a Azure Storage a través del puerto 443 de salida.
 5. Los datos de replicación registran el primer aterrizaje en una cuenta de almacenamiento en caché de Azure. Estos registros se procesan y los datos se almacenan en un disco administrado de Azure.
 
-![Architecture](./media/migrate-replication-appliance/architecture.png)
+![En el diagrama se muestra la arquitectura del proceso de replicación.](./media/migrate-replication-appliance/architecture.png)
 
 ## <a name="appliance-upgrades"></a>Actualizaciones del dispositivo
 

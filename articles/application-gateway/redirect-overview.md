@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: 8c2bac1bee5a2301a29589f15d72d0f69b4a05b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb01d5a4923410f693b682d66be8d5d09f9019d0
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253858"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561585"
 ---
 # <a name="application-gateway-redirect-overview"></a>Introducción a la redirección de Application Gateway
 
@@ -37,7 +37,7 @@ La compatibilidad con la redirección de Application Gateway ofrece las siguient
    Este tipo de redirección permite la redirección de HTTP a HTTPS solo en un área de un sitio específico, por ejemplo un área de carro de la compra que se indica mediante /carro/*.
 - **Redirección a un sitio externo**
 
-![redirección](./media/redirect-overview/redirect.png)
+![En el diagrama se muestran los usuarios y una instancia de App Gateway y las conexiones entre ambos, incluida una flecha de color rojo HTTP desbloqueada, una flecha roja directa 301 no permitida y una flecha de color verde HTTPS bloqueada.](./media/redirect-overview/redirect.png)
 
 Con este cambio, los clientes tienen que crear un nuevo objeto de configuración de redireccionamiento, que especifique el agente de escucha de destino o el sitio externo al que se desea dirigir el redireccionamiento. El elemento de configuración también admite opciones para anexar la cadena de consulta y la ruta de acceso URI para la dirección URL redirigida. También puede elegir el tipo de redireccionamiento. Una vez creada esta configuración de redireccionamiento, se adjunta al agente de escucha de origen a través de una nueva regla. Cuando se usa una regla básica, la configuración de redirección se asocia a un agente de escucha de origen y es una redirección global. Cuando se utiliza una regla basada en rutas de acceso, la configuración de redireccionamiento se define en el mapa de rutas de acceso de dirección URL. Por lo tanto, solo se aplica al área específica de la ruta de acceso de un sitio.
 

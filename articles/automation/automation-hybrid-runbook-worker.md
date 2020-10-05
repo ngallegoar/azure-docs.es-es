@@ -3,14 +3,14 @@ title: Introducción a Hybrid Runbook Worker de Azure Automation
 description: En este artículo se ofrece información general de Hybrid Runbook Worker, que puede usar para ejecutar runbooks en máquinas de su centro de datos local o proveedor de nube.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/16/2020
+ms.date: 09/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4d29979e28140b728478d405db934cb41783f4b0
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: f5dc9305df8ce0e26e13738d605849fa75cc53a7
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448075"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087902"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Introducción a Hybrid Runbook Worker
 
@@ -63,7 +63,7 @@ Si se usa un servidor proxy para la comunicación entre Azure Automation y las m
 
 ### <a name="firewall-use"></a>Uso del firewall
 
-Si usa un firewall para restringir el acceso a Internet, tendrá que configurarlo para que permita el acceso. Si usa la puerta de enlace de Log Analytics como proxy, asegúrese de que está configurada para instancias de Hybrid Runbook Worker. Consulte el artículo [Conexión de equipos sin acceso a Internet mediante la puerta de enlace de Log Analytics en Azure Monitor](../azure-monitor/platform/gateway.md).
+Si usa un firewall para restringir el acceso a Internet, tendrá que configurarlo para que permita el acceso. Si usa la puerta de enlace de Log Analytics como proxy, asegúrese de que está configurada para instancias de Hybrid Runbook Worker. Consulte [Configuración de la pueta de enlace de Log Analytics para Hybrid Runbook Worker de Automation](../azure-monitor/platform/gateway.md).
 
 ### <a name="service-tags"></a>Etiquetas de servicio
 
@@ -115,6 +115,20 @@ Si la máquina host de Hybrid Runbook Worker se reinicia, cualquier trabajo de r
 ### <a name="runbook-permissions-for-a-hybrid-runbook-worker"></a>Permisos del runbook para una instancia de Hybrid Runbook Worker
 
 Puesto que acceden a recursos que no son de Azure, los runbooks que se ejecutan en una instancia de Hybrid Runbook Worker no pueden usar el mecanismo de autenticación que usan normalmente los runbooks que se autentican en los recursos de Azure. Un runbook proporciona su propia autenticación a los recursos locales o configura la autenticación mediante [identidades administradas para los recursos de Azure](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager). También puede especificar una cuenta de ejecución para proporcionar un contexto de usuario para todos los runbooks.
+
+## <a name="view-hybrid-runbook-workers"></a>Visualización de instancias de Hybrid Runbook Worker
+
+Una vez habilitada la característica Update Management en servidores o máquinas virtuales Windows, puede inventariar la lista de grupos de Hybrid Runbook Worker del sistema en Azure Portal. Puede ver hasta 2000 trabajos en el portal si selecciona la pestaña **System hybrid workers group** (Grupos de trabajos híbridos del sistema) de la opción **Hybrid workers group** (Grupo de trabajos híbridos) en el panel izquierdo de la cuenta de Automation seleccionada.
+
+:::image type="content" source="./media/automation-hybrid-runbook-worker/system-hybrid-workers-page.png" alt-text="Página de grupos de trabajos híbridos del sistema de la cuenta de Automation" border="false" lightbox="./media/automation-hybrid-runbook-worker/system-hybrid-workers-page.png":::
+
+Si tiene más de 2000 trabajos híbridos, puede ejecutar el siguiente script de PowerShell para obtener una lista de todos ellos:
+
+```powershell
+"Get-AzSubscription -SubscriptionName "<subscriptionName>" | Set-AzContext
+$workersList = (Get-AzAutomationHybridWorkerGroup -ResourceGroupName "<resourceGroupName>" -AutomationAccountName "<automationAccountName>").Runbookworker
+$workersList | export-csv -Path "<Path>\output.csv" -NoClobber -NoTypeInformation"
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: 19e3e356765099b83f7248a024b55c491a61b110
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: c3ffcea27fa16fd4f5449b42407a7e4779ca27f9
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816276"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420938"
 ---
 # <a name="offer-listing-best-practices"></a>Procedimientos recomendados para la publicación de ofertas
 
@@ -48,11 +48,11 @@ Las categorías y las industrias de una tienda en línea diferente serán aplica
 
 ### <a name="categories"></a>Categorías
 
-Microsoft AppSource y Azure Marketplace son dos tiendas en línea diferentes que satisfacen requisitos únicos de los clientes. Azure Marketplace se dirige a los profesionales de TI y a los desarrolladores que crean soluciones en Azure.  Microsoft AppSource se dirige a los usuarios empresariales que buscan aplicaciones SaaS empresariales o del sector, complementos de Dynamics 365, complementos de Microsoft 365 y aplicaciones de Power Platform.
+Microsoft AppSource y Azure Marketplace son tiendas en línea que ofrecen diferentes tipos de soluciones. Azure Marketplace ofrece soluciones de TI basadas en Azure o para Azure.  Microsoft AppSource ofrece soluciones empresariales, como aplicaciones SaaS del sector, complementos de Dynamics 365, complementos de Microsoft 365 y aplicaciones de Power Platform.
 
-Las categorías y subcategorías se asignan a cada tienda en línea en función del público de destino. La oferta se publicará en Microsoft AppSource o Azure Marketplace en función del tipo de oferta, las capacidades de transacción de la oferta y la selección de categoría/subcategoría. 
+Las categorías y subcategorías se asignan a cada tienda en línea en función del tipo de solución. La oferta se publicará en Microsoft AppSource o Azure Marketplace en función del tipo de oferta, las capacidades de transacción de la oferta y la selección de categoría/subcategoría. 
 
-Seleccione las categorías y subcategorías que mejor se alineen con su oferta y con la audiencia prevista. Puede seleccionar:
+Seleccione las categorías y subcategorías que mejor se adapten al tipo de solución. Puede seleccionar:
 
 * Seleccione dos categorías como máximo, incluidas una categoría principal y una secundaria (opcional).
 * Hasta dos subcategorías para cada categoría principal o secundaria. Si no se selecciona ninguna subcategoría, solo se podrá detectar en la categoría seleccionada.

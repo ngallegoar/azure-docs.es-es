@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c2e2394bbcee5294bfb752a0af2969457ffff0ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 290990e312a7f591539686ecce1eec1ac742dd60
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710157"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443031"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Movimiento de datos de Amazon Redshift mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -101,13 +101,13 @@ Como alternativa, puede utilizar el tipo **RelationalSource**, que incluye Amazo
 
 El comando [**UNLOAD**](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) de Amazon Redshift descarga los resultados de una consulta a uno o varios archivos en Amazon S3. Amazon recomienda este comando para copiar conjuntos de datos grandes de Redshift.
 
-**Ejemplo: Copia de datos de Amazon Redshift a Azure SQL Data Warehouse**
+**Ejemplo: Copia de datos de Amazon Redshift a Azure Synapse Analytics (anteriormente SQL Data Warehouse)**
 
-Este ejemplo copia datos de Amazon Redshift a Azure SQL Data Warehouse. En el ejemplo se utiliza el comando **UNLOAD** de Redshift, datos de copia almacenados provisionalmente y Microsoft PolyBase.
+Este ejemplo copia datos de Amazon Redshift a Azure Synapse Analytics. En el ejemplo se utiliza el comando **UNLOAD** de Redshift, datos de copia almacenados provisionalmente y Microsoft PolyBase.
 
-En este ejemplo de caso de uso, la actividad de copia descarga primero los datos de Amazon Redshift a Amazon S3 tal como está configurado en la opción **redshiftUnloadSettings**. Luego, los datos se copian de Amazon S3 a Azure Blob Storage tal como se especifica en la opción **stagingSettings**. Por último, PolyBase carga los datos en SQL Data Warehouse. Todos los formatos provisionales están controlados por la actividad de copia.
+En este ejemplo de caso de uso, la actividad de copia descarga primero los datos de Amazon Redshift a Amazon S3 tal como está configurado en la opción **redshiftUnloadSettings**. Luego, los datos se copian de Amazon S3 a Azure Blob Storage tal como se especifica en la opción **stagingSettings**. Por último, PolyBase carga los datos en Azure Synapse Analytics. Todos los formatos provisionales están controlados por la actividad de copia.
 
-![Flujo de trabajo de copia de Amazon Redshift a SQL Data Warehouse](media/data-factory-amazon-redshift-connector/redshift-to-sql-dw-copy-workflow.png)
+![Copia del flujo de trabajo de Amazon Redshift a Azure Synapse Analytics](media/data-factory-amazon-redshift-connector/redshift-to-sql-dw-copy-workflow.png)
 
 ```json
 {

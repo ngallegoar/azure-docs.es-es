@@ -1,15 +1,15 @@
 ---
 title: Creación y configuración de almacenes de Recovery Services
-description: En este artículo, aprenderá a crear y configurar almacenes de Recovery Services que almacenan las copias de seguridad y los puntos de recuperación.
+description: En este artículo, aprenderá a crear y configurar almacenes de Recovery Services que almacenan las copias de seguridad y los puntos de recuperación. Aprenda a usar Restauración entre regiones para restaurar en una región secundaria.
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 81c6fd47ccea2ea17a20535df04931727c23be6f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: c659efad7f0eaf5793e1fd608eb522964df7befd
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177200"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981510"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Creación y configuración de un almacén de Recovery Services
 
@@ -30,34 +30,45 @@ Azure Backup administra automáticamente el almacenamiento para el almacén. Deb
 
 1. Seleccione el tipo de replicación almacenamiento y seleccione **Guardar**.
 
-     ![Establecimiento de la configuración de almacenamiento del nuevo almacén](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+     ![Establecimiento de la configuración de almacenamiento del nuevo almacén](./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png)
 
    - Se recomienda que, si usa Azure como punto de conexión del almacenamiento de copia de seguridad principal, siga utilizando la configuración **con redundancia geográfica** predeterminada.
    - Si no utiliza Azure como punto de conexión de almacenamiento de copia de seguridad principal, elija **Redundancia local** para reducir los costes de almacenamiento de Azure.
-   - Obtenga más información sobre la redundancia [geográfica](../storage/common/storage-redundancy.md) y [local](../storage/common/storage-redundancy.md).
+   - Obtenga más información sobre la redundancia [geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage) y [local](../storage/common/storage-redundancy.md#locally-redundant-storage).
+   - Si necesita disponibilidad de datos sin tiempo de inactividad en una región, garantizando la residencia de los datos, elija [almacenamiento con redundancia de zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy#zone-redundant-storage).
 
 >[!NOTE]
 >Los valores de Replicación de almacenamiento para el almacén no son pertinentes para la copia de seguridad de recursos compartidos de archivos de Azure, ya que la solución actual se basa en instantáneas y no se transfieren datos al almacén. Las instantáneas se almacenan en la misma cuenta de almacenamiento que el recurso compartido de archivos del que se ha realizado la copia de seguridad.
 
 ## <a name="set-cross-region-restore"></a>Establecimiento de la restauración entre regiones
 
-Restauración entre regiones (CRR), una de las opciones de restauración, permite restaurar VM de Azure en una región secundaria, que es una [región emparejada de Azure](../best-practices-availability-paired-regions.md). Esta opción le permite:
+La opción **Restauración entre regiones (CRR)** permite restaurar datos en una [región de Azure emparejada](../best-practices-availability-paired-regions.md) secundaria.
+
+Admite los orígenes de datos siguientes:
+
+- Máquinas virtuales de Azure
+- Bases de datos SQL hospedadas en máquinas virtuales de Azure
+- Bases de datos de SAP HANA hospedadas en máquinas virtuales de Azure
+
+Usar Restauración entre regiones le permite hacer lo siguiente:
 
 - Realizar simulacros cuando existen requisitos de cumplimiento o auditoría.
-- Restaurar la VM o su disco si se produce un desastre en la región primaria.
+- Restaurar los datos si se produce un desastre en la región primaria.
+
+Al restaurar una máquina virtual, puede restaurar la máquina virtual o su disco. Si va a restaurar a partir de bases de datos SQL o de SAP HANA hospedadas en máquinas virtuales de Azure, puede restaurar las bases de datos o sus archivos.
 
 Para elegir esta característica, seleccione la opción **Habilitar la restauración entre regiones** en el panel **Configuración de copia de seguridad**.
 
-En este proceso hay implicaciones de precios, ya que se encuentra en el nivel de almacenamiento.
+Como este proceso se encuentra en el nivel de almacenamiento, hay [implicaciones de precios](https://azure.microsoft.com/pricing/details/backup/).
 
 >[!NOTE]
 >Antes de empezar:
 >
 >- Revise la [matriz de compatibilidad](backup-support-matrix.md#cross-region-restore) para obtener una lista de regiones y tipos administrados compatibles.
->- La característica Restauración entre regiones (CRR) ahora se muestra como vista previa en todas las regiones públicas de Azure.
+>- La característica Restauración entre regiones (CRR) ahora está en versión preliminar todas las nubes soberanas y las regiones públicas de Azure.
 >- CRR es una característica opcional de nivel de almacén para cualquier almacén GRS (está desactivada de forma predeterminada).
 >- Tras la incorporación, los elementos de copia de seguridad pueden tardar hasta 48 horas en estar disponibles en las regiones secundarias.
->- Actualmente, solo se admite CRR para el tipo de administración de copias de seguridad de VM de Azure de ARM (VM de Azure clásica no se admitirá).  Si otros tipos de administración admiten CRR, se inscribirán **automáticamente**.
+>- Actualmente, CRR para máquinas virtuales de Azure solo se admite para las máquinas virtuales de Azure Resource Manager. No se admitirán las máquinas virtuales de Azure clásicas.  Si otros tipos de administración admiten CRR, se inscribirán **automáticamente**.
 >- Una vez que la protección se inicia por primera vez, actualmente no se puede revertir la restauración entre regiones a GRS o LRS.
 
 ### <a name="configure-cross-region-restore"></a>Configuración de la restauración entre regiones
@@ -69,15 +80,13 @@ Un almacén creado con redundancia GRS incluye la opción para configurar la car
 1. Desde el portal, diríjase a Almacén de Recovery Services > Configuración > Propiedades.
 2. Seleccione la opción **Habilitar la restauración entre regiones en este almacén** para habilitar la funcionalidad.
 
-   ![Antes de seleccionar Habilitar la restauración entre regiones en este almacén](./media/backup-azure-arm-restore-vms/backup-configuration1.png)
+   ![Habilitación de la restauración entre regiones](./media/backup-azure-arm-restore-vms/backup-configuration.png)
 
-   ![Después de seleccionar Habilitar la restauración entre regiones en este almacén](./media/backup-azure-arm-restore-vms/backup-configuration2.png)
+Consulte estos artículos para más información sobre la copia de seguridad y restauración con CRR:
 
-Obtenga información sobre la [visualización de elementos de copia de seguridad en la región secundaria](backup-azure-arm-restore-vms.md#view-backup-items-in-secondary-region).
-
-Obtenga información sobre la [restauración en la región secundaria](backup-azure-arm-restore-vms.md#restore-in-secondary-region).
-
-Obtenga información sobre la [supervisión de trabajos de restauración en la región secundaria](backup-azure-arm-restore-vms.md#monitoring-secondary-region-restore-jobs).
+- [Restauración entre regiones para máquinas virtuales de Azure](backup-azure-arm-restore-vms.md#cross-region-restore)
+- [Restauración entre regiones para bases de datos SQL](restore-sql-database-azure-vm.md#cross-region-restore)
+- [Restauración entre regiones para bases de datos de SAP HANA](sap-hana-db-restore.md#cross-region-restore)
 
 ## <a name="set-encryption-settings"></a>Definición de la configuración de cifrado
 

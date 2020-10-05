@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: fb990b5aa615e37d9893a891143cb04933b603bb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: aaaa073f798998ed97be1bd3cd66795d7b3dfb23
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542622"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069669"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>Tutorial: Configuración de RingCentral para el aprovisionamiento automático de usuarios
 
@@ -113,7 +113,6 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
    |userName|String|
    |externalId|String|
    |active|Boolean|
-   |DisplayName|String|
    |title|String|
    |emails[type eq "work"].value|String|
    |addresses[type eq "work"].country|String|
@@ -125,7 +124,6 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
    |name.familyName|String|
    |phoneNumbers[type eq "mobile"].value|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referencia|
 
 10. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -149,6 +147,10 @@ Una vez configurado el aprovisionamiento, use los recursos siguientes para super
 1. Use los [registros de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar qué usuarios se han aprovisionado correctamente o sin éxito.
 2. Consulte la [barra de progreso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver el estado del ciclo de aprovisionamiento y cuánto falta para que finalice.
 3. Si la configuración de aprovisionamiento parece estar en mal estado, la aplicación pasará a estar en cuarentena. Más información sobre los estados de cuarentena [aquí](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+
+## <a name="change-log"></a>Registro de cambios
+
+* 10/09/2020: se ha eliminado la compatibilidad con los atributos "displayName" y "manager".
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -4,12 +4,12 @@ description: En este artículo obtendrá información sobre cómo administrar la
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: f9cd0cca938dac79071d7ded6f6139f4e3c3840d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ad60436d82ccc8049a4509ba5bf1e244bee150ea
+ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011197"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89506685"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restauración de máquinas virtuales de Azure mediante API REST
 
@@ -242,6 +242,30 @@ El cuerpo de solicitud siguiente define las propiedades necesarias para desencad
     }
   }
 }
+```
+
+### <a name="restore-disks-selectively"></a>Restauración de discos de forma selectiva
+
+Si está [realizando copias de seguridad de discos de forma selectiva](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup), la lista actual de discos de los que se ha hecho una de copia de seguridad se proporciona en el [resumen de puntos de recuperación](#select-recovery-point) y en la [respuesta detallada](https://docs.microsoft.com/rest/api/backup/recoverypoints/get). También puede restaurar los discos de forma selectiva. [Aquí](selective-disk-backup-restore.md#selective-disk-restore) se proporcionan más detalles. Para restaurar de forma selectiva un disco entre la lista de discos de los que se ha hecho copia de seguridad, busque el LUN del disco de la respuesta del punto de recuperación y agregue la propiedad **restoreDiskLunList** al [cuerpo de solicitud anterior](#example-request) como se muestra a continuación.
+
+```json
+{
+    "properties": {
+        "objectType": "IaasVMRestoreRequest",
+        "recoveryPointId": "20982486783671",
+        "recoveryType": "RestoreDisks",
+        "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+        "storageAccountId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Storage/storageAccounts/testAccount",
+        "region": "westus",
+        "createNewCloudService": false,
+        "originalStorageAccountOption": false,
+        "encryptionDetails": {
+          "encryptionEnabled": false
+        },
+        "restoreDiskLunList" : [0]
+    }
+}
+
 ```
 
 Después de hacer el seguimiento de la respuesta tal como se explica [antes](#responses), y completar el trabajo de larga duración, los discos y la configuración de la máquina virtual con copia de seguridad ("VMConfig.json") estarán presentes en la cuenta de almacenamiento dada.

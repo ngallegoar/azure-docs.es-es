@@ -4,12 +4,12 @@ description: Aprenda a exponer un servicio WCF local a una aplicación web en la
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 06/23/2020
-ms.openlocfilehash: d6299899ee45bbad8b5e5fdbca01805604794d62
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 22b582634b623b39545eca225c8df0130606c2bb
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922555"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983886"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Exposición de un servicio WCF local a una aplicación web en la nube con Azure Relay
 
@@ -344,7 +344,7 @@ Ejecute la aplicación para comprobar que funciona.
 
 La aplicación debería aparecer ejecutándose en un explorador.
 
-![Aplicación web][21]
+![Captura de pantalla que muestra un ejemplo de la aplicación que se ejecuta en un explorador con la dirección URL resaltada.][21]
 
 ## <a name="put-the-pieces-together"></a>Combinación de todos los componentes
 

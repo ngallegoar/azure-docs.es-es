@@ -1,25 +1,22 @@
 ---
-title: Configuración de una conexión a una cuenta de almacenamiento mediante una identidad administrada (versión preliminar)
+title: Configuración de una conexión a una cuenta de almacenamiento mediante una identidad administrada
 titleSuffix: Azure Cognitive Search
-description: Aprenda a configurar una conexión de indexador a una cuenta de Azure Storage mediante una identidad administrada (versión preliminar)
+description: Aprenda a configurar una conexión de indexador a una cuenta de Azure Storage mediante una identidad administrada
 manager: luisca
 author: markheff
 ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: 30305607ea291587f7751b7e8048924f995251e9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/22/2020
+ms.openlocfilehash: c1168602ccb527d8ffb3b64d5437a26490b44a21
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88917982"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971511"
 ---
-# <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity-preview"></a>Configuración de una conexión a una cuenta de Azure Storage mediante una identidad administrada (versión preliminar)
-
-> [!IMPORTANT] 
-> La compatibilidad con la configuración de una conexión a un origen de datos mediante una identidad administrada se encuentra actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción.
+# <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Configuración de una conexión a una cuenta de Azure Storage mediante una identidad administrada
 
 En esta página se describe cómo configurar una conexión de indexador a una cuenta de Azure Storage mediante una identidad administrada en lugar de proporcionar credenciales en la cadena de conexión del objeto de origen de datos.
 
@@ -68,7 +65,7 @@ En este paso, concederá permiso a su servicio de Azure Cognitive Search para le
 
 ### <a name="3---create-the-data-source"></a>3 - Crear el origen de datos
 
-La [API REST](/rest/api/searchservice/create-data-source), Azure Portal y el [SDK de .NET](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) admiten la cadena de conexión de identidad administrada. A continuación, se muestra un ejemplo de cómo crear un origen de datos para indexar datos desde una cuenta de almacenamiento mediante la [API REST](/rest/api/searchservice/create-data-source) y una cadena de conexión de identidad administrada. El formato de la cadena de conexión de identidad administrada es el mismo en la API REST, el SDK de .NET y Azure Portal.
+La [API REST](/rest/api/searchservice/create-data-source), Azure Portal y el [SDK de .NET](/dotnet/api/microsoft.azure.search.models.datasource) admiten la cadena de conexión de identidad administrada. A continuación, se muestra un ejemplo de cómo crear un origen de datos para indexar datos desde una cuenta de almacenamiento mediante la [API REST](/rest/api/searchservice/create-data-source) y una cadena de conexión de identidad administrada. El formato de la cadena de conexión de identidad administrada es el mismo en la API REST, el SDK de .NET y Azure Portal.
 
 Al realizar la indexación desde una cuenta de almacenamiento, el origen de datos debe tener las siguientes propiedades obligatorias:
 
@@ -150,6 +147,7 @@ Para más información sobre cómo definir las programaciones del indexador, con
 ## <a name="see-also"></a>Consulte también
 
 Más información sobre los indexadores de Azure Storage:
+
 * [Indexador de blobs de Azure](search-howto-indexing-azure-blob-storage.md)
 * [Indexador de Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md)
 * [Indexador de tablas de Azure](search-howto-indexing-azure-tables.md)

@@ -16,12 +16,12 @@ ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2b65f8cd22e72e0ba90918121a02d66fe6bf3e7
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: ad7b0039602add7f4cd3cdd300bd829c4f148a79
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053055"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084743"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Sincronización de Azure AD Connect: Scheduler
 En este tema se describe el programador incorporado en la sincronización de Azure AD Connect (motor de sincronización).
@@ -160,12 +160,15 @@ Ejemplo:  Si realizó cambios en las reglas de sincronización del conector "AD 
 ## <a name="stop-the-scheduler"></a>Detención del programador
 Si el programador está ejecutando actualmente un ciclo de sincronización, puede que necesite detenerlo. Por ejemplo, si inicia el Asistente para instalación y recibe este error:
 
-![SyncCycleRunningError](./media/how-to-connect-sync-feature-scheduler/synccyclerunningerror.png)
+![Captura de pantalla en la que se muestra el mensaje de error No se puede modificar la configuración.](./media/how-to-connect-sync-feature-scheduler/synccyclerunningerror.png)
 
 Cuando se está ejecutando un ciclo de sincronización, no puede realizar cambios de configuración. Debe esperar hasta que el programador haya terminado el proceso, pero también es posible detenerlo para poder realizar los cambios inmediatamente. Detener el ciclo actual no es perjudicial y los cambios pendientes se procesarán en la próxima ejecución.
 
 1. Para empezar, indique al programador que detenga el ciclo actual con el cmdlet `Stop-ADSyncSyncCycle`de PowerShell.
-2. Si usa una compilación anterior a 1.1.281, detener el programador no hará que este conector detenga su tarea actual. Para forzar el conector a que se detenga, tome las medidas siguientes:  ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+2. Si usa una compilación anterior a 1.1.281, detener el programador no hará que este conector detenga su tarea actual. Para forzar el conector a que se detenga, tome las medidas siguientes: 
+
+   ![Captura de pantalla en la que se muestra Synchronization Service Manager con la opción Conectores seleccionada y un conector en ejecución resaltado con la acción Detener seleccionada.](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+
    * Inicie el **Servicio de sincronización** desde el menú Inicio. Vaya a **Conectores**, resalte el conector con el estado **En ejecución** y seleccione **Detener** en la lista de acciones.
 
 El programador todavía permanece activo y se inicia de nuevo en la siguiente oportunidad.

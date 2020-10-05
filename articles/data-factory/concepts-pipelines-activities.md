@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 62df01a02feacb8311d14e0bae7ceccb44d47a5a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b6a3e67ffd909262da2f890874f049dfac59a4ce
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497665"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562016"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Canalizaciones y actividades en Azure Data Factory
 
@@ -30,7 +30,7 @@ Una factoría de datos puede tener una o más canalizaciones. Una canalización 
 
 Las actividades de una canalización definen las acciones que se van a realizar en los datos. Por ejemplo, puede utilizar una actividad de copia para copiar datos de SQL Server en una instancia de Azure Blob Storage. A continuación, use una actividad de flujo de datos o una actividad de cuaderno de Databricks para procesar y transformar datos de Blob Storage a un grupo de Azure Synapse Analytics sobre el que se crean las soluciones de informes de inteligencia empresarial.
 
-Data Factory tiene tres agrupaciones de actividades: [actividades de movimiento de datos](copy-activity-overview.md), [actividades de transformación de datos](transform-data.md) y [actividades de control](control-flow-web-activity.md). Una actividad puede tomar diversos [conjuntos de datos](concepts-datasets-linked-services.md), o ninguno, y generar uno o varios [conjuntos de datos](concepts-datasets-linked-services.md). En el siguiente diagrama se muestra la relación entre la canalización, la actividad y el conjunto de datos en Data Factory:
+Data Factory tiene tres agrupaciones de actividades: [actividades de movimiento de datos](copy-activity-overview.md), [actividades de transformación de datos](transform-data.md) y [actividades de control](#control-flow-activities). Una actividad puede tomar diversos [conjuntos de datos](concepts-datasets-linked-services.md), o ninguno, y generar uno o varios [conjuntos de datos](concepts-datasets-linked-services.md). En el siguiente diagrama se muestra la relación entre la canalización, la actividad y el conjunto de datos en Data Factory:
 
 ![Relación entre el conjunto de datos, la actividad y la canalización](media/concepts-pipelines-activities/relationship-between-dataset-pipeline-activity.png)
 
@@ -57,7 +57,7 @@ Actividad de transformación de datos | Entorno de procesos
 [Hadoop Streaming](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
 [Actividades de Machine Learning: ejecución de lotes y recurso de actualización](transform-data-using-machine-learning.md) | Azure VM
-[Procedimiento almacenado](transform-data-using-stored-procedure.md) | SQL Azure, Azure SQL Data Warehouse o SQL Server
+[Procedimiento almacenado](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics (anteriormente, SQL Data Warehouse) o SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Análisis con Azure Data Lake
 [Actividad personalizada](transform-data-using-dotnet-custom-activity.md) | Azure Batch
 [Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks

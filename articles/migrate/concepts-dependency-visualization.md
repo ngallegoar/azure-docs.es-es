@@ -2,13 +2,13 @@
 title: Análisis de dependencias en Azure Migrate Server Assessment
 description: Se describe cómo usar el análisis de dependencias para realizar evaluaciones mediante Azure Migrate Server Assessment.
 ms.topic: conceptual
-ms.date: 06/14/2020
-ms.openlocfilehash: 386a8cefce722c4bff09e2a7fe6d25957630ff61
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 09/15/2020
+ms.openlocfilehash: a284d549f13595e0ce8a5d06cc017602e559b648
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118807"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530257"
 ---
 # <a name="dependency-analysis"></a>Análisis de dependencias
 
@@ -75,7 +75,7 @@ La diferencia entre la visualización sin agente y la visualización basada en a
 --- | --- | ---
 **Soporte técnico** | Solo en versión preliminar para máquinas virtuales de VMware. [Revise](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) los sistemas operativos compatibles. | En disponibilidad general (GA).
 **Agent** | No se requiere ningún agente en las máquinas que desea analizar. | Se requieren agentes en cada máquina local que quiera analizar.
-**Log Analytics** | No se requiere. | Azure Migrate usa la solución [Service Map](../azure-monitor/insights/service-map.md) de los [registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md) para el análisis de dependencias. 
+**Log Analytics** | No se requiere. | Azure Migrate usa la solución [Service Map](../azure-monitor/insights/service-map.md) de los [registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md) para el análisis de dependencias.<br/><br/> Puede asociar un área de trabajo de Log Analytics con un proyecto de Azure Migrate. El área de trabajo debe residir en las regiones Este de EE. UU., Sudeste Asiático u Oeste de Europa. El área de trabajo debe estar en una región en la que [se admita Service Map](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions).
 **Proceso** | Captura datos de conexión TCP. Después de la detección, recopila datos en intervalos de cinco minutos. | Los agentes de Service Map instalados en una máquina recopilan datos acerca de los procesos de TCP, así como de las conexiones de entrada o salida de cada proceso.
 **Data** | Nombre de aplicación, proceso y nombre del servidor de la máquina de origen.<br/><br/> Puerto, nombre de aplicación, proceso y nombre del servidor de la máquina de destino. | Nombre de aplicación, proceso y nombre del servidor de la máquina de origen.<br/><br/> Puerto, nombre de aplicación, proceso y nombre del servidor de la máquina de destino.<br/><br/> Se recopila la información sobre el número de conexiones, la latencia y la transferencia de datos, y está disponible para las consultas de Log Analytics. 
 **Visualización** | El mapa de dependencias de un solo servidor se puede ver durante un plazo de entre una hora y 30 días. | Mapa de dependencia de un solo servidor.<br/><br/> Mapa de dependencias de un grupo de servidores.<br/><br/>  El mapa puede verse solo durante una hora.<br/><br/> Agregue y quite servidores de un grupo desde la vista de mapa.

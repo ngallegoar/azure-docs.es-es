@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: fd2bd404d59b57eae111ba969fb7dcf20a98de35
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 92119709aa260f3180c503a77064f6e80dece6e6
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036375"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440616"
 ---
 # <a name="monitor-copy-activity"></a>Supervisión de la actividad de copia
 
@@ -30,7 +30,7 @@ Una vez que haya creado y publicado una canalización en Azure Data Factory, pue
 
 Para supervisar la ejecución de la actividad de copia, vaya a la opción **Author & Monitor** (Crear y supervisar) de la interfaz de usuario de su factoría de datos. En la pestaña **Monitor** (Supervisión), verá una lista de ejecuciones de canalización; haga clic en el vínculo del **nombre de canalización** para acceder a la lista de ejecuciones de actividad en la ejecución de canalización.
 
-![Supervisión de la ejecución de la actividad de copia](./media/copy-activity-overview/monitor-pipeline-run.png)
+![Supervisar ejecución de canalización](./media/copy-activity-overview/monitor-pipeline-run.png)
 
 En este nivel, puede ver vínculos a la entrada, la salida y los errores (si se produce un error en la ejecución de la actividad de copia) de la actividad de copia, así como estadísticas tales como la duración y el estado. Al hacer clic en el botón de **detalles** (gafas) junto al nombre de la actividad de copia, obtendrá información más detallada sobre la ejecución de la actividad de copia. 
 
@@ -67,7 +67,7 @@ Los detalles de la ejecución de la actividad de copia y las características de
 | throughput | Velocidad de transferencia de datos. | Número de punto flotante en KBps |
 | sourcePeakConnections | Número máximo de conexiones simultáneas establecidas en el almacén de datos de origen durante la ejecución de la actividad de copia. | Valor Int32 (sin unidad) |
 | sinkPeakConnections| Número máximo de conexiones simultáneas establecidas en el almacén de datos receptor durante la ejecución de la actividad de copia.| Valor Int32 (sin unidad) |
-| sqlDwPolyBase | Si se usará PolyBase cuando se copian datos en SQL Data Warehouse. | Boolean |
+| sqlDwPolyBase | Si se usa PolyBase cuando se copian datos en Azure Synapse Analytics (anteriormente, SQL Data Warehouse). | Boolean |
 | redshiftUnload | Si se usará UNLOAD cuando se copian datos de Redshift. | Boolean |
 | hdfsDistcp | Si se usará DistCp cuando se copian datos de HDFS. | Boolean |
 | effectiveIntegrationRuntime | El entorno de ejecución de integración (IR) o los tiempos de ejecución que se usan para aumentar la potencia de la ejecución de la actividad, en el formato `<IR name> (<region if it's Azure IR>)`. | Texto (cadena) |

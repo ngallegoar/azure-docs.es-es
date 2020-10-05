@@ -1,5 +1,5 @@
 ---
-title: Registro e inicio de sesión en el teléfono con directivas personalizadas (versión preliminar)
+title: Registro e inicio de sesión en el teléfono con directivas personalizadas
 titleSuffix: Azure AD B2C
 description: Envíe contraseñas de un solo uso (OTP) en mensajes de texto a los teléfonos de los usuarios de la aplicación con directivas personalizadas en Azure Active Directory B2C.
 services: active-directory-b2c
@@ -8,27 +8,85 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/25/2020
+ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d432912cb0442744061500fc01bdd86a4c5d97ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a429314d4a992ea93f4c068203371cda769a4ff
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385355"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029169"
 ---
-# <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c-preview"></a>Configuración del registro y el inicio de sesión en el teléfono con directivas personalizadas en Azure AD B2C (versión preliminar)
+# <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Configuración del registro y el inicio de sesión en el teléfono con directivas personalizadas en Azure AD B2C
 
 El registro y el inicio de sesión en el teléfono en Azure Active Directory B2C (Azure AD B2C) permite a los usuarios registrarse e iniciar sesión en las aplicaciones mediante una contraseña de un solo uso (OTP) enviada en un mensaje de texto a su teléfono. Las contraseñas de un solo uso pueden ayudar a reducir el riesgo de que los usuarios olviden sus contraseñas o estas se vean comprometidas.
 
 Siga los pasos de este artículo para usar las directivas personalizadas y permitir que los clientes se registren e inicien sesión en las aplicaciones mediante una contraseña de un solo uso enviada a su teléfono.
 
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
-
 ## <a name="pricing"></a>Precios
 
 Las contraseñas de un solo uso se envían a los usuarios mediante mensajes de texto SMS, y es posible que se le cobre por cada mensaje enviado. Puede encontrar información sobre precios en la sección **Cargos aparte** de la página [Precios de Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+
+## <a name="user-experience-for-phone-sign-up-and-sign-in"></a>Experiencia del usuario para registro e inicio de sesión por teléfono
+
+Con el registro y el inicio de sesión por teléfono, el usuario puede suscribirse a la aplicación con un número de teléfono como identificador principal. A continuación, se describe la experiencia del usuario final durante el registro y el inicio de sesión.
+
+> [!NOTE]
+> Se recomienda encarecidamente incluir información de consentimiento en su experiencia de registro e inicio de sesión similar a la del texto de ejemplo siguiente. Este texto de ejemplo es meramente informativo. Consulte el documento Short Code Monitoring Handbook en el [sitio web de CTIA](https://www.ctia.org/programs) y póngase en contacto con sus propios expertos legales o de cumplimiento para obtener instrucciones sobre el texto final y la configuración de características que satisfacen sus propias necesidades de cumplimiento:
+>
+> *Al proporcionar su número de teléfono, da su consentimiento a recibir un código de acceso de un solo uso enviado por mensaje de texto para ayudarle a iniciar sesión en *&lt;insert: el nombre de la aplicación&gt;* . Se pueden aplicar tarifas de datos y mensajes.*
+>
+> *&lt;insert: un vínculo a la declaración de privacidad&gt;*<br/>*&lt;insert: un vínculo a los términos de servicio&gt;*
+
+Para agregar su propia información de consentimiento, personalice el ejemplo siguiente e inclúyalo en el elemento LocalizedResources de ContentDefinition que usa la página autoafirmada con el control de pantalla (el archivo Phone-Email-Base.xml en el paquete de inicio de registro e inicio de sesión):
+
+```xml
+<LocalizedResources Id="phoneSignUp.en">        
+    <LocalizedStrings>
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_msg_intro">By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard messsage and data rates may apply.</LocalizedString>          
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_1_text">Privacy Statement</LocalizedString>                
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_1_url">{insert your privacy statement URL}</LocalizedString>          
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_2_text">Terms and Conditions</LocalizedString>             
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_2_url">{insert your terms and conditions URL}</LocalizedString>          
+    <LocalizedString ElementType="UxElement" StringId="initial_intro">Please verify your country code and phone number</LocalizedString>        
+    </LocalizedStrings>      
+</LocalizedResources>
+   ```
+
+### <a name="phone-sign-up-experience"></a>Experiencia de registro por teléfono
+
+Si el usuario aún no tiene una cuenta para la aplicación, puede crear una con el vínculo **Registrarse ahora**. Aparece una página de registro, donde el usuario selecciona su **país**, escribe su número de teléfono y selecciona **Enviar código**.
+
+![El usuario inicia el registro por teléfono](media/phone-authentication/phone-signup-start.png)
+
+Se envía un código de verificación de un solo uso al número de teléfono del usuario. El usuario escribe el **código de verificación** en la página de registro y, luego, selecciona **Comprobar el código**. (Si el usuario no puede recuperar el código, puede seleccionar **Enviar nuevo código**).
+
+![El usuario verifica el código durante el registro por teléfono](media/phone-authentication/phone-signup-verify-code.png)
+
+ El usuario escribe cualquier otra información solicitada en la página de registro, por ejemplo, **Nombre para mostrar**, **Nombre dado** y **Apellido** (el país y el número de teléfono permanecen rellenados). Si el usuario quiere usar un número de teléfono diferente, puede elegir **Cambiar número** para reiniciar el registro. Cuando termine, el usuario selecciona **Continuar**.
+
+![El usuario proporciona información adicional](media/phone-authentication/phone-signup-additional-info.png)
+
+A continuación, se pide al usuario que proporcione un correo electrónico de recuperación. El usuario escribe su dirección de correo electrónico y, luego, selecciona **Enviar código de comprobación**. Se envía un código a la bandeja de entrada de correo electrónico del usuario, que puede recuperar y escribir en el cuadro **Código de verificación**. A continuación, el usuario selecciona **Comprobar código**. 
+
+Una vez que se comprueba el código, el usuario selecciona **Crear** para crear su cuenta. O bien, si el usuario quiere usar una dirección de correo electrónico diferente, puede elegir **Cambiar correo electrónico**.
+
+![El usuario crea una cuenta](media/phone-authentication/email-verification.png)
+
+### <a name="phone-sign-in-experience"></a>Experiencia de inicio de sesión por teléfono
+
+Si el usuario tiene una cuenta con el número de teléfono como identificador, escribe su número de teléfono y selecciona **Continuar**. Confirma el país y el número de teléfono seleccionando **Continuar** y se envía un código de verificación de un solo uso a su teléfono. El usuario escribe el código de verificación y selecciona **Continuar** para iniciar sesión.
+
+![Experiencia de usuario de inicio de sesión por teléfono](media/phone-authentication/phone-signin-screens.png)
+
+## <a name="deleting-a-user-account"></a>Eliminación de cuentas de usuario
+
+En algunos casos, es posible que tenga que eliminar un usuario y los datos asociados del directorio de Azure AD B2C. Para más información sobre cómo eliminar una cuenta de usuario mediante Azure Portal, consulte [estas instrucciones](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure#step-5-delete). 
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
+
+
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -94,12 +152,7 @@ GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Puede encontrar el paquete de inicio de las directivas personalizadas de registro e inicio de sesión en el teléfono (y otros paquetes de inicio) en GitHub:
-
-[Azure-Samples/active-directory-b2c-custom-policy-starterpack/scenarios/phone-number-passwordless][starter-pack-phone]
-
-Los archivos de directivas del paquete de inicio usan perfiles técnicos de autenticación multifactor y transformaciones de notificaciones de números de teléfono:
-
+Puede encontrar el paquete de inicio de las directivas personalizadas de registro e inicio de sesión en el teléfono (y otros paquetes de inicio) en GitHub: [Azure-Samples/active-directory-b2c-custom-policy-starterpack/scenarios/phone-number-passwordless][starter-pack-phone] Los archivos de directiva del paquete de inicio usan perfiles técnicos de autenticación multifactor y transformaciones de notificaciones de números de teléfono:
 * [Definición de un perfil técnico de Azure AD en una directiva personalizada de Azure AD B2C](multi-factor-auth-technical-profile.md)
 * [Definición de transformaciones de notificaciones de número de teléfono en Azure AD B2C](phone-number-claims-transformations.md)
 

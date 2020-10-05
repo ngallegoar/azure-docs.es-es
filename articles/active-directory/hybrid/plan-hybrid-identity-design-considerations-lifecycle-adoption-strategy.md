@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6d2638ff86d110cb79cc72519dfabb2c68b3794
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: abec780deb7834e67618c74e556a1bc20154b0b4
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278435"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658538"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Determinación de la estrategia de adopción de ciclo de vida de identidad híbrida
 En esta tarea, va a definir la estrategia de administración de identidades para que su solución de identidad híbrida cumpla los requisitos empresariales que definió en [Determinación de las tareas de administración de identidad híbrida](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -81,7 +81,7 @@ la integración de directorios locales con Azure AD hace que los usuarios sean m
 
 * Las organizaciones pueden proporcionar a los usuarios una identidad híbrida común entre servicios en la nube o locales al aprovechar Windows Server Active Directory y, a continuación, conectarse a Active Directory de Azure.
 * Los administradores pueden proporcionar acceso condicional basado en el recurso de la aplicación, dispositivo e identidad de usuario, ubicación de red y autenticación multifactor.
-* Los usuarios pueden aprovechar su identidad común mediante cuentas de Azure AD a Office 365, Intune, aplicaciones SaaS y aplicaciones de otros fabricantes.
+* Los usuarios pueden aprovechar su identidad común mediante cuentas de Azure AD a Microsoft 365, Intune, aplicaciones SaaS y aplicaciones de otros fabricantes.
 * Los desarrolladores pueden crear aplicaciones que aprovechan el modelo de identidad común, la integración de aplicaciones en Active Directory local o en Azure para aplicaciones basadas en la nube
 
 En la ilustración siguiente, se muestra un ejemplo de una visión general del proceso de sincronización de identidades.

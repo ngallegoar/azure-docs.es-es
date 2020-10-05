@@ -11,16 +11,16 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: d60a6f9032a39ab4889ce0db154739c5cb3b540b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 726be3f0f8402404d0154336aaf7d5f09fefec10
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070503"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967462"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Creación de una cuenta que admita las claves administradas por el cliente para tablas y colas
 
-Azure Storage cifra todos los datos de las cuentas de almacenamiento en reposo. De forma predeterminada, Queue Storage y Table Storage usan una clave cuyo ámbito es el servicio y que administra Microsoft. También puede optar por usar las claves administradas por el cliente para cifrar los datos de la cola o la tabla. Para usar claves administradas por el cliente con colas y tablas, primero debe crear una cuenta de almacenamiento que use una clave de cifrado cuyo ámbito sea la cuenta, en lugar del servicio. Después de crear una cuenta que use la clave de cifrado de la cuenta para los datos de la cola y la tabla, puede configurar las claves administradas por el cliente con Azure Key Vault para esa cuenta de almacenamiento.
+Azure Storage cifra todos los datos de las cuentas de almacenamiento en reposo. De forma predeterminada, Queue Storage y Table Storage usan una clave cuyo ámbito es el servicio y que administra Microsoft. También puede optar por usar las claves administradas por el cliente para cifrar los datos de la cola o la tabla. Para usar claves administradas por el cliente con colas y tablas, primero debe crear una cuenta de almacenamiento que use una clave de cifrado cuyo ámbito sea la cuenta, en lugar del servicio. Después de crear una cuenta que use la clave de cifrado de la cuenta para los datos de la cola y la tabla, puede configurar las claves administradas por el cliente para esa cuenta de almacenamiento.
 
 En este artículo se describe cómo crear una cuenta de almacenamiento que se basa en una clave cuyo ámbito es la cuenta. Cuando la cuenta se crea por primera vez, Microsoft usa la clave de cuenta para cifrar los datos de la cuenta y administra la clave. Posteriormente, puede configurar las claves administradas por el cliente para la cuenta con el fin de aprovechar estas ventajas, incluida la capacidad de proporcionar sus propias claves, actualizar la versión de la clave, rotar las claves y revocar los controles de acceso.
 
@@ -215,11 +215,7 @@ En el ejemplo de JSON siguiente se crea una cuenta de almacenamiento de uso gene
 
 ---
 
-Después de crear una cuenta que se base en la clave de cifrado de la cuenta, consulte uno de los siguientes artículos para configurar las claves administradas por el cliente con Azure Key Vault:
-
-- [Configuración de claves administradas por el cliente con Azure Key Vault mediante Azure Portal](storage-encryption-keys-portal.md)
-- [Configuración de claves administradas por el cliente con Azure Key Vault mediante PowerShell](storage-encryption-keys-powershell.md)
-- [Configuración de claves administradas por el cliente con Azure Key Vault mediante la CLI de Azure](storage-encryption-keys-cli.md)
+Después de crear una cuenta que se base en la clave de cifrado de cuenta, puede configurar las claves administradas por el cliente que se almacenan en Azure Key Vault o en el modelo de seguridad de hardware administrado de Key Vault (HSM) (versión preliminar). Para obtener información sobre cómo almacenar las claves administradas por el cliente en un almacén de claves, consulte [Configuración del cifrado con claves que administra el cliente en Azure Key Vault](customer-managed-keys-configure-key-vault.md). Para obtener información sobre cómo almacenar las claves administradas por el cliente en un HSM administrado, consulte [Configuración del cifrado con claves que administra el cliente en HSM administrado de Azure Key Vault (versión preliminar)](customer-managed-keys-configure-key-vault-hsm.md).
 
 ## <a name="verify-the-account-encryption-key"></a>Verificación de la clave de cifrado de la cuenta
 
@@ -254,5 +250,6 @@ N/D
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Cifrado de Azure Storage para datos en reposo](storage-service-encryption.md) 
+- [Cifrado de Azure Storage para datos en reposo](storage-service-encryption.md)
+- [Claves que administra el cliente para el cifrado de Azure Storage](customer-managed-keys-overview.md)
 - [¿Qué es Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4e09637a7d990e1555b5443b9931cf8ff8c271b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 57325363909664bb527c2e2101505641858c4285
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718873"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706275"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Preguntas más frecuentes relacionadas con Azure Multi-Factor Authentication
 
@@ -102,7 +102,7 @@ La facturación se basa en la cantidad de usuarios que están configurados para 
 
 Cuando se crea un proveedor de MFA por usuario o por autenticación, se factura mensualmente a la suscripción de Azure de su organización según el uso. Este modelo de facturación es similar a la forma en que Azure factura el uso de máquinas virtuales y Web Apps.
 
-Al adquirir una suscripción para Azure Multi-Factor Authentication, su organización solo paga la cuota de licencia anual para cada usuario. Las licencias MFA así como los conjuntos de productos de Office 365, Azure AD Premium o Enterprise Mobility + Security se facturan de esta manera.
+Al adquirir una suscripción para Azure Multi-Factor Authentication, su organización solo paga la cuota de licencia anual para cada usuario. Las licencias MFA así como los conjuntos de productos de Microsoft 365, Azure AD Premium o Enterprise Mobility + Security se facturan de esta manera.
 
 Para más información, consulte [Cómo obtener Azure Multi-Factor Authentication](concept-mfa-licensing.md).
 

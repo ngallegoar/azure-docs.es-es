@@ -1,25 +1,24 @@
 ---
 title: Regiones admitidas para el área de trabajo de Log Analytics vinculada
-description: En este artículo se describen las asignaciones de regiones admitidas entre una cuenta de Automation y un área de trabajo de Log Analytics.
+description: En este artículo se describen las asignaciones de regiones admitidas entre una cuenta de Automation y un área de trabajo de Log Analytics en relación con ciertas características de Azure Automation.
+ms.date: 09/03/2020
 services: automation
-ms.service: automation
-ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 06/12/2020
 ms.topic: conceptual
-manager: carmonm
 ms.custom: references_regions
-ms.openlocfilehash: 879c6d247a915def7b4b8d53c74bde7861e47f1d
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: dd831789d5f09ca6a20cce13659d6c479845f74e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279812"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440667"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regiones admitidas para el área de trabajo de Log Analytics vinculada
 
-En Azure Automation, puede habilitar las características Update Management, Change Tracking e Inventario y Start/Stop VMs during off-hours para las máquinas virtuales. Sin embargo, un área de trabajo de Log Analytics y una cuenta de Automation en la suscripción solo se pueden vincular en determinadas regiones. Esta asignación de regiones solo se aplica a la cuenta de Automation y al área de trabajo de Log Analytics. El área de trabajo Log Analytics y la cuenta de Automation deben estar en la misma suscripción, pero pueden estar en distintos grupos de recursos implementados en la misma región. Para obtener más información, consulte el [área de trabajo de Log Analytics y la cuenta de Automation](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
+En Azure Automation, puede habilitar las características Update Management, Change Tracking e Inventario y Start/Stop VMs during off-hours para servidores y máquinas virtuales. Estas características tienen una dependencia en un área de trabajo de Log Analytics y, por tanto, requieren vincular el área de trabajo a una cuenta de Automation. Sin embargo, solo se admiten determinadas regiones para vincularlas. En general, la asignación *no* es aplicable si tiene previsto vincular una cuenta de Automation a un área de trabajo que no tenga habilitadas estas características.
+
+En este artículo se proporcionan las asignaciones admitidas para habilitar y usar correctamente estas características en su cuenta de Automation.
+
+Para obtener más información, consulte [Área de trabajo de Log Analytics y cuenta de Automation](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
 
 ## <a name="supported-mappings"></a>Asignaciones admitidas
 
@@ -55,7 +54,7 @@ En la tabla siguiente se muestran las asignaciones admitidas:
 
 ## <a name="unlink-a-workspace"></a>Desvinculación de un área de trabajo
 
-Si decide que ya no quiere integrar su cuenta de Automation con un área de trabajo de Log Analytics, puede desvincular la cuenta directamente desde Azure Portal. Antes de continuar, debe [quitar](move-account.md#remove-features) las soluciones Update Management, Change Tracking e Inventario y Start/Stop VMs during off-hours, si las usa. Si no las quita, no podrá completar la operación de desvinculación. 
+Si decide que ya no quiere integrar su cuenta de Automation con un área de trabajo de Log Analytics, puede desvincular la cuenta directamente desde Azure Portal. Antes de continuar, debe [quitar](move-account.md#remove-features) las soluciones Update Management, Change Tracking e Inventario y Start/Stop VMs during off-hours, si las usa. Si no las quita, no podrá completar la operación de desvinculación.
 
 Con las características quitadas, puede seguir los pasos siguientes para desvincular la cuenta de Automation.
 

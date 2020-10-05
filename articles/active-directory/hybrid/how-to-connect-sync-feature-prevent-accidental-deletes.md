@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55270889c8c284335d5aa7b545718da419ba8d84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16d48cda87b8226ebc3bbab179c1034abf0a486f
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357365"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084616"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Sincronización de Azure AD Connect: evitar eliminaciones accidentales
 En este tema se describe la característica para evitar eliminaciones accidentales en Azure AD Connect.
@@ -65,7 +65,7 @@ Si se desean todas las eliminaciones, haga lo siguiente:
 
 1. Para recuperar el umbral de eliminación actual, ejecute el cmdlet de PowerShell `Get-ADSyncExportDeletionThreshold`. Proporcione una cuenta y una contraseña de administrador global de Azure AD. El valor predeterminado es 500.
 2. Para deshabilitar temporalmente esta protección y permitir realizar estas eliminaciones, ejecute el cmdlet de PowerShell: `Disable-ADSyncExportDeletionThreshold`. Proporcione una cuenta y una contraseña de administrador global de Azure AD.
-   ![Credenciales](./media/how-to-connect-sync-feature-prevent-accidental-deletes/credentials.png)
+   ![Captura de pantalla en la que se muestra un cuadro de diálogo para escribir el nombre de usuario y la contraseña del administrador global de Azure AD](./media/how-to-connect-sync-feature-prevent-accidental-deletes/credentials.png).
 3. Con el Conector de Azure Active Directory aún seleccionado, seleccione la acción **Ejecutar** y **Exportar**.
 4. Para volver a habilitar la protección, ejecute el cmdlet de PowerShell: `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`. Reemplace 500 con el valor observado al recuperar el umbral de eliminación actual. Proporcione una cuenta y una contraseña de administrador global de Azure AD.
 

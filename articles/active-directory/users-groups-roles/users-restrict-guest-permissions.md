@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 08/20/2020
+ms.date: 09/04/2020
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28125ff55fe6ab3e68d56dc26a074d0498c2b413
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 418be35cb7996acaa7f11f37627d065451c9c7c6
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798438"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055221"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Restricción de los permisos de acceso de invitados (versión preliminar) en Azure Active Directory
 
@@ -40,10 +40,7 @@ Debe tener en el rol de administrador global para configurar las opciones de col
 
 Se han introducido cambios en los controles de Azure Portal existentes para los permisos de usuario invitado.
 
-> [!IMPORTANT]
-> Por poco tiempo, estos nuevos controles del portal de los permisos de usuario invitado serán visibles solo con la dirección URL [https://aka.ms/AADRestrictedGuestAccess](https://aka.ms/AADRestrictedGuestAccess). Aún es posible utilizar PowerShell y Microsoft Graph para definir los controles, y los cambios se respetarán en el portal.
-
-1. Inicie sesión en el [Centro de administración de Azure AD](https://aka.ms/AADRestrictedGuestAccess) con permisos de administrador global.
+1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con permisos de administrador global.
 1. En la página de información general de **Azure Active Directory** de su organización, seleccione **Configuración de usuario**.
 1. En **Usuarios externos**, seleccione **Administrar la configuración de colaboración externa**.
 1. En la página **Configuración de colaboración externa**, seleccione la opción **El acceso de los usuarios invitados está restringido a las propiedades y pertenencias de sus propios objetos de directorio**.
@@ -157,7 +154,7 @@ Los servicios no admitidos actualmente pueden tener problemas de compatibilidad 
 
 Pregunta | Respuesta
 -------- | ------
-¿Dónde se aplican estos permisos? | Estos permisos a nivel de directorio se aplican a través de portales y servicios de Azure AD, incluidos Microsoft Graph, PowerShell v2, Azure Portal y el portal Mis aplicaciones. Los servicios de Microsoft 365 que utilizan los grupos de Office 365 para escenarios de colaboración también se ven afectados, en concreto Outlook, Microsoft Teams y SharePoint.
+¿Dónde se aplican estos permisos? | Estos permisos a nivel de directorio se aplican a través de portales y servicios de Azure AD, incluidos Microsoft Graph, PowerShell v2, Azure Portal y el portal Mis aplicaciones. Los servicios de Microsoft 365 que aprovechan los grupos de Microsoft 365 para escenarios de colaboración también se ven afectados, en concreto Outlook, Microsoft Teams y SharePoint.
 ¿A qué secciones del portal Mis aplicaciones afectará esta característica? | La funcionalidad de grupos del portal Mis aplicaciones respetará estos nuevos permisos. Esto incluye todas las rutas de acceso para ver la lista de grupos y la pertenencia a grupos en Mis aplicaciones. No se realizó ningún cambio en la disponibilidad del icono del grupo. La disponibilidad del icono del grupo todavía se controla mediante la configuración de grupo existente en el portal de administración de Azure.
 ¿Estos permisos invalidan la configuración de invitado de SharePoint o Microsoft Teams? | No. La configuración existente sigue controlando la experiencia con estas aplicaciones y el acceso a ellas. Por ejemplo, si ve problemas en SharePoint, compruebe la configuración de uso compartido externo.
 ¿Cuáles son los problemas de compatibilidad conocidos en Planner y Yammer? | <li>Con los permisos establecidos en "restringido", los invitados que han iniciado sesión en la aplicación Planner o que acceden a Planner en Microsoft Teams no podrán acceder a sus planes ni a ninguna tarea.<li>Con los permisos establecidos en "restringido", los invitados que han iniciado sesión en Yammer no podrán abandonar el grupo.

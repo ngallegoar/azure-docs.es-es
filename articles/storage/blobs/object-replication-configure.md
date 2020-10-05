@@ -1,25 +1,25 @@
 ---
-title: Configuración de la replicación de objetos (versión preliminar)
+title: Configuración de la replicación de objetos
 titleSuffix: Azure Storage
 description: Obtenga información sobre cómo configurar la replicación de objetos para copiar de forma asincrónica blobs en bloques de un contenedor de una cuenta de almacenamiento a otra.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 09/15/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: c28e869bff1d0e921a1e5a952dbfcb21ee97d16b
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: e6e6c802da212294594f45d0545c6cf07694760b
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228331"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707924"
 ---
-# <a name="configure-object-replication-for-block-blobs-preview"></a>Configuración de la replicación de objetos para blobs en bloques (versión preliminar)
+# <a name="configure-object-replication-for-block-blobs"></a>Configuración de la replicación de objetos para blobs en bloques
 
-La replicación de objetos (versión preliminar) copia asincrónicamente los blobs en bloques entre una cuenta de almacenamiento de origen y una de destino. Para obtener más información sobre la replicación de objetos, vea [Replicación de objetos (versión preliminar)](object-replication-overview.md).
+La replicación de objetos copia asincrónicamente los blobs en bloques entre una cuenta de almacenamiento de origen y una de destino. Para obtener más información sobre la replicación de objetos, vea [Replicación de objetos](object-replication-overview.md).
 
 Al configurar la replicación de objetos, crea una política de replicación que especifica las cuentas de almacenamiento de origen y destino. Una directiva de replicación incluye una o más reglas que especifican un contenedor de origen y uno de destino e indican qué blobs en bloques del contenedor de origen se replicarán.
 
@@ -31,17 +31,23 @@ En este artículo se describe cómo configurar la replicación de objetos para l
 
 Antes de configurar la replicación de objetos, cree las cuentas de almacenamiento de origen y destino si aún no existen. Ambas cuentas de almacenamiento deben ser de uso general v2. Para obtener más información, consulte [Creación de una cuenta de Azure Storage](../common/storage-account-create.md).
 
-Una cuenta de almacenamiento puede servir como cuenta de origen para un máximo dos cuentas de destino. Y una cuenta de destino puede tener como máximo dos cuentas de origen. Las cuentas de origen y destino pueden estar en diferentes regiones. Puede configurar directivas de replicación independientes para replicar los datos en cada una de las cuentas de destino.
+La replicación de objetos requiere que el control de versiones de blobs esté habilitado para la cuenta de origen y de destino, y que la fuente de cambios del blob esté habilitada para la cuenta de origen. Para más información sobre el control de versiones de blobs, consulte [Control de versiones de blobs](versioning-overview.md). Para más información sobre la fuente de cambios, consulte [Compatibilidad con la fuente de cambios en Azure Blob Storage](storage-blob-change-feed.md). Tenga en cuenta que la habilitación de estas características puede generar costes adicionales.
 
-Antes comenzar, asegúrese de haberse registrado para obtener las versiones preliminares de las características siguientes:
+Una cuenta de almacenamiento puede servir como cuenta de origen para un máximo dos cuentas de destino. Las cuentas de origen y de destino pueden estar en la misma región o en regiones diferentes. También pueden residir en diferentes suscripciones y en distintos inquilinos de Azure Active Directory (Azure AD). Solo se puede crear una directiva de replicación para cada par de cuentas.
 
-- [Replicación de objetos (versión preliminar)](object-replication-overview.md)
-- [Control de versiones de blobs](versioning-overview.md)
-- [Compatibilidad con la fuente de cambios en Azure Blob Storage (versión preliminar)](storage-blob-change-feed.md)
+Al configurar la replicación de objetos, se crea una directiva de replicación en la cuenta de destino a través del proveedor de recursos de Azure Storage. Una vez creada la directiva de replicación, Azure Storage le asigna un identificador de directiva. A continuación, debe asociar esa directiva de replicación con la cuenta de origen mediante el identificador de directiva. El identificador de directiva de las cuentas de origen y de destino debe ser el mismo para que tenga lugar la replicación.
+
+Para configurar una directiva de replicación de objetos para una cuenta de almacenamiento, debe tener asignado el rol **Colaborador** de Azure Resource Manager, cuyo ámbito es el nivel de la cuenta de almacenamiento o superior. Para obtener más información, consulte [Roles integrados de Azure](../../role-based-access-control/built-in-roles.md) en la documentación del control de acceso basado en rol de Azure.
+
+### <a name="configure-object-replication-when-you-have-access-to-both-storage-accounts"></a>Configuración de la replicación de objetos cuando se tiene acceso a ambas cuentas de almacenamiento
+
+Si tiene acceso a las cuentas de almacenamiento de origen y de destino, puede configurar la directiva de replicación de objetos en ambas cuentas.
+
+Antes de configurar la replicación de objetos en Azure Portal, cree los contenedores de origen y destino en sus cuentas de almacenamiento respectivas, si aún no existen. Asimismo, habilite el control de versiones de blobs y la fuente de cambios en la cuenta de origen, y el control de versiones de blobs en la cuenta de destino.
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
-Antes de configurar la replicación de objetos en Azure Portal, cree los contenedores de origen y destino en sus cuentas de almacenamiento respectivas, si aún no existen. Así mismo, habilite el control de versiones de blobs y la fuente de cambios en la cuenta de origen, y el control de versiones de blobs en la cuenta de destino.
+Azure Portal crea automáticamente la directiva en la cuenta de origen después de configurarla para la cuenta de destino.
 
 Para crear una directiva de replicación en Azure Portal, siga estos pasos:
 
@@ -59,43 +65,23 @@ Para crear una directiva de replicación en Azure Portal, siga estos pasos:
 
     En la imagen siguiente se muestran filtros que restringen los blobs que se copian como parte de una regla de replicación.
 
-    :::image type="content" source="media/object-replication-configure/configure-replication-copy-prefix.png" alt-text="Captura de pantalla que muestra filtros para una regla de replicación":::
+    :::image type="content" source="media/object-replication-configure/configure-replication-copy-prefix.png" alt-text="Captura de pantalla que muestra las reglas de replicación en Azure Portal":::
 
 1. De forma predeterminada, el ámbito de copia se establece para copiar solo los nuevos objetos. Para copiar todos los objetos del contenedor o copiar objetos a partir de una fecha y hora personalizadas, seleccione el vínculo **Cambiar** y configure el ámbito de copia para el par de contenedores.
 
-    En la imagen siguiente se muestra un ámbito de copia personalizado.
+    La siguiente imagen muestra un ámbito de copia personalizado que copia objetos desde una fecha y hora específicas en adelante.
 
-    :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Captura de pantalla que muestra el ámbito de copia personalizado para la replicación de objetos":::
+    :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Captura de pantalla que muestra las reglas de replicación en Azure Portal":::
 
 1. Seleccione **Guardar y aplicar** para crear la directiva de replicación y empezar a replicar los datos.
 
+Después de configurar la replicación de objetos, Azure Portal muestra la directiva y las reglas de replicación, tal como se muestra en la siguiente imagen.
+
+:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Captura de pantalla que muestra las reglas de replicación en Azure Portal":::
+
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para crear una directiva de replicación con PowerShell, primero instale la versión [2.0.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) o posterior del módulo Az.Storage de PowerShell. Para instalar el módulo de la versión preliminar, siga estos pasos:
-
-1. Desinstale cualquier instalación anterior de Azure PowerShell desde Windows usando el ajuste **Aplicaciones y características** en **Configuración**.
-
-1. Asegúrese de tener instalada la versión más reciente de PowerShellGet. Abra una ventana de Windows PowerShell y ejecute el siguiente comando para instalar la versión más reciente:
-
-    ```powershell
-    Install-Module PowerShellGet –Repository PSGallery –Force
-    ```
-
-    Cierre y vuelva a abrir la ventana de PowerShell después de instalar PowerShellGet.
-
-1. Instale la versión más reciente de Azure PowerShell:
-
-    ```powershell
-    Install-Module Az –Repository PSGallery –AllowClobber
-    ```
-
-1. Instale el módulo de versión preliminar Az.Storage:
-
-    ```powershell
-    Install-Module Az.Storage -Repository PSGallery -RequiredVersion 2.0.1-preview -AllowPrerelease -AllowClobber -Force
-    ```
-
-Para más información sobre cómo instalar Azure PowerShell, consulte [Instalación de Azure PowerShell con PowerShellGet](/powershell/azure/install-az-ps).
+Para crear una directiva de replicación con PowerShell, primero instale la versión [2.5.0](https://www.powershellgallery.com/packages/Az.Storage/2.5.0) o posterior del módulo Az.Storage de PowerShell. Para más información sobre cómo instalar Azure PowerShell, consulte [Instalación de Azure PowerShell con PowerShellGet](/powershell/azure/install-az-ps).
 
 En el ejemplo siguiente se muestra cómo crear una directiva de replicación en las cuentas de origen y destino. No olvide reemplazar los valores entre corchetes angulares por sus propios valores:
 
@@ -162,32 +148,24 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para crear una directiva de replicación con la CLI de Azure, instale primero la extensión de versión preliminar para Azure Storage:
+Para crear una directiva de replicación con la CLI de Azure, instale primero la versión 2.11.1 de la CLI de Azure, o una posterior. Para más información, consulte [Introducción a la CLI de Azure](/cli/azure/get-started-with-azure-cli).
 
-```azurecli
-az extension add -n storage-or-preview
-```
-
-A continuación, inicie sesión con sus credenciales de Azure:
+A continuación, habilite el control de versiones de blobs en las cuentas de almacenamiento de origen y de destino, y habilite la fuente de cambios en la cuenta de origen, llamando al comando [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update). No olvide reemplazar los valores entre corchetes angulares por sus propios valores:
 
 ```azurecli
 az login
-```
 
-Habilite el control de versiones de blobs en las cuentas de almacenamiento de origen y destino, y la fuente de cambios en la cuenta de destino. No olvide reemplazar los valores entre corchetes angulares por sus propios valores:
-
-```azurecli
-az storage blob service-properties update \
+az storage account blob-service-properties update \
     --resource-group <resource-group> \
     --account-name <source-storage-account> \
     --enable-versioning
 
-az storage blob service-properties update \
+az storage account blob-service-properties update \
     --resource-group <resource-group> \
     --account-name <source-storage-account> \
     --enable-change-feed
 
-az storage blob service-properties update \
+az storage account blob-service-properties update \
     --resource-group <resource-group> \
     --account-name <dest-storage-account> \
     --enable-versioning
@@ -198,24 +176,24 @@ Cree los contenedores de origen y destino en sus cuentas de almacenamiento respe
 ```azurecli
 az storage container create \
     --account-name <source-storage-account> \
-    --name source-container3 \
+    --name source-container-1 \
     --auth-mode login
 az storage container create \
     --account-name <source-storage-account> \
-    --name source-container4 \
+    --name source-container-2 \
     --auth-mode login
 
 az storage container create \
     --account-name <dest-storage-account> \
-    --name source-container3 \
+    --name dest-container-1 \
     --auth-mode login
 az storage container create \
     --account-name <dest-storage-account> \
-    --name source-container4 \
+    --name dest-container-1 \
     --auth-mode login
 ```
 
-Cree una nueva directiva de replicación y reglas asociadas en la cuenta de destino.
+Cree una nueva directiva de replicación y una regla asociada en la cuenta de destino llamando a [az storage account or-policy create](/cli/azure/storage/account/or-policy#az_storage_account_or_policy_create).
 
 ```azurecli
 az storage account or-policy create \
@@ -223,30 +201,150 @@ az storage account or-policy create \
     --resource-group <resource-group> \
     --source-account <source-storage-account> \
     --destination-account <dest-storage-account> \
-    --source-container source-container3 \
-    --destination-container dest-container3 \
-    --min-creation-time '2020-05-10T00:00:00Z' \
+    --source-container source-container-1 \
+    --destination-container dest-container-1 \
+    --min-creation-time '2020-09-10T00:00:00Z' \
     --prefix-match a
 
+```
+
+Azure Storage establece el identificador de la directiva para la nueva directiva cuando se crea. Para agregar reglas adicionales a la directiva, llame a [az storage account or-policy rule add](/cli/azure/storage/account/or-policy/rule#az_storage_account_or_policy_rule_add) y proporcione el identificador de la directiva.
+
+```azurecli
 az storage account or-policy rule add \
     --account-name <dest-storage-account> \
-    --destination-container dest-container4 \
-    --policy-id <policy-id> \
     --resource-group <resource-group> \
-    --source-container source-container4 \
+    --source-container source-container-2 \
+    --destination-container dest-container-2 \
+    --policy-id <policy-id> \
     --prefix-match b
 ```
 
-Cree la directiva en la cuenta de origen con el identificador de la directiva.
+A continuación, cree la directiva en la cuenta de origen con el identificador de la directiva.
 
 ```azurecli
 az storage account or-policy show \
     --resource-group <resource-group> \
-    --name <dest-storage-account> \
+    --account-name <dest-storage-account> \
     --policy-id <policy-id> |
-    --az storage account or-policy create --resource-group <resource-group> \
-    --name <source-storage-account> \
+    az storage account or-policy create --resource-group <resource-group> \
+    --account-name <source-storage-account> \
     --policy "@-"
+```
+
+---
+
+### <a name="configure-object-replication-when-you-have-access-only-to-the-destination-account"></a>Configuración de la replicación de objetos cuando solo se tiene acceso a la cuenta de destino
+
+Si no tiene permisos para la cuenta de almacenamiento de origen, puede configurar la replicación de objetos en la cuenta de destino y proporcionar un archivo JSON que contenga la definición de la directiva a otro usuario para crear la misma directiva en la cuenta de origen. Por ejemplo, si la cuenta de origen está en un inquilino de Azure AD diferente de la cuenta de destino, puede usar este enfoque para configurar la replicación de objetos.
+
+Tenga en cuenta que debe tener asignado el rol **Colaborador** de Azure Resource Manager en el ámbito del nivel de la cuenta de almacenamiento de destino o superior para crear la directiva. Para obtener más información, consulte [Roles integrados de Azure](../../role-based-access-control/built-in-roles.md) en la documentación del control de acceso basado en rol de Azure.
+
+En la tabla siguiente se resumen los valores que se deben usar para el identificador de directiva y los identificadores de regla en el archivo JSON en cada escenario.
+
+| Al crear el archivo JSON para esta cuenta... | Establezca el identificador de la directiva y los identificadores de regla en este valor... |
+|-|-|
+| Cuenta de destino | Valor de cadena *predeterminado*. Azure Storage creará el identificador de la directiva y los identificadores de regla automáticamente. |
+| Cuenta de origen | Los valores del identificador de la directiva y los identificadores de regla devueltos al descargar la directiva definidos en la cuenta de destino como un archivo JSON. |
+
+En el ejemplo siguiente se define una directiva de replicación en la cuenta de destino con una única regla que coincide con el prefijo *b* y se establece el tiempo de creación mínimo para los blobs que se van a replicar. No olvide reemplazar los valores entre corchetes angulares por sus propios valores:
+
+```json
+{
+  "properties": {
+    "policyId": "default",
+    "sourceAccount": "<source-account>",
+    "destinationAccount": "<dest-account>",
+    "rules": [
+      {
+        "ruleId": "default",
+        "sourceContainer": "<source-container>",
+        "destinationContainer": "<destination-container>",
+        "filters": {
+          "prefixMatch": [
+            "b"
+          ],
+          "minCreationTime": "2020-08-028T00:00:00Z"
+        }
+      }
+    ]
+  }
+}
+```
+
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+Para configurar la replicación de objetos en la cuenta de destino con un archivo JSON en Azure Portal, siga estos pasos:
+
+1. Cree un archivo JSON local que defina la directiva de replicación en la cuenta de destino. Establezca el campo **policyId** en **predeterminado** para que Azure Storage defina el identificador de la directiva.
+
+    Una manera sencilla de crear un archivo JSON que define una directiva de replicación es crear primero una directiva de replicación de prueba entre dos cuentas de almacenamiento en Azure Portal. Después, puede descargar las reglas de replicación y modificar el archivo JSON según sea necesario.
+
+1. Desplácese a la configuración de **Replicación de objetos** para la cuenta de destino en Azure Portal.
+1. Seleccione **Cargar reglas de replicación**.
+1. Cargue el archivo JSON. Azure Portal muestra la directiva y las reglas que se van a crear, como se muestra en la siguiente imagen.
+
+    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="Captura de pantalla que muestra las reglas de replicación en Azure Portal":::
+
+1. Seleccione **Cargar** para crear la directiva de replicación en la cuenta de destino.
+
+Después, puede descargar un archivo JSON que contenga la definición de directiva que puede proporcionar a otro usuario para configurar la cuenta de origen. Para descargar este archivo JSON, siga estos pasos:
+
+1. Desplácese a la configuración de **Replicación de objetos** para la cuenta de destino en Azure Portal.
+1. Seleccione el botón **Más** junto a la directiva que desea descargar y, a continuación, seleccione **Descargar reglas**, tal como se muestra en la siguiente imagen.
+
+    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Captura de pantalla que muestra las reglas de replicación en Azure Portal":::
+
+1. Guarde el archivo JSON en el equipo local para compartirlo con otro usuario para configurar la directiva en la cuenta de origen.
+
+El archivo JSON descargado incluye el identificador de directiva que Azure Storage creó para la directiva en la cuenta de destino. Debe usar el mismo identificador de directiva para configurar la replicación de objetos en la cuenta de origen.
+
+Tenga en cuenta que la carga de un archivo JSON para crear una directiva de replicación para la cuenta de destino a través de Azure Portal no crea automáticamente la misma directiva en la cuenta de origen. Otro usuario debe crear la directiva en la cuenta de origen para que Azure Storage empiece a replicar objetos.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Para descargar un archivo JSON que contenga la definición de la directiva de replicación para la cuenta de destino de PowerShell, llame al comando [Get-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/get-azstorageobjectreplicationpolicy) para devolver la directiva. Después, convierta la directiva a JSON y guárdela como un archivo local, como se muestra en el ejemplo siguiente. No olvide reemplazar los valores entre corchetes angulares y la ruta de acceso del archivo por sus propios valores:
+
+```powershell
+$rgName = "<resource-group>"
+$destAccountName = "<destination-storage-account>"
+
+$destPolicy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+    -StorageAccountName $destAccountName
+$destPolicy | ConvertTo-Json -Depth 5 > c:\temp\json.txt
+```
+
+Para usar el archivo JSON para configurar la directiva de replicación en la cuenta de origen con PowerShell, recupere el archivo local y realice la conversión de JSON a un objeto. Después, llame al comando [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) para configurar la directiva en la cuenta de origen, tal y como se muestra en el ejemplo siguiente. No olvide reemplazar los valores entre corchetes angulares y la ruta de acceso del archivo por sus propios valores:
+
+```powershell
+$object = Get-Content -Path C:\temp\json.txt | ConvertFrom-Json
+Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+    -StorageAccountName $srcAccountName `
+    -PolicyId $object.PolicyId `
+    -SourceAccount $object.SourceAccount `
+    -DestinationAccount $object.DestinationAccount `
+    -Rule $object.Rules
+```
+
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Para escribir la definición de la directiva de replicación para la cuenta de destino en un archivo JSON desde CLI de Azure, llame al comando [az storage account or-policy show](/cli/azure/storage/account/or-policy#az_storage_account_or_policy_show) y genere el resultado en un archivo.
+
+En el ejemplo siguiente se escribe la definición de directiva en un archivo JSON denominado *policy.json*. No olvide reemplazar los valores entre corchetes angulares y la ruta de acceso del archivo por sus propios valores:
+
+```azurecli
+az storage account or-policy show \
+    --account-name <dest-account-name> \
+    --policy-id  <policy-id> > policy.json
+```
+
+Para usar el archivo JSON para configurar la directiva de replicación en la cuenta de origen con la CLI de Azure, llame al comando [az storage account or-policy create](/cli/azure/storage/account/or-policy#az_storage_account_or_policy_create) y haga referencia al archivo *policy.json*. No olvide reemplazar los valores entre corchetes angulares y la ruta de acceso del archivo por sus propios valores:
+
+```azurecli
+az storage account or-policy create \
+    -resource-group <resource-group> \
+    --source-account <source-account-name> \
+    --policy @policy.json
 ```
 
 ---
@@ -286,12 +384,12 @@ Para quitar una directiva de replicación, elimine la directiva de la cuenta de 
 
 ```azurecli
 az storage account or-policy delete \
-    --policy-id $policyid \
+    --policy-id <policy-id> \
     --account-name <source-storage-account> \
     --resource-group <resource-group>
 
 az storage account or-policy delete \
-    --policy-id $policyid \
+    --policy-id <policy-id> \
     --account-name <dest-storage-account> \
     --resource-group <resource-group>
 ```
@@ -300,4 +398,6 @@ az storage account or-policy delete \
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Información general sobre la replicación de objetos (versión preliminar)](object-replication-overview.md)
+- [Información general sobre la replicación de objetos](object-replication-overview.md)
+- [Habilitar y administrar las versiones de blob](versioning-enable.md)
+- [Procesamiento de la fuente de cambios en Azure Blob Storage](storage-blob-change-feed-how-to.md)

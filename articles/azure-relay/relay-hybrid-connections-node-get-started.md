@@ -4,12 +4,12 @@ description: Escritura de una aplicación de consola en Node.js para Websockets 
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 8dc52c93d4b5cd6d50b66338350a41cf0e24daa0
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: cf660d7a776c0dfa48b6c023fa0fa3516a3a0ea5
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386306"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527418"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-nodejs"></a>Introducción a WebSockets de Conexiones híbridas de Relay en Node.js
 
@@ -52,7 +52,7 @@ Para enviar mensajes a Relay, escriba una aplicación de consola en Node.js.
 2. Ejecute la aplicación de cliente: en un símbolo del sistema de Node.js escriba `node sender.js` y escriba texto.
 3. Asegúrese de que la consola de aplicación de servidor genera el texto que escribió en la aplicación de cliente.
 
-    ![running-applications](./media/relay-hybrid-connections-node-get-started/running-applications.png)
+    ![Ventanas de consola de las pruebas de las aplicaciones cliente y servidor.](./media/relay-hybrid-connections-node-get-started/running-applications.png)
 
 Ya ha creado una aplicación de Conexiones híbridas de un extremo a otro.
 

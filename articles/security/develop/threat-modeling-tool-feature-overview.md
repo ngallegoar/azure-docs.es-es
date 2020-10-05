@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 08/17/2017
-ms.openlocfilehash: e405ea35dcaa33ac7c8227385e4aaff86d9244cb
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 65a88f309602462e77336181316c0d5bf19a8a1e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87540009"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980677"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Información general de las características de Threat Modeling Tool
 
@@ -122,7 +122,7 @@ Mantenga el ratón sobre **Abrir un modelo** para mostrar dos opciones: **Abrir 
 
 Cuando se selecciona **Comentarios, sugerencias y problemas**, se abre el foro de MSDN para herramientas de SDL. Puede leer lo que dicen otros usuarios acerca de la herramienta, incluidas nuevas ideas y soluciones.
 
-![Comentarios](./media/threat-modeling-tool-feature-overview/feedback.png)
+![Captura de pantalla que muestra un botón con el texto Comentarios, Sugerencias y Problemas.](./media/threat-modeling-tool-feature-overview/feedback.png)
 
 ## <a name="design-view"></a>Vista de diseño
 
@@ -158,7 +158,7 @@ Puede conectar elementos de dos maneras:
 
 Si crea un modelo de amenazas y olvida conectar los flujos de datos a los elementos, recibirá una notificación. Puede elegir omitirla o seguir las instrucciones para solucionar el problema. 
 
-![error de Hadoop](./media/threat-modeling-tool-feature-overview/messages.png)
+![Captura de pantalla que muestra un conector de modelo de riesgos no conectado a los elementos, con el mensaje que causa este problema.](./media/threat-modeling-tool-feature-overview/messages.png)
 
 ### <a name="notes"></a>Notas
 
@@ -196,7 +196,7 @@ Tal como se muestra en la imagen anterior, puede cambiar la información generad
 
 Una vez que haya terminado de cambiar las prioridades y de actualizar el estado de cada amenaza generada, puede guardar el archivo o imprimir un informe. Vaya a **Informe** > **Crear informe completo**. Asigne nombre al informe y debería ver algo similar a la siguiente imagen:
 
-![Informe](./media/threat-modeling-tool-feature-overview/report.png)
+![Captura de pantalla que muestra un ejemplo de informe de Threat Modeling, que incluye un resumen, diagramas y otra información.](./media/threat-modeling-tool-feature-overview/report.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 08/05/2020
+ms.date: 09/14/2020
 ms.author: abnarain
-ms.openlocfilehash: 49d173e0d0f2b96c385b4325335483d25e9a7c2d
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 1a68263598cb2cba8cc0853f5dd1be7c62dc062e
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800720"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069482"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solución de problemas del entorno de ejecución de integración autohospedado
 
@@ -519,7 +519,7 @@ Este comportamiento se produce cuando los nodos no pueden comunicarse entre sí.
 
 ### <a name="connectivity-issue-between-self-hosted-ir-and-data-factory-or-self-hosted-ir-and-data-sourcesink"></a>Problema de conectividad entre el IR autohospedado y Data Factory, o bien el IR autohospedado y el origen de datos o receptor
 
-Para solucionar el problema de conectividad de red, debe saber cómo [recopilar el seguimiento de red](#how-to-collect-netmon-trace), entender cómo usarlo y [analizar el seguimiento de netmon](#how-to-analyze-netmon-trace) antes de aplicar las herramientas de Netmon en casos reales desde el IR autohospedado.
+Para solucionar el problema de conectividad de red, debe saber cómo recopilar el seguimiento de red, entender cómo usarlo y [analizar el seguimiento de netmon](#how-to-analyze-netmon-trace) antes de aplicar las herramientas de Netmon en casos reales desde el entorno de ejecución de integración autohospedado.
 
 #### <a name="symptoms"></a>Síntomas
 
@@ -575,53 +575,12 @@ Profundice en el análisis con el seguimiento de netmon.
 
     Por tanto, debe comunicarle al equipo de red que compruebe cuál es el cuarto salto desde el IR autohospedado. Si es el firewall como sistema Linux, compruebe en los registros por qué el dispositivo restablece el paquete después del protocolo de enlace TCP 3. Pero si no está seguro de dónde investigar, intente obtener el seguimiento de netmon conjunto del IR autohospedado y el firewall durante el período problemático para determinar qué dispositivo ha podido restablecer este paquete y provocar la desconexión. En este caso, también debe indicarle al equipo de red que avance.
 
-### <a name="how-to-collect-netmon-trace"></a>Procedimiento para recopilar el seguimiento de netmon
-
-1.  Descargue las herramientas de Netmon desde [este sitio web](https://www.microsoft.com/en-sg/download/details.aspx?id=4865) e instálelas en el equipo del servidor (en cualquier servidor que tenga el problema) y en el cliente (por ejemplo el IR autohospedado).
-
-2.  Cree una carpeta, por ejemplo, en la ruta de acceso siguiente: *D:\netmon*. Asegúrese de que tiene espacio suficiente para guardar el registro.
-
-3.  Capture la información de puerto y dirección IP. 
-    1. Inicie un símbolo del sistema CMD.
-    2. Seleccione Ejecutar como administrador y ejecute el comando siguiente:
-       
-        ```
-        Ipconfig /all >D:\netmon\IP.txt
-        netstat -abno > D:\netmon\ServerNetstat.txt
-        ```
-
-4.  Capture el seguimiento de netmon (paquete de red).
-    1. Inicie un símbolo del sistema CMD.
-    2. Seleccione Ejecutar como administrador y ejecute el comando siguiente:
-        
-        ```
-        cd C:\Program Files\Microsoft Network Monitor 3
-        ```
-    3. Puede usar tres comandos diferentes para capturar la página de red:
-        - Opción A: comando de archivo RoundRobin (capturará un solo archivo y sobrescribirá los registros antiguos).
-
-            ```
-            nmcap /network * /capture /file D:\netmon\ServerConnection.cap:200M
-            ```         
-        - Opción B: comando de archivo encadenado (creará un archivo si se alcanzan los 200 MB).
-        
-            ```
-            nmcap /network * /capture /file D:\netmon\ServerConnection.chn:200M
-            ```          
-        - Opción C: comando de archivo programado.
-
-            ```
-            nmcap /network * /capture /StartWhen /Time 10:30:00 AM 10/28/2011 /StopWhen /Time 11:30:00 AM 10/28/2011 /file D:\netmon\ServerConnection.chn:200M
-            ```  
-
-5.  Presione **Ctrl+C** para detener la captura del seguimiento de Netmon.
- 
-> [!NOTE]
-> Si solo puede recopilar el seguimiento de netmon en el equipo cliente, obtenga la dirección IP del servidor para ayudarle a analizar el seguimiento.
-
 ### <a name="how-to-analyze-netmon-trace"></a>Procedimiento para analizar el seguimiento de netmon
 
-Al intentar telnet **8.8.8.8 888** con el seguimiento de netmon recopilado anterior, debería ver el seguimiento siguiente:
+> [!NOTE] 
+> La instrucción siguiente es aplicable al seguimiento de netmon. Dado que el seguimiento de netmon no recibe actualmente soporte técnico, puede aprovechar wireshark de la misma forma.
+
+Al intentar conectarse mediante telnet **8.8.8.8 888** con el seguimiento de netmon recopilado, debería ver el seguimiento siguiente:
 
 ![seguimiento de netmon 1](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-1.png)
 

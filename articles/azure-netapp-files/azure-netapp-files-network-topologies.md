@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/21/2020
+ms.date: 09/08/2020
 ms.author: ramakk
-ms.openlocfilehash: d81ae835fa62c5188c8d71a5ae0563259ab027f3
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: a8d81acc0fcb4afa0f981fca3fd099296a0361df
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797429"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569499"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Instrucciones para el planeamiento de red de Azure NetApp Files
 
@@ -42,6 +42,7 @@ Las características siguientes no se admiten actualmente en Azure NetApp Files:
 * Azure Virtual WAN 
 * Puertas de enlace de Virtual Network con redundancia de zona (SKU de puerta de enlace con Az) 
 * Puertas de enlace activa/activa de Virtual Network 
+* Red virtual de pila dual (IPv4 e IPv6)
 
 Las siguientes restricciones de red se aplican a Azure NetApp Files:
 

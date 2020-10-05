@@ -1,5 +1,5 @@
 ---
-title: 'Visualización de datos en el Explorador de TSI: Azure Time Series Insights Gen2 | Microsoft Docs'
+title: 'Visualización de datos en el Explorador de Time Series Insights: Azure Time Series Insights Gen2 | Microsoft Docs'
 description: Aprenda sobre las características y opciones disponibles en el Explorador de Azure Time Series Insights.
 author: deepakpalled
 ms.author: dpalled
@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 08/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 31ed5f93fc7d1b44ae8a4afb1f4368d0b52eb2fd
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 0933e34e5bdd8469b827ed03c0eff51a4ecba0d5
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227056"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488174"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Explorador de Azure Time Series Insights
 
@@ -200,7 +200,7 @@ El Explorador de Azure Time Series Insights admite dos temas:
 
   [![Tema oscuro seleccionado](media/v2-update-explorer/tsi-preview-dark-theme-selected.png)](media/v2-update-explorer/tsi-preview-dark-theme-selected.png#lightbox)
 
-## <a name="gen-1-environment-controls"></a>Controles del entorno de Gen1
+## <a name="gen1-environment-controls"></a>Controles del entorno de Gen1
 
 ### <a name="gen2-terms-panel"></a>Panel de términos de Gen2
 

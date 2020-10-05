@@ -1,18 +1,18 @@
 ---
 title: Administración del espacio en disco en Azure HDInsight
-description: Pasos de solución de problemas y soluciones posibles para problemas que se producen al interactuar con clústeres de Azure HDInsight.
+description: Pasos de solución de problemas y posibles soluciones para administrar los problemas de espacio en disco que se producen al interactuar con clústeres de Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/17/2020
-ms.openlocfilehash: 577bed7ce342be14a50077a3ffd841cd901b5b31
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0628033ecf6f2e51cf18f61c6e5b36042557dc7b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77473320"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530168"
 ---
 # <a name="manage-disk-space-in-azure-hdinsight"></a>Administración del espacio en disco en Azure HDInsight
 

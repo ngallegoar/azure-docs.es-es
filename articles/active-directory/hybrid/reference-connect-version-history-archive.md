@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fc18ff248ce7f522539a92ef1b2226a29689be8
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: f80808f917036dfba122a97bbd255d466f40e476
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89275987"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018499"
 ---
 # <a name="azure-ad-connect-version-release-history-archive"></a>Azure AD Connect: Archivo del historial de lanzamiento de versiones
 
@@ -1181,7 +1181,7 @@ Fecha de publicación: Diciembre de 2014
 **Nuevas características:**
 
 * Ahora es posible realizar la sincronización de contraseñas con filtrado basado en atributos. Para más información, consulte el artículo sobre la [sincronización de contraseñas con filtrado](how-to-connect-sync-configure-filtering.md).
-* El atributo ms-DS-ExternalDirectoryObjectID se reescribe en Active Directory. Esta característica agrega compatibilidad para las aplicaciones de Office 365. Usa OAuth2 para acceder a los buzones de correo en línea y locales en una implementación híbrida de Exchange.
+* El atributo ms-DS-ExternalDirectoryObjectID se reescribe en Active Directory. Esta característica agrega compatibilidad para las aplicaciones de Microsoft 365. Usa OAuth2 para acceder a los buzones de correo en línea y locales en una implementación híbrida de Exchange.
 
 **Problemas de actualización corregidos:**
 

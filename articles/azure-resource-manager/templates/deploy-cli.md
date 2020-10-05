@@ -2,13 +2,13 @@
 title: Implementación de recursos con una plantilla y la CLI de Azure
 description: Use Azure Resource Manager y la CLI de Azure para implementar recursos en Azure. Los recursos se definen en una plantilla de Resource Manager.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: da865d3b425da6b5969e540a424b513d9a58bd9a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/08/2020
+ms.openlocfilehash: 7e8ae7e8c568f5f0ebb85f434e33f142b5fe94e8
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040808"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566167"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Implementación de recursos con plantillas de ARM y la CLI de Azure
 
@@ -26,13 +26,13 @@ La implementación puede tener como destino un grupo de recursos, una suscripci�
 
 Según el ámbito de la implementación, usará comandos diferentes.
 
-* Para implementar en un **grupo de recursos**, use [az deployment group create](/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create):
+* Para implementar en un **grupo de recursos**, use [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create):
 
   ```azurecli-interactive
   az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
   ```
 
-* Para implementar en una **suscripción**, use [az deployment sub create](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create):
+* Para implementar en una **suscripción**, use [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create):
 
   ```azurecli-interactive
   az deployment sub create --location <location> --template-file <path-to-template>
@@ -40,7 +40,7 @@ Según el ámbito de la implementación, usará comandos diferentes.
 
   Para más información sobre las implementaciones en el nivel de suscripción, consulte [Creación de grupos de recursos y otros recursos en el nivel de suscripción](deploy-to-subscription.md).
 
-* Para implementar en un **grupo de administración**, use [az deployment mg create](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-create):
+* Para implementar en un **grupo de administración**, use [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create):
 
   ```azurecli-interactive
   az deployment mg create --location <location> --template-file <path-to-template>
@@ -48,7 +48,7 @@ Según el ámbito de la implementación, usará comandos diferentes.
 
   Para obtener más información sobre las implementaciones de nivel de grupo de administración, consulte [Creación de recursos en el nivel de grupo de administración](deploy-to-management-group.md).
 
-* Para implementar en un **inquilino**, use [az deployment tenant create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create):
+* Para implementar en un **inquilino**, use [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
   ```azurecli-interactive
   az deployment tenant create --location <location> --template-file <path-to-template>
@@ -128,6 +128,35 @@ az deployment group create \
 
 En el ejemplo anterior, se requiere un identificador URI accesible públicamente para la plantilla, que funciona con la mayoría de los escenarios porque la plantilla no debe incluir datos confidenciales. Si tiene que especificar datos confidenciales (por ejemplo, una contraseña de administrador), pase ese valor como un parámetro seguro. Sin embargo, si no desea que la plantilla sea accesible públicamente, puede almacenarla en un contenedor de almacenamiento privado para protegerla. Para más información sobre la implementación de una plantilla que requiere un token de Firma de acceso compartido (SAS), consulte [Implementación de una plantilla privada con el token de SAS](secure-template-with-sas-token.md).
 
+## <a name="deploy-template-spec"></a>Implementación de la especificación de plantilla
+
+En lugar de implementar una plantilla local o remota, puede crear una [especificación de plantilla](template-specs.md). La especificación de plantilla es un recurso de su suscripción de Azure que contiene una plantilla de ARM. Facilita el uso compartido de la plantilla de forma segura con los usuarios de la organización. Use el control de acceso basado en rol (RBAC) para conceder acceso a la especificación de la plantilla. Esta funcionalidad actualmente está en su versión preliminar.
+
+En los ejemplos siguientes se muestra cómo se crea e implementa una especificación de plantilla. Estos comandos solo están disponibles si se ha [registrado en la versión preliminar](https://aka.ms/templateSpecOnboarding).
+
+En primer lugar, cree la especificación de plantilla proporcionando la plantilla de ARM.
+
+```azurecli
+az ts create \
+  --name storageSpec \
+  --version "1.0" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "./mainTemplate.json"
+```
+
+A continuación, se obtiene el identificador de la especificación de plantilla y se implementa.
+
+```azurecli
+id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
+
+az deployment group create \
+  --resource-group demoRG \
+  --template-spec $id
+```
+
+Para obtener más información, consulte [Especificaciones de plantilla de Azure Resource Manager (versión preliminar)](template-specs.md).
+
 ## <a name="preview-changes"></a>Vista previa de los cambios
 
 Antes de implementar la plantilla, puede obtener una vista previa de los cambios que la plantilla realizará en su entorno. Use la [operación Y si](template-deploy-what-if.md) para comprobar que la plantilla realiza los cambios esperados. La operación y si también valida que la plantilla no tenga errores.
@@ -179,6 +208,28 @@ El formato de arrayContent.json es:
     "value2"
 ]
 ```
+
+Para pasar un objeto, por ejemplo, para establecer etiquetas, use JSON. Por ejemplo, la plantilla podría incluir un parámetro como este:
+
+```json
+    "resourceTags": {
+      "type": "object",
+      "defaultValue": {
+        "Cost Center": "IT Department"
+      }
+    }
+```
+
+En este caso, puede pasar una cadena JSON para establecer el parámetro como se muestra en el siguiente script de Bash:
+
+```bash
+tags='{"Owner":"Contoso","Cost Center":"2345-324"}'
+az deployment group create --name addstorage  --resource-group myResourceGroup \
+--template-file $templateFile \
+--parameters resourceName=abcdef4556 resourceTags="$tags"
+```
+
+Use comillas dobles alrededor del código JSON que desee pasar al objeto.
 
 ### <a name="parameter-files"></a>Archivos de parámetros
 

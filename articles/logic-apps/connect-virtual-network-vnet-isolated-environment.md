@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: 624668ad80d72933d6dd1e67fcac799fd210d659
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 09/10/2020
+ms.openlocfilehash: 41fdc342d82b07e82bb6e7b32e1a4f98f94d2a8e
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816667"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647545"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conectarse a redes virtuales de Azure desde Azure Logic Apps mediante un entorno del servicio de integración (ISE)
 
@@ -44,7 +44,14 @@ También puede crear un ISE mediante el [ejemplo de plantilla de inicio rápido 
   > [!IMPORTANT]
   > Las aplicaciones lógicas, los desencadenadores integrados, las acciones integradas y los conectores que se ejecutan en el ISE usan un plan de tarifa diferente al plan de tarifa basado en el consumo. Para saber cómo funcionan los precios y la facturación para los ISE, consulte [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Para ver las tarifas de precios, consulte los [precios de Logic Apps](../logic-apps/logic-apps-pricing.md).
 
-* Una instancia de [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). La red virtual debe tener cuatro subredes *vacías*, que son necesarias para crear e implementar recursos en el ISE y que usan los componentes internos de Logic Apps, como los conectores y el almacenamiento en caché, para mejorar el rendimiento. Puede crear las subredes por adelantado o esperar a que se cree el ISE para crearlas al mismo tiempo. Sin embargo, antes de crear las subredes, revise los [requisitos de subred](#create-subnet).
+* Una instancia de [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). La red virtual debe tener cuatro subredes *vacías*, que son necesarias para crear e implementar recursos en el ISE y que estos componentes internos y ocultos usan:
+
+  * Proceso de Logic Apps
+  * App Service Environment interno (conectores)
+  * API Management interno (conectores)
+  * Redis interno para el almacenamiento en caché y el rendimiento
+  
+  Puede crear las subredes por adelantado o esperar a que se cree el ISE para crearlas al mismo tiempo. Sin embargo, antes de crear las subredes, revise los [requisitos de subred](#create-subnet).
 
   > [!IMPORTANT]
   >

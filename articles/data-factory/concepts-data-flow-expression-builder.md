@@ -6,29 +6,29 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 08/10/2020
-ms.openlocfilehash: f522812f762b55ec61794101e6cd1ec15fb171ca
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.date: 09/14/2020
+ms.openlocfilehash: 4297cc83ab3fa280e15480aefcd5aef8734c65ee
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212106"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531052"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Generación de expresiones del flujo de datos de asignación
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En el flujo de datos de asignación, muchas propiedades de transformación se especifican como expresiones. Estas expresiones se componen de valores de columna, parámetros, funciones, operadores y literales que se evalúan como un tipo de datos de Spark en tiempo de ejecución.
+En el flujo de datos de asignación, muchas propiedades de transformación se especifican como expresiones. Estas expresiones se componen de valores de columna, parámetros, funciones, operadores y literales que se evalúan como un tipo de datos de Spark en tiempo de ejecución. La asignación de flujos de datos tiene una experiencia dedicada orientada a ayudarle a crear estas expresiones denominada **Generador de expresiones**. La utilización de la finalización de código de [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense) para resaltar, comprobar la sintaxis y autocompletar, el generador de expresiones está diseñado para facilitar la creación de flujos de datos. En este artículo se explica cómo usar el generador de expresiones para crear eficazmente la lógica de negocios.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tkur]
+![Generador de expresiones](media/data-flow/expresion-builder.png "Generador de expresiones")
 
 ## <a name="open-expression-builder"></a>Apertura del generador de expresiones
 
-La interfaz de edición de expresiones de la experiencia de usuario de Azure Data Factory se conoce como el "generador de expresiones". Al indicar su lógica de expresión, Data Factory usa la finalización de código de [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense?view=vs-2019) para el resaltado, la comprobación de sintaxis y la finalización automática.
+Hay varios puntos de entrada para abrir el generador de expresiones. Todos ellos dependen del contexto específico de la transformación del flujo de datos. El caso de uso más común se da en las transformaciones como [columna derivada](data-flow-derived-column.md) y [agregado](data-flow-aggregate.md), donde los usuarios crean o actualizan columnas con el lenguaje de expresiones de flujo de datos. El generador de expresiones se puede abrir al seleccionar **Abrir el generador de expresiones** encima de la lista de columnas. También puede hacer clic en un contexto de columna y abrir el generador de expresiones directamente en esa expresión.
 
-![Generador de expresiones](media/data-flow/xpb1.png "Generador de expresiones")
+![Abrir Generador de expresiones en columna derivada](media/data-flow/open-expression-builder-derive.png "Abrir Generador de expresiones en columna derivada")
 
-En transformaciones como la columna derivada y el filtro, donde las expresiones son obligatorias, abra el generador de expresiones haciendo clic en el cuadro de expresión azul.
+En algunas transformaciones como [filtro](data-flow-filter.md), al hacer clic en un cuadro de texto de expresión azul, se abrirá el generador de expresiones. 
 
 ![Cuadro de expresión azul](media/data-flow/expressionbox.png "Generador de expresiones")
 
@@ -40,29 +40,52 @@ En los casos en los que una expresión o un valor literal son entradas válidas,
 
 ![Opción Agregar contenido dinámico](media/data-flow/add-dynamic-content.png "Generador de expresiones")
 
-## <a name="expression-language-reference"></a>Referencia de lenguaje de expresiones
+## <a name="expression-elements"></a>Elementos de expresión
 
-Los flujos de datos de asignación tienen funciones y operadores integrados que se pueden usar en las expresiones. Para obtener una lista de las funciones disponibles, vea [Funciones de expresiones en el flujo de datos de asignación](data-flow-expression-functions.md).
+En la asignación de flujos de datos, las expresiones pueden estar compuestas de valores de columna, parámetros, funciones, variables locales, operadores y literales. Estas expresiones deben evaluarse como un tipo de datos de Spark, como una cadena, un valor booleano o un entero.
 
-## <a name="column-names-with-special-characters"></a>Nombres de columna con caracteres especiales
+![Elementos de expresión](media/data-flow/expression-elements.png "Elementos de expresión")
+
+### <a name="functions"></a>Functions
+
+Los flujos de datos de asignación tienen funciones y operadores integrados que se pueden usar en las expresiones. Para obtener una lista de las funciones disponibles, vea la [referencia sobre el lenguaje de flujos de datos de asignación](data-flow-expression-functions.md).
+
+#### <a name="address-array-indexes"></a>Índices de matriz de direcciones
+
+Al tratar con columnas o funciones que devuelven tipos de matriz, use corchetes ([]) para acceder a un elemento específico. Si el índice no existe, la expresión se evalúa como NULL.
+
+![Matriz del Generador de expresiones](media/data-flow/expression-array.png "Vista previa de datos de expresión")
+
+> [!IMPORTANT]
+> En los flujos de datos de asignación, las matrices se basan en uno, lo que significa que al primer elemento se hace referencia mediante la indexación de uno. Por ejemplo, myArray[1] accederá al primer elemento de una matriz denominada "myArray".
+
+### <a name="input-schema"></a>Esquema de entrada
+
+Si el flujo de datos usa un esquema definido en cualquiera de sus orígenes, puede hacer referencia a una columna por nombre en muchas expresiones. Si usa el desfase de esquema, puede hacer referencia a las columnas explícitamente mediante las funciones `byName()` o `byNames()`, o bien buscar coincidencias con los patrones de columna.
+
+#### <a name="column-names-with-special-characters"></a>Nombres de columna con caracteres especiales
 
 Si tiene nombres de columna que incluyen caracteres especiales o espacios, escriba el nombre entre llaves para hacer referencia a estos en una expresión.
 
 ```{[dbo].this_is my complex name$$$}```
 
+### <a name="parameters"></a>Parámetros
+
+Los parámetros son valores que se pasan a un flujo de datos en tiempo de ejecución desde una canalización. Para hacer referencia a un parámetro, haga clic en él en la vista **Elementos de expresión** o haga referencia a él con un signo de dólar delante de su nombre. Por ejemplo, se haría referencia con `$parameter1` a un parámetro denominado parameter1. Para más información, vea [Parametrización de flujos de datos de asignación](parameters-data-flow.md).
+
+### <a name="locals"></a>Locals
+
+Si varias columnas comparten la misma lógica o si desea compartimentar la lógica, puede crear un conjunto local dentro de una columna derivada\. Para hacer referencia a un conjunto local, haga clic en él en la vista **Elementos de expresión** o haga referencia a él con el signo de dos puntos delante del nombre. Por ejemplo, `:local1` haría referencia a un conjunto local llamado local1. Obtenga más información sobre las variables locales en la [documentación sobre las columnas derivadas](data-flow-derived-column.md#locals).
+
 ## <a name="preview-expression-results"></a>Resultados de la expresión en versión preliminar
 
-Si el [modo de depuración](concepts-data-flow-debug-mode.md) está activado, puede usar el clúster de Spark activo para ver una versión preliminar en curso de cómo se evalúa su expresión. Al crear su lógica, puede depurar su expresión en tiempo real. 
+Si el [modo de depuración](concepts-data-flow-debug-mode.md) está activado, puede usar el clúster de depuración de manera interactiva para obtener una vista previa de lo que evalúa la expresión. Seleccione **Actualizar** junto a la vista previa de los datos para actualizar los resultados de la vista previa de los datos. Puede ver la salida de cada fila a partir de las columnas de entrada.
 
-![Versión preliminar en curso](media/data-flow/exp4b.png "Vista previa de datos de expresión")
+![Versión preliminar en curso](media/data-flow/preview-expression.png "Vista previa de datos de expresión")
 
-Seleccione **Actualizar** para actualizar los resultados de la expresión en un ejemplo en directo del origen.
+## <a name="string-interpolation"></a>Interpolación de cadenas
 
-![Botón Actualizar](media/data-flow/exp5.png "Vista previa de datos de expresión")
-
-## <a name="string-interpolation"></a>Interpolación de cadena
-
-Use comillas para incluir texto de cadena literal junto con expresiones. Puede incluir parámetros, columnas y funciones de expresión. La interpolación de cadena es útil para evitar el uso extensivo de la concatenación de cadenas al incluir parámetros en cadenas de consulta. Para usar la sintaxis de expresión, escríbala entre llaves.
+Al crear cadenas largas que usan elementos de expresión, utilice la interpolación de cadenas para crear fácilmente una lógica de cadena compleja. La interpolación de cadena evita el uso extensivo de la concatenación de cadenas al incluir parámetros en cadenas de consulta. Use comillas dobles para incluir texto de cadena literal junto con expresiones. Puede incluir parámetros, columnas y funciones de expresión. Para usar la sintaxis de expresión, escríbala entre llaves.
 
 Algunos ejemplos de interpolación de cadena:
 
@@ -72,7 +95,9 @@ Algunos ejemplos de interpolación de cadena:
 
 * ```"Total cost with sales tax is {round(totalcost * 1.08,2)}"```
 
-## <a name="comment-expressions"></a>Expresiones de comentario
+* ```"{:playerName} is a {:playerRating} player"```
+
+## <a name="commenting-expressions"></a>Comentarios de las expresiones
 
 Agregue comentarios a sus expresiones mediante la sintaxis de comentarios de una línea y de varias líneas.
 
@@ -81,11 +106,11 @@ Los ejemplos siguientes son comentarios válidos:
 * ```/* This is my comment */```
 
 * ```/* This is a```
-*   ```multi-line comment */```
+* ```multi-line comment */```
 
 Si coloca un comentario al comienzo de la expresión, aparecerá en el cuadro de texto de transformación para documentar las expresiones de transformación.
 
-![Comentario en el cuadro de texto de transformación](media/data-flow/comments2.png "Comentarios")
+![Comentario en el cuadro de texto de transformación](media/data-flow/comment-expression.png "Comentarios")
 
 ## <a name="regular-expressions"></a>Expresiones regulares
 
@@ -103,13 +128,9 @@ Un ejemplo que usa barras diagonales dobles:
 regex_replace('100 and 200', '(\\d+)', 'digits')
 ```
 
-## <a name="address-array-indexes"></a>Índices de matriz de direcciones
-
-Con las funciones de expresiones que devuelvan matrices, utilice los corchetes [] para tratar índices específicos dentro del objeto de matriz de devolución. La matriz se basa en unos.
-
-![Matriz del Generador de expresiones](media/data-flow/expb2.png "Vista previa de datos de expresión")
-
 ## <a name="keyboard-shortcuts"></a>Accesos directos del teclado
+
+A continuación, se muestra una lista de los accesos directos disponibles en el generador de expresiones. La mayoría de los accesos directos de IntelliSense están disponibles al crear expresiones.
 
 * Ctrl+K, Ctrl+C: Línea entera de comentario.
 * Ctrl+K, Ctrl+U: Quitar marca de comentario.
@@ -118,7 +139,9 @@ Con las funciones de expresiones que devuelvan matrices, utilice los corchetes [
 * Alt+Flecha arriba: Subir la línea actual.
 * Ctrl+Barra espaciadora: Mostrar ayuda contextual.
 
-## <a name="convert-to-dates-or-timestamps"></a>Conversión en fechas o marcas de tiempo
+## <a name="commonly-used-expressions"></a>Expresiones de uso frecuente
+
+### <a name="convert-to-dates-or-timestamps"></a>Conversión en fechas o marcas de tiempo
 
 Para incluir literales de cadena en la salida de la marca de tiempo, debe ajustar la conversión en ```toString()```.
 
@@ -130,7 +153,7 @@ Para convertir los milisegundos de la época a una fecha o marca de tiempo, use 
 
 El signo "l" final al final de la expresión anterior indica que hay una conversión a un tipo long como sintaxis insertada.
 
-## <a name="find-time-from-epoch-or-unix-time"></a>Búsqueda de hora desde época o tiempo UNIX
+### <a name="find-time-from-epoch-or-unix-time"></a>Búsqueda de hora desde época o tiempo UNIX
 
 toLong( currentTimestamp() - toTimestamp('1970-01-01 00:00:00.000', 'yyyy-MM-dd HH:mm:ss.SSS') ) * 1000l
 

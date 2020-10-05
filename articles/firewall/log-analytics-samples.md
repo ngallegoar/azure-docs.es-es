@@ -1,20 +1,20 @@
 ---
-title: Ejemplos de análisis de registros en Azure Firewall
+title: Registros de Azure Monitor para Azure Firewall
 description: Los registros de Azure Monitor se pueden usar para analizar Azure Firewall. Se crea un archivo de ejemplo en el Diseñador de vistas en Azure Monitor.
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
-ms.date: 01/23/2020
+ms.topic: how-to
+ms.date: 09/11/2020
 ms.author: victorh
-ms.openlocfilehash: bc34afe82c1b73afb5f3d5d1a07f2a5059590146
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5acbc1f3b8c5519c22105f05219ab2cef5c15892
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76706007"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023880"
 ---
-# <a name="azure-firewall-log-analytics-samples"></a>Ejemplos de análisis de registros en Azure Firewall
+# <a name="azure-monitor-logs-for-azure-firewall"></a>Registros de Azure Monitor para Azure Firewall
 
 Los siguientes ejemplos de registros de Azure Monitor pueden usarse para analizar los registros de Azure Firewall. El archivo de ejemplo se basa en el Diseñador de vistas de Azure Monitor; en el artículo [Diseñador de vistas de Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) se proporciona más información sobre el concepto de diseño de vistas.
 
@@ -170,11 +170,11 @@ AzureDiagnostics
 
 En los siguientes ejemplos de registro se muestran los datos incluidos en una entrada de registro.
 
-![entrada del registro](media/log-analytics-samples/log1.png)
+![log entry one](media/log-analytics-samples/log1.png)
 
-![entrada del registro](media/log-analytics-samples/log2.png)
+![log entry two ](media/log-analytics-samples/log2.png)
 
-![entrada del registro](media/log-analytics-samples/log3.png)
+![log entry three](media/log-analytics-samples/log3.png)
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre la supervisión y el diagnóstico de Azure Firewall, vea [Tutorial: Métricas y registros de Azure Firewall](tutorial-diagnostics.md).

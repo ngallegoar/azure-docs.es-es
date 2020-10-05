@@ -5,12 +5,12 @@ ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
 ms.custom: devx-track-java
-ms.openlocfilehash: 4039a70bf90bc8f4b7932dbf40d8369e9773abf3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6a596eff70bfc20b5a6752ef47398bd14d527c97
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321826"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973336"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Creación e implementación de plantillas de ARM mediante IntelliJ IDEA
 
@@ -66,7 +66,7 @@ En lugar de crear una plantilla desde cero, abra una plantilla en las [plantilla
 
 1. Puede editar los dos archivos de esta página e implementar los cambios en Azure. Aquí se modifica el valor de **storageAccountType** en los archivos de parámetros, de `Standard_LRS` a `Standard_GRS`. A continuación, haga clic en **Implementación de actualizaciones** en la parte inferior y confirme la actualización.
 
-    ![Implementación de la edición de la plantilla de Resource Manager](./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png)
+    ![Captura de pantalla que muestra la plantilla de Resource Manager con la solicitud de Implementación de actualizaciones.](./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png)
 
 1. Una vez finalizada la implementación de la actualización, puede comprobar en el portal que la cuenta de almacenamiento creada ha cambiado a `Standard_GRS`.
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 393ed336018c7a0272c15adaa72633abd6b95d2f
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: cf03dffe82d611f10639af2a147bc2d9e9316621
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377206"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052781"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funcionamiento: Autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -39,7 +39,7 @@ Un usuario puede restablecer o cambiar su contraseña desde el [portal de SSPR](
 
 Cuando un usuario selecciona el vínculo **No se puede tener acceso a la cuenta** desde una aplicación o página, o bien accede directamente a [https://aka.ms/sspr](https://passwordreset.microsoftonline.com), el idioma utilizado en el portal de SSPR se basa en las siguientes opciones:
 
-* De forma predeterminada, se utiliza la configuración regional del explorador para mostrar el portal de SSPR en el idioma correspondiente. La experiencia de restablecimiento de contraseña está traducida a los mismos idiomas que [admite Office 365](https://support.microsoft.com/office/what-languages-is-office-available-in-26d30382-9fba-45dd-bf55-02ab03e2a7ec).
+* De forma predeterminada, se utiliza la configuración regional del explorador para mostrar el portal de SSPR en el idioma correspondiente. La experiencia de restablecimiento de contraseña está traducida a los mismos idiomas que [admite Microsoft 365](https://support.microsoft.com/office/what-languages-is-office-available-in-26d30382-9fba-45dd-bf55-02ab03e2a7ec).
 * Si desea crear un vínculo al portal de SSPR en un idioma traducido específico, anexe `?mkt=` al final de la dirección URL de restablecimiento de contraseña, junto con la configuración regional necesaria.
     * Por ejemplo, para especificar la configuración regional de español *es-us*, utilice `?mkt=es-us` - [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us).
 
@@ -77,7 +77,7 @@ Antes de que los usuarios puedan restablecer o cambiar la contraseña mediante S
 
 Esta opción se puede habilitar para exigir que un usuario complete el registro SSPR al iniciar sesión en cualquier aplicación mediante Azure AD. Este flujo de trabajo incluye las siguientes aplicaciones:
 
-* Office 365
+* Microsoft 365
 * Portal de Azure
 * Panel de acceso
 * Aplicaciones federadas
@@ -226,7 +226,7 @@ SSPR efectúa una operación equivalente a un restablecimiento de contraseña in
 
 El restablecimiento y el cambio de contraseña son totalmente compatibles con todas las configuraciones negocio a negocio (B2B). Se admiten los tres casos siguientes para el restablecimiento de contraseña de usuario B2B:
 
-* **Usuarios de una organización asociada con un inquilino de Azure AD existente**: Si la organización con la que colabora tiene un inquilino de Azure AD, se respetarán todas las directivas de restablecimiento de contraseña que estén habilitadas en dicho inquilino. Para que el restablecimiento de contraseña funcione, la organización asociada solo tiene que asegurarse de que SSPR de Azure AD está habilitado. No tiene costo adicional para los clientes de Office 365.
+* **Usuarios de una organización asociada con un inquilino de Azure AD existente**: Si la organización con la que colabora tiene un inquilino de Azure AD, se respetarán todas las directivas de restablecimiento de contraseña que estén habilitadas en dicho inquilino. Para que el restablecimiento de contraseña funcione, la organización asociada solo tiene que asegurarse de que SSPR de Azure AD está habilitado. No tiene costo adicional para los clientes de Microsoft 365.
 * **Usuarios que se registran mediante el** registro de autoservicio: si la organización con la que colabora utilizó la característica de [registro de autoservicio](../users-groups-roles/directory-self-service-signup.md) para acceder a un inquilino, se permitirá que restablezca la contraseña con el correo electrónico que hubiera registrado.
 * **Usuarios B2B**: cualquier nuevo usuario B2B creado con la nueva [funcionalidad B2B de Azure AD](../external-identities/what-is-b2b.md) podrá restablecer su contraseña con el correo electrónico que haya registrado durante el proceso de invitación.
 

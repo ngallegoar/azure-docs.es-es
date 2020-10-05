@@ -253,7 +253,7 @@
           href: connector-azure-databricks-delta-lake.md
         - name: Azure File Storage
           href: connector-azure-file-storage.md
-        - name: "Azure\_SQL\_Database"
+        - name: Azure SQL Database
           href: connector-azure-sql-database.md
         - name: Instancia administrada de Azure SQL
           href: connector-azure-sql-managed-instance.md
@@ -700,6 +700,8 @@
               href: how-to-data-flow-error-rows.md
             - name: "Azure SQL\_DB para Azure Cosmos\_DB"
               href: how-to-sqldb-to-cosmosdb.md
+            - name: Desduplicación y comprobación de valores NULL con fragmentos de código
+              href: how-to-data-flow-dedupe-nulls-snippets.md
         - name: Migración de SSIS desde un entorno local
           items:
             - name: Introducción a la migración de SSIS

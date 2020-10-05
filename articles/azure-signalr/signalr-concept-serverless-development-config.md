@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 0b5056f221fdd6036e5f6dff3d69a21c3a2dc27e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ce42c0ec75ebed52311fe6aa026f794d6c2f7584
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928571"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89513954"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Desarrollo y configuración de Azure Functions con Azure SignalR Service
 
@@ -51,7 +51,9 @@ Para aprender a crear un token autenticado, consulte [Uso de la autenticación d
 
 Use el enlace del *desencadenador de Signalr* para controlar los mensajes enviados desde Signalr Service. Se puede desencadenar cuando los clientes envían mensajes o los clientes se conectan o desconectan.
 
-Para más información, consulte [Referencia del enlace del *desencadenador de SignalR*](../azure-functions/functions-bindings-signalr-service-trigger.md).
+Para obtener más información, consulte la referencia del enlace del [*desencadenador de SignalR*](../azure-functions/functions-bindings-signalr-service-trigger.md).
+
+También debe configurar el punto de conexión de la función como un nivel superior para que el servicio desencadene la función en la que hay un mensaje del cliente. Para obtener más información sobre cómo configurar el flujo ascendente, consulte este [documento](concept-upstream.md).
 
 ### <a name="sending-messages-and-managing-group-membership"></a>Envío de mensajes y administración de la pertenencia a grupos
 
@@ -109,7 +111,7 @@ Todas las funciones que quieran aprovechar el modelo basado en clases deben ser 
 
 ### <a name="define-hub-method"></a>Definición del método del centro
 
-Todos los métodos del centro **deben** tener un atributo `[SignalRTrigger]` y **deben** usar un constructor sin parámetros. Entonces el **nombre del método** se trata como el parámetro **event**.
+Todos los métodos de concentrador **deben** tener un argumento de `InvocationContext` decorado por el atributo`[SignalRTrigger]` y usar un constructor sin parámetros. Entonces el **nombre del método** se trata como el parámetro **event**.
 
 De forma predeterminada, `category=messages` excepto si el nombre del método es uno de los siguientes:
 
@@ -202,7 +204,11 @@ Para más información sobre cómo usar el SDK de cliente de SignalR, consulte l
 
 ### <a name="sending-messages-from-a-client-to-the-service"></a>Envío de mensajes desde un cliente hasta el servicio
 
-Aunque el SDK de SignalR permite que las aplicaciones cliente invoquen la lógica de back-end en un concentrador de SignalR, esta funcionalidad no se admite aún cuando se usa SignalR Service con Azure Functions. Use solicitudes HTTP para invocar Azure Functions.
+Si ha configurado el [nivel ascendente](concept-upstream.md) para el recurso de SignalR, puede enviar mensajes desde el cliente a Azure Functions mediante cualquier cliente de SignalR. Este es un ejemplo en JavaScript:
+
+```javascript
+connection.send('method1', 'arg1', 'arg2');
+```
 
 ## <a name="azure-functions-configuration"></a>Configuración de Azure Functions
 

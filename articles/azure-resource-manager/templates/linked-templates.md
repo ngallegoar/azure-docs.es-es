@@ -2,13 +2,13 @@
 title: Plantillas de vínculo para la implementación
 description: Describe cómo usar plantillas vinculadas en una plantilla del Administrador de recursos de Azure para crear una solución de plantilla modular. Muestra cómo pasar valores de parámetros y especificar un archivo de parámetros y las direcciones URL creadas dinámicamente.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 40da2443828a07f2171922fcc6d8976d464d0ad4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/08/2020
+ms.openlocfilehash: f1fe07faeaddae3367fb1f8b4a37f7b0630b6e83
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086819"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89535565"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso de plantillas vinculadas y anidadas al implementar recursos de Azure
 
@@ -19,7 +19,9 @@ En el caso de soluciones pequeñas o medianas, es más fácil entender y mantene
 Para obtener un tutorial, consulte [Tutorial: creación de plantillas vinculadas de Azure Resource Manager](./deployment-tutorial-linked-template.md).
 
 > [!NOTE]
-> En cuanto a las plantillas vinculadas o anidadas, solo se puede usar el modo de implementación [incremental](deployment-modes.md).
+> En cuanto a las plantillas vinculadas o anidadas, solo se puede establecer el modo de implementación en [incremental](deployment-modes.md). Sin embargo, la plantilla principal se puede implementar en el modo completo. Si implementa la plantilla principal en el modo completo y la plantilla vinculada o anidada tiene como destino el mismo grupo de recursos, los recursos implementados en la plantilla vinculada o anidada se incluyen en la evaluación para la implementación en modo completo. La colección combinada de recursos implementados en la plantilla principal y las plantillas vinculadas o anidadas se comparan con los recursos existentes en el grupo de recursos. Se eliminan todos los recursos no incluidos en esta colección combinada.
+>
+> Si la plantilla vinculada o anidada tiene como destino un grupo de recursos diferente, esa implementación utiliza el modo incremental.
 >
 
 ## <a name="nested-template"></a>Plantilla anidada
@@ -316,11 +318,6 @@ Al hacer referencia a una plantilla vinculada, el valor de `uri` no debe ser un 
 
 Resource Manager debe tener acceso a la plantilla. Una opción es colocar la plantilla vinculada en una cuenta de almacenamiento y usar el URI para dicho elemento.
 
-Las [especificaciones de plantilla](./template-specs.md) (actualmente en versión preliminar privada) le permiten compartir plantillas de Resource Manager con otros usuarios de la organización. Las especificaciones de plantillas también se pueden usar para empaquetar una plantilla principal y sus plantillas vinculadas. Para más información, consulte:
-
-- [Tutorial: Creación de una especificación de plantilla con plantillas vinculadas](./template-specs-create-linked.md).
-- [Tutorial: Implementación de una especificación de plantilla como una plantilla vinculada](./template-specs-deploy-linked-template.md).
-
 ### <a name="parameters-for-linked-template"></a>Parámetros de la plantilla vinculada
 
 Puede proporcionar los parámetros de la plantilla vinculada en un archivo externo o alineados. Al proporcionar un archivo de parámetros externo, use la propiedad **parametersLink**:
@@ -369,6 +366,15 @@ Para pasar los valores de parámetro alineados, use la propiedad **parameters**.
 ```
 
 No se pueden usar los parámetros alineados ni un vínculo a un archivo de parámetros. La implementación produce un error cuando ambos (`parametersLink` y `parameters`) se especifican.
+
+## <a name="template-specs"></a>Especificaciones de plantilla
+
+En lugar de mantener las plantillas vinculadas en un punto de conexión accesible, puede crear una [especificación de plantilla](template-specs.md) que empaqueta la plantilla principal y sus plantillas vinculadas en una sola entidad que puede implementar. La especificación de plantilla es un recurso de su suscripción de Azure. Facilita el uso compartido de la plantilla de forma segura con los usuarios de la organización. Use el control de acceso basado en rol (RBAC) para conceder acceso a la especificación de la plantilla. Esta funcionalidad actualmente está en su versión preliminar.
+
+Para más información, consulte:
+
+- [Tutorial: Creación de una especificación de plantilla con plantillas vinculadas](./template-specs-create-linked.md).
+- [Tutorial: Implementación de una especificación de plantilla como una plantilla vinculada](./template-specs-deploy-linked-template.md).
 
 ## <a name="contentversion"></a>contentVersion
 
@@ -723,6 +729,9 @@ Aunque la plantilla vinculada debe estar disponible externamente, no es necesari
 También se puede limitar el acceso al archivo de parámetros a través de un token de SAS.
 
 Actualmente, no se puede agregar un vínculo a una plantilla que se encuentre en una cuenta de almacenamiento detrás de un [firewall de Azure Storage](../../storage/common/storage-network-security.md).
+
+> [!IMPORTANT]
+> En lugar de proteger la plantilla vinculada con un token de SAS, considere la posibilidad de crear una [especificación de plantilla](template-specs.md). La especificación de plantilla almacena de forma segura la plantilla principal y sus plantillas vinculadas como un recurso en la suscripción de Azure. Use RBAC para conceder acceso a los usuarios que necesiten implementar la plantilla.
 
 En el ejemplo siguiente se muestra cómo pasar un token de SAS al vincular a una plantilla:
 

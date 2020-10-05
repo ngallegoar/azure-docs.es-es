@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33b1f76dd1489e00115d0f805add8d754038df84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d1811d5b9ae4d3e34b48e1cdc156438f2bad98d1
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77185910"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601663"
 ---
 # <a name="conditional-access-classic-policy-migration"></a>Migración de directivas clásicas de acceso condicional
 
@@ -73,9 +73,9 @@ Los aspectos siguientes son importantes en el contexto de una consolidación de 
    - Combinar varias condiciones, si la situación lo requiere. 
    - Seleccionar varios requisitos de concesión como control de acceso y combinarlos con un valor lógico *OR* (se requiere uno de los controles seleccionados) o con un valor lógico *AND* (se requieren todos los controles seleccionados).
 
-### <a name="office-365-exchange-online"></a>Office 365 Exchange Online
+### <a name="exchange-online"></a>Intercambio en línea
 
-Si quiere migrar las directivas clásicas para **Office 365 Exchange Online** que incluyen **Exchange Active Sync** como condición de aplicaciones de cliente, es posible que no pueda consolidarlas en una directiva nueva. 
+Si quiere migrar las directivas clásicas para **Exchange Online** que incluyen **Exchange Active Sync** como condición de aplicaciones de cliente, es posible que no pueda consolidarlas en una directiva nueva. 
 
 Esto sucede en caso de que quiera admitir todos los tipos de aplicación de cliente. En una directiva nueva que tiene **Exchange Active Sync** como condición de aplicaciones de cliente no puede seleccionar otras aplicaciones cliente.
 
@@ -89,7 +89,7 @@ Si existe una directiva nueva que tiene **Exchange Active Sync** como condición
 
 ![Condiciones de acceso condicional](./media/policy-migration/16.png)
  
-Las directivas clásicas basadas en aplicaciones para Office 365 Exchange Online que incluyen **Exchange Active Sync** como condición de aplicaciones de cliente permiten plataformas de dispositivos **admitidas** y **no admitidas**. Aunque no se pueda configurar plataformas de dispositivos individuales en una directiva nueva relacionada, puede limitar la compatibilidad solo para [plataformas de dispositivos compatibles](concept-conditional-access-conditions.md#device-platforms). 
+Las directivas clásicas basadas en aplicaciones para Exchange Online que incluyen **Exchange Active Sync** como condición de aplicaciones de cliente permiten plataformas de dispositivos **admitidas** y **no admitidas**. Aunque no se pueda configurar plataformas de dispositivos individuales en una directiva nueva relacionada, puede limitar la compatibilidad solo para [plataformas de dispositivos compatibles](concept-conditional-access-conditions.md#device-platforms). 
 
 ![Acceso condicional con selección de Exchange ActiveSync](./media/policy-migration/65.png)
 

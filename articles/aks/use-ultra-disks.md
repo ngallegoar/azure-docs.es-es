@@ -4,12 +4,12 @@ description: Aprenda a habilitar y configurar discos Ultra en un clúster de Azu
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 6ad739a128839eac4d664ffb6f9e3b2fcd07f2d9
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 3f15f075604c104b467af289f6f5d4b92dc12659
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650186"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420870"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Uso de discos Ultra de Azure en Azure Kubernetes Service (versión preliminar)
 
@@ -21,11 +21,6 @@ Esta característica solo se puede establecer durante la creación del clúster 
 
 > [!IMPORTANT]
 > Los discos Ultra de Azure requieren grupos de nodos implementados en zonas de disponibilidad y regiones que admiten estos discos, así como solo series de máquinas virtuales específicas. Consulte el [**ámbito y las limitaciones de la disponibilidad general de los discos Ultra**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations).
-
-### <a name="prerequisites"></a>Requisitos previos
-
-- Asegúrese de que tiene habilitada la `EnableUltraSSD` marca de características.
-- Asegúrese de que tiene instalada la [extensión de la CLI][az-extension-add] `aks-preview` más reciente.
 
 ### <a name="register-the-enableultrassd-preview-feature"></a>Registro de la característica en vista previa (GB) `EnableUltraSSD`
 
@@ -78,7 +73,7 @@ Crear un grupo de recursos de Azure:
 az group create --name myResourceGroup --location westus2
 ```
 
-Cree el clúster de AKS con la integración administrada de Azure AD y Azure RBAC para la autorización de Kubernetes.
+Cree el clúster de AKS con compatibilidad con Ultra Disks.
 
 ```azurecli-interactive
 # Create an AKS-managed Azure AD cluster
@@ -133,7 +128,7 @@ storageclass.storage.k8s.io/ultra-disk-sc created
 
 ## <a name="create-a-persistent-volume-claim"></a>Creación de una notificación de volumen persistente
 
-Una notificación de volumen persistente (PVC) se usa para aprovisionar automáticamente el almacenamiento en función de una clase de almacenamiento. En ese caso, una PVC puede usar una de las clases de almacenamiento que crearon previamente para crear un disco administrado de Azure estándar o premium.
+Una notificación de volumen persistente (PVC) se usa para aprovisionar automáticamente el almacenamiento en función de una clase de almacenamiento. En este caso, un PVC puede usar la clase de almacenamiento creada anteriormente para crear un disco Ultra.
 
 Cree un archivo denominado `azure-ultra-disk-pvc.yaml` y cópielo en el siguiente código manifiesto. La notificación solicita un disco llamado `ultra-disk` que tiene un tamaño de *1000 GB* con acceso *ReadWriteOnce*. La clase de almacenamiento *ultra-disk-sc* se especifica como la clase de almacenamiento.
 

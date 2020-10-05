@@ -6,15 +6,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2fdc1cd36c037f163b6b04907248e08ef20e961d
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: d44964b5aed55e2ee70d18e6be5d632b652956e1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400031"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976254"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Escenario: Enrutamiento del tráfico a través de una aplicación virtual de red
 
@@ -99,7 +99,7 @@ En la **Ilustración 2**, hay dos centros: **Hub 1** y **Hub 2**.
 
 **Ilustración 2**
 
-:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Ilustración 2" lightbox="./media/routing-scenarios/nva/nva.png":::
+:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Ilustración 1" lightbox="./media/routing-scenarios/nva/nva.png":::
 
 ## <a name="scenario-workflow"></a><a name="workflow"></a>Flujo de trabajo del escenario
 
@@ -113,9 +113,11 @@ Para configurar el enrutamiento a través de NVA, estos son los pasos que debe t
    
    No es necesario conectar VNet 5, 6, 7 y 8 a los centros virtuales directamente. Asegúrese de que los NSG de VNet 5, 6, 7 y 8 permitan el tráfico para la rama (VPN/ER/P2S) o las redes virtuales conectadas a sus redes virtuales remotas. Por ejemplo, VNet 5 y 6 deben garantizar que los NSG permitan el tráfico para los prefijos de direcciones locales y para VNet 7 y 8, conectadas al Hub 2 remoto.
 
+Virtual WAN no admite un escenario en el que VNet 5 y 6 se conectan a un concentrador virtual y se comunican a través de la IP de NVA de VNet 2; por lo tanto, la necesidad de conectar las VNet 5 y 6 a la VNet 2 y, de forma similar, las VNet 7 y 8 a la VNet 4.
+
 2. Incorpore una entrada de ruta estática agregada para VNet 2, 5 y 6 a la tabla de rutas predeterminada de Hub 1.
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Ejemplo":::
+   :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Ilustración 1":::
 
 3. Configure una ruta estática para VNet 5 y 6 en la conexión de red virtual de VNet 2. Para establecer la configuración de enrutamiento para una conexión de red virtual, vea [Enrutamiento de centros virtuales](how-to-virtual-hub-routing.md#routing-configuration).
 
@@ -127,7 +129,7 @@ Esto hará que la configuración de enrutamiento cambie como se muestra en la **
 
 **Ilustración 3**
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Ilustración 3" lightbox="./media/routing-scenarios/nva/nva-result.png":::
+   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Ilustración 1" lightbox="./media/routing-scenarios/nva/nva-result.png":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

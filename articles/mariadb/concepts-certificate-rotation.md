@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: f35a43e9cbffb2613f7a98e02b03840c774e5999
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: a52dd48bb97c8e7979771bdc2dbb50654493b088
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90708162"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972603"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Descripción de los cambios en la CA raíz para Azure Database for MariaDB
 
@@ -122,8 +122,28 @@ Los certificados utilizados por Azure Database for MariaDB provienen de entidade
 ### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-master-server-or-the-read-replicas"></a>11. Si utilizo réplicas de lectura, ¿tengo que realizar esta actualización solo en el servidor maestro o en las réplicas de lectura?
 Puesto que esta actualización es un cambio en el lado cliente, si el cliente leía los datos del servidor réplica, deberá aplicar también los cambios para esos clientes.
 
-### <a name="12-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>12. ¿Tenemos que consultar en el lado servidor para comprobar si se está utilizando SSL?
+### <a name="12-if-i-am-using-data-in-replication-do-i-need-to-perform-any-action"></a>12. Si estoy usando la replicación de datos de entrada, ¿es necesario llevar a cabo alguna acción?
+Si usa la [replicación de datos de entrada](concepts-data-in-replication.md) para conectarse a Azure Database for MySQL, hay dos aspectos que deben tenerse en cuenta:
+*   Si la replicación de datos se realiza desde una máquina virtual (local o de Azure) en Azure Database for MySQL, debe comprobar si se usa SSL para crear la réplica. Ejecute **SHOW SLAVE STATUS** (MOSTRAR ESTADO DE ESCLAVO) y compruebe la siguiente configuración.  
+
+    ```azurecli-interactive
+    Master_SSL_Allowed            : Yes
+    Master_SSL_CA_File            : ~\azure_mysqlservice.pem
+    Master_SSL_CA_Path            :
+    Master_SSL_Cert               : ~\azure_mysqlclient_cert.pem
+    Master_SSL_Cipher             :
+    Master_SSL_Key                : ~\azure_mysqlclient_key.pem
+    ```
+
+    Si observa que el certificado se proporciona para CA_file, SSL_Cert y SSL_Key, deberá actualizar el archivo agregando el [nuevo certificado](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem).
+
+*   Si la replicación de datos se realiza entre dos instancias de Azure Database for MySQL, deberá restablecer la réplica ejecutando **CALL mysql.az_replication_change_master** y proporcionar el nuevo certificado raíz dual como último parámetro [master_ssl_ca](howto-data-in-replication.md#link-the-master-and-replica-servers-to-start-data-in-replication).
+
+### <a name="13-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>13. ¿Tenemos que consultar en el lado servidor para comprobar si se está utilizando SSL?
 Para comprobar si está usando la conexión SSL para conectarse al servidor, consulte [Comprobación de la conexión SSL](howto-configure-ssl.md#verify-the-ssl-connection).
 
-### <a name="13-what-if-i-have-further-questions"></a>13. ¿Qué hago si tengo más preguntas?
+### <a name="14-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>14. ¿Hay alguna acción necesaria si ya tengo DigiCertGlobalRootG2 en el archivo de certificado?
+No. No es necesario realizar ninguna acción si el archivo de certificado ya contiene **DigiCertGlobalRootG2**.
+
+### <a name="15-what-if-i-have-further-questions"></a>15. ¿Qué hago si tengo más preguntas?
 Si tiene alguna pregunta, obtenga respuestas de expertos de la comunidad en [Microsoft Q&A](mailto:AzureDatabaseformariadb@service.microsoft.com). Si tiene un plan de soporte técnico y necesita ayuda técnica, [póngase en contacto con nosotros](mailto:AzureDatabaseformariadb@service.microsoft.com).

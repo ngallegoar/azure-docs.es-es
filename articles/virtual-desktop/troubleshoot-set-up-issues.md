@@ -3,15 +3,15 @@ title: 'Creación de entornos y grupos de hosts de Windows Virtual Desktop: Azur
 description: Cómo solucionar problemas de grupos de inquilinos y de hosts durante la instalación de un entorno de Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 08/11/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4d504c46288ebe2a8112586ce6be6449178df16a
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: d02642b49951b4b116eaae6dbea490ef2720c15d
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121381"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084420"
 ---
 # <a name="host-pool-creation"></a>Creación de grupos de hosts
 
@@ -46,6 +46,12 @@ Si la operación supera el límite de cuota, puede realizar una de las siguiente
 - Crear un nuevo grupo de hosts con los mismos parámetros pero menos máquinas virtuales y núcleos de máquinas virtuales.
 
 - Abrir el vínculo que aparece en el campo statusMessage en un explorador para enviar una solicitud a fin de aumentar la cuota de su suscripción a Azure para la SKU de la máquina virtual especificada.
+
+### <a name="error-cant-see-user-assignments-in-app-groups"></a>Error: Can't see user assignments in app groups. (No se pueden ver las asignaciones de usuario en los grupos de aplicaciones).
+
+Causa: Este error suele producirse después de haber migrado la suscripción de un inquilino de Azure Active Directory (AD) a otro. Si las asignaciones antiguas todavía están vinculadas al inquilino antiguo de Azure AD, Azure Portal perderá el seguimiento de ellas.
+
+Solución: Deberá volver a asignar los usuarios a los grupos de aplicaciones.
 
 ## <a name="azure-resource-manager-template-errors"></a>Errores de plantilla de Azure Resource Manager
 

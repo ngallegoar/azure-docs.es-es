@@ -3,12 +3,12 @@ title: Solución de problemas con Azure Event Hubs para Apache Kafka
 description: En este artículo se muestra cómo solucionar problemas con Azure Event Hubs para Apache Kafka
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 034541aa6ea683c0e294ca8790b02f0dc60b5440
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e32e02947b9f004755381d562fd3f3c897b70674
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090576"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061434"
 ---
 # <a name="apache-kafka-troubleshooting-guide-for-event-hubs"></a>Guía de solución de problemas de Apache Kafka para Event Hubs
 En este artículo se proporcionan sugerencias para la solución de problemas que pueden aparecer al usar Event Hubs para Apache Kafka. 
@@ -55,11 +55,11 @@ Si ve problemas al usar Kafka en Event Hubs, compruebe los siguientes elementos.
 - **Autenticación SASL**: la obtención de un marco para cooperar con el protocolo de autenticación SASL que requiere Event Hubs puede resultar más difícil de lo que parece. Vea si puede solucionar problemas relacionados con la configuración mediante los recursos del marco en la autenticación SASL. 
 
 ## <a name="limits"></a>límites
-Apache Kafka frente a Event Hubs Kafka. En su mayor parte, Event Hubs Kafka tienen los mismos valores predeterminados, propiedades, códigos de error y comportamiento general que Apache Kafka. Las instancias en las que difieren explícitamente (o donde Event Hubs impone un límite que Kafka no tiene) se enumeran a continuación:
+Apache Kafka frente a Event Hubs Kafka. En su mayor parte, la interfaz de Kafka para Azure Event Hubs tiene los mismos valores predeterminados, propiedades, códigos de error y comportamiento general que Apache Kafka. Las instancias en las que difieren explícitamente (o donde Event Hubs impone un límite que Kafka no tiene) se enumeran a continuación:
 
 - La longitud máxima de la propiedad `group.id` es 256 caracteres
 - El tamaño máximo de `offset.metadata.max.bytes` es 1024 bytes
-- Las confirmaciones de desplazamiento se limitan a 4 llamadas por segundo por partición con un tamaño de registro interno máximo de 1 MB
+- Las confirmaciones de desplazamiento se limitan a 4 llamadas por segundo por partición con un tamaño de registro interno máximo de 1 MB
 
 
 ## <a name="next-steps"></a>Pasos siguientes

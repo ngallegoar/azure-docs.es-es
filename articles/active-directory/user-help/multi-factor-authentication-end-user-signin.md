@@ -13,12 +13,12 @@ ms.date: 04/02/2017
 ms.author: curtand
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
-ms.openlocfilehash: daa2cfae4ed8371e245d12a9f805fe07f31a6d76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51cfe2c448fde8c50f8b846979a4b35fa4be5ec1
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83742952"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056035"
 ---
 # <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>Inicio de sesión en su cuenta profesional o educativa mediante el método de verificación en dos fases
 
@@ -39,14 +39,14 @@ La experiencia de inicio de sesión depende de qué elija como segundo factor: u
 ## <a name="signing-in-with-a-phone-call"></a>Inicio de sesión con una llamada de teléfono
 La siguiente información describe la experiencia de verificación de dos pasos con una llamada a un móvil o teléfono de trabajo.
 
-1. Inicie sesión en una aplicación o servicio como Office 365 con su nombre de usuario y contraseña.  
+1. Inicie sesión en una aplicación o servicio, como Microsoft 365, con su nombre de usuario y contraseña.  
 2. Microsoft lo llamará.  
 3. Responda al teléfono y pulse la tecla #.  
 
 ## <a name="signing-in-with-a-text-message"></a>Inicio de sesión con un mensaje de texto
 La siguiente información describe la experiencia de verificación de dos pasos con mensaje de texto a un móvil:
 
-1. Inicie sesión en una aplicación o servicio como Office 365 con su nombre de usuario y contraseña.
+1. Inicie sesión en una aplicación o servicio, como Microsoft 365, con su nombre de usuario y contraseña.
 2. Microsoft envía un mensaje de texto que contiene un código numérico.
 3. Escriba el código en el cuadro que aparece en la página de inicio de sesión.
 
@@ -54,7 +54,7 @@ La siguiente información describe la experiencia de verificación de dos pasos 
 La siguiente información describe la experiencia de uso de la aplicación Microsoft Authenticator para las verificaciones en dos pasos. Hay dos maneras diferentes de utilizar la aplicación. Puede recibir notificaciones push en el dispositivo o puede abrir la aplicación para obtener un código de comprobación.
 
 ### <a name="to-sign-in-with-a-notification-from-the-microsoft-authenticator-app"></a>Para iniciar sesión con una notificación de la aplicación Microsoft Authenticator
-1. Inicie sesión en una aplicación o servicio como Office 365 con su nombre de usuario y contraseña.
+1. Inicie sesión en una aplicación o servicio, como Microsoft 365, con su nombre de usuario y contraseña.
 2. Microsoft envía una notificación a la aplicación Microsoft Authenticator de su dispositivo.
 
    ![Microsoft envía una notificación](./media/multi-factor-authentication-end-user-signin/notify.png)
@@ -66,7 +66,7 @@ La siguiente información describe la experiencia de uso de la aplicación Micro
 
 Si usa la aplicación Microsoft Authenticator para obtener códigos de comprobación, al abrir la aplicación, podrá ver un número debajo de su nombre de cuenta. Este número cambia cada 30 segundos para que no use el mismo número dos veces. Cuando se le solicite un código de verificación, abra la aplicación y use cualquier número que se muestre.
 
-1. Inicie sesión en una aplicación o servicio como Office 365 con su nombre de usuario y contraseña.
+1. Inicie sesión en una aplicación o servicio, como Microsoft 365, con su nombre de usuario y contraseña.
 2. Microsoft le pedirá un código de verificación.
 
    ![Escribir el código de verificación](./media/multi-factor-authentication-end-user-signin/verify3.png)
@@ -76,7 +76,7 @@ Si usa la aplicación Microsoft Authenticator para obtener códigos de comprobac
 ## <a name="signing-in-with-an-alternate-method"></a>Inicio de sesión con un método alternativo
 En ocasiones, no tiene el teléfono o el dispositivo que configuró como método de verificación preferida. Esta situación es el motivo por el que se recomienda configurar métodos de copia de seguridad para la cuenta. En la siguiente sección se mostrará cómo iniciar sesión con un método alternativo cuando el método principal no esté disponible.
 
-1. Inicie sesión en una aplicación o servicio como Office 365 con su nombre de usuario y contraseña.
+1. Inicie sesión en una aplicación o servicio, como Microsoft 365, con su nombre de usuario y contraseña.
 2. Seleccione **Usar otra opción de comprobación**. Verá distintas opciones de comprobación en función del número de ellas que haya configurado.
 3. Elija un método alternativo e inicie sesión.
 

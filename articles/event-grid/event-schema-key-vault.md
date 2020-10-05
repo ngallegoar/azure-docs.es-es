@@ -3,16 +3,16 @@ title: Azure Key Vault como origen de Event Grid
 description: Describe las propiedades y el esquema que se proporcionan para los eventos de Azure Key Vault con Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 1f9cbe85de9423484343e4054be8d2d58c6c5e7e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f6e2bdfb2000f3a4c4a8f91eee23348d9cc9c766
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109440"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090404"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Azure Key Vault como origen de Event Grid
 
-En este artículo se proporcionan las propiedades y el esquema de los eventos en [Azure Key Vault](../key-vault/index.yml), actualmente en versión preliminar. Para una introducción a los esquemas de eventos, consulte [Esquema de eventos de Azure Event Grid](event-schema.md).
+En este artículo se proporcionan las propiedades y el esquema de los eventos en [Azure Key Vault](../key-vault/index.yml). Para una introducción a los esquemas de eventos, consulte [Esquema de eventos de Azure Event Grid](event-schema.md).
 
 ## <a name="event-grid-event-schema"></a>Esquema de eventos de Event Grid
 
@@ -31,6 +31,7 @@ Una cuenta Azure Key Vault genera los siguientes tipos de eventos:
 | Microsoft.KeyVault.SecretNewVersionCreated | Secreto nueva versión creada | Se desencadena cuando se crea una nueva versión de secreto o secreto nuevo. |
 | Microsoft.KeyVault.SecretNearExpiry | El secreto está a punto de expirar | Se desencadena cuando la versión actual de un secreto está a punto de expirar. (El evento se desencadena 30 días antes de la fecha de expiración). |
 | Microsoft.KeyVault.SecretExpired | Secreto expirado | Se desencadena cuando un secreto ha expirado. |
+| Microsoft.KeyVault.VaultAccessPolicyChanged | Directiva de acceso de Vault modificada | Se desencadena cuando cambia una directiva de acceso en Key Vault. Incluye un escenario en el que el modelo de permisos de Key Vault se modifica para o desde Azure RBAC.  |
 
 ### <a name="event-examples"></a>Ejemplos de eventos
 
@@ -84,10 +85,10 @@ Un evento tiene los siguientes datos de nivel superior:
 
 * Para una introducción a Azure Event Grid, consulte el artículo de [introducción a Event Grid](overview.md).
 * Para más información sobre cómo crear una suscripción de Azure Event Grid, consulte [Esquema de suscripción de Event Grid](subscription-creation-schema.md).
-* Para más información sobre la integración de Key Vault con Event Grid, consulte [la Key Vault de supervisión con Azure Event Grid (versión preliminar)](../key-vault/general/event-grid-overview.md).
-* Para ver un tutorial sobre la integración de Key Vault con Event Grid, consulte [Recibir y responder a las notificaciones del almacén de claves con Azure Event Grid (versión preliminar)](../key-vault/general/event-grid-tutorial.md).
+* Para más información sobre la integración de Key Vault con Event Grid, vea [Supervisión de Key Vault con Azure Event Grid](../key-vault/general/event-grid-overview.md).
+* Para ver un tutorial sobre la integración de Key Vault con Event Grid, vea [Recepción de notificaciones del almacén de claves y respuesta con Azure Event Grid](../key-vault/general/event-grid-tutorial.md).
 * Para instrucciones adicionales sobre Key Vault y Azure Automation, consulte:
     - [¿Qué es Azure Key Vault?](../key-vault/general/overview.md)
-    - [Supervisión de Key Vault con Azure Event Grid (versión preliminar)](../key-vault/general/event-grid-overview.md)
-    - [Recibir y responder a las notificaciones del almacén de claves con Azure Event Grid (versión preliminar)](../key-vault/general/event-grid-tutorial.md)
+    - [Supervisión de Key Vault con Azure Event Grid](../key-vault/general/event-grid-overview.md)
+    - [Recepción de notificaciones del almacén de claves y respuesta con Azure Event Grid](../key-vault/general/event-grid-tutorial.md)
     - [Información general sobre Azure Automation](../automation/index.yml)

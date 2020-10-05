@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: 4b048053a553176f73b5bd199bcb6e28bc74cc6c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b185f29cea61b9c366714a1af72648aeee35b61c
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88534003"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017938"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Tutorial: Configuración de la escritura diferida de atributos de Azure AD en SAP SuccessFactors
 El objetivo de este tutorial es mostrar los pasos para la escritura diferida de atributos de Azure AD en Employee Central de SAP SuccessFactors. 
@@ -40,7 +40,7 @@ Puede configurar la aplicación de escritura diferida de SAP SuccessFactors para
 
 La solución de aprovisionamiento de usuarios SuccessFactors Writeback es idónea para:
 
-* Organizaciones que usan Office 365 y que quieren realizar la escritura diferida de atributos autoritativos administrados por TI (como la dirección de correo electrónico, el teléfono o el nombre de usuario) en Employee Central de SuccessFactors.
+* Organizaciones que usan Microsoft 365 y que quieren realizar la escritura diferida de atributos autoritativos administrados por TI (como la dirección de correo electrónico, el teléfono o el nombre de usuario) en Employee Central de SuccessFactors.
 
 ## <a name="configuring-successfactors-for-the-integration"></a>Configuración de SuccessFactors para la integración
 

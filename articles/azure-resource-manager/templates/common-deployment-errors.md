@@ -3,13 +3,13 @@ title: Solución de errores de implementación comunes
 description: Describe cómo solucionar errores comunes al implementar recursos en Azure con Azure Resource Manager.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 08/07/2020
-ms.openlocfilehash: 1ab493b0ba2199d8e6778252cf50d963fbd2f387
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 09/09/2020
+ms.openlocfilehash: a24a95bbf3b3a338102d42fcee06b5e4bd59dd83
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008175"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650946"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solución de errores comunes de implementación de Azure con Azure Resource Manager
 
@@ -75,7 +75,7 @@ Si busca información sobre un código de error y esa información no se proporc
 | StorageAccountNotFound | Compruebe la suscripción, el grupo de recursos y el nombre de la cuenta de almacenamiento que intenta utilizar. | |
 | SubnetsNotInSameVnet | Una máquina virtual solo puede tener una red virtual. Al implementar varias NIC, asegúrese de que pertenecen a la misma red virtual. | [Varias NIC](../../virtual-machines/windows/multiple-nics.md) |
 | SubscriptionNotFound | No se puede acceder a una suscripción especificada para la implementación. Podría deberse a que el identificador de la suscripción sea incorrecto, a que el usuario que implemente la plantilla carezca de los permisos adecuados para implementar en la suscripción o a que el identificador de la suscripción tenga un formato incorrecto. Al usar implementaciones anidadas para [implementar entre ámbitos](cross-scope-deployment.md), proporcione el GUID de la suscripción. | |
-| SubscriptionNotRegistered | Al implementar recursos de red, el proveedor de recursos Microsoft.Network se registra automáticamente en la suscripción. A veces, el registro automático no se completa a tiempo. Para evitar este error intermitente, registre el proveedor de recursos Microsoft.Network antes de la implementación. | [Resolución de registros](error-register-resource-provider.md) |
+| SubscriptionNotRegistered | Al implementar un recurso, se debe registrar el proveedor de recursos para la suscripción. Cuando se usa una plantilla de Azure Resource Manager para la implementación, el proveedor de recursos se registra automáticamente en la suscripción. A veces, el registro automático no se completa a tiempo. Para evitar este error intermitente, registre el proveedor de recursos antes de la implementación. | [Resolución de registros](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Quite las dependencias innecesarias. | [Resolver dependencias circulares](error-invalid-template.md#circular-dependency) |
 | TooManyTargetResourceGroups | Reduzca el número de grupos de recursos de una sola implementación. | [Implementaciones entre ámbitos](cross-scope-deployment.md) |
 

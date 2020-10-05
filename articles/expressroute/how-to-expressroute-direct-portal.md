@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/06/2020
 ms.author: duau
-ms.openlocfilehash: 09d3723224f9c678e41a6cbc86b5f8f9655173c8
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 52aba71ba289a1b5479a6a9eaef7e07418b563fd
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401476"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986374"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Creación de un recurso de ExpressRoute Direct mediante Azure Portal
 
@@ -47,7 +47,7 @@ Compruebe que el proveedor de recursos **Microsoft.Network** está registrado en
 
 1. A continuación, complete los campos de la página **Configuración**.
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration.png" alt-text="Página Configuración":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration.png" alt-text="Datos básicos":::
 
     * **Ubicación del emparejamiento**: ubicación del emparejamiento en la que se conectará al recurso de ExpressRoute Direct. Para más información sobre las ubicaciones de emparejamiento, consulte [Ubicaciones de ExpressRoute](expressroute-locations-providers.md).
    * **Ancho de banda**: ancho de banda del par de puertos que desea reservar. ExpressRoute Direct admite opciones de ancho de banda de 10 GB y 100 GB. Si el ancho de banda deseado no está disponible en la ubicación de emparejamiento especificada, [abra una solicitud de soporte técnico en Azure Portal](https://aka.ms/azsupt).
@@ -61,7 +61,7 @@ Compruebe que el proveedor de recursos **Microsoft.Network** está registrado en
 
 1. Especifique las etiquetas de recursos y seleccione **Revisar y crear** para validar la configuración de recursos de ExpressRoute Direct.
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/validate.png" alt-text="Revisar y crear":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/validate.png" alt-text="Datos básicos":::
 
 1. Seleccione **Crear**. Verá un mensaje en el que se le indica que la implementación está en curso. El estado se mostrará en esta página a medida que se creen los recursos. 
 
@@ -71,11 +71,11 @@ Este proceso debe usarse para llevar a cabo una prueba de nivel 1, para garantiz
 
 1. En la página **Introducción** del recurso de ExpressRoute Direct, en la sección **Vínculos**, seleccione **vínculo1**.
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/link.png" alt-text="Vínculo 1" lightbox="./media/how-to-expressroute-direct-portal/link-expand.png":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/link.png" alt-text="Datos básicos" lightbox="./media/how-to-expressroute-direct-portal/link-expand.png":::
 
 1. Cambie la configuración de **Admin State** (Estado de administración) a **Habilitado** y luego seleccione **Guardar**.
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/state.png" alt-text="Admin State"::: (Estado de administración)
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/state.png" alt-text="Datos básicos"::: (Estado de administración)
 
     >[!IMPORTANT]
     >La facturación comenzará cuando el estado de administración esté habilitado en cualquiera de los vínculos.
@@ -97,15 +97,15 @@ Los siguientes pasos le ayudarán a crear un circuito ExpressRoute desde el fluj
 
 1. En la sección **Configuración** de ExpressRoute Direct, seleccione **Circuitos** y luego **+Agregar**. 
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/add.png" alt-text="Add (Agregar)" lightbox="./media/how-to-expressroute-direct-portal/add-expand.png":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/add.png" alt-text="Datos básicos" lightbox="./media/how-to-expressroute-direct-portal/add-expand.png":::
 
 1. Defina la configuración en la página **Configuración**.
 
-   :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration2.png" alt-text="Página Configuración":::
+   :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration2.png" alt-text="Datos básicos":::
 
 1. Especifique cualquier etiqueta de recurso, seleccione **Revisar y crear** para validar los valores antes de crear el recurso.
 
-   :::image type="content" source="./media/how-to-expressroute-direct-portal/review.png" alt-text="Revisar y crear":::
+   :::image type="content" source="./media/how-to-expressroute-direct-portal/review.png" alt-text="Datos básicos":::
 
 1. Seleccione **Crear**. Verá un mensaje en el que se le indica que la implementación está en curso. El estado se mostrará en esta página a medida que se creen los recursos. 
 

@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: charwen
-ms.openlocfilehash: 4e818617b70e874153e026bcf40b6dfee8a8e04e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad1476847874f7cea53c6e9c0c3d9f142c949dac
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744245"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987726"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>Copiado y pegado entre máquinas virtuales: Azure Bastion
 
@@ -37,7 +37,7 @@ Después de conectarse a la máquina virtual mediante [Azure Portal](https://por
 
    ![paleta de herramientas](./media/bastion-vm-manage/left.png)
 
-   ![Portapapeles](./media/bastion-vm-manage/clipboard.png)
+   ![Captura de pantalla que muestra un Portapapeles con el texto copiado en Bastion.](./media/bastion-vm-manage/clipboard.png)
 1. Normalmente, el texto copiado se muestra automáticamente en la paleta de copiado y pegado de Bastion. Si el texto no se encuentra allí, péguelo en el área de texto de la paleta.
 1. Cuando el texto esté en el área de texto, podrá pegarlo en la sesión remota.
 

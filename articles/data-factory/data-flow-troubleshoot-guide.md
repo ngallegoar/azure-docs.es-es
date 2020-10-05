@@ -1,25 +1,25 @@
 ---
-title: Solución de problemas de flujos de datos
+title: Solución de problemas de los flujos de datos de asignación
 description: Obtenga información acerca de la solución de problemas relacionados con flujos de datos en Azure Data Factory.
 services: data-factory
 ms.author: makromer
 author: kromerm
-manager: anandsub
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 08/16/2020
-ms.openlocfilehash: 0a691b562ebf030712eb0c13a688ea9a52fdb164
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.date: 09/11/2020
+ms.openlocfilehash: e52432c01e649754116fcd0420fa52ae6c4e3733
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263476"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031864"
 ---
-# <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Solución de problemas de flujos de datos en Azure Data Factory
+# <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Solución de problemas de los flujos de datos de asignación en Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-En este artículo se exploran métodos comunes de solución de problemas de flujos de datos en Azure Data Factory.
+En este artículo se exploran métodos comunes de solución de problemas de flujos de datos de asignación en Azure Data Factory.
 
 ## <a name="common-errors-and-messages"></a>Errores habituales y mensajes
 
@@ -44,7 +44,9 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 
 - **Mensaje**: Broadcast join timeout error, make sure broadcast stream produces data within 60 secs in debug runs and 300 secs in job runs (Error de tiempo de espera de combinación de difusión, asegúrese de que el flujo de difusión genera datos en un plazo de 60 segundos en ejecuciones de depuración y de 300 segundos en ejecuciones de trabajos).
 - **Causas**: la difusión tiene un tiempo de espera predeterminado de 60 segundos en ejecuciones de depuración y de 300 segundos en ejecuciones de trabajos. El flujo elegido para la difusión parece demasiado grande para generar datos dentro de este límite.
-- **Recomendación:** active la pestaña Optimizar en las transformaciones de flujo de datos para Join, Exists y Lookup. La opción predeterminada para Broadcast (Difusión) es "Auto". Si se establece así o si va a configurar manualmente el lado izquierdo o derecho para difundir en "Fixed" (Fijo), puede establecer una configuración mayor de Azure Integration Runtime o desactivar la difusión. El enfoque recomendado para el mejor rendimiento en los flujos de datos es permitir que Spark realice la difusión mediante "Auto" y use una instancia de Azure IR optimizada para memoria.
+- **Recomendación:** active la pestaña Optimizar en las transformaciones de flujo de datos para Join, Exists y Lookup. La opción predeterminada para Broadcast (Difusión) es "Auto". Si se establece "Auto" o si va a configurar manualmente el lado izquierdo o derecho para difundir en "Fixed" (Fijo), puede establecer una configuración mayor de Azure Integration Runtime o desactivar la difusión. El enfoque recomendado para el mejor rendimiento en los flujos de datos es permitir que Spark realice la difusión mediante "Auto" y use una instancia de Azure IR optimizada para memoria.
+
+Si ejecuta el flujo de datos en una ejecución de pruebas de depuración desde una ejecución de la canalización de depuración, puede ejecutar en esta condición con mayor frecuencia. Esto se debe a que ADF limita el tiempo de espera de difusión a 60 segundos para mantener una experiencia de depuración más rápida. Si desea ampliarlo al tiempo de espera de 300 segundos de una ejecución desencadenada, puede usar la opción Debug > Use Activity Runtime (Depurar > Usar tiempo de ejecución de la actividad) para utilizar la instancia de Azure IR definida en su actividad de canalización Ejecución de flujo de datos.
 
 ### <a name="error-code-df-executor-conversion"></a>Código de error: DF-Executor-Conversion
 
@@ -57,6 +59,46 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 - **Mensaje**: Column name needs to be specified in the query, set an alias if using a SQL function (Es necesario especificar el nombre de la columna en la consulta; establezca un alias si usa una función SQL).
 - **Causas**: no se ha especificado ningún nombre de columna.
 - **Recomendación:** establezca un alias si usa una función SQL, como min()/max(), etc.
+
+ ### <a name="error-code-df-executor-drivererror"></a>Código de error: DF-Executor-DriverError
+- **Mensaje**: INT96 es un tipo de marca de tiempo heredado que no es compatible con el flujo de datos de ADF. Considere la posibilidad de actualizar el tipo de columna a los tipos más recientes.
+- **Causas**: error del controlador
+- **Recomendación:** INT96 es un tipo de marca de tiempo heredado que no es compatible con el flujo de datos de ADF. Considere la posibilidad de actualizar el tipo de columna a los tipos más recientes.
+
+ ### <a name="error-code-df-executor-blockcountexceedslimiterror"></a>Código de error: DF-Executor-BlockCountExceedsLimitError
+- **Mensaje**: el recuento de bloques sin confirmar no puede superar el límite máximo de 100 000 bloques. Compruebe la configuración de blobs.
+- **Causas**: puede haber un máximo de 100 000 bloques sin confirmar en un blob.
+- **Recomendación:** póngase en contacto con el equipo de productos de Microsoft en relación con este problema para obtener más detalles.
+
+ ### <a name="error-code-df-executor-partitiondirectoryerror"></a>Código de error: DF-Executor-PartitionDirectoryError
+- **Mensaje**: la ruta de origen especificada tiene varios directorios con particiones (por ejemplo, <Source Path>/<Directorio raíz de la partición 1>/a=10/b=20, <Source Path>/<Directorio raíz de la partición 2>/c=10/d=30) o un directorio con particiones con otro archivo o directorio sin particiones (por ejemplo, <Source Path>/<Directorio raíz con particiones 1>/a=10/b=20, <Source Path>/Directorio 2/archivo1). Quite el directorio raíz con particiones de la ruta de origen y léalo a través de una transformación de origen independiente.
+- **Causas**: la ruta de origen tiene varios directorios con particiones o un directorio con particiones con otro archivo o directorio sin particiones.
+- **Recomendación:** quite el directorio raíz con particiones de la ruta de origen y léalo a través de una transformación de origen independiente.
+
+ ### <a name="error-code-df-executor-outofmemoryerror"></a>Código de error: DF-Executor-OutOfMemoryError
+- **Mensaje**: el clúster ha tenido un problema de memoria insuficiente durante la ejecución. Vuelva a intentar usar un entorno de ejecución de integración con un mayor recuento de núcleos o un tipo de proceso optimizado para memoria
+- **Causas**: el clúster se está quedando sin memoria
+- **Recomendación:** los clústeres de depuración están diseñados con fines de desarrollo. Aproveche el muestreo de datos, el tipo de proceso adecuado y el tamaño para ejecutar la carga. Consulte la [guía de rendimiento del flujo de datos de asignación](concepts-data-flow-performance.md) para llevar a cabo una optimización y, de este modo, lograr el mejor rendimiento.
+
+ ### <a name="error-code-df-executor-illegalargument"></a>Código de error: DF-Executor-illegalArgument
+- **Mensaje**: asegúrese de que la clave de acceso del servicio vinculado es correcta
+- **Causas**: nombre de cuenta o clave de acceso incorrectos
+- **Recomendación:** asegúrese de que el nombre de cuenta o la clave de acceso especificados en el servicio vinculado son correctos. 
+
+ ### <a name="error-code-df-executor-invalidtype"></a>Código de error: DF-Executor-InvalidType
+- **Mensaje**: asegúrese de que el tipo de parámetro coincide con el tipo de valor pasado. Actualmente no se admite el paso de parámetros float desde canalizaciones.
+- **Causas**: tipos de datos incompatibles entre el tipo declarado y el valor de parámetro real
+- **Recomendación:** compruebe que los valores de parámetro pasados a un flujo de datos coinciden con el tipo declarado.
+
+ ### <a name="error-code-df-executor-columnunavailable"></a>Código de error: DF-Executor-ColumnUnavailable
+- **Mensaje**: el nombre de columna usado en la expresión no está disponible o no es válido
+- **Causas**: nombre de columna no válido o no disponible usado en expresiones
+- **Recomendación:** compruebe los nombres de columna usados en expresiones
+
+ ### <a name="error-code-df-executor-parseerror"></a>Código de error: DF-Executor-ParseError
+- **Mensaje**: no puede analizarse la expresión
+- **Causas**: la expresión tiene errores de análisis debido al formato
+- **Recomendación:** compruebe el formato en la expresión
 
 ### <a name="error-code-getcommand-outputasync-failed"></a>Código de error: Error de GetCommand OutputAsync
 

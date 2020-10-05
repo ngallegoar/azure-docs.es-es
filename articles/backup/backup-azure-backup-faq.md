@@ -3,12 +3,12 @@ title: Respuestas a preguntas comunes
 description: 'Respuestas a preguntas comunes sobre las características de Azure Backup, incluidos los almacenes de Recovery Services, las copias de seguridad que puede realizar, cómo funciona, el cifrado y los límites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 16ee9fa94f8c6d5ee97c35833b4cee908750bc0a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 26d833dfea214c5f29b77c2ac34a5f8863c7fbc0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017743"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986420"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Preguntas más frecuentes de Azure Backup
 
@@ -45,7 +45,7 @@ Sí. Para mover un almacén de Recovery Services, consulte este [artículo](back
 
 No. Los datos de copia de seguridad almacenados en un almacén no se pueden mover a otro almacén.
 
-### <a name="can-i-change-from-grs-to-lrs-after-a-backup"></a>¿Puedo cambiar de GRS a LRS después de una copia de seguridad?
+### <a name="can-i-change-the-storage-redundancy-setting-after-a-backup"></a>¿Puedo cambiar la configuración de la redundancia de almacenamiento después de una copia de seguridad?
 
 El tipo de replicación de almacenamiento se establece de forma predeterminada como almacenamiento con redundancia geográfica. Una vez que configure la copia de seguridad, se deshabilitará la opción para modificarla y no se podrá cambiar.
 

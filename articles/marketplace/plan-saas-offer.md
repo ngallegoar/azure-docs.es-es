@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 60ca3723831b1d47e5c20f292394386df08ebdd1
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 382a6056076179be0d25e0fee0d55b978a3b7169
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89380513"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420445"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planeamiento de una oferta de SaaS en el marketplace comercial
 
@@ -104,7 +104,7 @@ Puede agregar o modificar una conexión CRM en cualquier momento durante o despu
 
 ## <a name="selecting-an-online-store"></a>Selección de una tienda en línea
 
-Al publicar una oferta de SaaS, se mostrará en Microsoft AppSource, Azure Marketplace o ambos. Cada tienda en línea atiende los requisitos únicos de cada cliente. AppSource es para soluciones empresariales y Azure Marketplace para soluciones de TI. El tipo de oferta, las funcionalidades de transacción y la categoría determinarán dónde se publicará la oferta. Las categorías y subcategorías se asignan a cada tienda en línea en función del público de destino. Para información detallada sobre cómo seleccionar una tienda en línea, consulte [Selección de una tienda en línea](determine-your-listing-type.md#selecting-an-online-store).
+Al publicar una oferta de SaaS, se mostrará en Microsoft AppSource, Azure Marketplace o ambos. Cada tienda en línea atiende los requisitos únicos de cada cliente. AppSource es para soluciones empresariales y Azure Marketplace para soluciones de TI. El tipo de oferta, las funcionalidades de transacción y la categoría determinarán dónde se publicará la oferta. Las categorías y subcategorías se asignan a cada tienda en línea en función del tipo de solución. Para información detallada sobre cómo seleccionar una tienda en línea, consulte [Selección de una tienda en línea](determine-your-listing-type.md#selecting-an-online-store).
 
 ## <a name="legal-contracts"></a>Contratos legales
 

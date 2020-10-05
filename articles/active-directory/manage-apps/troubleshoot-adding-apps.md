@@ -1,6 +1,6 @@
 ---
-title: Solución de problemas comunes al agregar una aplicación a Azure Active Directory
-description: Solucione los problemas comunes a los que los usuarios se enfrentan al agregar una aplicación a Azure Active Directory.
+title: Solución de problemas comunes al agregar o eliminar una aplicación en Azure Active Directory
+description: Solucione los problemas comunes a los que los usuarios se enfrentan al agregar o eliminar una aplicación en Azure Active Directory.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -10,15 +10,15 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/11/2018
 ms.author: kenwith
-ms.openlocfilehash: 1502c97e625d3af128772451be8db4dd6187e3a7
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e9e97aec66d99d149320938540c48b9ad68eaf0e
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89410369"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068037"
 ---
-# <a name="troubleshoot-common-problem-adding-an-application-to-azure-active-directory"></a>Solución de problemas comunes al agregar una aplicación a Azure Active Directory
-Este artículo le ayuda a comprender los problemas comunes a los que los usuarios se enfrentan al agregar una aplicación a Azure Active Directory.
+# <a name="troubleshoot-common-problem-adding-or-removing-an-application-to-azure-active-directory"></a>Solución de problemas comunes al agregar o eliminar una aplicación en Azure Active Directory
+Este artículo le ayuda a comprender los problemas comunes a los que los usuarios se enfrentan al agregar o eliminar una aplicación en Azure Active Directory.
 
 ## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>Hice clic en el botón "Agregar" y mi aplicación tardó mucho tiempo en aparecer
 En algunas circunstancias, una aplicación puede tardar entre 1 y 2 minutos (a veces, más) en aparecer después de agregarla a su directorio. Aunque este no es el rendimiento normal esperado, puede ver si la incorporación de la aplicación está en curso haciendo clic en el icono de **notificaciones** (con forma de campana) de la esquina superior derecha de [Azure Portal](https://portal.azure.com/) y buscando una notificación que tenga un estado **En curso** o **Completado** y la etiqueta **Crear aplicación.**
@@ -34,6 +34,16 @@ Si se produce un error al hacer clic en el botón **Agregar**, verá una **notif
 Si necesita ayuda para obtener información sobre las aplicaciones, el artículo [Tutoriales para integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) es un buen punto de partida.
 
 Además, la [biblioteca de documentos de las aplicaciones de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) le ayudará a obtener más información sobre el inicio de sesión único con Azure AD y así poder saber cómo funciona.
+
+## <a name="i-want-to-delete-an-application-but-the-delete-button-is-disabled"></a>Quiero eliminar una aplicación, pero el botón Eliminar está deshabilitado
+
+El botón Eliminar se deshabilitará en los escenarios siguientes:
+
+- En el caso de las aplicaciones empresariales, si no tiene uno de los siguientes roles: Administrador global, Administrador de aplicaciones en la nube, Administrador de aplicaciones o Propietario de la entidad de servicio.
+
+- En el caso de las aplicaciones de Microsoft, no podrá eliminarlas de la interfaz de usuario, independientemente de su rol.
+
+- Para servicePrincipals que se corresponden con una identidad administrada. Las entidades de servicio de identidades administradas no se pueden eliminar en la hoja Aplicaciones empresariales. Debe ir al recurso de Azure para administrarlo. Más información sobre la [identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
 ## <a name="how-to-see-the-details-of-a-portal-notification"></a>Visualización de los detalles de una notificación del portal
 Puede ver los detalles de cualquier notificación del portal si sigue los pasos siguientes:

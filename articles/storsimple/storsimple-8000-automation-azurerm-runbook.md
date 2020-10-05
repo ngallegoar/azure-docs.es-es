@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/23/2017
 ms.author: alkohli
-ms.openlocfilehash: fee0837c1196adf35a956cd13df584528d46bfc0
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: dff1d8f48b275fa7e45dab93b5ce45962499b450
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183486"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563886"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Uso de runbooks de Azure Automation para administrar dispositivos de StorSimple
 
@@ -85,7 +85,7 @@ Para crear un módulo de automatización para la administración de dispositivos
 
 6. Compruebe que se crea un archivo ZIP del módulo de automatización en `C:\scripts\StorSimpleSDKTools`.
 
-    ![verify-automation-module](./media/storsimple-8000-automation-azurerm-runbook/verify-automation-module.png)
+    ![Captura de pantalla que muestra la carpeta StorSimpleSDKTools con el archivo zip del módulo de automatización.](./media/storsimple-8000-automation-azurerm-runbook/verify-automation-module.png)
 
 7. El siguiente resultado se presenta cuando se crea el módulo de automatización mediante Windows PowerShell.
 
@@ -184,7 +184,7 @@ Para crear un módulo de automatización para la administración de dispositivos
    5. Deje la opción predeterminada **Crear cuenta de ejecución** seleccionada.
    6. Si quiere, seleccione **Anclar al panel**. Haga clic en **Crear**.
 
-       ![create-automation-account](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
+       ![Captura de pantalla que muestra el panel Agregar cuenta de Automation con los valores de Suscripción, Crear cuenta de ejecución de Azure y Crear.](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
 
       Recibirá una notificación cuando la cuenta de automatización se cree correctamente. Para obtener más información acerca de cómo crear una cuenta de Automation, vaya a [Crear una cuenta de ejecución](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
 
@@ -196,7 +196,7 @@ Para crear un módulo de automatización para la administración de dispositivos
 
 5. En la hoja **Agregar módulo**, vaya a la ubicación del módulo comprimido, y seleccione y abra el módulo. Haga clic en **OK**.
 
-    ![add-module](./media/storsimple-8000-automation-azurerm-runbook/add-module.png)
+    ![Captura de pantalla que muestra el panel Agregar módulo con un valor Cargar archivo y Aceptar.](./media/storsimple-8000-automation-azurerm-runbook/add-module.png)
 
 6. Vaya a **Automatización de procesos > Runbooks y haga clic en + Agregar un runbook**. En la hoja **Agregar runbook**, haga clic en **Importar un runbook existente**. Seleccione el archivo de script de Windows PowerShell para el **Archivo de runbook**. El tipo de runbook se selecciona automáticamente. Proporcione un nombre y una descripción opcional del runbook. Haga clic en **Crear**.
 
@@ -208,11 +208,11 @@ Para crear un módulo de automatización para la administración de dispositivos
 
 8. Edite el runbook y haga clic en **Panel de prueba**. Proporcione los parámetros, como el nombre del servicio StorSimple Device Manager, el nombre del dispositivo de StorSimple y la suscripción. **Inicie** la prueba. Una vez completada la ejecución, se genera el informe. Para obtener más información, vaya a [cómo probar un runbook](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook).
 
-    ![test-runbook](./media/storsimple-8000-automation-azurerm-runbook/test-runbook.png)
+    ![Captura de pantalla que muestra el panel Prueba donde se introducen los valores de parámetros e Iniciar una prueba.](./media/storsimple-8000-automation-azurerm-runbook/test-runbook.png)
 
 9. Revise el resultado del runbook en el panel de prueba. Si le parece correcto, cierre el panel. Haga clic en **Publicar** y, cuando se le solicite una confirmación, confirme y publique el runbook.
 
-    ![publish-runbook](./media/storsimple-8000-automation-azurerm-runbook/publish-runbook.png)
+    ![Captura de pantalla que muestra el panel Editar runbook de PowerShell, que le pide que continúe para publicar el runbook.](./media/storsimple-8000-automation-azurerm-runbook/publish-runbook.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

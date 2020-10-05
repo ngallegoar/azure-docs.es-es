@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 725b3b712313c199382cebe32bed98f2115fc262
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 08305b6aec7dcd5906f4316767c4c512d3a0535e
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231170"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600507"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Remedie los usuarios marcados como en riesgo en el portal de Azure Active Directory
 
@@ -42,9 +42,9 @@ Desde el informe de usuarios marcados en riesgo puede realizar cualquiera de las
 
 Para obtener más información, consulte [Reporte de seguridad de usuarios marcados en riesgo](../identity-protection/overview-identity-protection.md).
 
-### <a name="azure-ad-subscription-for-office-365-customers"></a>Suscripción a Azure AD para clientes de Office 365
+### <a name="azure-ad-subscription-for-microsoft-365-customers"></a>Suscripción a Azure AD para clientes de Microsoft 365
 
-También puede utilizar sus credenciales de Office 365 para acceder al **Centro de administración de Azure**. Una vez que haya activado el acceso a Azure AD, se le redirigirá al portal de Azure AD. Con el nivel de suscripción básico, el nivel de detalle que se proporciona en los informes es limitado. Los suscriptores Premium de Azure tienen a su disposición más datos y análisis.
+También puede utilizar sus credenciales de Microsoft 365 para acceder al **Centro de administración de Azure**. Una vez que haya activado el acceso a Azure AD, se le redirigirá al portal de Azure AD. Con el nivel de suscripción básico, el nivel de detalle que se proporciona en los informes es limitado. Los suscriptores Premium de Azure tienen a su disposición más datos y análisis.
 
 Para tener acceso a los informes de **usuarios marcados en riesgo** en el centro de administración de Microsoft 365:
 
@@ -79,7 +79,7 @@ Realice las acciones siguientes para ayudar a corregir las cuentas afectadas y p
 
     h. Genere un registro de auditoría para que el administrador lo revise.
 
-4. Investigue el inquilino de Office 365 y otras infraestructuras de TI, lo que incluye una revisión de todos los valores de inquilino, las cuentas de usuario y los valores de configuración por usuario para su posible modificación. Compruebe los indicadores de los métodos de persistencia, así como los indicadores que un intruso puede haber aprovechado como punto inicial de apoyo para obtener las credenciales de la VPN o acceso a otros recursos de la organización. 
+4. Investigue el inquilino de Microsoft 365 y otras infraestructuras de TI, lo que incluye una revisión de todos los valores de inquilino, las cuentas de usuario y los valores de configuración por usuario para su posible modificación. Compruebe los indicadores de los métodos de persistencia, así como los indicadores que un intruso puede haber aprovechado como punto inicial de apoyo para obtener las credenciales de la VPN o acceso a otros recursos de la organización. 
 
 5.  Como parte de la investigación, considere si debe enviar notificaciones a las autoridades gubernamentales, lo que incluye el cumplimiento de la ley.
 

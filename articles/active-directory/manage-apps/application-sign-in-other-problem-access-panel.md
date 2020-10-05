@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 472ab82e6941be5c1485773b1115d91eda701666
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: bfb4d265a42fe1e4473af0f9bde4ebb76f0734a0
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231187"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707975"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Solución de problemas al iniciar sesión en una aplicación desde Aplicaciones de Azure AD
 
@@ -27,13 +27,13 @@ Para más información sobre cómo usar Azure AD como proveedor de identidades 
 Estas aplicaciones se configuran en nombre del usuario en el portal de Azure AD. La aplicación debe configurarse correctamente y asignarse al usuario o al grupo del que el usuario sea miembro para poder ver la aplicación en Aplicaciones. 
 
 El tipo de aplicaciones que un usuario puede ver se dividen en las siguientes categorías:
--   Aplicaciones Microsoft 365 y Office 365
+-   Aplicaciones de Microsoft 365
 -   Aplicaciones de Microsoft y de terceros configuradas con SSO basado en federación
 -   Aplicaciones de SSO basado en contraseña
 -   Aplicaciones con soluciones SSO existentes
 
 Aquí se muestran algunas cuestiones que comprobar si una aplicación aparece o no aparece.
-- Asegúrese de agregar la aplicación a Azure AD y de que el usuario esté asignado. Para más información, consulte la [serie de inicios rápidos sobre la administración de aplicaciones](view-applications-portal.md).
+- Asegúrese de agregar la aplicación a Azure AD y de que el usuario esté asignado. Para más información, consulte la [serie de inicios rápidos sobre la administración de aplicaciones](add-application-portal.md).
 - Si se ha agregado una aplicación recientemente, haga que el usuario cierre la sesión y vuelva a intentarlo. 
 - Si la aplicación requiere una licencia, como Office, asegúrese de que el usuario tenga asignada la adecuada.
 - El tiempo necesario para realizar cambios en las licencias puede variar en función del tamaño y la complejidad del grupo.
@@ -163,7 +163,7 @@ Para asignar una licencia a un usuario, siga estos pasos:
 11. Seleccione el botón **Asignar** para asignar estas licencias a este usuario.
 
 ## <a name="troubleshooting-deep-links"></a>Solución de problemas de los vínculos profundos
-Las direcciones URL de acceso de usuario o vínculos profundos son vínculos que los usuarios pueden utilizar para acceder a sus aplicaciones de SSO con contraseña directamente desde las barras de dirección URL de los exploradores. Al ir a este vínculo, los usuarios pueden iniciar sesión automáticamente en la aplicación sin tener que ir primero a Aplicaciones. Este es el mismo vínculo que los usuarios utilizan para acceder a estas aplicaciones desde el iniciador de la aplicación de Office 365.
+Las direcciones URL de acceso de usuario o vínculos profundos son vínculos que los usuarios pueden utilizar para acceder a sus aplicaciones de SSO con contraseña directamente desde las barras de dirección URL de los exploradores. Al ir a este vínculo, los usuarios pueden iniciar sesión automáticamente en la aplicación sin tener que ir primero a Aplicaciones. Este es el mismo vínculo que los usuarios utilizan para acceder a estas aplicaciones desde el iniciador de la aplicación de Microsoft 365.
 
 ### <a name="checking-the-deep-link"></a>Comprobación del vínculo profundo
 

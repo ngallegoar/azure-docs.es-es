@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2ccf986f81ec3abed54c85640b8afb1c5cf7172
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a6a7dcb1d24f3c1ff848e3393687b04d79d28058
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015891"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054711"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Adquisición de un directorio no administrado como administrador en Azure Active Directory
 
@@ -34,7 +34,7 @@ Durante el proceso de adquisición de un administrador, puede comprobar la propi
 
 ## <a name="internal-admin-takeover"></a>Adquisición de administración interna
 
-Algunos productos que incluyen SharePoint y OneDrive, como Office 365, no admiten la adquisición externa. Si su escenario es ese o si es administrador y desea adquirir una organización de Azure AD no administrada o "paralela" creada por usuarios que utilizaron el registro de autoservicio, puede hacerlo con una adquisición de administración interna.
+Algunos productos que incluyen SharePoint y OneDrive, como Microsoft 365, no admiten la adquisición externa. Si su escenario es ese o si es administrador y desea adquirir una organización de Azure AD no administrada o "paralela" creada por usuarios que utilizaron el registro de autoservicio, puede hacerlo con una adquisición de administración interna.
 
 1. Cree un contexto de usuario en la organización no administrada mediante el registro con Power BI. Para facilitar el ejemplo, en estos pasos se presupone que esa es la ruta.
 
@@ -52,7 +52,7 @@ Algunos productos que incluyen SharePoint y OneDrive, como Office 365, no admite
 
 Una vez que los registros TXT de DNS se comprueban en el registrador de nombres de dominio, puede administrar la organización de Azure AD.
 
-Después de completar los pasos anteriores, ya es el administrador de empresa de la organización Fourth Coffee en Office 365. Para integrar el nombre de dominio con los otros servicios de Azure, puede quitarlo de Office 365 y agregarlo a una organización administrada distinta en Azure.
+Después de completar los pasos anteriores, ya es el administrador de empresa de la organización Fourth Coffee en Microsoft 365. Para integrar el nombre de dominio con los otros servicios de Azure, puede quitarlo de Microsoft 365 y agregarlo a una organización administrada distinta en Azure.
 
 ### <a name="adding-the-domain-name-to-a-managed-organization-in-azure-ad"></a>Incorporación del nombre de dominio a una organización administrada en Azure AD
 
@@ -61,9 +61,9 @@ Después de completar los pasos anteriores, ya es el administrador de empresa de
 3. Asegúrese de que la cuenta de usuario nueva tenga privilegios administrativos globales en la organización de Azure AD.
 4. Abra la pestaña **Dominios** del Centro de administración de Microsoft 365, seleccione el nombre de dominio y haga clic en **Quitar**. 
   
-   ![quitar el nombre de dominio de Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
+   ![Quitar el nombre de dominio de Microsoft 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. Si tiene usuarios o grupos en Office 365 que haga referencia al nombre de dominio que se quitó, se les debe cambiar el nombre al dominio .onmicrosoft.com. Si se fuerza la eliminación del nombre de dominio, se cambia automáticamente el nombre de todos los usuarios, como en este ejemplo a *user\@fourthcoffeexyz.onmicrosoft.com*.
+5. Si tiene usuarios o grupos en Microsoft 365 que haga referencia al nombre de dominio que se quitó, se les debe cambiar el nombre al dominio .onmicrosoft.com. Si se fuerza la eliminación del nombre de dominio, se cambia automáticamente el nombre de todos los usuarios, como en este ejemplo a *user\@fourthcoffeexyz.onmicrosoft.com*.
   
 6. Inicie sesión en el [Centro de administración de Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) con una cuenta que tenga el rol de administrador global en la organización de Azure AD.
   
@@ -72,11 +72,11 @@ Después de completar los pasos anteriores, ya es el administrador de empresa de
    ![comprobación del dominio como agregado a Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Cualquier usuario de Power BI o del servicio Azure Rights Management que tenga licencias asignadas en la organización de Office 365 debe guardar los paneles si se quita el nombre de dominio. Debe iniciar sesión con un nombre de usuario como *user\@fourthcoffeexyz.onmicrosoft.com*, en lugar de *user\@fourthcoffee.xyz*.
+> Cualquier usuario de Power BI o del servicio Azure Rights Management que tenga licencias asignadas en la organización de Microsoft 365 debe guardar los paneles si se quita el nombre de dominio. Debe iniciar sesión con un nombre de usuario como *user\@fourthcoffeexyz.onmicrosoft.com*, en lugar de *user\@fourthcoffee.xyz*.
 
 ## <a name="external-admin-takeover"></a>Adquisición de administración externa
 
-Si ya administra una organización con los servicios de Azure u Office 365, no puede agregar ningún nombre de dominio personalizado si ya se comprobó en otra organización de Azure AD. Sin embargo, desde la organización administrada en Azure AD puede adquirir una organización no administrada como una adquisición de administración externa. El procedimiento general sigue lo que se indica en el artículo [Incorporación de un dominio personalizado a Azure AD](../fundamentals/add-custom-domain.md).
+Si ya administra una organización con los servicios de Azure o Microsoft 365, no puede agregar ningún nombre de dominio personalizado si ya se comprobó en otra organización de Azure AD. Sin embargo, desde la organización administrada en Azure AD puede adquirir una organización no administrada como una adquisición de administración externa. El procedimiento general sigue lo que se indica en el artículo [Incorporación de un dominio personalizado a Azure AD](../fundamentals/add-custom-domain.md).
 
 Cuando se comprueba la propiedad del nombre de dominio, Azure AD quita el nombre de dominio de la organización no administrada y lo mueve a la organización existente. La adquisición de administración externa de un directorio no administrado requiere el mismo proceso de validación de TXT de DNS que la adquisición de administración interna. La diferencia es que los siguientes elementos también se mueven con el nombre de dominio:
 
@@ -120,7 +120,7 @@ cmdlet | Uso
 `new-msoldomain –name <domainname>` | Agrega el nombre de dominio a la organización como No comprobado (todavía no se realiza ninguna comprobación DNS).
 `get-msoldomain` | El nombre de dominio ahora se incluye en la lista de los nombres de dominio asociada con la organización administrada, pero aparece como **No comprobado**.
 `get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | Proporciona la información que se va a ingresar en el registro TXT de DNS para el dominio (MS=xxxxx). Es posible que la comprobación no suceda de inmediato porque el registro TXT tarda un tiempo en propagarse. Por lo tanto, debe esperar unos minutos antes de considerar la opción **-ForceTakeover**. 
-`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Si todavía no es posible comprobar el nombre de dominio, puede continuar con la opción **-ForceTakeover**. Comprueba que se creó el registro TXT e inicia el proceso de adquisición.<li>La opción **-ForceTakeover** se debe agregar al cmdlet solo cuando se fuerza una adquisición de administración externa, por ejemplo, cuando la organización no administrada tiene servicios de Office 365 que bloquean la adquisición.
+`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Si todavía no es posible comprobar el nombre de dominio, puede continuar con la opción **-ForceTakeover**. Comprueba que se creó el registro TXT e inicia el proceso de adquisición.<li>La opción **-ForceTakeover** se debe agregar al cmdlet solo cuando se fuerza una adquisición de administración externa, por ejemplo, cuando la organización no administrada tiene servicios de Microsoft 365 que bloquean la adquisición.
 `get-msoldomain` | La lista de dominios ahora muestra el nombre de dominio como **Comprobado**.
 
 > [!NOTE]

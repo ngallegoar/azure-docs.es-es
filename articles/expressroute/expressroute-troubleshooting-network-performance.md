@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 12/20/2017
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 4d6dac98125827a303b8370b5a0a959ea425fb57
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 6b9a951787df6775b5159433c7172e767ff955b2
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401459"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566082"
 ---
 # <a name="troubleshooting-network-performance"></a>Solución de problemas de rendimiento de red
 ## <a name="overview"></a>Información general
@@ -121,7 +121,7 @@ Si no está seguro de dónde está realmente el perímetro de la nube, aislar lo
 ![2][2]
 
 >[!NOTE]
-> Tenga en cuenta que MSEE no se encuentra en la nube de Azure. ExpressRoute realmente se encuentra en el perímetro de la red de Microsoft, y no en Azure. Una vez conectado a ExpressRoute para una instancia de MSEE, se establece la conexión con la red de Microsoft, desde donde puede acceder a cualquier servicio en la nube, como Office 365 (con el Emparejamiento de Microsoft) o Azure (con el emparejamiento privado o el Emparejamiento de Microsoft).
+> Tenga en cuenta que MSEE no se encuentra en la nube de Azure. ExpressRoute realmente se encuentra en el perímetro de la red de Microsoft, y no en Azure. Una vez conectado a ExpressRoute para una instancia de MSEE, se establece la conexión con la red de Microsoft, desde donde puede acceder a cualquier servicio en la nube, como Microsoft 365 (con el Emparejamiento de Microsoft) o Azure (con el emparejamiento privado o el Emparejamiento de Microsoft).
 >
 >
 

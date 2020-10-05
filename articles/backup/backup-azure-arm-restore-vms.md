@@ -1,15 +1,15 @@
 ---
 title: restauración de máquinas virtuales mediante Azure Portal
-description: Restauración de una máquina virtual de Azure desde un punto de recuperación con Azure Portal
+description: Restaure una máquina virtual de Azure desde un punto de recuperación mediante Azure Portal, incluida la característica Restauración entre regiones.
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 582ec3e5409e5ada6f98a0c2db77c0bb73eaed18
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: d2b5c00df9f9b5b41877fe21181f11ea7fe76084
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050427"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986539"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Restauración de datos de máquinas virtuales de Azure en Azure Portal
 
@@ -147,9 +147,12 @@ Si la opción CRR está habilitada, puede ver los elementos de copia de segurida
 1. En el portal, vaya a **Almacén de Recovery Services** > **Elementos de copia de seguridad**.
 1. Seleccione **Región secundaria** para ver los elementos de la región secundaria.
 
-    ![Máquinas virtuales de la región secundaria](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
+>[!NOTE]
+>En la lista solo se mostrarán los tipos de administración de copia de seguridad que admiten la característica CRR. Actualmente, solo se admite la restauración de datos de regiones secundarias en una región secundaria.
 
-    ![Seleccionar Región secundaria](./media/backup-azure-arm-restore-vms/backupitems-sec.png)
+![Máquinas virtuales de la región secundaria](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
+
+![Seleccionar Región secundaria](./media/backup-azure-arm-restore-vms/backupitems-sec.png)
 
 ### <a name="restore-in-secondary-region"></a>Restauración en la región secundaria
 

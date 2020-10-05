@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 06/09/2020
-ms.openlocfilehash: 23563074bc8bbf02b36e86ff6c78acf3034670a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cac7b4f376300722762b1cedbf52a5c2e0ecb6e4
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84655876"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89596129"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creación y configuración de un entorno de ejecución de integración autohospedado
 
@@ -320,6 +320,7 @@ A nivel de firewall corporativo, es preciso configurar los siguientes dominios y
 
 [!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
 
+
 En el nivel del firewall de Windows o nivel de máquina, normalmente estos puertos de salida están habilitados. Si no lo están, puede configurar los puertos y los dominios en la máquina del entorno de ejecución de integración autohospedado.
 
 > [!NOTE]
@@ -331,13 +332,13 @@ En el nivel del firewall de Windows o nivel de máquina, normalmente estos puert
 
 Asegúrese de habilitar correctamente las reglas del firewall en el firewall corporativo, en el firewall de Windows de la máquina del entorno de ejecución de integración autohospedado y en el propio almacén de datos. De este modo, el entorno de ejecución de integración autohospedado podrá conectarse al origen y al receptor. Habilite las reglas de cada almacén de datos que participe en la operación de copia.
 
-Por ejemplo, para copiar información desde un almacén de datos local a un receptor de SQL Database o de Azure SQL Data Warehouse, siga estos pasos:
+Por ejemplo, para copiar información desde un almacén de datos local a un receptor de SQL Database o de Azure Synapse Analytics (anteriormente, SQL Data Warehouse), siga estos pasos:
 
 1. Permita la comunicación TCP saliente en el puerto 1433 tanto para el firewall corporativo como para el firewall de Windows.
 1. Configure los valores del firewall de SQL Database para agregar la dirección IP de la máquina del entorno de ejecución de integración autohospedado a la lista de direcciones IP permitidas.
 
 > [!NOTE]
-> Si el firewall no permite el puerto de salida 1433, el entorno de ejecución de integración autohospedado no podrá acceder directamente a SQL Database. En este caso, puede usar una [copia de almacenamiento temporal](copy-activity-performance.md) en SQL Database y SQL Data Warehouse. En este escenario, se requiere solo HTTPS (puerto 443) para el movimiento de datos.
+> Si el firewall no permite el puerto de salida 1433, el entorno de ejecución de integración autohospedado no podrá acceder directamente a SQL Database. En este caso, puede usar una [copia de almacenamiento temporal](copy-activity-performance.md) en SQL Database y Azure Synapse Analytics. En este escenario, se requiere solo HTTPS (puerto 443) para el movimiento de datos.
 
 ## <a name="proxy-server-considerations"></a>Consideraciones acerca del servidor proxy
 

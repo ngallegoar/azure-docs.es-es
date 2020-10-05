@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84b81e32f8c71ccf0c3369e137a24e90dc284e86
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 7e5a5b06bc95d022cfad66118db4b55e9369b5bd
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276599"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661890"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migración de la federación a la autenticación de paso a través en Azure Active Directory
 
@@ -114,7 +114,7 @@ Para obtener más información, consulte estos artículos:
 
 Aunque durante los procesos descritos en este artículo no se realizan cambios en otros usuarios de confianza de la granja de servidores de AD FS, es aconsejable que disponga de una copia de seguridad válida actual de la granja de servidores de AD FS desde la que se pueda restaurar. Puede crear una copia de seguridad válida actual mediante la [herramienta de restauración de AD FS rápida](/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool) de Microsoft, que es gratuita. Puede usar la herramienta para hacer una copia de seguridad de AD FS y restaurar una granja existente o crear otra.
 
-Si decide no utilizar dicha herramienta, como mínimo, debe exportar la relación de confianza para usuario autenticado de la Plataforma de identidad de Microsoft Office 365 y todas las reglas de notificación personalizadas asociadas que haya agregado. Puede exportar la relación de confianza y las reglas de notificación asociadas mediante el siguiente ejemplo de PowerShell:
+Si decide no utilizar dicha herramienta, como mínimo, debe exportar la relación de confianza para usuario autenticado de la Plataforma de identidad de Microsoft 365 y todas las reglas de notificación personalizadas asociadas que haya agregado. Puede exportar la relación de confianza y las reglas de notificación asociadas mediante el siguiente ejemplo de PowerShell:
 
 ``` PowerShell
 (Get-AdfsRelyingPartyTrust -Name "Microsoft Office 365 Identity Platform") | Export-CliXML "C:\temp\O365-RelyingPartyTrust.xml"
@@ -126,15 +126,15 @@ En esta sección se describen las consideraciones de implementación y los detal
 
 ### <a name="current-ad-fs-use"></a>Uso actual de AD FS
 
-Antes de realizar la conversión de identidad federada a identidad administrada, examine detenidamente cómo se usa actualmente AD FS para Azure AD u Office 365 y otras aplicaciones (relaciones de confianza para usuario autenticado). En concreto, tenga en cuenta los escenarios que se describen en la tabla siguiente:
+Antes de realizar la conversión de identidad federada a identidad administrada, examine detenidamente cómo se usa actualmente AD FS para Azure AD o Microsoft 365 y otras aplicaciones (relaciones de confianza para usuario autenticado). En concreto, tenga en cuenta los escenarios que se describen en la tabla siguiente:
 
 | Si | Entonces |
 |-|-|
-| Tiene previsto seguir usando AD FS con otras aplicaciones (que no sean Azure AD y Office 365). | Después de convertir los dominios, deberá usar AD FS y Azure AD. Tenga en cuenta la experiencia del usuario. En algunos escenarios, es posible que los usuarios tengan que autenticarse dos veces: una vez en Azure AD (donde obtendrán acceso de inicio de sesión único para otras aplicaciones, como Office 365) y otra para todas las aplicaciones que aún están enlazadas a AD FS como una relación de confianza para usuario autenticado. |
+| Tiene previsto seguir usando AD FS con otras aplicaciones (que no sean Azure AD y Microsoft 365). | Después de convertir los dominios, deberá usar AD FS y Azure AD. Tenga en cuenta la experiencia del usuario. En algunos escenarios, es posible que los usuarios tengan que autenticarse dos veces: una vez en Azure AD (donde obtendrán acceso de inicio de sesión único para otras aplicaciones, como Microsoft 365) y otra para todas las aplicaciones que aún están enlazadas a AD FS como una relación de confianza para usuario autenticado. |
 | La instancia de AD FS está muy personalizada y depende de valores de configuración concretos del archivo onload.js (por ejemplo, ha cambiado la forma en que se inicia sesión para que los usuarios solo especifiquen un formato **SamAccountName** para su nombre de usuario, en lugar de un nombre principal de usuario, o su organización ha personalizado con marca la experiencia de inicio de sesión). El archivo onload.js no se puede duplicar en Azure AD. | Antes de continuar, debe comprobar que Azure AD puede cumplir los requisitos de personalización actuales. Para más información e instrucciones, consulte las secciones sobre personalización de marca de AD FS y personalización de AD FS.|
 | Usará AD FS para bloquear las versiones anteriores de clientes de autenticación.| Considere la posibilidad de reemplazar los controles de AD FS que bloquean las versiones anteriores de clientes de autenticación mediante una combinación de [controles de acceso condicionales](../conditional-access/concept-conditional-access-conditions.md) y [reglas de acceso de cliente de Exchange Online](https://aka.ms/EXOCAR). |
 | Necesita que los usuarios realicen la autenticación multifactor en una solución de servidor de autenticación multifactor local cuando los usuarios se autentican en AD FS.| En un dominio de identidad administrada, no puede insertar un desafío de autenticación multifactor a través de la solución de autenticación multifactor local en el flujo de autenticación. Sin embargo, puede usar el servicio Azure Multi-factor Authentication para la autenticación multifactor después de convertir el dominio.<br /><br /> Si los usuarios no usan actualmente Azure Multi-factor Authentication, es necesario un paso de registro puntual del usuario. Debe prepararse para el registro planeado y comunicárselo a los usuarios. |
-| Actualmente usa directivas de control de acceso (reglas de AuthZ) en AD FS para controlar el acceso a Office 365.| Considere la posibilidad de reemplazarlas por las [directivas de acceso condicional](../conditional-access/overview.md) de Azure AD equivalentes y las [reglas de acceso de cliente de Exchange Online](https://aka.ms/EXOCAR).|
+| Actualmente usa directivas de control de acceso (reglas de AuthZ) en AD FS para controlar el acceso a Microsoft 365.| Considere la posibilidad de reemplazarlas por las [directivas de acceso condicional](../conditional-access/overview.md) de Azure AD equivalentes y las [reglas de acceso de cliente de Exchange Online](https://aka.ms/EXOCAR).|
 
 ### <a name="common-ad-fs-customizations"></a>Personalizaciones de AD FS comunes
 
@@ -167,7 +167,7 @@ Si su organización [personalizó las páginas de inicio de sesión de AD FS](/w
 Aunque hay personalizaciones similares disponibles, cabe esperar que haya algunos cambios visuales en las páginas de inicio de sesión tras la conversión. Es posible que desee proporcionar información sobre los cambios previstos en sus comunicaciones a los usuarios.
 
 > [!NOTE]
-> La personalización de marca de empresa solo está disponible si ha adquirido las licencias Premium o Básica de Azure Active Directory, o si tiene una licencia de Office 365.
+> La personalización de marca de empresa solo está disponible si ha adquirido las licencias Premium o Básica de Azure Active Directory, o si tiene una licencia de Microsoft 365.
 
 ## <a name="plan-for-smart-lockout"></a>Plan de bloqueo inteligente
 
@@ -188,7 +188,7 @@ Esta situación solo afecta a los usuarios que accedan a los servicios mediante 
 Los clientes de autenticación moderna (Office 2016 y Office 2013, las aplicaciones iOS y Android) usan un token de actualización válido para obtener nuevos tokens de acceso para un acceso continuado a los recursos en lugar de volver a AD FS. Estos clientes son inmunes a los avisos de contraseña resultantes del proceso de conversión de dominio. Los clientes seguirán funcionando sin ninguna configuración adicional.
 
 > [!IMPORTANT]
-> No apague el entorno de AD FS ni quite la relación de confianza para usuario autenticado de Office 365 hasta que haya comprobado que todos los usuarios se pueden autenticar correctamente mediante la autenticación en la nube.
+> No apague el entorno de AD FS ni quite la relación de confianza para usuario autenticado de Microsoft 365 hasta que haya comprobado que todos los usuarios se pueden autenticar correctamente mediante la autenticación en la nube.
 
 ### <a name="plan-for-rollback"></a>Planeación para la reversión
 
@@ -205,7 +205,7 @@ Para planear la reversión, consulte la documentación sobre el diseño y la imp
 
 Una parte importante del planeamiento de la implementación y el soporte técnico es garantizar que a los usuarios finales se les informe con antelación de los próximos cambios. Los usuarios deben saber de antemano lo que podrían experimentar y qué se necesita de ellos.
 
-Una vez que se hayan implementado tanto la autenticación de paso a través como el SSO de conexión directa, cambia la experiencia de inicio de sesión del usuario para acceder a Office 365 y otros recursos autenticados mediante Azure AD. Los usuarios que están fuera de la red solo ven la página de inicio de sesión de Azure AD. Estos usuarios no son redirigidos a la página basada en formularios que se presenta por los servidores proxy de aplicación web de uso externo.
+Una vez que se hayan implementado tanto la autenticación de paso a través como el SSO de conexión directa, cambia la experiencia de inicio de sesión del usuario para acceder a Microsoft 365 y otros recursos autenticados mediante Azure AD. Los usuarios que están fuera de la red solo ven la página de inicio de sesión de Azure AD. Estos usuarios no son redirigidos a la página basada en formularios que se presenta por los servidores proxy de aplicación web de uso externo.
 
 Incluya los siguientes elementos en su estrategia de comunicación:
 
@@ -408,14 +408,14 @@ Para probar el inicio de sesión único de conexión directa:
 3. Se redirige al usuario, quien inicia sesión correctamente en el panel de acceso:
 
    > [!NOTE]
-   > El inicio de sesión único de conexión directa funciona en los servicios de Office 365 que admiten sugerencias de dominio (por ejemplo, myapps.microsoft.com/contoso.com). Actualmente, el portal de Office 365 (portal.office.com) no es compatible con las sugerencias de dominio. Los usuarios deben escribir un nombre principal de usuario. Después de especificar un nombre principal de usuario, el inicio de sesión único de conexión directa recupera el vale de Kerberos en nombre del usuario. El usuario inicia sesión sin escribir ninguna contraseña.
+   > El inicio de sesión único de conexión directa funciona en los servicios de Microsoft 365 que admiten sugerencias de dominio (por ejemplo, myapps.microsoft.com/contoso.com). Actualmente, el portal de Microsoft 365 (portal.office.com) no es compatible con las sugerencias de dominio. Los usuarios deben escribir un nombre principal de usuario. Después de especificar un nombre principal de usuario, el inicio de sesión único de conexión directa recupera el vale de Kerberos en nombre del usuario. El usuario inicia sesión sin escribir ninguna contraseña.
 
    > [!TIP]
    > Considere la posibilidad de implementar la [unión híbrida de Azure AD en Windows 10](../devices/overview.md) para mejorar la experiencia de inicio de sesión único.
 
 ### <a name="remove-the-relying-party-trust"></a>Eliminación de la relación de confianza para usuario autenticado
 
-Cuando haya comprobado que todos los usuarios y clientes se están autenticando correctamente mediante Azure AD, es seguro quitar la relación de confianza para usuario autenticado en Office 365.
+Cuando haya comprobado que todos los usuarios y clientes se están autenticando correctamente mediante Azure AD, es seguro quitar la relación de confianza para usuario autenticado en Microsoft 365.
 
 Si no usa AD FS para otros fines (es decir, para otras relaciones de confianza), es seguro retirar AD FS en este momento.
 

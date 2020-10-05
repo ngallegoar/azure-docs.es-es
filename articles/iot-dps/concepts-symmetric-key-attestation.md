@@ -9,18 +9,18 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ba4f67f924455b911d76426231cc71b661faf4a0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 994c2c3124d6822f047af942268ad7a401d5a976
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020344"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531566"
 ---
 # <a name="symmetric-key-attestation"></a>Atestación de clave simétrica
 
 En este artículo se describe el proceso de atestación de identidad al usar claves simétricas con el servicio Device Provisioning. 
 
-La atestación de clave simétrica es un enfoque sencillo para autenticar un dispositivo con una instancia del servicio Device Provisioning. Este método de atestación representa una experiencia de "Hola mundo" para los desarrolladores que no estén familiarizados con el aprovisionamiento de dispositivos, o no tengan estrictos requisitos de seguridad. La atestación de dispositivo mediante un [TPM](concepts-tpm-attestation.md) o un [certificado X.509](concepts-security.md#x509-certificates) es más segura y se debe usar cuando los requisitos de seguridad son más estrictos.
+La atestación de clave simétrica es un enfoque sencillo para autenticar un dispositivo con una instancia del servicio Device Provisioning. Este método de atestación representa una experiencia de "Hola mundo" para los desarrolladores que no estén familiarizados con el aprovisionamiento de dispositivos, o no tengan estrictos requisitos de seguridad. La atestación de dispositivo mediante un [TPM](concepts-tpm-attestation.md) o un [certificado X.509](concepts-x509-attestation.md) es más segura y se debe usar cuando los requisitos de seguridad son más estrictos.
 
 Las inscripciones de claves simétricas ofrecen también una excelente forma para que los dispositivos antiguos con funcionalidad de seguridad limitada arranquen en la nube mediante Azure IoT. Para más información acerca de la atestación de clave simétrica con dispositivos antiguos, consulte [Cómo usar las claves simétricas con dispositivos antiguos](how-to-legacy-device-symm-key.md).
 
@@ -109,12 +109,12 @@ Considere el siguiente diagrama que muestra una tabla de claves de dispositivo g
 
 La identidad de cada dispositivo se representa mediante el identificador de registro y la clave de dispositivo derivada que se instala en fábrica. La clave de dispositivo nunca se copia en otra ubicación y la clave de grupo nunca se almacena en un dispositivo.
 
-Si las claves de dispositivo no se instalan en la fábrica, se debe utilizar un [módulo de seguridad de hardware (HSM)](concepts-security.md#hardware-security-module) para almacenar de forma segura la identidad del dispositivo.
+Si las claves de dispositivo no se instalan en la fábrica, se debe utilizar un [módulo de seguridad de hardware (HSM)](concepts-service.md#hardware-security-module) para almacenar de forma segura la identidad del dispositivo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que tiene un conocimiento de la atestación de clave simétrica, consulte los artículos siguientes para aprender más sobre el tema:
 
 * [Guía de inicio rápido: Aprovisionamiento de un dispositivo simulado con claves simétricas](quick-create-simulated-device-symm-key.md)
-* [Conceptos de aprovisionamiento automático](./concepts-auto-provisioning.md)
+* [Conceptos sobre el aprovisionamiento](about-iot-dps.md#provisioning-process)
 * [Introducción al uso del aprovisionamiento automático](./quick-setup-auto-provision.md) 

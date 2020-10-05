@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 6d2b2fb55a9c23643bbb778ced047e75871ba7f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0896df301718c74e63a9e18c74615130fa80c952
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807685"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986252"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualización de registros de flujo de grupo de seguridad de red de Azure Network Watcher con herramientas de código abierto
 
@@ -29,7 +29,7 @@ El análisis y la extracción de información de forma manual de estos registros
 
 En este artículo, se configurará una solución que le permitirá visualizar registros de flujo de grupo de seguridad de red con Elastic Stack.  Un complemento de entrada de Logstash obtendrá los registros de flujo directamente del blob de almacenamiento configurado como contenedor de los registros de flujo. A continuación, con Elastic Stack, se indexarán los registros de flujo y se usarán para crear un panel de Kibana para visualizar la información.
 
-![escenario][scenario]
+![Diagrama que muestra un escenario que permite visualizar los registros de flujo de grupos de seguridad de red mediante Elastic Stack.][scenario]
 
 ## <a name="steps"></a>Pasos
 
@@ -215,27 +215,27 @@ El panel de ejemplo proporciona varias visualizaciones de los registros de flujo
 
 1. Flujos por decisión o dirección a lo largo del tiempo: gráficos de serie temporal que muestran el número de flujos en el período de tiempo. Puede editar la unidad de tiempo y el alcance de estas dos visualizaciones. Flows by Decision (Flujos por decisión) muestra la proporción de decisiones de permitir o denegar tomadas, mientras que Flows by Direction (Flujos por dirección) muestra la proporción de tráfico de entrada y de salida. Con estos objetos visuales, puede examinar las tendencias del tráfico a lo largo del tiempo y buscar picos o patrones poco habituales.
 
-   ![Figura 2][2]
+   ![Captura de pantalla que muestra un panel de ejemplo con los flujos por decisión y dirección a lo largo del tiempo.][2]
 
 2. Flujos por puerto de origen o destino (Flows by Destination Port y Flows by Source Port): gráficos circulares que muestran el desglose de los flujos a sus puertos respectivos. En esta vista se ven los puertos de uso más frecuente. Si hace clic en un puerto específico en el gráfico circular, el resto del panel se filtrará para mostrar flujos de ese puerto.
 
-   ![Figura 3][3]
+   ![Captura de pantalla que muestra un panel de ejemplo con los flujos por puerto de destino y de origen.][3]
 
 3. Number of Flows (Número de flujos) y Earliest Log Time (Hora de registro más antigua): métricas que muestran el número de flujos registrados y la fecha del registro más antiguo capturado.
 
-   ![Figura 4][4]
+   ![Captura de pantalla que muestra un panel de ejemplo con el número de flujos y la hora de registro más antigua.][4]
 
 4. Flows by NSG and Rule (Flujos por grupo de seguridad de red y regla): gráfico de barras que muestra la distribución de los flujos dentro de cada grupo de seguridad de red, así como la distribución de reglas en cada uno de ellos. Desde aquí puede ver qué grupo de seguridad de red y qué reglas generan la mayor parte del tráfico.
 
-   ![Figura 5][5]
+   ![Captura de pantalla que muestra un panel de ejemplo con flujos por NSG y regla.][5]
 
 5. Diez principales IP de origen o destino (Top 10 Source IPs y Top 10 Destination IPs): gráficos de barras que muestran las diez principales direcciones IP de origen y de destino. Puede ajustar estos gráficos para mostrar más o menos direcciones IP principales. Desde aquí puede ver las direcciones IP más frecuentes, así como la decisión de tráfico (permitir o denegar) que se está tomando para cada IP.
 
-   ![Figura 6][6]
+   ![Captura de pantalla que muestra un panel de ejemplo con flujos por las diez primeras direcciones IP de origen y destino.][6]
 
 6. Flow Tuples (Tuplas de flujo): en esta tabla se muestra la información contenida en cada tupla de flujo, así como su grupo de seguridad de red y regla correspondiente.
 
-   ![Figura 7][7]
+   ![Captura de pantalla que muestra las tuplas de flujo en una tabla.][7]
 
 Mediante la barra de consulta en la parte superior del panel, puede filtrar el panel en función de cualquier parámetro de los flujos, como el id. de suscripción, los grupos de recursos, la regla o cualquier otra variable de interés. Para más información sobre las consultas y los filtros de Kibana, consulte la [documentación oficial](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html).
 

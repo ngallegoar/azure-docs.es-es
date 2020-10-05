@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 8/26/2020
 ms.author: matjazl
-ms.openlocfilehash: 10d901f73006051e8b1ddd02aeb36b229c6a7761
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 83509b5f452ab7cf88774561c12d7aa2cf3b46cf
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269921"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482324"
 ---
 # <a name="how-to-export-fhir-data"></a>Exportación de datos de FHIR
 
@@ -42,3 +42,10 @@ También se puede usar el comando $export para exportar datos sin identificació
 
 > [!IMPORTANT]
 > Tenga en cuenta que tanto la exportación sin formato como la exportación sin identificación escriben en la misma cuenta de almacenamiento de Azure especificada como parte de la configuración de la exportación. Se recomienda que use distintos contenedores que se correspondan con las diferentes configuraciones sin identificación y que administren el acceso de usuarios en el nivel de contenedor.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+En este artículo, ha aprendido a exportar recursos de FHIR mediante el comando $export, incluidos los datos sin identificación. A continuación, puede configurar los datos de exportación:
+ 
+>[!div class="nextstepaction"]
+>[configuración de datos de exportación](configure-export-data.md)

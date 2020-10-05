@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 7e809c1990f31687acb559b5ecd6684bfec52483
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f451b39d2757425a50a186a8212042cf887b136b
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423276"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662295"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guía de referencia de esquema para los tipos de desencadenador y de acción en Azure Logic Apps
 
@@ -160,7 +160,7 @@ Este desencadenador comprueba o *sondea* un punto de conexión mediante [API adm
 
 *Ejemplo*
 
-Esta definición del desencadenador busca correo electrónico a diario en la bandeja de entrada de una cuenta de Office 365 Outlook:
+Esta definición del desencadenador busca correo electrónico a diario en la bandeja de entrada de una cuenta profesional o educativa:
 
 ```json
 "When_a_new_email_arrives": {
@@ -1101,7 +1101,7 @@ Esta acción ejecuta código que obtiene el nombre de la aplicación lógica y d
 
 *Ejemplo 2*
 
-Esta acción ejecuta código en una aplicación lógica que se desencadena cuando llegaun nuevo correo electrónico a una cuenta de Office 365 Outlook. La aplicación lógica también usa una acción de envío de correo electrónico de aprobación que reenvía el contenido del correo electrónico recibido junto con una solicitud de aprobación.
+Esta acción ejecuta código en una aplicación lógica que se desencadena cuando llega un nuevo correo electrónico a una cuenta profesional o educativa. La aplicación lógica también usa una acción de envío de correo electrónico de aprobación que reenvía el contenido del correo electrónico recibido junto con una solicitud de aprobación.
 
 El código extrae las direcciones de correo electrónico de la propiedad `Body` del desencadenador y las devuelve junto con el valor de la propiedad `SelectedOption` de la acción de aprobación. La acción incluye de forma explícita la acción de envío de correo electrónico de aprobación como una dependencia en el atributo `explicitDependencies` > `actions`.
 

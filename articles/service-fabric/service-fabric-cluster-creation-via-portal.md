@@ -3,12 +3,12 @@ title: Creación de un clúster de Service Fabric en Azure Portal
 description: Obtenga información sobre cómo configurar un clúster de Service Fabric seguro en Azure mediante Azure Portal y Azure Key Vault.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: b47f3b756ef4d012b41fd15686ffc08ab54fc187
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c679a804db09b1034f31e9d8da1f7d2ad206f684
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259309"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563733"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Creación de un clúster de Service Fabric en Azure mediante el Portal de Azure
 > [!div class="op_single_selector"]
@@ -128,42 +128,42 @@ Siga las instrucciones que se muestran en la pantalla para agregar o volver a us
 
 Resista la tentación de salir de la pantalla hasta que se complete el proceso anterior.
 
-![CreateKeyVault]
+![Captura de pantalla que muestra la página Seguridad con la opción Básico seleccionada con el panel Almacén de claves y el panel Crear almacén de claves.][CreateKeyVault]
 
 Una vez creado el almacén de claves, edite las directivas de acceso para el almacén de claves. 
 
-![CreateKeyVault2]
+![Captura de pantalla que muestra el panel Crear clúster de Service Fabric con la opción 3. Seguridad seleccionada y una explicación de que el almacén de claves no está habilitado.][CreateKeyVault2]
 
 Haga clic en **Editar directivas de acceso** y, a continuación, en **Mostrar directivas de acceso avanzadas** para habilitar el acceso a las máquinas virtuales para la implementación. Se recomienda habilitar también la implementación de plantilla. Cuando haya realizado las selecciones, no olvide hacer clic en el botón **Guardar** y salir del panel **Directivas de acceso**.
 
-![CreateKeyVault3]
+![Captura de pantalla que muestra el panel Crear clúster de Service Fabric con el panel Seguridad abierto y el panel Directivas de acceso abierto.][CreateKeyVault3]
 
 Escriba correctamente el nombre del certificado y haga clic en **Aceptar**.
 
-![CreateKeyVault4]
+![Captura de pantalla que muestra el panel Crear clúster de Service Fabric con Seguridad seleccionado como antes pero sin la explicación de que el almacén de claves no está habilitado.][CreateKeyVault4]
 
 #### <a name="custom-option"></a>Opción Personalizado
 Omita esta sección si ya realizó los pasos descritos en la opción **Básico**.
 
-![SecurityCustomOption]
+![Captura de pantalla que muestra el cuadro de diálogo de configuración de los parámetros de seguridad del clúster.][SecurityCustomOption]
 
 Necesita la información sobre el almacén de claves de origen, la dirección URL del certificado y la huella digital del certificado para completar la página de seguridad. Si no dispone de estos datos, abra otra ventana del explorador y, en Azure Portal, haga lo siguiente
 
 1. Vaya a su servicio de almacén de claves.
 2. Seleccione la pestaña "Propiedades" y copia el valor de "RESOURCE ID" a"Almacén de claves de origen" en la otra ventana del explorador. 
 
-    ![CertInfo0]
+    ![Captura de pantalla que muestra la ventana Propiedades del almacén de claves.][CertInfo0]
 
 3. A continuación, seleccione la pestaña "Certificados".
 4. Haga clic en la huella digital del certificado, lo que le llevará a la página de versiones.
 5. Haga clic en los GUID que se muestran en la versión actual.
 
-    ![CertInfo1]
+    ![Captura de pantalla que muestra la ventana Certificado para el almacén de claves][CertInfo1]
 
 6. Ahora debería estar en una pantalla como la que se muestra a continuación. Copie la huella digital SHA-1 hexadecimal en "Huella digital del certificado" en la otra ventana del explorador.
 7. Copie la información de "Identificador secreto" en "Dirección URL del certificado" en otra ventana del explorador.
 
-    ![CertInfo2]
+    ![Captura de pantalla que muestra el cuadro de diálogo Versión de certificado con una opción para copiar el Identificador del certificado.][CertInfo2]
 
 Marque el cuadro **Configurar opciones avanzadas** para insertar certificados de cliente para el **cliente de administración** y el **cliente de solo lectura**. En estos campos, inserte la huella digital del certificado de cliente de administración y la huella digital del certificado de cliente de solo lectura, si procede. Cuando los administradores intenten conectarse al clúster, se les concederá acceso únicamente si tienen un certificado con una huella digital que coincida con los valores de huella digital especificados aquí.  
 
@@ -173,7 +173,7 @@ Ahora está listo para implementar el clúster. Antes de hacerlo, descargue el c
 
 Para completar la creación del clúster, haga clic en **Crear**. De manera opcional, también puede descargar la plantilla.
 
-![Resumen]
+![Captura de pantalla que muestra la página Resumen de Crear clúster de Service Fabric con un vínculo para ver y descargar un certificado.][Summary]
 
 Puede ver el progreso de creación en las notificaciones. (Haga clic en el icono de la "campana" cerca de la barra de estado en la parte superior derecha de la pantalla). Si hizo clic en **Anclar a Panel de inicio** al crear el clúster, verá **Deploying Service Fabric Cluster** (Implementando clúster de Service Fabric) anclado al panel de **Inicio**. Este proceso puede tardar un tiempo. 
 
@@ -230,7 +230,7 @@ En este punto, tiene un clúster seguro mediante certificados para la autenticac
 [CertInfo2]: ./media/service-fabric-cluster-creation-via-portal/CertInfo2.PNG
 [SecurityCustomOption]: ./media/service-fabric-cluster-creation-via-portal/SecurityCustomOption.PNG
 [DownloadCert]: ./media/service-fabric-cluster-creation-via-portal/DownloadCert.PNG
-[Resumen]: ./media/service-fabric-cluster-creation-via-portal/Summary.PNG
+[Summary]: ./media/service-fabric-cluster-creation-via-portal/Summary.PNG
 [SecurityConfigs]: ./media/service-fabric-cluster-creation-via-portal/SecurityConfigs.png
 [Notifications]: ./media/service-fabric-cluster-creation-via-portal/notifications.png
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png

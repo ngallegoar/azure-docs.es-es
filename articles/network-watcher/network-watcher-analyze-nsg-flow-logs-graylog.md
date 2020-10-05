@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: damendo
-ms.openlocfilehash: 7a4aa4cc545d6941f144ce0657ede7199d4f8f57
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 62f4a06ec729d896dc11a290bc7a5ccc7c321683
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497121"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984058"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Administre y analice registros de flujo de grupo de seguridad de red en Azure con Network Watcher y Graylog.
 
@@ -186,7 +186,7 @@ Ahora que hemos establecido una conexión a los registros de flujo mediante Logs
 
    Asegúrese de que va a enlazar la entrada a la dirección IP en la que se ha configurado el servidor de Graylog. La dirección IP debe coincidir con el **host** campo de la salida UDP del archivo de configuración de Logstash. El puerto predeterminado debe ser *12201*. Asegúrese de que el puerto coincida con el campo del **puerto** de la salida de UDP designado en el archivo de configuración de Logstash.
 
-   ![Entradas](./media/network-watcher-analyze-nsg-flow-logs-graylog/inputs.png)
+   ![Captura de pantalla que muestra las entradas de Graylog con opciones para iniciar y buscar entradas.](./media/network-watcher-analyze-nsg-flow-logs-graylog/inputs.png)
 
    Una vez que se inicia la entrada, debería ver que aparece bajo la sección **Entradas locales**, como se muestra en la siguiente imagen:
 
@@ -200,11 +200,11 @@ Ahora que hemos establecido una conexión a los registros de flujo mediante Logs
 
 Después de dejar algún tiempo para que el servidor de Graylog recopile los mensajes, ya se puede realizar la búsqueda por los mensajes. Para comprobar los mensajes que se envían al servidor de Graylog, desde la página de configuración **Entradas**, haga clic en el botón "**Show received messages**" (Mostrar mensajes recibidos) de la entrada de UDP de GELF que ha creado. Se le dirigirá a una pantalla que tiene un aspecto similar a la siguiente imagen: 
 
-![Histograma](./media/network-watcher-analyze-nsg-flow-logs-graylog/histogram.png)
+![Captura de pantalla que muestra el servidor de Graylog con los resultados de la búsqueda, el histograma y los mensajes.](./media/network-watcher-analyze-nsg-flow-logs-graylog/histogram.png)
 
 Al hacer clic en el vínculo azul "%{Message}", se expande cada mensaje para mostrar los parámetros de cada tupla de flujo, tal como se muestra en la siguiente imagen:
 
-![error de Hadoop](./media/network-watcher-analyze-nsg-flow-logs-graylog/messages.png)
+![Captura de pantalla que muestra los detalles del mensaje del servidor de Graylog.](./media/network-watcher-analyze-nsg-flow-logs-graylog/messages.png)
 
 De forma predeterminada, se incluyen en la búsqueda todos los campos de mensaje si no se selecciona un campo de mensaje específico por el que buscar. Si desea buscar mensajes específicos (es decir, tuplas de flujo de una dirección IP de origen determinada), puede usar el lenguaje de consulta de búsqueda de Graylog como está [documentado](https://docs.graylog.org/en/2.2/pages/queries.html).
 
@@ -218,7 +218,7 @@ Ahora que Graylog se está ejecutando, podemos usar algunas de sus funcionalidad
 
 2. Desde allí, haga clic en el botón verde **Crear panel** y rellene el breve formulario con el título y la descripción del panel. Pulse el botón **Guardar** para crear el nuevo panel. Verá un panel similar al de la siguiente imagen:
 
-    ![Paneles](./media/network-watcher-analyze-nsg-flow-logs-graylog/dashboards.png)
+    ![Captura de pantalla que muestra los paneles del servidor de Graylog con las opciones para crear y editar paneles.](./media/network-watcher-analyze-nsg-flow-logs-graylog/dashboards.png)
 
 ### <a name="add-widgets"></a>Adición de widgets
 

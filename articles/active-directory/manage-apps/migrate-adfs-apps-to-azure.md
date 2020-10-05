@@ -14,12 +14,12 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9d2f295394d89432f3c6dd99585cc4363d4ff74
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 3b8a40449d7a2b17adddd55120ab232a5cd3f459
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641371"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600952"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Traslado de la autenticación de las aplicaciones de los Servicios de federación de Active Directory (AD FS) a Azure Active Directory
 
@@ -35,7 +35,7 @@ Si tiene un directorio local que contiene cuentas de usuario, es probable que te
 
 Los usuarios también se pueden autenticar directamente con su instancia de Active Directory local. Los Servicios de federación de Active Directory (AD FS) son un servicio de identidad local basado en estándares. AD FS extiende la capacidad de usar la funcionalidad del inicio de sesión único (SSO) entre socios comerciales de confianza sin requerir que los usuarios inicien sesión de manera separada en cada aplicación. Esto se conoce como Federación.
 
-Muchas organizaciones tienen aplicaciones de software como servicio (SaaS) o de línea de negocio (LOB) personalizadas federadas directamente a AD FS, junto con aplicaciones basadas en Azure AD y Office 365. 
+Muchas organizaciones tienen aplicaciones de software como servicio (SaaS) o de línea de negocio (LOB) personalizadas federadas directamente a AD FS, junto con aplicaciones basadas en Azure AD y Microsoft 365. 
 
 ![Aplicaciones conectadas directamente en un entorno local](media/migrate-adfs-apps-to-azure/app-integration-before-migration1.png)
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: emuench
 ms.author: navits
 ms.date: 07/17/2020
-ms.openlocfilehash: 1b5c756fed5d172593b23c2a157c280caa614940
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e512c233ccfd793b87f203f837b11e97966d8102
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095300"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016255"
 ---
 # <a name="appsource-dynamics-365-finance-and-operations-functional-validation"></a>Validación funcional de AppSource Dynamics 365 Finance and Operations
 
@@ -35,7 +35,7 @@ El equipo de certificación de Microsoft revisa el vídeo y los archivos, y apru
 
 ### <a name="option-1-30-minute-conference-call"></a>Opción 1: conferencia telefónica de 30 minutos
 
-Para programar una llamada de revisión final, póngase en contacto con [appsourceCRM@microsoft.com](mailto:appsourceCRM@microsoft.com) incluyendo el nombre de la oferta y algunas posibles franjas horarias entre las 8 a.m. y las 5 p.m. hora del Pacífico.
+Para programar una llamada de revisión final, póngase en contacto con [appsourceCRM@microsoft.com](mailto:appsourceCRM@microsoft.com) y proporcione el nombre de la oferta y algunas posibles franjas horarias entre las 8 de la mañana y las 5 de la tarde, hora del Pacífico.
 
 ### <a name="option-2-upload-a-demo-video-and-lcs-screenshots"></a>Opción 2: carga de un vídeo de demostración y capturas de pantalla de LCS
 

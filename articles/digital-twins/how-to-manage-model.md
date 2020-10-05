@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9e782ee8e4afda1f8891979b6e50f99f3e0f1cc7
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 3deb7c0802dbfcdb65bcff6cb2653e73017651f1
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299548"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536462"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Administración de modelos de Azure Digital Twins
 
@@ -168,13 +168,18 @@ Los modelos no se devuelven necesariamente con el formato de documento exacto co
 
 ### <a name="update-models"></a>Actualización de modelos
 
-Una vez que se carga un modelo en la instancia, toda la interfaz del modelo es inmutable. Esto significa que no hay ninguna "edición" tradicional de los modelos.
+Una vez que se carga un modelo en la instancia de Azure Digital Twins, toda la interfaz del modelo es inmutable. Esto significa que no hay ninguna "edición" tradicional de los modelos. Azure Digital Twins tampoco permite volver a cargar el mismo modelo.
 
-En su lugar, si desea realizar cambios en un modelo en Azure Digital Twins, la manera de hacerlo es cargar una **versión más reciente** del mismo modelo. Durante la versión preliminar, el avance de una versión del modelo solo le permitirá quitar campos, no agregar otros nuevos (para agregar nuevos campos, simplemente [cree un modelo nuevo](#create-models)).
+En su lugar, si desea realizar cambios en un modelo, como cargar `displayName` o `description`, la manera de hacerlo es cargar una **versión más reciente** del modelo. 
+
+#### <a name="model-versioning"></a>Control de versiones de los modelos
 
 Para crear una nueva versión de un modelo existente, empiece con el DTDL del modelo original. Actualice los campos que quiera cambiar.
 
-A continuación, marque esta opción como una versión más reciente del modelo actualizando el campo `id` del modelo. La última sección del identificador de modelo, después del `;`, representa el número de modelo. Para indicar que esta es una versión más actualizada de este modelo, incremente el número al final del valor `id` en cualquier número mayor que el número de versión actual.
+>[!NOTE]
+>Durante la versión preliminar, el avance de una versión del modelo solo permitirá agregar nuevos campos, no quitar los que ya hay. Para quitar campos, debe [crear un modelo](#create-models).
+
+A continuación, márquelo como una versión más reciente del modelo actualizando el campo `id` del modelo. La última sección del identificador de modelo, después del `;`, representa el número de modelo. Para indicar que esta es una versión más actualizada de este modelo, incremente el número al final del valor `id` en cualquier número mayor que el número de versión actual.
 
 Por ejemplo, si el identificador de modelo anterior tuviera el siguiente aspecto:
 
@@ -188,7 +193,17 @@ la versión 2 de este modelo podría tener este aspecto:
 "@id": "dtmi:com:contoso:PatientRoom;2",
 ```
 
-A continuación, cargue la nueva versión del modelo en la instancia. Ocupará el lugar de la versión anterior y los nuevos dispositivos gemelos que cree con este modelo usarán la versión actualizada.
+A continuación, cargue la nueva versión del modelo en la instancia. 
+
+Esta versión del modelo estará disponible en su instancia para usarse con gemelos digitales. **No** sobrescriba versiones anteriores del modelo, por lo que varias versiones del modelo coexistirán en la instancia hasta que las [quite](#remove-models).
+
+#### <a name="impact-on-twins"></a>Impacto en gemelos
+
+Cuando se crea un gemelo, dado que la nueva versión del modelo y la versión del modelo anterior coexisten, el nuevo gemelo puede usar la nueva versión del modelo o la versión anterior.
+
+Esto también significa que la carga de una nueva versión de un modelo no afecta automáticamente a los gemelos que ya existan. Los gemelos existentes simplemente conservarán las instancias de la versión antigua del modelo.
+
+Puede actualizar estos gemelos a la nueva versión del modelo aplicándole revisiones, tal como se describe en la sección [*Actualización de un modelo de gemelo digital*](how-to-manage-twin.md#update-a-digital-twins-model) de *Procedimientos: Administración de Digital Twins*. Dentro de la misma revisión, debe actualizar los **identificadores de modelo** (a la nueva versión) y los **campos que deben modificarse para que se ajusten al nuevo modelo**.
 
 ### <a name="remove-models"></a>Eliminación de modelos
 

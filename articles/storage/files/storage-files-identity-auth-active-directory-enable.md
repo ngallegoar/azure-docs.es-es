@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 07/12/2020
+ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 3faa86fe67e3f0a208bf42dc3e49de8335b25c95
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 1a517b5eeac12f7d1ff342206300831d7c38ed28
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272338"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563410"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Introducción: autenticación de Active Directory Domain Services local en SMB para recursos compartidos de archivos de Azure
 
@@ -24,11 +24,12 @@ Si no está familiarizado con los recursos compartidos de archivos de Azure, se 
 
 - Las identidades de AD DS que se usen para la autenticación de AD DS local de Azure Files se deben sincronizar con Azure AD. La sincronización de hash de contraseña es opcional. 
 - Admite recursos compartidos de archivos de Azure administrados por Azure File Sync.
-- Admite la autenticación Kerberos con AD con cifrado RC4-HMAC. Todavía no se admite el cifrado de Kerberos con AES.
+- Admite la autenticación Kerberos con AD con cifrado RC4-HMAC y AES 256. Todavía no se admite el cifrado de Kerberos con AES 128.
 - Admite la experiencia de inicio de sesión único.
 - Solo se admite en clientes que ejecutan versiones de SO posteriores a Windows 7 o Windows Server 2008 R2.
 - Solo se admite en el bosque de AD en el que está registrada la cuenta de almacenamiento. De forma predeterminada, solo se puede acceder a los recursos compartidos de archivos de Azure con las credenciales de AD DS desde un solo bosque. Si necesita acceso al recurso compartido de archivos de Azure desde otro bosque, asegúrese de tener configurada la confianza de bosque adecuada. Para más información, consulte las [preguntas más frecuentes](storage-files-faq.md#ad-ds--azure-ad-ds-authentication).
-- No admite la autenticación en cuentas de equipo creadas en AD DS. 
+- No admite la autenticación en cuentas de equipo creadas en AD DS.
+- No admite la autenticación en recursos compartidos de archivos de Network File System (NFS).
 
 Al habilitar AD DS para recursos compartidos de archivos de Azure en SMB, las máquinas unidas a AD DS pueden montar recursos compartidos de archivos de Azure con sus credenciales de AD DS existentes. Esta funcionalidad se puede habilitar con un entorno de AD DS hospedado en máquinas locales o en Azure.
 

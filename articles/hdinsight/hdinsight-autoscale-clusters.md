@@ -1,5 +1,5 @@
 ---
-title: Escalado automático de clústeres de Azure HDInsight
+title: Escalabilidad automática de clústeres de Azure HDInsight
 description: Use la característica de escalabilidad automática de Azure HDInsight para escalar clústeres de Apache Hadoop automáticamente.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,15 +7,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperfq1
-ms.date: 08/21/2020
-ms.openlocfilehash: 4c4b9c60eb967b5791af724e5c15bba887263d44
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.date: 09/14/2020
+ms.openlocfilehash: 08b7fe2b3e959536589cfd425541ad36e3bd1e78
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757870"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532195"
 ---
-# <a name="automatically-scale-azure-hdinsight-clusters"></a>Escalado automático de clústeres de Azure HDInsight
+# <a name="autoscale-azure-hdinsight-clusters"></a>Escalabilidad automática de clústeres de Azure HDInsight
 
 La característica gratuita de escalabilidad automática de Azure HDInsight puede aumentar o disminuir automáticamente el número de nodos de trabajo del clúster en función de los criterios establecidos previamente. Se establece un número mínimo y máximo de nodos durante la creación del clúster, se establecen los criterios de escalado mediante una programación de día y hora o métricas de rendimiento específicas, y la plataforma de HDInsight hace el resto.
 
@@ -68,7 +68,7 @@ En el caso de la reducción vertical, la Escalabilidad automática emite una sol
 > [!Important]
 > La característica de escalado automático de Azure HDInsight se lanzó con carácter general el 7 de noviembre de 2019 para los clústeres de Spark y Hadoop, e incluía mejoras que no están disponibles en la versión preliminar de la característica. Si creó un clúster de Spark antes del 7 de noviembre de 2019 y quiere usar la característica de escalado automático en el clúster, la ruta recomendada es crear un nuevo clúster y habilitar el escalado automático en el nuevo clúster.
 >
-> El escalado automático para los clústeres de Interactive Query (LLAP) y HBase todavía está en versión preliminar. El escalado automático solo está disponible en los clústeres de Spark, Hadoop, Interactive Query y HBase.
+> La escalabilidad automática de Interactive Query (LLAP) se publicó en disponibilidad general el 27 de agosto de 2020. Los clústeres de HBase todavía están en versión preliminar. El escalado automático solo está disponible en los clústeres de Spark, Hadoop, Interactive Query y HBase.
 
 En la tabla siguiente se describen las versiones y los tipos de clúster que son compatibles con la característica de escalabilidad automática.
 
@@ -243,41 +243,43 @@ Seleccione **Métricas** en **Supervisión**. Luego, seleccione en **Agregar mé
 
 ![Habilitación de la escalabilidad automática de la métrica basada en programación del nodo de trabajo](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
 
-## <a name="other-considerations"></a>Otras consideraciones
+## <a name="best-practices"></a>Procedimientos recomendados
 
-### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Consideración de la latencia de las operaciones de escalado o reducción verticales
+### <a name="consider-the-latency-of-scale-up-and-scale-down-operations"></a>Consideración de la latencia de las operaciones de escalado y reducción verticales
 
 Una operación de escalado puede tardar entre 10 y 20 minutos en completarse. Cuando configure una programación personalizada, planee esta demora. Por ejemplo, si necesita que el tamaño del clúster sea 20 a las 9:00 a.m., establezca el desencadenador de programación más temprano, a eso de las 8:30 a.m., para que la operación de escalado se complete antes de las 9:00 a.m.
 
-### <a name="preparation-for-scaling-down"></a>Preparación para la reducción vertical
+### <a name="prepare-for-scaling-down"></a>Preparación para la reducción vertical
 
-Durante el proceso de reducción vertical de un clúster, la característica Escalabilidad automática retirará los nodos para cumplir con el tamaño de destino. Si las tareas están en ejecución en esos nodos, la Escalabilidad automática esperará hasta que se completen las tareas. Como cada nodo de trabajo también tiene un rol en HDFS, los datos temporales se desplazarán a los nodos restantes. Por tanto, debe asegurarse de que haya espacio suficiente en los nodos restantes para hospedar todos los datos temporales.
+Durante el proceso de reducción vertical de un clúster, la característica Escalabilidad automática retira los nodos para cumplir con el tamaño de destino. Si las tareas están en ejecución en esos nodos, la Escalabilidad automática espera hasta que se completan las tareas. Como cada nodo de trabajo también tiene un rol en HDFS, los datos temporales se desplazan a los nodos restantes. Asegúrese de que haya espacio suficiente en los nodos restantes para hospedar todos los datos temporales.
 
 Los trabajos seguirán en ejecución. Los trabajos pendientes esperarán una programación con menos nodos de trabajo disponibles.
 
-### <a name="minimum-cluster-size"></a>Tamaño mínimo del clúster
+### <a name="be-aware-of-the-minimum-cluster-size"></a>Consideración del tamaño mínimo del clúster
 
-No reduzca verticalmente el clúster a menos de tres nodos. El escalado del clúster a menos de tres nodos puede hacer que se quede atascado en el modo seguro debido a una replicación de archivos insuficiente.  Para obtener más información, consulte [Bloqueo en modo seguro](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
+No reduzca verticalmente el clúster a menos de tres nodos. El escalado del clúster a menos de tres nodos puede hacer que se quede atascado en el modo seguro debido a una replicación de archivos insuficiente. Para más información, vea [Bloqueo en modo seguro](hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
+
+### <a name="increase-the-number-of-mappers-and-reducers"></a>Aumento del número de asignadores y reductores
+
+La escalabilidad automática para clústeres de Hadoop también supervisa el uso de HDFS. Si HDFS está ocupado, se supone que el clúster aún necesita los recursos actuales. Cuando hay datos masivos implicados en la consulta, puede aumentar el número de asignadores y reductores para aumentar el paralelismo y acelerar las operaciones de HDFS. De este modo, se activará la reducción vertical adecuada cuando haya recursos adicionales. 
+
+### <a name="set-the-hive-configuration-maximum-total-concurrent-queries-for-the-peak-usage-scenario"></a>Establecimiento del número máximo de consultas simultáneas totales de configuración de Hive para el escenario de uso máximo
+
+Los eventos de escalabilidad automática no cambian la configuración de Hive de *Número máximo total de consultas simultáneas* en Ambari. Esto significa que el servicio interactivo del servidor de Hive 2 solo puede controlar el número dado de consultas simultáneas en cualquier momento, incluso si el número de demonios de LLAP se escala y reduce verticalmente en función de la carga y programación. La recomendación general es establecer esta configuración para el escenario de uso máximo para evitar la intervención manual.
+
+Sin embargo, es posible que experimente un error de reinicio del servidor de Hive 2 si solo hay un número pequeño de nodos de trabajo y el valor configurado del máximo de consultas simultáneas totales es demasiado alto. Como mínimo, se necesita el número mínimo de nodos de trabajo que pueden dar cabida al número especificado de AM de Tez (igual a la configuración de consultas simultáneas máximas en total). 
+
+## <a name="limitations"></a>Limitaciones
+
+### <a name="node-label-file-missing"></a>Ausencia del archivo de etiqueta de nodo
+
+La escalabilidad automática de HDInsight usa un archivo de etiqueta de nodo para determinar si un nodo está listo para ejecutar tareas. El archivo de etiqueta de nodo se almacena en HDFS con tres réplicas. Si el tamaño del clúster experimenta una reducción vertical drástica y hay una gran cantidad de datos temporales, existe una pequeña probabilidad de que se puedan eliminar las tres réplicas. Si esto sucede, el clúster entra en un estado de error.
 
 ### <a name="llap-daemons-count"></a>Recuento de demonios de LLAP
 
-En el caso de los clústeres de LLAP habilitados para la escalabilidad automática, el evento de escalar o reducir verticalmente también escala vertical u horizontalmente el número de demonios de LLAP al número de nodos de trabajo activos. Pero este cambio en el número de demonios no se conserva en la configuración **num_llap_nodes** de Ambari. Si los servicios de Hive se reinician manualmente, el número de demonios de LLAP se restablecerá según la configuración de Ambari.
+En el caso de los clústeres de LLAP habilitados para la escalabilidad automática, un evento de escalado o reducción vertical también escala o reduce verticalmente el número de demonios de LLAP al número de nodos de trabajo activos. El cambio en el número de demonios no se conserva en la configuración `num_llap_nodes` de Ambari. Si los servicios de Hive se reinician manualmente, el número de demonios de LLAP se restablece según la configuración de Ambari.
 
-Tomemos el siguiente escenario:
-1. Un clúster habilitado para la escalabilidad automática de LLAP se crea con tres nodos de trabajo y la escalabilidad automática basada en carga se habilita con el número mínimo de tres nodos de trabajo y el máximo de diez nodos de trabajo.
-2. La configuración del recuento de demonios de LLAP según la configuración de LLAP y Ambari es tres, ya que el clúster se creó con tres nodos de trabajo.
-3. Después, se desencadena una escalabilidad vertical automática debido a la carga en el clúster, el clúster se escala a diez nodos.
-4. La comprobación de escalabilidad automática que se ejecuta a intervalos regulares observa que el número de demonios de LLAP es tres, pero el número de nodos de trabajo activos es diez, el proceso de escalabilidad automática ahora aumentará el número de demonios de LLAP a diez, pero este cambio no se conserva en la configuración de Ambari -num_llap_nodes.
-5. La escalabilidad automática ahora está deshabilitada.
-6. El clúster tiene ahora diez nodos de trabajo y diez demonios de LLAP.
-7. El servicio LLAP se reinicia manualmente.
-8. Durante el reinicio, comprueba la configuración de num_llap_nodes en la configuración de LLAP y observa que el valor es tres, por lo que pone en marcha tres instancias de demonios, pero el número de nodos de trabajo es de diez. Hay entonces una discrepancia entre los dos.
-
-Cuando esto sucede, es necesario cambiar manualmente la **configuración de num_llap_node de (número de nodos para ejecutar el demonio de LLAP de Hive) en hive-interactive-env avanzado** para que coincida con el número actual de nodos de trabajo activos.
-
-**Nota**
-
-Los eventos de escalabilidad automática no cambian la configuración de Hive de **Número máximo total de consultas simultáneas** en Ambari. Esto significa que el servicio interactivo del servidor de Hive 2 **solo puede controlar el número dado de consultas simultáneas en cualquier momento, incluso si el número de demonios de LLAP se escala y reduce verticalmente en función de la carga o programación**. La recomendación general es establecer esta configuración para el escenario de uso máximo para que se pueda evitar la intervención manual. Sin embargo, debe tener en cuenta que **establecer un valor alto para el número máximo total de consultas simultáneas puede producir un error al reiniciar el servicio interactivo de Hive Server 2 si el número mínimo de nodos de trabajo no puede dar cabida al número determinado de Tez Ams (igual al valor máximo total de consultas simultáneas)**
+Si el servicio LLAP se reinicia manualmente, es necesario cambiar manualmente la configuración `num_llap_node` (el número de nodos necesarios para ejecutar el demonio de LLAP de Hive) en *Advanced hive-interactive-env* para que coincida con el número actual de nodos de trabajo activos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

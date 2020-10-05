@@ -16,12 +16,12 @@ ms.date: 05/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd1d03edad2e13d3460fb2e7a635bb198ac5c1bf
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: fd198a132f64c26f775a8212c22b77201d579260
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279625"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657155"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opciones para el inicio de sesión de los usuarios en Azure AD Connect
 Azure Active Directory (Azure AD) Connect permite que los usuarios inicien sesión en los recursos en la nube y locales con las mismas contraseñas. En este artículo se describen los conceptos clave para cada modelo de identidad para ayudarlo a elegir la identidad que desea utilizar con el fin de iniciar sesión en Azure AD.
@@ -47,7 +47,7 @@ Azure AD admite los siguientes métodos de autenticación:
    * **Autenticación de paso a través (PTA)** : esta opción es similar a la sincronización de hash de contraseñas, pero proporciona una validación simple de contraseñas con agentes de software en el entorno local para las organizaciones con directivas estrictas de seguridad y cumplimiento.
 * **Autenticación federada**: cuando se elige este método de autenticación, Azure AD deja el proceso de autenticación en manos de un sistema de autenticación de confianza como, por ejemplo, una instancia de AD FS o un sistema de federación de terceros, para validar el inicio de sesión del usuario. 
 
-Para la mayoría de las organizaciones que simplemente quieren habilitar el inicio de sesión de usuarios en Office 365, aplicaciones SaaS y otros recursos basados en Azure AD, se recomienda la opción de sincronización de hash de contraseña predeterminada.
+Para la mayoría de las organizaciones que simplemente quieren habilitar el inicio de sesión de usuarios en Microsoft 365, aplicaciones SaaS y otros recursos basados en Azure AD, se recomienda la opción de sincronización de hash de contraseña predeterminada.
  
 Para obtener información detallada sobre cómo elegir un método de autenticación, vea [Elegir el método de autenticación adecuado para su solución de identidad híbrida de Azure Active Directory](./choose-ad-authn.md)
 
@@ -139,12 +139,12 @@ La página de inicio de sesión de AD Azure muestra los sufijos UPN definidos pa
 Puede hacer clic en el botón de actualización para volver a capturar el estado más reciente de los dominios personalizados de Azure AD.
 
 ### <a name="selecting-the-attribute-for-the-user-principal-name-in-azure-ad"></a>Seleccione el atributo de nombre principal de usuario en Azure AD
-userPrincipalName es el atributo que los usuarios utilizan al iniciar sesión en Azure AD y Office 365. Los dominios utilizados, también conocidos como "sufijo UPN", deben comprobarse en Azure AD antes de que se sincronicen los usuarios.
+userPrincipalName es el atributo que los usuarios utilizan al iniciar sesión en Azure AD y Microsoft 365. Los dominios utilizados, también conocidos como "sufijo UPN", deben comprobarse en Azure AD antes de que se sincronicen los usuarios.
 
 Se recomienda encarecidamente mantener el atributo userPrincipalName predeterminado. Si este atributo no es enrutable y no se puede comprobar, se puede seleccionar otro atributo, por ejemplo, email, como que contiene el identificador de inicio de sesión. Esto se conoce como un "identificador alternativo". El valor del atributo Alternate ID debe seguir el estándar RFC822. Un identificador alternativo puede usarse como solución de inicio de sesión tanto con el SSO de contraseña como con el SSO de federación.
 
 > [!NOTE]
-> El uso de un identificador alternativo no es compatible con todas las cargas de trabajo de Office 365. Para obtener más información, consulte [Configuración del identificador de inicio de sesión alternativo](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
+> El uso de un identificador alternativo no es compatible con todas las cargas de trabajo de Microsoft 365. Para obtener más información, consulte [Configuración del identificador de inicio de sesión alternativo](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
 >
 >
 

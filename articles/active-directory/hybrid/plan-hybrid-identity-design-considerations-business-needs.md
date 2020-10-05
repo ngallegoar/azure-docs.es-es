@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ecc90e13f49c231d8d3ab0cff1de91443b80f21
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 074c203a0a5688855d4f7607a877b25ce6ee6ad7
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "65950897"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660569"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Determinación de los requisitos de identidad para la solución de identidad híbrida
 El primer paso para diseñar una solución de identidad híbrida es determinar los requisitos de la organización que aprovechará esta solución.  Un identidad híbrida se inicia como un rol de soporte (admite todas las demás soluciones de nube mediante la autenticación) y avanza proporcionando capacidades nuevas e interesantes que desbloquean nuevas cargas de trabajo para los usuarios.  Estas cargas de trabajo o servicios que se quieran adoptar para los usuarios, determinan los requisitos para el diseño de la identidad híbrida.  Estos servicios y cargas de trabajo tienen que aprovechar la identidad híbrida tanto a nivel local como en la nube.  
@@ -72,10 +72,10 @@ A continuación, tiene que evaluar los requisitos de integración de identidades
   * Su empresa tiene una aplicación local (ya sea generada internamente o de terceros) que usa SAML o capacidades de federación similares.
   * MFA mediante tarjetas inteligentes. RSA SecurID, etc.
   * Reglas de acceso de cliente que abordan las preguntas siguientes:
-    1. ¿Puedo bloquear todo acceso externo a Office 365 según la dirección IP del cliente?
-    2. ¿Puedo bloquear todo acceso externo a Office 365, excepto para Exchange ActiveSync?
-    3. ¿Puedo bloquear todo acceso externo a Office 365, excepto para las aplicaciones basadas en explorador (OWA, SPO)?
-    4. ¿Puedo bloquear todo acceso externo a Office 365 para los miembros de grupos específicos de AD?
+    1. ¿Puedo bloquear todo acceso externo a Microsoft 365 según la dirección IP del cliente?
+    2. ¿Puedo bloquear todo acceso externo a Microsoft 365, excepto para Exchange ActiveSync?
+    3. ¿Puedo bloquear todo acceso externo a Microsoft 365, excepto para las aplicaciones basadas en explorador (OWA, SPO)?
+    4. ¿Puedo bloquear todo acceso externo a Microsoft 365 para los miembros de grupos específicos de AD?
 * Consideraciones de seguridad o auditoría
 * Inversión ya existente en la autenticación federada
 * ¿Qué nombre empleará la organización para nuestro dominio en la nube?

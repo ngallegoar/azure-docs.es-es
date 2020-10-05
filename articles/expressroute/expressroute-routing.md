@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: duau
-ms.openlocfilehash: 8cac675f91e0ca65f9654d7a13577b9ab7e3ed0a
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 5b7af755c9843456c25c8d18b78be48d83b96acd
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394948"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569618"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de enrutamiento de ExpressRoute
 Para conectarse a los servicios en la nube de Microsoft mediante ExpressRoute, es preciso configurar y administrar el enrutamiento. Algunos proveedores de conectividad ofrecen la configuración y administración de enrutamiento como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece este servicio. Si no es así, debe cumplir los siguientes requisitos:
@@ -83,7 +83,7 @@ Para configurar las sesiones BGP, debe usar las direcciones IP públicas que pos
 Puede usar direcciones IPv4 públicas o privadas para el emparejamiento privado. Proporcionamos un aislamiento completo del tráfico para que no sea posible que se solapen las direcciones con otros clientes en caso de un emparejamiento privado. Estas direcciones no se anuncian en Internet. 
 
 ### <a name="microsoft-peering"></a>Emparejamiento de Microsoft
-La ruta de acceso de emparejamiento de Microsoft le permite conectarse a los servicios en la nube de Microsoft. La lista de servicios incluye servicios de Office 365, como Exchange Online, SharePoint Online, Skype Empresarial y Microsoft Teams. Microsoft admite la conectividad bidireccional en el emparejamiento de Microsoft. El tráfico destinado a los servicios en la nube de Microsoft debe usar direcciones IPv4 públicas válidas antes de que entre en la red de Microsoft.
+La ruta de acceso de emparejamiento de Microsoft le permite conectarse a los servicios en la nube de Microsoft. La lista de servicios incluye servicios de Microsoft 365, como Exchange Online, SharePoint Online, Skype Empresarial y Microsoft Teams. Microsoft admite la conectividad bidireccional en el emparejamiento de Microsoft. El tráfico destinado a los servicios en la nube de Microsoft debe usar direcciones IPv4 públicas válidas antes de que entre en la red de Microsoft.
 
 Asegúrese de que la dirección IP y el número AS se registran en uno de los registros que se muestran a continuación.
 
@@ -100,7 +100,7 @@ Si no se le asignaron los prefijos y el número de sistema autónomo en los regi
 Con el emparejamiento de Microsoft se permite un número de sistema autónomo privado, pero debe validarse manualmente. Además, se quitan los números AS privados en AS PATH para los prefijos recibidos. En consecuencia, no puede anexar números AS privados en AS PATH para que [influyan en el enrutamiento del emparejamiento de Microsoft](expressroute-optimize-routing.md). 
 
 > [!IMPORTANT]
-> No anuncie la misma ruta de dirección IP pública en la red pública de Internet ni mediante ExpressRoute. Para reducir el riesgo de configuración incorrecta que causa el enrutamiento asimétrico, se recomienda encarecidamente que las [direcciones IP de NAT](expressroute-nat.md) anunciadas a Microsoft a través de ExpressRoute provengan de un intervalo que no se anuncie en Internet. Si esto no es posible, es esencial que garantice que a través de ExpressRoute anuncia un intervalo más específico que el que anuncia en la conexión a Internet. Además de la ruta pública para NAT, también puede anunciar mediante ExpressRoute las direcciones IP públicas usadas por los servidores en la red local que se comunican con puntos de conexión de Office 365 en Microsoft. 
+> No anuncie la misma ruta de dirección IP pública en la red pública de Internet ni mediante ExpressRoute. Para reducir el riesgo de configuración incorrecta que causa el enrutamiento asimétrico, se recomienda encarecidamente que las [direcciones IP de NAT](expressroute-nat.md) anunciadas a Microsoft a través de ExpressRoute provengan de un intervalo que no se anuncie en Internet. Si esto no es posible, es esencial que garantice que a través de ExpressRoute anuncia un intervalo más específico que el que anuncia en la conexión a Internet. Además de la ruta pública para NAT, también puede anunciar mediante ExpressRoute las direcciones IP públicas usadas por los servidores en la red local que se comunican con puntos de conexión de Microsoft 365 en Microsoft. 
 > 
 > 
 
@@ -138,7 +138,7 @@ Las rutas predeterminadas solo se permiten en sesiones de configuración de pare
 * Se usa un enrutamiento definido por el usuario para permitir la conectividad a Internet a todas las subredes que la requieran.
 
 > [!NOTE]
-> El anuncio de rutas predeterminadas interrumpirá la activación de la licencia de Windows y de otras máquinas virtuales. Para solucionar este problema, siga las instrucciones que se indican [aquí](https://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) .
+> El anuncio de rutas predeterminadas interrumpirá la activación de la licencia de Windows y de otras máquinas virtuales. Para solucionar este problema, siga las instrucciones que se indican [aquí](https://docs.microsoft.com/archive/blogs/mast/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling) .
 > 
 > 
 

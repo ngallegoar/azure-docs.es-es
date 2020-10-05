@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 03/20/2020
-ms.openlocfilehash: 5c5f690fd5fefbd67180ea04d5ca1d269676f7b7
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 6ea96f23f6d8c6a2e95a6217522f23545d49e9df
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180820"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032850"
 ---
 # <a name="how-to-purchase-software-on-microsoft-appsource"></a>Compra de software en Microsoft AppSource
 
@@ -59,9 +59,9 @@ Una vez recibido el pedido, puede tardar varios segundos en confirmarse. Recibir
 
 ## <a name="contact-support"></a>Ponerse en contacto con soporte técnico
 
-Se puede [enviar una incidencia de soporte técnico](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/homepage) a través del Centro de administración de Microsoft 365.
+Se puede [enviar una incidencia de soporte técnico](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/homepage) a través del Centro de administración de Microsoft 365.
 
-Para los productos empresariales, [solicite ayuda aquí](https://docs.microsoft.com/office365/admin/contact-support-for-business-products?view=o365-worldwide&tabs=phone).
+Para los productos empresariales, [solicite ayuda aquí](/office365/admin/contact-support-for-business-products?tabs=phone).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

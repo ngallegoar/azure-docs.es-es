@@ -3,14 +3,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: include
-ms.date: 06/08/2020
+ms.date: 09/git14/2020
 ms.author: alkohli
-ms.openlocfilehash: da36e2bbf358a1c61d2b9b3f7ede592ac88fd427
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 91f91b1260cc445f90c2608fc5259ad61acd37ac
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200291"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90533359"
 ---
 Aquí se proporciona una lista de los tipos de cuentas de almacenamiento compatibles y de almacenamiento para el dispositivo Data Box. Para una lista completa de todos los tipos distintos de cuentas de almacenamiento y todas sus funcionalidades, consulte [Tipos de cuentas de almacenamiento](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
 
@@ -41,7 +41,7 @@ En el caso de los pedidos de exportación, en la siguiente tabla se muestran las
 | Almacenamiento prémium de blobs en páginas | |Y | | |
 
 > [!IMPORTANT]
-> - En el caso de las cuentas de uso general, Data Box no admite los tipos de almacenamiento Queue, Table, Disk y Azure Data Lake Gen 2.
+> - En el caso de las cuentas de uso general, Data Box no admite los tipos de almacenamiento Queue, Table y Disk para los pedidos de importación. En el caso de los pedidos de exportación, Data Box no admite los tipos de almacenamiento Queue, Table, Disk y Azure Data Lake Gen 2 para las cuentas de uso general.
 > - Data Box no admite blobs en anexos en las cuentas de Blob Storage y de almacenamiento de blobs en bloque.
 > - Data Box no es compatible con las cuentas prémium de File Storage.
 > - Los datos cargados en blobs en páginas deben tener 512 bytes alineados como discos duros virtuales.

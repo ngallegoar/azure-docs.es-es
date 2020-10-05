@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 196b1dda17de1c9430ab048ac90d1d10b6a595b4
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 24481abb6606d9ce830e5b65285b31637417cbd7
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104697"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562458"
 ---
 # <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>Administración de un servidor de Azure Database for MariaDB con Azure Portal
 En este artículo se muestra cómo administrar los servidores de Azure Database for MariaDB. Entre las tareas de administración se incluyen el escalado de proceso y almacenamiento, el restablecimiento de contraseñas de administración y la visualización de detalles del servidor.
@@ -34,7 +34,7 @@ Puede escalar desde De uso general a Optimizada para memoria y viceversa. No se 
 
 2. Seleccione **De uso general** o **Con optimización de memoria**, dependiendo de lo que esté escalando. 
 
-    ![change-pricing-tier](./media/howto-create-manage-server-portal/change-pricing-tier.png)
+    ![Captura de pantalla que muestra Azure Portal con el plan de tarifa seleccionado y un valor seleccionado para Con optimización de memoria.](./media/howto-create-manage-server-portal/change-pricing-tier.png)
 
     > [!NOTE]
     > El cambio de los niveles provoca un reinicio del servidor.
@@ -79,7 +79,7 @@ La contraseña del rol de administrador se puede cambiar en Azure Portal.
 
 2. Escriba la contraseña nueva y confírmela. El cuadro de texto le pedirá los requisitos de complejidad de la contraseña.
 
-   ![reset-password](./media/howto-create-manage-server-portal/reset-password.png)
+   ![Captura de pantalla que muestra el cuadro de diálogo Restablecer contraseña con Contraseña y Confirmar contraseña.](./media/howto-create-manage-server-portal/reset-password.png)
 
 3. Seleccione **Aceptar** para guardar la nueva contraseña.
 
@@ -94,7 +94,7 @@ Puede eliminar el servidor cuando ya no lo necesite.
 
 2. Escriba el nombre del servidor en el cuadro de entrada para confirmar que es el servidor que quiere eliminar.
 
-    ![confirmar eliminación](./media/howto-create-manage-server-portal/confirm-delete.png)
+    ![Captura de pantalla que muestra un cuadro de diálogo que comprueba si desea eliminar una base de datos, que es irreversible.](./media/howto-create-manage-server-portal/confirm-delete.png)
 
     > [!NOTE]
     > La eliminación de un servidor es irreversible.

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/10/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 629173612f091319f6dec57b1cdfcfea41033bfc
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: e3dd4d5f413238e0d0da79ff43deeee6245681f4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047112"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016408"
 ---
 # <a name="what-is-risk"></a>¿Qué es el riesgo?
 
@@ -29,6 +29,8 @@ Identity Protection proporciona a las organizaciones el acceso a recursos eficac
 ## <a name="risk-types-and-detection"></a>Tipos de riesgo y detección
 
 Hay dos tipos de riesgo, **Usuario** e **Inicio de sesión** y dos tipos de detección o cálculo **Tiempo real** y **Sin conexión**.
+
+Es posible que las detecciones en tiempo real no se muestren en los informes durante un tiempo comprendido entre cinco y diez minutos. Es posible que las detecciones sin conexión no se muestren en los informes durante un tiempo comprendido entre dos y cuatro horas.
 
 ### <a name="user-risk"></a>Riesgo de usuario
 
@@ -56,7 +58,7 @@ Estos riesgos se pueden calcular en tiempo real o sin conexión, usando orígene
 | Vulneración de identidad de usuario confirmada por el administrador | Sin conexión | Esta detección indica que un administrador ha seleccionado "Confirmar vulneración de la identidad del usuario" en la interfaz de usuario de Usuarios de riesgo o mediante riskyUsers API. Para ver qué administrador ha confirmado este usuario comprometido, compruebe el historial de riesgos del usuario (a través de la interfaz de usuario o la API). |
 | Dirección IP malintencionada | Sin conexión | Esta detección indica el inicio de sesión desde una dirección IP malintencionada. Una dirección IP se considera malintencionada si se recibe una alta tasa de errores debidos a credenciales no válidas desde la dirección IP u otros orígenes de reputación de IP. |
 | Reglas de manipulación sospechosa de la bandeja de entrada | Sin conexión | Esta detección se debe a [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-manipulation-rules). Esta detección genera un perfil del entorno y activa alertas cuando se establecen reglas sospechosas que eliminan o mueven mensajes o carpetas en la bandeja de entrada de un usuario. Esta detección puede indicar que la cuenta del usuario está en peligro, que los mensajes se están ocultando intencionadamente y que el buzón se está usando para distribuir correo no deseado o malware en su organización. |
-| Difusión de contraseñas | Sin conexión | Un ataque de difusión de contraseñas es aquel por el que se ataca a varios nombres de usuario mediante contraseñas comunes, en un único ataque por la fuerza bruta, para obtener acceso no autorizado. Esta detección de riesgo se desencadena cuando se realiza un ataque de difusión de contraseñas. |
+| Difusión de contraseña | Sin conexión | Un ataque de difusión de contraseñas es aquel por el que se ataca a varios nombres de usuario mediante contraseñas comunes, en un único ataque por la fuerza bruta, para obtener acceso no autorizado. Esta detección de riesgo se desencadena cuando se realiza un ataque de difusión de contraseñas. |
 | Viaje imposible | Sin conexión | Esta detección se debe a [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#impossible-travel). Esta detección identifica dos actividades de usuario (en una o varias sesiones) que se originan desde ubicaciones geográficamente distantes dentro de un período de tiempo menor que el tiempo que habría tardado el usuario para viajar de la primera ubicación a la segunda, lo que indica que otro usuario está usando las mismas credenciales. |
 
 ### <a name="other-risk-detections"></a>Otras detecciones de riesgo

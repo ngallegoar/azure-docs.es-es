@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 08/08/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: e1c91bf9138e37c6de381ab34ab80413d3040981
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cb4d30a2bb7704ef7d4d4760f3d8cf74788945c2
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029321"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611917"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Creación de un conjunto de escalado de máquinas virtuales que usa Zonas de disponibilidad
 
@@ -22,13 +22,17 @@ Para proteger los conjuntos de escalado de máquinas virtuales de los errores en
 
 ## <a name="availability-considerations"></a>Consideraciones sobre disponibilidad
 
-Al implementar un conjunto de escalado en una o más zonas desde la versión *2017-12-01* de la API, tiene la opción de hacerlo con propagación máxima o estática de cinco dominios de error. Con la propagación máxima, el conjunto de escalado propaga las máquinas virtuales en tantos dominios de error como sea posible dentro de cada zona. Esta propagación podría incluir más o menos de cinco dominios de error por zona. Con la propagación estática en cinco dominios de error, el conjunto de escalado propaga las máquinas virtuales en exactamente cinco dominios de error por zona. Si el conjunto de escalado no encuentra cinco dominios de error distintos por zona para satisfacer la solicitud de asignación, se produce un error en la solicitud.
+Cuando se implementa un conjunto de escalado regional (no de zona) en una o varias zonas a partir de la versión de la API *2017-12-01*, dispone de las siguientes opciones de disponibilidad:
+- Propagación máxima (platformFaultDomainCount = 1)
+- Propagación fija estática (platformFaultDomainCount = 5)
+- Propagación alineada con dominios de error de disco de almacenamiento (platforFaultDomainCount = 2 o 3)
+
+Con la propagación máxima, el conjunto de escalado propaga las máquinas virtuales en tantos dominios de error como sea posible dentro de cada zona. Esta propagación podría incluir más o menos de cinco dominios de error por zona. Con la propagación fija estática, el conjunto de escalado propaga las máquinas virtuales en exactamente cinco dominios de error por zona. Si el conjunto de escalado no encuentra cinco dominios de error distintos por zona para satisfacer la solicitud de asignación, se produce un error en la solicitud.
 
 **Se recomienda implementar con propagación máxima la mayoría de las cargas de trabajo**, ya que este enfoque ofrece la mejor propagación en la mayoría de los casos. Si necesita que las réplicas se incluyan en unidades de aislamiento de hardware distintas, se recomienda la propagación en distintas zonas de disponibilidad y el empleo de la propagación máxima en cada una de ellas.
 
-Con la propagación máxima, solo verá un dominio de error en la vista de la instancia de la máquina virtual del conjunto de escalado y en los metadatos de la instancia, independientemente de cuántos dominios de error están propagando las máquinas virtuales. La propagación dentro de cada zona es implícita.
-
-Para la propagación máxima, establezca *platformFaultDomainCount* en *1*. Para usar la propagación en cinco dominios de error estática, establezca *platformFaultDomainCount* en *5*. En versión *2017-12-01* de la API, el valor predeterminado de *platformFaultDomainCount* es *1* para los conjuntos de escalado de una zona y de varias. Actualmente, solo se admite la propagación en cinco dominios de error para los conjuntos de escalado regionales (no zonales).
+> [!NOTE]
+> Con la propagación máxima, solo verá un dominio de error en la vista de la instancia de la máquina virtual del conjunto de escalado y en los metadatos de la instancia, independientemente de cuántos dominios de error están propagando las máquinas virtuales. La propagación dentro de cada zona es implícita.
 
 ### <a name="placement-groups"></a>Grupos de selección de ubicación
 
@@ -59,7 +63,7 @@ Cuando crea un conjunto de escalado en una sola zona, controla en qué zona se e
 Para usar las Zonas de disponibilidad, el conjunto de escalado se debe crear en una [región de Azure compatible](../availability-zones/az-region.md). Puede crear un conjunto de escalado que use las Zonas de disponibilidad con uno de los métodos siguientes:
 
 - [Azure Portal](#use-the-azure-portal)
-- Azure CLI
+- CLI de Azure
 - [Azure PowerShell](#use-azure-powershell)
 - [Plantillas del Administrador de recursos de Azure](#use-azure-resource-manager-templates)
 
@@ -209,7 +213,7 @@ Para crear un conjunto de escalado con redundancia de zona, especifique varios v
 }
 ```
 
-Si crea una dirección IP pública o un equilibrador de carga, especifique la propiedad *"sku": {"name": "Standard" }"* para crear recursos de red con redundancia de zona. También debe crear un grupo de seguridad de red y reglas para permitir cualquier tráfico. Para obtener más información, consulte [Introducción a Azure Load Balancer Estándar](../load-balancer/load-balancer-overview.md) y [Load Balancer Estándar y zonas de disponibilidad](../load-balancer/load-balancer-standard-availability-zones.md).
+Si crea un equilibrador de carga o una dirección IP pública especifique la propiedad *"sku": { "nombre": "estándar" }"* para crear los recursos de red con redundancia de zona. También debe crear un grupo de seguridad de red y reglas para permitir cualquier tráfico. Para obtener más información, consulte [Introducción a Azure Load Balancer Estándar](../load-balancer/load-balancer-overview.md) y [Load Balancer Estándar y zonas de disponibilidad](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Para ver un ejemplo completo de los recursos de red y un conjunto de escalado con redundancia de zona, consulte [esta plantilla de Resource Manager de ejemplo](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)
 

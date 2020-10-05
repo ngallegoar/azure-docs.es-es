@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 05/12/2020
-ms.openlocfilehash: 529988ce456b9017d700880d55b349fa93e15f96
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 6088569efed56d4453e4f1b0806af68f206cd2e9
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104238"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033258"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opción de venta conjunta en el Centro de partners
 
@@ -62,11 +62,11 @@ Puede agregar hasta tres áreas de solución para su oferta. Para cada área de 
 
 ## <a name="documents"></a>Documentos
 
-Puede proporcionar garantías para que Microsoft las utilice para evaluar las necesidades de sus clientes.
+Tiene la opción de proporcionar documentos colaterales que Microsoft usará para tener más información sobre su oferta y evaluar su idoneidad para las necesidades de los clientes. Todos los documentos que aparecen en la tabla siguiente son opcionales.
 
 | **Documentos**    | **Descripción**  |
 | :------------------- | :-------------------|
-| *Buscapersonas de cliente* | Descripción lista para el cliente de su oferta. Los equipos de ventas de Microsoft pueden compartir esta información con los clientes para ayudar a determinar si su oferta puede ser un buen ajuste, así como para asegurarse de que está lista para el cliente. <br> <br> Use una de las plantillas pertinentes disponibles en el centro de partners: <br> <ul> <li> Plantilla de una página de Microsoft Azure </li> <li> Plantilla de una página de Microsoft Dynamics 365 </li> <li> Plantilla de una página de Office 365 </li> <li> Plantilla de una página de Windows 10 </li> </ul> |
+| *Buscapersonas de cliente* | Descripción lista para el cliente de su oferta. Los equipos de ventas de Microsoft pueden compartir esta información con los clientes para ayudar a determinar si su oferta puede ser un buen ajuste, así como para asegurarse de que está lista para el cliente. <br> <br> Use una de las plantillas pertinentes disponibles en el centro de partners: <br> <ul> <li> Plantilla de una página de Microsoft Azure </li> <li> Plantilla de una página de Microsoft Dynamics 365 </li> <li> Plantilla de una página de Microsoft 365 </li> <li> Plantilla de una página de Windows 10 </li> </ul> |
 | *Presentación del cliente* | Diapositivas para lanzar su solución y su propuesta de valor. Tras asegurarse de que su oferta está lista para el cliente, los equipos de ventas de Microsoft pueden compartir la presentación con los clientes para expresar el valor que traen ambas empresas al implementar una solución conjunta. En la presentación debe tratarse lo que hace su solución, cómo puede ayudar a los clientes, para qué sectores es la solución y cómo se compara con las soluciones de la competencia. <br> <br> Utilice la plantilla disponible en el centro de partners.|
 | *Caso práctico del cliente* | En esta información se muestra a un posible cliente cómo han implementado tanto Microsoft como usted esta solución en casos anteriores. <br> <br> Utilice la plantilla disponible en el centro de partners. |
 | *Logros de clientes comprobables (opcional)* | Ejemplos específicos de éxitos de clientes tras la implementación de su solución. |
@@ -79,14 +79,14 @@ Puede proporcionar garantías para que Microsoft las utilice para evaluar las ne
 
 Su información de contacto permite a los equipos de ventas de Microsoft y los revendedores del canal solicitar información adicional del recurso adecuado en su organización. La información de contacto está disponible para todos los equipos de ventas de Microsoft. Si opta por hacer que su oferta esté disponible en el programa CSP, está información de contacto también estará disponible para los revendedores del canal.
 
-En este documento se proporcionan instrucciones sobre los diferentes roles de los asociados y cómo elegir entre ellos. Puede proporcionar sus contactos descargando la plantilla CSV desde el Centro de partners, rellenando cada fila con información sobre el contacto e importando este archivo CSV. Al importarse un archivo CSV se sobrescribirán los contactos existentes.
+Puede proporcionar sus contactos descargando la plantilla CSV desde el Centro de partners, rellenando cada fila con información sobre el contacto e importando este archivo CSV. Al importarse un archivo CSV se sobrescribirán los contactos existentes.
 
 También puede exportar su lista de contactos existente de una oferta y, a continuación, realizar cambios en ese archivo.
 
 * *Nombre (obligatorio)* : nombre del contacto.
 * *Dirección de correo electrónico (obligatorio)* : dirección de correo electrónico del contacto.
 * *Puesto (obligatorio)* : puesto.
-* *Rol (obligatorio)* : use uno de los siguientes roles en este campo de la plantilla.
+* *Rol (obligatorio)* : use uno de los siguientes roles.
 
     | **Rol**    | **Descripción**  |
     | :------------------- | :-------------------|

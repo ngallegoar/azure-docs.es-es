@@ -7,12 +7,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: efd19d9dc1fdc857a51d7af34c54bbe2d6077767
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 5683d40e9565068c6cd79eedb08b036eab2c54cd
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294397"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531396"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Desaprovisionamiento de dispositivos aprovisionados automáticamente 
 
@@ -43,7 +43,7 @@ Para desaprovisionar un dispositivo con inscripción individual, siga estos paso
 
 
 ## <a name="enrollment-groups"></a>Grupos de inscripción
-Con la atestación X.509, también se pueden aprovisionar los dispositivos a través de un grupo de inscripción. Los grupos de inscripción se configuran con un certificado de firma, ya sea un certificado de entidad de certificación raíz o intermedia, y controlan el acceso al servicio de aprovisionamiento para los dispositivos con ese certificado en su cadena de certificados. Para más información sobre los grupos de inscripción y los certificados X.509 en el servicio de aprovisionamiento, consulte [Certificados X.509](concepts-security.md#x509-certificates). 
+Con la atestación X.509, también se pueden aprovisionar los dispositivos a través de un grupo de inscripción. Los grupos de inscripción se configuran con un certificado de firma, ya sea un certificado de entidad de certificación raíz o intermedia, y controlan el acceso al servicio de aprovisionamiento para los dispositivos con ese certificado en su cadena de certificados. Para más información sobre los grupos de inscripción y los certificados X.509 en el servicio de aprovisionamiento, vea [Atestación de certificados de cliente X.509](concepts-x509-attestation.md). 
 
 Para ver una lista de dispositivos que se han aprovisionado a través de un grupo de inscripción, puede visualizar los detalles del grupo de inscripción. Se trata de una manera fácil de comprender a qué instancia de IoT Hub se ha aprovisionado cada dispositivo. Para ver la lista de dispositivos: 
 

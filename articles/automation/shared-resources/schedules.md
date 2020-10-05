@@ -2,19 +2,15 @@
 title: Administración de programaciones en Azure Automation
 description: En este artículo se explica cómo crear una programación en Azure Automation y cómo trabajar con ella.
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
-ms.date: 04/04/2019
+ms.date: 09/10/2020
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 8bd988029b8d78a29de38e995c36ee1860d8cda9
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 844a45c9b596522b949443b6edc311308da7806c
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187360"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004619"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Administración de programaciones en Azure Automation
 
@@ -28,17 +24,17 @@ Para programar un runbook en Azure Automation para que se inicie en un momento d
 
 ## <a name="powershell-cmdlets-used-to-access-schedules"></a>Cmdlets de PowerShell usados para acceder a programaciones
 
-Los cmdlets de la tabla siguiente permiten crear y administrar programaciones de Automation con PowerShell. Se suministran como un componente de los [módulos Az](modules.md#az-modules). 
+Los cmdlets de la tabla siguiente permiten crear y administrar programaciones de Automation con PowerShell. Se suministran como un componente de los [módulos Az](modules.md#az-modules).
 
 | Cmdlets | Descripción |
 |:--- |:--- |
-| [Get-AzAutomationSchedule](/powershell/module/Az.Automation/Get-AzAutomationSchedule?view=azps-3.7.0) |Recupera una programación. |
-| [Get-AzAutomationScheduledRunbook](/powershell/module/az.automation/get-azautomationscheduledrunbook?view=azps-3.7.0) |Recupera runbooks programados. |
-| [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) |Crea una nueva programación. |
-| [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) |Asocia un runbook con una programación. |
-| [Remove-AzAutomationSchedule](/powershell/module/Az.Automation/Remove-AzAutomationSchedule?view=azps-3.7.0) |Quita una programación. |
-| [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) |Establece las propiedades de una programación existente. |
-| [Unregister-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook?view=azps-3.7.0) |Anula la asociación de un runbook con una programación. |
+| [Get-AzAutomationSchedule](/powershell/module/Az.Automation/Get-AzAutomationSchedule) |Recupera una programación. |
+| [Get-AzAutomationScheduledRunbook](/powershell/module/az.automation/get-azautomationscheduledrunbook) |Recupera runbooks programados. |
+| [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule) |Crea una nueva programación. |
+| [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook) |Asocia un runbook con una programación. |
+| [Remove-AzAutomationSchedule](/powershell/module/Az.Automation/Remove-AzAutomationSchedule) |Quita una programación. |
+| [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule) |Establece las propiedades de una programación existente. |
+| [Unregister-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook) |Anula la asociación de un runbook con una programación. |
 
 ## <a name="create-a-schedule"></a>Crear una programación
 
@@ -49,23 +45,33 @@ Puede crear una programación para sus runbooks en Azure Portal o con PowerShell
 
 ### <a name="create-a-new-schedule-in-the-azure-portal"></a>Creación de una programación nueva en Azure Portal
 
-1. En Azure Portal, desde su cuenta de Automation, seleccione **programaciones** en la sección **Recursos compartidos** de la izquierda.
-1. Seleccione **Agregar una programación** en la parte superior de la página.
-1. En el panel **Nueva programación**, escriba un nombre y, opcionalmente, una descripción para la nueva programación.
-1. Elija si la programación se ejecuta una vez o de forma periódica seleccionando **Una vez** o **Periódica**. Si elige **Una vez**, especifique una hora de inicio y seleccione **Crear**. Si selecciona **Periódica**, especifique una hora de inicio. Para **Repetir cada**, seleccione la frecuencia con la que desea que se repita el runbook. Seleccione por hora, día, semana o mes.
-    1. Si selecciona **Semana**, se presentan los días de la semana entre los que puede elegir. Seleccione tantos días como quiera. La primera ejecución de la programación se realizará en el primer día seleccionado después de la hora de inicio. Por ejemplo, para elegir una programación durante el fin de semana, elija sábado y domingo.
-    
-       ![Establecimiento de la programación recurrente durante el fin de semana](../media/schedules/week-end-weekly-recurrence.png)
+1. En la cuenta de Automation, en el panel izquierdo, seleccione **Programas** en **Recursos compartidos**.
+2. En la página **Programas**, seleccione **Agregar una programación**.
+3. En la página **Nueva programación**, escriba un nombre y, opcionalmente, una descripción para la nueva programación.
 
-    2. Si selecciona **Mes**, tendrá diferentes opciones. Para la opción **Repeticiones mensuales**, seleccione **Días del mes** o **Días de la semana**. Si selecciona **Días del mes**, aparece un calendario para que pueda elegir tantos días como desee. Si elige una fecha como el día 31 que no existe en el mes actual, no se ejecutará la programación. Si quiere que la programación se ejecute en el último día, seleccione **Sí** en **Ejecutar en el último día del mes**. Si selecciona **Días de la semana**, aparecerá la opción **Repetir cada**. Elija **Primero**, **Segundo**, **Tercero**, **Cuarto** o **Último**. Por último, elija un día en el que realizar la repetición.
+    >[!NOTE]
+    >Las programaciones de Automation no admiten actualmente el uso de caracteres especiales en el nombre de la programación.
+    >
 
-       ![Programación mensual el primer día, el decimoquinto día y el último día del mes](../media/schedules/monthly-first-fifteenth-last.png)
+4. Elija si la programación se ejecuta una vez o de forma periódica seleccionando **Una vez** o **Periódico**. Si elige **Una vez**, especifique una hora de inicio y seleccione **Crear**. Si selecciona **Periódica**, especifique una hora de inicio. Para **Repetir cada**, seleccione la frecuencia con la que desea que se repita el runbook. Seleccione por hora, día, semana o mes.
 
-1. Cuando haya finalizado, seleccione **Crear**.
+    * Si selecciona **Semana**, se presentan los días de la semana entre los que puede elegir. Seleccione tantos días como quiera. La primera ejecución de la programación se realizará en el primer día seleccionado después de la hora de inicio. Por ejemplo, para elegir una programación durante el fin de semana, elija sábado y domingo.
+
+    ![Establecimiento de la programación recurrente durante el fin de semana](../media/schedules/week-end-weekly-recurrence.png)
+
+    * Si selecciona **Mes**, tendrá diferentes opciones. Para la opción **Repeticiones mensuales**, seleccione **Días del mes** o **Días de la semana**. Si selecciona **Días del mes**, aparece un calendario para que pueda elegir tantos días como desee. Si elige una fecha como el día 31 que no existe en el mes actual, no se ejecutará la programación. Si quiere que la programación se ejecute en el último día, seleccione **Sí** en **Ejecutar en el último día del mes**. Si selecciona **Días de la semana**, aparecerá la opción **Repetir cada**. Elija **Primero**, **Segundo**, **Tercero**, **Cuarto** o **Último**. Por último, elija un día en el que realizar la repetición.
+
+    ![Programación mensual el primer día, el decimoquinto día y el último día del mes](../media/schedules/monthly-first-fifteenth-last.png)
+
+5. Cuando haya finalizado, seleccione **Crear**.
 
 ### <a name="create-a-new-schedule-with-powershell"></a>Creación de una nueva programación con PowerShell
 
-Use el cmdlet [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) para crear programaciones. Especifique la hora de inicio de la programación y la frecuencia con que se debe ejecutar. En los ejemplos siguientes se muestra cómo crear muchos escenarios de programación distintos.
+Use el cmdlet [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule) para crear programaciones. Especifique la hora de inicio de la programación y la frecuencia con que se debe ejecutar. En los ejemplos siguientes se muestra cómo crear muchos escenarios de programación distintos.
+
+>[!NOTE]
+>Las programaciones de Automation no admiten actualmente el uso de caracteres especiales en el nombre de la programación.
+>
 
 #### <a name="create-a-one-time-schedule"></a>Creación de una programación única
 
@@ -128,7 +134,7 @@ Un runbook puede vincularse a varias programaciones y una programación puede te
 
 ### <a name="link-a-schedule-to-a-runbook-with-powershell"></a>Vinculación de una programación a un runbook con PowerShell
 
-Use el cmdlet [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) para vincular una programación. Puede especificar valores para los parámetros del runbook con el parámetro Parameters. Para más información sobre cómo especificar valores de parámetro, consulte [Inicio de un runbook en Azure Automation](../start-runbooks.md).
+Use el cmdlet [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook) para vincular una programación. Puede especificar valores para los parámetros del runbook con el parámetro Parameters. Para más información sobre cómo especificar valores de parámetro, consulte [Inicio de un runbook en Azure Automation](../start-runbooks.md).
 En el ejemplo siguiente se muestra cómo vincular una programación a un runbook mediante un cmdlet de Azure Resource Manager con parámetros.
 
 ```azurepowershell-interactive
@@ -155,7 +161,7 @@ Cuando se deshabilita una programación, los runbooks vinculados a ella ya no se
 
 ### <a name="disable-a-schedule-from-the-azure-portal"></a>Deshabilitación de una programación desde Azure Portal
 
-1. En la cuenta de Automation, seleccione **Programaciones** en **Recursos compartidos**.
+1. En la cuenta de Automation, en el panel izquierdo, seleccione **Programas** en **Recursos compartidos**.
 1. Seleccione el nombre de una programación para abrir el panel de detalles.
 1. Cambie **Habilitado** a **No**.
 
@@ -164,7 +170,7 @@ Cuando se deshabilita una programación, los runbooks vinculados a ella ya no se
 
 ### <a name="disable-a-schedule-with-powershell"></a>Deshabilitación de una programación con PowerShell
 
-Use el cmdlet [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) para cambiar las propiedades de una programación existente. Para deshabilitar la programación, especifique False para el parámetro `IsEnabled`.
+Use el cmdlet [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule) para cambiar las propiedades de una programación existente. Para deshabilitar la programación, especifique False para el parámetro `IsEnabled`.
 
 En el ejemplo siguiente se muestra cómo deshabilitar una programación para un runbook mediante un cmdlet de Azure Resource Manager.
 
@@ -181,13 +187,13 @@ Cuando esté preparado para quitar programaciones, puede usar Azure Portal o Pow
 
 ### <a name="remove-a-schedule-using-the-azure-portal"></a>Eliminación de una programación con Azure Portal
 
-1. En la cuenta de Automation, seleccione **Programaciones** en **Recursos compartidos**.
-2. Haga clic en el nombre de una programación para abrir el panel de detalles.
+1. En la cuenta de Automation, en el panel izquierdo, seleccione **Programas** en **Recursos compartidos**.
+2. Seleccione el nombre de una programación para abrir el panel de detalles.
 3. Haga clic en **Eliminar**.
 
 ### <a name="remove-a-schedule-with-powershell"></a>Eliminación de una programación con PowerShell
 
-Puede usar el cmdlet `Remove-AzAutomationSchedule` como se muestra a continuación para eliminar una programación existente. 
+Puede usar el cmdlet `Remove-AzAutomationSchedule` como se muestra a continuación para eliminar una programación existente.
 
 ```azurepowershell-interactive
 $automationAccountName = "MyAutomationAccount"

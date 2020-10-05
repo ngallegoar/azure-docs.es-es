@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: d8324b0b861829b02b589f8145121559114b7435
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 0538777cadf7935a6684932a17fadc10849518d8
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89289586"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89490095"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notas de la versión de Data Management Gateway
 > [!NOTE]
@@ -198,7 +198,7 @@ Ya no se conservan las notas de la versión aquí. Puede obtener las notas de la
 
 *  Compatibilidad con herramientas de diagnóstico de Administrador de configuración
 *  Columnas de la tabla de soporte técnico para orígenes de datos tabulares de Azure Data Factory
-*  Compatibilidad con SQL DW para Azure Data Factory
+*  Compatibilidad con Azure Synapse Analytics para Azure Data Factory
 *  Compatibilidad con Reclusive en BlobSource y FileSource para Azure Data Factory
 *  Compatibilidad con CopyBehavior - MergeFiles, PreserveHierarchy y FlattenHierarchy en BlobSink y FileSink con copia binaria para Azure Data Factory
 *  Compatibilidad con los informes de progreso de la actividad de copia para Azure Data Factory

@@ -1,6 +1,6 @@
 ---
 title: Puerta de enlace de administración de datos para Data Factory
-description: Configuración de una puerta de enlace para mover datos entre una infraestructura local y la nube. Uso de Data Management Gateway en Azure Data Factory para mover los datos.
+description: Uso de Data Management Gateway en Azure Data Factory para mover los datos.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 5ef7e79ffa50bc16df9d03dbf530fda98e660557
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 68459253114e97c5e113b863a075c210ef50bf2e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297697"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441126"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -121,7 +121,7 @@ Para crear una puerta de enlace en el portal y obtener la clave en la página **
     ![Vínculo de descarga en el Portal](media/data-factory-data-management-gateway/download-and-install-link-on-portal.png)
 4. En la página **Configurar**, haga clic en **Volver a crear clave**. Haga clic en Sí en el mensaje de advertencia después de leerlo detenidamente.
 
-    ![Volver a crear clave](media/data-factory-data-management-gateway/recreate-key-button.png)
+    ![Botón Volver a crear clave](media/data-factory-data-management-gateway/recreate-key-button.png)
 5. Haga clic en el botón Copiar, que se encuentra al lado de la clave. La clave se copia en el Portapapeles.
 
     ![Copiar clave](media/data-factory-data-management-gateway/copy-gateway-key.png)
@@ -158,7 +158,7 @@ En el nivel de Firewall de Windows, normalmente se habilitan estos puertos de sa
 #### <a name="copy-data-from-a-source-data-store-to-a-sink-data-store"></a>Copia de datos de un almacén de datos de origen a uno de tipo receptor
 Asegúrese de que las reglas del firewall estén habilitadas correctamente en el firewall corporativo, en el Firewall de Windows de la máquina de la puerta de enlace y en el propio almacén de datos. De este modo, la puerta de enlace podrá conectarse al origen y al receptor correctamente. Habilite las reglas de cada almacén de datos que participe en la operación de copia.
 
-Por ejemplo, para copiar información desde **un almacén de datos local a un receptor de Azure SQL Database o un receptor de Azure SQL Data Warehouse**, debe realizar los siguientes pasos:
+Por ejemplo, para copiar información desde **un almacén de datos local a un receptor de Azure SQL Database o Azure Synapse Analytics (anteriormente, SQL Data Warehouse)** , debe realizar los siguientes pasos:
 
 * Permita la comunicación **TCP** saliente en el puerto **1433** para el Firewall de Windows y el corporativo.
 * Establezca la configuración de firewall del servidor SQL lógico para agregar la dirección IP de la máquina de la puerta de enlace a la lista de IP permitidas.
@@ -175,7 +175,7 @@ Si en su entorno de red corporativo se usa un servidor proxy para acceder a Inte
 
 La puerta de enlace utiliza el servidor proxy para conectarse al servicio en la nube. Haga clic en el vínculo **Cambiar** durante la configuración inicial. Verá el cuadro de diálogo de **configuración de proxy** .
 
-![Configuración del proxy mediante el Administrador de configuración](media/data-factory-data-management-gateway/SetProxySettings.png)
+![Configuración del proxy mediante el Administrador de configuración 1](media/data-factory-data-management-gateway/SetProxySettings.png)
 
 Hay tres opciones de configuración:
 
@@ -194,7 +194,7 @@ Cuando la puerta de enlace se haya registrado correctamente, si quiere ver o act
 
 Puede ver y actualizar el proxy HTTP mediante la herramienta Administrador de configuración.
 
-![Configuración del proxy mediante el Administrador de configuración](media/data-factory-data-management-gateway/SetProxyConfigManager.png)
+![Configuración del proxy mediante el Administrador de configuración 2](media/data-factory-data-management-gateway/SetProxyConfigManager.png)
 
 > [!NOTE]
 > Si configura un servidor proxy con la autenticación NTLM, el servicio host Data Management Gateway se ejecutará con la cuenta de dominio. Si más adelante cambia la contraseña de dicha cuenta de dominio, no olvide actualizar la configuración del servicio y reiniciarlo en consecuencia. Debido a este requisito, se recomienda usar una cuenta de dominio específica para acceder al servidor proxy, que no requiere actualizar la contraseña con frecuencia.
@@ -425,7 +425,7 @@ En esta sección se proporcionan pasos para mover el cliente de puerta de enlace
     ![Administrador de configuración](./media/data-factory-data-management-gateway/ConfigurationManager.png)
 6. En la página **Configurar** del portal, haga clic en **Volver a crear clave** en la barra de comandos y haga clic en **Sí** en el mensaje de advertencia. Haga clic en el **botón Copiar** que verá junto al texto de la clave para copiarla en el Portapapeles. La puerta de enlace en la máquina antigua deja de funcionar en cuanto se vuelve a crear la clave.
 
-    ![Volver a crear clave](./media/data-factory-data-management-gateway/RecreateKey.png)
+    ![Volver a crear clave 2](./media/data-factory-data-management-gateway/RecreateKey.png)
 7. Pegue la **clave** en el cuadro de texto de la página **Registrar puerta de enlace** del **Administrador de configuración de Data Management Gateway** que se está ejecutando en la máquina. (Opcional) Haga clic en la casilla **Mostrar clave de puerta de enlace** para ver el texto de la clave.
 
     ![Copiar clave y registrar](./media/data-factory-data-management-gateway/CopyKeyAndRegister.png)

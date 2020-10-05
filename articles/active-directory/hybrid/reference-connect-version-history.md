@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: Historial de lanzamiento de versiones | Microsoft Docs'
-description: En este artículo se muestran todas las versiones de Azure AD Connect y Sincronización de Azure AD
+description: En este artículo se muestran todas las versiones de Azure AD Connect y Sincronización de Azure AD.
 services: active-directory
 author: billmath
 manager: daveba
@@ -12,12 +12,12 @@ ms.date: 08/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d790c7c4c8d184999ff073e97613d663988c34e7
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: fccbb84647ae9e47afc7bb36eeca97bb41a0d1d8
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89275953"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604077"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historial de lanzamiento de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -208,7 +208,7 @@ Se corrigió un error en la utilidad de compresión de errores de sincronizació
 
 ### <a name="new-features-and-improvements"></a>Nuevas características y mejoras
 - La nueva herramienta de solución de problemas ayuda a solucionar escenarios de falta de sincronización de usuarios, grupos o miembros de grupos.
-- Compatibilidad agregada con nubes nacionales en el script de solución de problemas de Azure AD Connect. 
+- Compatibilidad agregada con nubes nacionales en el script de solución de problemas de Azure AD Connect.
 - Se debe informar a los clientes de que ahora se han quitado los puntos de conexión WMI en desuso para MIIS_Service. Las operaciones de WMI ahora deben realizarse mediante cmdlets de PS.
 - Mejora de la seguridad mediante el restablecimiento de la delegación restringida en el objeto AZUREADSSOACC.
 - Al agregar o editar una regla de sincronización, si hay atributos que se usan en la regla que se encuentran en el esquema del conector pero no se agregan al conector, los atributos se agregan al conector. Lo mismo se aplica al tipo de objeto al que afecta la regla. Si se agrega algo al conector, este se marcará para la importación completa en el siguiente ciclo de sincronización.
@@ -244,9 +244,9 @@ Se corrigió un error en la utilidad de compresión de errores de sincronizació
 
 ## <a name="13210"></a>1.3.21.0
 >[!IMPORTANT]
->Hay un problema conocido con la actualización de Azure AD Connect desde una versión anterior a 1.3.21.0, donde el portal de Office 365 no refleja la versión actualizada, aunque Azure AD Connect se actualizara correctamente.
+>Hay un problema conocido con la actualización de Azure AD Connect desde una versión anterior a 1.3.21.0, donde el portal de Microsoft 365 no refleja la versión actualizada, aunque Azure AD Connect se actualizara correctamente.
 >
-> Para resolver esto, deberá importar el módulo **AdSync** y ejecutar el cmdlet `Set-ADSyncDirSyncConfiguration` de PowerShell en el servidor de Azure AD Connect.  Puede usar los pasos siguientes:
+> Para resolver esto, deberá importar el módulo **AdSync** y ejecutar el cmdlet `Set-ADSyncDirSyncConfiguration` de PowerShell en el servidor de Azure AD Connect.  Puede usar los pasos siguientes:
 >
 >1. Abra PowerShell en modo de administrador.
 >2. Ejecute `Import-Module "ADSync"`.

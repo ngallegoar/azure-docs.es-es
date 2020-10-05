@@ -4,23 +4,23 @@ description: Describe cómo Azure Active Directory permite a las organizaciones 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 08/01/2019
+ms.date: 09/02/2020
 ms.author: curtand
-ms.reviewer: jeffsta
+ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba22720901cf4b7505d8d5b5295ca4e0c271953f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 019327436eaf2186e23068a5b0a1ac4b21b9fbe7
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798404"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055170"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Uso compartido de cuentas con Azure AD
 
@@ -29,7 +29,7 @@ ms.locfileid: "88798404"
 A veces, las organizaciones necesitan usar un nombre de usuario y una contraseña únicos para varias personas. Esto sucede normalmente en dos casos:
 
 * Al obtener acceso a aplicaciones que requieren un inicio de sesión único y una contraseña para cada usuario, ya sean aplicaciones locales o servicios en la nube de consumidor (por ejemplo, cuentas de medios sociales corporativos).
-* Al crear entornos multiusuario. En este caso puede tener una sola cuenta local que tenga privilegios elevados y que se use para realizar actividades básicas de configuración, administración y recuperación. Por ejemplo, puede tener la cuenta local de "administrador global" de Office 365 o la cuenta raíz en Salesforce.
+* Al crear entornos multiusuario. En este caso puede tener una sola cuenta local que tenga privilegios elevados y que se use para realizar actividades básicas de configuración, administración y recuperación. Por ejemplo, puede tener la cuenta local de "administrador global" de Microsoft 365 o la cuenta raíz en Salesforce.
 
 Tradicionalmente, estas cuentas se comparten al distribuir las credenciales (nombre de usuario y contraseña) a las personas adecuadas o almacenándolas en una ubicación compartida donde varios agentes de confianza pueden tener acceso a ellas.
 

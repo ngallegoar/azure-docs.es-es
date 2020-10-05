@@ -1,19 +1,19 @@
 ---
 title: Referencia de Azure Queue Storage
-description: Busque la referencia de la API de Azure Storage, los archivos Léame y los paquetes de la biblioteca cliente.
+description: Busque la referencia de la API de Azure Queue Storage, los archivos Léame y los paquetes de la biblioteca cliente.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 06/02/2020
+ms.date: 09/10/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: fbf20b92edf5d8dce8438731c2812a78e457a402
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5544a6985ca357688b2585fa29c6dc63546c3e8c
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976666"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90014963"
 ---
 # <a name="azure-queue-storage-reference"></a>Referencia de Azure Queue Storage
 
@@ -50,8 +50,8 @@ En la tabla siguiente se muestra la documentación de referencia y de ejemplo pa
 
 |  Versión  | Documentación de referencia | Paquete | Guía de inicio rápido |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Biblioteca cliente de Azure Storage Queue para Java](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html) | [Paquete (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para Java](/azure/storage/queues/storage-quickstart-queues-java) |
-| 8.x | [com.microsoft.azure.storage.queue](/java/api/com.microsoft.azure.storage.queue) | [Paquete (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [Inicio rápido: Administración de blobs con el SDK de Java v8](/azure/storage/blobs/storage-quickstart-blobs-java-legacy) |
+| 12.x | [Biblioteca cliente de Azure Storage Queue para Java](/java/api/overview/azure/storage-queue-readme) | [Paquete (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para Java](/azure/storage/queues/storage-quickstart-queues-java) |
+| 8.x | [com.microsoft.azure.storage.queue](/java/api/com.microsoft.azure.storage.queue) | [Paquete (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [Inicio rápido: Administración de blobs con el SDK de Java v8](/azure/storage/blobs/storage-quickstart-blobs-java-legacy) |
 
 ### <a name="storage-management"></a>Administración del almacenamiento
 
@@ -67,8 +67,8 @@ En la tabla siguiente se muestra la documentación de referencia y de ejemplo pa
 
 |  Versión  | Documentación de referencia | Paquete | Guía de inicio rápido |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Bibliotecas cliente de Azure Storage v12 para Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v12) | [Paquete (PyPI)](https://pypi.org/project/azure-storage-queue/) | [Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para Python](/azure/storage/queues/storage-quickstart-queues-python) |
-| 2.x | [Bibliotecas cliente de Azure Storage v2 para Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2) | [Paquete (PyPI)](https://pypi.org/project/azure-storage-queue/2.1.0/) | [Uso de Azure Queue Storage v2.1 desde Python](/azure/storage/queues/storage-python-how-to-use-queue-storage) |
+| 12.x | [Bibliotecas cliente de Azure Storage v12 para Python](/azure/developer/python/sdk/storage/overview) | [Paquete (PyPI)](https://pypi.org/project/azure-storage-queue/) | [Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para Python](/azure/storage/queues/storage-quickstart-queues-python) |
+| 2.x | [Bibliotecas cliente de Azure Storage v2 para Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [Paquete (PyPI)](https://pypi.org/project/azure-storage-queue/2.1.0/) | [Uso de Azure Queue Storage v2.1 desde Python](/azure/storage/queues/storage-python-how-to-use-queue-storage) |
 
 ## <a name="javascript-client-libraries"></a>Bibliotecas cliente de JavaScript
 
@@ -77,7 +77,7 @@ En la tabla siguiente se muestra la documentación de referencia y de ejemplo pa
 |  Versión  | Documentación de referencia | Paquete | Guía de inicio rápido |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12.x | [Biblioteca cliente de Azure Storage Queue para JavaScript](/javascript/api/overview/azure/storage-queue-readme) | [Paquete (npm)](https://www.npmjs.com/package/@azure/storage-queue) | [Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para JavaScript](/azure/storage/queues/storage-quickstart-queues-nodejs) |
-| 10.x | [@azure/storage-queue](/javascript/api/@azure/storage-queue/?view=azure-node-legacy) | [Paquete (npm)](https://www.npmjs.com/package/@azure/storage-queue/v/10.3.0) | [Uso de Azure Queue service para crear y eliminar colas de Node.js](/azure/storage/queues/storage-nodejs-how-to-use-queues) |
+| 10.x | [@azure/storage-queue](/javascript/api/@azure/storage-queue/?view=azure-node-legacy&preserve-view=true) | [Paquete (npm)](https://www.npmjs.com/package/@azure/storage-queue/v/10.3.0) | [Uso de Azure Queue service para crear y eliminar colas de Node.js](/azure/storage/queues/storage-nodejs-how-to-use-queues) |
 
 ## <a name="rest-apis"></a>API de REST
 
@@ -107,8 +107,9 @@ La tabla siguiente contiene vínculos a la versión más reciente del contenido 
 
 | Versión | Plataforma |
 | ------- | -------- |
-|  3.x  | [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-3.8.0) |
-|  2.x  | [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-2.8.0) |
+|  4.x  | [PowerShell](/powershell/module/az.storage/?view=azps-4.6.1&preserve-view=true) |
+|  3.x  | [PowerShell](/powershell/module/az.storage/?view=azps-3.8.0&preserve-view=true) |
+|  2.x  | [PowerShell](/powershell/module/az.storage/?view=azps-2.8.0&preserve-view=true) |
 
 ## <a name="azure-cli"></a>Azure CLI
 
