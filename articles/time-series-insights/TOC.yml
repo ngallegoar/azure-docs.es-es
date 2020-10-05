@@ -131,8 +131,6 @@
           href: time-series-insights-send-events.md
         - name: Escalado del entorno
           href: time-series-insights-how-to-scale-your-environment.md
-        - name: Dar forma JSON para entradas y consultas
-          href: how-to-shape-query-json.md
         - name: Mitigación de la limitación
           href: time-series-insights-environment-mitigate-latency.md
         - name: Diagnóstico y solución de problemas
