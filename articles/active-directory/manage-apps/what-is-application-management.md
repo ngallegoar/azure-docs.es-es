@@ -12,12 +12,12 @@ ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 293aa80336b259a760a835e3ece56d50287f06ed
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: abe222ff783032c5d6d19a42bfb3d8aeffc284a1
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299888"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604128"
 ---
 # <a name="what-is-application-management"></a>¿Qué es la administración de aplicaciones?
 
@@ -49,7 +49,7 @@ Las organizaciones suelen tener cientos de aplicaciones de las que los usuarios 
 
 ## <a name="how-does-azure-ad-work-with-applications"></a>¿Cómo funciona Azure AD con las aplicaciones?
 
-Azure AD simplifica la manera de administrar las aplicaciones, porque proporciona un único sistema de identidades para las aplicaciones en la nube y el entorno local. Puede agregar a Azure AD las aplicaciones de software como servicio (SaaS), aplicaciones locales y aplicaciones de línea de negocio (LOB). Después, los usuarios inician sesión una vez para acceder de forma segura y sin problemas a estas aplicaciones, junto con Office 365 y otras aplicaciones empresariales de Microsoft. Puede reducir los costos administrativos gracias a la [automatización del aprovisionamiento de usuarios](../app-provisioning/user-provisioning.md). También puede utilizar la autenticación multifactor y las directivas de acceso condicional para proporcionar un acceso seguro a las aplicaciones.
+Azure AD simplifica la manera de administrar las aplicaciones, porque proporciona un único sistema de identidades para las aplicaciones en la nube y el entorno local. Puede agregar a Azure AD las aplicaciones de software como servicio (SaaS), aplicaciones locales y aplicaciones de línea de negocio (LOB). Después, los usuarios inician sesión una vez para acceder de forma segura y sin problemas a estas aplicaciones, junto con Microsoft 365 y otras aplicaciones empresariales de Microsoft. Puede reducir los costos administrativos gracias a la [automatización del aprovisionamiento de usuarios](../app-provisioning/user-provisioning.md). También puede utilizar la autenticación multifactor y las directivas de acceso condicional para proporcionar un acceso seguro a las aplicaciones.
 
 ![Diagrama que muestra las aplicaciones federadas mediante Azure AD](media/what-is-application-management/app-management-overview.png)
 
@@ -59,7 +59,7 @@ Hay cuatro tipos principales de aplicaciones que se pueden agregar a las **aplic
 
 - **Aplicaciones de la galería de Azure AD**: Azure AD tiene una galería que contiene miles de aplicaciones que se han integrado previamente para el inicio de sesión único con Azure AD. Algunas de las aplicaciones que su organización usa probablemente estén en la galería. [Aprenda sobre cómo planear la integración de la aplicación](plan-an-application-integration.md) u obtenga pasos detallados de la integración para aplicaciones individuales en los [tutoriales de aplicaciones SaaS](https://docs.microsoft.com/azure/active-directory/saas-apps/).
 
-- **Aplicaciones locales con Application Proxy**: con Azure AD Application Proxy, puede integrar las aplicaciones web locales con Azure AD para admitir el inicio de sesión único. Después, los usuarios finales pueden acceder a sus aplicaciones web locales de la misma manera que acceden a Office 365 y a otras aplicaciones de SaaS. Consulte [Acceso remoto a aplicaciones locales mediante Azure Active Directory Application Proxy](application-proxy.md).
+- **Aplicaciones locales con Application Proxy**: con Azure AD Application Proxy, puede integrar las aplicaciones web locales con Azure AD para admitir el inicio de sesión único. Después, los usuarios finales pueden acceder a sus aplicaciones web locales de la misma manera que acceden a Microsoft 365 y a otras aplicaciones de SaaS. Consulte [Acceso remoto a aplicaciones locales mediante Azure Active Directory Application Proxy](application-proxy.md).
 
 - **Aplicaciones desarrolladas a medida**: al crear sus propias aplicaciones de línea de negocio, puede integrarlas con Azure AD para admitir el inicio de sesión único. Al registrar la aplicación con Azure AD, tendrá el control de la directiva de autenticación de dicha aplicación. Para más información, consulte las [instrucciones para desarrolladores](developer-guidance-for-integrating-applications.md).
 
@@ -69,7 +69,7 @@ Hay cuatro tipos principales de aplicaciones que se pueden agregar a las **aplic
 >Puede integrar Azure AD con una aplicación aunque no esté configurada previamente, y en la galería de aplicaciones. Puede **integrar Azure AD con cualquiera** de los siguientes:
 > - Un vínculo web, o aplicación, que represente un **campo de nombre de usuario y contraseña**.
 > - Una aplicación que admita **protocolos SAML u OpenID Connect**.
-> - Una aplicación que admita la norma **System for Cross-domain Identity Management (SCIM)** .
+> - Una aplicación que admita la norma **System for Cross-domain Identity Management (SCIM)**.
 
 ## <a name="manage-risk-with-conditional-access-policies"></a>Administración de riesgos con directivas de acceso condicional
 
@@ -77,7 +77,7 @@ El acoplamiento del inicio de sesión único (SSO) de Azure AD con [acceso cond
 
 ## <a name="improve-productivity-with-single-sign-on"></a>Mejora de la seguridad con el inicio de sesión único
 
-Habilitar el inicio de sesión único (SSO) en las aplicaciones y Office 365 ofrece una experiencia de inicio de sesión superior para los usuarios existentes con la reducción o eliminación de mensajes de inicio de sesión. El entorno del usuario será más coherente y menos confuso sin tantos mensajes o sin la necesidad de administrar varias contraseñas. El grupo de negocios puede administrar y aprobar el acceso mediante una pertenencia dinámica y de autoservicio. Permitir que las personas correctas de la empresa administren el acceso a una aplicación mejora la seguridad del sistema de identidades.
+Habilitar el inicio de sesión único (SSO) en las aplicaciones y Microsoft 365 ofrece una experiencia de inicio de sesión superior para los usuarios existentes con la reducción o eliminación de mensajes de inicio de sesión. El entorno del usuario será más coherente y menos confuso sin tantos mensajes o sin la necesidad de administrar varias contraseñas. El grupo de negocios puede administrar y aprobar el acceso mediante una pertenencia dinámica y de autoservicio. Permitir que las personas correctas de la empresa administren el acceso a una aplicación mejora la seguridad del sistema de identidades.
 
 El inicio de sesión único mejora la seguridad. *Sin el inicio de sesión único*, los administradores necesitan crear y actualizar cuentas de usuario para cada aplicación individual, lo que requiere tiempo. Además, los usuarios deben realizar un seguimiento de varias credenciales para acceder a sus aplicaciones. Como resultado, los usuarios tienden a anotar las contraseñas o usar otras soluciones de administración de contraseñas que presentan riesgos para la seguridad de los datos. [Obtenga más información sobre el inicio de sesión único](what-is-single-sign-on.md).
 

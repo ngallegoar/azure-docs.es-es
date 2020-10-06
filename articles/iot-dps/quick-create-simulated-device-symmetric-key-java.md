@@ -9,20 +9,20 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 8acc8b1e32304705b4221fe5570f7445720eafed
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fa1354c471cf23d85b3c2b0b563ed0463f5e19b2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307920"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528438"
 ---
-# <a name="quickstart-provision-a-simulated-device-to-iot-hub-with-symmetric-keys"></a>Inicio rápido: Aprovisionamiento de un dispositivo simulado en IoT Hub con claves simétricas
+# <a name="quickstart-provision-a-simulated-device-to-iot-hub-with-symmetric-keys"></a>Aprovisionamiento de un dispositivo simulado en IoT Hub con claves simétricas
 
 En esta guía de inicio rápido, obtendrá información sobre cómo crear y ejecutar un simulador de dispositivos en una máquina de desarrollo Windows. Configurará este dispositivo simulado para utilizar una clave simétrica a fin de autenticarse con una instancia del Device Provisioning Service y recibir la asignación a un centro de IoT. Se usará código de ejemplo del [SDK para Java de IoT de Microsoft Azure](https://github.com/Azure/azure-iot-sdk-java) para simular una secuencia de arranque para el dispositivo que inicia el aprovisionamiento. El dispositivo se reconocerá en función de una inscripción individual en una instancia del servicio DPS y se asignará a un centro de IoT.
 
 Aunque en este artículo se muestra el aprovisionamiento con una inscripción individual, puede usar grupos de inscripción. Hay algunas diferencias al usar los grupos de inscripción. Por ejemplo, debe usar una clave de dispositivo derivada con un identificador de registro único para el dispositivo. Aunque los grupos de inscripción de clave simétrica no se limitan a los dispositivos heredados, en [Cómo aprovisionar dispositivos heredados con la atestación de clave simétrica](how-to-legacy-device-symm-key.md) se proporciona un ejemplo de grupo de inscripción. Para obtener más información, consulte [Inscripciones de grupo para la atestación de clave simétrica](concepts-symmetric-key-attestation.md#group-enrollments).
 
-Si no está familiarizado con el proceso de aprovisionamiento automático, revise los [conceptos sobre aprovisionamiento automático](concepts-auto-provisioning.md). 
+Si no está familiarizado con el proceso de aprovisionamiento automático, revise la información general sobre el [aprovisionamiento](about-iot-dps.md#provisioning-process). 
 
 Además, asegúrese de completar los pasos descritos en [Configuración del servicio Azure IoT Hub Device Provisioning con Azure Portal](./quick-setup-auto-provision.md) antes de continuar con este inicio rápido. Para seguir esta guía de inicio rápido, ya debe haber creado la instancia del Device Provisioning Service.
 
@@ -66,13 +66,13 @@ Este artículo está orientado a una estación de trabajo basada en Windows. No 
 
 3. En el panel **Agregar inscripción**, escriba la siguiente información y presione el botón **Guardar**.
 
-   - **Mecanismo**: Seleccione **Clave simétrica** como el *mecanismo* de atestación de identidad.
+   - **Mecanismo:** seleccione **Clave simétrica** como *mecanismo* de atestación de identidad.
 
-   - **Generar claves automáticamente**: Active esta casilla.
+   - **Generar claves automáticamente**: marque esta casilla.
 
-   - **Identificador de registro**: Escriba un identificador de registro para identificar la inscripción. Use únicamente caracteres alfanuméricos en minúsculas y guiones (“-”). Por ejemplo, **symm-key-java-device-007**.
+   - **Identificador de registro**: escriba un identificador de registro para identificar la inscripción. Use únicamente caracteres alfanuméricos en minúsculas y guiones (“-”). Por ejemplo, **symm-key-java-device-007**.
 
-   - **Id. de dispositivo IoT Hub:** Escriba un identificador de dispositivo. Por ejemplo, **java-device-007**.
+   - **Id. de dispositivo de IoT Hub:** escriba un identificador de dispositivo. Por ejemplo, **java-device-007**.
 
      ![Agregar una inscripción individual para la atestación de clave simétrica en el portal](./media/quick-create-simulated-device-symm-key-java/create-individual-enrollment-java.png)
 

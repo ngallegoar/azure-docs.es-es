@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Creación de un registro y una zona DNS de Azure: plantilla de Azure Resource Manager'
+title: 'Creación de un registro y una zona DNS de Azure: plantilla de Azure Resource Manager'
 titleSuffix: Azure DNS
 description: Obtenga información sobre cómo crear una zona y un registro DNS en Azure DNS. Este es un inicio rápido paso a paso para crear y administrar su primera zona DNS y su primer mediante una plantilla de Azure Resource Manager.
 services: dns
@@ -8,14 +8,14 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 09/8/2020
 ms.author: duau
-ms.openlocfilehash: 4fd87cb17fc222f5014585e8f1e87e3f58a58574
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 8e53e8ad26ddac1006a28fea2ddee9990533e8c9
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89596413"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647888"
 ---
-# <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>Inicio rápido: Creación de un registro y una zona DNS de Azure mediante una plantilla de Resource Manager
+# <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>Creación de un registro y una zona DNS de Azure mediante una plantilla de Resource Manager
 
 En este inicio rápido se describe cómo usar una plantilla de Azure Resource Manager para crear una zona DNS que contenga un registro D.
 
@@ -25,7 +25,7 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-dns-new-zone%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -87,11 +87,11 @@ Azure PowerShell se usa para implementar la plantilla. Además de Azure PowerShe
 
 1. El grupo de recursos debe contener los recursos que se ven aquí:
 
-    :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="Grupo de recursos de implementación de zona DNS":::
+    :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="Salida de la implementación de PowerShell de la plantilla de Resource Manager de la zona DNS de Azure":::
 
 1. Seleccione la zona DNS con el sufijo **<span>azurequickstart.</span>org** para comprobar que la zona se crea correctamente con un registro **D** que hace referencia al valor de **1.2.3.4** y **1.2.3.5**.
 
-    :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="Implementación de zona DNS":::
+    :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="Salida de la implementación de PowerShell de la plantilla de Resource Manager de la zona DNS de Azure":::
 
 1. Copie uno de los nombres de servidor del paso anterior.
 
@@ -101,7 +101,7 @@ Azure PowerShell se usa para implementar la plantilla. Además de Azure PowerShe
    nslookup www.<dns zone name> <name server name>
    ```
 
-   Por ejemplo:
+   Por ejemplo: ;;
 
    ```
    nslookup www.2lwynbseszpam.azurequickstart.org ns1-09.azure-dns.com.
@@ -109,13 +109,13 @@ Azure PowerShell se usa para implementar la plantilla. Además de Azure PowerShe
 
    Debería ver algo parecido a la captura de pantalla siguiente:
 
-    :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="nslookup de zona DNS":::
+    :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="Salida de la implementación de PowerShell de la plantilla de Resource Manager de la zona DNS de Azure":::
 
 El nombre de host **www<span>.2lwynbseszpam.azurequickstart.</span>org** se resuelve en **1.2.3.4** y **1.2.3.5**, tal como lo configuró. Este resultado confirma que la resolución de nombres funciona correctamente.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no necesite los recursos que ha creado con el circuito de ExpressRoute, elimine el grupo de recursos. Esta acción quita el circuito de ExpressRoute y todos los recursos relacionados.
+Cuando ya no necesite los recursos que ha creado con la zona DNS, elimine el grupo de recursos. Esta acción elimina la zona DNS y todos los recursos relacionados.
 
 Para eliminar el grupo de recursos, llame al cmdlet `Remove-AzResourceGroup`:
 
@@ -127,7 +127,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 En este inicio rápido, ha creado lo siguiente:
 * Zona DNS
-* Registro A
+* Registro D
 
 Ahora que ha creado su primer registro y su primera zona DNS mediante la plantilla de Azure Resource Manager, puede crear registros para una aplicación web de un dominio personalizado.
 

@@ -1,17 +1,17 @@
 ---
-title: 'Inicio rápido: Asignación de directivas nuevas con plantillas'
+title: Asignación de directivas nuevas con plantillas
 description: En este inicio rápido se usa una plantilla de Azure Resource Manager para crear una asignación de directivas para identificar los recursos no compatibles.
 ms.date: 08/17/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 2f012f9cc8f986f8f887096098961e44c4b7dffb
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: c32f833520a811d47129196ae4d67c92bad7e21f
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689854"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651426"
 ---
-# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles mediante una plantilla de Resource Manager
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>Creación de una asignación de directiva para identificar recursos no compatibles mediante una plantilla de Resource Manager
 
 El primer paso para entender el cumplimiento en Azure es identificar el estado de sus recursos.
 Este inicio rápido le guía por el proceso de usar una plantilla de Azure Resource Manager para crear una asignación de directiva con el objeto de identificar las máquinas virtuales que no usan discos administrados. Al finalizar este proceso, habrá identificado correctamente máquinas virtuales que no utilizan discos administrados. _No son compatibles_ con la asignación de directiva.
@@ -20,11 +20,11 @@ Este inicio rápido le guía por el proceso de usar una plantilla de Azure Resou
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Implementación de la plantilla de Resource Manager para asignar una instancia de Azure Policy a Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
+:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Botón para implementar la plantilla de ARM para asignar una instancia de Azure Policy a Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
+si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
@@ -45,7 +45,7 @@ El recurso definido en la plantilla es el siguiente:
 
 1. Seleccione la siguiente imagen para iniciar sesión en Azure Portal y abrir la plantilla:
 
-   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Implementación de la plantilla de Resource Manager para asignar una instancia de Azure Policy a Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
+   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Botón para implementar la plantilla de ARM para asignar una instancia de Azure Policy a Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
 
 1. Seleccione o escriba los siguientes valores:
 
@@ -55,7 +55,7 @@ El recurso definido en la plantilla es el siguiente:
    | Resource group | Seleccione **Crear**, especifique un nombre y seleccione **Aceptar**. En la captura de pantalla, el nombre del grupo de recursos es _mypolicyquickstart\<Date in MMDD\>rg_. |
    | Location | Seleccione una región. Por ejemplo, **Centro de EE. UU**. |
    | Nombre de la asignación de directiva | Especifique un nombre para la asignación de directiva. Si lo desea, puede usar la definición de directiva en pantalla. Por ejemplo, _Auditoría de máquinas virtuales que no usan discos administrados_. |
-   | Nombre del grupo de recursos | Especifique un nombre para el grupo de recursos donde desea asignar la directiva. En este inicio rápido se usa el valor predeterminado **[resourceGroup().name]** . **[resourceGroup()](../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)** es una función de plantilla que recupera el grupo de recursos. |
+   | Nombre del grupo de recursos | Especifique un nombre para el grupo de recursos donde desea asignar la directiva. En este inicio rápido se usa el valor predeterminado **[resourceGroup().name]**. **[resourceGroup()](../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)** es una función de plantilla que recupera el grupo de recursos. |
    | ID de definición de directiva | Especifique **/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a**. |
    | Acepto los términos y condiciones indicados anteriormente | (Seleccionar) |
 
@@ -72,7 +72,7 @@ Algunos recursos adicionales:
 
 Seleccione **Cumplimiento** en el panel izquierdo de la página. A continuación, busque la asignación de directiva _Auditoría de máquinas virtuales que no usan discos administrados_ que ha creado.
 
-:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Página de información general del cumplimiento de directivas" border="false":::
+:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Botón para implementar la plantilla de ARM para asignar una instancia de Azure Policy a Azure." border="false":::
 
 Si hay algún recurso existente no compatible con esta nueva asignación, aparecerá en la pestaña **Recursos no compatibles**.
 
@@ -86,7 +86,7 @@ Para quitar la asignación creada, siga estos pasos:
 
 1. Haga clic con el botón derecho en la asignación de directiva _Auditoría de máquinas virtuales que no usan discos administrados_ y seleccione **Eliminar asignación**.
 
-   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Eliminación de una asignación de la página de información general de cumplimiento" border="false":::
+   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Botón para implementar la plantilla de ARM para asignar una instancia de Azure Policy a Azure." border="false":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

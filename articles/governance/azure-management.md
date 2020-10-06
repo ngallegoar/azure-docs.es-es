@@ -1,14 +1,14 @@
 ---
 title: 'Introducción a la administración de Azure: Gobernanza de Azure'
 description: Información general de las áreas de administración para las aplicaciones y los recursos de Azure con vínculos a contenido sobre las herramientas de administración de Azure.
-ms.date: 07/06/2020
+ms.date: 09/09/2020
 ms.topic: overview
-ms.openlocfilehash: 81d655db706a7330fc541724d490a4885cc2fe8b
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 0aaa23dd2841802919cfdfcc857a189e072a5c6b
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041921"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662128"
 ---
 # <a name="what-are-the-azure-management-areas"></a>¿Qué son las áreas de administración de Azure?
 
@@ -18,7 +18,9 @@ Administración hace referencia a las tareas y procesos necesarios para mantener
 
 El siguiente diagrama muestra las diferentes áreas de administración necesarias para mantener cualquier aplicación o recurso. Estas áreas distintas pueden considerarse como un ciclo de vida. Cada área es necesaria en una sucesión continua a lo largo de toda la duración de un recurso. El ciclo de vida de este recurso empieza con la implementación inicial, sigue con la operación continua y, finalmente, termina cuando se le retira.
 
-:::image type="content" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="Materias de administración en Azure" border="false":::
+:::image type="complex" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="Diagrama de las materias de administración en Azure." border="false":::
+   Diagrama que muestra los elementos Migración, Seguridad, Protección, Supervisión, Configuración y Gobernanza del conjunto de servicios que posibilitan la administración y la gobernanza en Azure. Seguridad contiene los elementos secundarios Administración de seguridad y Protección contra amenazas. Protección contiene los elementos secundarios Copia de seguridad y Recuperación ante desastres. Supervisión contiene los elementos secundarios Aplicación, Supervisión de infraestructura y red, Log Analytics y Diagnósticos. Configuración contiene los elementos secundarios Configuración, Update Management, Automation y Scripting. Y Gobernanza contiene los elementos secundarios Administración de directivas y Cost Management.
+:::image-end:::
 
 No hay ningún servicio único de Azure que cumpla íntegramente con los requisitos de un área de administración determinada. En vez de eso, son varios los servicios que los satisfacen, trabajando en conjunto. Algunos servicios, como Application Insights, proporcionan una funcionalidad de supervisión dirigida para las aplicaciones web. Otros, como los registros de Azure Monitor, almacenan datos de administración para otros servicios. Esta característica permite analizar datos de tipos diferentes recopilados por distintos servicios.
 

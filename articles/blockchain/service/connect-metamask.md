@@ -4,20 +4,20 @@ description: Conéctese a una red de Azure Blockchain Service mediante MetaMask 
 ms.date: 09/12/2019
 ms.topic: quickstart
 ms.reviewer: janders
-ms.openlocfilehash: abb2479b81d4811b311d27fb0be9900f2827e939
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 4a45e02a861ff20a4dc774668a4e008f9b42aeea
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920585"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530444"
 ---
-# <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>Inicio rápido: Uso de MetaMask para conectarse a un contrato inteligente e implementarlo
+# <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>Uso de MetaMask para conectarse a un contrato inteligente e implementarlo
 
 En este inicio rápido, usará MetaMask para conectarse a una red de Azure Blockchain Service y usará Remix para implementar un contrato inteligente. MetaMask es una extensión del navegador para administrar una cartera de Ether y realizar acciones de contrato inteligente.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Realizar el tutorial [Quickstart: Creación de un miembro de cadena de bloques mediante Azure Portal](create-member.md) o [Inicio rápido: Creación de un miembro de cadena de bloques de Azure Blockchain Service mediante la CLI de Azure](create-member-cli.md)
 * Instalar la [extensión del explorador MetaMask](https://metamask.io)
@@ -89,7 +89,7 @@ Remix es un entorno de desarrollo de Solidity basado en explorador. Cuando se us
     El **contrato simple** declara una variable de estado denominada **balance**. Hay dos funciones definidas. La función **add** agrega un número a **balance**. La función **get** devuelve el valor de **balance**.
 1. Para compilar el contrato, primero seleccione el panel del compilador de Solidity y, a continuación, seleccione **Compile simple.sol**.
 
-    ![Compilación](./media/connect-metamask/compile.png)
+    ![Captura de pantalla de la creación de un contrato.](./media/connect-metamask/compile.png)
 
 1. Seleccione el panel **Deploy & Run** (Implementar y ejecutar) y, a continuación, establezca **Environment** (Entorno) en **Injected Web3** (Web3 insertado) para conectarse a través de MetaMask al miembro de cadena de bloques.
 
@@ -97,7 +97,7 @@ Remix es un entorno de desarrollo de Solidity basado en explorador. Cuando se us
 
 1. Seleccione el contrato **simple** (sencillo) y haga clic en **Deploy** (Implementar).
 
-    ![Implementación](./media/connect-metamask/deploy.png)
+    ![La captura de pantalla muestra la opción para implementar y ejecutar transacciones con un contrato seleccionado y la opción Deploy (Implementar) seleccionada.](./media/connect-metamask/deploy.png)
 
 
 1. Una notificación de MetaMask le avisa de que no hay fondos suficientes para realizar la transacción.

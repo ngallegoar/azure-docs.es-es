@@ -1,7 +1,7 @@
 ---
-title: 'Inicio rápido: Uso de PHP para llamar a Text Analytics API'
+title: 'Guía de inicio rápido: Uso de PHP para llamar a Text Analytics API'
 titleSuffix: Azure Cognitive Services
-description: En este inicio rápido se muestra cómo obtener información y ejemplos de código que le ayuden a empezar a usar rápidamente la API Text Analytics en Azure Cognitive Services.
+description: En este inicio rápido se muestra cómo usar PHP para obtener información y ejemplos de código que le ayuden a empezar a usar rápidamente la API Text Analytics en Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,21 +10,21 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 07/10/2020
 ms.author: aahi
-ms.openlocfilehash: 4627cc83de70f596ae4917d0449f785a33bf720f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 09901c514a1f2b94edc3e4108ec46051a284a6db
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261358"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527265"
 ---
-# <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Inicio rápido: Uso de PHP para llamar a Text Analytics de Cognitive Services
+# <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Guía de inicio rápido: Uso de PHP para llamar a Text Analytics de Cognitive Services
 <a name="HOLTop"></a>
 
 En este artículo se muestra cómo [detectar el idioma](#Detect), [analizar las opiniones](#SentimentAnalysis), [extraer las frases clave](#KeyPhraseExtraction) e [identificar las entidades vinculadas](#Entities) mediante  [instancias de Text Analytics API](//go.microsoft.com/fwlink/?LinkID=759711)  con PHP.
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 

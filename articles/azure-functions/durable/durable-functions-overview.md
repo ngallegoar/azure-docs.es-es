@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 03/12/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: d1c4f62f19a36867ebc85a98b0cd38bbbf8ce757
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 28c494bf2867ec5d2d3ee99ef7ee45f8181cfd90
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660689"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669253"
 ---
 # <a name="what-are-durable-functions"></a>¿Qué es Durable Functions?
 
@@ -21,10 +21,10 @@ ms.locfileid: "88660689"
 
 Durable Functions admite actualmente los siguientes idiomas:
 
-* **C#** : tanto las [bibliotecas de clases precompiladas](../functions-dotnet-class-library.md) como [script C#](../functions-reference-csharp.md).
+* **C#**: tanto las [bibliotecas de clases precompiladas](../functions-dotnet-class-library.md) como [script C#](../functions-reference-csharp.md).
 * **JavaScript**: solo es compatible con la versión 2.x del entorno de ejecución de Azure Functions. Requiere la versión 1.7.0 de la extensión Durable Functions, o una posterior. 
-* **Python**: requiere la versión 1.8.5 de la extensión Durable Functions, o cualquier versión posterior. 
-* **F#** : tanto las bibliotecas de clases precompiladas como script F#. El script F# solo es compatible con la versión 1.x del entorno de ejecución de Azure Functions.
+* **Python**: requiere la versión 1.8.5 de la extensión Durable Functions, o cualquier versión posterior. La compatibilidad con Durable Functions está actualmente en versión preliminar pública.
+* **F#**: tanto las bibliotecas de clases precompiladas como script F#. El script F# solo es compatible con la versión 1.x del entorno de ejecución de Azure Functions.
 * **PowerShell**: la compatibilidad con Durable Functions está actualmente en versión preliminar pública. Solo es compatible con la versión 3.x del entorno de ejecución de Azure Functions y PowerShell 7. Requiere la versión 2.2.2 de la extensión Durable Functions, o cualquier versión posterior. Actualmente, solo se admiten los siguientes patrones: [Encadenamiento de funciones](#chaining), [distribución ramificada de entrada o salida](#fan-in-out), [API de HTTP asincrónico](#async-http).
 
 Durable Functions tiene el objetivo de admitir todos los [idiomas de Azure Functions](../supported-languages.md). Consulte en la [lista de problemas de Durable Functions](https://github.com/Azure/azure-functions-durable-extension/issues) en qué punto se encuentra la compatibilidad con idiomas adicionales.
@@ -42,7 +42,7 @@ El caso de uso principal para Durable Functions es simplificar los requisitos de
 * [Interacción humana](#human)
 * [Agregador (entidades con estado)](#aggregator)
 
-### <a name="pattern-1-function-chaining"></a><a name="chaining"></a>Patrón 1: Diagrama de encadenamiento de funciones
+### <a name="pattern-1-function-chaining"></a>Patrón nº 1: Encadenamiento de funciones
 
 En el modelo de encadenamiento de funciones, una secuencia de funciones se ejecuta en un orden específico. Con este patrón, la salida de una función se aplica a la entrada de otra función.
 
@@ -135,7 +135,7 @@ Puede usar el comando `Invoke-ActivityFunction` para invocar otras funciones por
 
 ---
 
-### <a name="pattern-2-fan-outfan-in"></a><a name="fan-in-out"></a>Patrón 2: distribución ramificada de entrada y salida
+### <a name="pattern-2-fan-outfan-in"></a>Patrón nº 2: Distribución ramificada de salida y de entrada
 
 En el patrón de distribución ramificada de salida y entrada, se ejecutan en paralelo varias funciones y después se espera a que todas finalicen. A menudo se realiza algún trabajo de agregación en los resultados devueltos de las funciones.
 
@@ -255,7 +255,7 @@ La creación automática de puntos de control que se produce en la llamada a `Wa
 > [!NOTE]
 > En raras ocasiones es posible que se produzca un bloqueo en la ventana después de que se complete una función de actividad, pero antes de que su finalización se guarde en el historial de la orquestación. Em ese caso, la función de actividad se volvería a ejecutar desde el principio en cuanto se recuperara el proceso.
 
-### <a name="pattern-3-async-http-apis"></a><a name="async-http"></a>Patrón 3: Las API de HTTP asincrónico
+### <a name="pattern-3-async-http-apis"></a>Patrón nº 3: Las API de HTTP asincrónico
 
 El patrón de las API HTTP asincrónico soluciona el problema de coordinar el estado de las operaciones de larga duración con los clientes externos. Una forma habitual de implementar este patrón es que un punto de conexión HTTP desencadene la acción de larga duración. A continuación, el cliente se redirige a un punto de conexión de estado al que sondea para saber cuando finalice la operación.
 
@@ -403,7 +403,7 @@ Actualmente, la supervisión no se admite en PowerShell.
 
 Cuando se recibe una solicitud, se crea una nueva instancia de orquestación para ese identificador de trabajo. La instancia sondea un estado hasta que se cumple una condición y se cierra el bucle. Un temporizador durable controla el intervalo de sondeo. Después, se puede realizar trabajo adicional o puede finalizar la orquestación. Cuando el valor de `nextCheck` supera el de `expiryTime`, el monitor finaliza.
 
-### <a name="pattern-5-human-interaction"></a><a name="human"></a>Patrón 5: Interacción humana
+### <a name="pattern-5-human-interaction"></a>Patrón nº 5: Interacción humana
 
 Muchos procesos automatizados implican algún tipo de interacción humana. La intervención humana en un proceso automatizado es más difícil, ya que las personas no tienen la misma alta disponibilidad y capacidad de respuesta que los servicios en la nube. Los procesos automatizados pueden permitir esta interacción mediante el uso de tiempos de expiración y la lógica de compensación.
 

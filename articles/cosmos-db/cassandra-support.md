@@ -1,29 +1,29 @@
 ---
 title: Características de Apache Cassandra admitidas por Cassandra API de Azure Cosmos DB
 description: Obtenga información sobre la compatibilidad con las características de Apache Cassandra en Cassandra API de Azure Cosmos DB
-author: kanshiG
-ms.author: govindk
+author: TheovanKraay
+ms.author: thvankra
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
-ms.date: 09/24/2018
-ms.openlocfilehash: e7384237f91bf3af8ccad1a97b27fb62a1845a88
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.date: 09/14/2020
+ms.openlocfilehash: 9fe149fb026aabcb50a595061d3ba57df7812563
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118991"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602819"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Características de Apache Cassandra admitidas por Cassandra API de Azure Cosmos DB 
 
-Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Se puede comunicar con Cassandra API de Azure Cosmos DB con los [controladores](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) de cliente de Cassandra, de código abierto y compatibles con el [protocolo de conexión](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) del lenguaje de consulta Cassandra (CQL) v4. 
+Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede comunicarse con Cassandra API de Azure Cosmos DB mediante el [protocolo de conexión](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) CQL Binary Protocol v4 compatible con los [controladores](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) de código abierto del cliente de Cassandra. 
 
-Con Cassandra API de Azure Cosmos DB, puede disfrutar de las ventajas de las API de Apache Cassandra, así como de las funcionalidades empresariales que ofrece Azure Cosmos DB. Entre las funcionalidades empresariales se incluyen las siguientes: [distribución global](distribute-data-globally.md), [creación de particiones de escalado horizontal automático](partition-data.md), garantías de disponibilidad y latencia, cifrado en reposo y copias de seguridad, entre otras.
+Con Cassandra API de Azure Cosmos DB, puede disfrutar de las ventajas de las API de Apache Cassandra, así como de las funcionalidades empresariales que ofrece Azure Cosmos DB. Entre las funcionalidades empresariales se incluyen las siguientes: [distribución global](distribute-data-globally.md), [creación de particiones de escalado horizontal automático](cassandra-partitioning.md), garantías de disponibilidad y latencia, cifrado en reposo y copias de seguridad, entre otras.
 
 ## <a name="cassandra-protocol"></a>Protocolo Cassandra 
 
-Cassandra API de Azure Cosmos DB es compatible con CQL versión **v4**. A continuación se enumeran los comandos, las herramientas, las limitaciones y las excepciones de CQL. Cualquier controlador de cliente que reconozca estos protocolos podrá conectarse a Cassandra API de Azure Cosmos DB.
+Cassandra API de Azure Cosmos DB es compatible con la versión 3.11 de la API Cassandra Query Language (CQL) (compatible con versiones anteriores con la versión 2.x). A continuación se enumeran los comandos, las herramientas, las limitaciones y las excepciones de CQL. Cualquier controlador de cliente que reconozca estos protocolos podrá conectarse a Cassandra API de Azure Cosmos DB.
 
 ## <a name="cassandra-driver"></a>Controlador Cassandra
 
@@ -37,61 +37,149 @@ Cassandra API de Azure Cosmos DB admite las siguientes versiones de los controla
 * [PHP 1.3](https://github.com/datastax/php-driver)  
 * [Gocql](https://github.com/gocql/gocql)  
  
+
 ## <a name="cql-data-types"></a>Tipos de datos CQL 
 
 Cassandra API de Azure Cosmos DB admite los siguientes tipos de datos CQL:
 
-* ascii  
-* bigint  
-* blob  
-* boolean  
-* counter  
-* date  
-* Decimal  
-* double  
-* FLOAT  
-* frozen  
-* inet  
-* int  
-* list  
-* set  
-* SMALLINT  
-* text  
-* time  
-* timestamp  
-* timeuuid  
-* TINYINT  
-* tuple  
-* uuid  
-* varchar  
-* varint  
-* tuples  
-* udts  
-* map  
+|Get-Help  |Compatible |
+|---------|---------|
+| ascii  | Sí |
+| bigint  | Sí |
+| blob  | Sí |
+| boolean  | Sí |
+| counter  | Sí |
+| date  | Sí |
+| Decimal  | Sí |
+| double  | Sí |
+| FLOAT  | Sí |
+| frozen  | Sí |
+| inet  | Sí |
+| int  | Sí |
+| list  | Sí |
+| set  | Sí |
+| SMALLINT  | Sí |
+| text  | Sí |
+| time  | Sí |
+| timestamp  | Sí |
+| timeuuid  | Sí |
+| TINYINT  | Sí |
+| tuple  | Sí |
+| uuid  | Sí |
+| varchar  | Sí |
+| varint  | Sí |
+| tuples | Sí | 
+| udts  | Sí |
+| map | Sí |
 
 ## <a name="cql-functions"></a>Funciones de CQL
 
 Cassandra API de Azure Cosmos DB admite las siguientes funciones de CQL:
 
-* Token  
-* Funciones de agregado
-  * min, max, avg, count
-* Funciones de conversión de blobs 
-  * typeAsBlob(value)  
-  * blobAsType(value)
-* Funciones UUID y timeuuid 
-  * dateOf()  
-  * now()  
-  * minTimeuuid()  
-  * unixTimestampOf()  
-  * toDate(timeuuid)  
-  * toTimestamp(timeuuid)  
-  * toUnixTimestamp(timeuuid)  
-  * toDate(timestamp)  
-  * toUnixTimestamp(timestamp)  
-  * toTimestamp(date)  
-  * toUnixTimestamp(date) 
+|Get-Help  |Compatible |
+|---------|---------|
+| Token * | Sí |
+| ttl | Sí |
+| writetime | Sí |
+| Conversión | No |
+
+\* Cassandra API admite el token como proyección o selector y solo permite token(pk) en el lado izquierdo de una cláusula WHERE. Por ejemplo, se admite `WHERE token(pk) > 1024`, pero no se admite `WHERE token(pk) > token(100)`.
+
+
+Funciones de agregado:
+
+|Get-Help  |Compatible |
+|---------|---------|
+| Min | Sí |
+| max | Sí |
+| avg | Sí |
+| count | Sí |
+
+Funciones de conversión de blobs:
+ 
+|Get-Help  |Compatible |
+|---------|---------|
+| typeAsBlob(value)   | Sí |
+| blobAsType(value) | Sí |
+
+
+Funciones UUID y timeuuid:
+ 
+|Get-Help  |Compatible |
+|---------|---------|
+| dateOf()  | Sí |
+| now()  | Sí |
+| minTimeuuid()  | Sí |
+| unixTimestampOf()  | Sí |
+| toDate(timeuuid)  | Sí |
+| toTimestamp(timeuuid)  | Sí |
+| toUnixTimestamp(timeuuid)  | Sí |
+| toDate(timestamp)  | Sí |
+| toUnixTimestamp(timestamp)  | Sí |
+| toTimestamp(date)  | Sí |
+| toUnixTimestamp(date) | Sí |
+
+
   
+## <a name="cql-commands"></a>Comandos de CQL
+
+Azure Cosmos DB admite los siguientes comandos de base de datos en las cuentas de Cassandra API.
+
+|Get-Help  |Compatible |
+|---------|---------|
+| ALLOW FILTERING | Sí |
+| ALTER KEYSPACE | N/A (servicio PaaS, replicación administrada internamente)|
+| ALTER MATERIALIZED VIEW | No |
+| ALTER ROLE | No |
+| ALTER TABLE | Sí |
+| ALTER TYPE | No |
+| ALTER USER | No |
+| BATCH | Sí (solo proceso por lotes no registrado)|
+| COMPACT STORAGE | N/A (servicio PaaS) |
+| CREATE AGGREGATE | No | 
+| CREATE CUSTOM INDEX (SASI) | No |
+| CREATE INDEX | Sí (sin [especificar el nombre de índice](cassandra-secondary-index.md) y no se admiten índices en las claves de agrupación en clústeres ni en la colección FROZEN completa) |
+| CREATE FUNCTION | No |
+| CREATE KEYSPACE (se omite la configuración de replicación) | Sí |
+| CREATE MATERIALIZED VIEW | No |
+| CREATE TABLE | Sí |
+| CREATE TRIGGER | No |
+| CREATE TYPE | Sí |
+| CREATE ROLE | No |
+| CREATE USER (en desuso en Apache Cassandra nativo) | No |
+| Delete | Sí |
+| DELETE (transacciones ligeras con condición IF)| Sí |
+| DROP AGGREGATE | No |
+| .DROP FUNCTION | No |
+| DROP INDEX | Sí |
+| DROP KEYSPACE | Sí |
+| DROP MATERIALIZED VIEW | No |
+| DROP ROLE | No |
+| DROP TABLE | Sí |
+| DROP_TRIGGER | No | 
+| DROP TYPE | Sí |
+| DROP USER (en desuso en Apache Cassandra nativo) | No |
+| GRANT | No |
+| INSERT | Sí |
+| INSERT (transacciones ligeras con condición IF)| Sí |
+| LIST PERMISSIONS | No |
+| LIST ROLES | No |
+| LIST USERS (en desuso en Apache Cassandra nativo) | No |
+| REVOKE | No |
+| SELECT | Sí |
+| SELECT (transacciones ligeras con condición IF)| No |
+| UPDATE | Sí |
+| UPDATE (transacciones ligeras con condición IF)| No |
+| TRUNCATE | No |
+| USE | Sí |
+
+## <a name="json-support"></a>Compatibilidad con JSON
+|Get-Help  |Compatible |
+|---------|---------|
+| SELECT JSON | Sí |
+| INSERT JSON | Sí |
+| fromJson() | No |
+| toJson() | No |
 
 
 ## <a name="cassandra-api-limits"></a>Límites de Cassandra API
@@ -108,9 +196,12 @@ Cassandra API de Azure Cosmos DB es una plataforma de servicio administrada. No 
 
 Puede abrir un shell de Cassandra nativo hospedado (CQLSH v5.0.1) directamente desde el Explorador de datos en [Azure Portal](data-explorer.md) o el [Explorador de Azure Cosmos](https://cosmos.azure.com/). Antes de habilitar el shell de CQL, debe [habilitar la característica Notebooks](enable-notebooks.md) en su cuenta (si aún no está habilitada, se le pedirá que lo haga al hacer clic en `Open Cassandra Shell`). Compruebe la nota resaltada en [Habilitación de Notebooks para las cuentas de Azure Cosmos DB](enable-notebooks.md) para ver las regiones de Azure admitidas.
 
-:::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="CQLSH":::
+:::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Abrir CQLSH&quot;:::
 
 También puede conectarse a Cassandra API en Azure Cosmos DB mediante el CQLSH instalado en un equipo local. Viene con Apache Cassandra 3.1.1, y funciona de serie estableciendo las variables de entorno. En las secciones siguientes se incluyen las instrucciones para instalar, configurar y conectarse a Cassandra API en Azure Cosmos DB, en Windows o Linux con CQLSH.
+
+> [!NOTE]
+> Las conexiones a Cassandra API de Azure Cosmos DB no funcionarán con las versiones de DataStax Enterprise (DSE) de CQLSH. Asegúrese de usar solo las versiones de Apache Cassandra de código abierto de CQLSH al conectarse a Cassandra API. 
 
 **Windows:**
 
@@ -129,7 +220,7 @@ curl https://cacert.omniroot.com/bc2025.crt > bc2025.crt
 keytool -importcert -alias bc2025ca -file bc2025.crt
 
 # Install the Cassandra libraries in order to get CQLSH:
-echo "deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
+echo &quot;deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
 curl https://downloads.apache.org/cassandra/KEYS | sudo apt-key add -
 sudo apt-get update
 sudo apt-get install cassandra
@@ -142,22 +233,6 @@ export SSL_VALIDATE=false
 cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl
 
 ```
-
-## <a name="cql-commands"></a>Comandos de CQL
-
-Azure Cosmos DB admite los siguientes comandos de base de datos en las cuentas de Cassandra API.
-
-* CREATE KEYSPACE (se omite la configuración de replicación para este comando)
-* CREATE TABLE 
-* CREATE INDEX (sin especificar el nombre del índice; aún no se admiten los índices inmovilizados completos)
-* ALLOW FILTERING
-* ALTER TABLE 
-* USE 
-* INSERT 
-* SELECT 
-* UPDATE 
-* BATCH (solo se admiten los comandos no registrados) 
-* Delete
 
 Cuando se ejecutan mediante un SDK compatible con CQL v4, todas las operaciones CRUD devuelven información adicional sobre el error o las unidades de solicitud consumidas. Los comandos DELETE y UPDATE se deben controlar teniendo en cuenta la gobernanza de recursos para garantizar el uso más eficaz del rendimiento aprovisionado.
 

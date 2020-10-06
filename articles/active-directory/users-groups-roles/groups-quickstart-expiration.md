@@ -14,14 +14,14 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 178f6a2c1a71d088eeb1a3ea6f7e39198d401ff4
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 9fa15a9134fdc49d87baea48490854c1289a662a
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213723"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054405"
 ---
-# <a name="quickstart-set-microsoft-365-groups-to-expire-in-azure-active-directory"></a>Inicio rápido: Establecimiento de grupos de Microsoft 365 para que expiren en Azure Active Directory
+# <a name="quickstart-set-microsoft-365-groups-to-expire-in-azure-active-directory"></a>Establecimiento de grupos de Microsoft 365 para que expiren en Azure Active Directory
 
 En este inicio rápido, puede establecer la directiva de expiración de los grupos de Microsoft 365. Cuando los usuarios pueden configurar sus propios grupos, el número de grupos sin uso se puede multiplicar. Una manera de administrar los grupos sin uso es establecer la expiración de dichos grupos, para reducir el mantenimiento de la eliminación manual de grupos.
 
@@ -33,9 +33,9 @@ La directiva de expiración es sencilla:
 - El propietario de un grupo o un administrador de Azure AD pueden restaurar un grupo de Microsoft 365 eliminado al cabo de 30 días.
 
 > [!NOTE]
-> Ahora, los grupos usan la inteligencia de Azure AD para que se renueven automáticamente en función de si se han usado recientemente. Esta decisión de renovación se basa en la actividad de los usuarios en grupos en los servicios de Office 365 como Outlook, SharePoint, Teams, Yammer y otros.
+> Ahora, los grupos usan la inteligencia de Azure AD para que se renueven automáticamente en función de si se han usado recientemente. Esta decisión de renovación se basa en la actividad de los usuarios en grupos en los servicios de Microsoft 365 como Outlook, SharePoint, Teams, Yammer y otros.
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisite"></a>Requisito previo
 

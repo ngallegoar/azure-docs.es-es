@@ -14,14 +14,14 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5b54af39401ba8c3fede4c9ad80ec8edc963b1d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: de0212739f5cd24cec9ab58bdaf4d2b272f31200
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213674"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054371"
 ---
-# <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Inicio rápido: Directiva de nomenclatura para grupos de Azure Active Directory
+# <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Guía de inicio rápido: Directiva de nomenclatura para grupos de Azure Active Directory
 
 En este inicio rápido, configurará una directiva de nomenclatura en la organización de Azure Active Directory (Azure AD) para los grupos de Microsoft 365 creados por el usuario, a fin de ayudarle a ordenar y buscar los grupos de la organización. Por ejemplo, podría usar la directiva de nomenclatura para:
 
@@ -29,7 +29,7 @@ En este inicio rápido, configurará una directiva de nomenclatura en la organiz
 * Ayudar a clasificar los grupos en la libreta de direcciones.
 * Impedir que determinadas palabras se usen en los nombres y alias de grupo.
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="configure-the-group-naming-policy-in-the-azure-portal"></a>Configuración de la directiva de nomenclatura de grupos en Azure Portal
 
@@ -68,6 +68,6 @@ Eso es todo. Ha establecido la directiva de nomenclatura y ha agregado las palab
 
 En este inicio rápido, ha aprendido a establecer la directiva de nomenclatura para la organización de Azure AD mediante Azure Portal.
 
-Avance al artículo siguiente para obtener más información acerca de los cmdlets de PowerShell para la directiva de nomenclatura, las limitaciones técnicas, la adición de una lista de palabras bloqueadas personalizadas y las experiencias de usuario final en las aplicaciones de Office 365.
+Avance al artículo siguiente para obtener más información acerca de los cmdlets de PowerShell para la directiva de nomenclatura, las limitaciones técnicas, la adición de una lista de palabras bloqueadas personalizadas y las experiencias de usuario final en las aplicaciones de Microsoft 365.
 > [!div class="nextstepaction"]
 > [Naming policy PowerShell](groups-naming-policy.md) (Directiva de nomenclatura de PowerShell)

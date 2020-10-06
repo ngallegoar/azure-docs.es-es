@@ -1,14 +1,14 @@
 ---
-title: 'Inicio rápido: Creación de un grupo de administración con Azure Portal'
+title: Creación de un grupo de administración con Azure Portal
 description: En este inicio rápido, se usa Azure Portal para crear un grupo de administración para organizar los recursos en una jerarquía de recursos.
 ms.date: 08/31/2020
 ms.topic: quickstart
-ms.openlocfilehash: 28b530e1da6b75dcc20e4a5dfebc494a959040b3
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: c8cb7b8bd3ad33d1f315670bfbb1782972e6e97f
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89237096"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661741"
 ---
 # <a name="quickstart-create-a-management-group"></a>Inicio rápido: Creación de un grupo de administración
 
@@ -16,9 +16,9 @@ Los grupos de administración son contenedores que ayudan a administran el acces
 
 El primer grupo de administración creado en el directorio puede tardar hasta 15 minutos en completarse. Hay procesos que se ejecutan la primera vez para configurar el servicio de grupos de administración dentro de Azure para su directorio. Recibirá una notificación cuando finalice el proceso. Para obtener más información, vea [Instalación inicial de los grupos de administración](./overview.md#initial-setup-of-management-groups).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-- Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
+- si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 - Si la [protección de jerarquías](./how-to/protect-resource-hierarchy.md#setting---require-authorization) no está habilitada, cualquier usuario de Azure AD del inquilino puede crear un grupo de administración sin tener el permiso de escritura del grupo de administración asignado. Este nuevo grupo de administración pasa a ser un elemento secundario del grupo de administración raíz o del [grupo de administración predeterminado](./how-to/protect-resource-hierarchy.md#setting---default-management-group) y al creador se le asigna el rol de "Propietario". El servicio del grupo de administración ofrece esta funcionalidad para que las asignaciones de roles no sean necesarias en el nivel raíz. Ningún usuario tiene acceso al grupo de administración raíz cuando se crea. Para sortear el obstáculo de buscar administradores globales de Azure AD para empezar a usar grupos de administración, se permite la creación de grupos de administración iniciales en el nivel raíz.
 
@@ -32,14 +32,14 @@ El primer grupo de administración creado en el directorio puede tardar hasta 15
 
 1. Seleccione **+ Agregar grupo de administración**.
 
-   :::image type="content" source="./media/main.png" alt-text="Página para trabajar con grupos de administración" border="false":::
+   :::image type="content" source="./media/main.png" alt-text="Captura de pantalla de la página Grupos de administración que muestra las suscripciones y los grupos de administración secundarios." border="false":::
 
 1. Deje la opción **Crear nuevo** seleccionada y rellene el campo del identificador del grupo de administración.
 
    - El **identificador de grupo de administración** es el identificador único de directorio que se usa para enviar comandos en este grupo de administración. Este identificador no es puede editar después de la creación, ya que se usa en todo el sistema de Azure para identificar este grupo. El [grupo de administración raíz](./overview.md#root-management-group-for-each-directory) se crea automáticamente con un ID que es el identificador de Azure Active Directory. Para el resto de grupos de administración, asigne un identificador único.
    - El campo de nombre para mostrar es el nombre que se muestra en Azure Portal. Un nombre para mostrar independiente es un campo opcional al crear el grupo de administración y se puede cambiar en cualquier momento.
 
-   :::image type="content" source="./media/create_context_menu.png" alt-text="Panel de opciones para crear un nuevo grupo de administración":::
+   :::image type="content" source="./media/create_context_menu.png" alt-text="Captura de pantalla de la página Grupos de administración que muestra las suscripciones y los grupos de administración secundarios.":::
 
 1. Seleccione **Guardar**.
 
@@ -61,4 +61,4 @@ En este inicio rápido, ha creado un grupo de administración para organizar una
 Para más información acerca de los grupos de administración y cómo administrar la jerarquía de recursos, vaya a:
 
 > [!div class="nextstepaction"]
-> [Administración de los recursos con grupos de administración](./manage.md)
+> Administración de los recursos con grupos de administración

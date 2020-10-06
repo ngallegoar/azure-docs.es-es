@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 82bd284ede23e8880f79c614f4a6e2f588a4293c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b2648382fb19fafcfc342379aa9da974f6f8d1ff
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74977002"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528427"
 ---
-# <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Inicio rápido: Creación y aprovisionamiento de un dispositivo de TPM simulado mediante el SDK de dispositivos C# para el servicio Azure IoT Hub Device Provisioning
+# <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Inicio rápido: Creación y aprovisionamiento de un dispositivo de TPM simulado mediante el SDK de dispositivos Java para Azure IoT Hub Device Provisioning Service.
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
@@ -23,12 +23,12 @@ Estos pasos muestra cómo usar los [ejemplos de Azure IoT para C#](https://githu
 
 El código de ejemplo utiliza el simulador de TPM de Windows como [módulo de seguridad de hardware (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) del dispositivo. 
 
-Si no está familiarizado con el proceso de aprovisionamiento automático, no olvide revisar los [Conceptos sobre aprovisionamiento automático](concepts-auto-provisioning.md). Asegúrese de completar los pasos descritos en [Configuración del servicio Azure IoT Hub Device Provisioning con Azure Portal](./quick-setup-auto-provision.md) antes de continuar. 
+Si no está familiarizado con el proceso de aprovisionamiento automático, revise la información general sobre [Aprovisionamiento](about-iot-dps.md#provisioning-process). Asegúrese de completar los pasos descritos en [Configuración del servicio Azure IoT Hub Device Provisioning con Azure Portal](./quick-setup-auto-provision.md) antes de continuar. 
 
 Azure IoT Hub Device Provisioning Service admite dos tipos de inscripciones:
 
 - [Grupos de inscripción](concepts-service.md#enrollment-group): usados para inscribir varios dispositivos relacionados.
-- [Inscripciones individuales](concepts-service.md#individual-enrollment): usadas para inscribir un solo dispositivo.
+- [Inscripciones individuales](concepts-service.md#individual-enrollment): usadas para inscribir un único dispositivo.
 
 En este artículo se mostrarán las inscripciones individuales.
 
@@ -49,7 +49,7 @@ En este artículo se mostrarán las inscripciones individuales.
 
 ## <a name="provision-the-simulated-device"></a>Aprovisionamiento del dispositivo simulado
 
-1. Inicie sesión en Azure Portal. Seleccione el botón **Todos los recursos** en el menú de la izquierda y abra Device Provisioning Service. En la hoja **Información general**, anote el valor de **_Ámbito de id_** .
+1. Inicie sesión en Azure Portal. Seleccione el botón **Todos los recursos** en el menú de la izquierda y abra Device Provisioning Service. En la hoja **Información general**, anote el valor de **_Ámbito de id_**.
 
     ![Copie el id. de ámbito del servicio de aprovisionamiento de la hoja del portal](./media/quick-create-simulated-device-tpm-csharp/copy-scope.png) 
 
@@ -67,7 +67,7 @@ En este artículo se mostrarán las inscripciones individuales.
 
     Este comando iniciará el simulador de chip de TPM en un símbolo del sistema independiente. En Windows, es posible que encuentre una alerta de seguridad de Windows que le pregunte si desea permitir que Simulator. exe se comunique en redes públicas. Para los fines de este ejemplo, puede cancelar la solicitud.
 
-1. La ventana de comandos original muestra la **_clave de aprobación_** , el **_identificador de registro_** y un **_identificador de dispositivo_** sugerido, ya que son necesarios para la inscripción del dispositivo. Anote estos valores. Usará estos valores para crear una inscripción individual en la instancia del servicio Device Provisioning. 
+1. La ventana de comandos original muestra la **_clave de aprobación_**, el **_identificador de registro_** y un **_identificador de dispositivo_** sugerido, ya que son necesarios para la inscripción del dispositivo. Anote estos valores. Usará estos valores para crear una inscripción individual en la instancia del servicio Device Provisioning. 
    > [!NOTE]
    > No confunda la ventana que contiene la salida del comando con la ventana que contiene la salida desde el simulador de TPM. Es posible que tenga que seleccionar la ventana de comandos original para pasarla al primer plano.
 
@@ -88,7 +88,7 @@ En este artículo se mostrarán las inscripciones individuales.
 
    Al inscribir el dispositivo correctamente, el *id. del registro* del dispositivo aparecerá en la lista de la pestaña *Individual Enrollments* (Inscripciones individuales). 
 
-1. Presione *Entrar* en la ventana de comandos (el que muestra la **_clave de aprobación_** , el **_identificador de registro_** y un **_identificador de dispositivo_** sugerido) para la inscripción del dispositivo simulado. Tenga en cuenta los mensajes que simulan el arranque del dispositivo y la conexión al servicio Device Provisioning para obtener la información del centro de IoT. 
+1. Presione *Entrar* en la ventana de comandos (el que muestra la **_clave de aprobación_**, el **_identificador de registro_** y un **_identificador de dispositivo_** sugerido) para la inscripción del dispositivo simulado. Tenga en cuenta los mensajes que simulan el arranque del dispositivo y la conexión al servicio Device Provisioning para obtener la información del centro de IoT. 
 
 1. Compruebe que el dispositivo se haya aprovisionado. Si el dispositivo simulado se aprovisiona correctamente en el centro de IoT vinculado con su servicio de aprovisionamiento, el identificador del dispositivo aparece en la hoja **Dispositivos IoT** del centro. 
 

@@ -7,14 +7,14 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: 40c7b9e5a8b7c38c9468d54e69ca7a73c5f2d46b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 11475de159cf3d59923d6f2129aa46ddf0ef8f2c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516403"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084437"
 ---
-# <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Inicio rápido: Supervisión de máquinas virtuales de Azure con Azure Monitor
+# <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Supervisión de máquinas virtuales de Azure con Azure Monitor.
 [Azure Monitor](../overview.md) comienza a recopilar datos de las máquinas virtuales de Azure en el momento en que se crean. En este inicio rápido se proporciona un breve tutorial de los datos que se recopilan automáticamente para una máquina virtual de Azure y de cómo verlos en Azure Portal. A continuación, habilitará [Azure Monitor para VM](../insights/vminsights-overview.md) para la máquina virtual, lo que permitirá a los agentes de la máquina virtual recopilar y analizar los datos del sistema operativo invitado, incluidos los procesos y sus dependencias.
 
 En esta guía de inicio rápido se da por supuesto que tiene una máquina virtual de Azure. De no ser así, puede crear una [máquina virtual Windows](../../virtual-machines/windows/quick-create-portal.md) o [Linux](../../virtual-machines/linux/quick-create-cli.md) con los pasos que se describen en nuestros inicios rápidos para máquinas virtuales.
@@ -48,7 +48,7 @@ Mientras se recopilan las métricas y los registros de actividad para la máquin
 
 6. Verá que están incorporadas la máquina virtual con otras máquinas virtuales de la suscripción. Seleccione la pestaña **Sin supervisión** si desea ver las máquinas virtuales de la suscripción que no están incorporadas.
 
-    ![Introducción](media/quick-monitor-azure-vm/get-started.png)
+    ![Primeros pasos](media/quick-monitor-azure-vm/get-started.png)
 
 
 ## <a name="configure-workspace"></a>Configuración del área de trabajo
@@ -65,7 +65,7 @@ Al crear una nueva área de trabajo de Log Analytics, es necesario configurarla 
 
 2. Seleccione **Datos** y, a continuación, **Registros de eventos de Windows**.
 
-3. Para agregar un registro de eventos, escriba el nombre del registro.  Escriba **Sistema** y, luego, seleccione el signo más **+** .
+3. Para agregar un registro de eventos, escriba el nombre del registro.  Escriba **Sistema** y, luego, seleccione el signo más **+**.
 
 4. En la tabla, compruebe los niveles de gravedad **Error** y **Advertencia**.
 
@@ -75,7 +75,7 @@ Al crear una nueva área de trabajo de Log Analytics, es necesario configurarla 
 
 1. Seleccione **Syslog**.  
 
-2. Para agregar un registro de eventos, escriba el nombre del registro.  Escriba **Syslog** y, luego, seleccione el signo más **+** .  
+2. Para agregar un registro de eventos, escriba el nombre del registro.  Escriba **Syslog** y, luego, seleccione el signo más **+**.  
 
 3. En la tabla, deseleccione los niveles de gravedad **Información**, **Aviso** y **Depurar**. 
 
@@ -85,15 +85,15 @@ Al crear una nueva área de trabajo de Log Analytics, es necesario configurarla 
 
 7. Haga clic en la máquina virtual y seleccione la pestaña **Rendimiento** situada bajo el icono **Insights** del menú **Supervisión**. Esto muestra un grupo seleccionado de contadores de rendimiento recopilados del sistema operativo invitado de la máquina virtual. Desplácese hacia abajo para ver más contadores, y mueva el mouse sobre un gráfico para ver el promedio y los percentiles en momentos diferentes.
 
-    ![Rendimiento](media/quick-monitor-azure-vm/performance.png)
+    ![Captura de pantalla del panel Rendimiento.](media/quick-monitor-azure-vm/performance.png)
 
 9. Seleccione **Mapa** para abrir la característica de mapas que muestra los procesos que se ejecutan en la máquina virtual y sus dependencias. Seleccione **Propiedades** para abrir el panel de propiedades si aún no está abierto.
 
-    ![Map](media/quick-monitor-azure-vm/map.png)
+    ![Captura de pantalla del panel Mapa.](media/quick-monitor-azure-vm/map.png)
 
 11. Expanda los procesos de la máquina virtual. Seleccione uno de los procesos para ver sus detalles y resaltar sus dependencias.
 
-    ![Procesos](media/quick-monitor-azure-vm/processes.png)
+    ![Captura de pantalla que muestra el panel Mapa con los procesos de una máquina virtual expandida.](media/quick-monitor-azure-vm/processes.png)
 
 12. Vuelva a seleccionar la máquina virtual y, luego, seleccione **Registrar eventos**. 
 

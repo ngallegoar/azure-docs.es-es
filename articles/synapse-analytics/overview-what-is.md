@@ -6,31 +6,23 @@ author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
-ms.date: 04/15/2020
+ms.date: 09/12/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: f9277842339d7c4fa74e2e0f1febcf5916d86f4a
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: c4338152579170bf809577262992f0db9a1a95ff
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180786"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90524953"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>¿Qué es Azure Synapse Analytics (versión preliminar para área de trabajo)?
 
 [!INCLUDE [preview](includes/note-preview.md)]
 
-Hoy en día, el análisis empresarial requiere un funcionamiento a gran escala en cualquier tipo de datos, ya sea sin procesar, modificado o sumamente mantenidos. En el pasado, la creación de estos tipos de soluciones de análisis requerían que las empresas combinaran tecnologías de almacenamiento de datos y macrodatos, como Spark y SQL. A continuación, debían integrarse en canalizaciones de datos enriquecidas que funcionan en los datos de almacenes relacionales y lagos de datos.  
+El análisis empresarial debe trabajar a gran escala en cualquier tipo de datos, ya sean sin procesar, refinados o muy seleccionados. Esto requería que las empresas combinaran tecnologías de macrodatos y almacenamiento de datos, como Spark y SQL, en canalizaciones de datos enriquecidas que trabajan con datos de almacenes relacionales y lagos de datos. Las soluciones de este tipo son difíciles de crear, proteger y mantener. La complejidad retrasa la entrega de la información que la empresa necesita.
 
-Soluciones como esta son difíciles de compilar, configurar, proteger y mantener, lo que retrasa la extracción rápida de la información inteligente.
-
-**Azure Synapse** es un servicio de análisis integrado que acelera el tiempo para obtener información de todos los datos a cualquier escala, entre los almacenamientos de datos y los sistemas de análisis de macrodatos. Reúne lo mejor de las tecnologías **SQL** que se usan en el almacenamiento de datos de empresa, las tecnologías **Spark** que se utilizan en el análisis de macrodatos y **Pipelines** para la integración de datos y la extracción, transformación y carga de datos.
-
-Azure Synapse incluye una experiencia de usuario web nativa de **Studio** que proporciona una experiencia y un modelo únicos de administración, supervisión, codificación y seguridad.
-
-Azure Synapse proporciona la forma más sencilla y rápida para que una empresa recopile información sobre los datos a cualquier tamaño, mediante el análisis con el que está familiarizado. Se integra profundamente con **Power BI** para permitir a los ingenieros de datos crear soluciones de análisis que funcionen de un extremo a otro para proporcionar inteligencia empresarial.
-
-Además, Azure Synapse facilita la creación de modelos predictivos y el análisis avanzado con aprendizaje automático a través de la compatibilidad integrada con **AzureML**.
+**Azure Synapse** es un servicio de análisis integrado que acelera el tiempo necesario para obtener información de los sistemas de almacenamientos de datos y de análisis de macrodatos. En su núcleo, Azure Synapse reúne lo mejor de las tecnologías **SQL** que se usan en el almacenamiento de datos empresariales, las tecnologías **Spark** que se utilizan para macrodatos y **Pipelines** para la integración de datos y ETL/ELT. Synapse tiene un**Studio** basado en web que proporciona un lugar único para la administración, la supervisión, la codificación y la seguridad. Synapse ofrece una integración profunda con otros servicios de Azure, como **Power BI**, **Cosmos DB** y **AzureML**.
 
 ## <a name="key-features--benefits"></a>Principales características y ventajas
 
@@ -38,7 +30,7 @@ Además, Azure Synapse facilita la creación de modelos predictivos y el anális
 
 * **Synapse SQL** es un sistema de consultas distribuidas que permite a las empresas implementar escenarios de virtualización de datos y almacenamiento de datos mediante experiencias estándar de T-SQL conocidas para los ingenieros de datos. También amplía las funcionalidades de SQL para abordar los escenarios de streaming y aprendizaje automático.
 
-* Synapse SQL ofrece modelos de recursos **sin servidor** y **aprovisionados**, que ofrecen opciones de facturación y consumo para satisfacer sus necesidades. Para obtener un rendimiento y un costo predecibles, aprovisione los grupos para reservar la capacidad de procesamiento de los datos almacenados en tablas SQL. En el caso de cargas de trabajo no planeadas o en ráfagas, utilice el punto de conexión SQL sin servidor siempre disponible.
+* Synapse SQL ofrece modelos de recursos **sin servidor** y **dedicados**, que ofrecen opciones de facturación y consumo para satisfacer sus necesidades. Para obtener un rendimiento y un costo predecibles, cree grupos de SQL dedicados para reservar la capacidad de procesamiento de los datos almacenados en tablas SQL. En el caso de cargas de trabajo no planeadas o en ráfagas, utilice el punto de conexión SQL sin servidor siempre disponible.
 * Use las funcionalidades integradas de **streaming** para destinar datos de los orígenes de datos en la nube a tablas SQL.
 * Integración de IA con SQL mediante el uso de modelos de **aprendizaje automático** para puntuar los datos mediante la [función PREDICT de T-SQL](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)
 
@@ -85,8 +77,6 @@ Azure Synapse proporciona a las empresas una única forma de administrar los rec
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* [Introducción a Azure Synapse Analytics](get-started.md)
 * [Creación de un área de trabajo](quickstart-create-workspace.md)
-* [Inicio rápido: Uso de Synapse Studio (versión preliminar)](quickstart-synapse-studio.md)
-* [Creación de un grupo de SQL](quickstart-create-sql-pool-portal.md)
 * [Uso de SQL a petición](quickstart-sql-on-demand.md)
-* [Creación de un grupo de Apache Spark](quickstart-create-apache-spark-pool-portal.md)

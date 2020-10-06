@@ -1,47 +1,53 @@
 ---
-title: ¿Qué es Text Analytics API? - Funcionalidades -
+title: 'Minería y análisis de texto con Text Analytics API: Azure Cognitive Services'
 titleSuffix: Azure Cognitive Services
-description: Use Text Analytics API de Azure Cognitive Services para el análisis de sentimiento, la extracción de frases clave, la detección del idioma y el reconocimiento de entidades.
+description: Obtenga información sobre la minería de texto con Text Analytics API. Úsela para el análisis de sentimiento, la detección de idiomas y otras formas de procesamiento de lenguaje natural.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 08/27/2020
+ms.date: 09/09/2020
 ms.author: aahi
-ms.openlocfilehash: a3c538f3a9e7a2d8d71fff38fb927dbcdf725732
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+keywords: text mining, sentiment analysis, text analytics
+ms.custom: cog-serv-seo-aug-2020
+ms.openlocfilehash: 544de4adb1891c3d558a524466a076daefb42aa4
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000964"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647471"
 ---
 # <a name="what-is-the-text-analytics-api"></a>¿Qué es Text Analytics API?
 
-API Text Analytics es un servicio basado en la nube que proporciona un procesamiento avanzado de idioma natural sobre texto sin formato e incluye cuatro funciones principales: análisis de sentimiento, extracción de frases clave, detección de lenguaje y reconocimiento de entidades de caracteres.
+Text Analytics API es un servicio basado en la nube que proporciona características de procesamiento de lenguaje natural (NLP) para minería de texto y análisis de texto, incluidos: análisis de sentimiento, minería de opiniones, detección de idiomas y reconocimiento de entidades con nombre.
 
-La API forma parte de [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), una colección de algoritmos de aprendizaje automático y de inteligencia artificial en la nube para los proyectos de desarrollo.
+La API forma parte de [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), una colección de algoritmos de aprendizaje automático y de inteligencia artificial en la nube para los proyectos de desarrollo. Puede usar estas características con la [API de REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/) o la [biblioteca cliente](quickstarts/text-analytics-sdk.md).
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
 
-El análisis de texto puede significar diferentes cosas, pero en Cognitive Services, Text Analytics API proporciona cuatro tipos de análisis, que se describen a continuación. Puede usar estas características con la [API de REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/) o la [biblioteca cliente](quickstarts/text-analytics-sdk.md).
+## <a name="sentiment-analysis"></a>análisis de opiniones
 
-## <a name="sentiment-analysis"></a>Análisis de sentimiento
-Use el [análisis de sentimiento](how-tos/text-analytics-how-to-sentiment-analysis.md) para averiguar qué piensan los clientes de su marca o de un tema concreto mediante el análisis de texto sin formato, con el fin de obtener pistas acerca de si sus opiniones son positivas o negativas. Esta API devuelve una puntuación de la opción, que oscila entre 0 y 1, con respecto a cada documento, donde 1 es la más positiva.<br /> Los modelos de análisis se entrenan previamente con una gran cantidad de cuerpo de texto y tecnologías de idioma natural de Microsoft. Para [idiomas seleccionados](text-analytics-supported-languages.md), la API puede analizar y puntuar cualquier texto sin formato que se proporcione, y devolver los resultados directamente a la aplicación que realiza la llamada.
+Use el [análisis de sentimiento](how-tos/text-analytics-how-to-sentiment-analysis.md) para averiguar qué piensa el público de su marca o de un tema específico mediante la minería de texto, con el fin de obtener pistas acerca de si sus opiniones son positivas o negativas. Esta característica de la API devuelve una puntuación de opinión entre 0 y 1,para cada documento, donde 1 es la más positiva.
 
-## <a name="key-phrase-extraction"></a>Extracción de frases clave
-[Extracción automática de las frases clave](how-tos/text-analytics-how-to-keyword-extraction.md) para identificar rápidamente los puntos principales. Por ejemplo, si el texto de entrada es "La comida estaba deliciosa y el personal era maravilloso", la API devuelve los principales puntos de conversación: "comida" y "personal maravilloso".
+La minería de opiniones es una característica de Análisis de sentimiento, a partir de la versión preliminar v3.1. Esta característica, también conocida como Análisis de sentimiento basada en aspectos en el procesamiento de lenguaje natural (NLP), proporciona información más detallada sobre las opiniones relacionadas con los aspectos (como los atributos de los productos o servicios) en el texto.
+
+## <a name="key-phrase-extraction"></a>Extracción de la frase clave
+
+Use la característica [Extracción de frases clave](how-tos/text-analytics-how-to-keyword-extraction.md) para identificar rápidamente los conceptos principales del texto. Por ejemplo, en el texto "La comida estaba deliciosa y el personal era maravilloso", Extracción de frases clave devuelve los principales puntos de conversación: "comida" y "personal maravilloso".
 
 ## <a name="language-detection"></a>Detección de idiomas
-Puede [detectar en qué idioma está escrito el texto de entrada](how-tos/text-analytics-how-to-language-detection.md) y utilizar un código de idioma único para informar acerca de cada documento enviado en la solicitud para una amplia gama de idiomas, variantes, dialectos y algunos idiomas regionales o culturales. El código de idioma se empareja con una puntuación que indica la intensidad de esta.
+
+Detección de idiomas puede [detectar en qué idioma está escrito el texto de entrada](how-tos/text-analytics-how-to-language-detection.md) y determinar un código de idioma único para cada documento enviado en la solicitud para una amplia gama de idiomas, variantes, dialectos y algunos idiomas regionales o culturales. El código de idioma se empareja con una puntuación de confianza.
 
 ## <a name="named-entity-recognition"></a>Reconocimiento de entidades con nombre
-[Identifique y clasifique las entidades](how-tos/text-analytics-how-to-entity-linking.md) en el texto como personas, lugares, organizaciones, fecha y hora, cantidades, porcentajes, divisas, etc. Las entidades más conocidas también se reconocen y vinculan a más información en la web.
+
+La característica Reconocimiento de entidades con nombre (NER) puede [identificar y clasificar las entidades](how-tos/text-analytics-how-to-entity-linking.md) del texto como personas, lugares, organizaciones o cantidades. Las entidades conocidas también se reconocen y se vinculan a más información en la Web.
 
 ## <a name="use-containers"></a>Uso de contenedores
 
-[Use los contenedores de Text Analytics](how-tos/text-analytics-how-to-install-containers.md) para extraer frases clave, detectar el idioma y analizar opiniones localmente, mediante la instalación de contenedores de Docker estándar más cercanos a los datos.
+[Use los contenedores de Text Analytics](how-tos/text-analytics-how-to-install-containers.md) como una solución local para la minería de texto y el uso de la API. Estos contenedores de Docker permiten extraer frases clave, detectar idiomas y analizar la opinión de sus datos.
 
 ## <a name="typical-workflow"></a>Flujo de trabajo típico
 
