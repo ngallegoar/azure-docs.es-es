@@ -15,6 +15,9 @@
       href: fhir-paas-powershell-quickstart.md
     - name: 'Implementación de la API de Azure para FHIR: CLI'
       href: fhir-paas-cli-quickstart.md
+    - name: 'Implementación de Azure API for FHIR: plantilla de ARM'
+      href: fhir-paas-arm-template-quickstart.md
+      displayName: deploy azure resource manager template
     - name: 'Implementación del servidor de FHIR para Azure: Portal'
       href: fhir-oss-portal-quickstart.md
     - name: 'Implementación del servidor de FHIR para Azure: PowerShell'

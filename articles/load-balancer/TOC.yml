@@ -65,7 +65,7 @@
       href: load-balancer-multivip-overview.md
     - name: Conexiones de salida
       href: load-balancer-outbound-connections.md
-    - name: Restablecimiento de TCP en tiempo de espera de inactividad
+    - name: Restablecimiento de TCP y tiempo de expiración de inactividad de TCP
       href: load-balancer-tcp-reset.md
     - name: Load Balancer Estándar y zonas de disponibilidad
       href: load-balancer-standard-availability-zones.md

@@ -88,6 +88,8 @@
           href: specify-marketplace-images.md
         - name: Especificación de información de soporte técnico (propietario de cuenta de laboratorio)
           href: lab-account-owner-support-information.md
+        - name: Carga de una imagen compartida en Shared Image Gallery
+          href: upload-custom-image-shared-image-gallery.md
     - name: Creación y configuración de laboratorios educativos (formador)
       items:
         - name: Creación y administración de laboratorios educativos

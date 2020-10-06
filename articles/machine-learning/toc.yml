@@ -235,17 +235,23 @@
         - name: Uso de plantillas de Resource Manager
           displayName: arm
           href: how-to-create-workspace-template.md
-    - name: Creación de recursos de proceso
+    - name: Creación y administración de recursos de proceso
       items:
-        - name: Uso de Studio
-          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority'
-          href: how-to-create-attach-compute-studio.md
-        - name: Uso del SDK de Python
-          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority'
-          href: how-to-create-attach-compute-sdk.md
+        - name: Instancia de proceso
+          displayName: compute target
+          href: how-to-create-manage-compute-instance.md
+        - name: Clúster de proceso
+          displayName: 'compute target, low priority, managed identity'
+          href: how-to-create-attach-compute-cluster.md
         - name: Azure Kubernetes Service
           displayName: 'AKS, inference'
           href: how-to-create-attach-kubernetes.md
+        - name: Adjuntar el suyo
+          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
+          href: how-to-attach-compute-targets.md
+        - name: Uso de Studio
+          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity'
+          href: how-to-create-attach-compute-studio.md
     - name: Configurar el entorno
       items:
         - name: Configuración de entornos de desarrollo
