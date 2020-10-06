@@ -13,12 +13,12 @@ metadata:
   ms.date: 09/25/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 07d038aef43594550e81b640a8dfd98452804143
-  ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+  ms.openlocfilehash: c97b00e1075785cae6b4c2a056f75a8c7481bca4
+  ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/28/2020
-  ms.locfileid: "91409817"
+  ms.lasthandoff: 10/05/2020
+  ms.locfileid: "91728842"
 highlightedContent:
   items:
   - title: Guía de introducción para desarrolladores de Azure
@@ -450,7 +450,7 @@ productDirectory:
     - compute
     - web
     url: spring-cloud/index.yml
-  - title: Azure VMware Solution (versión preliminar)
+  - title: Azure VMware Solution
     summary: Ejecute cargas de trabajo de VMware de forma nativa en Azure
     imageSrc: ./media/index/azure-vmware.svg
     azureCategories:
@@ -605,7 +605,7 @@ productDirectory:
     - hybrid
     - databases
     url: azure-sql/index.yml
-  - title: Azure SQL Database
+  - title: Azure SQL Database
     summary: SQL administrado e inteligente en la nube
     imageSrc: https://static.docs.com/ui/media/product/azure/sql-database.svg
     azureCategories:

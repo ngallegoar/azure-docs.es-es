@@ -263,8 +263,6 @@
       href: release-notes-archive.md
     - name: Blog de Azure Roadmap
       href: 'https://azure.microsoft.com/updates/?product=security-center'
-    - name: Características y retirada de API (julio de 2019)
-      href: security-center-features-retirement-july2019.md
     - name: Valoración y recomendaciones sobre la protección de puntos de conexión
       href: security-center-endpoint-protection.md
 - name: Recursos
