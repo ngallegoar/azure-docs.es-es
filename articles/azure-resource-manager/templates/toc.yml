@@ -362,7 +362,7 @@
           href: deployment-history.md
     - name: Implementaciones con ámbitos
       items:
-        - name: Suscripción
+        - name: Subscription
           href: deploy-to-subscription.md
         - name: Grupo de administración
           href: deploy-to-management-group.md
@@ -379,7 +379,7 @@
           href: key-vault-parameter.md
     - name: CI/CD
       items:
-        - name: Proyecto de VS con canalizaciones
+        - name: Plantillas de Resource Manager con canalizaciones
           href: add-template-to-azure-pipelines.md
         - name: 'Implementación: Acciones de GitHub'
           href: deploy-github-actions.md

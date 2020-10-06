@@ -10,7 +10,7 @@
     - name: Recursos de Cosmos DB
       expanded: true
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: create-cosmosdb-resources-portal.md
         - name: Plantilla ARM
           displayName: Resource Manager
@@ -1064,6 +1064,8 @@
       items:
         - name: Migración al SDK de Java V4
           href: migrate-java-v4-sdk.md
+        - name: "Migración al SDK de .NET\_V3"
+          href: migrate-dotnet-v3.md
     - name: Solución de problemas
       items:
         - name: Errores comunes

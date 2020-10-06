@@ -180,7 +180,7 @@
           items:
             - name: Desencadenador HTTP
               items:
-                - name: Portal de Azure
+                - name: Azure portal
                   href: functions-create-first-azure-function.md
                 - name: Línea de comandos
                   href: ./functions-create-first-azure-function-azure-cli.md
@@ -214,6 +214,8 @@
               href: functions-create-scheduled-function.md
         - name: Adición de enlaces
           items:
+            - name: Adición de un enlace
+              href: add-bindings-existing-function.md
             - name: 'Azure Cosmos DB: portal'
               href: functions-integrate-store-unstructured-data-cosmosdb.md
             - name: 'Almacenamiento: Python'
@@ -379,7 +381,7 @@
             - name: Output
               displayName: Blob storage
               href: functions-bindings-storage-blob-output.md
-        - name: "Azure Cosmos\_DB"
+        - name: Azure Cosmos DB
           items:
             - name: Functions 1.x
               href: functions-bindings-cosmosdb.md
