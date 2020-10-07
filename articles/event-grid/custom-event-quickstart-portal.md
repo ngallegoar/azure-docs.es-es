@@ -4,10 +4,10 @@ description: 'Inicio rápido: Use Azure Event Grid y Azure Portal para publicar 
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.openlocfilehash: 592e2d6b7393da8cb55a457b022d6c2358048cfe
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87421049"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Inicio rápido: Enrutamiento de eventos personalizados a puntos de conexión web con Azure Portal y Event Grid
@@ -29,7 +29,7 @@ Un tema de cuadrícula de eventos proporciona un punto de conexión definido por
     :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topics.png" alt-text="Búsqueda y selección de temas de Event Grid":::
 3. En la página **Temas de Event Grid**, seleccione **+ Agregar** en la barra de herramientas. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/add-event-grid-topic-button.png" alt-text="Incorporación del botón Tema de Event Grid":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/add-event-grid-topic-button.png" alt-text="Búsqueda y selección de temas de Event Grid":::
 4. En la página **Crear tema**, siga estos pasos:
     1. Selección la **suscripción**de Azure.
     2. Seleccione un grupo de recursos existente o **Crear nuevo** y escriba un **nombre** para el **grupo de recursos**.
@@ -37,18 +37,18 @@ Un tema de cuadrícula de eventos proporciona un punto de conexión definido por
     4. Seleccione una **ubicación** para el tema de Event Grid.
     5. En la parte inferior de la página, seleccione **Revisar y crear**. 
 
-        :::image type="content" source="./media/custom-event-quickstart-portal/create-custom-topic.png" alt-text="Página Crear tema":::
+        :::image type="content" source="./media/custom-event-quickstart-portal/create-custom-topic.png" alt-text="Búsqueda y selección de temas de Event Grid":::
     6. En la pestaña **Revisar y crear** de la página **Crear tema**, seleccione **Crear**. 
     
-        :::image type="content" source="./media/custom-event-quickstart-portal/review-create-page.png" alt-text="Revisión de la configuración y creación":::
+        :::image type="content" source="./media/custom-event-quickstart-portal/review-create-page.png" alt-text="Búsqueda y selección de temas de Event Grid":::
 5. Una vez finalizada la implementación, escriba **Temas de Event Grid** en la barra de búsqueda de nuevo y seleccione **Temas de Event Grid** en la lista desplegable como hizo anteriormente. 
 6. Seleccione en la lista el tema que creó. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Selección del tema en la lista":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Búsqueda y selección de temas de Event Grid":::
 
 7. Ahora verá la página **Tema de Event Grid** del tema. Mantenga esta página abierta. La usará más adelante en este inicio rápido. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-topic-home-page.png" alt-text="Página principal Tema de Event Grid":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-topic-home-page.png" alt-text="Búsqueda y selección de temas de Event Grid":::
 
 ## <a name="create-a-message-endpoint"></a>Creación de un punto de conexión de mensaje
 Antes de crear una suscripción para el tema personalizado, cree un punto de conexión para el mensaje de evento. Normalmente, el punto de conexión realiza acciones en función de los datos del evento. Para simplificar esta guía de inicio rápido, se implementa una [aplicación web pregenerada](https://github.com/Azure-Samples/azure-event-grid-viewer) que muestra los mensajes de los eventos. La solución implementada incluye un plan de App Service, una aplicación web de App Service y el código fuente desde GitHub.
@@ -69,16 +69,16 @@ Suscríbase a un tema de cuadrícula de eventos que indique a Event Grid los eve
 
 1. Ahora, en la página **Tema de Event Grid** de su tema personalizado, seleccione **+ Suscripción de eventos** en la barra de herramientas.
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/new-event-subscription.png" alt-text="Botón Agregar una suscripción a evento":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/new-event-subscription.png" alt-text="Búsqueda y selección de temas de Event Grid":::
 2. En la página **Crear suscripción de eventos**, siga estos pasos:
     1. Escriba un **nombre** para la suscripción a eventos.
     3. Seleccione **Webhook** como **Tipo de punto de conexión**. 
     4. Elija **Seleccionar un punto de conexión**. 
 
-        :::image type="content" source="./media/custom-event-quickstart-portal/provide-subscription-values.png" alt-text="Proporcionar valores de suscripción a eventos":::
+        :::image type="content" source="./media/custom-event-quickstart-portal/provide-subscription-values.png" alt-text="Búsqueda y selección de temas de Event Grid":::
     5. Para el punto de conexión de webhook, proporcione la dirección URL de la aplicación web y agregue `api/updates` a la dirección URL de la página principal. Seleccione **Confirm Selection** (Confirmar selección).
 
-        :::image type="content" source="./media/custom-event-quickstart-portal/provide-endpoint.png" alt-text="Proporcionar la dirección URL del punto de conexión":::
+        :::image type="content" source="./media/custom-event-quickstart-portal/provide-endpoint.png" alt-text="Búsqueda y selección de temas de Event Grid":::
     6. De nuevo en la página **Crear suscripción de eventos**, seleccione **Crear**.
 
 3. Vuelva a la aplicación web y observe que se ha enviado un evento de validación de suscripción. Seleccione el icono del ojo para expandir los datos del evento. Event Grid envía el evento de validación para que el punto de conexión pueda verificar que desea recibir datos de eventos. La aplicación web incluye código para validar la suscripción.
@@ -95,7 +95,7 @@ En el primer ejemplo se utiliza la CLI de Azure. Se obtiene la dirección URL y 
 ### <a name="azure-cli"></a>Azure CLI
 1. En Azure Portal, seleccione **Cloud Shell**. Cloud Shell se abre en el panel inferior del explorador web. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Selección del icono de Cloud Shell":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Búsqueda y selección de temas de Event Grid":::
 1. Seleccione **Bash** en la esquina superior izquierda de la ventana Cloud Shell. 
 
     ![Cloud Shell - Bash](./media/custom-event-quickstart-portal/cloud-shell-bash.png)
@@ -125,7 +125,7 @@ El segundo ejemplo usa PowerShell para realizar pasos similares.
 
 1. En Azure Portal, seleccione **Cloud Shell** (o vaya a `https://shell.azure.com/`). Cloud Shell se abre en el panel inferior del explorador web. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Selección del icono de Cloud Shell":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Búsqueda y selección de temas de Event Grid":::
 1. En **Cloud Shell**, seleccione **PowerShell** en la esquina superior izquierda de la ventana Cloud Shell. Vea el la imagen de la ventana **Cloud Shell** del ejemplo en la sección de la CLI de Azure.
 2. Establezca las siguientes variables. Después de copiar y pegar cada comando, actualice el **nombre del tema** y el **nombre del grupo de recursos** antes de ejecutar el comando:
 
@@ -178,7 +178,7 @@ El segundo ejemplo usa PowerShell para realizar pasos similares.
 ### <a name="verify-in-the-event-grid-viewer"></a>Comprobación en Visor de Event Grid
 Ha desencadenado el evento y Event Grid ha enviado el mensaje al punto de conexión que configuró al realizar la suscripción. Vaya a la aplicación web para ver el evento que acaba de enviar.
 
-:::image type="content" source="./media/custom-event-quickstart-portal/event-grid-viewer-end.png" alt-text="Visor de Event Grid":::
+:::image type="content" source="./media/custom-event-quickstart-portal/event-grid-viewer-end.png" alt-text="Búsqueda y selección de temas de Event Grid":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 Si piensa seguir trabajando con este evento, no limpie los recursos creados en este artículo. De lo contrario, elimine los recursos que ha creado en este artículo.

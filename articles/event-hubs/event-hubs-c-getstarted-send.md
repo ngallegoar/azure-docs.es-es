@@ -4,10 +4,10 @@ description: 'Inicio rápido: En este artículo se ofrece un tutorial para crear
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: bfe1ca1a45f7b33d7431aed13446d8d72f79fb90
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85315664"
 ---
 # <a name="quickstart-send-events-to-azure-event-hubs-using-c"></a>Inicio rápido: Envío de eventos a Azure Event Hubs mediante C

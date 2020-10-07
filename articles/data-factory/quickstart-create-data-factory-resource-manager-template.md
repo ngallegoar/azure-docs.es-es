@@ -12,10 +12,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 07/16/2020
 ms.openlocfilehash: eb423ebd354adeb8273755d34323b283d53eb8b5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87283901"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-arm-template"></a>Inicio rápido: Creación de una instancia de Azure Data Factory mediante una plantilla de Resource Manager
@@ -94,23 +94,23 @@ Encontrará más ejemplos de plantillas de Azure Data Factory en la [galería de
 
 1. Seleccione **Ir al grupo de recursos**.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-go-to-resource-group.png" alt-text="Grupo de recursos":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-go-to-resource-group.png" alt-text="Implementación de la plantilla de Resource Manager para ADF":::
 
 2.  Verifique que la instancia de Azure Data Factory se haya creado.
     1. El nombre de la instancia de Azure Data Factory tiene el formato: datafactory\<uniqueid\>.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-sample.png" alt-text="Data Factory de ejemplo":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-sample.png" alt-text="Implementación de la plantilla de Resource Manager para ADF":::
 
 2. Verifique que se haya creado la cuenta de almacenamiento.
     1. El nombre de la cuenta de almacenamiento tiene el formato: storage\<uniqueid\>.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-storage-account.png" alt-text="Storage Account":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-storage-account.png" alt-text="Implementación de la plantilla de Resource Manager para ADF":::
 
 3. Seleccione la cuenta de almacenamiento creada y, a continuación, seleccione **Contenedores**.
     1. En la página **Contenedores**, seleccione el contenedor de blob que ha creado.
         1. El nombre del contenedor de blobs tiene el formato: blob\<uniqueid\>.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-blob-container.png" alt-text="Contenedor de blobs":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-blob-container.png" alt-text="Implementación de la plantilla de Resource Manager para ADF":::
 
 ### <a name="upload-a-file"></a>Cargar un archivo
 
@@ -126,7 +126,7 @@ Encontrará más ejemplos de plantillas de Azure Data Factory en la [galería de
 
 6. Seleccione el icono **Cerrar** (**X**) para cerrar la página **Cargar blob**.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-upload-blob-file.png" alt-text="Carga del archivo en la carpeta de entrada":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-upload-blob-file.png" alt-text="Implementación de la plantilla de Resource Manager para ADF":::
 
 Mantenga abierta la página Contenedor, ya que puede usarla para verificar el resultado al final de esta guía de inicio rápido.
 
@@ -136,17 +136,17 @@ Mantenga abierta la página Contenedor, ya que puede usarla para verificar el re
 
 2. Seleccione el icono **Crear y supervisar**. 
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author-monitor-tile.png" alt-text="Crear y supervisar":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author-monitor-tile.png" alt-text="Implementación de la plantilla de Resource Manager para ADF":::
 
 2. Seleccione la pestaña **Autor** :::image type="icon" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author.png" border="false":::.
 
 3. Seleccione la canalización creada: ArmtemplateSampleCopyPipeline.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-pipelines.png" alt-text="Canalización de la plantilla de Resource Manager":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-pipelines.png" alt-text="Implementación de la plantilla de Resource Manager para ADF":::
 
 4. Seleccione **Agregar desencadenador** > **Trigger Now** (Desencadenar ahora).
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-trigger-now.png" alt-text="Desencadenador":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-trigger-now.png" alt-text="Implementación de la plantilla de Resource Manager para ADF":::
 
 5. En el panel derecho, en **Ejecución de la canalización**, seleccione **Aceptar**.
 
@@ -156,7 +156,7 @@ Mantenga abierta la página Contenedor, ya que puede usarla para verificar el re
 
 2. Vea las ejecuciones de actividad asociadas con la ejecución de la canalización. En este inicio rápido, la canalización tiene solo una actividad del tipo: Copy. Por lo tanto, se ve una ejecución de dicha actividad.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-successful-run.png" alt-text="Ejecución correcta":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-successful-run.png" alt-text="Implementación de la plantilla de Resource Manager para ADF":::
 
 ### <a name="verify-the-output-file"></a>Verificación del archivo de salida
 
@@ -168,7 +168,7 @@ La canalización crea automáticamente una carpeta de salida en el contenedor de
 
 3. Confirme que **emp.txt** se ha copiado en la carpeta de salida. 
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-output.png" alt-text="Salida":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-output.png" alt-text="Implementación de la plantilla de Resource Manager para ADF":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

@@ -10,10 +10,10 @@ ms.date: 03/19/2020
 ms.custom: devx-track-java
 ms.author: aahi
 ms.openlocfilehash: 2b3d4993406f150b2983d4d820f7d070b5de1e96
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87374676"
 ---
 Use este artículo de inicio rápido para empezar a buscar vídeos con la biblioteca cliente de Bing Video Search para Java. Aunque Bing Video Search tiene una API REST compatible con la mayoría de los lenguajes de programación, la biblioteca cliente proporciona una forma sencilla de integrar el servicio en sus aplicaciones. El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch) con anotaciones adicionales y características.

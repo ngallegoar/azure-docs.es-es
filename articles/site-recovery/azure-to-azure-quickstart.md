@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 03/27/2020
 ms.custom: mvc
 ms.openlocfilehash: 8681ccaac30402927005e5e8802d7da2bddc2c5c
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86135709"
 ---
 # <a name="quickstart-set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Inicio rápido: Configuración de la recuperación ante desastres en una región secundaria de Azure de una máquina virtual de Azure
@@ -48,7 +48,7 @@ Cuando haya finalizado el trabajo de replicación, puede comprobar el estado de 
 1. En **Operaciones**, seleccione **Recuperación ante desastres**.
 1. Para ver los detalles de la replicación, en **Información general**, seleccione **Essentials**. Se muestran más detalles en **Mantenimiento y estado**, **Preparación de la conmutación por error** y el mapa **Vista de la infraestructura**.
 
-   :::image type="content" source="media/azure-to-azure-quickstart/replication-status.png" alt-text="Estado de replicación.":::
+   :::image type="content" source="media/azure-to-azure-quickstart/replication-status.png" alt-text="Habilitación de la replicación.":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -65,7 +65,7 @@ Para deshabilitar la replicación, siga estos pasos:
 1. En **Información general**, seleccione **Deshabilitar replicación**.
 1. Para desinstalar la extensión de Site Recovery, vaya a la opción **Configuración** > **Extensiones** de la máquina virtual.
 
-   :::image type="content" source="media/azure-to-azure-quickstart/disable2-replication.png" alt-text="Deshabilitar replicación.":::
+   :::image type="content" source="media/azure-to-azure-quickstart/disable2-replication.png" alt-text="Habilitación de la replicación.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 
