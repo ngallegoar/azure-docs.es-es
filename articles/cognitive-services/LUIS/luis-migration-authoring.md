@@ -3,20 +3,18 @@ title: Migración a una clave de creación de recursos de Azure
 titleSuffix: Azure Cognitive Services
 description: En este artículo se describe cómo migrar la autenticación de creación de Language Understanding (LUIS) desde una cuenta de correo electrónico a un recurso de Azure.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/13/2020
-ms.author: diberry
-ms.openlocfilehash: 4c9dc04770e5fadd72c5460a4b44c05ffda47cb7
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 926b79e672c14249ec7c2b053dba7eb3a31443a7
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245458"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536057"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migración a una clave de creación de recursos de Azure
 

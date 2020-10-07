@@ -3,20 +3,18 @@ title: Modelos creados previamente (LUIS)
 titleSuffix: Azure Cognitive Services
 description: Los modelos creados previamente proporcionan dominios, intenciones, expresiones y entidades. Puede iniciar su aplicación con un dominio creado previamente o agregar un dominio pertinente a su aplicación más adelante.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.author: diberry
-ms.openlocfilehash: e0b5b95a7524b60a7c3367035a15a7158fa7908a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 32755ea9dccd2a7d4a0e727c7a006491d5ea3521
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74280831"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535890"
 ---
 # <a name="prebuilt-models"></a>Modelos creados previamente
 

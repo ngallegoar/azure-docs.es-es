@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: 4ec153a9c770b0001888c972dc44414470e3ddbf
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 560c156c8e2c3d69c099b2ad573fa0d214f3f80b
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84730312"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355081"
 ---
 # <a name="what-is-the-speech-devices-sdk"></a>¿Qué es Speech Devices SDK?
 
@@ -60,4 +60,4 @@ Se proporcionan archivos binarios adicionales para ofrecer compatibilidad con lo
 > [!div class="nextstepaction"]
 > [Elija el dispositivo de voz](get-speech-devices-sdk.md)
 > [!div class="nextstepaction"]
-> [Obtenga una clave de suscripción gratuita a los servicios de Voz](get-started.md)
+> [Obtenga una clave de suscripción gratuita a los servicios de Voz](overview.md#try-the-speech-service-for-free)

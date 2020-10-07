@@ -6,17 +6,17 @@ ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 04/23/2020
-ms.openlocfilehash: 943569a16101ac170d01d08250b31ba67c0e590e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: d90cc76da20861ae9eca7aaf59a49e5f3e866c92
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434289"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444429"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Uso de la autenticación de Azure Active Directory
 
@@ -168,7 +168,7 @@ Se admiten los siguientes métodos de autenticación para las entidades de segur
 - Para obtener información general de los inicios de sesión, usuarios, roles de base de datos y permisos de SQL Database, consulte [Inicios de sesión, usuarios, roles de base de datos y permisos](logins-create-manage.md).
 - Para más información acerca de las entidades de seguridad de bases de datos, consulte [Entidades de seguridad](https://msdn.microsoft.com/library/ms181127.aspx).
 - Para más información acerca de los roles de base de datos, consulte [Roles de nivel de base de datos](https://msdn.microsoft.com/library/ms189121.aspx).
-- A fin de conocer la sintaxis de creación de entidades de seguridad (inicios de sesión) de un servidor de Azure AD para Instancia administrada de SQL, vea [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+- A fin de conocer la sintaxis de creación de entidades de seguridad (inicios de sesión) de un servidor de Azure AD para Instancia administrada de SQL, vea [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 - Para más información general acerca de las reglas de firewall de SQL Database, consulte [Introducción a las reglas de firewall de Azure SQL Database](firewall-configure.md).
 
 <!--Image references-->

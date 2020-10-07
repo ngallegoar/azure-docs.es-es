@@ -6,17 +6,17 @@ ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 12/03/2019
-ms.openlocfilehash: e7a3dd1c58f2bddb767dcac4ac2b5e354be77f65
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 35fc4b18ee5a98270f715a969354df2be5000150
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90981453"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444095"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Habilitación del ajuste automático en Azure Portal para supervisar las consultas y mejorar el rendimiento de las cargas de trabajo
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,7 +28,7 @@ El ajuste automático se puede habilitar en el nivel de servidor o de base de da
 
 - [Azure Portal](automatic-tuning-enable.md#azure-portal)
 - Llamadas a la [API de REST](automatic-tuning-enable.md#rest-api)
-- Comandos de [T-SQL](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current)
+- Comandos de [T-SQL](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true)
 
 > [!NOTE]
 > Para Instancia administrada de Azure SQL, la opción admitida FORCE_LAST_GOOD_PLAN se puede configurar mediante [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) solamente. La configuración basada en Azure Portal y las opciones de ajuste automático de índices que se describen en este artículo no se aplican a Instancia administrada de Azure SQL.
@@ -109,7 +109,7 @@ Si establece la opción de ajuste individual en ACTIVADO, invalidará todas las 
 > En caso de la [replicación geográfica activa](auto-failover-group-overview.md), el ajuste automático solo debe configurarse en la base de datos principal. Las acciones de ajuste aplicadas automáticamente, como la creación o la eliminación de un índice, se replicarán de forma automática en la base de datos secundaria de solo lectura. Al intentar habilitar el ajuste automático mediante T-SQL en la base de datos secundaria de solo lectura, se producirá un error ya que no se puede tener una configuración de ajuste diferente en la base de datos secundaria de solo lectura.
 >
 
-Para obtener más información sobre las opciones de T-SQL para configurar el ajuste automático, consulte [Opciones de ALTER DATABASE SET (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
+Para obtener más información sobre las opciones de T-SQL para configurar el ajuste automático, consulte [Opciones de ALTER DATABASE SET (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true).
 
 ## <a name="disabled-by-the-system"></a>Deshabilitado por el sistema
 
