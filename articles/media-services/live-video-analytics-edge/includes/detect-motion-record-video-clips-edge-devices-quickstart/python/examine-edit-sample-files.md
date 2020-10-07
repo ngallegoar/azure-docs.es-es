@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: ce5611a92e9899d64ff2117385af008c37c22c5e
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88682325"
 ---
 Como parte de los requisitos previos de este inicio rápido, ha descargado el código de ejemplo en una carpeta. Siga estos pasos para examinar y editar el código de ejemplo.

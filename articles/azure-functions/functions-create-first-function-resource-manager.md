@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs
 ms.openlocfilehash: 362ff5cd59982c1d848ed59af8381090344f5c5e
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88642272"
 ---
 # <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>Inicio rápido: Creación e implementación de recursos de Azure Functions a partir de una plantilla de Resource Manager
@@ -117,7 +117,7 @@ En la salida, copie la dirección URL del desencadenador HTTP. Esto se usa para 
 
 1. Una vez finalizada la publicación, copie la **dirección URL del sitio**.
 
-    :::image type="content" source="media/functions-create-first-function-arm/publish-summary-site-url.png" alt-text="Copia de la dirección URL del sitio desde el resumen de publicación":::
+    :::image type="content" source="media/functions-create-first-function-arm/publish-summary-site-url.png" alt-text="Elección de un destino de publicación existente":::
 
 1. Anexe la ruta de acceso `/api/<FUNCTION_NAME>?name=Functions`, en la que `<FUNCTION_NAME>` es el nombre de la función. La dirección URL que llama a la función de desencadenador HTTP tiene el formato siguiente:
 

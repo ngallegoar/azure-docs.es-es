@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/29/2020
 ms.openlocfilehash: 62bfe71c397367282c696eecdf55ab9c900c69a1
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88684123"
 ---
 # <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>Inicio rápido: Creación de un almacén de Recovery Services mediante una plantilla de Resource Manager
@@ -63,7 +63,7 @@ Para implementar la plantilla, se requieren los valores de **Suscripción**, **G
 
 1. Para comenzar la implementación del almacén, seleccione el botón **Comprar**. Después de que la implementación haya finalizado correctamente, se muestra una notificación.
 
-   :::image type="content" source="media/quickstart-create-vault-template/deployment-success.png" alt-text="La implementación del almacén se realizó correctamente.":::
+   :::image type="content" source="media/quickstart-create-vault-template/deployment-success.png" alt-text="Plantilla para crear un almacén de Recovery Services.":::
 
 ## <a name="validate-the-deployment"></a>Validación de la implementación
 

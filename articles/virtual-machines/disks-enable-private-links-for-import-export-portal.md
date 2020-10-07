@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: ab861b3ed265da9060e2367bdfdeeeee7047c584
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88815868"
 ---
 # <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Use Azure Portal para restringir el acceso de importación y exportación para discos administrados con Private Links
@@ -52,7 +52,7 @@ Tendrá que anotar la red virtual de la máquina virtual a la que están conecta
 
 Cuando se haya creado el recurso, vaya directamente a él.
 
-:::image type="content" source="media/disks-enable-private-links-for-import-export-portal/screenshot-resource-button.png" alt-text="Captura de pantalla del botón Ir al recurso en el portal":::
+:::image type="content" source="media/disks-enable-private-links-for-import-export-portal/screenshot-resource-button.png" alt-text="Captura de pantalla de la hoja de creación de un acceso a disco. Rellene el nombre deseado, seleccione una región, seleccione un grupo de recursos y continúe.":::
 
 ## <a name="create-a-private-endpoint"></a>Creación de un punto de conexión privado
 
@@ -61,13 +61,13 @@ Ahora que tiene un recurso de acceso a disco, puede usarlo para controlar el acc
 1. En el recurso de acceso a disco, seleccione **Conexiones de punto de conexión privado**.
 1. Seleccione **+ Punto de conexión privado**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-main-private-blade.png" alt-text="Captura de pantalla de la hoja de información general del recurso de acceso a disco. Las conexiones de punto de conexión privado aparecen resaltadas.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-main-private-blade.png" alt-text="Captura de pantalla de la hoja de creación de un acceso a disco. Rellene el nombre deseado, seleccione una región, seleccione un grupo de recursos y continúe.":::
 
 1. Selección de un grupo de recursos
 1. Rellene el nombre y seleccione la misma región en la que se creó el recurso de acceso a disco.
 1. Seleccione **Siguiente: Recurso >**
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="Captura de pantalla del flujo de trabajo de creación del punto de conexión privado, primera hoja. Si no selecciona la región adecuada, puede tener problemas más adelante.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="Captura de pantalla de la hoja de creación de un acceso a disco. Rellene el nombre deseado, seleccione una región, seleccione un grupo de recursos y continúe.":::
 
 1. En la hoja **Recurso**, seleccione **Conectarse a un recurso de Azure en mi directorio**.
 1. En **Tipo de recurso**, seleccione **Microsoft.Compute/diskAccesses**.
@@ -75,7 +75,7 @@ Ahora que tiene un recurso de acceso a disco, puede usarlo para controlar el acc
 1. Deje el campo **Subrecurso de destino** como **discos**.
 1. Seleccione **Siguiente: Configuración >** .
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-second-blade.png" alt-text="Captura de pantalla del flujo de trabajo de creación del punto de conexión privado, segunda hoja. Con todos los valores resaltados (tipo de recurso, recurso, subrecurso de destino).":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-second-blade.png" alt-text="Captura de pantalla de la hoja de creación de un acceso a disco. Rellene el nombre deseado, seleccione una región, seleccione un grupo de recursos y continúe.":::
 
 1. Seleccione la red virtual a la que desea limitar la exportación del disco; otras redes virtuales no podrán exportar el disco.
 
@@ -85,7 +85,7 @@ Ahora que tiene un recurso de acceso a disco, puede usarlo para controlar el acc
 1. Seleccione la subred adecuada.
 1. Seleccione **Revisar + crear**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="Captura de pantalla del flujo de trabajo de creación del punto de conexión privado, tercera hoja. Red virtual y subred resaltada.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="Captura de pantalla de la hoja de creación de un acceso a disco. Rellene el nombre deseado, seleccione una región, seleccione un grupo de recursos y continúe.":::
 
 ## <a name="enable-private-endpoint-on-your-disk"></a>Habilitación del punto de conexión privado en el disco
 
@@ -94,7 +94,7 @@ Ahora que tiene un recurso de acceso a disco, puede usarlo para controlar el acc
 1. Seleccione **Punto de conexión privado (mediante acceso al disco)** y seleccione el acceso a disco que creó anteriormente.
 1. Seleccione **Guardar**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-managed-disk-networking-blade.png" alt-text="Captura de pantalla de la hoja Redes del disco administrado. Resaltado de la selección del punto de conexión privado, así como el acceso a disco seleccionado. Al guardar, se configura el disco para este acceso.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-managed-disk-networking-blade.png" alt-text="Captura de pantalla de la hoja de creación de un acceso a disco. Rellene el nombre deseado, seleccione una región, seleccione un grupo de recursos y continúe.":::
 
 Ya ha completado la configuración de los vínculos privados que puede usar al importar o exportar el disco administrado.
 

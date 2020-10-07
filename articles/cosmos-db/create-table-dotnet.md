@@ -10,10 +10,10 @@ ms.date: 05/28/2020
 ms.author: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: e49ecf0f8e88e0de22117a5ed85b8352e73a2f5d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89020242"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>Inicio rápido: creación de una aplicación de Table API con el SDK de .NET y Azure Cosmos DB 
@@ -104,15 +104,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
 1. En [Azure Portal](https://portal.azure.com/), haga clic en **Cadena de conexión**. Use el botón de copia en el lado derecho de la ventana para copiar la **CADENA DE CONEXIÓN PRINCIPAL**.
 
-   :::image type="content" source="./media/create-table-dotnet/connection-string.png" alt-text="Visualizar y copiar el valor de CADENA DE CONEXIÓN PRINCIPAL en el panel Cadena de conexión":::
-
-2. En Visual Studio, abra el archivo **Settings.json**. 
-
-3. Pegue la **CADENA DE CONEXIÓN PRINCIPAL** del portal en el valor de StorageConnectionString. Pegue la cadena dentro de las comillas.
-
-   ```csharp
-   {
-      "StorageConnectionString": "<Primary connection string from Azure portal>"
+   :::image type="content" source="./media/create-table-dotnet/connection-string.png" alt-text="Abrir la solución"
    }
    ```
 
@@ -124,25 +116,25 @@ Ya ha actualizado la aplicación con toda la información que necesita para comu
 
 1. En Visual Studio, haga clic con el botón derecho en el proyecto **CosmosTableSamples** en **Explorador de soluciones** y, después, haga clic en **Administrar paquetes NuGet**. 
 
-   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-manage-nuget.png" alt-text="Administrar paquetes de NuGet":::
+   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-manage-nuget.png" alt-text="Abrir la solución":::
 
 2. En el cuadro **Examinar** de NuGet, escriba Microsoft.Azure.Cosmos.Table. Se buscará la biblioteca de cliente de Table API de Cosmos DB. Observe que esta biblioteca está disponible actualmente para .NET Framework y .NET Standard. 
    
-   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-nuget-browse.png" alt-text="Pestaña Examinar de NuGet":::
+   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-nuget-browse.png" alt-text="Abrir la solución":::
 
 3. Haga clic en **Instalar** para instalar la biblioteca **Microsoft.Azure.Cosmos.Table**. De este modo, se instalan el paquete de Table API de Azure Cosmos DB y todas las dependencias.
 
 4. Al ejecutar toda la aplicación, los datos de ejemplo se insertan en la entidad de tabla y eliminan al final, por lo que no verá datos insertados si ejecuta todo el ejemplo. Sin embargo, puede insertar algunos puntos de interrupción para ver los datos. Abra el archivo BasicSamples.cs y haga clic con el botón derecho en la línea 52, seleccione **Punto de interrupción** y, a continuación, seleccione **Insertar punto de interrupción**. Inserte otro punto de interrupción en la línea 55.
 
-   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-breakpoint.png" alt-text="Agregar un punto de interrupción"::: 
+   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-breakpoint.png" alt-text="Abrir la solución"::: 
 
 5. Presione F5 para ejecutar la aplicación. En la ventana de consola se muestra el nombre de la nueva base de datos de tablas (en este caso, demoa13b1) en Azure Cosmos DB. 
     
-   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-console.png" alt-text="Salida de consola":::
+   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-console.png" alt-text="Abrir la solución":::
 
    Cuando se alcance el primer punto de interrupción, vuelva al Explorador de datos en Azure Portal. Haga clic en el botón **Actualizar**, expanda la tabla demo* y haga clic en **Entidades**. En la pestaña **Entidades** que está a la derecha se muestra la nueva entidad que se agregó para Walter Harp. Tenga en cuenta que el número de teléfono para la nueva entidad es 425-555-0101.
 
-   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-entity.png" alt-text="Nueva entidad":::
+   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-entity.png" alt-text="Abrir la solución":::
     
    Si recibe un error que indica que no se encuentra el archivo Settings.json al ejecutar el proyecto, puede resolverlo agregando la siguiente entrada XML a la configuración del proyecto. Haga clic con el botón derecho en CosmosTableSamples, seleccione Editar CosmosTableSamples.csproj y agregue el itemGroup siguiente: 
 

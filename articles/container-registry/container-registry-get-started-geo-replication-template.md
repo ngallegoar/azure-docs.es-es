@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 05/26/2020
 ms.openlocfilehash: 2cfce37ff63a8321f40843ced2a7b786bcfc013e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88649634"
 ---
 # <a name="quickstart-create-a-geo-replicated-container-registry-by-using-an-arm-template"></a>Inicio rápido: Creación de un registro de contenedor con replicación geográfica mediante una plantilla de Resource Manager
@@ -62,7 +62,7 @@ Encontrará más ejemplos de plantillas de Azure Container Registry en la [galer
 
  3. Si acepta los términos y condiciones, seleccione **Purchase** (Comprar). Cuando el registro se haya creado correctamente, recibirá una notificación:
 
-     :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Notificación de Azure Portal":::
+     :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Propiedades de la plantilla":::
 
  Azure Portal se usa para implementar la plantilla. Además de Azure Portal, también puede usar Azure PowerShell, la CLI de Azure y API REST. Para obtener información sobre otros métodos de implementación, consulte [Implementación de plantillas](../azure-resource-manager/templates/deploy-cli.md).
 
@@ -74,11 +74,11 @@ Use Azure Portal o una herramienta como la CLI de Azure para examinar las propie
 
 1. En la página **Información general**, observe el valor del campo **Servidor de inicio de sesión** del registro. Use este identificador URI cuando utilice Docker para etiquetar e insertar imágenes en el registro. Para obtener información al respecto, consulte [Inserción de la primera imagen mediante la CLI de Docker](container-registry-get-started-docker-cli.md).
 
-    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-overview.png" alt-text="Información general del registro":::
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-overview.png" alt-text="Propiedades de la plantilla":::
 
 1. En la página **Replicaciones**, confirme las ubicaciones de la réplica principal y de la réplica agregada a través de la plantilla. Si lo desea, agregue más réplicas en esta página.
 
-    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="Replicaciones del registro":::
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="Propiedades de la plantilla":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
