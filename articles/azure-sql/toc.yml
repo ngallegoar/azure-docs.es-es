@@ -252,7 +252,7 @@
       items:
         - name: Crear base de datos
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: database/single-database-create-quickstart.md
             - name: Plantilla ARM
               displayName: Resource Manager
@@ -393,7 +393,7 @@
                   href: /sql/azure-data-studio/quickstart-sql-database?toc=%2Fazure%2Fazure-sql%2Ftoc.json
                 - name: SSMS
                   href: database/connect-query-ssms.md
-                - name: Azure Portal
+                - name: Azure portal
                   href: database/connect-query-portal.md
                 - name: Código de VS
                   href: database/connect-query-vscode.md
@@ -497,12 +497,8 @@
               href: database/database-copy.md
             - name: Replicación en SQL Database
               href: database/replication-to-sql-database.md
-            - name: SQL Data Sync
-              items:
-                - name: Replicación de cambios de esquema
-                  href: database/sql-data-sync-update-sync-schema.md
-                - name: Supervisión con OMS
-                  href: database/sql-data-sync-monitor-sync.md
+            - name: Replicación de cambios de esquema (sincronización de datos)
+              href: database/sql-data-sync-update-sync-schema.md
         - name: Partición de base de datos
           items:
             - name: Actualización de la biblioteca de cliente

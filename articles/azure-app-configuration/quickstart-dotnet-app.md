@@ -7,14 +7,14 @@ author: lisaguthrie
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 6795d10950ddd7b03dfa505ab44d2f43837c9045
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: d338ca5cf2c794f15d3eb535b5280208236d1e34
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590275"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767750"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Inicio rápido: Creación de una aplicación de .NET Framework con Azure App Configuration
 
@@ -22,7 +22,7 @@ En este inicio rápido incorporará Azure App Configuration a una aplicación de
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
+- Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/dotnet)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.7.2](https://dotnet.microsoft.com/download)
 
@@ -30,7 +30,7 @@ En este inicio rápido incorporará Azure App Configuration a una aplicación de
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Seleccione **Explorador de configuración** > **Crear** > **Clave-valor** para agregar los siguientes pares clave-valor:
+7. Seleccione **Explorador de configuración** > **Crear** > **Clave-valor** para agregar los siguientes pares clave-valor:
 
     | Clave | Value |
     |---|---|
@@ -38,7 +38,7 @@ En este inicio rápido incorporará Azure App Configuration a una aplicación de
 
     Deje **Etiqueta** y **Tipo de contenido** en blanco, por ahora.
 
-7. Seleccione **Aplicar**.
+8. Seleccione **Aplicar**.
 
 ## <a name="create-a-net-console-app"></a>Creación de una aplicación de consola de .NET
 
@@ -88,23 +88,15 @@ En este inicio rápido incorporará Azure App Configuration a una aplicación de
         string message = System.Configuration.ConfigurationManager.AppSettings["TestApp:Settings:Message"];
 
         Console.WriteLine(message);
+        Console.ReadKey();
     }
     ```
 
 ## <a name="build-and-run-the-app-locally"></a>Compilación y ejecución de la aplicación en un entorno local
 
-1. Establezca una variable de entorno llamada **ConnectionString** en la cadena de conexión del almacén de App Configuration. Si usa el símbolo del sistema de Windows, ejecute el siguiente comando:
+1. Actualice el archivo **App.config** reemplazando `${ConnectionString}` por la cadena de conexión real a la instancia de configuración de la aplicación. Puede encontrarla en la pestaña **Claves de acceso** del recurso de configuración de la aplicación de Azure Portal.
 
-    ```cmd
-        setx ConnectionString "connection-string-of-your-app-configuration-store"
-    ```
-
-    Si usa Windows PowerShell, ejecute el siguiente comando:
-
-    ```azurepowershell
-        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
-    ```
-1. Reinicie Visual Studio para permitir que el cambio surta efecto. Presione Ctrl + F5 para compilar y ejecutar la aplicación de consola.
+1. Presione Ctrl + F5 para compilar y ejecutar la aplicación de consola.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

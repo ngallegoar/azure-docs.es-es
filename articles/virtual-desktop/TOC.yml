@@ -34,6 +34,8 @@
           href: connect-macos.md
         - name: Conexión con el cliente iOS
           href: connect-ios.md
+        - name: Conexión con el cliente de Microsoft Store
+          href: connect-microsoft-store.md
     - name: Configuración del módulo de PowerShell
       href: powershell-module.md
     - name: Creación de un grupo de hosts y de hosts de sesión

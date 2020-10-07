@@ -108,7 +108,7 @@
           href: overview-security.md
     - name: Características de red
       items:
-        - name: Información general
+        - name: Introducción
           href: networking-features.md
         - name: Application Gateway con puntos de conexión de servicio
           href: networking/app-gateway-with-service-endpoints.md
@@ -226,7 +226,7 @@
       items:
         - name: Escalado vertical de la capacidad del servidor
           href: manage-scale-up.md
-        - name: Configuración del nivel PremiumV2
+        - name: Configuración del nivel PremiumV3
           href: app-service-configure-premium-tier.md
         - name: Escalado horizontal a varias instancias
           href: ../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json

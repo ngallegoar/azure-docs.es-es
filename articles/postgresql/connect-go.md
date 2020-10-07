@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: Conexión con Go: Azure Database for PostgreSQL (servidor único)'
 description: 'En este inicio rápido se proporciona un ejemplo del lenguaje de programación Go que puede usar para conectarse a Azure Database for PostgreSQL: servidor único y consultar datos de ese servicio.'
-author: rachel-msft
-ms.author: raagyema
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: 21ae18b239eaa5f9e894d76bc143161b2d536638
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 26bbbff1dd826a41369fea9700139adbcb743d0d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902026"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91710437"
 ---
 # <a name="quickstart-use-go-language-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Inicio rápido: Uso del lenguaje Go para conectarse y consultar datos en Azure Database for PostgreSQL: servidor único
 

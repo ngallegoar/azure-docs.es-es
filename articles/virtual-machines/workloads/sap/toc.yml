@@ -1,4 +1,4 @@
-- name: Información general
+- name: Introducción
   items:
     - name: Introducción
       href: get-started.md
@@ -114,6 +114,8 @@
           href: sap-hana-high-availability-netapp-files-red-hat.md
         - name: Solución de problemas de escalabilidad horizontal de SAP HANA y Pacemaker en SLES
           href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
+        - name: Escalado horizontal por parte de SAP HANA de HSR con Pacemaker en RHEL
+          href: sap-hana-high-availability-scale-out-hsr-rhel.md
         - name: Escalado horizontal de SAP HANA con nodo en espera mediante Azure NetApp Files en SLES
           href: sap-hana-scale-out-standby-netapp-files-suse.md
         - name: Escalado horizontal de SAP HANA con nodo en espera mediante Azure NetApp Files en RHEL

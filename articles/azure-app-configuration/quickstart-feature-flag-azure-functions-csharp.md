@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 8/26/2020
 ms.author: alkemper
-ms.openlocfilehash: 5542dca6d9b1ab18cf1b9b93e20fa64da0eb1dd4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f57163b3d17877f7f8c66fa57fc8a0736c6affb7
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90998516"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767711"
 ---
 # <a name="quickstart-add-feature-flags-to-an-azure-functions-app"></a>Inicio rápido: Adición de marcas de características a una aplicación de Azure Functions
 
@@ -31,14 +31,14 @@ Las bibliotecas de administración de características de .NET amplían la plata
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Seleccione **Administrador de características** >  **+Agregar** para agregar una marca de características denominada `Beta`.
+7. Seleccione **Administrador de características** >  **+Agregar** para agregar una marca de características denominada `Beta`.
 
     > [!div class="mx-imgBorder"]
     > ![Habilitación de la marca de característica denominada Beta](media/add-beta-feature-flag.png)
 
     Deje `label` y `Description` sin definir por ahora.
 
-7. Seleccione **Aplicar** para guardar la nueva marca de características.
+8. Seleccione **Aplicar** para guardar la nueva marca de características.
 
 ## <a name="create-a-functions-app"></a>Creación de una aplicación de Functions
 

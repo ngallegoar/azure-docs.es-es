@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: af07894fcbfae386849d32492be9d2718a3adcc3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f33d7efd1c136619767c3eadd93740442ae7239a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90945483"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91762049"
 ---
 # <a name="chat-concepts"></a>Conceptos de chat
 
@@ -28,7 +28,7 @@ Consulte la [Información general sobre la biblioteca cliente de chat de Communi
 
 Las conversaciones de chat se producen dentro de los hilos o conversaciones de chat. Una conversación de chat puede contener muchos mensajes y muchos usuarios. Cada mensaje pertenece a una conversación única, y un usuario puede formar parte de una o varias conversaciones. 
 
-A cada usuario de la conversación de chat se le denomina miembro. Una conversación de chat puede tener hasta 250 miembros. Solo los miembros de una conversación pueden enviar y recibir mensajes, o agregar o quitar miembros de esta. El tamaño máximo de mensaje permitido es de aproximadamente 28 KB. Communication Services almacena el historial de chat hasta que se ejecuta una operación de eliminación en la conversación de chat. Puede recuperar todos los mensajes de una conversación de chat mediante la operación `List/Get Messages`.
+A cada usuario de la conversación de chat se le denomina miembro. Una conversación de chat puede tener hasta 250 miembros. Solo los miembros de una conversación pueden enviar y recibir mensajes, o agregar o quitar miembros de esta. El tamaño máximo de mensaje permitido es de aproximadamente 28 KB. Puede recuperar todos los mensajes de una conversación de chat mediante la operación `List/Get Messages`. Communication Services almacena el historial del chat hasta que se ejecuta una operación de eliminación en la conversación o mensaje del chat, o bien hasta que no queden miembros en la conversación del chat, en cuyo momento se queda huérfano y se procesa para su eliminación.   
 
 En el caso de las conversaciones de chat con más de 20 miembros, las características de confirmación de lectura e indicador de escritura están deshabilitadas. 
 
@@ -128,9 +128,9 @@ Puede usar [Azure Cognitive APIs](https://docs.microsoft.com/azure/cognitive-ser
 
 Una manera de lograrlo es hacer que su servicio de confianza actúe como miembro de una conversación de chat. Supongamos que desea quiere la traducción de idiomas. Este servicio será responsable de escuchar los mensajes que intercambian otros miembros [1], llamar a Cognitive Services APIs para traducir el contenido al idioma deseado [2, 3] y enviar el resultado traducido como mensaje en la conversación de chat [4]. 
 
-De este modo, el historial de mensajes contendrá los mensajes originales y los traducidos. En la aplicación cliente, puede agregar lógica para mostrar el mensaje original o el traducido. Consulte [esta guía de inicio rápido](https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translate) para más información sobre cómo usar Cognitive Services APIs para traducir texto a diferentes idiomas. 
+De este modo, el historial de mensajes contendrá los mensajes originales y los traducidos. En la aplicación cliente, puede agregar lógica para mostrar el mensaje original o el traducido. Consulte [esta guía de inicio rápido](https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translator) para más información sobre cómo usar Cognitive Services APIs para traducir texto a diferentes idiomas. 
 
-:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagrama que muestra a Cognitive Services interactuando con Communication Services.":::
+:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagrama que muestra la arquitectura de chat de Communication Services.":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

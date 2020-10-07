@@ -7,13 +7,13 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 09/16/2020
-ms.openlocfilehash: 246cdb458b4529c60f61c3ddcb26280c1e3223af
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/05/2020
+ms.openlocfilehash: 713199dc6b1eb1330b49c320022af137d0d1402e
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91268373"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741013"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Inicio rápido: Creación de un servicio Azure Cognitive Search en el portal
 
@@ -47,7 +47,7 @@ Opcionalmente, [puede activar los beneficios de suscriptores de MSDN](https://az
 
 1. Escriba "Azure Cognitive Search" en la barra de búsqueda o vaya al recurso a través de **Web** > **Azure Cognitive Search**.
 
-![Creación de un recurso en el portal](./media/search-create-service-portal/find-search3.png "Creación de un recurso en el portal")
+:::image type="content" source="media/search-create-service-portal/find-search3.png" alt-text="Creación de un recurso en el portal" border="false":::
 
 ## <a name="choose-a-subscription"></a>Elija una suscripción
 
@@ -59,11 +59,11 @@ Un grupo de recursos es un contenedor que almacena los recursos relacionados con
 
 Si no combina recursos para formar un solo grupo o si los grupos de recursos existentes se rellenan con los recursos usados en soluciones no relacionadas, cree un grupo de recursos solo para su recurso de Azure Cognitive Search. 
 
-![Creación de un nuevo grupo de recursos](./media/search-create-service-portal/new-resource-group.png "Creación de un nuevo grupo de recursos")
+:::image type="content" source="media/search-create-service-portal/new-resource-group.png" alt-text="Creación de un recurso en el portal" border="false":::
 
 Con el tiempo, puede realizar un seguimiento de todos los costos actuales y previstos, o bien puede ver los cargos de los recursos individuales. En la captura de pantalla siguiente se muestra el tipo de información de costos que puede esperar ver al combinar varios recursos en un solo grupo.
 
-![Administración de costos en el nivel del grupo de recursos](./media/search-create-service-portal/resource-group-cost-management.png "Administración de costos en el nivel del grupo de recursos")
+:::image type="content" source="media/search-create-service-portal/resource-group-cost-management.png" alt-text="Creación de un recurso en el portal" border="false":::
 
 > [!TIP]
 > Los grupos de recursos simplifican la limpieza porque, al eliminar uno de ellos, se eliminan también todos los servicios que contiene. En el caso de proyectos de prototipo que usan muchos servicios, si se ponen todos ellos en el mismo grupo de recursos, la limpieza resulta más fácil después de que el proyecto ha finalizado.
@@ -114,11 +114,11 @@ Recuerde que una vez que se crea el servicio, el plan de tarifa no se puede camb
 
 Después de proporcionar los datos necesarios, ya puede crear el servicio. 
 
-![Revisar y crear el servicio](./media/search-create-service-portal/new-service3.png "Revisar y crear el servicio")
+:::image type="content" source="media/search-create-service-portal/new-service3.png" alt-text="Creación de un recurso en el portal" border="false":::
 
 El servicio se implementa en cuestión de minutos. El progreso se puede supervisar mediante las notificaciones de Azure. Considere la posibilidad de anclar el servicio al panel para facilitar el acceso en el futuro.
 
-![Supervisar y ajustar el servicio](./media/search-create-service-portal/monitor-notifications.png "Supervisar y ajustar el servicio")
+:::image type="content" source="media/search-create-service-portal/monitor-notifications.png" alt-text="Creación de un recurso en el portal" border="false":::
 
 ## <a name="get-a-key-and-url-endpoint"></a>Obtención de una clave y un punto de conexión de dirección URL
 
@@ -128,7 +128,7 @@ Excepto en el caso de que use el portal, para acceder mediante programación al 
 
 2. En la página **Claves**, copie una de las claves de administración (son equivalentes). Las claves de API de administrador son necesarias para crear, actualizar y eliminar objetos en el servicio. Por el contrario, las claves de consulta proporcionan acceso de lectura al contenido del índice.
 
-   ![Página de información general del servicio con punto de conexión de dirección URL](./media/search-create-service-portal/get-url-key.png "Punto de conexión de dirección URL y otros detalles del servicio")
+   :::image type="content" source="media/search-create-service-portal/get-url-key.png" alt-text="Creación de un recurso en el portal" border="false":::
 
 Para las tareas basadas en el portal, no se necesita un punto de conexión y una clave. El portal ya está vinculado a un recurso de Azure Cognitive Search con derechos de administrador. Para un tutorial del portal, empiece por [Inicio rápido: Creación de un índice de Azure Cognitive Search en el portal](search-get-started-portal.md).
 
@@ -149,7 +149,7 @@ La incorporación de recursos aumenta la factura mensual. La [calculadora de pre
 2. En el panel de navegación de la izquierda, seleccione **Configuración** > **Escala**.
 3. Use la barra deslizante para agregar recursos de cualquier tipo.
 
-![Ampliación de capacidad](./media/search-create-service-portal/settings-scale.png "Aumento de capacidad mediante réplicas y particiones")
+:::image type="content" source="media/search-create-service-portal/settings-scale.png" alt-text="Creación de un recurso en el portal" border="false":::
 
 > [!Note]
 > El almacenamiento y velocidad por partición aumenta en los niveles más altos. Para más información, consulte [capacidad y límites](search-limits-quotas-capacity.md).

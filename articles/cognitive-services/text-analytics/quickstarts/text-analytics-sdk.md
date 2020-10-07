@@ -1,27 +1,28 @@
 ---
-title: 'Inicio rápido: Biblioteca cliente v3 de Text Analytics | Microsoft Docs'
+title: 'Inicio rápido: Minería de datos mediante la biblioteca cliente de Text Analytics'
 titleSuffix: Azure Cognitive Services
-description: Use este inicio rápido para conectar las aplicaciones a API Text Analytics desde Azure Cognitive Services.
+description: Use este inicio rápido para realizar un análisis de sentimiento, entre otras funciones, mediante la API Text Analytics desde Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/27/2020
+ms.date: 09/09/2020
 ms.author: aahi
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+keywords: text mining, sentiment analysis, text analytics
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: 2d81175c73928d25c06acb396dac587c7cc73637
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 0fbd8b92846f6436128f64680a1fa9b77763a2c8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931189"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91710788"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Inicio rápido: Uso de la biblioteca cliente de Text Analytics
 
-Comience a trabajar con la biblioteca cliente de Text Analytics. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas.
+Use este artículo para empezar a trabajar con la biblioteca cliente de Text Analytics. Siga estos pasos para instalar el paquete y probar el código de ejemplo en el texto de la minería.
 
 La biblioteca cliente de Text Analytics se puede usar para realizar las siguientes operaciones:
 
@@ -36,6 +37,8 @@ La biblioteca cliente de Text Analytics se puede usar para realizar las siguient
 > * La versión estable más reciente de Text Analytics API es `3.0`.
 >    * Asegúrese de seguir únicamente las instrucciones de la versión que está usando.
 > * Por motivos de simplicidad, en el código de este artículo se usan métodos sincrónicos y almacenamiento de credenciales no protegidas. En escenarios de producción, se recomienda usar los métodos asincrónicos por lotes para mayor rendimiento y escalabilidad. Para más información, consulte la siguiente documentación de referencia.
+
+[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 [!INCLUDE [C# quickstart](../includes/quickstarts/csharp-sdk.md)]
 
