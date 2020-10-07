@@ -7,10 +7,10 @@ ms.date: 05/19/2020
 author: deborahc
 ms.author: dech
 ms.openlocfilehash: 0299ab1e76e742adb8d2653b8b5d6923aff2f11f
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88588163"
 ---
 # <a name="built-in-jupyter-notebooks-support-in-azure-cosmos-db-preview"></a>Compatibilidad integrada con cuadernos de Jupyter Notebook en Azure Cosmos DB (versión preliminar)
@@ -23,7 +23,7 @@ Los cuadernos de Jupyter Notebook integrados en Azure Cosmos DB se integran di
 
 Azure Cosmos DB admite cuadernos de C# y de Python para todas las API, lo que incluye Core (SQL), Cassandra, Gremlin, Table y API para MongoDB. Dentro del cuaderno, puede aprovechar las características y comandos integrados que facilitan la creación de recursos de Azure Cosmos DB, así como la carga, la consulta y la visualización de los datos en Azure Cosmos DB. 
 
-:::image type="content" source="./media/cosmosdb-jupyter-notebooks/jupyter-notebooks-portal.png" alt-text="Compatibilidad con cuadernos de Jupyter Notebook en Azure Cosmos DB":::
+:::image type="content" source="./media/cosmosdb-jupyter-notebooks/jupyter-notebooks-portal.png" alt-text="Visualizaciones de cuadernos de Jupyter Notebook en Azure Cosmos DB":::
 
 ## <a name="benefits-of-jupyter-notebooks"></a>Ventajas de los cuadernos de Jupyter Notebook
 
