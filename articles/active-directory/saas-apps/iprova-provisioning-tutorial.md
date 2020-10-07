@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 1d0f5c974b19b83cdd2fdab832ae0cac0dab9d9a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1dd89198fd1c494ef3002fdc222683f56f2d7e3a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552873"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91304783"
 ---
 # <a name="tutorial-configure-iprova-for-automatic-user-provisioning"></a>Tutorial: Configuración de iProva para el aprovisionamiento automático de usuarios
 
@@ -96,11 +96,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning.png)
+    ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
+    ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
 5. En la sección **Credenciales de administrador**, escriba los valores de **URL base de SCIM 2.0 y token permanente** que recuperó anteriormente en los campos **URL de inquilino** y **Token secreto** respectivamente. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a iProva. Si la conexión no se establece, asegúrese de que la cuenta de iProva tiene permisos de administrador y pruebe otra vez.
 

@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/22/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: e62973c83db90df2857186fe6a556278a3c41a7d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 68ddbe73bcf4c0e934a5a8be0246214086a7618c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977468"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302050"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Explore y administre los recursos con las herramientas de administración e inventario de recursos.
 
@@ -54,7 +54,7 @@ La página de inventario proporciona las siguientes herramientas:
 - **Resúmenes**: antes de definir algún filtro, una franja destacada de valores en la parte superior de la vista de inventario muestra:
 
     - **Recursos totales**: número total de recursos conectados a Security Center.
-    - **Recursos con estado incorrecto** : recursos con recomendaciones de seguridad activas. [Más información sobre las recomendaciones de seguridad](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
+    - **Recursos con estado incorrecto** : recursos con recomendaciones de seguridad activas. [Más información sobre las recomendaciones de seguridad](security-center-recommendations.md).
     - **Unmonitored resources** (Recursos no supervisados): recursos con problemas de supervisión del agente; tienen implementado el agente de Log Analytics, pero no envía datos o tiene otros problemas de estado.
 
 - **Filtros**: los distintos filtros de la parte superior de la página proporcionan una manera de refinar rápidamente la lista de recursos según la pregunta que intenta responder. Por ejemplo, si quisiera responder a la pregunta *¿A cuáles de mis máquinas con la etiqueta "producción" les falta el agente de Log Analytics?* , podría combinar el filtro **Agent monitoring** (Supervisión del agente) con el filtro **Etiquetas**, como se muestra en el siguiente clip:
@@ -94,7 +94,7 @@ Con el [lenguaje de consulta de Kusto (KQL)](https://docs.microsoft.com/azure/da
 
 1. Seleccione las opciones correspondientes de los filtros para crear la consulta específica que quiere realizar.
 
-    :::image type="content" source="./media/asset-inventory/inventory-filters.png" alt-text="Opciones de filtrado del inventario" lightbox="./media/asset-inventory/inventory-filters.png":::
+    :::image type="content" source="./media/asset-inventory/inventory-filters.png" alt-text="Filtrado de los recursos de producción que no están supervisados" lightbox="./media/asset-inventory/inventory-filters.png":::
 
     De forma predeterminada, los recursos se ordenan por el número de recomendaciones de seguridad activas.
 
@@ -114,12 +114,12 @@ Con el [lenguaje de consulta de Kusto (KQL)](https://docs.microsoft.com/azure/da
 
     - **Desactivado**: recursos que no están protegidos por un plan de Azure Defender. Puede hacer clic con el botón derecho en cualquiera de ellos y actualizarlos:
 
-        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Actualización de un recurso a Azure Defender mediante un clic con el botón derecho" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
+        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Filtrado de los recursos de producción que no están supervisados" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
 
     - **Activado**: recursos que están protegidos por un plan de Azure Defender.
     - **Parcial**: esto se aplica a **suscripciones** que tienen algunos planes de Azure Defender deshabilitados, pero no todos. Por ejemplo, la siguiente suscripción tiene cinco planes de Azure Defender deshabilitados. 
 
-        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Suscripción parcial en Azure Defender":::
+        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Filtrado de los recursos de producción que no están supervisados":::
 
 1. Para examinar más detalladamente los resultados de la consulta, seleccione los recursos que le interesen.
 
@@ -140,7 +140,7 @@ En la vista de inventario se muestran los recursos conectados de Security Center
 
 Por ejemplo, en la captura de pantalla siguiente se muestra un usuario con acceso a 38 suscripciones, pero solo 10 tienen recomendaciones actualmente. Por tanto, cuando se filtran por **Tipo de recurso = Suscripciones**, solo las 10 suscripciones con recomendaciones activas aparecen en el inventario:
 
-:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="No todas las subscripciones se devuelven cuando no hay recomendaciones activas.":::
+:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="Filtrado de los recursos de producción que no están supervisados":::
 
 ### <a name="why-do-some-of-my-resources-show-blank-values-in-the-azure-defender-or-agent-monitoring-columns"></a>¿Por qué algunos de mis recursos muestran valores en blanco en las columnas de supervisión del agente o de Azure Defender?
 
@@ -148,7 +148,7 @@ No todos los recursos supervisados de Security Center tienen agentes. Por ejempl
 
 Cuando el precio o la supervisión del agente no son pertinentes para un recurso, no se mostrará nada en esas columnas de inventario.
 
-:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="Algunos recursos muestran información en blanco en las columnas de Azure Defender o de supervisión del agente":::
+:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="Filtrado de los recursos de producción que no están supervisados":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

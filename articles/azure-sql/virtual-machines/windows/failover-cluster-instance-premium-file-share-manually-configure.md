@@ -8,17 +8,17 @@ editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.custom: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: cbc6b2af98905a09324a58c92cafca0075d8a01d
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 1b10489ef74e681eab59694d24c4babc3ce69163
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055148"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91298718"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Creación de una FCI con un recurso compartido de archivos Premium (SQL Server en VM de Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -96,17 +96,7 @@ Para validar el clúster con la interfaz de usuario, realice lo siguiente en una
 1. Seleccione **Next** (Siguiente).
 1. En **Selección de pruebas**, seleccione todas las pruebas excepto **Almacenamiento** y **Espacios de almacenamiento directo** como se muestra aquí:
 
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Seleccionar pruebas de validación de clústeres":::
-
-1. Seleccione **Next** (Siguiente).
-1. En **Confirmación**, seleccione **Siguiente**.
-
-El Asistente para **validar una configuración** ejecuta las pruebas de validación.
-
-Para validar el clúster con PowerShell, ejecute el siguiente script en una sesión de PowerShell de administrador de una de las máquinas virtuales:
-
-   ```powershell
-   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Copia de ambos comandos de PowerShell desde el portal de conexión del recurso compartido de archivos"
    ```
 
 Después de validar el clúster, cree el clúster de conmutación por error.
@@ -151,7 +141,7 @@ Configure la solución del cuórum que mejor se adapte a sus necesidades empresa
 
 Pruebe la conmutación por error del clúster. En **Administrador de clústeres de conmutación por error**, haga clic con el botón derecho en el clúster, seleccione **Más acciones** > **Mover recurso del clúster del recurso principal** > **Seleccionar nodo**, y después, seleccione el otro nodo del clúster. Mueva el recurso de clúster principal a cada nodo del clúster y, después, devuélvalo al nodo principal. Si puede mover correctamente el clúster a cada nodo, está listo para instalar SQL Server.  
 
-:::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Prueba de la conmutación por error del clúster moviendo el recurso principal a los demás nodos":::
+:::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Copia de ambos comandos de PowerShell desde el portal de conexión del recurso compartido de archivos":::
 
 
 ## <a name="create-sql-server-fci"></a>Crear la FCI de SQL Server
@@ -172,7 +162,7 @@ Después de haber configurado el clúster de conmutación por error, puede crear
 
    Es preciso que los directorios de datos de FCI estén en el recurso compartido de archivos premium. Escriba la ruta de acceso completa del recurso compartido,con este formato: `\\storageaccountname.file.core.windows.net\filesharename\foldername`. Aparecerá una advertencia que le notificará que ha especificado un servidor de archivos como directorio de datos. Se espera esta advertencia. Para evitar posibles errores, asegúrese de que la cuenta de usuario que usó para tener acceso a la máquina virtual mediante RDP cuando conservó el recurso compartido de archivos sea la misma que usa el servicio SQL Server.
 
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/use-file-share-as-data-directories.png" alt-text="Uso del recurso compartido de archivos como directorios de datos SQL":::
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/use-file-share-as-data-directories.png" alt-text="Copia de ambos comandos de PowerShell desde el portal de conexión del recurso compartido de archivos":::
 
 1. Después de completar los pasos del asistente, el programa de instalación instalará una FCI de SQL Server en el primer nodo.
 

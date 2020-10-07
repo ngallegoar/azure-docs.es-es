@@ -1,14 +1,16 @@
 ---
 title: 'Administración de la configuración de modelos y del aprendizaje: Personalizer'
 description: La configuración del aprendizaje y los modelos con aprendizaje automático se puede exportar para realizar copias de seguridad en su propio sistema de control de código fuente.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: 59af5a64ea5752ec03fb44df91440e8d395e3782
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: f82adad5273f1c5559cbeb1924f59e57c863f6b6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344363"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303461"
 ---
 # <a name="how-to-manage-model-and-learning-settings"></a>Administración de la configuración de modelos y del aprendizaje
 

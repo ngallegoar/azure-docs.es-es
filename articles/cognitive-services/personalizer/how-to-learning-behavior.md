@@ -1,14 +1,16 @@
 ---
 title: Configuración del comportamiento de aprendizaje
 description: El modo de aprendiz le proporciona confianza en el servicio Personalizer y sus capacidades de Machine Learning, y proporciona métricas conforme el servicio recibe información de la que se puede aprender, sin poner en peligro el tráfico en línea.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 05/01/2020
-ms.openlocfilehash: af38500fc439964f9928cdd08aae2380ee0d0a8a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 10e98cd2f0ad4793aa43f9bb3316c522b44f1d2c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599336"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303546"
 ---
 # <a name="configure-the-personalizer-learning-behavior"></a>Configuración del comportamiento de aprendizaje de Personalizer
 

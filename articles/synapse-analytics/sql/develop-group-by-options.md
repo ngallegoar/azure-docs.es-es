@@ -11,19 +11,19 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: ad2b13fbfbd9871a55efb1826fa1e978d4eeb453
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 0d9d28bacac02326ee781ca56309b7a72e921960
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032306"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289176"
 ---
 # <a name="group-by-options-in-synapse-sql"></a>Opciones de GROUP BY en SQL de Synapse
 SQL de Synapse permite crear soluciones de desarrollo al implementar distintas opciones de GROUP BY. 
 
 ## <a name="what-does-group-by-do"></a>¿Qué hace GROUP BY?
 
-La cláusula [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) de T-SQL se usa para agregar datos a un conjunto de filas de resumen.
+La cláusula [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) de T-SQL se usa para agregar datos a un conjunto de filas de resumen.
 
 SQL a petición admite todo el intervalo de opciones de GROUP BY. El grupo de SQL admite un número limitado de opciones de GROUP BY.
 
@@ -124,7 +124,7 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-La siguiente imagen muestra los resultados de [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest):
+La siguiente imagen muestra los resultados de [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true):
 
 ![Agrupar por cubo](./media/develop-group-by-options/develop-group-by-cube.png)
 

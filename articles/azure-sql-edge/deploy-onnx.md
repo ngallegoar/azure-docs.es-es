@@ -1,5 +1,6 @@
 ---
 title: Implementación y realización de predicciones con ONNX
+titleSuffix: SQL machine learning
 description: Obtenga información sobre cómo entrenar un modelo, convertirlo a ONNX, implementarlo en Azure SQL Edge o Azure SQL Managed Instance (versión preliminar) y, después, ejecutar la cláusula PREDICT nativa en los datos con el modelo de ONNX cargado.
 keywords: implementación de SQL Edge
 ms.prod: sql
@@ -8,12 +9,12 @@ ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 07/14/2020
-ms.openlocfilehash: 1e70b48e4c28cdc74c5079e492b0266ea60900ad
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5a1e0b12179070dc11e838004c4b27cf04b5396b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886824"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91298912"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model"></a>Implementación y realización de predicciones con un modelo de ONNX
 

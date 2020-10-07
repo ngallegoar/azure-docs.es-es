@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: larryfr
 author: BlackMist
 ms.date: 07/08/2020
-ms.openlocfilehash: a37a09d971ee80d05f9e028ece1adc7962c0c1a0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e1b92563acd6983b1680cacc06a8f2d0789dddf1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905719"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302509"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>¿Qué son los entornos de Azure Machine Learning?
 
@@ -85,7 +85,7 @@ El segundo paso se omite si se especifican [dependencias administradas por el us
 
 Si usa la misma definición de entorno para otra ejecución, Machine Learning Service vuelve a usar la imagen almacenada en caché de la instancia de ACR del área de trabajo. 
 
-Para ver los detalles de una imagen almacenada en caché, use el método [Environment.get_image_details](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#&preserve-view=trueget-image-details-workspace-).
+Para ver los detalles de una imagen almacenada en caché, use el método [Environment.get_image_details](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-image-details-workspace-).
 
 Para determinar si se debe reutilizar una imagen almacenada en caché o se debe crear una nueva, el servicio calcula [un valor hash](https://en.wikipedia.org/wiki/Hash_table) a partir de la definición de entorno y lo compara con los valores hash de los entornos existentes. El hash se basa en lo siguiente:
  
@@ -108,10 +108,10 @@ En el siguiente diagrama se muestran tres definiciones de entorno. Dos de ellas 
 Para actualizar el paquete, especifique un número de versión para forzar la recompilación de la imagen; por ejemplo, ```numpy==1.18.1```. Se instalarán nuevas dependencias, incluidas las anidadas, que podrían estropear un escenario que anteriormente funcionaba. 
 
 > [!WARNING]
->  El método [Environment.build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#&preserve-view=truebuild-workspace--image-build-compute-none-) recompilará la imagen almacenada en caché, con el posible efecto secundario de que se actualicen los paquetes sin especificar y que todas las definiciones de entorno correspondientes a esa imagen almacenada en caché ya no puedan reproducirse.
+>  El método [Environment.build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#&preserve-view=truebuild-workspace--image-build-compute-none-) recompilará la imagen almacenada en caché, con el posible efecto secundario de que se actualicen los paquetes sin especificar y que todas las definiciones de entorno correspondientes a esa imagen almacenada en caché ya no puedan reproducirse.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Aprenda a [crear y usar entornos](how-to-use-environments.md) en Azure Machine Learning.
-* Vea la documentación de referencia del SDK de Python para la [clase environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py&preserve-view=true).
+* Vea la documentación de referencia del SDK de Python para la [clase environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true).
 * Vea la documentación de referencia del SDK de R para los [entornos](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-environments).

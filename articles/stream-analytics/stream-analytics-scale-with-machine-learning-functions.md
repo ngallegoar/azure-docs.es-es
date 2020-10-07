@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/16/2020
-ms.openlocfilehash: 1493a15a97ca88d0ed914f78b1906088c03dff10
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a0cc70f5bf994e03088511a0d10796746a434bd7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037416"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300316"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Escalado del trabajo de Stream Analytics con funciones de Azure Machine Learning Studio (clásico)
 
@@ -25,7 +25,7 @@ En este artículo se describe cómo escalar de manera eficaz trabajos de Azure S
 
 Una función de Machine Learning en Análisis de transmisiones puede utilizarse como una llamada de función normal en el lenguaje de consulta de Análisis de transmisiones. No obstante, en segundo plano, estas llamadas de función son en realidad solicitudes de servicio web de Azure Machine Learning.
 
-Puede mejorar el rendimiento de las solicitudes de servicio web Machine Learning al agrupar en "lotes" varias filas en la misma llamada API de servicio web. Esta agrupación se denomina minilote. Para más información, consulte [Servicios web de Azure Machine Learning Studio (clásico)](../machine-learning/studio/consume-web-services.md). La compatibilidad con Azure Machine Learning Studio (clásico) en Stream Analytics está en versión preliminar.
+Puede mejorar el rendimiento de las solicitudes de servicio web Machine Learning al agrupar en "lotes" varias filas en la misma llamada API de servicio web. Esta agrupación se denomina minilote. Para más información, consulte [Servicios web de Azure Machine Learning Studio (clásico)](../machine-learning/classic/consume-web-services.md). La compatibilidad con Azure Machine Learning Studio (clásico) en Stream Analytics está en versión preliminar.
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Configuración de un trabajo de Análisis de transmisiones con funciones de Machine Learning
 
@@ -58,7 +58,7 @@ En general, si ***B*** es el tamaño de lote y ***L*** es la latencia del servic
 
 También puede configurar las "llamadas simultáneas máximas" en el servicio web Machine Learning. Se recomienda establecer este parámetro en el valor máximo (actualmente 200).
 
-Para más información sobre esta configuración, consulte el artículo de [Escalado para servicio web Machine Learning](../machine-learning/studio/create-endpoint.md).
+Para más información sobre esta configuración, consulte el artículo de [Escalado para servicio web Machine Learning](../machine-learning/classic/create-endpoint.md).
 
 ## <a name="example--sentiment-analysis"></a>Ejemplo: Análisis de opiniones
 En el ejemplo siguiente se incluye un trabajo de Análisis de transmisiones con la función de Machine Learning de análisis de opiniones, como se describe en el [tutorial de integración de Machine Learning de Análisis de transmisiones](stream-analytics-machine-learning-integration-tutorial.md).

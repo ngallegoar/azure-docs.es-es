@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 29190cee748db17caee32497de5512bee736bae0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 603628e24d7ccdffeafea392ab56aa7e47781a37
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047723"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296491"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Identificación de escenarios y planeamiento del procesamiento analítico avanzado de datos
 
@@ -66,7 +66,7 @@ Es posible que tenga que mover los datos varias veces durante el proceso de aná
 Para los procedimientos y los recursos para ingerir o cargar datos en una variedad de entornos de almacenamiento y procesamiento diferentes, consulte:
 
 * [Carga de datos en entornos de almacenamiento para el análisis](ingest-data.md)
-* [Importación de datos de entrenamiento en Azure Machine Learning Studio (clásico) desde varios orígenes de datos](../studio/import-data.md)
+* [Importación de datos de entrenamiento en Azure Machine Learning Studio (clásico) desde varios orígenes de datos](../classic/import-data.md)
 
 ### <a name="does-the-data-need-to-be-moved-on-a-regular-schedule-or-modified-during-migration"></a>¿Necesitan moverse los datos siguiendo una programación regular o modificarse durante la migración?
 
@@ -108,7 +108,7 @@ Estas cuestiones son clave para planear los entornos de almacenamiento y procesa
 
 Veamos por ejemplo Azure Machine Learning Studio (clásico):
 
-* Para obtener una lista de los formatos de datos y los tipos admitidos por Azure Machine Learning Studio, consulte la sección [Tipos y formatos de datos admitidos](../studio/import-data.md#supported-data-formats-and-data-types) .
+* Para obtener una lista de los formatos de datos y los tipos admitidos por Azure Machine Learning Studio, consulte la sección [Tipos y formatos de datos admitidos](../classic/import-data.md#supported-data-formats-and-data-types) .
 * Para obtener más información sobre las limitaciones de otros servicios de Azure usados en el proceso de análisis, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## <a name="data-quality-questions-exploration-and-pre-processing"></a>Cuestiones sobre la calidad de los datos: exploración y procesamiento previo
@@ -146,7 +146,7 @@ Hay muchas opciones para lenguajes, entornos de desarrollo y herramientas. Sea c
 ### <a name="what-tools-should-you-use-for-data-analysis"></a>¿Qué herramientas debe usar para analizar los datos?
 
 * [Microsoft Azure PowerShell](/powershell/azure/): un lenguaje de script que se usa para administrar los recursos de Azure en un lenguaje de script
-* [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
+* [Azure Machine Learning Studio](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
 * [RStudio](https://www.rstudio.com)
 * [Herramientas de Python para Visual Studio](https://aka.ms/ptvsdocs)

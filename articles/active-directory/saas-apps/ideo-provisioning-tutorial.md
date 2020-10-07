@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/24/2019
 ms.author: Zhchia
-ms.openlocfilehash: f1b42619a80610a1732fb763dd4994241bf584fd
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 32010263829f57dc00781811eaa2535cff57b10e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547450"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91304872"
 ---
 # <a name="tutorial-configure-ideo-for-automatic-user-provisioning"></a>Tutorial: Configuración de IDEO para el aprovisionamiento automático de usuarios
 
@@ -84,11 +84,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning.png)
+    ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
+    ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
 5. En la sección **Credenciales de administrador**, escriba los valores de **URL base de SCIM 2.0 y token de acceso**, que recuperó anteriormente del equipo de soporte técnico de IDEO, en los campos **URL de inquilino** y **Token secreto**, respectivamente. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a IDEO. Si la conexión no se establece, asegúrese de que la cuenta de IDEO tenga permisos de administrador y pruebe de nuevo.
 

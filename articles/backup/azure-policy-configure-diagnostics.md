@@ -3,12 +3,12 @@ title: Configuración de los valores de diagnóstico del almacén a gran escala
 description: Configuración de diagnóstico de Log Analytics de diagnóstico para todos los almacenes de un ámbito determinado mediante Azure Policy
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 25946bb742c7666e7d394477318f647009b2f50e
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 33956fe7ce2e162d58ef3aa09feaea2882dccb36
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378056"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293091"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configuración de los valores de diagnóstico del almacén a gran escala
 
@@ -34,7 +34,7 @@ Para asignar la directiva a almacenes del ámbito necesario, siga estos pasos:
 
 1. Inicie sesión en Azure Portal y vaya al panel **Directiva**.
 2. Seleccione **Definiciones** en el menú de la izquierda para obtener una lista de todas las directivas integradas en los recursos de Azure.
-3. Filtre la lista por **Categoría = Supervisión**. Busque la directiva denominada **[Preview]: Deploy Diagnostic Settings for Recovery Services Vault to Log Analytics workspace for resource specific categories** ([Versión preliminar]: Implementación de la configuración de diagnóstico para el almacén de Recovery Services en el área de trabajo de Log Analytics para categorías de recursos específicas).
+3. Filtre la lista por **Categoría = Copia de seguridad**. Busque la directiva denominada **[Preview]: Deploy Diagnostic Settings for Recovery Services Vault to Log Analytics workspace for resource specific categories** ([Versión preliminar]: Implementación de la configuración de diagnóstico para el almacén de Recovery Services en el área de trabajo de Log Analytics para categorías de recursos específicas).
 
     ![Panel de definición de directiva](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
 

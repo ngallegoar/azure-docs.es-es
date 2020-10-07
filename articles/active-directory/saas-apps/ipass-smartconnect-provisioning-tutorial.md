@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 533f31882ad06ecc4b411fe0f686ab51f189c0a3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0af8df35bc2cc323e5165b973c889a0ab10f4cbb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552917"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91304949"
 ---
 # <a name="tutorial-configure-ipass-smartconnect-for-automatic-user-provisioning"></a>Tutorial: Configuración de iPass SmartConnect para aprovisionar usuarios automáticamente
 
@@ -96,11 +96,11 @@ Esta sección le guiará por los pasos necesarios para configurar el servicio de
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning.png)
+    ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
+    ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
 5. En la sección **Credenciales de administrador**, escriba `https://openmobile.ipass.com/moservices/scim/v1` en la **URL de inquilino**. Escriba el token de portador recuperado anteriormente en el **token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a iPass SmartConnect. Si se produce un error en la conexión, asegúrese de que la cuenta de iPass SmartConnect tiene permisos de administrador y vuelva a intentarlo.
 

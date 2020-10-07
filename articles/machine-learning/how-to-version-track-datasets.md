@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 21969f52223a4e0c7de6ee26c0a6f9e2f96366b1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 27cf60f09a8c0f149aec16dd81da0e7ce0707a15
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902351"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302101"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Versión y seguimiento de conjuntos de valores en experimentos
 
@@ -63,7 +63,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 
 ### <a name="retrieve-a-dataset-by-name"></a>Recuperar un conjunto de datos por nombre
 
-De manera predeterminada, el método [get_by_name()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) de la clase `Dataset` devuelve la versión más reciente del conjunto de datos registrada en el área de trabajo. 
+De manera predeterminada, el método [get_by_name()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-by-name-workspace--name--version--latest--) de la clase `Dataset` devuelve la versión más reciente del conjunto de datos registrada en el área de trabajo. 
 
 El código siguiente obtiene la versión 1 del conjunto de datos `titanic_ds`.
 
@@ -158,7 +158,7 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 Para cada experimento de Machine Learning, puede realizar fácilmente el seguimiento de los conjuntos de datos que se usan como entrada mediante el objeto `Run` del experimento.
 
-El código siguiente usa el método [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#&preserve-view=trueget-details--) para realizar un seguimiento de los conjuntos de datos de entrada que se utilizaron en la ejecución del experimento:
+El código siguiente usa el método [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-details--) para realizar un seguimiento de los conjuntos de datos de entrada que se utilizaron en la ejecución del experimento:
 
 ```Python
 # get input datasets

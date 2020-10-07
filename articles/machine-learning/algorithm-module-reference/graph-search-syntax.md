@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 8/24/2020
-ms.openlocfilehash: 122da78206ef2055b4867727b174293e74133c05
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 166b87159b5ac2434c3ce7a7c66529a4b61ee565
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817188"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290507"
 ---
 # <a name="graph-search-query-syntax"></a>Sintaxis de consulta de búsqueda de Graph
 
@@ -49,7 +49,7 @@ La búsqueda en gráficos usa la consulta simple de Lucene como sintaxis de bús
  
 - Coincidencia de caracteres comodín: 
     - `machi?e learning`
-    -   `mach*ing`
+    - `mach*ing`
  
 >[!NOTE]
 > No se puede iniciar una consulta de Lucene con un carácter "*".
@@ -59,7 +59,7 @@ La búsqueda en gráficos usa la consulta simple de Lucene como sintaxis de bús
  
 Las consultas con filtro usan el siguiente patrón:
  
-    **[key1] [operator1] [value1]; [key2] [operator1] [value2];**
+`**[key1] [operator1] [value1]; [key2] [operator1] [value2];**`
 
  
 Puede usar las siguientes propiedades de nodo como claves:

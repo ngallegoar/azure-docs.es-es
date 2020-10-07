@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: Zhchia
-ms.openlocfilehash: c889b2c7b11c5e649045e34cdac9e50a3a242b6a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: cf71246caef377fb607a9ca7a765ec9ca5999744
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88524461"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285976"
 ---
 # <a name="tutorial-configure-storegate-for-automatic-user-provisioning"></a>Tutorial: Configuración de Storegate para el aprovisionamiento automático de usuarios
 
@@ -130,11 +130,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning.png)
+    ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
+    ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
 5. En la sección **Credenciales de administrador**, escriba `https://dialpad.com/scim` en la **URL de inquilino**. Escriba el valor que recuperó y guardó anteriormente en Storegate en el campo **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Storegate. Si la conexión no se establece, asegúrese de que la cuenta de Storegate tiene permisos de administrador e inténtelo de nuevo.
 

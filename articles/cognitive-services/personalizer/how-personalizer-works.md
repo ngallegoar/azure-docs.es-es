@@ -1,14 +1,16 @@
 ---
 title: Funcionamiento de Personalizer (Personalizer)
 description: El _bucle_ de Personalizer utiliza el aprendizaje automático para compilar el modelo que predice la acción superior para su contenido. El modelo se entrena exclusivamente con los datos que usted le envía con las llamadas a Rank y Reward.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: 836c207213ac52a60e27da6fc957418187059023
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cfbe5cf8c19bfafb38f6149391e09350785ebf9c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77623739"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303614"
 ---
 # <a name="how-personalizer-works"></a>Funcionamiento de Personalizer
 

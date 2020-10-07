@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 6c7f50e4ba3803b5cb929b75f5ad1127f7f063d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3c050b414e322f08fd45a569a22cea2db591b99
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75931677"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302696"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Aprendizaje automático en HDInsight
 
@@ -41,7 +41,7 @@ Azure Machine Learning proporciona herramientas para análisis predictivo de mod
 
 ![Información general de Microsoft Azure Machine Learning](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
 
-Cree características para los datos de un clúster de Hadoop en HDInsight mediante [consultas de Hive](../machine-learning/team-data-science-process/create-features-hive.md). *La ingeniería de características* intenta aumentar la eficacia predictiva de los algoritmos de aprendizaje creando características a partir de los datos sin procesar que facilitan el proceso de aprendizaje. Puede ejecutar consultas de HiveQL desde Azure Machine Learning Studio (clásico) y obtener acceso a los datos procesados en Hive y almacenados en blobs, mediante el uso del [módulo de importación de datos](../machine-learning/studio/import-data.md).
+Cree características para los datos de un clúster de Hadoop en HDInsight mediante [consultas de Hive](../machine-learning/team-data-science-process/create-features-hive.md). *La ingeniería de características* intenta aumentar la eficacia predictiva de los algoritmos de aprendizaje creando características a partir de los datos sin procesar que facilitan el proceso de aprendizaje. Puede ejecutar consultas de HiveQL desde Azure Machine Learning Studio (clásico) y obtener acceso a los datos procesados en Hive y almacenados en blobs, mediante el uso del [módulo de importación de datos](../machine-learning/classic/import-data.md).
 
 ## <a name="microsoft-cognitive-toolkit"></a>Microsoft Cognitive Toolkit
 

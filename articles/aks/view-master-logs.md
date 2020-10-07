@@ -4,12 +4,12 @@ description: Aprenda a habilitar y ver los registros del nodo maestro de Kuberne
 services: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.openlocfilehash: a0207ebbb1596e41ad65e21a769d7041a239f767
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 4d4485848bb81f9b745081bd999b3cd3e8101b41
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90004874"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299078"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Habilitación y revisión de los registros del nodo maestro de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -72,16 +72,18 @@ Los registros de diagnóstico pueden tardar unos minutos en habilitarse y aparec
 En el lado izquierdo, elija **Registros**. Para ver los registros de *kube-audit*, escriba la siguiente consulta en el cuadro de texto:
 
 ```
-KubePodInventory
-| where TimeGenerated > ago(1d)
+AzureDiagnostics
+| where Category == "kube-audit"
+| project log_s
 ```
 
 Es probable que se devuelvan muchos registros. Para reducir el ámbito de la consulta y ver los registros sobre el pod de NGINX creado en el paso anterior, agregue una instrucción *where* adicional para buscar *nginx*, como se muestra en la consulta de ejemplo siguiente:
 
 ```
-KubePodInventory
-| where TimeGenerated > ago(1d)
-| where Name contains "nginx"
+AzureDiagnostics
+| where Category == "kube-audit"
+| where log_s contains "nginx"
+| project log_s
 ```
 
 Para más información acerca de cómo consultar y filtrar datos de registro, consulte el artículo de [Visualización o análisis de los datos recopilados con la búsqueda de registros de Log Analytics][analyze-log-analytics].
@@ -91,6 +93,7 @@ Para más información acerca de cómo consultar y filtrar datos de registro, co
 AKS registra los siguientes eventos:
 
 * [AzureActivity][log-schema-azureactivity]
+* [AzureDiagnostics][log-schema-azurediagnostics]
 * [AzureMetrics][log-schema-azuremetrics]
 * [ContainerImageInventory][log-schema-containerimageinventory]
 * [ContainerInventory][log-schema-containerinventory]
@@ -133,6 +136,7 @@ En este artículo, aprendió a habilitar y revisar los registros de los componen
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [log-schema-azureactivity]: /azure/azure-monitor/reference/tables/azureactivity
+[log-schema-azurediagnostics]: /azure/azure-monitor/reference/tables/azurediagnostics
 [log-schema-azuremetrics]: /azure/azure-monitor/reference/tables/azuremetrics
 [log-schema-containerimageinventory]: /azure/azure-monitor/reference/tables/containerimageinventory
 [log-schema-containerinventory]: /azure/azure-monitor/reference/tables/containerinventory

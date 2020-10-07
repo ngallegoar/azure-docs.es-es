@@ -2,13 +2,13 @@
 title: Temas del sistema en Azure Event Grid
 description: Describe los temas del sistema en Azure Event Grid.
 ms.topic: conceptual
-ms.date: 08/27/2020
-ms.openlocfilehash: f5ca472ab5141207222987d476284813c2aacf56
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.date: 09/24/2020
+ms.openlocfilehash: b3a6e7528da2a11c2f91007425ab8beecaf920c3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019103"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297290"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Temas del sistema en Azure Event Grid
 Un tema del sistema en Event Grid representa uno o varios eventos publicados por los servicios de Azure, como Azure Storage y Azure Event Hubs. Por ejemplo, un tema del sistema puede representar **todos los eventos de blobs** o solo los eventos de **blob creado** y **blobs eliminado** publicados para una **cuenta de almacenamiento específica**. En este ejemplo, cuando se carga un blob en la cuenta de almacenamiento, el servicio de Azure Storage publica un evento de **blob creado** en el tema del sistema en Event Grid, que luego reenvía el evento a los [suscriptores](event-handlers.md) del tema que reciben y procesan el evento. 
@@ -22,6 +22,7 @@ Esta es la lista actual de los servicios de Azure que admiten la creación de te
 - [Azure App Configuration](event-schema-app-configuration.md)
 - [Azure App Service](event-schema-app-service.md)
 - [Azure Blob Storage](event-schema-blob-storage.md)
+- [Azure Communication Services](event-schema-communication-services.md) 
 - [Azure Container Registry](event-schema-container-registry.md)
 - [Azure Event Hubs](event-schema-event-hubs.md)
 - [Azure IoT Hub](event-schema-iot-hub.md)
