@@ -4,12 +4,12 @@ description: Obtenga información acerca de cómo detectar servidores físicos l
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 0436ce3a02b6e271a62fe827d1a2d9a8b77dbfbe
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 00fb4073bc8a7b1375f92202b5a6bd0a59a23816
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90600745"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442292"
 ---
 # <a name="tutorial-discover-physical-servers-with-server-assessment"></a>Tutorial: Detección de servidores físicos con Server Assessment
 
@@ -37,7 +37,7 @@ Antes de empezar este tutorial, compruebe que dispone de estos requisitos previo
 
 **Requisito** | **Detalles**
 --- | ---
-**Dispositivo** | Necesita una máquina en la que ejecutar el dispositivo Azure Migrate. La máquina debe tener:<br/><br/> - Windows Server 2016 instalado. No se admite la ejecución del dispositivo en una máquina con Windows Server 2019.<br/><br/> - 16 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco y un conmutador virtual externo.<br/><br/> - Una dirección IP estática o dinámica, con acceso a Internet, ya sea directamente o mediante un proxy.
+**Dispositivo** | Necesita una máquina en la que ejecutar el dispositivo Azure Migrate. La máquina debe tener:<br/><br/> - Windows Server 2016 instalado. _(Actualmente, la implementación del dispositivo solo se admite en Windows Server 2016)._<br/><br/> - 16 GB de RAM, 8 vCPU, alrededor de 80 GB de almacenamiento en disco<br/><br/> - Una dirección IP estática o dinámica, con acceso a Internet, ya sea directamente o mediante un proxy.
 **Servidores Windows** | Permita las conexiones entrantes en el puerto WinRM 5985 (HTTP), para que el dispositivo pueda extraer los metadatos de configuración y rendimiento.
 **Servidores Linux** | Permita las conexiones entrantes en el puerto 22 (TCP).
 
@@ -69,7 +69,7 @@ Si acaba de crear una cuenta de Azure gratuita, es el propietario de la suscripc
 
     ![Comprobación en la configuración de usuario de que los usuarios puedan registrar aplicaciones de Active Directory](./media/tutorial-discover-physical/register-apps.png)
 
-
+9. Como alternativa, el administrador de inquilinos o administrador global puede asignar el rol de **desarrollador de aplicaciones** a una cuenta para permitir el registro de aplicaciones de AAD. [Más información](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="prepare-physical-servers"></a>Preparación de los servidores físicos
 
@@ -139,13 +139,13 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 
         **Escenario** | **Descargar*** | **Valor del código hash**
         --- | --- | ---
-        Físico (85 MB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140334) | 207157bab39303dca1c2b93562d6f1deaa05aa7c992f480138e17977641163fb
+        Físico (85,8 MB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140334) | ce5e6f0507936def8020eb7b3109173dad60fc51dd39c3bd23099bc9baaabe29
 
     - Para Azure Government:
 
         **Escenario** | **Descargar*** | **Valor del código hash**
         --- | --- | ---
-        Físico (85 MB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140338) | ca67e8dbe21d113ca93bfe94c1003ab7faba50472cb03972d642be8a466f78ce
+        Físico (85,8 MB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140338) | ae132ebc574caf231bf41886891040ffa7abbe150c8b50436818b69e58622276
  
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Ejecución del script del instalador de Azure Migrate

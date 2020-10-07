@@ -8,17 +8,17 @@ manager: rkarlin
 ms.assetid: 870ebc8d-1fad-435b-9bf9-c477f472ab17
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: db0c5890add303d85bdec76e00b8377567226a38
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 61e5c60317bf872b8e27a7bd2edea7247e01a3b8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904701"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439419"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de características para las máquinas
 
@@ -42,12 +42,12 @@ En las dos tablas siguientes se muestran las características de Azure Security 
 |[Protección de red adaptable](security-center-adaptive-network-hardening.md)|✔|-|-|Sí|
 |[Panel e informes de cumplimiento normativo](security-center-compliance-dashboard.md)|✔|✔|✔|Sí|
 |Recomendaciones y protección frente a amenazas en contenedores IaaS hospedados en Docker|-|-|-|Sí|
-|Evaluación de revisiones de SO que faltan|✔|✔|✔|Azure: Gratuito<br><br>No de Azure: Sí|
+|Evaluación de revisiones de SO que faltan|✔|✔|✔|Azure: No<br><br>No de Azure: Sí|
 |Evaluación de configuraciones de seguridad incorrectas|✔|✔|✔|Azure: No<br><br>No de Azure: Sí|
 |[Evaluación de EndPoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: No<br><br>No de Azure: Sí|
-|Evaluación de Disk Encryption|✔|✔|-|Gratuito|
-|Evaluación de vulnerabilidades de terceros|✔|-|-|Gratuito|
-|[Evaluación de la seguridad de red](security-center-network-recommendations.md)|✔|✔|-|Gratuito|
+|Evaluación de Disk Encryption|✔</br>(para [escenarios admitidos](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|No|
+|Evaluación de vulnerabilidades de terceros|✔|-|-|No|
+|[Evaluación de la seguridad de red](security-center-network-recommendations.md)|✔|✔|-|No|
 
 
 ### <a name="linux-machines"></a>[**Máquinas Linux**](#tab/features-linux)
@@ -66,12 +66,12 @@ En las dos tablas siguientes se muestran las características de Azure Security 
 |[Protección de red adaptable](security-center-adaptive-network-hardening.md)|✔|-|-|Sí|
 |[Panel e informes de cumplimiento normativo](security-center-compliance-dashboard.md)|✔|✔|✔|Sí|
 |Recomendaciones y protección frente a amenazas en contenedores IaaS hospedados en Docker|✔|✔|✔|Sí|
-|Evaluación de revisiones de SO que faltan|✔|✔|✔|Azure: Gratuito<br><br>No de Azure: Sí|
-|Evaluación de configuraciones de seguridad incorrectas|✔|✔|✔|Azure: Gratuito<br><br>No de Azure: Sí|
-|[Evaluación de EndPoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Gratuito|
-|Evaluación de Disk Encryption|✔|✔|-|Gratuito|
-|Evaluación de vulnerabilidades de terceros|✔|-|-|Gratuito|
-|[Evaluación de la seguridad de red](security-center-network-recommendations.md)|✔|✔|-|Gratuito|
+|Evaluación de revisiones de SO que faltan|✔|✔|✔|Azure: No<br><br>No de Azure: Sí|
+|Evaluación de configuraciones de seguridad incorrectas|✔|✔|✔|Azure: No<br><br>No de Azure: Sí|
+|[Evaluación de EndPoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|No|
+|Evaluación de Disk Encryption|✔</br>(para [escenarios admitidos](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|No|
+|Evaluación de vulnerabilidades de terceros|✔|-|-|No|
+|[Evaluación de la seguridad de red](security-center-network-recommendations.md)|✔|✔|-|No|
 
 --- 
 
@@ -93,9 +93,9 @@ Para más información sobre cuándo se generan recomendaciones para cada una de
 |------|------|-----|-----|
 | Antivirus de Microsoft Defender| Windows Server 2016 o posterior| No, se integra en el sistema operativo.| Sí |
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (consulte la nota que hay a continuación) | Mediante extensión | Sí |
-| Trend Micro: Deep Security | Familia de Windows Server  | Sin | Sí |
-| Symantec v12.1.1100+| Familia de Windows Server  | Sin | Sí |
-| McAfee v10 o posterior | Familia de Windows Server  | Sin | Sí |
+| Trend Micro: Deep Security | Familia de Windows Server  | No | Sí |
+| Symantec v12.1.1100+| Familia de Windows Server  | No | Sí |
+| McAfee v10 o posterior | Familia de Windows Server  | No | Sí |
 | McAfee v10 o posterior | Familia de Linux Server  | No | Sí **\*** |
 | Sophos V9+| Familia de Linux Server  | No | Sí **\***  |
 

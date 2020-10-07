@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: tutorial
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7474cfbd0182797bd62e97979e83e2aeb5244cbc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 23684dbbc5cb8c2d5fc4880ae8fe1999450928e0
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008801"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400577"
 ---
 # <a name="tutorial-work-with-azure-storage-queues-in-net"></a>Tutorial: Uso de las colas de Azure Storage en .NET
 
@@ -227,6 +227,8 @@ Cree un método para recuperar un mensaje de la cola. Una vez que el mensaje se 
    # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
    Este método recibe un mensaje de la cola mediante la llamada a [ReceiveMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync), y pasa 1 en el primer parámetro para recuperar solo el siguiente mensaje de la cola. Una vez recibido el mensaje, elimínelo de la cola mediante una llamada a [DeleteMessageAsync](/dotnet/api/azure.storage.queues.queueclient.deletemessageasync).
+
+   Cuando se envía un mensaje a la cola con una versión del SDK anterior a la v12, se codifica automáticamente en Base64. A partir de la v12, se ha quitado esta funcionalidad. Cuando se recupera un mensaje mediante el SDK de la v12, no se descodifica automáticamente en Base64. Debe [descodificar explícitamente en Base64](/dotnet/api/system.convert.frombase64string) el contenido usted mismo.
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Initial.cs" id="snippet_InitialRetrieveMessage":::
 

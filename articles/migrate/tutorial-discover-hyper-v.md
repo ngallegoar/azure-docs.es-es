@@ -4,12 +4,12 @@ description: Obtenga información acerca de cómo detectar las máquinas virtual
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: eb17ba9fc1b68f09f60e857cd20a3f0885bfdb05
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: e62effc31ab5dbc687e0509617b89561c5f2a3b6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603958"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442318"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Tutorial: Detección de máquinas virtuales de Hyper-V con Server Assessment
 
@@ -39,7 +39,7 @@ Antes de empezar este tutorial, compruebe que dispone de estos requisitos previo
 **Requisito** | **Detalles**
 --- | ---
 **Host de Hyper-V** | Los hosts de Hyper-V en los que se encuentran las máquinas virtuales pueden ser independientes o formar parte de un clúster.<br/><br/> El host debe ejecutar Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2.<br/><br/> Compruebe que las conexiones entrantes están permitidas en el puerto WinRM 5985 (HTTP) para que el dispositivo pueda conectarse para extraer datos de rendimiento y metadatos de máquinas virtuales mediante una sesión del Modelo de información común (CIM).
-**Implementación del dispositivo** | vCenter Server necesita recursos para asignar una máquina virtual al dispositivo:<br/><br/> - Windows Server 2016<br/><br/> \- 32 GB de RAM<br/><br/> - Ocho vCPU<br/><br/> - Alrededor de 80 GB de almacenamiento en disco<br/><br/> - Un conmutador virtual externo<br/><br/> - Acceso a Internet en la máquina virtual, directamente o a través de un proxy
+**Implementación del dispositivo** | El host de Hyper-V necesita recursos para asignar una máquina virtual al dispositivo:<br/><br/> - Windows Server 2016<br/><br/> \- 16 GB de RAM<br/><br/> - Ocho vCPU<br/><br/> - Alrededor de 80 GB de almacenamiento en disco<br/><br/> - Un conmutador virtual externo<br/><br/> - Acceso a Internet en la máquina virtual, directamente o a través de un proxy
 **Máquinas virtuales** | Las máquinas virtuales pueden ejecutar cualquier sistema operativo Windows o Linux. 
 
 Antes de empezar, puede [revisar los datos](migrate-appliance.md#collected-data---hyper-v) que recopila el dispositivo durante la detección.
@@ -72,6 +72,8 @@ Si acaba de crear una cuenta de Azure gratuita, es el propietario de la suscripc
 8. En **Configuración de usuario**, compruebe que los usuarios de Azure AD puedan registrar aplicaciones (establecido en **Sí** de forma predeterminada).
 
     ![Comprobación en la configuración de usuario de que los usuarios puedan registrar aplicaciones de Active Directory](./media/tutorial-discover-hyper-v/register-apps.png)
+
+9. Como alternativa, el administrador de inquilinos o administrador global puede asignar el rol de **desarrollador de aplicaciones** a una cuenta para permitir el registro de aplicaciones de AAD. [Más información](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="prepare-hyper-v-hosts"></a>Preparar los hosts de Hyper-V
 
@@ -135,7 +137,7 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 
 2. Ejecute el siguiente comando de PowerShell para generar el código hash para el archivo ZIP
     - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
-    - Ejemplo de uso: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
+    - Ejemplo de uso: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v3.20.09.25.zip -Algorithm SHA256```
 
 3.  Compruebe las versiones más recientes del dispositivo y los valores hash:
 
@@ -143,13 +145,13 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 
         **Escenario** | **Descargar** | **SHA256**
         --- | --- | ---
-        Hyper-V (10,4 GB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140422) |  79c151588de049cc102f61b910d6136e02324dc8d8a14f47772da351b46d9127
+        Hyper-V (8,91 GB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140422) |  40aa037987771794428b1c6ebee2614b092e6d69ac56d48a2bbc75eeef86c99a
 
     - Para Azure Government:
 
         **Escenario*** | **Descargar** | **SHA256**
         --- | --- | ---
-        Hyper-V (85 MB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140424) |  0769c5f8df1e8c1ce4f685296f9ee18e1ca63e4a111d9aa4e6982e069df430d7
+        Hyper-V (85,8 MB) | [La versión más reciente](https://go.microsoft.com/fwlink/?linkid=2140424) |  cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc3507116bae330b257f
 
 ### <a name="create-the-appliance-vm"></a>Creación de la máquina virtual del dispositivo
 
@@ -214,7 +216,7 @@ Si va a ejecutar discos duros virtuales en SMB, debe habilitar la delegación de
 1. En la VM del dispositivo, ejecute este comando. HyperVHost1 y HyperVHost2 son nombres de host de ejemplo.
 
     ```
-    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com, HyperVHost2.contoso.com, HyperVHost1, HyperVHost2 -Force
     ```
 
 2. También puede hacerlo en el Editor de directivas de grupo local en el dispositivo:

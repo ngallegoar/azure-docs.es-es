@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 6f13a465aa43f0c45fa99d2ea396a5ca92d75d66
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: 47cf0a1f1d40b9e8358d6bdb4a3ea6a501b67da2
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85446347"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439216"
 ---
 # <a name="send-azure-activity-log-to-log-analytics-workspace-using-azure-portal"></a>Envío del registro de actividad de Azure al área de trabajo de Log Analytics mediante Azure Portal
 El registro de actividad es un registro de la plataforma de Azure que proporciona información de los eventos en el nivel de suscripción. Este registro incluye información como, por ejemplo, cuándo se modificó un recurso o cuándo se inició una máquina virtual. Puede ver el registro de actividad en Azure Portal o recuperar entradas con PowerShell y la CLI. En este inicio rápido se muestra cómo usar Azure Portal para crear un área de trabajo de Log Analytics y una configuración de diagnóstico para enviar el registro de actividad a los registros de Azure Monitor donde podrá analizarlo mediante [consultas de registro](../log-query/log-query-overview.md) y habilitar otras características como [alertas de registro](../platform/alerts-log-query.md) y [libros](../platform/workbooks-overview.md). 
@@ -24,7 +24,7 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 ## <a name="create-a-log-analytics-workspace"></a>Creación de un área de trabajo de Log Analytics
 En Azure Portal, busque y seleccione **Áreas de trabajo de Log Analytics**. 
 
-![Azure portal](media/quick-create-workspace/azure-portal-01.png)
+![Captura de pantalla de Azure Portal que muestra "áreas de trabajo de Log Analytics" en el cuadro de búsqueda y la opción Áreas de trabajo de Log Analytics resaltada en Servicios.](media/quick-create-workspace/azure-portal-01.png)
   
 Haga clic en **Agregar** y proporcione los valores de **Grupo de recursos**, **Nombre** del área de trabajo y **Ubicación**. El nombre del área de trabajo debe ser único en todas las suscripciones de Azure.
 
@@ -36,7 +36,7 @@ Haga clic en **Revisar y crear** para revisar la configuración y, a continuaci�
 ## <a name="create-diagnostic-setting"></a>Creación de la configuración de diagnóstico
 En Azure Portal, busque y seleccione **Monitor**. 
 
-![Azure portal](media/quick-collect-activity-log/azure-portal-monitor.png)
+![Captura de pantalla de Azure Portal con "monitor" en el cuadro de búsqueda y la opción Monitor resaltada en Servicios.](media/quick-collect-activity-log/azure-portal-monitor.png)
 
 Seleccione **Registro de actividad**. Verá los eventos recientes de la suscripción actual. Haga clic en **Configuración de diagnóstico** para ver la configuración de diagnóstico de la suscripción.
 

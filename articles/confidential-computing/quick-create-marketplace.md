@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: d892d04eddb572ab644693503e454e9f00e0b39c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 82d9c143f84dfced639c928bf12693024079c2ba
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281096"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409500"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-marketplace"></a>Inicio rápido: Implementación de una máquina virtual de computación confidencial de Azure en Marketplace
 
@@ -179,9 +179,7 @@ Seleccione el grupo de recursos de la máquina virtual y haga clic en **Eliminar
 
 En este inicio rápido, ha implementado una máquina virtual de computación confidencial y ha instalado el SDK de Open enclave. Para más información sobre las máquinas virtuales de computación confidencial en Azure, consulte [Soluciones en Virtual Machines](virtual-machine-solutions.md). 
 
-Si ha implementado una máquina virtual Windows, aprenda a compilar aplicaciones con los [ejemplos del SDK de Open Enclave para Windows](https://github.com/openenclave/openenclave/blob/master/samples/README_Windows.md) en GitHub. 
-
-Descubra cómo puede crear aplicaciones de computación confidencial en Linux; para ello, continúe con los ejemplos de Linux del SDK de Open Enclave en GitHub. 
+Descubra cómo puede crear aplicaciones de computación confidencial. Para ello, continúe con los ejemplos del SDK de Open Enclave en GitHub. 
 
 > [!div class="nextstepaction"]
-> [Compilación de ejemplos del SDK de Open Enclave en Linux](https://github.com/openenclave/openenclave/blob/master/samples/README_Linux.md)
+> [Compilación de ejemplos del SDK de Open Enclave](https://github.com/openenclave/openenclave/blob/master/samples/README.md)

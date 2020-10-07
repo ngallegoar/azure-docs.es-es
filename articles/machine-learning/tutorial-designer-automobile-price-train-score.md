@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 06/28/2020
+ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: 55d950435522a18eafda69d152619426fe54d87f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d9422cfb9bd8e5539f1a9b43d6fb7b137778f3d4
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90896703"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91404925"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Tutorial: Predicción del precio de un automóvil con el diseñador
 
@@ -75,7 +75,7 @@ Puede establecer un **destino de proceso predeterminado** para toda la canalizac
     Si ya tiene un destino de proceso disponible, puede seleccionarlo para ejecutar esta canalización.
 
     > [!NOTE]
-    > El diseñador solo puede ejecutar experimentos de entrenamiento en Azure Machine Learning Compute e instancias de proceso de Azure Machine Learning, pero no se mostrarán otros destinos de proceso.
+    > El diseñador solo puede ejecutar experimentos de entrenamiento en Proceso de Azure Machine Learning, pero no se mostrarán otros destinos de proceso.
 
 1. Escriba un nombre para el recurso de proceso.
 
@@ -221,7 +221,7 @@ Para entrenar el modelo, proporciónele un conjunto de datos que incluya el prec
     > [!IMPORTANT]
     > Asegúrese de que el puerto de salida izquierdo de **Split Data** (Dividir datos) se conecta a **Train Model** (Entrenar modelo). El puerto izquierdo contiene el conjunto de entrenamiento. El puerto derecho contiene el conjunto de prueba.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Captura de pantalla que muestra la configuración correcta del módulo Train Model (Entrenar modelo). El módulo Linear Regression (Regresión lineal) se conecta al puerto izquierdo del módulo Train Model (Entrenar modelo) y el módulo Split Data (Dividir datos) se conecta al puerto derecho de Train Model (Entrenar modelo).":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Selección de columna":::
 
 1. Seleccione el módulo **Train Model** (Entrenar modelo).
 
@@ -236,7 +236,7 @@ Para entrenar el modelo, proporciónele un conjunto de datos que incluya el prec
 
     La canalización debe ser parecida a esta:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Captura de pantalla que muestra la configuración correcta de la canalización después de agregar el módulo Train Model (Entrenar modelo).":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Selección de columna":::
 
 ### <a name="add-the-score-model-module"></a>Adición del módulo Score Model (Puntuar modelo)
 
@@ -256,7 +256,7 @@ Use el módulo **Evaluate Model** (Evaluar modelo) para evaluar la puntuación q
 
     La canalización final debe parecerse a esta:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Captura de pantalla que muestra la configuración correcta de la canalización.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Selección de columna":::
 
 ## <a name="submit-the-pipeline"></a>Enviar la canalización
 
@@ -285,7 +285,7 @@ Una vez finalizada la ejecución, puede ver los resultados de la ejecución de l
 
     Aquí puede ver los precios previstos y los precios reales de los datos de prueba.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Captura de pantalla de la visualización de salida en la que aparece la columna Scored Label (Etiqueta puntuada) resaltada":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Selección de columna":::
 
 ### <a name="evaluate-models"></a>Evaluación de modelos
 

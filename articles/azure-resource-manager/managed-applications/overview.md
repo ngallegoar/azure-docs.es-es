@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9bb3f0d57f7d47e4cb754305627c52003273ca09
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: eb93321e0eb1b3d2dc7963f03715b1aedb4cfdcb
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377019"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403694"
 ---
 # <a name="azure-managed-applications-overview"></a>Introducción a las aplicaciones administradas de Azure
 
@@ -77,7 +77,7 @@ Cuando el consumidor elimina la aplicación administrada, también se elimina el
 
 ## <a name="azure-policy"></a>Azure Policy
 
-Puede aplicar una directiva de [Azure Policy](../../governance/policy/overview.md) para auditar la aplicación administrada. Las definiciones de directiva se aplican para garantizar que las instancias implementadas de la aplicación administrada cumplan con los requisitos de seguridad y datos. Si la aplicación interactúa con datos confidenciales, asegúrese de que se ha evaluado cómo debe protegerse. Por ejemplo, si la aplicación interactúa con datos de Office 365, aplique una definición de directiva para asegurarse de que el cifrado de datos esté habilitado.
+Puede aplicar una directiva de [Azure Policy](../../governance/policy/overview.md) para auditar la aplicación administrada. Las definiciones de directiva se aplican para garantizar que las instancias implementadas de la aplicación administrada cumplan con los requisitos de seguridad y datos. Si la aplicación interactúa con datos confidenciales, asegúrese de que se ha evaluado cómo debe protegerse. Por ejemplo, si la aplicación interactúa con datos de Microsoft 365, aplique una definición de directiva para asegurarse de que el cifrado de datos esté habilitado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

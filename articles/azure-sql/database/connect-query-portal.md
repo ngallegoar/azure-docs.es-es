@@ -1,5 +1,5 @@
 ---
-title: Consultar una instancia de SQL Database mediante el editor de consultas en Azure Portal
+title: Consultar una instancia de SQL Database mediante el editor de consultas en Azure Portal (versión preliminar)
 description: Aprenda a usar el editor de consultas para ejecutar consultas Transact-SQL (T-SQL) en una base de datos de Azure SQL Database.
 titleSuffix: Azure SQL Database
 keywords: conectarse a sql database, consultar sql database, azure portal, portal, editor de consultas
@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: quickstart
 author: Ninarn
 ms.author: ninarn
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 05/29/2020
-ms.openlocfilehash: ec43ad0c83ea56af935b326a2b13aa3b3dc4fa13
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 4eb02c65a8ce486ea152863d8b6c6d0600280893
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441789"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409600"
 ---
-# <a name="quickstart-use-the-azure-portals-query-editor-to-query-an-azure-sql-database"></a>Inicio rápido: Uso del editor de consultas de Azure Portal para consultar una base de datos de Azure SQL Database
+# <a name="quickstart-use-the-azure-portals-query-editor-preview-to-query-an-azure-sql-database"></a>Inicio rápido: Uso del editor de consultas de Azure Portal (versión preliminar) para consultar una base de datos de Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 El editor de consultas es una herramienta de Azure Portal para ejecutar consultas SQL en una base de datos de Azure SQL Database o en un almacenamiento de datos de Azure Synapse Analytics. 

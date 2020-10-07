@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: d9f16b612b508a6237c748bd135ff32618015b0b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 4deab6fcadda36ad729096ff2f38e40ce81c7ae9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057014"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446091"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Equilibrio de carga de máquinas virtuales en distintas zonas de disponibilidad con Load Balancer Estándar mediante Azure Portal
 
@@ -93,7 +93,7 @@ Cree un grupo de seguridad de red para definir las conexiones entrantes a la red
     - *myNetworkSecurityGroup*: como nombre del grupo de seguridad de red.
     - *myResourceGroupLBAZ*: como nombre del grupo de recursos existente.
    
-![Creación de una red virtual](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
+![Captura de pantalla que muestra el panel Crear grupo de seguridad de red.](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
 
 ### <a name="create-network-security-group-rules"></a>Creación de reglas de grupo de seguridad de red
 
@@ -112,7 +112,7 @@ En esta sección, va a crear reglas de grupo de seguridad de red para permitir c
     - *Allow HTTP* (Permitir HTTP): en la descripción de la regla del equilibrador de carga
 4. Haga clic en **OK**.
  
-   ![Creación de una red virtual](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![Captura de pantalla que muestra el panel Agregar regla de seguridad de entrada.](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 5. Repita los pasos 2 a 4 para crear otra regla llamada *myRDPRule* que permita una conexión RDP entrante con el puerto 3389 con los valores siguientes:
     - *Etiqueta de servicio*: en **Origen**.
     - *Internet*: en **Etiqueta de servicio de origen**

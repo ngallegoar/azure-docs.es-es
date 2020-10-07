@@ -4,12 +4,12 @@ description: 'Comparativa de los servicios en la nube de Microsoft optimizados p
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 2e0d8f356ec8da900b4a38399ba94434c3b1b93d
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 2c17b311811fd2cba46db379fcc766c04dd9d56d
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809976"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403082"
 ---
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Elección de los servicios de integración y automatización adecuados en Azure
 
@@ -41,7 +41,7 @@ La tabla siguiente le ayuda a determinar qué es lo mejor para una integración 
 | **Herramienta de diseño** |En el explorador y aplicación móvil, solo UI |En el explorador y [Visual Studio](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), [visualización del código](../logic-apps/logic-apps-author-definitions.md) disponible |
 | **Administración del ciclo de vida de las aplicaciones (ALM)** |Diseño y pruebas en entornos no destinados a producción, paso a producción cuando proceda |Azure DevOps: control de código fuente, pruebas, soporte técnico, automatización y capacidad de administración en [Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) |
 | **Experiencia del administrador** |Administración de directivas de prevención de pérdida de datos (DLP) y entornos de flujo de Power Automate, seguimiento de licencias: [Centro de administración](https://admin.flow.microsoft.com) |Administración de grupos de recursos, conexiones, administración de acceso y registro: [Azure Portal](https://portal.azure.com) |
-| **Seguridad** |Registros de auditoría de Seguridad y cumplimiento de Office 365, DLP, [cifrado en reposo](https://wikipedia.org/wiki/Data_at_rest#Encryption) para datos confidenciales |Garantía de seguridad de Azure: [Seguridad de Azure](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Azure Security Center](https://azure.microsoft.com/services/security-center/), [registros de auditoría](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
+| **Seguridad** |Registros de auditoría de seguridad de Microsoft 365, DLP, [cifrado en reposo](https://wikipedia.org/wiki/Data_at_rest#Encryption) para datos confidenciales |Garantía de seguridad de Azure: [Seguridad de Azure](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Azure Security Center](https://azure.microsoft.com/services/security-center/), [registros de auditoría](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
 
 ## <a name="compare-azure-functions-and-azure-logic-apps"></a>Comparativa entre Azure Functions y Azure Logic Apps
 

@@ -1,18 +1,18 @@
 ---
 title: Introducción a Gremlin API de Azure Cosmos DB
 description: Aprenda a usar Azure Cosmos DB para almacenar, realizar consultas y recorrer grafos enormes con latencia baja mediante el lenguaje de consulta de grafos Gremlin de Apache TinkerPop.
-author: LuisBosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/10/2020
-ms.author: lbosq
-ms.openlocfilehash: 3dc534d1cbb195cd93ede091503222b297b17059
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: jasonh
+ms.openlocfilehash: 67a2c9537851343e8e5dad4a3654b31082e83d11
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523747"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409619"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Introducción a Gremlin API de Azure Cosmos DB
 
@@ -106,7 +106,7 @@ Las bases de datos de grafos suelen incluirse en la categoría de base de datos 
 
 Vamos a usar un grafo de ejemplo para entender cómo se expresan las consultas en Gremlin. La siguiente ilustración muestra una aplicación empresarial que administra datos de usuarios, intereses y dispositivos en forma de grafo.  
 
-:::image type="content" source="./media/gremlin-support/sample-graph.png" alt-text="Base de datos de ejemplo que muestra personas, dispositivos e intereses" border="false"::: 
+:::image type="content" source="./media/gremlin-support/sample-graph.png" alt-text="Arquitectura de grafo de Azure Cosmos DB" border="false"::: 
 
 Este grafo tiene los siguientes tipos de *vértices* (llamados también "etiquetas" en Gremlin):
 
@@ -124,7 +124,7 @@ Las relaciones entre estas entidades se representan con las siguientes etiquetas
 * **Uses**: Permite representar el dispositivo que una persona usa. Por ejemplo, Robin usa un teléfono Motorola con número de serie 77.
 * **Ubicado**: para representar la ubicación desde la que se tiene acceso a los dispositivos.
 
-La consola de Gremlin es un terminal interactivo ofrecido por Apache TinkerPop que se usa para interactuar con los datos del grafo. Para más información, consulte el documento de inicio rápido sobre [cómo usar la consola de Gremlin](create-graph-gremlin-console.md). También puede realizar estas operaciones mediante controladores de Gremlin en la plataforma que elija (Java, Node.js, Python o .NET). En los siguientes ejemplos se muestra cómo ejecutar consultas con los datos de este grafo mediante la consola de Gremlin.
+La consola Gremlin es un terminal interactivo ofrecido por Apache TinkerPop que se usa para interactuar con los datos del grafo. Para más información, consulte el documento de inicio rápido sobre [cómo usar la consola de Gremlin](create-graph-gremlin-console.md). También puede realizar estas operaciones mediante controladores de Gremlin en la plataforma que elija (Java, Node.js, Python o .NET). En los siguientes ejemplos se muestra cómo ejecutar consultas con los datos de este grafo mediante la consola de Gremlin.
 
 Primero, echemos un vistazo a CRUD. La siguiente instrucción de Gremlin inserta el vértice "Thomas" en el grafo:
 

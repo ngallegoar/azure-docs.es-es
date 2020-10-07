@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1865d307e7b79e7e40b0e98f2dcfa2535b0313fd
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 08e6491e1d8d94e8e6e9112e5a19682018103325
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551714"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400356"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Tutorial: Copia de seguridad y restauración de archivos en máquinas virtuales Linux en Azure
 
@@ -70,7 +70,7 @@ En este ejemplo, se muestra cómo recuperar la página web predeterminada de ngi
  
 1. En el equipo local, abra un explorador y escriba la dirección IP pública de la máquina virtual para ver la página web predeterminada de nginx.
 
-    ![Página web predeterminada de nginx](./media/tutorial-backup-vms/nginx-working.png)
+    ![Captura de pantalla que muestra la página web de nginx predeterminada.](./media/tutorial-backup-vms/nginx-working.png)
 
 1. Utilice SSH en la máquina virtual.
 
@@ -86,7 +86,7 @@ En este ejemplo, se muestra cómo recuperar la página web predeterminada de ngi
     
 4. En el equipo local, actualice el explorador presionando CTRL + F5 para ver que la página predeterminada de nginx ya no existe.
 
-    ![Página web predeterminada de nginx](./media/tutorial-backup-vms/nginx-broken.png)
+    ![Captura de pantalla que muestra que la página de nginx predeterminada ha desaparecido.](./media/tutorial-backup-vms/nginx-broken.png)
     
 1. En el equipo local, inicie sesión en [Azure Portal](https://portal.azure.com/).
 6. En el menú de la izquierda, haga clic en **Máquinas virtuales**. 

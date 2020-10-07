@@ -5,15 +5,15 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: 132e21c861f50caca37fb6fc5df660ff413d07a5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 92c73fed84910e525378aa18e02456960acf9911
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905493"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447266"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolección de datos en Azure Security Center
 Security Center recopila datos de las máquinas virtuales de Azure, los conjuntos de escalado de máquinas virtuales, los contenedores de IaaS y de los equipos que no son de Azure (incluidos los equipos locales) para supervisar las amenazas y vulnerabilidades de seguridad. Los datos se recopilan con el agente de Log Analytics, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos. Estos son algunos ejemplos de dichos datos: tipo y versión del sistema operativo, registros del sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP y usuario conectado.
@@ -71,7 +71,7 @@ Security Center puede crear automáticamente un área de trabajo predeterminada 
 Para seleccionar un área de trabajo creada por Security Center:
 
 1. En **Configuración del área de trabajo predeterminada**, seleccione Use workspace(s) created by Security center (Usar áreas de trabajo creadas por Security Center).
-   ![Selección del plan de tarifa][10] 
+    :::image type="content" source="./media/security-center-enable-data-collection/workspace-selection.png" alt-text="Habilitación del aprovisionamiento automático del agente de Log Analytics"::: 
 
 1. Haga clic en **Save**(Guardar).<br>
     Security Center crea un nuevo grupo de recursos y un área de trabajo predeterminada en esa geolocalización y la conecta al agente. La convención de nomenclatura del área de trabajo y el grupo de recursos es:<br>
@@ -99,8 +99,7 @@ Para usar el área de trabajo de Log Analytics existente, tiene que tener permis
 Para seleccionar un área de trabajo de Log Analytics existente:
 
 1. En **Configuración del área de trabajo predeterminada**, seleccione **Use another workspace** (Usar otra área de trabajo).
-
-   ![Usar otro área de trabajo][2]
+    :::image type="content" source="./media/security-center-enable-data-collection/use-another-workspace.png" alt-text="Habilitación del aprovisionamiento automático del agente de Log Analytics"::: 
 
 2. En el menú desplegable, seleccione un área de trabajo para almacenar los datos recopilados.
 
@@ -191,10 +190,10 @@ A continuación se muestra un desglose completo de los identificadores de evento
 >
 
 Para elegir la directiva de filtrado:
-1. En la página **Recopilación de datos**, seleccione la directiva de filtrado en **Eventos de seguridad**.
-2. Seleccione **Guardar**.
-
-   ![Elegir la directiva de filtrado][5]
+1. En la página **Recopilación de datos**, seleccione la directiva de filtrado en **Almacenamiento de datos sin procesar adicionales: eventos de seguridad de Windows**.
+ 
+1. Seleccione **Guardar**.
+    :::image type="content" source="./media/security-center-enable-data-collection/data-collection-tiers.png" alt-text="Habilitación del aprovisionamiento automático del agente de Log Analytics":::.
 
 ### <a name="automatic-provisioning-in-cases-of-a-pre-existing-agent-installation"></a>Aprovisionamiento automático en los casos de una instalación de agente ya existente <a name="preexisting"></a> 
 
@@ -224,7 +223,7 @@ Para desactivar el aprovisionamiento automático del agente de Log Analytics:
 1. En el menú de Security Center del portal, seleccione **Precios y configuración**.
 2. Seleccione la suscripción correspondiente.
 
-   ![Seleccionar suscripción][7]
+    :::image type="content" source="./media/security-center-enable-data-collection/select-subscription.png" alt-text="Habilitación del aprovisionamiento automático del agente de Log Analytics":::.
 
 3. Seleccione **Recopilación de datos**.
 4. En **Aprovisionamiento automático**, seleccione **Desactivado** para deshabilitarlo.
@@ -309,13 +308,7 @@ En este artículo le hemos mostrado cómo efectuar un aprovisionamiento automát
 
 
 <!--Image references-->
-[1]: ./media/security-center-enable-data-collection/enable-automatic-provisioning.png
-[2]: ./media/security-center-enable-data-collection/use-another-workspace.png
 [3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
-[5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
-[7]: ./media/security-center-enable-data-collection/select-subscription.png
-[8]: ./media/security-center-enable-data-collection/manual-provision.png
 [9]: ./media/security-center-enable-data-collection/pricing-tier.png
-[10]: ./media/security-center-enable-data-collection/workspace-selection.png
 [11]: ./media/security-center-enable-data-collection/log-analytics.png
 [12]: ./media/security-center-enable-data-collection/log-analytics2.png
