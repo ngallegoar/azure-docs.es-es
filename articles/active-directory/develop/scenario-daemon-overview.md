@@ -11,20 +11,16 @@ ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: df5755c585d99333bf0c64ca08705309b4d4fc58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c01724340df7e0efffe9847b49e1fe9d444ee01
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253127"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257629"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Escenario: Aplicación de demonio que llama a las API web
 
 Obtenga toda la información necesaria para compilar una aplicación de demonio que llama a las API web.
-
-## <a name="prerequisites"></a>Requisitos previos
-
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="overview"></a>Información general
 
@@ -58,6 +54,10 @@ Para los desarrolladores, la experiencia total de este escenario tiene los sigui
 - Durante el [registro de aplicación](./scenario-daemon-app-registration.md), no se necesita el URI de respuesta. Debe compartir secretos o certificados, o instrucciones de aserción firmadas, con Azure AD. También debe solicitar permisos de aplicación y otorgar consentimiento del administrador para usar esos permisos de aplicación.
 - La [configuración de la aplicación](./scenario-daemon-app-configuration.md) tiene que proporcionar las credenciales de cliente como compartidas con Azure AD durante el registro de la aplicación.
 - El [ámbito](scenario-daemon-acquire-token.md#scopes-to-request) usado para adquirir un token con el flujo de credenciales del cliente debe ser un ámbito estático.
+
+## <a name="recommended-reading"></a>Lecturas recomendadas
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: aahi
-ms.openlocfilehash: 2d19c061ad1e5cf033d2801df64a0ae37736c418
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f85a7e2acf911772ecc6562217918352e909fcbb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983022"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254081"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetría y solución de problemas
 
@@ -229,7 +229,7 @@ Los registros se cargan a petición con el método `getRTCVLogs` de IoT Edge, en
 >[!NOTE]
 > Al invocar el método `getRTCVLogs` con una carga vacía, se devolverá una lista de todos los contenedores implementados en el dispositivo. El nombre del método distingue mayúsculas de minúsculas. Obtendrá un error 501 si se especifica un nombre de método incorrecto.
 
-:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Invocación del método getRTCVLogs ":::
+:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Informe de telemetría de Azure Monitor":::
 ![Página de método directo getRTCVLogs](./media/spatial-analysis/direct-log-collection.png)
 
  
@@ -313,8 +313,7 @@ Si ve el siguiente mensaje en los registros del módulo, es posible que se deba 
 
 "El contenedor no tiene un estado válido. Error de validación de la suscripción con el estado 'No coincidente'. La clave de API no está pensada para el tipo de contenedor especificado".
 
-Para obtener más información, consulte [Solicitud de aprobación para ejecutar el contenedor](spatial-analysis-container.md#request-approval-to-run-the-container). 
-
+Para obtener más información, consulte [Solicitud de aprobación para ejecutar el contenedor](spatial-analysis-container.md#request-approval-to-run-the-container).
 
 ## <a name="troubleshooting-the-azure-stack-edge-device"></a>Solución de problemas del dispositivo de Azure Stack Edge
 

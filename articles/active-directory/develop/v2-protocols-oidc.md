@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 741e7a13513d571fbaabd17016b2282a860271cd
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 71e930898f1f86622357f9e02da69be7bf2f8088
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263285"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256592"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plataforma de identidad de Microsoft y protocolo OpenID Connect
 
@@ -249,7 +249,7 @@ Los parámetros de respuesta significan lo mismo, independientemente del flujo u
 
 | Parámetro | Descripción |
 | --- | --- |
-| `token` | El token que se va a usar para llamar al punto de conexión de UserInfo.|
+| `access_token` | El token que se va a usar para llamar al punto de conexión de UserInfo.|
 | `token_type` | Siempre "Portador" |
 | `expires_in`| Cuánto tiempo transcurre hasta que el token de acceso expira, en segundos. |
 | `scope` | Permisos concedidos en el token de acceso.  Tenga en cuenta que, dado que el punto de conexión UserInfo se hospeda en MS Graph, puede haber otros ámbitos de gráfico aquí (por ejemplo, user.read) si se concedieron previamente a la aplicación.  Esto se debe a que un token de un recurso determinado siempre incluye todos los permisos concedidos actualmente al cliente.  |

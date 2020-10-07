@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: ed6beec63114f1f157bb24354d77e50ecdaa8255
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 9694dd06b67219e0f02c3fe1c7c53d1fc103a0c2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601644"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258632"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Preguntas más frecuentes sobre el acceso condicional de Azure Active Directory
 
@@ -31,11 +31,11 @@ Se exigen directivas a los usuarios de la colaboración de negocio a negocio (B2
 
 ## <a name="does-a-sharepoint-online-policy-also-apply-to-onedrive-for-business"></a>¿Se aplica la directiva de SharePoint Online también a OneDrive para la Empresa?
 
-Sí. Las directivas de SharePoint Online también se aplican a OneDrive para la Empresa. Para obtener más información, vea el artículo sobre las [dependencias del acceso condicional](service-dependencies.md) y considere dirigir las directivas a la [aplicación Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) en su lugar.
+Sí. Las directivas de SharePoint Online también se aplican a OneDrive para la Empresa. Para obtener más información, vea el artículo sobre las [dependencias del acceso condicional](service-dependencies.md) y considere dirigir las directivas a la [aplicación Office 365](concept-conditional-access-cloud-apps.md#office-365) en su lugar.
 
 ## <a name="why-cant-i-set-a-policy-directly-on-client-apps-like-word-or-outlook"></a>¿Por qué no se puede establecer una directiva directamente en las aplicaciones cliente, como Word o Outlook?
 
-Una directiva de acceso condicional establece los requisitos para obtener acceso a un servicio. Se aplica cuando se produce la autenticación con ese servicio. La directiva no se establece directamente en una aplicación cliente. En su lugar, se aplica cuando un cliente llama a un servicio. Por ejemplo, una directiva establecida en SharePoint se aplicará a los clientes que llamen a SharePoint. Una directiva establecida en Exchange se aplica a Outlook. Para obtener más información, vea el artículo sobre las [dependencias del acceso condicional](service-dependencies.md) y considere dirigir las directivas a la [aplicación Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) en su lugar.
+Una directiva de acceso condicional establece los requisitos para obtener acceso a un servicio. Se aplica cuando se produce la autenticación con ese servicio. La directiva no se establece directamente en una aplicación cliente. En su lugar, se aplica cuando un cliente llama a un servicio. Por ejemplo, una directiva establecida en SharePoint se aplicará a los clientes que llamen a SharePoint. Una directiva establecida en Exchange se aplica a Outlook. Para obtener más información, vea el artículo sobre las [dependencias del acceso condicional](service-dependencies.md) y considere dirigir las directivas a la [aplicación Office 365](concept-conditional-access-cloud-apps.md#office-365) en su lugar.
 
 ## <a name="does-a-conditional-access-policy-apply-to-service-accounts"></a>¿Se aplica una directiva de acceso condicional a las cuentas de servicio?
 
@@ -53,7 +53,7 @@ Microsoft Teams también se admite por separado como una aplicación en la nube 
 
 Los clientes de escritorio de Microsoft Teams para Windows y Mac admiten la autenticación moderna. La autenticación moderna proporciona un inicio de sesión basado en la biblioteca de autenticación de Azure Active Directory (ADAL) para las aplicaciones cliente de Microsoft Office en distintas plataformas.
 
-Para obtener más información, vea el artículo sobre las [dependencias del acceso condicional](service-dependencies.md) y considere dirigir las directivas a la [aplicación Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) en su lugar.
+Para obtener más información, vea el artículo sobre las [dependencias del acceso condicional](service-dependencies.md) y considere dirigir las directivas a la [aplicación Office 365](concept-conditional-access-cloud-apps.md#office-365) en su lugar.
 
 ## <a name="why-are-some-tabs-not-working-in-microsoft-teams-after-enabling-conditional-access-policies"></a>¿Por qué algunas pestañas no funcionan en Microsoft Teams después de habilitar las directivas de acceso condicional?
 

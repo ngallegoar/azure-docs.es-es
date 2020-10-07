@@ -3,59 +3,18 @@ title: Eliminación temporal de servidores SQL Server en máquinas virtuales de
 description: Obtenga información sobre cómo la eliminación temporal de servidores SQL Server en máquinas virtuales de Azure y de instancias de SAP HANA en cargas de trabajo de máquinas virtuales de Azure consigue que las copias de seguridad sean más seguras.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 26525ec758b3a27d6e0e1b9754b11041bd1fa0d2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2a442997d426ff0bf4c74b0b45f7657cc0593b82
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022299"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254302"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Eliminación temporal de servidores SQL Server en máquinas virtuales de Azure y de instancias de SAP HANA en cargas de trabajo de máquinas virtuales de Azure
 
 Azure Backup ahora permite eliminar temporalmente servidores SQL Server en máquinas virtuales de Azure e instancias de SAP HANA en cargas de trabajo de máquinas virtuales de Azure. Esto se suma al [escenario de eliminación temporal de máquinas virtuales de Azure](soft-delete-virtual-machines.md) que ya se admite.
 
 La [eliminación temporal](backup-azure-security-feature-cloud.md) es una característica de seguridad que ayuda a proteger los datos de copia de seguridad incluso después de la eliminación. Con la eliminación temporal, aunque un actor malintencionado elimine la copia de seguridad de una base de datos (o se eliminen accidentalmente los datos de copia de seguridad), dichos datos se conservan durante 14 días adicionales. De este modo, se puede recuperar ese elemento de copia de seguridad sin pérdida de datos. Esta retención adicional de 14 días de los datos de copia de seguridad en el estado de "eliminación temporal" no supone ningún costo para el cliente.
-
->[!NOTE]
->Una vez habilitada la versión preliminar en una suscripción, no es posible deshabilitar la eliminación temporal solo en servidores SQL Server o bases de SAP HANA si está habilitada al mismo tiempo en máquinas virtuales del mismo almacén. Puede crear almacenes independientes para llevar a cabo un control granular.
-
-## <a name="steps-to-enroll-in-preview"></a>Pasos para inscribirse en la versión preliminar
-
-1. Inicie sesión en la cuenta de Azure.
-
-   ```powershell
-   Login-AzureRmAccount
-   ```
-
-2. Seleccione la suscripción que desea inscribir en la versión preliminar:
-
-   ```powershell
-   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-   ```
-
-3. Registre esta suscripción en el programa de la versión preliminar:
-
-   ```powershell
-   Register-AzureRMProviderFeature -FeatureName WorkloadBackupSoftDelete -ProviderNamespace Microsoft.RecoveryServices
-   ```
-
-4. Espere 30 minutos a que la suscripción se inscriba en la versión preliminar.
-
-5. Para comprobar el estado, ejecute los siguientes cmdlets:
-
-   ```powershell
-   Get-AzureRmProviderFeature -FeatureName WorkloadBackupSoftDelete -ProviderNamespace Microsoft.RecoveryServices
-   ```
-
-6. Cuando la suscripción se muestre como registrada, ejecute el siguiente comando:
-
-   ```powershell
-   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
-   ```
-
->[!NOTE]
->Cada vez que se crean almacenes o almacenes en la suscripción habilitada para la eliminación temporal, hay que volver a ejecutar el siguiente comando para habilitar la característica en los almacenes recién creados.<BR>
-> `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
 
 ## <a name="soft-delete-for-sql-server-in-azure-vm-using-azure-portal"></a>Eliminación temporal de servidores SQL Server en máquinas virtuales de Azure con Azure Portal
 
@@ -127,9 +86,9 @@ El elemento **DeleteState** del elemento de copia de seguridad se revertirá a *
 
 ## <a name="how-to-disable-soft-delete"></a>Deshabilitación de la eliminación temporal
 
-No se recomienda deshabilitar esta característica. La única circunstancia en la que debe considerar la posibilidad de deshabilitar la eliminación temporal es si está planeando mover los elementos protegidos a un nuevo almacén y no puede esperar los 14 días necesarios para realizar la acción de eliminar y volver a proteger (por ejemplo, en un entorno de prueba). Para ver las instrucciones sobre cómo deshabilitar la eliminación temporal, consulte el artículo sobre cómo [habilitar y deshabilitar la eliminación temporal](backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
+No se recomienda deshabilitar esta característica. La única circunstancia en la que debe considerar la posibilidad de deshabilitar la eliminación temporal es si está planeando mover los elementos protegidos a un nuevo almacén y no puede esperar los 14 días necesarios para realizar la acción de eliminar y volver a proteger (por ejemplo, en un entorno de prueba). Puede encontrar instrucciones sobre cómo deshabilitar la eliminación temporal en [Habilitación y deshabilitación de la eliminación temporal](backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Lea las [preguntas más frecuentes](backup-azure-security-feature-cloud.md#frequently-asked-questions) sobre la eliminación temporal
-- Consulte todas las [características de seguridad de Azure Backup](security-overview.md)
+- Lea las [preguntas frecuentes](backup-azure-security-feature-cloud.md#frequently-asked-questions) sobre la eliminación temporal
+- Lea todas las [características de seguridad de Azure Backup](security-overview.md).

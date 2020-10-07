@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=garyericson, previous-ms.author=garye
-ms.openlocfilehash: d09f13a65a72c6c856a7fcd3d943ec116f3da43f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f60b62faa36352ab1221b23332fca695f32a3d74
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76721870"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250647"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Hoja de referencia rápida de una canalización de datos automatizada para las predicciones de Azure Machine Learning
 La **hoja de referencia rápida de canalización de datos automatizada de Microsoft Azure Machine Learning** le ayuda a navegar por la tecnología que puede usar para obtener sus datos para su servicio web de Machine Learning donde se puede puntuar por su modelo de análisis predictivo.
@@ -35,7 +35,6 @@ Descargar aquí la hoja de referencia rápida: **[hoja de referencia rápida de 
 
 
 ## <a name="more-help-with-machine-learning-studio"></a>Más ayuda con Machine Learning Studio
-* Para información general sobre Microsoft Azure Machine Learning, vea [Introducción al aprendizaje automático en Microsoft Azure](../studio/what-is-machine-learning.md).
-* Para una explicación de cómo implementar un servicio web de puntuación, vea [Implementación de un servicio web de Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
-* Para obtener una explicación de cómo utilizar un servicio web de puntuación, vea [Cómo consumir un servicio web Azure Machine Learning](../studio/consume-web-services.md).
-
+* Para información general sobre Microsoft Azure Machine Learning, vea [Introducción al aprendizaje automático en Microsoft Azure](../classic/index.yml).
+* Para una explicación de cómo implementar un servicio web de puntuación, vea [Implementación de un servicio web de Azure Machine Learning](../classic/deploy-a-machine-learning-web-service.md).
+* Para obtener una explicación de cómo utilizar un servicio web de puntuación, vea [Cómo consumir un servicio web Azure Machine Learning](../classic/consume-web-services.md).

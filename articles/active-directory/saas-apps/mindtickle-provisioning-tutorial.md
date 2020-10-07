@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: Zhchia
-ms.openlocfilehash: 3cac57e0f205da7a39447ddd48810b8fd120ab58
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e5145aee31b4f82b34f9256257cf6c2951ca24da
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549071"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256473"
 ---
 # <a name="tutorial-configure-mindtickle-for-automatic-user-provisioning"></a>Tutorial: Configuración de MindTickle para el aprovisionamiento automático de usuarios
 
@@ -97,11 +97,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning.png)
+    ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
+    ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
 5. En la sección **Credenciales de administrador**, escriba `https://admin.mindtickle.com/scim` en la **URL de inquilino**. Escriba el valor de **token JWT** recuperado anteriormente en el cuadro de texto Token secreto y especifique el proporcionado por el equipo de soporte técnico de MindTickle. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a myPolicies. Si la conexión no se establece, asegúrese de que la cuenta de MindTickle tenga permisos de administrador e inténtelo de nuevo.
 

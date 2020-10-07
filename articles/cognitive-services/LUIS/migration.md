@@ -1,14 +1,16 @@
 ---
 title: 'Introducción sobre la migración: LUIS'
 description: Descripción de lo que hay en una ruta de migración
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/22/2020
-ms.openlocfilehash: 4080dd27414c2da551b60ad430278c18768337c9
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: d6ecacf9aa1a7e650de74a412ed4f161ed0e0790
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587827"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253809"
 ---
 # <a name="migration-in-luis"></a>Migración en LUIS
 

@@ -11,20 +11,16 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 52e33177b5fc6c68f615b8eb7738e66b18a1763a
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 7cadb4784cbf90d283f64e12edc155d4430fab06
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118713"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257082"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Escenario: Aplicación web que permite iniciar sesión a los usuarios
 
 Aprenda todo lo que necesita para crear una aplicación web que use la Plataforma de identidad de Microsoft para que los usuarios inicien sesión.
-
-## <a name="prerequisites"></a>Prerrequisitos
-
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="getting-started"></a>Introducción
 
@@ -60,7 +56,7 @@ Si desarrolla con Python, pruebe el siguiente inicio rápido:
 
 ## <a name="overview"></a>Información general
 
-Agregue autenticación a la aplicación web para que permita iniciar sesión a los usuarios. La adición de autenticación permite a la aplicación web tener acceso a información de perfil limitada para personalizar la experiencia para los usuarios. 
+Agregue autenticación a la aplicación web para que permita iniciar sesión a los usuarios. La adición de autenticación permite a la aplicación web tener acceso a información de perfil limitada para personalizar la experiencia para los usuarios.
 
 Las aplicaciones web autentican un usuario en un explorador web. En este escenario, la aplicación web dirige el explorador del usuario para que inicie sesión en Azure Active Directory (Azure AD). Azure AD devuelve una respuesta de inicio de sesión a través el explorador del usuario, que contiene notificaciones sobre el usuario en un token de seguridad. El inicio de sesión de los usuarios aprovecha el protocolo estándar [Open ID Connect](./v2-protocols-oidc.md) simplificado mediante el uso de [bibliotecas](scenario-web-app-sign-user-app-configuration.md#libraries-for-protecting-web-apps) de middleware.
 
@@ -76,6 +72,10 @@ En una segunda fase, puede habilitar la aplicación para llamar a las API web en
 - Durante el registro de la aplicación, deberá proporcionar uno o varios (si implementa la aplicación en varias ubicaciones) URI de respuesta. En algunos casos (ASP.NET y ASP.NET Core), deberá habilitar el token del identificador. Por último, deberá configurar un URI de cierre de sesión para que la aplicación reaccione ante los usuarios que cierran sesión.
 - En el código de la aplicación, deberá proporcionar la autoridad a la que la aplicación web delega el inicio de sesión. Es posible que quiera personalizar la validación del token (en concreto, en escenarios de asociado).
 - Las aplicaciones web admiten cualquier tipo de cuenta. Para más información, consulte [Tipos de cuenta admitidos](v2-supported-account-types.md).
+
+## <a name="recommended-reading"></a>Lecturas recomendadas
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

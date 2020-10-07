@@ -3,12 +3,12 @@ title: Realización de una copia de seguridad de SQL Server en Azure como una ca
 description: Introducción a la copia de seguridad de bases de datos de SQL Server mediante el servicio Azure Backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: e7877d9104fe1263368083eaabd99eae3bdc657b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 85cb84ac376abbf0ead13e64c4dff7c8b916aac5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017318"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254591"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Realización de una copia de seguridad de SQL Server en Azure como una carga de trabajo DPM
 
@@ -29,10 +29,10 @@ Para realizar una copia de seguridad de una base de datos de SQL Server en Azur
 
 * Si tiene una base de datos con archivos en un recurso compartido de archivos remoto, la protección no se realizará correctamente y generará el identificador de error 104. DPM no admite la protección de datos de SQL Server ubicados en un recurso compartido de archivos remoto.
 * DPM no puede proteger las bases de datos almacenadas en recursos compartidos de SMB remotos.
-* Asegúrese de que las [réplicas del grupo de disponibilidad están configuradas como de solo lectura](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server?view=sql-server-ver15).
+* Asegúrese de que las [réplicas del grupo de disponibilidad están configuradas como de solo lectura](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server).
 * Deberá agregar explícitamente la cuenta del sistema **NTAuthority\System** al grupo Sysadmin en SQL Server.
-* Al realizar una recuperación desde una ubicación alternativa de una base de datos parcialmente independiente, debe asegurarse de que la instancia SQL de destino tenga habilitada la característica [Bases de datos independientes](/sql/relational-databases/databases/migrate-to-a-partially-contained-database?view=sql-server-ver15#enable).
-* Al realizar una recuperación desde una ubicación alternativa de una base de datos de flujo de archivos, debe asegurarse de que la instancia de SQL de destino tenga habilitada la característica de [base de datos de flujo de archivos](/sql/relational-databases/blob/enable-and-configure-filestream?view=sql-server-ver15).
+* Al realizar una recuperación desde una ubicación alternativa de una base de datos parcialmente independiente, debe asegurarse de que la instancia SQL de destino tenga habilitada la característica [Bases de datos independientes](/sql/relational-databases/databases/migrate-to-a-partially-contained-database#enable).
+* Al realizar una recuperación desde una ubicación alternativa de una base de datos de flujo de archivos, debe asegurarse de que la instancia de SQL de destino tenga habilitada la característica de [base de datos de flujo de archivos](/sql/relational-databases/blob/enable-and-configure-filestream).
 * Protección para SQL Server AlwaysOn:
   * DPM detecta los grupos de disponibilidad cuando se ejecuta una consulta en la creación del grupo de protección.
   * DPM detecta una conmutación por error y continúa la protección de la base de datos.
@@ -50,7 +50,7 @@ Para realizar una copia de seguridad de una base de datos de SQL Server en Azur
     * Si se produce un error de la copia de seguridad en el nodo seleccionado, la operación de copia de seguridad no se realizará.
     * No se admite la recuperación en la ubicación original.
 * Problemas de copia de seguridad de SQL Server 2014 o superior:
-  * SQL Server 2014 agregó una nueva característica para crear una [base de datos de SQL Server local en el almacenamiento de blobs de Microsoft Azure](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-ver15). No se puede usar DPM para proteger esta configuración.
+  * SQL Server 2014 agregó una nueva característica para crear una [base de datos de SQL Server local en el almacenamiento de blobs de Microsoft Azure](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure). No se puede usar DPM para proteger esta configuración.
   * Hay algunos problemas conocidos con la preferencia de copia de seguridad "Preferir secundaria" de la opción SQL AlwaysOn. DPM siempre hace una copia de seguridad de la secundaria. Si no se puede encontrar una secundaria, la copia de seguridad no se realiza.
 
 ## <a name="before-you-start"></a>Antes de comenzar

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: f14982dc3f130376b5de6bcdc28874f3410403aa
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "67186087"
 ---
 Este tema usa como punto de inicio los recursos creados en [Creación de su primera función desde Azure Portal](../articles/azure-functions/functions-create-first-azure-function.md). Si aún no lo hecho, lleve a cabo estos pasos ahora para crear la aplicación de función.

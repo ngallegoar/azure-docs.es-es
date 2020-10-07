@@ -3,12 +3,12 @@ title: Solución de problemas de inicio de sesión en el registro
 description: Síntomas, causas y resolución de problemas comunes al iniciar sesión en un registro de contenedor de Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 8fbb96be8223001ac52db47788c31609e9b86e35
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: d5071a1e759d26ce43d2eb5d9b8215781d813d33
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226981"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253361"
 ---
 # <a name="troubleshoot-registry-login"></a>Solución de problemas de inicio de sesión del registro
 
@@ -107,7 +107,7 @@ Vínculos relacionados:
 * [Inicio de sesión con un token de ámbito de repositorio](container-registry-repository-scoped-permissions.md)
 * [Incorporación o eliminación de asignaciones de roles de Azure con Azure Portal](../role-based-access-control/role-assignments-portal.md)
 * [Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos](../active-directory/develop/howto-create-service-principal-portal.md)
-* [Creación de un secreto de aplicación](../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret)
+* [Creación de un secreto de aplicación](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)
 * [Códigos de autenticación y autorización de Azure AD](../active-directory/develop/reference-aadsts-error-codes.md)
 
 ### <a name="check-that-credentials-arent-expired"></a>Comprobar que las credenciales no hayan expirado

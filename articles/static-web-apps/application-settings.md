@@ -7,13 +7,13 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 33a40e7a0e7e3be4433b3cbd4ba7a8e09a84e689
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: c89ccee430d374d9aee58326627ff800f737324b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428055"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250035"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps-preview"></a>Configuración de las opciones de la aplicación para la versión preliminar de Azure Static Web Apps
 
@@ -144,7 +144,7 @@ El comando de la CLI de Azure requiere una serie de valores específicos de la c
 2. Definición de un nombre de grupo de recursos
 3. Id. de suscripción
 
-:::image type="content" source="media/application-settings/overview.png" alt-text="Información general de Azure Static Web Apps":::
+:::image type="content" source="media/application-settings/overview.png" alt-text="Vista de configuración de Azure Static Web Apps":::
 
 4. Desde un terminal o línea de comandos, ejecute el siguiente comando. Asegúrese de reemplazar los marcadores de posición `<YOUR_STATIC_SITE_NAME>`, `<YOUR_RESOURCE_GROUP_NAME>` y `<YOUR_SUBSCRIPTION_ID>` por los valores de la ventana _Información general_.
 

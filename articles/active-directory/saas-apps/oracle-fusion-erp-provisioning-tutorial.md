@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: Zhchia
-ms.openlocfilehash: ad6b24c4bbfc2e117c010b99247cb8eb9925ff3e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3f835c021e20edba21583e71c6c1a480eca7fd89
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543829"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255852"
 ---
 # <a name="tutorial-configure-oracle-fusion-erp-for-automatic-user-provisioning"></a>Tutorial: Configuración de Oracle Fusion ERP para el aprovisionamiento automático de usuarios
 
@@ -108,11 +108,11 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning.png)
+    ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Pestaña Aprovisionamiento](common/provisioning-automatic.png)
+    ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
 5. En la sección **Credenciales de administrador**, escriba `https://ejlv.fa.em2.oraclecloud.com/hcmRestApi/scim/` en la **URL de inquilino**. Escriba el nombre de usuario y la contraseña de administrador recuperados anteriormente en los campos **Nombre de usuario de administrador** y **Contraseña de administrador**. Haga clic en **Probar conexión** entre Azure AD y Oracle Fusion ERP. 
 

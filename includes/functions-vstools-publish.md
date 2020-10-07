@@ -9,10 +9,10 @@ ms.date: 03/06/2020
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: db6f5927e1cbdb3527014ccbb277c7ec20b02600
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84231576"
 ---
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Publicar**.
@@ -51,6 +51,6 @@ ms.locfileid: "84231576"
     
 1.  En la pestaña Publicar, elija **Administrar en Cloud Explorer**. El nuevo recurso de Azure de la aplicación de funciones se abrirá en Cloud Explorer. 
     
-    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-complete.png" alt-text="Publicación de un mensaje de operación correcta":::
+    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-complete.png" alt-text="Creación de un perfil de publicación":::
     
     Cloud Explorer le permite usar Visual Studio para ver el contenido del sitio, iniciar y detener la aplicación de funciones, y desplazarse directamente a los recursos de la aplicación de funciones en Azure y en Azure Portal. 
