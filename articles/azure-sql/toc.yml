@@ -992,6 +992,8 @@
                 - name: Registro con el proveedor de recursos de máquina virtual de SQL
                   displayName: 'resource provider, registration'
                   items:
+                    - name: Registro automático
+                      href: virtual-machines/windows/sql-vm-resource-provider-automatic-registration.md
                     - name: Máquina virtual única
                       href: virtual-machines/windows/sql-vm-resource-provider-register.md
                     - name: Registro en bloque de varias máquinas virtuales

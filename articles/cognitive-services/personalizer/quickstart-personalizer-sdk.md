@@ -1,17 +1,19 @@
 ---
 title: 'Inicio rápido: Creación y uso de bucles de aprendizaje con el SDK: Personalizer'
 description: En este inicio rápido se muestra cómo crear y administrar la base de conocimiento mediante la biblioteca cliente de Personalizer.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: personalizer, Azure personalizer, machine learning
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: dccdec0888f2968fb7089c4ff80c9338215de135
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 3acfd8134a2a65e6ea9f019baff24b8b8149f7f3
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055973"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777335"
 ---
 # <a name="quickstart-personalizer-client-library"></a>Inicio rápido: Biblioteca cliente de Personalizer
 

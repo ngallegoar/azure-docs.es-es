@@ -284,7 +284,7 @@
               href: platform/design-logs-deployment.md
             - name: Crear un área de trabajo
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: learn/quick-create-workspace.md
                 - name: Azure CLI
                   href: learn/quick-create-workspace-cli.md
@@ -301,8 +301,6 @@
               href: platform/move-workspace.md
             - name: Diseño de proveedores de servicios
               href: platform/service-providers.md
-            - name: Administración del acceso
-              href: platform/manage-access.md
             - name: Clústeres dedicados
               href: log-query/logs-dedicated-clusters.md
     - name: Explorador de métricas
@@ -751,8 +749,6 @@
             - name: Alertas de disponibilidad
               displayname: 'alerts, global, alerting'
               href: app/availability-alerts.md
-            - name: Pruebas de rendimiento
-              href: app/performance-testing.md
             - name: Solución de problemas
               displayname: 'availability, troubleshoot, troubleshoot availability'
               href: app/troubleshoot-availability.md
@@ -1060,7 +1056,7 @@
       items:
         - name: Azure Cache for Redis (versión preliminar)
           href: insights/redis-cache-insights-overview.md
-        - name: "Azure Cosmos\_DB"
+        - name: Azure Cosmos DB
           href: insights/cosmosdb-insights-overview.md
         - name: Redes
           href: insights/network-insights-overview.md
