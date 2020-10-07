@@ -2,13 +2,13 @@
 title: Guía para controlar el comportamiento de apagado de Windows en Azure Lab Services | Microsoft Docs
 description: Pasos para apagar automáticamente una máquina virtual con Windows inactiva y quitar el comando de apagado de Windows.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: e17f6e79c3d18d82dd206954dcfb0e06b02b4d53
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/29/2020
+ms.openlocfilehash: c6021131787dde4fe23ec4caad107bda2e20158a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445175"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541567"
 ---
 # <a name="guide-to-controlling-windows-shutdown-behavior"></a>Guía para controlar el comportamiento de apagado de Windows
 
@@ -31,50 +31,6 @@ Para evitar que se produzcan estas situaciones, en esta guía se explican los pa
 
 > [!NOTE]
 > Una máquina virtual también puede deducirse inesperadamente de la cuota cuando el alumno inicia la máquina virtual, pero nunca se conecta a ella mediante RDP.  Actualmente, esta guía *no* aborda este escenario.  En su lugar, se debe recordar a los alumnos que se conecten inmediatamente a la máquina virtual mediante RDP después de iniciarla. En caso contrario, deben detener la máquina virtual.
-
-## <a name="automatic-rdp-disconnect-and-shutdown-for-idle-vm"></a>Desconexión y apagado automáticos de RDP para las máquinas virtuales inactivas
-
-Windows proporciona la configuración de  **directiva de grupo local** que puede usar para establecer un límite de tiempo tras el cual se desconectará de forma automática la sesión de RDP cuando está inactiva.  Una sesión se define como inactiva cuando *no* registra ninguna entrada del mouse o teclado.  Las actividades de larga duración que no requieren de entradas del mouse o teclado hacen que la máquina virtual esté en un estado de inactividad.  Esto incluye la ejecución de una consulta larga, el streaming de vídeos, las compilaciones, etc.  En función de las necesidades de la clase, puede configurar el límite de tiempo de inactividad para que sea lo suficientemente largo como para considerar estos tipos de actividades.  Por ejemplo, puede establecer el límite de tiempo de inactividad en 1 hora o más si es necesario.
-
-A continuación se describe la experiencia del alumno al configurar el **límite de sesión inactiva** junto con la opción [**apagar automáticamente al desconectarse**](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect):
- 1. El alumno se conecta a la máquina virtual con Windows mediante RDP.
- 2. Cuando el alumno deja abierta la ventana de RDP y la máquina virtual está inactiva durante el **límite de sesión inactiva** que haya especificado (por ejemplo, 5 minutos), el alumno verá el siguiente cuadro de diálogo:
-
-    ![Cuadro de diálogo que indica que expiró el límite de tiempo de inactividad](./media/how-to-windows-shutdown/idle-time-expired.png)
-
-1. Si el alumno *no* hace clic en **Aceptar**, la sesión de RDP se desconectará automáticamente después de 2 minutos.
-2. Después de desconectar la sesión de RDP, cuando haya alcanzado el intervalo de tiempo especificado para la opción **Apagar automáticamente al desconectarse**, Azure Lab Services apaga la máquina virtual automáticamente.
-
-### <a name="set-rdp-idle-session-time-limit-on-the-template-vm"></a>Establecimiento del límite de tiempo de sesión inactiva de RDP en la plantilla de la máquina virtual
-
-Para definir el límite de tiempo de inactividad de la sesión de RDP, puede conectarse a la máquina virtual de la plantilla y ejecutar el siguiente script de PowerShell.
-
-```powershell
-# The MaxIdleTime is in milliseconds; by default, this script sets MaxIdleTime to 15 minutes.
-$maxIdleTime = 15 * 60 * 1000
-
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" -Name "MaxIdleTime" -Value $maxIdleTime -Force
-```
-O bien, puede optar por seguir estos pasos manuales mediante la VM de plantilla:
-
-1. Presione la tecla Windows, escriba **gpedit** y, a continuación, seleccione **Editar directiva de grupo (panel de control)** .
-
-1. Vaya a **Configuración del equipo > Plantillas administrativas > Componentes de Windows > Servicios de Escritorio remoto > Host de sesión de Escritorio remoto > Límites de tiempo de sesión**.  
-
-    ![Editor de directivas de grupo local](./media/how-to-windows-shutdown/group-policy-idle.png)
-   
-1. En el panel del lado derecho, haga clic con el botón secundario en **Establecer el límite de tiempo para las sesiones activas, pero en inactividad, de Servicios de Escritorio remoto** y luego haga clic en **Editar**.
-
-1. Especifique las siguientes opciones de configuración y, a continuación, haga clic en **Aceptar**:
-   1. Seleccione **Habilitado**.
-   1. En **Opciones**, especifique el **Límite de sesión inactiva**.
-
-    ![Límite de sesión inactiva](./media/how-to-windows-shutdown/edit-idle-time-limit.png)
-
-1. Por último, para combinar este comportamiento con la configuración **Apagar automáticamente al desconectarse**, debe seguir los pasos en el artículo de procedimientos: [Habilitación del apagado automático de las máquinas virtuales al desconectarse](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect).
-
-> [!WARNING]
-> Después de configurar este valor mediante PowerShell para modificar la configuración del registro, de forma directa o manual, mediante el editor de directiva de grupo, primero tiene que reiniciar la máquina virtual para que la configuración surta efecto.  Además, si configura el valor mediante el registro, el editor de directiva de grupo no siempre se actualiza para reflejar los cambios en la configuración del registro. De todas formas, la configuración del registro sigue teniendo efecto según lo esperado y verá que la sesión de RDP está desconectada cuando está inactiva durante el período de tiempo que haya especificado.
 
 ## <a name="remove-windows-shutdown-command-from-start-menu"></a>Eliminación del comando de apagado de Windows del menú Inicio
 

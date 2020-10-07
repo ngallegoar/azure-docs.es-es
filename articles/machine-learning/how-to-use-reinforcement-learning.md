@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: d3a7b04e6169df21ad30017b72f70ff667429b23
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6221b36263b55f54faef18d6596f97c5b3798d3d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902376"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541720"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Aprendizaje de refuerzo (versión preliminar) con Azure Machine Learning
 
@@ -215,7 +215,7 @@ else:
 
 En esta sección, aprenderá a usar la clase [ReinforcementLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py&preserve-view=true) para enviar un trabajo de aprendizaje a Azure Machine Learning.
 
-Azure Machine Learning usa las clases de estimador para encapsular la información de la configuración de ejecución. Esto le permite especificar fácilmente cómo configurar una ejecución de script. Para obtener más información sobre el patrón del estimador de Azure Machine Learning, consulte [Cómo entrenar modelos mediante patrones](how-to-train-ml-models.md).
+Azure Machine Learning usa las clases de estimador para encapsular la información de la configuración de ejecución. Esto le permite especificar fácilmente cómo configurar una ejecución de script. 
 
 ### <a name="define-a-worker-configuration"></a>Definición de una configuración de trabajo
 
@@ -399,7 +399,7 @@ def on_train_result(info):
 
 ## <a name="submit-a-run"></a>Envío de una ejecución
 
-La clase [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true) controla el historial de ejecución de los trabajos en curso o completos. 
+La clase [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) controla el historial de ejecución de los trabajos en curso o completos. 
 
 ```python
 run = exp.submit(config=rl_estimator)

@@ -1,15 +1,16 @@
 ---
 title: Prácticas recomendadas para la creación de una aplicación de LUIS
 description: Obtenga información sobre los procedimientos recomendados para conseguir los mejores resultados del modelo de la aplicación de LUIS.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/17/2020
-ms.author: diberry
-ms.openlocfilehash: 9c22256f6fac3647108b7078b774338d7f22d29a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: a16267b0bc5d9b550c73dc4e1dafee8304ec0237
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683760"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541828"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Procedimientos recomendados para crear aplicaciones de Language Understanding (LUIS)
 Use el proceso de creación de aplicaciones para compilar la aplicación de LUIS:
