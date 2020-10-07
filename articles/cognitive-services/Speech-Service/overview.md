@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: 57577c840c93888b2b96971994724f085ad44ebe
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: b15a034a73882287e70afcbcaa9c72ee931c9f78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569312"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91630209"
 ---
 # <a name="what-is-the-speech-service"></a>¿Qué es Speech Service?
 
@@ -29,10 +29,10 @@ Las siguientes características forman parte del servicio Speech. Use los víncu
 | Servicio | Característica | Descripción | SDK | REST |
 |---------|---------|-------------|-----|------|
 | [Voz a texto](speech-to-text.md) | Conversión de voz en texto en tiempo real | La conversión de voz en texto transcribe o traduce en tiempo real secuencias de audio o archivos de audio a texto que sus aplicaciones, herramientas o dispositivos pueden consumir o mostrar. Use voz a texto con [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) para derivar las intenciones del usuario a partir de voz transcrita y actuar en los comandos de voz. | [Sí](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sí](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| | [Conversión de voz en texto por lotes](batch-transcription.md) | La conversión de voz a texto por lotes permite la transcripción asincrónica de voz en texto de grandes volúmenes de datos de audio de voz almacenados en Azure Blob Storage. Además de convertir el audio de la voz en texto, la conversión de voz en texto por lotes también permite la diarización y el análisis de opiniones. | No | [Sí](https://westus.cris.ai/swagger/ui/index) |
+| | [Conversión de voz en texto por lotes](batch-transcription.md) | La conversión de voz a texto por lotes permite la transcripción asincrónica de voz en texto de grandes volúmenes de datos de audio de voz almacenados en Azure Blob Storage. Además de convertir el audio de la voz en texto, la conversión de voz en texto por lotes también permite la diarización y el análisis de opiniones. | No | [Sí](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
 | | [Conversación entre varios dispositivos](multi-device-conversation.md) | Conexión de varios dispositivos o clientes en una conversación para enviar mensajes basados en voz o texto, con compatibilidad sencilla con transcripción y traducción| Sí | No |
 | | [Transcripción de conversaciones](conversation-transcription-service.md) | Permite el reconocimiento de voz en tiempo real, la identificación del hablante y la diarización. Es perfecto para transcribir reuniones en persona con la capacidad de distinguir a los oradores. | Sí | No |
-| | [Creación de modelos de Habla personalizada](#customize-your-speech-experience) | Si usa voz a texto para el reconocimiento y la transcripción en un entorno único, puede crear y entrenar modelos acústicos, de lenguaje y pronunciación personalizados para dirigir el sonido ambiental o vocabulario específico del sector. | No | [Sí](https://westus.cris.ai/swagger/ui/index) |
+| | [Creación de modelos de Habla personalizada](#customize-your-speech-experience) | Si usa voz a texto para el reconocimiento y la transcripción en un entorno único, puede crear y entrenar modelos acústicos, de lenguaje y pronunciación personalizados para dirigir el sonido ambiental o vocabulario específico del sector. | No | [Sí](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
 | [Texto a voz](text-to-speech.md) | Texto a voz | Texto a voz convierte el texto de entrada en voz sintetizada similar a la humana mediante el [Lenguaje de marcado de síntesis de voz (SSML)](speech-synthesis-markup.md). Elija entre voces estándar y voces neuronales (consulte [Compatibilidad de idioma](language-support.md)). | [Sí](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sí](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Creación de voces personalizadas](#customize-your-speech-experience) | Cree fuentes de voz personalizadas únicas para su marca o producto. | No | [Sí](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Traducción de voz](speech-translation.md) | Traducción de voz | La traducción de voz habilita la traducción de voz en varios idiomas en tiempo real en sus aplicaciones, herramientas y dispositivos. Use este servicio para la traducción de voz a voz y voz a texto. | [Sí](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | No |
@@ -74,13 +74,13 @@ Para agregar un recurso de servicio de voz (plan gratuito o de pago) a la cuenta
    - Dé un nombre único al nuevo recurso. El nombre ayuda a distinguir entre varias suscripciones vinculadas al mismo servicio.
    - Elija la suscripción de Azure a la que esté asociado el recurso nuevo para determinar cómo se facturan las tarifas.
    - Elija la [región](regions.md) donde se va a usar el recurso.
-   - Elija un plan de tarifa de pago (S0) o gratis (F0). Para completar la información sobre los precios y las cuotas de uso de cada plan, seleccione **Ver todos los detalles de los precios**.
+   - Elija un plan de tarifa de pago (S0) o gratis (F0). Para completar la información sobre los precios y las cuotas de uso de cada plan, seleccione **Ver todos los detalles de los precios**. Para conocer los límites de los recursos que puede crear para cada suscripción, consulte [Límites de Azure Cognitive Services](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits).
    - Cree un nuevo grupo de recursos para esta suscripción de voz o asígnela a un grupo de recursos existente. Los grupos de recursos ayudan a mantener organizadas las distintas suscripciones de Azure.
    - Seleccione **Crear**. Esto le llevará a la información general de la implementación y mostrará mensajes del progreso de la implementación.
-
+<!--
 > [!NOTE]
-> Puede crear un número ilimitado de suscripciones de plan estándar en una o varias regiones. Pero solo puede crear una suscripción de plan gratuito. Las implementaciones de modelo del plan gratuito que permanezcan inactivas durante siete días se retirarán automáticamente.
-
+> You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.
+-->
 La implementación del recurso de voz nuevo puede tardar unos instantes. Una vez completada la implementación, seleccione **Ir al recurso** y, en el panel de navegación izquierdo, seleccione **Claves** para mostrar las claves de suscripción del servicio Voz. Cada suscripción tiene dos claves; puede usar cualquiera de ellas en la aplicación. Para copiar y pegar rápidamente una clave en el editor de código o en otra ubicación, seleccione el botón Copiar que se encuentra junto a cada clave, cambie de ventana para pegar el contenido del portapapeles en la ubicación deseada.
 
 > [!IMPORTANT]
@@ -128,7 +128,7 @@ Otros productos ofrecen modelos de voz adaptados para fines específicos, como l
 - [Speech Devices SDK](speech-devices-sdk.md)
 - [API REST: Speech-to-text](rest-speech-to-text.md) (API de REST: Voz a texto)
 - [API REST: Text-to-speech](rest-text-to-speech.md) (API de REST: Texto a voz)
-- [API REST: Batch transcription and customization](https://westus.cris.ai/swagger/ui/index) (API de REST: Transcripción y personalización de Azure Batch)
+- [API REST: Batch transcription and customization](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) (API de REST: Transcripción y personalización de Azure Batch)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -4,12 +4,12 @@ description: Aprenda a configurar una alerta para nuevas recomendaciones de Azur
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: a10ca5f0b4119fb65d6b0f717f5c212acb20f9cd
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f03bf6eaf4f3045e00fc67efe6faa9f53d962089
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90973685"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91629903"
 ---
 # <a name="quickstart-create-azure-advisor-alerts-on-new-recommendations-using-an-arm-template"></a>Inicio rápido: Creación de alertas de Azure Advisor para nuevas recomendaciones mediante una plantilla de Resource Manager
 
@@ -25,7 +25,7 @@ También puede determinar los tipos de recomendaciones mediante el uso de estas 
 - Nivel de impacto
 - Tipo de recomendación
 
-También puede configurar la acción que tendrá lugar cuando se desencadene una alerta si:  
+También puede configurar la acción que tendrá lugar cuando se desencadene una alerta si:
 
 - Selecciona un grupo de acciones existente.
 - Crea un nuevo grupo de acciones.
@@ -69,11 +69,12 @@ En el siguiente ejemplo se crea un grupo de acciones con un destino de correo el
     {
       "comments": "Action Group",
       "type": "microsoft.insights/actionGroups",
-      "name": "[parameters('actionGroups_name')]",
       "apiVersion": "2019-06-01",
+      "name": "[parameters('actionGroups_name')]",
       "location": "Global",
-      "tags": {},
       "scale": null,
+      "dependsOn": [],
+      "tags": {},
       "properties": {
         "groupShortName": "[parameters('actionGroups_name')]",
         "enabled": true,
@@ -85,17 +86,16 @@ En el siguiente ejemplo se crea un grupo de acciones con un destino de correo el
         ],
         "smsReceivers": [],
         "webhookReceivers": []
-      },
-      "dependsOn": []
+      }
     },
     {
       "comments": "Azure Advisor Activity Log Alert",
       "type": "microsoft.insights/activityLogAlerts",
-      "name": "[parameters('activityLogAlerts_name')]",
       "apiVersion": "2017-04-01",
+      "name": "[parameters('activityLogAlerts_name')]",
       "location": "Global",
-      "tags": {},
       "scale": null,
+      "tags": {},
       "properties": {
         "scopes": [
           "[variables('alertScope')]"
